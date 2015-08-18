@@ -1,3 +1,5 @@
+  * [README](https://github.com/oppia/oppia#oppia)
+  * [Instructions for contributors](https://github.com/oppia/oppia/blob/develop/CONTRIBUTING.md)
   * Installing Oppia
     * [[Linux|Installing-Oppia-(Linux)]]
     * [[Mac OS|Installing-Oppia-(Mac-OS)]]
