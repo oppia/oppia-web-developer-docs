@@ -1,5 +1,3 @@
-Welcome to the Oppia developers wiki!
+Welcome to the Oppia developer wiki!
 
-For user-facing documentation, see our [Github Page](https://oppia.github.io). Otherwise, pick a link from the sidebar.
-
-You may also want to take a look at the [README](https://github.com/oppia/oppia#oppia).
+For user-facing documentation, see our [Github Page](https://oppia.github.io). Otherwise, view the [README](https://github.com/oppia/oppia#oppia) or pick a link from the sidebar.
