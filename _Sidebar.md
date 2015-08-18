@@ -1,7 +1,7 @@
   * Installing Oppia
-    * [[Linux|InstallingOnLinux]]
-    * [[Mac OS|InstallingOnMacOS]]
-    * [[Windows|InstallingOnWindows]]
+    * [[Linux|Installing-Oppia-(Linux)]]
+    * [[Mac OS|Installing-Oppia-(Mac-OS)]]
+    * [[Windows|Installing-Oppia-(Windows)]]
   * Developing Oppia
     * [[Overview of the codebase|CodebaseOverview]]
     * Tests
