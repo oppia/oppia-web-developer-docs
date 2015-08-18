@@ -1,5 +1,3 @@
-# Installing Oppia on Mac OS #
-
 **Note: if you would like to create explorations, we have a hosted server at https://www.oppia.org. Please note that all published explorations on this server are world-viewable.**
 
 The installation instructions on this page were last tested on 25 Feb 2014 with Mac OS X Mavericks 10.9.
