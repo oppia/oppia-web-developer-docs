@@ -40,7 +40,7 @@ The developer version of the front-end code is contained in `core/templates/dev/
   * `profile`: Used when a new user registers, and to display usernames for logged-in users.
   * `services`: JavaScript handling the embedding of explorations in other websites, user warnings and other matters.
 
-Files generally come in pairs of the form `state_editor.html` and `StateEditor.js` in which the latter provides the JavaScript for the former. Within the HTML file sections of the DOM are bound to particular controllers in the JavaScript file. However there are some JavaScript files that cover multiple HTML files, and others that provide general services and so have no HTML file. There are also files of the form `StateEditorSpec.js` containing [[Karma unit tests|Running-Tests]] for the corresponding JavaScript file.
+Files generally come in pairs of the form `state_editor.html` and `StateEditor.js` in which the latter provides the JavaScript for the former. Within the HTML file sections of the DOM are bound to particular controllers in the JavaScript file. However there are some JavaScript files that cover multiple HTML files, and others that provide general services and so have no HTML file. There are also files of the form `StateEditorSpec.js` containing [[Karma unit tests|RunningTests]] for the corresponding JavaScript file.
 
 ## Extensions
 
