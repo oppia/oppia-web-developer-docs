@@ -1,5 +1,3 @@
-# Running tests #
-
 Oppia has tests! These tests help ensure that the code is in a working state. (We always appreciate help with writing more tests, especially for the frontend, so [please let us know](Contributing.md) if you can help with that.)
 
 Before checking in any commits to the Oppia repository, please ensure that every single test passes by following the steps below. Also, please start up a development server and click around a bit, especially in places affected by your commit, to ensure that everything is working as expected. Otherwise, people who build on top of your commit will not be able to tell if the tests or the server are failing due to their changes, or due to existing bugs in the Oppia code -- and this will be rather frustrating for them.
@@ -93,6 +91,6 @@ and are based on utilities located in
 ```
    core/tests/protractor_utils/
 ```
-together with various `protractor.js` files throughout the `extensions` directory. As with the front-end unit tests you can replace `it` with `iit` or `describe` with `ddescribe` to run a single test or test suite. For more information about modifying and writing such tests see [here](WritingIntegrationTests.md).
+together with various `protractor.js` files throughout the `extensions` directory. As with the front-end unit tests you can replace `it` with `iit` or `describe` with `ddescribe` to run a single test or test suite. For more information about modifying and writing such tests, see [Writing IntegrationTests](Writing-Integration-Tests.md).
 
 Please report any unexpected or inexplicable failures of the tests, together with the error log produced, as there have been some stability issues that we are trying to iron out.

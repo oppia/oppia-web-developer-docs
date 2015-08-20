@@ -1,29 +1,32 @@
-**Note: if you would like to create explorations, we have a hosted server at https://www.oppia.org. Please note that all published explorations on this server are world-viewable.**
+**Note: if you just want to create and share explorations, you may not need to install anything -- we have a hosted server at https://www.oppia.org.**
 
-The installation instructions on this page were last tested on 25 Feb 2014 with Linux Ubuntu 12.04 LTS and Linux Fedora 19.
+*The installation instructions on this page were last tested on 25 Feb 2014 with Linux Ubuntu 12.04 LTS and Linux Fedora 19.*
 
 ## Prerequisites ##
 
 Oppia relies on a number of programs and third-party libraries. Many of these libraries are downloaded automatically for you when you run the `start.sh` script provided with Oppia. However, there are some things that you will need to do beforehand:
 
-1. Ensure that you have [Python 2.7](http://www.python.org/download/releases/2.7/) and Java installed. (Java is needed for the code interaction.) If in doubt then, in a terminal run:
-```
+1. Ensure that you have [Python 2.7](http://www.python.org/download/releases/2.7/) and Java installed. (Java is needed for the code interaction.) If in doubt, then in a terminal run:
+
+  ```
     sudo apt-get install default-jre
-```
+  ```
 
 2. Make sure you have curl (which is used by the start.sh script for downloading third-party libraries), setuptools (which is needed to install coverage, which checks test coverage for the Python code) and git (which allows you to store the source in version control):
-```
+
+  ```
     sudo apt-get install curl python-setuptools git
-```
+  ```
 
 ## Running Oppia on a development server ##
 
 1. Download Oppia by following the instructions in the [README](https://github.com/oppia/oppia#oppia).
 
-2. In a terminal, navigate to the `oppia/` root directory and run:
-```
+2. In a terminal, navigate to `oppia/` and run:
+
+  ```
      bash scripts/start.sh
-```
+  ```
 
 The first time you run this script, it will take a while (about 5 - 10 minutes when we last tested it in Feb 2014, though this depends on your Internet connection). Subsequent runs should be much faster. The `start.sh` script downloads and installs the required dependencies (such as Google App Engine) if they are not already present, and sets up a development server for you to play with. The development server logs are then output to this terminal, so you will not be able to enter further commands in it until you disconnect the server.
 

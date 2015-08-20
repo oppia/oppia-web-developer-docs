@@ -1,11 +1,9 @@
-# Writing integration tests in Protractor #
-
-The protractor components are located in three places:
+We use Protractor for our end-to-end integration tests. The protractor components are located in three places:
   * `core/tests/protractor/*`: the tests themselves.
   * `core/tests/protractor_utils/*`: utilities for performing actions using elements from the core components of oppia (those found in `core/templates/dev/head`).
   * `extensions/**/protractor.js`: utilities for actions specific to a particular extension (such as interactions and rules).
 
-If you are just creating a new interaction and want to add integration tests for it then you can follow the guidance given [here](CreatingInteractiveWidgets.md), though the "forms and objects" section of this page may also be helpful.
+If you are just creating a new interaction and want to add integration tests for it then you can follow the guidance given at [[Creating Interactions|Creating-Interactions]], though the "forms and objects" section of this page may also be helpful.
 
 ## Forms and objects ##
 

@@ -1,5 +1,3 @@
-# Instructions for Reviewers
-
 Code review is an important part of the Oppia development cycle. Having a second pair of eyes look at your code can help to catch silly mistakes and serve as a check for whether your code is readable/understandable by other team members (which is important for maintainability).
 
 When you receive a code review request, please try to do the review as soon as possible! Otherwise, the submitter will be blocked.

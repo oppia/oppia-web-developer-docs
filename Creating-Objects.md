@@ -1,6 +1,4 @@
-# Creating New Objects #
-
-This page explains how to create new types of objects that a user's submission to an interaction might be converted into, or that could be used as a parameter in a rule. You will typically want to create such objects when [creating a new interaction](CreatingInteractiveWidgets.md). Each object that some interaction submits should have [rules](CreatingRules.md) associated with it that an exploration creator can select from to determine which card the user will proceed to next.
+This page explains how to create new types of objects that a user's submission to an interaction might be converted into, or that could be used as a parameter in a rule. You will typically want to create such objects when [creating a new interaction](Creating-Interactions.md). Each object that some interaction submits should have [rules](Creating-Rules.md) associated with it that an exploration creator can select from to determine which card the user will proceed to next.
 
 Let's suppose you're creating a new object called `MyObject` (in practice you should use a more descriptive name).
   1. In `extensions/objects/models/objects.py` create a new object, with either `BaseObject` or one of the other existing objects as its superobject. The class should have the following attributes:

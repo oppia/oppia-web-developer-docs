@@ -1,5 +1,3 @@
-# Instructions for Maintainers
-
 ## General
 1. Ensure that you’re watching all activity on the repository, and that your "Settings > Notification center" page is set to send you activity notifications.
 2. When you get an email saying that a pull request has been made, go to GitHub and assign it to someone. Before doing so, ensure that the requester is a member of the Committers team (which means they've signed the CLA).

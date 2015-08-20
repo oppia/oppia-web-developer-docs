@@ -16,7 +16,7 @@ In `core/domain`, there are generally two types of files: those whose names end 
 
 Methods in the domain layer often need to access storage, memcache and other services provided by the application framework. All framework-dependent code (such as anything with a dependency on ndb or google.appengine) should go in core/platform. The [platforms/models.py](https://github.com/oppia/oppia/tree/master/core/platform/models.py) class provides an interface to these services, and refers to the correct classes based on what the underlying framework is at runtime. All files in the templates, controllers and domain layers should be independent of the underlying framework.
 
-The backend codebase is heavily tested. Tests are contained in `*_test.py` files next to the Python module they test. This naming convention allows them to be automatically detected and compiled into a test suite by Python's `unittest` module. For more information, see [[Running Tests|RunningTests]].
+The backend codebase is heavily tested. Tests are contained in `*_test.py` files next to the Python module they test. This naming convention allows them to be automatically detected and compiled into a test suite by Python's `unittest` module. For more information, see [[Running Tests|Running-Tests]].
 
 ### Frontend
 
@@ -37,7 +37,7 @@ The developer version of the frontend code is contained in `core/templates/dev/h
   * `profile`: Used when a new user registers, and to display usernames for logged-in users.
   * `services`: JavaScript handling the embedding of explorations in other websites, user warnings and other matters.
 
-Files generally come in triples of the form `state_editor.html`, `StateEditor.js` and `StateEditorSpec.js`. The spec file contains [[Karma unit tests|RunningTests]] for the JavaScript file.
+Files generally come in triples of the form `state_editor.html`, `StateEditor.js` and `StateEditorSpec.js`. The spec file contains [[Karma unit tests|Running-Tests]] for the JavaScript file.
 
 In general, within the HTML file, sections of the DOM are bound to particular JavaScript controllers. However, some JavaScript files cover multiple HTML files, and others provide general services and so have no HTML file.
 

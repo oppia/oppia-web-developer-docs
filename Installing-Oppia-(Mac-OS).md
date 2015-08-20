@@ -1,4 +1,4 @@
-**Note: if you would like to create explorations, we have a hosted server at https://www.oppia.org. Please note that all published explorations on this server are world-viewable.**
+**Note: if you just want to create and share explorations, you may not need to install anything -- we have a hosted server at https://www.oppia.org.**
 
 The installation instructions on this page were last tested on 25 Feb 2014 with Mac OS X Mavericks 10.9.
 
@@ -6,28 +6,30 @@ The installation instructions on this page were last tested on 25 Feb 2014 with 
 
 Oppia relies on a number of programs and third-party libraries. Many of these libraries are downloaded automatically for you when you run the `start.sh` script provided with Oppia. However, there are some things that you will need to do beforehand:
 
-1. Ensure that you have [Python 2.7](http://www.python.org/download/releases/2.7/) and Java installed. (Java is needed for the code interaction.)
+1. Ensure that you have [Python 2.7](http://www.python.org/download/releases/2.7/) and Java installed. (Java is needed for the code input interaction.)
 
-2. In the console, ensure you have setuptools (which is needed to install coverage, which checks test coverage for the Python code) by running:
-```
+2. Install setuptools (which is needed to install coverage, which checks test coverage for the Python code). To do this, open the console and run:
+
+  ```
     sudo easy_install setuptools
-```
+  ```
 
-3. Download git [here](http://git-scm.com/download/mac) (the download will start once you click the link), then run the package and follow instructions. This allows you to store the source in version control.
+3. Download [git](http://git-scm.com/download/mac), then run the package and follow instructions. This allows you to store the source in version control.
 
 
 ## Running Oppia on a development server ##
 
 1. Follow the instructions in the [README](https://github.com/oppia/oppia#oppia).
 
-2. In a terminal, navigate to the `oppia/` root directory and run:
-```
+2. In a terminal, navigate to `oppia/` and run:
+
+  ```
      bash scripts/start.sh
-```
+  ```
 
 The first time you run this script, it will take a while (about 5 - 10 minutes when we last tested it in Feb 2014, though this depends on your Internet connection). Subsequent runs should be much faster. The script downloads and installs the required dependencies (such as Google App Engine) if they are not already present, and sets up a development server for you to play with. The development server logs are then output to this terminal, so you will not be able to enter further commands in it until you disconnect the server.
 
-**Note**: The script will create two folders that are siblings of the `oppia/` root directory: `oppia_tools` and `node_modules`. This is done so that these two folders will not be uploaded to App Engine when the application is deployed to the web.
+**Note**: The script will create two sibling folders to the `oppia/` root directory: `oppia_tools` and `node_modules`. This is done so that these two folders will not be uploaded to App Engine when the application is deployed to the web.
 
 **Note**: If you run into errors while installing Oppia, please try deleting the directories
 ```
