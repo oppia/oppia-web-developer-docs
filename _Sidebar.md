@@ -7,9 +7,9 @@
     * [[Windows|Installing-Oppia-(Windows)]]
   * Developing Oppia
     * [[Overview of the codebase|Overview-of-the-Oppia-codebase]]
-    * Tests
-      * [[Running tests|Running-Tests]]
+    * [[Running tests|Running-Tests]]
       * [[Writing integration tests|Writing-Integration-Tests]]
+    * [[Git cheat sheet|Git-cheat-sheet]]
   * References
     * [[Extension frameworks|Extensions-Overview]]
       * [[Interactions|Creating-Interactions]]
