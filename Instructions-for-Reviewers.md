@@ -18,7 +18,7 @@ When you receive a code review request, please try to do the review as soon as p
     * Is the code doing the right thing?
     * Does the design look sensible?
     * Are there tests/docs which should be present, but aren't?
-    * If the change affects the UI, check out the branch and look at it in a browser. Does the UI look good and intuitive to the user? (To checkout a branch to your local machine, follow [https://help.github.com/articles/checking-out-pull-requests-locally/](these instructions) -- basically, just click "command line" on the pull request page and follow the given steps.)
+    * If the change affects the UI, check out the branch and look at it in a browser. Does the UI look good and intuitive to the user? (To checkout a branch to your local machine, follow [these instructions](https://help.github.com/articles/checking-out-pull-requests-locally/) -- basically, just click "command line" on the pull request page and follow the given steps.)
 
   6. If the developer pushes subsequent commits to the pull request, you'll automatically be notified by email. When you review these, make sure that all previous review comments have been addressed (both in the code and by the developer's replies.)
 
