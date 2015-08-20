@@ -1,4 +1,4 @@
-Oppia has tests! These tests help ensure that the code is in a working state. (We always appreciate help with writing more tests, especially for the frontend, so [please let us know](Contributing.md) if you can help with that.)
+Oppia has tests! These tests help ensure that the code is in a working state. (We always appreciate help with writing more tests, especially for the frontend, so [please let us know](Contributing.md) if you can help.)
 
 Before checking in any commits to the Oppia repository, please ensure that every single test passes by following the steps below. Also, please start up a development server and click around a bit, especially in places affected by your commit, to ensure that everything is working as expected. Otherwise, people who build on top of your commit will not be able to tell if the tests or the server are failing due to their changes, or due to existing bugs in the Oppia code -- and this will be rather frustrating for them.
 
@@ -9,14 +9,14 @@ You can run server-side tests using
     bash scripts/test.sh
 ```
 
-This script takes various flags. For example, if you want to run a particular test, you can type, e.g.:
+This script accepts various flags. For example, to run a specific test module, you can type, e.g.:
 ```
     bash scripts/test.sh --test_target=core.controllers.editor_test
 ```
 
-For more information about these and other flags that can be passed to the test runner, please see the documentation at the top of the [test.sh](https://github.com/oppia/oppia/tree/master/scripts/test.sh) script.
+For more information about these and other flags, please see the documentation at the top of the [test.sh](https://github.com/oppia/oppia/tree/master/scripts/test.sh) script.
 
-A parameter `EXPECTED_TEST_COUNT` in `scripts/backend_tests.py` stores the total number of server side tests. After adding tests, you will need to update this parameter to reflect the new test count.
+The variable `EXPECTED_TEST_COUNT` in `scripts/backend_tests.py` stores the total number of Python tests. After adding tests, you'll need to update this variable to reflect the new test count.
 
 (Note: While the tests are running, you may see the word `ERROR` show up in the test logs. This does not necessarily mean that an error has occurred; it happens because some tests explicitly expect an error to be raised under particular circumstances.)
 
@@ -91,6 +91,6 @@ and are based on utilities located in
 ```
    core/tests/protractor_utils/
 ```
-together with various `protractor.js` files throughout the `extensions` directory. As with the front-end unit tests you can replace `it` with `iit` or `describe` with `ddescribe` to run a single test or test suite. For more information about modifying and writing such tests, see [Writing IntegrationTests](Writing-Integration-Tests.md).
+together with various `protractor.js` files throughout the `extensions` directory. As with the front-end unit tests you can replace `it` with `iit` or `describe` with `ddescribe` to run a single test or test suite. For more information about modifying and writing such tests, see [[Writing Integration Tests|Writing-Integration-Tests]].
 
 Please report any unexpected or inexplicable failures of the tests, together with the error log produced, as there have been some stability issues that we are trying to iron out.
