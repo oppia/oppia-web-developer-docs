@@ -9,12 +9,14 @@
     * Tests
       * [[Running tests|Running-Tests]]
       * [[Writing integration tests|Writing-Integration-Tests]]
+  * References
     * [[Extension frameworks|Extensions-Overview]]
       * [[Interactions|Creating-Interactions]]
       * [[Rules|Creating-Rules]]
       * [[Objects|Creating-Objects]]
       * [[Dependencies|Creating-Dependencies]]
       * [[Value generators|Creating-Value-Generators]]
+    * [[Schema-based forms|Schema-based-Forms]]
   * [[Deploying Oppia|Deploying-Oppia]]
     * [[Migration Instructions|Migration-Instructions]]
   * Playbooks
