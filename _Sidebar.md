@@ -1,4 +1,4 @@
-  * [README](https://github.com/oppia/oppia#oppia)
+  * [README](https://github.com/oppia/oppia/blob/develop/README.md#oppia)
   * [Instructions for contributors](https://github.com/oppia/oppia/blob/develop/CONTRIBUTING.md)
   * Installing Oppia
     * [[Linux|Installing-Oppia-(Linux)]]
