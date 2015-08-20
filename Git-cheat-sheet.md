@@ -1,4 +1,4 @@
-This page is meant to be a handy reference for some basic Git commands.
+This page is meant as a handy reference for some basic Git commands.
 
 1. After making a local clone of Oppia, you can change code in your local `oppia/` directory. Git will track these changes. At any time, you can check what git thinks has been changed using:
   
