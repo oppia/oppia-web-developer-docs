@@ -17,3 +17,12 @@
 
 ## Note on changing label names
 We're listing our 'starter project' issues on [OpenHatch](http://www.openhatch.org), and in order to do that, we needed to give them the names of the labels to look at. Changing label names may cause this to break, so please check with @seanlip before you do that!
+
+## Reference: branch conventions
+
+In general, we use the gitflow workflow. This uses several special branches:
+
+  * develop: this is the central branch for development, which should be clean and ready for release at any time
+  * master: this is the branch that the production server at [Oppia.org](https://www.oppia.org) is synced to
+  * "hotfix"-prefixed branches: these are used for hotfixes to master that can't wait until the next release
+  * "release"-prefixed branches: these are used for testing and QA of new releases
