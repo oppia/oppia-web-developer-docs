@@ -4,7 +4,7 @@ Oppia is built with [Google App Engine](https://developers.google.com/appengine/
 
 Most of Oppia's functionality is in the `core/` directory, which is arranged as follows:
 
-<img src='https://raw.githubusercontent.com/oppia/oppia/wiki/images/codebaseOverview.png' width='380'>
+  ![Schematic diagram showing the layout of the codebase.](images/codebaseOverview.png)
 
 ### Backend
 

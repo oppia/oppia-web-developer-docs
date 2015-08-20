@@ -10,6 +10,6 @@ Currently, new interactions must be added by the owner of the Oppia application 
 
 Interactions and associated objects are related as follows:
 
-<img src='https://raw.githubusercontent.com/oppia/oppia/wiki/images/extensionsOverview.png' width='500'>
+  ![Schematic diagram showing the dependencies between the different types of extensions.](images/extensionsOverview.png)
 
 The arrows indicate dependencies, so each interaction parameter must specify both a value generator and an object type, while the interaction handler must specify an object type (that will be sent to the backend when a reader submits an answer to the interaction). The rules available to the exploration creator will be all of those associated with the interaction handler's object type. Interactions must be enabled in `feconf.py`.
