@@ -16,4 +16,4 @@
   * a 'starter project' label, if the issue would be a suitable starter project for new contributors. In this case, add a comment to the issue providing clear instructions on what to do (referencing files if necessary).
 
 ## Note on changing label names
-We're listing our 'starter project' issues on [http://www.openhatch.org](OpenHatch), and in order to do that, we needed to give them the names of the labels to look at. Changing label names may cause this to break, so please check with @seanlip before you do that!
+We're listing our 'starter project' issues on [OpenHatch](http://www.openhatch.org), and in order to do that, we needed to give them the names of the labels to look at. Changing label names may cause this to break, so please check with @seanlip before you do that!
