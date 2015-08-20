@@ -1,4 +1,4 @@
-Thanks for your interest in contributing to the Oppia project! There are many ways to help, and not all of them are technical -- for instance, you could create a new exploration on [oppia.org](https://www.oppia.org), or fix a bug in the [Oppia codebase](https://github.com/oppia/oppia/).
+Thanks for your interest in contributing to the Oppia project! There are many ways to help, and not all of them are technical. For instance, you could create a new exploration on [Oppia.org](https://www.oppia.org), or fix a bug in the [Oppia codebase](https://github.com/oppia/oppia/).
 
 The rest of this page contains information about specific ways to help out. If you run into any problems, please feel free to report a bug using our [issue tracker](https://github.com/oppia/oppia/issues), or get help via our [discussion forum](https://groups.google.com/forum/?fromgroups#!forum/oppia).
 
@@ -6,7 +6,7 @@ The rest of this page contains information about specific ways to help out. If y
 
 If so, here is how you can help!
 
-  * You could create a new exploration on [oppia.org](https://www.oppia.org), or edit an existing one to make it clearer and more useful for learners.
+  * You could create a new exploration on [oppia.org](https://www.oppia.org) that helps people learn something interesting, or edit an existing one to make it clearer and more useful for learners.
 
   * You could also make a really good learning experience that combines multiple Oppia explorations and/or other resources to help someone effectively learn something. It may seem as though this may not be directly helping the Oppia project, but the reason we built Oppia is to try and make it easier for people to create effective learning experiences for everyone and increase the number of such things that are available on the Web. So, if you've created something along these lines and would like to share it, we'd love to hear from you!
 
