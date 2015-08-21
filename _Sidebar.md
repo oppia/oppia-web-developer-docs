@@ -2,6 +2,10 @@
   * [[Get involved!|Contributing-to-Oppia]]
     * [[Artists|Contributing-art-to-Oppia]]
     * [Coders](https://github.com/oppia/oppia/blob/develop/CONTRIBUTING.md)
+    * [[Designers|Contributing-to-Oppia's-design]]
+    * [[Researchers|Making-Oppia-better]]
+    * [[Teachers|Contributing-knowledge-to-Oppia]]
+    * [[Writers|Writing-for-Oppia]]
   * Installing Oppia
     * [[Linux|Installing-Oppia-(Linux)]]
     * [[Mac OS|Installing-Oppia-(Mac-OS)]]
