@@ -24,25 +24,7 @@ If so, here is how you can help!
 
 ### Can you code? Is there a bug that you'd like to fix, or a feature you'd like to work on? Would you like to help with development in general? ###
 
-If so, here is how you can help!
-
-(By the way, you might also like to take a look at [this page](GettingStarted.md) for instructions on downloading a local copy of Oppia.)
-
-  * Fix a bug. We've got lots of stuff on the [issue tracker](https://github.com/oppia/oppia/issues) that could do with some fixing, and quite a lot of other stuff that isn't even on the issue tracker. This is a great way to get started with the codebase, so if you'd like to try your hand at addressing a small bug before diving deeper, let us know and we can find something for you!
-
-  * Build a new feature. We have many ideas for the project, but not enough time to do all of them. These include making it easy to chain explorations into longer 'adventures', building an internationalization pipeline, improving the profile page, adding more useful information for exploration editors, allowing learners to make quick typo fixes and small edits, and many more. You might also have ideas of your own! If you are interested in working on any of these initiatives, or would like to contribute in a particular way, let us know.
-
-  * Contribute a new interaction. Oppia explorations are built out of interactions which allow learners to provide answers and receive feedback on their work. We've tried to make it easy to extend Oppia with new, custom interactions, and welcome contributions for additional ones. For example, some of our contributors are currently working on interactions that allow a learner to enter a number with units (for physics/chemistry), or a chess move. If you have other ideas for ways in which the reader could communicate with Oppia -- such as via algebraic expressions, or via a drawing -- and you'd like to make it possible for Oppia to understand these input formats too, please tell us.
-
-  * Write tests. The Oppia project could do with more tests -- we have pretty good coverage on the backend (94% at last count, in June 2015), but our frontend and integration coverage is spotty. Tests are important because they help prevent developers from accidentally making code break when they write new changes, and so any help towards improving the project's test coverage would be very welcome.
-
-A couple of extra pointers:
-
-  * Please talk to us before you start working on a change! This helps avoid duplication of effort, and makes it possible for us to offer advice and suggestions, or point you to the relevant files. A post to the [developers list](https://groups.google.com/forum/?fromgroups#!forum/oppia-dev) is probably the best way to do this, though you could also send an email to admin@oppia.org.
-
-  * Please note that, before we can accept any commits you make, you'll need to sign a [CLA](https://developers.google.com/open-source/cla/individual).
-
-  * You might also like to take a look at the [developer documentation](Documentation.md).
+Please see our [guidelines for code contributors](https://github.com/oppia/oppia/blob/develop/CONTRIBUTING.md).
 
 ### Do you have a methodical approach to things? Do you enjoy helping something become high-quality and free of defects? ###
 
