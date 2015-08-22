@@ -1,6 +1,6 @@
   * [README](https://github.com/oppia/oppia/blob/develop/README.md#oppia)
   * [Documentation](https://oppia.github.io/)
-  * [[Get involved!|Home]]
+  * Get involved!
     * [[Artists|Contributing-art-to-Oppia]]
     * [Coders](https://github.com/oppia/oppia/blob/develop/CONTRIBUTING.md)
     * [[Designers|Contributing-to-Oppia's-design]]
