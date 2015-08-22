@@ -1,5 +1,4 @@
   * [README](https://github.com/oppia/oppia/blob/develop/README.md#oppia)
-  * [Documentation](https://oppia.github.io/)
   * Get involved!
     * [[Artists|Contributing-art-to-Oppia]]
     * [Coders](https://github.com/oppia/oppia/blob/develop/CONTRIBUTING.md)
@@ -17,6 +16,7 @@
       * [[Integration tests|Writing-Integration-Tests]]
     * [[Git cheat sheet|Git-cheat-sheet]]
   * References
+    * [Documentation](https://oppia.github.io/)
     * [[Extension frameworks|Extensions-Overview]]
       * [[Interactions|Creating-Interactions]]
       * [[Rules|Creating-Rules]]
