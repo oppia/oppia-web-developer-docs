@@ -1,6 +1,6 @@
 Welcome to the Oppia developers' wiki -- and thanks for your interest in contributing to the Oppia project!
 
-There are many ways to help out, from creating a new exploration on [Oppia.org](https://www.oppia.org) to fixing a bug in the [codebase](https://github.com/oppia/oppia/). Don't be discouraged if you're new to "open source", or if you're still a student -- many of our contributors are, too! The main thing is that you care about helping more people around the world to learn things better. We'd also be happy to provide mentorship and support if this is your first time contributing to an open source project.
+There are many ways to help out, from creating a new exploration on [Oppia.org](https://www.oppia.org) to fixing a bug in the [codebase](https://github.com/oppia/oppia/). Don't be discouraged if you're new to "open source", or if you're still a student -- many of our contributors are, too. The main thing is that you care about helping more people around the world to learn things better. We'd also be happy to provide mentorship and support if this is your first time contributing to an open source project.
 
 To make it easier to get started, we've catalogued some of the different ways to help out. Please feel free to take a look through them, and see if any interest you!
 
