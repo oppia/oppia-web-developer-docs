@@ -13,13 +13,19 @@ When you receive a code review request, please try to do the review as soon as p
 
 ## Doing the review
 
-  5. Perform the code review. Here are some things to look for:
+  1. Perform the code review. Here are some things to look for:
     * Do you understand what the code is doing? If not, it's probably the writer's fault, and you should tell him/her so.
     * Is the code doing the right thing?
     * Does the design look sensible?
     * Are there tests/docs which should be present, but aren't?
-    * If the change affects the UI, check out the branch and look at it in a browser. Does the UI look good and intuitive to the user? (To checkout a branch to your local machine, follow [these instructions](https://help.github.com/articles/checking-out-pull-requests-locally/) -- basically, just click "command line" on the pull request page and follow the given steps.)
+    * If the change affects the UI, check out the branch and look at it in a browser. Does the UI look good and intuitive to the user?
 
-  6. If the developer pushes subsequent commits to the pull request, you'll automatically be notified by email. When you review these, make sure that all previous review comments have been addressed (both in the code and by the developer's replies.)
+  **Note**: To checkout branch BRANCH_NAME from committer COMMITTER_USERNAME to your local machine, run:
+  ```
+    git checkout -b {{COMMITTER_NAME}}-{{BRANCH_NAME}} develop
+    git pull https://github.com/{{COMMITTER_NAME}}/oppia.git {{BRANCH_NAME}}
+  ```
 
-  7. If all review comments have been addressed, and the code looks good and is ready to be merged into develop, remove the "IN REVIEW" label and replace it with the "LGTM" label, then click “Merge pull request”. Before doing this, ensure that the developer resolves any merge conflicts (which GitHub will warn you about).
+  2. If the developer pushes subsequent commits to the pull request, you'll automatically be notified by email. When you review these, make sure that all previous review comments have been addressed (both in the code and by the developer's replies.)
+
+  3. If all review comments have been addressed, and the code looks good and is ready to be merged into develop, remove the "IN REVIEW" label and replace it with the "LGTM" label, then click “Merge pull request”. Before doing this, ensure that the developer resolves any merge conflicts (which GitHub will warn you about).
