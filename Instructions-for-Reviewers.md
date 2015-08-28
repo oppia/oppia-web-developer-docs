@@ -5,11 +5,10 @@ When you receive a code review request, please try to do the review as soon as p
 ## When you first receive a review request
 
   1. When you get an email saying a pull request issue has been assigned to you for review, click on the link to open it in GitHub. (You may need to open the issue on GitHub to see if it is a pull request or not.)
-  2. Do two pre-review checks:
+  1. Do two pre-review checks:
     * Ensure that the requester is in the "Committers" team (which means they've signed the CLA), otherwise direct them to the instructions in the README.
     * Ensure that the correct target branch (usually "develop") has been selected to merge the branch into.
-  3. Add the "IN REVIEW" label to the issue.
-  4. If you want to CC additional reviewers, you can do so using "/cc @username". Say why you're adding them.
+  1. If you want to CC additional reviewers, you can do so using "/cc @username". Say why you're adding them.
 
 ## Doing the review
 
@@ -26,6 +25,6 @@ When you receive a code review request, please try to do the review as soon as p
     git pull https://github.com/{{COMMITTER_NAME}}/oppia.git {{BRANCH_NAME}}
   ```
 
-  2. If the developer pushes subsequent commits to the pull request, you'll automatically be notified by email. When you review these, make sure that all previous review comments have been addressed (both in the code and by the developer's replies.)
+  1. If the developer pushes subsequent commits to the pull request, you'll automatically be notified by email. When you review these, make sure that all previous review comments have been addressed (both in the code and by the developer's replies.)
 
-  3. If all review comments have been addressed, and the code looks good and is ready to be merged into develop, remove the "IN REVIEW" label and replace it with the "LGTM" label, then click “Merge pull request”. Before doing this, ensure that the developer resolves any merge conflicts (which GitHub will warn you about).
+  1. If all review comments have been addressed, and the code looks good and is ready to be merged into develop, write a comment saying "LGTM". Before doing this, ensure that the developer resolves any merge conflicts (which GitHub will warn you about).
