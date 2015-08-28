@@ -27,4 +27,4 @@ When you receive a code review request, please try to do the review as soon as p
 
   1. If the developer pushes subsequent commits to the pull request, you'll automatically be notified by email. When you review these, make sure that all previous review comments have been addressed (both in the code and by the developer's replies.)
 
-  1. If all review comments have been addressed, and the code looks good and is ready to be merged into develop, write a comment saying "LGTM". Before doing this, ensure that the developer resolves any merge conflicts (which GitHub will warn you about).
+  1. If all review comments have been addressed, and the code looks good and is ready to be merged into develop, write a comment saying "LGTM".
