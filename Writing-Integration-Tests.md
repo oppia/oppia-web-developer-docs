@@ -12,7 +12,7 @@ There are certain types of input that are used so commonly throughout oppia that
   * List: Similarly this provides `editItem` to obtain a new editor for a particular list item, together with various other list editing functions.
   * Real.
   * Rich text: see below.
-  * Autocomplete dropdowns.
+  * Select2 autocomplete dropdowns and multi-select dropdowns. 
 
 There are more specialised input types in `extensions/objects` which you can also make use of (generally in interactions). The dictionary and list functions above will look for entry / item editors first in `core/tests/protractor_utils/forms.js` and then in `extensions/objects/protractor.js`.
 
