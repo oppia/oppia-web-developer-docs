@@ -75,7 +75,7 @@ To release a new version of Oppia, follow the following steps:
     python scripts/deploy.py --app_name=oppiatestserver
   ```
 
-  Note that data that is already in the datastore remains unmodified. You can reload demo explorations and do manual operations on the data via the [App Engine console](http://appengine.google.com).
+  Note that you'll need to change the version number in the App Engine console.
 
 1. If the `index.yaml` file has changed since the last update, update only the indexes on oppia.org by running
 
@@ -91,7 +91,7 @@ To release a new version of Oppia, follow the following steps:
     python scripts/deploy.py --app_name=oppiaserver
   ```
 
-  For this you will need the oppia.org deploy\_data folder, for which you should ask an Oppia administrator.
+  For this you will need the oppia.org deploy\_data folder, for which you should ask an Oppia administrator. Once the update has been completed, update the version number in the App Engine console.
 
 1. If the exploration schema version has changed in this release, you may need to run a schema migration. Follow the instructions [here](https://github.com/oppia/oppia/wiki/Migration-Instructions).
 
