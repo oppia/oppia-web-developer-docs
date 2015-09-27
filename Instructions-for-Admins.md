@@ -93,6 +93,8 @@ To release a new version of Oppia, follow the following steps:
 
   For this you will need the oppia.org deploy\_data folder, for which you should ask an Oppia administrator.
 
+1. If the exploration schema version has changed in this release, you may need to run a schema migration. Follow the instructions [here](https://github.com/oppia/oppia/wiki/Migration-Instructions).
+
 1. After updating the server, go to the App Engine console, update the version to be served by default, and flush memcache to remove stale data.
 
 1. Announce the release in the [discussion forum](https://groups.google.com/forum/?fromgroups#!aboutgroup/oppia) and the oppia-announce@ mailing list.
