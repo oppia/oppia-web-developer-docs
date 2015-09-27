@@ -10,9 +10,9 @@ v2.0.0.rc.3 introduced a schema change in how explorations were stored in the ba
   1. Flush memcache (as a precaution).
   1. Play through an exploration on the site to ensure that everything works as expected.
 
-### Migrating a production instance of Oppia from v2.0.0.rc.3 to v2.0.0.rc.4 ###
+### Migrating a production instance of Oppia from v2.0.0.rc.3 to v2.0.0.rc.4, or from v2.0.0.rc.4 to v2.0.0 ###
 
-v2.0.0.rc.4 introduced another schema change in how explorations were stored in the backend, due to the redesign of the rules/feedback system. This page contains instructions for performing the migration after pushing the new code to the production server and upgrading the version number to 2-0-0-rc-4 in the Google App Engine 'Versions' panel.
+After pushing the new code to the production server and upgrading the version number in the Google App Engine 'Versions' panel, do the following:
 
   1. Flush memcache.
   1. Run the ExplorationMigrationJobManager job once, and wait for it to finish.
