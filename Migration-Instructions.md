@@ -1,4 +1,17 @@
-### Migrating a production instance of Oppia from v2.0.0.rc.2 to v2.0.0.rc.3 ###
+This page contains instructions for migrating a production instance of Oppia from one release to the next.
+
+### Migrating v2.0.0.rc.4 → v2.0.0, or v2.0.0.rc.3 → v2.0.0.rc.4 ###
+
+After pushing the new code to the production server and upgrading the version number in the Google App Engine 'Versions' panel, do the following:
+
+  1. Flush memcache.
+  1. If necessary, stop the SearchRanker job (and any others that refer to ExplorationModel).
+  1. Run the ExplorationMigrationJobManager job once, and wait for it to finish.
+  1. Flush memcache (as a precaution).
+  1. Restart the SearchRanker job (and any others), if needed.
+  1. Play through an exploration on the site to ensure that everything works as expected.
+
+### Migrating v2.0.0.rc.2 → v2.0.0.rc.3 ###
 
 v2.0.0.rc.3 introduced a schema change in how explorations were stored in the backend, due to the removal of the 'special' END state. The migration process for upgrading Oppia is therefore a little more complex than usual. This page contains instructions for performing the migration after pushing the new code to the production server and upgrading the version number to 2-0-0-rc-3 in the Google App Engine 'Versions' panel.
 
@@ -8,15 +21,4 @@ v2.0.0.rc.3 introduced a schema change in how explorations were stored in the ba
   1. Run the CompletionEventsMigrator job once, and wait for it to finish.
   1. As a check, return to the Google App Engine admin panel, and verify that the explorations in the datastore all have a states\_schema\_version property and that the value of this property is 3.
   1. Flush memcache (as a precaution).
-  1. Play through an exploration on the site to ensure that everything works as expected.
-
-### Migrating a production instance of Oppia from v2.0.0.rc.3 to v2.0.0.rc.4, or from v2.0.0.rc.4 to v2.0.0 ###
-
-After pushing the new code to the production server and upgrading the version number in the Google App Engine 'Versions' panel, do the following:
-
-  1. Flush memcache.
-  1. If necessary, stop the SearchRanker job (and any others that refer to ExplorationModel).
-  1. Run the ExplorationMigrationJobManager job once, and wait for it to finish.
-  1. Flush memcache (as a precaution).
-  1. Restart the SearchRanker job (and any others), if needed.
   1. Play through an exploration on the site to ensure that everything works as expected.
