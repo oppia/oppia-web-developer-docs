@@ -16,7 +16,7 @@
       * [[Integration tests|Writing-Integration-Tests]]
     * [[Git cheat sheet|Git-cheat-sheet]]
   * References
-    * [Documentation](https://oppia.github.io/)
+    * [User documentation](https://oppia.github.io/)
     * [[Extension frameworks|Extensions-Overview]]
       * [[Interactions|Creating-Interactions]]
       * [[Rules|Creating-Rules]]
