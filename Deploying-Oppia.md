@@ -1,6 +1,6 @@
 These instructions explain how to deploy an instance of Oppia to Google App Engine.
 
-1. Create a [new App Engine instance](https://appengine.google.com/). When you do this, you will be asked to pick a name for your application. In the following, we will refer to this name as [APP\_NAME](APP_NAME.md).
+1. Create a [new App Engine instance](https://appengine.google.com/). When you do this, you will be asked to pick a name for your application. In the following, we will refer to this name as APP_NAME.
 
 2. To start a deployment, navigate to the `oppia/` directory and run:
   ```

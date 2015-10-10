@@ -13,7 +13,7 @@ In addition, the directory also contains files of the form `[INPUT_TYPE]_test.py
 
 ## Adding a New Rule ##
 
-If you have just [created a new object](Creating-Objects.md), say `MyObject` and now want to define the rules associated with it:
+If you have just [created a new object](Creating-Objects), say `MyObject` and now want to define the rules associated with it:
   1. In `extensions/rules/base.py` add a `MyObjectRule` class, and give its `subject_type` as `objects.MyObject`.
   1. In `extensions/rules` create `my_object.py`, and for each rule you want to create add an appropriate class, deriving it from `base.MyObject`. This class should contain the following entries, which are described in more detail below:
     * `description`
@@ -32,7 +32,7 @@ Here is an example of a rule description:
    is between {{a|NonnegativeInt}} and {{b|Real}}
 ```
 
-This means that, when the rule is first created, it expects to be given a non-negative integer, `a`, and a real number, `b`. This all happens before any input is passed to the rule to be evaluated. If you which your parameters to be of a specialised type you can [create](Creating-Objects.md) it.
+This means that, when the rule is first created, it expects to be given a non-negative integer, `a`, and a real number, `b`. This all happens before any input is passed to the rule to be evaluated. If you which your parameters to be of a specialised type you can [create](Creating-Objects) it.
 
 You will need to write such a description for your rule, following the syntax above.
 
