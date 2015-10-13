@@ -24,7 +24,7 @@ To release a new version of Oppia, follow the following steps. This assumes that
 
 1. If the terms have been updated in this release cycle, update `feconf.REGISTRATION_PAGE_LAST_UPDATED_UTC` accordingly.
 
-1. Bump the version number by editing `app.yaml`, and update the `CHANGELOG` file. Use the commit message "Bump the version number to [VERSION_NUMBER] and update the changelog." in order to make it easier to find when compiling future changelists.
+1. Bump the version number by editing `app.yaml`, and update the `CHANGELOG` file. Use the commit message `Bump the version number to [VERSION_NUMBER] and update the changelog.` in order to make it easier to find when compiling future changelists.
 
   **Note**: a handy way to get a summary of the most recent changes is:
 
