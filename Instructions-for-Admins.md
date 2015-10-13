@@ -1,10 +1,12 @@
 ## Doing a release
 
-To release a new version of Oppia, follow the following steps:
+To release a new version of Oppia, follow the following steps. This assumes that a `release-{{VERSION_NUMBER}}` branch has already been cut.
 
 1. If any changes have been made to the integrations\_dev folder or to /static/scripts/oppia-player-0.0.0.js since the last release, run the integrations release process and test these integrations. More information can be found [here](https://github.com/oppia/oppia/tree/master/integrations_dev/build_new_release.py).
 
 1. If the terms have been updated in this release cycle, update feconf.REGISTRATION_PAGE_LAST_UPDATED_UTC accordingly.
+
+1. If new contributors have contributed in this release cycle, update the `AUTHORS` and `CONTRIBUTORS` files, as well as the Credits section on `pages/about.html`.
 
 1. Run the tests. Make sure they all pass.
 
