@@ -22,7 +22,7 @@ To release a new version of Oppia, follow the following steps. This assumes that
 
   and play with the app for a while to make sure that nothing seems amiss.
 
-1. If the terms have been updated in this release cycle, update feconf.REGISTRATION_PAGE_LAST_UPDATED_UTC accordingly.
+1. If the terms have been updated in this release cycle, update `feconf.REGISTRATION_PAGE_LAST_UPDATED_UTC` accordingly.
 
 1. Bump the version number by editing `app.yaml`, and update the `CHANGELOG` file.
 
