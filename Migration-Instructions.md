@@ -1,6 +1,6 @@
 This page contains instructions for migrating a production instance of Oppia from one release to the next.
 
-### Migrating v2.0.0.rc.4 → v2.0.0, or v2.0.0.rc.3 → v2.0.0.rc.4 ###
+### Migrating v2.0.0 → v2.0.1, or v2.0.0.rc.4 → v2.0.0, or v2.0.0.rc.3 → v2.0.0.rc.4 ###
 
 After pushing the new code to the production server and upgrading the version number in the Google App Engine 'Versions' panel, do the following:
 
