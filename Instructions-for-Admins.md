@@ -73,6 +73,8 @@ To release a new version of Oppia, follow the following steps. This assumes that
 
 1. If you want emails to be sent to the admin on job failures, specify a valid email address in feconf.ADMIN\_EMAIL\_ADDRESS and set feconf.CAN\_SEND\_EMAILS\_TO\_ADMIN to True. If you are planning to send emails to users in general, you may also wish to edit feconf.SYSTEM\_EMAIL\_ADDRESS, feconf.CAN\_SEND\_EMAILS\_TO\_USERS and feconf.DEFAULT\_EMAIL\_UPDATES\_PREFERENCE. Finally, you may also wish to edit cron.yaml and queue.yaml to change the times at which jobs are executed and the rate of job processing; if in doubt, use the default values. [**TODO**: make all these into deploy\_data settings.]
 
+1. If there is a migration, you may want to change the default rate of jobs in queue.yaml from 3/m to 5/s to speed up the exploration migration job.
+
 1. Update the test app at oppiatestserver.appspot.com by running
 
   ```
@@ -98,6 +100,12 @@ To release a new version of Oppia, follow the following steps. This assumes that
   For this you will need the oppia.org deploy\_data folder, for which you should ask an Oppia administrator. Once the update has been completed, update the version number in the App Engine console and flush memcache to remove stale data.
 
 1. If the exploration schema version has changed in this release, you may need to run a schema migration. Follow the instructions [here](https://github.com/oppia/oppia/wiki/Migration-Instructions).
+
+1. If you changed the default rate of queue.yaml above, needed an exploration migration, and the migration job has finished, you will want to reset the rate at which the jobs are running by making sure queue.yaml has a 5/m default rate and then execute the command:
+
+  ```
+    ../oppia_tools/google_appengine_1.9.19/google_appengine/appcfg.py update_queues . --oauth2
+  ```
 
 1. Announce the release in the [discussion forum](https://groups.google.com/forum/?fromgroups#!aboutgroup/oppia) and the oppia-announce@ mailing list.
 
