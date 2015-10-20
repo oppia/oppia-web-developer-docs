@@ -15,6 +15,7 @@
     * [[Running tests|Running-Tests]]
       * [[Integration tests|Writing-Integration-Tests]]
     * [[Git cheat sheet|Git-cheat-sheet]]
+    * [[Mobile device testing|Mobile-device-testing]]
   * References
     * [User documentation](https://oppia.github.io/)
     * [[Extension frameworks|Extensions-Overview]]
