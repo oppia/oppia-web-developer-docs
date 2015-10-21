@@ -1,4 +1,4 @@
-The following instructions (contributed by @edallison) outline how to test the behavior an Oppia development server on iOS and Android. If you have one of these devices, you should be able to test the development server directly; otherwise, you may have to install an emulator on your desktop machine. Instructions for all these cases are provided below.
+The following instructions (contributed by @edallison) outline how to test the behavior an Oppia development server on iOS and Android. If you have one of these devices, you should be able to test the development server directly; otherwise, you may have to use the Chrome mobile emulator or install an emulator on your desktop machine. Instructions for all these cases are provided below.
 
 ## Accessing an Oppia development instance via a mobile device
 
@@ -8,6 +8,10 @@ The following instructions (contributed by @edallison) outline how to test the b
   * OS X: Open `System Preferences > Network`
   * Linux: In a terminal, enter `ip addr show`.
 1. In the browser on your mobile device, enter the local IP address found in the previous step into the browser address bar, followed by `:8181` (e.g. `xxx.xxx.xxx.x:8181`).
+
+## Using the Chrome Device Mode mobile emulator
+
+1. Follow the instructions on this [Google Developers page](https://developers.google.com/web/tools/chrome-devtools/iterate/device-mode/).
 
 ## Installing iOS Simulator (for OS X)
 
