@@ -9,7 +9,7 @@ The following instructions (contributed by @edallison) outline how to test the b
   * Linux: In a terminal, enter `ip addr show`.
 1. In the browser on your mobile device, enter the local IP address found in the previous step into the browser address bar, followed by `:8181` (e.g. `xxx.xxx.xxx.x:8181`).
 
-## Using the Chrome Device Mode mobile emulator
+## Using the Chrome mobile emulator
 
 1. Follow the instructions on this [Google Developers page](https://developers.google.com/web/tools/chrome-devtools/iterate/device-mode/).
 
