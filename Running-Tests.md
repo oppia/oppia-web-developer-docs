@@ -64,7 +64,7 @@ Oppia has an integration testing framework (Protractor) that incorporates both t
 ```
 This will load a test version of the server (on ports 4444 and 4445), open a Google Chrome browser and automatically run through a series of simulated user actions. If any of the tests fail the simulation will attempt to move on to the next test, and then report the problem at the end. However a single failure may leave the browser in a state (e.g. with an open alert message) that causes a cascade of failures in the other tests, so generally the first failure reported is the significant one.
 
-The integration tests are also sharded across 5 Chrome browser instances. It is recommended to close background processes to maximize the test performance. However, it may be preferable to run a single test. Sharding requires one additional change besides naming a test to "iit" to run a single test: when running the integration test script, use the following argument to disable sharding:
+The integration tests are also sharded across 3 Chrome browser instances. It is recommended to close background processes to maximize the test performance. However, it may be preferable to run a single test. Sharding requires one additional change besides naming a test to "fit" to run a single test: when running the integration test script, use the following argument to disable sharding:
 ```
     bash scripts/run_integration_tests.sh --sharding=false
 ```
@@ -91,6 +91,6 @@ and are based on utilities located in
 ```
    core/tests/protractor_utils/
 ```
-together with various `protractor.js` files throughout the `extensions` directory. As with the front-end unit tests you can replace `it` with `iit` or `describe` with `ddescribe` to run a single test or test suite. For more information about modifying and writing such tests, see [[Writing Integration Tests|Writing-Integration-Tests]].
+together with various `protractor.js` files throughout the `extensions` directory. You can replace `it` with `fit` or `describe` with `fdescribe` to run a single test or test suite. For more information about modifying and writing such tests, see [[Writing Integration Tests|Writing-Integration-Tests]].
 
 Please report any unexpected or inexplicable failures of the tests, together with the error log produced, as there have been some stability issues that we are trying to iron out.
