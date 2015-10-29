@@ -22,8 +22,8 @@ This page is meant as a handy reference for some basic Git commands.
 3. To download a branch someone else created:
 
   ```
-     $ git checkout -b {{repo-name}}-{{branch-name}} {{branch-name}}
-     $ git pull https://github.com/{{repo-name}}/{{branch-name}}.git {{branch-name}}
+     $ git checkout -b {{branch-name}}
+     $ git pull https://github.com/{{their-repo-name}}/oppia.git {{branch-name}}
   ```
 
 4. To create a patch:
