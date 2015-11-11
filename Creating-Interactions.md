@@ -47,7 +47,7 @@ Once you've created these files, activate your interaction in Oppia by editing t
 
 ### Testing ###
 
-We have an [[integration testing framework|Writing-Integration-Tests]] using Protractor.js that you you are encouraged to use for your interaction. The tests mimic a user by interacting with the web-page, for example by clicking and typing, and then checking that the interaction behaves in the expected way.
+We have an [[end-to-end testing framework|Writing-End-to-End-Tests]] using Protractor.js that you you are encouraged to use for your interaction. The tests mimic a user by interacting with the web-page, for example by clicking and typing, and then checking that the interaction behaves in the expected way.
 
 To do so will require the following:
   1. Add your interaction to the dictionary of interactions in `extensions/interactions/protractor.js`.

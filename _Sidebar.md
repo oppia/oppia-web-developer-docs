@@ -13,7 +13,7 @@
   * Developing Oppia
     * [[Overview of the codebase|Overview-of-the-Oppia-codebase]]
     * [[Running tests|Running-Tests]]
-      * [[Integration tests|Writing-Integration-Tests]]
+      * [[End-to-end tests|Writing-End-to-End-Tests]]
     * [[Git cheat sheet|Git-cheat-sheet]]
     * [[Mobile device testing|Mobile-device-testing]]
   * References

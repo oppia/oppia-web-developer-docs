@@ -7,7 +7,7 @@ Rules are categorized by the type of input they evaluate. For example, a SetRule
 All the rule definitions can be found in the extensions/rules directory of the Oppia source tree. In this directory, there are a bunch of Python files of the form `[INPUT_TYPE].py`; each of these files contains all the rules that are used to evaluate inputs whose type is `INPUT_TYPE`. Each rule is represented by a single Python class.
 
 In addition, the directory also contains files of the form `[INPUT_TYPE]_test.py`; these files contain tests for the rules. These tests are run as part of the standard test suite:
-`bash scripts/test.sh`
+`bash scripts/run_backend_tests.sh`
 
 (Note, also, that each of the different object types used in Oppia has a class in `extensions/objects/models/objects.py` which provides a `normalize()` function to convert it to its canonical form.)
 

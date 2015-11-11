@@ -1,9 +1,9 @@
-We use Protractor for our end-to-end integration tests. The protractor components are located in three places:
+We use Protractor for our end-to-end tests. The protractor components are located in three places:
   * `core/tests/protractor/*`: the tests themselves.
   * `core/tests/protractor_utils/*`: utilities for performing actions using elements from the core components of oppia (those found in `core/templates/dev/head`).
   * `extensions/**/protractor.js`: utilities for actions specific to a particular extension (such as interactions and rules).
 
-If you are just creating a new interaction and want to add integration tests for it then you can follow the guidance given at [[Creating Interactions|Creating-Interactions]], though the "forms and objects" section of this page may also be helpful.
+If you are just creating a new interaction and want to add end-to-end tests for it then you can follow the guidance given at [[Creating Interactions|Creating-Interactions]], though the "forms and objects" section of this page may also be helpful.
 
 ## Forms and objects ##
 
@@ -12,7 +12,7 @@ There are certain types of input that are used so commonly throughout oppia that
   * List: Similarly this provides `editItem` to obtain a new editor for a particular list item, together with various other list editing functions.
   * Real.
   * Rich text: see below.
-  * Select2 autocomplete dropdowns and multi-select dropdowns. 
+  * Select2 autocomplete dropdowns and multi-select dropdowns.
 
 There are more specialised input types in `extensions/objects` which you can also make use of (generally in interactions). The dictionary and list functions above will look for entry / item editors first in `core/tests/protractor_utils/forms.js` and then in `extensions/objects/protractor.js`.
 

@@ -6,15 +6,15 @@ Before checking in any commits to the Oppia repository, please ensure that every
 
 You can run server-side tests using
 ```
-    bash scripts/test.sh
+    bash scripts/run_backend_tests.sh
 ```
 
 This script accepts various flags. For example, to run a specific test module, you can type, e.g.:
 ```
-    bash scripts/test.sh --test_target=core.controllers.editor_test
+    bash scripts/run_backend_tests.sh --test_target=core.controllers.editor_test
 ```
 
-For more information about these and other flags, please see the documentation at the top of the [test.sh](https://github.com/oppia/oppia/tree/master/scripts/test.sh) script.
+For more information about these and other flags, please see the documentation at the top of the [run_backend_tests.sh](https://github.com/oppia/oppia/tree/master/scripts/run_backend_tests.sh) script.
 
 The variable `EXPECTED_TEST_COUNT` in `scripts/backend_tests.py` stores the total number of Python tests. After adding tests, you'll need to update this variable to reflect the new test count.
 
@@ -41,7 +41,7 @@ then this means that a test has failed, and the change cannot be checked in as-i
 
 Client-side JavaScript tests need to be run separately from the backend tests, by executing the following command in a terminal:
 ```
-    bash scripts/run_js_tests.sh
+    bash scripts/run_frontend_tests.sh
 ```
 
 This will open a [Karma](http://karma-runner.github.io/0.10/index.html) server that runs in the background, together with a browser window (which you can ignore). The results of the tests will be displayed in the terminal, and are automatically updated when you save an HTML/JS file, which is very useful for iterative development. Note that the script will not terminate when a test run are completed. Instead, to exit the test runner, type Ctrl-C in the terminal that is running the server.
@@ -56,24 +56,24 @@ We also have a coverage tool that displays what fraction of the front-end code i
 ```
 and clicking through will show exactly which parts of the code are still in need of tests.
 
-## Integration tests ##
+## End-to-end tests ##
 
-Oppia has an integration testing framework (Protractor) that incorporates both the client and server. It is run using the following command:
+Oppia has an end-to-end testing framework (Protractor) that incorporates both the client and server. It is run using the following command:
 ```
-    bash scripts/run_integration_tests.sh
+    bash scripts/run_e2e_tests.sh
 ```
 This will load a test version of the server (on ports 4444 and 4445), open a Google Chrome browser and automatically run through a series of simulated user actions. If any of the tests fail the simulation will attempt to move on to the next test, and then report the problem at the end. However a single failure may leave the browser in a state (e.g. with an open alert message) that causes a cascade of failures in the other tests, so generally the first failure reported is the significant one.
 
 ### Sharding tests ###
 
-The integration tests are also sharded across 3 Chrome browser instances. It is recommended to close background processes to maximize the test performance. You can disable sharding as follows:
+The end-to-end tests are also sharded across 3 Chrome browser instances. It is recommended to close background processes to maximize the test performance. You can disable sharding as follows:
 
 ```
-    bash scripts/run_integration_tests.sh --sharding=false
+    bash scripts/run_e2e_tests.sh --sharding=false
 ```
 You can configure the number of browser instances to use for sharding as follows:
 ```
-    bash scripts/run_integration_tests.sh --sharding-instances=#
+    bash scripts/run_e2e_tests.sh --sharding-instances=#
 ```
 ### Running a single test ###
 
@@ -99,6 +99,6 @@ and are based on utilities located in
 ```
    core/tests/protractor_utils/
 ```
-together with various `protractor.js` files throughout the `extensions` directory. You can replace `it` with `fit` or `describe` with `fdescribe` to run a single test or test suite. For more information about modifying and writing such tests, see [[Writing Integration Tests|Writing-Integration-Tests]].
+together with various `protractor.js` files throughout the `extensions` directory. You can replace `it` with `fit` or `describe` with `fdescribe` to run a single test or test suite. For more information about modifying and writing such tests, see [[Writing End-to-End Tests|Writing-End-to-End-Tests]].
 
 Please report any unexpected or inexplicable failures of the tests, together with the error log produced, as there have been some stability issues that we are trying to iron out.

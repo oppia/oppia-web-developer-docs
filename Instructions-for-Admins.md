@@ -6,12 +6,10 @@ To release a new version of Oppia, follow the following steps. This assumes that
 
 1. If new contributors have contributed in this release cycle, update the `AUTHORS` and `CONTRIBUTORS` files, as well as the Credits section on `pages/about.html`.
 
-1. Run the tests. Make sure they all pass. (Note: if Travis has already said the first two tests are good, then you don't need to run them again.)
+1. Run the tests. Make sure they all pass.
 
   ```
-    bash scripts/test.sh
-    bash scripts/run_js_tests.sh
-    bash scripts/run_integration_tests.sh
+    bash scripts/run_tests.sh
   ```
 
 1. Run
@@ -40,9 +38,7 @@ To release a new version of Oppia, follow the following steps. This assumes that
     git checkout master
     git pull origin master
     git merge release-[VERSION_NUMBER]
-    bash scripts/test.sh
-    bash scripts/run_js_tests.sh
-    bash scripts/run_integration_tests.sh
+    bash scripts/run_tests.sh
     git push origin master
 
     git tag -a v[VERSION_NUMBER] -m 'Version [VERSION_NUMBER]' master

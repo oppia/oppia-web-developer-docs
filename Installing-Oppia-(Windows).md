@@ -24,13 +24,13 @@ These instructions outline how to install Oppia on a Windows machine and run the
 
 ### Running the backend tests
 
-9. Open a new command prompt and type `bash scripts/test.sh`.
+9. Open a new command prompt and type `bash scripts/run_backend_tests.sh`.
 
 ### Running the frontend tests
 
 10. Install Chrome.
 
-11. Run `bash scripts/run_js_tests.sh --nojsrepl`. The first time this runs it will install karma and other node modules.
+11. Run `bash scripts/run_frontend_tests.sh --nojsrepl`. The first time this runs it will install karma and other node modules.
   * During the installation of karma you may get an MSBUILD error saying it can't load the Visual C++ component "VCBuild.exe". If you see this, ignore it and re-run the script; it should work the second time.
   * If you get ENOENT errors, have a look at [this Stack Overflow answer](http://stackoverflow.com/questions/25093276/node-js-windows-error-enoent-stat-c-users-rt-appdata-roaming-npm). You may need to create an `npm` folder, and/or run the script as an admin.
 
