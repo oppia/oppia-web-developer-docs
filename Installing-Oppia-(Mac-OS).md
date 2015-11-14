@@ -6,7 +6,7 @@
 
 Oppia relies on a number of programs and third-party libraries. Many of these libraries are downloaded automatically for you when you run the `start.sh` script provided with Oppia. However, there are some things that you will need to do beforehand:
 
-1. Ensure that you have [Python 2.7](http://www.python.org/download/releases/2.7/) and Java installed. (Java is needed for the code input interaction.)
+1. Ensure that you have [Python 2.7](http://www.python.org/download/releases/2.7/) installed.
 
 2. Install setuptools (which is needed to install coverage, which checks test coverage for the Python code). To do this, open the console and run:
 
