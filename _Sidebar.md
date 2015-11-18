@@ -15,6 +15,7 @@
     * [[Running tests|Running-Tests]]
       * [[End-to-end tests|Writing-End-to-End-Tests]]
     * [[Git cheat sheet|Git-cheat-sheet]]
+    * [[Mobile development|Mobile-development]]
     * [[Mobile device testing|Mobile-device-testing]]
   * References
     * [User documentation](https://oppia.github.io/)
