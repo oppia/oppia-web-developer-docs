@@ -54,7 +54,7 @@ For example, you can use DevTools to inspect web page elements on your device:
 - You can also click the Inspect Element inspect element icon icon in DevTools and tap your device screen. DevTools highlights the tapped element in the Elements panel.
 
 
-###### Debugging tips
+### Debugging tips
 Here are a few tips to help get you started with remote debugging:
 
 - Use F5 (or Cmd+r on Mac) to reload a remote page from the DevTools window.
