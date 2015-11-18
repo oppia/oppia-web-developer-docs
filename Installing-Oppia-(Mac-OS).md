@@ -8,10 +8,11 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
 
 1. Ensure that you have [Python 2.7](http://www.python.org/download/releases/2.7/) installed.
 
-2. Install setuptools (which is needed to install coverage, which checks test coverage for the Python code). To do this, open the console and run:
+2. Install setuptools (which is needed to install coverage, which checks test coverage for the Python code) and pip (which is needed to install numpy). To do this, open the console and run:
 
   ```
     sudo easy_install setuptools
+    sudo easy_install pip
   ```
 
 3. Download [git](http://git-scm.com/download/mac), then run the package and follow instructions. This allows you to store the source in version control.
