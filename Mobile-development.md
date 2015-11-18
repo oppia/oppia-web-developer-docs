@@ -1,4 +1,4 @@
-The following instructions, adapted from the [Chrome DevTools Docs](https://developer.chrome.com/devtools/docs/remote-debugging), explain how to do remote debugging on Android devices using Chrome.
+The following instructions, adapted by royshouvik@ from the [Chrome DevTools Docs](https://developer.chrome.com/devtools/docs/remote-debugging), explain how to do remote debugging on Android devices using Chrome.
 
 ## Remote Debugging on Android with Chrome
 
