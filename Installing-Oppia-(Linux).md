@@ -8,10 +8,10 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
 
 1. Ensure that you have [Python 2.7](http://www.python.org/download/releases/2.7/) installed.
 
-2. Make sure you have curl (used to download third-party libraries), setuptools (needed for installing coverage, which checks test coverage for the Python code) and git (which allows you to store the source in version control):
+2. Make sure you have curl (used to download third-party libraries), setuptools (needed for installing coverage, which checks test coverage for the Python code), git (which allows you to store the source in version control), python-dev (which is used for the numpy installation) and python-pip (which is also used for the numpy installation):
 
   ```
-    sudo apt-get install curl python-setuptools git
+    sudo apt-get install curl python-setuptools git python-dev python-pip
   ```
 
 ## Running Oppia on a development server ##
