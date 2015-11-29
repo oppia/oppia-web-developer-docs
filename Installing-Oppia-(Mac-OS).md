@@ -36,6 +36,7 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
 
   ```
     ../oppia_tools/
+    ../node_modules/
     third_party/
     core/templates/prod/
   ```
