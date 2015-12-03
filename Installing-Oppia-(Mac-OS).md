@@ -73,3 +73,15 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
     ```
 
     try removing the `cacerts.txt` and `urlfetch_cacerts.txt` files as described [here](http://stackoverflow.com/questions/13899530/gae-sdk-1-7-4-and-invalidcertificateexception) and [here](http://stackoverflow.com/questions/17777994/why-cant-i-launch-my-app-from-the-shell).
+
+  * If you get an error that includes:
+
+    ```
+    clang: error: invalid argument '-faltivec' only allowed with 'ppc/ppc64/ppc64le'
+    clang: error: invalid argument '-faltivec' only allowed with 'ppc/ppc64/ppc64le'
+    clang: error: invalid argument '-faltivec' only allowed with 'ppc/ppc64/ppc64le'
+    clang: error: invalid argument '-faltivec' only allowed with 'ppc/ppc64/ppc64le'
+    error: Command "gcc -fno-strict-aliasing -fno-common -dynamic -arch x86_64 -arch i386 -g -Os -pipe -fno-common -fno-strict-aliasing -fwrapv -DENABLE_DTRACE -DMACOSX -DNDEBUG -Wall -Wstrict-prototypes -Wshorten-64-to-32 -DNDEBUG -g -fwrapv -Os -Wall -Wstrict-prototypes -DENABLE_DTRACE -arch x86_64 -arch i386 -pipe -DNO_ATLAS_INFO=3 -Inumpy/core/blasdot -Inumpy/core/include -Ibuild/src.macosx-10.10-intel-2.7/numpy/core/include/numpy -Inumpy/core/src/private -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/include -I/System/Library/Frameworks/Python.framework/Versions/2.7/include/python2.7 -Ibuild/src.macosx-10.10-intel-2.7/numpy/core/src/multiarray -Ibuild/src.macosx-10.10-intel-2.7/numpy/core/src/umath -c numpy/core/blasdot/_dotblas.c -o build/temp.macosx-10.10-intel-2.7/numpy/core/blasdot/_dotblas.o -faltivec -I/System/Library/Frameworks/vecLib.framework/Headers" failed with exit status 1
+    ```
+
+  please see the instructions in [issue #1179](https://github.com/oppia/oppia/issues/1179) for a fix.
