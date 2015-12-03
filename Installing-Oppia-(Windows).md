@@ -1,6 +1,8 @@
+**Warning: This install process may be broken. We've made a number of changes to the installation scripts, and have not upgraded the Windows installation pathway yet. If you have access to a Mac or Linux machine, we suggest using either of those instead.**
+
 **Note:** If you just want to create and share explorations, you may be able to use the hosted server at https://www.oppia.org (in which case you don't need to install anything).
 
-These instructions outline how to install Oppia on a Windows machine and run the tests. Note that this installation will omit the jsrepl library that is used for the code input interaction, since we haven't figured out how to install this in Windows yet. If you'd like to help fix this, please add a comment to [issue 100](https://github.com/oppia/oppia/issues/100) -- thanks!
+These instructions outline how to install Oppia on a Windows machine and run the tests.
 
 ### Setting up a development server
 
