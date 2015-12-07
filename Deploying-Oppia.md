@@ -11,3 +11,4 @@ These instructions explain how to deploy an instance of Oppia to Google App Engi
   ```
       https://[APP_NAME].appspot.com
   ```
+Logging in from the Google account hosting the app will allow you to access the admin page at https://[APP_NAME].appspot.com/admin, but you will have to wait for app engine to finish building datastore indexes before this page will load.
