@@ -69,3 +69,17 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
     ```
 
     try removing the `cacerts.txt` and `urlfetch_cacerts.txt` files as described [here](http://stackoverflow.com/questions/13899530/gae-sdk-1-7-4-and-invalidcertificateexception) and [here](http://stackoverflow.com/questions/17777994/why-cant-i-launch-my-app-from-the-shell).
+
+  * If you get an error that ends with:
+
+    ```
+    ssl.PROTOCOL_SSLv3: OpenSSL.SSL.SSLv3_METHOD,
+AttributeError: 'module' object has no attribute 'PROTOCOL_SSLv3'
+    ```
+
+    try commenting out the line
+
+    ```
+      '../oppia_tools/google_appengine_1.9.19/google_appengine/lib/requests/requests/packages/urllib3/contrib/pyopenssl.py:70': (ssl.PROTOCOL_SSLv3: OpenSSL.SSL.SSLv3_METHOD,)
+    ```
+    as described [here](https://code.google.com/p/googleappengine/issues/detail?id=11539#c2).
