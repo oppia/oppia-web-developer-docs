@@ -9,7 +9,16 @@ These instructions outline how to install Oppia on a Windows machine.
 3. Create a new folder somewhere on your machine, download the [Vagrantfile](https://raw.githubusercontent.com/oppia/oppia/develop/Vagrantfile), and add it to the folder. Then, open a command prompt, navigate to the folder you just created, and run `vagrant up`. This will create a new virtual machine.
 4. Run `vagrant ssh` to ssh into the virtual machine.
 5. Navigate to the vagrant folder: `cd /vagrant`. 
-6. Run `bash scripts/install_prerequisites.sh` to install the build tools and project dependencies.
+6. Run the following commands (copied from `bash scripts/install_prerequisites.sh`) to install the build tools and project dependencies:
+  ```
+    sudo apt-get update
+    sudo apt-get install git
+    sudo apt-get install curl
+    sudo apt-get install python-setuptools
+    sudo apt-get install python-dev
+    sudo apt-get install python-pip 
+    sudo pip install --upgrade pip
+  ```
 7. [Fork and clone](https://help.github.com/articles/fork-a-repo/) the oppia repository. (You might have to add your ssh keys to github.)
 8. Run `cd oppia` and `bash scripts/start.sh`. This will install Google App Engine, and start a Python server from which you can run Oppia locally
 9. If installation has succeeded, you should now be able to access Oppia at `http://localhost:8181/`.
