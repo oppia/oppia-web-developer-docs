@@ -6,6 +6,9 @@
 1. Ensure that the person has signed the appropriate CLA.
 2. Go to Settings > Collaborators, and then add that collaborator.
 
+## Conducting a code review
+1. Please see the instructions at https://github.com/oppia/oppia/wiki/Instructions-for-Reviewers
+
 ## When a new issue is filed
 1. Tidy up the title, if necessary.
 2. Ensure that the issue has one of each of the following labels:
