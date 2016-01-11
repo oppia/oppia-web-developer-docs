@@ -2,14 +2,15 @@
 
 These instructions outline how to install Oppia on a Windows machine.
 
-### Setting up a development server
-
-1. Download and install [VirtualBox 5.0.12](https://www.virtualbox.org/wiki/Downloads). (You do not need to create a VM, just installing VirtualBox is sufficient.)
-2. Download and install [Vagrant 1.8.1](https://www.vagrantup.com/downloads.html). After installation, Vagrant will prompt for a restart. Restart your machine.
-3. Create a new folder somewhere on your machine, download the [Vagrantfile](https://raw.githubusercontent.com/oppia/oppia/develop/Vagrantfile), and add it to the folder. Then, open a command prompt, navigate to the folder you just created, and run `vagrant up`. This will create a new virtual machine.
-4. Run `vagrant ssh` to ssh into the virtual machine.
-5. Navigate to the vagrant folder: `cd /vagrant`.
-6. [Fork and clone](https://help.github.com/articles/fork-a-repo/) the oppia repository. (You might have to add your ssh keys to github.)
-7. Run `cd oppia`, then run `bash scripts/install_prerequisites.sh` to install the build tools and project dependencies.
-8. Run `bash scripts/start.sh`. This will install Google App Engine, and start a Python server from which you can run Oppia locally
-9. If installation has succeeded, you should now be able to access Oppia at `http://localhost:8181/`.
+1. Setting up Vagrant:
+   - Download and install [VirtualBox 5.0.12](https://www.virtualbox.org/wiki/Downloads). (You do not need to create a VM, just installing VirtualBox is sufficient.)
+   - Download and install [Vagrant 1.8.1](https://www.vagrantup.com/downloads.html). After installation, Vagrant will prompt for a restart. Restart your machine.
+   - Create a new folder somewhere on your machine, download the [Vagrantfile](https://raw.githubusercontent.com/oppia/oppia/develop/Vagrantfile), and add it to the folder. Then, open a command prompt, navigate to the folder you just created, and run `vagrant up`. This will create a new virtual machine.
+   - Run `vagrant ssh` to ssh into the virtual machine.
+   - Navigate to the vagrant folder: `cd /vagrant`.
+1. Setting up Oppia:
+   - [Fork and clone](https://help.github.com/articles/fork-a-repo/) the oppia repository. (You might have to add your ssh keys to github.)
+   - Run `cd oppia`.
+   - Run `bash scripts/install_prerequisites.sh`. This installs the build tools and project dependencies.
+   - Run `bash scripts/start.sh`. This will install Google App Engine, and start a Python server from which you can run Oppia locally.
+   - If installation has succeeded, you should now be able to access Oppia at `http://localhost:8181/`.
