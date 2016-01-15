@@ -4,9 +4,8 @@ There are many ways to help out, from creating a new exploration on [Oppia.org](
 
 To make it easier to get started, we've catalogued some of the different ways to help out. Please feel free to take a look through them, and see if any interest you!
 
-  * [Artists](https://github.com/oppia/oppia/wiki/Contributing-art-to-Oppia)
   * [Coders](https://github.com/oppia/oppia/blob/develop/CONTRIBUTING.md)
-  * [Designers](https://github.com/oppia/oppia/wiki/Contributing-to-Oppia%27s-design)
+  * [Designers and artists](https://github.com/oppia/oppia/wiki/Contributing-to-Oppia%27s-design)
   * [Researchers](https://github.com/oppia/oppia/wiki/Making-Oppia-better)
   * [Teachers](https://github.com/oppia/oppia/wiki/Contributing-knowledge-to-Oppia)
   * [Writers](https://github.com/oppia/oppia/wiki/Writing-for-Oppia)
