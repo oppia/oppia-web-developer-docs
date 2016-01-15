@@ -1,7 +1,7 @@
   * [README](https://github.com/oppia/oppia/blob/develop/README.md#oppia)
   * **[[Get involved!|Home]]**
     * [Coders](https://github.com/oppia/oppia/blob/develop/CONTRIBUTING.md)
-    * [[Designers and Artists|Contributing-to-Oppia's-design]]
+    * [[Designers and artists|Contributing-to-Oppia's-design]]
     * [[Researchers|Making-Oppia-better]]
     * [[Teachers|Contributing-knowledge-to-Oppia]]
     * [[Writers|Writing-for-Oppia]]
