@@ -16,4 +16,6 @@ These instructions outline how to install Oppia on a Windows machine.
    - If installation has succeeded, you should now be able to access Oppia at `http://localhost:8181/`.
 
 ### Troubleshooting
-- Some users have reported that the scripts in the second part need to be run using `sudo`.
+- Some users have reported that the scripts in the second part need to be run using `sudo`. E.g.:
+  - `sudo bash scripts/install_prerequisites.sh`
+  - `sudo bash scripts/start.sh`
