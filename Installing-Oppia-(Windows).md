@@ -14,3 +14,6 @@ These instructions outline how to install Oppia on a Windows machine.
    - Run `bash scripts/install_prerequisites.sh`. This installs the build tools and project dependencies.
    - Run `bash scripts/start.sh`. This will install Google App Engine, and start a Python server from which you can run Oppia locally.
    - If installation has succeeded, you should now be able to access Oppia at `http://localhost:8181/`.
+
+** Troubleshooting **
+- Some users have reported that the scripts in the second part need to be run using `sudo`.
