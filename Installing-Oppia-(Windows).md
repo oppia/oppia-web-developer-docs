@@ -7,6 +7,7 @@ These instructions outline how to install Oppia on a Windows machine.
    - Download and install [Vagrant 1.8.1](https://www.vagrantup.com/downloads.html). After installation, Vagrant will prompt for a restart. Restart your machine.
    - Create a new folder somewhere on your machine, download the [Vagrantfile](https://raw.githubusercontent.com/oppia/oppia/develop/Vagrantfile), and add it to the folder. Then, open a command prompt, navigate to the folder you just created, and run `vagrant up`. This will create a new virtual machine.
    - Run `vagrant ssh` to ssh into the virtual machine.
+   - Run `sudo apt-get install git` to install git on the virtual machine.
    - Navigate to the vagrant folder: `cd /vagrant`.
 1. Setting up Oppia:
    - [Fork and clone](https://help.github.com/articles/fork-a-repo/) the oppia repository. (You might have to add your ssh keys to github.)
