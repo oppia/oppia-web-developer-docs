@@ -6,12 +6,6 @@ To release a new version of Oppia, follow the following steps. This assumes that
 
 1. If new contributors have contributed in this release cycle, update the `AUTHORS` and `CONTRIBUTORS` files, as well as the Credits section on `pages/about.html`.
 
-1. Run the tests. Make sure they all pass.
-
-  ```
-    bash scripts/run_tests.sh
-  ```
-
 1. Run
 
   ```
