@@ -18,10 +18,10 @@ To release a new version of Oppia, follow the following steps. This assumes that
 
 1. Bump the version number by editing `app.yaml`, and update the `CHANGELOG` file. Use the commit message `Bump the version number to [VERSION_NUMBER] and update the changelog.` in order to make it easier to find when compiling future changelists.
 
-  **Note**: a handy way to get a summary of the most recent changes is:
+  **Note**: you can get this and other useful information for the release by running:
 
   ```
-    git log --pretty=format:"%h - %an, %ar : %s"
+    python scripts/release_info.py
   ```
 
   (In the future, we should consider also tagging changes with their commit hash, similar to [this](https://github.com/angular/angular.js/blob/master/CHANGELOG.md).)
