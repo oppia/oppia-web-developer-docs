@@ -1,4 +1,4 @@
-## Doing a release
+## Doing a code release
 
 To release a new version of Oppia, follow the following steps. This assumes that a `release-[VERSION_NUMBER]` branch has already been cut.
 
@@ -54,6 +54,8 @@ To release a new version of Oppia, follow the following steps. This assumes that
   ```
 
 1. Draft a description of the new release on the [Releases page](https://github.com/oppia/oppia/releases/new).
+
+## Upgrading the server
 
 1. Checkout the master branch.
 
