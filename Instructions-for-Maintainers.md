@@ -9,6 +9,11 @@
 ## Conducting a code review
 1. Please see the instructions at https://github.com/oppia/oppia/wiki/Instructions-for-Reviewers
 
+## Merging a Pull Request
+Please ensure that the merge commit message
+1. Starts with 'Fix #XXX' if it is fixing an issue. This will automatically close the issue.
+2. Describes the changes that were merged
+
 ## When a new issue is filed
 1. Tidy up the title, if necessary.
 2. Ensure that the issue has one of each of the following labels:
