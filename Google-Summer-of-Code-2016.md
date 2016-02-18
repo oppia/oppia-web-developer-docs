@@ -50,6 +50,8 @@ Expected results: A page in Oppia that displays the above information for creato
 
 Familiarity with Python and AngularJS; ability to accurately implement UIs based on designers' mocks. Also useful (but not required): ability to create and edit design mocks (e.g. using Sketch).
 
+Since this is a full-stack project, you might also find the [Overview of the Codebase](https://github.com/oppia/oppia/wiki/Overview-of-the-Oppia-codebase) wiki page helpful in order to get a sense of how the Oppia stack works.
+
 
 ## Making it possible to submit and prioritize requests for learning material
 
