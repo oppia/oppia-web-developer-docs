@@ -38,6 +38,4 @@ End-to-end
 - Making Oppia usable offline (and being more lightweight in transmitting data)
 
 Backend
-- Generalized impression/metric logging system
 - Applying machine learning to code interaction training and generalizing
-- Automatic saving of explorations in the editor and player (locally and remotely?)
