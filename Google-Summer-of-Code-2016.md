@@ -107,7 +107,7 @@ We have several projects that will have significant impact on Oppia and we feel 
 
 Feel free to suggest your own or look at our various [starter projects](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22starter+project%22) to help generate ideas for new projects, if none of the below interest you. We're also happy to discuss new ideas that you'd like to implement, outside of the projects listed below or our existing starter projects.
 
-Finally, be aware that the projects below may either seem larger than they are or will be sized down once a student is paired with one. These projects were picked because they were isolated, high-impact projects. Most of them involve end-to-end development, which can be very hard to do within only a summer of work. We have ranked each project based on our assumed difficulty; the projects themselves should be scoped based on students' applications and discussion with the corresponding mentors once the summer begins.
+Finally, be aware that the projects below may either seem larger than they are or will be sized down once a student is paired with one. These projects were picked because they were self-contained, high-impact projects. Most of them involve end-to-end development, which can be very hard to do within only a summer of work. We have ranked each project based on our assumed difficulty; the projects themselves should be scoped based on students' applications and discussion with the corresponding mentors once the summer begins.
 
 Many of the projects below involve significant work in either Oppia's frontend, backend, or both. It is very helpful to look at [the overview of Oppia's codebase](https://github.com/oppia/oppia/wiki/Overview-of-the-Oppia-codebase) as a reference.
 
