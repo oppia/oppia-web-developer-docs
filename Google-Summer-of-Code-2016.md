@@ -37,7 +37,7 @@ When proposing a project, please use the following template:
 
 **Related Technical Skills**
 
-Please explain your experience and technical skills needed for the above project. We may request more information in this category depending on the complexity of the project.
+Please outline any prior experience you have, especially where it relates to technical skills that are needed for the above project. (Depending on the complexity of the project, we may write back and request more information in this category.)
 
 **Open Source and Education**
 
@@ -45,7 +45,7 @@ Why are you interested in open source development? Why education?
 
 **Summer Plans**
 - Which timezone(s) will you primarily be in during the summer?
-- How much time do you expect to have for this project?
+- How much time will you be able to commit to this project?
 - Please list jobs, summer classes, and other obligations you may need to work around.
 
 **Communication**
