@@ -1,3 +1,11 @@
+TODO(bhenning): A lot of information in the application should also be here, including:
+- How students can effectively apply to Oppia
+- How to become acclimated with the code base
+- Points of contact for organization admins (esp. for requesting project ideas)
+- How to join our Gitter
+- How to join our mailing list
+- How to be a mentor
+
 Oppia is excited to be applying for participation in [Google Summer of Code 2016](https://developers.google.com/open-source/gsoc/)! GSoC is a global program which offers post-secondary students an opportunity to discover and work with open source organizations over the course of 3 months and be paid a stipend. Students work one-on-one with a mentor of an open source organization in order to implement either a project proposed by the organization (see Oppia's proposed projects below) or a proposal of their own.
 
 Since GSoC 2016 mentoring organizations are not announced until February 29, 2016, it is not known whether Oppia will be able to participate in Google Summer of Code 2016. This page will be updated accordingly once it is known whether Oppia is participating.
@@ -27,10 +35,35 @@ TODO(bhenning): Finish this section.
 
 # Oppia's Project Ideas
 
-TODO(bhenning): Finish issues for each of these and link them here.
+We have several projects that will have significant impact on Oppia and we feel would make excellent Google Summer of Code projects. This is the specific list we are outlining for GSoC, but there are many more project ideas being discussed on the team.
+
+Feel free to suggest your own or look at our various [starter projects](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22starter+project%22) to help generate ideas for new projects, if none of the below interest you. We're also happy to discuss new ideas that you'd like to implement, outside of the projects listed below or our existing starter projects.
+
+TODO(bhenning): Order the following based on difficulty. Abstract out portions which discuss becoming acclimated with the code base and link them here or in another section (and link that section here).
 
 ## Android app to enable learning-on-the-go
 
+**Difficulty**: Hard
+
+**Potential mentor(s)**: Ben Henning
+
+### Summary
+
+The world is increasingly becoming a mobile-driven environment. There are well over one billion users in the world with smart phones, currently. Although Oppia is a response website for learners, there is much to gain by having a dedicated Android app. Maintaining a responsive website is challenging and there are almost certainly going to be issues when viewing the site on different devices.
+
+This project will introduce a dedicated mobile interface for Oppia, through either web views, targeted styling for the web application, or a native Android interface. This mobile interface will make it easier for users to access their profile, browse the gallery, and play through explorations. As a stretch, it's also desired to implement offline playing of explorations in the mobile app, or at least work toward that goal for future work.
+
+Expected results: An app which allows users to access primary portions of Oppia's website (the profile page, gallery, and learner view) and be able to play through an exploration.
+
+### Required skills/knowledge
+
+Required:
+- Extensive comfort writing Java applications
+- Familiarity with Angular JS: the developer working on this project will need to understand how Oppia's frontend works
+
+Recommended:
+- Android development experience
+- Familiarity with Google app engine: depending on how the Android application is implemented, understanding how app engine serves content may be critical for implementing the app (we use Python in our app engine implementation)
 
 ## Creator dashboard
 
