@@ -1,10 +1,11 @@
-TODO(bhenning): A lot of information in the application should also be here, including:
+TODO(bhenning): Proofread entire document and make final edits before submitting the application. Also, a lot of information in the application should also be here, including:
 - How students can effectively apply to Oppia
 - How to become acclimated with the code base
 - Points of contact for organization admins (esp. for requesting project ideas)
 - How to join our Gitter
 - How to join our mailing list
 - How to be a mentor
+- Enumerate potential mentors
 
 Oppia is excited to be applying for participation in [Google Summer of Code 2016](https://developers.google.com/open-source/gsoc/)! GSoC is a global program which offers post-secondary students an opportunity to discover and work with open source organizations over the course of 3 months and be paid a stipend. Students work one-on-one with a mentor of an open source organization in order to implement either a project proposed by the organization (see Oppia's proposed projects below) or a proposal of their own.
 
@@ -38,6 +39,8 @@ TODO(bhenning): Finish this section.
 We have several projects that will have significant impact on Oppia and we feel would make excellent Google Summer of Code projects. This is the specific list we are outlining for GSoC, but there are many more project ideas being discussed on the team.
 
 Feel free to suggest your own or look at our various [starter projects](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22starter+project%22) to help generate ideas for new projects, if none of the below interest you. We're also happy to discuss new ideas that you'd like to implement, outside of the projects listed below or our existing starter projects.
+
+Finally, be aware that the projects below may either seem larger than they are or will be sized down once a student is paired with one. These projects were picked because they were isolated, high-impact projects. Most of them involve end-to-end development, which can be very hard to do within only a summer of work. We have ranked each project based on our assumed difficulty; the projects themselves should be scoped based on students' applications and discussion with the corresponding mentors once the summer begins.
 
 TODO(bhenning): Order the following based on difficulty. Abstract out portions which discuss becoming acclimated with the code base and link them here or in another section (and link that section here).
 
@@ -88,6 +91,37 @@ Since this is a full-stack project, you might also find the [Overview of the Cod
 
 ## Making it possible to submit and prioritize requests for learning material
 
+**Difficulty**: Medium
+
+**Potential mentor(s)**: Ben Henning
+
+### Summary
+
+Currently, https://oppia.org serves as a repository of almost random explorations users have created. Although it's fantastic users create these explorations, we think Oppia will be a lot more effective to both learners and exploration creators if there is some way for people to submit requests for new explorations and have creators address those requests by directly creating the corresponding exploration(s).
+
+This project involves writing a system for creating, listing, and addressing requests for new content. Users should be able to see and search for content requests, be able to create a new request for content (including a brief description), and vote on existing requests. Creators will be able to use the same searching functionality to find top-ranked requests and address them by listing a specific exploration or collection which they feel satisfies the request. It's not yet clear what the exact flow of this should be; we will leave it up to the student's proposal to clarify how they feel learners and creators should interact when addressing content requests. Some things to consider in this area include:
+
+- Should any creator be able to address any request (even very popular ones)?
+- Should the request be closed when an exploration/collection is associated with a request?
+- Should explorations and interactions even be associated with requests?
+- Should requests allow back-and-forth discussion among the community?
+- Should the author of the request be responsible for closing the request when an exploration/collection is made which satisfies it?
+
+Those are just a few questions to get started thinking about the system.
+
+### Required skills/knowledge
+
+This is an end-to-end project and involves quite a lot of hands-on work with both frontend and backend code.
+
+Required:
+- Familiarity with Python
+- Familiarity with AngularJS
+
+Recommended:
+- Familiarity with Google app engine (we use a NoSQL data store)
+- Familiarity with creating mocks with programs such as sketch (definitely not a requirement, but it will help)
+
+You will be expected to create mocks (even if they're just drawings on paper) and a design document outlining the technical changes needed in the frontend and backend for implementing this system. You will be working with people across the team since this project is multi-disciplinary.
 
 ## Making Oppia usable offline (and being more lightweight in transmitting data)
 
