@@ -111,6 +111,8 @@ Finally, be aware that the projects below may either seem larger than they are o
 
 Many of the projects below involve significant work in either Oppia's frontend, backend, or both. It is very helpful to look at [the overview of Oppia's codebase](https://github.com/oppia/oppia/wiki/Overview-of-the-Oppia-codebase) as a reference.
 
+
+
 ## Making Oppia usable offline and being more lightweight in transmitting data
 
 **Difficulty**: Medium
@@ -143,6 +145,8 @@ Recommended:
 - Understanding of RESTful APIs
 
 Both parts of this project involve a lot of investigation, since you will need to figure out which parts of the protocol need to be adjusted in order to facilitate offline playing or how to optimize the protocol or other parts of the Oppia stack to reduce the amount of data sent across it.
+
+
 
 ## Making it possible to submit and prioritize requests for learning material
 
@@ -177,6 +181,8 @@ Recommended:
 - Familiarity with creating mocks with programs such as sketch (definitely not a requirement, but it will help)
 
 You will be expected to create mocks (even if they're just drawings on paper) and a design document outlining the technical changes needed in the frontend and backend for implementing this system. You will be working with people across the team since this project is multi-disciplinary.
+
+
 
 ## Creator dashboard
 
@@ -222,6 +228,8 @@ Recommended:
 - Android development experience
 - Familiarity with Google app engine: depending on how the Android application is implemented, understanding how app engine serves content may be critical for implementing the app (we use Python in our app engine implementation)
 - Familiarity with RESTful APIs
+
+
 
 ## Applying machine learning to code interaction training and generalizing
 
