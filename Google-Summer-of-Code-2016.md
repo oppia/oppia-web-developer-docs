@@ -5,6 +5,7 @@ TODO(bhenning): Proofread entire document and make final edits before submitting
 - How to join our Gitter
 - How to join our mailing list
 - How to be a mentor
+- Mention all projects will involve engineering and testing
 - Enumerate potential mentors
 
 Oppia is excited to be applying for participation in [Google Summer of Code 2016](https://developers.google.com/open-source/gsoc/)! GSoC is a global program which offers post-secondary students an opportunity to discover and work with open source organizations over the course of 3 months and be paid a stipend. Students work one-on-one with a mentor of an open source organization in order to implement either a project proposed by the organization (see Oppia's proposed projects below) or a proposal of their own.
@@ -54,19 +55,20 @@ TODO(bhenning): Order the following based on difficulty. Abstract out portions w
 
 The world is increasingly becoming a mobile-driven environment. There are well over one billion users in the world with smart phones, currently. Although Oppia is a response website for learners, there is much to gain by having a dedicated Android app. Maintaining a responsive website is challenging and there are almost certainly going to be issues when viewing the site on different devices.
 
-This project will introduce a dedicated mobile interface for Oppia, through either web views, targeted styling for the web application, or a native Android interface. This mobile interface will make it easier for users to access their profile, browse the gallery, and play through explorations. As a stretch, it's also desired to implement offline playing of explorations in the mobile app, or at least work toward that goal for future work.
+This project will introduce a dedicated mobile interface for Oppia, through either web views, targeted styling for the web application, or a native Android interface. This mobile interface will make it easier for users to access their profile, browse the gallery, and play through explorations.
 
 Expected results: An app which allows users to access primary portions of Oppia's website (the profile page, gallery, and learner view) and be able to play through an exploration.
 
 ### Required skills/knowledge
 
 Required:
-- Extensive comfort writing Java applications
+- Java and extensive comfort writing Java applications
 - Familiarity with Angular JS: the developer working on this project will need to understand how Oppia's frontend works
 
 Recommended:
 - Android development experience
 - Familiarity with Google app engine: depending on how the Android application is implemented, understanding how app engine serves content may be critical for implementing the app (we use Python in our app engine implementation)
+- Familiarity with RESTful APIs
 
 ## Creator dashboard
 
@@ -87,7 +89,6 @@ Expected results: A page in Oppia that displays the above information for creato
 Familiarity with Python and AngularJS; ability to accurately implement UIs based on designers' mocks. Also useful (but not required): ability to create and edit design mocks (e.g. using Sketch).
 
 Since this is a full-stack project, you might also find the [Overview of the Codebase](https://github.com/oppia/oppia/wiki/Overview-of-the-Oppia-codebase) wiki page helpful in order to get a sense of how the Oppia stack works.
-
 
 ## Making it possible to submit and prioritize requests for learning material
 
@@ -123,7 +124,65 @@ Recommended:
 
 You will be expected to create mocks (even if they're just drawings on paper) and a design document outlining the technical changes needed in the frontend and backend for implementing this system. You will be working with people across the team since this project is multi-disciplinary.
 
-## Making Oppia usable offline (and being more lightweight in transmitting data)
+## Making Oppia usable offline and being more lightweight in transmitting data
 
+**Difficulty**: Medium
+
+**Potential mentor(s)**: Ben Henning
+
+### Summary
+
+This is a two-part project. Oppia currently requires users to be connected to the internet at all times while playing explorations. Furthermore, Oppia sends quite a lot of data across the network while playing explorations or visiting the website in general. Both of these have negative effects on user's experience on the site. It also might make Oppia difficult or impossible to use for many users who are on poorer connections. To be able to use Oppia without much data transfer or even offline completely would have huge implications for millions of people, if not more.
+
+The first part of this project involves allowing explorations to be played without an internet connection. This is a multi-step problem. While playing an exploration, there are many things that happen, including:
+- Statistics recording
+- Answer classification
+- Response selection
+- State transitions
+
+Most of these now happen in the frontend, however, there are still a few aspects of the communication between the frontend and backend that need to be changed in order to allow offline playing. Furthermore, there's no concept of persistent frontend storage currently.
+
+The second part of this project is decreasing the amount of data Oppia sends between the backend and frontend. Oppia was not originally designed with mobile or poor internet connections in mind. There have been recent efforts by contributors to minify the CSS and JS resources of Oppia, though these are just stepping stones in the longer strategy of making Oppia more efficient bandwidth-wise for users.
+
+### Required skills/knowledge
+Required:
+- Familiarity with AngularJS
+- Familiarity with Python
+- Familiarity with Google app engine
+
+Recommended:
+- Code investigation skills
+- Familiarity with frontend data storage solutions
+- Understanding of RESTful APIs
+
+Both parts of this project involve a lot of investigation, since you will need to figure out which parts of the protocol need to be adjusted in order to facilitate offline playing or how to optimize the protocol or other parts of the Oppia stack to reduce the amount of data sent across it.
 
 ## Applying machine learning to code interaction training and generalizing
+
+**Difficulty**: Hard
+
+**Potential mentor(s)**: Ben Henning
+
+### Summary
+
+Since Oppia needs to be a smart tutor which provides personalized feedback to learners, machine learning has a great potential application to Oppia. There are some efforts into allowing creators to train Oppia to respond a certain way in their explorations based on user answers. This support is not yet enabled as of the beginning of Google Summer of Code, but is being actively developed and can facilitate the work on this project. It will also be turned on for the public to use before the end of summer.
+
+The new functionality introduces a training interface in the exploration editor wherein creators can see previous user answers, then select which response Oppia should use if it encounters that answer again (or the creator can create a new response, instead). We then train a classifier in the background so that Oppia can hopefully place new answers in the correct response before the creator teaches it to do so. The training interface will be available for a few interactions, but the machine learning part will only be available for text input. Although text input with machine learning is a fascinating and highly useful topic, this project focuses on applying machine learning for training our code evaluation interactions, instead.
+
+The code evaluation interaction allows learners to type in code in order to match some sort of output, avoid an error, or match specific code. The code is evaluated in the frontend, but the learner's answer is stored in the backend. Python is the only supported language, though we will definitely be adding more languages in the future.
+
+This project involves figuring out a way to cluster together similar pieces of code (though not exactly the same) and then use that to train a classification model that can predict which cluster a new piece of code belongs to. Originally, members of the Oppia team were considering to integrate [OverCode](http://people.csail.mit.edu/elg/overcode) and use that, though there were some technical concerns with how it would integrate with Oppia. Using an existing library is completely fine for this project and even encouraged. The complexity of this project is discovering a library, integrating it, and making sure it practically works well.
+
+At the end of the project, creators will be able to train Oppia to respond to certain types of code inputted by learners. Oppia will be able to encounter new pieces of code it has yet see and intelligently classify them into previously learned buckets, if that new piece of code is sufficiently similar semantically to previously taught bits of code.
+
+### Required skills/knowledge
+Required:
+- Understanding machine learning concepts, including clustering and statistical classification techniques
+- Python
+
+Recommended:
+- Google app engine
+- NoSQL storage systems
+- RESTful APIs
+
+Students working on this project will need to write up a design document explaining which library/libraries they plan on integrating, as well as an overall solution to solving the clustering problem. Some emphasis will be placed on ensuring it will work within the answer classification infrastructure, though there are many members of the Oppia team which will assist with explaining this to the student.
