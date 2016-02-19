@@ -1,12 +1,5 @@
 TODO(bhenning): Proofread entire document and make final edits before submitting the application. Also, a lot of information in the application should also be here, including:
-- How students can effectively apply to Oppia
-- How to become acclimated with the code base
-- Points of contact for organization admins (esp. for requesting project ideas)
-- How to join our Gitter
-- How to join our mailing list
 - How to be a mentor
-- Mention all projects will involve engineering and testing
-- Enumerate potential mentors
 
 Oppia is excited to be applying for participation in [Google Summer of Code 2016](https://developers.google.com/open-source/gsoc/)! GSoC is a global program which offers post-secondary students an opportunity to discover and work with open source organizations over the course of 3 months and be paid a stipend. Students work one-on-one with a mentor of an open source organization in order to implement either a project proposed by the organization (see Oppia's proposed projects below) or a proposal of their own.
 
@@ -31,9 +24,77 @@ GSoC is an excellent opportunity for students to get paid to work on an open sou
 
 If you're specifically interested in applying to work with Oppia in Google Summer of Code, take a look at one of the prospective projects below, which also list the possible mentors for each project. Feel free to contact your mentor ahead of time or email oppia-gsoc-mentors@googlegroups.com. If you're keen on working on a smaller project ahead of Google Summer of Code or even outside of the program, check out [Contributing to Oppia](https://github.com/oppia/oppia/blob/develop/CONTRIBUTING.md).
 
+It will help to take a look at our [developer wiki](https://github.com/oppia/oppia/wiki) to become familiarized with our development process before submitting a proposal for a project. Also, check out our various [starter projects](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22starter+project%22) to get an idea of our current work.
+
+Most Oppia work heavily involves AngularJS for frontend development and Google app engine with Python for backend development. Strong familiarity with JavaScript, Python, and related technologies are a recommendation, but not necessarily a requirement (see below proposals for an idea of when these skills are recommended versus required). We expect students to learn and explore quite a bit while working on projects, so many of the skills used on a project are mere recommendations.
+
+## GSoC Proposal Template
+When proposing a project, please use the following template:
+
+**Project**
+- Project name
+- Project description
+- What interests you about this project?
+- What areas of research will you do in this project?
+- Outline of a project plan and implementation schedule
+
+**Related Technical Skills**
+
+Please explain your experience and technical skills needed for the above project. We may request more information in this category depending on the complexity of the project.
+
+**Open Source and Education**
+
+Why are you interested in open source development? Why education?
+
+**Summer Plans**
+- Which timezone(s) will you primarily be in during the summer?
+- How much time do you expect to have for this project?
+- Please list jobs, summer classes, and other obligations you may need to work around.
+
+**Communication**
+- What is your preferred method of communication and contact information?
+- How often do you plan on communicating with your mentor?
+
+## Types of work related to Oppia projects
+In order to ensure a well-rounded engineering experience, developers will do some or all of the following depending on their project:
+- Meet with their mentors regularly
+- Meet with other contributors related to their project area
+- Receive code reviews for all code they write for their project
+- Write automated tests for their projects
+- Create UI mocks (if doing frontend development)
+- Write design documents (if implementing large features or introducing new systems)
+
 # Mentors
 
+The following are definitely mentors during Google Summer of Code, if Oppia is accepted:
+- Ben Henning (@BenHenning)
+
+The following may be mentors:
+- Sean Lip (@seanlip)
+- Allan Zhou (@AllanYangZhou)
+
 TODO(bhenning): Finish this section.
+
+# Communication
+
+There are several ways to communicate with us (see sections below). Please feel free to also email the organization administrators if you have additional questions and we'll be happy to help:
+
+- Ben Henning <henning(dot)benmax(at)gmail(dot)com>
+- Sean Lip <sean(at)seanlip(dot)org>
+
+It may help to email the Google Summer of Code mailing list, as well, which is oppia-gsoc-mentors@googlegroups.com.
+
+## Joining Oppia's Gitter
+
+We don't have an official IRC channel, but we do have a real-time chat channel through Gitter. Joining our Gitter chat is easily. Simply head to the following link:
+
+https://gitter.im/oppia/oppia-chat#
+
+You can login using your GitHub account (Gitter will ask to be associated with your GitHub account for authentication) and you will then be able to talk in it.
+
+## Oppia's Developer Mailing List
+
+You should also join Oppia's developer mailing list: oppia-dev@googlegroups.com. Nearly all contributors to Oppia (past and present) are in this mailing list, so it's a fantastic place to ask questions that the entire team will see. All developers working on Oppia are highly recommended to join this mailing list, as major announcements are listed here (including early details on future releases and major work being done across the project).
 
 # Oppia's Project Ideas
 
