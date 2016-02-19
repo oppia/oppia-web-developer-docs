@@ -195,7 +195,7 @@ Oppia's approach to creating educational content is incremental -- that is, the 
 
 The purpose of this project is to implement a creator dashboard that allows lesson creators to see, at a glance, completion rates, common student misconceptions, and student-submitted feedback for their lessons -- and to make it easy for creators to take action on this information. A design project for this page is currently underway, and we expect to have some preliminary mocks developed for this page by the time GSoC starts, but these are likely to undergo further iterations as we make progress on implementation and usability testing. If you are interested, we welcome your participation in the design process!
 
-Expected results: A page in Oppia that displays the above information for creators in a way that is easy to understand and that also makes it easy for them to take action. Some backend computation would also be needed to aggregate the relevant data and keep it up to date.
+**Expected results**: A page in Oppia that displays the above information for creators in a way that is easy to understand and that also makes it easy for them to take action. Some backend computation would also be needed to aggregate the relevant data and keep it up to date.
 
 ### Required skills/knowledge
 
