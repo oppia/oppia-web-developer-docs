@@ -121,7 +121,7 @@ Many of the projects below involve significant work in either Oppia's frontend, 
 
 ### Summary
 
-This is a two-part project. Oppia currently requires users to be connected to the internet at all times while playing explorations. Furthermore, Oppia sends quite a lot of data across the network while playing explorations or visiting the website in general. Both of these have negative effects on user's experience on the site. It also might make Oppia difficult or impossible to use for many users who are on poorer connections. To be able to use Oppia without much data transfer or even offline completely would have huge implications for millions of people, if not more.
+This is a two-part project. Oppia currently requires users to be connected to the internet at all times while playing explorations. Furthermore, Oppia sends quite a lot of data across the network while playing explorations or visiting the website in general. Both of these have negative effects on users' experiences on the site, and are likely to make Oppia difficult or impossible to use for many users who are on poorer connections.
 
 The first part of this project involves allowing explorations to be played without an internet connection. This is a multi-step problem. While playing an exploration, there are many things that happen, including:
 - Statistics recording
@@ -129,15 +129,15 @@ The first part of this project involves allowing explorations to be played witho
 - Response selection
 - State transitions
 
-Most of these now happen in the frontend, however, there are still a few aspects of the communication between the frontend and backend that need to be changed in order to allow offline playing. Furthermore, there's no concept of persistent frontend storage currently.
+Most of these now happen in the frontend, however, there are still a few aspects of the communication between the frontend and backend that need to be changed in order to allow offline playing. Furthermore, there's no concept of persistent frontend storage at the moment.
 
-The second part of this project is decreasing the amount of data Oppia sends between the backend and frontend. Oppia was not originally designed with mobile or poor internet connections in mind. There have been recent efforts by contributors to minify the CSS and JS resources of Oppia, though these are just stepping stones in the longer strategy of making Oppia more efficient bandwidth-wise for users.
+The second part of this project is decreasing the amount of data Oppia sends between the backend and frontend. Oppia was not originally designed with mobile or poor internet connections in mind. There have been recent efforts by contributors to concatenate and minify Oppia's CSS and JS resources, though these are just stepping stones in the longer strategy of making Oppia more efficient bandwidth-wise for users.
 
 ### Required skills/knowledge
 Required:
 - Familiarity with AngularJS
 - Familiarity with Python
-- Familiarity with Google app engine
+- Familiarity with Google App Engine
 
 Recommended:
 - Code investigation skills
@@ -145,7 +145,6 @@ Recommended:
 - Understanding of RESTful APIs
 
 Both parts of this project involve a lot of investigation, since you will need to figure out which parts of the protocol need to be adjusted in order to facilitate offline playing or how to optimize the protocol or other parts of the Oppia stack to reduce the amount of data sent across it.
-
 
 
 ## Making it possible to submit and prioritize requests for learning material
@@ -156,7 +155,7 @@ Both parts of this project involve a lot of investigation, since you will need t
 
 ### Summary
 
-Currently, https://oppia.org serves as a repository of almost random explorations users have created. Although it's fantastic users create these explorations, we think Oppia will be a lot more effective to both learners and exploration creators if there is some way for people to submit requests for new explorations and have creators address those requests by directly creating the corresponding exploration(s).
+Currently, https://www.oppia.org serves as a repository of almost random explorations users have created. Although it's fantastic that users create these explorations, we think Oppia will be a lot more effective to both learners and exploration creators if there is some way for people to submit requests for new explorations and have creators address those requests by directly creating the corresponding exploration(s).
 
 This project involves writing a system for creating, listing, and addressing requests for new content. Users should be able to see and search for content requests, be able to create a new request for content (including a brief description), and vote on existing requests. Creators will be able to use the same searching functionality to find top-ranked requests and address them by listing a specific exploration or collection which they feel satisfies the request. It's not yet clear what the exact flow of this should be; we will leave it up to the student's proposal to clarify how they feel learners and creators should interact when addressing content requests. Some things to consider in this area include:
 
@@ -177,8 +176,8 @@ Required:
 - Familiarity with AngularJS
 
 Recommended:
-- Familiarity with Google app engine (we use a NoSQL data store)
-- Familiarity with creating mocks with programs such as sketch (definitely not a requirement, but it will help)
+- Familiarity with Google App Engine (which uses a NoSQL data store)
+- Familiarity with creating mocks with programs such as Sketch (definitely not a requirement, but it will help)
 
 You will be expected to create mocks (even if they're just drawings on paper) and a design document outlining the technical changes needed in the frontend and backend for implementing this system. You will be working with people across the team since this project is multi-disciplinary.
 
@@ -194,7 +193,7 @@ You will be expected to create mocks (even if they're just drawings on paper) an
 
 Oppia's approach to creating educational content is incremental -- that is, the content is not created all at once, but is improved over time based on answers and feedback from students. Analysis of these answers can help lesson creators detect and respond to common misconceptions, so that students who encounter similar issues in the future can receive better feedback from Oppia.
 
-The purpose of this GSoC project is to implement a creator dashboard that allows lesson creators to see, at a glance, completion rates, common student misconceptions, and student-submitted feedback for their lessons -- and to make it easy for creators to take action on this information. A design project for this page is currently underway, and we expect to have some preliminary mocks developed for this page by the time GSoC starts, but these are likely to undergo further iterations as we make progress on implementation and usability testing. If you are interested, we welcome your participation in the design process!
+The purpose of this project is to implement a creator dashboard that allows lesson creators to see, at a glance, completion rates, common student misconceptions, and student-submitted feedback for their lessons -- and to make it easy for creators to take action on this information. A design project for this page is currently underway, and we expect to have some preliminary mocks developed for this page by the time GSoC starts, but these are likely to undergo further iterations as we make progress on implementation and usability testing. If you are interested, we welcome your participation in the design process!
 
 Expected results: A page in Oppia that displays the above information for creators in a way that is easy to understand and that also makes it easy for them to take action. Some backend computation would also be needed to aggregate the relevant data and keep it up to date.
 
@@ -212,7 +211,7 @@ Since this is a full-stack project, you might also find the [Overview of the Cod
 
 ### Summary
 
-The world is increasingly becoming a mobile-driven environment. There are well over one billion users in the world with smart phones, currently. Although Oppia is a response website for learners, there is much to gain by having a dedicated Android app. Maintaining a responsive website is challenging and there are almost certainly going to be issues when viewing the site on different devices.
+The world is increasingly becoming a mobile-driven environment, with well over one billion users of smart phones. Although Oppia is a responsive website for learners, there is much to gain by having a dedicated Android app. Maintaining a responsive website is challenging and there are almost certainly going to be issues when viewing the site on different devices.
 
 This project will introduce a dedicated mobile interface for Oppia, through either web views, targeted styling for the web application, or a native Android interface. This mobile interface will make it easier for users to access their profile, browse the gallery, and play through explorations.
 
@@ -222,11 +221,11 @@ Expected results: An app which allows users to access primary portions of Oppia'
 
 Required:
 - Java and extensive comfort writing Java applications
-- Familiarity with Angular JS: the developer working on this project will need to understand how Oppia's frontend works
+- Familiarity with AngularJS: the developer working on this project will need to understand how Oppia's frontend works
 
 Recommended:
 - Android development experience
-- Familiarity with Google app engine: depending on how the Android application is implemented, understanding how app engine serves content may be critical for implementing the app (we use Python in our app engine implementation)
+- Familiarity with Google App Engine (Python): depending on how the Android application is implemented, understanding how App Engine serves content may be critical for implementing the app
 - Familiarity with RESTful APIs
 
 
@@ -245,18 +244,18 @@ The new functionality introduces a training interface in the exploration editor 
 
 The code evaluation interaction allows learners to type in code in order to match some sort of output, avoid an error, or match specific code. The code is evaluated in the frontend, but the learner's answer is stored in the backend. Python is the only supported language, though we will definitely be adding more languages in the future.
 
-This project involves figuring out a way to cluster together similar pieces of code (though not exactly the same) and then use that to train a classification model that can predict which cluster a new piece of code belongs to. Originally, members of the Oppia team were considering to integrate [OverCode](http://people.csail.mit.edu/elg/overcode) and use that, though there were some technical concerns with how it would integrate with Oppia. Using an existing library is completely fine for this project and even encouraged. The complexity of this project is discovering a library, integrating it, and making sure it practically works well.
+This project involves figuring out a way to cluster together similar pieces of code (though not exactly the same) and then use that to train a classification model that can predict which cluster a new piece of code belongs to. Originally, members of the Oppia team were considering integration with [OverCode](http://people.csail.mit.edu/elg/overcode), though there were some technical concerns with how it would integrate with Oppia. Using an existing library is completely fine for this project and even encouraged. The complexity of this project is discovering a library, integrating it, and making sure it works well in practice.
 
-At the end of the project, creators will be able to train Oppia to respond to certain types of code inputted by learners. Oppia will be able to encounter new pieces of code it has yet see and intelligently classify them into previously learned buckets, if that new piece of code is sufficiently similar semantically to previously taught bits of code.
+At the end of the project, creators will be able to train Oppia to respond to certain types of code submitted by learners. Oppia will be able to encounter new pieces of code it has not yet seen, and intelligently classify them into previously learned buckets, if that new piece of code is sufficiently similar semantically to previously taught bits of code.
 
 ### Required skills/knowledge
 Required:
-- Understanding machine learning concepts, including clustering and statistical classification techniques
-- Python
+- An understanding of machine learning concepts, including clustering and statistical classification techniques
+- Experience with coding in Python
 
 Recommended:
-- Google app engine
+- Google App Engine
 - NoSQL storage systems
 - RESTful APIs
 
-Students working on this project will need to write up a design document explaining which library/libraries they plan on integrating, as well as an overall solution to solving the clustering problem. Some emphasis will be placed on ensuring it will work within the answer classification infrastructure, though there are many members of the Oppia team which will assist with explaining this to the student.
+Students working on this project will need to write a design document explaining which library/libraries they plan on integrating, as well as an overall solution to solving the clustering problem. Some emphasis will be placed on ensuring it will work within the answer classification infrastructure, though there are many members of the Oppia team who will assist with explaining this to the student.
