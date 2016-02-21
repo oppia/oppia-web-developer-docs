@@ -72,8 +72,6 @@ The following are definitely mentors during Google Summer of Code, if Oppia is a
 The following may be mentors:
 - Allan Zhou (@AllanYangZhou)
 
-In addition, there are many people on the team who would be happy to provide support and answer questions on particular aspects of the codebase as needed.
-
 ## Becoming a Mentor
 
 Are you interested in mentoring in Google Summer of Code 2016 for Oppia? Mentoring can be an extremely rewarding experience, though it is a commitment and a responsibility. You can be sure you will learn a lot from your potential mentee. To learn more about what mentoring entails, check out this [GSoC mentoring guide](https://flossmanuals.net/GSoCMentoring/).
