@@ -67,9 +67,9 @@ In order to ensure a well-rounded engineering experience, developers will do som
 
 The following are definitely mentors during Google Summer of Code, if Oppia is accepted:
 - Ben Henning (@BenHenning)
+- Sean Lip (@seanlip)
 
 The following may be mentors:
-- Sean Lip (@seanlip)
 - Allan Zhou (@AllanYangZhou)
 
 ## Becoming a Mentor
