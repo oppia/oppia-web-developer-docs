@@ -133,6 +133,8 @@ Most of these now happen in the frontend, however, there are still a few aspects
 
 The second part of this project is decreasing the amount of data Oppia sends between the backend and frontend. Oppia was not originally designed with mobile or poor internet connections in mind. There have been recent efforts by contributors to concatenate and minify Oppia's CSS and JS resources, though these are just stepping stones in the longer strategy of making Oppia more efficient bandwidth-wise for users.
 
+**Expected results**: Users will be able to play Oppia explorations without any Internet connection. Also, there is a measurable decrease in data sent between the browser and the server when visiting any pages on Oppia.
+
 ### Required skills/knowledge
 Required:
 - Familiarity with AngularJS
@@ -167,6 +169,8 @@ This project involves writing a system for creating, listing, and addressing req
 
 Those are just a few questions to get started thinking about the system.
 
+**Expected results**: Users will be able to navigate to a dashboard containing existing requests for new explorations and collections. They will be able to create new requests and view their own. Creators will be able to solve these requests in some way by creating an exploration or collection and addressing a particular request or requests. The exact nature of this resolving behavior is up to the student and will be discussed as part of this project.
+
 ### Required skills/knowledge
 
 This is an end-to-end project and involves quite a lot of hands-on work with both frontend and backend code.
@@ -179,7 +183,7 @@ Recommended:
 - Familiarity with Google App Engine (which uses a NoSQL data store)
 - Familiarity with creating mocks with programs such as Sketch (definitely not a requirement, but it will help)
 
-You will be expected to create mocks (even if they're just drawings on paper) and a design document outlining the technical changes needed in the frontend and backend for implementing this system. You will be working with people across the team since this project is multi-disciplinary.
+You will be requested to create mocks (even if they're just drawings on paper) and a design document outlining the technical changes needed in the frontend and backend for implementing this system. You will be working with people across the team since this project is multi-disciplinary.
 
 
 
@@ -187,7 +191,7 @@ You will be expected to create mocks (even if they're just drawings on paper) an
 
 **Difficulty**: Medium
 
-**Potential mentor(s)**: Sean Lip
+**Potential mentor(s)**: Sean Lip (primary), Allan Zhou (secondary)
 
 ### Summary
 
@@ -215,7 +219,7 @@ The world is increasingly becoming a mobile-driven environment, with well over o
 
 This project will introduce a dedicated mobile interface for Oppia, through either web views, targeted styling for the web application, or a native Android interface. This mobile interface will make it easier for users to access their profile, browse the gallery, and play through explorations.
 
-Expected results: An app which allows users to access primary portions of Oppia's website (the profile page, gallery, and learner view) and be able to play through an exploration.
+**Expected results**: An Android app which allows users to access primary portions of Oppia's website (the profile page, gallery, and learner view) and be able to play through an exploration.
 
 ### Required skills/knowledge
 
@@ -234,7 +238,7 @@ Recommended:
 
 **Difficulty**: Hard
 
-**Potential mentor(s)**: Ben Henning
+**Potential mentor(s)**: Allan Zhou (primary), Ben Henning (secondary)
 
 ### Summary
 
@@ -247,6 +251,8 @@ The code evaluation interaction allows learners to type in code in order to matc
 This project involves figuring out a way to cluster together similar pieces of code (though not exactly the same) and then use that to train a classification model that can predict which cluster a new piece of code belongs to. Originally, members of the Oppia team were considering integration with [OverCode](http://people.csail.mit.edu/elg/overcode), though there were some technical concerns with how it would integrate with Oppia. Using an existing library is completely fine for this project and even encouraged. The complexity of this project is discovering a library, integrating it, and making sure it works well in practice.
 
 At the end of the project, creators will be able to train Oppia to respond to certain types of code submitted by learners. Oppia will be able to encounter new pieces of code it has not yet seen, and intelligently classify them into previously learned buckets, if that new piece of code is sufficiently similar semantically to previously taught bits of code.
+
+**Expected results**: Creators will be able to train Oppia to recognize buckets of user-submitted code answers using the existing training infrastructure and new code classifiers. Creators will also be able to test if a particular code sample fits within the bucket they expect, where buckets lead to Oppia providing a targeted reply based on the answer.
 
 ### Required skills/knowledge
 Required:
