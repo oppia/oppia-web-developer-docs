@@ -5,7 +5,7 @@ Since GSoC 2016 mentoring organizations are not announced until February 29, 201
 # Dates and Deadlines
 Noteworthy dates:
 - **February 8-19, 2016**: Mentoring organizations apply
-- **February 29, 2016**: Mentoring organizations are announced
+- **February 29, 2016**: Mentoring organizations are announced **<- We are waiting on this currently.**
 - **March 14-25, 2016**: Student application period
 - **April 22, 2016**: Accepted students announced
 - **April 22-May 22, 2016**: Community bonding period
