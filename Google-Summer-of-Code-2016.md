@@ -1,7 +1,7 @@
 Oppia is excited to be applying for participation in [Google Summer of Code 2016](https://developers.google.com/open-source/gsoc/)! GSoC is a global program which offers post-secondary students an opportunity to discover and work with open source organizations over the course of 3 months and be paid a stipend. Students work one-on-one with a mentor of an open source organization in order to implement either a project proposed by the organization (see [Oppia's proposed projects](#oppias-project-ideas)) or a proposal of their own. The following are our project proposals:
 
 * [Oppia usable offline with more lightweight data transfer](#making-oppia-usable-offline-and-being-more-lightweight-in-transmitting-data)
-* [Learner suggestion dashboard](##making-it-possible-to-submit-and-prioritize-requests-for-learning-material)
+* [Learning material requests and submission](#making-it-possible-to-submit-and-prioritize-requests-for-learning-material)
 * [Creator dashboard](#creator-dashboard)
 * [Android app to enable learning-on-the-go](#android-app-to-enable-learning-on-the-go)
 * [Applying machine learning to code interaction](#applying-machine-learning-to-code-interaction-training-and-generalizing)
