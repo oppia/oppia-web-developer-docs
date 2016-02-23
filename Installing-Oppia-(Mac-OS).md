@@ -1,6 +1,6 @@
 **Note:** If you just want to create and share explorations, you may be able to use the hosted server at https://www.oppia.org (in which case you don't need to install anything).
 
-*The installation instructions on this page were last tested on 25 Feb 2014 with Mac OS X Mavericks 10.9.*
+*The installation instructions on this page were last tested on 2 Feb 2016. For more information on issues that may occasionally arise with the installation process, please see the [Troubleshooting](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Mac%29#troubleshooting) section below.*
 
 ## Prerequisites ##
 
