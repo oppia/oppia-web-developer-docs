@@ -1,6 +1,6 @@
 **Note:** If you just want to create and share explorations, you may be able to use the hosted server at https://www.oppia.org (in which case you don't need to install anything).
 
-*These installation instructions were last tested on 25 Feb 2014 with Linux Ubuntu 12.04 LTS and Linux Fedora 19.*
+*These installation instructions were last tested on 22 Feb 2016.*
 
 ## Prerequisites ##
 
