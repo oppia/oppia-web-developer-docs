@@ -130,19 +130,19 @@ Many of the projects below involve significant work in either Oppia's frontend, 
 
 ### Summary
 
-This is a two-part project. Oppia currently requires users to be connected to the internet at all times while playing explorations. Furthermore, Oppia sends quite a lot of data across the network while playing explorations or visiting the website in general. Both of these have negative effects on users' experiences on the site, and are likely to make Oppia difficult or impossible to use for many users who are on poorer connections.
+This is a two-part project. Oppia currently requires users to be connected to the internet at all times while playing explorations. Furthermore, Oppia sends quite a lot of data across the network while playing explorations or visiting the website in general. Both of these have a negative effect on the user experience on the site, and are likely to make Oppia difficult or impossible to use for many users who are visiting it on poor connections.
 
-The first part of this project involves allowing explorations to be played without an internet connection. This is a multi-step problem. While playing an exploration, there are many things that happen, including:
+The first part of this project involves allowing some explorations to be played without an internet connection. This is a multi-step problem. While playing an exploration, there are many things that happen, including:
 - Statistics recording
 - Answer classification
 - Response selection
 - State transitions
 
-Most of these now happen in the frontend, however, there are still a few aspects of the communication between the frontend and backend that need to be changed in order to allow offline playing. Furthermore, there's no concept of persistent frontend storage at the moment.
+Most of these now happen in the frontend, however, there are still a few aspects of the communication between the frontend and backend that need to be changed in order to allow offline playing. Furthermore, there's no concept of persistent frontend storage at the moment (which might be needed in order to save some explorations and go back to play them without an internet connection).
 
-The second part of this project is decreasing the amount of data Oppia sends between the backend and frontend. Oppia was not originally designed with mobile or poor internet connections in mind. There have been recent efforts by contributors to concatenate and minify Oppia's CSS and JS resources, though these are just stepping stones in the longer strategy of making Oppia more efficient bandwidth-wise for users.
+The second part of this project is decreasing the amount of data Oppia sends between the backend and frontend. Oppia was not originally written with mobile or poor internet connections in mind. There have been recent efforts by contributors to concatenate and minify Oppia's CSS and JS resources, though these are just stepping stones in the longer strategy of making Oppia more efficient bandwidth-wise for users.
 
-**Expected results**: Users will be able to play Oppia explorations without any Internet connection. Also, there is a measurable decrease in data sent between the browser and the server when visiting any pages on Oppia.
+**Expected results**: Users will be able to play some Oppia explorations without any Internet connection. Also, there is a measurable decrease in data sent between the browser and the server when visiting any pages on Oppia.
 
 ### Required skills/knowledge
 Required:
@@ -155,7 +155,7 @@ Recommended:
 - Familiarity with frontend data storage solutions
 - Understanding of RESTful APIs
 
-Both parts of this project involve a lot of investigation, since you will need to figure out which parts of the protocol need to be adjusted in order to facilitate offline playing or how to optimize the protocol or other parts of the Oppia stack to reduce the amount of data sent across it.
+Both parts of this project involve a lot of investigation, since you will need to figure out which parts of the protocol need to be adjusted in order to facilitate offline playing or how to optimize the protocol or other parts of the Oppia stack to reduce the amount of data sent across the network.
 
 
 ## Making it possible to submit and prioritize requests for learning material
@@ -178,11 +178,11 @@ This project involves writing a system for creating, listing, and addressing req
 
 Those are just a few questions to get started thinking about the system.
 
-**Expected results**: Users will be able to navigate to a dashboard containing existing requests for new explorations and collections. They will be able to create new requests and view their own. Creators will be able to solve these requests in some way by creating an exploration or collection and addressing a particular request or requests. The exact nature of this resolving behavior is up to the student and will be discussed as part of this project.
+**Expected results**: Users will be able to navigate to a dashboard containing existing requests for new explorations and collections. They will be able to create new requests and view their own. Creators will be able to solve these requests in some way by creating an exploration or collection and addressing a particular request or requests. The exact nature of this resolving behavior is up to the student and will be discussed as part of this project. The overall user flow and interfaces will also be up to the student.
 
 ### Required skills/knowledge
 
-This is an end-to-end project and involves quite a lot of hands-on work with both frontend and backend code.
+This is an end-to-end project and involves hands-on work with both frontend and backend code.
 
 Required:
 - Familiarity with Python
@@ -192,7 +192,7 @@ Recommended:
 - Familiarity with Google App Engine (which uses a NoSQL data store)
 - Familiarity with creating mocks with programs such as Sketch (definitely not a requirement, but it will help)
 
-You will be requested to create mocks (even if they're just drawings on paper) and a design document outlining the technical changes needed in the frontend and backend for implementing this system. You will be working with people across the team since this project is multi-disciplinary.
+Students will be requested to create mocks (even if they're just drawings on paper) and a design document outlining the technical changes needed in the frontend and backend for implementing this system. The mocks are expected to be a first iteration of the overall learner request system, so they will not be expected to be highly detailed or fleshed out. They should be able to express the basic UI structure and demonstrate user flow through the system. Students will also be working with people across the team since this project is multi-disciplinary.
 
 
 
@@ -228,17 +228,17 @@ The world is increasingly becoming a mobile-driven environment, with well over o
 
 This project will introduce a dedicated mobile interface for Oppia, through either web views, targeted styling for the web application, or a native Android interface. This mobile interface will make it easier for users to access their profile, browse the gallery, and play through explorations.
 
-**Expected results**: An Android app which allows users to access primary portions of Oppia's website (the profile page, gallery, and learner view) and be able to play through an exploration.
+**Expected results**: An Android app which allows users to access primary portions of Oppia's website (the profile page, gallery, and exploration player) and be able to play through an exploration.
 
 ### Required skills/knowledge
 
 Required:
 - Java and extensive comfort writing Java applications
-- Familiarity with AngularJS: the developer working on this project will need to understand how Oppia's frontend works
+- Familiarity with AngularJS: the developer working on this project will need to understand how Oppia's frontend works (which can be learned prior to the project starting)
 
 Recommended:
 - Android development experience
-- Familiarity with Google App Engine (Python): depending on how the Android application is implemented, understanding how App Engine serves content may be critical for implementing the app
+- Familiarity with Google App Engine (Python)
 - Familiarity with RESTful APIs
 
 
@@ -251,17 +251,17 @@ Recommended:
 
 ### Summary
 
-Since Oppia needs to be a smart tutor which provides personalized feedback to learners, machine learning has a great potential application to Oppia. There are some efforts into allowing creators to train Oppia to respond a certain way in their explorations based on user answers. This support is not yet enabled as of the beginning of Google Summer of Code, but is being actively developed and can facilitate the work on this project. It will also be turned on for the public to use before the end of summer.
+Since Oppia needs to be a smart tutor which provides personalized feedback to learners, machine learning has great potential application to Oppia. There are some efforts into allowing creators to train Oppia to reply with targeted responses based on which answers a user submits when playing through an exploration. This support is not yet enabled on https://oppia.org as of the beginning of Google Summer of Code, but is being actively developed and can support the work on this project. It will also be turned on for the public to use before the end of summer.
 
-The new functionality introduces a training interface in the exploration editor wherein creators can see previous user answers, then select which response Oppia should use if it encounters that answer again (or the creator can create a new response, instead). We then train a classifier in the background so that Oppia can hopefully place new answers in the correct response before the creator teaches it to do so. The training interface will be available for a few interactions, but the machine learning part will only be available for text input. Although text input with machine learning is a fascinating and highly useful topic, this project focuses on applying machine learning for training our code evaluation interactions, instead.
+The new functionality introduces a training interface in the exploration editor wherein creators can see previous user answers, then select which response Oppia should use if it encounters that answer again (or the creator can create a new response, instead). We then train a classifier in the background so that Oppia can hopefully place new answers in the correct response "bucket" before the creator teaches it to do so. The training interface will be available for a few interactions, but the machine learning part will only be available for text input. Although text input with machine learning is a fascinating and highly useful topic, this project focuses on applying machine learning for training our code evaluation interactions, instead.
 
 The code evaluation interaction allows learners to type in code in order to match some sort of output, avoid an error, or match specific code. The code is evaluated in the frontend, but the learner's answer is stored in the backend. Python is the only supported language, though we will definitely be adding more languages in the future.
 
-This project involves figuring out a way to cluster together similar pieces of code (though not exactly the same) and then use that to train a classification model that can predict which cluster a new piece of code belongs to. Originally, members of the Oppia team were considering integration with [OverCode](http://people.csail.mit.edu/elg/overcode), though there were some technical concerns with how it would integrate with Oppia. Using an existing library is completely fine for this project and even encouraged. The complexity of this project is discovering a library, integrating it, and making sure it works well in practice.
+This project involves figuring out a way to cluster together similar pieces of code (though not exactly the same) and then use that to train a classification model that can predict which cluster a new piece of code belongs to. Originally, members of the Oppia team were considering integration with [OverCode](http://people.csail.mit.edu/elg/overcode), though there were some technical concerns with how it would integrate with Oppia. Using an existing library is completely fine for this project and even encouraged. The complexity of this project includes discovering a library, integrating it, and making sure it works well in practice.
 
 At the end of the project, creators will be able to train Oppia to respond to certain types of code submitted by learners. Oppia will be able to encounter new pieces of code it has not yet seen, and intelligently classify them into previously learned buckets, if that new piece of code is sufficiently similar semantically to previously taught bits of code.
 
-**Expected results**: Creators will be able to train Oppia to recognize buckets of user-submitted code answers using the existing training infrastructure and new code classifiers. Creators will also be able to test if a particular code sample fits within the bucket they expect, where buckets lead to Oppia providing a targeted reply based on the answer.
+**Expected results**: Creators will be able to train Oppia to recognize buckets of user-submitted Python code answers using the existing training infrastructure and a new code classifier. Creators will also be able to test if a particular code sample fits within the bucket they expect, where buckets lead to Oppia providing a targeted reply based on the answer.
 
 ### Required skills/knowledge
 Required:
@@ -273,4 +273,4 @@ Recommended:
 - NoSQL storage systems
 - RESTful APIs
 
-Students working on this project will need to write a design document explaining which library/libraries they plan on integrating, as well as an overall solution to solving the clustering problem. Some emphasis will be placed on ensuring it will work within the answer classification infrastructure, though there are many members of the Oppia team who will assist with explaining this to the student.
+Students working on this project will need to write a design document explaining which library/libraries they plan on integrating, as well as an overall solution to solving the clustering problem. Some emphasis will be placed on ensuring it will work within the answer classification infrastructure, though there are many members of the Oppia team who will happily assist with explaining this to the student. Finally, there may be some emphasis also placed on solving this project in such a way that it can be extended to future languages, rather than being fixed specifically to Python.
