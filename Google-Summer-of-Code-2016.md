@@ -91,8 +91,8 @@ Please be aware that there are no guarantees Oppia will be accepted into Google 
 
 There are several ways to communicate with us (see sections below). Please feel free to also email the organization administrators if you have additional questions and we'll be happy to help:
 
-- Ben Henning <henning(dot)benmax(at)gmail(dot)com>
-- Sean Lip <sean(at)seanlip(dot)org>
+- Ben Henning henning(dot)benmax(at)gmail(dot)com
+- Sean Lip sean(at)seanlip(dot)org
 
 It may help to email the Google Summer of Code mailing list, as well, which is oppia-gsoc-mentors@googlegroups.com.
 
