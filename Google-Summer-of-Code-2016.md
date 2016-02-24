@@ -19,17 +19,17 @@ Noteworthy dates:
 - **Aug 30, 2016**: GSoC officially ends
 
 # Students
-GSoC is an excellent opportunity for students to get paid to work on an open source project. If you're interested in apply as a student, you should definitely read the following resources:
+GSoC is an excellent opportunity for students to get paid to work on an open source project. If you're interested in applying as a student, you should definitely read the following resources:
 
 - [Google Summer of Code student guide](http://write.flossmanuals.net/gsocstudentguide/what-is-google-summer-of-code/)
 - [Google's list of resources](https://developers.google.com/open-source/gsoc/resources/)
 - [GSoC FAQ](https://developers.google.com/open-source/gsoc/faq)
 
-If you're specifically interested in applying to work with Oppia in Google Summer of Code, take a look at one of the prospective projects below, which also list the possible mentors for each project. Feel free to contact your mentor ahead of time or email oppia-gsoc-mentors@googlegroups.com. If you're keen on working on a smaller project ahead of Google Summer of Code or even outside of the program, check out [Contributing to Oppia](https://github.com/oppia/oppia/blob/develop/CONTRIBUTING.md).
+If you're specifically interested in applying to work with Oppia in Google Summer of Code, take a look at one of the projects ideas below, which also list the possible mentors for each project. Feel free to contact your mentor ahead of time or email oppia-gsoc-mentors@googlegroups.com. If you're keen on working on a smaller project ahead of Google Summer of Code or even outside of the program, check out [Contributing to Oppia](https://github.com/oppia/oppia/blob/develop/CONTRIBUTING.md).
 
 It will help to take a look at our [developer wiki](https://github.com/oppia/oppia/wiki) to familiarize yourself with our development process before submitting a proposal for a project. Also, check out our various [starter projects](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22starter+project%22) to get an idea of our current work.
 
-Most Oppia work heavily involves AngularJS for frontend development and Google App Engine with Python for backend development. Strong familiarity with JavaScript, Python, and related technologies are a plus, but not necessarily a requirement; please see the individual project proposals to determine whether these skills are recommended or required for the project in question.
+Familiarity with JavaScript, Python, and Google App Engine is useful and recommended for most Oppia work. Please see the individual project ideas to determine whether these skills are recommended or required for the project in question.
 
 ## GSoC Proposal Template
 When proposing a project, please use the following template:
