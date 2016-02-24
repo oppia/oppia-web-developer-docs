@@ -1,4 +1,4 @@
-Oppia is excited to be applying for participation in [Google Summer of Code 2016](https://developers.google.com/open-source/gsoc/)! GSoC is a global program which offers post-secondary students an opportunity to discover and work with open source organizations over the course of 3 months and be paid a stipend. Students work one-on-one with a mentor of an open source organization in order to implement either a project proposed by the organization (see [Oppia's proposed projects](#oppias-project-ideas)) or a proposal of their own. The following are our project proposals:
+Oppia is excited to be applying for participation in [Google Summer of Code 2016](https://developers.google.com/open-source/gsoc/)! GSoC is a global program which offers post-secondary students an opportunity to discover and work with open source organizations over the course of 3 months and be paid a stipend. Students work one-on-one with a mentor of an open source organization in order to implement either a project idea by the organization or a proposal of their own. The following are Oppia's project ideas:
 
 * [Oppia usable offline with more lightweight data transfer](#making-oppia-usable-offline-and-being-more-lightweight-in-transmitting-data)
 * [Learning material requests and submission](#making-it-possible-to-submit-and-prioritize-requests-for-learning-material)
@@ -6,7 +6,7 @@ Oppia is excited to be applying for participation in [Google Summer of Code 2016
 * [Android app to enable learning-on-the-go](#android-app-to-enable-learning-on-the-go)
 * [Applying machine learning to code interaction](#applying-machine-learning-to-code-interaction-training-and-generalizing)
 
-Since GSoC 2016 mentoring organizations are not announced until February 29, 2016, it is not known whether Oppia will be able to participate in Google Summer of Code 2016. This page will be updated accordingly once it is known whether Oppia is participating.
+Since GSoC 2016 mentoring organizations are not announced until February 29, 2016, it is not known whether Oppia will be participating in Google Summer of Code 2016. This page will be updated accordingly once it is known whether Oppia is participating.
 
 # Dates and Deadlines
 Noteworthy dates:
