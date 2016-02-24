@@ -78,9 +78,12 @@ The following are definitely mentors during Google Summer of Code, if Oppia is a
 The following may be mentors:
 - Allan Zhou (@AllanYangZhou)
 
+The following are secondary mentors (will not be assigned a student, but will help other mentors when possible):
+- Xinyu Wu (@wxyxinyu)
+
 ## Becoming a Mentor
 
-Are you interested in mentoring in Google Summer of Code 2016 for Oppia? Mentoring can be an extremely rewarding experience, though it is a commitment and a responsibility. You can be sure you will learn a lot from your potential mentee. To learn more about what mentoring entails, check out this [GSoC mentoring guide](https://flossmanuals.net/GSoCMentoring/).
+Are you interested in mentoring in Google Summer of Code 2016 for Oppia? Mentoring can be an extremely rewarding experience, though it is a commitment and a responsibility. You can be sure you will learn a lot from your potential mentee. To better understand what mentoring entails, check out this [GSoC mentoring guide](https://flossmanuals.net/GSoCMentoring/).
 
 Please be aware that there are no guarantees Oppia will be accepted into Google Summer of Code, nor that we will have enough students for all mentors to be assigned one. Nevertheless, if you're interested in being a mentor, please email oppia-gsoc-mentors@googlegroups.com if you're interested in joining!
 
