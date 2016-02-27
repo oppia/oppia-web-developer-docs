@@ -21,23 +21,24 @@ These steps outline how to install Oppia on a Windows machine:
 
 ### Accessing and editing source code
 - You can edit Oppia's source locally on your machine and it will automatically sync to the Vagrant VM directory `/home/vagrant/oppia`. 
-- However, we recommend running `git commit` and `git push` from the guest (see the troubleshooting notes below). To access the guest, run `vagrant ssh` from the root of the Oppia respository on your host.
+- However, when committing/pushing, we recommend running `git commit` and `git push` from the **guest** instead (see the troubleshooting notes below for the rationale). To access the guest, run `vagrant ssh` from the root of the Oppia respository on your host.
 
-### Restarting the VM
-If the VM is stopped, you can restart it with `vagrant up`, but Oppia will not start automatically. To restart Oppia, you will also need to do the following:
+### If the Oppia server does not start automatically
+If the Oppia server does not start automatically when you run 'vagrant up', this may mean that the VM has already been created (in which case it will not attempt to provision again). To restart the Oppia server, you will also need to do the following:
 
    1. Run `vagrant ssh` to SSH into the guest.
    2. In the guest, run:
+
    ```
      cd /home/vagrant/oppia
      bash ./scripts/start.sh
    ```
+
    3. The Oppia server should now start at `http://localhost:8181`.
 
+**Note**: If this doesn't work, you may need to exit and rebuild the VM. To do this, run the following command on the host: `vagrant destroy -f; vagrant up`.
+
 ### Troubleshooting
-- If you run `vagrant up` and Oppia does not start, it is likely because the VM has already been created and will therefore not attempt to provision again. Instead, it will only boot like a normal VM.
-  - In order to start the server, you will need to run `vagrant ssh` and follow the instructions in "Restarting the VM", above.
-  - If this doesn't work, you may need to exit and rebuild the VM. Run the following command on the host: `vagrant destroy -f; vagrant up`.
 - If you run `git commit` from the host machine, you will likely have your commit rejected because you have not installed the pre-commit hooks. The hooks only install after you have run Oppia for the first time on a machine. Since you are actually installing and running Oppia on a VM, those hooks do not exist on the host. There are several ways to overcome this:
   - (Recommended) Do `git commit` and `git push` from the guest. This is actually not as onerous as it may sound: All directories are mapped into the Vagrant VM, including `.git`, so configurations (such as your username and e-mail) will carry over as well.
   - Try to build Oppia natively on Windows (this is difficult, and is neither recommended nor supported).
