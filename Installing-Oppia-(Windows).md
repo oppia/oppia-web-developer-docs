@@ -1,25 +1,47 @@
 **Note:** If you just want to create and share explorations, you may be able to use the hosted server at https://www.oppia.org (in which case you don't need to install anything).
 
-These instructions outline how to install Oppia on a Windows machine.
+### Prerequisites
 
-1. Setting up Vagrant:
-   - Download and install [VirtualBox 5.0.12](https://www.virtualbox.org/wiki/Downloads). (You do not need to create a VM, just installing VirtualBox is sufficient.)
-   - Download and install [Vagrant 1.8.1](https://www.vagrantup.com/downloads.html). After installation, Vagrant will prompt for a restart. Restart your machine.
-   - Create a new folder somewhere on your machine, download the [Vagrantfile](https://raw.githubusercontent.com/oppia/oppia/develop/Vagrantfile), and add it to the folder. Then, open a command prompt, navigate to the folder you just created, and run `vagrant up`. This will create a new virtual machine.
-   - Run `vagrant ssh` to ssh into the virtual machine.
-   - Run `sudo apt-get install git` to install git on the virtual machine.
-   - Navigate to the vagrant folder: `cd /vagrant`.
-1. Setting up Oppia:
-   - [Fork and clone](https://help.github.com/articles/fork-a-repo/) the oppia repository. (You might have to add your ssh keys to github.)
-   - Run `cd oppia`.
-   - Run `bash scripts/install_prerequisites.sh`. This installs the build tools and project dependencies.
-   - Run `bash scripts/start.sh`. This will install Google App Engine, and start a Python server from which you can run Oppia locally.
-   - If installation has succeeded, you should now be able to access Oppia at `http://localhost:8181/`.
+The Windows installation of Oppia relies on a number of third-party programs, which you will need to install beforehand:
+
+  1. Download and install [VirtualBox 5.0.14](https://www.virtualbox.org/wiki/Downloads). You do not need to create a virtual machine (VM); that will be handled later. 
+  1. Download and install [Vagrant 1.8.1](https://www.vagrantup.com/downloads.html). After installation, Vagrant will prompt for a restart. Restart your machine. 
+  1. Download and install [Git](https://git-scm.com/downloads). 
+
+### Installing Oppia on Windows
+
+These steps outline how to install Oppia on a Windows machine:
+
+  1. Open Git Bash and navigate to a directory somewhere on your machine (such as `Desktop/opensource`) where you'd like the Oppia code to live.
+  1. In Git Bash, run `git clone https://github.com/oppia/oppia.git`. This will clone the repository into a new directory called 'oppia'.
+  1. In Git Bash, run `cd ./oppia` to navigate into the new 'oppia' directory. 
+  1. Once in the directory, run `vagrant up` in Git Bash. This will create a VM for you, install the necessary prerequisites, and start the Oppia server automatically at `http://localhost:8181`. Since the server runs automatically in the foreground, the server will grab the terminal until you `Ctrl+C` to stop the Oppia server, but the VM itself will still be running.
+
+**Note**: In the rest of this page, we'll refer to the VM as the **guest** machine, and your local computer as the **host** machine.
+
+### Accessing and editing source code
+- You can edit Oppia's source locally on your machine and it will automatically sync to the Vagrant VM directory `/home/vagrant/oppia`. 
+- However, we recommend running `git commit` and `git push` from the guest (see the troubleshooting notes below). To access the guest, run `vagrant ssh` from the root of the Oppia respository on your host.
+
+### Restarting the VM
+If the VM is stopped, you can restart it with `vagrant up`, but Oppia will not start automatically. To restart Oppia, you will also need to do the following:
+
+   1. Run `vagrant ssh` to SSH into the guest.
+   2. In the guest, run:
+   ```
+     cd /home/vagrant/oppia
+     bash ./scripts/start.sh
+   ```
+   3. The Oppia server should now start at `http://localhost:8181`.
 
 ### Troubleshooting
-- Some users have reported that the scripts in the second part need to be run using `sudo`. E.g.:
-  - `sudo bash scripts/install_prerequisites.sh`
-  - `sudo bash scripts/start.sh`
+- If you run `vagrant up` and Oppia does not start, it is likely because the VM has already been created and will therefore not attempt to provision again. Instead, it will only boot like a normal VM.
+  - In order to start the server, you will need to run `vagrant ssh` and follow the instructions in "Restarting the VM", above.
+  - If this doesn't work, you may need to exit and rebuild the VM. Run the following command on the host: `vagrant destroy -f; vagrant up`.
+- If you run `git commit` from the host machine, you will likely have your commit rejected because you have not installed the pre-commit hooks. The hooks only install after you have run Oppia for the first time on a machine. Since you are actually installing and running Oppia on a VM, those hooks do not exist on the host. There are several ways to overcome this:
+  - (Recommended) Do `git commit` and `git push` from the guest. This is actually not as onerous as it may sound: All directories are mapped into the Vagrant VM, including `.git`, so configurations (such as your username and e-mail) will carry over as well.
+  - Try to build Oppia natively on Windows (this is difficult, and is neither recommended nor supported).
+  - Note that doing a `git push` using SSH will not work, since the guest machine cannot see your host's private key. If you want to use SSH, you can add the Vagrant VM's public key to your account, but *this is NOT RECOMMENDED*! Vagrant uses the same SSH key for all machines, so anyone could write to any of your repos. 
 
 ### If the above doesn't work...
 
