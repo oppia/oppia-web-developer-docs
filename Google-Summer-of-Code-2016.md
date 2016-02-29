@@ -128,7 +128,7 @@ Many of the projects below involve significant work in either Oppia's frontend, 
 
 **Difficulty**: Medium
 
-**Potential mentor(s)**: Ben Henning
+**Potential mentor(s)**: Ben Henning (primary), Barnabas Makonda (secondary)
 
 ### Summary
 
