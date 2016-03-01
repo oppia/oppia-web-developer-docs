@@ -77,9 +77,6 @@ The following are definitely mentors during Google Summer of Code, if Oppia is a
 - Allan Zhou (@AllanYangZhou)
 - Xinyu Wu (@wxyxinyu)
 
-The following may be mentors:
-- Barnabas Makonda (@MAKOSCAFEE)
-
 The following are partial mentors (will not be assigned a student, but will help other mentors when possible):
 - Bren Briggs (@bbriggs)
 
