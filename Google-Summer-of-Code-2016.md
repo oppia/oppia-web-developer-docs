@@ -1,4 +1,4 @@
-Oppia is excited to be applying for participation in [Google Summer of Code 2016](https://developers.google.com/open-source/gsoc/)! GSoC is a global program which offers post-secondary students an opportunity to discover and work with open source organizations over the course of 3 months and be paid a stipend. Students work one-on-one with a mentor of an open source organization in order to implement either a project idea by the organization or a proposal of their own. The following are Oppia's project ideas:
+Oppia is excited to be participating in [Google Summer of Code 2016](https://developers.google.com/open-source/gsoc/)! GSoC is a global program which offers post-secondary students an opportunity to discover and work with open source organizations over the course of 3 months and be paid a stipend. Students work one-on-one with a mentor of an open source organization in order to implement either a project idea by the organization or a proposal of their own. The following are Oppia's project ideas:
 
 * [Oppia usable offline with more lightweight data transfer](#making-oppia-usable-offline-and-being-more-lightweight-in-transmitting-data)
 * [Learning material requests and submission](#making-it-possible-to-submit-and-prioritize-requests-for-learning-material)
@@ -6,12 +6,10 @@ Oppia is excited to be applying for participation in [Google Summer of Code 2016
 * [Android app to enable learning-on-the-go](#android-app-to-enable-learning-on-the-go)
 * [Applying machine learning to code interaction](#applying-machine-learning-to-code-interaction-training-and-generalizing)
 
-Since GSoC 2016 mentoring organizations are not announced until February 29, 2016, it is not known whether Oppia will be participating in Google Summer of Code 2016. This page will be updated accordingly once it is known whether Oppia is participating.
-
 # Dates and Deadlines
 Noteworthy dates:
 - **February 8-19, 2016**: Mentoring organizations apply
-- **February 29, 2016**: Mentoring organizations are announced **<- We are waiting on this currently.**
+- **February 29, 2016**: Mentoring organizations are announced
 - **March 14-25, 2016**: Student application period
 - **April 22, 2016**: Accepted students announced
 - **April 22-May 22, 2016**: Community bonding period
@@ -71,7 +69,7 @@ In order to ensure a well-rounded engineering experience, developers will do som
 
 ## List of Mentors
 
-The following are definitely mentors during Google Summer of Code, if Oppia is accepted:
+The following are definitely mentors during Google Summer of Code:
 - Ben Henning (@BenHenning)
 - Sean Lip (@seanlip)
 - Allan Zhou (@AllanYangZhou)
@@ -84,7 +82,7 @@ The following are partial mentors (will not be assigned a student, but will help
 
 Are you interested in mentoring in Google Summer of Code 2016 for Oppia? Mentoring can be an extremely rewarding experience, though it is a commitment and a responsibility. You can be sure you will learn a lot from your potential mentee. To better understand what mentoring entails, check out this [GSoC mentoring guide](https://flossmanuals.net/GSoCMentoring/).
 
-Please be aware that there are no guarantees Oppia will be accepted into Google Summer of Code, nor that we will have enough students for all mentors to be assigned one. Nevertheless, if you're interested in being a mentor, please email oppia-gsoc-mentors@googlegroups.com if you're interested in joining!
+Please be aware that there are no guarantees that Oppia will have enough students for all mentors to be assigned one. Nevertheless, please email oppia-gsoc-mentors@googlegroups.com if you're interested in being a mentor!
 
 # Communication
 
