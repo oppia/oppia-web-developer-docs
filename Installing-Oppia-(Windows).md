@@ -6,7 +6,8 @@ The Windows installation of Oppia relies on a number of third-party programs, wh
 
   1. Download and install [VirtualBox 5.0.14](https://www.virtualbox.org/wiki/Downloads). You do not need to create a virtual machine (VM); that will be handled later. 
   1. Download and install [Vagrant 1.8.1](https://www.vagrantup.com/downloads.html). After installation, Vagrant will prompt for a restart. Restart your machine. 
-  1. Download and install [Git](https://git-scm.com/downloads). 
+  1. Download and install [git](https://git-scm.com/downloads). 
+  1. Make sure git correctly [converts Windows line endings](https://help.github.com/articles/dealing-with-line-endings/).
 
 ### Installing Oppia on Windows
 
@@ -43,6 +44,9 @@ If the Oppia server does not start automatically when you run 'vagrant up', this
   - (Recommended) Do `git commit` and `git push` from the guest. This is actually not as onerous as it may sound: All directories are mapped into the Vagrant VM, including `.git`, so configurations (such as your username and e-mail) will carry over as well.
   - Try to build Oppia natively on Windows (this is difficult, and is neither recommended nor supported).
   - Note that doing a `git push` using SSH will not work, since the guest machine cannot see your host's private key. If you want to use SSH, you can add the Vagrant VM's public key to your account, but *this is NOT RECOMMENDED*! Vagrant uses the same SSH key for all machines, so anyone could write to any of your repos. 
+-  If Vagrant prints an error involving "\r not found", then, in Git Bash, run `find . -name "*" -type f -exec dos2unix {} \;`. After that, exit the Vagrant environment, run `vagrant box reload`, and try again.
+
+
 
 ### If the above doesn't work...
 
