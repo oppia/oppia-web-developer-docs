@@ -5,6 +5,7 @@ Let's suppose you're creating a new object called `MyObject` (in practice you sh
     * `description`: A string describing the object.
     * (optional) `edit_html_filename`: The name of the file in (3) below, if it exists.
     * (optional) `edit_js_filename`: The name of the file in (4) below, if it exists.
+    * `default_value`: This is needed for any object that is used as an input parameter to a rule. It represents the default value of that parameter.
     * `normalize`: A function that is given an instance of the object in question and is responsible for validating and normalizing it. The supplied instance is a native Python object.
   1. In `extensions/objects/models/objects_test.py` add new tests to the `ObjectNormalizationUnitTests` class; these will be run automatically with the other tests.
   1. (optional) In `extensions/objects/templates` add a file `my_object_editor.html` specifying an interface in which objects of this type can be submitted. This is only necessary if editors will be entering parameters that use this object type.
