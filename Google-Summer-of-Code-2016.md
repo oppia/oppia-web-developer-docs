@@ -77,6 +77,7 @@ The following are definitely mentors during Google Summer of Code:
 
 The following are partial mentors (will not be assigned a student, but will help other mentors when possible):
 - Bren Briggs (@bbriggs)
+- Jacob Davis (@jacobdavis11)
 
 ## Becoming a Mentor
 
