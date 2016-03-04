@@ -23,11 +23,26 @@ GSoC is an excellent opportunity for students to get paid to work on an open sou
 - [Google's list of resources](https://developers.google.com/open-source/gsoc/resources/)
 - [GSoC FAQ](https://developers.google.com/open-source/gsoc/faq)
 
-If you're specifically interested in applying to work with Oppia in Google Summer of Code, take a look at one of the projects ideas below, which also list the possible mentors for each project. If you're not very familiar with what Oppia is all about (or wish to become familiarized with concepts like explorations and interactions), then our [user documentation](http://oppia.github.io/#/) will be very helpful for you! Feel free to contact your mentor ahead of time or email oppia-gsoc-mentors@googlegroups.com. If you're keen on working on a smaller project ahead of Google Summer of Code or even outside of the program, check out [Contributing to Oppia](https://github.com/oppia/oppia/blob/develop/CONTRIBUTING.md).
+## Getting started
+If you're specifically interested in applying to work with Oppia in Google Summer of Code, we recommend you follow these steps:
 
-It will help to take a look at our [developer wiki](https://github.com/oppia/oppia/wiki) to familiarize yourself with our development process before submitting a proposal for a project. Also, check out our various [starter projects](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22starter+project%22) to get an idea of our current work.
+1. Take a look at the project ideas below, and select a project you're most interested.
+2. If you're not very familiar with what Oppia is all about (or wish to become familiarized with concepts like explorations and interactions), then our [user documentation](http://oppia.github.io/#/) will be very helpful for you! Read the [developer wiki](https://github.com/oppia/oppia/wiki), and especially [Overview of the Oppia codebase](https://github.com/oppia/oppia/wiki/Overview-of-the-Oppia-codebase) to get familiar with the codebase, and start planning your project proposal.
+3. (Optional) Read the [contributors' guide](https://github.com/oppia/oppia/blob/develop/CONTRIBUTING.md), set up a development instance and work on a [starter project](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22starter+project%22) to get more familiar with the Oppia codebase and the contribution process. This will also help us get to understand your skills, and get an idea of what it's like to work with you.
+4. Write your project proposal! If you have any questions about your project, feel free to ask on [Gitter chat](https://gitter.im/oppia/oppia-chat), or email the mentors' mailing list at oppia-gsoc-mentors@googlegroups.com. Please be specific when asking questions; this makes it easier for us to help you.
 
-Familiarity with JavaScript, Python, and Google App Engine is useful and recommended for most Oppia work. Please see the individual project ideas to determine whether these skills are recommended or required for the project in question.
+## FAQs
+**Q: What technical skills do I need to work on Oppia?**
+
+A: Familiarity with JavaScript, Python, and Google App Engine is useful and recommended for most Oppia work. In addition UI design skills is useful for frontend work. Please see the individual project ideas to determine whether these skills are recommended or required for the project in question.
+
+**Q: How can I increase my chances of getting selected?**
+
+A: Writing a good project proposal, engaging with the community, helping other students can all help you. Your application will be evaluated holistically, so there's no one thing you must or must not do (other than apply!) to get selected.
+
+**Q: Can you be flexible around other my commitments in the summer?**
+
+A: GSoC is intended to be a full-time job, so the main concern is whether you can still get the project done on time. Be upfront about your other commitments, and work them into the schedule in your proposal, to show that you will still be able to complete your project milestones.
 
 ## GSoC Proposal Template
 When proposing a project, please use the following template:
