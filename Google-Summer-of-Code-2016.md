@@ -6,6 +6,8 @@ Oppia is excited to be participating in [Google Summer of Code 2016](https://dev
 * [Android app to enable learning-on-the-go](#android-app-to-enable-learning-on-the-go)
 * [Applying machine learning to code interaction](#applying-machine-learning-to-code-interaction-training-and-generalizing)
 
+Feel free to checkout our [GSoC organization page](https://summerofcode.withgoogle.com/organizations/5631832271880192/).
+
 # Dates and Deadlines
 Noteworthy dates:
 - **February 8-19, 2016**: Mentoring organizations apply
