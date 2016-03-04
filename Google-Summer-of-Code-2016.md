@@ -44,7 +44,7 @@ A: Writing a good project proposal, engaging with the community, helping other s
 
 A: GSoC is intended to be a full-time job, so the main concern is whether you can still get the project done on time. Be upfront about your other commitments, and work them into the schedule in your proposal, to show that you will still be able to complete your project milestones.
 
-**Q: Why hasn't anyone responded to my question/email/PR? :( **
+**Q: Why hasn't anyone responded to my question/email/PR? :\(**
 
 A: Sorry about that! We are pleasantly surprised at the amount of interest we have been getting :) We have a limited amount of manpower, and hence may take a while to get back to you. Please be patient! If we haven't responded in more than a day or two, you can try pinging us again over chat or email.
 
