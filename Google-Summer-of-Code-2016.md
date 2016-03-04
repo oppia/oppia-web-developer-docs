@@ -42,7 +42,7 @@ A: Writing a good project proposal, engaging with the community, helping other s
 
 **Q: Can you be flexible around other my commitments in the summer?**
 
-A: GSoC is intended to be a full-time job, so the main concern is whether you can still get the project done on time. Be upfront about your other commitments, and work them into the schedule in your proposal, to show that you will still be able to complete your project milestones.
+A: GSoC is intended to be a full-time job, so the main concern is whether you can still get the project done on time. Be upfront about your other commitments and make sure you schedule your time accordingly when creating your proposal. The proposal should be able to reflect you being able to complete the project by the end of the summer.
 
 **Q: Why hasn't anyone responded to my question/email/PR? :\(**
 
