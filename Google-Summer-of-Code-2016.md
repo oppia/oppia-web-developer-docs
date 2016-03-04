@@ -26,7 +26,7 @@ GSoC is an excellent opportunity for students to get paid to work on an open sou
 ## Getting started
 If you're specifically interested in applying to work with Oppia in Google Summer of Code, we recommend you follow these steps:
 
-1. Take a look at the project ideas below, and select a project you're most interested.
+1. Take a look at the project ideas below, and select a project you're most interested in.
 2. If you're not very familiar with what Oppia is all about (or wish to become familiarized with concepts like explorations and interactions), then our [user documentation](http://oppia.github.io/#/) will be very helpful for you! Read the [developer wiki](https://github.com/oppia/oppia/wiki), and especially [Overview of the Oppia codebase](https://github.com/oppia/oppia/wiki/Overview-of-the-Oppia-codebase) to get familiar with the codebase, and start planning your project proposal.
 3. (Optional) Read the [contributors' guide](https://github.com/oppia/oppia/blob/develop/CONTRIBUTING.md), set up a development instance and work on a [starter project](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22starter+project%22) to get more familiar with the Oppia codebase and the contribution process. This will also help us get to understand your skills, and get an idea of what it's like to work with you.
 4. Write your project proposal! If you have any questions about your project, feel free to ask on [Gitter chat](https://gitter.im/oppia/oppia-chat), or email the mentors' mailing list at oppia-gsoc-mentors@googlegroups.com. Please be specific when asking questions; this makes it easier for us to help you.
