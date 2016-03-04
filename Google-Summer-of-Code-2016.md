@@ -46,7 +46,7 @@ A: GSoC is intended to be a full-time job, so the main concern is whether you ca
 
 **Q: Why hasn't anyone responded to my question/email/PR? :\(**
 
-A: Sorry about that! We are pleasantly surprised at the amount of interest we have been getting :) We have a limited amount of manpower, and hence may take a while to get back to you. Please be patient! If we haven't responded in more than a day or two, you can try pinging us again over chat or email.
+A: We are pleasantly surprised at the amount of interest we have been getting :) However, we have a limited amount of manpower, and hence may take a while to get back to you. Please be patient! If we haven't responded in more than a day or two, you can try pinging us again over chat or email.
 
 ## GSoC Proposal Template
 When proposing a project, please use the following template:
