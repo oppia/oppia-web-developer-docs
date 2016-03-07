@@ -62,6 +62,14 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
 
 5. *Shutting down the development server.* When you're done, you can shut down the development server by typing Ctrl+C into the terminal.
 
+## Tips and tricks
+
+  * To preserve the contents of the local datastore between consecutive runs, use the `--save_datastore` argument when starting up the dev server:
+
+  ```
+    bash scripts/start.sh --save_datastore
+  ```
+
 ## Troubleshooting
 
   * If you get an error that ends with:
