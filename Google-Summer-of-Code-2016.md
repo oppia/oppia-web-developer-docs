@@ -5,6 +5,7 @@ Oppia is excited to be participating in [Google Summer of Code 2016](https://dev
 * [Creator dashboard](#creator-dashboard)
 * [Android app to enable learning-on-the-go](#android-app-to-enable-learning-on-the-go)
 * [Applying machine learning to code interaction](#applying-machine-learning-to-code-interaction-training-and-generalizing)
+* [Re-imagining the exploration editor](#re-imagining-the-exploration-editor)
 
 Feel free to checkout our [GSoC organization page](https://summerofcode.withgoogle.com/organizations/5631832271880192/).
 
@@ -294,3 +295,31 @@ Recommended:
 - RESTful APIs
 
 Students working on this project will need to write a design document explaining which library/libraries they plan on integrating, as well as an overall solution to solving the clustering problem. Some emphasis will be placed on ensuring it will work within the answer classification infrastructure, though there are many members of the Oppia team who will happily assist with explaining this to the student. Finally, there may be some emphasis also placed on solving this project in such a way that it can be extended to future languages, rather than being fixed specifically to Python.
+
+## Re-imagining the exploration editor
+
+**Difficulty**: Hard
+
+**Potential mentor(s)**: Sean Lip
+
+### Summary
+
+The Oppia editor is powerful and feature-rich. This is good for users who desire flexibility, but not good for first-time users and people who "just want to teach online". Hence, a priority for Oppia this year is to simplify the editor to the point where it is easily accessible to first-time exploration creators.
+
+More specifically, when someone creates an exploration for the first time, we'd like them to create something that's fairly linear (see the notes on "critical path" [here](http://oppia.github.io/#/DesignTips)). The emphasis here is on minimizing the amount of time needed for the creator to build something that they are happy with publishing and sharing; generally speaking, this should happen in 30 minutes or less, and be of similar difficulty to writing a short blog post on the subject. Note that it is totally fine for the explorations thereby created to use only a small subset of the functionality that Oppia provides -- they can always be augmented later.
+
+This project is currently in the conceptualization/idea phase. A number of Oppia's current contributors are now working on ideas and creation UX stories (e.g., should the 'simple' experience be: "write a dialog, and then press a button to break it up into cards?"). The plan is to test these ideas with users and produce low-fidelity mocks by the end of April. The GSoC project itself will then involve building prototypes of these mocks, validating them with users, planning a suitable implementation strategy for integrating this into the current editor, and implementing the new editor.
+
+**Expected results**: New creators discovering Oppia for the first time should, within 30 minutes, be able to successfully create and publish an exploration that they are proud of.
+
+### Required skills/knowledge
+Required:
+- Strong experience coding in AngularJS.
+- Strong familiarity with the existing editor codebase.
+- Willingness and ability to do frequent user experience testing.
+
+Recommended:
+- Good design taste.
+- Prior experience with major codebase refactoring.
+
+Students working on this project are encouraged to submit: (a) ideas for a "simpler" editor (ideally fleshed out using concrete examples of lessons), (b) an overview of how they would plan the transition from the current editor to the simpler one.
