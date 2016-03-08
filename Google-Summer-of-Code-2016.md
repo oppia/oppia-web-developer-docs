@@ -9,16 +9,6 @@ Oppia is excited to be participating in [Google Summer of Code 2016](https://dev
 
 Feel free to checkout our [GSoC organization page](https://summerofcode.withgoogle.com/organizations/5631832271880192/).
 
-# Dates and Deadlines
-Noteworthy dates:
-- **February 8-19, 2016**: Mentoring organizations apply
-- **February 29, 2016**: Mentoring organizations are announced
-- **March 14-25, 2016**: Student application period
-- **April 22, 2016**: Accepted students announced
-- **April 22-May 22, 2016**: Community bonding period
-- **May 23-Aug 23, 2016**: Students enjoy the summer by programming amazing projects for open source projects
-- **Aug 30, 2016**: GSoC officially ends
-
 # Students
 GSoC is an excellent opportunity for students to get paid to work on an open source project. If you're interested in applying as a student, you should definitely read the following resources:
 
@@ -29,10 +19,11 @@ GSoC is an excellent opportunity for students to get paid to work on an open sou
 ## Getting started
 If you're specifically interested in applying to work with Oppia in Google Summer of Code, we recommend you follow these steps:
 
+1. **[NEW!]** Sign up to the [oppia-gsoc-announce@](https://groups.google.com/forum/#!forum/oppia-gsoc-announce) mailing list in order to receive important notifications about Oppia's participation in GSoC.
 1. Take a look at the project ideas below, and select a project you're most interested in.
-2. If you're not very familiar with what Oppia is all about (or wish to become familiarized with concepts like explorations and interactions), then our [user documentation](http://oppia.github.io/#/) will be very helpful for you! Read the [developer wiki](https://github.com/oppia/oppia/wiki), and especially [Overview of the Oppia codebase](https://github.com/oppia/oppia/wiki/Overview-of-the-Oppia-codebase) to get familiar with the codebase, and start planning your project proposal.
-3. (Optional) Read the [contributors' guide](https://github.com/oppia/oppia/blob/develop/CONTRIBUTING.md), set up a development instance and work on a [starter project](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22starter+project%22) to get more familiar with the Oppia codebase and the contribution process. This will also help us get to understand your skills, and get an idea of what it's like to work with you.
-4. Write your project proposal! If you have any questions about your project, feel free to ask on [Gitter chat](https://gitter.im/oppia/oppia-chat), or email the mentors' mailing list at oppia-gsoc-mentors@googlegroups.com. Please be specific when asking questions; this makes it easier for us to help you.
+1. If you're not very familiar with what Oppia is all about (or wish to become familiarized with concepts like explorations and interactions), then our [user documentation](http://oppia.github.io/#/) will be very helpful for you! Read the [developer wiki](https://github.com/oppia/oppia/wiki), and especially [Overview of the Oppia codebase](https://github.com/oppia/oppia/wiki/Overview-of-the-Oppia-codebase) to get familiar with the codebase, and start planning your project proposal.
+1. (Optional) Read the [contributors' guide](https://github.com/oppia/oppia/blob/develop/CONTRIBUTING.md), set up a development instance and work on a [starter project](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22starter+project%22) to get more familiar with the Oppia codebase and the contribution process. This will also help us get to understand your skills, and get an idea of what it's like to work with you.
+1. Write your project proposal! If you have any questions about your project, feel free to ask on [Gitter chat](https://gitter.im/oppia/oppia-chat), or email the mentors' mailing list at oppia-gsoc-mentors@googlegroups.com. Please be specific when asking questions; this makes it easier for us to help you.
 
 ## FAQs
 **Q: What technical skills do I need to work on Oppia?**
@@ -86,6 +77,16 @@ In order to ensure a well-rounded engineering experience, developers will do som
 - Write automated tests for their projects
 - Create UI mocks (if doing frontend development)
 - Write design documents (if implementing large features or introducing new systems)
+
+# Dates and Deadlines
+Noteworthy dates:
+- **February 8-19, 2016**: Mentoring organizations apply
+- **February 29, 2016**: Mentoring organizations are announced
+- **March 14-25, 2016**: Student application period
+- **April 22, 2016**: Accepted students announced
+- **April 22-May 22, 2016**: Community bonding period
+- **May 23-Aug 23, 2016**: Students enjoy the summer by programming amazing projects for open source projects
+- **Aug 30, 2016**: GSoC officially ends
 
 # Mentors
 
