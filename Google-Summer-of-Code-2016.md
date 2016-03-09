@@ -19,7 +19,7 @@ GSoC is an excellent opportunity for students to get paid to work on an open sou
 ## Getting started
 If you're specifically interested in applying to work with Oppia in Google Summer of Code, we recommend you follow these steps:
 
-1. **[NEW!]** Sign up to the [oppia-gsoc-announce@](https://groups.google.com/forum/#!forum/oppia-gsoc-announce) mailing list in order to receive important notifications about Oppia's participation in GSoC.
+1. Sign up to the [oppia-gsoc-announce@](https://groups.google.com/forum/#!forum/oppia-gsoc-announce) mailing list in order to receive important notifications about Oppia's participation in GSoC.
 1. Take a look at the project ideas below, and select a project you're most interested in.
 1. If you're not very familiar with what Oppia is all about (or wish to become familiarized with concepts like explorations and interactions), then our [user documentation](http://oppia.github.io/#/) will be very helpful for you! Read the [developer wiki](https://github.com/oppia/oppia/wiki), and especially [Overview of the Oppia codebase](https://github.com/oppia/oppia/wiki/Overview-of-the-Oppia-codebase) to get familiar with the codebase, and start planning your project proposal.
 1. (Optional) Read the [contributors' guide](https://github.com/oppia/oppia/blob/develop/CONTRIBUTING.md), set up a development instance and work on a [starter project](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22starter+project%22) to get more familiar with the Oppia codebase and the contribution process. This will also help us get to understand your skills, and get an idea of what it's like to work with you.
@@ -77,6 +77,25 @@ In order to ensure a well-rounded engineering experience, developers will do som
 - Write automated tests for their projects
 - Create UI mocks (if doing frontend development)
 - Write design documents (if implementing large features or introducing new systems)
+
+## Selection Criteria
+
+In order to select students for GSoC, we will mostly be looking at two things:
+- The quality of the submitted proposal
+- Our prior history/experience working with the student
+
+For the proposal, we will be looking for the following:
+- Specific ideas that build on the original project idea, with a strong focus on creating a simple, intuitive experience for end users.
+- The ability to break down a complex task into reasonable milestones, with a clear, well-defined (and, ideally, shippable) deliverable at the end of each milestone.
+- Sufficient detail (e.g. references to particular files and methods) to convince us that the applicant is not hand-waving, and has a very good understanding of both the scope of the problem and the existing codebase.
+- Clarity of communication.
+
+For prior history/experience, we will take the following into consideration:
+- The quality of students' previously-submitted PRs to the project (including coding ability, debugging ability, initiative, responsiveness, independence, ability to break down complex tasks, and ability to keep commitments).
+- Communication skills and English language skills.
+- Enthusiasm for helping others by explaining things well. 
+
+Please note that, although we are expecting many GSoC applicants this year, we are only likely to be awarded a small number of slots since this is our first year as a participant. However, please note that you don't need to be accepted to GSoC in order to become a regular contributor to the Oppia project -- this project is run by the community for the community, and we warmly welcome anyone who would like to help out!
 
 # Dates and Deadlines
 Noteworthy dates:
