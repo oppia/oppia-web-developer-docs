@@ -80,9 +80,11 @@ In order to ensure a well-rounded engineering experience, developers will do som
 
 ## Selection Criteria
 
-In order to select students for GSoC, we will mostly be looking at two things:
+In order to select students for GSoC, we will mainly be looking at two things:
 - The quality of the submitted proposal
 - Our prior history/experience working with the student
+
+This is because we believe that strong performance in these two dimensions is likely to correlate well with the student having an enjoyable, fulfilling and productive experience over the summer, and successfully completing the GSoC program.
 
 For the proposal, we will be looking for the following:
 - Specific ideas that build on the original project idea, with a strong focus on creating a simple, intuitive experience for end users.
