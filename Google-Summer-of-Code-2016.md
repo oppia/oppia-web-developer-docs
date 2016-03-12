@@ -116,10 +116,10 @@ Noteworthy dates:
 The following are definitely mentors during Google Summer of Code:
 - Ben Henning (@BenHenning)
 - Sean Lip (@seanlip)
-- Allan Zhou (@AllanYangZhou)
 - Xinyu Wu (@wxyxinyu)
 
 The following are partial mentors (will not be assigned a student, but will help other mentors when possible):
+- Allan Zhou (@AllanYangZhou)
 - Bren Briggs (@bbriggs)
 - Jacob Davis (@jacobdavis11)
 - Madiya Aitbayev (@maitbayev)
