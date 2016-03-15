@@ -122,7 +122,7 @@ The following are partial mentors (will not be assigned a student, but will help
 - Allan Zhou (@AllanYangZhou)
 - Bren Briggs (@bbriggs)
 - Jacob Davis (@jacobdavis11)
-- Madiya Aitbayev (@maitbayev)
+- Madiyar Aitbayev (@maitbayev)
 
 ## Becoming a Mentor
 
