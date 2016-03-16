@@ -290,7 +290,7 @@ Recommended:
 
 **Difficulty**: Hard
 
-**Potential mentor(s)**: Allan Zhou (primary), Ben Henning (secondary)
+**Potential mentor(s)**: Ben Henning (primary), Allan Zhou (secondary)
 
 ### Summary
 
