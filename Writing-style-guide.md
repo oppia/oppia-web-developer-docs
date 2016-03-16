@@ -1,10 +1,8 @@
-# Writing Style Guide
-
 _(Compiled by @whygee)_
 
 ## Voice and Tone Cheat Sheet
 
-Explanation: Voice and tone characteristics should ladder up to experience principles, which should ladder up to Oppia's core principle. The main principle here is: bring adventure & curiosity. How? Make sure that every interaction feels like a moment of discovery, that it's open & collaborative, and that it happens in real time. Next, for each of these experience principles, how do we talk / what language do we use, and what is the brand personality if we had to assign characteristics to each? For example, each moment of discovery should use delightful language (e.g. for a correct response, we might use "Good call, you got it right" in favor of "Your answer is correct").
+Explanation: Voice and tone characteristics should ladder up to experience principles, which should ladder up to Oppia's core principle. The main principle here is: bring adventure & curiosity. How do we do this? By making sure that every interaction feels like a moment of discovery, that it's open & collaborative, and that it happens in real time. Now, for each of these experience principles, let's figure out: how do we talk / what language do we use, and what is the brand personality if we had to assign characteristics to each? For example, each moment of discovery should use delightful language (e.g. for a correct response, we might use "Good call, you got it right" in favor of "Your answer is correct").
 
 ### General tips on tone
 
@@ -31,12 +29,12 @@ Source: [Smashing Magazine](http://www.smashingmagazine.com/2013/06/17/five-ways
 5. **Avoid text based on physical direction.** To ensure UI text is accessible to those who may not be able to see the screen or page, try to avoid words like "below", "above", "here", etc. when instructing users. For example, instead of “Enter your account details below,” just use "Enter your account details".
 6. **Error messages = explanation + solution, that’s it.** Explain the problem in simple language, then tell the user how to fix it (or offer to fix it for them). A few tips: consider adding helpful links, don’t blame the user, avoid humor.
 
-## Glossary (in progress)
+## Glossary of terms
 
 _NB: This is a work in progress. Note that terms with asterisks need to be revisited in the future._
 
-- **Card*.** The primary component of an exploration. Consists of content and an interaction. Content is text, images, videos, and other rich text components.
-- **Category/subject/topic.** A topic, subject, or interest that anyone can learn about on Oppia. Learners are able to choose from a list of categories on the home page.
+- **Card*.** The primary component of an exploration. It consists of content and an interaction (where the content is text, images, videos, and other rich text components).
+- **Category/subject/topic.** A topic, subject, or interest that anyone can learn about on Oppia. Learners can choose from a list of categories on the home page.
 - **Collection.** A group of explorations.
 - **Community.** Anyone who teaches, learns, and contributes to any content on Oppia. Community members are respectful citizens whose main objective is to steward enriching learning opportunities.
 - **Contributor.** Anyone who pitches in content for an exploration/lesson. One way that Oppia is more of a collaborative learning space, in contrast to more traditional online learning platforms.
@@ -53,12 +51,10 @@ _NB: This is a work in progress. Note that terms with asterisks need to be revis
 - **Tags.** Additional labels that can be added to an exploration in order to make it more findable in the gallery.
 
 ### Words not to use
-
 - **State.** The old name for a card.
 - **Widget.** The old name for a question.
 
 ## Punctuation
-
 - **Ampersand (&).** Use ampersand (&) in headlines on the site when referencing two items (i.e. ' Snacks & drinks' ). In a list of three or more items, spell out ' and'  (i.e. ' Snacks, drinks, and more' ). 
 - **Asterisks.** Use before superscript numerals to disclaim a statement. Place asterisk at end of sentence or phrase unless legal deems otherwise. Place asterisks outside punctuation: Get free delivery on orders over $15.*
 - **Colon.** The word directly after a colon should always be lowercase (i.e. Weekly sale: household supplies). This applies in headlines, email subject lines, email body copy, etc.
