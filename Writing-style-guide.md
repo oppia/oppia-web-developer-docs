@@ -2,7 +2,9 @@ _(Compiled by @whygee)_
 
 ## Voice and Tone Cheat Sheet
 
-Explanation: Voice and tone characteristics should ladder up to experience principles, which should ladder up to Oppia's core principle. The main principle here is: bring adventure & curiosity. How do we do this? By making sure that every interaction feels like a moment of discovery, that it's open & collaborative, and that it happens in real time. Now, for each of these experience principles, let's figure out: how do we talk / what language do we use, and what is the brand personality if we had to assign characteristics to each? For example, each moment of discovery should use delightful language (e.g. for a correct response, we might use "Good call, you got it right" in favor of "Your answer is correct").
+  ![Schematic diagram explaining the breakdown of core principle into voice and tone characteristics.](images/voiceCheatSheet.png)
+
+Voice and tone characteristics should ladder up to experience principles, which should ladder up to Oppia's core principle. The main principle here is: bring adventure & curiosity. How do we do this? By making sure that every interaction feels like a moment of discovery, that it's open & collaborative, and that it happens in real time. Now, for each of these experience principles, let's figure out: how do we talk / what language do we use, and what is the brand personality if we had to assign characteristics to each? For example, each moment of discovery should use delightful language (e.g. for a correct response, we might use "Good call, you got it right" in favor of "Your answer is correct").
 
 ### General tips on tone
 
