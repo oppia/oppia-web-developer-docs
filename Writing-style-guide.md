@@ -1,22 +1,12 @@
-_(Compiled by @whygee)_
+_(Compiled by @whygee, Dec 2015)_
 
 ## Voice and Tone Cheat Sheet
 
-  ![Schematic diagram explaining the breakdown of core principle into voice and tone characteristics.](images/voiceCheatSheet.png)
+  ![Schematic diagram explaining breakdown of core principle into voice and tone characteristics.](images/voiceCheatSheet.png)
 
-Voice and tone characteristics should ladder up to experience principles, which should ladder up to Oppia's core principle. The main principle here is: bring adventure & curiosity. How do we do this? By making sure that every interaction feels like a moment of discovery, that it's open & collaborative, and that it happens in real time. Now, for each of these experience principles, let's figure out: how do we talk / what language do we use, and what is the brand personality if we had to assign characteristics to each? For example, each moment of discovery should use delightful language (e.g. for a correct response, we might use "Good call, you got it right" in favor of "Your answer is correct").
+This diagram shows how the voice and tone characteristics are broken down from Oppia's core principle ("bring adventure and curiosity..."). We do this by making sure that every interaction feels like a moment of discovery, that it's open and collaborative, and that it happens in real time. Now, for each of these experience principles, we ask: how do we talk / what language do we use, and what is the brand personality if we had to assign characteristics to each? So, for example, each moment of discovery should use delightful language (e.g. for a correct response, we might use "Good call, you got it right" in favor of "Your answer is correct").
 
-### General tips on tone
-
-Avoid over-branding or using quirky language when the user expects a straightforward outcome. In other words, never let the quirkiness get in the way when the user is trying to take action. Examples include:
- 
-- navigation
-- forms and field labels
-- instructional text
-- selection text (drop-downs, radio buttons)
-- buttons
-
-Source: [Smashing Magazine](http://www.smashingmagazine.com/2013/06/17/five-ways-prevent-bad-microcopy/)
+**General tip on tone:** Avoid over-branding or using quirky language when the user expects a straightforward outcome. In other words, never let the quirkiness get in the way when the user is trying to take action. Examples include: navigation, forms and field labels, instructional text, selection text (drop-downs, radio buttons) and buttons. _Source: [Smashing Magazine](http://www.smashingmagazine.com/2013/06/17/five-ways-prevent-bad-microcopy/)_
 
 ## Style best practices
 
@@ -97,13 +87,13 @@ A few more resources on UI writing that you may find helpful:
 - Official dictionary: [Merriam-Webster](http://www.merriam-webster.com/)
 - A checklist of [content usability guidelines](http://www.userfocus.co.uk/resources/contentchecklist.html)
 - UX writing checkist
-  1. Too few words? Too many?
-  2. Front loaded keywords?
-  3. Present tense? (in most cases)
-  4. Active voice? (in most cases)
-  5. "You" is the only pronoun? (in most cases)
-  6. 4th grade vocabulary? 
-  7. Friendly, short, simple words?
-  8. Part of product vocabulary?
-  9. Meets established word patterns?
-  10. Short? If not, cut in half, then cut in half again.
+  - Too few words? Too many?
+  - Front loaded keywords?
+  - Present tense? (in most cases)
+  - Active voice? (in most cases)
+  - "You" is the only pronoun? (in most cases)
+  - 4th grade vocabulary? 
+  - Friendly, short, simple words?
+  - Part of product vocabulary?
+  - Meets established word patterns?
+  - Short? If not, cut in half, then cut in half again.
