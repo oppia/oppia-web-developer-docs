@@ -42,6 +42,10 @@ A: GSoC is intended to be a full-time job, so the main concern is whether you ca
 
 A: We are pleasantly surprised at the amount of interest we have been getting :) However, we have a limited amount of manpower, and hence may take a while to get back to you. Please be patient! If we haven't responded in more than a day or two, you can try pinging us again over chat or email.
 
+**Q: How can I get feedback on my project proposal before submitting it? **
+
+A: Please submit a *draft* proposal at our [GSoC Organization Page](https://summerofcode.withgoogle.com/organizations/5631832271880192/) and one or more organization members will try to review and leave comments on it (through Google Docs). The earlier you submit the draft, the more likely we will be able to review it.
+
 ## GSoC Proposal Template
 When proposing a project, please use the following template:
 
