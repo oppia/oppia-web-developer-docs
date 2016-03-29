@@ -27,7 +27,6 @@
       * [[Value generators|Creating-Value-Generators]]
     * [[Schema-based forms|Schema-based-Forms]]
     * [[Writing style guide|Writing-style-guide]]
-    * [[Calculating statistics|Calculating-statistics]]
   * [[Deploying Oppia|Deploying-Oppia]]
     * [[Migration Instructions|Migration-Instructions]]
   * Playbooks
