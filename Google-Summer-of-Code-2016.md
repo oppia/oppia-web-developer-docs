@@ -213,7 +213,7 @@ Both parts of this project involve a lot of investigation, since you will need t
 
 ### Summary
 
-Currently, https://www.oppia.org serves as a repository of almost random explorations users have created. Although it's fantastic that users create these explorations, we think Oppia will be a lot more effective to both learners and exploration creators if there is some way for people to submit requests for new explorations and have creators address those requests by directly creating the corresponding exploration(s).
+Currently, https://www.oppia.org serves as a repository of almost random explorations users have created. Although it's fantastic that users create these explorations, we think Oppia will be a lot more effective to both learners and exploration creators if there is some way for people to submit requests for new explorations and have creators address those requests by directly creating the corresponding exploration(s) (see [issue 490](https://github.com/oppia/oppia/issues/490)).
 
 This project involves writing a system for creating, listing, and addressing requests for new content. Users should be able to see and search for content requests, be able to create a new request for content (including a brief description), and vote on existing requests. Creators will be able to use the same searching functionality to find top-ranked requests and address them by listing a specific exploration or collection which they feel satisfies the request. It's not yet clear what the exact flow of this should be; we will leave it up to the student's proposal to clarify how they feel learners and creators should interact when addressing content requests. Some things to consider in this area include:
 
