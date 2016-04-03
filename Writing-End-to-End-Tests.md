@@ -99,6 +99,6 @@ The current tests are as follows:
 
 ## Important Gotchas ##
 
-The tests may be run either sequentially or in isolation, and they need to be written to function correctly in both cases. To this end care should be taken ensure that the **user names and emails used in each test are unique**. That way the only point of contact between different tests is the gallery, which so far is used only be `embedding.js` and `publicationAndGallery.js` and has not been a problem. The user names in different files have different themes to minimise the likelihood of conflict.
+The tests may be run either sequentially or in isolation, and they need to be written to function correctly in both cases. To this end we ensure that usernames and emails used in each test are unique by giving them a distinctive form; in e.g. the editorAndPlayer page usernames should look like 'user1EditorAndPlayer' and emails like 'user1@editorAndPlayer.com'. This means that the only point of contact between different tests is the gallery, which so far is used only be `embedding.js` and `publicationAndGallery.js` and has not been a problem. The user names in different files have different themes to minimise the likelihood of conflict.
 
 All test blocks should have an `afterEach` that runs `general.checkForConsoleErrors` to verify no unexpected console errors appeared while the test was running.
