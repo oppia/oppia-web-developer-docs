@@ -59,7 +59,7 @@ _NB: This is a work in progress. Note that terms with asterisks need to be revis
 - **Hyphen.** Use hyphens to link all words in a compound adjective (i.e. ' game-day snacks' ). Do not use a hyphen if the construction includes an adverb ending in -ly (i.e. ' a globally inspired feast' ).
 - **Period.** Don't use a period after a single sentence or phrase used in isolation, such as in a toast, label, or notification. Wherever two or more sentences run together, use a period for each sentence. 
 - **Question mark.** Use a question mark if the string is a question.
-- **Quotation marks.** Use single quotes to refer to in-product labels or buttons. 
+- **Quotation marks.** Use single quotes to refer to in-product labels or buttons. Use double quotes when quoting something said by a person.
 - **Serial comma.** Always use the serial comma (i.e. ' word, word, and word' ). Serial commas make text clearer, more consistent, and easier to read.
 - **Spacing after periods.** Include only one space after each period.
 
@@ -73,7 +73,7 @@ _NB: This is a work in progress. Note that terms with asterisks need to be revis
   - (Optional) If a page has a top-level title that doesn't start with a verb ("Web History"), you may use title capitalization instead of sentence capitalization. Try to make this style consistent across a set of related pages.
 
 ## Formatting
-- **Bold.** Use bold sparingly. Too much bold lessens its impact. In general, reserve bold to distinguish essential information from supplemental info.
+- **Bold.** Use bold sparingly. Too much bold lessens its impact. In general, reserve bold to distinguish essential information (such as important keywords) from supplemental info.
 - **Italic.** Use italic text sparingly, for example, for placeholder text or variables. Some users find italic text difficult to read.
 - **Underline.** Don't use underlines.
 - **Date.** Spell out full names of months when used on their own (without specific date). Abbreviate months (Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec) with single or double-digit dates.
