@@ -16,6 +16,7 @@
   * a type (bug/feature)
   * a TODO describing the type of work needed, and the stage that the issue is in. If the TODO is a light green tag, also add a separate 'starter project' tag (see below for more information about why).
 3. (Optional) It may also be helpful to add a list of checkboxes that describe the issue's sub-steps.
+4. (Optional) If the issue has a design doc associated with it, add a link to the design doc.
 
 **Note:** you do not need to assign a milestone, unless you know what you're doing! Milestones are for explicit tracking of certain high-priority issues. They do not need to be applied to all issues.
 
