@@ -10,6 +10,7 @@
     * [[Linux|Installing-Oppia-(Linux)]]
     * [[Mac OS|Installing-Oppia-(Mac-OS)]]
     * [[Windows|Installing-Oppia-(Windows)]]
+    * [[Vagrant|Installing-Oppia(Vagrant)]]
   * Developing Oppia
     * [[Overview of the codebase|Overview-of-the-Oppia-codebase]]
     * [[Running tests|Running-Tests]]
