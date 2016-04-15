@@ -27,6 +27,8 @@ Once inside the `oppia` directory, run the command `vagrant up`. From here, Vagr
 - You can edit Oppia's source locally on your machine and it will automatically sync to the Vagrant VM directory `/home/vagrant/oppia`. 
 - However, when committing/pushing, we recommend running `git commit` and `git push` from the **guest** instead (see the troubleshooting notes below for the rationale). To access the guest, run `vagrant ssh` from the root of the Oppia respository on your host.
 
+* For the reason why, see the [rationale](#rationale) below.
+ 
 ## Troubleshooting
 
 ### `\r: command not found
