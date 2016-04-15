@@ -1,8 +1,8 @@
 ## What is Vagrant?
 
-While Oppia can be built on any OS that supports Python, Node.js, and its other fundamental parts, all the build and startup scripts are targeted for Debian-based systems. This means that for any non-Debian systems, such as Windows, OSX, and Linux distros like CentOS and Arch, it will be easier to use a VM than running Oppia locally. 
+While Oppia can be built on any OS that supports Python, Node.js, and its other fundamental parts, all the build and startup scripts are targeted for Linux systems. This means that for Windows, the best path is to install via our supported Vagrant build.
 
-To aid in this process and ensure you always have a clean machine identical to other developers, we use a tool called [Vagrant](https://www.vagrantup.com/docs/why-vagrant/). In fact, even if you are already on Debian or Ubuntu, you may want to use Vagrant as it will provide isolation between your host machine and things that Oppia needs to install and change, or allow you to build different development versions of Oppia on different branches. 
+To aid in this process and ensure you always have a clean machine identical to other developers, we use a tool called [Vagrant](https://www.vagrantup.com/docs/why-vagrant/). In fact, even if you are already on Linux/BSD/OSX, you may want to use Vagrant as it will provide isolation between your host machine and things that Oppia needs to install and change, or allow you to build different development versions of Oppia on different branches. 
 
 ### Terms and definitions
 
@@ -31,7 +31,7 @@ Once inside the `oppia` directory, run the command `vagrant up`. From here, Vagr
  
 ## Troubleshooting
 
-### `\r: command not found
+### `\r: command not found`
 
 ### Vagrant cannot SSH into guest machine
 
