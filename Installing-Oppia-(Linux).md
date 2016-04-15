@@ -4,7 +4,7 @@
 
 ## Prerequisites ##
 
-**Note:** The following instructions will install Oppia on your local machine. If you would like to run it in a virtual machine instead, we recommend the [Vagrant](https://github.com/oppia/oppia/wiki/Installing-Oppia%28Vagrant%29) instructions.
+*The following instructions will install Oppia on your local machine. If you would like to run it in a virtual machine instead, we recommend the [Vagrant instructions](https://github.com/oppia/oppia/wiki/Installing-Oppia%28Vagrant%29).*
 
 Oppia relies on a number of programs and third-party libraries. Many of these libraries are downloaded automatically for you when you run the `start.sh` script provided with Oppia. However, there are some things that you will need to do beforehand:
 
