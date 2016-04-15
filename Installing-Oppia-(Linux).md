@@ -14,6 +14,8 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
     sudo apt-get install curl python-setuptools git python-dev python-pip
   ```
 
+Alternatively, if you are on Debian/Ubuntu, you can use the `install_prerequisites.sh` script to install these. From the oppia directory, `bash scripts/install_prerequisites.sh`
+
 ## Running Oppia on a development server ##
 
 1. Download Oppia by following the instructions in the [README](https://github.com/oppia/oppia#oppia).
