@@ -9,7 +9,7 @@ You can run server-side tests using
     bash scripts/run_backend_tests.sh
 ```
 
-Alternatively, to run a specific test module, you can type, e.g.:
+Alternatively, to run just a single test module, you can type, e.g.:
 ```
     bash scripts/run_backend_tests.sh --test_target=core.controllers.editor_test
 ```
