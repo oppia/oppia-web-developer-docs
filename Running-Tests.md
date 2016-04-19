@@ -64,7 +64,7 @@ Oppia has an end-to-end testing framework (Protractor) that incorporates both th
 ```
 This will load a test version of the server (on ports 4444 and 4445), open a Google Chrome browser and automatically run through a series of simulated user actions. If any of the tests fail the simulation will attempt to move on to the next test, and then report the problem at the end. However a single failure may leave the browser in a state (e.g. with an open alert message) that causes a cascade of failures in the other tests, so generally the first failure reported is the significant one.
 
-** Sharding tests **
+**Sharding tests**
 
 The end-to-end tests are also sharded across 3 Chrome browser instances. It is recommended to close background processes to maximize the test performance. You can disable sharding as follows:
 
@@ -75,11 +75,11 @@ You can configure the number of browser instances to use for sharding as follows
 ```
     bash scripts/run_e2e_tests.sh --sharding-instances=#
 ```
-** Running a single end-to-end test **
+**Running a single end-to-end test**
 
 To run just one test, change the "it" to "fit" for that test, and change the suite config in `core/tests/protractor.conf.js` to refer to only the file containing that test.
 
-** Other notes **
+**Other notes**
 
 Protractor has a screenshot reporting feature, but it needs to be enabled by seeing `_ADD_SCREENSHOT_REPORT` to true in
 ```
