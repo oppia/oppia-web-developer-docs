@@ -9,12 +9,12 @@ You can run server-side tests using
     bash scripts/run_backend_tests.sh
 ```
 
-This script accepts various flags. For example, to run a specific test module, you can type, e.g.:
+Alternatively, to run a specific test module, you can type, e.g.:
 ```
     bash scripts/run_backend_tests.sh --test_target=core.controllers.editor_test
 ```
 
-For more information about these and other flags, please see the documentation at the top of the [run_backend_tests.sh](https://github.com/oppia/oppia/tree/master/scripts/run_backend_tests.sh) script.
+For more information about `--test_target` and other flags, please see the documentation at the top of the [run_backend_tests.sh](https://github.com/oppia/oppia/tree/master/scripts/run_backend_tests.sh) script.
 
 The variable `EXPECTED_TEST_COUNT` in `scripts/backend_tests.py` stores the total number of Python tests. After adding tests, you'll need to update this variable to reflect the new test count.
 
@@ -75,7 +75,7 @@ You can configure the number of browser instances to use for sharding as follows
 ```
     bash scripts/run_e2e_tests.sh --sharding-instances=#
 ```
-### Running a single test ###
+### Running a single end-to-end test ###
 
 To run just one test, change the "it" to "fit" for that test, and change the suite config in `core/tests/protractor.conf.js` to refer to only the file containing that test.
 
