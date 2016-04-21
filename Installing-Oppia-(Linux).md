@@ -99,3 +99,15 @@ AttributeError: 'module' object has no attribute 'PROTOCOL_SSLv3'
       '../oppia_tools/google_appengine_1.9.19/google_appengine/lib/requests/requests/packages/urllib3/contrib/pyopenssl.py:70': (ssl.PROTOCOL_SSLv3: OpenSSL.SSL.SSLv3_METHOD,)
     ```
     as described [here](https://code.google.com/p/googleappengine/issues/detail?id=11539#c2).
+
+  * If you get an error that ends with:
+
+    ```
+      File "numpy/setup.py", line 5, in configuration
+        config = Configuration('numpy',parent_package,top_path)
+      File "/tmp/pip-build-4rsvws0b/numpy/build/py3k/numpy/distutils/misc_util.py", line 743, in __init__
+        raise ValueError("%r is not a directory" % (package_path,))
+    ValueError: 'build/py3k/numpy' is not a directory
+    Converting to Python3 via 2to3...
+    ```
+    make sure that your default `pip` is using Python 2, not Python 3. See [#1742](https://github.com/oppia/oppia/issues/1742).
