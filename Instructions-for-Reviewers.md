@@ -41,7 +41,7 @@ Only maintainers can merge PRs into develop. Due to changes to Git, we are prefe
 
 ``Updates the exploration editor to do X better.``
 
-The message is describing in what way the PR is changing Oppia. Feel free to add follow-up sentences after the one-line summary, though those are optional. The one-line summary is what will be used when the PR is being added to the CHANGELOG during the next release.\
+The message is describing in what way the PR is changing Oppia. Feel free to add follow-up sentences after the one-line summary, though those are optional. The one-line summary is what will be used when the PR is being added to the CHANGELOG during the next release.
 
 ### Standard Merging
 
