@@ -4,7 +4,7 @@ When you receive a code review request, please try to do the review as soon as p
 
 ## When you first receive a review request
 
-  1. When you get an email saying a pull request issue has been assigned to you for review, click on the link to open it in GitHub. (You may need to open the issue on GitHub to see if it is a pull request or not.)
+  1. When you get an email saying a pull request issue has been assigned to you for review, click on the link to open it in GitHub.
   1. Do two pre-review checks:
     * Ensure that the requester is in the "Committers" team (which means they've signed the CLA), otherwise direct them to the instructions in the README.
     * Ensure that the correct target branch (usually "develop") has been selected to merge the branch into.
@@ -12,7 +12,7 @@ When you receive a code review request, please try to do the review as soon as p
 
 ## Doing the review
 
-  1. Perform the code review. Here are some things to look for:
+  1. Look out for the following things:
     * Do you understand what the code is doing? If not, it's probably the writer's fault, and you should tell him/her so.
     * Is the code doing the right thing?
     * Does the design look sensible?
@@ -33,16 +33,18 @@ When you receive a code review request, please try to do the review as soon as p
 
 ### Squash-Merging
 
-Only maintainers can merge PRs into develop. Due to changes to Git, we are preferring that maintainers use the 'Squash-Merge' functionality. This is a clever feature of GitHub which allows the history of both the author and maintainer who merged it to be retained, while doing a standard squash of all the changes in the PR to a single commit. Maintainers should make sure the commit message of this squash is a strong one-line summary of the changes introduced in the PR. As is standard Git commit message convention, the squash message should begin with a present-tense, transitive verb. For instance:
+_Note that only maintainers can merge PRs into develop._
 
-``Introduces the first version of the collection editor.``
+If all the commits in a PR are done by a single committer, we recommend using GitHub's 'Squash-Merge' functionality, which you can select as an option from the dropdown that appears after clicking on the green "Merge pull request" button. This allows the history of both the author and maintainer who merged it to be retained, while doing a standard squash of all the changes in the PR to a single commit.
 
-``Fixes #bugnum.`` or ``Fix #bugnum.``
+Please ensure that the eventual commit message of the squash is a strong one-line summary of the changes introduced in the PR. The squash message should begin with a present-tense, transitive verb, e.g.:
 
-``Updates the exploration editor to do X better.``
+``Fix #bugnum: Introduce the first version of the collection editor.``
 
-The message is describing in what way the PR is changing Oppia. Feel free to add follow-up sentences after the one-line summary, though those are optional. The one-line summary is what will be used when the PR is being added to the CHANGELOG during the next release.
+``Update the exploration editor to do X better.``
+
+The message should describe in what way the PR is changing Oppia. Getting this message correct is important, since it will be used to compile the CHANGELOG during the next release. It's also fine to add optional follow-up sentences after the one-line summary.
 
 ### Standard Merging
 
-There are special circumstances when standard merging should be done instead of a squash-merge. The possible situations cannot be enumerated here. However, commits which have already been squash merged should not be squash merged again. For instance, a PR which is a major feature branch with several squash-merged commits should not itself be squash merged. We want to retain the history of all those squash-merges, so a standard merge suffices in this situation.
+There are special circumstances when standard merging should be done instead of a squash-merge. Generally speaking, commits which have already been squash-merged should not be squash-merged again. Also, if there are multiple contributors who have contributed to a PR, please don't squash-merge -- we want to preserve their history.
