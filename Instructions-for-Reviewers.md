@@ -35,15 +35,13 @@ When you receive a code review request, please try to do the review as soon as p
 
 _Note that only maintainers can merge PRs into develop._
 
-If all the commits in a PR are done by a single committer, we recommend using GitHub's 'Squash-Merge' functionality, which you can select as an option from the dropdown that appears after clicking on the green "Merge pull request" button. This allows the history of both the author and maintainer who merged it to be retained, while doing a standard squash of all the changes in the PR to a single commit.
+If all commits in a PR are done by a single committer, we recommend using GitHub's 'Squash-Merge' functionality, which you can select as an option after clicking the green "Merge pull request" button. This allows the history of both the author and maintainer who merged it to be retained, while doing a standard squash of all the changes in the PR to a single commit.
 
-Please ensure that the eventual commit message of the squash is a strong one-line summary of the changes introduced in the PR. The squash message should begin with a present-tense, transitive verb, e.g.:
+The commit message of the squash should be a clear one-line summary of the changes introduced in the PR. It should begin with a present-tense, transitive verb. Here are some examples of good commit messages:
+* ``Fix #bugnum: Introduce the first version of the collection editor.``
+* ``Update the exploration editor to do X better.``
 
-``Fix #bugnum: Introduce the first version of the collection editor.``
-
-``Update the exploration editor to do X better.``
-
-The message should describe in what way the PR is changing Oppia. Getting this message correct is important, since it will be used to compile the CHANGELOG during the next release. It's also fine to add optional follow-up sentences after the one-line summary.
+Getting this message correct is important, since it will be used to compile the CHANGELOG during the next release. If you like, feel free to also add optional follow-up sentences after the one-line summary.
 
 ### Standard Merging
 
