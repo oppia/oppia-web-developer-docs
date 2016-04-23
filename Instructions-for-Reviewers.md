@@ -38,7 +38,7 @@ _Note that only maintainers can merge PRs into develop._
 If all commits in a PR are done by a single committer, we recommend using GitHub's 'Squash-Merge' functionality, which you can select as an option after clicking the green "Merge pull request" button. This allows the history of both the author and maintainer who merged it to be retained, while doing a standard squash of all the changes in the PR to a single commit.
 
 The commit message of the squash should be a clear one-line summary of the changes introduced in the PR. It should begin with a present-tense, transitive verb. Here are some examples of good commit messages:
-* ``Fix #bugnum: Introduce the first version of the collection editor.``
+* ``Fix #bugnum: introduce the first version of the collection editor.``
 * ``Update the exploration editor to do X better.``
 
 Getting this message correct is important, since it will be used to compile the CHANGELOG during the next release. If you like, feel free to also add optional follow-up sentences after the one-line summary.
