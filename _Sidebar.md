@@ -27,6 +27,7 @@
       * [[Dependencies|Creating-Dependencies]]
       * [[Value generators|Creating-Value-Generators]]
     * [[Schema-based forms|Schema-based-Forms]]
+    * [[Calculating statistics|Calculating-statistics]]
     * [[Writing style guide|Writing-style-guide]]
   * [[Deploying Oppia|Deploying-Oppia]]
     * [[Migration Instructions|Migration-Instructions]]
