@@ -6,4 +6,4 @@ Our statistics framework has four levels:
  * View optimized models (in datastore)
  * Display
 
-  ![Diagram of the statistics framework.](images/statisticsFramework.png)
+![Diagram of the statistics framework.](images/statisticsFramework.png)
