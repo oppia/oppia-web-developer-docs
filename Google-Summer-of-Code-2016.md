@@ -11,8 +11,8 @@ The following are Oppia's 2016 GSoC project ideas:
 * [Re-imagining the exploration editor](#re-imagining-the-exploration-editor)
 
 We accepted the following two proposals in 2016:
-* [**@gvishal**'s proposal]() for offline/lightweight Oppia
-* [**@526avijitgupta**'s proposal]() for the creator dashboard.
+* [**@gvishal**'s proposal](pdfs/GSoC2016VishalGupta.pdf) for offline/lightweight Oppia
+* [**@526avijitgupta**'s proposal](pdfs/GSoC2016AvijitGupta.pdf) for the creator dashboard.
 
 
 # Students
@@ -105,7 +105,7 @@ For the proposal, we will be looking for the following:
 For prior history/experience, we will take the following into consideration:
 - The quality of students' previously-submitted PRs to the project (including coding ability, debugging ability, initiative, responsiveness, independence, ability to break down complex tasks, and ability to keep commitments).
 - Communication skills and English language skills.
-- Enthusiasm for helping others by explaining things well. 
+- Enthusiasm for helping others by explaining things well.
 
 Please note that, although we are expecting many GSoC applicants this year, we are only likely to be awarded a small number of slots since this is our first year as a participant. However, please note that you don't need to be accepted to GSoC in order to become a regular contributor to the Oppia project -- this project is run by the community for the community, and we warmly welcome anyone who would like to help out!
 
