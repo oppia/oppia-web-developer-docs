@@ -1,13 +1,19 @@
-Oppia is excited to be participating in [Google Summer of Code 2016](https://developers.google.com/open-source/gsoc/)! GSoC is a global program which offers post-secondary students an opportunity to discover and work with open source organizations over the course of 3 months and be paid a stipend. Students work one-on-one with a mentor of an open source organization in order to implement either a project idea by the organization or a proposal of their own. The following are Oppia's project ideas:
+Oppia is excited to be participating in [Google Summer of Code 2016](https://developers.google.com/open-source/gsoc/)! GSoC is a global program which offers post-secondary students an opportunity to discover and work with open source organizations over the course of 3 months and be paid a stipend. Students work one-on-one with a mentor of an open source organization in order to implement either a project idea by the organization or a proposal of their own.
+Feel free to check out our [GSoC organization page](https://summerofcode.withgoogle.com/organizations/5631832271880192/).
 
-* [Oppia usable offline with more lightweight data transfer](#making-oppia-usable-offline-and-being-more-lightweight-in-transmitting-data)
+The following are Oppia's 2016 GSoC project ideas:
+
+* [Oppia usable offline with more lightweight data transfer](#making-oppia-usable-offline-and-being-more-lightweight-in-transmitting-data).
 * [Learning material requests and submission](#making-it-possible-to-submit-and-prioritize-requests-for-learning-material)
-* [Creator dashboard](#creator-dashboard)
+* [Creator dashboard](#creator-dashboard).
 * [Android app to enable learning-on-the-go](#android-app-to-enable-learning-on-the-go)
 * [Applying machine learning to code interaction](#applying-machine-learning-to-code-interaction-training-and-generalizing)
 * [Re-imagining the exploration editor](#re-imagining-the-exploration-editor)
 
-Feel free to check out our [GSoC organization page](https://summerofcode.withgoogle.com/organizations/5631832271880192/).
+We accepted the following two proposals in 2016:
+* [**@gvishal**'s proposal]() for offline/lightweight Oppia
+* [**@526avijitgupta**'s proposal]() for the creator dashboard.
+
 
 # Students
 GSoC is an excellent opportunity for students to get paid to work on an open source project. If you're interested in applying as a student, you should definitely read the following resources:
