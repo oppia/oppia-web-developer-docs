@@ -32,6 +32,7 @@
   * [[Deploying Oppia|Deploying-Oppia]]
     * [[Migration Instructions|Migration-Instructions]]
   * Playbooks
+    * [[Instructions for Welcomers|Instructions-for-Welcomers]]
     * [[Instructions for Reviewers|Instructions-for-Reviewers]]
     * [[Instructions for Maintainers|Instructions-for-Maintainers]]
     * [[Instructions for Admins|Instructions-for-Admins]]
