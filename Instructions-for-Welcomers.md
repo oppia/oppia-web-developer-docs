@@ -6,7 +6,7 @@ Thank you for taking out your valuable time to be a part of the office hours ini
 
 | Times (UTC)        | 00:30 - 01:00           | 08:30 - 09:30  | 16:30 - 17:00 | 21:30 - 22:00
 | ------------- |:-------------:| -----:| -----:| -----:  
-| Tuesday     | [Rajat Patwa](https://github.com/razat249) | [Abraham Mgowano](https://github.com/amgowanocom) | [Sourav Badami](https://github.com/souravbadami) | -
+| Tuesday     | [Rajat Patwa](https://github.com/razat249) | [Abraham Mgowano](https://github.com/amgowano) | [Sourav Badami](https://github.com/souravbadami) | -
 | Wednesday      |   [Andrew Low](https://github.com/kahkhang)  |   - | [Avijit Gupta](https://github.com/526avijitgupta) | [Jacob Davis](https://github.com/jacobdavis11)
 | Sunday |  [Dzeudjouo Herve](https://github.com/hervephp)     |    - | [Avijit Gupta](https://github.com/526avijitgupta) | [Kristin Anthony](https://github.com/anthkris)
 
