@@ -1,5 +1,5 @@
   * [README](https://github.com/oppia/oppia/blob/develop/README.md#oppia)
-  * [[FAQ|Frequently-Asked-Questions]]
+  * [[Contributor FAQs|Frequently-Asked-Questions]]
   * **[[Get involved!|Home]]**
     * [Coders](https://github.com/oppia/oppia/blob/develop/CONTRIBUTING.md)
     * [[Designers and artists|Contributing-to-Oppia's-design]]
