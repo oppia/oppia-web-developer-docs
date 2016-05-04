@@ -19,7 +19,7 @@ For information on running tests, please refer to the [Running Tests](https://gi
 ### I need more help, where do I go ?
 
 If you run into any problems, please read our [Developer Wiki](https://github.com/oppia/oppia/wiki), or file an issue on our [issue tracker](github.com/oppia/oppia/issues/), or post to our [developer mailing list](https://groups.google.com/forum/?fromgroups#!forum/oppia-dev).
-Or you could probably ask your questions on our official [Gitter](http://gitter.im/oppia/oppia-chat) or IRC channels, preferably during the following office hours (in UTC):
+Or you could probably ask your questions on our official [Gitter](http://gitter.im/oppia/oppia-chat) channel, preferably during the following office hours (in UTC):
 
 __Tuesday__ -- 08:30 - 09:00, 21:30 - 22:00, 00:30 - 01:00
 
