@@ -7,10 +7,7 @@
 2. Go to Settings > Collaborators, and then add that collaborator.
 
 ## Conducting a code review
-Please see the instructions at https://github.com/oppia/oppia/wiki/Instructions-for-Reviewers
-
-### Squash-Merging
-Please see the instructions at https://github.com/oppia/oppia/wiki/Instructions-for-Reviewers#merging-into-develop.
+Please see the instructions at [Instructions for Reviewers](https://github.com/oppia/oppia/wiki/Instructions-for-Reviewers). Note the [squash-merging instructions](https://github.com/oppia/oppia/wiki/Instructions-for-Reviewers#merging-into-develop), too.
 
 ## When a new issue is filed
 1. Tidy up the title, if necessary.
