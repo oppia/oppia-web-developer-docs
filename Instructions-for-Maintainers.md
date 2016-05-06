@@ -1,5 +1,5 @@
 ## Maintainer duties
-- Participate in triaging issues/PRs (see [rota](https://github.com/oppia/oppia/wiki/Instructions-for-Maintainers#rota-for-triaging-issuesprs) below)
+- Participate in triaging issues/PRs (see [rota](https://github.com/oppia/oppia/wiki/Instructions-for-Maintainers#rota-for-triaging-issues-and-prs) below)
 - Do code reviews
 - Within your given area of responsibility:
   - Figure out what needs to get done
@@ -64,7 +64,7 @@ It's worth pointing out that all sub-feature branches (like ``creator-landing-pa
 
 ----
 
-## Rota for triaging issues/PRs
+## Rota for triaging issues and PRs
 
 ```
 9 May - 15 May    Sean
