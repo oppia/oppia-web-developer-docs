@@ -56,3 +56,35 @@ When contributors are working on a sufficiently large feature (like a new editor
 For instance, if we wanted to create a new editor for creating a custom creator landing page then we would want to make sure the project is sufficiently broken down. We could have a branch called ``creator-landing-page-editor`` to contain all of the changes. Certain sub-parts to this project like ``creator-landing-page-editor-settings-tab`` would have their own branches. When the settings tab work is completed, a pull request will be created to merge the settings tab branch into the main landing page editor branch. This is done with standard [squash merging](https://github.com/oppia/oppia/wiki/Instructions-for-Reviewers#squash-merging). Once all of the sub-parts of the landing page editor is completed, the ``creator-landing-page-editor`` branch will be requested to be merged into ``develop``. This is done with [standard merging](https://github.com/oppia/oppia/wiki/Instructions-for-Reviewers#standard-merging) instead of squash-merging, since all the commits have been created by squash-merges and we should retain development history for this branch.
 
 It's worth pointing out that all sub-feature branches (like ``creator-landing-page-editor-settings-tab``) should be branched off of ``creator-landing-page-editor``, not ``develop``. Sometimes the main feature branch may need to be brought up-to-date with ``develop`` to avoid code skew and complicated merges later on, but this is up to the discretion of the contributors.
+
+## Rota
+
+```
+9 May - 15 May    Sean
+16 May - 22 May   Jacob
+23 May - 29 May   Allan
+30 May - 5 Jun    Kevin
+6 Jun - 12 Jun    Ben
+13 Jun - 19 Jun   Barnabas
+20 Jun - 26 Jun   Bren
+27 Jun - 3 Jul    Madiyar
+4 Jul - 10 Jul    Xinyu
+	
+11 Jul - 17 Jul   Allan
+18 Jul - 24 Jul   Sean
+25 Jul - 31 Jul   Kevin
+1 Aug - 7 Aug     Ben
+8 Aug - 14 Aug    Madiyar
+15 Aug - 21 Aug   Barnabas
+22 Aug - 28 Aug   Jacob
+29 Aug - 4 Sep    Bren
+5 Sep - 11 Sep    Xinyu
+	
+12 Sep - 18 Sep   Allan
+19 Sep - 25 Sep   Kevin
+26 Sep - 2 Oct    Bren
+3 Oct - 9 Oct     Jacob
+10 Oct - 16 Oct   Madiyar
+17 Oct - 23 Oct   Barnabas
+24 Oct - 30 Oct   Xinyu
+```
