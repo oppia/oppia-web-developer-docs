@@ -1,3 +1,11 @@
+## Maintainer duties
+- Participate in triaging issues/PRs (see [rota](https://github.com/oppia/oppia/wiki/Instructions-for-Maintainers#rota-for-triaging-issuesprs) below)
+- Do code reviews
+- Within your given area of responsibility:
+  - Figure out what needs to get done
+  - Ensure progress is being made
+  - Ensure that contributors aren’t blocked. If you can't easily solve a problem, feel free to escalate it to a tech lead or another maintainer
+
 ## General
 1. Please ensure that your "Settings > Notification center" page is set to send you activity notifications, so that you're aware of all activity on the repository.
 2. When you get an email saying that a pull request has been made, go to GitHub and assign it to someone. Before doing so, ensure that the requester is a member of the Committers team (which means they've signed the CLA).
@@ -54,6 +62,8 @@ For instance, if we wanted to create a new editor for creating a custom creator 
 
 It's worth pointing out that all sub-feature branches (like ``creator-landing-page-editor-settings-tab``) should be branched off of ``creator-landing-page-editor``, not ``develop``. Sometimes the main feature branch may need to be brought up-to-date with ``develop`` to avoid code skew and complicated merges later on, but this is up to the discretion of the contributors.
 
+----
+
 ## Rota for triaging issues/PRs
 
 ```
@@ -84,4 +94,18 @@ It's worth pointing out that all sub-feature branches (like ``creator-landing-pa
 10 Oct - 16 Oct   Madiyar
 17 Oct - 23 Oct   Barnabas
 24 Oct - 30 Oct   Xinyu
+```
+
+## Areas of responsibility
+
+```
+Allan: rich-text editor
+Barnabas: iframed explorations
+Ben: answer handling; collections
+Bren: devops
+Jacob: TBD
+Kevin: TBD
+Madiyar: TBD
+Xinyu: TBD
+Sean: exploration editor
 ```
