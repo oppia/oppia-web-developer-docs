@@ -99,13 +99,13 @@ It's worth pointing out that all sub-feature branches (like ``creator-landing-pa
 ## Areas of responsibility
 
 ```
-Allan:      rich-text editor
-Barnabas:   iframed explorations
-Ben:        answer handling; collections
-Bren:       dev ops
-Jacob:      TBD
-Kevin:      TBD
-Madiyar:    TBD
-Xinyu:      TBD
-Sean:       exploration editor
+Allan      rich-text editor
+Barnabas   iframed explorations
+Ben        answer handling; collections
+Bren       dev ops
+Jacob      TBD
+Kevin      TBD
+Madiyar    TBD
+Xinyu      TBD
+Sean       exploration editor
 ```
