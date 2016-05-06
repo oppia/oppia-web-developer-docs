@@ -54,7 +54,7 @@ For instance, if we wanted to create a new editor for creating a custom creator 
 
 It's worth pointing out that all sub-feature branches (like ``creator-landing-page-editor-settings-tab``) should be branched off of ``creator-landing-page-editor``, not ``develop``. Sometimes the main feature branch may need to be brought up-to-date with ``develop`` to avoid code skew and complicated merges later on, but this is up to the discretion of the contributors.
 
-## Rota
+## Rota for triaging issues/PRs
 
 ```
 9 May - 15 May    Sean
