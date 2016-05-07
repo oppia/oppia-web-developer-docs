@@ -26,13 +26,14 @@ To release a new version of Oppia, follow the following steps. This assumes that
 
   (In the future, we should consider also tagging changes with their commit hash, similar to [this](https://github.com/angular/angular.js/blob/master/CHANGELOG.md).)
 
+1. Do a PR from the release branch into `master`, and wait for the Travis-CI checks to turn green.
+
 1. Merge the release branch into both `master` and `develop`, and tag the new release:
 
   ```
     git checkout master
     git pull origin master
     git merge release-[VERSION_NUMBER]
-    bash scripts/run_tests.sh
     git push origin master
 
     git tag -a v[VERSION_NUMBER] -m 'Version [VERSION_NUMBER]' master
