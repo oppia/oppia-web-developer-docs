@@ -71,25 +71,25 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 13 Jun - 19 Jun   Barnabas
 20 Jun - 26 Jun   Bren
 27 Jun - 3 Jul    Madiyar
-4 Jul - 10 Jul    Xinyu
-	
-11 Jul - 17 Jul   Allan
+4 Jul - 10 Jul    Xinyu	
+11 Jul - 17 Jul   Sourav
+
 18 Jul - 24 Jul   Sean
 25 Jul - 31 Jul   Kevin
 1 Aug - 7 Aug     Ben
 8 Aug - 14 Aug    Madiyar
-15 Aug - 21 Aug   Barnabas
-22 Aug - 28 Aug   Jacob
+15 Aug - 21 Aug   Jacob
+22 Aug - 28 Aug   Barnabas
 29 Aug - 4 Sep    Bren
-5 Sep - 11 Sep    Xinyu
-	
+5 Sep - 11 Sep    Xinyu	
 12 Sep - 18 Sep   Allan
-19 Sep - 25 Sep   Kevin
+19 Sep - 25 Sep   Sourav
+
 26 Sep - 2 Oct    Bren
 3 Oct - 9 Oct     Jacob
 10 Oct - 16 Oct   Madiyar
-17 Oct - 23 Oct   Barnabas
-24 Oct - 30 Oct   Xinyu
+17 Oct - 23 Oct   Kevin
+24 Oct - 30 Oct   Barnabas
 ```
 
 ## Areas of responsibility
