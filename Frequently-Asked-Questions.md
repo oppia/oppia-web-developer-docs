@@ -16,6 +16,11 @@ Also, don't be discouraged if you're new to "open source", or if you're still a 
 
 For information on running tests, please refer to the [Running Tests](https://github.com/oppia/oppia/wiki/Running-Tests) wiki page. Note that there are 3 types of tests: server-side (Python), client-side (Karma) and end-to-end (Protractor). These tests help to ensure that the code is in a working state. Before checking in any commits to the Oppia repository, please ensure that every single test passes. 
 
+### Setup issues
+
+- When setting up, I get a `[gulp-gae] stopping script` message, the server doesn't start, and localhost:8181 is unreachable.
+  - Try checking that the folders in `../oppia_tools` actually have files in them, and, if not, re-run the installation. (See the discussion on [issue #1796](https://github.com/oppia/oppia/issues/1796#issuecomment-217783598) for more details.)
+
 ### I need more help, where do I go ?
 
 If you run into any problems, please read our [Developer Wiki](https://github.com/oppia/oppia/wiki), or file an issue on our [issue tracker](github.com/oppia/oppia/issues/), or post to our [developer mailing list](https://groups.google.com/forum/?fromgroups#!forum/oppia-dev).
@@ -26,8 +31,3 @@ __Tuesday__ -- 08:30 - 09:00, 21:30 - 22:00, 00:30 - 01:00
 __Wednesday__ -- 16:30 - 17:00, 21:30 - 22:00, 00:30 - 01:00
 
 __Sunday__ -- 16:30 - 17:00, 21:30 - 22:00, 00:30 - 01:00 
-
-### Setup issues
-
-- When setting up, I get a `[gulp-gae] stopping script` message, the server doesn't start, and localhost:8181 is unreachable.
-  - Try checking that the folders in `../oppia_tools` actually have files in them, and, if not, re-run the installation. (See the discussion on [issue #1796](https://github.com/oppia/oppia/issues/1796#issuecomment-217783598) for more details.)
