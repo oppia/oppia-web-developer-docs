@@ -19,7 +19,7 @@ For information on running tests, please refer to the [Running Tests](https://gi
 ### Setup issues
 
 - When setting up, I get a `[gulp-gae] stopping script` message, the server doesn't start, and localhost:8181 is unreachable.
-  - Try checking that the folders in `../oppia_tools` actually have files in them, and, if not, re-run the installation. (See the discussion on [issue #1796](https://github.com/oppia/oppia/issues/1796#issuecomment-217783598) for more details.)
+  - Try checking that the folders in `../oppia_tools` actually have files in them; if not, re-run the installation. (See the discussion on [issue #1796](https://github.com/oppia/oppia/issues/1796#issuecomment-217783598) for more details.)
 
 ### I need more help, where do I go ?
 
