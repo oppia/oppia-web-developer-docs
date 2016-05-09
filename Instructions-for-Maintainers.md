@@ -4,7 +4,7 @@
 - Within your given area of responsibility:
   - Figure out what needs to get done
   - Ensure progress is being made
-  - Ensure that contributors aren’t blocked. If you can't easily solve a problem, feel free to escalate it to a tech lead or another maintainer.
+  - Ensure that contributors aren’t blocked. If you can't easily solve a problem, feel free to escalate it to a tech lead or another maintainer!
 
 ## General
 1. Please ensure that your "Settings > Notification center" page is set to send you activity notifications, so that you're aware of all activity on the repository.
