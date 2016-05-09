@@ -26,3 +26,8 @@ __Tuesday__ -- 08:30 - 09:00, 21:30 - 22:00, 00:30 - 01:00
 __Wednesday__ -- 16:30 - 17:00, 21:30 - 22:00, 00:30 - 01:00
 
 __Sunday__ -- 16:30 - 17:00, 21:30 - 22:00, 00:30 - 01:00 
+
+### Setup issues
+
+- When setting up, I get a `[gulp-gae] stopping script` message, the server doesn't start, and localhost:8181 is unreachable.
+  - Try checking that the folders in `../oppia_tools` actually have files in them, and, if not, re-run the installation. (See the discussion on [issue #1796](https://github.com/oppia/oppia/issues/1796#issuecomment-217783598) for more details.)
