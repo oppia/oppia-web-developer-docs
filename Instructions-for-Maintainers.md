@@ -63,7 +63,9 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 ## Rota for triaging issues and PRs
 
 ```
+2 May - 8 May     Sean
 9 May - 15 May    Sean
+
 16 May - 22 May   Jacob
 23 May - 29 May   Allan
 30 May - 5 Jun    Kevin
@@ -73,8 +75,8 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 27 Jun - 3 Jul    Madiyar
 4 Jul - 10 Jul    Xinyu	
 11 Jul - 17 Jul   Sourav
+18 Jul - 24 Jul   Avijit
 
-18 Jul - 24 Jul   Sean
 25 Jul - 31 Jul   Kevin
 1 Aug - 7 Aug     Ben
 8 Aug - 14 Aug    Madiyar
@@ -84,8 +86,8 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 5 Sep - 11 Sep    Xinyu	
 12 Sep - 18 Sep   Allan
 19 Sep - 25 Sep   Sourav
+26 Sep - 2 Oct    Avijit
 
-26 Sep - 2 Oct    Bren
 3 Oct - 9 Oct     Jacob
 10 Oct - 16 Oct   Madiyar
 17 Oct - 23 Oct   Kevin
@@ -96,6 +98,7 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 
 ```
 Allan        rich-text editor
+Avijit       creator dashboard
 Barnabas     iframed explorations
 Ben          answer handling; collections
 Bren         dev ops
