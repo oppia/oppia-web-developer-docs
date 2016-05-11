@@ -106,5 +106,5 @@ Kevin        TBD
 Madiyar      Learner view
 Xinyu        TBD
 Sean         Exploration editor
-Sourav       TBD
+Sourav       Critical user journeys
 ```
