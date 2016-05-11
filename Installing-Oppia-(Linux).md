@@ -129,4 +129,4 @@ AttributeError: 'module' object has no attribute 'PROTOCOL_SSLv3'
         text = '\n'.join(complete_log)
     UnicodeDecodeError: 'ascii' codec can't decode byte 0xe2 in position 72: ordinal not in range(128)
     ```
-    see if [updating the version of pip](https://github.com/oppia/oppia/issues/1580#issuecomment-218423065) to 8.1.2 helps.
+    try updating the version of pip to v8.1.2 (as described in [this comment](https://github.com/oppia/oppia/issues/1580#issuecomment-218423065)).
