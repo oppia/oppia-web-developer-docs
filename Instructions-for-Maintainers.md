@@ -38,8 +38,7 @@ The TODO labels represent what help the issue needs in order to move forward. Th
 
 **Note:** We list our 'starter project' issues on [OpenHatch](http://www.openhatch.org), and have told OpenHatch that the 'starter project' label corresponds to our starter projects. This is why the 'starter project' tag is added to issues with TODO: design (UI/Interaction), TODO: design (usability) and TODO: code.
 
-
-## Reference: branch conventions
+### Branch name conventions
 
 In general, we use the gitflow workflow. This uses several special branches:
 
