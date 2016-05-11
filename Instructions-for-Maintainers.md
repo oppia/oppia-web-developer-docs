@@ -6,14 +6,14 @@
   - Ensure progress is being made
   - Ensure that contributors aren’t blocked. If you can't easily solve a problem, feel free to escalate it to a tech lead or another maintainer.
 
-## General
-1. Please ensure that your "Settings > Notification center" page is set to send you activity notifications, so that you're aware of all activity on the repository.
+### General
+1. Ensure that your "Settings > Notification center" page is set to send you activity notifications, so that you're aware of all activity on the repository.
 2. When you get an email saying that a pull request has been made, go to GitHub and assign it to someone. Before doing so, ensure that the requester is a member of the Committers team (which means they've signed the CLA).
 
-## Doing code reviews
+### Doing code reviews
 Please see [Instructions for Reviewers](https://github.com/oppia/oppia/wiki/Instructions-for-Reviewers) (note the [squash-merging instructions](https://github.com/oppia/oppia/wiki/Instructions-for-Reviewers#merging-into-develop) too).
 
-## When a new issue is filed
+### Handling incoming issues
 1. Tidy up the title, if necessary.
 2. Ensure that the issue has one of each of the following labels:
   * a team
@@ -36,8 +36,8 @@ The TODO labels represent what help the issue needs in order to move forward. Th
 * `tech (instructions)`: the overall solution is generally known, but newcomers to the codebase may need additional instructions (e.g. which files are relevant) to be able to implement them.
 * `code`: the overall solution is known and is described in the issue, and the only thing left to do is code it. This issue should be suitable for new developers.
 
-## Note on changing label names
-We're listing our 'starter project' issues on [OpenHatch](http://www.openhatch.org), and have told OpenHatch that the 'starter project' label corresponds to our starter projects. This is why the 'starter project' tag is added to issues with TODO: design (UI/Interaction), TODO: design (usability) and TODO: code.
+**Note:** We list our 'starter project' issues on [OpenHatch](http://www.openhatch.org), and have told OpenHatch that the 'starter project' label corresponds to our starter projects. This is why the 'starter project' tag is added to issues with TODO: design (UI/Interaction), TODO: design (usability) and TODO: code.
+
 
 ## Reference: branch conventions
 
