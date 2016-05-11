@@ -99,7 +99,7 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 Allan        Rich-text editor
 Avijit       Creator dashboard
 Barnabas     Iframed explorations
-Ben          Answer handling; collections
+Ben          Answer handling, collections, Android/iOS app
 Bren         Dev ops
 Jacob        Metrics
 Kevin        TBD
