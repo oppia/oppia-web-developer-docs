@@ -104,7 +104,7 @@ Bren         Dev ops
 Jacob        Metrics
 Kevin        TBD
 Madiyar      Learner view
-Xinyu        TBD
 Sean         Exploration editor
 Sourav       Critical user journeys
+Xinyu        TBD
 ```
