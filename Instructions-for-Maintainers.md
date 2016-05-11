@@ -101,9 +101,9 @@ Avijit       creator dashboard
 Barnabas     iframed explorations
 Ben          answer handling; collections
 Bren         dev ops
-Jacob        TBD
+Jacob        metrics
 Kevin        TBD
-Madiyar      TBD
+Madiyar      learner view
 Xinyu        TBD
 Sean         exploration editor
 Sourav       TBD
