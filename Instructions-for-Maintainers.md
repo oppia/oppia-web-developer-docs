@@ -96,15 +96,15 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 ## Areas of responsibility
 
 ```
-Allan        rich-text editor
-Avijit       creator dashboard
-Barnabas     iframed explorations
-Ben          answer handling; collections
-Bren         dev ops
-Jacob        metrics
+Allan        Rich-text editor
+Avijit       Creator dashboard
+Barnabas     Iframed explorations
+Ben          Answer handling; collections
+Bren         Dev ops
+Jacob        Metrics
 Kevin        TBD
-Madiyar      learner view
+Madiyar      Learner view
 Xinyu        TBD
-Sean         exploration editor
+Sean         Exploration editor
 Sourav       TBD
 ```
