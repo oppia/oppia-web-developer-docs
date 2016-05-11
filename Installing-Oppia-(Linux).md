@@ -111,3 +111,22 @@ AttributeError: 'module' object has no attribute 'PROTOCOL_SSLv3'
     Converting to Python3 via 2to3...
     ```
     make sure that your default `pip` is using Python 2, not Python 3. See [#1742](https://github.com/oppia/oppia/issues/1742).
+
+  * If you get an error that looks something like this:
+
+    ```
+    error: can't combine user with prefix, exec_prefix/home, or install_(plat)base
+
+    ----------------------------------------
+    Cleaning up...
+    Command /usr/bin/python -c "import setuptools, tokenize;__file__='/tmp/pip-build-xiOWdq/numpy/setup.py';exec(compile(getattr(tokenize, 'open', open)(__file__).read().replace('\r\n', '\n'), __file__, 'exec'))" install --record /tmp/pip-t7c_y1-record/install-record.txt --single-version-externally-managed --compile --user --home=/tmp/tmpP9jGIf failed with error code 1 in /tmp/pip-build-xiOWdq/numpy
+    Traceback (most recent call last):
+      File "/usr/bin/pip", line 9, in <module>
+        load_entry_point('pip==1.5.6', 'console_scripts', 'pip')()
+      File "/usr/lib/python2.7/dist-packages/pip/__init__.py", line 248, in main
+        return command.main(cmd_args)
+      File "/usr/lib/python2.7/dist-packages/pip/basecommand.py", line 161, in main
+        text = '\n'.join(complete_log)
+    UnicodeDecodeError: 'ascii' codec can't decode byte 0xe2 in position 72: ordinal not in range(128)
+    ```
+    see if [updating the version of pip](https://github.com/oppia/oppia/issues/1580#issuecomment-218423065) to 8.1.2 helps.
