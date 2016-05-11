@@ -1,6 +1,6 @@
 <!-- This guide was created by Stephanie Federwisch as a Google document and then transferred to the wiki. -->
 
-_Note: This guide was written in 2014. If you find anything outdated please let us know or correct it yourself!_
+_Note: This guide was written in 2014. If you find anything outdated, please either let us know, or make an update directly to the doc. Thanks!_
 
 This page should walk you through how to go from a statistic you want to calculate from Oppia data through creating the models, jobs and getting them up and running.
 
