@@ -102,3 +102,7 @@ and are based on utilities located in
 together with various `protractor.js` files throughout the `extensions` directory. You can replace `it` with `fit` or `describe` with `fdescribe` to run a single test or test suite. For more information about modifying and writing such tests, see [[Writing End-to-End Tests|Writing-End-to-End-Tests]].
 
 Please report any unexpected or inexplicable failures of the tests, together with the error log produced, as there have been some stability issues that we are trying to iron out.
+
+**Troubleshooting**
+
+If you run into a "seleniumProcess.pid undefined" error when running the e2e tests, try installing/updating Java Runtime Environment and Java Development Kit on your local machine. This should resolve the issue -- see discussion in [issue #1824](https://github.com/oppia/oppia/issues/1824#issuecomment-219192563).
