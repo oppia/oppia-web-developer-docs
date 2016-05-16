@@ -103,7 +103,7 @@ Ben          Answer handling, collections, Android/iOS app
 Bren         Dev ops
 Jacob        Metrics
 Kevin        Library page
-Madiyar      Learner view
+Madiyar      Learner view, speed
 Sean         Exploration editor
 Sourav       Critical user journeys
 Xinyu        TBD
