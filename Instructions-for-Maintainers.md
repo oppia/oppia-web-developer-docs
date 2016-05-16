@@ -102,7 +102,7 @@ Barnabas     Iframed explorations
 Ben          Answer handling, collections, Android/iOS app
 Bren         Dev ops
 Jacob        Metrics
-Kevin        TBD
+Kevin        Library page
 Madiyar      Learner view
 Sean         Exploration editor
 Sourav       Critical user journeys
