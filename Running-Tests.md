@@ -105,4 +105,4 @@ Please report any unexpected or inexplicable failures of the tests, together wit
 
 **Troubleshooting**
 
-If you run into a "seleniumProcess.pid undefined" error when running the e2e tests, try installing/updating Java Runtime Environment and Java Development Kit on your local machine. This should resolve the issue -- see discussion in [issue #1824](https://github.com/oppia/oppia/issues/1824#issuecomment-219192563).
+If you run into a "seleniumProcess.pid undefined" error when running the e2e tests, try installing/updating Java Runtime Environment and Java Development Kit on your local machine. This should resolve the issue -- see discussion in [#1824](https://github.com/oppia/oppia/issues/1824#issuecomment-219192563).
