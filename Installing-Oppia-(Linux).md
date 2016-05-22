@@ -130,3 +130,19 @@ AttributeError: 'module' object has no attribute 'PROTOCOL_SSLv3'
     UnicodeDecodeError: 'ascii' codec can't decode byte 0xe2 in position 72: ordinal not in range(128)
     ```
     try updating the version of pip to v8.1.2 (as described in [this comment](https://github.com/oppia/oppia/issues/1580#issuecomment-218423065)).
+
+  * If you get an error that ends with either:
+
+    ```
+    File "/usr/local/Cellar/python/2.7.11/Frameworks/Python.framework/Versions/2.7/lib/python2.7/distutils/command/install.py", line 264, in finalize_options
+    "must supply either home or prefix/exec-prefix -- not both"
+DistutilsOptionError: must supply either home or prefix/exec-prefix -- not both
+    ```
+
+    or
+
+    ```
+    ImportError: No module named _ctypes
+    ```
+
+    please ensure that you are using Python 2. Also, if your system already has numpy installed, please ensure that its version is 1.6.1 (since that is the only one compatible with Google App Engine). For more details, see [this issue](https://github.com/oppia/oppia/issues/1545).
