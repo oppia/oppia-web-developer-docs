@@ -1,5 +1,5 @@
 ## Maintainer responsibilities
-- Triage incoming issues/PRs and welcome new contributors (see [rota](https://github.com/oppia/oppia/wiki/Instructions-for-Maintainers#rota-for-triaging-issues-and-prs) below)
+- Triage incoming issues/PRs and welcome new contributors (see [rota](https://github.com/oppia/oppia/wiki/Instructions-for-Maintainers#rota-for-triaging-issuesprs-and-welcoming-new-contributors) below)
 - Do code reviews
 - Within your given area of responsibility:
   - Figure out what needs to get done
