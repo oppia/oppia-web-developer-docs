@@ -87,14 +87,9 @@ Up till this point can all be done in one commit (or possibly several smaller on
 
 So now you should have all the events you need being recorded in the data store. The next thing you need to do is create (or add to) the final models. Each view in the UI has its own model in `core/storage/statistics/gae_models.py`, likely the one you want is either `ExplorationAnnotationModel`, `StateAnnotationModel`, `UserAnnotationModel`, or `GalleryAnnotationModel`. There will be one model for each entity that can be viewed. So an `ExplorationAnnotationModel` will have one instance per exploration. 
  * Find the appropriate model.
- * If it doesn’t exist, create a new model based off of `base_models.BaseModel`.
+ * If it doesn’t exist, create a new model based off of `base_models.BaseMapReduceBatchResultsModel` (using this model turns off default caching).
  * Add a field for each UI display. This could be a list that will be turned into a graph, or a calculated field that will be displayed as is, or some map from different UI entities to a data point for each.
  * Keep it minimal: store only as much data as you need in order to populate the view. This makes it as efficient as possible to query this data.
- * We’ve found that the default caching does not work well for our purposes. You should have the following two fields in your model
-```
-_use_cache = False
-_use_memcache = False
-```
  * Add a simple get function in `core/domain/stats_services.py`. Make sure to handle `EntityNotFoundError` for before the job has been run.
 
 
@@ -237,4 +232,3 @@ $scope.stats = {
 ```
 
 _Now you can merge your jobs in and your stats should be up to date! Any of these layers can be edited at any time if you so choose._
-
