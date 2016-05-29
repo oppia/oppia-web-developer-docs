@@ -48,6 +48,10 @@ If the Oppia server does not start automatically when you run 'vagrant up', this
 
    3. The Oppia server should now start at `http://localhost:8181`.
 
+### Tweaking the virtual machine settings
+
+In order to adjust the hardware settings of your VM (such as giving it more memory), stop the machine by issuing a `vagrant halt` from your Oppia directory on the host, then open up your hypervisor manager (typically VirtualBox). Your VM be a machine with a name that starts with `oppia_default_`. Select and edit the desired settings on that machine, then return to your Oppia repo and issue a `vagrant up` to run the machine with the new settings.
+
 ### Troubleshooting
 
 - If you run `git commit` from the host machine, you will likely have your commit rejected because you have not installed the pre-commit hooks. The hooks only install after you have run Oppia for the first time on a machine. Since you are actually installing and running Oppia on a VM, those hooks do not exist on the host. There are several ways to overcome this:
