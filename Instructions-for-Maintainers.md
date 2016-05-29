@@ -17,6 +17,7 @@ Please see [Instructions for Reviewers](https://github.com/oppia/oppia/wiki/Inst
 1. Tidy up the title, if necessary.
 2. Ensure that the issue has one of each of the following labels:
   * a team
+  * a location (frontend/backend/full-stack)
   * a type (bug/feature)
   * a TODO describing the type of work needed, and the stage that the issue is in. If the TODO is a light green tag, also add a separate 'starter project' tag (see below for more information about why).
 3. (Optional) It may also be helpful to add a list of checkboxes that describe the issue's sub-steps.
