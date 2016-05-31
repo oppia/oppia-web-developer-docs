@@ -105,8 +105,8 @@ Ben          Answer handling, collections, Android/iOS app
 Bren         Dev ops
 Jacob        Metrics
 Kevin        Library page
-Madiyar      Learner view, speed
+Madiyar      Learner view
 Sean         Exploration editor
 Sourav       Critical user journeys
-Xinyu        TBD
+Xinyu        Exploration saving and publishing
 ```
