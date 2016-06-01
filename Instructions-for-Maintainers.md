@@ -101,11 +101,11 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 Allan        Rich-text editor
 Avijit       Creator dashboard
 Barnabas     Iframed explorations
-Ben          Answer handling, collections, Android/iOS app
+Ben          Answer handling, collections
 Bren         Dev ops
 Jacob        Metrics
 Kevin        Library page
-Madiyar      Learner view
+Madiyar      Learner view, Android app
 Sean         Exploration editor
 Sourav       Critical user journeys
 Xinyu        Exploration saving and publishing
