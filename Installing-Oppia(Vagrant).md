@@ -1,6 +1,6 @@
-## What is Vagrant?
-
 _Note: if you're developing Oppia using Vagrant, please consider signing up to the [oppia-vagrant@](https://groups.google.com/forum/#!forum/oppia-vagrant) mailing list. Fellow Vagrant users may be able to help you out, and vice versa._
+
+## What is Vagrant?
 
 While Oppia can be built on any OS that supports Python, Node.js, and its other fundamental parts, all the build and startup scripts are targeted for Linux systems. This means that for Windows, the best path is to install via our supported Vagrant build.
 
