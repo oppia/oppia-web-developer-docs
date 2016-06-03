@@ -8,7 +8,7 @@
 
 Oppia relies on a number of programs and third-party libraries. Many of these libraries are downloaded automatically for you when you run the `start.sh` script provided with Oppia. However, there are some things that you will need to do beforehand:
 
-1. Ensure that you have [Python 2.7](http://www.python.org/download/releases/2.7/) installed.
+1. Ensure that you have [Python 2.7](http://www.python.org/download/releases/2.7/) installed (Note: you can check this by running `python --version`).
 
 2. Install setuptools (which is needed to install coverage, which checks test coverage for the Python code) and pip (which is needed to install numpy). To do this, open the terminal and run:
 
@@ -95,3 +95,62 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
     ```
 
   please see the instructions in [issue #1179](https://github.com/oppia/oppia/issues/1179) for a fix.
+
+  * If you get an error that includes:
+
+   ```
+   GitPython is not installed for Python 2.x
+   The 'dist' command will not work without it. Get it using pip or easy_install
+   ```
+   please install [GitPython](http://gitpython.readthedocs.io/en/stable/intro.html#installing-gitpython) before proceeding further.
+
+  * If you get an error that includes:
+
+   ```
+   No Java runtime present, requesting install.
+   closure-compiler failed.
+   ```
+   please download [Java](https://support.apple.com/kb/DL1572?locale=en_US) and install it.
+
+  * if you get an error that includes:
+   
+   ```
+   Checking whether Skulpt is installed in third_party
+   cp: /Users/sdawson/opensource/oppia_tools/skulpt-0.10.0/skulpt/dist/*: No such file or directory
+   ```
+   please remove the below mentioned directories and try running `start.sh` again:
+   ```
+   ../oppia_tools/
+   ../node_modules/
+   third_party/
+   core/templates/prod/
+   ```
+   
+  * if you run into issues while installing numpy, and the error message looks something like this:
+
+   ```
+   Collecting numpy==1.6.1
+  Downloading numpy-1.6.1-cp27-none-macosx_10_6_intel.macosx_10_9_intel.macosx_10_9_x86_64.whl (11.6MB)
+    100% |████████████████████████████████| 11.6MB 104kB/s 
+Installing collected packages: numpy
+Exception:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/pip/basecommand.py", line 215, in main
+    status = self.run(options, args)
+  File "/usr/local/lib/python2.7/site-packages/pip/commands/install.py", line 317, in run
+    prefix=options.prefix_path,
+  File "/usr/local/lib/python2.7/site-packages/pip/req/req_set.py", line 742, in install
+    **kwargs
+  File "/usr/local/lib/python2.7/site-packages/pip/req/req_install.py", line 831, in install
+    self.move_wheel_files(self.source_dir, root=root, prefix=prefix)
+  File "/usr/local/lib/python2.7/site-packages/pip/req/req_install.py", line 1032, in move_wheel_files
+    isolated=self.isolated,
+  File "/usr/local/lib/python2.7/site-packages/pip/wheel.py", line 247, in move_wheel_files
+    prefix=prefix,
+  File "/usr/local/lib/python2.7/site-packages/pip/locations.py", line 153, in distutils_scheme
+    i.finalize_options()
+  File "/usr/local/Cellar/python/2.7.11/Frameworks/Python.framework/Versions/2.7/lib/python2.7/distutils/command/install.py", line 264, in finalize_options
+    "must supply either home or prefix/exec-prefix -- not both"
+DistutilsOptionError: must supply either home or prefix/exec-prefix -- not both
+   ```
+   this StackOverflow [answer](http://stackoverflow.com/a/24357384) provides a possible fix.
