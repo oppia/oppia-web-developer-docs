@@ -105,4 +105,17 @@ Please report any unexpected or inexplicable failures of the tests, together wit
 
 **Troubleshooting**
 
-If you run into a "seleniumProcess.pid undefined" error when running the e2e tests, try installing/updating Java Runtime Environment and Java Development Kit on your local machine. This should resolve the issue -- see discussion in [#1824](https://github.com/oppia/oppia/issues/1824#issuecomment-219192563).
+If you get an error similar to this:
+```
+ selenium standalone is up to date.
+ chromedriver is up to date.
+ nc: connect to localhost port 8181 (tcp) failed: Connection refused
+ nc: connect to localhost port 4444 (tcp) failed: Connection refused
+ seleniumProcess.pid: undefined
+ nc: connect to localhost port 4444 (tcp) failed: Connection refused
+ nc: connect to localhost port 4444 (tcp) failed: Connection refused
+ nc: connect to localhost port 4444 (tcp) failed: Connection refused
+ nc: connect to localhost port 4444 (tcp) failed: Connection refused
+```
+while running e2e tests, download and install [Java SE Development Kit 7u79](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html). 
+If the problem still persists, try installing/updating Java Runtime Environment. This should resolve the issue -- see discussion in [#1824](https://github.com/oppia/oppia/issues/1824#issuecomment-219192563)
