@@ -107,7 +107,7 @@ Ben          Answer handling, code health
 Bren         Dev ops
 Jacob        Metrics
 Kevin        Collections, library index page
-Madiyar      Learner view, Android app
+Madiyar      Android app, learner view
 Sean         Exploration editor
 Sourav       Critical user journeys
 Xinyu        Exploration saving and publishing
