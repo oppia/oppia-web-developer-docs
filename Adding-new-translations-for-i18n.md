@@ -1,4 +1,4 @@
-Oppia supports internationalization (i18n) for most of the student-facing pages. The library used for translations is [angular-translate](http://angular-translate.github.io/), you can find more information in the [docs](https://angular-translate.github.io/docs/#/guide). We encourage developers to add new translations of correct existing ones to make the platform available in different languages.
+Oppia supports internationalization (i18n) for most of the student-facing pages. The library used for translations is [angular-translate](http://angular-translate.github.io/), you can find more information in the [docs](https://angular-translate.github.io/docs/#/guide). We encourage developers to add new translations of correct existing ones to make the platform available in different languages. If you want to know more about how  to use the internationalization platform, check our [guide for developers](https://github.com/oppia/oppia/wiki/How-to-develop-for-i18n).
 
 ## How to add a new language
 
