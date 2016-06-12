@@ -1,7 +1,7 @@
 ## Quick overview
 
 The internationalization (i18n) support for Oppia is based on the JavaScript library [angular-translate](https://angular-translate.github.io/). At the moment, only the student view of Oppia is internationalized. The editor remains only in English until the design refactoring takes place.
-The i18n directory contains the translation files in JSON format. Each of this files is a map from translation keys like `I18N_MODULE_STRING_NAME` to the translated strings. When a page is loaded, the angular translate searches through the html code and inserts the translated strings wherever the key is present.
+The [i18n directory](https://github.com/oppia/oppia/tree/develop/i18n) contains one translation file in JSON format for each supported language. Each of these files is a map from translation keys like `I18N_MODULE_STRING_NAME` to the translated strings. When a page is loaded, the angular translate searches through the html code and inserts the translated strings wherever the key is present, according to the selected language.
 
 ## Good practices in i18n
 
@@ -30,7 +30,7 @@ Sometimes, the page is displayed in the browser before the locale file with the 
 When adding new string to the html code in Oppia, please have into account the following tips to prevent FoUC:
 - The FoUC behaves differently in the preferred language (English) and all the other languages. Please be sure to manually check there is no FoUC in both cases.
 - Add the translation key inside the html tag as value of the translate attribute. This will prevent the key from showing for a moment, instead, the place for the string will appear empty.
-- If the string is in a very visible place and there is FoUC in the preferred language, add the key and the translation into the constant `DEFAULT_TRANSLATIONS` defined in core/templates/dev/head/i18n.js
+- If the string is in a very visible place and there is FoUC in the preferred language, add the key and the translation into the constant `DEFAULT_TRANSLATIONS` defined in the file [i18n.js](https://github.com/oppia/oppia/blob/develop/core/templates/dev/head/i18n.js)
 
 ## Titles
 
@@ -52,7 +52,7 @@ For placeholders, use the `ng-attr-placeholder` attribute instead of just the at
 
 ## Plurals and gender
 
-Angular translate supports pluralization and different genders using the library messageformat. For example, if you need to translate the html code
+Angular translate supports pluralization and different genders using the library [messageformat](https://github.com/SlexAxton/messageformat.js/). For example, if you need to translate the html code
 
     <span ng-if="choices > 1">Select <[choices]> choices.</span>
     <span ng-if="choices == 1">Select one choice.</span>
@@ -62,15 +62,15 @@ you have to replace this code for:
 
     <span translate=”TRANSLATION_KEY” translate-values=”{choicesValue:<[choices]>}” translate-interpolation="messageformat"></span>
 
-and add the translation into the en.json file with the following format:
+and add the translation into the [en.json](https://github.com/oppia/oppia/blob/develop/i18n/en.json) file with the following format:
 
     “TRANSLATION_KEY”: “{choicesValue, plural, =0{Select no choice.} one{Select one choice.} other{Select # choices.}}”
 
-You can read a more complete tutorial in the angular translate guide and the messageformat documentation. 
+You can read a more complete tutorial in the [angular translate guide](http://angular-translate.github.io/docs/#/guide/14_pluralization) and the [messageformat documentation](https://github.com/SlexAxton/messageformat.js/). 
 
 ## Testing
 
-On an end2end or integration test you can check the page has no untranslated keys. Call the helper function `ensurePageHasNoTranslationIds` in located in the file general.js.
+On an end2end or integration test you can check the page has no untranslated keys. Call the helper function `ensurePageHasNoTranslationIds` in located in the file [general.js](https://github.com/oppia/oppia/blob/develop/core/tests/protractor_utils/general.js).
 
 Also, Karma tests may generate 404 warnings. When the page is loading, the client makes a request for the locale files and, in a test environment, they are not found. To solve this problem add the following line in the first part of your Karma test:
 
