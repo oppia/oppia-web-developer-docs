@@ -26,7 +26,9 @@ Side note: the default way of indicating an expression in Angular is with the sy
 
 However, there are some cases when this is not enough. In the example above, if there is only one notification, then we should change the word "notifications" for "notification". Furthermore, some languages may have more plural forms than English. The solution is to use a different interpolation service, called [messageformat](https://github.com/SlexAxton/messageformat.js/). In this case, the translation looks like this:
 
+```
     {notification_number, plural, =0{You have no notifications.} one{You have one notification.} other{You have # notifications.}}
+```
 
 In this example, the # symbol will be replaced by the value of the `notification_number` variable. For a more complete tutorial, please see the [angular-translate guide for pluralization](http://angular-translate.github.io/docs/#/guide/14_pluralization). 
 
