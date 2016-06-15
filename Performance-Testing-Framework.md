@@ -1,2 +1,2 @@
 To execute tests run:
-`python core/tests/performance_tests/splash_test.py` from the parent oppia folder.
+`bash scripts/run_backend_tests.sh --test_target=core.tests.performance_tests.splash_test` from the parent oppia folder.
