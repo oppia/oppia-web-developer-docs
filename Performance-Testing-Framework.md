@@ -1,3 +1,5 @@
+### Running tests.
+
 You can run performance tests using
 
 ```
@@ -13,7 +15,7 @@ We consider the following metrics for the first time a user opens a page as well
 3. Dom ready time.
 4. Request time.
 
-** What to do if tests fails? **
+**What to do if tests fails?**
 
 If it is something like:
 ```
@@ -24,6 +26,10 @@ This means that the threshold set for this metric is not met. This could happen 
 
 1. You introduced a change which increases the total page load time.
 2. This could also happen due to variability in timings from machine to machine. Make sure that these tests are the **only** (major) active process running.
+
+### Writing tests.
+
+
 
 ### Issues
 
