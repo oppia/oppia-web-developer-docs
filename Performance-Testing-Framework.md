@@ -24,7 +24,7 @@ AssertionError: 3715 not less than or equal to 3000
 ```
 This means that the threshold set for this metric is not met. This could happen due to:
 
-1. You introduced a change which increases the total page load time.
+1. You introduced a change which alters the value of the metric. In this case, there is an increase in the total page load time.
 2. This could also happen due to variability in timings from machine to machine. Make sure that these tests are the **only** (major) active process running.
 
 ### Writing tests.
