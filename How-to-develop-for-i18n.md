@@ -24,6 +24,10 @@ Translation key names are always written using uppercase and have some defined p
 
 The final result would be `I18N_SIGNUP_PAGE_TITLE`. Long translation keys are fine -- the key objective is that the role of the string is well described.
 
+## Giving context to translators
+
+We have a file at `i18n/qqq.json` for providing translators with context. Please see [this page](https://www.mediawiki.org/wiki/Localisation#Message_documentation) for more information on how to do this.
+
 ## Flash of Untranslated Content
 
 Sometimes, the page is rendered in the browser before the locale file with the translations is loaded. As a result, the user can see the translation keys briefly before they're replaced with the corresponding translations, which is not a good user experience. This problem is known as the "Flash of Untranslated Content", or FoUC.
