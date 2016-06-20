@@ -26,7 +26,7 @@ The final result would be `I18N_SIGNUP_PAGE_TITLE`. Long translation keys are fi
 
 ## Giving context to translators
 
-We have a file at `i18n/qqq.json` for providing translators with context. Please see [this page](https://www.mediawiki.org/wiki/Localisation#Message_documentation) for more information on how to do this.
+We have a file at `i18n/qqq.json` for providing translators with context -- if you add new strings to be translated, you should also add them to this file. Please see [this page](https://www.mediawiki.org/wiki/Localisation#Message_documentation) for more information on how to do this.
 
 ## Flash of Untranslated Content
 
