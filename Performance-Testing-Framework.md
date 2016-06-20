@@ -13,7 +13,7 @@ The framework has two major components to it:
 1. Performance Data Fetcher:  
 We use selenium and browsermob-proxy to fetch performance data for the different Oppia pages.  
 Selenium helps in programmatically interacting with a browser and browsermob-proxy is used to capture HTTP Archive (referred to as HAR) data by recording the communication between the client and server.  
-The ** HTTP Archive ** format is a JSON-formatted archive file format used for logging a web browser's interaction with a site. It contains detailed performance data, including information about page loading and displaying and per-resource statistics. Each entry contains the URL requested and request and response headers. For additional details, please see: https://dvcs.w3.org/hg/webperf/raw-file/tip/specs/HAR/Overview.html
+The **HTTP Archive** format is a JSON-formatted archive file format used for logging a web browser's interaction with a site. It contains detailed performance data, including information about page loading and displaying and per-resource statistics. Each entry contains the URL requested and request and response headers. For additional details, please see: https://dvcs.w3.org/hg/webperf/raw-file/tip/specs/HAR/Overview.html
 
 2. Performance Metrics Provider:  
 Refer to: `PageSessionMetrics` and `MultiplePageSessionMetrics` objects in `perf_domain.py`.  
