@@ -75,8 +75,8 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 6 Jun - 12 Jun    Ben
 13 Jun - 19 Jun   Barnabas
 20 Jun - 26 Jun   Bren
-27 Jun - 3 Jul    Madiyar
-4 Jul - 10 Jul    Xinyu	
+27 Jun - 3 Jul    Xinyu
+4 Jul - 10 Jul    Madiyar	
 11 Jul - 17 Jul   Sourav
 18 Jul - 24 Jul   Avijit
 
