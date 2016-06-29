@@ -63,7 +63,7 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 
 ----
 
-## Rota for triaging issues/PRs and welcoming new contributors
+## Maintainer Rota
 
 ```
 2 May - 8 May     Sean
