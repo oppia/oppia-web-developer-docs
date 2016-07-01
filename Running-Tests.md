@@ -103,6 +103,14 @@ together with various `protractor.js` files throughout the `extensions` director
 
 Please report any unexpected or inexplicable failures of the tests, together with the error log produced, as there have been some stability issues that we are trying to iron out.
 
+**Debugging**
+
+If you find that the e2e tests are failing, first check the error message. If it looks something like "Cannot determine loading status" or "A Jasmine spec timed out", this is probably a transient issue, and the best thing to do (if the failure is on Travis) is to ask a maintainer to restart the relevant test.
+
+Otherwise, run the affected test on your local machine, and watch it running, so that you can see where things are going wrong. Note that you can pass in a 'suite' parameter to run a subset of the tests -- see scripts/run_e2e_tests.sh for details. Another alternative is to go to core/tests/protractor.js and modify the *.js to just the specific file you want to test.
+
+Finally, if this isn't helping (e.g. the issue is with console errors or something that's not obviously apparent), look up the test file in `core/tests/protractor` and follow its actions manually on a fresh dev server (they should be pretty easy to understand). Keep the browser console open so that you can spot any warnings. This should help you find problems, and fix them.
+
 **Troubleshooting**
 
 If you get an error similar to this:
