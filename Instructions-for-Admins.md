@@ -26,7 +26,7 @@ To release a new version of Oppia, follow the following steps. This assumes that
 
   (In the future, we should consider also tagging changes with their commit hash, similar to [this](https://github.com/angular/angular.js/blob/master/CHANGELOG.md).)
 
-1. Do a PR from the release branch into `master`, and wait for the Travis-CI checks to turn green. **Do not squash-merge this PR.**
+1. Do a PR from the release branch into `master`, and wait for the Travis-CI checks to turn green. **DO NOT SQUASH-MERGE THIS PR.**
 
 1. Merge the release branch into both `master` and `develop`, tag the new release, and delete the release branch:
 
