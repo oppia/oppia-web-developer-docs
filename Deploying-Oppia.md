@@ -16,3 +16,19 @@ Logging in from the Google account hosting the app will allow you to access the 
       https://[APP_NAME].appspot.com/admin
   ``` 
 but you will have to wait for app engine to finish building datastore indexes before this page will load.
+
+### Google analytics
+
+To link your instance of oppia to a Google analytics account, after deploying go to the admin page, select the config tab, and in the " Code to insert just before the closing </head> tag in all pages." field enter:
+```
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'TRACKING_ID', 'auto');
+  ga('send', 'pageview');
+</script>
+```
+where TRACKING_ID is your tracking ID, which can be found in Google analytics by going to the Admin tab, selecting the relevant account and property, clicking "Tracking info" and then clicking "Tracking Code". Do not use the tracking ID from oppia.org as that would interfere with our analytics system.
