@@ -19,7 +19,7 @@ but you will have to wait for app engine to finish building datastore indexes be
 
 ### Google analytics
 
-To link your instance of oppia to a Google analytics account, after deploying go to the admin page, select the config tab, and in the " Code to insert just before the closing </head> tag in all pages." field enter:
+To link your instance of oppia to a Google analytics account, after deploying go to the admin page, select the config tab, and in the "Code to insert just before the closing </head> tag in all pages." field enter:
 ```
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
