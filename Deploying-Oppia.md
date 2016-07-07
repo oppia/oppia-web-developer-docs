@@ -31,4 +31,4 @@ To link your instance of oppia to a Google analytics account, after deploying go
   ga('send', 'pageview');
 </script>
 ```
-where TRACKING_ID is your tracking ID, which can be found in Google analytics by going to the Admin tab, selecting the relevant account and property, clicking "Tracking info" and then clicking "Tracking Code". Do not use the tracking ID from oppia.org as that would interfere with our analytics system.
+where TRACKING_ID is your tracking ID. It can be found in Google analytics by going to the Admin tab, selecting the relevant account and property, clicking "Tracking info" and then clicking "Tracking Code". Do not use the tracking ID from oppia.org as that would interfere with our analytics system.
