@@ -50,11 +50,10 @@ If any event type is missing, create a new branch off of develop. Then, create a
 
 ### Add services functions
 
-The pattern we use is to hide creating models by adding functions in the services files. For stats, this file is `core/domain/stats_services.py`. For each event type (or scenario), create a function in `EventHandler`.
- * Function should be marked `@classmethod`.
- * Function name should be a verb form of the event type (i.e., `start_exploration`).
+The pattern we use is to hide creating models by adding functions in event_services. For each event type (or scenario), create a class whose name ends in `EventHandler`, and it should be a subclass of `BaseEventHandler`:
+ * Create a function by the name `_handle_event` which should be marked `@classmethod`. This is the actual function which is called when you record an event.
  * Should call `stats_models.YourModelName.create()`.
- * Add a line in `core/domain/stats_services_test.py`, `EventLogEntryTests test_create_events`.
+ * Add a line in core/domain/stats_services_test.py, EventLogEntryTests test_create_events.
  * If you feel this does not cover everything that needs to be tested, add a new test (and increase the count of tests in `core/tests/gae_suite.py`).
 
 ### Creating the data
@@ -63,21 +62,21 @@ The pattern we use is to hide creating models by adding functions in the service
  * Figure out which handler in that file. Comments should help with this, but if not you can find the url to handler mapping in `main.py`.
  * What if there isn’t such a handler or not all the data you need is collected? We can add a new data collection/handlers but since this is a more complex operation and is likely to collect new and different kinds of data, please check with a tech lead before making these kinds of changes.
  * You will need to create and send a request. An example from the handler for leave events: 
-```
+```js
 var requestMap = {
-         params: $scope.params,
-         version: GLOBALS.explorationVersion,
-         session_id: $scope.sessionId,
-         client_time_spent_in_secs: 
-           (new Date().getTime() - $scope.stateStartTime) / 1000,
-       };
+  params: $scope.params,
+  version: GLOBALS.explorationVersion,
+  session_id: $scope.sessionId,
+  client_time_spent_in_secs: 
+    (new Date().getTime() - $scope.stateStartTime) / 1000,
+};
 
-       $http.post(
-           '/explorehandler/leave/' + $scope.explorationId + '/' + encodeURIComponent($scope.stateName),
-           oppiaRequestCreator.createRequest(requestMap),
-           {headers: {'Content-Type': 'application/x-www-form-urlencoded'}});
+$http.post(
+  '/explorehandler/leave/' + $scope.explorationId + '/' + encodeURIComponent($scope.stateName),
+  oppiaRequestCreator.createRequest(requestMap),
+  {headers: {'Content-Type': 'application/x-www-form-urlencoded'}});
 ```
- * Once you have gotten all the data through to the controller, make a call to `stats_services.EventHandler.your_function()` with all the data.
+ * Once you have gotten all the data through to the controller, make a call to `event_services.YourEventHandler.record()` with all the data.
 
 ### Submitting the event log entries
 
@@ -124,11 +123,13 @@ In the reduce step you will get all values with the same key at the same time, s
 
 Creating the value: 
 All values passed to the reduce method will be stringified. To make sure that we can reliably de-stringify this value, the passed value needs to be constructed of base python types. We’ve found the simplest form to use to be turning the event into a dictionary. This will look something like this
-```
-map_value = {'event_type': item.event_type,
-                     'session_id': item.session_id,
-                     'created_on': int(utils.get_time_in_millisecs(item.created_on)),
-                     'state_name': item.state_name}
+```python
+map_value = {
+  'event_type': item.event_type,
+  'session_id': item.session_id,
+  'created_on': int(utils.get_time_in_millisecs(item.created_on)),
+  'state_name': item.state_name
+}
 ```
 
 For each value of the event that is relevant:
@@ -164,7 +165,7 @@ Now you have a functioning job, but you should check to make sure.
 Write some unit tests that follow this general pattern:
 * Record some events using the `EventHandler methods`.
 * To get job running use code similar to this
-```
+```python
 job_id = stats_jobs.StatisticsPageJobManager.create_new()
 stats_jobs.StatisticsPageJobManager.enqueue(job_id)
 self.assertEqual(self.count_jobs_in_taskqueue(), self.process_and_flush_pending_tasks()
@@ -177,29 +178,29 @@ Write multiple tests to make sure that all code paths are tested. For any new te
 
 Dealing with event timestamps in test:
 Test run quickly and as such often times the events created in a test will likely all have the same timestamp. So if your tests require events to happen in a particular order, such as calculation that tests time between events or takes the first or last event, the best practice is to manually edit the created_on timestamps to avoid flakiness in the tests. You have to create the event first and then modify created_on and then put it in the database. Like in this example:
-```
-       leave = stats_models.MaybeLeaveExplorationEventLogEntryModel(
-            event_type=feconf.EVENT_TYPE_LEAVE,
-            exploration_id=exp_id,
-            exploration_version=version,
-            state_name=state,
-            session_id='session1',
-            client_time_spent_in_secs=27.0,
-            params={},
-            play_type=feconf.PLAY_TYPE_PLAYTEST)
-        leave.created_on = datetime.fromtimestamp(1)
-        leave.put()
+```python
+leave = stats_models.MaybeLeaveExplorationEventLogEntryModel(
+    event_type=feconf.EVENT_TYPE_LEAVE,
+    exploration_id=exp_id,
+    exploration_version=version,
+    state_name=state,
+    session_id='session1',
+    client_time_spent_in_secs=27.0,
+    params={},
+    play_type=feconf.PLAY_TYPE_PLAYTEST)
+leave.created_on = datetime.fromtimestamp(1)
+leave.put()
 ```
 
 ### Making it run as a cron job
 
 Many core jobs will be run on a periodic basis. You will need to make sure that your job runs at reasonable intervals. This only applies if you have added a new job.
  * You will need to add a handler in `core/controllers/cron.py` This will need to kick off a job. The code will look like this
-```
+```python
 for klass in jobs_registry.JOB_MANAGER_CLASSES:
-         if klass.__name__ == 'StatisticsPageJobManager':
-           klass.enqueue(klass.create_new())
-           break
+  if klass.__name__ == 'StatisticsPageJobManager':
+    klass.enqueue(klass.create_new())
+    break
 ```
  * You will also need to add a line to main_cron.py to direct the url to your handler
     get_redirect_route(r'/cron/statistics', cron.StatisticsHandler, 'statistics_handler'),
@@ -216,18 +217,18 @@ After this point, run scripts/test.sh. Make sure that all tests pass and you hav
  * Find the handler for the page you want to display the data in. For most statistics this is going to be `controllers/editor.py ExplorationStatisticsHandler`.
  * Call the get function for your annotation model.
  * In the put function there is a line calling `self.render_json()`. Put new entries into this dict like this
-```
+```python
 ‘num_visits’ : exploration_annotation.num_visits
 ```
  * This will become a field in the response.data when get is called on that handler. You can add this variable to the $scope, in most cases this will be in `core/templates/dev/head/editor/ExplorationEditor.js`
-```
+```js
 $scope.stats = {
-    'numVisits': data.num_visits,
-    'numCompletions': data.num_completions,
+  'numVisits': data.num_visits,
+  'numCompletions': data.num_completions,
 };
 ```
  * Then this can be accessed in angular in the html for rendering. core/templates/dev/head/editor/stats_viewer.html in most cases. Some examples:
-```
+```html
 <div ng-if="stats.numVisits > 0">
 ```
 
