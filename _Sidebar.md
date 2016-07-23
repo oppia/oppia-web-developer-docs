@@ -21,6 +21,7 @@
     * [[Mobile device testing|Mobile-device-testing]]
     * [[Adding new translations|Adding-new-translations-for-i18n]]
     * [[How to develop for i18n|How-to-develop-for-i18n]]
+    * [[Adding static assets|Adding-static-assets]]
   * References
     * [User documentation](https://oppia.github.io/)
     * [[Extension frameworks|Extensions-Overview]]
