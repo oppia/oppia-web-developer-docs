@@ -2,7 +2,7 @@
 
 Internationalization (i18n) support for Oppia is based on the JavaScript library [angular-translate](https://angular-translate.github.io/). At the moment, only the learner view of Oppia is internationalized. The editor will remain in English until the design refactor takes place.
 
-The [i18n directory](https://github.com/oppia/oppia/tree/develop/i18n) contains one translation file in JSON format for each supported language. Each of these files is a map from translation keys like `I18N_MODULE_STRING_NAME` to the translated strings. When a page is loaded, angular-translate traverses through the page's html code and changes the translation key to the appropriate translated string.
+The [i18n directory](https://github.com/oppia/oppia/tree/develop/assets/i18n) contains one translation file in JSON format for each supported language. Each of these files is a map from translation keys like `I18N_MODULE_STRING_NAME` to the translated strings. When a page is loaded, angular-translate traverses through the page's html code and changes the translation key to the appropriate translated string.
 
 ## Good practices in i18n
 
@@ -26,7 +26,7 @@ The final result would be `I18N_SIGNUP_PAGE_TITLE`. Long translation keys are fi
 
 ## Giving context to translators
 
-We have a file at `i18n/qqq.json` for providing translators with context -- if you add new strings to be translated, you should also add them to this file. Please see [this page](https://www.mediawiki.org/wiki/Localisation#Message_documentation) for more information on what goes into these descriptions.
+We have a file at `assets/i18n/qqq.json` for providing translators with context -- if you add new strings to be translated, you should also add them to this file. Please see [this page](https://www.mediawiki.org/wiki/Localisation#Message_documentation) for more information on what goes into these descriptions.
 
 ## Flash of Untranslated Content
 
@@ -67,7 +67,7 @@ you must replace this code with:
 
     <span translate=”TRANSLATION_KEY” translate-values=”{choicesValue:<[choices]>}” translate-interpolation="messageformat"></span>
 
-and add the translation into the [en.json file](https://github.com/oppia/oppia/blob/develop/i18n/en.json) with the following format:
+and add the translation into the [en.json file](https://github.com/oppia/oppia/blob/develop/assets/i18n/en.json) with the following format:
 
     “TRANSLATION_KEY”: “{choicesValue, plural, =0{Select no choice.} one{Select one choice.} other{Select # choices.}}”
 
