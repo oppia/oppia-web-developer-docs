@@ -12,9 +12,9 @@ Depending on the static resource type we have the following methods:
 1. **getStaticResourceUrl(resourcePath)**:  
     For css, js and extension resources.  
     Usage:   
-        * `<link rel="stylesheet" type="text/css" ng-href="<[getStaticResourceUrl('/path-to-resource')]>">`       
+        `<link rel="stylesheet" type="text/css" ng-href="<[getStaticResourceUrl('/path-to-resource')]>">`       
     Example:  
-        * `<link rel="stylesheet" type="text/css" ng-href="<[getStaticResourceUrl('/extensions/gadgets/AdviceBar/static/css/adviceBar.css')]>">`  
+        `<link rel="stylesheet" type="text/css" ng-href="<[getStaticResourceUrl('/extensions/gadgets/AdviceBar/static/css/adviceBar.css')]>">`  
 
 2. **getStaticImageUrl(imagePath)**:  
     This method should be used to reference image files present in `/assets/images` and `imagePath` passed in the method should be relative to `/assets/images` and start with a forward slash.  
