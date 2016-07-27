@@ -1,13 +1,15 @@
 ### Running tests.
 
-To run performance tests for all pages:
-'''
+To run performance tests for all pages:  
+``
 bash scripts/run_performance_tests.sh
-'''
-To run test for a specific page:
-'''
+``
+
+To run test for a specific page:  
+``
 bash scripts/run_performance_tests.sh --test_name=page_test
-'''
+``  
+
 page_test is the name of the file containing that test eg. splash_test. Refer to `core/tests/performance_tests` directory for the files containing these tests.
 
 ### The Framework.
