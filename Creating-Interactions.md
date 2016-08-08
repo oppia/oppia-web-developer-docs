@@ -43,7 +43,7 @@ Here's what each file should contain:
   1. `MyInteraction.html` contains the two templates used to display the interaction's HTML, each of which is bound to the directives in `MyInteraction.js`. In the response template, you can refer to the learner's answer -- see e.g. the `NumericInput` code for details.
   1. (optional) `stats_response.html` determines how users' submissions are shown to the exploration author in the statistics. If this is omitted, the raw answer will be used.
 
-Once you've created these files, activate your interaction in Oppia by editing the `ALLOWED_INTERACTIONS` variable in `feconf.py` (you'll need to specify its name and the location of its directory). Your interaction should then be available in the interaction repository, and can be used in explorations.
+Once you've created these files, activate your interaction in Oppia by editing the `ALLOWED_INTERACTION_CATEGORIES` variable in `feconf.py` (you'll need to specify its name). Interactions are classified under different categories, add yours to a suitable category. Your interaction should then be available in the interaction repository, and can be used in explorations.
 
 ### Testing ###
 
