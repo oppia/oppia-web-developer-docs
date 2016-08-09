@@ -14,6 +14,7 @@
     * [[Vagrant|Installing-Oppia(Vagrant)]]
   * Developing Oppia
     * [[Overview of the codebase|Overview-of-the-Oppia-codebase]]
+    * [[Coding style guide|Coding-style-guide]]
     * [[Running tests|Running-Tests]]
       * [[End-to-end tests|Writing-End-to-End-Tests]]
     * [[Git cheat sheet|Git-cheat-sheet]]
