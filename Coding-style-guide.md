@@ -1,5 +1,3 @@
-# Coding style rules
-
 ## General guidelines
 
 In general, code should be formatted consistently with other code around it. We use Google's [Python](https://google.github.io/styleguide/pyguide.html) and [JavaScript](https://google.github.io/styleguide/javascriptguide.xml) style guides as a reference. 
