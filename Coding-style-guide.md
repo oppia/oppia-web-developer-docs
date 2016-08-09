@@ -1,7 +1,7 @@
 Please follow the following style rules when writing code, in order to minimize unnecessary back-and-forth during code review. (Note that most, but not all, of the rules on this page are baked into the default linters and the pre-push hook.)
 
 ## General
-- Ensure that your code is formatted consistently with other code around it.
+- Ensure that your code looks consistent with the code surrounding it.
 - Strings should use single quotes (`'`) throughout Python and JavaScript.
 - Prefer having comments on their own line (above the code that's being commented on), as opposed to next to a line. The exception is when you need to disable a pylint warning for a specific line.
 - The last character in each file should be a newline. (If you're using Sublime, you can enforce this locally by adding `"ensure_newline_at_eof_on_save": true` to your user preferences file.)
