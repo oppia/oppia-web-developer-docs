@@ -13,6 +13,7 @@
     * [[Windows|Installing-Oppia-(Windows)]]
     * [[Vagrant|Installing-Oppia(Vagrant)]]
   * Developing Oppia
+    * **[[Created something new?|https://goo.gl/forms/sNBWrW03fS6dBWEp1]]**
     * [[Overview of the codebase|Overview-of-the-Oppia-codebase]]
     * [[Coding style guide|Coding-style-guide]]
     * [[Running tests|Running-Tests]]
