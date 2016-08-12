@@ -28,7 +28,7 @@ Once the machine finishes building, it will start Oppia automatically and you ca
 
 The Oppia process is in the foreground, preventing Vagrant from returning control of the terminal back to the user. Therefore, ctrl+c will break it for you. Oppia will still be running in the background. 
 
-You can stop the machine by using `vagrant halt`, and start the machine again by using `vagrant up`. On subsequent starts, you will have to SSH into the machine and run `bash scripts/start.sh` from `/home/vagrant/oppia`. 
+You can stop the machine by using `vagrant halt`, and start the machine again by using `vagrant up`. On subsequent starts, you will have to SSH (Run `vagrant ssh`) into the machine, move to the `oppia` directory  and run `bash scripts/start.sh`. To exit SSH of vagrant, run `exit` command or press `CTRL+D`.  
 
 ### Accessing and editing source code
 
