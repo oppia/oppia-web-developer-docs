@@ -43,6 +43,15 @@ To release a new version of Oppia, follow the following steps. This assumes that
 
 1. Deploy the release.
 
-1. Make a PR to merge `master` into `develop`. DO NOT SQUASH MERGE.
+1. Make a PR to merge `master` into `develop`. **DO NOT SQUASH MERGE.**
 
 Congratulations, you've just done a release!
+
+## Doing a hotfix
+1. Make a branch off `master`, and add the commits desired.
+
+1. Do a PR from the hotfix branch into `master`, and wait for the Travis-CI checks to turn green. It's ok to squash merge this.
+
+1. Deploy the hotfix.
+
+1. Do a PR from `master` to `develop`. **DO NOT SQUASH MERGE.**
