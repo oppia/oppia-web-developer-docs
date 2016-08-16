@@ -9,6 +9,7 @@ Please follow the following style rules when writing code, in order to minimize 
 ## Python
 - Prefer `xrange` to `range`, so as not to hold the entire range in memory unnecessarily.
 - Consider using a frozenset or tuple to a list, if the data structure is not meant to be subsequently modified. This applies especially to constants.
+- If you need to raise an Exception, just do `raise Exception` -- no need to define custom exceptions. We tend to use exceptions fairly sparingly, though.
 - Otherwise, please follow the [Google Python style guide](https://google.github.io/styleguide/pyguide.html). In particular:
   - There should be two empty lines before any top-level class or function definition.
   - Prefer string interpolation over concatenation -- e.g. prefer: `'My string %s' % varname` to `'My string ' + varname`.
@@ -43,7 +44,8 @@ Please follow the following style rules when writing code, in order to minimize 
   - Be careful [not to use mutable objects](https://google.github.io/styleguide/pyguide.html?showone=Default_Argument_Values#Default_Argument_Values) as default values in the function or method definition. I.e., don't do things like `def foo(a, b=[]):`.
 
 ## JavaScript
-- Please follow the [Google JavaScript style guide](https://google.github.io/styleguide/javascriptguide.xml).
+- We use extra parentheses if a statement breaks across multiple lines, similar to Python.
+- The indentation is always 2 spaces.
 - We are moving away from using underscores as prefixes for variable names, so, in the future, use `var localVariable` and not `var _localVariable`. Instead, we are adopting the convention that anything declared using `var` is private to the controller/service/etc. If you want a variable to be accessible to the controller, declare it on $scope instead.
 
 ## CSS
