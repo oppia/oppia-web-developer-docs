@@ -111,5 +111,5 @@ Madiyar      Learner view
 Prasanna     Emails
 Sean         Exploration editor
 Sourav       Critical user journeys
-Xinyu        Exploration saving and publishing
+Xinyu        -
 ```
