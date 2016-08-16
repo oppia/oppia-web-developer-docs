@@ -107,7 +107,7 @@ Barnabas     Iframed explorations
 Ben          Answer handling, code health
 Jacob        Metrics
 Kevin        Collections, library index page
-Madiyar      Android app, learner view
+Madiyar      Learner view
 Prasanna     Emails
 Sean         Exploration editor
 Sourav       Critical user journeys
