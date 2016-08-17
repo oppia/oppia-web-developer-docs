@@ -86,10 +86,10 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 8 Aug - 14 Aug    Madiyar
 15 Aug - 21 Aug   Jacob
 22 Aug - 28 Aug   Barnabas
-29 Aug - 4 Sep    Prasanna
+29 Aug - 4 Sep    Sourav
 5 Sep - 11 Sep    Xinyu	
 12 Sep - 18 Sep   Allan
-19 Sep - 25 Sep   Sourav
+19 Sep - 25 Sep   Prasanna
 26 Sep - 2 Oct    Avijit
 
 3 Oct - 9 Oct     Jacob
