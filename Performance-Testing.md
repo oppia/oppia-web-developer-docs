@@ -51,8 +51,8 @@ To write tests for a new Oppia page:
 
 1. Create a new file in `core/tests/performance_tests/` following similar name conventions to the existing test files there, i.e it should be something like `pagename_test.py`.
 2. This folder also contains `test_config.py`, config file for performance tests. Add a unique key for the new page and add a dictionary entry containing thresholds for different metrics to the `TEST_DATA` object. Also, add corresponding `preload_options`.
-2. `base.py` has some utility functions for tests which should be used to record page metrics.
-3. `core/tests/performance_framework/perf_domain.py` has functions starting with `get_metric_name` that give us the quantitative value for that metric. In case you require any other metric, add it to the same file. Also, refer to description regarding the raw stats that we have.
+3. `base.py` has some utility functions for tests which should be used to record page metrics.
+4. `core/tests/performance_framework/perf_domain.py` has functions starting with `get_metric_name` that give us the quantitative value for that metric. In case you require any other metric, add it to the same file. Also, refer to description regarding the raw stats that we have.
 
 #### Raw stats that we have.
 
