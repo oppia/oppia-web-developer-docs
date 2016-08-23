@@ -1,5 +1,3 @@
-### If your build fails...
-
 ...do not despair! The failure may be due to one of two things:
 
 - Your code is wrong.
