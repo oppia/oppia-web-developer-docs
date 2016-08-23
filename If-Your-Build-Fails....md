@@ -11,7 +11,7 @@ This will take you to the Travis dashboard for your PR. You can see which tests 
 
   ![Travis-CI dashboard view.](images/travis2.png)
 
-To figure out what you need to do next, click on the individual failed tests and have a look at the error log, then:
+To figure out what you need to do next, click on the individual failed test(s) and have a look at the error log, then:
 
 * If the error seems related to your PR, you probably have an error somewhere. You can try to reproduce the error locally: see the relevant section in [Running Tests](https://github.com/oppia/oppia/wiki/Running-Tests#end-to-end-tests) for instructions on how to run specific e2e tests on your local machine. If it still happens locally, then it's something that needs to be fixed.
 
