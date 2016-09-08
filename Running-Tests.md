@@ -105,7 +105,7 @@ Please report any unexpected or inexplicable failures of the tests, together wit
 
 **Debugging**
 
-If you find that the e2e tests are failing, first check the error message. If it looks something like "Cannot determine loading status" or "A Jasmine spec timed out", this is probably a transient issue, and the best thing to do (if the failure is on Travis) is to ask a maintainer to restart the relevant test.
+If you find that the e2e tests are failing, first check the error message. If it looks something like "Cannot determine loading status", "Cannot read property 'nodeType' of undefined", or "A Jasmine spec timed out", this is probably a transient issue, and the best thing to do (if the failure is on Travis) is to ask a maintainer to restart the relevant test.
 
 Otherwise, run the affected test on your local machine, and watch it running, so that you can see where things are going wrong. Note that you can pass in a 'suite' parameter to run a subset of the tests -- see scripts/run_e2e_tests.sh for details. Another alternative is to go to core/tests/protractor.js and modify the *.js to just the specific file you want to test.
 
