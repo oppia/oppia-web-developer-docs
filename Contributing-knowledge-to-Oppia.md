@@ -2,7 +2,7 @@ Thanks for your interest in teaching with Oppia! The [Oppia.org](https://www.opp
 
 Here's how you can help:
 
-  * You could create a new exploration on [Oppia.org](https://www.oppia.org) that helps to explain a difficult concept, or a useful skill.
+  * You could create a new exploration on [Oppia.org](https://www.oppia.org) that helps to explain a difficult concept, or a useful skill. You might also be interested in our [Teach with Oppia](https://www.oppia.org/teach) program.
 
   * You could edit an existing exploration on [Oppia.org](https://www.oppia.org), or suggest a change to one, in order to make it clearer and more useful for learners.
 
