@@ -29,6 +29,7 @@ You can find issues which need to have labels applied to them using [this link](
 
 **Note:** you do not need to assign a milestone, unless you know what you're doing! Milestones are for explicit tracking of certain high-priority issues. They do not need to be applied to all issues.
 
+#### Assigning TODO labels
 The TODO labels represent what help the issue needs in order to move forward. This helps people find something they want to do, and also helps us track the progress of issues. The rough sequence of labels is as follows (but note that not all of these will be part of the workflow for every issue):
 
 * `triage`: we need to discuss whether we are going to address this issue.
@@ -42,6 +43,17 @@ The TODO labels represent what help the issue needs in order to move forward. Th
 * `code`: the overall solution is known and is described in the issue, and the only thing left to do is code it. This issue should be suitable for new developers.
 
 **Note:** We list our 'starter project' issues on [OpenHatch](http://www.openhatch.org), and have told OpenHatch that the 'starter project' label corresponds to our starter projects. This is why the 'starter project' tag is added to issues with TODO: design (UI/Interaction), TODO: design (usability) and TODO: code.
+
+#### Assigning the type of an issue
+To label the type of an issue, please follow the following guidelines:
+* (Bug or feature) Something is a *bug* if it breaks existing functionality that is expected to work in a particular way, but that doesn’t work. It is a *feature* if it’s a new thing. For the sake of consistency, writing a test should be considered a bug.
+* (Important bug or minor bug) Important bugs lie along user journeys that are accessed frequently, and fixing these result in significant improvements in usability etc. Minor bugs are things like UI fixes that aren't that frequently seen. 
+* (Important feature or minor feature) Important features are those that are in line with our strategy, i.e. they are in line with our current priorities. Minor features are nice to have, but not being prioritized.
+
+#### Blocking bugs
+There is also a [blocking bugs milestone](https://github.com/oppia/oppia/milestone/39) where we keep track of bugs which we use to keep track of blocking bugs. This milestone is different from the regular milestones, in that it has no due date and the goal is to keep it at 100% done. Blocking bugs are bugs which impact core creator/learner functionality, or regressions (i.e. break current functionality). A release cannot happen without all current blocking bugs being resolved, and some of these bugs may need hotfixes. 
+
+If you encounter such a bug, please add it to the milestone! At the start of your maintainer rotation, please check that all blocking bugs (if any) are being actively worked on. If a bug is not actively being worked on, you could take on the bug yourself, find someone to do it, ask the maintainer in charge of the area the bug is in, or escalate it to the tech leads.
 
 ### Branch name conventions
 
