@@ -79,34 +79,34 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 ## Maintainer Rota
 
 ```
-3 Oct - 9 Oct     Jacob
+ 3 Oct -  9 Oct   Jacob
 10 Oct - 16 Oct   Madiyar
 17 Oct - 23 Oct   Kevin
 24 Oct - 30 Oct   Barnabas
-31 Oct - 6 Nov    Prasanna
-7 Nov - 13 Nov    Xinyu
+31 Oct -  6 Nov   Prasanna
+ 7 Nov - 13 Nov   Xinyu
 14 Nov - 20 Nov   Sourav
 21 Nov - 27 Nov   Avijit
-28 Nov - 4 Dec    Allan
-5 Dec - 11 Dec    Ben
+28 Nov -  4 Dec   Allan
+ 5 Dec - 11 Dec   Ben
 
 12 Dec - 18 Dec   Madiyar
 19 Dec - 25 Dec   Kevin
-26 Dec - 1 Jan    Jacob
-2 Jan - 8 Jan     Barnabas
-9 Jan - 15 Jan    Prasanna
+26 Dec -  1 Jan   Jacob
+ 2 Jan -  8 Jan   Barnabas
+ 9 Jan - 15 Jan   Prasanna
 16 Jan - 22 Jan   Xinyu
 23 Jan - 29 Jan   Sourav
-30 Jan - 5 Feb    Avijit
-6 Feb - 12 Feb    Allan
+30 Jan -  5 Feb   Avijit
+ 6 Feb - 12 Feb   Allan
 13 Feb - 19 Feb   Ben
 
 20 Feb - 26 Feb   Kevin
-27 Feb - 5 Mar    Jacob
-6 Mar - 12 Mar    Madiyar
+27 Feb -  5 Mar   Jacob
+ 6 Mar - 12 Mar   Madiyar
 13 Mar - 19 Mar   Barnabas
 20 Mar - 26 Mar   Xinyu
-27 Mar - 2 Apr    Prasanna
+27 Mar -  2 Apr   Prasanna
 ```
 
 ## Areas of responsibility
