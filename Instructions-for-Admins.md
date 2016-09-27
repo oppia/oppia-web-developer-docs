@@ -6,7 +6,7 @@ To release a new version of Oppia, follow the following steps. This assumes that
 
 1. If the terms have been updated in this release cycle, update `feconf.REGISTRATION_PAGE_LAST_UPDATED_UTC` accordingly.
 
-1. If new contributors have contributed in this release cycle, update the `AUTHORS` and `CONTRIBUTORS` files, as well as the Credits section on `pages/about.html`.
+1. If new contributors have contributed in this release cycle, update the `AUTHORS` and `CONTRIBUTORS` files, as well as the Credits section on `pages/about.html`. Check the results of the credits form for non-technical contributors. 
 
 1. Run
 
