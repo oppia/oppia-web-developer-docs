@@ -7,6 +7,7 @@
     * [[Teachers|Contributing-knowledge-to-Oppia]]
     * [[Writers|Writing-for-Oppia]]
     * [[Google Summer of Code 2016|Google-Summer-of-Code-2016]]
+    * [[Hacktoberfest 2016|Hacktoberfest-2016]]
   * Installing Oppia
     * [[Linux|Installing-Oppia-(Linux)]]
     * [[Mac OS|Installing-Oppia-(Mac-OS)]]
