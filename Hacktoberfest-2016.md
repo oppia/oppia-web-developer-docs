@@ -1,5 +1,7 @@
 Oppia is excited to be joining the rest of the GitHub community in participating this year's [Hacktoberfest](https://hacktoberfest.digitalocean.com/). This is an event where contributors will receive a free t-shirt if they submit at least four pull requests to any GitHub-hosted repository.
 
+If you have any questions, feel free to send them to [oppia-dev@](https://groups.google.com/forum/?fromgroups#!forum/oppia-dev).
+
 # Getting Started
 Please follow these steps to get started:
 
