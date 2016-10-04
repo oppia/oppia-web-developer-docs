@@ -17,9 +17,9 @@ Please follow these steps to get started:
 
 A: Hacktoberfest is an [annual event](https://github.com/blog/2260-hacktoberfest-is-back) across all of GitHub which is meant to encourage developers to contribute to open source projects.
 
-**Q: Can we only work on issues marked with the Hacktoberfest label?**
+**Q: Must we only work on issues marked with the Hacktoberfest label?**
 
-A: Absolutely not! Any pull request will count toward your 4, even if you are fixing an issue that doesn't have the Hacktoberfest label. Issues with the Hacktoberfest label are just meant to provide some starter ideas for newcomers.
+A: Not necessarily! **Any** pull request will count toward your 4, even if you are fixing an issue that doesn't have the Hacktoberfest label. Issues with the Hacktoberfest label are just meant to provide some starter ideas for newcomers.
 
 **Q: Do pull requests need to have the Hacktoberfest label to count?**
 
