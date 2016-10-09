@@ -25,7 +25,7 @@ Please see [Instructions for Reviewers](https://github.com/oppia/oppia/wiki/Inst
 3. (Optional) It may also be helpful to add a list of checkboxes that describe the issue's sub-steps.
 4. (Optional) If the issue has a design doc associated with it, add a link to the design doc.
 
-You can find issues which need to have labels applied to them using [this link](https://github.com/oppia/oppia/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+-label%3A%22type%3A+bug+(major)%22+-label%3A%22type%3A+bug+(minor)%22+-label%3A%22type%3A+feature+(important)%22+-label%3A%22type%3A+feature+(minor)%22+-label%3A%22TODO%3A+triage%22). We want that list to be empty as often as possible.
+You can find issues which need to have labels applied to them using [this link](https://github.com/oppia/oppia/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20-label%3A%22type%3A%20bug%20(major)%22%20-label%3A%22type%3A%20bug%20(minor)%22%20-label%3A%22type%3A%20feature%20(important)%22%20-label%3A%22type%3A%20feature%20(minor)%22%20-label%3A%22type%3A%20infrastructure%22%20-label%3A%22TODO%3A%20triage%22%20). We want that list to be empty as often as possible.
 
 **Note:** you do not need to assign a milestone, unless you know what you're doing! Milestones are for explicit tracking of certain high-priority issues. They do not need to be applied to all issues.
 
