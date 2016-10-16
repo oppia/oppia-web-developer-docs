@@ -13,7 +13,7 @@ Please follow the following style rules when writing code, in order to minimize 
 - Otherwise, please follow the [Google Python style guide](https://google.github.io/styleguide/pyguide.html). In particular:
   - There should be two empty lines before any top-level class or function definition.
   - Prefer string interpolation over concatenation -- e.g. prefer: `'My string %s' % varname` to `'My string ' + varname`.
-  - When indenting from an open parenthesis ('('), prefer indenting by 4 rather than indenting from the position of the parenthesis. E.g., prefer:
+  - When indenting from an open parenthesis ('('), prefer indenting by 4 rather than indenting from the position of the parenthesis. e.g., prefer:
 
     ```
       my_function_with_a_really_long_name(
@@ -41,7 +41,7 @@ Please follow the following style rules when writing code, in order to minimize 
        my_variable = (
            my_very_long_module_name.my_really_long_function_name())
     ```
-  - Be careful [not to use mutable objects](https://google.github.io/styleguide/pyguide.html?showone=Default_Argument_Values#Default_Argument_Values) as default values in the function or method definition. I.e., don't do things like `def foo(a, b=[]):`.
+  - Be careful [not to use mutable objects](https://google.github.io/styleguide/pyguide.html?showone=Default_Argument_Values#Default_Argument_Values) as default values in the function or method definition. i.e., don't do things like `def foo(a, b=[]):`.
 
 ## JavaScript
 - We use extra parentheses if a statement breaks across multiple lines, similar to Python.
