@@ -1,4 +1,4 @@
-Oppia is built with [Google App Engine](https://developers.google.com/appengine/docs/whatisgoogleappengine). Its backend is written in Python, and its frontend is written using [AngularJS](http://angularjs.org/).
+Oppia is built with [Google App Engine](https://developers.google.com/appengine/docs/whatisgoogleappengine). Its backend is written in [Python](https://www.python.org/), and its frontend is written using [AngularJS](http://angularjs.org/).
 
 ## The core
 
