@@ -26,6 +26,7 @@
     * [[How to develop for i18n|How-to-develop-for-i18n]]
     * [[Adding static assets|Adding-static-assets]]
     * [[Performance testing|Performance-Testing]]
+    * [[Team structure|Team-Structure]]
   * References
     * [User documentation](https://oppia.github.io/)
     * [[Extension frameworks|Extensions-Overview]]
