@@ -21,9 +21,7 @@ We have also recently started offering office hours for new contributors on Gitt
 
 ## Finding something to do
 
-In general, if you see an issue you'd like to tackle, add a comment to the issue saying you'd like to work on it, and we'll help you get started!
-
-If you're new to all this, a good place to start is by documenting code; this will help you get acquainted with the codebase and the contribution workflow. A list of files needing documentation can be found [here](https://github.com/oppia/oppia/issues/2394) -- if you'd like to help, feel free to pick a file and start working on it.
+If you're new to Oppia, we strongly suggest that you begin with a starter project! A good place to start is by documenting code; this will help you get acquainted with the codebase and the contribution workflow. You can find a list of files needing documentation [here](https://github.com/oppia/oppia/issues/2394) -- if you'd like to help, feel free to pick a file and start working on it.
 
 You can also search the issue tracker for something that looks interesting. We particularly recommend issues from [this milestone](https://github.com/oppia/oppia/milestone/41). Each issue is tagged based on which part of the site it affects, and also categorized based on the type of help needed. If this is your first code contribution, we recommend picking one of the following types of issues:
 
@@ -33,7 +31,7 @@ You can also search the issue tracker for something that looks interesting. We p
 
 These issues, also tagged as 'starter projects', are usually local to a small part of the codebase. They tend to be easier, so they give you a chance to get your feet wet without having to understand the entire codebase. If you'd like some help finding an issue to work on, please don't hesitate to reach out to us at the [developers' mailing list](https://groups.google.com/forum/#!forum/oppia-dev) or the [Gitter chat room](https://gitter.im/oppia/oppia-chat)! Also, if the issue you're working on has a grey label of the form "team-name (@team-lead)", please feel free to reach out to that team lead for help or advice on that issue -- they should be able to answer questions about that area of the codebase.
 
-After working on one or two starter projects, you might be able to join a team that's working on a larger effort. You can also ask for suggestions on issues to work on next on [Gitter](https://gitter.im/oppia/oppia-chat), and we can help you find a good project, based on your interests and past contributions.
+After working on one or two starter projects, you might be able to join a team that's working on a larger effort. You can also ask for suggestions on issues to work on next on [Gitter](https://gitter.im/oppia/oppia-chat), and we can help you find a good project, based on your interests and past contributions. In addition, we maintain a list of projects on our [GitHub Projects page](https://github.com/oppia/oppia/projects) which contains information about the various projects and team details.
 
 For reference, here are descriptions of what the other 'TODO' tags mean:
   * **[TODO: tech (instructions)](https://github.com/oppia/oppia/labels/TODO%3A%20tech%20%28instructions%29)** means that the overall solution is generally known, but newcomers to the codebase may need additional instructions to be able to implement them. Adding instructions, such as where to make the necessary changes, will help move these issues to the `TODO: code` stage.
