@@ -22,20 +22,12 @@ The backend codebase is heavily tested. Tests are contained in `*_test.py` files
 
 The developer version of the frontend code is contained in `core/templates/dev/head`. (When Oppia is deployed, a `core/templates/prod/head` directory is also produced that contains minified versions of the code, but this is not generally of concern during development.) The frontend code contains the following sub-directories:
 
-  * `admin`: This provides the /admin page which exposes admin controls, e.g. for adding new moderators.
-  * `components`: This provides certain components, mostly for the editor. In particular there are `rule_editor.html` for the rule editor and `visualizations.html` for the state graph.
+  * `components`: This provides certain reusable components, structured as Angular directives, which are used in one or more pages.
   * `css`: Site-wide CSS. There may be other CSS blocks within individual HTML files.
-  * `dashboard`: The per-user notifications dashboard.
-  * `editor`: The editor; this constitutes by far the largest and most complex section of code.
-  * `error`: Pages to display when a page cannot be loaded (e.g. due to unauthorised access).
+  * `domain`: The logic layer for the frontend. Contains domain object factories and core services.
   * `expressions`: Code to parse and evaluate expressions (which may use parameters).
-  * `forms`: Certain standard objects are used in various places throughout the website, such as rich text, lists and dictionaries. Code used to display editors for these objects is collected here.
-  * `galleries`: The gallery page that allows users to browse explorations.
-  * `moderator`: The /moderator page that provides functionality for moderators.
-  * `pages`: Various static pages, such as the site guidelines.
-  * `player`: Services for the learner view. (The actual learner view templates are in `extensions/skins`.)
-  * `profile`: Used when a new user registers, and to display usernames for logged-in users.
-  * `services`: JavaScript handling the embedding of explorations in other websites, user warnings and other matters.
+  * `pages`: Each folder in this directory represents an individual page of the site. Some of these pages are quite simple (such as /about) whereas others are fairly complex (such as /exploration_editor). They contain the HTML templates for the page, as well as any page-specific services or directives.
+  * `services`: JavaScript services that handle the embedding of explorations in other websites, user warnings and other matters.
 
 Files generally come in triples of the form `state_editor.html`, `StateEditor.js` and `StateEditorSpec.js`. The spec file contains [[Karma unit tests|Running-Tests]] for the JavaScript file.
 
@@ -48,7 +40,6 @@ Oppia has a number of extension points that allow developers to augment its func
 There are several different types of extensions:
   * **Objects** represent object types that Oppia recognizes, such as NonnegativeInt, UnicodeString and Filepath. In general, they each come with an editor view, a readonly view, and a normalizer which tries to convert a Python object to the given type.
   * **Rules** allow learner answers to be classified, so that Oppia can provide appropriate feedback in response.
-  * **Skins** provide different user interfaces for the Oppia learner view.
   * **Value generators** are essentially functions which take some inputs and produce a single output. They are used when defining parameter changes: for example, they allow an exploration author to specify an exact value for the parameter, or a range of values, one of which is selected at random.
   * **Rich-text-editor extensions** provide additional functionality for content that is shown to the learner. They are accessed via control buttons in the rich-text editor toolbar, and include things like videos, images, links and LaTeX math expressions.
   * **Interactions**, such as interactive maps and numeric input, allow the learner to submit an answer, which is then sent to the server for Oppia to respond to.
