@@ -87,7 +87,7 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 31 Oct -  6 Nov   Prasanna
  7 Nov - 13 Nov   Xinyu
 14 Nov - 20 Nov   Sourav
-21 Nov - 27 Nov   Avijit
+21 Nov - 27 Nov   Avijit/Allan
 28 Nov -  4 Dec   Allan
  5 Dec - 11 Dec   Ben
 
@@ -98,8 +98,8 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
  9 Jan - 15 Jan   Prasanna
 16 Jan - 22 Jan   Xinyu
 23 Jan - 29 Jan   Sourav
-30 Jan -  5 Feb   Avijit
- 6 Feb - 12 Feb   Allan
+30 Jan -  9 Feb   Avijit (note: longer shift than usual)
+10 Feb - 12 Feb   Allan
 13 Feb - 19 Feb   Ben
 
 20 Feb - 26 Feb   Kevin
