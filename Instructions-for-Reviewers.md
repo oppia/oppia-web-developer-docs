@@ -24,6 +24,7 @@ When you receive a code review request, please try to do the review as soon as p
     git checkout -b {{COMMITTER_NAME}}-{{BRANCH_NAME}} develop
     git pull https://github.com/{{COMMITTER_NAME}}/oppia.git {{BRANCH_NAME}}
   ```
+  See also [Checking out pull requests locally](https://help.github.com/articles/checking-out-pull-requests-locally/).
 
   1. If the developer pushes subsequent commits to the pull request, you'll automatically be notified by email. When you review these, make sure that all previous review comments have been addressed (both in the code and by the developer's replies.)
 
