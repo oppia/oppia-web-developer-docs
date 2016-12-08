@@ -144,7 +144,3 @@ We have several mailing lists in the form of Google Groups that you can join:
   * [oppia-dev](https://groups.google.com/forum/#!forum/oppia-dev) is the main mailing list for communication between developers, and for technical questions.
 
 We also have a developer chat room [here](https://gitter.im/oppia/oppia-chat). Feel free to drop in and say hi!
-
-### Design docs and planning
-
-Design documents and meeting minutes are in our [Google Drive folder](https://drive.google.com/open?id=0B8ADASwHtwE9UFlLSFdlMkt2Y2c). 
