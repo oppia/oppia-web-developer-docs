@@ -89,7 +89,8 @@ Here's how to make a one-off code change. (If you're working on a larger feature
 4. **When your feature is ready to merge, create a pull request.**
   * Go to your fork on GitHub, select your branch from the dropdown menu, and click "pull request". Ensure that the 'base' repository is the main oppia repo and that the 'base' branch is 'develop'.
   * Add a descriptive title explaining the purpose of the PR (e.g. "Fix #bugnum: add a warning when the user leaves a page in the middle of an exploration."). The "Fix #bugnum: " prefix **must** be included if this PR resolves an issue on the issue tracker.
-  * Click "Create pull request". An admin will assign a reviewer to your commit.
+  * Click "Create pull request".
+  * Request a review. This will normally be the lead of the corresponding [GitHub project](https://github.com/oppia/oppia/projects), the author of the issue that was filed, or the [maintainer on duty](https://github.com/oppia/oppia/wiki/Instructions-for-Maintainers#maintainer-rota) for that week. If you're not sure who to assign, assign it to the maintainer on duty, and they'll either review or reassign accordingly.
   * After a while, check your PR to see whether the Travis checks have passed. If not, follow the instructions at "[If your build fails...](https://github.com/oppia/oppia/wiki/If-your-build-fails...)".
 5. **Address review comments until all reviewers give LGTM ('looks good to me').**
   * When your reviewer has reviewed the code, you'll get an email. You'll need to respond in two ways:
@@ -106,7 +107,7 @@ Here's how to make a one-off code change. (If you're working on a larger feature
     git commit -a
     git push origin new-branch-name
   ```
-  * Once you've finished addressing everything, and would like the reviewer to take another look, **please write a top-level comment explicitly asking them to do so**.
+  * Once you've finished addressing everything, and would like the reviewer to take another look, **please write a top-level comment explicitly asking them to do so**, and set them as the Assignee for the PR.
   * At the end, the reviewer will merge the pull request.
 6. **Tidy up!** Delete the feature branch from your both your local clone and the GitHub repository:
 
