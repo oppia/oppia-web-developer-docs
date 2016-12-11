@@ -22,7 +22,7 @@ If you'd like to help in the creation or playtesting of these lessons, please co
 |                  | Adding and subtracting | Kefeh Collins | --- |
 |                  | Multiplying and dividing | Kefeh Collins | --- |
 | Measurement      | --- | --- | --- |
-| Applications     | John wants a TV! | Daniel Hernandez, Sean Lip | --- |
+| Applications     | John wants a TV | Daniel Hernandez, Sean Lip | --- |
 
 ## Other lessons we've created
 
