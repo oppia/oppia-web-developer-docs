@@ -28,6 +28,7 @@ If you'd like to help in the creation or playtesting of these lessons, please co
 
 | Title | Author | # playtests | Needs playtesting? |
 | ---   | ---    | ---         | --- |
+| [Trigonometry](https://www.oppia.org/explore/rp0anf4qLP_H) | Deepank Agarwal | 0 | Y |
 | [Quadratic equations](https://www.oppia.org/collection/YBQ642xYk_4x) | Philipp Legner | 0 | Y |
 | [Electromagnetism](https://www.oppia.org/collection/wqCTKpKA0LBe)   | Arunabh Ghosh | 0 | Y |
 | [Confidence intervals](https://www.oppia.org/collection/Eq8EwKjdfbae) | Anmol Shukla | 0 | Y |
