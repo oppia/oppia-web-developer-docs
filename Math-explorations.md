@@ -2,34 +2,34 @@ The Oppia team is currently working on a set of explorations and collections for
 
 If you'd like to help in the creation or playtesting of these lessons, please contact us at admin@oppia.org.
 
-| Title | Subtopic | Author | # playtests |
-| --- | --- | --- | --- |
-| Numbers          | --- | --- | --- |
-| Fractions        | Introduction | --- | --- |
-|                  | [Equivalent fractions](https://www.oppia.org/explore/yvqBFOQNDz5e) | Prateek Konduru | 1 |
-|                  | Adding and subtracting fractions | --- | --- |
-|                  | Multiplying fractions | --- | --- |
-|                  | Dividing fractions | --- | --- |
-|                  | Solving problems | --- | --- |
-| Decimals         | Money | Naveen Shukla | --- |
-|                  | Place value | Naveen Shukla | --- |
-|                  | Adding and subtracting decimals | Naveen Shukla | --- |
-|                  | Multiplying decimals | --- | --- |
-|                  | Dividing decimals | --- | --- |
-|                  | Solving problems | --- | --- |
-| Percentages      | --- | --- | --- |
-| Negative numbers | Introduction | Kefeh Collins | --- |
-|                  | Adding and subtracting | Kefeh Collins | --- |
-|                  | Multiplying and dividing | Kefeh Collins | --- |
-| Measurement      | --- | --- | --- |
-| Applications     | John wants a TV | Daniel Hernandez, Sean Lip | --- |
+| Title | Subtopic | Author | # playtests | Needs playtesting? |
+| --- | --- | --- | --- | --- |
+| Numbers          | --- | --- | --- | --- |
+| Fractions        | Introduction | --- | --- | --- |
+|                  | [Equivalent fractions](https://www.oppia.org/explore/yvqBFOQNDz5e) | Prateek Konduru | 1 | Y |
+|                  | Adding and subtracting fractions | --- | --- | --- |
+|                  | Multiplying fractions | --- | --- | --- |
+|                  | Dividing fractions | --- | --- | --- |
+|                  | Solving problems | --- | --- | --- |
+| Decimals         | Money | Naveen Shukla | --- | --- |
+|                  | Place value | Naveen Shukla | --- | --- |
+|                  | Adding and subtracting decimals | Naveen Shukla | --- | --- |
+|                  | Multiplying decimals | --- | --- | --- |
+|                  | Dividing decimals | --- | --- | --- |
+|                  | Solving problems | --- | --- | --- |
+| Percentages      | --- | --- | --- | --- |
+| Negative numbers | Introduction | Kefeh Collins | --- | --- |
+|                  | Adding and subtracting | Kefeh Collins | --- | --- |
+|                  | Multiplying and dividing | Kefeh Collins | --- | --- |
+| Measurement      | --- | --- | --- | --- |
+| Applications     | John wants a TV | Daniel Hernandez, Sean Lip | --- | --- |
 
 ## Other lessons we've created
 
 | Title | Author | # playtests |
 | ---   | ---    | ---         |
-| [Quadratic equations](https://www.oppia.org/collection/YBQ642xYk_4x) | Philipp Legner | 0 |
-| [Electromagnetism](https://www.oppia.org/collection/wqCTKpKA0LBe)   | Arunabh Ghosh | 0 |
-| [Confidence intervals](https://www.oppia.org/collection/Eq8EwKjdfbae) | Anmol Shukla | 0 |
-| [Programming with Carla](https://www.oppia.org/collection/inDXV0w8-p1C) | Amit Deutsch, Sean Lip | 2 |
-| [Linear equations](https://www.oppia.org/explore/pQXlGZOepanR) | Sean Lip | 4
+| [Quadratic equations](https://www.oppia.org/collection/YBQ642xYk_4x) | Philipp Legner | 0 | Y |
+| [Electromagnetism](https://www.oppia.org/collection/wqCTKpKA0LBe)   | Arunabh Ghosh | 0 | Y |
+| [Confidence intervals](https://www.oppia.org/collection/Eq8EwKjdfbae) | Anmol Shukla | 0 | Y |
+| [Programming with Carla](https://www.oppia.org/collection/inDXV0w8-p1C) | Amit Deutsch, Sean Lip | 2 | Y |
+| [Linear equations](https://www.oppia.org/explore/pQXlGZOepanR) | Sean Lip | 4 | Y |
