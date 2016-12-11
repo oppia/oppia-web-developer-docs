@@ -80,34 +80,34 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 ## Maintainer Rota
 
 ```
- 3 Oct -  9 Oct   Jacob
-10 Oct - 16 Oct   Madiyar
-17 Oct - 23 Oct   Kevin
-24 Oct - 30 Oct   Barnabas
-31 Oct -  6 Nov   Prasanna
- 7 Nov - 13 Nov   Xinyu
-14 Nov - 20 Nov   Sourav
-21 Nov - 27 Nov   Avijit/Allan
-28 Nov -  4 Dec   Allan
- 5 Dec - 11 Dec   Ben
+ 3 Oct -  9 Oct   Jacob         @jacobdavis11
+10 Oct - 16 Oct   Madiyar       @maitbayev
+17 Oct - 23 Oct   Kevin         @kevinlee12
+24 Oct - 30 Oct   Barnabas      @MAKOSCAFEE
+31 Oct -  6 Nov   Prasanna      @prasanna08
+ 7 Nov - 13 Nov   Xinyu         @wxyxinyu
+14 Nov - 20 Nov   Sourav        @souravbadami
+21 Nov - 27 Nov   Avijit/Allan  @526avijitgupta / @AllanYangZhou
+28 Nov -  4 Dec   Allan         @AllanYangZhou
+ 5 Dec - 11 Dec   Ben           @BenHenning
 
-12 Dec - 18 Dec   Madiyar
-19 Dec - 25 Dec   Kevin
-26 Dec -  1 Jan   Jacob
- 2 Jan -  8 Jan   Barnabas
- 9 Jan - 15 Jan   Prasanna
-16 Jan - 22 Jan   Xinyu
-23 Jan - 29 Jan   Sourav
-30 Jan -  9 Feb   Avijit (note: longer shift than usual)
-10 Feb - 12 Feb   Allan
-13 Feb - 19 Feb   Ben
+12 Dec - 18 Dec   Madiyar       @maitbayev
+19 Dec - 25 Dec   Kevin         @kevinlee12
+26 Dec -  1 Jan   Jacob         @jacobdavis11
+ 2 Jan -  8 Jan   Barnabas      @MAKOSCAFEE
+ 9 Jan - 15 Jan   Prasanna      @prasanna08
+16 Jan - 22 Jan   Xinyu         @wxyxinyu
+23 Jan - 29 Jan   Sourav        @souravbadami
+30 Jan -  9 Feb   Avijit (note: longer shift than usual)  @526avijitgupta
+10 Feb - 12 Feb   Allan         @AllanYangZhou
+13 Feb - 19 Feb   Ben           @BenHenning
 
-20 Feb - 26 Feb   Kevin
-27 Feb -  5 Mar   Jacob
- 6 Mar - 12 Mar   Madiyar
-13 Mar - 19 Mar   Barnabas
-20 Mar - 26 Mar   Xinyu
-27 Mar -  2 Apr   Prasanna
+20 Feb - 26 Feb   Kevin         @kevinlee12
+27 Feb -  5 Mar   Jacob         @jacobdavis11
+ 6 Mar - 12 Mar   Madiyar       @maitbayev
+13 Mar - 19 Mar   Barnabas      @MAKOSCAFEE
+20 Mar - 26 Mar   Xinyu         @wxyxinyu
+27 Mar -  2 Apr   Prasanna      @prasanna08
 ```
 
 ## Areas of responsibility
