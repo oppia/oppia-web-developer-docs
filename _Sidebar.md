@@ -38,6 +38,7 @@
     * [[Schema-based forms|Schema-based-Forms]]
     * [[Calculating statistics|Calculating-statistics]]
     * [[Writing style guide|Writing-style-guide]]
+    * [[Sample explorations|Sample-explorations]]
   * [[Deploying Oppia|Deploying-Oppia]]
     * [[Migration Instructions|Migration-Instructions]]
   * Playbooks
