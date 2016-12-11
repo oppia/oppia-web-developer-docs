@@ -26,6 +26,8 @@ When you receive a code review request, please try to do the review as soon as p
   ```
   See also [Checking out pull requests locally](https://help.github.com/articles/checking-out-pull-requests-locally/).
 
+  1. After submitting the review, set the Assignee field to the developer's GitHub username, so that they know it's their turn.
+
   1. If the developer pushes subsequent commits to the pull request, you'll automatically be notified by email. When you review these, make sure that all previous review comments have been addressed (both in the code and by the developer's replies.)
 
   1. If all review comments have been addressed, and the code looks good and is ready to be merged into develop, write a comment saying "LGTM".
