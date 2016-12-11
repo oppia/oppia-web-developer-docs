@@ -26,8 +26,8 @@ If you'd like to help in the creation or playtesting of these lessons, please co
 
 ## Other lessons we've created
 
-| Title | Author | # playtests |
-| ---   | ---    | ---         |
+| Title | Author | # playtests | Needs playtesting? |
+| ---   | ---    | ---         | --- |
 | [Quadratic equations](https://www.oppia.org/collection/YBQ642xYk_4x) | Philipp Legner | 0 | Y |
 | [Electromagnetism](https://www.oppia.org/collection/wqCTKpKA0LBe)   | Arunabh Ghosh | 0 | Y |
 | [Confidence intervals](https://www.oppia.org/collection/Eq8EwKjdfbae) | Anmol Shukla | 0 | Y |
