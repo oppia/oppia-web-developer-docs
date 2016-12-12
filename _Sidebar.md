@@ -6,7 +6,6 @@
     * [[Researchers|Making-Oppia-better]]
     * [[Teachers|Contributing-knowledge-to-Oppia]]
     * [[Writers|Writing-for-Oppia]]
-    * [[Hacktoberfest 2016|Hacktoberfest-2016]]
   * Installing Oppia
     * [[Linux|Installing-Oppia-(Linux)]]
     * [[Mac OS|Installing-Oppia-(Mac-OS)]]
@@ -48,3 +47,4 @@
     * [[Instructions for Admins|Instructions-for-Admins]]
   * Past Events
     * [[Google Summer of Code 2016|Google-Summer-of-Code-2016]]
+    * [[Hacktoberfest 2016|Hacktoberfest-2016]]
