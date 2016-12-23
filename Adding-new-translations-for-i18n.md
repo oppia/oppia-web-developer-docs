@@ -1,8 +1,12 @@
 Oppia currently supports internationalization (i18n) for most of the learner-facing pages. We use the [angular-translate](http://angular-translate.github.io/) library, the documentation can be found [here](https://angular-translate.github.io/docs/#/guide). Developers are welcome to add new translations, or correct existing ones. If you'd like to know more about how to use the i18n platform, please see our [i18n developer guide](https://github.com/oppia/oppia/wiki/How-to-develop-for-i18n).
 
-## Adding a new language to Oppia
+## Contributing translations to Oppia
 
-Adding a language to the Oppia codebase is three simple steps:
+The Oppia project has a dedicated [page on translatewiki.org](https://translatewiki.net/wiki/Translating:Oppia). You can click "Translate this project" and select a language to contribute translations for. Changes will be pushed to Oppia automatically by the translatewiki admins.
+
+## Adding a new language to Oppia manually
+
+Manually adding a language to the Oppia codebase can be done in three simple steps:
 
 1. Copy [assets/i18n/en.json file](https://github.com/oppia/oppia/blob/develop/assets/i18n/en.json) into a new file called `xx.json`, where xx is the language code for the new language. You can find this code [here](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes). Save the resulting file in the same `i18n/` directory.
 2. Replace all occurrences of English with the translated phrase in the target language. It's OK if you omit some translations, but please ensure to remove all occurrences of English translations from the file as when a translation key is missing, the English variant will be used as a fall-back. Please refer to the notes below on how to handle variables and pluralization during translation. Please also see [qqq.json](https://github.com/oppia/oppia/blob/develop/assets/i18n/qqq.json) for important contextual information about what is being translated, and feel free to ask questions on oppia-dev@ or gitter chat if anything is unclear!
