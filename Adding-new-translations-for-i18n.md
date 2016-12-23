@@ -33,9 +33,9 @@ In the example above, if there is only one notification, then we should change "
 In this example, the # symbol will be replaced by the value of the `notification_number` variable. For a more elaborate tutorial, please refer to the [angular-translate guide for pluralization](http://angular-translate.github.io/docs/#/guide/14_pluralization). 
 
 
-## Adding a new language to Oppia manually
+## Manually adding translations
 
-Manually adding a language to the Oppia codebase can be done in three simple steps:
+In general, it is better to add translations via the translatewiki UI where possible. However, in exceptional cases, you can manually add a language to the Oppia codebase in three simple steps:
 
 1. Copy [assets/i18n/en.json file](https://github.com/oppia/oppia/blob/develop/assets/i18n/en.json) into a new file called `xx.json`, where xx is the language code for the new language. You can find this code [here](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes). Save the resulting file in the same `i18n/` directory.
 2. Replace all occurrences of English with the translated phrase in the target language. It's OK if you omit some translations, but please ensure to remove all occurrences of English translations from the file as when a translation key is missing, the English variant will be used as a fall-back. Please refer to the notes below on how to handle variables and pluralization during translation. Please also see [qqq.json](https://github.com/oppia/oppia/blob/develop/assets/i18n/qqq.json) for important contextual information about what is being translated, and feel free to ask questions on oppia-dev@ or gitter chat if anything is unclear!
