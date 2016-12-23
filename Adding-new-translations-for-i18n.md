@@ -1,18 +1,14 @@
-Oppia currently supports internationalization (i18n) for most of the learner-facing pages. We use the [angular-translate](http://angular-translate.github.io/) library, the documentation can be found [here](https://angular-translate.github.io/docs/#/guide). Developers are welcome to add new translations, or correct existing ones. If you'd like to know more about how to use the i18n platform, please see our [i18n developer guide](https://github.com/oppia/oppia/wiki/How-to-develop-for-i18n).
+Oppia supports internationalization (i18n) for most learner-facing pages using the [angular-translate](http://angular-translate.github.io/) library, documentation for which can be found [here](https://angular-translate.github.io/docs/#/guide). Anyone is welcome to add new translations, or correct existing ones. For more information about developing for i18n, please see our [i18n developer guide](https://github.com/oppia/oppia/wiki/How-to-develop-for-i18n).
 
 ## Contributing translations to Oppia
 
-The Oppia project has a dedicated [page on translatewiki.org](https://translatewiki.net/wiki/Translating:Oppia). You can click "Translate this project" and select a language to contribute translations for. Changes will be pushed to Oppia automatically by the translatewiki admins.
+Thanks to translatewiki.net, it's easy to add or update translations for Oppia! To do so, just follow these steps:
 
-## Adding a new language to Oppia manually
+1. Visit the [Oppia Translatewiki](https://translatewiki.net/wiki/Translating:Oppia) page.
+2. Click "Translate this project".
+3. Select a language to contribute translations for. (Also, read the [notes](https://github.com/oppia/oppia/wiki/Adding-new-translations-for-i18n#note-1-variable-replacement) below describing the translation formats used for variables and plurals.)
 
-Manually adding a language to the Oppia codebase can be done in three simple steps:
-
-1. Copy [assets/i18n/en.json file](https://github.com/oppia/oppia/blob/develop/assets/i18n/en.json) into a new file called `xx.json`, where xx is the language code for the new language. You can find this code [here](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes). Save the resulting file in the same `i18n/` directory.
-2. Replace all occurrences of English with the translated phrase in the target language. It's OK if you omit some translations, but please ensure to remove all occurrences of English translations from the file as when a translation key is missing, the English variant will be used as a fall-back. Please refer to the notes below on how to handle variables and pluralization during translation. Please also see [qqq.json](https://github.com/oppia/oppia/blob/develop/assets/i18n/qqq.json) for important contextual information about what is being translated, and feel free to ask questions on oppia-dev@ or gitter chat if anything is unclear!
-3. In [feconf.py](https://github.com/oppia/oppia/blob/develop/feconf.py), add a new entry to the variable  `SUPPORTED_SITE_LANGUAGES` representing the language code and the language name.
-
-After this, you should be able to see the new language listen in the Oppia splash page and translate the site  using the language dropdown in the footer.
+Changes will then be pushed to Oppia automatically by the translatewiki admins (**@Nikerabbit** and **@siebrand**), and they will show up in future Oppia releases.
 
 ### Note 1: Variable replacement
 
@@ -35,3 +31,14 @@ In the example above, if there is only one notification, then we should change "
 ```
 
 In this example, the # symbol will be replaced by the value of the `notification_number` variable. For a more elaborate tutorial, please refer to the [angular-translate guide for pluralization](http://angular-translate.github.io/docs/#/guide/14_pluralization). 
+
+
+## Adding a new language to Oppia manually
+
+Manually adding a language to the Oppia codebase can be done in three simple steps:
+
+1. Copy [assets/i18n/en.json file](https://github.com/oppia/oppia/blob/develop/assets/i18n/en.json) into a new file called `xx.json`, where xx is the language code for the new language. You can find this code [here](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes). Save the resulting file in the same `i18n/` directory.
+2. Replace all occurrences of English with the translated phrase in the target language. It's OK if you omit some translations, but please ensure to remove all occurrences of English translations from the file as when a translation key is missing, the English variant will be used as a fall-back. Please refer to the notes below on how to handle variables and pluralization during translation. Please also see [qqq.json](https://github.com/oppia/oppia/blob/develop/assets/i18n/qqq.json) for important contextual information about what is being translated, and feel free to ask questions on oppia-dev@ or gitter chat if anything is unclear!
+3. In [feconf.py](https://github.com/oppia/oppia/blob/develop/feconf.py), add a new entry to the variable  `SUPPORTED_SITE_LANGUAGES` representing the language code and the language name.
+
+After this, you should be able to see the new language listen in the Oppia splash page and translate the site  using the language dropdown in the footer.
