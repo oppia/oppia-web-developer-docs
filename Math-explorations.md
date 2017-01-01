@@ -1,6 +1,6 @@
 The Oppia team is currently working on a set of explorations and collections for basic mathematics aimed at students who do not have easy access to video resources or textbooks. We plan to test these lessons for effectiveness and enjoyability, and then make them as widely accessible as possible (e.g. by working on reducing the bandwidth requirements and making the Oppia platform more mobile-friendly).
 
-If you'd like to help in the creation or playtesting of these lessons, please contact us at admin@oppia.org. Also, if you would like to help improve lessons for the benefit of other students, it would be very helpful if you could play a lesson and give us feedback about your experience in this [form](https://goo.gl/forms/TBw5tF45bzEIXoTC3). Thank you in advance!
+If you'd like to help in the creation or playtesting of these lessons, please contact us at admin@oppia.org. Also, if you would like to help improve lessons for the benefit of other students, it would be very helpful if you could play a lesson and give us feedback about your experience! For instructions on how to do this, please see [[Playtesting explorations|Playtesting-explorations]].
 
 | Title | Subtopic | Author | # playtests | Needs playtesting? |
 | --- | --- | --- | --- | --- |
