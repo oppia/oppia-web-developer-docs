@@ -1,4 +1,4 @@
-Thank you for your interest in contributing to the Oppia project, and in making it easier for anyone to teach interactively online!
+Thank you for your interest in contributing to the Oppia project, and in making it easier for students to learn interactively online!
 
 There are many ways to help out, from creating a new exploration on [Oppia.org](https://www.oppia.org) to fixing a bug in the [codebase](https://github.com/oppia/oppia/). Don't be discouraged if you're new to "open source", or if you're still a student -- many of our contributors are, too. The main thing is that you care about helping more people around the world to learn things better, and that you're responsible and reliable. We'd also be happy to provide mentorship and support if this is your first time contributing to an open source project.
 
