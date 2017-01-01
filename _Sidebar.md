@@ -48,3 +48,5 @@
   * Past Events
     * [[Google Summer of Code 2016|Google-Summer-of-Code-2016]]
     * [[Hacktoberfest 2016|Hacktoberfest-2016]]
+  * Draft Pages
+    * [[Google Summer of Code 2017|Google-Summer-of-Code-2017]]
