@@ -17,7 +17,7 @@ When you’re playing a lesson, please note the following:
 
 Let us know if particular pieces of feedback that Oppia gives are helpful or not. If you could suggest better feedback, that would be awesome, too.
 
-If you find, at any point, that you don’t want to continue further, that’s totally OK! Just let us know why you stopped, and what you’d change about the lesson so that other students would have a better experience.
+If you find, at any point, that you don’t want to continue further, that’s totally OK. Just let us know why you stopped, and what you’d change about the lesson so that other students would have a better experience.
 
 ### After the playtest
 Please fill in this [post-survey](https://goo.gl/forms/G65KSC2jtvodjP3u1). Also, if you have any questions, let us know, and we’d be happy to try and answer them. Thanks again for your help!
