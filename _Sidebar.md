@@ -38,6 +38,7 @@
     * [[Calculating statistics|Calculating-statistics]]
     * [[Writing style guide|Writing-style-guide]]
     * [[Math explorations|Math-explorations]]
+    * [[Playtesting explorations|Playtesting-explorations]]
   * [[Deploying Oppia|Deploying-Oppia]]
     * [[Migration Instructions|Migration-Instructions]]
   * Playbooks
