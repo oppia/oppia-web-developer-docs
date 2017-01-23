@@ -23,7 +23,7 @@ If you're specifically interested in applying to work with Oppia for GSoC, take 
 
 Before submitting a project proposal, we recommend looking at our [developer wiki](https://github.com/oppia/oppia/wiki) to familiarize yourself with our development process. Also, check out our various [starter projects](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22starter+project%22) -- you may be able to find a smaller issue that interests you, and get some experience with the codebase in the process.
 
-Familiarity with AngularJS (v1), Python and Google App Engine is useful and recommended for most Oppia work. Please see the individual project ideas to determine whether these skills are recommended or required for the project in question.
+Note that familiarity with AngularJS (v1), Python and Google App Engine is useful and recommended for most Oppia work. Please see the individual project ideas to determine whether these skills are recommended or required for the project in question.
 
 ## GSoC Proposal Template
 When proposing a project, please use the following template:
