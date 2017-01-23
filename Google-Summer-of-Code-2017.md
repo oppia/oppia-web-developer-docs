@@ -9,7 +9,7 @@ Noteworthy dates for 2017:
 - **Mar 20 - Apr 3**: Student application period
 - **May 1**: Accepted students announced
 - **May 1 - May 30**: Community bonding period
-- **May 30 - Aug 29**: Students enjoy the summer by programming amazing projects for open source projects
+- **May 30 - Aug 29**: Students enjoy the summer by coding amazing open source projects
 - **Sep 6**: GSoC officially ends
 
 # Students
