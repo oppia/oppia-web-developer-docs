@@ -21,7 +21,7 @@ GSoC is an excellent opportunity for students to get paid to work on an open sou
 
 If you're specifically interested in applying to work with Oppia for GSoC, take a look at one of the project ideas below. If you're not very familiar with what Oppia is all about (or wish to become familiar with concepts like explorations and interactions), then our [user documentation](http://oppia.github.io/#/) will be very helpful for you! If you're keen on working on a smaller project ahead of GSoC or even outside of the program, check out [Contributing to Oppia](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia).
 
-Before submitting a proposal for a project, we recommend looking at our [developer wiki](https://github.com/oppia/oppia/wiki) to familiarize yourself with our development process. Also, check out our various [starter projects](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22starter+project%22) to get an idea of our current work.
+Before submitting a proposal for a project, we recommend looking at our [developer wiki](https://github.com/oppia/oppia/wiki) to familiarize yourself with our development process. Also, check out our various [starter projects](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22starter+project%22) to get an idea of how you can help.
 
 Familiarity with AngularJS (v1), Python and Google App Engine is useful and recommended for most Oppia work. Please see the individual project ideas to determine whether these skills are recommended or required for the project in question.
 
