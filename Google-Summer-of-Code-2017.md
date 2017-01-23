@@ -76,13 +76,13 @@ https://gitter.im/oppia/oppia-chat#). You can login using your GitHub account (G
 
 **Email**
 
-If you have questions, please send them to the Oppia GSoC mentors mailing list at oppia-gsoc-mentors@googlegroups.com.
+If you have questions, please send them to the Oppia GSoC mentors mailing list at oppia-gsoc-mentors@googlegroups.com. Please be specific when asking questions; this makes it easier for us to help you.
 
 # Mentors
 
 ## List of Mentors
 
-TBD
+Coming soon!
 
 ## Becoming a Mentor
 
