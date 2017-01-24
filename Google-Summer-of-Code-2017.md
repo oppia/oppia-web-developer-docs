@@ -352,6 +352,7 @@ The following individuals will be serving as mentors during GSoC 2017:
 - Ben Henning (@BenHenning)
 - Jared Silver (@jaredsilver)
 - Jenna Mandel (@jblair87)
+- Joshua Cano (@joshuacano)
 - Kevin Lee (@kevinlee12)
 - Kristin Anthony (@anthkris)
 - Mark Halpin (@markhalpin)
