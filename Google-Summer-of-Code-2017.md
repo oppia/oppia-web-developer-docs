@@ -15,11 +15,11 @@ If you're specifically interested in applying to work with Oppia for GSoC, we re
 
 1. Sign up to the [oppia-gsoc-announce@](https://groups.google.com/forum/#!forum/oppia-gsoc-announce) mailing list in order to receive important notifications about Oppia's participation in GSoC.
 
-1. Take a look at one of the project ideas below, and select one or more projects that you're most interested in.
-
-1. If you're not very familiar with what Oppia is all about (or wish to familiarize yourself with concepts like explorations and interactions), then our [user documentation](http://oppia.github.io/#/) will be very helpful for you. We'd also recommend having a go at playing/creating lessons on [Oppia.org](https://www.oppia.org), which hosts an instance of Oppia.
+1. If you're not very familiar with what Oppia is all about (or wish to familiarize yourself with concepts like explorations and interactions), take a look at our [user documentation](http://oppia.github.io/#/) will be very helpful for you. We'd also recommend having a go at playing/creating lessons on [Oppia.org](https://www.oppia.org), which hosts an instance of Oppia.
 
 1. Read the [contributors' guide](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up), set up a development instance, and work on a [starter project](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22starter+project%22) to get more familiar with the Oppia codebase and the contribution process. This will also help us get an idea of what it's like to work with you, and how independent you are. (**Note:** if you can't find a suitable starter project, you can also pick an issue labeled "TODO: needs instructions" -- these issues require a bit more investigation, but some of them are not too difficult.)
+
+1. Take a look at one of the project ideas below, and select one or more projects that you're most interested in.
 
 1. Write your project proposal! If you have any questions about your project, feel free to ask on [Gitter chat](https://gitter.im/oppia/oppia-chat), or email the [mentors' mailing list](mailto:oppia-gsoc-mentors-17@googlegroups.com). Please be specific when asking questions; this makes it easier for us to help you.
 
