@@ -1,6 +1,6 @@
 Oppia is excited to be applying for participation in [Google Summer of Code 2017](https://developers.google.com/open-source/gsoc/)! GSoC is a global program which offers post-secondary students an opportunity to discover and work with open source organizations over the course of 3 months and be paid a stipend. Students work one-on-one with a mentor of an open source organization in order to implement either a project idea by the organization or a proposal of their own.
 
-Since GSoC 2017 mentoring organizations are not announced until February 27, 2017, it is not known whether Oppia will be participating in Google Summer of Code 2017. This page will be updated accordingly once it is known whether Oppia is participating.
+Since GSoC 2017 mentoring organizations are not announced until **February 27, 2017**, it is not yet known whether Oppia will be participating in Google Summer of Code 2017. This page will be updated accordingly once it is known whether Oppia is participating.
 
 # Students
 GSoC is an excellent opportunity for students to get paid to work on an open source project. If you're interested in applying as a student, you should definitely read the following resources:
