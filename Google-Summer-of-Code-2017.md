@@ -75,10 +75,6 @@ In order to ensure a well-rounded engineering experience, developers will do som
 - Create UI mocks (if doing frontend development)
 - Write design documents (if implementing large features or introducing new systems)
 
-## Selection Criteria
-
-Coming soon!
-
 # Oppia's Project Ideas
 
 Coming soon!
