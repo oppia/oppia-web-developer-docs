@@ -2,16 +2,6 @@ Oppia is excited to be applying for participation in [Google Summer of Code 2017
 
 Since GSoC 2017 mentoring organizations are not announced until February 27, 2017, it is not known whether Oppia will be participating in Google Summer of Code 2017. This page will be updated accordingly once it is known whether Oppia is participating.
 
-# Dates and Deadlines
-Noteworthy dates for 2017:
-- **Jan 19 - Feb 9**: Mentoring organizations apply
-- **Feb 27**: Mentoring organizations are announced
-- **Mar 20 - Apr 3**: Student application period
-- **May 1**: Accepted students announced
-- **May 1 - May 30**: Community bonding period
-- **May 30 - Aug 29**: Students enjoy the summer by contributing code to their projects
-- **Sep 6**: GSoC officially ends
-
 # Students
 GSoC is an excellent opportunity for students to get paid to work on an open source project. If you're interested in applying as a student, you should definitely read the following resources:
 
@@ -19,11 +9,33 @@ GSoC is an excellent opportunity for students to get paid to work on an open sou
 - [Google's list of resources](https://developers.google.com/open-source/gsoc/resources/)
 - [GSoC FAQ](https://developers.google.com/open-source/gsoc/faq)
 
-If you're specifically interested in applying to work with Oppia for GSoC, take a look at one of the project ideas below. If you're not very familiar with what Oppia is all about (or wish to become familiar with concepts like explorations and interactions), then our [user documentation](http://oppia.github.io/#/) will be very helpful for you. We'd also recommend that you have a go at playing/creating lessons on [Oppia.org](https://www.oppia.org), which hosts an instance of Oppia. If you'd like to work on a smaller coding project ahead of GSoC or even outside of the program, check out [Contributing to Oppia](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia) for tips on how to get started.
+## Getting started
 
-Before submitting a project proposal, we recommend looking at our [developer wiki](https://github.com/oppia/oppia/wiki) to familiarize yourself with our development process. Also, check out our various [starter projects](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22starter+project%22) -- you may be able to find a smaller issue that interests you, and get some experience with the codebase in the process.
+If you're specifically interested in applying to work with Oppia for GSoC, we recommend you follow this steps:
 
-Note: Familiarity with AngularJS (v1), Python and Google App Engine is useful and recommended for most Oppia work. Please see the individual project ideas to determine whether these skills are recommended or required for the project in question.
+1. Sign up to the [oppia-gsoc-announce@](https://groups.google.com/forum/#!forum/oppia-gsoc-announce) mailing list in order to receive important notifications about Oppia's participation in GSoC.
+
+1. Take a look at one of the project ideas below, and select one or more projects that you're most interested in.
+
+1. If you're not very familiar with what Oppia is all about (or wish to familiarize yourself with concepts like explorations and interactions), then our [user documentation](http://oppia.github.io/#/) will be very helpful for you. We'd also recommend having a go at playing/creating lessons on [Oppia.org](https://www.oppia.org), which hosts an instance of Oppia.
+
+1. Read the [contributors' guide](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up), set up a development instance, and work on a [starter project](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22starter+project%22) to get more familiar with the Oppia codebase and the contribution process. This will also help us get an idea of what it's like to work with you, and how independent you are. (**Note:** if you can't find a suitable starter project, you can also pick an issue labeled "TODO: needs instructions" -- these issues require a bit more investigation, but some of them are not too difficult.)
+
+1. Write your project proposal! If you have any questions about your project, feel free to ask on [Gitter chat](https://gitter.im/oppia/oppia-chat), or email the [mentors' mailing list](mailto:oppia-gsoc-mentors-17@googlegroups.com). Please be specific when asking questions; this makes it easier for us to help you.
+
+## FAQs
+
+**Q: What technical skills do I need to work on Oppia?**
+
+A: Familiarity with AngularJS (v1), Python, and Google App Engine is useful and recommended for most Oppia work. In addition, UI design skills are useful for frontend, user-facing work. Please see the individual project ideas to determine whether these skills are recommended or required for the project in question.
+
+**Q: How can I increase my chances of getting selected?**
+
+A: Writing a good project proposal, engaging with the community, helping other students, successfully contributing patches, and demonstrating that you can work independently can all help you. Your application will be evaluated holistically, so there's no one thing you must or must not do (other than apply!) to get selected.
+
+**Q: Can you be flexible around other my commitments in the summer?**
+
+A: GSoC is intended to be a full-time commitment, so the main concern is whether you can still get the project done on time. Be upfront about your other commitments and make sure you schedule your time accordingly when creating your proposal. The proposal should be able to reflect your being able to complete the project by the end of the summer.
 
 ## GSoC Proposal Template
 When proposing a project, please use the following template:
@@ -63,11 +75,43 @@ In order to ensure a well-rounded engineering experience, developers will do som
 - Create UI mocks (if doing frontend development)
 - Write design documents (if implementing large features or introducing new systems)
 
+## Selection Criteria
+
+Coming soon!
+
 # Oppia's Project Ideas
 
 Coming soon!
 
-# Communication
+# Other useful information
+
+## Dates and Deadlines
+Noteworthy dates for 2017:
+- **Jan 19 - Feb 9**: Mentoring organizations apply
+- **Feb 27**: Mentoring organizations are announced
+- **Mar 20 - Apr 3**: Student application period
+- **May 1**: Accepted students announced
+- **May 1 - May 30**: Community bonding period
+- **May 30 - Aug 29**: Students enjoy the summer by contributing code to their projects
+- **Sep 6**: GSoC officially ends
+
+## List of Mentors
+
+The following individuals will be mentoring during GSoC 2017:
+- Allan Zhou (@AllanYangZhou)
+- Anmol Shukla (@anmolshkl)
+- Avijit Gupta (@526avijitgupta)
+- Ben Henning (@BenHenning)
+- Jared Silver (@jaredsilver)
+- Jenna Mandel (@jblair87)
+- Kevin Lee (@kevinlee12)
+- Kristin Anthony (@anthkris)
+- Mark Halpin (@markhalpin)
+- Rachel Chen (@rachelwchen)
+- Sean Lip (@seanlip)
+- Xinyu Wu (@wxyxinyu)
+
+## Communication
 
 **Chat**
 
