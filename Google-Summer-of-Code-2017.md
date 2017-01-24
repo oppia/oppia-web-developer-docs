@@ -77,15 +77,3 @@ https://gitter.im/oppia/oppia-chat#). You can login using your GitHub account (G
 **Email**
 
 If you have questions, please send them to the Oppia GSoC mentors mailing list at oppia-gsoc-mentors-17@googlegroups.com. Please be specific when asking questions; this makes it easier for us to help you.
-
-# Mentors
-
-## List of Mentors
-
-Coming soon!
-
-## Becoming a Mentor
-
-Are you interested in mentoring in Google Summer of Code 2017 for Oppia? Mentoring can be an extremely rewarding experience, though it is a commitment and a responsibility. To better understand what mentoring entails, check out this [GSoC mentoring guide](https://flossmanuals.net/GSoCMentoring/).
-
-Please be aware that there are no guarantees Oppia will be accepted into GSoC, nor that we will have enough students for all mentors to be assigned one. Nevertheless, if you're interested in being a mentor, please email oppia-gsoc-mentors-17@googlegroups.com if you're interested in joining!
