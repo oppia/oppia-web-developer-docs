@@ -1,10 +1,10 @@
 ## Maintainer responsibilities
-- At the start of your shift, audit:
+- At the start of your shift (see [rota](https://github.com/oppia/oppia/wiki/Instructions-for-Maintainers#rota-for-triaging-issuesprs-and-welcoming-new-contributors) below), audit:
   - all existing PRs, and make sure that none are being sat on for too long.
   - all existing issues that have someone assigned to them, and make sure that none are being sat on for too long. Deassign the issue from the current assignee if there's been no indication of progress or response to pings for > 7 days.
+- Triage incoming issues/PRs and welcome new contributors.
 - Look at the list of [blocker bugs](https://github.com/oppia/oppia/milestone/39) and ensure that they are being worked on. Blocker bugs mean that the next release cannot happen without resolving these.
-- Triage incoming issues/PRs and welcome new contributors (see [rota](https://github.com/oppia/oppia/wiki/Instructions-for-Maintainers#rota-for-triaging-issuesprs-and-welcoming-new-contributors) below)
-- Do code reviews
+- Do code reviews.
 
 ### General
 1. Ensure that your "Settings > Notification center" page is set to send you activity notifications, so that you're aware of all activity on the repository.
