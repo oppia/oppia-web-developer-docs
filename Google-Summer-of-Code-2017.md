@@ -24,17 +24,17 @@ GSoC is an excellent opportunity for students to get paid to work on an open sou
 
 ## Getting started
 
-If you're specifically interested in applying to work with Oppia for GSoC, we recommend you follow this steps:
+If you're specifically interested in applying to work with Oppia for GSoC, we recommend following this steps:
 
 1. Sign up to the [oppia-gsoc-announce@](https://groups.google.com/forum/#!forum/oppia-gsoc-announce) mailing list in order to receive important notifications about Oppia's participation in GSoC.
 
-1. If you're not very familiar with what Oppia is all about (or wish to familiarize yourself with concepts like explorations and interactions), take a look at our [user documentation](http://oppia.github.io/#/) will be very helpful for you. We'd also recommend having a go at playing/creating lessons on [Oppia.org](https://www.oppia.org), which hosts an instance of Oppia.
+1. If you're not very familiar with what Oppia is all about (or wish to familiarize yourself with concepts like explorations and interactions), take a look at our [user documentation](http://oppia.github.io/#/). We'd also recommend having a go at playing/creating lessons on [Oppia.org](https://www.oppia.org), which hosts an instance of Oppia.
 
-1. Read the [contributors' guide](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up), set up a development instance, and work on a [starter project](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22starter+project%22) to get more familiar with the Oppia codebase and the contribution process. This will also help us get an idea of what it's like to work with you, and how independent you are. (**Note:** if you can't find a suitable starter project, you can also pick an issue labeled "TODO: needs instructions" -- these issues generally require a bit more investigation, but some of them aren't too hard.) You might also find it useful to take at the [overview of Oppia's codebase](https://github.com/oppia/oppia/wiki/Overview-of-the-Oppia-codebase) as a reference, as well as the [coding style guide](https://github.com/oppia/oppia/wiki/Coding-style-guide).
+1. Read and follow the instructions in the [contributors' guide](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up), including signing the CLA and setting up a local development instance. Also, please read the [overview of Oppia's codebase](https://github.com/oppia/oppia/wiki/Overview-of-the-Oppia-codebase) and the [coding style guide](https://github.com/oppia/oppia/wiki/Coding-style-guide). 
 
-1. Take a look at one of the project ideas below, and select one or more projects that you're most interested in.
+1. Work on one or more [starter issues](https://github.com/oppia/oppia/issues?q=is%3Aopen+label%3A%22TODO%3A+code%22+milestone%3A%22Recommended+projects%22) in order to become familiar with the contribution process. This will also help us get an idea of what it's like to work with you -- e.g. how independent/resourceful/responsive/etc. you are.
 
-1. Write your project proposal! If you have any questions about your project, feel free to ask on [Gitter chat](https://gitter.im/oppia/oppia-chat), or email the [mentors' mailing list](mailto:oppia-gsoc-mentors-17@googlegroups.com). Please be specific when asking questions; this makes it easier for us to help you.
+1. Select one or more GSoC projects that you're most interested in from the list below (or propose your own), and write your project proposal! If you have any questions about a project, feel free to ask on [Gitter](https://gitter.im/oppia/oppia-chat) or email the [mentors' mailing list](mailto:oppia-gsoc-mentors-17@googlegroups.com). Please be specific when asking questions, since this makes it easier for us to help you.
 
 ## FAQs
 
