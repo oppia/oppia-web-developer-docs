@@ -44,8 +44,8 @@ Our central development branch is `develop`, which should be clean and ready for
 
 Here's how to make a one-off code change. (If you're working on a larger feature, see the instructions at the end.)
 
-1. **Choose a descriptive branch name.** It should be lowercase, hyphen-separated, and a noun describing the change (so, `fuzzy-rules`, but not `implement-fuzzy-rules`). Also, it shouldn't start with `hotfix` or `release`.
-2. **Create a new branch with this name, starting from 'develop'.** In other words, run:
+1. **Choose a descriptive branch name.** It should be lowercase and hyphen-separated, such as `fuzzy-rules`. Also, it shouldn't start with `hotfix` or `release`.
+2. **Create a new branch with this name, starting from 'develop'.** I.e., run:
 
   ```
     git fetch upstream
@@ -54,7 +54,7 @@ Here's how to make a one-off code change. (If you're working on a larger feature
     git checkout -b your-branch-name
   ```
 
-3. **Make a commit to your feature branch.** Each commit should be self-contained and have a descriptive commit message that helps other developers understand why the changes were made.
+3. **Make commit(s) to your feature branch.** Each commit should be self-contained and have a descriptive commit message that helps other developers understand why the changes were made.
   * You can refer to relevant issues in the commit message by writing, e.g., "Fixes #105".
   * Please read [these style rules](https://github.com/oppia/oppia/wiki/Coding-style-guide) and ensure that your code follows them. If you use [Sublime Text](http://www.sublimetext.com/), consider installing the SublimeLinter, [SublimeLinter-jscs](https://github.com/SublimeLinter/SublimeLinter-jscs) and [SublimeLinter-pylint](https://github.com/SublimeLinter/SublimeLinter-pylint) plugins, following the instructions on their respective pages.
   * Please ensure that the code you write is well-tested.
@@ -70,14 +70,12 @@ Here's how to make a one-off code change. (If you're working on a larger feature
       git commit -a -m "{{YOUR COMMIT MESSAGE HERE}}"
       git push origin {{YOUR BRANCH NAME}}
     ```
-
     
-
     Before your code gets uploaded to GitHub, a script is automatically executed that checks the styling of all changed JavaScript and Python files and runs the front-end tests. Run the push command in command line, and not GitHub's Desktop client, as the script needs access to other tools like pip.
     
      **If any of the tests fail, the push will be interrupted**. If this happens, fix the issues that the tests tell you about and **repeat the instructions above** ('commit' and then 'push').
      
-    If you need some help with your code and therefore want to put non functioning code into your GitHub fork to show it to other developers, you  can force a push with `git push origin {{YOUR BRANCH NAME}} --no-verify`.
+    If you need some help with your code and therefore want to put non functioning code into your GitHub fork to show it to other developers, you can force a push with `git push origin {{YOUR BRANCH NAME}} --no-verify`.
 
 4. **When your feature is ready to merge, create a pull request.**
   * Go to your fork on GitHub, select your branch from the dropdown menu, and click "pull request". Ensure that the 'base' repository is the main oppia repo and that the 'base' branch is 'develop'.
