@@ -1,6 +1,6 @@
-*These instructions are for developers and designers who would like to contribute code to Oppia. If you'd prefer to help out with other things, please see our [general contribution guidelines](https://github.com/oppia/oppia/wiki/Contributing-to-Oppia).*
+*These instructions are for devs and designers who'd like to contribute code or design help to Oppia. If you'd prefer to help out with other things, please see our [general contribution guidelines](https://github.com/oppia/oppia/wiki/Contributing-to-Oppia).*
 
-Thanks for your interest in contributing code or design help to the Oppia project! This page explains how to get set up, how to find something to work on, and how to make a code change. If you run into any problems along the way, please file an issue on our [issue tracker](https://github.com/oppia/oppia/issues), or get help by posting to the [developers' mailing list](https://groups.google.com/forum/#!forum/oppia-dev). You might also want to look at the resources on the [developer wiki](https://github.com/oppia/oppia/wiki).
+Thanks for your interest in contributing to the Oppia project! This page explains how to get set up, how to find something to work on, and how to make a code change. If you run into any problems along the way, please file an issue on our [issue tracker](https://github.com/oppia/oppia/issues), or get help by posting to the [developers' mailing list](https://groups.google.com/forum/#!forum/oppia-dev). You might also want to look at the resources on the [developer wiki](https://github.com/oppia/oppia/wiki).
 
 ## Setting things up
 
@@ -10,7 +10,7 @@ Thanks for your interest in contributing code or design help to the Oppia projec
   4. Update your GitHub notification settings:
     * Go to your settings page (click the Settings option under the profile menu in the top right), then go to 'Notification center' and ensure that everything's as you want it.
     * Go to the [Oppia repo](https://github.com/oppia/oppia), and click 'Watch' at the top right. Ensure that you're not 'ignoring' the repo, so that you'll be notified when someone replies to a conversation you're part of.
-  5. (Optional) You may also want to set up [automatic auth](https://help.github.com/articles/set-up-git/#next-steps-authenticating-with-github-from-git) so you don't have to type in a username and password each time you commit a change.
+  5. (Optional) Consider setting up [automatic auth](https://help.github.com/articles/set-up-git/#next-steps-authenticating-with-github-from-git) so you don't have to type in a username and password each time you commit a change.
   6. Join the [oppia-dev@](https://groups.google.com/forum/#!forum/oppia-dev) mailing list, and say hi on the [gitter](https://gitter.im/oppia/oppia-chat) chat channel!  
 
 ## Getting in touch with the team
@@ -21,18 +21,14 @@ We have also recently started offering office hours for new contributors on Gitt
 
 ## Finding something to do
 
-If you're new to Oppia, we strongly suggest that you begin with a starter project! A good place to start is by documenting code; this will help you get acquainted with the codebase and the contribution workflow. You can find a list of files needing documentation [here](https://github.com/oppia/oppia/issues/2394) -- if you'd like to help, feel free to pick a file and start working on it.
+If you're new to Oppia, we strongly suggest finding a starter project you'd enjoy, and focusing on it until it's completed. There are three types of things you can do:
+- The best way to start is by **documenting existing code**. This will help you focus on understanding a small part of the codebase, and become familiar with the contribution workflow and the [style guide](https://github.com/oppia/oppia/wiki/Coding-style-guide). You can find a list of files needing documentation [here](https://github.com/oppia/oppia/issues/2394). If you'd like to help, pick a file and leave a comment on the issue saying that you're taking it, so that others don't duplicate your work.
+- You could also take up a **starter coding project** from [this list](https://github.com/oppia/oppia/issues?q=is%3Aopen+label%3A%22TODO%3A+code%22+milestone%3A%22Recommended+projects%22). These are simpler issues that are generally more suitable for new developers.
+- If your interests lie in UI/interaction design, you might enjoy a **starter design project** from [this list](https://github.com/oppia/oppia/issues?q=is%3Aopen+label%3A%22TODO%3A+design+%28UI%29%22+milestone%3A%22Recommended+projects%22) instead. The deliverable for such issues would usually be a mockup, prototype or text that conveys what the feature should look like.
 
-You can also search the issue tracker for something that looks interesting. We particularly recommend issues from [this milestone](https://github.com/oppia/oppia/milestone/42). Each issue is tagged based on which part of the site it affects, and also categorized based on the type of help needed. If this is your first contribution, we recommend picking one of the following types of issues:
+Also, feel free to just search the issue tracker for something that looks interesting -- we particularly recommend issues from the ["Recommended Projects" milestone](https://github.com/oppia/oppia/milestone/42).
 
-  * **[TODO: code](https://github.com/oppia/oppia/labels/TODO%3A%20code)** means that the issue is suitable for new developers: the overall solution is known and is described in the issue, and the only thing left to do is code it.
-  * **[TODO: design (UI)](https://github.com/oppia/oppia/labels/TODO%3A%20design%20%28UI%29)** means that the issue is suitable for new UI designers, interaction designers, artists and writers. In general, it means that UI design help is needed, and the deliverable would usually be a mockup, drawing, prototype or text that conveys what the feature should look like.
-
-These issues, also tagged as 'starter projects', are usually local to a small part of the codebase. They tend to be easier, so they give you a chance to get your feet wet without having to understand the entire codebase. If you'd like some help finding an issue to work on, please don't hesitate to reach out to us at the [developers' mailing list](https://groups.google.com/forum/#!forum/oppia-dev) or the [Gitter chat room](https://gitter.im/oppia/oppia-chat)! Also, if the issue you're working on has a grey label of the form "team-name (@team-lead)", please feel free to reach out to that team lead for help or advice on that issue -- they should be able to answer questions about that area of the codebase.
-
-After working on one or two starter projects, you might be able to join a team that's working on a larger effort -- please see the list of projects on our [GitHub Projects page](https://github.com/oppia/oppia/projects). Alternatively, you can ask on [Gitter](https://gitter.im/oppia/oppia-chat) for suggestions for things to do next, and we can help you find a good project, based on your interests and past contributions. Please don't hesitate to be proactive in asking for new projects, since otherwise we may not realize that you want to be assigned a project.
-
-For reference, descriptions of what the other 'TODO' tags mean can be found [here](https://github.com/oppia/oppia/wiki/Instructions-for-Maintainers#assigning-todo-labels).
+After working on a couple of starter projects, you might also be interested in joining a [team](https://github.com/oppia/oppia/projects) that's working on a larger effort! You can also ask on [Gitter](https://gitter.im/oppia/oppia-chat) for suggestions for things to do next, and we can help you find a good issue to tackle, based on your interests and past contributions. Please be proactive in asking for new projects, since otherwise we may not realize that you want to be assigned one. Also, if the issue you're working on has a grey label of the form "team-name (@team-lead)", feel free to reach out to that team lead for help or advice on that issue -- they should be able to answer questions about that area of the codebase.
 
 ## Instructions for making a code change
 
