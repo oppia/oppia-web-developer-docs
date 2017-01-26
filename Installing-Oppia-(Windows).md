@@ -1,5 +1,7 @@
 **Note:** If you just want to create and share explorations, you may be able to use the hosted server at https://www.oppia.org (in which case you don't need to install anything).
 
+**Note:** We strongly recommend using Linux or Mac OS, if possible. It is much easier to install a local copy of Oppia on those operating systems than it is to install Oppia on Windows.
+
 ### Prerequisites
 
 The Windows installation of Oppia relies on a number of third-party programs, which you will need to install beforehand:
