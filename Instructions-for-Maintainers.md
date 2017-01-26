@@ -2,8 +2,8 @@
 - **At the start of your shift** (see [rota](https://github.com/oppia/oppia/wiki/Instructions-for-Maintainers#rota-for-triaging-issuesprs-and-welcoming-new-contributors) below):
   - audit all existing PRs, and act on any that are being sat on for too long.
   - audit all existing issues that have someone assigned to them, and act on any that are being sat on for too long. Deassign the issue from the current assignee if there's been no indication of progress or response to pings for > 7 days.
-- **During your shift**:
-  - Triage incoming issues/PRs and welcome new contributors.
+- **During the week**:
+  - Triage incoming issues/PRs and welcome new contributors (e.g. on gitter).
   - Do code reviews for simple PRs.
 
 ### General
