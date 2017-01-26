@@ -33,7 +33,7 @@ You can find issues which need to have labels applied to them using [this link](
 The TODO labels represent what help the issue needs in order to move forward. This helps people find something they want to do, and also helps us track the progress of issues. The rough sequence of labels is as follows (but note that not all of these will be part of the workflow for every issue):
 
 * `triage`: we need to discuss whether we are going to address this issue.
-* `design (UX)`: we need to design the user journey
+* `design (UX)`: the way that the user interacts with this feature needs to be planned. The next thing to be done here is to outline the core user journeys (probably using a doc and/or screenshots), and discuss them on the issue thread, so that the feature can move forward.
 * `design (UI/Interaction)`: UI design is needed. In contrast to the TODO: design (UX) label, what needs to be done here is more localized, and typically means we already have an idea of how the user is going to interact with it. This should be suitable for new design contributors.
 * `tech (design doc)`: means that the problem is known, but the solution needs fleshing out. The next thing to do is to prepare a short doc outlining the solution approach and implementation plan, add a link to it on the issue thread, then discuss it before starting implementation.
 * `tech (breakdown)`: a design doc/detailed steps is completed, but we need to break them into single-person chunks.
