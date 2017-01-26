@@ -5,10 +5,6 @@
 - Look at the list of [blocker bugs](https://github.com/oppia/oppia/milestone/39) and ensure that they are being worked on. Blocker bugs mean that the next release cannot happen without resolving these.
 - Triage incoming issues/PRs and welcome new contributors (see [rota](https://github.com/oppia/oppia/wiki/Instructions-for-Maintainers#rota-for-triaging-issuesprs-and-welcoming-new-contributors) below)
 - Do code reviews
-- Within your given area of responsibility:
-  - Figure out what needs to get done
-  - Ensure progress is being made
-  - Ensure that contributors aren’t blocked. If you can't easily solve a problem, feel free to escalate it to a tech lead or another maintainer.
 
 ### General
 1. Ensure that your "Settings > Notification center" page is set to send you activity notifications, so that you're aware of all activity on the repository.
