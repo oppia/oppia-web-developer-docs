@@ -7,6 +7,7 @@
     * [[Teachers|Contributing-knowledge-to-Oppia]]
     * [[Writers|Writing-for-Oppia]]
     * [[Google Summer of Code 2017|Google-Summer-of-Code-2017]]
+  * **[[Recommended issues|https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+milestone%3A%22Recommended+projects%22]]**
   * Installing Oppia
     * [[Linux|Installing-Oppia-(Linux)]]
     * [[Mac OS|Installing-Oppia-(Mac-OS)]]
