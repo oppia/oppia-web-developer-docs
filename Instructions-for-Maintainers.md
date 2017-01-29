@@ -1,10 +1,11 @@
 ## Maintainer responsibilities
 - **At the start of your shift** (see [rota](https://github.com/oppia/oppia/wiki/Instructions-for-Maintainers#rota-for-triaging-issuesprs-and-welcoming-new-contributors) below):
-  - audit all existing PRs, and act on any that are being sat on for too long.
-  - audit all existing issues that have someone assigned to them, and act on any that are being sat on for too long. Deassign the issue from the current assignee if there's been no indication of progress or response to pings for > 7 days.
+  - go to [this page](https://github.com/oppia/oppia/pulls), and make sure all PRs are moving forward. Act on any that are being sat on for too long.
+  - go to [this page](https://github.com/oppia/oppia/milestone/42). For any existing issue with an assignee, ping them and ask for a status update if there's been no response for 6-7 days. Deassign the issue from the current assignee if there's been no indication of progress or response to pings for > 14 days.
 - **During the week**:
-  - Triage incoming issues/PRs and welcome new contributors (e.g. on gitter).
-  - Do code reviews for simple PRs.
+  - Make sure all incoming issues/PRs are triaged and labelled.
+  - Welcome new contributors (e.g. on gitter).
+  - Do code reviews for simple incoming PRs.
 
 ### General
 1. Ensure that your "Settings > Notification center" page is set to send you activity notifications, so that you're aware of all activity on the repository.
