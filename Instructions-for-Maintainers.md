@@ -17,7 +17,7 @@ Please see [Instructions for Reviewers](https://github.com/oppia/oppia/wiki/Inst
 ### Handling incoming issues
 1. Tidy up the title, if necessary.
 2. Ensure that the issue has one of each of the following labels:
-  * a team
+  * an owner
   * a location (frontend/backend/full-stack)
   * a type (bug/feature)
   * a TODO describing the type of work needed, and the stage that the issue is in. If the TODO is a light green tag, also add a separate 'starter project' tag (see below for more information about why).
