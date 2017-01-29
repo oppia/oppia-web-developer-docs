@@ -106,18 +106,26 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 27 Mar -  2 Apr   Prasanna      @prasanna08
 ```
 
-## Areas of responsibility
+## Areas of expertise (maintainers and project leads)
 
 ```
-Allan        Rich-text editor
-Avijit       Creator dashboard
+Allan        Rich-text editor, suggestions
+Anmol        Machine learning
+Arun         E2e testing
+Arunabh      Subscriptions, general frontend
+Avijit       Creator dashboard, general frontend
 Barnabas     Iframed explorations
-Ben          Answer handling, code health
+Ben          Answer handling, frontend refactoring, migrations
+Hamza        Simple editor
 Jacob        Metrics
-Kevin        Collections, library index page
+Jared        User journeys, learner view UX
+Kevin L      Collection editor, library index page
+Kevin T      Collection viewer
+Kristin      Accessibility
 Madiyar      Learner view
+Mark         General UI design
 Prasanna     Emails
-Sean         Exploration editor
-Sourav       Critical user journeys
-Xinyu        Exploration saving and publishing
+Sourav       General frontend
+Xinyu        Exploration saving and publishing, exploration editor history tab
+Sean         Everything else
 ```
