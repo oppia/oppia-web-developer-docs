@@ -4,7 +4,7 @@ When you receive a code review request, please try to do the review as soon as p
 
 ## When you first receive a review request
 
-  1. When you get an email saying a pull request issue has been assigned to you for review, click on the link to open it in GitHub.
+  1. When you get an email saying a pull request has been assigned to you for review, click on the link to open it in GitHub.
   1. Do two pre-review checks:
     * Ensure that the requester is in the "Committers" team (which means they've signed the CLA), otherwise direct them to the instructions in the README.
     * Ensure that the correct target branch (usually "develop") has been selected to merge the branch into.
@@ -36,7 +36,7 @@ When you receive a code review request, please try to do the review as soon as p
 
 ### Squash-Merging
 
-_Note that only maintainers can merge PRs into develop._
+_Note that only maintainers and project leads can merge PRs into develop._
 
 If all commits in a PR are done by a single committer, we recommend using GitHub's 'Squash-Merge' functionality, which you can select as an option after clicking the green "Merge pull request" button. This allows the history of both the author and maintainer who merged it to be retained, while doing a standard squash of all the changes in the PR to a single commit.
 
