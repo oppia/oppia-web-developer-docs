@@ -366,6 +366,7 @@ The following individuals will be serving as mentors during GSoC 2017:
 - Mark Halpin (@markhalpin)
 - Rachel Chen (@rachelwchen)
 - Sean Lip (@seanlip)
+- Tony Jiang (@tjiang11)
 - Xinyu Wu (@wxyxinyu)
 
 ## Communication
