@@ -145,6 +145,7 @@ A good proposal should discuss these issues and describe an appropriate UX. It's
 
 **Notes**:
 - Currently, logged-in users can only make suggestions to the "content" parts of a state. We need to make it possible for them to make suggestions to the free-form text that the author includes in the "answer group feedback" and "fallback" sections, too, and find a clean way to expose this in the exploration player UI.
+- It might be a good idea to use this mainly for "community-editable" explorations to start with, since those don't currently have an assigned owner.
 
 
 ## Applying machine learning to the code interaction
