@@ -208,7 +208,7 @@ A good proposal should discuss these issues and describe an appropriate UX. It's
 
 **Suggested milestones**:
 
-1. Finalize full technical plan explaining how the fallbacks-to-hints recharacterization will be carried out. Datastore and backend logic changes implemented; all necessary migrations implemented.
+1. Finalize full technical plan (including UI mocks) explaining how the fallbacks-to-hints recharacterization will be carried out. Datastore and backend logic changes implemented; all necessary migrations implemented.
 2. UI changes implemented; frontend completed and launched.
 3. Further project of your choice based on learner/creator feedback.
 
