@@ -266,6 +266,7 @@ A good proposal should discuss these issues, note arguments for and against diff
 **Notes**:
 - Proposals should demonstrate familiarity with Oppia’s interactions framework, and outline the full backend specification, frontend designs, and examples of use for each of the interactions. Note that coming up with a good backend specification is not easy, and some technical judgment will likely be required.
 - All interactions need to work on both desktop and mobile devices.
+- The third milestone is not easy. We suggest getting early feedback from the mentoring team on your technical proposal.
 
 ## Code interaction with test suites
 
