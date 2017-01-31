@@ -259,9 +259,9 @@ A good proposal should discuss these issues, note arguments for and against diff
 
 **Suggested milestones**:
 
-1. Implement existing designs (by Prasanna) for the fractions and number-with-units interactions. [TODO: add links]
+1. Implement existing designs (by Prasanna) for the (a) fractions interaction, (b) the number-with-units interactions. [TODO: add links]
 2. Spec out, design and implement a new interaction for drag/drop matching of items in two lists.
-3. Spec out, design and implement a new interaction for entering and evaluating answers in the form of ordered lists.
+3. Spec out, design and implement a new interaction for entering answers in the form of ordered lists.
 
 **Notes**:
 - Proposals should demonstrate familiarity with Oppia’s interactions framework, and outline the full backend specification, frontend designs, and examples of use for each of the interactions. Note that coming up with a good backend specification is not easy, and some technical judgment will likely be required.
