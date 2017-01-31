@@ -8,7 +8,7 @@
   - Welcome new contributors (e.g. on gitter).
   - Do code reviews for simple incoming PRs.
 - **After your shift**:
-  - If you changed your notification preferences at the start of the shift, you might want to reset them to "not watching" so that you only get emails when you are @mentioned.
+  - [Optional] If you changed your notification preferences at the start of the shift, you might want to reset them to "not watching" so that you only get emails when you are @mentioned.
 
 ### General
 1. Ensure that your "Settings > Notification center" page is set to send you activity notifications, so that you're aware of all activity on the repository.
