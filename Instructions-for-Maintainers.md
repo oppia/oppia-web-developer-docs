@@ -1,7 +1,7 @@
 ## Maintainer responsibilities
 - **At the start of your shift** (see [rota](https://github.com/oppia/oppia/wiki/Instructions-for-Maintainers#rota-for-triaging-issuesprs-and-welcoming-new-contributors)):
   - if you aren't already watching the repository, please change your [notification preferences](https://github.com/oppia/oppia/subscription) to "watching", just for this week.
-  - go to the [list of PRs](https://github.com/oppia/oppia/pulls), and make sure all PRs are moving forward; act on any that are being sat on for too long. Also ensure that the "Assignee" of the PR is the person who's supposed to next act on it (either the committer or the reviewer).
+  - go to the [list of PRs](https://github.com/oppia/oppia/pulls), and make sure all PRs are moving forward; act on any that are being sat on for too long. Also, ensure that the PR's "assignee" is the person who's supposed to next act on it (either the committer or the reviewer).
   - go to the [list of recommended issues](https://github.com/oppia/oppia/milestone/42). For any existing issue with an assignee, ping them and ask for a status update if there's been no response for 6-7 days. Deassign the issue from the current assignee if there's been no indication of progress or response to pings for > 14 days.
 - **During the week**:
   - Make sure all incoming issues/PRs are triaged and labelled. In particular, ensure that incoming PRs are assigned to the owners of the issue that's being fixed by the PR.
