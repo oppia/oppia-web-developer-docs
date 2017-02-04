@@ -160,7 +160,7 @@ A good proposal should discuss these issues and describe an appropriate UX. It's
 
 **Difficulty**: Hard
 
-**Suggested milestones**:
+**Suggested milestones (rough outline)**:
 
 1. Implement all necessary updates to existing datastore (if any), any necessary backend logic changes, and any changes required for the training interface. Build/generate a dataset for training the classifier, do any necessary data processing, and fully integrate and test any specific library that needs to be used in the project.
 2. Build the model using the training data, and implement end-to-end tests. Evaluate the model on the test data using cross validation and, if possible, do a [spot-check](http://machinelearningmastery.com/why-you-should-be-spot-checking-algorithms-on-your-machine-learning-problems/). Check the performance of the model against a baseline (typically using another classification algorithm).
@@ -171,6 +171,7 @@ A good proposal should discuss these issues and describe an appropriate UX. It's
 - If code evaluation is needed, this should happen in the frontend (although the results and the learner's code will be stored in the backend). For security reasons, we can't execute arbitrary Python scripts in the back-end. 
 - The proposal should discuss an effective strategy to build/generate datasets for training the classifier.
 - The classification algorithm used should be pluggable into the existing classification framework. This should provide sufficient flexibility to change the algorithm in the future as needed.
+- The exact milestones for this project would depend somewhat on the technical approach used. The proposer should feel free to use alternate milestones that lead to a production deployment by the end of the third milestone, but please ensure that each milestone is very concrete and that it can be delivered by the end of the corresponding month of GSoC. If your milestones significantly deviate from the ones above, we encourage you to check in with the mentoring team before submitting your proposal.
 
 
 ## Learner dashboard
