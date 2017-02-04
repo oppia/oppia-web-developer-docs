@@ -229,7 +229,7 @@ A good proposal should discuss these issues and describe an appropriate UX. It's
 - UX design
 - UI design
 - Technical design
-- Full-stack development.
+- Full-stack development
 
 **Difficulty**: Hard
 
@@ -237,7 +237,7 @@ A good proposal should discuss these issues and describe an appropriate UX. It's
 
 1. Full spec with mocks, corner cases and tests thought out; datastore + backend logic changes implemented; any necessary migrations done.
 2. Frontend completed and launched; at least one exploration has been translated by a user (possibly you, but ideally someone else).
-3. Further project of your choice based on user feedback.
+3. Further project of your choice based on user feedback. Alternatively or additionally, implementing a system that can notify creators of translated explorations when the original exploration is updated, along with a diff of the change.
 
 **Notes**:
 - Although the default UX should be as convenient as possible for the author, the newly-created exploration should not be publishable until all translations are completed.
