@@ -191,7 +191,7 @@ A good proposal should discuss these issues and describe an appropriate UX. It's
   - keeping track of completed and partially-completed lessons (both explorations and collections)
   - keeping track of subscriptions
 2. Add functionality for keeping track of feedback threads that need a reply from the student, and make it possible for the student to reply to these threads from their learner dashboard.
-3. Conduct some user studies, and, based on the results, implement a further project of your choice. (For example, you could show recommendations for lessons to playtest, or new lessons that would be useful for the student, or new creators that they might want to subscribe to).
+3. Conduct some user studies, and, based on the results, implement a further project of your choice. (For example, you could show recommendations for lessons to playtest, or new lessons that would be useful for the student, or new creators that they might want to subscribe to -- or perhaps add functionality for bookmarking explorations that the student wants to play next, but doesn't have the time to at the moment).
 
 **Notes**:
 - Proposals should address how a learner gets to their dashboard, as well as any general site changes that might be needed. It’s important to think holistically about the learner user journey and ensure that it's as intuitive as possible, whilst keeping in mind that learners can also be creators.
