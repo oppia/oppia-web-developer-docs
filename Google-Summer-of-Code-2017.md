@@ -303,14 +303,22 @@ As a stretch goal, we would also like to make it easier for the coding interacti
 
 **Suggested milestones**:
 
-1. Finalize the technical document describing new permissions system, including: new domain objects and services being introduced; new storage models needed; new tests that need to be added; a list of all permissions that need to be added; and a plan for migrating the current system to the new one including any testing that needs to be done to ensure nothing breaks. Implement the new storage layer, domain objects, services, and tests.
-2. Perform an audit on all existing rights and permissions to ensure there are adequate tests covering each one to prevent regressions. Begin migrating permissions over to the new system, focusing only on new permissions that need to be added (not replacing the current rights manager and tests).
-3. Migrate all permissions associated with rights_manager over to the new system, removing the old code once the migration is complete. Ensure all the old rights_manager tests are included in the tests for the new system.
+1. Finalize the technical document describing new permissions system, including:
+  - New domain objects and services being introduced
+  - New storage models needed
+  - New tests that need to be added
+  - A list of all permissions that need to be added
+  - A plan for migrating the current system to the new one, including any testing that needs to be done to ensure nothing breaks.
+
+  Implement the new storage layer, domain objects, services, and tests.
+
+2. Perform an audit on all existing rights and permissions to ensure there are adequate tests covering each one to prevent regressions. Begin migrating permissions over to the new system, focusing only on new permissions that need to be added (not replacing the current ``rights_manager`` and tests).
+3. Migrate all permissions associated with ``rights_manager`` over to the new system, removing the old code once the migration is complete. Ensure all the old ``rights_manager`` tests are included in the tests for the new system.
 
 **Notes**:
-- It's important for the proposal to be explicit on which permissions are being added and how they will be tested to ensure no behavior regressions happen. A regression in this area of code can result in serious security problems. The student needs to convince the reader their approach will prevent security vulnerabilities from being introduced.
-- The student is responsible for designing the system that will replace rights_manager, but we've already decided from a technical perspective that we're changing the way rights works from being pseudo-role-based to being action-based, where permissions grant allowance of certain actions and are inherited by roles.
-- The student is responsible for using the [ACL document](https://docs.google.com/document/d/1-JsPVIr1u4LQxpTBFi-VSUpbuIoF8CxgzN9ExCKlyYs/edit#heading=h.qj2574amxs00) above and their own analysis to derive the list of permissions. Only backend permissions are needed here, and we want to implement a system to last into the future (with roles and groups, where groups can inherit from other groups). However, the current application of this system needs to satisfy the ACL document wherein roles 'cascade' their permissions currently -- i.e., 'logged in users' receive all permissions guests are allowed, collection editor users inherit all from the 'logged in users' group, etc.
+- It's important for the proposal to be explicit on which permissions are being added and how they will be tested to ensure no behavior regressions happen. A regression in this area of code can result in serious security and privacy problems. The student needs to convince their mentor that the student's approach will prevent security and privacy vulnerabilities from being introduced.
+- The student is responsible for designing the system that will replace ``rights_manager``, but we've already decided from a technical perspective that we're changing the way rights works from being pseudo-role-based to being action-based, where permissions grant allowance of certain actions and are inherited by roles. For example, rather than explicitly checking the config whitelist to determine if a user can access the collection editor, the code should ask the new permissions system whether the user has permission to 'access_collection_editor', where some other place in code populates the permission value by checking the whitelist. This indirection offers a lot more flexibility and leads to code being more readable both in production code and in tests.
+- The student is responsible for using the [ACL document](https://docs.google.com/document/d/1-JsPVIr1u4LQxpTBFi-VSUpbuIoF8CxgzN9ExCKlyYs/edit#heading=h.qj2574amxs00) above and their own analysis to derive the list of permissions based on primary user actions. Only backend permissions are needed here, and we want to implement a system to last into the future (with roles and groups, where groups can inherit from other groups). However, the current application of this system needs to satisfy the ACL document wherein roles 'cascade' their permissions currently -- i.e., 'logged in users' receive all permissions guests are allowed, collection editor users inherit all from the 'logged in users' group, etc.
 
 
 ## Achievement system
