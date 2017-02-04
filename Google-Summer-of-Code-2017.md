@@ -342,13 +342,12 @@ As a stretch goal, we would also like to make it easier for the coding interacti
 4. (stretch) Design and implement the visual indicator that appears when a user earns a new badge.
 
 **Notes**:
-- The student's proposal should indicate which key user actions are worth receiving achievements.
-- The student's proposal should indicate the criteria for unlocking each achievement, and an indication of how achievements are tiered.
+- The student's proposal should indicate which key user actions are worth receiving achievements, the criteria for unlocking each achievement, and an indication of how achievements are tiered.
 - The student should work with the UI/UX team to design icons/badges for each award.
 - The student needs to describe, in their proposal:
   - The new domain layer for badges (domain objects and services, and also tests)
   - The storage layer needed for badges
-  - The general system for detecting new badges: should this be a job or something computed in real-time? We may want to eventually award badges immediately when the user earns them (see milestone #4 below), though 'immediately' could wait until the real-time layer of a continuous computation is updated.
+  - The general system for detecting new badges: should this be a job or something computed in real-time? We may want to eventually award badges immediately when the user earns them, though 'immediately' could wait until the real-time layer of a continuous computation is updated.
 - The student needs to identify, for each badge:
   - The statistics needed to be recorded for that badge
   - Jobs that need to be written or reused in order to collect those statistics
