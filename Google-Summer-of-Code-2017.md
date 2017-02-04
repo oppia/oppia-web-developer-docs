@@ -111,9 +111,9 @@ We believe that the following project ideas will have significant impact on Oppi
 
 1. Complete a full, implementation-ready spec that includes mocks, corner cases and tests. Implement all the necessary datastore and backend logic.
 
-1. Implement and launch the playtesting frontend. At least three playtests should have been completed by a student using the new system.
+1. Implement and launch the playtesting frontend. At least three playtests should have been completed by students using the new system.
 
-1. Implement functionality for showing the playtest data to the exploration authors, so that they can use it to improve the exploration.
+1. Implement and launch functionality for showing the playtest data to the exploration authors, so that they can use it to improve the exploration. Gather feedback from exploration authors and make further improvements as needed.
 
 **Notes**:
 - How can we make it easy for students to start the process of playtesting an exploration? One avenue might be the learner dashboard, but there should probably also be an in-exploration way to do this (or a good argument for why not).
