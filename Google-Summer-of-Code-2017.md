@@ -164,7 +164,7 @@ A good proposal should discuss these issues and describe an appropriate UX. It's
 
 1. Implement all necessary updates to existing datastore (if any), any necessary backend logic changes, and any changes required for the training interface. Build/generate a dataset for training the classifier, do any necessary data processing, and fully integrate and test any specific library that needs to be used in the project.
 2. Build the model using the training data, and implement end-to-end tests. Evaluate the model on the test data using cross validation and, if possible, do a [spot-check](http://machinelearningmastery.com/why-you-should-be-spot-checking-algorithms-on-your-machine-learning-problems/). Check the performance of the model against a baseline (typically using another classification algorithm).
-3. Improve the speed and accuracy of the model to the point where the classification functionality is sufficiently good and can be released to end users. Deploy the new model in production.
+3. Improve the speed and accuracy of the model to the point where the classification functionality is sufficiently good and can be released to end users. Document the different approaches tried and the speed/accuracy achieved with each. Deploy the new model in production.
 
 **Notes**:
 - We will be looking carefully at the technical design section of the proposal in order to evaluate the feasibility of the proposed approach. A strong proposal will demonstrate a good understanding of Oppia’s existing classification system, and clearly explain how the proposed classifier will interface with it.
