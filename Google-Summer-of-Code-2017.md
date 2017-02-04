@@ -343,7 +343,7 @@ As a stretch goal, we would also like to make it easier for the coding interacti
 
 **Notes**:
 - The student's proposal should indicate which key user actions are worth receiving achievements.
-- The student's proposal should indicate the types of achievements (badges versus t-shirts), the criteria for unlocking each achievement, and an indication of how achievements are tiered.
+- The student's proposal should indicate the criteria for unlocking each achievement, and an indication of how achievements are tiered.
 - The student should work with the UI/UX team to design icons/badges for each award.
 - The student needs to describe, in their proposal:
   - The new domain layer for badges (domain objects and services, and also tests)
