@@ -345,10 +345,11 @@ As a stretch goal, we would also like to make it easier for the coding interacti
 **Suggested milestones**:
 
 1. Finish the spec for the end-to-end badge system, including mocks for each achievement and for UI changes to the profile page. Implement the backend storage and domain layers for badges (the latter includes the domain object, services, and tests).
-2. Implement the profile backend controller, the frontend badge system (including any new frontend domain objects, services, tests, and backend API services), and the frontend profile page to support badges. Also, implement the visual indicator that appears when a user earns a new badge, and the backend system for detecting when a user has earned a new badge. This milestone also includes implementing and launching the end-to-end experience for 1 real badge.
-3. Implement any new storage models or jobs needed among all badges, and update the badge award system to send a notification to the user when they earn a badge offline. Implement the remaining badges using the system created in the previous milestones.
+2. Implement the profile backend controller, the frontend badge system (including any new frontend domain objects, services, tests, and backend API services), and the frontend profile page to support badges. Also, implement the visual indicator that appears in real time when a user earns a new badge due to an action they perform, and the backend system for detecting when a user has earned a new badge. This milestone also includes implementing and launching the end-to-end experience for 1 real badge.
+3. Implement any new storage models or jobs needed among all badges, and update the badge award system to send an email to the user when they earn a badge offline. Implement the remaining badges using the system created in the previous milestones.
 
 **Notes**:
+- When a user earns a badge due to an action they did, the notification should appear in the UI in real time. However, when a user earns a badge due to an action that someone else did, they should receive an email.
 - The student's proposal should indicate which key user actions are worth receiving achievements, the criteria for unlocking each achievement, and an indication of how achievements are tiered.
 - The student should work with the UI/UX team to design icons/badges for each award.
 - The student needs to describe, in their proposal:
