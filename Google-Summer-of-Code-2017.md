@@ -344,10 +344,9 @@ As a stretch goal, we would also like to make it easier for the coding interacti
 
 **Suggested milestones**:
 
-1. Have mocks for each achievement and for changes to the profile page. Update the profile backend controller and frontend page to support badges once the user has them. The controller in this case will be partially incomplete and will be finished in milestone #3.
-2. Introduce a new domain layer for badges (domain object, services, and tests). Implement a new system for detecting when a user has earned a new badge and award them that badge. This milestone should also include implementing 1 real badge as a demonstration of the system. The rest of the badges will be implemented in milestone #3.
-3. Implement any new storage models or jobs needed among all badges. Implement each badge in the backend using the system created in milestone #2 to award these badges to users. Finish the backend profile controller used to provide badges to the frontend in order to connect the backend badge system with the frontend profile page. Update the badge award system to send a notification to the user when they earn a badge.
-4. (stretch) Design and implement the visual indicator that appears when a user earns a new badge.
+1. Have mocks for each achievement and for changes to the profile page. Finish the spec for the end-to-end badge system. Introduce a new domain layer for badges (domain object, services, and tests).
+2. Implement the frontend badge system, including any new domain objects, services, tests, and backend API services. Update the profile backend controller and frontend page to support badges once the user has them. Implement the visual indicator that appears when a user earns a new badge, and the backend system for detecting when a user has earned a new badge. This milestone should also include implementing 1 real badge end-to-end as a demonstration of the system. The rest of the badges will be implemented in milestone #3.
+3. Implement any new storage models or jobs needed among all badges. Implement each badge in the backend using the system created in the previous milestones to award these badges to users. Update the badge award system to send a notification to the user when they earn a badge offline.
 
 **Notes**:
 - The student's proposal should indicate which key user actions are worth receiving achievements, the criteria for unlocking each achievement, and an indication of how achievements are tiered.
