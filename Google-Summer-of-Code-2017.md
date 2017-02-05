@@ -168,7 +168,7 @@ A good proposal should discuss these issues and describe an appropriate UX. It's
 3. Improve the speed and accuracy of the model to the point where the classification functionality is sufficiently good and can be released to end users. Document the different approaches tried and the speed/accuracy achieved with each. Deploy the new model in production.
 
 **Notes**:
-- We will be looking carefully at the technical design section of the proposal in order to evaluate the feasibility of the proposed approach. A strong proposal will demonstrate a good understanding of Oppia’s existing classification system, and clearly explain how the proposed classifier will interface with it.
+- We will be looking carefully at the technical design section of the proposal in order to evaluate the feasibility of the proposed approach. A strong proposal will demonstrate a good understanding of Oppia’s existing classification system, and clearly explain how the proposed classifier will interface with it. It is highly recommended that the proposer goes through the [project page](https://github.com/oppia/oppia/projects/4) which contains all the issues and the design document of the existing machine learning framework. 
 - If code evaluation is needed, this should happen in the frontend (although the results and the learner's code will be stored in the backend). For security reasons, we can't execute arbitrary Python scripts in the back-end. 
 - The proposal should discuss an effective strategy to build/generate datasets for training the classifier.
 - The classification algorithm used should be pluggable into the existing classification framework. This should provide sufficient flexibility to change the algorithm in the future as needed.
