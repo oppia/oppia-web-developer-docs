@@ -121,9 +121,8 @@ We believe that the following project ideas will have significant impact on Oppi
 - Perhaps we could give students the opportunity to link to a "Let's play" video of their experience on YouTube.
 - At the outset, perhaps we could ask the user for the context in which they're playtesting this (e.g., are they a teacher, or are they part of a classroom working with the Oppia team, or did they randomly stumble across the exploration while browsing the site), since doing so might provide useful information for exploration authors. Then again, perhaps we might not -- this idea (and others) should be evaluated based on how useful the data would be to the exploration authors versus how much of an additional burden they impose on the playtester. 
 - We could track additional statistics of explorations played under playtesting, for example, tracking the number of times the playtester submitted an answer to a particular card, or the amount of time spent at each card.
-- Privacy considerations should also be taken into account.
 
-A good proposal should discuss these issues and describe an appropriate UX. It's important to pay attention to details of the playtester’s critical user journey, as well as to think through exactly what information would be useful for the exploration author, and be very concrete about what you intend to do.
+A good proposal should discuss these issues and describe an appropriate UX. It's important to pay attention to details of the playtester’s critical user journey, as well as to think through exactly what information would be useful for the exploration author, and be very concrete about what you intend to do. Privacy considerations should also be taken into account.
 
 
 ## Improving the feedback flow
