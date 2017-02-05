@@ -75,7 +75,7 @@ The project plan is the most important section of the proposal, since it outline
 
 - **Three clear milestones** explaining the deliverables to be achieved by the end of each of the three GSoC coding periods. Strong proposals will have clear, concrete and well-defined milestones, whose success can be readily evaluated by an external observer. It's OK to break up a milestone into smaller milestones over smaller timescales, but individual milestones should represent *concrete* deliverables that can be merged into the "develop" branch. Please try to be realistic when setting milestones, and don't over-promise.
 
-- **A technical design and implementation plan**. The project ideas below are annotated with some notes from the mentors, but please bear in mind that these notes are not exclusive and shouldn't serve as a substitute for thinking carefully and critically about the project from first principles. If, in your thinking, you find aspects not mentioned in the notes, feel free to include a discussion of these aspects in your proposal. (For example, certain projects may require a migration of existing production data, and this needs to be accounted for in the project plan.) Strong proposals will demonstrate familiarity with the codebase, a realistic implementation plan, and attention to detail.
+- **A technical design and implementation plan**. The project ideas below are annotated with some notes from the mentors, but please bear in mind that these notes are not exclusive and shouldn't serve as a substitute for thinking carefully and critically about the project from first principles. The notes merely serve as ideas or possible starting points, and in fact it may not make sense to implement all of them. If, in your thinking, you find aspects not mentioned in the notes, feel free to include a discussion of these aspects in your proposal. (For example, certain projects may require a migration of existing production data, and this needs to be accounted for in the project plan.) Strong proposals will demonstrate familiarity with the codebase, a realistic implementation plan, and attention to detail.
 
 - **Mocks or wireframes**, if appropriate. For user-facing projects, we strongly favour proposals that demonstrate an empathy for the user. If you're proposing frontend design mocks, we suggest showing your ideas to your friends and getting their critical feedback, so that you can be confident that others find them intuitive as well. Note that you do not need to make your mocks pixel-perfect, but they should illustrate the primary user journeys clearly enough for us to understand exactly what you're proposing.
 
@@ -119,7 +119,9 @@ We believe that the following project ideas will have significant impact on Oppi
 - How can we make it easy for students to start the process of playtesting an exploration? One avenue might be the learner dashboard, but there should probably also be an in-exploration way to do this (or a good argument for why not).
 - We should make it easy for learners to report that they are stuck or feeling lost on a particular card (and explain why).
 - Perhaps we could give students the opportunity to link to a "Let's play" video of their experience on YouTube.
-- At the outset, perhaps we could ask the user for the context in which they're playtesting this (e.g., are they a teacher, or are they part of a classroom working with the Oppia team, or did they randomly stumble across the exploration while browsing the site), since doing so might provide useful information for exploration authors. Then again, perhaps we might not -- this idea (and others) should be evaluated based on how useful the data would be to the exploration authors versus how much of an additional burden they impose on the playtester. Privacy considerations should also be taken into account.
+- At the outset, perhaps we could ask the user for the context in which they're playtesting this (e.g., are they a teacher, or are they part of a classroom working with the Oppia team, or did they randomly stumble across the exploration while browsing the site), since doing so might provide useful information for exploration authors. Then again, perhaps we might not -- this idea (and others) should be evaluated based on how useful the data would be to the exploration authors versus how much of an additional burden they impose on the playtester. 
+- Privacy considerations should also be taken into account.
+- We could track additional statistics of explorations played under playtesting, for example, tracking the number of times the playtester submitted an answer to a particular card, or the amount of time spent at each card.
 
 A good proposal should discuss these issues and describe an appropriate UX. It's important to pay attention to details of the playtester’s critical user journey, as well as to think through exactly what information would be useful for the exploration author, and be very concrete about what you intend to do.
 
@@ -214,12 +216,13 @@ A good proposal should discuss these issues and describe an appropriate UX. It's
 **Suggested milestones**:
 
 1. Finalize full technical plan (including UI mocks) explaining how the fallbacks-to-hints recharacterization will be carried out. Datastore and backend logic changes implemented; all necessary migrations implemented.
-2. UI changes implemented; frontend completed and launched.
+2. UI changes implemented; frontend completed and launched. Get feedback from learners and creators.
 3. Further project of your choice based on learner/creator feedback.
 
 **Notes**:
 - Proposals should give a very concrete description of how hints will work (e.g., what is the trigger for when they’re displayed), and what the frontend UI/UX for the learner will look like. (We suggest taking a look at how your favourite puzzle games handle this sort of thing; you might find some inspiration there!)
 - Strong proposals will discuss multiple possible approaches, make reasoned arguments for and against them, use these to come up with an informed decision, and describe an appropriate UX that achieves the desired effects.
+- Proposals should give some ideas for possible projects in milestone 3.
 
 
 ## Translation console
@@ -288,9 +291,12 @@ As a stretch goal, we would also like to make it easier for the coding interacti
 
 **Suggested milestones**:
 
-1. Full spec for the revised coding interaction. This should include a complete backend specification, frontend design, examples of use and tests.
+1. Full spec for the revised coding interaction. This should include a complete backend specification, frontend design, examples of use and tests. Ask creators for feedback on the spec, and what additional features they would like in the code interaction.
 2. Frontend completed and launched; at least one exploration integrates this interaction.
-3. Further project of your choice based on user feedback. This may be the stretch goal mentioned above, or something else.
+3. Further project of your choice based on exploration creators' feedback. This may be the stretch goal mentioned above, or something else.
+
+**Notes**:
+- The proposal should include at least one idea for the project in the 3rd milestone.
 
 ## Site-wide ACL refactor
 
