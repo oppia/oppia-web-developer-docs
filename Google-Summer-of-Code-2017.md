@@ -120,8 +120,8 @@ We believe that the following project ideas will have significant impact on Oppi
 - We should make it easy for learners to report that they are stuck or feeling lost on a particular card (and explain why).
 - Perhaps we could give students the opportunity to link to a "Let's play" video of their experience on YouTube.
 - At the outset, perhaps we could ask the user for the context in which they're playtesting this (e.g., are they a teacher, or are they part of a classroom working with the Oppia team, or did they randomly stumble across the exploration while browsing the site), since doing so might provide useful information for exploration authors. Then again, perhaps we might not -- this idea (and others) should be evaluated based on how useful the data would be to the exploration authors versus how much of an additional burden they impose on the playtester. 
-- Privacy considerations should also be taken into account.
 - We could track additional statistics of explorations played under playtesting, for example, tracking the number of times the playtester submitted an answer to a particular card, or the amount of time spent at each card.
+- Privacy considerations should also be taken into account.
 
 A good proposal should discuss these issues and describe an appropriate UX. It's important to pay attention to details of the playtester’s critical user journey, as well as to think through exactly what information would be useful for the exploration author, and be very concrete about what you intend to do.
 
@@ -297,6 +297,9 @@ As a stretch goal, we would also like to make it easier for the coding interacti
 
 **Notes**:
 - The proposal should include at least one idea for the project in the 3rd milestone.
+- For the frontend, the most important parts are how to present the interface for the creators, i.e. how should creators specify test cases? 
+- Can creators specify test cases in addition to matching parts of the code?
+- Should learners be able to see the test cases that their code failed on?
 
 ## Site-wide ACL refactor
 
