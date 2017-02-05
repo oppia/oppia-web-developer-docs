@@ -98,7 +98,7 @@ We believe that the following project ideas will have significant impact on Oppi
 
 ## Self-service playtesting
 
-**Aim:** In order to help creators improve their lessons, we depend heavily on student playtests and feedback. However, exploration playtesting currently happens via an [external form](https://github.com/oppia/oppia/wiki/Playtesting-explorations) (which we recommend that you look at, for inspiration), and the overall experience is pretty clunky. The aim of this project is to seamlessly integrate playtesting within the site, so that students who want to give more detailed feedback on an exploration can do so in a structured way.
+**Aim:** In order to help creators improve their lessons, we depend heavily on student playtests and feedback. However, exploration playtesting currently happens via an external form (see instructions on this [wiki page](https://github.com/oppia/oppia/wiki/Playtesting-explorations)), and the overall experience is pretty clunky. The aim of this project is to seamlessly integrate playtesting within the site, so that students who want to give more detailed feedback on an exploration can do so in a structured way.
 
 **Skills/knowledge required**:
 - UX design
@@ -117,10 +117,11 @@ We believe that the following project ideas will have significant impact on Oppi
 
 **Notes**:
 - How can we make it easy for students to start the process of playtesting an exploration? One avenue might be the learner dashboard, but there should probably also be an in-exploration way to do this (or a good argument for why not).
-- We should make it easy for learners to report that they are stuck or feeling lost on a particular card (and explain why).
-- Perhaps we could give students the opportunity to link to a "Let's play" video of their experience on YouTube.
-- At the outset, perhaps we could ask the user for the context in which they're playtesting this (e.g., are they a teacher, or are they part of a classroom working with the Oppia team, or did they randomly stumble across the exploration while browsing the site), since doing so might provide useful information for exploration authors. Then again, perhaps we might not -- this idea (and others) should be evaluated based on how useful the data would be to the exploration authors versus how much of an additional burden they impose on the playtester. 
-- We could track additional statistics of explorations played under playtesting, for example, tracking the number of times the playtester submitted an answer to a particular card, or the amount of time spent at each card.
+- Would it be possible to get feedback from students who do not complete an exploration? In any case, we should make it easy for learners to report that they are stuck or feeling lost on a particular card (and explain why).
+- Here are some ideas for things that might be worth considering. Note that these are just ideas; they should be evaluated based on how useful the data would be to the exploration authors versus how much of an additional burden they impose on the playtester.
+  - At the outset, perhaps we could ask the user for the context in which they're playtesting this (e.g., are they a teacher, or are they part of a classroom working with the Oppia team, or did they randomly stumble across the exploration while browsing the site), since doing so might provide useful information for exploration authors. 
+  - Perhaps we could give students the opportunity to link to a "Let's play" video of their experience on YouTube.
+  - Perhaps we could track additional statistics of explorations played under playtesting (e.g. the number of times the playtester submitted an answer to a particular card, or the amount of time spent at each card) and include that with the playtest report.
 
 A good proposal should discuss these issues and describe an appropriate UX. It's important to pay attention to details of the playtester’s critical user journey, as well as to think through exactly what information would be useful for the exploration author, and be very concrete about what you intend to do. Privacy considerations should also be taken into account.
 
@@ -188,13 +189,14 @@ A good proposal should discuss these issues and describe an appropriate UX. It's
 
 **Suggested milestones**:
 
-1. Complete and launch a basic "learner dashboard" page, including functionality for:
+1. Implement progress tracking for lessons. Complete and launch a basic "learner dashboard" page, including functionality for:
   - keeping track of completed and partially-completed lessons (both explorations and collections)
   - keeping track of subscriptions
-2. Add functionality for keeping track of feedback threads that need a reply from the student, and make it possible for the student to reply to these threads from their learner dashboard.
-3. Conduct some user studies, and, based on the results, implement a further project of your choice. (For example, you could show recommendations for lessons to playtest, or new lessons that would be useful for the student, or new creators that they might want to subscribe to -- or perhaps add functionality for bookmarking explorations that the student wants to play next, but doesn't have the time to at the moment).
+2. Conduct user studies for the version of the dashboard implemented in milestone 1. Add functionality for keeping track of feedback threads that need a reply from the student, and make it possible for the student to reply to these threads from their learner dashboard.
+3. Based on the results of the user studies conducted in milestone 2, implement a further project of your choice. (For example, you could show recommendations for lessons to playtest, or new lessons that would be useful for the student, or new creators that they might want to subscribe to -- or perhaps add functionality for bookmarking explorations that the student wants to play next, but doesn't have the time to at the moment).
 
 **Notes**:
+- For milestone 2, note that the existing behaviour of the site is as follows: students can submit feedback to explorations, and exploration authors can respond to this feedback (e.g., by asking a question of clarification). However, at present, there is no way for the student to reply to this thread.
 - Proposals should address how a learner gets to their dashboard, as well as any general site changes that might be needed. It’s important to think holistically about the learner user journey and ensure that it's as intuitive as possible, whilst keeping in mind that learners can also be creators.
 - Proposals should also suggest a suitable design/layout for the dashboard. It's important for this design to be intuitive, and easy for a learner to understand.
 - Currently, a logged-in user is taken to the creator dashboard by default, which serves as their "logged-in homepage". One could argue that the learner dashboard should play this role for a user who comes to the site mainly to learn. How should we reconcile these factors into a coherent user experience?
@@ -214,8 +216,8 @@ A good proposal should discuss these issues and describe an appropriate UX. It's
 
 **Suggested milestones**:
 
-1. Finalize full technical plan (including UI mocks) explaining how the fallbacks-to-hints recharacterization will be carried out. Datastore and backend logic changes implemented; all necessary migrations implemented.
-2. UI changes implemented; frontend completed and launched. Get feedback from learners and creators.
+1. Finalize full technical plan (including UI mocks) explaining how the fallbacks-to-hints recharacterization will be carried out. Implement any necessary datastore and backend logic changes, as well as all necessary migrations.
+2. Implement any necessary UI changes, and iterate on them until we have evidence (from user testing) that students find the hints functionality intuitive. Complete and launch the frontend, and get feedback from learners and creators.
 3. Further project of your choice based on learner/creator feedback.
 
 **Notes**:
