@@ -2,7 +2,7 @@ Oppia is excited to be applying for participation in [Google Summer of Code 2017
 
 Since GSoC 2017 mentoring organizations are not announced until **February 27, 2017**, it is not yet known whether Oppia will be participating in Google Summer of Code 2017. This page will be updated accordingly once it is known whether Oppia is participating.
 
-The following are Oppia's 2017 GSoC project ideas. **Please note that these are still a work-in-progress.**
+The following are Oppia's 2017 GSoC project ideas:
 
 * [Self-service playtesting](#self-service-playtesting)
 * [Improving the feedback flow](#improving-the-feedback-flow)
@@ -75,9 +75,9 @@ The project plan is the most important section of the proposal, since it outline
 
 - **Three clear milestones** explaining the deliverables to be achieved by the end of each of the three GSoC coding periods. Strong proposals will have clear, concrete and well-defined milestones, whose success can be readily evaluated by an external observer. It's OK to break up a milestone into smaller milestones over smaller timescales, but individual milestones should represent *concrete* deliverables that can be merged into the "develop" branch. Please try to be realistic when setting milestones, and don't over-promise.
 
-- **A technical design and implementation plan**. The project ideas below are annotated with some notes from the mentors, but please bear in mind that these notes are not exclusive and shouldn't serve as a substitute for thinking carefully and critically about the project from first principles. The notes merely serve as ideas or possible starting points, and in fact it may not make sense to implement all of them. If, in your thinking, you find aspects not mentioned in the notes, feel free to include a discussion of these aspects in your proposal. (For example, certain projects may require a migration of existing production data, and this needs to be accounted for in the project plan.) Strong proposals will demonstrate familiarity with the codebase, a realistic implementation plan, and attention to detail.
+- **A technical design and implementation plan**. The project ideas below are annotated with some notes from the mentors, but please bear in mind that these notes are not exclusive and shouldn't serve as a substitute for thinking carefully and critically about the project from first principles -- their main purpose is to suggest ideas or possible starting points. If, in your thinking, you find aspects not mentioned in the notes, feel free to include a discussion of these aspects in your proposal. (For example, certain projects may require a migration of existing production data, and this needs to be accounted for in the project plan.) Strong proposals will demonstrate familiarity with the codebase, a realistic implementation plan, and attention to detail.
 
-- **Mocks or wireframes**, if appropriate. For user-facing projects, we strongly favour proposals that demonstrate an empathy for the user. If you're proposing frontend design mocks, we suggest showing your ideas to your friends and getting their critical feedback, so that you can be confident that others find them intuitive as well. Note that you do not need to make your mocks pixel-perfect, but they should illustrate the primary user journeys clearly enough for us to understand exactly what you're proposing.
+- **Mocks or wireframes**, if appropriate. For user-facing projects, we strongly favour proposals that demonstrate an empathy for the user. If you're proposing frontend design mocks, we suggest showing your ideas to your friends and getting their critical feedback, so that you can be confident that others find them intuitive as well. Note that you do not need to make your mocks pixel-perfect, but they should illustrate the primary user journeys clearly enough for us to understand exactly what you're proposing. Also, bear in mind that more is not necessarily better -- an important aspect of user-focused design is deciding what _not_ to do.
 
 ## Types of work related to Oppia projects
 In order to ensure a well-rounded engineering experience, developers will do some or all of the following depending on their project:
@@ -90,15 +90,13 @@ In order to ensure a well-rounded engineering experience, developers will do som
 
 # Oppia's Project Ideas
 
-**Note to interested students: these project descriptions are not final, and may change in the next few weeks! We're still working on them, and will remove this notice once we've finalized the descriptions.**
-
-This year, the Oppia team is aiming to create a cohesive set of lessons on basic mathematics, and run pilots with students in developing countries (such as rural India and parts of Africa) who lack access to teachers and textbooks, but who do have mobile devices (albeit with limited bandwidth). We really want the students to enjoy the learning experience, and we also want these lessons to improve continuously based on student feedback. Thus, the team's technical priorities for 2017 include improving the core learner experience, and building in feedback loops that make it easy for lessons to become better over time.
+This year, the Oppia team aims to create a cohesive set of lessons on basic mathematics, and run pilots with students in developing countries (such as rural India and parts of Africa) who lack access to teachers and textbooks, but who do have mobile devices (albeit with limited bandwidth). We really want the students to enjoy the learning experience, and we also want these lessons to improve continuously based on student feedback. Thus, the team's technical priorities for 2017 include improving the core learner experience, and building in feedback loops that make it easy for lessons to become better over time.
 
 We believe that the following project ideas will have significant impact on Oppia, and would make excellent Google Summer of Code projects. That said, feel free to suggest your own projects -- we'd be happy to discuss new ideas that you'd like to implement!
 
 ## Self-service playtesting
 
-**Aim:** In order to help creators improve their lessons, we depend heavily on student playtests and feedback. However, exploration playtesting currently happens via an external form (see instructions on this [wiki page](https://github.com/oppia/oppia/wiki/Playtesting-explorations)), and the overall experience is pretty clunky. The aim of this project is to seamlessly integrate playtesting within the site, so that students who want to give more detailed feedback on an exploration can do so in a structured way.
+**Aim:** In order to help creators improve their lessons, we depend heavily on student playtests and feedback. However, exploration playtesting currently happens via an external form (see instructions on this [wiki page](https://github.com/oppia/oppia/wiki/Playtesting-explorations)), and the overall experience is pretty clunky. The aim of this project is to seamlessly integrate playtesting within the site, so that students and teachers who want to give more detailed feedback on an exploration can do so in a structured way.
 
 **Skills/knowledge required**:
 - UX design
@@ -111,24 +109,24 @@ We believe that the following project ideas will have significant impact on Oppi
 
 1. Complete a full, implementation-ready spec that includes mocks, corner cases and tests. Implement all the necessary datastore and backend logic.
 
-1. Implement and launch the playtesting frontend. At least three playtests should have been completed by students using the new system.
+1. Implement and launch the playtesting frontend. At least three user playtests should have been completed using the new system.
 
 1. Implement and launch functionality for showing the playtest data to the exploration authors, so that they can use it to improve the exploration. Gather feedback from exploration authors and make further improvements as needed.
 
 **Notes**:
-- How can we make it easy for students to start the process of playtesting an exploration? One avenue might be the learner dashboard, but there should probably also be an in-exploration way to do this (or a good argument for why not).
-- Would it be possible to get feedback from students who do not complete an exploration? In any case, we should make it easy for learners to report that they are stuck or feeling lost on a particular card (and explain why).
-- Here are some ideas for things that might be worth considering. Note that these are just ideas; they should be evaluated based on how useful the data would be to the exploration authors versus how much of an additional burden they impose on the playtester.
+- How can we make it easy for students to start the process of playtesting an exploration? One avenue might be the learner dashboard, but perhaps there should also be an in-exploration way to do this (or a good argument for why not).
+- Would it be possible to get feedback from students who do not complete an exploration? In any case, we should make it easy for learners to report that they're stuck or feeling lost on a particular card (and explain why).
+- Here are some ideas for other things that might be worth considering. Note that these are just ideas; they should be evaluated based on how useful the data would be to the exploration authors versus how much of an additional burden they impose on the playtester. Feel free to incorporate other ideas of your own that are not listed here, too.
   - At the outset, perhaps we could ask the user for the context in which they're playtesting this (e.g., are they a teacher, or are they part of a classroom working with the Oppia team, or did they randomly stumble across the exploration while browsing the site), since doing so might provide useful information for exploration authors. 
   - Perhaps we could give students the opportunity to link to a "Let's play" video of their experience on YouTube.
-  - Perhaps we could track additional statistics of explorations played under playtesting (e.g. the number of times the playtester submitted an answer to a particular card, or the amount of time spent at each card) and include that with the playtest report.
+  - Perhaps we could track additional statistics of explorations played under playtesting (e.g. the number of times the playtester submitted an answer to a particular card, or the amount of time spent at each card) and include that alongside the playtest report.
 
 A good proposal should discuss these issues and describe an appropriate UX. It's important to pay attention to details of the playtester’s critical user journey, as well as to think through exactly what information would be useful for the exploration author, and be very concrete about what you intend to do. Privacy considerations should also be taken into account.
 
 
 ## Improving the feedback flow
 
-**Aim:** Currently, learners can provide exploration authors with free-form feedback through the site, or via dedicated playtesting of lessons. We want to make it easy for this feedback to get integrated back into the lesson. A possible way to do this is to have a page that surfaces such feedback for all featured explorations, so that any logged-in user can take a piece of free-form feedback and turn it into a suggested edit for that exploration that the original author can subsequently approve/reject. The aim of this project is to build this page.
+**Aim:** Currently, learners can provide exploration authors with free-form feedback through the site, or via dedicated playtesting of lessons. We want to make it easy for this feedback to get integrated back into the lesson. A possible way to do this is to have a page that surfaces such feedback for all featured explorations, so that any logged-in user can take a piece of free-form feedback and turn it into a suggested edit for that exploration that the original author can subsequently approve/reject (similar to how a GitHub user can take an issue and turn it into a PR). The aim of this project is to build this page.
 
 **Skills/knowledge required**:
 - UX design
@@ -144,17 +142,17 @@ A good proposal should discuss these issues and describe an appropriate UX. It's
 
 1. Design and implement a new page that lists unresolved learner feedback for explorations that are featured on the site. (It’s fine if it's read-only at this stage, as long as the necessary information is displayed.)
 
-1. Add functionality enabling any logged-in user to take a piece of feedback on this page, and act on it by creating a suggested edit to the exploration that addresses the feedback.
+1. Add functionality enabling any logged-in user to take a piece of feedback on this page, and address it by creating a suggested edit to the corresponding exploration.
 
 **Notes**:
 - Currently, logged-in users can only make suggestions to the "content" parts of a state. We need to make it possible for them to make suggestions to the free-form text that the author includes in the "answer group feedback" and "fallback" sections, too, and find a clean way to expose this in the exploration player UI.
-- It might be a good idea to use this mainly for "community-editable" explorations at the outset, since those don't currently have an assigned owner.
+- It might be a good idea to use this mainly for community-editable explorations at the outset, since those don't currently have an assigned owner.
 - It might be helpful to think of the existing "feedback" functionality as analogous to GitHub issues, and the existing "suggestions" functionality as analogous to GitHub PRs.
 
 
 ## Applying machine learning to the code interaction
 
-**Aim:** We want to give students useful feedback when they get stuck. For this, we need to understand the answers they submit -- e.g., in coding problems, we'd like to understand when the user incorrectly initializes a variable, or makes some other common mistake, so that we can address it. Currently, we are working on building an extensible machine learning framework and a training interface for classifying free-form answers such as text input. The proposed code classifier for this project will be built on top of this framework, and would allow learners to type in code in order to match some sort of output, avoid an error, or match specific code. The project itself involves figuring out a way to cluster similar pieces of code, and then using that to train a classification model that can predict which feedback cluster ("answer group") a new piece of code should belong to. Lesson creators will then be able to create a training set and assign responses to a set of similar code submissions using the training interface. 
+**Aim:** We want to give students useful feedback when they get stuck. For this, we need to understand the answers they submit -- e.g., in coding problems, we'd like to understand when the user incorrectly initializes a variable, or makes some other common mistake, so that we can address it. Currently, we are working on building an extensible machine learning framework and a training interface for classifying free-form answers. The proposed code classifier for this project will be built on top of this framework, and would allow learners to type in code in order to match some sort of output, avoid an error, or match specific code. The project itself involves figuring out a way to cluster similar pieces of code, and then using that to train a classification model that can predict which feedback cluster ("answer group") a new piece of code should belong to. Lesson creators will then be able to create a training set and assign responses to a set of similar code submissions using the training interface. 
 
 **Skills/knowledge required**:
 - Machine learning
@@ -169,11 +167,12 @@ A good proposal should discuss these issues and describe an appropriate UX. It's
 3. Improve the speed and accuracy of the model to the point where the classification functionality is sufficiently good and can be released to end users. Document the different approaches tried and the speed/accuracy achieved with each. Deploy the new model in production.
 
 **Notes**:
-- We will be looking carefully at the technical design section of the proposal in order to evaluate the feasibility of the proposed approach. A strong proposal will demonstrate a good understanding of Oppia’s existing classification system, and clearly explain how the proposed classifier will interface with it. It is highly recommended that the proposer goes through the [project page](https://github.com/oppia/oppia/projects/4) which contains all the issues and the design document of the existing machine learning framework. 
-- If code evaluation is needed, this should happen in the frontend (although the results and the learner's code will be stored in the backend). For security reasons, we can't execute arbitrary Python scripts in the back-end. 
+- We will be looking carefully at the technical design section of the proposal in order to evaluate the feasibility of the proposed approach. A strong proposal will demonstrate a good understanding of Oppia’s existing classification system, and clearly explain how the proposed classifier will interface with it.
+- If code evaluation is needed, this should happen in the frontend (although the results and the learner's code will be stored in the backend). For security reasons, we can't execute arbitrary Python scripts in the backend. 
 - The proposal should discuss an effective strategy to build/generate datasets for training the classifier.
-- The classification algorithm used should be pluggable into the existing classification framework. This should provide sufficient flexibility to change the algorithm in the future as needed.
-- The exact milestones for this project would depend somewhat on the technical approach used. The proposer should feel free to use alternate milestones that lead to a production deployment by the end of the third milestone, but please ensure that each milestone is very concrete and that it can be delivered by the end of the corresponding month of GSoC. If your milestones significantly deviate from the ones above, we encourage you to check in with the mentoring team before submitting your proposal.
+- The classification algorithm used should be pluggable into the existing classification framework (so that it's easy to upgrade the algorithm in the future, if needed).
+- The exact milestones for this project would depend somewhat on the technical approach used; the ones above are meant only as suggestions. The proposer should feel free to use alternate milestones that lead to a production deployment by the end of the third milestone, but please ensure that each milestone is very concrete and that it can be delivered by the end of the corresponding month of GSoC. If your milestones significantly deviate from the ones above, we encourage you to get feedback from the mentoring team before submitting your proposal.
+- For reference, it might be worth looking at the [GitHub project page](https://github.com/oppia/oppia/projects/4), which contains a list of open issues and a link to the design document for the existing machine learning framework. 
 
 
 ## Learner dashboard
@@ -193,18 +192,18 @@ A good proposal should discuss these issues and describe an appropriate UX. It's
   - keeping track of completed and partially-completed lessons (both explorations and collections)
   - keeping track of subscriptions
 2. Conduct user studies for the version of the dashboard implemented in milestone 1. Add functionality for keeping track of feedback threads that need a reply from the student, and make it possible for the student to reply to these threads from their learner dashboard.
-3. Based on the results of the user studies conducted in milestone 2, implement a further project of your choice. (For example, you could show recommendations for lessons to playtest, or new lessons that would be useful for the student, or new creators that they might want to subscribe to -- or perhaps add functionality for bookmarking explorations that the student wants to play next, but doesn't have the time to at the moment).
+3. Based on the results of the user studies conducted in milestone 2, implement a further project of your choice. (For example, you could show recommendations for lessons to playtest, or new lessons that would be useful for the student, or new creators that they might want to subscribe to -- or perhaps add functionality for bookmarking explorations that the student wants to play next, but doesn't have the time to at the moment.)
 
 **Notes**:
-- For milestone 2, note that the existing behaviour of the site is as follows: students can submit feedback to explorations, and exploration authors can respond to this feedback (e.g., by asking a question of clarification). However, at present, there is no way for the student to reply to this thread.
+- For milestone 2, note that the app currently behaves as follows: students can submit feedback to explorations, and exploration authors can respond to this feedback (e.g., by asking a question of clarification). However, at present, there is no way for the student to reply to this thread.
 - Proposals should address how a learner gets to their dashboard, as well as any general site changes that might be needed. It’s important to think holistically about the learner user journey and ensure that it's as intuitive as possible, whilst keeping in mind that learners can also be creators.
-- Proposals should also suggest a suitable design/layout for the dashboard. It's important for this design to be intuitive, and easy for a learner to understand. The implementation of the dashboard should also follow good accessibility practices (e.g., it should support students who use screen readers).
+- Proposals should also suggest a suitable design/layout for the dashboard. It's important that this design is intuitive, and easy for a learner to understand. The implementation of the dashboard should also follow good accessibility practices (e.g., it should support students who use screen readers).
 - Currently, a logged-in user is taken to the creator dashboard by default, which serves as their "logged-in homepage". One could argue that the learner dashboard should play this role for a user who comes to the site mainly to learn. How should we reconcile these factors into a coherent user experience?
 
 
 ## Replace fallbacks with hints
 
-**Aim:** In order to help learners successfully complete lessons, exploration creators can specify "fallbacks", which provide a particular piece of feedback if the student is stuck on a particular card for too long. However, these fallbacks can sometimes cause students to receive hints or full solutions when they're not yet ready for them. We want to replace this with a student-initiated hint system instead, so that the student has control over when they elect to read a hint. In addition, we want to make it compulsory for creators to specify, in each card, at least a final hint that explains how to solve the problem and helps the learner progress to the next part of the lesson.
+**Aim:** In order to help learners successfully complete lessons, exploration creators can specify "fallbacks", which provide a particular piece of feedback if the student is stuck on a particular card for too long. However, these fallbacks can sometimes cause students to receive hints or full solutions when they're not yet ready for them. We want to replace this with a student-initiated hint system instead, so that the student has control over when they receive a hint. In addition, we want to make it compulsory for creators to specify, in each card, at least a final hint that explains how to solve the problem and helps the learner progress to the next part of the lesson, so that they don't get completely stuck midway through the exploration.
 
 **Skills/knowledge required**:
 - Strong technical design skills
@@ -215,11 +214,11 @@ A good proposal should discuss these issues and describe an appropriate UX. It's
 **Suggested milestones**:
 
 1. Finalize full technical plan (including UI mocks) explaining how the fallbacks-to-hints recharacterization will be carried out. Implement any necessary datastore and backend logic changes, as well as all necessary migrations.
-2. Implement any necessary UI changes, and iterate on them until we have evidence (from user testing) that students find the hints functionality intuitive, and that creators know that they need to specify hints. Complete and launch the frontend, and get feedback from learners and creators.
+2. Implement any necessary UI changes. Iterate on the UI until we have evidence (from user testing) that students find the hints functionality intuitive, and that creators are aware that they need to specify hints and find it easy to do so. Complete and launch the frontend.
 3. Based on the feedback gathered in milestone 2, find other ways to help or encourage learners to complete the explorations they start, and implement at least one of these.
 
 **Notes**:
-- Proposals should give a very concrete description of how hints will work (e.g., what is the trigger for when they’re displayed), and what the frontend UI/UX for the learner will look like. (We suggest taking a look at how your favourite puzzle games handle this sort of thing; you might find some inspiration there!) Proposals should also explain clearly how exploration creators will specify hints, with an eye towards making it as convenient as possible for them to do so.
+- Proposals should give a very concrete description of how hints will work (e.g. what is the trigger for when they’re displayed), and what the frontend UI/UX for the learner will look like. (We suggest taking a look at how your favourite puzzle games handle this sort of thing; you might find some inspiration there!) Proposals should also explain clearly how exploration creators will specify hints, with an eye towards making it as convenient as possible for them to do so.
 - Stronger proposals will discuss multiple possible approaches, make reasoned arguments for and against them, and use these to come up with an informed decision.
 - Proposals should give some ideas for possible projects in milestone 3.
 
@@ -238,14 +237,13 @@ A good proposal should discuss these issues and describe an appropriate UX. It's
 
 **Suggested milestones**:
 
-1. Full spec with mocks, corner cases and tests thought out; datastore + backend logic changes implemented; any necessary migrations done.
-2. Frontend completed and launched; at least one exploration has been translated by a user (possibly you, but ideally someone else).
-3. Further project of your choice based on user feedback. Alternatively or additionally, implementing a system that can notify creators of translated explorations when the original exploration is updated, along with a diff of the change.
+1. Full spec with mocks, corner cases and tests thought out. Implement any necessary datastore + backend logic changes, and perform any necessary migrations.
+2. Complete and launch the frontend. At least one exploration should have been translated by a user (possibly you, but ideally someone else) using the new system.
+3. Add a tab in the exploration editor that shows creators of translated explorations any updates that happened to the original exploration since it was last translated, as well as a diff of the change. Make it easy for creators to use this information to bring their translated exploration up to date.
 
 **Notes**:
-- Although the default UX should be as convenient as possible for the author, the newly-created exploration should not be publishable until all translations are completed.
-- In the backend, we should keep track of what exploration has been translated from what -- this may be useful later. E.g. we might want to maintain a list of explorations that have been "derived" from a given one.
-- The new exploration should be structurally similar to the old one, otherwise we might end up with "translated" explorations that aren't really related to each other.
+- Although the default UX should be as convenient as possible for the author, the newly-created exploration should not be publishable until all translations are completed. The newly-created exploration should also be structurally similar to the old one, otherwise we might end up with "translated" explorations that aren't really related to each other.
+- In the backend, we should keep track of what exploration has been translated from what, since this is useful for, e.g., maintaining a list of explorations that have been "derived" from a given one.
 - Some major design questions:
   - Should we go with a side-by-side view (of original + translation), or inline "annotations" for translators?
   - What if students study in English, but need different (more local) examples, or a different currency unit?
@@ -266,7 +264,7 @@ A good proposal should discuss these issues, note arguments for and against diff
 
 **Suggested milestones**:
 
-1. Implement [existing designs](https://docs.google.com/document/d/1g5OgnYjNQ0qgQvmHSX_ivujxHU2ERGSnav7VzkseBBw/edit#) (by Prasanna) for the (a) fractions interaction, (b) the number-with-units interactions.
+1. Implement [existing designs](https://docs.google.com/document/d/1g5OgnYjNQ0qgQvmHSX_ivujxHU2ERGSnav7VzkseBBw/edit#) (by Prasanna) for the (a) fractions interaction, (b) the number-with-units interaction.
 2. Spec out, design and implement a new interaction for drag/drop matching of items in two lists.
 3. Spec out, design and implement a new interaction for entering answers in the form of ordered lists. Note that this may entail some refactoring of the core interactions framework, since some questions may require lists of strings, others may require lists of numbers, and yet others may require lists of music notes (for example).
 
@@ -277,7 +275,7 @@ A good proposal should discuss these issues, note arguments for and against diff
 
 ## Code interaction with test suites
 
-**Aim:** Oppia currently has two coding interactions, but they are somewhat limited, and pass on a large chunk of the work to the creator. We would like to improve the existing coding interaction by extending it to include functionality for the creator to specify unit test suites, and using the "signature" of the test results to provide feedback to the student.
+**Aim:** Oppia currently has two coding interactions, but they are somewhat limited, and pass on a large chunk of the work to the exploration creator. We would like to improve the existing coding interaction by extending it to include functionality for the creator to specify unit test suites, and using the "signature" of the test results to provide feedback to the student.
 
 As a stretch goal, we would also like to make it easier for the coding interaction to automatically detect and respond to things like syntax errors, so that the exploration creator does not have to manually specify rules to catch every possible error. (This may intersect with the machine learning system that is currently being developed for answer classification.)
 
@@ -290,14 +288,13 @@ As a stretch goal, we would also like to make it easier for the coding interacti
 
 **Suggested milestones**:
 
-1. Full spec for the revised coding interaction. This should include a complete backend specification, frontend design, examples of use and tests. Ask creators for feedback on the spec, and what additional features they would like in the code interaction.
-2. Frontend completed and launched; at least one exploration integrates this interaction.
-3. Further project of your choice based on exploration creators' feedback. This may be the stretch goal mentioned above, or something else.
+1. Finish the spec for the revised coding interaction; this should include a complete backend specification, frontend design, examples of use and tests. Ask creators for feedback on the spec, and what additional features they would like in the code interaction. Create some initial prototypes and try these out with users.
+2. Fully implement and launch the new coding interaction. At least one exploration should make use of this interaction in a non-trivial way.
+3. Conduct a further project of your choice based on exploration creators' feedback. This may be the stretch goal mentioned above, or something else.
 
 **Notes**:
 - The proposal should include at least one idea for the project in the 3rd milestone.
-- For the frontend, the most important parts are how to present the interface for the creators, i.e. how should creators specify test cases? 
-- Can creators specify test cases in addition to matching parts of the code?
+- For the frontend, the most important part to explain is how to present the interface for the creators. E.g., how should creators specify test cases? Can they do so in addition to matching parts of the code?
 - Should learners be able to see the test cases that their code failed on?
 
 ## Site-wide ACL refactor
@@ -312,7 +309,7 @@ As a stretch goal, we would also like to make it easier for the coding interacti
 
 **Suggested milestones**:
 
-1. Finalize the technical document describing new permissions system, including:
+1. Finish the technical spec for the new permissions system, including:
   - New domain objects and services being introduced
   - New storage models needed
   - New tests that need to be added
@@ -344,8 +341,8 @@ As a stretch goal, we would also like to make it easier for the coding interacti
 
 **Suggested milestones**:
 
-1. Finish the spec for the end-to-end badge system, including mocks for each achievement and for UI changes to the profile page. Implement the backend storage and domain layers for badges (the latter includes the domain object, services, and tests).
-2. Implement the profile backend controller, the frontend badge system (including any new frontend domain objects, services, tests, and backend API services), and the frontend profile page to support badges. Also, implement the visual indicator that appears in real time when a user earns a new badge due to an action they perform, and the backend system for detecting when a user has earned a new badge. This milestone also includes implementing and launching the end-to-end experience for 1 real badge.
+1. Finish the spec for the end-to-end badge system, including mocks for each achievement and for UI changes to the profile page. Implement the backend storage, domain objects, services and tests for badges.
+2. Implement the profile backend controller, the frontend badge system (including any new frontend domain objects, services, tests, and backend API services), and the frontend profile page to support badges. Implement the visual indicator that appears in real time when a user earns a new badge due to an action they perform, and the backend system for detecting when a user has earned a new badge. Use the above to implement and launch the end-to-end experience for 1 real badge.
 3. Implement any new storage models or jobs needed among all badges, and update the badge award system to send an email to the user when they earn a badge offline. Implement the remaining badges using the system created in the previous milestones.
 
 **Notes**:
@@ -355,10 +352,10 @@ As a stretch goal, we would also like to make it easier for the coding interacti
   - Define the new domain layer for badges (domain objects and services, and also tests), as well as the storage layer needed for badges.
   - Define the general system for detecting when a new badge has been earned. For example, should this be a deferred job, or something computed in real-time?
   - For each badge, identify:
-    - The statistics needed to be recorded for that badge
+    - The statistics that need to be recorded for that badge
     - Jobs that need to be written or reused in order to collect those statistics
 - Note that when a user earns a badge due to an action they did, the notification should appear in the UI in real time. However, when a user earns a badge due to an action that someone else did, they should receive an email.
-- The student should work with the UI/UX team to design icons/badges for each badge.
+- The student should work with the UI/UX team to design icons for each badge.
 
 # Other useful information
 
@@ -395,7 +392,7 @@ The following individuals will be serving as mentors during GSoC 2017:
 **Chat**
 
 Oppia doesn't have an official IRC channel, but we do have a real-time chat channel on [Gitter](
-https://gitter.im/oppia/oppia-chat#). You can login using your GitHub account (Gitter will ask to be associated with your GitHub account for authentication) and you will then be able to talk in it.
+https://gitter.im/oppia/oppia-chat#)! You can login using your GitHub account (Gitter will ask to be associated with your GitHub account for authentication) and you will then be able to talk in it.
 
 **Email**
 
