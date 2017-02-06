@@ -375,7 +375,6 @@ The following individuals will be serving as mentors during GSoC 2017:
 - Allan Zhou (@AllanYangZhou)
 - Anmol Shukla (@anmolshkl)
 - Avijit Gupta (@526avijitgupta)
-- Ben Henning (@BenHenning)
 - Jared Silver (@jaredsilver)
 - Jenna Mandel (@jblair87)
 - Joshua Cano (@joshuacano)
