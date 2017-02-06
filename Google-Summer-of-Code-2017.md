@@ -198,7 +198,7 @@ A good proposal should discuss these issues and describe an appropriate UX. It's
 **Notes**:
 - For milestone 2, note that the existing behaviour of the site is as follows: students can submit feedback to explorations, and exploration authors can respond to this feedback (e.g., by asking a question of clarification). However, at present, there is no way for the student to reply to this thread.
 - Proposals should address how a learner gets to their dashboard, as well as any general site changes that might be needed. It’s important to think holistically about the learner user journey and ensure that it's as intuitive as possible, whilst keeping in mind that learners can also be creators.
-- Proposals should also suggest a suitable design/layout for the dashboard. It's important for this design to be intuitive, and easy for a learner to understand.
+- Proposals should also suggest a suitable design/layout for the dashboard. It's important for this design to be intuitive, and easy for a learner to understand. The implementation of the dashboard should also follow good accessibility practices (e.g., it should support students who use screen readers).
 - Currently, a logged-in user is taken to the creator dashboard by default, which serves as their "logged-in homepage". One could argue that the learner dashboard should play this role for a user who comes to the site mainly to learn. How should we reconcile these factors into a coherent user experience?
 
 
@@ -273,7 +273,7 @@ A good proposal should discuss these issues, note arguments for and against diff
 3. Spec out, design and implement a new interaction for entering answers in the form of ordered lists. Note that this may entail some refactoring of the core interactions framework, since some questions may require lists of strings, others may require lists of numbers, and yet others may require lists of music notes (for example).
 
 **Notes**:
-- Proposals should demonstrate familiarity with Oppia’s interactions framework, and outline the full backend specification, frontend designs, and examples of use for each of the interactions. Note that coming up with a good backend specification is not easy, and some technical judgment will likely be required.
+- Proposals should demonstrate familiarity with Oppia’s interactions framework, and outline the full backend specification, rules, frontend designs, and examples of use for each of the interactions. Note that coming up with a good backend specification is not easy, and some technical judgment will likely be required.
 - All interactions need to work on both desktop and mobile devices.
 - The third milestone is not easy. We suggest getting early feedback from the mentoring team on your technical proposal.
 
@@ -351,16 +351,16 @@ As a stretch goal, we would also like to make it easier for the coding interacti
 3. Implement any new storage models or jobs needed among all badges, and update the badge award system to send an email to the user when they earn a badge offline. Implement the remaining badges using the system created in the previous milestones.
 
 **Notes**:
-- When a user earns a badge due to an action they did, the notification should appear in the UI in real time. However, when a user earns a badge due to an action that someone else did, they should receive an email.
-- The student's proposal should indicate which key user actions are worth receiving achievements, the criteria for unlocking each achievement, and an indication of how achievements are tiered.
-- The student should work with the UI/UX team to design icons/badges for each award.
-- The student needs to describe, in their proposal:
-  - The new domain layer for badges (domain objects and services, and also tests)
-  - The storage layer needed for badges
-  - The general system for detecting new badges: should this be a job or something computed in real-time? We may want to eventually award badges immediately when the user earns them, though 'immediately' could wait until the real-time layer of a continuous computation is updated.
-- The student needs to identify, for each badge:
-  - The statistics needed to be recorded for that badge
-  - Jobs that need to be written or reused in order to collect those statistics
+- The student's proposal should:
+  - Clarify the concept of an achievement (within the context of Oppia).
+  - Describe which key user actions are worth receiving achievements, the criteria for unlocking each achievement, and an indication of how achievements are tiered.
+  - Define the new domain layer for badges (domain objects and services, and also tests), as well as the storage layer needed for badges.
+  - Define the general system for detecting when a new badge has been earned. For example, should this be a deferred job, or something computed in real-time?
+  - For each badge, identify:
+    - The statistics needed to be recorded for that badge
+    - Jobs that need to be written or reused in order to collect those statistics
+- Note that when a user earns a badge due to an action they did, the notification should appear in the UI in real time. However, when a user earns a badge due to an action that someone else did, they should receive an email.
+- The student should work with the UI/UX team to design icons/badges for each badge.
 
 # Other useful information
 
