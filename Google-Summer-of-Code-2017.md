@@ -8,7 +8,7 @@ The following are Oppia's 2017 GSoC project ideas. **Please note that these are 
 * [Improving the feedback flow](#improving-the-feedback-flow)
 * [Applying machine learning to the code interaction](#applying-machine-learning-to-the-code-interaction)
 * [Learner dashboard](#learner-dashboard)
-* [Prevent learners from getting stuck/frustrated](#prevent-learners-from-getting-stuckfrustrated)
+* [Replace fallbacks with hints](#replace-fallbacks-with-hints)
 * [Translation console](#translation-console)
 * [New question types](#new-question-types)
 * [Code interaction with test suites](#code-interaction-with-test-suites)
@@ -202,11 +202,9 @@ A good proposal should discuss these issues and describe an appropriate UX. It's
 - Currently, a logged-in user is taken to the creator dashboard by default, which serves as their "logged-in homepage". One could argue that the learner dashboard should play this role for a user who comes to the site mainly to learn. How should we reconcile these factors into a coherent user experience?
 
 
-## Prevent learners from getting stuck/frustrated
+## Replace fallbacks with hints
 
-**Aim:** In order to help learners successfully complete lessons, we need to remove things that cause them to drop out or get irretrievably stuck. We also need to ensure that they receive the right hints at the right times (not too early, not too late). Therefore, the aim of this project is to make a couple of changes to the site:
-- make fallbacks behave more like hints whose revelation is learner-initiated, since it’s irritating to be given hints when you don’t actually want them;
-- make it compulsory for creators to specify, in each state, at least a final hint that gives the answer and helps the learner progress to the next part of the lesson.
+**Aim:** In order to help learners successfully complete lessons, exploration creators can specify "fallbacks", which provide a particular piece of feedback if the student is stuck on a particular card for too long. However, these fallbacks can sometimes cause students to receive hints or full solutions when they're not yet ready for them. We want to replace this with a student-initiated hint system instead, so that the student has control over when they elect to read a hint. In addition, we want to make it compulsory for creators to specify, in each card, at least a final hint that explains how to solve the problem and helps the learner progress to the next part of the lesson.
 
 **Skills/knowledge required**:
 - Strong technical design skills
@@ -217,12 +215,12 @@ A good proposal should discuss these issues and describe an appropriate UX. It's
 **Suggested milestones**:
 
 1. Finalize full technical plan (including UI mocks) explaining how the fallbacks-to-hints recharacterization will be carried out. Implement any necessary datastore and backend logic changes, as well as all necessary migrations.
-2. Implement any necessary UI changes, and iterate on them until we have evidence (from user testing) that students find the hints functionality intuitive. Complete and launch the frontend, and get feedback from learners and creators.
-3. Further project of your choice based on learner/creator feedback.
+2. Implement any necessary UI changes, and iterate on them until we have evidence (from user testing) that students find the hints functionality intuitive, and that creators know that they need to specify hints. Complete and launch the frontend, and get feedback from learners and creators.
+3. Based on the feedback gathered in milestone 2, find other ways to help or encourage learners to complete the explorations they start, and implement at least one of these.
 
 **Notes**:
-- Proposals should give a very concrete description of how hints will work (e.g., what is the trigger for when they’re displayed), and what the frontend UI/UX for the learner will look like. (We suggest taking a look at how your favourite puzzle games handle this sort of thing; you might find some inspiration there!)
-- Strong proposals will discuss multiple possible approaches, make reasoned arguments for and against them, use these to come up with an informed decision, and describe an appropriate UX that achieves the desired effects.
+- Proposals should give a very concrete description of how hints will work (e.g., what is the trigger for when they’re displayed), and what the frontend UI/UX for the learner will look like. (We suggest taking a look at how your favourite puzzle games handle this sort of thing; you might find some inspiration there!) Proposals should also explain clearly how exploration creators will specify hints, with an eye towards making it as convenient as possible for them to do so.
+- Stronger proposals will discuss multiple possible approaches, make reasoned arguments for and against them, and use these to come up with an informed decision.
 - Proposals should give some ideas for possible projects in milestone 3.
 
 
