@@ -13,6 +13,7 @@
     * [[Mac OS|Installing-Oppia-(Mac-OS)]]
     * [[Windows|Installing-Oppia-(Windows)]]
     * [[Vagrant|Installing-Oppia(Vagrant)]]
+    * [[Issues with installation?|https://github.com/oppia/oppia/wiki/Issues-with-installation%3F]]
   * Developing Oppia
     * **[[Built something new?|https://goo.gl/forms/sNBWrW03fS6dBWEp1]]**
     * [[Overview of the codebase|Overview-of-the-Oppia-codebase]]
