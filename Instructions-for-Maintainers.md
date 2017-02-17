@@ -100,7 +100,7 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 23 Jan - 29 Jan   Sourav        @souravbadami
 30 Jan -  9 Feb   Avijit (note: longer shift than usual)  @526avijitgupta
 10 Feb - 12 Feb   Allan         @AllanYangZhou
-13 Feb - 19 Feb   Ben           @BenHenning
+13 Feb - 19 Feb   Ben, Anmol    @BenHenning, @anmolshkl
 
 20 Feb - 26 Feb   Kevin         @kevinlee12
 27 Feb -  5 Mar   Jacob         @jacobdavis11
