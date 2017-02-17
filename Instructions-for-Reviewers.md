@@ -13,7 +13,7 @@ When you receive a code review request, please try to do the review as soon as p
 ## Doing the review
 
   1. Look out for the following things:
-    * Do you understand what the code is doing? If not, it's probably the writer's fault, and you should tell him/her so.
+    * Do you understand exactly what the code is doing? If not, it's probably the writer's fault, and you should tell them so. The logic needs to be very clear.
     * Is the code doing the right thing?
     * Does the design look sensible?
     * Are there tests/docs which should be present, but aren't?
