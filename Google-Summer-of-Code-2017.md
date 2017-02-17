@@ -98,6 +98,8 @@ We believe that the following project ideas will have significant impact on Oppi
 
 **Aim:** In order to help creators improve their lessons, we depend heavily on student playtests and feedback. However, exploration playtesting currently happens via an external form (see instructions on this [wiki page](https://github.com/oppia/oppia/wiki/Playtesting-explorations)), and the overall experience is pretty clunky. The aim of this project is to seamlessly integrate playtesting within the site, so that students and teachers who want to give more detailed feedback on an exploration can do so in a structured way.
 
+**Mentor (provisional):** Jenna Mandel
+
 **Skills/knowledge required**:
 - UX design
 - Full-stack development
@@ -128,6 +130,8 @@ A good proposal should discuss these issues and describe an appropriate UX. It's
 
 **Aim:** Currently, learners can provide exploration authors with free-form feedback through the site, or via dedicated playtesting of lessons. We want to make it easy for this feedback to get integrated back into the lesson. A possible way to do this is to have a page that surfaces such feedback for all featured explorations, so that any logged-in user can take a piece of free-form feedback and turn it into a suggested edit for that exploration that the original author can subsequently approve/reject (similar to how a GitHub user can take an issue and turn it into a PR). The aim of this project is to build this page.
 
+**Mentor (provisional):** Allan Zhou
+
 **Skills/knowledge required**:
 - UX design
 - UI design
@@ -154,6 +158,8 @@ A good proposal should discuss these issues and describe an appropriate UX. It's
 
 **Aim:** We want to give students useful feedback when they get stuck. For this, we need to understand the answers they submit -- e.g., in coding problems, we'd like to understand when the user incorrectly initializes a variable, or makes some other common mistake, so that we can address it. Currently, we are working on building an extensible machine learning framework and a training interface for classifying free-form answers. The proposed code classifier for this project will be built on top of this framework, and would allow learners to type in code in order to match some sort of output, avoid an error, or match specific code. The project itself involves figuring out a way to cluster similar pieces of code, and then using that to train a classification model that can predict which feedback cluster ("answer group") a new piece of code should belong to. Lesson creators will then be able to create a training set and assign responses to a set of similar code submissions using the training interface. 
 
+**Mentor (provisional):** Anmol Shukla
+
 **Skills/knowledge required**:
 - Machine learning
 - Back-end development
@@ -178,6 +184,8 @@ A good proposal should discuss these issues and describe an appropriate UX. It's
 ## Learner dashboard
 
 **Aim:** In order to learn effectively, learners should be able to keep track of what they've learned and what they’re in the middle of. The aim of this project is to create a place on the site where learners can keep track of the lessons they’ve done, the lessons they’ve partially completed, the list of creators they are subscribed to, and any feedback threads they need to read or respond to.
+
+**Mentors (provisional):** Jared Silver and Rachel Chen
 
 **Skills/knowledge required**:
 - UX design
@@ -205,6 +213,8 @@ A good proposal should discuss these issues and describe an appropriate UX. It's
 
 **Aim:** In order to help learners successfully complete lessons, exploration creators can specify "fallbacks", which provide a particular piece of feedback if the student is stuck on a particular card for too long. However, these fallbacks can sometimes cause students to receive hints or full solutions when they're not yet ready for them. We want to replace this with a student-initiated hint system instead, so that the student has control over when they receive a hint. In addition, we want to make it compulsory for creators to specify, in each card, at least a final hint that explains how to solve the problem and helps the learner progress to the next part of the lesson, so that they don't get completely stuck midway through the exploration.
 
+**Mentors (provisional):** Tony Jiang and Joshua Cano
+
 **Skills/knowledge required**:
 - Strong technical design skills
 - Full-stack development
@@ -226,6 +236,8 @@ A good proposal should discuss these issues and describe an appropriate UX. It's
 ## Translation console
 
 **Aim:** We want good lessons to be easily translatable into other languages, so that they're accessible to students whose first language is not necessarily English. The aim of this project is to make it as easy as possible for contributors to take an existing exploration, and translate it to another language.
+
+**Mentor (provisional):** Avijit Gupta
 
 **Skills/knowledge required**:
 - UX design
@@ -256,6 +268,8 @@ A good proposal should discuss these issues, note arguments for and against diff
 
 **Aim:** This year, one of Oppia's main aims is to create a really good set of basic mathematics lessons. The aim of this project is to create some of the new question types (called "interactions" in the Oppia codebase) that are required for these lessons, as well as to implement a few other commonly-requested interactions.
 
+**Mentor (provisional):** Kevin Lee
+
 **Skills/knowledge required**:
 - UI design
 - Full-stack development (mostly frontend)
@@ -279,6 +293,8 @@ A good proposal should discuss these issues, note arguments for and against diff
 
 As a stretch goal, we would also like to make it easier for the coding interaction to automatically detect and respond to things like syntax errors, so that the exploration creator does not have to manually specify rules to catch every possible error. (This may intersect with the machine learning system that is currently being developed for answer classification.)
 
+**Mentor (provisional):** Xinyu Wu
+
 **Skills/knowledge required**:
 - UI design
 - Technical design
@@ -300,6 +316,8 @@ As a stretch goal, we would also like to make it easier for the coding interacti
 ## Site-wide ACL refactor
 
 **Aim:** The current ACLs in Oppia were written for an older version of the site with slightly different aims, and the needs of the project have changed over time. We have recently come up with a new, simplified structure for site permissions, which is detailed in this [document](https://docs.google.com/document/d/1-JsPVIr1u4LQxpTBFi-VSUpbuIoF8CxgzN9ExCKlyYs/edit#heading=h.qj2574amxs00). The aim of this project is to devise a safe way to implement this, and bring the site up-to-date with the new ACLs.
+
+**Mentor (provisional):** Sean Lip
 
 **Skills/knowledge required**:
 - Technical design
@@ -330,6 +348,8 @@ As a stretch goal, we would also like to make it easier for the coding interacti
 ## Achievement system
 
 **Aim:** We want to encourage learners and creators to contribute to the community in ways that matter, such as by playtesting explorations or resolving student feedback. Oppia has a nice new profile page which could contain achievements like badges, but no current system in place to award such achievements.
+
+**Mentors (provisional):** Kristin Anthony and Mark Halpin
 
 **Skills/knowledge required**:
 - UX design
