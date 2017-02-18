@@ -49,3 +49,13 @@ Getting this message correct is important, since it will be used to compile the 
 ### Standard Merging
 
 There are special circumstances when standard merging should be done instead of a squash-merge. Generally speaking, commits which have already been squash-merged should not be squash-merged again. Also, if there are multiple contributors who have contributed to a PR, please don't squash-merge -- we want to preserve their history.
+
+### Other notes
+
+You might want to disable adblockers temporarily when doing the review. We once had a regression caused by the "share" buttons on the dashboard tiles not showing up correctly on the reviewer's machine, which caused a screenshot that should have looked like
+
+  ![Screenshot showing ad-blocked view](images/withAdBlocker.png)
+
+to look like
+
+  ![Screenshot showing non-ad-blocked view](images/withoutAdBlocker.png)
