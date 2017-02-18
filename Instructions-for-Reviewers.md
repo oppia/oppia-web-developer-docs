@@ -52,10 +52,10 @@ There are special circumstances when standard merging should be done instead of 
 
 ### Other notes
 
-You might want to disable adblockers temporarily when doing the review. We once had a regression caused by the "share" buttons on the dashboard tiles not showing up correctly on the reviewer's machine, which caused a screenshot that should have looked like
-
-  ![Screenshot showing ad-blocked view](images/withAdBlocker.png)
-
-to look like
+You might want to disable adblockers temporarily when doing the review. We once had a regression caused by the "share" buttons on the dashboard tiles not showing up correctly on the reviewer's machine, which caused a screenshot that ought to have looked like
 
   ![Screenshot showing non-ad-blocked view](images/withoutAdBlocker.png)
+
+(where the error would have more easily been caught) to look like the following instead:
+
+  ![Screenshot showing ad-blocked view](images/withAdBlocker.png)
