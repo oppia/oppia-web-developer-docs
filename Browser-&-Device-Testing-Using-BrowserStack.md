@@ -17,4 +17,6 @@ If you'd like to use BrowserStack to test Oppia, please email jared@oppia.org wi
 
 You can learn more about BrowserStack on their website: https://browserstack.com
 
+![BrowserStack Logo](https://i.imgur.com/jagN38J.png)
+
 Please note that while we're grateful to BrowserStack, The Oppia Foundation does not formally endorse it.
