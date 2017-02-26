@@ -20,7 +20,7 @@
     * [[Coding style guide|Coding-style-guide]]
     * [[Running tests|Running-Tests]]
       * [[End-to-end tests|Writing-End-to-End-Tests]]
-    * [[If your build fails...|If-Your-Build-Fails...]]
+    * [[If your build fails...|If-Your-Build-Fails]]
     * [[Git cheat sheet|Git-cheat-sheet]]
     * [[Mobile development|Mobile-development]]
     * [[Mobile device testing|Mobile-device-testing]]
