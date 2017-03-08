@@ -45,7 +45,7 @@ A: Familiarity with AngularJS (v1), Python, and Google App Engine is useful and 
 
 **Q: How can I increase my chances of getting selected?**
 
-A: Writing a good project proposal, engaging with the community, helping other students, successfully contributing patches, and demonstrating that you can work independently can all help you. Your application will be evaluated holistically, so there's no one thing you must or must not do (other than apply!) to get selected.
+A: Writing a good project proposal, engaging with the community, helping other students, successfully contributing patches, and demonstrating that you can work independently can all help you. We've also compiled some notes below on the [selection criteria](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2017#selection-criteria) we'll be using this year.
 
 **Q: Can you be flexible around other my commitments in the summer?**
 
