@@ -1,5 +1,7 @@
 Oppia is excited to be participating in [Google Summer of Code 2017](https://developers.google.com/open-source/gsoc/)! GSoC is a global program which offers post-secondary students an opportunity to discover and work with open source organizations over the course of 3 months and be paid a stipend. Students work closely with one or more mentors from an open source organization in order to implement either a project idea by the organization, or a proposal of their own.
 
+(NB: acceptance into GSoC is not a prerequisite for [becoming an Oppia contributor](https://github.com/oppia/oppia/wiki). The Oppia project is run by the community for the community, and we warmly welcome anyone who'd like to help out!)
+
 The following are Oppia's 2017 GSoC project ideas:
 
 * [Self-service playtesting](#self-service-playtesting)
@@ -30,7 +32,7 @@ If you're interested in applying to work with Oppia for GSoC, please follow thes
 
 1. Read and follow the instructions in the [contributors' guide](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up), including signing the CLA and setting up a local development instance. Also, please read the [Oppia codebase overview](https://github.com/oppia/oppia/wiki/Overview-of-the-Oppia-codebase) and the [coding style guide](https://github.com/oppia/oppia/wiki/Coding-style-guide).
 
-1. Work on one or more [starter issues](https://github.com/oppia/oppia/issues?q=is%3Aopen+label%3A%22TODO%3A+code%22+milestone%3A%22Recommended+projects%22) in order to become familiar with the contribution process. This will help us get an idea of what it's like to work with you -- e.g. how independent/resourceful/responsive/etc. you are. It will also help you get a better understanding of the codebase so that you can write a good, detailed project proposal.
+1. Work on one or more [starter issues](https://github.com/oppia/oppia/issues?q=is%3Aopen+label%3A%22TODO%3A+code%22+milestone%3A%22Recommended+projects%22) in order to become familiar with the contribution process. This will help us get an idea of what it's like to work with you -- e.g. how independent, resourceful, responsive, etc. you are. It will also help you get a better understanding of the codebase, so that you can write a good, detailed project proposal.
   - **Pro-tip!** Quality is more important than quantity; we want to see examples of your best work. So, please make sure to follow the [dev workflow](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#instructions-for-making-a-code-change) carefully, manually test your code before submitting (to ensure it does what you want it to and doesn't break anything else), ensure that your code conforms to the [style rules](https://github.com/oppia/oppia/wiki/Coding-style-guide), and pay attention to small details. These are good skills to learn when developing software in general, and they will also help you build credibility as a responsible developer who can be trusted to be a good steward of the Oppia codebase.
 
 1. When you've done enough starter projects to get a good understanding for the "lay of the land", select one or more GSoC projects that you're most interested in from the list below (or propose your own), and write your project proposal! If you have any questions about a project, feel free to ask on [Gitter](https://gitter.im/oppia/oppia-chat) or email the [mentors' mailing list](mailto:oppia-gsoc-mentors-17@googlegroups.com). Please be specific when asking questions, since this makes it easier for us to help you.
@@ -55,9 +57,10 @@ When proposing a project, please use the following template:
 **Project Details**
 - Project name
 - Why are you interested in working with Oppia?
-- What interests you about this project?
+- What interests you about this project? Why is it worth doing?
 - Prior experience (especially with regards to technical skills that are needed for the project)
-- Project plan and implementation strategy
+- Links to 1-5 Oppia PRs you've made that showcase your best work. (We'll automatically take all your PRs into account during the selection process, but this is a good place to highlight particular ones you're proud of.)
+- Project plan and implementation strategy.
 
 **Summer Plans**
 - Which timezone(s) will you primarily be in during the summer?
@@ -86,6 +89,23 @@ In order to ensure a well-rounded engineering experience, developers will do som
 - Write automated tests for their projects
 - Create UI mocks (if doing frontend development)
 - Write design documents (if implementing large features or introducing new systems)
+
+## Selection Criteria
+
+In order to select students for GSoC, we will mainly be looking at three things:
+
+- The quality of the submitted proposal
+- The quality of the applicant's previously-submitted PRs to the project (in order to assess their ability to code, debug, break down complex tasks, etc.)
+- Our prior history/experience working with the student (e.g. do they keep commitments, communicate well, demonstrate independence/initiative/responsiveness, help others, etc.)
+
+This is because we believe that strong performance in these dimensions is likely to correlate well with the student having an enjoyable, fulfilling and productive experience over the summer, and successfully completing the GSoC program.
+
+For the proposal, we generally look for a clear indication that the student has a good, deep understanding of the project, and has broken down the project sufficiently well, in a way that makes it very likely to succeed. Some indicators that could help with this include:
+- A clear analysis of (and good design decisions that build on top of) the original project idea, with a strong focus on creating a simple, intuitive experience for end users.
+- A concrete, specific breakdown of the work to be done for each milestone. Here's an [example](https://docs.google.com/document/d/1vuwXvHOYXqfM2S2B2KIWhZrAa1PL59wJRUYsqJEd67E/edit#heading=h.ci6rc1u061yj) from a previous design doc. (Note that, in this example, the author has carefully considered and listed which tests need to be written alongside the code; this is a positive indicator.)
+- Sufficient concreteness (e.g. references to particular files and methods) to demonstrate that the applicant is familiar with both the scope of the problem and the existing codebase.
+- A description, if applicable, of how the applicant plans to mitigate risks that could potentially derail the project.
+- Clear, unambiguous communication. (This is important; your proposal will be read by many mentors!)
 
 # Oppia's Project Ideas
 
