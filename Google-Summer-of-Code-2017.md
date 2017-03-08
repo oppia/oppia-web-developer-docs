@@ -95,10 +95,10 @@ In order to ensure a well-rounded engineering experience, developers will do som
 In order to select students for GSoC, we will mainly be looking at three things:
 
 - The quality of the submitted proposal
-- The quality of the applicant's previously-submitted PRs to the project (in order to assess their ability to code, debug, break down complex tasks, etc.)
-- Our prior history/experience working with the student (e.g. do they keep commitments, communicate well, demonstrate independence/initiative/responsiveness, help others, etc.)
+- The quality of the applicant's previously-submitted PRs (in order to assess their ability to code, debug, break down complex tasks, etc.). Note that quantity in itself isn't a prerequisite, though contributors who've submitted multiple PRs are likely to have had more opportunities to demonstrate the abilities needed to succeed in GSoC.
+- Our prior experience working with the student (e.g. do they keep commitments, communicate well, demonstrate independence/initiative/responsiveness, help others, etc.)
 
-This is because we believe that strong performance in these dimensions is likely to correlate well with the student having an enjoyable, fulfilling and productive experience over the summer, and successfully completing the GSoC program.
+We believe that strong performance in these dimensions is likely to correlate well with the student having an enjoyable, fulfilling and productive experience over the summer, and successfully completing the GSoC program.
 
 For the proposal, we generally look for a clear indication that the student has a good, deep understanding of the project, and has broken down the project sufficiently well, in a way that makes it very likely to succeed. Some indicators that could help with this include:
 - A clear analysis of (and good design decisions that build on top of) the original project idea, with a strong focus on creating a simple, intuitive experience for end users.
