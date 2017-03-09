@@ -47,7 +47,7 @@ A: Familiarity with AngularJS (v1), Python, and Google App Engine is useful and 
 
 A: Writing a good project proposal, engaging with the community, helping other students, successfully contributing patches, and demonstrating that you can work independently can all help you. We've also compiled some notes below on the [selection criteria](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2017#selection-criteria) we'll be using this year.
 
-**Q: Can you be flexible around other my commitments in the summer?**
+**Q: Can you be flexible around my other commitments in the summer?**
 
 A: GSoC is intended to be a full-time commitment, so the main concern is whether you can still get the project done on time. Be upfront about your other commitments and make sure you schedule your time accordingly when creating your proposal. Other commitments you should list include time where you'll be in school and will commit less time to GSoC, time you will be travelling and away from GSoC work, any summer jobs you need to commit to etc. We will try to be flexible around other time commitments, as long as we are convinced by your proposal that you will have enough time to complete the project by the end of the summer. On the other hand, if you do not disclose other commitments, and it turns out you are unable to commit to what you wrote on your proposal, this is grounds for failing the program.
 
