@@ -104,7 +104,7 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 
 20 Feb - 26 Feb   Kevin         @kevinlee12
 27 Feb -  5 Mar   Jacob         @jacobdavis11
- 6 Mar - 12 Mar   Sean          @seanlip
+ 6 Mar - 12 Mar   Sean          @seanlip / @anthkris
 13 Mar - 19 Mar   Barnabas      @MAKOSCAFEE
 20 Mar - 26 Mar   Xinyu         @wxyxinyu
 27 Mar -  2 Apr   Prasanna      @prasanna08
@@ -126,7 +126,6 @@ Jared        User journeys, learner view UX
 Kevin L      Collection editor, library index page
 Kevin T      Collection viewer
 Kristin      Accessibility
-Madiyar      Learner view
 Mark         General UI design
 Prasanna     Emails
 Sourav       General frontend
