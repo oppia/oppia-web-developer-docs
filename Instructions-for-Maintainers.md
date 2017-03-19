@@ -110,7 +110,7 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 27 Mar -  2 Apr   Prasanna      @prasanna08
 ```
 
-## Areas of expertise (maintainers and project leads)
+## Areas of expertise
 
 ```
 Allan        Rich-text editor, suggestions
@@ -128,6 +128,7 @@ Kevin T      Collection viewer
 Kristin      Accessibility
 Mark         General UI design
 Prasanna     Emails
+Rachel       User research
 Sourav       General frontend
 Xinyu        Exploration saving and publishing, exploration editor history tab
 Sean         Everything else
