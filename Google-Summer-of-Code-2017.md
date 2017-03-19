@@ -59,7 +59,7 @@ When proposing a project, please use the following template:
 - Why are you interested in working with Oppia?
 - What interests you about this project? Why is it worth doing?
 - Prior experience (especially with regards to technical skills that are needed for the project)
-- Links to 1-5 PRs you've made that showcase your best work, especially any contributions to Oppia. (The list should include at least one Oppia PR, but feel free to include contributions to other major open-source projects too. We'll automatically take all your Oppia PRs into account during the selection process, but this is a good place to highlight particular ones you're proud of!)
+- Links to 1-5 PRs you've made that showcase your best work, especially any contributions to Oppia. The list should include at least one Oppia PR, but feel free to include contributions to other major open-source projects too. (We'll automatically take all your Oppia PRs into account during the selection process, but this is a good place to highlight particular ones you're proud of!)
 - Project plan and implementation strategy.
 
 **Summer Plans**
