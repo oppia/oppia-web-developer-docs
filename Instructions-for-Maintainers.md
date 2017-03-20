@@ -80,6 +80,12 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 ## Maintainer Rota
 
 ```
+20 Feb - 26 Feb   Kevin         @kevinlee12
+27 Feb -  5 Mar   Jacob         @jacobdavis11
+ 6 Mar - 12 Mar   Sean/Kristin  @seanlip/@anthkris
+13 Mar - 19 Mar   Barnabas      @MAKOSCAFEE
+20 Mar - 26 Mar   Xinyu         @wxyxinyu
+27 Mar -  2 Apr   Prasanna      @prasanna08
  3 Apr -  9 Apr   Kevin         @kevinlee12
 10 Apr - 16 Apr   Sourav        @souravbadami
 17 Apr - 23 Apr   Avijit        @526avijitgupta
