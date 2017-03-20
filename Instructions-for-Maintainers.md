@@ -80,34 +80,49 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 ## Maintainer Rota
 
 ```
- 3 Oct -  9 Oct   Jacob         @jacobdavis11
-10 Oct - 16 Oct   Madiyar       @maitbayev
-17 Oct - 23 Oct   Kevin         @kevinlee12
-24 Oct - 30 Oct   Barnabas      @MAKOSCAFEE
-31 Oct -  6 Nov   Prasanna      @prasanna08
- 7 Nov - 13 Nov   Xinyu         @wxyxinyu
-14 Nov - 20 Nov   Sourav        @souravbadami
-21 Nov - 27 Nov   Avijit/Allan  @526avijitgupta / @AllanYangZhou
-28 Nov -  4 Dec   Allan         @AllanYangZhou
- 5 Dec - 11 Dec   Ben           @BenHenning
+ 3 Apr -  9 Apr   Kevin         @kevinlee12
+10 Apr - 16 Apr   Sourav        @souravbadami
+17 Apr - 23 Apr   Avijit        @526avijitgupta
+24 Apr - 30 Apr   Anmol         @anmolshkl
 
-12 Dec - 18 Dec   Madiyar       @maitbayev
-19 Dec - 25 Dec   Kevin         @kevinlee12
-26 Dec -  1 Jan   Jacob         @jacobdavis11
- 2 Jan -  8 Jan   Barnabas      @MAKOSCAFEE
- 9 Jan - 15 Jan   Prasanna      @prasanna08
-16 Jan - 22 Jan   Xinyu         @wxyxinyu
-23 Jan - 29 Jan   Sourav        @souravbadami
-30 Jan -  9 Feb   Avijit (note: longer shift than usual)  @526avijitgupta
-10 Feb - 12 Feb   Allan         @AllanYangZhou
-13 Feb - 19 Feb   Ben, Anmol    @BenHenning, @anmolshkl
+ 1 May -  7 May   Jacob         @jacobdavis11
+ 8 May - 14 May   Barnabas      @MAKOSCAFEE
+15 May - 21 May   Allan         @AllanYangZhou
+22 May - 28 May   Kristin       @anthkris
+29 May -  4 Jun   Sourav        @souravbadami
+ 5 Jun - 11 Jun   Xinyu         @wxyxinyu
+12 Jun - 18 Jun   Kevin         @kevinlee12
+19 Jun - 25 Jun   Anmol         @anmolshkl
+26 Jun -  2 Jul   Avijit        @526avijitgupta
+ 3 Jul -  9 Jul   Allan         @AllanYangZhou
 
-20 Feb - 26 Feb   Kevin         @kevinlee12
-27 Feb -  5 Mar   Jacob         @jacobdavis11
- 6 Mar - 12 Mar   Sean          @seanlip / @anthkris
-13 Mar - 19 Mar   Barnabas      @MAKOSCAFEE
-20 Mar - 26 Mar   Xinyu         @wxyxinyu
-27 Mar -  2 Apr   Prasanna      @prasanna08
+10 Jul - 16 Jul   Jacob         @jacobdavis11
+17 Jul - 23 Jul   Prasanna      @prasanna08
+24 Jul - 30 Jul   Allan         @AllanYangZhou
+31 Jul -  6 Aug   Kristin       @anthkris
+ 7 Aug - 13 Aug   Barnabas      @MAKOSCAFEE
+14 Aug - 20 Aug   Kevin         @kevinlee12
+21 Aug - 27 Aug   Allan         @AllanYangZhou
+28 Aug -  3 Sep   Avijit        @526avijitgupta
+ 4 Sep - 10 Sep   Xinyu         @wxyxinyu
+11 Sep - 17 Sep   Sourav        @souravbadami
+
+18 Sep - 24 Sep   Anmol         @anmolshkl
+25 Sep -  1 Oct   Prasanna      @prasanna08
+ 2 Oct -  8 Oct   Barnabas      @MAKOSCAFEE
+ 9 Oct - 15 Oct   Avijit        @526avijitgupta
+16 Oct - 22 Oct   Sourav        @souravbadami
+23 Oct - 29 Oct   Kristin       @anthkris
+30 Oct -  5 Nov   Jacob         @jacobdavis11
+ 6 Nov - 12 Nov   Xinyu         @wxyxinyu   
+13 Nov - 19 Nov   Anmol         @anmolshkl
+20 Nov - 26 Nov   Prasanna      @prasanna08
+
+27 Nov -  3 Dec   Barnabas      @MAKOSCAFEE
+ 4 Dec - 10 Dec   Avijit        @526avijitgupta
+11 Dec - 17 Dec   Jacob         @jacobdavis11
+18 Dec - 24 Dec   Kevin         @kevinlee12
+25 Dec - 31 Dec   Sourav        @souravbadami
 ```
 
 ## Areas of expertise
