@@ -117,7 +117,7 @@ We believe that the following project ideas will have significant impact on Oppi
 
 **Aim:** In order to help creators improve their lessons, we depend heavily on student playtests and feedback. However, exploration playtesting currently happens via an external form (see instructions on this [wiki page](https://github.com/oppia/oppia/wiki/Playtesting-explorations)), and the overall experience is pretty clunky. The aim of this project is to seamlessly integrate playtesting within the site, so that students and teachers who want to give more detailed feedback on an exploration can do so in a structured way.
 
-**Mentor:** Jenna Mandel
+**Mentors:** Jared Silver and Rachel Chen
 
 **Skills/knowledge required**:
 - UX design
@@ -256,7 +256,7 @@ A good proposal should discuss these issues and describe an appropriate UX. It's
 
 **Aim:** We want good lessons to be easily translatable into other languages, so that they're accessible to students whose first language is not necessarily English. The aim of this project is to make it as easy as possible for contributors to take an existing exploration, and translate it to another language.
 
-**Mentor:** Avijit Gupta
+**Mentor:** Sean Lip
 
 **Skills/knowledge required**:
 - UX design
@@ -413,9 +413,7 @@ Noteworthy dates for 2017:
 The following individuals will be serving as mentors during GSoC 2017:
 - Allan Zhou (@AllanYangZhou)
 - Anmol Shukla (@anmolshkl)
-- Avijit Gupta (@526avijitgupta)
 - Jared Silver (@jaredsilver)
-- Jenna Mandel (@jblair87)
 - Joshua Cano (@joshuacano)
 - Kevin Lee (@kevinlee12)
 - Kristin Anthony (@anthkris)
