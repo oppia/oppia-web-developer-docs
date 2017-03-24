@@ -428,8 +428,8 @@ The following individuals will be serving as mentors during GSoC 2017:
 **Chat**
 
 Oppia doesn't have an official IRC channel, but we do have a real-time chat channel on [Gitter](
-https://gitter.im/oppia/oppia-chat#)! You can login using your GitHub account (Gitter will ask to be associated with your GitHub account for authentication) and you will then be able to talk in it.
+https://gitter.im/oppia/oppia-chat#)! You can log in using your GitHub account (Gitter will ask to be associated with your GitHub account for authentication) and you will then be able to talk in it.
 
 **Email**
 
-If you have questions, please send them to the Oppia GSoC mentors mailing list at oppia-gsoc-mentors-17@googlegroups.com. Please be specific when asking questions; this makes it easier for us to help you.
+If you have questions, please send them to the Oppia GSoC mentors mailing list at oppia-gsoc-mentors-17@googlegroups.com. Please be specific when asking questions; this makes it easier for us to help you. You can also contact us on gitter, or on the oppia-dev@ mailing list. Note that open communication means that more people are likely to be able to help you (and is more in line with the spirit of an open source project), so we recommend not pinging individual mentors personally.
