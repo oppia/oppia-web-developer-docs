@@ -432,4 +432,6 @@ https://gitter.im/oppia/oppia-chat#)! You can log in using your GitHub account (
 
 **Email**
 
-If you have questions, please send them to the Oppia GSoC mentors mailing list at oppia-gsoc-mentors-17@googlegroups.com. Please be specific when asking questions; this makes it easier for us to help you. You can also contact us on gitter, or on the oppia-dev@ mailing list. Note that open communication means that more people are likely to be able to help you (and is more in line with the spirit of an open source project), so we recommend not pinging individual mentors personally.
+If you have questions, please ask them on Gitter, or the oppia-dev@ mailing list. Please be specific when asking questions; this makes it easier for us to help you.
+
+If you want your question to be read only by the mentors, you can send it to the Oppia GSoC mentors mailing list at oppia-gsoc-mentors-17@googlegroups.com. However, note that open communication means that more people are likely to be able to help you (and is more in line with the spirit of an open source project), and you can also get feedback from the community at large. (In a similar vein, we recommend not pinging individual mentors personally -- it's better to use the GSoC mentors mailing list.)
