@@ -87,7 +87,7 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 20 Mar - 26 Mar   Xinyu         @wxyxinyu
 27 Mar -  2 Apr   Prasanna      @prasanna08
  3 Apr -  9 Apr   Kevin         @kevinlee12
-10 Apr - 16 Apr   Sourav        @souravbadami
+10 Apr - 16 Apr   Sourav/Tony   @souravbadami/@tjiang11
 17 Apr - 23 Apr   Avijit        @526avijitgupta
 24 Apr - 30 Apr   Anmol         @anmolshkl
 
@@ -95,7 +95,7 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
  8 May - 14 May   Barnabas      @MAKOSCAFEE
 15 May - 21 May   Allan         @AllanYangZhou
 22 May - 28 May   Kristin       @anthkris
-29 May -  4 Jun   Sourav        @souravbadami
+29 May -  4 Jun   Tony          @tjiang11
  5 Jun - 11 Jun   Xinyu         @wxyxinyu
 12 Jun - 18 Jun   Kevin         @kevinlee12
 19 Jun - 25 Jun   Anmol         @anmolshkl
@@ -111,13 +111,13 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 21 Aug - 27 Aug   Allan         @AllanYangZhou
 28 Aug -  3 Sep   Avijit        @526avijitgupta
  4 Sep - 10 Sep   Xinyu         @wxyxinyu
-11 Sep - 17 Sep   Sourav        @souravbadami
+11 Sep - 17 Sep   Tony          @tjiang11
 
 18 Sep - 24 Sep   Anmol         @anmolshkl
 25 Sep -  1 Oct   Prasanna      @prasanna08
  2 Oct -  8 Oct   Barnabas      @MAKOSCAFEE
  9 Oct - 15 Oct   Avijit        @526avijitgupta
-16 Oct - 22 Oct   Sourav        @souravbadami
+16 Oct - 22 Oct   Tony          @tjiang11
 23 Oct - 29 Oct   Kristin       @anthkris
 30 Oct -  5 Nov   Jacob         @jacobdavis11
  6 Nov - 12 Nov   Xinyu         @wxyxinyu   
@@ -128,7 +128,7 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
  4 Dec - 10 Dec   Avijit        @526avijitgupta
 11 Dec - 17 Dec   Jacob         @jacobdavis11
 18 Dec - 24 Dec   Kevin         @kevinlee12
-25 Dec - 31 Dec   Sourav        @souravbadami
+25 Dec - 31 Dec   Tony          @tjiang11
 ```
 
 ## Areas of expertise
