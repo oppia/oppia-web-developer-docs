@@ -90,7 +90,7 @@ bash scripts/install_prerequisites.sh
 
     ```
     ssl.PROTOCOL_SSLv3: OpenSSL.SSL.SSLv3_METHOD,
-AttributeError: 'module' object has no attribute 'PROTOCOL_SSLv3'
+    AttributeError: 'module' object has no attribute 'PROTOCOL_SSLv3'
     ```
 
     try commenting out the line
@@ -136,7 +136,7 @@ AttributeError: 'module' object has no attribute 'PROTOCOL_SSLv3'
     ```
     File "/usr/local/Cellar/python/2.7.11/Frameworks/Python.framework/Versions/2.7/lib/python2.7/distutils/command/install.py", line 264, in finalize_options
     "must supply either home or prefix/exec-prefix -- not both"
-DistutilsOptionError: must supply either home or prefix/exec-prefix -- not both
+    DistutilsOptionError: must supply either home or prefix/exec-prefix -- not both
     ```
 
     or
