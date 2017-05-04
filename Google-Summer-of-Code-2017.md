@@ -15,6 +15,13 @@ The following are Oppia's 2017 GSoC project ideas:
 * [Sitewide ACL refactor](#site-wide-acl-refactor)
 * [Achievement system](#achievement-system)
 
+We have accepted the following four proposals for 2017:
+
+* [@Arunabh98's proposal](pdfs/GSoC2017ArunabhGhosh.pdf) for the learner dashboard.
+* [@kevintab95's proposal](pdfs/GSoC2017KevinThomas.pdf) for converting fallbacks to hints.
+* @prasanna08's proposal for applying ML to the code interaction.
+* [@1995YogeshSharma's proposal](pdfs/GSoC2017YogeshSharma.pdf) for a sitewide ACL refactor.
+
 # Students
 GSoC is an excellent opportunity for students to get paid to work on an open source project. If you're interested in applying as a student, you should definitely read the following resources:
 
