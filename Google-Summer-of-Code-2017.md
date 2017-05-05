@@ -19,7 +19,7 @@ We have accepted the following four proposals for 2017:
 
 * [@Arunabh98's proposal](pdfs/GSoC2017ArunabhGhosh.pdf) for the learner dashboard.
 * [@kevintab95's proposal](pdfs/GSoC2017KevinThomas.pdf) for converting fallbacks to hints.
-* @prasanna08's proposal for applying ML to the code interaction.
+* [@prasanna08's proposal](pdfs/GSoC2017PrasannaPatil.pdf) for applying ML to the code interaction.
 * [@1995YogeshSharma's proposal](pdfs/GSoC2017YogeshSharma.pdf) for a sitewide ACL refactor.
 
 # Students
