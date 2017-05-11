@@ -61,6 +61,7 @@ In order to adjust the hardware settings of your VM (such as giving it more memo
   - Try to build Oppia natively on Windows (this is difficult, and is neither recommended nor supported).
   - Note that doing a `git push` using SSH will not work, since the guest machine cannot see your host's private key. If you want to use SSH, you can add the Vagrant VM's public key to your account, but *this is NOT RECOMMENDED*! Vagrant uses the same SSH key for all machines, so anyone could write to any of your repos. 
 -  If Vagrant prints an error involving `\r not found`, the recommended fix is to ensure you have the [appropriate line endings set up](#prerequisites) and then clone your repo down again after copying out or saving any work.
+-  If the service reports that it starts, but then terminates and your vagrant install doesn't respond to port 8181 or 8000. Then try to delete the oppia_tools directory and re-run the scripts/start.sh to reinstall.
 
 ### If the above doesn't work...
 
