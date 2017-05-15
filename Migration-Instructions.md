@@ -2,7 +2,7 @@ This page contains instructions for migrating a production instance of Oppia fro
 
 ### Migrating v2.4.2 → v.2.5.0 ###
 
-Version 2.5.0 of Oppia included a migration of all answers to a new storage model. #3294 provides more context for this migration, and the steps for performing this migration is as follows:
+Version 2.5.0 of Oppia included a migration of all answers to a new storage model. #3294 provides more context for this migration, and the steps for performing this migration are as follows:
 
 1. Go into the admin panel after deploying v2.5.0 of the application
 2. Stop all continuous computation jobs and wait for them to stop
