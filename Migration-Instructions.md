@@ -29,7 +29,7 @@ If you are migrating a site with regular user traffic, consider enabling mainten
 
 If you are migrating a large number of answers, consider increasing the number of shards your mapreduce jobs use by editing ``third_party/gae-mapreduce-1.9.17.0/mapreduce/parameters.py`` and changing the ``SHARD_COUNT`` property to a value higher (we used 64 shards for steps 1-8 and 32 shards thereafter due to limitations in the app engine mapreduce pipeline). It's also highly recommended to increase your instance class to F4 or F4_1G when running the migration, as a lot of memory may be consumed. You can also upgrade your default queue to have a ``bucket_size`` of 100 and a rate of 500/s just for the migration job and follow-up audit jobs.
 
-Please note that we can only offer limited support, but cannot guarantee assistance if you run into problems with this migration.
+Please note that, if you are performing this migration, you do so at your own risk, and you might want to consider running through it on a test server beforehand. We cannot guarantee assistance if you run into problems with this migration.
 
 ### Migrating v2.0.0 → v2.0.1, or v2.0.0.rc.4 → v2.0.0, or v2.0.0.rc.3 → v2.0.0.rc.4 ###
 
