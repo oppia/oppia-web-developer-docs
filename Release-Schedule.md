@@ -10,7 +10,7 @@
 - Test new features in the release
 - Additional ad-hoc testing
 
-**Avijit** and **Arunabh**
+**Arunabh**
 - Test core UI elements
 - Fix bugs found in the testing process, or decide to file them as issues.
 
