@@ -12,7 +12,8 @@
 
 ### General
 1. Ensure that your "Settings > Notification center" page is set to send you activity notifications, so that you're aware of all activity on the repository.
-2. When you get an email saying that a pull request has been made, go to GitHub and assign it to someone. ~~Before doing so, ensure that the requester is a member of the Committers team (which means they've signed the CLA).~~ (TEMP NOTE: Currently, Sean will check for CLA since it seems other members don't have access to the list of Collaborators).
+2. When you get an email saying that a pull request has been made, go to GitHub and assign it to someone. Before doing so, ensure that the requester has signed the CLA). To check this, look for the "Member" **or** "Collaborator" tag next to their name. For example:
+[[images/memberTagExample.png]]
 
 ### Doing code reviews
 Please see [Instructions for Reviewers](https://github.com/oppia/oppia/wiki/Instructions-for-Reviewers) (note the [squash-merging instructions](https://github.com/oppia/oppia/wiki/Instructions-for-Reviewers#merging-into-develop) too).
