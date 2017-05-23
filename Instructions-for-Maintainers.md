@@ -137,21 +137,21 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 ```
 Allan        Rich-text editor, suggestions
 Anmol        Machine learning
-Arun         E2e testing
-Arunabh      Subscriptions, general frontend
+Arunabh      Subscriptions, learner dashboard, general frontend
 Avijit       Creator dashboard, general frontend
 Barnabas     Iframed explorations
-Ben          Answer handling, frontend refactoring, migrations
-Hamza        Simple editor
+Ben          Answer handling, frontend refactoring, backend migrations
+Corey        Mobile frontend
+Himanshu     Simple editor
 Jacob        Metrics
-Jared        User journeys, learner view UX
+Jared        User journeys
 Kevin L      Collection editor, library index page
-Kevin T      Collection viewer
+Kevin T      Collection viewer, hints
 Kristin      Accessibility
-Mark         General UI design
-Prasanna     Emails
+Mark         General UI design, mathematics lessons
+Prasanna     Emails, machine learning
 Rachel       User research
-Sourav       General frontend
-Xinyu        Exploration saving and publishing, exploration editor history tab
+Tony         Learner view (both collections and explorations)
+Xinyu        Exploration saving and publishing, exploration editor history tab, release process
 Sean         Everything else
 ```
