@@ -152,6 +152,6 @@ Mark         General UI design, mathematics lessons
 Prasanna     Emails, machine learning
 Rachel       User research
 Tony         Learner view (both collections and explorations)
-Xinyu        Exploration saving and publishing, exploration editor history tab, release process
+Xinyu        Exploration saving/publishing, editor history tab, release process
 Sean         Everything else
 ```
