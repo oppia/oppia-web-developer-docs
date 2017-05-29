@@ -23,7 +23,7 @@ The directive exposes the following attributes:
 ## textAngularRte
 `textAngularRte` is the actual RTE [directive](https://docs.angularjs.org/guide/directive), defined in [`FormBuilder.js`](https://github.com/oppia/oppia/blob/develop/core/templates/dev/head/components/forms/FormBuilder.js).
 ### Template
-The `template` specified in the directive definition is just and instance of the `textAngular` directive, passing in various attributes usually through variables that are often set in the `controller`. Notice that the `textAngular` directive is not bound directly to `htmlContent`, but to a `tempContent` variable defined in the `controller`. This is explained more fully in the "Rich Text Components" section.
+The `template` specified in the directive definition is just an instance of the `textAngular` directive, passing in various attributes usually through variables that are often set in the `controller`. Notice that the `textAngular` directive is not bound directly to `htmlContent`, but to a `tempContent` variable defined in the `controller`. This is explained more fully in the "Rich Text Components" section.
 ### Toolbar options
 The buttons that should appear in the RTE toolbar is defined by the `toolbarOptions` array in the `controller`. This array is converted to a JSON string, which is stored in `toolbarOptionsJSON` on the `$scope`.
 ### Rich Text Components
