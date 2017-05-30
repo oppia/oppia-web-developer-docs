@@ -7,7 +7,7 @@ The directive is called `text-angular-rte`, and can be used as as simply as:
     <text-angular-rte html-content="yourContentVariable">
     </text-angular-rte>
 
-See `oppia/core/templates/dev/head/components/forms/schema_editors/schema_based_html_editor_directive.html` for a more complicated usage example.
+See [`schema_based_html_editor_directive.html`](https://github.com/oppia/oppia/blob/develop/core/templates/dev/head/components/forms/schema_editors/schema_based_html_editor_directive.html) for a more complicated usage example.
 
 The directive exposes the following attributes:
 * `html-content`: bind to the variable storing the content the RTE is editing
@@ -30,6 +30,19 @@ As described above, the core of our RTE is the 3rd party library textAngular. If
 * Input text with multiple paragraphs. Make sure the paragraphs are correctly spaced apart.
 * Insert an Image component with a large image, and save. Make sure the image does not overflow the content boundaries.
 * Insert an Image component with a small image, and save. Make sure the image is not stretched out.
+
+# Rich Text Components
+Oppia explorations can have Rich Text Components, which are custom widgets creators can insert into their content. Each component is an Angular directive, of the form `<oppia-noninteractive-*></oppia-noninteractive-*>`, with different attributes depending on the component. Examples include the Math (for inserting Latex) component, the Image component, and the Video component. This section describes how the components are defined in case you want to add your own component, or need to modify an existing one.
+
+The code for defining the Rich Text Components are housed in [`oppia/extensions/rich_text_components`](https://github.com/oppia/oppia/tree/develop/extensions/rich_text_components). In this folder each component has its own folder, with the following files:
+* `<component>.html` defines the template for rendering the component
+* `<component>.png` is an icon representing the component, used in the RTE toolbar button
+* `<component>.js` defines the Angular directive for that component. In the directive controller, the component attributes are processed and saved onto the scope to be used by the template. In some cases this is as simple as using `oppiaHtmlEscaper.escapedJsonToObj` to parse each attribute into an object, but a more complicated example is in [`Video.js`](https://github.com/oppia/oppia/blob/develop/extensions/rich_text_components/Video/Video.js).
+* `<component.py>` defines a Python class for the component inheriting from `BaseRichTextComponent`. Here we define certain basic standard properties of the component such as `name`, `description`, and `tooltip`. Each component also has a list of dictionaries called `_customization_arg_specs`, where each dictionary defines a customizable option of that component. For example, the `Math` component has the sole customizable option `raw_latex` for the latex to be rendered. Each dictionary in the list has the form:
+    * `name`: the name of the option
+    * `description`: a string describing the option, which will be displayed when the component is being edited/inserted
+    * `schema`: a [schema](https://github.com/oppia/oppia/wiki/Schema-Based-Forms) specifies type, and optionally other things such as validators for the data
+    * `default_value`: initial value for the option
 
 # Code
 This section is a code overview of how the RTE is actually implemented. This is mostly useful if you plan to modify the RTE when fixing a bug or adding a new feature.
