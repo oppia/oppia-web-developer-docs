@@ -1,10 +1,5 @@
 # Introduction
-Oppia has a rich text editor (RTE), used by exploration creators to create or edit the content of their explorations. This document is an overview of how this is implemented. The code portion of the document will largely focus on how the Rich Text Components are integrated into the RTE, since that is the most complicated part of Oppia's RTE setup.
-# Third Party
-The RTE depends on the following third party libraries, all specified in our `oppia/manifest.json`:
-* [textAngular](https://github.com/textAngular/textAngular): a text editor library developed specifically for use in AngularJS projects. The RTE is largely just a wrapper around textAngular.
-* Rangy: a library for handling selections and ranges, required by textAngular
-* FontAwesome: provides the icons used in textAngular's toolbar
+Oppia has a rich text editor (RTE), used by exploration creators to create or edit the content of their explorations. This document is an overview of usage and implementation. The code portion of the document will largely focus on how the Rich Text Components are integrated into the RTE, since that is the most complicated part of Oppia's RTE setup.
 
 # Usage
 The directive is called `text-angular-rte`, and can be used as as simply as:
@@ -19,7 +14,25 @@ The directive exposes the following attributes:
 * `ui-config` (optional): used to configure the RTE. For example, you can set the placeholder text or whether to hide complex extensions.
 * `label-for-focus-target` (optional): a label for the directive, which is used when programmatically setting focus onto the RTE.
 
+# Third Party
+The RTE depends on the following third party libraries, all specified in our `oppia/manifest.json`:
+* [textAngular](https://github.com/textAngular/textAngular): a text editor library developed specifically for use in AngularJS projects. The RTE is largely just a wrapper around textAngular.
+* Rangy: a library for handling selections and ranges, required by textAngular
+* FontAwesome: provides the icons used in textAngular's toolbar
+
+# Upgrading textAngular
+As described above, the core of our RTE is the 3rd party library textAngular. If you are upgrading the textAngular version we are using, it is important to check that the new textAngular version does not cause any regressions in the RTE. After upgrading the textAngular version, use the RTE in the exploration editor to perform the following checks in both the Chrome and Firefox browsers:
+* Input some plaintext and save. Ensure that the content doesn't disappear upon save.
+* Input a single Rich Text Component (such as the Math component) and then save. Make sure it is saved properly.
+* Try using backspace to delete the Rich Text Component. Make sure it is actually deleted.
+* Try copy and pasting a Rich Text Component. Hit save and make sure that the component is copied properly.
+* Try drag and dropping a Rich Text Component from one place in the content to another, then saving. Make sure the component is moved properly.
+* Input text with multiple paragraphs. Make sure the paragraphs are correctly spaced apart.
+* Insert an Image component with a large image, and save. Make sure the image does not overflow the content boundaries.
+* Insert an Image component with a small image, and save. Make sure the image is not stretched out.
+
 # Code
+This section is a code overview of how the RTE is actually implemented. This is mostly useful if you plan to modify the RTE when fixing a bug or adding a new feature.
 ## textAngularRte
 `textAngularRte` is the actual RTE [directive](https://docs.angularjs.org/guide/directive), defined in [`FormBuilder.js`](https://github.com/oppia/oppia/blob/develop/core/templates/dev/head/components/forms/FormBuilder.js).
 ### Template
