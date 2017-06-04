@@ -5,7 +5,7 @@ Oppia uses lots of forms, and it's tiresome to have to write each one from scrat
 
 Note that this framework isn't meant to be exhaustive; it is meant to simplify form creation for the more common cases. Custom forms can still be written using the methods referenced in [[Creating Objects|Creating-Objects]].
 
-In the frontend, the `forms/` directory contains a form builder which takes a schema and generates a form whose return value satisfies the schema. The schema can be annotated with UI configuration options to tell the form how to display itself. A developer can use the formBuilder or create his/her own custom form; the only requirement is that the return type matches that defined by the schema.
+In the frontend, the `components/forms/` directory contains a form builder which takes a schema and generates a form whose return value satisfies the schema. The schema can be annotated with UI configuration options to tell the form how to display itself. A developer can use the formBuilder or create his/her own custom form; the only requirement is that the return type matches that defined by the schema.
 
 ## Schema description
 
