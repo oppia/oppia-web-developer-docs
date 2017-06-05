@@ -1,6 +1,10 @@
 ## Doing a code release
 
-To release a new version of Oppia, follow the following steps. This assumes that a `release-[VERSION_NUMBER]` branch has already been cut.
+To release a new version of Oppia, follow the following steps. 
+
+1. Cut a `release-[VERSION_NUMBER]` branch. Test the release branch.
+
+1. If any additional bugfixes need to happen, make a PR to `develop`, and cherry-pick any necessary commits onto the release branch.
 
 1. If any changes have been made to the integrations\_dev folder or to /static/scripts/oppia-player-0.0.0.js since the last release, run the integrations release process and test these integrations. More information can be found [here](https://github.com/oppia/oppia/tree/master/integrations_dev/build_new_release.py).
 
@@ -16,6 +20,8 @@ To release a new version of Oppia, follow the following steps. This assumes that
 
   and play with the app for a while to make sure that nothing seems amiss.
 
+1. Deploy the release. If fixes need to be made, merge them into `develop` and cherry-pick onto the release branch.
+
 1. Bump the version number by editing `app.yaml`, and update the `CHANGELOG` file. Use the commit message `Bump the version number to [VERSION_NUMBER] and update the changelog.` in order to make it easier to find when compiling future changelists.
 
   **Note**: you can get this and other useful information for the release by running:
@@ -26,13 +32,10 @@ To release a new version of Oppia, follow the following steps. This assumes that
 
   (In the future, we should consider also tagging changes with their commit hash, similar to [this](https://github.com/angular/angular.js/blob/master/CHANGELOG.md).)
 
-1. Do a PR from the release branch into `master`, and wait for the Travis-CI checks to turn green. **DO NOT SQUASH-MERGE THIS PR.**
-
-1. Tag the new release, and delete the release branch:
+1. Tag the commit incrementing the release version:
 
   ```
-    git checkout master
-    git pull origin master
+    git checkout develop
     git tag -a v[VERSION_NUMBER] -m 'Version [VERSION_NUMBER]'
     git push --tags
 
@@ -41,17 +44,15 @@ To release a new version of Oppia, follow the following steps. This assumes that
 
 1. Draft a description of the new release on the [Releases page](https://github.com/oppia/oppia/releases/new).
 
-1. Deploy the release.
+1. Protect the release branch from further pushes on the admin page.
 
-1. Make a PR to merge `master` into `develop`. **DO NOT SQUASH MERGE.**
+1. Do a PR from the release branch into `develop`, and wait for the Travis-CI checks to turn green. **DO NOT SQUASH-MERGE THIS PR.**
 
 Congratulations, you've just done a release!
 
 ## Doing a hotfix
-1. Make a branch off `master`, and add the commits desired.
+1. Make a branch off the current release branch, and add the commits desired, and then merge it to the release branch.
 
-1. Do a PR from the hotfix branch into `master`, and wait for the Travis-CI checks to turn green. It's ok to squash merge this.
+1. Do a PR from the release branch into `develop`, and wait for the Travis-CI checks to turn green. It's ok to squash merge this.
 
 1. Deploy the hotfix.
-
-1. Do a PR from `master` to `develop`. **DO NOT SQUASH MERGE.**
