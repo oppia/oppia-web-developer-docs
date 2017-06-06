@@ -26,14 +26,6 @@ To release a new version of Oppia, follow the following steps.
 
 1. If any additional bugfixes need to happen, make a PR to `develop`, and cherry-pick any necessary commits onto the release branch. 
 
-1. Run
-
-   ```
-     bash scripts/start.sh
-   ```
-
-   and play with the app for a while to make sure that nothing seems amiss.
-
 ### Deploying the release
 
 1. Deploy the release. If fixes need to be made immediately after deployment, merge them into `develop` and cherry-pick onto the release branch (similar to before), then deploy again.
