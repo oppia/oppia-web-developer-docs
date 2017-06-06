@@ -10,7 +10,7 @@ To release a new version of Oppia, follow the following steps.
 
 1. If new contributors have contributed in this release cycle, update the `AUTHORS` and `CONTRIBUTORS` files, as well as the Credits section on `pages/about.html`. Check the results of the credits form for non-technical contributors. 
 
-1. Update the `CHANGELOG` file. Use the commit message `Update the changelog.` in order to make it easier to find when compiling future changelists.
+1. Update the `CHANGELOG` file. Use the commit message `Update the changelog for release [VERSION_NUMBER].` in order to make it easier to find when compiling future changelists.
 
    **Note**: you can get this and other useful information for the release by running:
  
