@@ -10,6 +10,16 @@ To release a new version of Oppia, follow the following steps.
 
 1. If new contributors have contributed in this release cycle, update the `AUTHORS` and `CONTRIBUTORS` files, as well as the Credits section on `pages/about.html`. Check the results of the credits form for non-technical contributors. 
 
+1. Update the `CHANGELOG` file. Use the commit message `Update the changelog.` in order to make it easier to find when compiling future changelists.
+
+   **Note**: you can get this and other useful information for the release by running:
+ 
+   ```
+      python scripts/release_info.py
+   ```
+
+   (In the future, we should consider also tagging changes with their commit hash, similar to [this](https://github.com/angular/angular.js/blob/master/CHANGELOG.md).)
+
 ### Cut the release branch
 
 1. Cut a `release-[VERSION_NUMBER]` branch. Test the release branch.
@@ -27,16 +37,6 @@ To release a new version of Oppia, follow the following steps.
 ### Deploying the release
 
 1. Deploy the release. If fixes need to be made immediately after deployment, merge them into `develop` and cherry-pick onto the release branch (similar to before), then deploy again.
-
-1. Update the `CHANGELOG` file. Use the commit message `Update the changelog.` in order to make it easier to find when compiling future changelists.
-
-   **Note**: you can get this and other useful information for the release by running:
- 
-   ```
-      python scripts/release_info.py
-   ```
-
-   (In the future, we should consider also tagging changes with their commit hash, similar to [this](https://github.com/angular/angular.js/blob/master/CHANGELOG.md).)
 
 1. Tag the commit incrementing the release version on the release branch:
 
