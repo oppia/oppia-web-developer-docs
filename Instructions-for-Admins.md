@@ -24,6 +24,8 @@ To release a new version of Oppia, follow the following steps.
 
 1. Cut a `release-[VERSION_NUMBER]` branch. Test the release branch.
 
+1. Enable Travis-CI checks on the release branch.
+
 1. If any additional bugfixes need to happen, make a PR to `develop`, and cherry-pick any necessary commits onto the release branch. 
 
 ### Deploying the release
