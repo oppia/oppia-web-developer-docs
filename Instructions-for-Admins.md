@@ -54,6 +54,8 @@ To release a new version of Oppia, follow the following steps.
 Congratulations, you've just done a release!
 
 ## Doing a hotfix
-1. Make a branch off develop and make the fix, and make a PR into develop. Branch off the release branch, and cherry-pick the commits desired onto the hotfix branch.
+1. Make a branch off develop and make the fix, and make a PR into develop.
+
+1. Make a new hotfix branch off the release branch, then cherry-pick the desired commits from develop onto the newly-created hotfix branch.
 
 1. Deploy the hotfix.
