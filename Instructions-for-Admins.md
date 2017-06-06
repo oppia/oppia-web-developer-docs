@@ -2,6 +2,8 @@
 
 To release a new version of Oppia, follow the following steps. 
 
+### Before the release
+
 1. Cut a `release-[VERSION_NUMBER]` branch. Test the release branch.
 
 1. If any additional bugfixes need to happen, make a PR to `develop`, and cherry-pick any necessary commits onto the release branch. For all the following updates, make a branch off develop, and a PR into develop, then cherry-pick the relevant commits onto the release branch.
@@ -20,9 +22,11 @@ To release a new version of Oppia, follow the following steps.
 
    and play with the app for a while to make sure that nothing seems amiss.
 
+### Deploying the release
+
 1. Deploy the release. If fixes need to be made, merge them into `develop` and cherry-pick onto the release branch.
 
-1. Bump the version number by editing `app.yaml`, and update the `CHANGELOG` file. Use the commit message `Bump the version number to [VERSION_NUMBER] and update the changelog.` in order to make it easier to find when compiling future changelists.
+1. Bump the version number by editing `app.yaml`, and update the `CHANGELOG` file. Use the commit message `Update the changelog.` in order to make it easier to find when compiling future changelists.
 
    **Note**: you can get this and other useful information for the release by running:
  
