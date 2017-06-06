@@ -26,7 +26,7 @@ To release a new version of Oppia, follow the following steps.
 
 ### Deploying the release
 
-1. Deploy the release. If fixes need to be made, merge them into `develop` and cherry-pick onto the release branch.
+1. Deploy the release. If fixes need to be made immediately after deployment, merge them into `develop` and cherry-pick onto the release branch (similar to before), then deploy again.
 
 1. Bump the version number by editing `app.yaml`, and update the `CHANGELOG` file. Use the commit message `Update the changelog.` in order to make it easier to find when compiling future changelists.
 
