@@ -4,7 +4,7 @@ To release a new version of Oppia, follow the following steps.
 
 1. Cut a `release-[VERSION_NUMBER]` branch. Test the release branch.
 
-1. If any additional bugfixes need to happen, make a PR to `develop`, and cherry-pick any necessary commits onto the release branch.
+1. If any additional bugfixes need to happen, make a PR to `develop`, and cherry-pick any necessary commits onto the release branch. For all the following updates, make a branch off develop, and a PR into develop, then cherry-pick the relevant commits onto the release branch.
 
 1. If any changes have been made to the integrations\_dev folder or to /static/scripts/oppia-player-0.0.0.js since the last release, run the integrations release process and test these integrations. More information can be found [here](https://github.com/oppia/oppia/tree/master/integrations_dev/build_new_release.py).
 
@@ -32,10 +32,9 @@ To release a new version of Oppia, follow the following steps.
 
   (In the future, we should consider also tagging changes with their commit hash, similar to [this](https://github.com/angular/angular.js/blob/master/CHANGELOG.md).)
 
-1. Tag the commit incrementing the release version:
+1. Tag the commit incrementing the release version on the release branch:
 
   ```
-    git checkout develop
     git tag -a v[VERSION_NUMBER] -m 'Version [VERSION_NUMBER]'
     git push --tags
 
@@ -46,13 +45,9 @@ To release a new version of Oppia, follow the following steps.
 
 1. Protect the release branch from further pushes on the admin page.
 
-1. Do a PR from the release branch into `develop`, and wait for the Travis-CI checks to turn green. **DO NOT SQUASH-MERGE THIS PR.**
-
 Congratulations, you've just done a release!
 
 ## Doing a hotfix
-1. Make a branch off the current release branch, and add the commits desired, and then merge it to the release branch.
-
-1. Do a PR from the release branch into `develop`, and wait for the Travis-CI checks to turn green. It's ok to squash merge this.
+1. Make a branch off develop and make the fix, and make a PR into develop. Branch off the release branch, and cherry-pick the commits desired onto the hotfix branch.
 
 1. Deploy the hotfix.
