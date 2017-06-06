@@ -14,32 +14,32 @@ To release a new version of Oppia, follow the following steps.
 
 1. Run
 
-  ```
-    bash scripts/start.sh
-  ```
+   ```
+     bash scripts/start.sh
+   ```
 
-  and play with the app for a while to make sure that nothing seems amiss.
+   and play with the app for a while to make sure that nothing seems amiss.
 
 1. Deploy the release. If fixes need to be made, merge them into `develop` and cherry-pick onto the release branch.
 
 1. Bump the version number by editing `app.yaml`, and update the `CHANGELOG` file. Use the commit message `Bump the version number to [VERSION_NUMBER] and update the changelog.` in order to make it easier to find when compiling future changelists.
 
-  **Note**: you can get this and other useful information for the release by running:
+   **Note**: you can get this and other useful information for the release by running:
+ 
+   ```
+      python scripts/release_info.py
+   ```
 
-  ```
-    python scripts/release_info.py
-  ```
-
-  (In the future, we should consider also tagging changes with their commit hash, similar to [this](https://github.com/angular/angular.js/blob/master/CHANGELOG.md).)
+   (In the future, we should consider also tagging changes with their commit hash, similar to [this](https://github.com/angular/angular.js/blob/master/CHANGELOG.md).)
 
 1. Tag the commit incrementing the release version on the release branch:
 
-  ```
-    git tag -a v[VERSION_NUMBER] -m 'Version [VERSION_NUMBER]'
-    git push --tags
+   ```
+     git tag -a v[VERSION_NUMBER] -m 'Version [VERSION_NUMBER]'
+     git push --tags
 
-  ```
-  (replacing `[VERSION_NUMBER]` with the relevant version number, e.g. `1.1.0`).
+   ```
+   (replacing `[VERSION_NUMBER]` with the relevant version number, e.g. `1.1.0`).
 
 1. Draft a description of the new release on the [Releases page](https://github.com/oppia/oppia/releases/new).
 
