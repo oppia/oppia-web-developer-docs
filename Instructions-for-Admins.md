@@ -38,7 +38,7 @@ To release a new version of Oppia, follow the following steps.
 
 1. Deploy the release. If fixes need to be made immediately after deployment, merge them into `develop` and cherry-pick onto the release branch (similar to before), then deploy again.
 
-1. Tag the commit incrementing the release version on the release branch:
+1. Tag the "tip commit" on the release branch:
 
    ```
      git tag -a v[VERSION_NUMBER] -m 'Version [VERSION_NUMBER]'
