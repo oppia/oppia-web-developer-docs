@@ -12,6 +12,7 @@ Please follow the following style rules when writing code, in order to minimize 
 - If you need to raise an Exception, just do `raise Exception` -- no need to define custom exceptions. We tend to use exceptions fairly sparingly, though.
 - Otherwise, please follow the [Google Python style guide](https://google.github.io/styleguide/pyguide.html). In particular:
   - There should be two empty lines before any top-level class or function definition.
+  - It's OK for the initial documentation string to be more than one line long.
   - Prefer string interpolation over concatenation -- e.g. prefer: `'My string %s' % varname` to `'My string ' + varname`.
   - When indenting from an open parenthesis ('('), prefer indenting by 4 rather than indenting from the position of the parenthesis. e.g., prefer:
 
