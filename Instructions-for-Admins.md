@@ -45,6 +45,8 @@ To release a new version of Oppia, follow the following steps.
 
 1. Protect the release branch from further pushes on the admin page.
 
+1. Delete the release branch from 2 releases ago.
+
 Congratulations, you've just done a release!
 
 ## Doing a hotfix
