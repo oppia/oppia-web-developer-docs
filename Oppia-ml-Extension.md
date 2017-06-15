@@ -9,14 +9,14 @@ Oppia-ml communicates with Oppia over the network for fetching job requests and 
 ```
 /ml/trainingjobhandler
 ```
-* Request data: above handler requires following JSOn data in the request:
+* **Request data**: above handler requires following JSON data in the request:
     ```
     {
         ‘vm_id’: a unique ID assigned to VM.
         ‘signature’: digital signature for authenticity of VM.
     }
     ```
-* Response data: above handler returns following JSON data in the response:
+* **Response data**: above handler returns following JSON data in the response:
     ```
     {
         ‘job_id’: a unique ID using which Oppia can distinguish different jobs.
@@ -29,7 +29,7 @@ Oppia-ml communicates with Oppia over the network for fetching job requests and 
 ```
 /ml/trainedclassifierhandler
 ```
-* Request data: Above handler requires following JSON data in the request:
+* **Request data**: Above handler requires following JSON data in the request:
     ```
     {
         ‘vm_id’: unique ID assigned to Oppia-ml instance.
@@ -39,7 +39,7 @@ Oppia-ml communicates with Oppia over the network for fetching job requests and 
     }
     ```
      
-* Response data: It returns HTTP 200 in response if “classifier_data” has been saved successfully.
+* **Response data**: It returns HTTP 200 in response if “classifier_data” has been saved successfully.
 
 
 These URLs are defined in the [`oppia-ml/vmconf.py`](https://github.com/oppia/oppia-ml/blob/develop/vmconf.py) and [`oppia/feconf.py`](https://github.com/oppia/oppia/blob/develop/feconf.py) files. They must match the above ones, otherwise Oppia-ml will not be able to work with Oppia.
