@@ -54,6 +54,6 @@ Please follow the following style rules when writing code, in order to minimize 
 - Do not include units if the value is 0. E.g. `margin-left: 0` instead of `margin-left: 0px`.
 - Within each CSS rule, attributes should be alphabetized (e.g. 'height' before 'margin' before 'top'). This makes it easy to find the value of an attribute if there are lots of them.
 - Avoid using `!important` as much as possible.
-- For colours, use hex values (like "#012345") instead of names (like "white").
+- For colours, use hex values (like "#012345") or rgb(a) values, instead of names (like "white").
 - If the CSS class is oppia-specific, prefix it with `oppia-`. This helps distinguish it from CSS classes used by other third-party libraries. 
 - For directives, include the CSS in the directive template file, similar to what we do in [this file](https://github.com/oppia/oppia/blob/37a43ca249ffd2b60bf98f791995048ce0ec5269/core/templates/dev/head/components/summary_tile/exploration_summary_tile_directive.html). (Note that, in this case, all CSS rules should start with the top-level CSS class of the directive, so that they don't affect other elements outside it.) All other CSS should go in `core/templates/dev/head/css/oppia.css`.
