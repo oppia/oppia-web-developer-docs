@@ -54,6 +54,7 @@
     * [[Instructions for Reviewers|Instructions-for-Reviewers]]
     * [[Instructions for Maintainers|Instructions-for-Maintainers]]
     * [[Instructions for Admins|Instructions-for-Admins]]
+    * [[Instructions for making changes to roles and actions|Instructions-for-editing-roles-or-actions]]
   * Past Events
     * [[Hacktoberfest 2016|Hacktoberfest-2016]]
     * [[Google Summer of Code 2016|Google-Summer-of-Code-2016]]
