@@ -20,4 +20,5 @@ Features merged into `develop` after this date will only go out in the following
 - 1 week before the release, deploy the release branch to the test server. Re-deploy if bug fixes happen on the release branch.
 - Deploy the release to production.
 - Test migrations and other release-specific things.
+- Make sure all the testing feedback is either fixed or filed as issues.
 - Fix bugs that arise in the release testing process. 
