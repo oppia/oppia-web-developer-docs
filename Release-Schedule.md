@@ -1,5 +1,6 @@
 # Schedule
-**First Saturday of each month**: Release branch gets created. Features merged into `develop` after this date will only go out in the following release.
+**First Saturday of each month**: Release branch gets created. Push the release branch onto a test server.
+Features merged into `develop` after this date will only go out in the following release.
 
 **Between first and second Saturday of each month**: The release team will focus on testing and bug fixes. By Tuesday, testing should be completed by two members of the team. By Saturday, any bugfixes should be done.
 
@@ -19,5 +20,4 @@
 - 1 week before the release, deploy the release branch to the test server. Re-deploy if bug fixes happen on the release branch.
 - Deploy the release to production.
 - Test migrations and other release-specific things.
-- Make sure all the testing feedback is either fixed or filed as issues.
 - Fix bugs that arise in the release testing process. 
