@@ -91,11 +91,12 @@ Here's how to make a one-off code change. (If you're working on a larger feature
     git checkout new-branch-name
     git fetch upstream
     git merge upstream/develop
-    ...[fix the conflicts]...
+    ...[fix the conflicts -- see https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line]...
     ...[make sure the tests pass before committing]...
     git commit -a
     git push origin new-branch-name
   ```
+  * Run `bash scripts/start.sh` and play with the dev server in order to make sure that everything still works, and also to install any new dependencies that have been added since you last synced the repo.
   * Once you've finished addressing everything, and would like the reviewer to take another look, **please write a top-level comment explicitly asking them to do so**, and set them as the Assignee for the PR.
   * At the end, the reviewer will merge the pull request.
 6. **Tidy up!** After the PR status has changed to "Merged", delete the feature branch from both your local clone and the GitHub repository:
