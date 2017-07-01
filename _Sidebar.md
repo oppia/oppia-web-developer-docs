@@ -44,6 +44,7 @@
     * [[Writing style guide|Writing-style-guide]]
     * [[Math explorations|Math-explorations]]
     * [[Playtesting explorations|Playtesting-explorations]]
+    * [[Testing for Accessibility|Testing-for-Accessibility]]
     * [[Rich Text Editor (RTE)|Rich-Text-Editor-(RTE)-Overview]]
     * [[Advice on creating explorations|Advice-on-Creating-Explorations]]
     * [[Oppia-ml Extension|Oppia-ml-Extension]]
