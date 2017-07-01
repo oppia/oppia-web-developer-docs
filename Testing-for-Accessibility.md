@@ -3,19 +3,21 @@
 * **Heading order should make sense:** Every page should have an H1, and the rest of the headings should be in order. We should not use a smaller heading size (e.g. h4) in order to get the font size we want. We should use CSS for that.
 * **Every video/audio needs captions or a transcript**
 * **Icons that display important information should be read to the user:** In many contemporary web apps, including Oppia, icons and icon fonts are used to denote some important information (such as number of views or dates or something). Unless these icons are accompanied with text (for example, a ratings icon that has a visible label of "Ratings" somewhere), such icons are not read by screenreaders and can leave people feeling confused about what they are listening to. We’ve implemented a fix that uses hidden text to label such icons. These should be used wherever there is iconography (that delivers important content) that is not labeled by visible text. For example:
+
 `<span class="oppia-icon-accessibility-label">Ratings</span>`
-* **Consider the implications of dynamic pages:** In Oppia, there are some pages that change their contents dynamically based on an action (e.g. the explorations). This is a feature of many contemporary web apps, however, screenreader users are not able to tell that the page has changed which can lead to confusion and frustration. The accessibility team is working to implement a focus management approach, such that, on change, a screenreader will reread the content. Any other pages and/or new features that include dynamic content changes will need to implement the same approach. A focus management approach is described well in this article: [http://simplyaccessible.com/article/spangular-accessibility/ ](http://simplyaccessible.com/article/spangular-accessibility/ )
+* **Consider the implications of dynamic pages:** In Oppia, there are some pages that change their contents dynamically based on an action (e.g. the explorations). This is a feature of many contemporary web apps, however, screenreader users are not able to tell that the page has changed which can lead to confusion and frustration. The accessibility team is working to implement a focus management approach, such that, on change, a screenreader will reread the content. Any other pages and/or new features that include dynamic content changes will need to implement the same approach. 
+A focus management approach is described well in this article: [http://simplyaccessible.com/article/spangular-accessibility/ ](http://simplyaccessible.com/article/spangular-accessibility/ )
 * **Use ARIA appropriately:** ARIA attributes allows us to label some elements to screenreaders. Screenreader implementation is still a bit spotty, but it’s best to include these, as appropriate, to future proof the design.
   * Note that ARIA attributes have proper hierarchies. The WorldSpace Attest checker is a good resource for checking that your ARIA attributes are used properly.
   * Elements where ARIA attributes are helpful:
-  * Modals
-  * Navigation menus
-  * Footers (if they contain meta info about the site; also note that footers should use the semantic footer tag)
-  * Dropdowns
-  * Inputs and Forms
-  * Buttons
-  * Icons that are purely decorative
-* **Keep focus styles:** Discussed a bit more below, under Physical Disabilities, but you should generally leave focus styles alone.
+    * Modals
+    * Navigation menus
+    * Footers (if they contain meta info about the site; also note that footers should use the semantic footer tag)
+    * Dropdowns
+    * Inputs and Forms
+    * Buttons
+    * Icons that are purely decorative
+* **Keep focus styles:** Discussed a bit more below, under [Physical Disabilities](#physical-disabilities), but you should generally leave focus styles alone.
 # Visual Disabilities
 ## Test using WAVE Plugin and/or WorldSpace Plugin
 The WAVE plugin from WebAIM, a leading accessibility organization, allows you to test a document’s structure, media, and colors to ensure, as much as possible, that it will meet web accessibility standards.
