@@ -26,7 +26,9 @@ Generally, it’s a good workflow to use WAVE to fix any structural issues with 
 
 The WorldSpace plugin is very similar, but offers even more detailed feedback about the structure of your pages. The WorldSpace plugin is very helpful in discerning whether or not ARIA attributes are being used according to spec. You can find this plugin here: [WorldSpace Attest Documentation](https://dequeuniversity.com/guide/attest-extension/1.1/using/) | [WorldSpace Attest Plugin](https://chrome.google.com/webstore/detail/worldspace-attest-devtool/lfmcehohgifnaodaogknapedjiaoebgo?hl=en-US&gl=US)
 ## Test using Screenreaders
-On a Mac, it’s recommended to use Mac’s built in VoiceOver tool with Safari (this is the combination most blind Mac users use). On PC, you may want to use the free and open source NVDA. Good, detailed instructions on how to use these tools are available in this free course from accessibility expert Marcy Sutton on Egghead.io: [https://egghead.io/courses/start-building-accessible-web-applications-today](https://egghead.io/courses/start-building-accessible-web-applications-today).
+On a Mac, it’s recommended to use Mac’s built in VoiceOver tool with Safari (this is the combination most blind Mac users use). 
+
+On PC, you may want to use the free and open source NVDA. Good, detailed instructions on how to use these tools are available in this free course from accessibility expert Marcy Sutton on Egghead.io: [https://egghead.io/courses/start-building-accessible-web-applications-today](https://egghead.io/courses/start-building-accessible-web-applications-today).
 ### What You’re Listening For
 **Highly recommend going through the course linked above before attempting**
 * Dim the screen of your computer completely and try to navigate the site using only what you can hear. 
@@ -48,5 +50,4 @@ Typically:
 * **Use enter or space to interact with elements:** A user should be able to expand a dropdown or click on a link or button with their keyboard.
 * **Where you are on the page should be visible:** Some sites like to hide the built-in browser focus styles, but it’s important that keyboard users be able to see where they’re focus is on the page.
 # Hearing Disabilities
-* Ensure media has appropriate alternatives
 * Auditory media, such as videos, podcasts, etc, should have appropriate alternatives, such as transcripts (which is a full-text representation of what was said) and/or captions (for video, which shows what is being said currently).
