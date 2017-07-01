@@ -84,7 +84,7 @@ Here's how to make a one-off code change. (If you're working on a larger feature
 5. **Address review comments until all reviewers give LGTM ('looks good to me').**
   * When your reviewer has reviewed the code, you'll get an email. You'll need to respond in two ways:
      * Make a new commit addressing the comments you agree with, and push it to the same branch. Ideally, the commit message would explain what the commit does (e.g. "Fix lint error"), but if there are lots of disparate review comments, it's fine to refer to the original commit message and add something like "(address review comments)".
-     * In addition, please reply to each comment. Each reply should be either "Done" or a response explaining why the corresponding suggestion wasn't implemented. All comments must be resolved before LGTM can be given.
+     * In addition, go to the Files Changed tab, and reply to each comment, choosing the "Start a review" option for the first comment. Each reply should be either "Done" or a response explaining why the corresponding suggestion wasn't implemented. When you've responded to all comments, you can add all your messages to the main thread by submitting the review. All comments must be resolved before LGTM can be given.
   * Resolve any merge conflicts that arise. To resolve conflicts between 'new-branch-name' (in your fork) and 'develop' (in the oppia repository), run:
 
   ```
