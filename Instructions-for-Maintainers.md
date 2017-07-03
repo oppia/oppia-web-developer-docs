@@ -81,25 +81,6 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 ## Maintainer Rota
 
 ```
-20 Feb - 26 Feb   Kevin         @kevinlee12
-27 Feb -  5 Mar   Jacob         @jacobdavis11
- 6 Mar - 12 Mar   Sean/Kristin  @seanlip/@anthkris
-13 Mar - 19 Mar   Barnabas      @MAKOSCAFEE
-20 Mar - 26 Mar   Xinyu         @wxyxinyu
-27 Mar -  2 Apr   Prasanna      @prasanna08
- 3 Apr -  9 Apr   Kevin         @kevinlee12
-10 Apr - 16 Apr   Sourav/Tony   @souravbadami/@tjiang11
-17 Apr - 23 Apr   Avijit        @526avijitgupta
-24 Apr - 30 Apr   Anmol         @anmolshkl
-
- 1 May -  7 May   Jacob         @jacobdavis11
- 8 May - 14 May   Barnabas      @MAKOSCAFEE
-15 May - 21 May   Allan         @AllanYangZhou
-22 May - 28 May   Kristin       @anthkris
-29 May -  4 Jun   Tony          @tjiang11
- 5 Jun - 11 Jun   Xinyu         @wxyxinyu
-12 Jun - 18 Jun   Kevin         @kevinlee12
-19 Jun - 25 Jun   Anmol         @anmolshkl
 26 Jun -  2 Jul   Avijit        @526avijitgupta
  3 Jul -  9 Jul   Allan         @AllanYangZhou
 
@@ -110,14 +91,14 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
  7 Aug - 13 Aug   Barnabas      @MAKOSCAFEE
 14 Aug - 20 Aug   Kevin         @kevinlee12
 21 Aug - 27 Aug   Allan         @AllanYangZhou
-28 Aug -  3 Sep   Avijit        @526avijitgupta
+28 Aug -  3 Sep   Sean          @seanlip
  4 Sep - 10 Sep   Xinyu         @wxyxinyu
 11 Sep - 17 Sep   Tony          @tjiang11
 
 18 Sep - 24 Sep   Anmol         @anmolshkl
 25 Sep -  1 Oct   Prasanna      @prasanna08
  2 Oct -  8 Oct   Barnabas      @MAKOSCAFEE
- 9 Oct - 15 Oct   Avijit        @526avijitgupta
+ 9 Oct - 15 Oct   Sean          @seanlip
 16 Oct - 22 Oct   Tony          @tjiang11
 23 Oct - 29 Oct   Kristin       @anthkris
 30 Oct -  5 Nov   Jacob         @jacobdavis11
@@ -126,7 +107,7 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 20 Nov - 26 Nov   Prasanna      @prasanna08
 
 27 Nov -  3 Dec   Barnabas      @MAKOSCAFEE
- 4 Dec - 10 Dec   Avijit        @526avijitgupta
+ 4 Dec - 10 Dec   Sean          @seanlip
 11 Dec - 17 Dec   Jacob         @jacobdavis11
 18 Dec - 24 Dec   Kevin         @kevinlee12
 25 Dec - 31 Dec   Tony          @tjiang11
@@ -138,7 +119,6 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 Allan        Rich-text editor, suggestions
 Anmol        Machine learning
 Arunabh      Subscriptions, learner dashboard, general frontend
-Avijit       Creator dashboard, general frontend
 Barnabas     Iframed explorations
 Ben          Answer handling, frontend refactoring, backend migrations
 Corey        Mobile frontend
