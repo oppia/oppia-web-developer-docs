@@ -57,3 +57,14 @@ Congratulations, you've just done a release!
 1. Make a new hotfix branch off the release branch, then cherry-pick the desired commits from develop onto the newly-created hotfix branch.
 
 1. Deploy the hotfix.
+
+## Instructions for running user roles migration job
+1. Make sure to shift the users to corrects lists in /admin#config keeping following in mind:
+   - All users in `Usernames of admins` will get a role of `admin`.
+   - All users in `Usernames of moderators` will get a role of `moderator`.
+   - All users in `Names of users allowed to use the collection editor` will get a role of `collection editor`.
+   - All users in `Banned usernames` will get a role of `banned user`.
+   - All remaining users will get a role of `exploration editor`.
+   
+    _Note_: If users are present in multiple lists, they will get role according to role priority. (Eg - If a user is in both moderators and admins list, user will get the role of admin)
+2. Run the `UserRolesMigrationOneOffJob` from /admin#jobs.  
