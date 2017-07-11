@@ -43,3 +43,11 @@ Oppia-ml communicates with Oppia over the network for fetching job requests and 
 
 
 These URLs are defined in the [`oppia-ml/vmconf.py`](https://github.com/oppia/oppia-ml/blob/develop/vmconf.py) and [`oppia/feconf.py`](https://github.com/oppia/oppia/blob/develop/feconf.py) files. They must match the above ones, otherwise Oppia-ml will not be able to work with Oppia.
+
+
+## How to try your own algorithms.
+The new oppia-ml project allows developers to try out their own ML algorithms for classification. The steps that need to be followed for using a new algorithm:
+
+- Extend BaseClassifier in the oppia-ml repo and implement all its base functions for your chosen classifier.
+- It is very important to add your algorithm to the Interaction-Classifier mapping. Without this step, your algorithm won't be functional.
+- Implement a front-end service that will be called by the PredictionAlgorithmRegistryService. This service should have a predict() method which returns the predicted labels given user responses and classifier model.
