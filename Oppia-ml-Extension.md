@@ -33,8 +33,7 @@ Oppia-ml communicates with Oppia over the network for fetching job requests and 
     ```
     {
         ‘vm_id’: unique ID assigned to Oppia-ml instance.
-        ‘job_id’: ID of the job request.
-        ‘classifier_data’: result of processing job request.
+        ‘message’: The dict that contains job_id and classifier_data, using which signature is generated.
         ‘signature’: digital signature for authenticity of VM.
     }
     ```
