@@ -156,7 +156,7 @@ DistutilsOptionError: must supply either home or prefix/exec-prefix -- not both
    ```
    this StackOverflow [answer](http://stackoverflow.com/a/24357384) provides a possible fix.
 
-  * if you run into an error starting App Engine that looks like this:
+  * if you run into an error that looks like this when starting App Engine:
 
    ```
      File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/urllib2.py", line 558, in http_error_default
