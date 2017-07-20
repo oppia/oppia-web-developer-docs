@@ -155,3 +155,12 @@ Traceback (most recent call last):
 DistutilsOptionError: must supply either home or prefix/exec-prefix -- not both
    ```
    this StackOverflow [answer](http://stackoverflow.com/a/24357384) provides a possible fix.
+
+  * if you run into an error starting App Engine that looks like this:
+
+   ```
+     File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/urllib2.py", line 558, in http_error_default
+       raise HTTPError(req.get_full_url(), code, msg, hdrs, fp)
+   HTTPError: HTTP Error 503: Service Unavailable
+   ```
+   this StackOverflow [answer](https://stackoverflow.com/a/19460147) provides a possible fix.
