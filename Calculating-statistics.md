@@ -19,7 +19,7 @@ The recommended way of going through this process is to:
  * Plan the overall approach: start at the presentation layer and work your way down the layers to the event log (steps 1 - 4 in the diagram below). This will not involve writing code.
  * Write code to record the data you need for your calculations (steps 5-6).
  * Create mapreduce jobs (steps 7-8).
- * User the data in the UI (step 9).
+ * Use the data in the UI (step 9).
 
 Each of these three sections will be a separate commit in a branch off of develop. After all 9 steps are completed and reviewed, this branch can be merged into develop.
 
