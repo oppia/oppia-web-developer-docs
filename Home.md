@@ -15,8 +15,4 @@ https://github.com/oppia/oppia/issues/new?title=Describe%20your%20feature%20requ
 
 Finally, if you'd like to help, but aren't sure how -- please let us know. The Oppia project is very multi-faceted, and we'll almost certainly be able to find something matching your interests and skills. If you'd like to help, you can contact us at [oppia-dev@](https://groups.google.com/forum/?fromgroups#!forum/oppia-dev), or at admin@oppia.org.
 
-**NEW:** We also hold office hours for new contributors at the following times on our [Gitter chat channel](https://gitter.im/oppia/oppia-chat). Feel free to drop by and say hello!
-
-- Tue: 0030-0100, 0830-0930, 1630-1700 UTC
-- Wed: 0030-0100, 1630-1700, 2130-2200 UTC
-- Sun: 0030-0100, 1630-1700, 2130-2200 UTC
+**Note:** We also have a [Gitter chat channel](https://gitter.im/oppia/oppia-chat). Feel free to drop by and say hello!
