@@ -92,7 +92,7 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 14 Aug - 20 Aug   Kevin         @kevinlee12
 21 Aug - 27 Aug   Allan         @AllanYangZhou
 28 Aug -  3 Sep   Sean          @seanlip
- 4 Sep - 10 Sep   Xinyu         @wxyxinyu
+ 4 Sep - 10 Sep   Pranav        @pranavsid98
 11 Sep - 17 Sep   Tony          @tjiang11
 
 18 Sep - 24 Sep   Anmol         @anmolshkl
@@ -102,7 +102,7 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 16 Oct - 22 Oct   Tony          @tjiang11
 23 Oct - 29 Oct   Kristin       @anthkris
 30 Oct -  5 Nov   Jacob         @jacobdavis11
- 6 Nov - 12 Nov   Xinyu         @wxyxinyu   
+ 6 Nov - 12 Nov   Pranav        @pranavsid98   
 13 Nov - 19 Nov   Anmol         @anmolshkl
 20 Nov - 26 Nov   Prasanna      @prasanna08
 
