@@ -26,7 +26,11 @@ To release a new version of Oppia, follow the following steps.
 
 1. Enable Travis-CI checks on the release branch.
 
-1. If any additional bugfixes need to happen, make a PR to `develop`. When the PR is merged, tag it with the `PR: for current release` label. Then, cherry pick the merge commit onto the release branch, and then tag the PR with `PR: released` label.
+1. If any additional bugfixes need to happen, make a PR to `develop`. When the PR is merged, tag it with the `PR: for current release` label. Then, cherry-pick the merge commit onto the release branch with
+```
+git cherry-pick [commit hash]
+```
+and then tag the PR with `PR: released` label.
 
 1. Ensure that 2 labels in the previous step match up. 
 
