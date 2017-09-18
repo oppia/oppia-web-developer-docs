@@ -1,31 +1,40 @@
 *These instructions are for developers and designers who'd like to contribute code or design help to improve the Oppia platform. If you'd prefer to help out with other things, please see our [general contribution guidelines](https://github.com/oppia/oppia/wiki).*
 
-Thanks for your interest in improving the Oppia platform! This page explains how to get set up, how to find something to work on, and how to make a code change. If you run into any problems along the way, please file an issue on our [issue tracker](https://github.com/oppia/oppia/issues), or get help by posting to the [developers' mailing list](https://groups.google.com/forum/#!forum/oppia-dev).
+Thanks for your interest in improving the Oppia platform! This page explains how to get set up, how to find something to work on, and how to make a code change. If you run into any problems along the way, please file an issue on our [issue tracker](https://github.com/oppia/oppia/issues), or get help by posting to the [developers' mailing list](https://groups.google.com/forum/#!forum/oppia-dev). There are also lots of helpful resources in the [developer wiki](https://github.com/oppia/oppia/wiki) -- check out the sidebar!
 
 ## Setting things up
 
-  1. Please sign the CLA so that we can accept your contributions. If you're contributing as an individual, use the [individual CLA](https://goo.gl/forms/AttNH80OV0). If your company owns the copyright to your contributions, a company representative should sign the [corporate CLA](https://goo.gl/forms/xDq9gK3Zcv).
-  2. Fill in the [Oppia contributor survey](http://goo.gl/forms/wz1x3bFfpF) to let us know what your interests are. (You can always change your responses later.)  
-  3. Create a new, empty folder called `opensource/` in your computer's home folder. Navigate to it (`cd opensource`), then [fork and clone](https://help.github.com/articles/fork-a-repo/) the Oppia repo so that it gets downloaded into `opensource/oppia`. Then follow the appropriate installation instructions -- [Linux](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Linux%29), [Mac OS](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Mac-OS%29), [Windows](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Windows%29). (If you run into any problems during installation, please read [these notes](https://github.com/oppia/oppia/wiki/Issues-with-installation%3F).)
-  4. Update your GitHub notification settings:
-    * Go to your settings page (click the Settings option under the profile menu in the top right), then go to 'Notification center' and ensure that everything's as you want it.
-    * Go to the [Oppia repo](https://github.com/oppia/oppia), and click 'Watch' at the top right. Ensure that you're not 'ignoring' the repo, so that you'll be notified when someone replies to a conversation you're part of.
-  5. (Optional) Consider setting up [automatic auth](https://help.github.com/articles/set-up-git/#next-steps-authenticating-with-github-from-git) so you don't have to type in a username and password each time you commit a change.
-  6. Join the [oppia-dev@](https://groups.google.com/forum/#!forum/oppia-dev) mailing list, and say hi on the [gitter](https://gitter.im/oppia/oppia-chat) chat channel!  
+1. Please sign the CLA so that we can accept your contributions. If you're contributing as an individual, use the [individual CLA](https://goo.gl/forms/AttNH80OV0). If your company owns the copyright to your contributions, a company representative should sign the [corporate CLA](https://goo.gl/forms/xDq9gK3Zcv).
+1. Fill in the [Oppia contributor survey](http://goo.gl/forms/wz1x3bFfpF) to let us know what your interests are. (You can always change your responses later.)  
+1. Create a new, empty folder called `opensource/` in your computer's home folder. Navigate to it (`cd opensource`), then [fork and clone](https://help.github.com/articles/fork-a-repo/) the Oppia repo so that it gets downloaded into `opensource/oppia`. Then follow the appropriate installation instructions -- [Linux](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Linux%29), [Mac OS](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Mac-OS%29), [Windows](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Windows%29). (If you run into any problems during installation, please read [these notes](https://github.com/oppia/oppia/wiki/Issues-with-installation%3F).)
+1. Update your GitHub settings:
+   * Go to your settings page (click the Settings option under the profile menu in the top right), then go to 'Notification center' and ensure that everything's as you want it.
+   * Go to the [Oppia repo](https://github.com/oppia/oppia), and click 'Watch' at the top right. Ensure that you're not 'ignoring' the repo, so that you'll be notified when someone replies to a conversation you're part of.
+   * (Optional) Consider setting up [automatic auth](https://help.github.com/articles/set-up-git/#next-steps-authenticating-with-github-from-git) so you don't have to type in a username and password each time you commit a change.
+1. Familiarize yourself with the resources linked to from the sidebar of this page, especially the [overview of the codebase](https://github.com/oppia/oppia/wiki/Overview-of-the-Oppia-codebase), the [coding style guide](https://github.com/oppia/oppia/wiki/Coding-style-guide), and our [Frequently Asked Questions](https://github.com/oppia/oppia/wiki/Frequently-Asked-Questions). You don't have to read all the other stuff right now, but it's a good idea to be aware of what's available, so that you can refer to it later if needed.
+1. Join the [oppia-dev@](https://groups.google.com/forum/#!forum/oppia-dev) mailing list, and say hi on the [gitter](https://gitter.im/oppia/oppia-chat) chat channel! You might also want to 'pin' the Gitter tab in your browser, so that it's easily accessible and you can keep abreast of new activity.
 
-## Getting in touch with the team
+## Finding something to do...
 
-The primary chat channel that the team uses is [Gitter](https://gitter.im/oppia/oppia-chat). Feel free to hang out there! (You might also consider 'pinning' the tab in your browser, so that it's easily accessible.)
+### ... as a new contributor
 
-We have also recently started offering office hours for new contributors on Gitter, where you can get your questions answered! You can find the schedule on the [wiki homepage](https://github.com/oppia/oppia/wiki). We also maintain a list of [Frequently Asked Questions](https://github.com/oppia/oppia/wiki/Frequently-Asked-Questions).
+Welcome! As a first step, we'd **strongly recommend** taking up some part of [#3825](https://github.com/oppia/oppia/issues/3825) or [#3826](https://github.com/oppia/oppia/issues/3826) as a starter project, so that you can become familiar with the codebase and the development workflow. If you decide to do so, please go ahead and leave a comment saying which service you're taking, and submit a follow-up PR by following the [instructions below](Contributing-code-to-Oppia#instructions-for-making-a-code-change). You don't need to wait for approval to get started.
 
-## Finding something to do
+The above assumes you are familiar with AngularJS (v1). If you aren't, we recommend learning it; a nice tutorial can be found [here](https://www.codeschool.com/courses/shaping-up-with-angularjs). Most of our open issues are in the frontend, and require at least some knowledge of HTML, AngularJS and CSS, so knowledge of frontend coding will serve you well if you'd like to contribute to Oppia over the longer term.
 
-If you're new to Oppia, we strongly suggest finding a starter project you'd enjoy, and focusing on it until it's completed. We recommend taking up a **starter coding project** from [this list](https://github.com/oppia/oppia/issues?q=is%3Aopen+label%3A%22TODO%3A+code%22+milestone%3A%22Recommended+projects%22) -- these are simpler issues that are generally more suitable for new developers. If you're interested in frontend work, good starter projects are [#3825](https://github.com/oppia/oppia/issues/3825) and [#3826](https://github.com/oppia/oppia/issues/3826) -- this will help you become familiar with the contribution workflow and the [style guide](https://github.com/oppia/oppia/wiki/Coding-style-guide). If you'd like to help, pick a file and leave a comment on the issue saying which factory you're taking, so that others don't duplicate your work.
+If you're allergic to frontend work, and prefer hacking on bash/python instead, let us know by emailing admin@oppia.org, and we'll try and find something suitable. But we'd strongly recommend learning AngularJS if you have the opportunity and inclination, otherwise the range of projects you can take up will be more limited.
 
-Also, feel free to just search the issue tracker for something that looks interesting -- we particularly recommend issues from the ["Recommended Projects" milestone](https://github.com/oppia/oppia/milestone/42). If an issue hasn't got someone assigned to it, and there's no existing PR for the issue (you can check this by scanning the list of [existing pull requests](https://github.com/oppia/oppia/pulls)), feel free to just go ahead and take it up -- you don't need to ask permission to do so.
+### ... as an existing contributor
 
-After working on a couple of starter projects, you might also be interested in joining a [team](https://github.com/oppia/oppia/projects) that's working on a larger effort! You can also ask on [Gitter](https://gitter.im/oppia/oppia-chat) for suggestions for things to do next, and we can help you find a good issue to tackle, based on your interests and past contributions. Please be proactive in asking for new projects, since otherwise we may not realize that you want to be assigned one. Also, if the issue you're working on has a grey label of the form "team-name (@team-lead)", feel free to reach out to that team lead for help or advice on that issue -- they should be able to answer questions about that area of the codebase.
+There are several options:
+
+- **Want easier projects?** Check out our list of [starter coding projects](https://github.com/oppia/oppia/issues?q=is%3Aopen+label%3A%22TODO%3A+code%22+milestone%3A%22Recommended+projects%22).
+- **Want projects that matter?** Check out our ["Recommended Projects" milestone](https://github.com/oppia/oppia/milestone/42), which contains several issues that we'd very much like to see completed.
+- **Want to join a team that's working on a larger effort?** See our [list of projects](https://github.com/oppia/oppia/projects)!
+- **Want to lead a project?** We may offer you the opportunity to do this, once you've sent in several good PRs.
+- **Want help figuring out what to do?** Just ask us on [Gitter](https://gitter.im/oppia/oppia-chat), or send an email to admin@oppia.org. We'll try to help!
+
+If an issue hasn't got someone assigned to it, and there's no existing PR for the issue (you can check this by scanning the list of [existing PRs](https://github.com/oppia/oppia/pulls)), feel free to take it up by assigning yourself to it. You don't need to ask permission to do so. Also, if you need help or advice on an issue, you can contact the corresponding team lead, whose GitHub username you can find in the issue's grey label.
 
 ## Instructions for making a code change
 
