@@ -5,7 +5,7 @@
     * [[Instructional designers|Contributing-knowledge-to-Oppia]]
     * [[UX researchers|Making-Oppia-better]]
     * [[Designers and artists|Contributing-to-Oppia's-design]]
-    * [[Google Summer of Code 2017|Google-Summer-of-Code-2017]]
+    * [[Google Summer of Code 2018|Google-Summer-of-Code-2018]]
   * **[[Recommended issues|https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+milestone%3A%22Recommended+projects%22]]**
   * Installing Oppia
     * [[Linux|Installing-Oppia-(Linux)]]
@@ -56,5 +56,6 @@
     * [[Instructions for Admins|Instructions-for-Admins]]
     * [[Instructions for making changes to roles and actions|Instructions-for-editing-roles-or-actions]]
   * Past Events
+    * [[Google Summer of Code 2017|Google-Summer-of-Code-2017]]
     * [[Hacktoberfest 2016|Hacktoberfest-2016]]
     * [[Google Summer of Code 2016|Google-Summer-of-Code-2016]]
