@@ -6,7 +6,7 @@ To make it easier to get started, we've catalogued some of the different ways to
 
   * [Coders](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up)
   * [Instructional designers](https://github.com/oppia/oppia/wiki/Contributing-knowledge-to-Oppia)
-  * [UX researchers](https://github.com/oppia/oppia/wiki/Making-Oppia-better)
+  * [UX researchers](https://github.com/oppia/oppia/wiki/Conducting-research-with-students)
   * [Designers and artists](https://github.com/oppia/oppia/wiki/Contributing-to-Oppia%27s-design)
 
 If you run into any problems, you can check out the [user documentation](http://oppia.github.io/) or post to our [developer mailing list](https://groups.google.com/forum/?fromgroups#!forum/oppia-dev). Feel free to drop into our [Gitter chat channel](https://gitter.im/oppia/oppia-chat) to say hello, too :)
