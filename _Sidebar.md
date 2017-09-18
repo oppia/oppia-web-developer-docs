@@ -2,7 +2,7 @@
   * [[Contributor FAQs|Frequently-Asked-Questions]]
   * **[[Get involved!|Home]]**
     * [Coders](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up)
-    * [[Instructional designers|Contributing-knowledge-to-Oppia]]
+    * [[Instructional designers|Teaching-with-Oppia]]
     * [[UX researchers|Conducting-research-with-students]]
     * [[Designers and artists|Contributing-to-Oppia's-design]]
     * [[Google Summer of Code 2018|Google-Summer-of-Code-2018]]
