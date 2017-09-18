@@ -22,7 +22,7 @@ Welcome! As a first step, we'd **strongly recommend** taking up some part of [#3
 
 The above assumes you are familiar with AngularJS (v1). If you aren't, we recommend learning it; a nice tutorial can be found [here](https://www.codeschool.com/courses/shaping-up-with-angularjs). Most of our open issues are in the frontend, and require at least some knowledge of HTML, AngularJS and CSS, so knowledge of frontend coding will serve you well if you'd like to contribute to Oppia over the longer term.
 
-If you're allergic to frontend work, and prefer hacking on bash/python instead, let us know by emailing admin@oppia.org -- we do have a small set of backend starter projects available, and will try to find something suitable. But we'd strongly recommend learning AngularJS if you have the opportunity and inclination, otherwise the range of projects you can take up will be more limited.
+If you're allergic to frontend work, and prefer hacking on bash/python instead, let us know by emailing admin@oppia.org -- we do have a small set of backend starter projects available. But we'd strongly recommend learning AngularJS if you have the opportunity and inclination, otherwise the range of projects you can take up will be more limited.
 
 ### ... as an existing contributor
 
