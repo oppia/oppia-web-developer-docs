@@ -15,7 +15,7 @@ The following are Oppia's 2017 GSoC project ideas:
 * [Sitewide ACL refactor](#site-wide-acl-refactor)
 * [Achievement system](#achievement-system)
 
-The students who completed GSoC in 2017 are listed on [this page](https://summerofcode.withgoogle.com/organizations/4875267966238720/).
+For more information on the projects that were completed in GSoC 2017, please see the [official GSoC page](https://summerofcode.withgoogle.com/organizations/4875267966238720/) for the Oppia Foundation.
 
 # Students
 GSoC is an excellent opportunity for students to get paid to work on an open source project. If you're interested in applying as a student, you should definitely read the following resources:
