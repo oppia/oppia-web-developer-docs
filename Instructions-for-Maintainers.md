@@ -107,18 +107,20 @@ Anmol        Machine learning
 Arunabh      Subscriptions, learner dashboard, general frontend
 Barnabas     Iframed explorations
 Ben          Answer handling, frontend refactoring, backend migrations
-Corey        Mobile frontend
 Himanshu     Simple editor
 Jacob        Metrics
 Jared        User journeys
+Joe          Oppia's blog
 Kevin L      Collection editor, library index page
-Kevin T      Collection viewer, hints
+Kevin T      Collection viewer, hints, solutions
 Kristin      Accessibility
 Mark         General UI design, mathematics lessons
+Pranav       Statistics, machine learning
 Prasanna     Emails, machine learning
 Rachel       User research
 Tony         Learner view (both collections and explorations)
 Vojtěch      Speed
 Xinyu        Exploration saving/publishing, editor history tab, release process
+Yogesh       Backend stuff, ACLs
 Sean         Everything else
 ```
