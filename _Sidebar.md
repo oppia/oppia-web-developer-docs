@@ -3,7 +3,7 @@
   * **[[Get involved!|Home]]**
     * [Coders](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up)
     * [[Instructional designers|Contributing-knowledge-to-Oppia]]
-    * [[UX researchers|Making-Oppia-better]]
+    * [[UX researchers|Conducting-research-with-students]]
     * [[Designers and artists|Contributing-to-Oppia's-design]]
     * [[Google Summer of Code 2018|Google-Summer-of-Code-2018]]
   * **[[Recommended issues|https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+milestone%3A%22Recommended+projects%22]]**
