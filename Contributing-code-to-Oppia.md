@@ -25,7 +25,9 @@ The above assumes you are familiar with AngularJS (v1). If you aren't, we recomm
 
 If you're allergic to frontend work, and prefer hacking on bash/python instead, let us know by emailing admin@oppia.org -- we do have a small set of backend starter projects available. But we'd strongly recommend learning AngularJS if you have the opportunity and inclination, otherwise the range of projects you can take up will be more limited.
 
-After you've completed two starter projects, we will add you as a collaborator to the repository, and will also get in touch to suggest suitable longer-term projects based on your interests.
+### ... after completing two starter projects
+
+After you've completed two starter projects and successfully submitted PRs for them into develop, we'll add you as a collaborator on the Oppia repository. We'll also get in touch to suggest suitable longer-term projects based on your interests, but please feel free to email us at admin@oppia.org if you don't receive the email!
 
 ### ... as an existing contributor
 
