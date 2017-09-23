@@ -24,7 +24,7 @@ Thanks for your interest in improving the Oppia platform! This page explains how
 
 ### ... as a new contributor
 
-Welcome! As a first step, we'd **strongly recommend** tackling some part of one of the following starter issues:
+Welcome! Please make sure to follow the [setup instructions](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up) if you haven't already. After that, we'd **strongly recommend** tackling some part of one of the following starter issues:
 
 - [#3825](https://github.com/oppia/oppia/issues/3825) (refactoring; frontend)
 - [#3826](https://github.com/oppia/oppia/issues/3826) (refactoring; frontend)
