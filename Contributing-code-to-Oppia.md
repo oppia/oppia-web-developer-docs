@@ -15,15 +15,22 @@ Thanks for your interest in improving the Oppia platform! This page explains how
 1. Join the [oppia-dev@](https://groups.google.com/forum/#!forum/oppia-dev) mailing list, and say hi on the [gitter](https://gitter.im/oppia/oppia-chat) chat channel! You might also want to 'pin' the Gitter tab in your browser, so that it's easily accessible and you can keep abreast of new activity.
 1. Take up your first starter project! You can find more details in the next section.
 
+## Developing your skills
+
+- Consider learning AngularJS (v1), if you're new to it. A nice tutorial can be found [here](https://www.codeschool.com/courses/shaping-up-with-angularjs). Most of our open issues are in the frontend, and require at least some knowledge of HTML, AngularJS and CSS, so knowledge of frontend coding will serve you well if you'd like to contribute to Oppia over the longer term.
+- We also have some backend (python) and devops (bash) projects available, but not as many, so we'd strongly recommend learning AngularJS if you have the opportunity and inclination -- otherwise, the range of projects you can take up will be more limited. That said, let us know at welcome@oppia.org if you'd like suggestions for non-frontend projects, and we'll do our best to help!
+
 ## Finding something to do...
 
 ### ... as a new contributor
 
-Welcome! As a first step, we'd **strongly recommend** taking up some part of [#3825](https://github.com/oppia/oppia/issues/3825) or [#3826](https://github.com/oppia/oppia/issues/3826) as a starter project, so that you can become familiar with the codebase and the development workflow. If you decide to do so, please go ahead and leave a comment saying which service you're taking, and submit a follow-up PR by following the [instructions below](Contributing-code-to-Oppia#instructions-for-making-a-code-change). You don't need to wait for approval to get started.
+Welcome! As a first step, we'd **strongly recommend** tackling some part of one of the following starter issues:
 
-The above assumes you are familiar with AngularJS (v1). If you aren't, we recommend learning it; a nice tutorial can be found [here](https://www.codeschool.com/courses/shaping-up-with-angularjs). Most of our open issues are in the frontend, and require at least some knowledge of HTML, AngularJS and CSS, so knowledge of frontend coding will serve you well if you'd like to contribute to Oppia over the longer term.
+- [#3825](https://github.com/oppia/oppia/issues/3825) (refactoring; frontend)
+- [#3826](https://github.com/oppia/oppia/issues/3826) (refactoring; frontend)
+- [#2394](https://github.com/oppia/oppia/issues/2394) (docstrings; backend)
 
-If you're allergic to frontend work, and prefer hacking on bash/python instead, let us know by emailing admin@oppia.org -- we do have a small set of backend starter projects available. But we'd strongly recommend learning AngularJS if you have the opportunity and inclination, otherwise the range of projects you can take up will be more limited.
+so that you can become familiar with the codebase and the development workflow. If you decide to do so, please go ahead and leave a comment saying which part of the issue you're taking, and submit a follow-up PR by following the [instructions below](Contributing-code-to-Oppia#instructions-for-making-a-code-change). You don't need to wait for approval to get started.
 
 ### ... after completing two starter projects
 
