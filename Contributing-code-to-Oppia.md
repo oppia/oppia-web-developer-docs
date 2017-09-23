@@ -34,7 +34,7 @@ so that you can become familiar with the codebase and the development workflow. 
 
 ### ... after completing two starter projects
 
-After you've completed two starter projects and successfully submitted PRs for them into develop, we'll add you as a collaborator on the Oppia repository. We'll also get in touch to suggest suitable longer-term projects based on your interests, but please feel free to email us at admin@oppia.org if you don't receive the email!
+After you've completed parts of at least two different starter projects and successfully submitted PRs for them into develop, we'll add you as a collaborator on the Oppia repository. We'll also get in touch to suggest suitable longer-term projects based on your interests, but please feel free to email us at admin@oppia.org if you don't receive the email!
 
 ### ... as an existing contributor
 
