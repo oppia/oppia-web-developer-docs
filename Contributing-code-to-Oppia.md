@@ -12,7 +12,8 @@ Thanks for your interest in improving the Oppia platform! This page explains how
    * Go to the [Oppia repo](https://github.com/oppia/oppia), and click 'Watch' at the top right. Ensure that you're not 'ignoring' the repo, so that you'll be notified when someone replies to a conversation you're part of.
    * (Optional) Consider setting up [automatic auth](https://help.github.com/articles/set-up-git/#next-steps-authenticating-with-github-from-git) so you don't have to type in a username and password each time you commit a change.
 1. Familiarize yourself with the resources linked to from the sidebar of this page, especially the [overview of the codebase](https://github.com/oppia/oppia/wiki/Overview-of-the-Oppia-codebase), the [coding style guide](https://github.com/oppia/oppia/wiki/Coding-style-guide), and our [Frequently Asked Questions](https://github.com/oppia/oppia/wiki/Frequently-Asked-Questions). You don't have to read all the other stuff right now, but it's a good idea to be aware of what's available, so that you can refer to it later if needed.
-1. Join the [oppia-dev@](https://groups.google.com/forum/#!forum/oppia-dev) mailing list, and say hi on the [gitter](https://gitter.im/oppia/oppia-chat) chat channel! You might also want to 'pin' the Gitter tab in your browser, so that it's easily accessible and you can keep abreast of new activity.
+1. Join the [oppia-dev@](https://groups.google.com/forum/#!forum/oppia-dev) mailing list, and say hi on the [gitter](https://gitter.im/oppia/oppia-chat) chat channel!
+1. On your browser, consider [pinning](https://support.mozilla.org/en-US/kb/pinned-tabs-keep-favorite-websites-open) both this wiki page (for easy reference later) and the Gitter tab (so that it's easily accessible and you can keep abreast of new activity). (Just right-click the tab and select "Pin Tab".)
 1. Take up your first starter project! You can find more details in the next section.
 
 ## Developing your skills
