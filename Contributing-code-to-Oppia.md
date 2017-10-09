@@ -27,8 +27,8 @@ Thanks for your interest in improving the Oppia platform! This page explains how
 
 Welcome! Please make sure to follow the [setup instructions](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up) above if you haven't already. After that, we'd **strongly recommend** tackling some part of one of the following starter issues:
 
-- [#3950](https://github.com/oppia/oppia/issues/3950) (refactoring; frontend)
 - [#3826](https://github.com/oppia/oppia/issues/3826) (refactoring; frontend)
+- [#3950](https://github.com/oppia/oppia/issues/3950) (refactoring; frontend)
 - [#2394](https://github.com/oppia/oppia/issues/2394) (docstrings; backend)
 
 so that you can become familiar with the codebase and the development workflow. If you decide to do so, please go ahead and leave a comment saying which part of the issue you're taking, and submit a follow-up PR by following the [instructions below](Contributing-code-to-Oppia#instructions-for-making-a-code-change). You don't need to wait for approval to get started!
