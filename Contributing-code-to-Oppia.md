@@ -29,6 +29,7 @@ Welcome! Please make sure to follow the [setup instructions](https://github.com/
 
 - [#3826](https://github.com/oppia/oppia/issues/3826) (refactoring; frontend)
 - [#3950](https://github.com/oppia/oppia/issues/3950) (refactoring; frontend)
+- [#3954](https://github.com/oppia/oppia/issues/3954) (e2e tests reorganization; frontend)
 - [#2394](https://github.com/oppia/oppia/issues/2394) (docstrings; backend)
 
 so that you can become familiar with the codebase and the development workflow. If you decide to do so, please go ahead and leave a comment saying which part of the issue you're taking, and submit a follow-up PR by following the [instructions below](Contributing-code-to-Oppia#instructions-for-making-a-code-change). You don't need to wait for approval to get started!
