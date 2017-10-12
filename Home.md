@@ -15,7 +15,7 @@ Finally, if, after reading the above links, you'd like to help, but aren't sure 
 
 
 ## Oppia Social Meets
-At Oppia, we believe in socializing with our contributors. Many of us are students, recent graduates, and teachers from different corners of the world and a social meet is a great way to help all the members of Oppia feel more connected. Following this idea, we are organizing social meets, AMA, Webinars, talks on alternate weekends. Make sure you check out the calendar of events below and wave “Hey” at the meet!
+At Oppia, we believe in socializing with our contributors. Many of us are students, recent graduates, and teachers from different corners of the world and a social meet is a great way to help all the members of Oppia feel more connected. Following this idea, we are organizing social meets, AMA, Webinars, talks on alternate weekends. Make sure you check out the calendar of events below and wave “Hi” at the meet!
 
 | Date   |      Time (*IST)      |  Meet |
 |----------|:-------------:     |------:|
