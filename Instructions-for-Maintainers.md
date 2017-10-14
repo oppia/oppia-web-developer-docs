@@ -80,17 +80,17 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 25 Sep -  1 Oct   Prasanna      @prasanna08
  2 Oct -  8 Oct   Barnabas      @MAKOSCAFEE
  9 Oct - 15 Oct   Yogesh        @1995YogeshSharma
-16 Oct - 22 Oct   Tony          @tjiang11 (please re-read maintainer responsibilities, above)
-23 Oct - 29 Oct   Kristin       @anthkris (please re-read maintainer responsibilities, above)
-30 Oct -  5 Nov   Jacob         @jacobdavis11 (please re-read maintainer responsibilities, above)
- 6 Nov - 12 Nov   Pranav        @pranavsid98 (please re-read maintainer responsibilities, above)
-13 Nov - 19 Nov   Anmol         @anmolshkl (please re-read maintainer responsibilities, above)
-20 Nov - 26 Nov   Prasanna      @prasanna08 (please re-read maintainer responsibilities, above)
+16 Oct - 22 Oct   Tony          @tjiang11
+23 Oct - 29 Oct   Kristin       @anthkris
+30 Oct -  5 Nov   Jacob         @jacobdavis11
+ 6 Nov - 12 Nov   Pranav        @pranavsid98
+13 Nov - 19 Nov   Anmol         @anmolshkl
+20 Nov - 26 Nov   Prasanna      @prasanna08
 
-27 Nov -  3 Dec   Barnabas      @MAKOSCAFEE (please re-read maintainer responsibilities, above)
- 4 Dec - 10 Dec   Yogesh        @1995YogeshSharma (please re-read maintainer responsibilities, above)
-11 Dec - 17 Dec   Jacob         @jacobdavis11 (please re-read maintainer responsibilities, above)
-18 Dec - 24 Dec   Kevin         @kevinlee12 (please re-read maintainer responsibilities, above)
+27 Nov -  3 Dec   Barnabas      @MAKOSCAFEE
+ 4 Dec - 10 Dec   Yogesh        @1995YogeshSharma
+11 Dec - 17 Dec   Jacob         @jacobdavis11
+18 Dec - 24 Dec   Kevin         @kevinlee12
 25 Dec - 31 Dec   Tony          @tjiang11
 ```
 
