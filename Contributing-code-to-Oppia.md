@@ -43,8 +43,8 @@ After you've completed parts of at least two different starter projects and succ
 There are several options:
 
 - **Want easy projects?** Check out our [list of "good first issues"](https://github.com/oppia/oppia/labels/good%20first%20issue).
-- **Want projects that involve debugging?** Check out our [list of issues needing debugging help](https://github.com/oppia/oppia/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20label%3A%22needs%20debugging%22%20).
 - **Want projects that matter?** Check out our [list of important issues](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3Aimportant), which contains issues that are high priority for the project.
+- **Want to practice debugging?** Check out our [list of issues needing debugging help](https://github.com/oppia/oppia/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20label%3A%22needs%20debugging%22%20).
 - **Want to practice writing a design doc?** Check out the [list of issues requiring a design doc](https://github.com/oppia/oppia/labels/needs%20design%20doc). This is useful for learning how to write good "technical implementation" proposals.
 - **Want to join a team working on a larger effort?** See our [list of projects](https://github.com/oppia/oppia/projects).
 - **Want to lead a project?** Let us know by emailing admin@oppia.org. We may offer you the opportunity to do this once you've sent in several good PRs.
