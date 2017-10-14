@@ -5,7 +5,7 @@
   - go to the [list of important issues](https://github.com/oppia/oppia/issues?q=is%3Aissue+is%3Aopen+label%3Aimportant). For any existing issue with an assignee, ping them and ask for a status update if there's been no response for 6-7 days. Deassign the issue from the current assignee if there's been no indication of progress or response to pings for > 10 days.
   - do the same for projects without leads: [link 1](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+project%3Aoppia%2Foppia%2F22), [link 2](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+project%3Aoppia%2Foppia%2F21), [link 3](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+project%3Aoppia%2Foppia%2F20), [link 4](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+project%3Aoppia%2Foppia%2F12), [link 5](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+project%3Aoppia%2Foppia%2F1).
 - **During the week**:
-  - Make sure all incoming issues/PRs are triaged and labelled. In particular, ensure that incoming PRs are assigned to the owners of the issue that's being fixed by the PR.
+  - Make sure all incoming issues/PRs are triaged and labelled. Assign incoming PRs to the owners of the issue that's being fixed by the PR.
   - Welcome new contributors (e.g. on gitter).
   - Do code reviews for simple incoming PRs.
   - Help with release testing, if your shift falls within a "release week".
