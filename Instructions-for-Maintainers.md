@@ -8,7 +8,7 @@
   - Make sure all incoming issues/PRs are triaged and labelled. Assign incoming PRs to the owners of the issue that's being fixed by the PR.
   - Welcome new contributors (e.g. on gitter).
   - Do code reviews for simple incoming PRs.
-  - Help with release testing, if your shift falls within a "release week" (you'll get an email from a release coordinator a week before).
+  - Help with release testing, if needed.
 - **After your shift**:
   - [Optional] If you changed your notification preferences at the start of the shift, you might want to reset them to "not watching" so that you only get emails when you are @mentioned.
 
