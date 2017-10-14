@@ -1,4 +1,5 @@
 ## Maintainer responsibilities
+- If you cannot make your shift, please swap with someone else **in advance**.
 - **At the start of your shift** (see [rota](https://github.com/oppia/oppia/wiki/Instructions-for-Maintainers#maintainer-rota)):
   - if you aren't already watching the repository, please change your [notification preferences](https://github.com/oppia/oppia/subscription) to "watching", just for this week.
   - go to the [list of PRs](https://github.com/oppia/oppia/pulls), and make sure all PRs are moving forward; act on any that are being sat on for too long. Also, ensure that the PR's "assignee" is the person who's supposed to next act on it (usually, this would be either the committer or the reviewer). **Please do this before looking at the issue tracker in the next step, since some issues will have PRs already in progress (and GitHub doesn't always make this clear).**
