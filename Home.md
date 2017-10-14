@@ -27,3 +27,5 @@ At Oppia, we believe in socializing with our contributors. Many of us are studen
 | Sat 23 Dec | 09:45 – 10:30   | AMA Event #Dec06 |
 
 <sup>* Feel free to let us know if your time zone is uncovered. We could amend them accordingly.</sup>
+
+Join the Oppia Social meet #Oct01 at 9:30 AM - 10:30 AM (IST) on [hangouts video call](https://plus.google.com/hangouts/_/calendar/ZjA3ZmpsZTE2bzhuOTRkdmVyMTdhcjRyaGdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ.0met50ufki96nkl7lceojl1391?authuser=0).
