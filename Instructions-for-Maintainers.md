@@ -12,8 +12,8 @@
   - Help with release testing, if needed.
 - **After your shift**:
   - Pass the baton to the next maintainer. In doing so, confirm that:
-    - All issues have labels applied to them (i.e. [this link](https://github.com/oppia/oppia/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20-label%3A%22backend%22%20-label%3A%22frontend%22%20-label%3A%22full-stack%22%20-label%3A%22TODO%3A%20triage%22%20) should be empty).
-    - All non-starter issues have project assignments (i.e. [this link](https://github.com/oppia/oppia/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20no%3Aproject) should only contain broken-down starter projects owned by **@shubha1593**).
+    - All issues have labels applied to them (i.e. [this list](https://github.com/oppia/oppia/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20-label%3A%22backend%22%20-label%3A%22frontend%22%20-label%3A%22full-stack%22%20-label%3A%22TODO%3A%20triage%22%20) should be empty).
+    - All non-starter issues have project assignments (i.e. [this list](https://github.com/oppia/oppia/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20no%3Aproject) should only contain broken-down starter projects owned by **@shubha1593**).
 
   - [Optional] If you changed your notification preferences at the start of the shift, you might want to reset them to "not watching" so that you only get emails when you are @mentioned.
 
