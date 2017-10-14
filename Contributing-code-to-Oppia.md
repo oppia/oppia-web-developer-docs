@@ -40,7 +40,7 @@ After you've completed parts of at least two different starter projects and succ
 
 ### ... as an existing contributor
 
-There are several options:
+There are lots of options!
 
 - **Want easy projects?** Check out our [list of "good first issues"](https://github.com/oppia/oppia/labels/good%20first%20issue).
 - **Want projects that matter?** Check out our [list of important issues](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3Aimportant), which contains issues that are high priority for the project.
