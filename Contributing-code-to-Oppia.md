@@ -42,8 +42,8 @@ After you've completed parts of at least two different starter projects and succ
 
 There are several options:
 
-- **Want easier projects?** Check out our list of ["good first issue" projects](https://github.com/oppia/oppia/labels/good%20first%20issue).
-- **Want projects that matter?** Check out our [list of important projects](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3Aimportant), which contains several issues that we'd very much like to see completed.
+- **Want easier projects?** Check out our list of ["good first issues"](https://github.com/oppia/oppia/labels/good%20first%20issue).
+- **Want projects that matter?** Check out our [list of important issues](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3Aimportant), which contains several issues that we'd very much like to see completed.
 - **Want to join a team that's working on a larger effort?** See our [list of projects](https://github.com/oppia/oppia/projects)!
 - **Want to lead a project?** We may offer you the opportunity to do this, once you've sent in several good PRs.
 - **Want help figuring out what to do?** Just ask us on [Gitter](https://gitter.im/oppia/oppia-chat), or send an email to admin@oppia.org. We'll try to help!
