@@ -7,7 +7,7 @@
     * [[Designers and artists|Contributing-to-Oppia's-design]]
     * **[[Hacktoberfest 2017|Hacktoberfest-2017]]**
     * [[Google Summer of Code 2018|Google-Summer-of-Code-2018]]
-  * **[[Recommended issues|https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+milestone%3A%22Recommended+projects%22]]**
+  * **[[Recommended issues|https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3Aimportant]]**
   * Installing Oppia
     * [[Linux|Installing-Oppia-(Linux)]]
     * [[Mac OS|Installing-Oppia-(Mac-OS)]]
