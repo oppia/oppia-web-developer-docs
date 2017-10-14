@@ -33,7 +33,7 @@ Please see [Instructions for Reviewers](https://github.com/oppia/oppia/wiki/Inst
    * a list of checkboxes describing the issue's sub-steps
    * a link to any design doc associated with the issue
 
-You can find issues which need to have labels applied to them using [this link](https://github.com/oppia/oppia/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20-label%3A%22backend%22%20-label%3A%22frontend%22%20-label%3A%22full-stack%22%20-label%3A%22TODO%3A%20triage%22%20). We want that list to be empty as often as possible.
+You can find issues which need to have labels applied to them using [this link](https://github.com/oppia/oppia/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20-label%3A%22backend%22%20-label%3A%22frontend%22%20-label%3A%22full-stack%22%20-label%3A%22TODO%3A%20triage%22%20), and you can find issues with missing project assignments using [this link](https://github.com/oppia/oppia/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20no%3Aproject). We want the first list to be empty, and the second list to contain only broken-down starter projects whose owner is @shubha1593.
 
 **Note:** you do not need to assign a milestone, unless you know what you're doing! Milestones are for explicit tracking of certain high-priority issues.
 
