@@ -2,7 +2,7 @@
 - **At the start of your shift** (see [rota](https://github.com/oppia/oppia/wiki/Instructions-for-Maintainers#maintainer-rota)):
   - if you aren't already watching the repository, please change your [notification preferences](https://github.com/oppia/oppia/subscription) to "watching", just for this week.
   - go to the [list of PRs](https://github.com/oppia/oppia/pulls), and make sure all PRs are moving forward; act on any that are being sat on for too long. Also, ensure that the PR's "assignee" is the person who's supposed to next act on it (usually, this would be either the committer or the reviewer). **Please do this before looking at the issue tracker in the next step, since some issues will have PRs already in progress (and GitHub doesn't always make this clear).**
-  - go to the [list of recommended issues](https://github.com/oppia/oppia/milestone/42). For any existing issue with an assignee, ping them and ask for a status update if there's been no response for 6-7 days. Deassign the issue from the current assignee if there's been no indication of progress or response to pings for > 14 days.
+  - go to the [list of important issues](https://github.com/oppia/oppia/issues?q=is%3Aissue+is%3Aopen+label%3Aimportant). For any existing issue with an assignee, ping them and ask for a status update if there's been no response for 6-7 days. Deassign the issue from the current assignee if there's been no indication of progress or response to pings for > 10 days.
 - **During the week**:
   - Make sure all incoming issues/PRs are triaged and labelled. In particular, ensure that incoming PRs are assigned to the owners of the issue that's being fixed by the PR.
   - Welcome new contributors (e.g. on gitter).
@@ -20,37 +20,26 @@ Please see [Instructions for Reviewers](https://github.com/oppia/oppia/wiki/Inst
 
 ### Handling incoming issues
 1. Tidy up the title, if necessary.
-2. Ensure that the issue has one of each of the following labels:
-  * an owner
-  * a location (frontend/backend/full-stack)
-  * a type (bug/feature)
-  * a TODO describing the type of work needed, and the stage that the issue is in. If the TODO is a light green tag, also add a separate 'starter project' tag (see below for more information about why).
-3. (Optional) It may also be helpful to add a list of checkboxes that describe the issue's sub-steps.
-4. (Optional) If the issue has a design doc associated with it, add a link to the design doc.
+2. Ensure that the issue has one of each of the following:
+   * a project assignment (if you're not sure which project it falls under, add "TODO: TRIAGE" and the tech leads will handle it).
+   * a "talk-to" person (this usually matches the appropriate project lead)
+   * a location (frontend/backend/full-stack)
+3. (Optional) Add the following:
+   * a "good first issue" label, if the issue seems like one that can be easily tackled by a new contributor. This tag gets automatically picked up by GitHub.
+   * one of "needs UI design", "needs UX design", "needs design doc", "needs debugging", as appropriate.
+   * a list of checkboxes describing the issue's sub-steps
+   * a link to any design doc associated with the issue
 
-You can find issues which need to have labels applied to them using [this link](https://github.com/oppia/oppia/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20-label%3A%22type%3A%20bug%20(major)%22%20-label%3A%22type%3A%20bug%20(minor)%22%20-label%3A%22type%3A%20feature%20(important)%22%20-label%3A%22type%3A%20feature%20(minor)%22%20-label%3A%22type%3A%20infrastructure%22%20-label%3A%22TODO%3A%20triage%22%20). We want that list to be empty as often as possible.
+You can find issues which need to have labels applied to them using [this link](https://github.com/oppia/oppia/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20-label%3A%22backend%22%20-label%3A%22frontend%22%20-label%3A%22full-stack%22%20-label%3A%22TODO%3A%20triage%22%20). We want that list to be empty as often as possible.
 
-**Note:** you do not need to assign a milestone, unless you know what you're doing! Milestones are for explicit tracking of certain high-priority issues. They do not need to be applied to all issues.
+**Note:** you do not need to assign a milestone, unless you know what you're doing! Milestones are for explicit tracking of certain high-priority issues.
 
-#### Assigning TODO labels
-The TODO labels represent what help the issue needs in order to move forward. This helps people find something they want to do, and also helps us track the progress of issues. The rough sequence of labels is as follows (but note that not all of these will be part of the workflow for every issue):
+Here are the meanings of the "needs X" labels:
 
-* `triage`: we need to discuss whether we are going to address this issue.
-* `design (UX)`: the way that the user interacts with this feature needs to be planned. The next thing to be done here is to outline the core user journeys (probably using a doc and/or screenshots), and discuss them on the issue thread, so that the feature can move forward.
-* `design (UI)`: UI design is needed. In contrast to the TODO: design (UX) label, what needs to be done here is more localized, and typically means we already have an idea of how the user is going to interact with it. This should be suitable for new design contributors.
-* `tech (design doc)`: means that the problem is known, but the solution needs fleshing out. The next thing to do is to prepare a short doc outlining the solution approach and implementation plan, add a link to it on the issue thread, then discuss it before starting implementation.
-* `tech (breakdown)`: a design doc/detailed steps is completed, but we need to break them into single-person chunks.
-* `tech (instructions)`: the overall solution is generally known, but newcomers to the codebase may need additional instructions (e.g. which files are relevant) to be able to implement them. Adding instructions, such as where to make the necessary changes, will help move these issues to the `TODO: code` stage.
-* `code`: the overall solution is known and is described in the issue, and the only thing left to do is code it. This issue should be suitable for new developers.
-
-**Note:** We list our 'starter project' issues on [OpenHatch](http://www.openhatch.org), and have told OpenHatch that the 'starter project' label corresponds to our starter projects. This is why the 'starter project' tag is added to issues with TODO: design (UI) and TODO: code.
-
-#### Assigning the type of an issue
-To label the type of an issue, please follow the following guidelines:
-* (Bug or feature) Something is a *bug* if it breaks existing functionality that is expected to work in a particular way, but that doesn’t work. It is a *feature* if it’s a new thing. For the sake of consistency, writing a test should be considered a bug.
-* (Important bug or minor bug) Important bugs lie along user journeys that are accessed frequently, and fixing these result in significant improvements in usability etc. Minor bugs are things like UI fixes that aren't that frequently seen. 
-* (Important feature or minor feature) Important features are those that are in line with our strategy, i.e. they are in line with our current priorities. Minor features are nice to have, but not being prioritized.
-* (Infrastructure) Infrastructure issues are those which don't quite fall under the purview of either features or issues. For instance, performing refactoring work, cleaning up code, or introducing new tests would fall under the infrastructure type.
+* `needs UX design`: the way that the user interacts with this feature needs to be planned. The next thing to be done here is to outline the core user journeys (probably using a doc and/or screenshots), and discuss them on the issue thread, so that the feature can move forward.
+* `needs UI design`: UI design is needed. In contrast to the "needs UX design" label, what needs to be done here is more localized, and typically means we already have an idea of how the user is going to interact with it. This should be suitable for new design contributors.
+* `needs design doc`: means that the problem is known, but the solution needs fleshing out. The next thing to do is to prepare a short doc outlining the solution approach and implementation plan, add a link to it on the issue thread, then discuss it before starting implementation.
+* `needs debugging`: something weird is going on, and we don't know exactly what the issue is. Some investigation is needed.
 
 #### Blocking bugs
 There is also a [blocking bugs milestone](https://github.com/oppia/oppia/milestone/39) where we keep track of bugs which we use to keep track of blocking bugs. This milestone is different from the regular milestones, in that it has no due date and the goal is to keep it at 100% done. Blocking bugs are bugs which impact core creator/learner functionality, or regressions (i.e. break current functionality). A release cannot happen without all current blocking bugs being resolved, and some of these bugs may need hotfixes. 
