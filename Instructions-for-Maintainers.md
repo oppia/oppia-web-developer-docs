@@ -106,7 +106,7 @@ Himanshu     Simple editor
 Jacob        Metrics
 Jared        User journeys
 Joe          Oppia's blog
-Kevin L      Collection editor, library index page
+Kevin L      Embedding, collection editor, library index page
 Kevin T      Collection viewer, hints, solutions
 Kristin      Accessibility
 Mark         General UI design, mathematics lessons
