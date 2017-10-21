@@ -99,23 +99,21 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 ```
 Allan        Rich-text editor, suggestions
 Anmol        Machine learning
-Arunabh      Subscriptions, learner dashboard, general frontend
-Barnabas     Iframed explorations
-Ben          Answer handling, frontend refactoring, backend migrations
+Arunabh      Subscriptions, learner dashboard
+Ben          Migrations, StackDriver errors
 Himanshu     Simple editor
 Jacob        Metrics
 Jared        User journeys
 Joe          Oppia's blog
 Kevin L      Embedding, collection editor, library index page
-Kevin T      Collection viewer, hints, solutions
-Kristin      Accessibility
+Kevin T      Hints and solutions
 Mark         General UI design, mathematics lessons
-Pranav       Statistics, machine learning
+Pranav       Exploration statistics tab
 Prasanna     Emails, machine learning
 Rachel       User research
+Shubha       Starter projects, frontend refactoring
 Tony         Learner view (both collections and explorations)
 Vojtěch      Speed
-Xinyu        Exploration saving/publishing, editor history tab, release process
 Yogesh       Backend stuff, ACLs
 Sean         Everything else
 ```
