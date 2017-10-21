@@ -54,7 +54,6 @@
     * [[Instructions for Welcomers|Instructions-for-Welcomers]]
     * [[Instructions for Reviewers|Instructions-for-Reviewers]]
     * [[Instructions for Maintainers|Instructions-for-Maintainers]]
-    * [[Instructions for Admins|Instructions-for-Admins]]
     * [[Instructions for making changes to roles and actions|Instructions-for-editing-roles-or-actions]]
   * Past Events
     * [[Google Summer of Code 2017|Google-Summer-of-Code-2017]]
