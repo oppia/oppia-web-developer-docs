@@ -24,7 +24,7 @@
     * [[Git cheat sheet|Git-cheat-sheet]]
     * [[Mobile development|Mobile-development]]
     * [[Mobile device testing|Mobile-device-testing]]
-    * [[Browser & device testing|Browser-&-Device-Testing-Using-BrowserStack]]
+    * [[Browser & device testing|Browser-and-Device-Testing-Using-BrowserStack]]
     * [[Adding new translations|Adding-new-translations-for-i18n]]
     * [[How to develop for i18n|How-to-develop-for-i18n]]
     * [[Adding static assets|Adding-static-assets]]
