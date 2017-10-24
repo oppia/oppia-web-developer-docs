@@ -19,7 +19,7 @@ At Oppia, we believe in socializing with our contributors. Many of us are studen
 
 | Date   |      Time (*IST)      |  Meet |
 |----------|:-------------:     |------:|
-| Sat 14 Oct|  09:30 – 10:30 | Oppia Social meet #Oct01 |
+| Sat 14 Oct|  09:30 – 10:30 | ~~Oppia Social meet #Oct01~~ |
 | Sat 28 Oct|  09:45 – 10:30   | [AMA Event #Oct02]()  |
 | Sat 11 Nov | 09:45 – 10:30   | Oppia Social meet #Nov03 |
 | Sat 25 Nov | 09:45 – 10:30   | Webinar/ Talk #Nov04 |
