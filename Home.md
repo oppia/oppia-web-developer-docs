@@ -20,7 +20,7 @@ At Oppia, we believe in socializing with our contributors. Many of us are studen
 | Date   |      Time (*IST)      |  Meet |
 |----------|:-------------:     |------:|
 | Sat 14 Oct|  09:30 – 10:30 | Oppia Social meet #Oct01 |
-| Sat 28 Oct|  09:45 – 10:30   | AMA Event #Oct02  |
+| Sat 28 Oct|  09:45 – 10:30   | [AMA Event #Oct02]()  |
 | Sat 11 Nov | 09:45 – 10:30   | Oppia Social meet #Nov03 |
 | Sat 25 Nov | 09:45 – 10:30   | Webinar/ Talk #Nov04 |
 | Sat 9 Dec  | 09:45 – 10:30   | Oppia Social meet #Dec05 |
@@ -28,4 +28,5 @@ At Oppia, we believe in socializing with our contributors. Many of us are studen
 
 <sup>* Feel free to let us know if your time zone is uncovered. We could amend them accordingly.</sup>
 
+[Join us at Hangouts](https://goo.gl/M59R3m) on October 27 - 9:15 PM PDT | October 28 - 9:45 AM IST
 
