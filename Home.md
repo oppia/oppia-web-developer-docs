@@ -30,3 +30,5 @@ At Oppia, we believe in socializing with our contributors. Many of us are studen
 
 [Join us at Hangouts](https://goo.gl/M59R3m) on October 27 - 9:15 PM PDT | October 28 - 9:45 AM IST
 
+Sildo permalink - https://app2.sli.do/event/bnbpoysq
+
