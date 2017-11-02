@@ -96,6 +96,8 @@ For the proposal, we generally look for a clear indication that the student has 
 - A description, if applicable, of how the applicant plans to mitigate risks that could potentially derail the project.
 - Clear, unambiguous communication. (This is important; your proposal will be read by many mentors!)
 
+**New! (Nov 2017)**: One of our 2017 mentors, Rachel, wrote a blog post on her experiences reviewing GSoC proposals for Oppia. Here's the [link](https://medium.com/oppia-org/things-i-learned-from-reviewing-gsoc-proposals-154707cdcca5).
+
 # Oppia's Project Ideas
 
 Around January 2018, the Oppia team will select and publish a list project ideas that we believe would have significant impact on Oppia, and would make excellent Google Summer of Code projects. Check this space later on for more details!
