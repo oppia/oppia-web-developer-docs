@@ -70,6 +70,13 @@ The project plan is the most important section of the proposal, since it outline
 
 - **Mocks or wireframes**, if appropriate. For user-facing projects, we strongly favour proposals that demonstrate an empathy for the user. If you're proposing frontend design mocks, we suggest showing your ideas to your friends and getting their critical feedback, so that you can be confident that others find them intuitive as well. Note that you do not need to make your mocks pixel-perfect, but they should illustrate the primary user journeys clearly enough for us to understand exactly what you're proposing. Also, bear in mind that more is not necessarily better -- an important aspect of user-focused design is deciding what _not_ to do.
 
+### Sample proposals
+
+If you'd like to get a sense of what a proposal might contain, here are some examples of proposals that we accepted in 2017:
+- [Prasanna's proposal](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2017/pdfs/GSoC2017PrasannaPatil.pdf) for applying ML to the code interaction
+- [Arunabh's proposal](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2017/pdfs/GSoC2017ArunabhGhosh.pdf) for a new learner dashboard
+- [Yogesh's proposal](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2017/pdfs/GSoC2017YogeshSharma.pdf) for a sitewide ACL refactor
+
 ## Types of work related to Oppia projects
 In order to ensure a well-rounded engineering experience, developers will do some or all of the following depending on their project:
 - Meet with their mentors regularly
