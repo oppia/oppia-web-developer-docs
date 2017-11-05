@@ -32,7 +32,7 @@ Welcome! Please make sure to follow the [setup instructions](https://github.com/
 - [#3825](https://github.com/oppia/oppia/issues/3826) (frontend)
 - [#3954](https://github.com/oppia/oppia/issues/3954) (e2e tests reorganization; frontend)
 - [#2394](https://github.com/oppia/oppia/issues/2394) (docstrings; backend)
-- [#2394](https://github.com/oppia/oppia/issues/4057) (frontend; Karma tests)
+- [#4057](https://github.com/oppia/oppia/issues/4057) (frontend; Karma tests)
 
 so that you can become familiar with the codebase and the development workflow. If you decide to do so, please go ahead and leave a comment saying which part of the issue you're taking, and submit a follow-up PR by following the [instructions below](Contributing-code-to-Oppia#instructions-for-making-a-code-change). You don't need to wait for approval to get started!
 
