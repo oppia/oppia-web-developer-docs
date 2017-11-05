@@ -29,7 +29,7 @@ Welcome! Please make sure to follow the [setup instructions](https://github.com/
 
 - [#3826](https://github.com/oppia/oppia/issues/3826) (frontend)
 - [#3950](https://github.com/oppia/oppia/issues/3950) (frontend)
-- [#3825](https://github.com/oppia/oppia/issues/3826) (frontend)
+- [#3825](https://github.com/oppia/oppia/issues/3825) (frontend)
 - [#3954](https://github.com/oppia/oppia/issues/3954) (e2e tests reorganization; frontend)
 - [#2394](https://github.com/oppia/oppia/issues/2394) (docstrings; backend)
 - [#4057](https://github.com/oppia/oppia/issues/4057) (frontend; Karma tests)
