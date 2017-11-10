@@ -4,7 +4,7 @@
 - Your code is wrong.
 - Travis is being flaky.
 
-To figure out which it is, check the bottom of the GitHub PR thread. If there's a merge conflict, it will show up there. You'll need to fix the conflict following the [Instructions for making a code change](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#instructions-for-making-a-code-change) and push a new commit to the branch before Travis can run.
+To figure out which it is, check the bottom of the GitHub PR thread. If there's a merge conflict, it will show up there. You'll need to fix the conflict by following the [instructions for making a code change](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#instructions-for-making-a-code-change) and pushing a new commit to the branch before Travis can run.
 
 Otherwise, if Travis explicitly shows a failure, click the "Details" link at the bottom of the GitHub PR thread (at the right of "The Travis CI build failed"):
 
