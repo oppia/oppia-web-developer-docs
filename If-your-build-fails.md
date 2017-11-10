@@ -6,7 +6,7 @@
 
 To figure out which it is, check the bottom of the GitHub PR thread. If there's a merge conflict, it will show up there. You'll need to fix the conflict following the [Getting Started instructions](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#instructions-for-making-a-code-change) and push a new commit to the branch before Travis can run.
 
-If there are no merge conflicts, but Travis shows a failure, click the "Details" link at the bottom of the GitHub PR thread (at the right of "The Travis CI build failed"):
+Otherwise, if Travis explicitly shows a failure, click the "Details" link at the bottom of the GitHub PR thread (at the right of "The Travis CI build failed"):
 
   ![Travis failure indicator.](images/travis1.png)
 
