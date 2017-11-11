@@ -28,5 +28,5 @@ At Oppia, we believe in socializing with our contributors. Many of us are studen
 
 <sup>* Feel free to let us know if your time zone is uncovered. We could amend them accordingly. The link to the Hangout video call will be updated 3 days prior the Social meet</sup>
 
-Here's [the link](https://hangouts.google.com/hangouts/_/lhohq33yw5fblauzn6wyiijztie) to join the Oppia Socila meet #Nov03.
+Here's [the link](https://hangouts.google.com/call/lhohq33yw5fblauzn6wyiijztie?no_rd) to join the Oppia Socila meet #Nov03.
 
