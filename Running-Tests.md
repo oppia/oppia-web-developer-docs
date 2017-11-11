@@ -48,7 +48,7 @@ This will open a [Karma](http://karma-runner.github.io/0.10/index.html) server t
 
 The tests each relate to specific front-end components; the test file for `foo.js` is located in the same directory and called `fooSpec.js`.
 
-Karma has a handy shortcut for running a single test or a single test suite: all you need to do is to change 'it' to 'iit' or 'describe' to 'ddescribe' for that test or test suite, respectively.
+Karma has a handy shortcut for running a single test or a single test suite: all you need to do is to change 'it' to 'fit' or 'describe' to 'fdescribe' for that test or test suite, respectively.
 
 We also have a coverage tool that displays what fraction of the front-end code is currently covered by unit tests. After running the tests you can view the results at
 ```
