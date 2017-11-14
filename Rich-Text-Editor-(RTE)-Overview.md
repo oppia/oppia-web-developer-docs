@@ -35,12 +35,12 @@ As described above, the core of our RTE is the 3rd party library textAngular. If
 Oppia explorations can have Rich Text Components, which are custom widgets creators can insert into their content. Each component is an Angular directive, of the form `<oppia-noninteractive-*></oppia-noninteractive-*>`, with different attributes depending on the component. Examples include the Math (for inserting Latex) component, the Image component, and the Video component. This section describes how the components are defined in case you want to add your own component, or need to modify an existing one.
 
 The code for defining the Rich Text Components are housed in [`oppia/extensions/rich_text_components`](https://github.com/oppia/oppia/tree/develop/extensions/rich_text_components). In this folder each component has its own folder, with the following files and subfolders:
-* `/directives` contains files (JS, HTML) for directives used by the component one Angular directive is master directive for that component. In the directive controller, the component attributes are processed and saved onto the scope to be used by the template. In some cases this is as simple as using `oppiaHtmlEscaper.escapedJsonToObj` to parse each attribute into an object, but a more complicated example is in [`Video.js`](https://github.com/oppia/oppia/blob/develop/extensions/rich_text_components/Video/Video.js).
+* `/directives` contains files (JS, HTML) for directives used by the component one Angular directive is master directive for that component. In the directive controller, the component attributes are processed and saved onto the scope to be used by the template. In some cases this is as simple as using `oppiaHtmlEscaper.escapedJsonToObj` to parse each attribute into an object, but a more complicated example is in [`VideoDirective.js`](https://github.com/oppia/oppia/blob/develop/extensions/rich_text_components/Video/directives/VideoDirective.js).
 * `<component>.png` is an icon representing the component, used in the RTE toolbar button
 * `<component>Preview.png` is an image representing the component, used in the RTE text area (optional)
 
-The properties of components are specified in `/assets/rich_text_components_specs.js` each component is described by this properties:
-* `backend_id`: The id used in backend.
+The properties of components are specified in `/assets/rich_text_components_specs.js`. Each component is described by the following properties:
+* `backend_id`: A string used to identify this rich-text component in the backend.
 * `category`: The category the rich-text component falls under in the repository.
 * `description`: A description of the rich-text component.
 * `frontend_id`: The HTML tag name for the component.
