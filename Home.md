@@ -24,7 +24,7 @@ At Oppia, we believe in socializing with our contributors. Many of us are studen
 | Sat 11 Nov | 09:45 – 10:30   | ~~Oppia Social meet #Nov03~~ |
 | TBD Dec | TBD | Webinar: **50 GitHub tricks every developer should know!** |
 
-<sup>* Feel free to let us know if your time zone is uncovered. We could amend them accordingly. The link to the Hangout video call will be updated 3 days prior the Social meet</sup>
+<sup>* Feel free to let us know if your time zone is uncovered. We could amend them accordingly. The link to the Hangout video call will be updated 3 days prior the social meet</sup>
 
 
 
