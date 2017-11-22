@@ -102,7 +102,7 @@ Here's how to make a one-off code change. (If you're working on a larger feature
   * Add a descriptive title explaining the purpose of the PR (e.g. "Fix #bugnum: add a warning when the user leaves a page in the middle of an exploration."). The "Fix #bugnum: " prefix **must** be included if this PR resolves an issue on the issue tracker.
   * Ensure that the PR description includes the issue number (e.g. "This PR fixes #bugnum").
   * Click "Create pull request".
-  * **IMPORTANT**: Manually check the "Files changed" tab on your PR on GitHub to make sure that the list of files you want to submit is correct. (If not, please fix this by making additional commits, or by closing this PR and submitting a new one, before requesting a review.)
+  * **Important:** Manually check the "Files changed" tab on your PR on GitHub to make sure that the list of files you want to submit is correct. (If not, please fix this by making additional commits, or by closing this PR and submitting a new one, before requesting a review.)
   * Request a review from the issue's "owner" (which can be found in a label on the issue) **and** set the assignee of the PR to be the same person.
   * After a while, check your PR to see whether the Travis checks have passed. If not, follow the instructions at "[If your build fails...](https://github.com/oppia/oppia/wiki/If-your-build-fails)".
   * N.B.: If your PR is incomplete, please add a list of checkboxes representing the to-do list to the github conversation thread (like [this example](https://github.com/oppia/oppia/issues/1205)). That lets the reviewer know that you're already aware of those issues, so that they don't spend time telling you things you already know!
