@@ -5,9 +5,7 @@ When you receive a code review request, please try to do the review as soon as p
 ## When you first receive a review request
 
   1. When you get an email saying a pull request has been assigned to you for review, click on the link to open it in GitHub.
-  1. Do two pre-review checks:
-    * Ensure that the requester is in the "Committers" team (which means they've signed the CLA), otherwise direct them to the instructions in the README.
-    * Ensure that the correct target branch (usually "develop") has been selected to merge the branch into.
+  1. Ensure that the correct target branch (usually "develop") has been selected to merge the branch into.
   1. If you want to CC additional reviewers, you can do so using "/cc @username". Say why you're adding them.
 
 ## Doing the review
