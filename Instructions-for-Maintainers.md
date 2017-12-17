@@ -76,22 +76,39 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 ## Maintainer Rota
 
 ```
-18 Sep - 24 Sep   Anmol         @anmolshkl
-25 Sep -  1 Oct   Prasanna      @prasanna08
- 2 Oct -  8 Oct   Barnabas      @MAKOSCAFEE
- 9 Oct - 15 Oct   Yogesh        @1995YogeshSharma
-16 Oct - 22 Oct   Tony          @tjiang11
-23 Oct - 29 Oct   Kristin       @anthkris
-30 Oct -  5 Nov   Jacob         @jacobdavis11
- 6 Nov - 12 Nov   Pranav        @pranavsid98
-13 Nov - 19 Nov   Anmol         @anmolshkl
-20 Nov - 26 Nov   Prasanna      @prasanna08
-
-27 Nov -  3 Dec   Barnabas      @MAKOSCAFEE
- 4 Dec - 10 Dec   Yogesh        @1995YogeshSharma
 11 Dec - 17 Dec   Jacob         @jacobdavis11
 18 Dec - 24 Dec   Kevin         @kevinlee12
 25 Dec - 31 Dec   Tony          @tjiang11
+
+ 1 Jan -  7 Jan   Anmol         @anmolshkl
+ 8 Jan - 14 Jan   Kevin         @kevinlee12
+15 Jan - 21 Jan   Kevin         @kevinlee12
+22 Jan - 28 Jan   Shubha        @shubha1593
+29 Jan -  4 Feb   Pranav        @pranavsid98
+ 5 Feb - 11 Feb   Jacob         @jacobdavis11
+12 Feb - 18 Feb   Yogesh        @1995YogeshSharma
+19 Feb - 25 Feb   Prasanna      @prasanna08
+26 Feb -  4 Mar   Tony          @tjiang11
+ 5 Mar - 11 Mar   Allan         @AllanYangZhou
+
+12 Mar - 18 Mar   Anmol         @anmolshkl
+19 Mar - 25 Mar   Pranav        @pranavsid98
+26 Mar -  1 Apr   Jacob         @jacobdavis11
+ 2 Apr -  8 Apr   Yogesh        @1995YogeshSharma
+ 9 Apr - 15 Apr   Prasanna      @prasanna08
+16 Apr - 22 Apr   Shubha        @shubha1593
+23 Apr - 29 Apr   Allan         @AllanYangZhou 
+30 Apr -  6 May   Tony          @tjiang11
+
+ 7 May - 13 May   Anmol         @anmolshkl
+14 May - 20 May   Pranav        @pranavsid98
+21 May - 27 May   Kevin         @kevinlee12
+28 May -  3 Jun   Kevin         @kevinlee12
+ 4 Jun - 10 Jun   Yogesh        @1995YogeshSharma
+11 Jun - 17 Jun   Shubha        @shubha1593
+18 Jun - 24 Jun   Tony          @tjiang11
+25 Jun -  1 Jul   Prasanna      @prasanna08
+
 ```
 
 ## Areas of expertise
