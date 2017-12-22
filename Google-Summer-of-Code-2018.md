@@ -73,9 +73,9 @@ The project plan is the most important section of the proposal, since it outline
 ### Sample proposals
 
 If you'd like to get a sense of what a proposal might contain, here are some examples of proposals that we accepted in 2017:
-- [Prasanna's proposal](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2017/pdfs/GSoC2017PrasannaPatil.pdf) for applying ML to the code interaction
-- [Arunabh's proposal](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2017/pdfs/GSoC2017ArunabhGhosh.pdf) for a new learner dashboard
-- [Yogesh's proposal](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2017/pdfs/GSoC2017YogeshSharma.pdf) for a sitewide ACL refactor
+- [Prasanna's proposal](https://github.com/oppia/oppia/wiki/pdfs/GSoC2017PrasannaPatil.pdf) for applying ML to the code interaction
+- [Arunabh's proposal](https://github.com/oppia/oppia/wiki/pdfs/GSoC2017ArunabhGhosh.pdf) for a new learner dashboard
+- [Yogesh's proposal](https://github.com/oppia/oppia/wiki/pdfs/GSoC2017YogeshSharma.pdf) for a sitewide ACL refactor
 
 ## Types of work related to Oppia projects
 In order to ensure a well-rounded engineering experience, developers will do some or all of the following depending on their project:
