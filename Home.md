@@ -17,12 +17,12 @@ Finally, if, after reading the above links, you'd like to help, but aren't sure 
 ## Oppia Social Meets
 At Oppia, we believe in socializing with our contributors. Many of us are students, recent graduates, and teachers from different corners of the world, and a social meet is a great way to help all the members of Oppia feel more connected. Following this idea, we're organizing social meets, AMAs, webinars and talks on alternate weekends. Make sure you check out the calendar of events below and wave “Hi” at the meet!
 
-| Date   |      Time (*IST)      |  Meet |
-|----------|:-------------:     |------:|
-| Sat 14 Oct|  09:30 – 10:30 | ~~Oppia Social meet #Oct01~~ |
-| Sat 28 Oct|  09:45 – 10:30   | ~~[AMA Event #Oct02]~~  |
-| Sat 11 Nov | 09:45 – 10:30   | ~~Oppia Social meet #Nov03~~ |
-| TBD Dec | TBD | Webinar: **50 GitHub tricks every developer should know!** |
+|    Date    |   Time (*IST)  |                        Meet                                |
+|----------- |:-------------: |:----------------------------------------------------------:|
+| Sat 14 Oct |  09:30 – 10:30 |            ~~Oppia Social meet #Oct01~~                    |
+| Sat 28 Oct |  09:45 – 10:30 |                ~~[AMA Event #Oct02]~~                      |
+| Sat 11 Nov |  09:45 – 10:30 |            ~~Oppia Social meet #Nov03~~                    |
+| Sun 24 Dec |      TBD       | Webinar: **20 GitHub tricks every developer should know!** |
 
 <sup>* Feel free to let us know if your time zone is uncovered. We could amend them accordingly. The link to the Hangout video call will be updated 3 days prior the social meet</sup>
 
