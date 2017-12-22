@@ -71,13 +71,16 @@ The end-to-end tests are also sharded across 3 Chrome browser instances. It is r
 ```
     bash scripts/run_e2e_tests.sh --sharding=false
 ```
+
 You can configure the number of browser instances to use for sharding as follows:
 ```
     bash scripts/run_e2e_tests.sh --sharding-instances=#
 ```
+
 **Running a single end-to-end test**
 
 To run just one test, change the "it" to "fit" for that test, and change the suite config in `core/tests/protractor.conf.js` to refer to only the file containing that test.
+
 
 **Running end-to-end tests in production mode**
 
@@ -85,6 +88,7 @@ To run the end-to-end tests using minified versions of the files, use the `--pro
 ```
     bash scripts/run_e2e_tests.sh --prod_env
 ```
+Note that, on [Travis CI](https://travis-ci.org/oppia/oppia/pull_requests), the end-to-end tests run only in this mode (to save time).
 
 **Other notes**
 
