@@ -79,6 +79,13 @@ You can configure the number of browser instances to use for sharding as follows
 
 To run just one test, change the "it" to "fit" for that test, and change the suite config in `core/tests/protractor.conf.js` to refer to only the file containing that test.
 
+**Running end-to-end tests in production mode**
+
+To run the end-to-end tests using minified versions of the files, use the `--prod_env` flag:
+```
+    bash scripts/run_e2e_tests.sh --prod_env
+```
+
 **Other notes**
 
 Protractor has a screenshot reporting feature, but it needs to be enabled by seeing `_ADD_SCREENSHOT_REPORT` to true in
