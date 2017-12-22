@@ -11,7 +11,7 @@ To make it easier to get started, we've catalogued some of the different ways to
 
 If you run into any problems, you can check out the [user documentation](http://oppia.github.io/) or post to our [developer mailing list](https://groups.google.com/forum/?fromgroups#!forum/oppia-dev). Feel free to drop into our [Gitter chat channel](https://gitter.im/oppia/oppia-chat) to say hello, too :)
 
-Finally, if, after reading the above links, you'd like to help, but aren't sure how -- don't worry! The Oppia project is very multi-faceted, and we'd be glad to help you find something to do that matches your interests and skills. Just write to us at [oppia-dev@](https://groups.google.com/forum/?fromgroups#!forum/oppia-dev), or at admin@oppia.org, and tell us a bit about yourself and what you'd like to do. We'll do our best to help you get started!
+Finally, if, after reading the above links, you'd like to help, but aren't sure how -- don't worry! The Oppia project is very multi-faceted, and we'd be glad to help you find something to do that matches your interests and skills. Just write to us at [oppia-dev@](https://groups.google.com/forum/?fromgroups#!forum/oppia-dev), or at [admin@oppia.org](mailto:admin@oppia.org) and tell us a bit about yourself and what you'd like to do. We'll do our best to help you get started!
 
 
 ## Oppia Social Meets
