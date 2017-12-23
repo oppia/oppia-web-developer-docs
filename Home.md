@@ -27,10 +27,9 @@ At Oppia, we believe in socializing with our contributors. Many of us are studen
 
 ![Webinar Poster](https://files.gitter.im/oppia/oppia-chat/uXCz/Webinar.png)
 
-![Agenda](https://files.gitter.im/oppia/oppia-chat/wAhu/thumb/Screen-Shot-2017-12-23-at-7.07.26-PM.jpg)
+![Agenda](https://files.gitter.im/oppia/oppia-chat/wAhu/Screen-Shot-2017-12-23-at-7.07.26-PM.jpg)
 
 
 The Live session link will be updated here tomorrow **before 15 mins**. 
 
 <sup>* Feel free to let us know if your time zone is uncovered. We could amend them accordingly. The link to the Hangout video call will be updated 3 days prior the social meet</sup>
-
