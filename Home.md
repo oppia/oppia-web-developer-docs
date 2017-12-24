@@ -32,8 +32,7 @@ At Oppia, we believe in socializing with our contributors. Many of us are studen
 
 The Live session link will be updated here 
 
-http://youtu.be/-EYg8YU04-A
-
+ https://hangouts.google.com/call/qdcNIcxD5u8_XQClCZw8AAEM
 
 
 <sup>* Feel free to let us know if your time zone is uncovered. We could amend them accordingly. The link to the Hangout video call will be updated 3 days prior the social meet</sup>
