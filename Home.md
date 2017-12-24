@@ -22,7 +22,7 @@ At Oppia, we believe in socializing with our contributors. Many of us are studen
 | Sat 14 Oct |  09:30 – 10:30 |            ~~Oppia Social meet #Oct01~~                    |
 | Sat 28 Oct |  09:45 – 10:30 |                ~~[AMA Event #Oct02]~~                      |
 | Sat 11 Nov |  09:45 – 10:30 |            ~~Oppia Social meet #Nov03~~                    |
-| Sun 24 Dec |      11:00am and 6:00pm      | Webinar: **20 GitHub tricks every developer should know!** |
+| Sun 24 Dec |  11:00 & 18:00 | Webinar: **20 GitHub tricks every developer should know!** |
 
 
 ![Webinar Poster](https://files.gitter.im/oppia/oppia-chat/uXCz/Webinar.png)
