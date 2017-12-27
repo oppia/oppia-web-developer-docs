@@ -118,7 +118,6 @@ Allan        Rich-text editor, suggestions
 Anmol        Machine learning
 Arunabh      Subscriptions, learner dashboard
 Ben          Migrations, StackDriver errors
-Himanshu     Simple editor
 Jacob        Metrics
 Jared        User journeys
 Joe          Oppia's blog
