@@ -25,4 +25,6 @@ At Oppia, we believe in socializing with our contributors. Many of us are studen
 | Sun 24 Dec |  11:00 & 18:00 |~~Webinar:20 GitHub tricks every developer should know!~~ |
 
 
+Webinar PPT link - https://goo.gl/5e2e33
+
 <sup>* Feel free to let us know if your time zone is uncovered. We could amend them accordingly. The link to the Hangout video call will be updated 3 days prior the social meet</sup>
