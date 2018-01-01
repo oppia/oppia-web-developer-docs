@@ -303,14 +303,14 @@ For the proposal, we generally look for a clear indication that the student has 
 1. **CKEditor Integration**: Replace textAngular with CKEditor in our RTE. A lot of work on this front has already been covered in [#1715](https://github.com/oppia/oppia/pull/1715), but that work is likely outdated due to changes both on the Oppia side and the ckEditor side and needs to be updated. All the frontend functionality described in [#3032](https://github.com/oppia/oppia/pull/3032) should be implemented.
 1. **Polish**: Address any new minor bugs introduced by the CKEditor integration. Modify the [RTE documentation](https://github.com/oppia/oppia/wiki/Rich-Text-Editor-%28RTE%29-Overview) to include all changes due to the upgrade.
 
+**Related Issues:**
+* [#3576](https://github.com/oppia/oppia/pull/3576): RTE content validation
+* [#2083](https://github.com/oppia/oppia/pull/2083): Math equation expression conflict
+
 **Notes:**
 * M1 (Content Migration) is likely to be far more challenging and time-consuming than the other 2 milestones, especially since much of the work for M1 has already been done. Proposals should have a particular emphasis on addressing the content migration.
 * Integrating a new RTE is likely to introduce many new minor bugs, which are acceptable to leave to M3 (post-migration) as long as the new RTE is still usable.
 * The existing [RTE documentation](https://github.com/oppia/oppia/wiki/Rich-Text-Editor-%28RTE%29-Overview) may be useful.
-
-**Related Issues:**
-* [#3576](https://github.com/oppia/oppia/pull/3576): RTE content validation
-* [#2083](https://github.com/oppia/oppia/pull/2083): Math equation expression conflict
 
 ## Enhancing Machine Learning in Oppia
 
@@ -343,9 +343,29 @@ Notes:
 
 # Other useful information
 
-## List of Mentors
+## Dates and Deadlines
+Noteworthy dates for 2018:
 
-TBD
+Jan 23 - Feb 11: Mentoring organizations apply
+Feb 12: Mentoring organizations are announced
+Mar 12 - Mar 27: Student application period
+Apr 23: Accepted students announced
+Apr 23 - May 14: Community bonding period
+May 14 - Aug 14: Students enjoy the summer by contributing code to their projects
+Aug 22: GSoC officially ends
+
+## List of Mentors
+The following individuals will be serving as mentors during GSoC 2017:
+
+Allan Zhou (@AllanYangZhou)
+Anmol Shukla (@anmolshkl)
+Brian Rodriguez (@brianrodri)
+Kevin Thomas (@kevintab95)
+Prasanna Patil (@prasanna08)
+Rachel Chen (@rachelwchen)
+Sean Lip (@seanlip)
+Tony Jiang (@tjiang11)
+Vojtěch Jelínek (@vojtechjelinek)
 
 ## Communication
 
