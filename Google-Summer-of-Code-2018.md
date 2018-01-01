@@ -10,7 +10,7 @@ The following are Oppia's 2018 GSoC project ideas:
 * [Improving the development workflow](#improving-the-development-workflow)
 * [New interactions](#new-interactions)
 * [General crowdsourcing and review system](#general-crowdsourcing-and-review-system)
-* [Oppia RTE Upgrade](#oppia-RTE-upgrade)
+* [Oppia RTE Upgrade](#oppia-rte-upgrade)
 * [Enhancing Machine Learning in Oppia](#enhancing-machine-learning-in-oppia)
 
 # Students
