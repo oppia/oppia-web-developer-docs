@@ -346,26 +346,26 @@ Notes:
 ## Dates and Deadlines
 Noteworthy dates for 2018:
 
-Jan 23 - Feb 11: Mentoring organizations apply
-Feb 12: Mentoring organizations are announced
-Mar 12 - Mar 27: Student application period
-Apr 23: Accepted students announced
-Apr 23 - May 14: Community bonding period
-May 14 - Aug 14: Students enjoy the summer by contributing code to their projects
-Aug 22: GSoC officially ends
+* **Jan 23 - Feb 11**: Mentoring organizations apply
+* **Feb 12**: Mentoring organizations are announced
+* **Mar 12 - Mar 27**: Student application period
+* **Apr 23**: Accepted students announced
+* **Apr 23 - May 14**: Community bonding period
+* **May 14 - Aug 14**: Students enjoy the summer by contributing code to their projects
+* **Aug 22**: GSoC officially ends
 
 ## List of Mentors
 The following individuals will be serving as mentors during GSoC 2017:
 
-Allan Zhou (@AllanYangZhou)
-Anmol Shukla (@anmolshkl)
-Brian Rodriguez (@brianrodri)
-Kevin Thomas (@kevintab95)
-Prasanna Patil (@prasanna08)
-Rachel Chen (@rachelwchen)
-Sean Lip (@seanlip)
-Tony Jiang (@tjiang11)
-Vojtěch Jelínek (@vojtechjelinek)
+* Allan Zhou (@AllanYangZhou)
+* Anmol Shukla (@anmolshkl)
+* Brian Rodriguez (@brianrodri)
+* Kevin Thomas (@kevintab95)
+* Prasanna Patil (@prasanna08)
+* Rachel Chen (@rachelwchen)
+* Sean Lip (@seanlip)
+* Tony Jiang (@tjiang11)
+* Vojtěch Jelínek (@vojtechjelinek)
 
 ## Communication
 
