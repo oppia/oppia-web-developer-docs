@@ -121,9 +121,9 @@ For the proposal, we generally look for a clear indication that the student has 
 **Aim:** Currently, Oppia serves all pages using the Jinja templating engine, which isn’t very efficient -- for one thing, because pages are dynamically composed using Jinja, they can’t be cached. The aim of this project is therefore to serve as much of Oppia’s pages as we can statically, and handle all dynamic content using AJAX calls. In order to do this, we’ll need to get rid of Jinja in our codebase. Furthermore, we sometimes use Jinja in order to include static files (like header_js_libs.html or footer.html); and will therefore need to find an alternative way to include these in a Jinja-less environment (perhaps in our build process, or with ngInclude).
 
 **Skills/knowledge required:**
-Full-stack development
-Technical design
-Python scripting
+* Full-stack development
+* Technical design
+* Python scripting
 
 **Difficulty:** Medium
 
@@ -131,9 +131,7 @@ Python scripting
 
 **Suggested milestones:**
 1. Devise a way to serve the About page statically (this requires getting rid of Jinja on that page); this approach should be generalizable to other pages. Identify other issues that can arise from serving the remaining pages statically.
-
 1. Convert all mostly-static pages in Oppia, as well as at least one non-static page, to use the new framework developed in (1).
-
 1. Serve all pages in Oppia statically.
 
 **Related issues (you might like to tackle a few of these, in order to get a feel for the domain):**
@@ -166,9 +164,7 @@ Python scripting
 **Suggested Milestones:**
 
 1. Implement back-end logic and front-end changes needed to allow creators to flag a language/audio translations as needing contribution. This should be visible to the community in some form.
-
 1. Implement any necessary backend logic changes, and perform any necessary migrations to allow for anyone to contribute audio translations and for creators to incorporate them into the exploration.
-
 1. Implement front-end for audio translation contribution.
 
 **Related Issues:**
@@ -236,9 +232,9 @@ Python scripting
 
 ## New interactions
 
-*Aim:* The aim of this project is to implement new interactions in Oppia. Two new interactions should be implemented: a “Number with units” interaction, and a “Sorting” interaction. The number-with-units interaction is an extended version of the numeric input interaction which will allow creators to check an answer that is submitted as a number with associated units (such as 2.56 metres or $2.15), and that understands relationships between units (e.g. 2.56 m = 256 cm). The other interaction is a “sorting” interaction, which allows students to sort or rank items relative to each other. For example, a student might be asked to arrange fractions in ascending/descending order; they should be able to drag the items around and sort/rank them. It should also be possible for the creator to allow multiple items to occupy the same position/rank in the list, e.g. when sorting ½, ¼, 2/4, ¾ it should be possible to put ½, 2/4 in the same position.
+**Aim:** The aim of this project is to implement new interactions in Oppia. Two new interactions should be implemented: a “Number with units” interaction, and a “Sorting” interaction. The number-with-units interaction is an extended version of the numeric input interaction which will allow creators to check an answer that is submitted as a number with associated units (such as 2.56 metres or $2.15), and that understands relationships between units (e.g. 2.56 m = 256 cm). The other interaction is a “sorting” interaction, which allows students to sort or rank items relative to each other. For example, a student might be asked to arrange fractions in ascending/descending order; they should be able to drag the items around and sort/rank them. It should also be possible for the creator to allow multiple items to occupy the same position/rank in the list, e.g. when sorting ½, ¼, 2/4, ¾ it should be possible to put ½, 2/4 in the same position.
 
-*Skills/knowledge required:*
+**Skills/knowledge required:**
 * AngularJS
 * Python
 * Attention to detail
@@ -313,8 +309,8 @@ Python scripting
 * The existing [RTE documentation](https://github.com/oppia/oppia/wiki/Rich-Text-Editor-%28RTE%29-Overview) may be useful.
 
 **Related Issues:**
-[#3576](https://github.com/oppia/oppia/pull/3576): RTE content validation
-[#2083]](https://github.com/oppia/oppia/pull/2083): Math equation expression conflict
+* [#3576](https://github.com/oppia/oppia/pull/3576): RTE content validation
+* [#2083](https://github.com/oppia/oppia/pull/2083): Math equation expression conflict
 
 ## Enhancing Machine Learning in Oppia
 
@@ -336,7 +332,7 @@ Python scripting
 1. Implement front-end part of the training interface. By the end of GSoC the training interface should be fully functional and ready for use in production.
 
 **Related issues:**
-[#3836](https://github.com/oppia/oppia/issues/3836): Upgrade training interface in creator view to show unresolved answers
+* [#3836](https://github.com/oppia/oppia/issues/3836): Upgrade training interface in creator view to show unresolved answers
 
 Notes:
 * In Milestone 1, some of the design requirements for AnswerWithFrequencyModel can be found in this [doc](https://docs.google.com/document/d/19v-zTFS7_8nysUAggDau3xCDN_WS4x20heJJjpZdALs/edit#heading=h.6v989x2m9eoz), but the doc is not completely finished yet, it will be finished by 25th February and posted here so that proposers can reference it in their proposal. The proposal should build upon this document and address all the open questions.
