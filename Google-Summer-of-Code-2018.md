@@ -4,7 +4,7 @@ Since GSoC mentoring organizations will [not be announced until February 12, 201
 
 Please note, however, that acceptance into GSoC isn't a prerequisite for [becoming an Oppia contributor](https://github.com/oppia/oppia/wiki). The Oppia project is run by the community for the community, and we warmly welcome anyone who'd like to help out!
 
-The following are Oppia's 2018 GSoC project ideas:
+The following are Oppia's 2018 GSoC project ideas (please note that this section is still under construction):
 * [Static serving](#static-serving)
 * [Crowd-sourced Audio Translations](#crowd-sourced-audio-translations)
 * [Improving the development workflow](#improving-the-development-workflow)
