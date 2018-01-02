@@ -116,6 +116,8 @@ For the proposal, we generally look for a clear indication that the student has 
 
 # Oppia's Project Ideas
 
+_Please note: this section is still under construction._
+
 ## Static serving
 
 **Aim:** Currently, Oppia serves all pages using the Jinja templating engine, which isn’t very efficient -- for one thing, because pages are dynamically composed using Jinja, they can’t be cached. The aim of this project is therefore to serve as much of Oppia’s pages as we can statically, and handle all dynamic content using AJAX calls. In order to do this, we’ll need to get rid of Jinja in our codebase. Furthermore, we sometimes use Jinja in order to include static files (like header_js_libs.html or footer.html); and will therefore need to find an alternative way to include these in a Jinja-less environment (perhaps in our build process, or with ngInclude).
