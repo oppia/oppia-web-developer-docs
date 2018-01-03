@@ -357,7 +357,7 @@ Noteworthy dates for 2018:
 * **Aug 22**: GSoC officially ends
 
 ## List of Mentors
-The following individuals will be serving as mentors during GSoC 2017:
+The following individuals will be serving as mentors during GSoC 2018:
 
 * Allan Zhou (@AllanYangZhou)
 * Anmol Shukla (@anmolshkl)
