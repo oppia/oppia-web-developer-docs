@@ -221,7 +221,6 @@ _Please note: this section is still under construction._
 * [#4119](https://github.com/oppia/oppia/issues/4119): ensure that the linter script diffs correctly.
 * [#4044](https://github.com/oppia/oppia/issues/4044): fix flakiness in e2e tests.
 * [#3905](https://github.com/oppia/oppia/issues/3905): add lint checks for common coding issues arising in code reviews.
-* [#3086](https://github.com/oppia/oppia/issues/3086): add source maps to enable better debugging
 * [#1977](https://github.com/oppia/oppia/issues/1977): lint CSS files
 * [#1736](https://github.com/oppia/oppia/issues/1736): make Protractor tests also run on Firefox in Travis.
 
