@@ -19,10 +19,10 @@ At Oppia, we believe in socializing with our contributors. Many of us are studen
 
 |    Date    |   Time (*IST)  |                        Meet                                |
 |----------- |:-------------: |:----------------------------------------------------------:|
-| Sat 14 Oct |  09:30 – 10:30 |            ~~Oppia Social meet #Oct01~~                    |
-| Sat 28 Oct |  09:45 – 10:30 |                ~~[AMA Event #Oct02]~~                      |
-| Sat 11 Nov |  09:45 – 10:30 |            ~~Oppia Social meet #Nov03~~                    |
-| Sun 24 Dec |  11:00 & 18:00 |~~Webinar:20 GitHub tricks every developer should know!~~ |
+| 21/01/2018 |  09:30 – 10:30 |                     Social Meet 18Q1SM1                           |
+| 11/02/2018  |  09:30 – 10:30 |                     Social Meet 18Q1SM2                           |
+| TBD        |      TBD       |           Talk by Sean and Anmol on GSoC evaluation        |
+
 
 
 Webinar PPT link - https://goo.gl/5e2e33
