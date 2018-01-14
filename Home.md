@@ -21,10 +21,10 @@ At Oppia, we believe in socializing with our contributors. Many of us are studen
 |----------- |:-------------: |:----------------------------------------------------------:|
 | 21/01/2018 |  09:30 – 10:30 |                     Social Meet 18Q1SM1                           |
 | 11/02/2018  |  09:30 – 10:30 |                     Social Meet 18Q1SM2                           |
-| TBD        |      TBD       |           Talk by Sean and Anmol on GSoC evaluation        |
+| TBD        |      TBD       |       <sup>*</sup>    Talk by Sean and Anmol on GSoC evaluation        |
 
 
 
 Webinar PPT link - https://goo.gl/5e2e33
 
-<sup>* Feel free to let us know if your time zone is uncovered. We could amend them accordingly. The link to the Hangout video call will be updated 3 days prior the social meet</sup>
+<sup>* Subjected to change as list of accepted mentoring organizations published by GSOC 18</sup>
