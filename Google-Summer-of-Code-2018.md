@@ -12,6 +12,7 @@ The following are Oppia's 2018 GSoC project ideas (please note that this section
 * [General crowdsourcing and review system](#general-crowdsourcing-and-review-system)
 * [Oppia RTE Upgrade](#oppia-rte-upgrade)
 * [Enhancing Machine Learning in Oppia](#enhancing-machine-learning-in-oppia)
+* [Improving Statistics Feedback: Learner Playthroughs](#improving-statistics-feedback-learner-playthroughs)
 
 # Students
 GSoC is an excellent opportunity for students to get paid to work on an open source project. If you're interested in applying as a student, you should definitely read the following resources:
@@ -335,12 +336,50 @@ _Please note: this section is still under construction._
 **Related issues:**
 * [#3836](https://github.com/oppia/oppia/issues/3836): Upgrade training interface in creator view to show unresolved answers
 
-Notes:
+**Notes**:
 * In Milestone 1, some of the design requirements for AnswerWithFrequencyModel can be found in this [doc](https://docs.google.com/document/d/19v-zTFS7_8nysUAggDau3xCDN_WS4x20heJJjpZdALs/edit#heading=h.6v989x2m9eoz), but the doc is not completely finished yet, it will be finished by 25th February and posted here so that proposers can reference it in their proposal. The proposal should build upon this document and address all the open questions.
 * Milestone 2 involves the implementation of an MR Job for AnswerWithFrequencyModel. You may find the [Creating MapReduce](https://github.com/oppia/oppia/wiki/Calculating-statistics#8-create-mapreduce-jobs) jobs section on the wiki useful for getting more familiar with Oppia’s MapReduce infrastructure.
 * Students can either use the existing training interface and improve/re-design it OR students can propose a new training interface. However, we strongly suggest that the student tries to maximize code reuse without sacrificing the functionality.
 * For Milestone 3, the proposal should describe a suitable frontend user interface that allows creators to easily assign feedback classes to the surfaced unresolved answers. For this purpose, you may want to look at how the current training interface works, and what changes you’d like to make to it in order to meet the given requirements. The relevant design details for the new training interface can be found in this [doc](https://docs.google.com/document/d/1IIYt6QiC0-wzM6AbDwXrQPY33U_rRBZDWyaAOKMxvao/edit), which is also partially finished. We will complete the design of the backend (in terms of the behaviours of necessary functions and controllers) and post it here by 25th February, but the design of the frontend user interface is left to the proposer. You might want to prepare some simple mocks that give a rough idea of the proposed UI and the workflow for the creator.
 * You are welcome to add/suggest additional features for the training interface. But you should also explain how it will help the creators, explain the implementation details and should also indicate in which milestone you will be delivering this feature.
+
+## Improving Statistics Feedback: Learner Playthroughs
+
+**Aim**: To give creators a tool for visualizing how users play through explorations. Particularly, it would be nice to let creators see playthroughs which lead to early quits, or where many incorrect answers are attempted. Through this tool we hope to provide an effective way for creators to identify problematic areas in their lesson and address them appropriately.
+
+**Skills/knowledge required**:
+* Python, Javascript, HTML, CSS.
+* Full-stack development.
+* Debugging.
+* Testing.
+* Read, write, and follow through with Design Documents.
+
+**Difficulty**: Medium/Hard
+
+**Potential mentors**: brianrodri@ (primary)
+
+**Suggested milestones**:
+*Backend code has the functionality to store and fetch learner playthroughs.
+    *The backend for storing and fetching playthroughs (controllers, domain layer, storage layer) should be fully implemented. There should be backend handlers that store and fetch playthroughs as simple value objects, and backend integration tests that ensure that these handlers function correctly.
+* Playthroughs are programmatically stored when deemed useful by the Exploration Player UI, and the most recent one can be viewed in the Exploration Editor UI.
+    * There are two types of “useful” playthroughs: playthroughs where a learner gives <admin-defined number> wrong answers in a row, or playthroughs where the learner quits after <admin-defined duration>. Of these playthroughs, there is an <admin-defined %> probability that they actually get stored. All other playthroughs are not recorded.
+    * The frontend stores the playthrough data using backend handler URL calls.
+    * The Exploration Editor UI displays the raw data of the most recently recorded playthrough.
+    * The above functionality should be covered by Karma tests and end-to-end Protractor tests, as appropriate.
+* The Exploration Editor UI displays all playthrough data to creators.
+    * A creator can view the details of each recorded playthrough.
+    * A creator can mark playthroughs as “resolved,” and filter them.
+    * The above functionality should be covered by Karma tests and end-to-end Protractor tests, as appropriate.
+
+**Notes**:
+* Regarding (1):
+    * You must decide which __data__ from a learner’s playthrough gets recorded. Keep in mind that we’re prioritizing creator-utility here, so nothing too crazy is required. For example: “the path of a learner’s mouse” is overkill but “the items a learner selects” is essential!
+    * Also decide which __metadata__ from a learner’s playthrough gets recorded. For example, we should be able to answer questions like: “has the creator already viewed or addressed the issues from this playthrough?” and “which version of the lesson was this playthrough recorded in?”
+    * It must be impossible for anyone to identify a learner through their playthroughs. This means minimizing the data we take, and anonymizing it as much as possible. This **must** be addressed in your proposal!
+* Regarding (2):
+    * The admin defined values are stored in a config file (in the feconf file, for example).
+* Regarding (3):
+    * It’s more important for all the information to be displayed than it is for it to look amazing. For example, don’t plan to write a “ghost player” that performs each step in a playthrough; a simple text-list describing each action is already incredibly useful and far simpler to implement.
 
 # Other useful information
 
