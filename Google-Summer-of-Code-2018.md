@@ -418,4 +418,4 @@ https://gitter.im/oppia/oppia-chat#)! You can log in using your GitHub account (
 
 If you have questions pertaining to "how-to-get-started", please ask them on Gitter, or the oppia-dev@ mailing list. Please be specific when asking questions; this makes it easier for us to help you.
 
-To discuss your project ideas, and, share your proposal for a community review, please email the [GSoC discussion mailing list](mailto:oppia-gsoc-discuss@googlegroups.com).
+To discuss your project ideas or share your proposal for feedback from the community, please email the [GSoC discussion mailing list](mailto:oppia-gsoc-discuss@googlegroups.com).
