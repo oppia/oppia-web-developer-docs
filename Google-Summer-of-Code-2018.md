@@ -1,3 +1,17 @@
+## Table of Contents
+* [Getting started](#getting-started)
+* [FAQs](#faqs)
+* [GSoC Proposal Template](#gsoc-proposal-template)
+* [Notes on the project plan](#notes-on-the-project-plan)
+* [Sample proposals](#sample-proposals)
+* [Types of work related to Oppia projects](#types-of-work-related-to-oppia-projects)
+* [Selection Criteria](#selection-criteria)
+* [Oppia's Project Ideas](#oppias-project-ideas)
+* [Other useful information](#other-useful-information)
+    * [Dates and Deadlines](#dates-and-deadlines)
+    * [List of Mentors](#list-of-mentors)
+    * [Communication](#communication)
+
 In 2018, Oppia plans to apply to participate in [Google Summer of Code](https://developers.google.com/open-source/gsoc/). GSoC is a global program which offers post-secondary students an opportunity to discover and work with open source organizations over the course of 3 months, while being paid a stipend. Students work closely with one or more mentors from an open source organization in order to implement either a project idea by the organization, or a proposal of their own.
 
 Since GSoC mentoring organizations will [not be announced until February 12, 2018](https://developers.google.com/open-source/gsoc/timeline), it is not yet known whether Oppia will be participating in Google Summer of Code 2018. This page will be updated accordingly once it is known whether Oppia is participating. You might also be interested in our GSoC info pages from previous years: [2017](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2017), [2016](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2016).
