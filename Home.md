@@ -19,7 +19,7 @@ At Oppia, we believe in socializing with our contributors. Many of us are studen
 
 |    Date    |   Time (*IST)  |                        Meet                                |
 |----------- |:-------------: |:----------------------------------------------------------:|
-| 21/01/2018 |  10:30 – 11:30 |                     Social Meet 18Q1SM1 [Hangout link](https://goo.gl/qZGuUz)                           |
+| 21/01/2018 |  10:30 – 11:30 |                     ~~Social Meet 18Q1SM1~~                           |
 | 11/02/2018  |  09:30 – 10:30 |                     Social Meet 18Q1SM2                           |
 | TBD        |      TBD       |       <sup>*</sup>    Talk by Sean and Anmol on GSoC evaluation        |
 
