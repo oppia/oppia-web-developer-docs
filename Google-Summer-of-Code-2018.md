@@ -400,12 +400,12 @@ _Please note: this section is still under construction._
 ## Dates and Deadlines
 Noteworthy dates for 2018:
 
-* **Jan 23 - Feb 11**: Mentoring organizations apply
+* **Jan 04 - Jan 23**: Mentoring organizations apply
 * **Feb 12**: Mentoring organizations are announced
 * **Mar 12 - Mar 27**: Student application period
 * **Apr 23**: Accepted students announced
 * **Apr 23 - May 14**: Community bonding period
-* **May 14 - Aug 14**: Students enjoy the summer by contributing code to their projects
+* **May 14 - Aug 06**: Students enjoy the summer by contributing code to their projects
 * **Aug 22**: GSoC officially ends
 
 ## List of Mentors
