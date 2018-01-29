@@ -17,23 +17,6 @@ Oppia has applied to participate in [Google Summer of Code 2018](https://develop
 Since GSoC mentoring organizations will [not be announced until February 12, 2018](https://developers.google.com/open-source/gsoc/timeline), it is not yet known whether Oppia will be participating in GSoC 2018. This page will be updated accordingly once it is known whether Oppia is participating. You might also be interested in our GSoC info pages from previous years: [2017](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2017), [2016](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2016).
 
 That said, please note that acceptance into GSoC isn't a prerequisite for [becoming an Oppia contributor](https://github.com/oppia/oppia/wiki). The Oppia project is run by the community for the community, and we warmly welcome anyone who'd like to help out!
-
-The following is a list of Oppia's 2018 GSoC project ideas. Note that the Oppia team is currently in the middle of conducting a randomized control trial (RCT) with low-income students in a government school in Delhi, India; we have several provisional (and exciting!) ideas that we plan to add based on the RCT's findings. The list below is therefore a partial one, but we should have sufficient data to finalize it by the end of February:
-
-* Infrastructure projects
-  * [Static serving](#static-serving)
-  * [Improving the development workflow](#improving-the-development-workflow)
-  * [Oppia RTE Upgrade](#oppia-rte-upgrade)
-  * [Enhancing Machine Learning in Oppia](#enhancing-machine-learning-in-oppia)
-
-* New learner view features
-  * [New interactions](#new-interactions)
-
-* Easy creation and improvement of lessons
-  * [Crowd-sourced Audio Translations](#crowd-sourced-audio-translations)
-  * [General crowdsourcing and review system](#general-crowdsourcing-and-review-system)
-  * [Improving Statistics Feedback: Learner Playthroughs](#improving-statistics-feedback-learner-playthroughs)
-
 # Students
 GSoC is an excellent opportunity for students to get paid to work on an open source project. If you're interested in applying as a student, you should definitely read the following resources:
 
@@ -137,9 +120,15 @@ For the proposal, we generally look for a clear indication that the student has 
 
 # Oppia's Project Ideas
 
-_Please note: this section is still under construction._
+The following is a list of Oppia's 2018 GSoC project ideas. Students are welcome to choose among these ideas, or propose their own. However, if you are proposing something original, it's essential to engage with the Oppia community in order to get feedback and guidance to improve the proposal, as well as to make sure that it fits in with the team's overall plans.
 
-## Static serving
+This year, we are offering three types of projects: infrastructure projects, projects that improve the learner experience, and projects that improve the creator experience. 
+
+Note: the Oppia team is currently in the middle of conducting a randomized control trial (RCT) with low-income students in a government school in Delhi, India, and we have about 5 more provisional (and exciting!) ideas that we plan to add, depending on the findings of the RCT. The list below is therefore a partial one, but we should have enough data to finalize it by the end of February.
+
+## Infrastructure Projects
+
+### Static serving
 
 **Aim:** Currently, Oppia serves all pages using the Jinja templating engine, which isn’t very efficient -- for one thing, because pages are dynamically composed using Jinja, they can’t be cached. The aim of this project is therefore to serve as much of Oppia’s pages as we can statically, and handle all dynamic content using AJAX calls. In order to do this, we’ll need to get rid of Jinja in our codebase. Furthermore, we sometimes use Jinja in order to include static files (like header_js_libs.html or footer.html); and will therefore need to find an alternative way to include these in a Jinja-less environment (perhaps in our build process, or with ngInclude).
 
@@ -150,7 +139,7 @@ _Please note: this section is still under construction._
 
 **Difficulty:** Medium
 
-**Potential mentor(s):** Vojta (primary), Brian, Sean
+**Potential mentor(s):** @vojtechjelinek (primary), @brianrodri
 
 **Suggested milestones:**
 1. Devise a way to serve the About page statically (this requires getting rid of Jinja on that page); this approach should be generalizable to other pages. Identify other issues that can arise from serving the remaining pages statically.
@@ -170,9 +159,220 @@ _Please note: this section is still under construction._
 * The main goal of this project is to improve the bandwidth and latency of Oppia as much as possible, so other changes that would improve these metrics and might go in hand with static serving are highly appreciated. However, in general, such changes should not supersede the static serving part of the project.
 * The proposal should include an analysis of how to get rid of Jinja for all pages.
 
-## Crowd-sourced Audio Translations
+### Improving the development workflow
 
-**Aim:** On Oppia, learners can listen to audio translations while playing through an exploration. Often, however, a creator does not have the means to create certain audio translations on their own. The goal of this project is to provide a way for anyone to contribute audio translations to an exploration.
+**Aim:** The aim of this project is to make life better for Oppia developers and reviewers. For example, a fair amount of reviewer time is currently spent handling common situations that should be automatable via presubmit checks (such as linting and CLA checking). Also, in order to catch errors before they end up in production, we need a thorough suite of non-flaky end-to-end tests in order to ensure that changes don’t cause regressions, and these tests should incorporate mobile views and multiple browsers. Other improvements might also be possible.
+
+**Skills/knowledge required:**
+* Bash and python scripting
+* Process automation
+* End-to-end testing
+* Familiarity with GitHub APIs
+* Good debugging ability
+* Attention to detail
+
+**Difficulty:** Medium
+
+**Potential mentors:** @seanlip (primary), @kevinlee12
+
+**Suggested milestones:**
+1. Implement automatic lint checks that catches all common errors before the PR is pushed to GitHub -- these checks should run automatically for all contributors before submit (and if this isn’t the case, this should be fixed, or a GitHub linter bot created so that reviewers can assume that PRs are linted prior to review). In particular, fix and close all bugs related to linting and presubmit checks, such as #4119 and #3905, and provide documentation on how to write lint checks for newly-discovered common issues.
+1. Organize and tidy up the e2e tests, and define policies for what to test. Extend the existing e2e framework to support an additional browser (Firefox), as well as mobile viewports. Fix any flakiness issues that arise, such as those in #4044. Draw up a plan for manual release testing that covers the gaps left by e2e tests. Provide documentation on how to update these plans and e2e tests if a new page gets added to the Oppia application.
+1. Create GitHub bots to automate common tasks, and provide documentation on how to write new GitHub bots for other automatable tasks that arise, going forward. Such tasks may include:
+    1. checking CLAs (currently maintained in a Google Form) and directing new contributors to the “Getting Started” instructions if the CLA is not signed
+    1. emailing PR authors when their PR has a merge conflict (e.g. when the develop branch is updated) or their Travis tests fail, and providing guidance on how to address it; emailing the maintainer-on-duty if any Travis tests fail in develop
+    1. warning PR authors if PRs look abandoned, and then auto-closing those PRs after a few more days
+    1. (stretch) auto-updating translations from translatewiki once a month
+
+**Related issues (you might like to tackle a few of these, in order to get a feel for the domain):**
+* [#4122](https://github.com/oppia/oppia/issues/4122): refactor the startup scripts so that Karma tests run with minimal downloads.
+* [#4119](https://github.com/oppia/oppia/issues/4119): ensure that the linter script diffs correctly.
+* [#4044](https://github.com/oppia/oppia/issues/4044): fix flakiness in e2e tests.
+* [#3905](https://github.com/oppia/oppia/issues/3905): add lint checks for common coding issues arising in code reviews.
+* [#1977](https://github.com/oppia/oppia/issues/1977): lint CSS files
+* [#1736](https://github.com/oppia/oppia/issues/1736): make Protractor tests also run on Firefox in Travis.
+
+**Notes:**
+* Some lint checks are harder to implement than others. Proposals should enumerate the different ways to handle lint checks, and systematically explain how to implement the known issues. A starter list is provided in #3905, but it is not exhaustive, and strong proposals would extend this list with other issues that commonly arise in reviews.
+* A primary emphasis of this project is on developing repeatable processes that can run reliably, long after the GSoC project is over. Strong proposals will provide a coherent analysis and breakdown of each part of the project, and propose procedures for how to triage and handle new instances of each type of task going forward. Most of the coding period will involve implementing these procedures.
+* In addition to the deliverables laid out above, proposers may optionally suggest and implement further improvements to the development workflow and review process. However, in general, such improvements should not supersede the core ones laid out above.
+* It might be a good idea to tackle one or two of the sub-issues in #3905 to become familiar with how the linting process works. This might also help you write a more concrete proposal.
+* The overall goal of this project is to automate as much of the development workflow as possible. There should be a noticeable improvement in the dev experience when this project is completed (e.g. in terms of review turnaround times and developers getting quick feedback on their PRs).
+
+### Rich-text-editor upgrade
+**Aim:** The aim of this project is to upgrade Oppia’s Rich Text Editor (RTE), which authors use to actually create lesson content. Our current RTE, based on [textAngular](http://textangular.com/), cannot render previews of certain “rich text components” during editing. For [example](https://github.com/oppia/oppia/issues/1933), if the creator adds a hyperlink, we want to display that link in the editor. The current editor can only show a generic link icon placeholder. The same issue exists with math equations, images, and the other rich text components. We want to upgrade our RTE to use [CKEditor](https://ckeditor.com/ckeditor-4/), which would allow us to actually render rich text components during editing, instead of having placeholders. This RTE upgrade may also include other improvements to the editing experience.
+
+**Skills/Knowledge Required**:
+* JavaScript
+* HTML/CSS
+* Python (backend)
+* Familiarity with Document Object Model (DOM) parsing and manipulation
+
+**Difficulty:** Medium
+
+**Potential Mentors:** @AllanYangZhou (primary), @prasanna08
+
+**Suggested Milestones:**
+1. **Content Migration**: Write a job to migrate existing RTE content (i.e., the content currently in our existing explorations which was created through textAngular) into a format that is compatible with CKEditor. We should have a function that checks whether given content is acceptable for CKEditor, to be sure that our migration works properly. Perform content migration.
+1. **CKEditor Integration**: Replace textAngular with CKEditor in our RTE. A lot of work on this front has already been covered in [#1715](https://github.com/oppia/oppia/pull/1715), but that work is likely outdated due to changes both on the Oppia side and the ckEditor side and needs to be updated. All the frontend functionality described in [#3032](https://github.com/oppia/oppia/pull/3032) should be implemented.
+1. **Polish**: Address any new minor bugs introduced by the CKEditor integration. Modify the [RTE documentation](https://github.com/oppia/oppia/wiki/Rich-Text-Editor-%28RTE%29-Overview) to include all changes due to the upgrade.
+
+**Related Issues:**
+* [#3576](https://github.com/oppia/oppia/pull/3576): RTE content validation
+* [#2083](https://github.com/oppia/oppia/pull/2083): Math equation expression conflict
+
+**Notes:**
+* M1 (Content Migration) is likely to be more challenging and time-consuming than the other 2 milestones. Proposals should have a particular emphasis on addressing the content migration.
+* Integrating a new RTE is likely to introduce many new minor bugs. It is fine to leave these to M3 (post-migration) as long as the new RTE is still usable.
+* The existing [RTE documentation](https://github.com/oppia/oppia/wiki/Rich-Text-Editor-%28RTE%29-Overview) may be useful.
+
+### Enhancing Machine Learning in Oppia
+
+**Aim:** Explicit rules for giving feedback to learners allow Oppia to choose a response to a learner’s answer based on a set of rules. However, such rules are not scalable: it becomes difficult to cover myriads of cases just with help of rules. The aim of the machine learning project is therefore to provide **targeted** feedback to learners at scale. In GSoC 2017, we developed core infrastructure to support machine learning on Oppia and built a pipeline for training classification models for text and code answers. This year, we would like to build upon this work to fully launch ML in production. In particular, we would like to make it easier for the creators to label “unresolved” answers (i.e. answers for which no feedback was predicted by a classifier) with a piece of feedback. We will need a way to store an answer together with the number of times it appears, so that we can prioritize resolution of answers by their frequencies, and also so that we can provide information to creators in the Statistics tab. This motivates the definition of an AnswerWithFrequencyModel. We also need to design an implement a training interface which supports the answer frequency model and additional features like - (i) viewing the answers in an answer group, (ii) adding/deleting an answer from an answer group, and (iii) moving an answer to the “default” answer group.
+
+**Skills/knowledge required:**
+* AngularJS
+* Python
+* Database concepts (Google App Engine and working with NoSQL databases)
+* Machine Learning (not necessary, but strongly suggested)
+
+**Difficulty:** Hard
+
+**Potential mentors:** @prasanna08 (primary), @anmolshkl, @AllanYangZhou
+
+**Suggested milestones:**
+1. Implement the answer frequency backend model and required functions. See the relevant point in notes to find more detail about the design requirements of this model.
+1. Implement a MapReduce job to populate AnswerWithFrequencyModel with all the existing answers in the exploration. Implement all necessary controllers and backend functions which will be required by the training interface.
+1. Implement front-end part of the training interface. By the end of GSoC the training interface should be fully functional and ready for use in production.
+
+**Related issues:**
+* [#3836](https://github.com/oppia/oppia/issues/3836): Upgrade training interface in creator view to show unresolved answers
+
+**Notes**:
+* In Milestone 1, some of the design requirements for AnswerWithFrequencyModel can be found in this [doc](https://docs.google.com/document/d/19v-zTFS7_8nysUAggDau3xCDN_WS4x20heJJjpZdALs/edit#heading=h.6v989x2m9eoz), but the doc is not completely finished yet, it will be finished by 25th February and posted here so that proposers can reference it in their proposal. The proposal should build upon this document and address all the open questions.
+* Milestone 2 involves the implementation of an MR Job for AnswerWithFrequencyModel. You may find the [Creating MapReduce](https://github.com/oppia/oppia/wiki/Calculating-statistics#8-create-mapreduce-jobs) jobs section on the wiki useful for getting more familiar with Oppia’s MapReduce infrastructure.
+* Students can either use the existing training interface and improve/re-design it OR students can propose a new training interface. However, we strongly suggest that the student tries to maximize code reuse without sacrificing the functionality.
+* For Milestone 3, the proposal should describe a suitable frontend user interface that allows creators to easily assign feedback classes to the surfaced unresolved answers. For this purpose, you may want to look at how the current training interface works, and what changes you’d like to make to it in order to meet the given requirements. The relevant design details for the new training interface can be found in this [doc](https://docs.google.com/document/d/1IIYt6QiC0-wzM6AbDwXrQPY33U_rRBZDWyaAOKMxvao/edit), which is also partially finished. We will complete the design of the backend (in terms of the behaviours of necessary functions and controllers) and post it here by 25th February, but the design of the frontend user interface is left to the proposer. You might want to prepare some simple mocks that give a rough idea of the proposed UI and the workflow for the creator.
+* You are welcome to add/suggest additional features for the training interface. But you should also explain how it will help the creators, explain the implementation details and should also indicate in which milestone you will be delivering this feature.
+
+### Cleaning up the backend tests
+
+**Aim:** The Oppia backend is currently quite solid, but we would like to strengthen it further by ensuring that it is fully tested. The aim of this project is to clean up the backend tests and implement missing ones, as well as to lay down guidelines/rules for future backend developers to ensure that the backend code continues to be well-covered by tests. Particular emphasis is placed on introducing a framework that makes it easy to write backend integration tests.
+
+**Skills/knowledge required:**
+* Python
+* Testing experience
+* A "testing" mentality of trying to find creative ways to break the code
+
+**Difficulty:** Medium
+
+**Potential mentors:** @seanlip (primary)
+
+**Suggested milestones:**
+1. Implement a framework that makes it easy to write backend integration tests, and illustrate it by writing a few integration tests for common scenarios that occur in practice (e.g. creating an exploration and then playing it).
+1. Implement a full suite of backend integration tests that covers all major (and some minor) use cases. Enable coverage checking and improve the coverage of the backend unit tests to 85%.
+1. Improve the coverage of the backend unit tests to 100%.
+
+### Improve the image loading pipeline
+
+**Aim:** Currently, images in lessons take a while to load. This results in students (especially those with poor connectivity) seeing no image for an extended period, which causes them to misinterpret questions and select incorrect answers, leading to frustration. We currently have a system for loading audio that preloads and caches audio files, and we want to use a similar system for images. This is a full-stack project.
+
+**Skills/knowledge required:**
+* Python
+* AngularJS
+* Attention to detail
+
+**Difficulty:** Medium
+
+**Potential mentors:** @tjiang11 (primary), @vojtechjelinek
+
+**Suggested milestones:**
+1. Extend the audio asset caching and preloading functionality in the frontend to handle images as well.
+1. Write code to analyze and extract image details from the rich-text content of an exploration, such that the full list of images contained in a given exploration can be retrieved. Implement code for a one-off migration of existing image data from the App Engine datastore to Google Cloud Storage, so that the image files sit alongside the audio files.
+1. Perform the migration. Ensure that image files get saved to Google Cloud Storage going forward, and deprecate the old system.
+
+## Learner View Projects
+
+### New interactions
+
+**Aim:** The aim of this project is to implement new interactions in Oppia. Two new interactions should be implemented: a “Number with units” interaction, and a “Sorting” interaction. The number-with-units interaction is an extended version of the numeric input interaction which will allow creators to check an answer that is submitted as a number with associated units (such as 2.56 metres or $2.15), and that understands relationships between units (e.g. 2.56 m = 256 cm). The other interaction is a “sorting” interaction, which allows students to sort or rank items relative to each other. For example, a student might be asked to arrange fractions in ascending/descending order; they should be able to drag the items around and sort/rank them. It should also be possible for the creator to allow multiple items to occupy the same position/rank in the list, e.g. when sorting ½, ¼, 2/4, ¾ it should be possible to put ½, 2/4 in the same position.
+
+**Skills/knowledge required:**
+* AngularJS
+* Python
+* Attention to detail
+
+**Difficulty:** Medium
+
+**Potential mentors:** @prasanna08 (primary), @tjiang11, @AllanYangZhou
+
+**Suggested milestones:**
+* Implement a preliminary version of the “number with units” interaction. The interaction should have support for SI (supported by the math.js library) units including their conversion (where two units are equivalent, e.g. K = 273.15 + ℃) and interaction rules. At the end of this milestone, the “number with units” interaction should support rules for “answer with unit is equivalent to” and “answer with unit is equal to” checks.
+* Implement a preliminary version of the “sorting” interaction which will work when all elements have distinct positions. Add support for the following rules: “is equal to this ordering”, “is equal to this ordering with at most one element in the wrong place”, “has element X at position Y in the list” and “has element X coming before element Y”. At the end of this milestone, the “sorting” interaction should support all the rules mentioned above with support for inputs where each element has a distinct position.
+* Release complete version of the “number with units” interaction that adds support for custom units (non-SI) such as currency units, for e.g.  = 100 cents or ₹1 = 100 paisa. Also, complete an improved version of “sorting” interaction which will add support for a feature allowing the learner/creator to have multiple elements in the same position. At the end of this milestone, the “number with units” interaction should support custom units required for currency and “sorting” interaction should support inputs which may have multiple elements for same positions.
+
+**Related issues:**
+* [#556](https://github.com/oppia/oppia/issues/556): Create a NumberWithUnits interaction.
+* [#3793](https://github.com/oppia/oppia/issues/3793): Add a new drag-and-drop sorting interaction
+
+**Notes:**
+* Currently, we have an initial design doc prepared for the "number with units" interaction, but we don't have any docs for the "sorting" interaction at the moment. That said, these initial drafts are only meant to be starting points, and students are encouraged to include final design and implementation plans for these interactions, especially if they find better and more intuitive approaches. The final aim is that interactions are usable by creators and learners without any difficulties.
+* Some familiarity with interactions and answer classification workflow in the Oppia would be helpful. The following wiki pages will be helpful in understanding the interactions system in Oppia and get you started with it: [extensions overview](https://github.com/oppia/oppia/wiki/Extensions-Overview), [interactions](https://github.com/oppia/oppia/wiki/Creating-Interactions) and [rules](https://github.com/oppia/oppia/wiki/Creating-Rules).
+* The number-with-units interaction is not straightforward. We have prepared some early design docs for the interaction: [Design details: number with units interaction](https://docs.google.com/document/d/1nL0jK-fkxPjNT4-PCGkSYbjwcqCM8R1MM26KGgxVIA0/). This doc will be helpful in understanding the requirements for this interaction. 
+* No prior work has been done on the sorting interaction, and students are encouraged to include their design and implementation plans in their proposal. A good way to communicate the design aspects would be to fully describe the main user journeys for both the creator and the learner.
+
+### Integrating refresher lessons within the main exploration
+
+**Aim:** For the Oppia randomized control trial in Delhi, India, we are piloting some experimental functionality for redirecting to a previous lesson if the learner has clearly failed to master a prerequisite. The current functionality for doing this is a little clunky and involves going to a separate exploration and back again. Instead, it would be better to have the "refresher lesson" inlined in the main exploration (perhaps via a clear "flashback/revision mode"), so that the student doesn't have to navigate around.
+
+**Skills/knowledge required:**
+* AngularJS
+
+**Difficulty:** Medium/Hard
+
+**Potential mentors:** @tjiang11 (primary), @seanlip
+
+**Suggested milestones:** TBD
+
+### Audio bar improvements
+
+**Aim:** Audio functionality is very important for learners whose primary language is not English, and, in recent trials we have conducted, the presence of audio subtitles in a student's native language has led to substantial improvements in students' understanding of lesson content. This project aims to improve the audio functionality so that it is more intuitive and useful.
+
+**Skills/knowledge required:**
+* AngularJS
+
+**Difficulty:** Medium
+
+**Potential mentors:** @tjiang11 (primary)
+
+**Suggested milestones:**
+1. Improve the automatic English audio subtitles, and fix them if they don't say the correct thing (for example, when reading LaTeX). The issues here can be discovered by manual testing, and the proposal should enumerate a specific list of desired fixes.
+1. Allow the learner to adjust the speed of audio playback.
+1. Make the learner's experience with audio as seamless as possible. At minimum, this should entail triaging and fixing at least three other audio-related bugs (to be agreed with your mentor).
+
+## "Creator Experience" Projects
+
+### Lesson translation dashboard
+
+**Aim:** Many students in Oppia's target demographic do not speak English as a primary language, and rely on audio subtitles in order to help them understand the content of a lesson (whilst still relating it to the English text in front of them). Recording audio subtitles for lessons is therefore a vital part of the creation process, but the process for doing so is currently quite manual and involves manually creating and uploading a lot of local files. The aim of this project is to build a mobile-friendly translation dashboard that makes this part of the process easier to manage.
+
+**Skills/Knowledge required:**
+* UX/UI design
+* Technical design
+* Full-stack development (AngularJS, Python)
+
+**Difficulty:** Medium/Hard
+
+**Potential Mentors:** @tjiang11 (primary), @anmolshkl
+
+**Suggested milestones:**
+1. Each lesson should have a translation dashboard that lists all the different pieces of text that need translation, and that allows the creator to record translations directly via the browser/device they're using. The dashboard should be mobile-friendly.
+1. Add indicators to the dashboard to show where translations are missing/flagged, and a progress bar to indicate the completeness of the lesson's translations.
+1. Update the backend rights management to allow for a new role that allows direct edit access to the translation dashboard but not the rest of the exploration.
+
+### Crowd-sourced Audio Translations
+
+**Aim:** On Oppia, learners can listen to audio translations while playing through an exploration. Often, however, a creator does not have the means to create certain audio translations on their own. The goal of this project is to provide a way for anyone to contribute audio translations to an exploration. This project is different from the "lesson translation dashboard" project, in that the focus here is on making the translation process more globally accessible so that many people can contribute incrementally to it.
 
 **Skills/Knowledge required:**
 * UX design
@@ -182,7 +382,7 @@ _Please note: this section is still under construction._
 
 **Difficulty:** Hard
 
-**Potential Mentors:** Tony (primary), Sean
+**Potential Mentors:** @tjiang11 (primary), @seanlip
 
 **Suggested Milestones:**
 
@@ -211,76 +411,7 @@ _Please note: this section is still under construction._
 * Creators may not know the language being translated to. How can this be addressed? Should we allow the community to endorse contributed audio translations?
 * We are aiming to ultimately migrate this to the generalized review system (another GSoC project idea), so bear in mind that it may be worth collaborating if both projects end up being worked on over the summer.
 
-## Improving the development workflow
-
-**Aim:** The aim of this project is to make life better for Oppia developers and reviewers. For example, a fair amount of reviewer time is currently spent handling common situations that should be automatable via presubmit checks (such as linting and CLA checking). Also, in order to catch errors before they end up in production, we need a thorough suite of non-flaky end-to-end tests in order to ensure that changes don’t cause regressions, and these tests should incorporate mobile views and multiple browsers. Other improvements might also be possible.
-
-**Skills/knowledge required:**
-* Bash and python scripting
-* Process automation
-* End-to-end testing
-* Familiarity with GitHub APIs
-* Good debugging ability
-* Attention to detail
-
-**Difficulty:** Medium
-
-**Potential mentors:** Sean (primary)
-
-**Suggested milestones:**
-1. Implement automatic lint checks that catches all common errors before the PR is pushed to GitHub -- these checks should run automatically for all contributors before submit (and if this isn’t the case, this should be fixed, or a GitHub linter bot created so that reviewers can assume that PRs are linted prior to review). In particular, fix and close all bugs related to linting and presubmit checks, such as #4119 and #3905, and provide documentation on how to write lint checks for newly-discovered common issues.
-1. Organize and tidy up the e2e tests, and define policies for what to test. Extend the existing e2e framework to support an additional browser (Firefox), as well as mobile viewports. Fix any flakiness issues that arise, such as those in #4044. Draw up a plan for manual release testing that covers the gaps left by e2e tests. Provide documentation on how to update these plans and e2e tests if a new page gets added to the Oppia application.
-1. Create GitHub bots to automate common tasks, such as:
-    1. checking CLAs (currently maintained in a Google Form) and directing new contributors to the “Getting Started” instructions if the CLA is not signed
-    1. emailing PR authors when their PR has a merge conflict (e.g. when the develop branch is updated) or their Travis tests fail, and providing guidance on how to address it; emailing the maintainer-on-duty if any Travis tests fail in develop
-    1. warning PR authors if PRs look abandoned, and then auto-closing those PRs after a few more days
-    1. (stretch) auto-updating translations once a month
-1. Provide documentation on how to write new GitHub bots for other automatable tasks that arise, going forward.
-
-**Related issues (you might like to tackle a few of these, in order to get a feel for the domain):**
-* [#4122](https://github.com/oppia/oppia/issues/4122): refactor the startup scripts so that Karma tests run with minimal downloads.
-* [#4119](https://github.com/oppia/oppia/issues/4119): ensure that the linter script diffs correctly.
-* [#4044](https://github.com/oppia/oppia/issues/4044): fix flakiness in e2e tests.
-* [#3905](https://github.com/oppia/oppia/issues/3905): add lint checks for common coding issues arising in code reviews.
-* [#1977](https://github.com/oppia/oppia/issues/1977): lint CSS files
-* [#1736](https://github.com/oppia/oppia/issues/1736): make Protractor tests also run on Firefox in Travis.
-
-**Notes:**
-* Some lint checks are harder to implement than others. Proposals should enumerate the different ways to handle lint checks, and systematically explain how to implement the known issues. A starter list is provided in #3905, but it is not exhaustive, and strong proposals would extend this list with other issues that commonly arise in reviews.
-* A primary emphasis of this project is on developing repeatable processes that can run reliably, long after the GSoC project is over. Strong proposals will provide a coherent analysis and breakdown of each part of the project, and propose procedures for how to triage and handle new instances of each type of task going forward. Most of the coding period will involve implementing these procedures.
-* In addition to the deliverables laid out above, proposers may optionally suggest and implement further improvements to the development workflow and review process. However, in general, such improvements should not supersede the core ones laid out above.
-* It might be a good idea to tackle one or two of the sub-issues in #3905 to become familiar with how the linting process works. This might also help you write a more concrete proposal.
-* The overall goal of this project is to automate as much of the development workflow as possible. There should be a noticeable improvement in the dev experience when this project is completed (e.g. in terms of review turnaround times and developers getting quick feedback on their PRs).
-
-## New interactions
-
-**Aim:** The aim of this project is to implement new interactions in Oppia. Two new interactions should be implemented: a “Number with units” interaction, and a “Sorting” interaction. The number-with-units interaction is an extended version of the numeric input interaction which will allow creators to check an answer that is submitted as a number with associated units (such as 2.56 metres or $2.15), and that understands relationships between units (e.g. 2.56 m = 256 cm). The other interaction is a “sorting” interaction, which allows students to sort or rank items relative to each other. For example, a student might be asked to arrange fractions in ascending/descending order; they should be able to drag the items around and sort/rank them. It should also be possible for the creator to allow multiple items to occupy the same position/rank in the list, e.g. when sorting ½, ¼, 2/4, ¾ it should be possible to put ½, 2/4 in the same position.
-
-**Skills/knowledge required:**
-* AngularJS
-* Python
-* Attention to detail
-
-**Difficulty:** Medium
-
-**Potential mentors:** Prasanna (primary), Tony, Allan
-
-**Suggested milestones:**
-* Implement a preliminary version of the “number with units” interaction. The interaction should have support for SI (supported by the math.js library) units including their conversion (where two units are equivalent, e.g. K = 273.15 + ℃) and interaction rules. At the end of this milestone, the “number with units” interaction should support rules for “answer with unit is equivalent to” and “answer with unit is equal to” checks.
-* Implement a preliminary version of the “sorting” interaction which will work when all elements have distinct positions. Add support for the following rules: “is equal to this ordering”, “is equal to this ordering with at most one element in the wrong place”, “has element X at position Y in the list” and “has element X coming before element Y”. At the end of this milestone, the “sorting” interaction should support all the rules mentioned above with support for inputs where each element has a distinct position.
-* Release complete version of the “number with units” interaction that adds support for custom units (non-SI) such as currency units, for e.g.  = 100 cents or ₹1 = 100 paisa. Also, complete an improved version of “sorting” interaction which will add support for a feature allowing the learner/creator to have multiple elements in the same position. At the end of this milestone, the “number with units” interaction should support custom units required for currency and “sorting” interaction should support inputs which may have multiple elements for same positions.
-
-**Related issues:**
-* [#556](https://github.com/oppia/oppia/issues/556): Create a NumberWithUnits interaction.
-* [#3793](https://github.com/oppia/oppia/issues/3793): Add a new drag-and-drop sorting interaction
-
-**Notes:**
-* We do have initial design doc prepared for “number with units” interaction, but, we do not have any initial draft for “sorting” interaction at the moment. However these initial drafts are only meant to be the starting points and students are encouraged to include final design and implementation plans for these interactions, especially if they find better and more intuitive approaches. The final aim is that interactions are usable by creators without any difficulties.
-* Some familiarity with interactions and answer classification workflow in the Oppia would be helpful. The following wiki pages will be helpful in understanding the interactions system in Oppia and get you started with it: [extensions overview](https://github.com/oppia/oppia/wiki/Extensions-Overview), [interactions](https://github.com/oppia/oppia/wiki/Creating-Interactions) and [rules](https://github.com/oppia/oppia/wiki/Creating-Rules).
-* The number-with-units interaction is not straightforward. We have prepared some early design docs for the interaction: [Design details: number with units interaction](https://docs.google.com/document/d/1nL0jK-fkxPjNT4-PCGkSYbjwcqCM8R1MM26KGgxVIA0/). This doc will be helpful in understanding the requirements for this interaction. 
-* No prior work has been done on the sorting interaction, and students are encouraged to include their design and implementation plans in their proposal. A good way to communicate the design aspects would be to fully describe the main user journeys for both the creator and the learner.
-
-## General crowdsourcing and review system
+### General crowdsourcing and review system
 
 **Aim:** For Oppia to become a true community-driven, crowdsourced platform, anyone should be able to contribute to key explorations and perform certain actions. These actions may include suggesting an edit, adding a question, training an answer, adding new audio translations for a lesson, supplying a demonstrative image for a lesson, etc. The creator(s) should be able to manage (accept/reject) these suggestions through a generalized review system. The suggestion-and-review system should be generic enough so that it can be extended to different types of tasks.
 
@@ -292,7 +423,7 @@ _Please note: this section is still under construction._
 
 **Difficulty:** Hard
 
-**Potential Mentors:** Kevin, Anmol
+**Potential Mentors:** @kevintab95 (primary), @anmolshkl
 
 **Milestones:**
 1. Generalize and migrate the existing suggestions framework to a general review system (which can be used in the future for adding a question, training an answer, etc.).
@@ -307,63 +438,7 @@ _Please note: this section is still under construction._
 * When someone completes a task, it isn’t immediately incorporated into the lesson. The work product is reviewed by someone (usually an exploration’s owner/editor or a trusted reviewer). There should be a standard system for marking people as trusted reviewers for a given exploration (and maybe extending that to all explorations past a certain point).
 * The submitted proposal should explain the structure of how such a system would work, and provide a concrete example of its application to one use case.
 
-## Oppia RTE Upgrade
-**Aim:** The aim of this project is to upgrade Oppia’s Rich Text Editor (RTE), which authors use to actually create lesson content. Our current RTE, based on [textAngular](http://textangular.com/), cannot render previews of certain “rich text components” during editing. For [example](https://github.com/oppia/oppia/issues/1933), if the creator adds a hyperlink, we want to display that link in the editor. The current editor can only show a generic link icon placeholder. The same issue exists with math equations, images, and the other rich text components. We want to upgrade our RTE to use [CKEditor](https://ckeditor.com/ckeditor-4/), which would allow us to actually render rich text components during editing, instead of having placeholders. This RTE upgrade may also include other improvements to the editing experience.
-
-**Skills/Knowledge Required**:
-* JavaScript
-* HTML/CSS
-* Python (backend)
-* Familiarity with Document Object Model (DOM) parsing and manipulation
-
-**Difficulty:** Medium
-
-**Potential Mentors:** Allan (primary), Prasanna, Vojta
-
-**Suggested Milestones:**
-1. **Content Migration**: Write a job to migrate existing RTE content (i.e., the content currently in our existing explorations which was created through textAngular) into a format that is compatible with CKEditor. We should have a function that checks whether given content is acceptable for CKEditor, to be sure that our migration works properly. Perform content migration.
-1. **CKEditor Integration**: Replace textAngular with CKEditor in our RTE. A lot of work on this front has already been covered in [#1715](https://github.com/oppia/oppia/pull/1715), but that work is likely outdated due to changes both on the Oppia side and the ckEditor side and needs to be updated. All the frontend functionality described in [#3032](https://github.com/oppia/oppia/pull/3032) should be implemented.
-1. **Polish**: Address any new minor bugs introduced by the CKEditor integration. Modify the [RTE documentation](https://github.com/oppia/oppia/wiki/Rich-Text-Editor-%28RTE%29-Overview) to include all changes due to the upgrade.
-
-**Related Issues:**
-* [#3576](https://github.com/oppia/oppia/pull/3576): RTE content validation
-* [#2083](https://github.com/oppia/oppia/pull/2083): Math equation expression conflict
-
-**Notes:**
-* M1 (Content Migration) is likely to be far more challenging and time-consuming than the other 2 milestones, especially since much of the work for M1 has already been done. Proposals should have a particular emphasis on addressing the content migration.
-* Integrating a new RTE is likely to introduce many new minor bugs, which are acceptable to leave to M3 (post-migration) as long as the new RTE is still usable.
-* The existing [RTE documentation](https://github.com/oppia/oppia/wiki/Rich-Text-Editor-%28RTE%29-Overview) may be useful.
-
-## Enhancing Machine Learning in Oppia
-
-**Aim:** Explicit rules for giving feedback to learners allow Oppia to choose a response to a learner’s answer based on a set of rules. However, such rules are not scalable: it becomes difficult to cover myriads of cases just with help of rules. The aim of the machine learning project is therefore to provide **targeted** feedback to learners at scale. In GSoC 2017, we developed core infrastructure to support machine learning on Oppia and built a pipeline for training classification models for text and code answers. This year, we would like to build upon this work to fully launch ML in production. In particular, we would like to make it easier for the creators to label “unresolved” answers (i.e. answers for which no feedback was predicted by a classifier) with a piece of feedback. We will need a way to store an answer together with the number of times it appears, so that we can prioritize resolution of answers by their frequencies, and also so that we can provide information to creators in the Statistics tab. This motivates the definition of an AnswerWithFrequencyModel. We also need to design an implement a training interface which supports the answer frequency model and additional features like - (i) viewing the answers in an answer group, (ii) adding/deleting an answer from an answer group, and (iii) moving an answer to the “default” answer group.
-
-**Skills/knowledge required:**
-* AngularJS
-* Python
-* Database concepts (Google App Engine and working with NoSQL databases)
-* Machine Learning (not necessary, but strongly suggested)
-
-**Difficulty:** Hard
-
-**Potential mentors:** Prasanna (primary), Anmol, Allan
-
-**Suggested milestones:**
-1. Implement the answer frequency backend model and required functions. See the relevant point in notes to find more detail about the design requirements of this model.
-1. Implement a MapReduce job to populate AnswerWithFrequencyModel with all the existing answers in the exploration. Implement all necessary controllers and backend functions which will be required by the training interface.
-1. Implement front-end part of the training interface. By the end of GSoC the training interface should be fully functional and ready for use in production.
-
-**Related issues:**
-* [#3836](https://github.com/oppia/oppia/issues/3836): Upgrade training interface in creator view to show unresolved answers
-
-**Notes**:
-* In Milestone 1, some of the design requirements for AnswerWithFrequencyModel can be found in this [doc](https://docs.google.com/document/d/19v-zTFS7_8nysUAggDau3xCDN_WS4x20heJJjpZdALs/edit#heading=h.6v989x2m9eoz), but the doc is not completely finished yet, it will be finished by 25th February and posted here so that proposers can reference it in their proposal. The proposal should build upon this document and address all the open questions.
-* Milestone 2 involves the implementation of an MR Job for AnswerWithFrequencyModel. You may find the [Creating MapReduce](https://github.com/oppia/oppia/wiki/Calculating-statistics#8-create-mapreduce-jobs) jobs section on the wiki useful for getting more familiar with Oppia’s MapReduce infrastructure.
-* Students can either use the existing training interface and improve/re-design it OR students can propose a new training interface. However, we strongly suggest that the student tries to maximize code reuse without sacrificing the functionality.
-* For Milestone 3, the proposal should describe a suitable frontend user interface that allows creators to easily assign feedback classes to the surfaced unresolved answers. For this purpose, you may want to look at how the current training interface works, and what changes you’d like to make to it in order to meet the given requirements. The relevant design details for the new training interface can be found in this [doc](https://docs.google.com/document/d/1IIYt6QiC0-wzM6AbDwXrQPY33U_rRBZDWyaAOKMxvao/edit), which is also partially finished. We will complete the design of the backend (in terms of the behaviours of necessary functions and controllers) and post it here by 25th February, but the design of the frontend user interface is left to the proposer. You might want to prepare some simple mocks that give a rough idea of the proposed UI and the workflow for the creator.
-* You are welcome to add/suggest additional features for the training interface. But you should also explain how it will help the creators, explain the implementation details and should also indicate in which milestone you will be delivering this feature.
-
-## Improving Statistics Feedback: Learner Playthroughs
+### Visualizing learner playthroughs
 
 **Aim**: To give creators a tool for visualizing how users play through explorations. Particularly, it would be nice to let creators see playthroughs which lead to early quits, or where many incorrect answers are attempted. Through this tool we hope to provide an effective way for creators to identify problematic areas in their lesson and address them appropriately.
 
@@ -376,7 +451,7 @@ _Please note: this section is still under construction._
 
 **Difficulty**: Medium/Hard
 
-**Potential mentors**: brianrodri@ (primary)
+**Potential mentors**: @brianrodri (primary)
 
 **Suggested milestones**:
 *Backend code has the functionality to store and fetch learner playthroughs.
@@ -400,6 +475,25 @@ _Please note: this section is still under construction._
     * The admin defined values are stored in a config file (in the feconf file, for example).
 * Regarding (3):
     * It’s more important for all the information to be displayed than it is for it to look amazing. For example, don’t plan to write a “ghost player” that performs each step in a playthrough; a simple text-list describing each action is already incredibly useful and far simpler to implement.
+
+### Statistics visualizations
+
+**Aim**: An important part of the Oppia lesson development workflow is improving a lesson after it has been created. Aggregate statistics about student answers are very useful for this. However, at the moment, this functionality only works well for text input, number input, and item selection input. The aim of this project is to make the necessary UI and infrastructural fixes that enable the visualization of statistics for several other commonly-used interaction types, in a way that makes intuitive sense to the creator.
+
+**Skills/knowledge required**:
+* Full-stack development: Python, AngularJS, HTML/CSS.
+* Debugging and testing.
+* UI/UX.
+
+**Difficulty**: Medium
+
+**Potential mentors**: brianrodri@ (primary)
+
+**Suggested milestones**:
+1. Fractions answer visualizations should be shown as fractions. They are currently shown as JSON dicts, which are ugly and hard for a reader to parse. Note that this is likely to require some infrastructural changes; the proposal should be specific in describing which changes are needed.
+1. ImageClickInput and InteractiveMap visualizations should be clustered. Currently, the coordinates of the clicks are shown, but this is not useful in aggregate.
+1. Multiple choice answer visualizations should refer to summaries of the answer labels, rather than the indices of the choices. The proposal should include a clear explanation of the proposed UI/UX, particularly with regards to how long labels and labels containing rich-text components will be handled.
+
 
 # Other useful information
 
