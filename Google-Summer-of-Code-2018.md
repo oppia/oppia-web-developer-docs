@@ -2,8 +2,8 @@
 * [Getting started](#getting-started)
 * [FAQs](#faqs)
 * [GSoC Proposal Template](#gsoc-proposal-template)
-* [Notes on the project plan](#notes-on-the-project-plan)
-* [Sample proposals](#sample-proposals)
+  * [Tips for writing a good project plan](#tips-for-writing-a-good-project-plan)
+  * [Sample proposals from past years](#sample-proposals-from-past-years)
 * [Types of work related to Oppia projects](#types-of-work-related-to-oppia-projects)
 * [Selection Criteria](#selection-criteria)
 * [Oppia's Project Ideas](#oppias-project-ideas)
@@ -84,7 +84,7 @@ When proposing a project, please use the following template:
 - What is your contact information, and preferred method of communication?
 - How often do you plan on communicating with your mentor?
 
-### Notes on the project plan
+### Tips for writing a good project plan
 
 The project plan is the most important section of the proposal, since it outlines what you'll be doing during the summer. Here's some guidance on what the mentors and organization admins will be looking for in this section:
 
@@ -94,7 +94,7 @@ The project plan is the most important section of the proposal, since it outline
 
 - **Mocks or wireframes**, if appropriate. For user-facing projects, we strongly favour proposals that demonstrate an empathy for the user. If you're proposing frontend design mocks, we suggest showing your ideas to your friends and getting their critical feedback, so that you can be confident that others find them intuitive as well. Note that you do not need to make your mocks pixel-perfect, but they should illustrate the primary user journeys clearly enough for us to understand exactly what you're proposing. Also, bear in mind that more is not necessarily better -- an important aspect of user-focused design is deciding what _not_ to do.
 
-### Sample proposals
+### Sample proposals from past years
 
 If you'd like to get a sense of what a proposal might contain, here are some examples of proposals that we accepted in 2017:
 - [Prasanna's proposal](https://github.com/oppia/oppia/wiki/pdfs/GSoC2017PrasannaPatil.pdf) for applying ML to the code interaction
@@ -414,6 +414,7 @@ The following individuals will be serving as mentors during GSoC 2018:
 * Allan Zhou (@AllanYangZhou)
 * Anmol Shukla (@anmolshkl)
 * Brian Rodriguez (@brianrodri)
+* Kevin Lee (@kevinlee12)
 * Kevin Thomas (@kevintab95)
 * Prasanna Patil (@prasanna08)
 * Rachel Chen (@rachelwchen)
