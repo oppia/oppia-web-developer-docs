@@ -12,21 +12,27 @@
     * [List of Mentors](#list-of-mentors)
     * [Communication](#communication)
 
-In 2018, Oppia plans to apply to participate in [Google Summer of Code](https://developers.google.com/open-source/gsoc/). GSoC is a global program which offers post-secondary students an opportunity to discover and work with open source organizations over the course of 3 months, while being paid a stipend. Students work closely with one or more mentors from an open source organization in order to implement either a project idea by the organization, or a proposal of their own.
+Oppia has applied to participate in [Google Summer of Code 2018](https://developers.google.com/open-source/gsoc/)! GSoC is a global program which offers post-secondary students an opportunity to discover and work with open source organizations over the course of 3 months, while being paid a stipend. Students work closely with one or more mentors from an open source organization in order to implement either a project idea by the organization, or a proposal of their own.
 
-Since GSoC mentoring organizations will [not be announced until February 12, 2018](https://developers.google.com/open-source/gsoc/timeline), it is not yet known whether Oppia will be participating in Google Summer of Code 2018. This page will be updated accordingly once it is known whether Oppia is participating. You might also be interested in our GSoC info pages from previous years: [2017](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2017), [2016](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2016).
+Since GSoC mentoring organizations will [not be announced until February 12, 2018](https://developers.google.com/open-source/gsoc/timeline), it is not yet known whether Oppia will be participating in GSoC 2018. This page will be updated accordingly once it is known whether Oppia is participating. You might also be interested in our GSoC info pages from previous years: [2017](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2017), [2016](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2016).
 
-Please note, however, that acceptance into GSoC isn't a prerequisite for [becoming an Oppia contributor](https://github.com/oppia/oppia/wiki). The Oppia project is run by the community for the community, and we warmly welcome anyone who'd like to help out!
+That said, please note that acceptance into GSoC isn't a prerequisite for [becoming an Oppia contributor](https://github.com/oppia/oppia/wiki). The Oppia project is run by the community for the community, and we warmly welcome anyone who'd like to help out!
 
-The following are Oppia's 2018 GSoC project ideas (please note that this section is still under construction):
-* [Static serving](#static-serving)
-* [Crowd-sourced Audio Translations](#crowd-sourced-audio-translations)
-* [Improving the development workflow](#improving-the-development-workflow)
-* [New interactions](#new-interactions)
-* [General crowdsourcing and review system](#general-crowdsourcing-and-review-system)
-* [Oppia RTE Upgrade](#oppia-rte-upgrade)
-* [Enhancing Machine Learning in Oppia](#enhancing-machine-learning-in-oppia)
-* [Improving Statistics Feedback: Learner Playthroughs](#improving-statistics-feedback-learner-playthroughs)
+The following is a list of Oppia's 2018 GSoC project ideas. Note that the Oppia team is currently in the middle of conducting a randomized control trial (RCT) with low-income students in a government school in Delhi, India; we have several provisional (and exciting!) ideas that we plan to add based on the RCT's findings. The list below is therefore a partial one, but we should have sufficient data to finalize it by the end of February:
+
+* Infrastructure projects
+  * [Static serving](#static-serving)
+  * [Improving the development workflow](#improving-the-development-workflow)
+  * [Oppia RTE Upgrade](#oppia-rte-upgrade)
+  * [Enhancing Machine Learning in Oppia](#enhancing-machine-learning-in-oppia)
+
+* New learner view features
+  * [New interactions](#new-interactions)
+
+* Easy creation and improvement of lessons
+  * [Crowd-sourced Audio Translations](#crowd-sourced-audio-translations)
+  * [General crowdsourcing and review system](#general-crowdsourcing-and-review-system)
+  * [Improving Statistics Feedback: Learner Playthroughs](#improving-statistics-feedback-learner-playthroughs)
 
 # Students
 GSoC is an excellent opportunity for students to get paid to work on an open source project. If you're interested in applying as a student, you should definitely read the following resources:
