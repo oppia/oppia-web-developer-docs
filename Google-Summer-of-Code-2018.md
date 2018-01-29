@@ -126,6 +126,26 @@ This year, we are offering three types of projects: infrastructure projects, pro
 
 Note: the Oppia team is currently in the middle of conducting a randomized control trial (RCT) with low-income students in a government school in Delhi, India, and we have about 5 more provisional (and exciting!) ideas that we plan to add, depending on the findings of the RCT. The list below is therefore a partial one, but we should have enough data to finalize it by the end of February.
 
+- [Infrastructure Projects](#infrastructure-projects)
+  - [Static serving](#static-serving)
+  - [Improving the development workflow](#improving-the-development-workflow)
+  - [Rich-text-editor upgrade](#rich-text-editor-upgrade)
+  - [Adding a training interface for machine learning](#adding-a-training-interface-for-machine-learning)
+  - [Cleaning up the backend tests](#cleaning-up-the-backend-tests)
+  - [Improve the image loading pipeline](#improve-the-image-loading-pipeline)
+- [Learner View Projects](#learner-view-projects)
+  - [New interactions](#new-interactions)
+  - [Integrating refresher lessons within the main exploration](#integrating-refresher-lessons-within-the-main-exploration)
+  - [Audio bar improvements](#audio-bar-improvements)
+- ["Creator Experience" Projects](#creator-experience-projects)
+  - [Lesson translation dashboard](#lesson-translation-dashboard)
+  - [Crowdsourced audio translations](#crowd-sourced-audio-translations)
+  - [General crowdsourcing and review system](#general-crowdsourcing-and-review-system)
+  - [Visualizing learner playthroughs](#visualizing-learner-playthroughs)
+  - [Answer statistics visualizations](#answer-statistics-visualizations)
+
+
+
 ## Infrastructure Projects
 
 ### Static serving
@@ -226,7 +246,7 @@ Note: the Oppia team is currently in the middle of conducting a randomized contr
 * Integrating a new RTE is likely to introduce many new minor bugs. It is fine to leave these to M3 (post-migration) as long as the new RTE is still usable.
 * The existing [RTE documentation](https://github.com/oppia/oppia/wiki/Rich-Text-Editor-%28RTE%29-Overview) may be useful.
 
-### Enhancing Machine Learning in Oppia
+### Adding a training interface for machine learning
 
 **Aim:** Explicit rules for giving feedback to learners allow Oppia to choose a response to a learner’s answer based on a set of rules. However, such rules are not scalable: it becomes difficult to cover myriads of cases just with help of rules. The aim of the machine learning project is therefore to provide **targeted** feedback to learners at scale. In GSoC 2017, we developed core infrastructure to support machine learning on Oppia and built a pipeline for training classification models for text and code answers. This year, we would like to build upon this work to fully launch ML in production. In particular, we would like to make it easier for the creators to label “unresolved” answers (i.e. answers for which no feedback was predicted by a classifier) with a piece of feedback. We will need a way to store an answer together with the number of times it appears, so that we can prioritize resolution of answers by their frequencies, and also so that we can provide information to creators in the Statistics tab. This motivates the definition of an AnswerWithFrequencyModel. We also need to design an implement a training interface which supports the answer frequency model and additional features like - (i) viewing the answers in an answer group, (ii) adding/deleting an answer from an answer group, and (iii) moving an answer to the “default” answer group.
 
@@ -370,7 +390,7 @@ Note: the Oppia team is currently in the middle of conducting a randomized contr
 1. Add indicators to the dashboard to show where translations are missing/flagged, and a progress bar to indicate the completeness of the lesson's translations.
 1. Update the backend rights management to allow for a new role that allows direct edit access to the translation dashboard but not the rest of the exploration.
 
-### Crowd-sourced Audio Translations
+### Crowdsourced audio translations
 
 **Aim:** On Oppia, learners can listen to audio translations while playing through an exploration. Often, however, a creator does not have the means to create certain audio translations on their own. The goal of this project is to provide a way for anyone to contribute audio translations to an exploration. This project is different from the "lesson translation dashboard" project, in that the focus here is on making the translation process more globally accessible so that many people can contribute incrementally to it.
 
@@ -476,7 +496,7 @@ Note: the Oppia team is currently in the middle of conducting a randomized contr
 * Regarding (3):
     * It’s more important for all the information to be displayed than it is for it to look amazing. For example, don’t plan to write a “ghost player” that performs each step in a playthrough; a simple text-list describing each action is already incredibly useful and far simpler to implement.
 
-### Statistics visualizations
+### Answer statistics visualizations
 
 **Aim**: An important part of the Oppia lesson development workflow is improving a lesson after it has been created. Aggregate statistics about student answers are very useful for this. However, at the moment, this functionality only works well for text input, number input, and item selection input. The aim of this project is to make the necessary UI and infrastructural fixes that enable the visualization of statistics for several other commonly-used interaction types, in a way that makes intuitive sense to the creator.
 
