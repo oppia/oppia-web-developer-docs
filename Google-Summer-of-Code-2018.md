@@ -43,49 +43,49 @@ If you're interested in applying to work with Oppia for GSoC, please follow thes
 
 **Q: What technical skills do I need to work on Oppia?**
 
-A: Familiarity with AngularJS (v1), Python, and Google App Engine is useful and recommended for most Oppia work. In addition, UI design skills are useful for frontend, user-facing work. Please see the individual project ideas to determine whether these skills are recommended for the project in question.
+A: Familiarity with AngularJS (v1), Python 2.7 and Google App Engine is useful and recommended for most Oppia work. In addition, UI design skills are useful for frontend, user-facing work. Please see the individual project ideas to determine whether these skills are recommended for the project in question.
 
 **Q: How can I increase my chances of getting selected?**
 
-A: Writing a good project proposal, engaging with the community, helping other students, successfully contributing patches, and demonstrating that you can work independently can all help you. We've also compiled some notes below on the [selection criteria](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2018#selection-criteria) we'll be using this year.
+A: Writing a good project proposal, engaging with the community, helping other students, successfully contributing patches, and demonstrating that you can work independently can all help you. We've also compiled some notes below on the [selection criteria](#selection-criteria) we'll be using this year.
 
 **Q: Can you be flexible around my other commitments in the summer?**
 
-A: GSoC is intended to be a full-time commitment, so the main concern is whether you can still get the project done on time. Be upfront about your other commitments and make sure you schedule your time accordingly when creating your proposal. Other commitments you should list include time where you'll be in school and will commit less time to GSoC, time you will be travelling and away from GSoC work, any summer jobs you need to commit to etc. We will try to be flexible around other time commitments, as long as we are convinced by your proposal that you will have enough time to complete the project by the end of the summer. On the other hand, if you do not disclose other commitments, and it turns out you are unable to commit to what you wrote on your proposal, this is grounds for failing the program.
+A: GSoC is intended to be a full-time commitment, so the main concern is whether you can still get the project done on time. Be upfront about your other commitments and make sure you schedule your time accordingly when creating your proposal. Other commitments you should list include time where you'll be in school and will commit less time to GSoC, time when you'll be travelling and away from GSoC work, any summer jobs you need to commit to, etc. We will try to be flexible around other time commitments, as long as your proposal convinces us that you will have enough time to complete the project by the end of the summer. On the other hand, if you do not disclose other commitments, and it turns out that you are unable to commit to what you wrote on your proposal, this is grounds for failing the program.
 
 ## GSoC Proposal Template
-When proposing a project, please use the following template:
+When submitting a proposal, please use the following template:
 
 **Project Details**
-- Project name
+- Name of the project.
 - Why are you interested in working with Oppia?
 - What interests you about this project? Why is it worth doing?
-- Prior experience (especially with regards to technical skills that are needed for the project)
+- Prior experience (especially with regards to technical skills that are needed for the project).
 - Links to 1-5 PRs you've made that showcase your best work, especially any Oppia ones. The list should include at least one Oppia PR, but you can also include some other PRs from major open-source projects if you like.
 - Project plan and implementation strategy.
 
 **Summer Plans**
 - Which timezone(s) will you primarily be in during the summer?
 - How much time will you be able to commit to this project?
-- What jobs, summer classes, and other obligations might you need to work around? Please be upfront about any existing commitments you may have.
+- What jobs, summer classes, and other obligations might you need to work around? Please be upfront about any existing commitments you may have. (See the [FAQs](#faqs).)
 
 **Communication**
 - What is your contact information, and preferred method of communication?
-- How often do you plan on communicating with your mentor?
+- How often, and through which channel(s), do you plan on communicating with your mentor?
 
 ### Tips for writing a good project plan
 
 The project plan is the most important section of the proposal, since it outlines what you'll be doing during the summer. Here's some guidance on what the mentors and organization admins will be looking for in this section:
 
-- **Three clear milestones** explaining the deliverables to be achieved by the end of each of the three GSoC coding periods. Strong proposals will have clear, concrete and well-defined milestones, whose success can be readily evaluated by an external observer. It's OK to break up a milestone into smaller milestones over smaller timescales, but individual milestones should represent *concrete* deliverables that can be merged into the "develop" branch. Please try to be realistic when setting milestones, and don't over-promise.
+- **Three clear milestones** explaining the deliverables to be achieved by the end of each of the three GSoC coding periods. Strong proposals will have clear, concrete and well-defined milestones, whose success can be readily evaluated by an external observer. It's OK to break up a milestone into smaller milestones over smaller timescales, but individual milestones should represent *concrete* deliverables that can be merged safely into the "develop" branch and included in a subsequent Oppia release. Please try to be realistic when setting milestones, and don't over-promise.
 
 - **A technical design and implementation plan**. The project ideas below are annotated with some notes from the mentors, but please bear in mind that these notes are not exclusive and shouldn't serve as a substitute for thinking carefully and critically about the project from first principles -- their main purpose is to suggest ideas or possible starting points. If, in your thinking, you find aspects not mentioned in the notes, feel free to include a discussion of these aspects in your proposal. (For example, certain projects may require a migration of existing production data, and this needs to be accounted for in the project plan.) Strong proposals will demonstrate familiarity with the codebase, a realistic implementation plan, and attention to detail.
 
-- **Mocks or wireframes**, if appropriate. For user-facing projects, we strongly favour proposals that demonstrate an empathy for the user. If you're proposing frontend design mocks, we suggest showing your ideas to your friends and getting their critical feedback, so that you can be confident that others find them intuitive as well. Note that you do not need to make your mocks pixel-perfect, but they should illustrate the primary user journeys clearly enough for us to understand exactly what you're proposing. Also, bear in mind that more is not necessarily better -- an important aspect of user-focused design is deciding what _not_ to do.
+- **Mocks or wireframes**, if appropriate. For user-facing projects, we strongly favour proposals that demonstrate an empathy for the user. If you're proposing frontend design mocks, we suggest showing your ideas to your friends and getting their critical feedback, so that you can be confident that others find them intuitive as well. Note that you do not need to make your mocks pixel-perfect, but they should illustrate the primary user journeys clearly enough for us to understand exactly what you're proposing. Also, bear in mind that "more is not necessarily better" -- an important aspect of user-focused design is deciding what _not_ to do.
 
 ### Sample proposals from past years
 
-If you'd like to get a sense of what a proposal might contain, here are some examples of proposals that we accepted in 2017:
+If you'd like to get a sense of what a proposal might contain, here are some examples of student proposals that we accepted in 2017:
 - [Prasanna's proposal](https://github.com/oppia/oppia/wiki/pdfs/GSoC2017PrasannaPatil.pdf) for applying ML to the code interaction
 - [Arunabh's proposal](https://github.com/oppia/oppia/wiki/pdfs/GSoC2017ArunabhGhosh.pdf) for a new learner dashboard
 - [Yogesh's proposal](https://github.com/oppia/oppia/wiki/pdfs/GSoC2017YogeshSharma.pdf) for a sitewide ACL refactor
@@ -104,14 +104,14 @@ In order to ensure a well-rounded engineering experience, developers will do som
 In order to select students for GSoC, we will mainly be looking at three things:
 
 - The quality of the submitted proposal
-- The quality of the applicant's previously-submitted PRs (in order to assess their ability to code, debug, break down complex tasks, etc.). Note that quantity in itself isn't a prerequisite, though contributors who've submitted multiple PRs are likely to have had more opportunities to demonstrate the abilities needed to succeed in GSoC.
+- The quality of the applicant's previously-submitted PRs (in order to assess their ability to code, debug, break down complex tasks, etc.). Note that quantity isn't a prerequisite in itself, though contributors who've submitted multiple PRs are likely to have had more opportunities to demonstrate the abilities needed to succeed in GSoC.
 - Our prior experience working with the student (e.g. do they keep commitments, communicate well, demonstrate independence/initiative/responsiveness, help others, etc.)
 
 We believe that strong performance in these dimensions is likely to correlate well with the student having an enjoyable, fulfilling and productive experience over the summer, and successfully completing the GSoC program.
 
-For the proposal, we generally look for a clear indication that the student has a good, deep understanding of the project, and has broken down the project sufficiently well, in a way that makes it very likely to succeed. Some indicators that could help with this include:
+For the proposal, we generally look for a clear indication that the student has a good, deep understanding of the project, and has broken it down sufficiently well, in a way that makes it very likely to succeed. Some indicators that could help with this include:
 - A clear analysis of (and good design decisions that build on top of) the original project idea, with a strong focus on creating a simple, intuitive experience for end users.
-- A concrete, specific breakdown of the work to be done for each milestone. Here's an [example](https://docs.google.com/document/d/1vuwXvHOYXqfM2S2B2KIWhZrAa1PL59wJRUYsqJEd67E/edit#heading=h.ci6rc1u061yj) from a previous design doc. (Note that, in this example, the author has carefully considered and listed which tests need to be written alongside the code; this is a positive indicator.)
+- A concrete, specific breakdown of the work to be done for each milestone. Here's an [example](https://docs.google.com/document/d/1naJHCWOGCXQoi0BqcF7h7Q8RBwG2iXebVLRFry6RvWg/edit#heading=h.ci6rc1u061yj) from a previous design doc. (Note that, in this example, the author has carefully considered and listed which tests need to be written alongside the code; this is a positive indicator.)
 - Sufficient concreteness (e.g. references to particular files and methods) to demonstrate that the applicant is familiar with both the scope of the problem and the existing codebase.
 - A description, if applicable, of how the applicant plans to mitigate risks that could potentially derail the project.
 - Clear, unambiguous communication. (This is important; your proposal will be read by many mentors!)
