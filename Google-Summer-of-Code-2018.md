@@ -523,7 +523,7 @@ Noteworthy dates for 2018:
 * **Jan 04 - Jan 23**: Mentoring organizations apply
 * **Feb 12**: Mentoring organizations are announced
 * **Mar 12 - Mar 27**: Student application period
-* **Apr 23**: Accepted students announced
+* **Apr 23**: Accepted students are announced
 * **Apr 23 - May 14**: Community bonding period
 * **May 14 - Aug 06**: Students enjoy the summer by contributing code to their projects
 * **Aug 22**: GSoC officially ends
@@ -547,10 +547,11 @@ The following individuals will be serving as mentors during GSoC 2018:
 **Chat**
 
 Oppia doesn't have an official IRC channel, but we do have a real-time chat channel on [Gitter](
-https://gitter.im/oppia/oppia-chat#)! You can log in using your GitHub account (Gitter will ask to be associated with your GitHub account for authentication) and you will then be able to talk in it. Please feel free to use Gitter if you just want to say hi to the community or if you have any question related to "getting started". For project specific questions, please direct your queries to the [GSoC discussion mailing list](mailto:oppia-gsoc-discuss@googlegroups.com).
+https://gitter.im/oppia/oppia-chat)! You can log in using your GitHub account (Gitter will ask to be associated with your GitHub account for authentication) and you will then be able to talk in it. Please feel free to use Gitter if you just want to say hi to the community or if you have any questions related to getting started. For project-specific questions, please direct your queries to the [GSoC discussion mailing list](mailto:oppia-gsoc-discuss@googlegroups.com).
 
 **Email**
 
-If you have questions pertaining to "how-to-get-started", please ask them on Gitter, or the oppia-dev@ mailing list. Please be specific when asking questions; this makes it easier for us to help you.
+If you have questions pertaining to "how-to-get-started", please ask them on [Gitter](
+https://gitter.im/oppia/oppia-chat), or the oppia-dev@ mailing list. Please be specific when asking questions; this makes it easier for us to help you.
 
 To discuss your project ideas or share your proposal for feedback from the community, please email the [GSoC discussion mailing list](mailto:oppia-gsoc-discuss@googlegroups.com).
