@@ -122,9 +122,9 @@ For the proposal, we generally look for a clear indication that the student has 
 
 The following is a list of Oppia's 2018 GSoC project ideas. Students are welcome to choose among these ideas, or propose their own. However, if you are proposing something original, it's essential to engage with the Oppia community in order to get feedback and guidance to improve the proposal, as well as to make sure that it fits in with the team's overall plans.
 
-This year, we are offering three types of projects: infrastructure projects, projects that improve the learner experience, and projects that improve the creator experience. 
+This year, the Oppia team is offering three types of projects: infrastructure projects, projects that improve the learner experience, and projects that improve the creator experience. Some of the project ideas are annotated with notes and suggestions from the mentors, but please bear in mind that the main purpose of these notes is simply to suggest ideas or possible starting points; they aren't meant to be prescriptive. You'd also be welcome to include discussions of other relevant aspects (that aren't mentioned in the notes) to your proposal. For more information, see: [Tips for writing a good project plan](#tips-for-writing-a-good-project-plan).
 
-Note: the Oppia team is currently in the middle of conducting a randomized control trial (RCT) with low-income students in a government school in Delhi, India, and we have about 5 more provisional (and exciting!) ideas that we plan to add, depending on the findings of the RCT. The list below is therefore a partial one, but we should have enough data to finalize it by the end of February.
+**Note:** The following list of ideas is a partial one. The Oppia team is currently in the process of conducting a randomized control trial (RCT) of some basic mathematics lessons with low-income students in a government school in Delhi, India, and we have around 5 more provisional (and exciting!) ideas that we plan to add, depending on the RCT's findings. We should have enough data to finalize the list by the end of February 2018.
 
 - [Infrastructure Projects](#infrastructure-projects)
   - [Static serving](#static-serving)
