@@ -246,40 +246,42 @@ This year, the Oppia team is offering three types of projects: infrastructure pr
 
 ### Adding a training interface for machine learning
 
-**Aim:** Explicit rules for giving feedback to learners allow Oppia to choose a response to a learner’s answer based on a set of rules. However, such rules are not scalable: it becomes difficult to cover myriads of cases just with help of rules. The aim of the machine learning project is therefore to provide **targeted** feedback to learners at scale. In GSoC 2017, we developed core infrastructure to support machine learning on Oppia and built a pipeline for training classification models for text and code answers. This year, we would like to build upon this work to fully launch ML in production. In particular, we would like to make it easier for the creators to label “unresolved” answers (i.e. answers for which no feedback was predicted by a classifier) with a piece of feedback. We will need a way to store an answer together with the number of times it appears, so that we can prioritize resolution of answers by their frequencies, and also so that we can provide information to creators in the Statistics tab. This motivates the definition of an AnswerWithFrequencyModel. We also need to design an implement a training interface which supports the answer frequency model and additional features like - (i) viewing the answers in an answer group, (ii) adding/deleting an answer from an answer group, and (iii) moving an answer to the “default” answer group.
+**Aim:** One of the things that makes Oppia useful is that it can give learners targeted feedback at scale. This is done using explicit, creator-defined rules that allow Oppia to choose a response to a learner's answer. However, creating a large number of such rules is time-consuming and not scalable, especially for questions that are more complex. This is a problem that could be tackled using machine learning.
+
+In GSoC 2017, we developed core infrastructure to support machine learning on Oppia and built a pipeline for training classification models for text and code answers. This year, we'd like to build upon this work to fully launch ML in production. In particular, we would like to make it easier for the creators to label "unresolved" answers (i.e. answers for which no feedback was predicted by a classifier) with a piece of feedback. We will need a way to store an answer together with the number of times it appears, so that we can prioritize resolution of answers by their frequencies, and also so that we can provide information to creators in the Statistics tab; this motivates the definition of an AnswerWithFrequencyModel. In addition, we will also need to design and implement a training interface which supports the AnswerWithFrequencyModel, as well as additional features like (i) viewing the answers in an answer group, (ii) adding/deleting an answer from an answer group, and (iii) moving an answer to the "default" answer group.
 
 **Skills/knowledge required:**
 * AngularJS
 * Python
 * Database concepts (Google App Engine and working with NoSQL databases)
-* Machine Learning (not necessary, but strongly suggested)
+* Machine Learning (not necessary, but strongly recommended)
 
 **Difficulty:** Hard
 
 **Potential mentors:** @prasanna08 (primary), @anmolshkl, @AllanYangZhou
 
 **Suggested milestones:**
-1. Implement the answer frequency backend model and required functions. See the relevant point in notes to find more detail about the design requirements of this model.
-1. Implement a MapReduce job to populate AnswerWithFrequencyModel with all the existing answers in the exploration. Implement all necessary controllers and backend functions which will be required by the training interface.
-1. Implement front-end part of the training interface. By the end of GSoC the training interface should be fully functional and ready for use in production.
+1. Implement the answer frequency backend model and required functions. (See the notes for more detail about the design requirements for this model.)
+1. Implement a MapReduce job that populates AnswerWithFrequencyModel instances with all the existing answers in the exploration. Implement all the necessary controllers and backend functions that the training interface depends on.
+1. Implement the front-end part of the training interface. By the end of GSoC, the training interface should be fully functional and ready for use in production.
 
 **Related issues:**
 * [#3836](https://github.com/oppia/oppia/issues/3836): Upgrade training interface in creator view to show unresolved answers
 
 **Notes**:
-* In Milestone 1, some of the design requirements for AnswerWithFrequencyModel can be found in this [doc](https://docs.google.com/document/d/19v-zTFS7_8nysUAggDau3xCDN_WS4x20heJJjpZdALs/edit#heading=h.6v989x2m9eoz), but the doc is not completely finished yet, it will be finished by 25th February and posted here so that proposers can reference it in their proposal. The proposal should build upon this document and address all the open questions.
-* Milestone 2 involves the implementation of an MR Job for AnswerWithFrequencyModel. You may find the [Creating MapReduce](https://github.com/oppia/oppia/wiki/Calculating-statistics#8-create-mapreduce-jobs) jobs section on the wiki useful for getting more familiar with Oppia’s MapReduce infrastructure.
-* Students can either use the existing training interface and improve/re-design it OR students can propose a new training interface. However, we strongly suggest that the student tries to maximize code reuse without sacrificing the functionality.
-* For Milestone 3, the proposal should describe a suitable frontend user interface that allows creators to easily assign feedback classes to the surfaced unresolved answers. For this purpose, you may want to look at how the current training interface works, and what changes you’d like to make to it in order to meet the given requirements. The relevant design details for the new training interface can be found in this [doc](https://docs.google.com/document/d/1IIYt6QiC0-wzM6AbDwXrQPY33U_rRBZDWyaAOKMxvao/edit), which is also partially finished. We will complete the design of the backend (in terms of the behaviours of necessary functions and controllers) and post it here by 25th February, but the design of the frontend user interface is left to the proposer. You might want to prepare some simple mocks that give a rough idea of the proposed UI and the workflow for the creator.
-* You are welcome to add/suggest additional features for the training interface. But you should also explain how it will help the creators, explain the implementation details and should also indicate in which milestone you will be delivering this feature.
+* For Milestone 1, some of the design requirements for AnswerWithFrequencyModel can be found in [this doc](https://docs.google.com/document/d/19v-zTFS7_8nysUAggDau3xCDN_WS4x20heJJjpZdALs/edit), but the doc is not completely finished yet. It will be finished by 25th February and posted here so that proposers can reference it in their proposal. The proposal should build upon this document, and address all the open questions.
+* Milestone 2 involves the implementation of an MapReduce job for AnswerWithFrequencyModel. You may find the [Creating MapReduce](https://github.com/oppia/oppia/wiki/Calculating-statistics#8-create-mapreduce-jobs) jobs section on the wiki useful for getting more familiar with Oppia's MapReduce infrastructure.
+* Students can EITHER use the existing training interface and improve/re-design it, OR propose a new training interface. We strongly suggest finding an approach that maximizes code reuse without sacrificing functionality.
+* For Milestone 3, the proposal should describe a suitable frontend user interface that allows creators to easily assign feedback classes to the surfaced unresolved answers. For this purpose, you may want to look at how the current training interface works, and what changes you'd like to make to it in order to meet the given requirements. The design details for the new training interface can be found in [this doc](https://docs.google.com/document/d/1IIYt6QiC0-wzM6AbDwXrQPY33U_rRBZDWyaAOKMxvao/edit), which is partially finished. We will complete the backend design (in terms of the behaviours of necessary functions and controllers) and post it here by 25th February, but the frontend UI design is left to the proposer. You might want to prepare some simple mocks that give a rough idea of the proposed UI and the workflow for the creator.
+* As a stretch goal, you are welcome to add/suggest additional features for the training interface. However, if you do, please also explain how it will help creators, explain the implementation details, and indicate in which milestone you will deliver this feature.
 
 ### Cleaning up the backend tests
 
-**Aim:** The Oppia backend is currently quite solid, but we would like to strengthen it further by ensuring that it is fully tested. The aim of this project is to clean up the backend tests and implement missing ones, as well as to lay down guidelines/rules for future backend developers to ensure that the backend code continues to be well-covered by tests. Particular emphasis is placed on introducing a framework that makes it easy to write backend integration tests.
+**Aim:** The Oppia backend is currently quite solid, but we would like to strengthen it further by ensuring that it is fully tested. The aim of this project is to clean up the backend tests and implement missing ones, as well as to lay down guidelines/rules for future backend developers to ensure that the backend code continues to be well-covered by tests. Particular emphasis is placed on introducing a framework that encapsulates common "user actions" and makes it easy to write backend _integration_ tests simulating user flows against various server endpoints, such as [this one](https://github.com/oppia/oppia/blob/6d9650886f580dbca538981521c10d0be3a28849/core/controllers/editor_test.py#L930).
 
 **Skills/knowledge required:**
 * Python
-* Testing experience
+* Experience writing tests
 * A "testing" mentality of trying to find creative ways to break the code
 
 **Difficulty:** Medium
@@ -287,18 +289,24 @@ This year, the Oppia team is offering three types of projects: infrastructure pr
 **Potential mentors:** @seanlip (primary)
 
 **Suggested milestones:**
-1. Implement a framework that makes it easy to write backend integration tests, and illustrate it by writing a few integration tests for common scenarios that occur in practice (e.g. creating an exploration and then playing it).
+1. Implement a framework that makes it easy to write backend integration tests. Illustrate it by writing a few integration tests for common scenarios that occur in practice (e.g. creating an exploration and then playing it).
 1. Implement a full suite of backend integration tests that covers all major (and some minor) use cases. Enable coverage checking and improve the coverage of the backend unit tests to 85%.
 1. Improve the coverage of the backend unit tests to 100%.
 
+**Notes**:
+* Proposals should explain their approach for creating a framework that makes the creation of backend integration tests easier. One possible approach is to encapsulate common actions in helper functions, all stored in a test_actions.py file, and use these to simulate common behaviours (e.g. `test_actions.login(user_id)`). The proposal should describe the API for the framework.
+* Proposals should explain how they would enable coverage checking, and which tests they will focus on writing in milestone 2 vs milestone 3.
+* A strong proposal will describe, in some detail, a list of backend integration tests to write (that corresponds to core user journeys). Finding a way to organize this effectively is important; we don't want to end up with many tests with mostly-overlapping functionality.
+
 ### Improve the image loading pipeline
 
-**Aim:** Currently, images in lessons take a while to load. This results in students (especially those with poor connectivity) seeing no image for an extended period, which causes them to misinterpret questions and select incorrect answers, leading to frustration. We currently have a system for loading audio that preloads and caches audio files, and we want to use a similar system for images. This is a full-stack project.
+**Aim:** Currently, images in lessons take a while to load. This results in students (especially those with poor connectivity) seeing no images for an extended period, which causes them to misinterpret questions and select incorrect answers, leading to frustration. We currently have a system for loading audio that preloads and caches audio files, and we want to extend this system to accommodate images as well.
 
 **Skills/knowledge required:**
-* Python
-* AngularJS
+* Full-stack programming in Python and AngularJS
+* A good sense for technical design
 * Attention to detail
+* Experience with refactoring/migrations (not necessary, but strongly recommended)
 
 **Difficulty:** Medium
 
@@ -308,6 +316,11 @@ This year, the Oppia team is offering three types of projects: infrastructure pr
 1. Extend the audio asset caching and preloading functionality in the frontend to handle images as well.
 1. Write code to analyze and extract image details from the rich-text content of an exploration, such that the full list of images contained in a given exploration can be retrieved. Implement code for a one-off migration of existing image data from the App Engine datastore to Google Cloud Storage, so that the image files sit alongside the audio files.
 1. Perform the migration. Ensure that image files get saved to Google Cloud Storage going forward, and deprecate the old system.
+
+**Notes**:
+* The trickiest part of this project is finding a way to do the refactoring/migration _safely_. Potential pitfalls include having new files get written to both systems at once, new files not get written to any system at all, incomplete transfer of files from the old system to the new system, references to image URLs in the new system while files are still in the old system, stale references to the old system, etc. Your proposal should provide a set of migration instructions and a timeline for PRs/releases that ensures that a release can always be cut from the develop branch without causing anything to break. (Note that Oppia releases generally happen once a month, around the 15th or so.)
+* Be careful to also account for images in all previous versions of an exploration; we should migrate those images too. This is necessary because explorations can be reverted to older ones.
+* The proposal should explain how to validate that the migration has taken place correctly before doing anything destructive (such as deleting the images from the old system).
 
 ## Learner View Projects
 
