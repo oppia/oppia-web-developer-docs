@@ -150,38 +150,37 @@ This year, the Oppia team is offering three types of projects: infrastructure pr
 
 ### Static serving
 
-**Aim:** Currently, Oppia serves all pages using the Jinja templating engine, which isn’t very efficient -- for one thing, because pages are dynamically composed using Jinja, they can’t be cached. The aim of this project is therefore to serve as much of Oppia’s pages as we can statically, and handle all dynamic content using AJAX calls. In order to do this, we’ll need to get rid of Jinja in our codebase. Furthermore, we sometimes use Jinja in order to include static files (like header_js_libs.html or footer.html); and will therefore need to find an alternative way to include these in a Jinja-less environment (perhaps in our build process, or with ngInclude).
+**Aim:** Currently, Oppia serves all pages using the Jinja templating engine, which isn't very efficient -- for one thing, because pages are dynamically composed using Jinja, they can’t be cached. The aim of this project is therefore to serve as much of Oppia's pages as we can statically, and handle all dynamic content using AJAX calls. In order to do this, we'll need to get rid of the Jinja footprint in our codebase. Furthermore, we sometimes use Jinja to include static files (like header_js_libs.html or footer.html); and will therefore need to find an alternative way to include these in a Jinja-less environment (perhaps in our build process, or with ngInclude).
 
 **Skills/knowledge required:**
 * Full-stack development
 * Technical design
-* Python scripting
+* Python
 
 **Difficulty:** Medium
 
 **Potential mentor(s):** @vojtechjelinek (primary), @brianrodri
 
 **Suggested milestones:**
-1. Devise a way to serve the About page statically (this requires getting rid of Jinja on that page); this approach should be generalizable to other pages. Identify other issues that can arise from serving the remaining pages statically.
-1. Convert all mostly-static pages in Oppia, as well as at least one non-static page, to use the new framework developed in (1).
+1. Devise a way to serve the About page statically (this requires getting rid of Jinja on that page), using an approach that is generalizable to other pages. Identify other issues that can arise from serving the remaining pages statically.
+1. Convert all mostly-static pages in Oppia, as well as at least one non-static page, to use the new framework developed in milestone 1.
 1. Serve all pages in Oppia statically.
 
 **Related issues (you might like to tackle a few of these, in order to get a feel for the domain):**
 * [#2641](https://github.com/oppia/oppia/issues/2641): There should be tests which verify that all HTML/JS components which need to be served together are indeed bundled together in every page they appear in.
-* [#3753](https://github.com/oppia/oppia/issues/2641): Remove the IS_MINIFIED flag. 
-* [#4220](https://github.com/oppia/oppia/issues/2641): MusicNotesInput static images are not hash interpolated.
-* [#2308](https://github.com/oppia/oppia/issues/2641): Add pre-rendering and other pre improvements to Oppia pages.
+* [#4220](https://github.com/oppia/oppia/issues/4220): MusicNotesInput static images are not hash interpolated.
+* [#2308](https://github.com/oppia/oppia/issues/2308): Add pre-rendering and other pre improvements to Oppia pages.
 
 **Notes:**
-* This project may require some changes in the build process, because we currently sometimes use `{% include %}` just to have clearer dev processes. Good proposals will include a coherent analysis of how to deal with this issue, as well as pros/cons of each. Some starting-point ideas are provided below, but there may be others:
+* The proposal should include a clear analysis of how to get rid of Jinja for all pages.
+* This project may require some changes in the build process, because we currently sometimes use `{% include %}` just to have clearer dev processes. Good proposals will include a coherent analysis of how to deal with this issue, as well as the pros/cons of possible approaches. Some starting-point ideas are provided below, but there may be others:
     *  re-build the finalized templates at release time, then serve them statically from then on (rather than try to re-construct them at every request). But how would we handle local development, where the changed files must be available immediately?
     * Look into stuff like ngInclude in Angular. But that might lead to too many calls to the server (even if only to retrieve static files). That said, we could cache the templates.
-* The main goal of this project is to improve the bandwidth and latency of Oppia as much as possible, so other changes that would improve these metrics and might go in hand with static serving are highly appreciated. However, in general, such changes should not supersede the static serving part of the project.
-* The proposal should include an analysis of how to get rid of Jinja for all pages.
+* The main goal of this project is to improve the bandwidth and latency of Oppia as much as possible, so other changes that would improve these metrics are highly appreciated. However, such changes should not supersede the 'static serving' part of the project.
 
 ### Improving the development workflow
 
-**Aim:** The aim of this project is to make life better for Oppia developers and reviewers. For example, a fair amount of reviewer time is currently spent handling common situations that should be automatable via presubmit checks (such as linting and CLA checking). Also, in order to catch errors before they end up in production, we need a thorough suite of non-flaky end-to-end tests in order to ensure that changes don’t cause regressions, and these tests should incorporate mobile views and multiple browsers. Other improvements might also be possible.
+**Aim:** The aim of this project is to improve the development workflow for Oppia developers and code reviewers. For example, a fair amount of reviewer time is currently spent handling common situations that should be automatable via presubmit checks (such as linting and CLA checking). Also, in order to catch errors before they end up in production, we need a thorough suite of non-flaky end-to-end tests in order to ensure that changes don’t cause regressions, and these tests should incorporate mobile views and multiple browsers. Other improvements might also be possible.
 
 **Skills/knowledge required:**
 * Bash and python scripting
@@ -196,10 +195,10 @@ This year, the Oppia team is offering three types of projects: infrastructure pr
 **Potential mentors:** @seanlip (primary), @kevinlee12
 
 **Suggested milestones:**
-1. Implement automatic lint checks that catches all common errors before the PR is pushed to GitHub -- these checks should run automatically for all contributors before submit (and if this isn’t the case, this should be fixed, or a GitHub linter bot created so that reviewers can assume that PRs are linted prior to review). In particular, fix and close all bugs related to linting and presubmit checks, such as #4119 and #3905, and provide documentation on how to write lint checks for newly-discovered common issues.
+1. Implement automatic lint checks that catch all common errors before a PR is pushed to GitHub. These checks should run automatically for all contributors before submit (and if this isn’t the case, this should be fixed, or a GitHub linter bot created so that reviewers can assume that PRs are linted prior to review). In particular, fix and close all bugs related to linting and presubmit checks, such as #4119 and #3905, and provide documentation on how to write lint checks for newly-discovered common issues.
 1. Organize and tidy up the e2e tests, and define policies for what to test. Extend the existing e2e framework to support an additional browser (Firefox), as well as mobile viewports. Fix any flakiness issues that arise, such as those in #4044. Draw up a plan for manual release testing that covers the gaps left by e2e tests. Provide documentation on how to update these plans and e2e tests if a new page gets added to the Oppia application.
 1. Create GitHub bots to automate common tasks, and provide documentation on how to write new GitHub bots for other automatable tasks that arise, going forward. Such tasks may include:
-    1. checking CLAs (currently maintained in a Google Form) and directing new contributors to the “Getting Started” instructions if the CLA is not signed
+    1. checking CLAs (currently maintained in a Google Form) and directing new contributors to the "Getting Started" instructions if the CLA is not signed
     1. emailing PR authors when their PR has a merge conflict (e.g. when the develop branch is updated) or their Travis tests fail, and providing guidance on how to address it; emailing the maintainer-on-duty if any Travis tests fail in develop
     1. warning PR authors if PRs look abandoned, and then auto-closing those PRs after a few more days
     1. (stretch) auto-updating translations from translatewiki once a month
@@ -207,20 +206,19 @@ This year, the Oppia team is offering three types of projects: infrastructure pr
 **Related issues (you might like to tackle a few of these, in order to get a feel for the domain):**
 * [#4122](https://github.com/oppia/oppia/issues/4122): refactor the startup scripts so that Karma tests run with minimal downloads.
 * [#4119](https://github.com/oppia/oppia/issues/4119): ensure that the linter script diffs correctly.
-* [#4044](https://github.com/oppia/oppia/issues/4044): fix flakiness in e2e tests.
 * [#3905](https://github.com/oppia/oppia/issues/3905): add lint checks for common coding issues arising in code reviews.
 * [#1977](https://github.com/oppia/oppia/issues/1977): lint CSS files
 * [#1736](https://github.com/oppia/oppia/issues/1736): make Protractor tests also run on Firefox in Travis.
 
 **Notes:**
-* Some lint checks are harder to implement than others. Proposals should enumerate the different ways to handle lint checks, and systematically explain how to implement the known issues. A starter list is provided in #3905, but it is not exhaustive, and strong proposals would extend this list with other issues that commonly arise in reviews.
-* A primary emphasis of this project is on developing repeatable processes that can run reliably, long after the GSoC project is over. Strong proposals will provide a coherent analysis and breakdown of each part of the project, and propose procedures for how to triage and handle new instances of each type of task going forward. Most of the coding period will involve implementing these procedures.
-* In addition to the deliverables laid out above, proposers may optionally suggest and implement further improvements to the development workflow and review process. However, in general, such improvements should not supersede the core ones laid out above.
-* It might be a good idea to tackle one or two of the sub-issues in #3905 to become familiar with how the linting process works. This might also help you write a more concrete proposal.
 * The overall goal of this project is to automate as much of the development workflow as possible. There should be a noticeable improvement in the dev experience when this project is completed (e.g. in terms of review turnaround times and developers getting quick feedback on their PRs).
+* A primary emphasis of this project is on developing repeatable processes that can run reliably, long after the GSoC project is over. Strong proposals will provide a coherent analysis and breakdown of each part of the project, and propose procedures for triaging and handling new instances of each type of task going forward. Most of the coding period will involve implementing these procedures.
+* Some lint checks are harder to implement than others. Proposals should enumerate different ways to handle lint checks, and systematically explain how to implement fixes for the known issues. A starter list is provided in #3905, but it is not exhaustive, and strong proposals would extend this list with other issues that commonly arise in code reviews.
+* In addition to the deliverables laid out above, proposers may optionally suggest and implement further improvements to the development workflow and review process. However, in general, such improvements should not supersede the core ones laid out above.
+* It might be a good idea to tackle one or two of the sub-issues in [#3905](https://github.com/oppia/oppia/issues/3905) to become familiar with how the linting process works. This might also help you write a more concrete proposal.
 
 ### Rich-text-editor upgrade
-**Aim:** The aim of this project is to upgrade Oppia’s Rich Text Editor (RTE), which authors use to actually create lesson content. Our current RTE, based on [textAngular](http://textangular.com/), cannot render previews of certain “rich text components” during editing. For [example](https://github.com/oppia/oppia/issues/1933), if the creator adds a hyperlink, we want to display that link in the editor. The current editor can only show a generic link icon placeholder. The same issue exists with math equations, images, and the other rich text components. We want to upgrade our RTE to use [CKEditor](https://ckeditor.com/ckeditor-4/), which would allow us to actually render rich text components during editing, instead of having placeholders. This RTE upgrade may also include other improvements to the editing experience.
+**Aim:** The aim of this project is to upgrade Oppia’s Rich Text Editor (RTE), which authors use to create lesson content. Our current RTE, based on [textAngular](http://textangular.com/), cannot render previews of certain rich-text components during editing. For [example](https://github.com/oppia/oppia/issues/1933), if the creator adds a hyperlink, we want to display that link in the editor -- but the current editor can only show a generic link icon placeholder. The same issue exists with math equations, images, and the other rich text components. We want to upgrade our RTE to use [CKEditor](https://ckeditor.com/ckeditor-4/), which would allow us to actually render rich text components during editing, instead of having placeholders. This will result in an improvement to the lesson creation experience.
 
 **Skills/Knowledge Required**:
 * JavaScript
@@ -233,8 +231,8 @@ This year, the Oppia team is offering three types of projects: infrastructure pr
 **Potential Mentors:** @AllanYangZhou (primary), @prasanna08
 
 **Suggested Milestones:**
-1. **Content Migration**: Write a job to migrate existing RTE content (i.e., the content currently in our existing explorations which was created through textAngular) into a format that is compatible with CKEditor. We should have a function that checks whether given content is acceptable for CKEditor, to be sure that our migration works properly. Perform content migration.
-1. **CKEditor Integration**: Replace textAngular with CKEditor in our RTE. A lot of work on this front has already been covered in [#1715](https://github.com/oppia/oppia/pull/1715), but that work is likely outdated due to changes both on the Oppia side and the ckEditor side and needs to be updated. All the frontend functionality described in [#3032](https://github.com/oppia/oppia/pull/3032) should be implemented.
+1. **Content Migration**: Write and execute a one-off job that migrates existing RTE content (i.e., the content currently in our existing explorations which was created through textAngular) into a format compatible with CKEditor. We should have a function that checks whether the given content is acceptable for CKEditor, to be sure that our migration works properly.
+1. **CKEditor Integration**: Replace textAngular with CKEditor in our RTE. A lot of this work has already been covered in [#1715](https://github.com/oppia/oppia/pull/1715), but that work is likely outdated due to changes in both Oppia and CKEditor, and needs to be updated. All the frontend functionality described in [#3032](https://github.com/oppia/oppia/pull/3032) should be implemented.
 1. **Polish**: Address any new minor bugs introduced by the CKEditor integration. Modify the [RTE documentation](https://github.com/oppia/oppia/wiki/Rich-Text-Editor-%28RTE%29-Overview) to include all changes due to the upgrade.
 
 **Related Issues:**
@@ -242,8 +240,8 @@ This year, the Oppia team is offering three types of projects: infrastructure pr
 * [#2083](https://github.com/oppia/oppia/pull/2083): Math equation expression conflict
 
 **Notes:**
-* M1 (Content Migration) is likely to be more challenging and time-consuming than the other 2 milestones. Proposals should have a particular emphasis on addressing the content migration.
-* Integrating a new RTE is likely to introduce many new minor bugs. It is fine to leave these to M3 (post-migration) as long as the new RTE is still usable.
+* Milestone 1 (Content Migration) is likely to be more challenging and time-consuming than the other 2 milestones. Proposals should have a particular emphasis on addressing the content migration.
+* Integrating a new RTE is likely to introduce many new minor bugs. It is fine to leave these to milestone 3 (post-migration) as long as the new RTE is still usable.
 * The existing [RTE documentation](https://github.com/oppia/oppia/wiki/Rich-Text-Editor-%28RTE%29-Overview) may be useful.
 
 ### Adding a training interface for machine learning
