@@ -60,7 +60,6 @@ When submitting a proposal, please use the following template:
 - Name of the project.
 - Why are you interested in working with Oppia?
 - What interests you about this project? Why is it worth doing?
-- What do you hope to gain from the GSoC experience?
 - Prior experience (especially with regards to technical skills that are needed for the project).
 - Links to 1-5 PRs you've made that showcase your best work, especially any Oppia ones. The list should include at least one Oppia PR, but you can also include some other PRs from major open-source projects if you like.
 - Project plan and implementation strategy.
