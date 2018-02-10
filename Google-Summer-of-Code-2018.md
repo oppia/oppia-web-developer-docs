@@ -378,7 +378,7 @@ In GSoC 2017, we developed core infrastructure to support machine learning on Op
 
 **Suggested milestones:**
 1. Improve the automatic English audio subtitles, and fix them if they don't say the correct thing (for example, when reading LaTeX). The issues here can be discovered by manual testing, and the proposal should enumerate a specific list of desired fixes.
-1. Allow the learner to adjust the speed of audio playback.
+1. Add support for creators to store written versions of the audio translations, so that if the exploration content changes it is easy to update these and re-record the audio.
 1. Make the learner's experience with audio as seamless as possible. At minimum, this should entail triaging and fixing at least three other audio-related bugs (to be agreed with your mentor).
 
 ## "Creator Experience" Projects
