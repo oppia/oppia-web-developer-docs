@@ -313,7 +313,7 @@ In GSoC 2017, we developed core infrastructure to support machine learning on Op
 **Potential mentors:** @tjiang11 (primary), @vojtechjelinek
 
 **Suggested milestones:**
-1. Extend the audio asset caching and preloading functionality in the frontend to handle images as well.
+1. Extend the audio asset caching and preloading functionality in the frontend to handle images as well. Ensure that a loading placeholder is shown while an image is in the process of loading (currently, there is no such indication, which results in a poor user experience as learners would be reading a card with important information missing).
 1. Write code to analyze and extract image details from the rich-text content of an exploration, such that the full list of images contained in a given exploration can be retrieved. Implement code for a one-off migration of existing image data from the App Engine datastore to Google Cloud Storage, so that the image files sit alongside the audio files.
 1. Perform the migration. Ensure that image files get saved to Google Cloud Storage going forward, and deprecate the old system.
 
