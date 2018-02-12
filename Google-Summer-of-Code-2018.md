@@ -135,8 +135,9 @@ This year, the Oppia team is offering three types of projects: infrastructure pr
   - [Improve the image loading pipeline](#improve-the-image-loading-pipeline)
 - [Learner View Projects](#learner-view-projects)
   - [New interactions](#new-interactions)
-  - [Integrating refresher lessons within the main exploration](#integrating-refresher-lessons-within-the-main-exploration)
+  - [Add functionality for skills](#add-functionality-for-skills)
   - [Audio bar improvements](#audio-bar-improvements)
+  - [Questions frontend](#questions-frontend)
 - ["Creator Experience" Projects](#creator-experience-projects)
   - [Lesson translation dashboard](#lesson-translation-dashboard)
   - [Crowdsourced audio translations](#crowd-sourced-audio-translations)
@@ -391,6 +392,27 @@ In GSoC 2017, we developed core infrastructure to support machine learning on Op
 1. Add support for creators to store written versions of the audio translations, so that if the exploration content changes it is easy for the creators to update these written versions and re-record the audio. (At some point in the future we might also surface these to the student.)
 1. Allow students to flag audio translations that they can't understand.
 
+### Questions frontend
+
+**Aim:** In order to practice skills, students need a way to be given randomly-selected questions from a question bank. The backend for questions has already been built, but the frontend has not been started yet. The aim of this project is to implement the frontend interfaces for question editing and question practice. Questions are currently used in three places: at the beginning of a lesson (as recaps), at the end of a lesson (as post-tests / final challenges), and as standalone practice.
+
+**Skills/knowledge required:**
+* AngularJS (and a bit of Python)
+* UI/UX design
+
+**Difficulty:** Medium/Hard
+
+**Potential mentors:** @seanlip (primary), @tjiang11
+
+**Suggested milestones:**
+1. Implement a basic editor UI for adding, viewing and editing new questions associated with a specific skill.
+1. Implement a standalone frontend for repetitive practice of questions that pertain to a particular skill (or set of skills).
+1. Find a clean way to incorporate functionality for randomized questions into the beginning and end of an exploration (which the creator can optionally enable), so that instead of hard-coding the recap/final questions, a creator can just specify the skills for which questions should be asked.
+
+**Notes:**
+* Much, but not all, of the Questions backend has already been built. So, the bulk of the work for this project will take place in the frontend (though there may be a few small Python seams that need to be implemented).
+* The proposal should describe how a learner would access the standalone questions frontend (e.g. do they do so via their learner dashboard, or from the relevant collection page, or either?) as well as the desired UX for the standalone questions frontend.
+
 ## "Creator Experience" Projects
 
 ### Lesson translation dashboard
@@ -409,11 +431,15 @@ In GSoC 2017, we developed core infrastructure to support machine learning on Op
 **Suggested milestones:**
 1. In the backend, remove the need for the conversion step so that the creator just needs to record and upload (rather than the current flow of record, convert to MP3 at 128kpbs, then upload). Implement all backend functionality needed (domain, controllers) for the translation dashboard. Update the backend rights management to allow for a new role that allows direct edit access to the translation dashboard but not the rest of the exploration.
 1. Implement the frontend for each translation dashboard. This dashboard should list all the different pieces of text that need translation, and allow the creator to record translations directly via the browser/device they're using. The dashboard should be mobile-friendly and should include indicators that show where translations are missing/flagged, as well as a progress bar to indicate the completeness of the lesson's translations.
-1. Make it possible to bulk-upload translations, so that contributors working with a desktop can record all their translations, put them in a folder, and upload the folder.
+1. Make it possible to bulk-upload translations, so that contributors working with a desktop can record all their translations, put them in a folder, and upload the folder. (Some creators prefer this workflow.)
+
+**Notes:**
+* The proposal should explain the user flow for how somebody would contribute an audio translation(s). Note that, if multiple audio translations are contributed, there would need to be a way to associate each audio translation with the specific hint, feedback, content, etc. it corresponds to.
+* A stretch goal would be to hash translations by the translated text, so that they can be automatically reused. (This is because some feedback text, like "No, that's not correct", is often repeated.) However, this isn't a requirement for successful completion of the project.
 
 ### Crowdsourced audio translations
 
-**Aim:** On Oppia, learners can listen to audio translations while playing through an exploration. Often, however, a creator does not have the means to create certain audio translations on their own. The goal of this project is to provide a way for anyone to contribute audio translations to an exploration. This project is different from the "lesson translation dashboard" project, in that the focus here is on making the translation process more globally accessible so that many people can contribute incrementally to it.
+**Aim:** On Oppia, learners can listen to audio translations while playing through an exploration. Often, however, a lesson creator does not have the means to create certain audio translations on their own. The goal of this project is to provide a way for _anyone_ to contribute audio translations to an exploration. This project is different from the "lesson translation dashboard" project, in that the focus here is on making the translation process more globally accessible so that many people can contribute incrementally to it.
 
 **Skills/Knowledge required:**
 * UX design
@@ -427,34 +453,31 @@ In GSoC 2017, we developed core infrastructure to support machine learning on Op
 
 **Suggested Milestones:**
 
-1. Implement back-end logic and front-end changes needed to allow creators to flag a language/audio translations as needing contribution. This should be visible to the community in some form.
+1. Implement back-end logic and front-end changes needed to allow creators to flag a language, or a set of audio translations, as needing contribution. This should be visible to the community in some form.
 1. Implement any necessary backend logic changes, and perform any necessary migrations to allow for anyone to contribute audio translations and for creators to incorporate them into the exploration.
-1. Implement front-end for audio translation contribution.
+1. Implement the front-end for the "global dashboard" for contribution of audio translations.
 
 **Related Issues:**
-* Issues related to audio (will probably be quite a few in the near-future)
-* Working with any issues related to the generalized review system, suggestions, or feedback threads.
+* Issues related to audio (there will probably be quite a few in the near-future; see the ["Learner Experience" project](https://github.com/oppia/oppia/projects/18)).
+* Any issues related to the generalized review system, suggestions, or feedback threads, e.g.
     * [#3666](https://github.com/oppia/oppia/issues/3666)
     * [#4072](https://github.com/oppia/oppia/issues/4072)
     * [#3982](https://github.com/oppia/oppia/issues/3982)
 
 **Notes:**
-* Previously, we had considered allowing creators to record audio on the website directly rather than having to upload audio files from an external source. Would this approach be beneficial for crowdsourcing audio translations?
-* The target for getting audio translations for an exploration is not necessarily the learners of that exploration.
-* Do we want to allow a contributed audio translation for just a single card, or should contributed audio translations always be consistent throughout an exploration to maintain the same-sounding voice? If the latter, how can we enforce that the same-person uploads translations for all the cards?
-* How is the need for audio translations presented to the community? Can the creator specify languages that need translating to? Can learners request a language?
-* Should we provide a way to store the written version of the audio translation as well? For example, when an audio translation is marked as invalid, it would be helpful for the translator to have the text content that they need to translate.
-* How is somebody going to contribute an audio translation(s)? If contributing multiple audio translations, need to somehow associate each audio translation with the specific hint, feedback, content, etc. it corresponds to.
-* How are contributed audio translations presented to the creator? Should the creator be able to preview the exploration while it plays the contributed audio translation(s)?
-* Will the creator pick and choose what contributed audio translations to incorporate? How will the creator ultimately incorporate contributed audio translations into the exploration? 
-* Can creators get in contact with people who have contributed audio translations? How? Right now, creators and learners can communicate via feedback threads.
-* Can contributed audio translations replace existing audio translations in the same language?
-* Creators may not know the language being translated to. How can this be addressed? Should we allow the community to endorse contributed audio translations?
-* We are aiming to ultimately migrate this to the generalized review system (another GSoC project idea), so bear in mind that it may be worth collaborating if both projects end up being worked on over the summer.
+* The people who might contribute audio translations to an exploration are not necessarily the learners of that exploration.
+* For consistency, it might be nice to encourage the same individual to do the audio translations for an entire lesson. However, this isn't a requirement; it is OK for different cards in the same exploration to be translated by different people.
+* Consider breaking down the translation process into two steps: "create written translations", and "record those translations". That may make it simpler for contributors.
+* A good proposal would address the following questions:
+  * How is the need for audio translations presented to the community? Can the creator specify languages that need translating to? Can learners request a language?
+  * How are contributed audio translations presented to the creator? Should the creator be able to preview the exploration while it plays the contributed audio translation(s)?
+  * How will contributed audio translations ultimately be included into the exploration? Is there a review process? If so, how will it work? Also, can contributed audio translations replace existing audio translations in the same language?
+  * Can creators get in contact with people who have contributed audio translations? How? Right now, creators and learners can communicate via feedback threads.
+* This project has ties to the "Lesson translation dashboard" and "General crowdsourcing and review system" projects. It might be worth collaborating with the owners of these projects if either of them is also worked on during the summer.
 
 ### General crowdsourcing and review system
 
-**Aim:** For Oppia to become a true community-driven, crowdsourced platform, anyone should be able to contribute to key explorations and perform certain actions. These actions may include suggesting an edit, adding a question, training an answer, adding new audio translations for a lesson, supplying a demonstrative image for a lesson, etc. The creator(s) should be able to manage (accept/reject) these suggestions through a generalized review system. The suggestion-and-review system should be generic enough so that it can be extended to different types of tasks.
+**Aim:** For Oppia to become a fully community-driven, crowdsourced platform, anyone should be able to contribute to key explorations and perform certain actions. These actions may include suggesting an edit, adding a question, training an answer, adding new written/audio translations for a lesson, supplying a demonstrative image for a lesson, etc. The creator(s) should be able to manage (accept/reject) these suggestions through a generalized review system. The suggestion-and-review system should be generic enough so that it can be extended to different types of tasks.
 
 **Skills/Knowledge required:**
 * UX design
@@ -472,22 +495,17 @@ In GSoC 2017, we developed core infrastructure to support machine learning on Op
 1. Demonstrate the framework’s generalizability by extending it to a second type of task.
 
 **Notes:**
-* In general, we have a Task that we want anyone to be able to handle. Such tasks can be divided into several categories:
-    * Some tasks are optional/infinite (suggest an edit, add a question). Some tasks have a fixed bucket (provide feedback for an answer, add new audio translations for a lesson, supply a demonstrative image for a lesson).
-    * Tasks that take a long time are reservable (add new audio translations for a lesson). Other tasks that can be completed in minutes are not reservable (suggest an edit, add a question, provide feedback for an answer, supply a demonstrative image for a lesson).
-* This project only covers non-reservable tasks. If it’s possible to handle reservable tasks cleanly, it’s fine to do so, but this is not a requirement.
-* When someone completes a task, it isn’t immediately incorporated into the lesson. The work product is reviewed by someone (usually an exploration’s owner/editor or a trusted reviewer). There should be a standard system for marking people as trusted reviewers for a given exploration (and maybe extending that to all explorations past a certain point).
+* In general, we have a Task that we want anyone to be able to handle. We can assume that the task takes a small amount of time, and is therefore non-reservable (if someone wants to do it, they can do it there and then). Some tasks are optional/infinite (suggest an edit, add a question), and others have a fixed bucket (provide feedback for an answer, add a new written/audio translation, supply a demonstrative image for a lesson).
+* When someone completes a task, it shouldn't immediately be incorporated into the lesson. The work product is reviewed by someone (usually an exploration’s owner/editor or a trusted reviewer). There should be a standard system for marking people as trusted reviewers for a given exploration or type of task (and maybe extending that to all explorations past a certain point).
 * The submitted proposal should explain the structure of how such a system would work, and provide a concrete example of its application to one use case.
 
 ### Visualizing learner playthroughs
 
-**Aim**: To give creators a tool for visualizing how users play through explorations. Particularly, it would be nice to let creators see playthroughs which lead to early quits, or where many incorrect answers are attempted. Through this tool we hope to provide an effective way for creators to identify problematic areas in their lesson and address them appropriately.
+**Aim**: We want to give creators a tool for visualizing how users play through explorations. In particular, it would be nice to let creators see playthroughs which lead to early quits, or where many incorrect answers are attempted. Through this tool we hope to provide an effective way for creators to identify problematic areas in their lesson and address them appropriately.
 
 **Skills/knowledge required**:
-* Python, Javascript, HTML, CSS.
-* Full-stack development.
-* Debugging.
-* Testing.
+* Full-stack development: Python, Javascript, HTML, CSS.
+* Debugging and testing.
 * Read, write, and follow through with Design Documents.
 
 **Difficulty**: Medium/Hard
@@ -495,27 +513,27 @@ In GSoC 2017, we developed core infrastructure to support machine learning on Op
 **Potential mentors**: @brianrodri (primary)
 
 **Suggested milestones**:
-*Backend code has the functionality to store and fetch learner playthroughs.
+1. Backend code has the functionality to store and fetch learner playthroughs.
     *The backend for storing and fetching playthroughs (controllers, domain layer, storage layer) should be fully implemented. There should be backend handlers that store and fetch playthroughs as simple value objects, and backend integration tests that ensure that these handlers function correctly.
-* Playthroughs are programmatically stored when deemed useful by the Exploration Player UI, and the most recent one can be viewed in the Exploration Editor UI.
-    * There are two types of “useful” playthroughs: playthroughs where a learner gives <admin-defined number> wrong answers in a row, or playthroughs where the learner quits after <admin-defined duration>. Of these playthroughs, there is an <admin-defined %> probability that they actually get stored. All other playthroughs are not recorded.
+1. Playthroughs are programmatically stored when deemed useful by the Exploration Player UI, and the most recent one can be viewed in the Exploration Editor UI.
+    * There are two types of "useful" playthroughs: playthroughs where a learner gives <admin-defined number> wrong answers in a row, or playthroughs where the learner quits after <admin-defined duration>. Of these playthroughs, there is an <admin-defined %> probability that they actually get stored. All other playthroughs are not recorded.
     * The frontend stores the playthrough data using backend handler URL calls.
     * The Exploration Editor UI displays the raw data of the most recently recorded playthrough.
     * The above functionality should be covered by Karma tests and end-to-end Protractor tests, as appropriate.
-* The Exploration Editor UI displays all playthrough data to creators.
+1. The Exploration Editor UI displays all playthrough data to creators.
     * A creator can view the details of each recorded playthrough.
-    * A creator can mark playthroughs as “resolved,” and filter them.
+    * A creator can mark playthroughs as "resolved", and filter them.
     * The above functionality should be covered by Karma tests and end-to-end Protractor tests, as appropriate.
 
 **Notes**:
 * Regarding (1):
-    * You must decide which __data__ from a learner’s playthrough gets recorded. Keep in mind that we’re prioritizing creator-utility here, so nothing too crazy is required. For example: “the path of a learner’s mouse” is overkill but “the items a learner selects” is essential!
-    * Also decide which __metadata__ from a learner’s playthrough gets recorded. For example, we should be able to answer questions like: “has the creator already viewed or addressed the issues from this playthrough?” and “which version of the lesson was this playthrough recorded in?”
-    * It must be impossible for anyone to identify a learner through their playthroughs. This means minimizing the data we take, and anonymizing it as much as possible. This **must** be addressed in your proposal!
+    * You must decide which __data__ from a learner's playthrough gets recorded. Keep in mind that we're prioritizing creator-utility here, so nothing too crazy is required. For example: "the path of a learner's mouse" is overkill but "the items a learner selects" is essential!
+    * Also decide which __metadata__ from a learner’s playthrough gets recorded. For example, we should be able to answer questions like: "has the creator already viewed or addressed the issues from this playthrough?" and "which version of the lesson was this playthrough recorded in?"
+    * It must be impossible for anyone to identify a learner through their playthroughs. This means minimizing the data we take, and anonymizing it as much as possible. This **must** be addressed in your proposal.
 * Regarding (2):
     * The admin defined values are stored in a config file (in the feconf file, for example).
 * Regarding (3):
-    * It’s more important for all the information to be displayed than it is for it to look amazing. For example, don’t plan to write a “ghost player” that performs each step in a playthrough; a simple text-list describing each action is already incredibly useful and far simpler to implement.
+    * It's more important for all the information to be displayed than it is for it to look amazing. For example, don't plan to write a "ghost player" that performs each step in a playthrough; a simple text-list describing each action is already incredibly useful and far simpler to implement.
 
 ### Answer statistics visualizations
 
@@ -531,7 +549,7 @@ In GSoC 2017, we developed core infrastructure to support machine learning on Op
 **Potential mentors**: brianrodri@ (primary)
 
 **Suggested milestones**:
-1. Fractions answer visualizations should be shown as fractions. They are currently shown as JSON dicts, which are ugly and hard for a reader to parse. Note that this is likely to require some infrastructural changes; the proposal should be specific in describing which changes are needed.
+1. Fractions answer visualizations should be shown as fractions. They are currently shown as JSON dicts, which are ugly and hard for a reader to parse. Note that this is likely to require some infrastructural changes; the proposal should describe specifically what changes are needed.
 1. ImageClickInput and InteractiveMap visualizations should be clustered. Currently, the coordinates of the clicks are shown, but this is not useful in aggregate.
 1. Multiple choice answer visualizations should refer to summaries of the answer labels, rather than the indices of the choices. The proposal should include a clear explanation of the proposed UI/UX, particularly with regards to how long labels and labels containing rich-text components will be handled.
 
