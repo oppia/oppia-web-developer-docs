@@ -120,7 +120,7 @@ For the proposal, we generally look for a clear indication that the student has 
 
 # Oppia's Project Ideas
 
-The following is a list of Oppia's 2018 GSoC project ideas. Students are welcome to choose among these ideas, or propose their own. However, if you are proposing something original, it's essential to engage with the Oppia community in order to get feedback and guidance to improve the proposal, as well as to make sure that it fits in with the team's overall plans.
+The following is a list of Oppia's 2018 GSoC project ideas. You are welcome to choose among these ideas, or propose your own! However, if you are proposing something original, it's essential to engage with the Oppia community in order to get feedback and guidance to improve the proposal, as well as to make sure that it fits in with the team's overall plans.
 
 This year, the Oppia team is offering three types of projects: infrastructure projects, projects that improve the learner experience, and projects that improve the creator experience. Some of the project ideas are annotated with notes and suggestions from the mentors, but please bear in mind that the main purpose of these notes is simply to suggest ideas or possible starting points; they aren't meant to be prescriptive. You'd also be welcome to include discussions of other relevant aspects (that aren't mentioned in the notes) to your proposal. For more information, see: [Tips for writing a good project plan](#tips-for-writing-a-good-project-plan).
 
@@ -326,11 +326,10 @@ In GSoC 2017, we developed core infrastructure to support machine learning on Op
 
 ### New interactions
 
-**Aim:** The aim of this project is to implement new interactions in Oppia. Two new interactions should be implemented: a “Number with units” interaction, and a “Sorting” interaction. The number-with-units interaction is an extended version of the numeric input interaction which will allow creators to check an answer that is submitted as a number with associated units (such as 2.56 metres or $2.15), and that understands relationships between units (e.g. 2.56 m = 256 cm). The other interaction is a “sorting” interaction, which allows students to sort or rank items relative to each other. For example, a student might be asked to arrange fractions in ascending/descending order; they should be able to drag the items around and sort/rank them. It should also be possible for the creator to allow multiple items to occupy the same position/rank in the list, e.g. when sorting ½, ¼, 2/4, ¾ it should be possible to put ½, 2/4 in the same position.
+**Aim:** The aim of this project is to implement new interactions in Oppia. (An "interaction" is the name for the form which a learner uses to submit an answer.) In particular, two new interactions should be implemented: a "Number with units" interaction, and a "Sorting" interaction. The number-with-units interaction is an extended version of the NumericInput interaction which will allow creators to check an answer that is submitted as a number with associated units (such as 2.56 metres or $2.15), and that understands relationships between units (e.g. 2.56 m = 256 cm). The "sorting" interaction allows students to sort or rank items relative to each other. For example, a student might be asked to arrange fractions in ascending/descending order; they should be able to drag the items around and sort/rank them. It should also be possible for the creator to allow multiple items to occupy the same position/rank in the list, e.g. when sorting 1/2, 1/4, 2/4, 3/4 it should be possible to put 1/2 and 2/4 in the same position.
 
 **Skills/knowledge required:**
-* AngularJS
-* Python
+* Full-stack development using AngularJS and Python
 * Attention to detail
 
 **Difficulty:** Medium
@@ -338,36 +337,47 @@ In GSoC 2017, we developed core infrastructure to support machine learning on Op
 **Potential mentors:** @prasanna08 (primary), @tjiang11, @AllanYangZhou
 
 **Suggested milestones:**
-* Implement a preliminary version of the “number with units” interaction. The interaction should have support for SI (supported by the math.js library) units including their conversion (where two units are equivalent, e.g. K = 273.15 + ℃) and interaction rules. At the end of this milestone, the “number with units” interaction should support rules for “answer with unit is equivalent to” and “answer with unit is equal to” checks.
-* Implement a preliminary version of the “sorting” interaction which will work when all elements have distinct positions. Add support for the following rules: “is equal to this ordering”, “is equal to this ordering with at most one element in the wrong place”, “has element X at position Y in the list” and “has element X coming before element Y”. At the end of this milestone, the “sorting” interaction should support all the rules mentioned above with support for inputs where each element has a distinct position.
-* Release complete version of the “number with units” interaction that adds support for custom units (non-SI) such as currency units, for e.g.  = 100 cents or ₹1 = 100 paisa. Also, complete an improved version of “sorting” interaction which will add support for a feature allowing the learner/creator to have multiple elements in the same position. At the end of this milestone, the “number with units” interaction should support custom units required for currency and “sorting” interaction should support inputs which may have multiple elements for same positions.
+1. Implement a preliminary version of the "number with units" interaction. The interaction should have support for SI units (supported by the math.js library) as well as support for conversion between units (e.g. detecting that two answers are equivalent using rules like K = 273.15 + ℃). At the end of this milestone, the "number with units" interaction should support rules for "answer is equivalent to" and "answer exactly matches".
+1. Implement a preliminary version of the "sorting" interaction which works when all elements have distinct positions. In addition, at the end of this milestone, the "sorting" interaction should support the following rules: "is equal to this ordering", "is equal to this ordering with at most one element in the wrong place", "has element X at position Y in the list" and "has element X coming before element Y".
+1. Release a v2 of both interactions. The v2 for the "number with units" interaction should include support for custom (non-SI) units such as currencies, e.g. $1 = 100 cents or ₹1 = 100 paisa, and the v2 for the "sorting" interaction should add support for having multiple elements in the same position.
 
 **Related issues:**
 * [#556](https://github.com/oppia/oppia/issues/556): Create a NumberWithUnits interaction.
 * [#3793](https://github.com/oppia/oppia/issues/3793): Add a new drag-and-drop sorting interaction
 
 **Notes:**
-* Currently, we have an initial design doc prepared for the "number with units" interaction, but we don't have any docs for the "sorting" interaction at the moment. That said, these initial drafts are only meant to be starting points, and students are encouraged to include final design and implementation plans for these interactions, especially if they find better and more intuitive approaches. The final aim is that interactions are usable by creators and learners without any difficulties.
-* Some familiarity with interactions and answer classification workflow in the Oppia would be helpful. The following wiki pages will be helpful in understanding the interactions system in Oppia and get you started with it: [extensions overview](https://github.com/oppia/oppia/wiki/Extensions-Overview), [interactions](https://github.com/oppia/oppia/wiki/Creating-Interactions) and [rules](https://github.com/oppia/oppia/wiki/Creating-Rules).
-* The number-with-units interaction is not straightforward. We have prepared some early design docs for the interaction: [Design details: number with units interaction](https://docs.google.com/document/d/1nL0jK-fkxPjNT4-PCGkSYbjwcqCM8R1MM26KGgxVIA0/). This doc will be helpful in understanding the requirements for this interaction. 
-* No prior work has been done on the sorting interaction, and students are encouraged to include their design and implementation plans in their proposal. A good way to communicate the design aspects would be to fully describe the main user journeys for both the creator and the learner.
+* Some familiarity with interactions and the Oppia answer classification workflow would be useful for this project. The following wiki pages will be helpful for getting started with Oppia's interactions system: [Overview of Extensions](https://github.com/oppia/oppia/wiki/Extensions-Overview), [Creating Interactions](https://github.com/oppia/oppia/wiki/Creating-Interactions), and [Creating Rules](https://github.com/oppia/oppia/wiki/Creating-Rules).
+* Both interactions should be usable by creators and learners without any difficulties. To this end, students are encouraged to include their design and implementation plans in their proposal. A good way to communicate the design aspects would be to fully describe the main user journeys for both the creator and the learner.
+* Currently, we have an [initial design doc](https://docs.google.com/document/d/1nL0jK-fkxPjNT4-PCGkSYbjwcqCM8R1MM26KGgxVIA0/) prepared for the "number with units" interaction, which might help with understanding the requirements for this interaction. (Note that no prior work has been done on the sorting interaction.) That said, this initial draft is only meant as a starting point, and students are welcome to propose better and more intuitive approaches if any are discovered.
 
-### Integrating refresher lessons within the main exploration
+### Add functionality for skills
 
-**Aim:** For the Oppia randomized control trial in Delhi, India, we are piloting some experimental functionality for redirecting to a previous lesson if the learner has clearly failed to master a prerequisite. The current functionality for doing this is a little clunky and involves going to a separate exploration and back again. Instead, it would be better to have the "refresher lesson" inlined in the main exploration (perhaps via a clear "flashback/revision mode"), so that the student doesn't have to navigate around.
+**Aim:** For the Oppia randomized control trial in Delhi, India, we are piloting some experimental functionality for redirecting to a short refresher lesson if the learner has clearly failed to master a prerequisite. The current functionality for doing this is clunky, and involves going to a separate exploration and back again. Instead, we would like to introduce a new construct called "skills". Skills are global in Oppia. Each skill has a human-readable name and is associated with a "concept card" explaining the skill and providing some examples. When a gap in prerequisite knowledge is detected, the lesson should go into "flashback/revision mode", and show the concept card to the learner. The learner would then need to correctly complete a streak of 3-4 questions on that skill before continuing from where they left off in the main lesson. This would help to ensure that a learner has mastered a prerequisite skill and has a solid foundation before going on to new material.
 
 **Skills/knowledge required:**
 * AngularJS
+* UI/UX design
 
 **Difficulty:** Medium/Hard
 
 **Potential mentors:** @tjiang11 (primary), @seanlip
 
-**Suggested milestones:** TBD
+**Suggested milestones:**
+1. Implement the backend models, domain objects and controllers related to skills. Migrate skills and questions out of collections, and into the global namespace.
+2. Implement a basic editor interface for skills.
+3. Implement the desired learner experience using the new Skill object.
+
+**Notes:**
+* For reference, here is an example of an existing ["prerequisite lesson"](https://www.oppia.org/explore/xHwiGtvK2N4L) that follows the structure described above.
+* The proposal should describe the data schema for a Skill.
+* Collections already have skills and questions, but we should move these out into the global namespace. The proposal should explain how to do this safely.
+* Skills should live in the global namespace. (I.e., on an instance of Oppia, there should only be a single "skill practice" construct for "Adding fractions with the same denominator".) We intend for this to be community-editable (like a wiki) over the long term.
+* The questions should be taken from a question bank, and be selected from questions that are tagged with the given skill name. (We already have a Question construct in the Oppia backend that can be used for this.)
+* As a stretch, the proposal might also consider whether any changes need to be made to the way we handle exploration analytics.
 
 ### Audio bar improvements
 
-**Aim:** Audio functionality is very important for learners whose primary language is not English, and, in recent trials we have conducted, the presence of audio subtitles in a student's native language has led to substantial improvements in students' understanding of lesson content. This project aims to improve the audio functionality so that it is more intuitive and useful.
+**Aim:** Audio functionality is very important for learners whose primary language is not English. In recent trials we have conducted, the presence of audio subtitles in a student's native language has led to substantial improvements in students' understanding of lesson content. This project aims to improve the audio functionality so that it is more intuitive and useful.
 
 **Skills/knowledge required:**
 * AngularJS
@@ -378,8 +388,8 @@ In GSoC 2017, we developed core infrastructure to support machine learning on Op
 
 **Suggested milestones:**
 1. Improve the automatic English audio subtitles, and fix them if they don't say the correct thing (for example, when reading LaTeX). The issues here can be discovered by manual testing, and the proposal should enumerate a specific list of desired fixes.
-1. Add support for creators to store written versions of the audio translations, so that if the exploration content changes it is easy to update these and re-record the audio.
-1. Make the learner's experience with audio as seamless as possible. At minimum, this should entail triaging and fixing at least three other audio-related bugs (to be agreed with your mentor).
+1. Add support for creators to store written versions of the audio translations, so that if the exploration content changes it is easy for the creators to update these written versions and re-record the audio. (At some point in the future we might also surface these to the student.)
+1. Allow students to flag audio translations that they can't understand.
 
 ## "Creator Experience" Projects
 
@@ -397,9 +407,9 @@ In GSoC 2017, we developed core infrastructure to support machine learning on Op
 **Potential Mentors:** @tjiang11 (primary), @anmolshkl
 
 **Suggested milestones:**
-1. Each lesson should have a translation dashboard that lists all the different pieces of text that need translation, and that allows the creator to record translations directly via the browser/device they're using. The dashboard should be mobile-friendly.
-1. Add indicators to the dashboard to show where translations are missing/flagged, and a progress bar to indicate the completeness of the lesson's translations.
-1. Update the backend rights management to allow for a new role that allows direct edit access to the translation dashboard but not the rest of the exploration.
+1. In the backend, remove the need for the conversion step so that the creator just needs to record and upload (rather than the current flow of record, convert to MP3 at 128kpbs, then upload). Implement all backend functionality needed (domain, controllers) for the translation dashboard. Update the backend rights management to allow for a new role that allows direct edit access to the translation dashboard but not the rest of the exploration.
+1. Implement the frontend for each translation dashboard. This dashboard should list all the different pieces of text that need translation, and allow the creator to record translations directly via the browser/device they're using. The dashboard should be mobile-friendly and should include indicators that show where translations are missing/flagged, as well as a progress bar to indicate the completeness of the lesson's translations.
+1. Make it possible to bulk-upload translations, so that contributors working with a desktop can record all their translations, put them in a folder, and upload the folder.
 
 ### Crowdsourced audio translations
 
