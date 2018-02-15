@@ -159,7 +159,7 @@ This year, the Oppia team is offering three types of projects: infrastructure pr
 
 **Difficulty:** Medium
 
-**Potential mentor(s):** @vojtechjelinek (primary), @brianrodri
+**Potential mentor(s):** @vojtechjelinek (primary), @brianrodri, @kevinlee12
 
 **Suggested milestones:**
 1. Devise a way to serve the About page statically (this requires getting rid of Jinja on that page), using an approach that is generalizable to other pages. Identify other issues that can arise from serving the remaining pages statically.
@@ -192,7 +192,7 @@ This year, the Oppia team is offering three types of projects: infrastructure pr
 
 **Difficulty:** Medium
 
-**Potential mentors:** @seanlip (primary), @kevinlee12
+**Potential mentors:** @kevinlee12 (primary), @seanlip
 
 **Suggested milestones:**
 1. Implement automatic lint checks that catch all common errors before a PR is pushed to GitHub. These checks should run automatically for all contributors before submit (and if this isn’t the case, this should be fixed, or a GitHub linter bot created so that reviewers can assume that PRs are linted prior to review). In particular, fix and close all bugs related to linting and presubmit checks, such as #4119 and #3905, and provide documentation on how to write lint checks for newly-discovered common issues.
@@ -286,7 +286,7 @@ In GSoC 2017, we developed core infrastructure to support machine learning on Op
 
 **Difficulty:** Medium
 
-**Potential mentors:** @seanlip (primary)
+**Potential mentors:** @seanlip, @kevinlee12 (either might be primary)
 
 **Suggested milestones:**
 1. Implement a framework that makes it easy to write backend integration tests. Illustrate it by writing a few integration tests for common scenarios that occur in practice (e.g. creating an exploration and then playing it).
@@ -334,7 +334,7 @@ In GSoC 2017, we developed core infrastructure to support machine learning on Op
 
 **Difficulty:** Medium
 
-**Potential mentors:** @prasanna08 (primary), @tjiang11, @AllanYangZhou
+**Potential mentors:** @prasanna08 (primary), @AllanYangZhou, @tjiang11, @kevinlee12
 
 **Suggested milestones:**
 1. Implement a preliminary version of the "number with units" interaction. The interaction should have support for SI units (supported by the math.js library) as well as support for conversion between units (e.g. detecting that two answers are equivalent using rules like K = 273.15 + ℃). At the end of this milestone, the "number with units" interaction should support rules for "answer is equivalent to" and "answer exactly matches".
@@ -486,7 +486,7 @@ In GSoC 2017, we developed core infrastructure to support machine learning on Op
 
 **Difficulty:** Hard
 
-**Potential Mentors:** @kevintab95 (primary), @anmolshkl
+**Potential Mentors:** @kevintab95 (primary), @anmolshkl, @AllanYangZhou
 
 **Milestones:**
 1. Generalize and migrate the existing suggestions framework to a general review system (which can be used in the future for adding a question, training an answer, etc.).
@@ -509,7 +509,7 @@ In GSoC 2017, we developed core infrastructure to support machine learning on Op
 
 **Difficulty**: Medium/Hard
 
-**Potential mentors**: @brianrodri (primary)
+**Potential mentors**: @brianrodri (primary), @kevinlee12
 
 **Suggested milestones**:
 1. Backend code has the functionality to store and fetch learner playthroughs.
@@ -545,7 +545,7 @@ In GSoC 2017, we developed core infrastructure to support machine learning on Op
 
 **Difficulty**: Medium
 
-**Potential mentors**: brianrodri@ (primary)
+**Potential mentors**: @brianrodri (primary), @AllanYangZhou, @kevinlee12
 
 **Suggested milestones**:
 1. Fractions answer visualizations should be shown as fractions. They are currently shown as JSON dicts, which are ugly and hard for a reader to parse. Note that this is likely to require some infrastructural changes; the proposal should describe specifically what changes are needed.
