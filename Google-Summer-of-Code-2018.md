@@ -139,7 +139,7 @@ This year, the Oppia team is offering three types of projects: infrastructure pr
   - [Questions frontend](#questions-frontend)
 - ["Creator Experience" Projects](#creator-experience-projects)
   - [Lesson translation dashboard](#lesson-translation-dashboard)
-  - [Crowdsourced audio translations](#crowd-sourced-audio-translations)
+  - [Crowdsourced audio translations](#crowdsourced-audio-translations)
   - [General crowdsourcing and review system](#general-crowdsourcing-and-review-system)
   - [Visualizing learner playthroughs](#visualizing-learner-playthroughs)
   - [Answer statistics visualizations](#answer-statistics-visualizations)
