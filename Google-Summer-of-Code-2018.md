@@ -290,7 +290,7 @@ In GSoC 2017, we developed core infrastructure to support machine learning on Op
 
 **Difficulty:** Medium
 
-**Potential mentors:** @seanlip, @kevinlee12 (either might be primary)
+**Potential mentors:** @kevinlee12 (primary), @seanlip
 
 **Suggested milestones:**
 1. Implement a framework that makes it easy to write backend integration tests. Illustrate it by writing a few integration tests for common scenarios that occur in practice (e.g. creating an exploration and then playing it).
@@ -314,7 +314,7 @@ In GSoC 2017, we developed core infrastructure to support machine learning on Op
 
 **Difficulty:** Medium
 
-**Potential mentors:** @tjiang11 (primary), @vojtechjelinek
+**Potential mentors:** @seanlip (primary), @vojtechjelinek
 
 **Suggested milestones:**
 1. Extend the audio asset caching and preloading functionality in the frontend to handle images as well. Ensure that a loading placeholder is shown while an image is in the process of loading (currently, there is no such indication, which results in a poor user experience as learners would be reading a card with important information missing).
@@ -364,7 +364,7 @@ In GSoC 2017, we developed core infrastructure to support machine learning on Op
 
 **Difficulty:** Medium/Hard
 
-**Potential mentors:** @tjiang11 (primary), @seanlip
+**Potential mentors:** @seanlip (primary), @prasanna08
 
 **Suggested milestones:**
 1. Implement the backend models, domain objects and controllers related to skills. Migrate skills and questions out of collections, and into the global namespace.
@@ -388,7 +388,7 @@ In GSoC 2017, we developed core infrastructure to support machine learning on Op
 
 **Difficulty:** Medium
 
-**Potential mentors:** @tjiang11 (primary)
+**Potential mentors:** @anmolshkl (primary), @tjiang11
 
 **Suggested milestones:**
 1. Improve the automatic English audio subtitles, and fix them if they don't say the correct thing (for example, when reading LaTeX). The issues here can be discovered by manual testing, and the proposal should enumerate a specific list of desired fixes.
@@ -405,7 +405,7 @@ In GSoC 2017, we developed core infrastructure to support machine learning on Op
 
 **Difficulty:** Medium/Hard
 
-**Potential mentors:** @seanlip (primary), @tjiang11
+**Potential mentors:** @tjiang11 (primary), @seanlip
 
 **Suggested milestones:**
 1. Implement a basic editor UI for adding, viewing and editing new questions associated with a specific skill.
@@ -452,7 +452,7 @@ In GSoC 2017, we developed core infrastructure to support machine learning on Op
 
 **Difficulty:** Hard
 
-**Potential Mentors:** @tjiang11 (primary), @seanlip
+**Potential Mentors:** @anmolshkl (primary), @tjiang11
 
 **Suggested Milestones:**
 
@@ -490,7 +490,7 @@ In GSoC 2017, we developed core infrastructure to support machine learning on Op
 
 **Difficulty:** Hard
 
-**Potential Mentors:** @kevintab95 (primary), @anmolshkl, @AllanYangZhou
+**Potential Mentors:** @kevintab95 (primary), @AllanYangZhou, @anmolshkl
 
 **Milestones:**
 1. Generalize and migrate the existing suggestions framework to a general review system (which can be used in the future for adding a question, training an answer, etc.).
@@ -549,7 +549,7 @@ In GSoC 2017, we developed core infrastructure to support machine learning on Op
 
 **Difficulty**: Medium
 
-**Potential mentors**: @brianrodri (primary), @AllanYangZhou, @kevinlee12
+**Potential mentors**: @brianrodri (primary), @kevinlee12, @AllanYangZhou
 
 **Suggested milestones**:
 1. Fractions answer visualizations should be shown as fractions. They are currently shown as JSON dicts, which are ugly and hard for a reader to parse. Note that this is likely to require some infrastructural changes; the proposal should describe specifically what changes are needed.
