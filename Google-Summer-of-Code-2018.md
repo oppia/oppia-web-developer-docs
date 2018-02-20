@@ -316,7 +316,7 @@ In GSoC 2017, we developed core infrastructure to support machine learning on Op
 
 **Difficulty:** Medium
 
-**Potential mentors:** @seanlip (primary), @vojtechjelinek
+**Potential mentors:** @vojtechjelinek (primary), @seanlip
 
 **Suggested milestones:**
 1. Extend the audio asset caching and preloading functionality in the frontend to handle images as well. Ensure that a loading placeholder is shown while an image is in the process of loading (currently, there is no such indication, which results in a poor user experience as learners would be reading a card with important information missing).
