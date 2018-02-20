@@ -327,6 +327,7 @@ In GSoC 2017, we developed core infrastructure to support machine learning on Op
 * The trickiest part of this project is finding a way to do the refactoring/migration _safely_. Potential pitfalls include having new files get written to both systems at once, new files not get written to any system at all, incomplete transfer of files from the old system to the new system, references to image URLs in the new system while files are still in the old system, stale references to the old system, etc. Your proposal should provide a set of migration instructions and a timeline for PRs/releases that ensures that a release can always be cut from the develop branch without causing anything to break. (Note that Oppia releases generally happen once a month, around the 15th or so.)
 * Be careful to also account for images in all previous versions of an exploration; we should migrate those images too. This is necessary because explorations can be reverted to older ones.
 * The proposal should explain how to validate that the migration has taken place correctly before doing anything destructive (such as deleting the images from the old system).
+* As a stretch goal, it would be nice to try and compress images automatically when large images are uploaded to the server.
 
 ## Learner View Projects
 
