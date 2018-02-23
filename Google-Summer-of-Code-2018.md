@@ -493,7 +493,7 @@ In GSoC 2017, we developed core infrastructure to support machine learning on Op
 
 **Difficulty:** Hard
 
-**Potential Mentors:** @AllanYangZhou (primary), @kevintab95, @anmolshkl
+**Potential Mentors:** @AllanYangZhou (primary), @anmolshkl
 
 **Milestones:**
 1. Generalize and migrate the existing suggestions framework to a general review system (which can be used in the future for adding a question, training an answer, etc.).
@@ -580,7 +580,6 @@ The following individuals will be serving as mentors during GSoC 2018:
 * Anmol Shukla (@anmolshkl)
 * Brian Rodriguez (@brianrodri)
 * Kevin Lee (@kevinlee12)
-* Kevin Thomas (@kevintab95)
 * Prasanna Patil (@prasanna08)
 * Rachel Chen (@rachelwchen)
 * Sean Lip (@seanlip)
