@@ -17,6 +17,7 @@
     * **[[Built something new?|https://goo.gl/forms/sNBWrW03fS6dBWEp1]]**
     * [[Overview of the codebase|Overview-of-the-Oppia-codebase]]
     * [[Coding style guide|Coding-style-guide]]
+    * [[Writing tests for custom Pylint Checkers|Writing-Tests]] 
     * [[Running tests|Running-Tests]]
       * [[End-to-end tests|Writing-End-to-End-Tests]]
     * [[If your build fails...|If-Your-Build-Fails]]
