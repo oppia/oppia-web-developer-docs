@@ -14,7 +14,7 @@ Alternatively, to run just a single test module, you can type, e.g.:
     bash scripts/run_backend_tests.sh --test_target=core.controllers.editor_test
 ```
 
-For more information about `--test_target` and other flags, please see the documentation at the top of the [run_backend_tests.sh](https://github.com/oppia/oppia/tree/master/scripts/run_backend_tests.sh) script.
+For more information about `--test_target` and other flags, please see the documentation at the top of the [run_backend_tests.sh](https://github.com/oppia/oppia/blob/develop/scripts/run_backend_tests.sh) script.
 
 The variable `EXPECTED_TEST_COUNT` in `scripts/backend_tests.py` stores the total number of Python tests. After adding tests, you'll need to update this variable to reflect the new test count.
 
