@@ -1,4 +1,4 @@
-# Writing Tests for Custom Lint Checkers  
+# Writing Tests for Custom Pylint Checkers  
 Currently, we have a custom checker build using Pylint which checks that keyword arguments are named explicitly in a function call. This checker is placed at `scripts/explicit_kwargs_checker_test.py` and is run using the `scripts/backend_tests.py` script.  
 It has a function named `test_finds_non_explicit_kwargs` which uses the `astroid.extract_node` function to separate the different nodes.  
 Example: 
