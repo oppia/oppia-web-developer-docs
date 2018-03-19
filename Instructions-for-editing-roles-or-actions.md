@@ -1,4 +1,3 @@
-## NOTE: This page is under development.
 
 ### 1. ADD ROLE
 1.1 Open file feconf.py.
