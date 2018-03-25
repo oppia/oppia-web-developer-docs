@@ -59,6 +59,9 @@ A: GSoC is intended to be a full-time commitment, so the main concern is whether
 A: All the projects we've listed here are important, and we'd be very happy to see good progress made on any of them! Projects are treated as equally important during selection. Note that the relative importance of a project to Oppia is not part of the selection criteria (see below).
 
 ## GSoC Proposal Template
+
+**Important:** Please make sure that your final proposal is self-contained! In particular, to be fair to all applicants, key components of the proposal should not be editable after the deadline, and you shouldn't assume that reviewers will follow external links.
+
 When submitting a proposal, please use the following template:
 
 **Project Details**
