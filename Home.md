@@ -15,16 +15,16 @@ Finally, if, after reading the above links, you'd like to help, but aren't sure 
 
 
 ## Oppia Social Meets
-At Oppia, we believe in socializing with our contributors. Many of us are students, recent graduates, and teachers from different corners of the world, and a social meet is a great way to help all the members of Oppia feel more connected. Following this idea, we're organizing social meets, AMAs, webinars and talks on alternate weekends. Make sure you check out the calendar of events below and wave “Hi” at the meet!
+At Oppia, we believe in socializing with our contributors. Many of us are students, recent graduates, and teachers from different corners of the world, and a social meet is a great way to help all the members of Oppia feel more connected. Following this idea, we're organizing social meets, AMAs, webinars, and talks on alternate weekends. Make sure you check out the calendar of events below and wave “Hi” at the meet!
 
 |    Date    |   Time (*IST)  |                        Meet                                |
 |----------- |:-------------: |:----------------------------------------------------------:|
-| 21/01/2018 |  10:30 – 11:30 |                     ~~Social Meet 18Q1SM1~~                           |
-| 18/02/2018  |  09:30 – 10:30 |                     Social Meet 18Q1SM2                           |
-| TBD        |      TBD       |       <sup>*</sup>    Talk by Sean and Anmol on GSoC evaluation        |
-
-
-
-Webinar PPT link - https://goo.gl/5e2e33
+| 08/04/2018 |  10:30 PM – 11:30 PM|                     Social Meet 18Q2SM3                          |
+| 06/05/2018  |  10:30 AM – 11:30 AM  |                    Social Meet 18Q2SM4                          |
+| 27/05/2018  |  TBD     |                    Social Meet 18Q2SM5                          |
+| 17/06/2018  |  TBD     |                    Social Meet 18Q2SM6                          |
+| 1/07/2018  |  TBD     |                    Social Meet 18Q2SM7                         |
+| 22/07/2018  |  TBD     |                    Social Meet 18Q2SM8                          |
+| 19/08/2018  |  TBD     |                    Social Meet 18Q2SM9                         |
 
 <sup>* Subjected to change as list of accepted mentoring organizations published by GSOC 18</sup>
