@@ -27,4 +27,4 @@ At Oppia, we believe in socializing with our contributors. Many of us are studen
 | 22/07/2018  |  TBD     |                    Social Meet 18Q2SM8                          |
 | 19/08/2018  |  TBD     |                    Social Meet 18Q2SM9                         |
 
-<sup>* Subjected to change as list of accepted mentoring organizations published by GSOC 18</sup>
+<sup>* Please let us know if your timezone is not covered. We could adjust the meeting times accordingly</sup>
