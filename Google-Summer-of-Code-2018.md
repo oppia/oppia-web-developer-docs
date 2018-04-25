@@ -20,14 +20,14 @@ Also, please note that acceptance into GSoC isn't a prerequisite for [becoming a
 
 **Update (23 Apr 2018):** We have accepted the following eight GSoC proposals for 2018!
 
-- [@aks681's proposal](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2018/pdfs/GSoC2018AkshayAnand.pdf) for implementing skills functionality. Akshay will be mentored by Sean Lip.
-- [@apb7's proposal](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2018/pdfs/GSoC2018ApurvBajaj.pdf) for improving the development workflow. Apurv will be mentored by Kevin Lee.
-- [@bansalnitish's proposal](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2018/pdfs/GSoC2018NitishBansal.pdf) for upgrading the rich-text editor. Nitish will be mentored by Allan Zhou.
-- [@DubeySandeep's proposal](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2018/pdfs/GSoC2018SandeepDubey.pdf) for implementing a lesson translation dashboard. Sandeep will be mentored by Tony Jiang and Anmol Shukla.
-- [@ishucr7's proposal](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2018/pdfs/GSoC2018AashishGaba.pdf) for improving the image loading pipeline. Aashish will be mentored by Vojtěch Jelínek.
-- [@nithusha21's proposal](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2018/pdfs/GSoC2018NitheshHariharan.pdf) for implementing a generalized review system. Nithesh will be mentored by Anmol Shukla.
-- [@pranavsid98's proposal](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2018/pdfs/GSoC2018PranavSiddharth.pdf) for visualizing learner playthroughs. Pranav will be mentored by Brian Rodriguez.
-- [@vibhor98's proposal](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2018/pdfs/GSoC2018VibhorAgarwal.pdf) for implementing two new interactions. Vibhor will be mentored by Prasanna Patil.
+- [@aks681's proposal](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2018/pdfs/GSoC2018AkshayAnand.pdf) for implementing skills functionality. Mentor: Sean Lip.
+- [@apb7's proposal](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2018/pdfs/GSoC2018ApurvBajaj.pdf) for improving the development workflow. Mentor: Kevin Lee.
+- [@bansalnitish's proposal](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2018/pdfs/GSoC2018NitishBansal.pdf) for upgrading the rich-text editor. Mentor: Allan Zhou.
+- [@DubeySandeep's proposal](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2018/pdfs/GSoC2018SandeepDubey.pdf) for implementing a lesson translation dashboard. Mentors: Tony Jiang and Anmol Shukla.
+- [@ishucr7's proposal](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2018/pdfs/GSoC2018AashishGaba.pdf) for improving the image loading pipeline. Mentor: Vojtěch Jelínek.
+- [@nithusha21's proposal](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2018/pdfs/GSoC2018NitheshHariharan.pdf) for implementing a generalized review system. Mentor: Anmol Shukla.
+- [@pranavsid98's proposal](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2018/pdfs/GSoC2018PranavSiddharth.pdf) for visualizing learner playthroughs. Mentor: Brian Rodriguez.
+- [@vibhor98's proposal](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2018/pdfs/GSoC2018VibhorAgarwal.pdf) for implementing two new interactions. Mentor: Prasanna Patil.
 
 # Students
 GSoC is an excellent opportunity for students to get paid to work on an open source project. If you're interested in applying as a student, you should definitely read the following resources:
