@@ -209,3 +209,9 @@ One of the highlights of Arch is that it is always up to date from linux to all 
     ImportError: cannot import name RAND_egd
     ```
     go to `oppia_tools/google_appengine_1.9.50/google_appengine/google/appengine/dist27` and open the `socket.py` file. In this file go to the line 73 (or, alternatively, search for ‘RAND_egd’) and remove import of ‘RAND_egd’ from that line.
+
+  * If you get 403 error while serving oppia locally:
+
+    go to `oppia_tools/google_app_engine_1.9.XX/google_appengine/google/appengine/tools` and open the `appengine_rpc.py` file. Comment the following line in it. `opener.add_handler(fancy_urllib.FancyProxyHandler())` . Run the server again.
+ [Resource](https://stackoverflow.com/questions/16698621/google-app-engine-error-httperror/17522082)
+    
