@@ -26,8 +26,8 @@ Also, please note that acceptance into GSoC isn't a prerequisite for [becoming a
 - [@DubeySandeep's proposal](pdfs/GSoC2018SandeepDubey.pdf) for implementing a lesson translation dashboard. Mentors: Tony Jiang and Anmol Shukla.
 - [@ishucr7's proposal](pdfs/GSoC2018AashishGaba.pdf) for improving the image loading pipeline. Mentor: Vojtěch Jelínek.
 - [@nithusha21's proposal](pdfs/GSoC2018NitheshHariharan.pdf) for implementing a generalized review system. Mentor: Anmol Shukla.
-- @pranavsid98's proposal (link to be added) for visualizing learner playthroughs. Mentor: Brian Rodriguez.
-- @vibhor98's proposal (link to be added) for implementing two new interactions. Mentor: Prasanna Patil.
+- [@pranavsid98's proposal](pdfs/GSoC2018PranavSiddharth.pdf) for visualizing learner playthroughs. Mentor: Brian Rodriguez.
+- [@vibhor98's proposal](pdfs/GSoC2018VibhorAgarwal.pdf) for implementing two new interactions. Mentor: Prasanna Patil.
 
 # Students
 GSoC is an excellent opportunity for students to get paid to work on an open source project. If you're interested in applying as a student, you should definitely read the following resources:
