@@ -48,7 +48,7 @@
     * [[Rich Text Editor (RTE)|Rich-Text-Editor-(RTE)-Overview]]
     * [[Advice on creating explorations|Advice-on-Creating-Explorations]]
     * [[Oppia-ml Extension|Oppia-ml-Extension]]
-  * [[Deploying Oppia|Deploying-Oppia]]
+  * Deploying Oppia
     * [[Migration Instructions|Migration-Instructions]]
   * Playbooks
     * [[Instructions for Welcomers|Instructions-for-Welcomers]]
