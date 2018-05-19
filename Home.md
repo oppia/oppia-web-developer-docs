@@ -20,10 +20,5 @@ At Oppia, we believe in socializing with our contributors. Many of us are studen
 |    Date    |   Time (*IST)  |                        Meet                                |
 |----------- |:-------------: |:----------------------------------------------------------:|
 | May 6th, 2018  |  10:30 AM – 11:30 AM  |                    Social Meet 18Q2SM4                          |
-| May 27th, 2018  |  TBD     |                    Social Meet 18Q2SM5                          |
-| June 17th, 2018  |  TBD     |                    Social Meet 18Q2SM6                          |
-| July 1st, 2018  |  TBD     |                    Social Meet 18Q2SM7                         |
-| July 22nd, 2018 |  TBD     |                    Social Meet 18Q2SM8                          |
-| August 18th, 2018|  TBD     |                    Social Meet 18Q2SM9                         |
 
 <sup>* Please let us know if your timezone is not covered. We could adjust the meeting times accordingly</sup>
