@@ -18,7 +18,7 @@ Thanks for your interest in improving the Oppia platform! This page explains how
 
 ## Developing your skills
 
-- Consider learning AngularJS (v1), if you're new to it. A nice tutorial can be found [here](https://www.codeschool.com/courses/shaping-up-with-angularjs). Most of our open issues are in the frontend, and require at least some knowledge of HTML, AngularJS and CSS, so knowledge of frontend coding will serve you well if you'd like to contribute to Oppia over the longer term.
+- Consider learning AngularJS (v1), if you're new to it. Here is the official [tutorial/guide](https://docs.angularjs.org/guide). Most of our open issues are in the frontend, and require at least some knowledge of HTML, AngularJS and CSS, so knowledge of frontend coding will serve you well if you'd like to contribute to Oppia over the longer term.
 - We also have some backend (python) and devops (bash) projects available, but not as many, so we'd strongly recommend learning AngularJS if you have the opportunity and inclination -- otherwise, the range of projects you can take up will be more limited. That said, let us know at welcome@oppia.org if you'd like suggestions for non-frontend projects, and we'll do our best to help.
 
 ## Finding something to do...
