@@ -19,6 +19,7 @@ Thanks for your interest in improving the Oppia platform! This page explains how
 ## Developing your skills
 
 - Consider learning AngularJS (v1), if you're new to it. Here is the official [tutorial](https://docs.angularjs.org/tutorial/index)/[guide](https://docs.angularjs.org/guide), and here is a [short overview](https://egghead.io/articles/new-to-angularjs-start-learning-here) with pointers to other resources. Most of our open issues are in the frontend, and require at least some knowledge of HTML, AngularJS and CSS, so knowledge of frontend coding will serve you well if you'd like to contribute to Oppia over the longer term.
+- If you are new to HTML, some tutorials include [Mozilla's guide](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML) (which includes some practice assessments), as well as [this tutorial for beginners](http://htmldog.com/guides/html/beginner/).
 - We also have some backend (python) and devops (bash) projects available, but not as many, so we'd strongly recommend learning AngularJS if you have the opportunity and inclination -- otherwise, the range of projects you can take up will be more limited. That said, let us know at welcome@oppia.org if you'd like suggestions for non-frontend projects, and we'll do our best to help.
 
 ## Finding something to do...
