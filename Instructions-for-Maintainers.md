@@ -10,7 +10,7 @@
   - Make sure all incoming issues/PRs are triaged and labelled. Assign incoming PRs to the owners of the issue that's being fixed by the PR.
   - Welcome and help out new contributors (e.g. on gitter).
   - Do code reviews for simple incoming PRs.
-  - If you see a flaky e2e test fail in a PR, please tag @apb7.
+  - If you see a flaky e2e test fail in a PR, please tag **@apb7**.
   - Help with release testing, if needed.
 - **After your shift**:
   - Pass the baton to the next maintainer. In doing so, confirm that:
