@@ -106,7 +106,7 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 21 May - 27 May   Kevin         @kevinlee12
 28 May -  3 Jun   Kevin         @kevinlee12
  4 Jun - 10 Jun   Yogesh        @1995YogeshSharma
-11 Jun - 17 Jun   Shubha        @shubha1593
+11 Jun - 17 Jun   Yogesh        @1995YogeshSharma
 18 Jun - 24 Jun   Tony          @tjiang11
 25 Jun -  1 Jul   Prasanna      @prasanna08
 
