@@ -66,12 +66,12 @@ For some Controller, defined:
 
 ```
 class UpdateExplorationVersionHandler(base.BaseHandler):
-  """Dummy handler."""
+  """Handler that updates an exploration version."""
 
   @acl_decorators.can_edit_exploration
   def post(self, exp_id):
     exp_version = self.payload.get('exp_version')
-    exploration_instance = exp_models.Exploration.get(dummy_instance_id)
+    exploration_instance = exp_models.Exploration.get(exp_id)
     exploration_instance.exp_version = exp_version
     exploration_instance.save()
 ```
@@ -80,7 +80,7 @@ a test would be written like:
 
 ```
 class UpdateExplorationVersionHandlerTest(test_utils.GenericTestBase):
-  """Test for dummy handler.
+  """Test for handler that updates the version of an exploration.
 
   The URL for this handler is: '/explorehandler/update_exp_version/<exploration_id>'
   """
