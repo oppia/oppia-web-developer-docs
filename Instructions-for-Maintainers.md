@@ -77,39 +77,38 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 ## Maintainer Rota
 
 ```
-11 Dec - 17 Dec   Jacob         @jacobdavis11
-18 Dec - 24 Dec   Kevin         @kevinlee12
-25 Dec - 31 Dec   Tony          @tjiang11
-
- 1 Jan -  7 Jan   Anmol         @anmolshkl
- 8 Jan - 14 Jan   Kevin         @kevinlee12
-15 Jan - 21 Jan   Kevin         @kevinlee12
-22 Jan - 28 Jan   Shubha        @shubha1593
-29 Jan -  4 Feb   Pranav        @pranavsid98
- 5 Feb - 11 Feb   Jacob         @jacobdavis11
-12 Feb - 18 Feb   Yogesh        @1995YogeshSharma
-19 Feb - 25 Feb   Prasanna      @prasanna08
-26 Feb -  4 Mar   Tony          @tjiang11
- 5 Mar - 11 Mar   Allan         @AllanYangZhou
-
-12 Mar - 18 Mar   Anmol         @anmolshkl
-19 Mar - 25 Mar   Pranav        @pranavsid98
-26 Mar -  1 Apr   Jacob         @jacobdavis11
- 2 Apr -  8 Apr   Yogesh        @1995YogeshSharma
- 9 Apr - 15 Apr   Prasanna      @prasanna08
-16 Apr - 22 Apr   Shubha        @shubha1593
-23 Apr - 29 Apr   Allan         @AllanYangZhou 
-30 Apr -  6 May   Tony          @tjiang11
-
- 7 May - 13 May   Anmol         @anmolshkl
-14 May - 20 May   Pranav        @pranavsid98
-21 May - 27 May   Kevin         @kevinlee12
-28 May -  3 Jun   Kevin         @kevinlee12
- 4 Jun - 10 Jun   Yogesh        @1995YogeshSharma
 11 Jun - 17 Jun   Yogesh        @1995YogeshSharma
 18 Jun - 24 Jun   Tony          @tjiang11
 25 Jun -  1 Jul   Prasanna      @prasanna08
+ 2 Jul -  8 Jul   Allan         @AllanYangZhou
+ 9 Jul - 15 Jul   Jacob         @jacobdavis11
 
+16 Jul - 22 Jul   Anmol         @anmolshkl
+23 Jul - 29 Jul   Pranav        @pranavsid98
+30 Jul -  5 Aug   Yogesh        @1995YogeshSharma
+ 6 Aug - 12 Aug   Apurv         @apb7
+13 Aug - 19 Aug   Tony          @tjiang11
+20 Aug - 26 Aug   Kevin         @kevinlee12
+27 Aug -  2 Sep   Jacob         @jacobdavis11
+ 3 Sep -  9 Sep   Prasanna      @prasanna08
+10 Sep - 16 Sep   Allan         @AllanYangZhou
+
+17 Sep - 23 Sep   Anmol         @anmolshkl
+24 Sep - 30 Sep   Yogesh        @1995YogeshSharma
+ 1 Oct -  7 Oct   Kevin         @kevinlee12
+ 8 Oct - 14 Oct   Apurv         @apb7
+15 Oct - 21 Oct   Tony          @tjiang11
+22 Oct - 28 Oct   Pranav        @pranavsid98
+29 Oct -  4 Nov   Jacob         @jacobdavis11
+ 5 Nov - 11 Nov   Prasanna      @prasanna08
+12 Nov - 18 Nov   Allan         @AllanYangZhou
+
+19 Nov - 25 Nov   Anmol         @anmolshkl
+26 Nov -  2 Dec   Apurv         @apb7
+ 3 Dec -  9 Dec   Tony          @tjiang11
+10 Dec - 16 Dec   Pranav        @pranavsid98
+17 Dec - 23 Dec   Jacob         @jacobdavis11
+24 Dec - 30 Dec   Yogesh        @1995YogeshSharma
 ```
 
 ## Areas of expertise
@@ -120,7 +119,6 @@ Anmol        Machine learning
 Arunabh      Subscriptions, learner dashboard
 Ben          Migrations, StackDriver errors
 Jacob        Metrics
-Jared        User journeys
 Joe          Oppia's blog
 Kevin L      Embedding, collection editor, library index page
 Kevin T      Hints and solutions
