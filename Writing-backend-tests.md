@@ -4,6 +4,12 @@ All classes and tests written below are just examples, and not actual code in th
 
 # Writing tests for Domain classes - Unit tests
 
+Things to keep in mind when writing a unit test:
+
+* For each method defined in the domain class, a separate test function to test the method should be implemented.
+* Define a setUp method in the test if functionality and variables are going to be reused between tests.
+* If there are multiple possibilities within a method, make sure that all parts of the function are tested in its own test function.
+
 For some Domain class, defined:
 
 ```
@@ -61,6 +67,10 @@ class ExplorationThemeDomainUnitTests(test_utils.GenericTestBase):
 
 
 # Writing tests for Handlers(controllers) - Integration tests
+
+Things to keep in mind when writing an integration test:
+
+* After understanding completely what the controller does, cover all the cases with a test of its own.
 
 For some Controller, defined:
 
