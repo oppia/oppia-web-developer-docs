@@ -2,6 +2,8 @@
 
 Thanks for your interest in improving the Oppia platform! This page explains how to get set up, how to find something to work on, and how to make a code change. If you run into any problems along the way, please file an issue on our [issue tracker](https://github.com/oppia/oppia/issues), or get help by posting to the [developers' mailing list](https://groups.google.com/forum/#!forum/oppia-dev). There are also lots of helpful resources in the [developer wiki](https://github.com/oppia/oppia/wiki) -- check out the sidebar!
 
+To get familiar with Oppia from an operational point of view, do check out [user documentation](http://oppia.github.io/).
+
 ## Setting things up
 
 1. Please sign the CLA so that we can accept your contributions. If you're contributing as an individual, use the [individual CLA](https://goo.gl/forms/AttNH80OV0). If your company owns the copyright to your contributions, a company representative should sign the [corporate CLA](https://goo.gl/forms/xDq9gK3Zcv).
