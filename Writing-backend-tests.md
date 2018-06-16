@@ -2,7 +2,7 @@ Any and all code that you want to get merged into Oppia, needs to be tested exte
 
 All classes and tests written below are just examples, and not actual code in the codebase.
 
-# Writing tests for Domain classes
+# Writing tests for Domain classes - Unit tests
 
 For some Domain class, defined:
 
@@ -60,7 +60,7 @@ class ExplorationThemeDomainUnitTests(test_utils.GenericTestBase):
 ```
 
 
-# Writing tests for Handlers(controllers)
+# Writing tests for Handlers(controllers) - Integration tests
 
 For some Controller, defined:
 
