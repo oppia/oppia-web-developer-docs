@@ -18,7 +18,7 @@
     * [[Overview of the codebase|Overview-of-the-Oppia-codebase]]
     * [[Coding style guide|Coding-style-guide]]
     * [[Writing tests for custom Pylint Checkers|Writing-Tests-For-Pylint]] 
-    * [[Writing backend integration tests]]
+    * [[Writing backend tests]]
     * [[Running tests|Running-Tests]]
       * [[End-to-end tests|Writing-End-to-End-Tests]]
     * [[If your build fails...|If-Your-Build-Fails]]
