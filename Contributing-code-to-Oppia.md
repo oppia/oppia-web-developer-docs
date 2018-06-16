@@ -107,7 +107,7 @@ Here's how to make a one-off code change. (If you're working on a larger feature
     * N.B.: If your PR is incomplete, please add a list of checkboxes representing the to-do list to the github conversation thread (like [this example](https://github.com/oppia/oppia/issues/1205)). That lets the reviewer know that you're already aware of those issues, so that they don't spend time telling you things you already know!
     * N.B.: While you're waiting for a review, it's fine to start work on a new PR. Just make sure to **checkout the develop branch** and sync to HEAD before you check out a new branch, so that each of your feature branches is based off the main trunk.
 
-5. **Address review comments until all reviewers give LGTM ('looks good to me').**
+5. #### **Address review comments until all reviewers give LGTM ('looks good to me').** 
     * When your reviewer has reviewed the code, you'll get an email. You'll need to respond in two ways:
        * Make a new commit addressing the comments you agree with, and push it to the same branch. Ideally, the commit message would explain what the commit does (e.g. "Fix lint error"), but if there are lots of disparate review comments, it's fine to refer to the original commit message and add something like "(address review comments)".
        * In addition, go to the Files Changed tab, and reply to each comment, choosing the "Start a review" option for the first comment. Each reply should be either "Done" or a response explaining why the corresponding suggestion wasn't implemented. When you've responded to all comments, you can add all your messages to the main thread by submitting the review. All comments must be resolved before LGTM can be given.
