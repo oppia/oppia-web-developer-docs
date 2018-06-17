@@ -41,6 +41,7 @@
       * [[Dependencies|Creating-Dependencies]]
       * [[Value generators|Creating-Value-Generators]]
     * [[Schema-based forms|Schema-based-Forms]]
+    * [[Collection editor page|Collection-editor-page]]
     * [[Calculating statistics|Calculating-statistics]]
     * [[Writing style guide|Writing-style-guide]]
     * [[Math explorations|Math-explorations]]
