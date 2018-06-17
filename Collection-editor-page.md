@@ -1,4 +1,3 @@
-## Collection:
 A collection is a group of explorations. An exploration may belong to more than one collection at a time, with no relationship between the collections. All collections are independent of each other, though they belong to specific categories (just as explorations do).
 
 ## Steps to create a collection:
