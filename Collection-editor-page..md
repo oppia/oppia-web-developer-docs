@@ -1,0 +1,31 @@
+## Collection:
+A collection is a group of explorations. An exploration may belong to more than one collection at a time, with no relationship between the collections. All collections are independent of each other, though they belong to specific categories (just as explorations do).
+
+## Steps to create a collection:
+
+**1. Create an user having super-admin rights.**
+
+![How to get super-admin rights](https://user-images.githubusercontent.com/16653571/41500954-e88a0262-71b8-11e8-9cac-456fb46782c1.png)
+
+**2. Go to admin panel.**
+
+![How to access admin page](https://user-images.githubusercontent.com/16653571/41501009-e04e9a76-71b9-11e8-958e-985f5bc7122a.png)
+
+**3. Go to ROLES tab in admin page.**
+
+![roles](https://user-images.githubusercontent.com/16653571/41501684-a543b22e-71c6-11e8-883c-cec35e32535e.png)
+
+**4. Assign your username as collection editor through the forum provided.**
+![assignrole](https://user-images.githubusercontent.com/16653571/41503346-ff754c9e-71ee-11e8-9b72-9e16dae46418.png)
+
+**5. Get back to /splash page and click CREATE button.**
+
+![reate Button](https://user-images.githubusercontent.com/16653571/41504441-a7f60512-720c-11e8-85c2-8fee5f55a42c.png)
+
+**6. Click the "CREATE COLLECTION" button of the modal.**
+
+![CREATE COLLECTION button](https://user-images.githubusercontent.com/16653571/41504483-d946fd3c-720d-11e8-997d-943cd8703e57.png)
+
+**7. Tada! You have successfully landed inside the collection editor page.**
+![image](https://user-images.githubusercontent.com/16653571/41504590-3cd73c56-7211-11e8-85a1-f3bae3635973.png)
+
