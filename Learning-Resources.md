@@ -2,13 +2,10 @@
 
 The following tutorials are the bare minimum which will help you get started:
 
-**Git**
-- https://learngitbranching.js.org/ -- try the following levels:
+- **Git**: https://learngitbranching.js.org/ -- try the following levels:
   - Level 1,2,3 from the introduction sequence, and
   - Level 1,2,3,4,5,6 from Push and Pull Git remotes.
-
-**GitHub**
-- [Intro to GitHub](https://lab.github.com/courses/introduction-to-github)
+- **GitHub**: [Intro to GitHub](https://lab.github.com/courses/introduction-to-github)
 
 ### Advanced
 
