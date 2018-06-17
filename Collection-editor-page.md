@@ -15,7 +15,7 @@ A collection is a group of explorations. An exploration may belong to more than 
 
 ![roles](https://user-images.githubusercontent.com/16653571/41501684-a543b22e-71c6-11e8-883c-cec35e32535e.png)
 
-**4. Assign your username as collection editor through the forum provided.**
+**4. Assign your username as collection editor through the form provided.**
 ![assignrole](https://user-images.githubusercontent.com/16653571/41503346-ff754c9e-71ee-11e8-9b72-9e16dae46418.png)
 
 **5. Get back to /splash page and click CREATE button.**
