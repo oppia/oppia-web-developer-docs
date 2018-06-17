@@ -1,6 +1,6 @@
 ### Beginners
 
-The bare minimums which will help you get started.
+The following tutorials are the bare minimum which will help you get started:
 
 - _GIT_ https://learngitbranching.js.org/
   - level 1,2,3 from introduction sequence
