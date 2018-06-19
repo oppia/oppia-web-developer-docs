@@ -12,8 +12,8 @@ If you're at this step, the function name probably did not offer all the informa
 required. Now, a reasonable step to perform would be to figure out how this arg is
 initialised when the function is called. For example, assume a function:
 
-`def func(some_arg):`
-  `return some_arg.some_field`
+```def func(some_arg):
+  return some_arg.some_field```
 
 This doesn't make a lot of sense at first glance since it doesn't offer any information
 about the arg. But, if you search the
