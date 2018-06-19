@@ -50,6 +50,7 @@
     * [[Rich Text Editor (RTE)|Rich-Text-Editor-(RTE)-Overview]]
     * [[Advice on creating explorations|Advice-on-Creating-Explorations]]
     * [[Oppia-ml Extension|Oppia-ml-Extension]]
+    * [Codebase analysis]
   * Deploying Oppia
     * [[Migration Instructions|Migration-Instructions]]
   * Playbooks
