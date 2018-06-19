@@ -35,6 +35,11 @@ it would make sense to 'grep' through the codebase to find out instances of func
 call.
 
 
+***
+
+
+
+
 **Now, let's go through a full example of analyzing a function for the meaning of its' args.**
 
 There is a function defined in scripts/custom_lint_checks.py:
