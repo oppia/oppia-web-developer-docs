@@ -118,7 +118,7 @@ class UpdateExplorationVersionHandlerTest(test_utils.GenericTestBase):
 
 This is a a really useful tool while writing backend tests. Coverage reports specify which lines of each file have not been used in any test, and the overall coverage percentage of each file. So, while writing a test for some function or a class, a coverage report can be generated to verify that all lines of the function/class have been included in the tests.
 
-** The ultimate goal is to achieve 100% backend coverage.**
+**The ultimate goal is to achieve 100% backend coverage.**
 
 To generate backend coverage, a flag should be added to the command that runs backend tests.
 
