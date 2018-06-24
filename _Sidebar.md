@@ -17,6 +17,7 @@
     * **[[Built something new?|https://goo.gl/forms/sNBWrW03fS6dBWEp1]]**
     * [[Overview of the codebase|Overview-of-the-Oppia-codebase]]
     * [[Coding style guide|Coding-style-guide]]
+    * [[Analyzing the codebase|Analyzing-the-codebase]]
     * [[Writing tests for custom Pylint Checkers|Writing-Tests-For-Pylint]] 
     * [[Writing backend tests]]
     * [[Running tests|Running-Tests]]
@@ -50,7 +51,6 @@
     * [[Rich Text Editor (RTE)|Rich-Text-Editor-(RTE)-Overview]]
     * [[Advice on creating explorations|Advice-on-Creating-Explorations]]
     * [[Oppia-ml Extension|Oppia-ml-Extension]]
-    * [[Codebase analysis]]
   * Deploying Oppia
     * [[Migration Instructions|Migration-Instructions]]
   * Playbooks
