@@ -31,6 +31,7 @@ Also, if you'd like to get familiar with Oppia from a user's point of view, you 
 
 Welcome! Please make sure to follow the [setup instructions](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up) above if you haven't already. After that, we'd **strongly recommend** tackling some part of one of the following starter issues:
 
+- [#5134](https://github.com/oppia/oppia/issues/5134) (backend)
 - [#3826](https://github.com/oppia/oppia/issues/3826) (frontend)
 - [#3950](https://github.com/oppia/oppia/issues/3950) (frontend)
 - [#3954](https://github.com/oppia/oppia/issues/3954) (e2e tests reorganization; frontend)
