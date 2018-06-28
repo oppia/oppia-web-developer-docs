@@ -79,8 +79,8 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 ```
 11 Jun - 17 Jun   Yogesh        @1995YogeshSharma
 18 Jun - 24 Jun   Tony          @tjiang11
-25 Jun -  1 Jul   Prasanna      @prasanna08
- 2 Jul -  8 Jul   Allan         @AllanYangZhou
+25 Jun -  1 Jul   Allan         @AllanYangZhou
+ 2 Jul -  8 Jul   Prasanna      @prasanna08
  9 Jul - 15 Jul   Jacob         @jacobdavis11
 
 16 Jul - 22 Jul   Anmol         @anmolshkl
