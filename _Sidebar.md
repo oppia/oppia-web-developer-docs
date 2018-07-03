@@ -32,6 +32,7 @@
     * [[Adding static assets|Adding-static-assets]]
     * [[Performance testing|Performance-Testing]]
     * [[Release schedule|Release-Schedule]]
+    * [[Running jobs in production|Running-jobs-in-production]]
     * [[Team structure|Team-Structure]]
   * References
     * [User documentation](https://oppia.github.io/)
