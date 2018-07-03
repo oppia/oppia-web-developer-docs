@@ -13,6 +13,8 @@ If your job is not essential for the release and has not been fully tested by th
 
 In order to test a job, please submit a request using [this form](https://goo.gl/forms/XIj00RJ2h5L55XzU2). Before submitting a testing request, please ensure that the job has already been tested manually on your local machine, passed code review, and been merged into develop.
 
+If you are hoping to run your job in a particular release, please plan your work schedule appropriately so that you get the testing completed in time for that release. We advise allowing 1-2 weeks for the oppiatestserver testing process.
+
 ### Submitting a job to production
 
 Once your job has been fully tested on oppiatestserver, please submit a request using [this form](https://goo.gl/forms/6pNveYNJat9nSBRm1) to get it run on the main production server.
