@@ -2,7 +2,7 @@
 
 ### Running your job on the test server
 
-Before a MapReduce job is run in production, it needs to be tested on the Oppia test server. In order to test a job, please submit a request using [this form](https://goo.gl/forms/XIj00RJ2h5L55XzU2). The job should already have been tested locally (manually), passed code review, and been merged into develop.
+Before a MapReduce job can be run in production, it must be tested on the Oppia test server. In order to test a job, please submit a request using [this form](https://goo.gl/forms/XIj00RJ2h5L55XzU2). The job should already have been tested locally (manually), passed code review, and been merged into develop.
 
 ### Submitting a job to production
 
