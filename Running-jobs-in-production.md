@@ -1,4 +1,4 @@
-# Instructions for getting jobs into production
+# Instructions for getting a job into production
 
 ## Running your job on the test server
 
