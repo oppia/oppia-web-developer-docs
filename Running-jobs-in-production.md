@@ -1,5 +1,3 @@
-# Instructions for getting a job into production
-
 ## Running your job on the test server
 
 Before a MapReduce job can be run in production, it must first be tested on the Oppia test server.
