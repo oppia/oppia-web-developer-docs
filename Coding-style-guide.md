@@ -58,6 +58,8 @@ Please follow the following style rules when writing code, in order to minimize 
 - If the CSS class is oppia-specific, prefix it with `oppia-`. This helps distinguish it from CSS classes used by other third-party libraries. 
 - For directives, include the CSS in the directive template file, similar to what we do in [this file](https://github.com/oppia/oppia/blob/37a43ca249ffd2b60bf98f791995048ce0ec5269/core/templates/dev/head/components/summary_tile/exploration_summary_tile_directive.html). (Note that, in this case, all CSS rules should start with the top-level CSS class of the directive, so that they don't affect other elements outside it.) All other CSS should go in `core/templates/dev/head/css/oppia.css`.
 
+----
+
 ### Note for Sublime Text users
 
 If you use Sublime Text, the following settings may be useful for your "Preferences.sublime-settings -- User" file (go to Preferences > Settings)
