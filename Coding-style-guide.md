@@ -57,3 +57,25 @@ Please follow the following style rules when writing code, in order to minimize 
 - For colours, use hex values (like "#012345") or rgb(a) values, instead of names (like "white").
 - If the CSS class is oppia-specific, prefix it with `oppia-`. This helps distinguish it from CSS classes used by other third-party libraries. 
 - For directives, include the CSS in the directive template file, similar to what we do in [this file](https://github.com/oppia/oppia/blob/37a43ca249ffd2b60bf98f791995048ce0ec5269/core/templates/dev/head/components/summary_tile/exploration_summary_tile_directive.html). (Note that, in this case, all CSS rules should start with the top-level CSS class of the directive, so that they don't affect other elements outside it.) All other CSS should go in `core/templates/dev/head/css/oppia.css`.
+
+### Note for Sublime Text users
+
+If you use Sublime Text, the following settings may be useful for your "Preferences.sublime-settings -- User" file (go to Preferences > Settings)
+
+```
+{
+    "ensure_newline_at_eof_on_save": true,
+    "font_size": 9,
+    "highlight_line": true,
+    "rulers":
+    [
+        80
+    ],
+    "shift_tab_unindent": true,
+    "spell_check": true,
+    "tab_size": 4,
+    "translate_tabs_to_spaces": true,
+    "trim_trailing_white_space_on_save": true,
+    "update_check": false
+}
+```
