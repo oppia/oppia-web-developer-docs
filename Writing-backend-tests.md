@@ -24,7 +24,7 @@ Things to keep in mind when writing a unit test:
 
 For some Domain class, defined:
 
-```
+```python
 class ExplorationTheme(object):
   """Domain object representing a theme for an exploration."""
 
@@ -51,11 +51,14 @@ class ExplorationTheme(object):
 
 a test would be written like:
 
-```
+```python
 class ExplorationThemeDomainUnitTests(test_utils.GenericTestBase):
   """Tests for exploration theme domain class."""
 
   def setUp(self):
+    # Please remember to explicitly call the setUp method with the super class.  
+    super(ExplorationThemeDomainUnitTests, self).setUp()
+
     self.exp_theme = exp_domain.ExplorationTheme('exp_id1', 'theme1')
 
   def test_to_dict(self):
@@ -86,7 +89,7 @@ Things to keep in mind when writing an integration test:
 
 For some Controller, defined:
 
-```
+```python
 class UpdateExplorationVersionHandler(base.BaseHandler):
   """Handler that updates an exploration version."""
 
@@ -100,7 +103,7 @@ class UpdateExplorationVersionHandler(base.BaseHandler):
 
 a test would be written like:
 
-```
+```python
 class UpdateExplorationVersionHandlerTest(test_utils.GenericTestBase):
   """Test for handler that updates the version of an exploration.
 
