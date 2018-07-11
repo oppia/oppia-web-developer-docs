@@ -48,8 +48,8 @@ which will work for both the editing and checking cases.
 ## Core Utilities ##
 
 The core protractor utilities consist of the following files:
-  * `admin.js`: Manipulations of controls on the /admin page.
-  * `editor.js`: Editor page functionality. The most important functions this exposes are:
+  * `AdminPage.js`: Manipulations of controls on the /admin page.
+  * `ExplorationEditorMainTab.js`: Editor page functionality. The most important functions this exposes are:
     * `setContent`: This sets the rich-text of the main state content, potentially including custom extensions.
     * `setInteraction`: To choose a particular interaction, and customize it in whatever ways that interaction makes available.
     * `RuleEditor`: When given a rule number this returns an editor for that rule, which provides functions `setDescription`, `setFeedback`, `setDestination` and others to specify various aspects of the rule.
@@ -57,9 +57,8 @@ The core protractor utilities consist of the following files:
     * `moveToState`
     * `saveChanges`
   * `forms.js`: See above.
-  * `gallery.js`: Controls for the gallery, mainly to filter or select or explorations.
   * `general.js`: Various components, some of them specific to oppia and others providing new features not found in Protractor.
-  * `player.js`: Functionality for playing an exploration. The `richTextInstructions` here refer to functions that take a `richTextChecker` of the type described above.
+  * `ExplorationPlayerPage.js`: Functionality for playing an exploration. The `richTextInstructions` here refer to functions that take a `richTextChecker` of the type described above.
   * `users.js`: Means of creating and logging in and out users.
   * `workflow.js`: Tools for moving explorations through the process of creation, publication, featuring and adding new roles.
 
@@ -82,8 +81,7 @@ in place of `.element(by.css(...))`. If this does not suffice then you may need 
 All the protractor code assumes you are working in an Angular webpage. If you need to move to non-Angular context (for example in an iframe) then look at the login function of `users.js` or the `embedding.js` test for examples of how to proceed.
 
 It can happen that a test fails because the webpage has not finished loading functionality by the point at which protractor attempts to use it; failures of this kind can be inconsistent between successive runs of the same test. If one occurs you can try the following:
-  1. Run `protractor.getInstance().waitForAngular()` before the command that causes the failure. This will cause the test to wait for the page to finish all its computations, including receiving data from the server, before proceeding.
-  1. If this fails, run `general.waitForSystem()` after `waitForAngular()`. This will wait a few seconds before continuing and is crude but effective.
+  1. Use ExpectedConditions to determine if the element in question is either present, visible or clickable, depending on your use case.
   1. If you are attempting to use an element that is not visible you can try `general.scrollElementIntoView(elem)` to get to it, though normally this should happen automatically.
 
 ## The Tests Themselves ##
