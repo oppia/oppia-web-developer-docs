@@ -25,8 +25,6 @@
     * [[If your build fails...|If-Your-Build-Fails]]
     * [[Git cheat sheet|Git-cheat-sheet]]
     * [[Mobile development|Mobile-development]]
-    * [[Mobile device testing|Mobile-device-testing]]
-    * [[Browser & device testing|Browser-and-Device-Testing-Using-BrowserStack]]
     * [[Adding new translations|Adding-new-translations-for-i18n]]
     * [[How to develop for i18n|How-to-develop-for-i18n]]
     * [[Adding static assets|Adding-static-assets]]
@@ -34,6 +32,9 @@
     * [[Release schedule|Release-Schedule]]
     * [[Running jobs in production|Running-jobs-in-production]]
     * [[Team structure|Team-Structure]]
+  * Testing Oppia
+    * [[Mobile device testing|Mobile-device-testing]]
+    * [[Browser & device testing|Browser-and-Device-Testing-Using-BrowserStack]]
   * References
     * [User documentation](https://oppia.github.io/)
     * [[Extension frameworks|Extensions-Overview]]
