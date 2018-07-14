@@ -135,8 +135,6 @@ For the proposal, we generally look for a clear indication that the student has 
 - A description, if applicable, of how the applicant plans to mitigate risks that could potentially derail the project.
 - Clear, unambiguous communication. (This is important; your proposal will be read by many mentors!)
 
-**New! (Nov 2017)**: One of our 2017 mentors, Rachel, wrote a blog post on her experiences reviewing GSoC proposals for Oppia. Here's the [link](https://medium.com/oppia-org/things-i-learned-from-reviewing-gsoc-proposals-154707cdcca5).
-
 # Oppia's Project Ideas
 
 The following is a list of Oppia's 2018 GSoC project ideas. You are welcome to choose among these ideas, or propose your own! However, if you are proposing something original, it's essential to engage with the Oppia community in order to get feedback and guidance to improve the proposal, as well as to make sure that it fits in with the team's overall plans.
