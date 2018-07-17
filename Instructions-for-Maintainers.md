@@ -3,7 +3,6 @@
 - **On Monday, at the start of your shift**:
   - Pin this tab, so you have it handy for reference!
   - If you aren't already watching the repository, please change your [notification preferences](https://github.com/oppia/oppia/subscription) to "watching", just for this week.
-  - Go to the [list of PRs](https://github.com/oppia/oppia/pulls), and make sure all PRs are moving forward; act on any that are being sat on for too long. Also, ensure that the PR's "assignee" is the person who's supposed to next act on it (usually, this would be either the committer or the reviewer). **Please do this before looking at the issue tracker in the next step, since some issues will have PRs already in progress (and GitHub doesn't always make this clear).**
   - Go to the [list of important issues](https://github.com/oppia/oppia/issues?q=is%3Aissue+is%3Aopen+label%3Aimportant). For any existing issue with an assignee, ping them and ask for a status update if there's been no response for 6-7 days. Deassign the issue from the current assignee if there's been no indication of progress or response to pings for > 10 days.
   - Do the same for projects without leads: [link 1](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+project%3Aoppia%2Foppia%2F22), [link 2](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+project%3Aoppia%2Foppia%2F21), [link 3](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+project%3Aoppia%2Foppia%2F20), [link 4](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+project%3Aoppia%2Foppia%2F12), [link 5](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+project%3Aoppia%2Foppia%2F1).
 - **During the week**:
@@ -21,8 +20,7 @@
 
 ### General
 1. Ensure that your "Settings > Notification center" page is set to send you activity notifications, so that you're aware of all activity on the repository.
-2. When you get an email saying that a pull request has been made, go to GitHub and assign it to someone. Before doing so, ensure that the requester has signed the CLA). To check this, look for the "Member" **or** "Collaborator" tag next to their name. For example:
-[[images/memberTagExample.png]]
+2. When you get an email saying that a pull request has been made, go to GitHub and assign it to someone.
 
 ### Doing code reviews
 Please see [Instructions for Reviewers](https://github.com/oppia/oppia/wiki/Instructions-for-Reviewers) (note the [squash-merging instructions](https://github.com/oppia/oppia/wiki/Instructions-for-Reviewers#merging-into-develop) too).
