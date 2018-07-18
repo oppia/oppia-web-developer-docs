@@ -25,3 +25,17 @@ Oppia is targeted as a Linux application, and for contributors and developers on
 ### Troubleshooting:
 
 It's possible that windows firewall might be preventing localhost:8181 to launch. In such a case, you should re-config the firewall by adding new inbound rule so that ports 8181 and 8000 are allowed. (Instruction about how to add inbound rules can be found [here](https://msdn.microsoft.com/en-us/library/hh168549(v=nav.90).aspx))
+
+  * If you get an error that ends with:
+
+    ```
+      File "/usr/lib/python2.7/ssl.py", line 405, in do_handshake
+    self._sslobj.do_handshake()
+      IOError: [Errno socket error] [Errno 1] _ssl.c:510: error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure
+    ```
+
+    try upgrading your python, follow these steps:
+    - `sudo apt-get update`
+    - `sudo apt-get install --only-upgrade python2.7`
+
+    **Note:** This issue will only raise if your python version is < 2.7.9.
