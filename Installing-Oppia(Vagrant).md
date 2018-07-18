@@ -56,6 +56,20 @@ In order to adjust the hardware settings of your VM (such as giving it more memo
 
 ### Troubleshooting
 
+  * If you get an error that ends with:
+
+    ```
+      File "/usr/lib/python2.7/ssl.py", line 405, in do_handshake
+    self._sslobj.do_handshake()
+      IOError: [Errno socket error] [Errno 1] _ssl.c:510: error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure
+    ```
+
+    try upgrading your python, follow these steps:
+    - `sudo apt-get update`
+    - `sudo apt-get install --only-upgrade python2.7`
+
+    **Note:** This issue will only raise if your python version is < 2.7.9.
+
 - If you run `git commit` from the host machine, you will likely have your commit rejected because you have not installed the pre-commit hooks. The hooks only install after you have run Oppia for the first time on a machine. Since you are actually installing and running Oppia on a VM, those hooks do not exist on the host. There are several ways to overcome this:
   - (Recommended) Do `git commit` and `git push` from the guest. This is actually not as difficult or burdensome as it may sound: All directories are mapped into the Vagrant VM, including `.git`, so configurations such as your username and e-mail will carry over as well.
   - Try to build Oppia natively on Windows (this is difficult, and is neither recommended nor supported).
