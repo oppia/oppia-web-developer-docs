@@ -143,6 +143,20 @@ One of the highlights of Arch is that it is always up to date from linux to all 
   * If you get an error that ends with:
 
     ```
+      File "/usr/lib/python2.7/ssl.py", line 405, in do_handshake
+    self._sslobj.do_handshake()
+      IOError: [Errno socket error] [Errno 1] _ssl.c:510: error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure
+    ```
+
+    try upgrading your python, follow these steps:
+    - `sudo apt-get update`
+    - `sudo apt-get install --only-upgrade python2.7`
+
+    **Note:** This issue will only raise if your python version is < 2.7.9.
+
+  * If you get an error that ends with:
+
+    ```
     ssl.PROTOCOL_SSLv3: OpenSSL.SSL.SSLv3_METHOD,
     AttributeError: 'module' object has no attribute 'PROTOCOL_SSLv3'
     ```
