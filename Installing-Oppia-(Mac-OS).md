@@ -85,6 +85,20 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
 
     try removing the `cacerts.txt` and `urlfetch_cacerts.txt` files as described [here](http://stackoverflow.com/questions/13899530/gae-sdk-1-7-4-and-invalidcertificateexception) and [here](http://stackoverflow.com/questions/17777994/why-cant-i-launch-my-app-from-the-shell).
 
+  * If you get an error that ends with:
+
+    ```
+      File "/usr/lib/python2.7/ssl.py", line 405, in do_handshake
+    self._sslobj.do_handshake()
+      IOError: [Errno socket error] [Errno 1] _ssl.c:510: error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure
+    ```
+
+    try upgrading your python, follow these steps:
+    - `sudo apt-get update`
+    - `sudo apt-get install --only-upgrade python2.7`
+
+    **Note:** This issue will only raise if your python version is < 2.7.9.
+
   * If you get an error that includes:
 
     ```
