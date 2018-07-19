@@ -11,7 +11,7 @@ BrowserStack Responsive and BrowserStack Screenshots allow us to quickly test th
 
 ## Get Access to BrowserStack
 
-If you'd like to use BrowserStack to test Oppia, please email jared@oppia.org with the subject line _BrowserStack Access_. Jared will get you set up with the requisite login credentials.
+If you'd like to use BrowserStack to test Oppia, please email admin@oppia.org with the subject line _BrowserStack Access_. We'll help you get set up with the requisite login credentials.
 
 ## Learn More about BrowserStack
 
