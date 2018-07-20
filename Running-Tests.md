@@ -16,8 +16,6 @@ Alternatively, to run just a single test module, you can type, e.g.:
 
 For more information about `--test_target` and other flags, please see the documentation at the top of the [run_backend_tests.sh](https://github.com/oppia/oppia/blob/develop/scripts/run_backend_tests.sh) script.
 
-The variable `EXPECTED_TEST_COUNT` in `scripts/backend_tests.py` stores the total number of Python tests. After adding tests, you'll need to update this variable to reflect the new test count.
-
 (Note: While the tests are running, you may see the word `ERROR` show up in the test logs. This does not necessarily mean that an error has occurred; it happens because some tests explicitly expect an error to be raised under particular circumstances.)
 
 **How do you know whether the tests have passed?**
