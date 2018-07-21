@@ -55,11 +55,13 @@ The properties of components are specified in `/assets/rich_text_components_spec
     * `schema`: a [schema](https://github.com/oppia/oppia/wiki/Schema-Based-Forms) specifies type, and optionally other things such as validators for the data
     * `default_value`: initial value for the option
 
+These rich text components are added to CKEditor in [app.js](https://github.com/oppia/oppia/blob/develop/core/templates/dev/head/app.js). 
+
 # Code
 This section is a code overview of how the RTE is actually implemented. This is mostly useful if you plan to modify the RTE when fixing a bug or adding a new feature.
 
 ## ckEditorRte
-`ckEditorRte` is the actual RTE [directive](https://docs.angularjs.org/guide/directive), defined in [`CkEditorRteDirective.js`](https://github.com/oppia/oppia/blob/develop/core/templates/dev/head/components/CkEditorRteDirective.js).
+`ckEditorRte` is the actual RTE [directive](https://docs.angularjs.org/guide/directive), defined in [CkEditorRteDirective.js](https://github.com/oppia/oppia/blob/develop/core/templates/dev/head/components/CkEditorRteDirective.js).
 
 ### Template
 The `template` specified in the directive definition is just an instance of the `ckEditorRte` directive, where it contains `contenteditable="true"` so that div is editable and a class `oppia-rte` for styling purpose.
