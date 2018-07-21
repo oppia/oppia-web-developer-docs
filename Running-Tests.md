@@ -42,7 +42,9 @@ Client-side JavaScript tests need to be run separately from the backend tests, b
     bash scripts/run_frontend_tests.sh
 ```
 
-This will open a [Karma](http://karma-runner.github.io/0.10/index.html) server that runs in the background, together with a browser window (which you can ignore). The results of the tests will be displayed in the terminal, and are automatically updated when you save an HTML/JS file, which is very useful for iterative development. Note that the script will not terminate when a test run are completed. Instead, to exit the test runner, type Ctrl-C in the terminal that is running the server.
+This will open a [Karma](http://karma-runner.github.io/0.10/index.html) server that runs in the background, together with a browser window (which you can ignore). The results of the tests will be displayed in the terminal.
+
+(If you want the tests to run continuously, go to `core/tests/karma.conf.js` and set `singleRun` to `false`. If you do this, the tests will automatically re-run when you save an HTML/JS file, which is very useful for iterative development. To exit the test runner when it is in this mode, type Ctrl-C in the terminal that is running the server.)
 
 The tests each relate to specific front-end components; the test file for `foo.js` is located in the same directory and called `fooSpec.js`.
 
