@@ -15,7 +15,7 @@ The directive exposes the following attributes:
 
 # Third Party
 The RTE depends on the following third party libraries, all specified in our `oppia/manifest.json`:
-* [CKEditor](https://github.com/ckeditor/ckeditor-dev): CKEditor is a WYSIWYG rich text editor which enables writing content directly inside of web pages or online applications.
+* [CKEditor](https://github.com/ckeditor/ckeditor-dev): CKEditor is a WYSIWYG rich text editor. The RTE is largely just a wrapper around CKEditor.
 * [SharedSpace](https://ckeditor.com/cke4/addon/sharedspace): ensures that the toolbar will always remain in one designated place on the page. 
 * [Bootstrap](https://ckeditor.com/cke4/addon/bootstrapck): provides the skin of CKEditor's toolbar.
 
@@ -36,7 +36,6 @@ Oppia explorations can have Rich Text Components, which are custom widgets creat
 The code for defining the Rich Text Components are housed in [`oppia/extensions/rich_text_components`](https://github.com/oppia/oppia/tree/develop/extensions/rich_text_components). In this folder each component has its own folder, with the following files and subfolders:
 * `/directives` contains files (JS, HTML) for directives used by the component one Angular directive is master directive for that component. In the directive controller, the component attributes are processed and saved onto the scope to be used by the template. In some cases this is as simple as using `oppiaHtmlEscaper.escapedJsonToObj` to parse each attribute into an object, but a more complicated example is in [`VideoDirective.js`](https://github.com/oppia/oppia/blob/develop/extensions/rich_text_components/Video/directives/VideoDirective.js).
 * `<component>.png` is an icon representing the component, used in the RTE toolbar button
-* `<component>Preview.png` is an image representing the component, used in the RTE text area (optional)
 
 The properties of components are specified in `/assets/rich_text_components_specs.js`. Each component is described by the following properties:
 * `backend_id`: A string used to identify this rich-text component in the backend.
@@ -55,8 +54,6 @@ The properties of components are specified in `/assets/rich_text_components_spec
     * `schema`: a [schema](https://github.com/oppia/oppia/wiki/Schema-Based-Forms) specifies type, and optionally other things such as validators for the data
     * `default_value`: initial value for the option
 
-These rich text components are added to CKEditor in [app.js](https://github.com/oppia/oppia/blob/develop/core/templates/dev/head/app.js). 
-
 # Code
 This section is a code overview of how the RTE is actually implemented. This is mostly useful if you plan to modify the RTE when fixing a bug or adding a new feature.
 
@@ -64,7 +61,7 @@ This section is a code overview of how the RTE is actually implemented. This is 
 `ckEditorRte` is the actual RTE [directive](https://docs.angularjs.org/guide/directive), defined in [CkEditorRteDirective.js](https://github.com/oppia/oppia/blob/develop/core/templates/dev/head/components/CkEditorRteDirective.js).
 
 ### Template
-The `template` specified in the directive definition is just an instance of the `ckEditorRte` directive, where it contains `contenteditable="true"` so that div is editable and a class `oppia-rte` for styling purpose.
+The [template](https://docs.angularjs.org/guide/directive#template-expanding-directive)is a syntax to express the dynamic part of the html. It basically defines a view for the component. Here we have used this to render the `ckeditor` directive where it contains `contenteditable="true"` so that div is editable and a class `oppia-rte` for styling purpose.
 
 ### Toolbar
 The buttons that should appear in the RTE toolbar is defined by the `toolbar` array of dictionaries in the `CKEDITOR.inline`. 
@@ -78,11 +75,38 @@ To add the new plugin you need to follow these steps:
 
 You can also create a custom plugin if the plugin is not available in CKEditor. `pre` is one custom plugin that is a custom plugin we have used.
 
-### Set the css and icons for Toolbar
-The `ck.on('instanceReady', function)` is the place where one can add the css and icons to the buttons in the toolbar.
+### CKEditor is ready
+The `ck.on('instanceReady', function)` function is executed when any new instance of CKEditor is ready. For example it will be executed when we click on the content of a card, for each option that we have for multiple choice options etc. Here we can add the css and icons to the buttons in the toolbar.
 
 ### Bind ngmodel with text in CKEditor
-The `ck.on('change', function)` binds the value of ng-model to the content written in the editor.
+The `ck.on('change', function)` function is executed whenever the content of CKEditor changes. It binds the value of ng-model to the content written in the editor.
+
+### Adding Rich Text Components to CKEditor
+These rich text components are added to CKEditor in [app.js](https://github.com/oppia/oppia/blob/develop/core/templates/dev/head/app.js). The components are dynamically added to CKEditor as [widgets](https://docs.ckeditor.com/ckeditor4/latest/guide/widget_sdk_intro.html).
+
+#### RteHelperService.getRichTextComponents()
+`getRichTextComponents` is a helper function to obtain all the rich text components. A loop is then run which iterates through each component and adds it as a plugin to CKEditor.
+#### RteHelperService.isInlineComponent()
+`isInlineComponent` is a helper function to check whether a rich text component is inline component or block component. Link and Math are inline components whereas Video, Image, Collapsible and Tabs are block components.
+#### componentTemplate
+`componentTemplate` defines a template to wrap the rich text components. Inline components are wrapped in span and block components are wrapped in a div.
+The plugins are added to CKEditor in the line `CKEDITOR.plugins.add(ckName, {`. The `init` function is executed when the plugin is initialized and it adds a widget for each component in the line `editor.widgets.add(ckName, {`. The widget definition in detail is ad follows:
+#### button
+Specifies a button label for the widget.
+#### inline
+Specifies whether the widget is an inline component or block component. The link and the math component are inline and the rest are declared block components.
+#### template
+It specifies the wrapper template for the widget.
+#### edit function
+This method will be executed when a widget is being edited. In this function the default action is canceled since we have used our own edit modal. `RteHelperService._openCustomizationModal()`is a helper function for opening the modal which is used to insert new components or editing existing ones. It uses the customizationArgSpecs (obtained from the component definition) to know what the editable fields are for each component, which allows it to render the modal properly for any component.
+#### downcast
+This function is used to downcast the widget instance by clearing the angular rendering content and returning the rich text component without any wrapper.
+#### upcast function
+This function is used to upcast an element to this widget. It returns whether an element is an instance of the widget. The element will be upcasted if it is an instance of the widget.
+#### data function
+This function will be executed every time the widget data changes. It will set the attributes of rich text components according to the change in data values.
+#### init function
+This function is executed while initialising a widget, after a widget instance is created, but before it is ready. It is executed before the first time when data function is exceuted. It reads values from component attributes and saves them.
 
 # Hidden components
 Sometimes, we want to disable or hide components in the RTE. There are 2 cases where this happens right now:
