@@ -61,7 +61,7 @@ This section is a code overview of how the RTE is actually implemented. This is 
 `ckEditorRte` is the actual RTE [directive](https://docs.angularjs.org/guide/directive), defined in [CkEditorRteDirective.js](https://github.com/oppia/oppia/blob/develop/core/templates/dev/head/components/CkEditorRteDirective.js).
 
 ### Template
-The [template](https://docs.angularjs.org/guide/directive#template-expanding-directive)is a syntax to express the dynamic part of the html. It basically defines a view for the component. Here we have used this to render the `ckeditor` directive where it contains `contenteditable="true"` so that div is editable and a class `oppia-rte` for styling purpose.
+The [template](https://docs.angularjs.org/guide/directive#template-expanding-directive) is a syntax to express the dynamic part of the html. It basically defines a view for the component. Here we have used this to render the `ckeditor` directive where it contains `contenteditable="true"` so that div is editable and a class `oppia-rte` for styling purpose.
 
 ### Toolbar
 The buttons that should appear in the RTE toolbar is defined by the `toolbar` array of dictionaries in the `CKEDITOR.inline`. 
