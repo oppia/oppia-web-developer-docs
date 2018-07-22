@@ -91,6 +91,7 @@ These rich text components are added to CKEditor in [app.js](https://github.com/
 #### componentTemplate
 `componentTemplate` defines a template to wrap the rich text components. Inline components are wrapped in span and block components are wrapped in a div.
 The plugins are added to CKEditor in the line `CKEDITOR.plugins.add(ckName, {`. The `init` function is executed when the plugin is initialised and it adds a widget for each component in the line `editor.widgets.add(ckName, {`. 
+
 The widget definition in detail is as follows:
 #### button
 Specifies a button label for the widget.
