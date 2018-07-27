@@ -61,7 +61,7 @@ This section is a code overview of how the RTE is actually implemented. This is 
 `ckEditorRte` is the actual RTE [directive](https://docs.angularjs.org/guide/directive), defined in [CkEditorRteDirective.js](https://github.com/oppia/oppia/blob/develop/core/templates/dev/head/components/CkEditorRteDirective.js).
 
 ### Template
-The [template](https://docs.angularjs.org/guide/directive#template-expanding-directive) is a syntax to express the dynamic part of the html. It basically defines a view for the component. Here we have used this to render the `ckeditor` directive where it contains `contenteditable="true"` so that div is editable and a class `oppia-rte` for styling purpose.
+The [template](https://docs.angularjs.org/guide/directive#template-expanding-directive) defines a view for the component. Here we use the contenteditable div to which the CKEditor will attach to.
 
 ### Toolbar
 The buttons that should appear in the RTE toolbar is defined by the `toolbar` array of dictionaries in the `CKEDITOR.inline`. 
@@ -83,11 +83,8 @@ The `ck.on('change', function)` function is executed whenever the content of CKE
 
 ### Adding Rich Text Components to CKEditor
 These rich text components are added to CKEditor in [app.js](https://github.com/oppia/oppia/blob/develop/core/templates/dev/head/app.js). The components are dynamically added to CKEditor as [widgets](https://docs.ckeditor.com/ckeditor4/latest/guide/widget_sdk_intro.html).
+We use the `getRichTextComponents()` to obtain the information of each rich text component and construct there respective widgets. We also have a function of isInlineComponent() to check whether a rich text component is inline or block component.
 
-#### RteHelperService.getRichTextComponents()
-`getRichTextComponents` is a helper function to obtain all the rich text components. A loop is then run which iterates through each component and adds it as a plugin to CKEditor.
-#### RteHelperService.isInlineComponent()
-`isInlineComponent` is a helper function to check whether a rich text component is inline component or block component. Link and Math are inline components whereas Video, Image, Collapsible and Tabs are block components.
 #### componentTemplate
 `componentTemplate` defines a template to wrap the rich text components. Inline components are wrapped in span and block components are wrapped in a div.
 The plugins are added to CKEditor in the line `CKEDITOR.plugins.add(ckName, {`. The `init` function is executed when the plugin is initialised and it adds a widget for each component in the line `editor.widgets.add(ckName, {`. 
