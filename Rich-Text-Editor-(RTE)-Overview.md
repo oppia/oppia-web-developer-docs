@@ -83,7 +83,7 @@ The `ck.on('change', function)` function is executed whenever the content of CKE
 
 ### Adding Rich Text Components to CKEditor
 These rich text components are added to CKEditor in [app.js](https://github.com/oppia/oppia/blob/develop/core/templates/dev/head/app.js). The components are dynamically added to CKEditor as [widgets](https://docs.ckeditor.com/ckeditor4/latest/guide/widget_sdk_intro.html).
-We use the `getRichTextComponents()` to obtain the information of each rich text component and construct there respective widgets. We also have a function of isInlineComponent() to check whether a rich text component is inline or block component.
+We use the `getRichTextComponents()` to obtain the information of each rich text component and construct there respective widgets. We also have a function of `isInlineComponent()` to check whether a rich text component is inline or block component.
 
 #### componentTemplate
 `componentTemplate` defines a template to wrap the rich text components. Inline components are wrapped in span and block components are wrapped in a div.
