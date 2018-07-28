@@ -23,9 +23,7 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
 
 ## Running Oppia on a development server ##
 
-1. Follow the instructions in the [README](https://github.com/oppia/oppia#oppia).
-
-2. In a terminal, navigate to `oppia/` and run:
+1. In a terminal, navigate to `oppia/` and run:
 
   ```
      bash scripts/start.sh
@@ -55,15 +53,15 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
 
   where `{{YOUR_USERNAME}}` should be replaced by your username.
 
-3. The `start.sh` script will start a development server at http://localhost:8181. It should look something like this:
+2. The `start.sh` script will start a development server at http://localhost:8181. It should look something like this:
 
   ![Image showing the default splash page.](images/defaultDevPage.png)
 
   You can also view the App Engine admin console at http://localhost:8000.
 
-4. *Loading the demo explorations.* The default Oppia installation comes with a set of [demo explorations](https://github.com/oppia/oppia/tree/master/data/explorations). On startup, none of these are loaded. To load them, log in to your server as an admin, then click your username in the top-right corner and choose 'Admin Page'. This will open the admin page, from which you can load the demo explorations.
+3. *Loading the demo explorations.* The default Oppia installation comes with a set of [demo explorations](https://github.com/oppia/oppia/tree/master/data/explorations). On startup, none of these are loaded. To load them, log in to your server as an admin, then click your username in the top-right corner and choose 'Admin Page'. This will open the admin page, from which you can load the demo explorations.
 
-5. *Shutting down the development server.* When you're done, you can shut down the development server by typing Ctrl+C into the terminal.
+4. *Shutting down the development server.* When you're done, you can shut down the development server by typing Ctrl+C into the terminal.
 
 ## Tips and tricks
 
