@@ -15,7 +15,7 @@ The Windows installation of Oppia relies on a number of third-party programs, wh
   1. Navigate to your root directory.
   1. Make a new folder in your root directory called `opensource`.
   1. Navigate to this folder: `cd opensource`.
-  1. Run `git clone https://github.com/oppia/oppia.git` in order to clone the Oppia repository to your local machine.
+  1. follow instructions at [fork and clone](https://github.com/oppia/oppia/wiki/Fork-and-Clone-Oppia) in order to clone the Oppia repository to your local machine.
   1. Run `cd oppia` to navigate to the oppia folder.
 
 ### Installing Oppia on Windows
