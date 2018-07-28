@@ -1,3 +1,5 @@
+For a detailed explanation for fork and clone, you can go to [github help page](https://help.github.com/articles/fork-a-repo/#platform-linux)
+
 Make sure you are in `opensource/` folder. Now follow the steps below :
 - Click on the `fork` button. It is placed on the right corner opposite to repository name `oppia/oppia`.
 ![fac1](https://user-images.githubusercontent.com/9693472/43354371-cfd77cec-9268-11e8-8b70-a89e7a00f3c9.png)
