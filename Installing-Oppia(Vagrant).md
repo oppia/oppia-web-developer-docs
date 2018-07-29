@@ -48,7 +48,9 @@ If the Oppia server does not start automatically when you run 'vagrant up', this
      bash ./scripts/start.sh
    ```
 
-   3. The Oppia server should now start at `http://localhost:8181`.
+   3. The Oppia server should now be available. Open a new tab in your browser and navigate to `http://localhost:8181`. 
+
+_Last tested by @dawsoneliasen 7/29/2018 on Windows 10_
 
 ### Tweaking the virtual machine settings
 
