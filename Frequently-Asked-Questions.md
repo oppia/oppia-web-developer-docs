@@ -28,7 +28,7 @@ python scripts/pre_commit_linter.py --path=path/to/the/file
 
 ### Need help with the Git?
 
-The [link](https://confluence.atlassian.com/bitbucketserver/basic-git-commands-776639767.html) has almost all basic git commands explaining everything clearly.
+[Learning Resources](https://github.com/oppia/oppia/wiki/Learning-Resources).
 
 ### How do I run tests ?
 
