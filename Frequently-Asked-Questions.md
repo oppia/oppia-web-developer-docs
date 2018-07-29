@@ -12,6 +12,24 @@ Please refer to [CONTRIBUTING.md](https://github.com/oppia/oppia/blob/develop/CO
 
 Also, don't be discouraged if you're new to "open source", or if you're still a student -- many of our contributors are, too. The main thing is that you care about helping more people around the world to learn things better. We'd also be happy to provide mentorship and support if this is your first time contributing to an open source project. 
 
+### Can't find a way to begin contributing ?
+
+Here are some [issues]((https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#finding-something-to-do)) you can begin with.
+
+### Facing difficulty in finding the code related to the issue ?
+
+The basic pattern is to inspect an element and search for an unique class/keyword (`oppia-signin-google`) and the try git grep `oppia-signin-google` you'll find a file related to this. It will also show the line where the unique word is used in that file.
+
+### How to run only the linting test on a file ?
+
+There is a `pre_commit_linter.py` for linting the files. Let's say you want to run the linting tests on the file. In the oppia directory, run the following command.
+ 
+python scripts/pre_commit_linter.py --path=path/to/the/file
+
+### Need help with the Git?
+
+The [link](https://confluence.atlassian.com/bitbucketserver/basic-git-commands-776639767.html) has almost all basic git commands explaining everything clearly.
+
 ### How do I run tests ?
 
 For information on running tests, please refer to the [Running Tests](https://github.com/oppia/oppia/wiki/Running-Tests) wiki page. Note that there are 3 types of tests: server-side (Python), client-side (Karma) and end-to-end (Protractor). These tests help to ensure that the code is in a working state. Before checking in any commits to the Oppia repository, please ensure that every single test passes. 
