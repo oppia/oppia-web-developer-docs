@@ -1,5 +1,7 @@
 _Note: if you're developing Oppia using Vagrant, please consider signing up to the [oppia-vagrant@](https://groups.google.com/forum/#!forum/oppia-vagrant) mailing list. Fellow Vagrant users may be able to help you out, and vice versa._
 
+_Note: The instructions on this page were last tested by @dawsoneliasen on 7/29/2018 on Windows 10, and they worked successfully._
+
 ## What is Vagrant?
 
 While Oppia can be built on any OS that supports Python, Node.js, and its other fundamental parts, all the build and startup scripts are targeted for Linux systems. This means that for Windows, the best path is to install via our supported Vagrant build.
@@ -49,8 +51,6 @@ If the Oppia server does not start automatically when you run 'vagrant up', this
    ```
 
    3. The Oppia server should now be available. Open a new tab in your browser and navigate to `http://localhost:8181`. 
-
-_Last tested by @dawsoneliasen 7/29/2018 on Windows 10_
 
 ### Tweaking the virtual machine settings
 
