@@ -14,7 +14,7 @@ Also, don't be discouraged if you're new to "open source", or if you're still a 
 
 ### Can't find a way to begin contributing ?
 
-Here are some [issues]((https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#finding-something-to-do)) you can begin with.
+Here are some [issues](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#finding-something-to-do) you can begin with.
 
 ### Facing difficulty in finding the code related to the issue ?
 
