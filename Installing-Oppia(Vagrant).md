@@ -24,7 +24,7 @@ After following the instructions for obtaining the Oppia source code for your OS
 
 Once inside the `oppia` directory, run the command `vagrant up`. From here, Vagrant will look for a file called `Vagrantfile` and use its instructions like a recipe for creating a VM. It will use your installed hypervisor to create a VM, then configure it according to the Vagrantfile. If this is the first time building the Oppia machine, it will take a fairly long time, as Vagrant has to download a template operating system (a "box" in Vagrant-ese). Otherwise, a fresh build of a Vagrant VM takes about 25 minutes from start to finish. 
 
-Once the machine finishes building, it will start Oppia automatically and you can access the web page at `http://localhost:8181/`
+Once the machine finishes building, it will start Oppia and you can access the web page at `http://localhost:8181/`
 
 The Oppia process is in the foreground, preventing Vagrant from returning control of the terminal back to the user. Therefore, ctrl+c will break it for you. Oppia will still be running in the background. 
 
