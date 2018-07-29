@@ -99,9 +99,13 @@ It specifies the wrapper template for the widget.
 #### edit function
 This method will be executed when a widget is being edited. In this function the default action is canceled since we have used our own edit modal. `RteHelperService._openCustomizationModal()`is a helper function for opening the modal which is used to insert new components or editing existing ones. It uses the customizationArgSpecs (obtained from the component definition) to know what the editable fields are for each component, which allows it to render the modal properly for any component.
 #### downcast function
-This function is used to downcast the widget instance by clearing the angular rendering content and returning the rich text component without any wrapper.
+Downcasting a widget means removing any property which is not needed in the outputs source. We downcast the widget here to render the html content without any wrappers.
+
+The downcast function is used to downcast the widget instance by clearing the angular rendering content and returning the rich text component without any wrapper.
 #### upcast function
-This function is used to upcast an element to this widget. It returns whether an element is an instance of the widget. The element will be upcasted if it is an instance of the widget.
+Upcasting an element means changing that element into a widget. Upcast function decides which element will become a widget.
+
+The upcast function is used to upcast an element to this widget. It returns whether an element is an instance of the widget. The element will be upcasted if it is an instance of the widget.
 #### data function
 This function will be executed every time the widget data changes. It will set the attributes of rich text components according to the change in data values.
 #### init function
