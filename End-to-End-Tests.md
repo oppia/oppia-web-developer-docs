@@ -1,4 +1,4 @@
-At Oppia, we highly regard the end user, that is, both the creator and the learner. Therefore, we have an extensive system of end-to-end tests to test each functionality thoroughly. The end-to-end tests cover both the desktop as well as mobile intefaces.    
+At Oppia, we highly regard the end user, that is, both the creator as well as the learner. Therefore, we have an extensive system of end-to-end tests to test each functionality thoroughly. The end-to-end tests cover both the desktop as well as mobile intefaces.    
 The tests are organized as follows:  
 1. `protractor`: This directory contains test suites which are common for both desktop and mobile interfaces. Certain operations are possible only on one or the other interface. To distinguish between the interfaces, we use the boolean, `browser.isMobile` defined in `onPrepare` of the protractor configuration file.  
 2. `protractor_desktop`: This directory houses all test suites which are exclusive for desktop interfaces. This generally includes core creator components like the rich-text editor.  
