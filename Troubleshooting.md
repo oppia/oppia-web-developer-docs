@@ -1,4 +1,4 @@
-Following are general trouble shooting tips. The platform specific tips are [[Linux|Troubleshooting#linux]], [[windows|Troubleshooting#windows]], [[Mac OS|Troubleshooting#mac-OS]] and [[Vagrant|Troubleshooting#vagrant]]:
+Following are general trouble shooting tips. The platform specific tips are [[Linux|Troubleshooting#linux]], [[windows|Troubleshooting#windows]], [[Mac OS|Troubleshooting#mac-os]] and [[Vagrant|Troubleshooting#vagrant]]:
   * If you get an error that ends with:
 
     ```
