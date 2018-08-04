@@ -2,6 +2,8 @@
 
 **Note:** We strongly recommend using Linux or Mac OS, if possible. It is much easier to install a local copy of Oppia on those operating systems than it is to install Oppia on Windows.
 
+*For information on issues that may occasionally arise with the installation process, please see the [Troubleshooting](https://github.com/oppia/oppia/wiki/Troubleshooting) page.*
+
 ### Prerequisites
 
 The Windows installation of Oppia relies on a number of third-party programs, which you will need to install beforehand:
@@ -22,20 +24,3 @@ The Windows installation of Oppia relies on a number of third-party programs, wh
 
 Oppia is targeted as a Linux application, and for contributors and developers on Windows, we have provided a Vagrant build process. Please refer to [those instructions](https://github.com/oppia/oppia/wiki/Installing-Oppia(Vagrant)) for development on Windows. 
 
-### Troubleshooting:
-
-It's possible that windows firewall might be preventing localhost:8181 to launch. In such a case, you should re-config the firewall by adding new inbound rule so that ports 8181 and 8000 are allowed. (Instruction about how to add inbound rules can be found [here](https://msdn.microsoft.com/en-us/library/hh168549(v=nav.90).aspx))
-
-  * If you get an error that ends with:
-
-    ```
-      File "/usr/lib/python2.7/ssl.py", line 405, in do_handshake
-    self._sslobj.do_handshake()
-      IOError: [Errno socket error] [Errno 1] _ssl.c:510: error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure
-    ```
-
-    try upgrading your python, follow these steps:
-    - `sudo apt-get update`
-    - `sudo apt-get install --only-upgrade python2.7`
-
-    **Note:** This issue will only raise if your python version is < 2.7.9.
