@@ -7,13 +7,8 @@
     * [[Designers and artists|Contributing-to-Oppia's-design]]
     * [[Google Summer of Code 2018|Google-Summer-of-Code-2018]]
   * **[[Recommended issues|https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3Aimportant]]**
-  * Installing Oppia
-    * [[Linux|Installing-Oppia-(Linux)]]
-    * [[Mac OS|Installing-Oppia-(Mac-OS)]]
-    * [[Windows|Installing-Oppia-(Windows)]]
-    * [[Vagrant|Installing-Oppia(Vagrant)]]
-    * [[Issues with installation?|https://github.com/oppia/oppia/wiki/Issues-with-installation%3F]]
   * Developing Oppia
+    * [[Installing Oppia|https://github.com/oppia/oppia/wiki/Installing-Oppia]]
     * **[[Built something new?|https://goo.gl/forms/sNBWrW03fS6dBWEp1]]**
     * [[Overview of the codebase|Overview-of-the-Oppia-codebase]]
     * [[Coding style guide|Coding-style-guide]]
