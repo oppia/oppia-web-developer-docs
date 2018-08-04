@@ -1,6 +1,6 @@
 **Note:** If you just want to create and share explorations, you may be able to use the hosted server at https://www.oppia.org (in which case you don't need to install anything).
 
-**Note:** We strongly recommend using Linux or Mac OS, if possible. It is much easier to install a local copy of Oppia on those operating systems than it is to install Oppia on Windows.
+**Note:** These instructions are tested to work on Windows 10 platform. If you have some other version of windows, we strongly recommend using Linux or Mac OS, if possible. Or if you have sufficient ram (>=6 gb) you may install linux in virtual box and install Oppia on the virtual linux machine.
 
 *For information on issues that may occasionally arise with the installation process, please see the [Troubleshooting](https://github.com/oppia/oppia/wiki/Troubleshooting) page.*
 
