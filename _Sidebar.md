@@ -16,7 +16,7 @@
     * [[Writing tests for custom Pylint Checkers|Writing-Tests-For-Pylint]] 
     * [[Writing backend tests]]
     * [[Running tests|Running-Tests]]
-      * [[End-to-end tests|Writing-End-to-End-Tests]]
+      * [[End-to-end tests|End-to-End-Tests]]
     * [[If your build fails...|If-Your-Build-Fails]]
     * [[Git cheat sheet|Git-cheat-sheet]]
     * [[Mobile development|Mobile-development]]
