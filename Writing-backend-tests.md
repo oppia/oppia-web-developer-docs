@@ -128,3 +128,14 @@ class UpdateExplorationVersionHandlerTest(test_utils.GenericTestBase):
 
     self.assertEqual(exploration.version, 123)
 ```
+
+### Some general guidelines for writing good tests:
+1. You should test the interface and not the implementation. That is, treat the function as a black box and test its functionalities.
+2. Keep the tests simple. Don't put any logic in the test. If you have to test more than one thing in a function, use separate test for each of them.
+3. If some part of function depends on some other function to make decision, use self.swap() to swap that function with a simple function whose output you can define.
+4. Tests should follow a general pattern:
+   * setup() - this is where you build inputs/ environment required by function.
+   * test baseline case - check the values without performing any action.
+   * do the action that leads to a change.
+   * test the end line case - check whether the value has changed correctly.
+5. Test the function as exactly and completely as possible. Eg - if you need to check the change in a key in the dict, compare for the equality of whole dict.
