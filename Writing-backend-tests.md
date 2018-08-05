@@ -1,4 +1,4 @@
-_NB: For details on **running** the backend tests, see https://github.com/oppia/oppia/wiki/Running-Tests#server-side-tests _
+_NB: For details on **running** the backend tests, see https://github.com/oppia/oppia/wiki/Running-Tests#server-side-tests._
 
 Any and all code that you want to get merged into Oppia, needs to be tested extensively before. This guide gives you an idea of how backend integration tests are usually structured.
 
