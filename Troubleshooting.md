@@ -126,6 +126,19 @@ Following are general trouble shooting tips. The platform specific tips are [[Li
   * If you get an error that includes:
 
    ```
+Command "/usr/local/opt/python@2/bin/python2.7 -u -c "import setuptools, tokenize;__file__='/private/tmp/pip-req-build-TGvu2M/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" install --record /private/tmp/pip-record-6nuoQh/install-record.txt --single-version-externally-managed --compile --home=/private/tmp/pip-target-CMgDrw" failed with error code 1 in /private/tmp/pip-req-build-TGvu2M/ 
+  ```
+   please run the following comands:-
+```
+export CFLAGS=-Qunused-arguments
+export CPPFLAGS=-Qunused-arguments
+pip install http://effbot.org/downloads/Imaging-1.1.7.tar.gz
+```
+For more details look up the following [link](https://answers.ros.org/question/145856/having-trouble-installing-pil-in-mac-osx/?answer=146471#post-id-146471)
+
+  * If you get an error that includes:
+
+   ```
    No Java runtime present, requesting install.
    closure-compiler failed.
    ```
