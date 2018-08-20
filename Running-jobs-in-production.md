@@ -13,7 +13,7 @@ If your job is not essential for the release and has not been fully tested by th
 
 In order to test a job, please submit a request using [this form](https://goo.gl/forms/XIj00RJ2h5L55XzU2). Before submitting a testing request, please ensure that the job has already been tested manually on your local machine, passed code review, and been merged into develop.
 
-If you are hoping to run your job in a particular release, please plan your work schedule appropriately so that you get the testing completed in time for that release. Jobs are run on **Mondays** and **Thursdays** -- more specifically, the release coordinator will run the job on the Monday or Thursday after the job request is submitted, and results will come back within 24 hours after that.
+If you are hoping to run your job in a particular release, please plan your work schedule appropriately so that you get the testing completed in time for that release. Jobs are run on **Mondays** and **Thursdays**. More specifically, the release coordinator will run the job on the Monday or Thursday after the job request is submitted, and results will come back within 24 hours after that.
 
 In general, we advise allowing 1-2 weeks for the oppiatestserver testing process, and doing testing on your own App Engine instance beforehand. (Note that App Engine has a [free tier](https://cloud.google.com/free/docs/always-free-usage-limits#gae_name) that you can use for this.)
 
