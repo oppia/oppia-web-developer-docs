@@ -26,6 +26,15 @@ There is a `pre_commit_linter.py` for linting the files. Let's say you want to r
  
 python scripts/pre_commit_linter.py --path=path/to/the/file
 
+### How to test email functionality?
+ You can test email functionality by deploying your own oppia in appengine, this works perfectly, you'll just have to enable the flags from `feconf.py`. Other workaround would be a hacky way to test this using logs: 
+- Simple and hacky way: 
+   - Enable the email functionality, i.e, make `feconf.CAN_SEND_EMAILS` equals true and other email related flags true. 
+   - Change the `send_mail` function of `core/platform/email/gae_email_service.py` to `print` instead of 
+    `mail.EmailMessage`.
+   - Do the mannual testing which will kisck the email functionality.
+   - Check the logs in terminal.
+
 ### Need help with the Git?
 
 [Learning Resources](https://github.com/oppia/oppia/wiki/Learning-Resources).
