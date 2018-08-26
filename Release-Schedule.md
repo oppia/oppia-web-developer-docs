@@ -22,4 +22,11 @@ During the first week of the month the QA lead will send out a mail to the relea
 
 The testers have to be in constant touch with both the QA lead as well as the release coordinator for that release. During the testing week and the week after that, please prioritize fixing issues under the [blocking bugs milestone](https://github.com/oppia/oppia/milestone/39) so that we can complete the release process on time.  
 
-**Note:** If you would like to help out with the release testing, please contact @nithusha21 or @aks681. They will be able to guide you further. 
+**Note:** If you would like to help out with the release testing, please contact @nithusha21, @aks681 or @bansalnitish. They will be able to guide you further. 
+
+# Release coordinators and QA coordinators for upcoming releases
+Aug: Ben(@BenHenning) and Akshay(@aks681)
+Sep: Tony(@tjiang) and Nithesh(@nithusha21)
+Oct: Sean(@seanlip) and Nitish(@bansalnitish)
+Nov: Ben(@BenHenning) and Akshay(@aks681)
+Dec: Tony(@tjiang) and Nithesh(@nithusha21)
