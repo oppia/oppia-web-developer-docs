@@ -104,7 +104,8 @@ Here's how to make a one-off code change. (If you're working on a larger feature
       Before your code gets uploaded to GitHub, a script is automatically executed that checks the styling of all changed JavaScript and Python files and runs the front-end tests. Run the push command in command line, and not GitHub's Desktop client, as the script needs access to other tools like pip.
     
       **If any of the tests fail, the push will be interrupted**. If this happens, fix the issues that the tests tell you about and **repeat the instructions above** ('commit' and then 'push').
-      **Please do not put the keyword "Fix #ISSUE_NUMBER" (e.g. Fix #99999) in your commit messages as Github will close the original issue automatically.
+
+      **Please do not put the keyword "Fix #ISSUE_NUMBER"** (e.g. Fix #99999) in your commit messages as Github will close the original issue automatically.
 
 4. **When your feature is ready to merge, create a pull request.**
     * Go to your fork on GitHub, select your branch from the dropdown menu, and click "pull request". Ensure that the 'base' repository is the main oppia repo and that the 'base' branch is 'develop'.
