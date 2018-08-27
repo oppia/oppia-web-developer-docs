@@ -83,7 +83,7 @@ Here's how to make a one-off code change. (If you're working on a larger feature
     ```
 
 3. **Make commit(s) to your feature branch.** Each commit should be self-contained and have a descriptive commit message that helps other developers understand why the changes were made.
-    * You can refer to relevant issues in the commit message by writing, e.g., "Fixes #105".
+    * You can refer to relevant issues in the commit message by writing, e.g., "Fix issue #105".
     * Please read [these style rules](https://github.com/oppia/oppia/wiki/Coding-style-guide) and ensure that your code follows them. If you use [Sublime Text](http://www.sublimetext.com/), consider installing the SublimeLinter, [SublimeLinter-jscs](https://github.com/SublimeLinter/SublimeLinter-jscs) and [SublimeLinter-pylint](https://github.com/SublimeLinter/SublimeLinter-pylint) plugins, following the instructions on their respective pages.
     * Please ensure that the code you write is well-tested.
     * Before making the commit, start up a local instance of Oppia and do some manual testing in order to check that you haven't broken anything! After that, ensure that the added code has no lint errors and passes all automated tests by running the presubmit script:
@@ -105,12 +105,13 @@ Here's how to make a one-off code change. (If you're working on a larger feature
     
       **If any of the tests fail, the push will be interrupted**. If this happens, fix the issues that the tests tell you about and **repeat the instructions above** ('commit' and then 'push').
 
-      **Please do not use the keyword "Fix #ISSUE_NUMBER"** (e.g. Fix #99999) in your commit messages as Github will close the original issue automatically.
+      **Please do not use the keyword "Fix #ISSUE_NUMBER"** (e.g. Fix #99999) in your commit messages as Github will close the original issue automatically. You can use `git commit --amend` to rename your commit messages.
 
 4. **When your feature is ready to merge, create a pull request.**
     * Go to your fork on GitHub, select your branch from the dropdown menu, and click "pull request". Ensure that the 'base' repository is the main oppia repo and that the 'base' branch is 'develop'.
-    * Add a descriptive title explaining the purpose of the PR (e.g. "Fix #bugnum: add a warning when the user leaves a page in the middle of an exploration."). The "Fix #bugnum: " prefix **must** be included if this PR resolves an issue on the issue tracker.
-    * Ensure that the PR description includes the issue number (e.g. "This PR fixes #bugnum").
+    * Add a descriptive title explaining the purpose of the PR (e.g. "Fix issue #bugnum: add a warning when the user leaves a page in the middle of an exploration."). The "Fix issue #bugnum: " prefix **must** be included if this PR resolves an issue on the issue tracker.
+    * If your PR fixes a part of a bigger issue(i.e the first-contributor-issues listed above), please __do not__ use the __keyword "Fix #ISSUE_NO"__ in your PR title, PR descriptions or commit messages. As a Github feature, your PR, once merged, will close the first contributor issues while it may not be fully completed yet.
+    * Ensure that the PR description includes the issue number (e.g. "This PR fixes issue #bugnum").
     * Click "Create pull request".
     * **Important:** Manually check the "Files changed" tab on your PR on GitHub to make sure that the list of files you want to submit, and the changes you want to make to each, are correct -- e.g., that you haven't left additional console logging statements in them, or left out important files that should be part of the PR. (If not, please fix this by making additional commits, or by closing this PR and submitting a new one, before requesting a review.)
     * Request a review from the issue's "owner" (which can be found in a label on the issue) **and** set the assignee of the PR to be the same person.
