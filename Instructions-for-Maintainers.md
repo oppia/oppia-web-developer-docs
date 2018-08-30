@@ -75,20 +75,14 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 ## Maintainer Rota
 
 ```
-11 Jun - 17 Jun   Yogesh        @1995YogeshSharma
-18 Jun - 24 Jun   Tony          @tjiang11
-25 Jun -  1 Jul   Allan         @AllanYangZhou
- 2 Jul -  8 Jul   Prasanna      @prasanna08
- 9 Jul - 15 Jul   Jacob         @jacobdavis11
-
 16 Jul - 22 Jul   Anmol         @anmolshkl
 23 Jul - 29 Jul   Pranav        @pranavsid98
 30 Jul -  5 Aug   Yogesh        @1995YogeshSharma
  6 Aug - 12 Aug   Apurv         @apb7
 13 Aug - 19 Aug   Tony          @tjiang11
 20 Aug - 26 Aug   Kevin         @kevinlee12
-27 Aug -  2 Sep   Jacob         @jacobdavis11
- 3 Sep -  9 Sep   Prasanna      @prasanna08
+27 Aug -  2 Sep   Sandeep       @DubeySandeep
+ 3 Sep -  9 Sep   Jacob         @jacobdavis11
 10 Sep - 16 Sep   Allan         @AllanYangZhou
 
 17 Sep - 23 Sep   Anmol         @anmolshkl
@@ -98,7 +92,7 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 15 Oct - 21 Oct   Tony          @tjiang11
 22 Oct - 28 Oct   Pranav        @pranavsid98
 29 Oct -  4 Nov   Jacob         @jacobdavis11
- 5 Nov - 11 Nov   Prasanna      @prasanna08
+ 5 Nov - 11 Nov   Sandeep       @DubeySandeep
 12 Nov - 18 Nov   Allan         @AllanYangZhou
 
 19 Nov - 25 Nov   Anmol         @anmolshkl
