@@ -103,6 +103,18 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 24 Dec - 30 Dec   Yogesh        @1995YogeshSharma
 ```
 
+### Chief maintainer for the month
+**Duties of the chief maintainer:**
+1. Ensure maintainer rotation is followed.
+2. Send an email to the maintainer reminding him/her of the rota if it has been missed. 
+
+```
+September           @DubeySandeep
+October             @apb7
+November            @DubeySandeep
+December            @apb7
+```
+
 ## Areas of expertise
 
 ```
