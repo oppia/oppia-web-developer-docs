@@ -57,6 +57,8 @@
     * [[Instructions for Reviewers|Instructions-for-Reviewers]]
     * [[Instructions for Maintainers|Instructions-for-Maintainers]]
     * [[Instructions for making changes to roles and actions|Instructions-for-editing-roles-or-actions]]
+  * Current Events
+    * [[GHC Open Source Day 2018|GHC-Open-Source-Day]]
   * Past Events
     * [[Hacktoberfest 2017|Hacktoberfest-2017]]
     * [[Google Summer of Code 2017|Google-Summer-of-Code-2017]]
