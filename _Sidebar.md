@@ -5,7 +5,7 @@
     * [[Instructional designers|Teaching-with-Oppia]]
     * [[UX researchers|Conducting-research-with-students]]
     * [[Designers and artists|Contributing-to-Oppia's-design]]
-    * [[Google Summer of Code 2018|Google-Summer-of-Code-2018]]
+    * [[GHC Open Source Day 2018|GHC-Open-Source-Day]]
   * **[[Recommended issues|https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3Aimportant]]**
   * Developing Oppia
     * [[Installing Oppia|https://github.com/oppia/oppia/wiki/Installing-Oppia]]
@@ -57,9 +57,8 @@
     * [[Instructions for Reviewers|Instructions-for-Reviewers]]
     * [[Instructions for Maintainers|Instructions-for-Maintainers]]
     * [[Instructions for making changes to roles and actions|Instructions-for-editing-roles-or-actions]]
-  * Current Events
-    * [[GHC Open Source Day 2018|GHC-Open-Source-Day]]
   * Past Events
+    * [[Google Summer of Code 2018|Google-Summer-of-Code-2018]]
     * [[Hacktoberfest 2017|Hacktoberfest-2017]]
     * [[Google Summer of Code 2017|Google-Summer-of-Code-2017]]
     * [[Hacktoberfest 2016|Hacktoberfest-2016]]
