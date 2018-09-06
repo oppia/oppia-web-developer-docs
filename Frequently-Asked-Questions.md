@@ -7,8 +7,7 @@ If you just want to create and share explorations, you may be able to use the ho
 
 ### How do I start contributing to Oppia ?
 
-Please refer to [CONTRIBUTING.md](https://github.com/oppia/oppia/blob/develop/CONTRIBUTING.md). 
-(Basically, start by forking the Oppia project on [Github](https://github.com/oppia/oppia), then creating your changes against our `develop` branch, and finally send us a pull request)
+Please refer to [Contributing code to Oppia](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia) for details. Basically, start off by forking the Oppia project on [GitHub](https://github.com/oppia/oppia), then creating your changes against our `develop` branch, and finally send us a pull request.
 
 Also, don't be discouraged if you're new to "open source", or if you're still a student -- many of our contributors are, too. The main thing is that you care about helping more people around the world to learn things better. We'd also be happy to provide mentorship and support if this is your first time contributing to an open source project. 
 
