@@ -1,5 +1,4 @@
   * [README](https://github.com/oppia/oppia/blob/develop/README.md#oppia)
-  * [[Contributor FAQs|Frequently-Asked-Questions]]
   * **[[Get involved!|Home]]**
     * [Coders](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up)
     * [[Instructional designers|Teaching-with-Oppia]]
@@ -28,6 +27,7 @@
     * [[Release schedule|Release-Schedule]]
     * [[Running jobs in production|Running-jobs-in-production]]
     * [[Team structure|Team-Structure]]
+    * [[FAQs|Frequently-Asked-Questions]]
   * Testing Oppia
     * [[Mobile device testing|Mobile-device-testing]]
     * [[Browser & device testing|Browser-and-Device-Testing-Using-BrowserStack]]
