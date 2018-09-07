@@ -36,7 +36,8 @@ python scripts/pre_commit_linter.py --path=path/to/the/file
 
 ### Need help with the Git?
 
-[Learning Resources](https://github.com/oppia/oppia/wiki/Learning-Resources).
+- Check [Learning Resources](https://github.com/oppia/oppia/wiki/Learning-Resources) for some basic and advanced Git features.
+- Check the [Git Cheat Sheet](https://github.com/oppia/oppia/wiki/Git-cheat-sheet) for some commonly used commands.
 
 ### How do I run tests ?
 
