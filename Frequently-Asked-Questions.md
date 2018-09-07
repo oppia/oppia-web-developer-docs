@@ -11,11 +11,11 @@ Please refer to [Contributing code to Oppia](https://github.com/oppia/oppia/wiki
 
 Also, don't be discouraged if you're new to "open source", or if you're still a student -- many of our contributors are, too. The main thing is that you care about helping more people around the world to learn things better. We'd also be happy to provide mentorship and support if this is your first time contributing to an open source project. 
 
-### Can't find a way to begin contributing ?
+### Where do I find some good issues to begin with ?
 
 Here are some [issues](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#finding-something-to-do) you can begin with.
 
-### Facing difficulty in finding the code related to the issue ?
+### I am facing difficulty in finding the code related to the issue, what do I do ?
 
 The basic pattern is to inspect an element and search for an unique class/keyword (`oppia-signin-google`) and the try git grep `oppia-signin-google` you'll find a file related to this. It will also show the line where the unique word is used in that file.
 
@@ -34,10 +34,11 @@ python scripts/pre_commit_linter.py --path=path/to/the/file
    - Do the mannual testing which will kisck the email functionality.
    - Check the logs in terminal.
 
-### Need help with the Git?
+### I am not very familiar with Git, what should I do ?
 
-- Check [Learning Resources](https://github.com/oppia/oppia/wiki/Learning-Resources) for some basic and advanced Git features.
-- Check the [Git Cheat Sheet](https://github.com/oppia/oppia/wiki/Git-cheat-sheet) for some commonly used commands.
+Here are some materials which will help you get familiarised with Git:
+- [Learning Resources](https://github.com/oppia/oppia/wiki/Learning-Resources): For some basic and advanced Git features.
+- [Git Cheat Sheet](https://github.com/oppia/oppia/wiki/Git-cheat-sheet): For some commonly used Git commands.
 
 ### How do I run tests ?
 
@@ -48,17 +49,11 @@ For information on running tests, please refer to the [Running Tests](https://gi
 - When setting up, I get a `[gulp-gae] stopping script` message, the server doesn't start, and localhost:8181 is unreachable.
   - Try checking that the folders in `../oppia_tools` actually have files in them; if not, re-run the installation. (See the discussion on [issue #1796](https://github.com/oppia/oppia/issues/1796#issuecomment-217783598) for more details.)
 
-### I’ve made a PR, it’s been reviewed, and I’ve got some changes to make. Do I do this in a new PR or add it to the existing one?
+### I’ve made a PR, it’s been reviewed, and I’ve got some changes to make. Do I do this in a new PR or add it to the existing one ?
 
 Add the new changes to the same PR. For instructions on how to do this, see [here](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#address-review-comments-until-all-reviewers-give-lgtm-looks-good-to-me).
 
 ### I need more help, where do I go ?
 
 If you run into any problems, please read our [Developer Wiki](https://github.com/oppia/oppia/wiki), or file an issue on our [issue tracker](github.com/oppia/oppia/issues/), or post to our [developer mailing list](https://groups.google.com/forum/?fromgroups#!forum/oppia-dev).
-Or you could probably ask your questions on our official [Gitter](http://gitter.im/oppia/oppia-chat) channel, preferably during the following office hours (in UTC):
-
-__Tuesday__ -- 08:30 - 09:00, 21:30 - 22:00, 00:30 - 01:00
-
-__Wednesday__ -- 16:30 - 17:00, 21:30 - 22:00, 00:30 - 01:00
-
-__Sunday__ -- 16:30 - 17:00, 21:30 - 22:00, 00:30 - 01:00 
+Or you could probably ask your questions on our official [Gitter](http://gitter.im/oppia/oppia-chat) channel.
