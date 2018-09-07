@@ -48,6 +48,10 @@ For information on running tests, please refer to the [Running Tests](https://gi
 - When setting up, I get a `[gulp-gae] stopping script` message, the server doesn't start, and localhost:8181 is unreachable.
   - Try checking that the folders in `../oppia_tools` actually have files in them; if not, re-run the installation. (See the discussion on [issue #1796](https://github.com/oppia/oppia/issues/1796#issuecomment-217783598) for more details.)
 
+### I’ve made a PR, it’s been reviewed, and I’ve got some changes to make. Do I do this in a new PR or add it to the existing one?
+
+Add the new changes to the same PR. For instructions on how to do this, see [here](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#address-review-comments-until-all-reviewers-give-lgtm-looks-good-to-me).
+
 ### I need more help, where do I go ?
 
 If you run into any problems, please read our [Developer Wiki](https://github.com/oppia/oppia/wiki), or file an issue on our [issue tracker](github.com/oppia/oppia/issues/), or post to our [developer mailing list](https://groups.google.com/forum/?fromgroups#!forum/oppia-dev).
