@@ -36,6 +36,23 @@ Please follow the following style rules when writing code, in order to minimize 
       the last DUPLICATE_EMAIL_INTERVAL_MINS.
       """
     ```
+    Docstrings should also contain `Args`, `Returns` and `Raises` whenever applicable in a method. For example:
+
+    ```
+    def function_name(arg1, arg2):
+        """Brief description about the function.
+
+        Args:
+            arg1: type. Short description.
+            arg2: type. Short description.
+
+        Returns:
+            type. Short description.
+
+        Raises:
+            TypeOfException: Short description.
+        """
+    ```
   - Never use backslashes to end a line. It's hard to tell whether they're escaping newlines, spaces, or something else. Use parentheses instead to break the line up, e.g.:
 
     ```
