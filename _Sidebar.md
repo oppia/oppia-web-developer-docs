@@ -7,6 +7,7 @@
     * [[GHC Open Source Day 2018|GHC-Open-Source-Day]]
   * **[[Recommended issues|https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3Aimportant]]**
   * Developing Oppia
+    * [[FAQs|Frequently-Asked-Questions]]
     * [[Installing Oppia|https://github.com/oppia/oppia/wiki/Installing-Oppia]]
     * **[[Built something new?|https://goo.gl/forms/sNBWrW03fS6dBWEp1]]**
     * [[Overview of the codebase|Overview-of-the-Oppia-codebase]]
@@ -27,7 +28,6 @@
     * [[Release schedule|Release-Schedule]]
     * [[Running jobs in production|Running-jobs-in-production]]
     * [[Team structure|Team-Structure]]
-    * [[FAQs|Frequently-Asked-Questions]]
   * Testing Oppia
     * [[Mobile device testing|Mobile-device-testing]]
     * [[Browser & device testing|Browser-and-Device-Testing-Using-BrowserStack]]
