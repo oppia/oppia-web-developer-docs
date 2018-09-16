@@ -1,4 +1,4 @@
-  * [README](https://github.com/oppia/oppia/blob/develop/README.md#oppia)
+  * [README](https://github.com/oppia/oppia/blob/develop/.github/README.md#oppia)
   * **[[Get involved!|Home]]**
     * [Coders](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up)
     * [[Instructional designers|Teaching-with-Oppia]]
