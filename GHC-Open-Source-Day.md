@@ -69,4 +69,4 @@ git checkout -b your-branch-name
 6. Celebrate. Congratulations, you have contributed to Oppia!
 
 ## What to do when you are stuck
-We have set up a Gitter chat room where everyone can post their questions and help each other out. The organizers and mentors will be walking around as well to help with any questions. If this doesn’t work, consider posting in the [Oppia gitter chat](https://gitter.im/oppia/oppia-chat) as well!
+We have a [Gitter chat room](https://gitter.im/oppia/oppia-chat) where everyone can post their questions and help each other out. The organizers and mentors will also be walking around to help with any questions.
