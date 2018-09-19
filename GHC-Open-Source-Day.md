@@ -43,7 +43,9 @@ _Python 2.7_ [Introduction](https://docs.python.org/2/library/intro.html) | [Tut
 
 _Bash_ [Introduction](http://cs.lmu.edu/~ray/notes/bash/)
 
+## List of Projects
 
+_We're still working on this. We'll update this section shortly!_
 
 ## Making A Code Change
 Our central development branch is **develop**, which should be clean and ready for release at any time. In general, all changes should be done as feature branches based off of _develop_. For a more detailed explanation on how to make a code change, please take a look at [this wiki page](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#instructions-for-making-a-code-change). 
