@@ -13,6 +13,8 @@ This document serves as a way to get you introduced to Oppia and also guides you
 
 Oppia is licensed under Apache v2. Please [sign the CLA](https://goo.gl/forms/AttNH80OV0) so that we can accept your contributions and redistribute the code you contribute under this license.
 
+Once you've done this, you'll receive a confirmation email which includes some suggestions for next steps! These are completely optional, but if time permits, it might not be a bad idea to try a [starter project](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#finding-something-to-do) to get familiar with the codebase and development workflow.
+
 ### GitHub
 
 To make code changes, you will require a Github account with 2 factor authentication set up.
