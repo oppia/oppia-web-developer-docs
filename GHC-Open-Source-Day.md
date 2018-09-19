@@ -11,7 +11,7 @@ This document serves as a way to get you introduced to Oppia and also guides you
 
 ### CLA
 
-Oppia is licensed under Apache v2. Please [sign the CLA](https://goo.gl/forms/AttNH80OV0) so that we can accept your contributions.
+Oppia is licensed under Apache v2. Please [sign the CLA](https://goo.gl/forms/AttNH80OV0) so that we can accept your contributions and redistribute the code you contribute under this license.
 
 ### GitHub
 
