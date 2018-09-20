@@ -107,6 +107,11 @@ If you would like to understand the vocabulary and general structure of content 
 * [Project 8: Improve unit tests](#project-8-improve-unit-tests)
 * [Project 9: Writing Selenium tests for interactions](#project-9-writing-selenium-tests-for-interactions)
 * [Project 10: Expose "upload exploration" functionality in admin page](#project-10-expose-upload-exploration-functionality-in-admin-page)
+* [Project 11: Randomize the pretest questions](#project-11-randomize-the-pretest-questions)
+* [Project 12: Multiple choice answers could be shuffled](#project-12-multiple-choice-answers-could-be-shuffled)
+* [Project 13: Find ways to make the audio translation tab interface clearer](#project-13-find-ways-to-make-the-audio-translation-tab-interface-clearer)
+* [Project 14: Feedback threads in feedback tab do not reorder by recent updates in real time](#project-14-feedback-threads-in-feedback-tab-do-not-reorder-by-recent-updates-in-real-time)
+
 ***
 ### Project 1: Implement a reusable sort/filter list view for skills
 **Context**
@@ -302,6 +307,83 @@ Oppia uses explorations to present lessons to the user ([An example of a fractio
 **Required Skills**
 
 AngularJS, Web Development
+
+**Difficulty**
+
+Easy
+***
+### Project 11: Randomize the pretest questions.
+**Context**
+
+A pretest is a variably long set of questions that has been randomly created from the list of prerequisite skills specified by a lesson. Before learning a lesson with prerequisites, students have to pass the pretest for every prerequisite skill. Currently, the first 3 pretest questions sorted by their keys will be returned for a fixed set of prerequisite skill ids for an exploration. This needs to be changed to make it a random set of 3 questions (or potentially a smarter approach to selecting the questions).
+[[Issue tracker link](https://github.com/oppia/oppia/issues/5436)]
+
+**Deliverables**
+* Design and implement a solution to randomize the pretest questions
+* (Optional) Create a design to select pretest questions in a smarter way (some possible directions could be to select maybe by difficulty or by user performance in the previous questions or similar skills)
+
+**Required Skills**
+
+AngularJS, Python
+
+**Difficulty**
+
+Intermediate
+***
+### Project 12: Multiple choice answers could be shuffled
+
+**Context**
+
+In the learner view, multiple-choice answers are always in the same order. We might instead want to shuffle them on-the-fly (while preserving the "index" that's currently reported to the backend) so that the student does not end up memorizing the correct answer based on its location (if they need to repeat a question).
+[[Issue tracker link](https://github.com/oppia/oppia/issues/5254)]
+
+**Deliverables**
+* Write a design document with the approach to solve this problem
+* Implement a solution that can shuffle multiple choice answers
+
+**Required Skills**
+
+AngularJS, Python
+
+**Difficulty**
+
+Intermediate
+***
+
+### Project 13: Find ways to make the audio translation tab interface clearer
+**Context**
+
+The UI for the audio translation isn’t very intuitive. Users have asked questions like - 
+* "I uploaded the voiceover but can't find where I can listen to it?"
+* "Also how do I move to the next section?"
+
+This suggests that we might need to make the UI/layout a bit more clear.
+[[Issue tracker link](https://github.com/oppia/oppia/issues/5639)]
+
+**Deliverables**
+* Write a design document with mocks for a potential UI
+* Present the mocks and (optional) create the bare bones UI for the same.
+
+**Required Skills**
+
+UI/UX Design experience would be useful
+
+**Difficulty**
+
+Hard
+***
+### Project 14: Feedback threads in feedback tab do not reorder by recent updates in real time
+**Context**
+
+Every exploration can have feedback set on it. This feedback can be modified. We can view the feedback threads within the exploration editor. Our feedback threads are not ordered correctly. We would like to order them in real time to show the most recent feedback threads.
+[[Issue tracker link](https://github.com/oppia/oppia/issues/5508)]
+
+**Deliverables**
+* Take a look at the issue and design and implement a solution that follows the expected behavior.
+
+**Required Skills**
+
+AngularJS, Python
 
 **Difficulty**
 
