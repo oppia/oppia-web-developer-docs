@@ -89,7 +89,7 @@ Each project has a brief explanation, a link to the issue tracker, the skills re
 
 This list is not an exhaustive list of projects. If none of these projects appeal to you, take a look at our [issue tracker](https://github.com/oppia/oppia/issues) and comment on an issue that interests you. (Also, please mention that you will be working on it during the OSD event, so that others are aware. Please also tag us (**@seanlip** and **@vinitamurthi**) in any comment expressing interest in a project so that we get notified about this!)
 
-Note: Some of the projects relate to functionality (like topics, skills and questions) that is still in development. If you'd like to understand the vocabulary and general structure of content in Oppia, you can take a look at [this document](https://docs.google.com/document/d/1yFrFAXaKARzj1DSfiiy1pOH6ypugNkRLQGz5W5QifMQ/edit?usp=sharing).
+**Note:** Some of the projects relate to functionality (like topics, skills and questions) that is still in development. You can turn it on by flipping the ENABLE_NEW_STRUCTURES flag in feconf.py. Also, if you'd like to understand the vocabulary and general structure of content in Oppia, please take a look at [this document](https://docs.google.com/document/d/1yFrFAXaKARzj1DSfiiy1pOH6ypugNkRLQGz5W5QifMQ/edit?usp=sharing).
 
 ***
 ### Project List
