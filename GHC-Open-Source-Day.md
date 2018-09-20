@@ -1,5 +1,13 @@
 # Getting Ready for Open Source Day
 
+## Table Of Contents
+* [How To Get Started](#how-to-get-started)
+* [Setting Up Before Open Source Day](#setting-up-before-open-source-day)
+* [Some Useful Links](#some-useful-links)
+* [Making A Code Change](#making-a-code-change)
+* [What To Do When You Are Stuck](#what-to-do-when-you-are-stuck)
+* [List Of Projects](#list-of-projects)
+
 ## How To Get Started
 Welcome to Oppia! This wiki page aims to provide a quick-start guide to Oppia and guide you in making your first changes to Oppia's codebase. For a longer, more comprehensive guide to getting started, please see our [full "Getting Started" page](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up).
 
@@ -85,3 +93,70 @@ This list is not an exhaustive list of projects. If none of these projects appea
 
 Please tag us (@seanlip and @vinitamurthi) in any comment expressing interest in a project so that we get notified about this!
 If you would like to understand the vocabulary and general structure of content in Oppia, you can take a look at [this document](https://docs.google.com/document/d/1yFrFAXaKARzj1DSfiiy1pOH6ypugNkRLQGz5W5QifMQ/edit?usp=sharing).
+
+***
+### Project List
+
+* [Project 1: Implement a reusable sort/filter list view for skills](#project-1-implement-a-reusable-sortfilter-list-view-for-skills)
+* [Project 2: Create toasts for success messages](#project-2-create-toasts-for-success-messages)
+* [Project 3: Use case-insensitive names rather than IDs in the URL for a resource](#project-3-use-case-insensitive-names-rather-than-ids-in-the-url-for-a-resource)
+***
+### Project 1: Implement a reusable sort/filter list view for skills
+**Context**
+
+At oppia, a topic is a high level concept related to a subject. Each topic can have multiple skills within it. For example - Topic ‘Fractions’ may contain skills - Finding the sum of two fractions with the same denominator. Questions will always be tied to a skill, and when we want to test a skill, we look up questions for that particular skill. Hence when creating topics, as well as questions, we need to go through a list of skills to tie that topic/question to.
+The number of skills can be extremely large and going through such a big list gets difficult. So we would like to have a simple sort/filter view for the skills, which is reusable wherever the skills are listed down. (Bonus: Instead of creating a reusable sort/filter view only for skills, it would be nice to have a generic sort/filter list view that can be used for all types of data).
+[[Issue Tracker Link](https://github.com/oppia/oppia/issues/5670)]
+
+**Deliverables**
+
+* Create a simple design document (1 - 2 pages) explaining the approach
+* Create the sort/filter list view for skills in AngularJS
+* (Optional) Make a sort/filter list view that can work with any data that is given to it (explain the design in the document)
+
+**Required Skills**
+
+Python, AngularJS, Web Development
+
+**Difficulty**
+
+Intermediate
+
+***
+### Project 2: Create toasts for success messages
+**Context**
+
+We have various flows where a user does some task and an AJAX request is sent to the backend. In case that results in an error, we show a toast with the error message. However, we do not inform the user on success. We would like to show a toast message to inform the user that their action is completed successfully.
+[[Issue Tracker Link](https://github.com/oppia/oppia/issues/5671)]
+
+**Deliverables**
+* Go through the UI of oppia and try creating questions/skills/topics etc. Identify and list down all places where success message toasts would be useful
+* Create the success message toasts in those areas with meaningful messages
+
+**Required Skills**
+
+AngularJS, Web Development
+
+**Difficulty**
+
+Easy
+
+***
+
+### Project 3: Use case-insensitive names rather than IDs in the URL for a resource
+**Context**
+
+Currently the ID of any resource (such as an exploration, collection, topic etc) shows up on the URL whenever we open that page. We do not want to expose these values in the URL and it would be nice to have the topic name show up instead. These names also need to be case insensitive.
+[[Issue Tracker Link](https://github.com/oppia/oppia/issues/5672)]
+
+**Deliverables**
+* Write a small design document (1-2 pages) explaining the approach you will be taking to solve this problem
+* Remove the IDs from the URLs for all resources
+
+**Required Skills**
+
+Python, AngularJS, Web Development
+
+**Difficulty**
+
+Intermediate
