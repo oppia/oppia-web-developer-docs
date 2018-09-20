@@ -111,6 +111,12 @@ If you would like to understand the vocabulary and general structure of content 
 * [Project 12: Multiple choice answers could be shuffled](#project-12-multiple-choice-answers-could-be-shuffled)
 * [Project 13: Find ways to make the audio translation tab interface clearer](#project-13-find-ways-to-make-the-audio-translation-tab-interface-clearer)
 * [Project 14: Feedback threads in feedback tab do not reorder by recent updates in real time](#project-14-feedback-threads-in-feedback-tab-do-not-reorder-by-recent-updates-in-real-time)
+* [Project 15: Speed Improvements](#project-15-speed-improvements)
+* [Project 16: Improving question checking](#project-16-improving-question-checking)
+* [Project 17: Improving oppia.org experience on mobile](#project-17-improving-oppiaorg-experience-on-mobile)
+* [Project 18: Accessibility Improvements - Tabbing Order](#project-18-accessibility-improvements---tabbing-order)
+* [Project 19: Accessibility Improvements - Fixing Contrast in Image Region Selectors](#project-19-accessibility-improvements---fixing-contrast-in-image-region-selectors)
+* [Project 20: Cross Browser Compatibility Improvement - Translation console for Safari](#project-20-cross-browser-compatibility-improvement---translation-console-for-safari)
 
 ***
 ### Project 1: Implement a reusable sort/filter list view for skills
@@ -384,6 +390,126 @@ Every exploration can have feedback set on it. This feedback can be modified. We
 **Required Skills**
 
 AngularJS, Python
+
+**Difficulty**
+
+Easy
+***
+### Project 15: Speed Improvements
+**Context**
+
+Oppia is catered towards emerging countries such as India and Africa. At such places, network issues arise quite often. Moreover, the devices that the students use tend to be low performing devices, hence optimization and speed improvements is something we constantly try to work towards. Here we are trying to determine which version of the image to send (i.e. resolution), based on the quality of network.
+[[Issue tracker link](https://github.com/oppia/oppia/issues/5470)]
+
+**Deliverables**
+* Write a design doc explaining the approach to solving this problem
+* Implement the solution and present it (You can use chrome dev tools to change network conditions)
+
+**Required Skills**
+
+AngularJS, Python
+
+**Difficulty**
+
+Intermediate
+***
+### Project 16: Improving question checking
+**Context**
+
+We have some edge cases where our answer checker fails. Mainly, it tends to fail when we have spaces at inappropriate places. For example in python exploration, the answers should not be space restrictive.
+For now, it can fail an answer if answer missed a single space.
+There is a note about such behavior in exploration itself, which is good, but we should look into a way to work it out without such strict policy.
+An example for exploration: https://www.oppia.org/explore/jeCU94yVUdLu
+If we choose list mutation,
+
+The correct answer: [2, 0, [9, 6]]
+
+Bad answer can be: [2, 0, [9, 6 ]]
+
+While fixing this bug, we would also like to find a better approach to checking the correctness of an answer, that can handle different edge cases.
+[[Issue tracker link](https://github.com/oppia/oppia/issues/5348)]
+
+**Deliverables**
+* Write a design document explaining the approach to solve this problem
+* Implement the approach and present it
+
+**Required Skills**
+
+AngularJS
+
+**Difficulty**
+
+Easy
+***
+
+### Project 17: Improving oppia.org experience on mobile
+**Context**
+
+The library in oppia.org can show only one single exploration on the UI for mobile. It has arrow icons that can be clicked to move to the next exploration but that is not very intuitive for a mobile now that swipe gestures are so common. We would like to make the explorations into a swipeable carousel for the mobile UI.
+[[Issue tracker link](https://github.com/oppia/oppia/issues/5678)]
+
+**Deliverables**
+* Create a swipeable carousel for the explorations in oppia.org
+* (Optional) Create a reusable swipeable carousel element that can be used as a template. Write a design document for this as well
+
+**Required Skills**
+
+AngularJS, Web Development
+
+**Difficulty**
+
+Easy
+***
+
+### Project 18: Accessibility Improvements - Tabbing Order
+**Context**
+
+Accessibility is an extremely important factor while designing a product. Over the course of creating Oppia, we have found some accessibility related issues that we would like to improve. This project looks at tabbing order. Tabbing is useful for screen readers and various other accessibility software, and our order of tabbing is wrong. We would like to fix that, the details on the issue is mentioned in the issue tracker.
+[[Issue tracker link](https://github.com/oppia/oppia/issues/4883)]
+
+**Deliverables**
+* Fix the tabbing order for the menu bars and other buttons and UI elements
+
+**Required Skills**
+
+Web Development
+
+**Difficulty**
+
+Easy
+
+***
+### Project 19: Accessibility Improvements - Fixing Contrast in Image Region Selectors
+**Context**
+
+Our Image region indicators, show a red dot when a user clicks on a portion of the image (regardless of image background at that area). Those who are red-green color blind may not be able to see the red dot. The object of this issue is to ensure that the indicator contrasts with the background so that it's clear that it's a touch indicator. 
+[[Issue tracker link](https://github.com/oppia/oppia/issues/4615)]
+
+**Deliverables**
+* Design and implement a solution that can clearly show the image region indicators to the user (either by using dots with contrasting colors, or using a different shape or a larger size)
+
+**Required Skills**
+
+AngularJS, Web Development
+
+**Difficulty**
+
+Easy
+***
+
+### Project 20: Cross Browser Compatibility Improvement - Translation console for Safari
+**Context**
+
+The translation console in safari doesn’t play the audio correctly. Users have reported that after uploading audio, they click on the icon to the far left to listen but nothing happens. This is only on Safari; it works fine in Chrome.
+Also, the audio player at the bottom shows NaN/NaN which indicates that the audio is most likely not loading correctly on Safari. The UI elements also dont seem to be rendered correctly. We would like to fix the audio player experience for the translation console on Safari browsers.
+[[Issue tracker link](https://github.com/oppia/oppia/issues/5642)]
+
+**Deliverables**
+* Design and implement a fix for the audio player in the translation console, that works across all major browsers.
+
+**Required Skills**
+
+AngularJS, Web Development
 
 **Difficulty**
 
