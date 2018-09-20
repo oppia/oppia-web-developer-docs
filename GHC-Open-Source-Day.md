@@ -81,42 +81,54 @@ git checkout -b your-branch-name
 ## What to do when you are stuck
 We have a [Gitter chat room](https://gitter.im/oppia/oppia-chat) where everyone can post their questions and help each other out! The organizers and mentors will also be walking around to help with any questions.
 
-
-
 ## List of Projects
 
-For this open source day, we tried to shortlist projects that are fairly self contained, and can be completed within 3-4 hours by a group of 2-3 people. We also tried to pick those projects from our issue tracker itself so that you get an idea of what it’s like to contribute to Oppia on a regular basis. 
+For Open Source Day, we tried to shortlist projects that are fairly self-contained, and can be completed within 3-4 hours by a group of 2-3 people. We also tried to pick those projects directly from our issue tracker, so that you get an idea of what it’s like to contribute to Oppia on a regular basis.
 
-Each project has a brief explanation, a link to the issue tracker, the skills required, and some deliverables. We encourage you to look at the issue tracker link for the project that interests you. You can comment expressing interest in that project (and mention you will be working on it for OSD). You can also gain more context and ask questions to help get a kickstart for the day. **Please work in groups of 2-3 people.** We also recommend everyone to try any one file within Project 8 (unit tests) before taking on larger projects, to get a feel for the codebase.
+Each project has a brief explanation, a link to the issue tracker, the skills required, and some deliverables. We encourage you to look at the issue tracker link for the project that interests you. You can comment expressing interest in that project (and mention you will be working on it for OSD). Feel free to ask questions on the issue thread to gain more context, to help get a kickstart for the day! **We recommend working in groups of 2-3 people.** 
 
-This list is not an exhaustive list of projects. If none of these projects appeal to you, [take a look at our issue tracker](https://github.com/oppia/oppia/issues) and comment on the issue that interests you. (also mention that you will be working on it during the OSD event so that we are aware). 
+This list is not an exhaustive list of projects. If none of these projects appeal to you, take a look at our [issue tracker](https://github.com/oppia/oppia/issues) and comment on an issue that interests you. (Also, please mention that you will be working on it during the OSD event, so that others are aware. Please also tag us (**@seanlip** and **@vinitamurthi**) in any comment expressing interest in a project so that we get notified about this!)
 
-Please tag us (@seanlip and @vinitamurthi) in any comment expressing interest in a project so that we get notified about this!
 If you would like to understand the vocabulary and general structure of content in Oppia, you can take a look at [this document](https://docs.google.com/document/d/1yFrFAXaKARzj1DSfiiy1pOH6ypugNkRLQGz5W5QifMQ/edit?usp=sharing).
 
 ***
 ### Project List
 
-* [Project 1: Implement a reusable sort/filter list view for skills](#project-1-implement-a-reusable-sortfilter-list-view-for-skills)
-* [Project 2: Create toasts for success messages](#project-2-create-toasts-for-success-messages)
-* [Project 3: Use case-insensitive names rather than IDs in the URL for a resource](#project-3-use-case-insensitive-names-rather-than-ids-in-the-url-for-a-resource)
-* [Project 4: Allow users to suggest new questions for a skill](#project-4-allow-users-to-suggest-new-questions-for-a-skill)
-* [Project 5: Allow users to suggest edits to concept cards](#project-5-allow-users-to-suggest-edits-to-concept-cards)
-* [Project 6: Allow translators to see the changes made in content by editor](#project-6-allow-translators-to-see-the-changes-made-in-content-by-editor)
-* [Project 7: Improve linter checks](#project-7-improve-linter-checks)
+We recommend trying any file within Project 8 (unit tests) before taking on larger projects, so that you can get a feel for the codebase and the development workflow.
+
+Starter project
 * [Project 8: Improve unit tests](#project-8-improve-unit-tests)
+
+Easy
+* [Project 2: Create toasts for success messages](#project-2-create-toasts-for-success-messages)
+* [Project 7: Improve linter checks](#project-7-improve-linter-checks)
+
 * [Project 9: Writing Selenium tests for interactions](#project-9-writing-selenium-tests-for-interactions)
 * [Project 10: Expose "upload exploration" functionality in admin page](#project-10-expose-upload-exploration-functionality-in-admin-page)
-* [Project 11: Randomize the pretest questions](#project-11-randomize-the-pretest-questions)
-* [Project 12: Multiple choice answers could be shuffled](#project-12-multiple-choice-answers-could-be-shuffled)
-* [Project 13: Find ways to make the audio translation tab interface clearer](#project-13-find-ways-to-make-the-audio-translation-tab-interface-clearer)
 * [Project 14: Feedback threads in feedback tab do not reorder by recent updates in real time](#project-14-feedback-threads-in-feedback-tab-do-not-reorder-by-recent-updates-in-real-time)
-* [Project 15: Speed Improvements](#project-15-speed-improvements)
 * [Project 16: Improving question checking](#project-16-improving-question-checking)
 * [Project 17: Improving oppia.org experience on mobile](#project-17-improving-oppiaorg-experience-on-mobile)
 * [Project 18: Accessibility Improvements - Tabbing Order](#project-18-accessibility-improvements---tabbing-order)
 * [Project 19: Accessibility Improvements - Fixing Contrast in Image Region Selectors](#project-19-accessibility-improvements---fixing-contrast-in-image-region-selectors)
 * [Project 20: Cross Browser Compatibility Improvement - Translation console for Safari](#project-20-cross-browser-compatibility-improvement---translation-console-for-safari)
+
+
+Intermediate
+* [Project 1: Implement a reusable sort/filter list view for skills](#project-1-implement-a-reusable-sortfilter-list-view-for-skills)
+* [Project 3: Use case-insensitive names rather than IDs in the URL for a resource](#project-3-use-case-insensitive-names-rather-than-ids-in-the-url-for-a-resource)
+* [Project 11: Randomize the pretest questions](#project-11-randomize-the-pretest-questions)
+* [Project 12: Multiple choice answers could be shuffled](#project-12-multiple-choice-answers-could-be-shuffled)
+* [Project 15: Speed Improvements](#project-15-speed-improvements)
+
+Hard
+* [Project 4: Allow users to suggest new questions for a skill](#project-4-allow-users-to-suggest-new-questions-for-a-skill)
+* [Project 5: Allow users to suggest edits to concept cards](#project-5-allow-users-to-suggest-edits-to-concept-cards)
+* [Project 6: Allow translators to see the changes made in content by editor](#project-6-allow-translators-to-see-the-changes-made-in-content-by-editor)
+* [Project 13: Find ways to make the audio translation tab interface clearer](#project-13-find-ways-to-make-the-audio-translation-tab-interface-clearer)
+
+
+
+
 
 ***
 ### Project 1: Implement a reusable sort/filter list view for skills
