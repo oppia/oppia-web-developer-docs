@@ -94,7 +94,9 @@ If you would like to understand the vocabulary and general structure of content 
 ***
 ### Project List
 
-We recommend trying any file within Project 8 (unit tests) before taking on larger projects, so that you can get a feel for the codebase and the development workflow.
+We've tried to categorize the projects by difficulty, but please note that this is just a rough estimate and your mileage may vary. Feel free to pick any project that interests you :)
+
+Also, we recommend trying any file within Project 8 (unit tests) before taking on larger projects, so that you can get a good feel for the codebase and the development workflow. You're welcome to do this before Open Source Day, if you like!
 
 Starter project
 * [Project 8: Improve unit tests](#project-8-improve-unit-tests)
@@ -102,15 +104,14 @@ Starter project
 Easy
 * [Project 2: Create toasts for success messages](#project-2-create-toasts-for-success-messages)
 * [Project 7: Improve linter checks](#project-7-improve-linter-checks)
-
 * [Project 9: Writing Selenium tests for interactions](#project-9-writing-selenium-tests-for-interactions)
 * [Project 10: Expose "upload exploration" functionality in admin page](#project-10-expose-upload-exploration-functionality-in-admin-page)
+* [Project 13: Find ways to make the audio translation tab interface clearer](#project-13-find-ways-to-make-the-audio-translation-tab-interface-clearer)
 * [Project 14: Feedback threads in feedback tab do not reorder by recent updates in real time](#project-14-feedback-threads-in-feedback-tab-do-not-reorder-by-recent-updates-in-real-time)
-* [Project 16: Improving question checking](#project-16-improving-question-checking)
+* [Project 16: Cross Browser Compatibility Improvement - Translation console for Safari](#project-20-cross-browser-compatibility-improvement---translation-console-for-safari)
 * [Project 17: Improving oppia.org experience on mobile](#project-17-improving-oppiaorg-experience-on-mobile)
 * [Project 18: Accessibility Improvements - Tabbing Order](#project-18-accessibility-improvements---tabbing-order)
 * [Project 19: Accessibility Improvements - Fixing Contrast in Image Region Selectors](#project-19-accessibility-improvements---fixing-contrast-in-image-region-selectors)
-* [Project 20: Cross Browser Compatibility Improvement - Translation console for Safari](#project-20-cross-browser-compatibility-improvement---translation-console-for-safari)
 
 
 Intermediate
@@ -124,18 +125,13 @@ Hard
 * [Project 4: Allow users to suggest new questions for a skill](#project-4-allow-users-to-suggest-new-questions-for-a-skill)
 * [Project 5: Allow users to suggest edits to concept cards](#project-5-allow-users-to-suggest-edits-to-concept-cards)
 * [Project 6: Allow translators to see the changes made in content by editor](#project-6-allow-translators-to-see-the-changes-made-in-content-by-editor)
-* [Project 13: Find ways to make the audio translation tab interface clearer](#project-13-find-ways-to-make-the-audio-translation-tab-interface-clearer)
-
-
-
 
 
 ***
 ### Project 1: Implement a reusable sort/filter list view for skills
 **Context**
 
-At oppia, a topic is a high level concept related to a subject. Each topic can have multiple skills within it. For example - Topic ‘Fractions’ may contain skills - Finding the sum of two fractions with the same denominator. Questions will always be tied to a skill, and when we want to test a skill, we look up questions for that particular skill. Hence when creating topics, as well as questions, we need to go through a list of skills to tie that topic/question to.
-The number of skills can be extremely large and going through such a big list gets difficult. So we would like to have a simple sort/filter view for the skills, which is reusable wherever the skills are listed down. (Bonus: Instead of creating a reusable sort/filter view only for skills, it would be nice to have a generic sort/filter list view that can be used for all types of data).
+We are currently working on organizing our lessons into topics. At Oppia, a topic is a high-level concept related to a subject. Each topic can have multiple skills within it -- for example, the topic "Fractions" may contain the skill "find the sum of two fractions with the same denominator". Questions will always be tied to a skill, and when we want to test a skill, we look up questions for that particular skill. Hence, when creating topics, as well as questions, we need to go through a list of skills to tie that topic/question to. Unfortunately, the number of skills can be extremely large and going through such a big list gets difficult. So we would like to have a simple sort/filter view for the skills, which is reusable wherever the skills are listed down. (Bonus: Instead of creating a reusable sort/filter view only for skills, it would be nice to have a generic sort/filter list view that can be used for all types of data). Note that, since the feature is currently in development, you'll need to enable the feconf.ENABLE_NEW_STRUCTURES flag and log in as an admin to use the skill editor.
 [[Issue Tracker Link](https://github.com/oppia/oppia/issues/5670)]
 
 **Deliverables**
@@ -156,12 +152,12 @@ Intermediate
 ### Project 2: Create toasts for success messages
 **Context**
 
-We have various flows where a user does some task and an AJAX request is sent to the backend. In case that results in an error, we show a toast with the error message. However, we do not inform the user on success. We would like to show a toast message to inform the user that their action is completed successfully.
+We have various flows where a user does a task and an AJAX request is sent to the backend. When this results in an error, we show a toast with the error message. However, we do not inform the user on success. We would like to show a toast message to inform the user that their action is completed successfully.
 [[Issue Tracker Link](https://github.com/oppia/oppia/issues/5671)]
 
 **Deliverables**
-* Go through the UI of oppia and try creating questions/skills/topics etc. Identify and list down all places where success message toasts would be useful
-* Create the success message toasts in those areas with meaningful messages
+* Go through the UI of oppia and try creating questions/skills/topics etc. Identify and list down all places where success message toasts would be useful. (Note that, since skills etc. are currently in development, you'll need to enable the feconf.ENABLE_NEW_STRUCTURES flag and log in as an admin to use these pages.)
+* Create success message toasts in those areas with meaningful messages.
 
 **Required Skills**
 
@@ -173,14 +169,13 @@ Easy
 
 ***
 
-### Project 3: Use case-insensitive names rather than IDs in the URL for a resource
+### Project 3: Use case-insensitive names rather than IDs in the URL for a topic
 **Context**
 
-Currently the ID of any resource (such as an exploration, collection, topic etc) shows up on the URL whenever we open that page. We do not want to expose these values in the URL and it would be nice to have the topic name show up instead. These names also need to be case insensitive.
-[[Issue Tracker Link](https://github.com/oppia/oppia/issues/5672)]
+Currently the ID of a topic shows up on the URL whenever we open that page. We would like to have a human-readable topic name show up in the URL instead, similar to Wikipedia. These names should probably be case-insensitive. (Note that, since topics are currently in development, you'll need to enable the feconf.ENABLE_NEW_STRUCTURES flag and log in as an admin to use these pages.) [[Issue Tracker Link](https://github.com/oppia/oppia/issues/5672)]
 
 **Deliverables**
-* Write a small design document (1-2 pages) explaining the approach you will be taking to solve this problem
+* Write a small design document (1-2 pages) explaining the approach you will be taking to solve this problem, including ensuring that URLs are unique across topics.
 * Remove the IDs from the URLs for all resources
 
 **Required Skills**
@@ -197,9 +192,9 @@ Intermediate
 ### Project 4: Allow users to suggest new questions for a skill
 **Context**
 
-Questions are usually created by the content creators and admins. Oppia aims to be a collaborative platform to create content and so it would be useful to have other users to give suggestions for new questions for a particular skill. These suggestions can then be reviewed and then either added (with or without modifications), or rejected. We need to design a framework to support this option. We already have a suggestion framework designed for edits to lesson content, and if possible we would like to reuse that for question suggestions as well. 
+We are currently working on a project to add practice questions to Oppia. Currently, Oppia supports the creation of questions by topic managers and admins. However, in the long run, Oppia aims to be a collaborative platform for create lessons, so it would be great if we could enable any user to suggest a new question for a particular skill. These suggestions can then be reviewed and then either added (with or without modifications), or rejected. We need to design a framework to support this option. We already have a suggestion framework designed for edits to lesson content, and if possible we would like to reuse that for question suggestions as well.
 
-_This project is more to create a design rather than a working implementation, as it is quite open ended and will take time to create a working solution. However, if you plan on taking this up, we encourage you to continue to work with us on this project even after open source day._
+_This project is more aimed at creating a design rather than a working implementation, as it is quite open ended and will take time to create a working solution. However, if you plan on taking this up, we encourage you to continue to work with us on this project even after open source day!_
 [[Issue Tracker Link](https://github.com/oppia/oppia/issues/5673)]
 
 **Deliverables**
@@ -217,9 +212,9 @@ Hard
 ### Project 5: Allow users to suggest edits to concept cards
 **Context**
 
-Similar to the project above, content creators add concept cards whenever they create a topic. These concept cards aim to explain a particular skill. It would be very useful to have users suggest edit to the concept cards. Edit suggestions could range from grammar issues or typos, semantic improvements, or even adding new content like examples to better explain the concept. The content creator can review the edit, and either add it (with modifications), or reject it with some explanation. 
+We are developing a feature that allows topic managers to add concept cards whenever they create a topic. These concept cards each aim to explain a particular skill, and they get shown on-demand in lessons when Oppia detects that a student is having difficulty with that skill. It would be very useful to have users suggest edits to the concept cards. Edit suggestions could range from grammar issues or typos, semantic improvements, or even adding new content like examples to better explain the concept. The topic manager can review the edit, and either add it (with modifications), or reject it with some explanation. 
 
-_This project is more to create a design rather than a working implementation, as it is quite open ended and will take time to create a working solution. However, if you plan on taking this up, we encourage you to continue to work with us on this project even after open source day._
+_This project is more to create a design rather than a working implementation, as it is quite open-ended and will take time to create a working solution. However, if you plan on taking this up, we encourage you to continue to work with us on this project even after open source day!_
 [[Issue Tracker Link](https://github.com/oppia/oppia/issues/5674)]
 
 **Deliverables**
@@ -237,7 +232,7 @@ Hard
 ### Project 6: Allow translators to see the changes made in content by editor
 **Context**
 
-All lessons in Oppia aim to have audio content as well. These audio files are translated in multiple languages by translators. Currently, when an editor marks audio to "needs update" state, then the translators get informed about this through a warning icon but they never realize what exact changes are made. We would like to develop this functionality for the translators. For this, we would have to design and implement a UI which helps translators identify where the change was made and what the change was. 
+All lessons in Oppia aim to have audio subtitles for learners who do not have a good command of English. These audio files are translated to multiple languages by translators. Currently, when a lesson creator marks an audio file as "needing update", the translators get informed about this through a warning icon, but it's not easy for them to figure out what changes the lesson creator has made. We would like to develop this functionality for the translators. For this, we would have to design and implement a UI which helps translators identify where the change was made and what the change was. 
 [[Issue tracker link](https://github.com/oppia/oppia/issues/5571)]
 
 **Deliverables**
@@ -255,7 +250,7 @@ Hard
 ### Project 7: Improve linter checks
 **Context**
 
-Coding style is extremely important to maintain a large codebase with multiple contributors. Oppia has a [style guide](https://github.com/oppia/oppia/wiki/Coding-style-guide) that highlights the basic requirements for coding style. To ensure our code follows the style guide, we use linter check scripts that are called before any code is pushed in the github repo. Our Python linter doesn’t check if strings use single quotes and not double quotes. It would be useful to have that check added as well for Python.
+Coding style is very important when maintaining a large codebase with multiple contributors! Oppia has a [style guide](https://github.com/oppia/oppia/wiki/Coding-style-guide) that highlights basic requirements for coding style. To ensure our code follows the style guide, we use lint-check scripts that are called before any code is pushed in the github repo. However, our Python linter doesn’t check if strings use single quotes and not double quotes. It would be useful to have that check added for Python as well.
 [[Issue tracker link](https://github.com/oppia/oppia/issues/5663)]
 
 **Deliverables**
@@ -277,14 +272,14 @@ Easy
 
 Unit tests are just as important as coding style while maintaining a large codebase with multiple contributors. At Oppia, we try to ensure all code paths are covered by some unit test. This also ensures that changes to the code don’t break our code base. Before pushing code to github, we run all frontend tests and the push is blocked if even one test is broken. Also, code cannot be merged into the main branch unless both frontend and backend tests pass (the backend checks are done through a [Travis](https://travis-ci.org/) continuous integration system). We analyze the code coverage of unit tests to identify which functions still need unit tests. 
 
-_These projects are typically the kind of starter projects we assign to new developers so you can give this a shot before moving to a larger project._
+_These projects are typically the kinds of starter projects we assign to new developers. Consider giving this a shot before moving to a larger project!_
 
 Frontend Tests: [[Issue tracker link](https://github.com/oppia/oppia/issues/4057)]
 
 Backend Tests: [[Issue tracker link](https://github.com/oppia/oppia/issues/5134)]
 
 **Deliverables**
-* Write a unit test for any frontend or backend file that covers all code paths
+* Write a unit test for any frontend or backend file that covers all code paths.
 
 **Required Skills**
 
@@ -298,7 +293,7 @@ Easy
 ### Project 9: Writing Selenium tests for interactions
 **Context**
 
-While unit tests cover a lot of cases, user interactions tests are also extremely useful to ensure all UI elements are working as intended. It can also catch bugs that unit tests may not be able to, such as UI elements not being in view, browser freezes, and so on. We use selenium interaction tests to cover these cases. The goal would be to pick up one interaction and write selenium tests for the various interactions
+While unit tests cover a lot of cases, end-to-end integration tests are also extremely useful to ensure all UI elements are working as intended. It can also catch bugs that unit tests may not be able to, such as UI elements not being in view, browsers freezing, and so on. We use Protractor end-to-end tests to cover these cases (Protractor is an end-to-end testing framework based on Selenium). The goal would be to pick up one of Oppia's question types ("interactions") and write Protractor tests for it that are similar to the existing examples for other interactions in the codebase.
 [[Issue tracker link](https://github.com/oppia/oppia/issues/4558)]
 
 **Deliverables**
@@ -316,7 +311,7 @@ Easy
 ### Project 10: Expose "upload exploration" functionality in admin page
 **Context**
 
-Oppia uses explorations to present lessons to the user ([An example of a fractions exploration](https://www.oppia.org/explore/umPkwp0L1M0-?collection_id=4UgTQUc1tala)). We have almost all the functionality to upload an exploration but the but the UI does not give the user the option to do so. We would like to create an upload exploration button in the Activities tab of the admin page.
+Oppia uses explorations to present lessons to the user ([example](https://www.oppia.org/explore/umPkwp0L1M0-?collection_id=4UgTQUc1tala)). When developing, it is sometimes useful to upload an exploration, but this functionality should be limited to developers and not turned on in production. We would therefore like to create an upload exploration button in the Activities tab of the admin page (which gets shown only on develop and not in production).
 [[Issue tracker link](https://github.com/oppia/oppia/issues/5438)]
 
 **Deliverables**
@@ -333,8 +328,7 @@ Easy
 ### Project 11: Randomize the pretest questions.
 **Context**
 
-A pretest is a variably long set of questions that has been randomly created from the list of prerequisite skills specified by a lesson. Before learning a lesson with prerequisites, students have to pass the pretest for every prerequisite skill. Currently, the first 3 pretest questions sorted by their keys will be returned for a fixed set of prerequisite skill ids for an exploration. This needs to be changed to make it a random set of 3 questions (or potentially a smarter approach to selecting the questions).
-[[Issue tracker link](https://github.com/oppia/oppia/issues/5436)]
+A pretest is a variably-long set of questions that has been randomly created from the list of prerequisite skills specified by a lesson. Before learning a lesson with prerequisites, students have to pass the pretest for every prerequisite skill. Currently, the first 3 pretest questions sorted by their keys will be returned for a fixed set of prerequisite skill ids for an exploration. This needs to be changed to make it a random set of 3 questions (or potentially some other smarter approach to selecting the questions). (Note that, since questions are currently in development, you'll need to enable the feconf.ENABLE_NEW_STRUCTURES flag and log in as an admin to use these pages.) [[Issue tracker link](https://github.com/oppia/oppia/issues/5436)]
 
 **Deliverables**
 * Design and implement a solution to randomize the pretest questions
@@ -352,8 +346,7 @@ Intermediate
 
 **Context**
 
-In the learner view, multiple-choice answers are always in the same order. We might instead want to shuffle them on-the-fly (while preserving the "index" that's currently reported to the backend) so that the student does not end up memorizing the correct answer based on its location (if they need to repeat a question).
-[[Issue tracker link](https://github.com/oppia/oppia/issues/5254)]
+In the learner view, multiple-choice answers are always in the same order. We should instead consider shuffling them on-the-fly (while preserving the "index" that's currently reported to the backend) so that the student does not end up memorizing the correct answer based on its location if they need to repeat the question later. (This sometimes happens when, in a future question, Oppia detects that the student has not mastered a prerequisites skill.) [[Issue tracker link](https://github.com/oppia/oppia/issues/5254)]
 
 **Deliverables**
 * Write a design document with the approach to solve this problem
@@ -388,12 +381,12 @@ UI/UX Design experience would be useful
 
 **Difficulty**
 
-Hard
+Easy
 ***
 ### Project 14: Feedback threads in feedback tab do not reorder by recent updates in real time
 **Context**
 
-Every exploration can have feedback set on it. This feedback can be modified. We can view the feedback threads within the exploration editor. Our feedback threads are not ordered correctly. We would like to order them in real time to show the most recent feedback threads.
+It is possible for students to submit feedback to any exploration, and this generates an "issue thread" which can have further messages appended to it. The feedback threads are viewable within the exploration editor, but they are not ordered correctly. We would like to order them in real-time to show the most recent feedback threads at the top.
 [[Issue tracker link](https://github.com/oppia/oppia/issues/5508)]
 
 **Deliverables**
@@ -410,7 +403,7 @@ Easy
 ### Project 15: Speed Improvements
 **Context**
 
-Oppia is catered towards emerging countries such as India and Africa. At such places, network issues arise quite often. Moreover, the devices that the students use tend to be low performing devices, hence optimization and speed improvements is something we constantly try to work towards. Here we are trying to determine which version of the image to send (i.e. resolution), based on the quality of network.
+A primary audience of Oppia is students in developing countries such as India and Africa. At such places, network issues arise quite often. Moreover, the devices that the students use tend to be low-performing, and optimization and speed improvements are something we constantly try to work towards. One case is to determine which version/resolution of an image to send, based on the quality of the network.
 [[Issue tracker link](https://github.com/oppia/oppia/issues/5470)]
 
 **Deliverables**
@@ -425,39 +418,30 @@ AngularJS, Python
 
 Intermediate
 ***
-### Project 16: Improving question checking
+
+
+### Project 16: Cross Browser Compatibility Improvement - Translation console for Safari
 **Context**
 
-We have some edge cases where our answer checker fails. Mainly, it tends to fail when we have spaces at inappropriate places. For example in python exploration, the answers should not be space restrictive.
-For now, it can fail an answer if answer missed a single space.
-There is a note about such behavior in exploration itself, which is good, but we should look into a way to work it out without such strict policy.
-An example for exploration: https://www.oppia.org/explore/jeCU94yVUdLu
-If we choose list mutation,
-
-The correct answer: [2, 0, [9, 6]]
-
-Bad answer can be: [2, 0, [9, 6 ]]
-
-While fixing this bug, we would also like to find a better approach to checking the correctness of an answer, that can handle different edge cases.
-[[Issue tracker link](https://github.com/oppia/oppia/issues/5348)]
+Audio subtitles in lessons are really important for learners in our target audience. However, we have encountered several issues with the Safari browser. For example, the translation console in Safari doesn’t play the audio correctly. Users have reported that after uploading audio, they click on the icon to the far left to listen but nothing happens. This is only on Safari; it works fine in Chrome.
+Also, the audio player at the bottom shows NaN/NaN which indicates that the audio is most likely not loading correctly on Safari. The UI elements also dont seem to be rendered correctly. We would like to fix the audio player experience for the translation console on Safari browsers.
+[[Issue tracker link](https://github.com/oppia/oppia/issues/5642)]
 
 **Deliverables**
-* Write a design document explaining the approach to solve this problem
-* Implement the approach and present it
+* Design and implement a fix for the audio player in the translation console, that works across all major browsers.
 
 **Required Skills**
 
-AngularJS
+AngularJS, Web Development
 
 **Difficulty**
 
 Easy
-***
 
-### Project 17: Improving oppia.org experience on mobile
+### Project 17: Improving the library page experience on mobile
 **Context**
 
-The library in oppia.org can show only one single exploration on the UI for mobile. It has arrow icons that can be clicked to move to the next exploration but that is not very intuitive for a mobile now that swipe gestures are so common. We would like to make the explorations into a swipeable carousel for the mobile UI.
+The Oppia library can show only one exploration at a time on the mobile UI. It has arrow icons that can be clicked to move to the next exploration, but this is not very intuitive for mobile views, especially now that swipe gestures are so common. We would like to make the explorations into a swipeable carousel for the mobile UI.
 [[Issue tracker link](https://github.com/oppia/oppia/issues/5678)]
 
 **Deliverables**
@@ -476,7 +460,7 @@ Easy
 ### Project 18: Accessibility Improvements - Tabbing Order
 **Context**
 
-Accessibility is an extremely important factor while designing a product. Over the course of creating Oppia, we have found some accessibility related issues that we would like to improve. This project looks at tabbing order. Tabbing is useful for screen readers and various other accessibility software, and our order of tabbing is wrong. We would like to fix that, the details on the issue is mentioned in the issue tracker.
+We have found some accessibility-related issues in Oppia that we would like to improve. This project looks at tabbing order. Tabbing is useful for screen readers and various other accessibility software, and our order of tabbing is wrong; we would like to fix that. More details can be found in the issue tracker:
 [[Issue tracker link](https://github.com/oppia/oppia/issues/4883)]
 
 **Deliverables**
@@ -494,11 +478,11 @@ Easy
 ### Project 19: Accessibility Improvements - Fixing Contrast in Image Region Selectors
 **Context**
 
-Our Image region indicators, show a red dot when a user clicks on a portion of the image (regardless of image background at that area). Those who are red-green color blind may not be able to see the red dot. The object of this issue is to ensure that the indicator contrasts with the background so that it's clear that it's a touch indicator. 
+Our Image region indicators show a red dot when a user clicks on a portion of the image (regardless of the image background at that area). The aim of this issue is to ensure that the indicator contrasts with the background, so that it's clear that it's a touch indicator. 
 [[Issue tracker link](https://github.com/oppia/oppia/issues/4615)]
 
 **Deliverables**
-* Design and implement a solution that can clearly show the image region indicators to the user (either by using dots with contrasting colors, or using a different shape or a larger size)
+* Design and implement a solution that can clearly show image region indicators to the user (either by using dots with contrasting colors, or using a different shape or a larger size)
 
 **Required Skills**
 
@@ -508,21 +492,3 @@ AngularJS, Web Development
 
 Easy
 ***
-
-### Project 20: Cross Browser Compatibility Improvement - Translation console for Safari
-**Context**
-
-The translation console in safari doesn’t play the audio correctly. Users have reported that after uploading audio, they click on the icon to the far left to listen but nothing happens. This is only on Safari; it works fine in Chrome.
-Also, the audio player at the bottom shows NaN/NaN which indicates that the audio is most likely not loading correctly on Safari. The UI elements also dont seem to be rendered correctly. We would like to fix the audio player experience for the translation console on Safari browsers.
-[[Issue tracker link](https://github.com/oppia/oppia/issues/5642)]
-
-**Deliverables**
-* Design and implement a fix for the audio player in the translation console, that works across all major browsers.
-
-**Required Skills**
-
-AngularJS, Web Development
-
-**Difficulty**
-
-Easy
