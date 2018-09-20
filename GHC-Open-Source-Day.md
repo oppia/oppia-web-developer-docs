@@ -43,10 +43,6 @@ _Python 2.7_ [Introduction](https://docs.python.org/2/library/intro.html) | [Tut
 
 _Bash_ [Introduction](http://cs.lmu.edu/~ray/notes/bash/)
 
-## List of Projects
-
-_We're still working on this. We'll update this section shortly!_
-
 ## Making A Code Change
 Our central development branch is **develop**, which should be clean and ready for release at any time. In general, all changes should be done as feature branches based off of _develop_. For a more detailed explanation on how to make a code change, please take a look at [this wiki page](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#instructions-for-making-a-code-change). 
 In order to make a change in the repository, you can follow the steps below:
@@ -76,3 +72,16 @@ git checkout -b your-branch-name
 
 ## What to do when you are stuck
 We have a [Gitter chat room](https://gitter.im/oppia/oppia-chat) where everyone can post their questions and help each other out! The organizers and mentors will also be walking around to help with any questions.
+
+
+
+## List of Projects
+
+For this open source day, we tried to shortlist projects that are fairly self contained, and can be completed within 3-4 hours by a group of 2-3 people. We also tried to pick those projects from our issue tracker itself so that you get an idea of what it’s like to contribute to Oppia on a regular basis. 
+
+Each project has a brief explanation, a link to the issue tracker, the skills required, and some deliverables. We encourage you to look at the issue tracker link for the project that interests you. You can comment expressing interest in that project (and mention you will be working on it for OSD). You can also gain more context and ask questions to help get a kickstart for the day. **Please work in groups of 2-3 people.** We also recommend everyone to try any one file within Project 8 (unit tests) before taking on larger projects, to get a feel for the codebase.
+
+This list is not an exhaustive list of projects. If none of these projects appeal to you, [take a look at our issue tracker](https://github.com/oppia/oppia/issues) and comment on the issue that interests you. (also mention that you will be working on it during the OSD event so that we are aware). 
+
+Please tag us (@seanlip and @vinitamurthi) in any comment expressing interest in a project so that we get notified about this!
+If you would like to understand the vocabulary and general structure of content in Oppia, you can take a look at [this document](https://docs.google.com/document/d/1yFrFAXaKARzj1DSfiiy1pOH6ypugNkRLQGz5W5QifMQ/edit?usp=sharing).
