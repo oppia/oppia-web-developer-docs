@@ -100,6 +100,13 @@ If you would like to understand the vocabulary and general structure of content 
 * [Project 1: Implement a reusable sort/filter list view for skills](#project-1-implement-a-reusable-sortfilter-list-view-for-skills)
 * [Project 2: Create toasts for success messages](#project-2-create-toasts-for-success-messages)
 * [Project 3: Use case-insensitive names rather than IDs in the URL for a resource](#project-3-use-case-insensitive-names-rather-than-ids-in-the-url-for-a-resource)
+* [Project 4: Allow users to suggest new questions for a skill](#project-4-allow-users-to-suggest-new-questions-for-a-skill)
+* [Project 5: Allow users to suggest edits to concept cards](#project-5-allow-users-to-suggest-edits-to-concept-cards)
+* [Project 6: Allow translators to see the changes made in content by editor](#project-6-allow-translators-to-see-the-changes-made-in-content-by-editor)
+* [Project 7: Improve linter checks](#project-7-improve-linter-checks)
+* [Project 8: Improve unit tests](#project-8-improve-unit-tests)
+* [Project 9: Writing Selenium tests for interactions](#project-9-writing-selenium-tests-for-interactions)
+* [Project 10: Expose "upload exploration" functionality in admin page](#project-10-expose-upload-exploration-functionality-in-admin-page)
 ***
 ### Project 1: Implement a reusable sort/filter list view for skills
 **Context**
@@ -160,3 +167,142 @@ Python, AngularJS, Web Development
 **Difficulty**
 
 Intermediate
+
+
+***
+
+### Project 4: Allow users to suggest new questions for a skill
+**Context**
+
+Questions are usually created by the content creators and admins. Oppia aims to be a collaborative platform to create content and so it would be useful to have other users to give suggestions for new questions for a particular skill. These suggestions can then be reviewed and then either added (with or without modifications), or rejected. We need to design a framework to support this option. We already have a suggestion framework designed for edits to lesson content, and if possible we would like to reuse that for question suggestions as well. 
+
+_This project is more to create a design rather than a working implementation, as it is quite open ended and will take time to create a working solution. However, if you plan on taking this up, we encourage you to continue to work with us on this project even after open source day._
+[[Issue Tracker Link](https://github.com/oppia/oppia/issues/5673)]
+
+**Deliverables**
+* Present a design for a framework that can enable user suggestions for questions.
+
+**Required Skills**
+
+Python, AngularJS, Web Development
+
+**Difficulty**
+
+Hard
+
+***
+### Project 5: Allow users to suggest edits to concept cards
+**Context**
+
+Similar to the project above, content creators add concept cards whenever they create a topic. These concept cards aim to explain a particular skill. It would be very useful to have users suggest edit to the concept cards. Edit suggestions could range from grammar issues or typos, semantic improvements, or even adding new content like examples to better explain the concept. The content creator can review the edit, and either add it (with modifications), or reject it with some explanation. 
+
+_This project is more to create a design rather than a working implementation, as it is quite open ended and will take time to create a working solution. However, if you plan on taking this up, we encourage you to continue to work with us on this project even after open source day._
+[[Issue Tracker Link](https://github.com/oppia/oppia/issues/5674)]
+
+**Deliverables**
+* Present a design for a framework that can enable user suggestions for concept cards.
+
+**Required Skills**
+
+Python, AngularJS, Web Development
+
+**Difficulty**
+
+Hard
+
+***
+### Project 6: Allow translators to see the changes made in content by editor
+**Context**
+
+All lessons in Oppia aim to have audio content as well. These audio files are translated in multiple languages by translators. Currently, when an editor marks audio to "needs update" state, then the translators get informed about this through a warning icon but they never realize what exact changes are made. We would like to develop this functionality for the translators. For this, we would have to design and implement a UI which helps translators identify where the change was made and what the change was. 
+[[Issue tracker link](https://github.com/oppia/oppia/issues/5571)]
+
+**Deliverables**
+* Write a design document for a user interface that solves this problem.
+* Create an MVP (minimum viable product) for the interface.
+
+**Required Skills**
+
+Python, AngularJS, Web Development
+
+**Difficulty**
+
+Hard
+***
+### Project 7: Improve linter checks
+**Context**
+
+Coding style is extremely important to maintain a large codebase with multiple contributors. Oppia has a [style guide](https://github.com/oppia/oppia/wiki/Coding-style-guide) that highlights the basic requirements for coding style. To ensure our code follows the style guide, we use linter check scripts that are called before any code is pushed in the github repo. Our Python linter doesn’t check if strings use single quotes and not double quotes. It would be useful to have that check added as well for Python.
+[[Issue tracker link](https://github.com/oppia/oppia/issues/5663)]
+
+**Deliverables**
+* Update the python linter checks to ensure strings use single quotes
+* (Optional) Identify any other code style issues that are not being caught by our linter
+
+**Required Skills**
+
+Python, Bash
+
+**Difficulty**
+
+Easy
+
+***
+
+### Project 8: Improve unit tests
+**Context**
+
+Unit tests are just as important as coding style while maintaining a large codebase with multiple contributors. At Oppia, we try to ensure all code paths are covered by some unit test. This also ensures that changes to the code don’t break our code base. Before pushing code to github, we run all frontend tests and the push is blocked if even one test is broken. Also, code cannot be merged into the main branch unless both frontend and backend tests pass (the backend checks are done through a [Travis](https://travis-ci.org/) continuous integration system). We analyze the code coverage of unit tests to identify which functions still need unit tests. 
+
+_These projects are typically the kind of starter projects we assign to new developers so you can give this a shot before moving to a larger project._
+
+Frontend Tests: [[Issue tracker link](https://github.com/oppia/oppia/issues/4057)]
+
+Backend Tests: [[Issue tracker link](https://github.com/oppia/oppia/issues/5134)]
+
+**Deliverables**
+* Write a unit test for any frontend or backend file that covers all code paths
+
+**Required Skills**
+
+AngularJS (Frontend), Python (Backend)
+
+**Difficulty**
+
+Easy
+***
+
+### Project 9: Writing Selenium tests for interactions
+**Context**
+
+While unit tests cover a lot of cases, user interactions tests are also extremely useful to ensure all UI elements are working as intended. It can also catch bugs that unit tests may not be able to, such as UI elements not being in view, browser freezes, and so on. We use selenium interaction tests to cover these cases. The goal would be to pick up one interaction and write selenium tests for the various interactions
+[[Issue tracker link](https://github.com/oppia/oppia/issues/4558)]
+
+**Deliverables**
+* Write one end to end interaction test in selenium
+
+**Required Skills**
+
+Javascript 
+
+**Difficulty**
+
+Easy
+***
+
+### Project 10: Expose "upload exploration" functionality in admin page
+**Context**
+
+Oppia uses explorations to present lessons to the user ([An example of a fractions exploration](https://www.oppia.org/explore/umPkwp0L1M0-?collection_id=4UgTQUc1tala)). We have almost all the functionality to upload an exploration but the but the UI does not give the user the option to do so. We would like to create an upload exploration button in the Activities tab of the admin page.
+[[Issue tracker link](https://github.com/oppia/oppia/issues/5438)]
+
+**Deliverables**
+* Fix the issue mentioned in the tracker and present it
+
+**Required Skills**
+
+AngularJS, Web Development
+
+**Difficulty**
+
+Easy
