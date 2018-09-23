@@ -84,7 +84,7 @@ git checkout -b your-branch-name
 6. Celebrate. Congratulations, you have contributed to Oppia!
 
 ## What to do when you are stuck
-We have a [Gitter chat room](https://gitter.im/oppia/oppia-chat) where everyone can post their questions and help each other out! The organizers and mentors will also be walking around to help with any questions. We also have a dedicated [GHC Open Source Day chatroom](https://gitter.im/oppia/ghc2018) that you can use too!
+Oppia has a [Gitter chat room](https://gitter.im/oppia/oppia-chat) where everyone can post their questions and help each other out! The organizers and mentors will also be walking around to help with any questions. We also have a dedicated [GHC Open Source Day chatroom](https://gitter.im/oppia/ghc2018) that you can use too!
 
 ## List of Projects
 
