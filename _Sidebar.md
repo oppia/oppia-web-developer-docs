@@ -5,6 +5,7 @@
     * [[UX researchers|Conducting-research-with-students]]
     * [[Designers and artists|Contributing-to-Oppia's-design]]
     * [[GHC Open Source Day 2018|GHC-Open-Source-Day]]
+    * [[Hacktoberfest 2018|Hacktoberfest-2018]]
   * **[[Recommended issues|https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3Aimportant]]**
   * Developing Oppia
     * [[FAQs|Frequently-Asked-Questions]]
