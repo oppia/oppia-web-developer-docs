@@ -53,7 +53,7 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
 
   where `{{YOUR_USERNAME}}` should be replaced by your username.
 
-2. The `start.sh` script will start a development server at http://localhost:8181. It should look something like this:
+2. The `start.sh` script will start a development server at http://localhost:8181. (If this doesn't happen automatically, try navigating directly to http://localhost:8181 in a browser once stuff stops being printed to the terminal.) It should look something like this:
 
   ![Image showing the default splash page.](images/defaultDevPage.png)
 
