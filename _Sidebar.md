@@ -44,6 +44,7 @@
     * [[Collection editor page|Collection-editor-page]]
     * [[Calculating statistics|Calculating-statistics]]
     * [[Writing style guide|Writing-style-guide]]
+    * [[Glossary of terms|Glossary-of-terms]]
     * [[Math explorations|Math-explorations]]
     * [[Playtesting explorations|Playtesting-explorations]]
     * [[Testing for Accessibility|Testing-for-Accessibility]]
