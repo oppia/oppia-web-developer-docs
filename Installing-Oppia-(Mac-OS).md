@@ -55,7 +55,7 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
 
 2. The `start.sh` script will start a development server at http://localhost:8181. (If this doesn't happen automatically, try navigating directly to http://localhost:8181 in a browser once stuff stops being printed to the terminal.) It should look something like this:
 
-  ![Image showing the default splash page.](images/defaultDevPage.png)
+  ![Image showing the default splash page.](https://res.cloudinary.com/dozmja9ir/image/upload/v1538254601/home_page.png)
 
   You can also view the App Engine admin console at http://localhost:8000.
 
