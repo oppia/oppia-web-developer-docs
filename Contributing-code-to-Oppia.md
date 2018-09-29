@@ -1,6 +1,6 @@
 *These instructions are for developers and designers who'd like to contribute code or design help to improve the Oppia platform. If you'd prefer to help out with other things, please see our [general contribution guidelines](https://github.com/oppia/oppia/wiki).*
 
-Thanks for your interest in improving the Oppia platform! This page explains how to get set up, how to find something to work on, and how to make a code change. If you run into any problems along the way, please file an issue on our [issue tracker](https://github.com/oppia/oppia/issues), or get help by posting to the [developers' mailing list](https://groups.google.com/forum/#!forum/oppia-dev). There are also lots of helpful resources in the [developer wiki](https://github.com/oppia/oppia/wiki) -- check out the sidebar!
+Thanks for your interest in improving the Oppia platform! This page explains how to get set up, how to find something to work on, and how to make a code change. If you run into any problems along the way, please file an issue on our [issue tracker](https://github.com/oppia/oppia/issues), or get help by posting to the [developers' mailing list](https://groups.google.com/forum/#!forum/oppia-dev). There are also lots of helpful resources in the sidebar, check that out too!
 
 Also, if you'd like to get familiar with Oppia from a user's point of view, you can take a look at the [user documentation](http://oppia.github.io/).
 
