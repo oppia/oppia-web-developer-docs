@@ -21,31 +21,6 @@ This diagram shows how the voice and tone characteristics are derived from Oppia
 5. **Avoid text based on physical direction.** To ensure UI text is accessible to those who may not be able to see the screen or page, try to avoid words like "below", "above", "here", etc. when instructing users. For example, instead of “Enter your account details below,” just use "Enter your account details".
 6. **Error messages = explanation + solution, that’s it.** Explain the problem in simple language, then tell the user how to fix it (or offer to fix it for them). A few tips: consider adding helpful links, don’t blame the user, avoid humor.
 
-## Glossary of terms
-
-_NB: This is a work in progress. Note that terms with asterisks need to be revisited in the future._
-
-- **Card*.** The primary component of an exploration. It consists of content and an interaction (where the content is text, images, videos, and other rich text components).
-- **Category/subject/topic.** A topic, subject, or interest that anyone can learn about on Oppia. Learners can choose from a list of categories on the home page.
-- **Collection.** A group of explorations.
-- **Community.** Anyone who teaches, learns, and contributes to any content on Oppia. Community members are respectful citizens whose main objective is to steward enriching learning opportunities.
-- **Contributor.** Anyone who pitches in content for an exploration/lesson. One way that Oppia is more of a collaborative learning space, in contrast to more traditional online learning platforms.
-- **Create.** To start an exploration/lesson in order to teach a topic
-- **Creator.** A person who starts an exploration or lesson, a creator takes on the teaching role in the learning environment.
-- **Exploration.** The fundamental unit of learning on Oppia. This is an interactive activity built by a creator, and consumed by a learner. 
-- **Gadget*.**
-- **Gallery.** The public-facing collection of all of the public explorations in Oppia
-- **Interaction*.** The interactive component of a card; this is the way a learner provides an answer in Oppia.
-- **Learner.** A user who engages in an exploration or lesson.
-- **Response.** Feedback and/or a new card that the learner is directed to based on their answer. A response can’t be empty; if a response doesn’t direct the learner to a new card, then feedback must be provided.
-- **Rule.** A condition that triggers a response. Different interactions have different rule options. Multiple rules can be grouped together in a single answer group.
-- **Subject.** A primary label that is used when searching for explorations in the gallery. 
-- **Tags.** Additional labels that can be added to an exploration in order to make it more findable in the gallery.
-
-### Words not to use
-- **State.** The old name for a card.
-- **Widget.** The old name for a question.
-
 ## Punctuation
 - **Ampersand (&).** Use ampersand (&) in headlines on the site when referencing two items (i.e. ' Snacks & drinks' ). In a list of three or more items, spell out ' and'  (i.e. ' Snacks, drinks, and more' ). 
 - **Asterisks.** Use before superscript numerals to disclaim a statement. Place asterisk at end of sentence or phrase unless legal deems otherwise. Place asterisks outside punctuation: Get free delivery on orders over $15.*
