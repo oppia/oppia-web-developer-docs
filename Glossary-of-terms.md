@@ -1,5 +1,3 @@
-## Glossary of terms
-
 - **Card.** The primary component of an exploration. It consists of content and an interaction (where the content is text, images, videos, and other rich text components).
 - **Category/Subject.** A category or subject that anyone can learn about on Oppia. Learners can choose from a list of categories on the home page.
 - **Collection.** A group of explorations.
