@@ -38,7 +38,6 @@ That said, we strongly recommend that you be open to learning new things. If you
 Welcome! Please make sure to follow the [setup instructions](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up) above if you haven't already. After that, we'd **strongly recommend** tackling some part of one of the following starter issues:
 - [#4374](https://github.com/oppia/oppia/issues/4374) (writing backend docstring)
 - [#5134](https://github.com/oppia/oppia/issues/5134) (backend)
-- [#3826](https://github.com/oppia/oppia/issues/3826) (frontend)
 - [#3950](https://github.com/oppia/oppia/issues/3950) (frontend)
 - [#4057](https://github.com/oppia/oppia/issues/4057) (frontend; Karma tests)
 - [#5002](https://github.com/oppia/oppia/issues/5002) (full stack; removing GLOBALS from html)
