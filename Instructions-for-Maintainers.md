@@ -75,22 +75,12 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 ## Maintainer Rota
 
 ```
-16 Jul - 22 Jul   Anmol         @anmolshkl
-23 Jul - 29 Jul   Pranav        @pranavsid98
-30 Jul -  5 Aug   Yogesh        @1995YogeshSharma
- 6 Aug - 12 Aug   Apurv         @apb7
-13 Aug - 19 Aug   Tony          @tjiang11
-20 Aug - 26 Aug   Kevin         @kevinlee12
-27 Aug -  2 Sep   Sandeep       @DubeySandeep
- 3 Sep -  9 Sep   Jacob         @jacobdavis11
-10 Sep - 16 Sep   Allan         @AllanYangZhou
-
 17 Sep - 23 Sep   Anmol         @anmolshkl
 24 Sep - 30 Sep   Yogesh        @1995YogeshSharma
  1 Oct -  7 Oct   Kevin         @kevinlee12
  8 Oct - 14 Oct   Apurv         @apb7
 15 Oct - 21 Oct   Tony          @tjiang11
-22 Oct - 28 Oct   Pranav        @pranavsid98
+22 Oct - 28 Oct   Nithesh       @nithusha21
 29 Oct -  4 Nov   Jacob         @jacobdavis11
  5 Nov - 11 Nov   Sandeep       @DubeySandeep
 12 Nov - 18 Nov   Allan         @AllanYangZhou
@@ -98,7 +88,7 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 19 Nov - 25 Nov   Anmol         @anmolshkl
 26 Nov -  2 Dec   Apurv         @apb7
  3 Dec -  9 Dec   Tony          @tjiang11
-10 Dec - 16 Dec   Pranav        @pranavsid98
+10 Dec - 16 Dec   Nithesh       @nithusha21
 17 Dec - 23 Dec   Jacob         @jacobdavis11
 24 Dec - 30 Dec   Yogesh        @1995YogeshSharma
 ```
@@ -122,15 +112,15 @@ Allan        Rich-text editor, suggestions
 Anmol        Machine learning
 Arunabh      Subscriptions, learner dashboard
 Ben          Migrations, StackDriver errors
+Brian        Exploration statistics tab
 Jacob        Metrics
 Joe          Oppia's blog
 Kevin L      Embedding, collection editor, library index page
 Kevin T      Hints and solutions
 Mark         General UI design, mathematics lessons
-Pranav       Exploration statistics tab
 Prasanna     Emails, machine learning
 Rachel       User research
-Shubha       Starter projects, frontend refactoring
+Sandeep      Starter projects
 Tony         Learner view (both collections and explorations)
 Vojtěch      Speed
 Yogesh       Backend stuff, ACLs
