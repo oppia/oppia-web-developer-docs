@@ -1,6 +1,10 @@
 This page is meant as a handy reference for some basic Git commands.
 
-1. After making a local clone of Oppia, you can change code in your local `oppia/` directory. Git will track these changes. At any time, you can check what git thinks has been changed using:
+1. Add a remote to link your local copy of the repository (cloned from your fork) to the main Oppia repository. Required for all the 'upstream' based commands below.
+  ```
+     $ git remote add upstream https://github.com/oppia/oppia.git
+  ```
+2. After making a local clone of Oppia, you can change code in your local `oppia/` directory. Git will track these changes. At any time, you can check what git thinks has been changed using:
   
   ```
      $ git status
@@ -12,21 +16,21 @@ This page is meant as a handy reference for some basic Git commands.
      $ git diff
   ```
 
-2. To sync your local code with the latest updates from the GitHub repo, run:
+3. To sync your local code with the latest updates from the GitHub repo, run:
 
   ```
     $ git fetch upstream
     $ git merge upstream/develop
   ```
 
-3. To download a branch someone else created:
+4. To download a branch someone else created:
 
   ```
      $ git checkout -b {{branch-name}}
      $ git pull https://github.com/{{their-repo-name}}/oppia.git {{branch-name}}
   ```
 
-4. To create a patch:
+5. To create a patch:
 
   ```
      $ git checkout {{branch-to-patch-from}}
@@ -35,14 +39,14 @@ This page is meant as a handy reference for some basic Git commands.
   
   This should create a file with the extension .patch. The name should include part of the commit message from the change it is patching. You may need to move this file outside `oppia/` so that it won't disappear when you switch branches.
 
-5. To apply a patch:
+6. To apply a patch:
 
   ```
      $ git checkout {{branch-to-patch-to}}
      $ git apply {{patch-file-name}}
   ```
 
-6. To squash the last three commits into a single one:
+7. To squash the last three commits into a single one:
 
   ```
     git reset --soft HEAD~3 &&
