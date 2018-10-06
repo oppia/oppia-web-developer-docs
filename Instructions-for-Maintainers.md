@@ -9,8 +9,6 @@
   - Make sure all incoming issues/PRs are triaged and labelled. Assign incoming PRs to the owners of the issue that's being fixed by the PR.
   - Welcome and help out new contributors (e.g. on gitter).
   - Do code reviews for simple incoming PRs.
-  - If you see a flaky e2e test fail in a PR, please tag **@apb7**.
-  - Help with release testing, if needed.
 - **After your shift**:
   - Pass the baton to the next maintainer. In doing so, confirm that:
     - All issues have labels applied to them (i.e. [this list](https://github.com/oppia/oppia/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20-label%3A%22devflow%22%20-label%3A%22backend%22%20-label%3A%22frontend%22%20-label%3A%22full-stack%22%20-label%3A%22TODO%3A%20triage%22%20) should be empty).
