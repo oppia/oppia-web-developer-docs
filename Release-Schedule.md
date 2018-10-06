@@ -16,7 +16,7 @@ Features merged into `develop` after this date will only go out in the following
 1. When the PR has been cherry-picked onto the release branch, apply the label [PR: released](https://github.com/oppia/oppia/labels/PR%3A%20released). (The release coordinator will do this step.)
 
 # Responsibilities of the release testing team
-The release testing team focusses mainly on 2 types of testing. One is to make sure that the core functionality of Oppia is intact (called Happy-paths testing) and the other is to make sure the newly added functionality works fine (testing the PRs added in the current release). 
+The release testing team focuses mainly on 2 types of testing. One is to make sure that the core functionality of Oppia is intact (called Happy-paths testing) and the other is to make sure the newly added functionality works fine (testing the PRs added in the current release). 
 
 During the first week of the month the QA lead will send out a mail to the release testers for the month asking for their confirmation of participation. After confirmation, the QA lead will assign tasks to each of the testers before the first Saturday (when the release cut is made) so that the testing can begin on time. 
 
@@ -27,6 +27,6 @@ The testers have to be in constant touch with both the QA lead as well as the re
 # Release coordinators and QA coordinators for upcoming releases
 * Aug: Ben(@BenHenning) and Akshay(@aks681)
 * Sep: Tony(@tjiang) and Nithesh(@nithusha21)
-* Oct: Sean(@seanlip) and Nitish(@bansalnitish)
-* Nov: Ben(@BenHenning) and Akshay(@aks681)
-* Dec: Tony(@tjiang) and Nithesh(@nithusha21)
+* Oct: Sean(@seanlip) and Akshay(@aks681)
+* Nov: Ben(@BenHenning) and Nithesh(@nithusha21)
+* Dec: Tony(@tjiang) and Nitish(@bansalnitish)
