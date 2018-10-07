@@ -54,7 +54,6 @@
   * Deploying Oppia
     * [[Migration Instructions|Migration-Instructions]]
   * Playbooks
-    * [[Instructions for Welcomers|Instructions-for-Welcomers]]
     * [[Instructions for Reviewers|Instructions-for-Reviewers]]
     * [[Instructions for Maintainers|Instructions-for-Maintainers]]
     * [[Instructions for making changes to roles and actions|Instructions-for-editing-roles-or-actions]]
