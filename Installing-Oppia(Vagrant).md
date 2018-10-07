@@ -1,6 +1,6 @@
 _Note: if you're developing Oppia using Vagrant, please consider signing up to the [oppia-vagrant@](https://groups.google.com/forum/#!forum/oppia-vagrant) mailing list. Fellow Vagrant users may be able to help you out, and vice versa._
 
-_Note: The instructions on this page were last tested by @dawsoneliasen on 7/29/2018 on Windows 10, and they worked successfully. That said, setting up Vagrant can be **complicated**, and we recommend direct installation of Oppia on [Linux](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Linux%29) or [Mac OS](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Mac-OS%29) instead if you're able to do so._
+_Note: The instructions on this page were last tested by @dawsoneliasen on 7/29/2018 on Windows 10, and they worked successfully. That said, setting up Vagrant can be **complicated**, and we recommend direct installation of Oppia on [Linux](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Linux%29) or [Mac OS](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Mac-OS%29) instead if you're able to do so (or possibly installing the [Ubuntu terminal](https://tutorials.ubuntu.com/tutorial/tutorial-ubuntu-on-windows#0) if you're on Windows 10)._
 
 *For information on issues that may occasionally arise with the installation process, please see the [Troubleshooting](https://github.com/oppia/oppia/wiki/Troubleshooting) page.*
 
