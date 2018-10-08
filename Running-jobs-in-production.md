@@ -9,6 +9,18 @@ If your job is not essential for the release and has not been fully tested by th
 
 ## Instructions
 
+### Writing your job
+
+All jobs must adhere to the following requirements before they can be run on the test server:
+- In the "success" case, the job should yield aggregate output (like the total number of files migrated).
+- In all possible "failure" cases, the job should yield debug/error output (like the ID of an exploration that couldn't be migrated and the reason why).
+- There must be automated backend tests in the codebase for both the success and failure cases.
+- There should be a Google Doc with clear instructions on what the release coordinator needs to do, including:
+  - Additional steps that need to be taken in order to verify whether the job has succeeded or failed (such as manual testing, runs of validation jobs, inspection of datastore, checks of error logs, checks of job output, etc.)
+  - The expected job output for both the pass/fail cases
+  - What the release coordinator should do with any output produced by the job
+  - What the release coordinator should do if the job run fails midway, both in terms of how to recover from the run (e.g. by running a job to delete all instances of a newly-created model class, etc.) and how to debug the job (e.g. do other jobs need to be run to provide additional information, is there error output that can be manually investigated, etc.)
+
 ### Running your job on the test server
 
 In order to test a job, please submit a request using [this form](https://goo.gl/forms/XIj00RJ2h5L55XzU2). Before submitting a testing request, please ensure that the job has already been tested manually on your local machine, passed code review, and been merged into develop.
