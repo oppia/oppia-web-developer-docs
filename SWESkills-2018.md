@@ -36,11 +36,11 @@ All code for the relevant project should pass review and be merged into the main
 ## List of starter projects
 
 - [Designing and selecting proper icons for audio bar in the translation tab.](https://github.com/oppia/oppia/issues/5745)
-- Animating state content height while the height changes dynamically changes the height. 
+- [Animating state content height while the height changes dynamically changes the height.](https://github.com/oppia/oppia/issues/5747) 
 - [Replace proper text for latex symbols in autogen audio (Fraction, Power etc.)](https://github.com/oppia/oppia/issues/5303)
 - [Provide a numerical status at the end of the progress bar.](https://github.com/oppia/oppia/issues/5729)
-- Add saving log in the audio bar while saving is in progress.
-- [https://github.com/oppia/oppia/issues/5310](https://github.com/oppia/oppia/issues/5310)
+- [Add saving log in the audio bar while saving is in progress.](https://github.com/oppia/oppia/issues/5746)
+- [Create a python script that does a size check for third_party.](https://github.com/oppia/oppia/issues/5310)
 - [Other starter projects](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#finding-something-to-do)
 
 _Note: These are just suggestions. Feel free to pick any issue on GitHub as well! These starter issues are intended to help you get familiar with the codebase and development workflow, so feel free to do more than one if you like._
@@ -266,7 +266,7 @@ _Note: The ENABLE_NEW_STRUCTURES flag in constants.js has to be set to true to a
 ***
 ### Project 10: Translation tab accessibility and analytics
 
-**Aim**: The aim of this project is to make the new translation tab more accessible and make easier to use and at the same time record the use case.
+**Aim**: Oppia has introduced a new translation tab for exploration translators last month, this was made to ease the process of translating an exploration, currently the translation tab is in working condition but it lacks accessibility feature and now as the translation tab is released and the community is aware about this new translation tab it would be great to make it more accessible and analyze the use case of translation tab. The aim of this project is to make the new translation tab more accessible and make easier to use in translation process. 
 
 **Team**: Audio translations (mentor: **@DubeySandeep**)
 
@@ -278,7 +278,8 @@ _Note: The ENABLE_NEW_STRUCTURES flag in constants.js has to be set to true to a
 
 **Helpful resources**:
 - [Learn ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA)
-- [Video tutorial](https://www.youtube.com/watch?v=cOmehxAU_4s) on auditing accessibility. 
+- [Video tutorial](https://www.youtube.com/watch?v=cOmehxAU_4s) on auditing accessibility.
+- [A11ycast tutorial playlist](https://www.youtube.com/watch?v=Ag3DMNbL_ig&list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g) to learn more about accessibility testing. 
 
 **Suggested milestones**
 1. [Small] Add google analytics for usage of translation tab. Currently we use to record use case of oppia features through google analytics which can be found on SiteAnalyticsService.js, through this milestone we want to cover the use case of translation tab features.
