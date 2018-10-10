@@ -1,20 +1,19 @@
-# SWESkills 2018
-
 ## Table Of Contents
 * [Introduction](#introduction)
 * [Structure of the Program](#structure-of-the-program)
 * [List of Starter Projects](#list-of-starter-projects)
 * [Some Useful Links](#some-useful-links)
-* [Project 1](#project-1)
-* [Project 2](#project-1)
-* [Project 3](#project-1)
-* [Project 4](#project-1)
-* [Project 5](#project-1)
-* [Project 6](#project-1)
-* [Project 7](#project-1)
-* [Project 8](#project-1)
-* [Project 9](#project-1)
-* [Project 10](#project-1)
+* [Project List](#project-list)
+  * [Project 1](#project-1-takeout-functionality)
+  * [Project 2](#project-2-translation-tab-tests)
+  * [Project 3](#project-3-implement-practice-sessions)
+  * [Project 4](#project-4-add-linked-questions-section-to-skill-editor)
+  * [Project 5](#project-5-introduce-issues-tab)
+  * [Project 6](#project-6-strengthen-presubmit-checks)
+  * [Project 7](#project-7-strengthen-python-and-css-lint-checks)
+  * [Project 8](#project-8-building-a-contributor-dashboard)
+  * [Project 9](#project-9--implement-role-based-art-contributions-for-explorations)
+  * [Project 10](#project-10-translation-tab-accessibility-and-analytics)
 
 ## Introduction
 
@@ -63,6 +62,8 @@ _Bash_ [Introduction](http://cs.lmu.edu/~ray/notes/bash/)
 
 ### Project List
 
+**Please note: These are still being worked on, and are not final yet.**
+
 ### Project 1: Takeout functionality
 
 **Aim**: Being a good steward of user data includes providing easy and effective pathways for users to explore the data Oppia has stored in their Oppia profile. This project involves implementing the infrastructure, backend support, and frontend UIs needed for users to download user data associated with their profile from Oppia in a machine-readable format, and to provide an established pattern for exporting future user data.
@@ -103,15 +104,15 @@ _Bash_ [Introduction](http://cs.lmu.edu/~ray/notes/bash/)
 
 **Suggested milestones**:
 1. [Small] Add e2e test for translation tab (Part-1). Currently the e2e test coverage for the translation tab is very less and most of the functionality aren’t covered through this milestone we are expecting to cover the given below functionality:
-  - Uploading translated audio.
-  - Check status color for each state in map view.
+    - Uploading translated audio.
+    - Check status color for each state in map view.
 2. [Small] Add e2e test for translation tab (Part-2). In this milestone cover the remaining part of the e2e test:
-  - Check components statuts for a state.
-  - Check the progress bar.
+    - Check components statuts for a state.
+    - Check the progress bar.
 3. [Medium] Cleanup backend tests. Currently once a developer adds feedback, hints & solution while writing backend tests they have to manually add content_id to those components and also add the same content id in the content_ids_to_audio_translations dict., through this milestone we are expecting to make this process automated. The expected workflow is mentioned in the points below:
-  - Create a function to add feedback in the State object.
-  - Make add_hint, add_feedback, add_solution handle content_id and add them directly to the contents_ids_to_audio_translations.
-  - Cleanup the testfile in the codebase everywhere possible.
+    - Create a function to add feedback in the State object.
+    - Make add_hint, add_feedback, add_solution handle content_id and add them directly to the contents_ids_to_audio_translations.
+    - Clean up the test files in the codebase everywhere possible.
 
 ***
 
@@ -170,16 +171,16 @@ _Note: The ENABLE_NEW_STRUCTURES flag in constants.js has to be set to true to a
 
 **Suggested milestones**
 1. [Small] Implement the empty Issues Tab page.
-  - The page will be an empty HTML layout, with a supporting (but empty) directive.
-  - This page will be hidden by a config flag. It should only be visible to creators when that flag is on.
-  - Unit tests for the directive and flag’s behavior.
+    - The page will be an empty HTML layout, with a supporting (but empty) directive.
+    - This page will be hidden by a config flag. It should only be visible to creators when that flag is on.
+    - Unit tests for the directive and flag’s behavior.
 2. [Small] Expose Feedback Data through an API.
-  - There will be a JSON schema we’d like you to follow. Your job will be adding data to the schema appropriately, and implementing a function which returns the list of feedback items.
-  - Unit tests to make sure behavior works as expected (we will provide the list of desired behavior).
+    - There will be a JSON schema we’d like you to follow. Your job will be adding data to the schema appropriately, and implementing a function which returns the list of feedback items.
+    - Unit tests to make sure behavior works as expected (we will provide the list of desired behavior).
 3. [Medium] Render and Implement the Feedback Card.
-  - This card will be taking the JSON object prepared in step 2 and displaying it to the users. We have a mock already of the card, so you will need to implement the HTML/CSS to mirror that mock.
-  - The card should contain an “archive” button, which when pressed, removes that particular item from the list created in step 2 (consequently updating the list we show to users)
-  - Behavior tests which you will decide on and implement.
+    - This card will be taking the JSON object prepared in step 2 and displaying it to the users. We have a mock already of the card, so you will need to implement the HTML/CSS to mirror that mock.
+    - The card should contain an “archive” button, which when pressed, removes that particular item from the list created in step 2 (consequently updating the list we show to users)
+    - Behavior tests which you will decide on and implement.
 
 ***
 ### Project 6: Strengthen presubmit checks
@@ -199,8 +200,8 @@ _Note: The ENABLE_NEW_STRUCTURES flag in constants.js has to be set to true to a
 1. [Small] https://github.com/oppia/oppia/issues/5310 -- create a python script that does a size check for third_party
 2. [Small] https://github.com/oppia/oppia/issues/5426 -- have a lint check to ensure that each Angular file contains exactly one service/directive/etc.
 3. [Medium] https://github.com/oppia/oppia/issues/5069 -- remove $parent from HTML files. This involves two parts:
-  - Remove all $parent from html files without breaking anything -- this will require manual testing and a good understanding of the code base. At the moment, we have 50 occurrences of $parent in 16 html files.
-  - Add a check in the pre-commit script for this, similar to the one we have for js files.
+    - Remove all $parent from html files without breaking anything -- this will require manual testing and a good understanding of the code base. At the moment, we have 50 occurrences of $parent in 16 html files.
+    - Add a check in the pre-commit script for this, similar to the one we have for js files.
 
 ***
 ### Project 7: Strengthen Python and CSS lint checks
@@ -240,9 +241,9 @@ _Note: The ENABLE_NEW_STRUCTURES flag in constants.js has to be set to true to a
 1. [Small] Implement the backend changes required to move an exploration into a state where it is searchable in the contributor dashboard. This would involve creating a model which records which explorations are in this state, functions to move explorations into and out of this state. Also, a function should be written that gets statistics of existing placeholders, missing translation count, and other details to be displayed to an incoming contributor.
 2. [Small] In the above model that tracks explorations in the newly created state, we should add all the tags associated with the exploration to aid searching in the contributor dashboard. The tags maybe something like "images", "translations", "update hints", or similar. Write a cron job that populates these tags on all the entries in the model. Write controllers to access data corresponding to the contributor dashboard.
 3. [Medium] The following tasks are to be completed
-  - Make the frontend for the contributor dashboard (this is the view that displays all the issues). 
-  - A search bar or a set of filters would need to be implemented. This is to enable a translator to easily find which lesson has requests for translations, or a designer to easily find lessons requiring images, and so on. The contributor dashboard must contain filters to narrow down the search for a contributor.
-  - On selecting a particular lesson, the relevant details for that lesson must be fetched from the backend created in tasks 1 and 2. Design an appropriate view that displays these details to a contributor, and also provides an easy pathway for the contributor to create a suggestion.
+    - Make the frontend for the contributor dashboard (this is the view that displays all the issues). 
+    - A search bar or a set of filters would need to be implemented. This is to enable a translator to easily find which lesson has requests for translations, or a designer to easily find lessons requiring images, and so on. The contributor dashboard must contain filters to narrow down the search for a contributor.
+    - On selecting a particular lesson, the relevant details for that lesson must be fetched from the backend created in tasks 1 and 2. Design an appropriate view that displays these details to a contributor, and also provides an easy pathway for the contributor to create a suggestion.
 
 ***
 ### Project 9:  Implement role-based art contributions (for explorations)
@@ -283,7 +284,7 @@ _Note: The ENABLE_NEW_STRUCTURES flag in constants.js has to be set to true to a
 1. [Small] Add google analytics for usage of translation tab. Currently we use to record use case of oppia features through google analytics which can be found on SiteAnalyticsService.js, through this milestone we want to cover the use case of translation tab features.
 2. [Small] Add keyboard shortcuts for "start" and "stop" recording. It would be great to have shortcut functionality for our recording feature, like keyboard shortcut to start and stop recording. 
 3. [Medium] Accessibility audit of translation tab. Do a accessibility audit on translation tab and make the changes as such required to fix the accessibility issues. Auditing can be done through following ways:
-  - Tabbing through translation tab.
-  - Running "audit" for accessibility test from devtools. 
+    - Tabbing through translation tab.
+    - Running "audit" for accessibility test from devtools. 
 
 ***
