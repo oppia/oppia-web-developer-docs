@@ -14,11 +14,11 @@ Here is a list of terms that we’ll be using to describe the various parts of l
 <h2>High-Level Process Flow</h2>
 This is the high-level process of how a lesson is created. When you complete each step, a senior reviewer on the team will work with you to review and finalize the work. Click on each item below to view the guideline and detail of each process:
 <ol>
-<li>Create the Math Skill Tree</li> 
-<li>Develop a Story Outline</li>
-<li>Build out the Skill Table - Errors, Remediation, Sample Questions, Development of the topic</li>
-<li>Create the Script</li>
-<li>Graphics and Implementation</li>
+<li><a href="#Skill">Create the Math Skill Tree</a></li> 
+<li><a href="#Story">Develop a Story Outline</a></li>
+<li><a href="#Table">Build out the Skill Table - Errors, Remediation, Sample Questions, Development of the topic</a></li>
+<li><a href="#Script">Create the Script</a></li>
+<li><a href="#Graphics">Graphics and Implementation</a></li>
 </ol>
 
 <h3>Key Contacts</h3>
@@ -29,7 +29,7 @@ For each lesson you create, you will be assigned a lesson coordinator who is the
 <li>Sean Lip (sean@seanlip.org), Math Content Advisor/Reviewer</li>
 </ul>
 
-<h2>Skill Tree</h2>
+<h2 id="Skill">Skill Tree</h2>
 <p>The most basic unit of an Oppia lesson is the skill. A skill is a concrete learning outcome that describes something that a learner should be able to do. It is usually stated in the form “Given X, compute/calculate/draw/etc. Y.” For example: “Given a fraction, identify its numerator.”
 </p>
 <p>
@@ -54,11 +54,77 @@ In this stage, the creator is advised to breakdown the topic into as many concre
 </ul>
 <b>Samples:</b>
 <ul>
-<li>Fractions: https://docs.google.com/document/d/1VgMugLebqK-8c0nS80BBuQ4Fw49X0oZpU2krD-y2B0U/edit?usp=sharing</li> 
-<li>Place Values (page 1): https://docs.google.com/document/d/1AJ9l5rL-wPwiePYXhBZwreOz8piQ4Ur-KFj1KPCIPvg/edit?usp=sharing</li> 
+<li><a href="https://docs.google.com/document/d/1VgMugLebqK-8c0nS80BBuQ4Fw49X0oZpU2krD-y2B0U/edit?usp=sharing">Fractions </a></li> 
+<li><a href="https://docs.google.com/document/d/1AJ9l5rL-wPwiePYXhBZwreOz8piQ4Ur-KFj1KPCIPvg/edit?usp=sharing">Place Values (page 1) </a></li> 
 </ul>
-<h2>Story Outline Development</h2>
+<h2 id="Story">Story Outline Development</h2>
 <p>The story component is what makes Oppia lessons so effective. Stories help learners stay engaged - learners relate to the characters and realize the important role that math can play in their lives.</p> 
 
 <p>Usually, a topic will have one story that spans across different lessons. In this stage, you are drafting the high-level story for each lesson.</p>
 <b>Format:</b>
+<ul>
+<li>A brief overview of the characters, settings, and premise</li> 
+<li>1 - 2 paragraph describing what happens in each lesson</li> 
+</ul>
+<b>Inspiration:</b>
+<p>One way to figure out a story idea is to determine a specific and relevant action that best demonstrates the concept being taught, e.g. cutting up a cake to demonstrate fractions. This action can then be extended into a story idea that describes what is happening, story-wise, in each exploration.</p>
+
+<p>If you need help coming up with an idea, speak to your lesson coordinator. He or she will also help you schedule a call with Mark Halpin (markhalpin3@gmail.com) who is the Story Content Advisor/Reviewer.</p>
+<b>Tips:</b>
+<ul>
+<li>Try to empathize with the learner who is taking your lesson - what do you think they’ll care about? Do you think they will be able to relate with your characters?</li>
+<li>Use possible mathematical fallacies or misconceptions to your advantage - these are areas where you can add a little bit of peril to your protagonist’s adventure</li>
+<li>Learners should have a tangible feeling of satisfaction/accomplishment at the end of each lesson, by virtue of having done/solved something worthwhile.</li>
+<li>Keep the setting and premise relatively simple- ultimately, your lesson will be mainly driven by the math, so we want just enough story to keep the students engaged.</li>
+</ul> 
+<b>Samples:</b>
+<ul>
+<li><a href="https://docs.google.com/document/d/1EWUXEOqk490T6SRR4kbOFL4se3Vzq9ou5PLqE6TN_w8/edit?usp=sharing">Fractions</a></li>
+<li><a href="https://docs.google.com/document/d/1AJ9l5rL-wPwiePYXhBZwreOz8piQ4Ur-KFj1KPCIPvg/edit?usp=sharing">Place values (Storyline section)</a></li>
+</ul>
+<h2 id="Table">Skill Table</h2>
+Developing the Skill Table is the stage that will help you organize and further elaborate the math skills you have prepared in the previous steps. It is also the first stage in where you will begin thinking about how your story outline ties to each math skill
+<b>Format:</b>
+<ul>
+<li>Table Format that consists of the following columns:<ul>
+<li>Skill - these are the same skills that were listed in the Skill Tree. The skills are listed in the order that they would be presented in the actual lesson.</li>
+<li>Specific Errors - This column lists out the common mistakes or misconceptions learners make when dealing with specific skills.</li>
+<li>Remediation - This column lists out how the lesson would help learners address the misconceptions</li>
+<li>Sample Questions - List the question that can be used to test the student’s comprehension of the skill</li>
+<li>Development of the Topic - this is the precursor to your script. It outlines how you plan to approach the topic and introduce it to the student. This includes a mix of math and story.</li></ul>
+</ul>
+<b>Tips:</b>
+<ul>
+<li>Start with a target question in mind and work backwards to determine what skills the students need and where the pitfalls are. Work the problem step-by-step. It is likely that those intermediate steps reflect critical skills.</li>
+</ul>
+<b>Samples:</b>
+<ul><li><a href="https://docs.google.com/document/d/1AJ9l5rL-wPwiePYXhBZwreOz8piQ4Ur-KFj1KPCIPvg/edit">Place values (See the tables)</a></li></ul>
+
+<h2 id="Script">Script Writing</h2>
+<p>The Script Writing is the stage that combines the work you did in the Skill Table with your Story Outline.</p> 
+
+<p>In the stage, you are drafting what the final product of your lesson would look like on the Oppia site. This means that you will specify the exact dialogue, graphic requirements, card interaction, and question type for your topic.The flow of your script should close follow the “Development of the topic” column in the Skill Table.</p>
+
+<b>Format:</b>
+<ul>
+<li>Named cards that specify the exact dialogue, graphic requirements, card interaction, and question type.</li>
+<li>Please see the full style guide in Section 3 of this document (we probably need to pull this out to a new doc): <a href="https://docs.google.com/document/d/19_zpqlqM9DrA7E9hSLDiXFqk3RhZ0AHsfVlPivEM5a4/edit#">Click here</a></li>
+</ul>
+
+<b>Tips</b>
+<ul>
+<li>Do follow the style guide carefully - it will help our graphic designers and it will help you implement the lessons.</li>
+<li>Don’t get too carried away by the dialogue - keep it engaging, concise, and close to the math content</li>
+<li>Make sure your writing style can be easily understood by the target audience. Humor is good, but universal humor as opposed to puns or word play is even better.</li>
+</ul>
+<b>Samples</b>
+<ul>
+<li><a href="https://docs.google.com/document/d/1P_Qx0O3Hq1kUoJ3-hgvL5Ntgy-B2FuwaG_fVBeoZQc8/edit?usp=sharing">Ratio lesson 1</a></li>
+</ul>
+
+<h2 id="Graphics">Graphics And Implementation</h2>
+<p>The Implementation Stage is where you take the details you wrote out in the script phase and put it into the Oppia platform. The migration of the script to the platform will be verbatim. Additionally, you will be paired with a graphics designer who will help create the graphics in your script.</p>
+<b>Format</b>
+<ul>
+<li>Oppia Platform</li>
+</ul>
