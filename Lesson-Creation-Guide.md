@@ -5,7 +5,7 @@ As a lesson creator with Oppia, you will be creating content that will be delive
 Here is a list of terms that we’ll be using to describe the various parts of lessons:
 * <b>Topic</b> - A topic, like Fractions, consists of one or more stories. Sometimes, more than one story may be needed to teach a topic fully.
 * <b>Story</b> - A story is a group of explorations, and is the new name we’ll be giving to what are currently called “collections”. Each exploration in the same story follows the same story arc and shares the same setting/characters.
-* <b>Exploration</b> **- This is a structured learning experience that is part of a story, and provides the learner with an active way to learn new concepts, as well as targeted feedback. It is the core unit of learning in Oppia.
+* <b>Exploration</b> - This is a structured learning experience that is part of a story, and provides the learner with an active way to learn new concepts, as well as targeted feedback. It is the core unit of learning in Oppia.
 * <b>Skill</b> - This is a concrete learning outcome that describes something that a learner should be able to do. It is usually stated in the form “Given X, compute/calculate/draw/etc. Y.” For example: “Given a fraction, identify its numerator.”
 * <b>Concept Explanation</b> - This is a non-story-based explanation of how to perform a particular skill. It serves as a reference/reminder for students who may have encountered the skill before but forgotten how to carry it out.
 * <b>Misconceptions</b> - This is a list of misconceptions that students often have about a particular skill. It is used by exploration authors to ensure that questions have a sufficient amount of targeted feedback.
