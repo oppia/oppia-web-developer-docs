@@ -5,7 +5,7 @@
     * [[UX researchers|Conducting-research-with-students]]
     * [[Designers and artists|Contributing-to-Oppia's-design]]
     * [[Hacktoberfest 2018|Hacktoberfest-2018]]
-    * [[Create a Lesson!|Hacktoberfest-2018]]
+    * [[Create a Lesson!|https://github.com/oppia/oppia/wiki/Lesson-Creation-Guide]]
   * **[[Good first issues|https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22]]**
   * Developing Oppia
     * [[FAQs|Frequently-Asked-Questions]]
