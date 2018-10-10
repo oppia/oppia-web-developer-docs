@@ -2,10 +2,11 @@
   * **[[Get involved!|Home]]**
     * [Coders](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up)
     * [[Instructional designers|Teaching-with-Oppia]]
+      * [[Create a Lesson!|https://github.com/oppia/oppia/wiki/Lesson-Creation-Guide]]
     * [[UX researchers|Conducting-research-with-students]]
     * [[Designers and artists|Contributing-to-Oppia's-design]]
     * [[Hacktoberfest 2018|Hacktoberfest-2018]]
-    * [[Create a Lesson!|https://github.com/oppia/oppia/wiki/Lesson-Creation-Guide]]
+    * [[SWESkills 2018|SWESkills-2018]]
   * **[[Good first issues|https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22]]**
   * Developing Oppia
     * [[FAQs|Frequently-Asked-Questions]]
