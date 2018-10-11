@@ -197,7 +197,7 @@ _Note: The ENABLE_NEW_STRUCTURES flag in constants.js has to be set to true to a
 - Python
 
 **Suggested milestones**
-1. [Small] **TBD** -- it will be a suitable issue in the [Dev Workflow project](https://github.com/oppia/oppia/projects/23).
+1. [Small] https://github.com/oppia/oppia/issues/5420 -- parse .travis.yml to ensure consistency between the two lists of variables.
 2. [Small] https://github.com/oppia/oppia/issues/5426 -- have a lint check to ensure that each Angular file contains exactly one service/directive/etc.
 3. [Medium] https://github.com/oppia/oppia/issues/5069 -- remove $parent from HTML files. This involves two parts:
     - Remove all occurrences of $parent from html files without breaking anything -- this will require manual testing and a good understanding of the code base. At the moment, we have 50 occurrences of $parent in 16 html files.
@@ -225,7 +225,7 @@ _Note: The ENABLE_NEW_STRUCTURES flag in constants.js has to be set to true to a
 ***
 ### Project 8: Building a contributor dashboard
 
-**Aim**: For the community to help out in creating lessons effectively, there needs to be some mechanism which creators can use to communicate their requirements to contributors. The current idea is to enable creators to display their lessons on a contributor dashboard. When a contributor accesses this lesson, items that require contributions should be highlighted. This includes open image requests, open translation requests, requests to improve hints/solutions, etc. No, when a contributor visits this dashboard, they should be able to easily identify something of interest and start helping with it. This can be done using search options/filters for the open requests.
+**Aim**: For the community to help out in creating lessons effectively, there needs to be a way for creators to communicate their requirements to contributors. The current idea is to enable creators to display their lessons on a contributor dashboard. When a contributor accesses this lesson, items that require contributions should be highlighted. This includes open image requests, open translation requests, requests to improve hints/solutions, etc. No, when a contributor visits this dashboard, they should be able to easily identify something of interest and start helping with it. This can be done using search options/filters for the open requests.
 
 **Team**: Community Contributions (mentor: **@nithusha21**)
 
@@ -238,17 +238,17 @@ _Note: The ENABLE_NEW_STRUCTURES flag in constants.js has to be set to true to a
 
 
 **Suggested milestones**
-1. [Small] Implement the backend changes required to move an exploration into a state where it is searchable in the contributor dashboard. This would involve creating a model which records which explorations are in this state, functions to move explorations into and out of this state. Also, a function should be written that gets statistics of existing placeholders, missing translation count, and other details to be displayed to an incoming contributor.
-2. [Small] In the above model that tracks explorations in the newly created state, we should add all the tags associated with the exploration to aid searching in the contributor dashboard. The tags maybe something like "images", "translations", "update hints", or similar. Write a cron job that populates these tags on all the entries in the model. Write controllers to access data corresponding to the contributor dashboard.
+1. [Small] Implement the backend changes required to make it possible for certain explorations to be searchable in the contributor dashboard. This would involve creating a model which records which explorations are in this state, and functions to move explorations into and out of this state. Also, a function should be written that gets statistics of existing placeholders, missing translation count, and other details to be displayed to an incoming contributor.
+2. [Small] In the above model that tracks explorations in the newly created state, we should add all the tags associated with the exploration to aid searching in the contributor dashboard. The tags may include things like "images", "translations", "update hints", or similar. Write a cron job that populates these tags on all the entries in the model. Write backend controller endpoints to retrieve data corresponding to the contributor dashboard.
 3. [Medium] The following tasks are to be completed
     - Make the frontend for the contributor dashboard (this is the view that displays all the issues). 
-    - A search bar or a set of filters would need to be implemented. This is to enable a translator to easily find which lesson has requests for translations, or a designer to easily find lessons requiring images, and so on. The contributor dashboard must contain filters to narrow down the search for a contributor.
-    - On selecting a particular lesson, the relevant details for that lesson must be fetched from the backend created in tasks 1 and 2. Design an appropriate view that displays these details to a contributor, and also provides an easy pathway for the contributor to create a suggestion.
+    - Implement a search bar or a set of filters. This enables a translator to easily find which lessons have requests for translations, or a designer to easily find lessons requiring images, and so on. The contributor dashboard must contain filters to allow contributors to narrow down their search.
+    - On selecting a particular lesson, the relevant details for that lesson must be fetched from the backend created in milestones 1 and 2. Design an appropriate view that displays these details to a contributor, and also provides an easy pathway for the contributor to create a suggestion.
 
 ***
 ### Project 9:  Implement role-based art contributions (for explorations)
 
-**Aim**: This project aims at implementing a framework which allows users to become designers for explorations. This will further aid in explorations being built by many users! The designers for an exploration are users responsible for adding images and illustrations. Typically, the person who wrote the exploration (creator/editor) will have some requirements for the image in mind. While drafting the exploration, placeholders with sufficient description should be added by the author. A designer will be able to add an image to a placeholder, or add a new image that wasn’t drafted earlier. This project is very significant as a lesson cannot be published unless all images are complete and images forms a significant part of the learner experience. 
+**Aim**: This project aims to implement a framework which allows users to become designers for explorations. This will further aid in explorations being built by many users! The designers for an exploration are responsible for adding images and illustrations. Typically, the person who wrote the exploration (creator/editor) will have some requirements for the image in mind. While drafting the exploration, placeholders with sufficient description should be added by the author. A designer can then create an image to replace the placeholder. This project has significant impact because a lesson cannot be published unless all images are complete, and, especially since we are working with low-literacy students, images form a significant part of the learner experience. 
 
 **Team**: Community Contributions (mentor: **@nithusha21**)
 
@@ -259,14 +259,14 @@ _Note: The ENABLE_NEW_STRUCTURES flag in constants.js has to be set to true to a
 - UI/UX development
 
 **Suggested milestones**
-1. [Small] Create a "designer" role for explorations. The designer should be able to only add images to an exploration. The concept of a placeholder needs to be created. A placeholder should contain a description which describes the image required in the placeholder. Make the backend changes to implement a placeholder.
-2. [Small]  The operations allowed for a designer are add an image to a placeholder, create a new image. Functions that allow operations on explorations need to be modified to perform these new operations. Permission checks need to be added to make sure that a designer is only allowed to perform these operations. 
-3. [Medium] Implement the frontend changes to make this feature work end to end. Provisions to add placeholders while creating a lesson must be added. The UI to add an image to a placeholder must be designed and implemented. An option must be provided in exploration settings page to add users as designers for an exploration. Also, a complete end to end test must be written in protractor that tests this user flow.
+1. [Small] Create the concept of an "image placeholder". A placeholder should contain a description which describes the image required in the placeholder. Make the backend changes to implement a placeholder. Also, create a "designer" role for explorations; the designer should only be able to add images to an exploration. 
+2. [Small] The only operation allowed for a designer is to add an image to a placeholder. Functions that allow operations on explorations need to be modified to include this new operation. Permission checks need to be added to make sure that a designer is only allowed to perform this operation. 
+3. [Medium] Implement the frontend changes to make this feature work end to end. Provisions to add placeholders while creating a lesson must be added. The UI to add an image to a placeholder must be designed and implemented. An option must be provided in the exploration settings page to add users as designers for an exploration. Also, a complete end-to-end test must be written in Protractor that tests this user flow.
 
 ***
 ### Project 10: Translation tab accessibility and analytics
 
-**Aim**: Oppia has introduced a new translation tab for exploration translators last month, this was made to ease the process of translating an exploration, currently the translation tab is in working condition but it lacks accessibility feature and now as the translation tab is released and the community is aware about this new translation tab it would be great to make it more accessible and analyze the use case of translation tab. The aim of this project is to make the new translation tab more accessible and make easier to use in translation process. 
+**Aim**: Oppia has introduced a new translation tab for exploration translators to ease the process of translating an exploration. Currently, the translation tab is in working condition, but it lacks accessibility features. Now that the translation tab is released and the community is aware about it, it would be great to make it more accessible and understand how it is being used. The aim of this project is to make the new translation tab more accessible and to make the translation process easier for contributors. 
 
 **Team**: Audio translations (mentor: **@DubeySandeep**)
 
@@ -282,10 +282,9 @@ _Note: The ENABLE_NEW_STRUCTURES flag in constants.js has to be set to true to a
 - [A11ycast tutorial playlist](https://www.youtube.com/watch?v=Ag3DMNbL_ig&list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g) to learn more about accessibility testing. 
 
 **Suggested milestones**
-1. [Small] Add google analytics for usage of translation tab. Currently we use to record use case of oppia features through google analytics which can be found on SiteAnalyticsService.js, through this milestone we want to cover the use case of translation tab features.
-2. [Small] Add keyboard shortcuts for "start" and "stop" recording. It would be great to have shortcut functionality for our recording feature, like keyboard shortcut to start and stop recording. 
-3. [Medium] Accessibility audit of translation tab. Do a accessibility audit on translation tab and make the changes as such required to fix the accessibility issues. Auditing can be done through following ways:
-    - Tabbing through translation tab.
-    - Running "audit" for accessibility test from devtools. 
-
+1. [Small] Add google analytics for usage of translation tab. Currently we record usages of Oppia features through google analytics, the code for which can be found in SiteAnalyticsService.js. Through this milestone, we want to additionally cover the use of translation tab features.
+2. [Small] Add keyboard shortcuts for "starting" and "stopping" recording.
+3. [Medium] Perform an accessibility audit on the translation tab and make any necessary changes to fix the accessibility issues. Auditing can be done in the following ways:
+    - Tabbing through the translation tab.
+    - Running an Accessibility Audit test from devtools. 
 ***
