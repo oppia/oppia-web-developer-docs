@@ -71,7 +71,7 @@ If the Oppia server does not start automatically when you run 'vagrant up', this
 
 ### If trying to restart the server throws an error...
 
-Try deleting the `.lock` file.
+Try deleting the `.lock` file in the top-level Oppia directory.
 
 ### Tweaking the virtual machine settings
 
