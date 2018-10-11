@@ -79,7 +79,7 @@ _Bash_ [Introduction](http://cs.lmu.edu/~ray/notes/bash/)
 - Data representation
 
 **Suggested milestones**
-1. [Small] Implement established pattern for storage models to provide takeout data using a single model. Implement the backend functionality needed to serialize and export takeout dicts into a machine-readable format that can be downloaded by users’ browsers.
+1. [Small] Implement established pattern for storage models to provide takeout data using a single model. Implement the backend functionality needed to serialize and export takeout dicts into a machine-readable format that can be downloaded by users' browsers.
 2. [Small] Implement the Takeout UI and backend controller to hook up to the download Takeout functionality. Verify this works end-to-end.
 3. [Medium] Apply the pattern to all remaining models per the data policies, and enforce that storage models properly use this via backend tests. Implement integration tests to ensure exported models are correctly exported via Takeout. Add documentation to the Oppia wiki describing how to write storage models that need Takeout functionality.
 
@@ -87,7 +87,7 @@ _Bash_ [Introduction](http://cs.lmu.edu/~ray/notes/bash/)
 
 ### Project 2: Translation tab tests
 
-**Aim**: Currently the backend test for adding state components goes manually for adding content id of each components and it covers the whole codebase, but we would like to make this process automate via a function and cleanup the test file related to it.  Also, this projects covers the e2e test for the translation tab in the initial milestones.
+**Aim**: Oppia has introduced a new translation tab for exploration translators. This was made to ease the process of translating an exploration. The aim of this project is to add e2e tests for the translation tab, and simplify the backend tests. (Currently, the latter are clunky because they need to handle the content IDs for translatable content manually; we would like to automate this process and clean up the related test file.)
 
 **Team**: Audio translations (mentor: **@DubeySandeep**)
 
@@ -99,26 +99,26 @@ _Bash_ [Introduction](http://cs.lmu.edu/~ray/notes/bash/)
 - Python
 
 **Helpful resources**:
-- [Oppia's wiki page](https://github.com/oppia/oppia/wiki/End-to-End-Tests) for understanding end-to-end tests structure and pattern.
+- [Oppia's wiki page](https://github.com/oppia/oppia/wiki/End-to-End-Tests), for understanding the structure and pattern of end-to-end tests.
 - [Translation tab project design doc](https://github.com/oppia/oppia/wiki/pdfs/GSoC2018SandeepDubey.pdf) to understand the functionality.
 
 **Suggested milestones**:
-1. [Small] Add e2e test for translation tab (Part-1). Currently the e2e test coverage for the translation tab is very less and most of the functionality aren’t covered through this milestone we are expecting to cover the given below functionality:
+1. [Small] Add e2e test for translation tab (Part-1). Currently the e2e test coverage for the translation tab is too small, and most functionality isn't covered. This milestone covers the following functionality:
     - Uploading translated audio.
-    - Check status color for each state in map view.
-2. [Small] Add e2e test for translation tab (Part-2). In this milestone cover the remaining part of the e2e test:
-    - Check components statuts for a state.
-    - Check the progress bar.
-3. [Medium] Cleanup backend tests. Currently once a developer adds feedback, hints & solution while writing backend tests they have to manually add content_id to those components and also add the same content id in the content_ids_to_audio_translations dict., through this milestone we are expecting to make this process automated. The expected workflow is mentioned in the points below:
-    - Create a function to add feedback in the State object.
-    - Make add_hint, add_feedback, add_solution handle content_id and add them directly to the contents_ids_to_audio_translations.
-    - Clean up the test files in the codebase everywhere possible.
+    - Checking that the status color is correct for each card ("state") in the exploration overview.
+2. [Small] Add e2e test for translation tab (Part-2). This milestone covers the remaining e2e test functionality:
+    - Check the status of each component for a card.
+    - Check that the progress bar display is correct.
+3. [Medium] Clean up backend tests. Currently, when a developer adds feedback, hints and solutions while writing backend tests, they have to manually add content_ids to those components and also add the same content id in the content_ids_to_audio_translations dict. This milestone aims to simplify this process. The expected workflow is described in the points below:
+    - Create helpful utility functions to, e.g., add feedback to a State object.
+    - Make each of add_hint, add_feedback, add_solution do both of the following: handle the content_id, and add the content IDs directly to the content_ids_to_audio_translations dict.
+    - Clean up the test files in the codebase wherever possible.
 
 ***
 
 ### Project 3: Implement Practice Sessions
 
-**Aim**: The topic viewer page is supposed to be the location where everything related to a topic can be accessed. This includes the stories that teach the topic and the questions that test the skills associated with the topic. This project aims to add the latter, called practice sessions, to the topic viewer page, where a learner can quickly get some questions associated with the skills taught by the topic. 
+**Aim**: A topic (like "Fractions") is a collection of lessons. The topic viewer page is supposed to be the location where everything related to a topic can be accessed. This includes the stories that teach the topic, as well as practice sessions which include a set of questions that test skills associated with the topic. This project aims to add practice sessions to the topic viewer page, so that learners can quickly attempt some questions associated with the skills taught by the topic.
 
 **Team**: New Structures (mentor: **@aks681**)
 
@@ -132,13 +132,13 @@ _Bash_ [Introduction](http://cs.lmu.edu/~ray/notes/bash/)
 **Suggested milestones**
 _Note: The ENABLE_NEW_STRUCTURES flag in constants.js has to be set to true to access the topic viewer page._
 1. [Small] Add a frontend API call to use the backend controller that returns a set of random questions given a set of skill ids to get the questions requested by the user.
-2. [Small] Add the UI to the topic viewer page for the user to select a set of subtopics, after which the above created backend service should be called to get a random set of questions linked to the skills in the selected subtopics.
-3. [Medium] The PretestEngineService can be used to render the received questions to the user, which the user should be able to play through, on completion of which, should be redirected back to topic viewer page.
+2. [Small] Add a UI to the topic viewer page for the user to select a set of subtopics, after which the backend service created in milestone 1 should be called to get a random set of questions linked to the skills in the selected subtopics.
+3. [Medium] The PretestEngineService can be used to render the received questions to the user, which the user should be able to play through. When they complete the series of questions, they should be redirected back to the topic viewer page.
 
 ***
-### Project 4: Add "linked questions" section to skill editor.
+### Project 4: Add a "linked questions" section to the skill editor.
 
-**Aim**: A skill is meant to be the most basic unit of learning in Oppia. It has a concept card (that teaches the skill), some worked examples and a list of misconceptions associated with the skill. It also has a set of linked questions that tests the skill. Currently, in the skill editor, the former 3 fields are editable, but the set of linked questions associated with the skill are not visible in the editor. So, this project aims to add that feature to the skill editor.
+**Aim**: A skill is meant to be the most basic unit of learning in Oppia. It has a concept card (that teaches the skill), some worked examples, and a list of misconceptions associated with the skill. It also has a set of linked questions that test the skill. Currently, in the skill editor, the former 3 fields are editable, but the set of linked questions associated with the skill is not visible in the editor. So, this project aims to add that feature to the skill editor.
 
 **Team**: New Structures (mentor: **@aks681**)
 
@@ -152,13 +152,13 @@ _Note: The ENABLE_NEW_STRUCTURES flag in constants.js has to be set to true to a
 **Suggested milestones**
 _Note: The ENABLE_NEW_STRUCTURES flag in constants.js has to be set to true to access the the mentioned pages._
 1. [Small] Modify get() in EditableSkillDataHandler in skill_editor.py to return all linked questions (querying the already existing function in question_services) as well.
-2. [Small] Add a tab to skill editor (similar to current editor tab) which is blank for now, called ‘Questions’.
-3. [Medium] Modify SkillEditorStateService to store these questions also (refer to TopicEditorStateService for examples) and render these questions as a table in the newly created tab.
+2. [Small] Add a 'Questions' tab to the skill editor (similar to current editor tab) which is blank for now.
+3. [Medium] Modify SkillEditorStateService to also store these questions (refer to TopicEditorStateService for examples) and render them as a table in the newly-created tab.
 
 ***
 ### Project 5: Introduce Issues Tab
 
-**Aim**:  Introduce Issues Tab to the exploration editor. The Issues Tab will use the stats we gather from students to create "issues" a creator can resolve to improve their exploration. For this project, we will begin by showing "Feedback" (things a learner had to say about an exploration) as issues. These already exist, so this will be a job of re-displaying the data as a new format.
+**Aim**: Add a new Issues Tab to the exploration editor page. The Issues Tab will use the stats we gather from students to create "issues" a creator can resolve to improve their exploration. For this project, we will begin by showing "Feedback" (things a learner had to say about an exploration) as issues that lesson creators can address. These already exist, so the main part of this project will involve re-displaying the data in a new format.
 
 **Team**: Lesson Improvement (mentor: **@brianrodri**)
 
@@ -173,19 +173,19 @@ _Note: The ENABLE_NEW_STRUCTURES flag in constants.js has to be set to true to a
 1. [Small] Implement the empty Issues Tab page.
     - The page will be an empty HTML layout, with a supporting (but empty) directive.
     - This page will be hidden by a config flag. It should only be visible to creators when that flag is on.
-    - Unit tests for the directive and flag’s behavior.
+    - Unit tests for the directive and flag's behavior should be implemented.
 2. [Small] Expose Feedback Data through an API.
     - There will be a JSON schema we’d like you to follow. Your job will be adding data to the schema appropriately, and implementing a function which returns the list of feedback items.
-    - Unit tests to make sure behavior works as expected (we will provide the list of desired behavior).
+    - Unit tests should be implemented to ensure that the behavior works as expected. (We will provide the list of desired behaviors.)
 3. [Medium] Render and Implement the Feedback Card.
-    - This card will be taking the JSON object prepared in step 2 and displaying it to the users. We have a mock already of the card, so you will need to implement the HTML/CSS to mirror that mock.
-    - The card should contain an “archive” button, which when pressed, removes that particular item from the list created in step 2 (consequently updating the list we show to users)
-    - Behavior tests which you will decide on and implement.
+    - This card takes the JSON object prepared in step 2 and displays it to the users. We already have a mock of the card, so you will need to implement the HTML/CSS to mirror that mock.
+    - The card should contain an "archive" button. When this button is pressed, the corresponding item should be removed from the list created in step 2 (consequently updating the list we show to users)
+    - You will need to devise and implement tests to verify the expected frontend and end-to-end behaviors.
 
 ***
 ### Project 6: Strengthen presubmit checks
 
-**Aim**: At Oppia, we try our best to keep the code base clean so that it’s easy for just any developer to take a glance and understand the code’s functionality. To enforce this, we rely on a number of checks, one of which are the pre-submit checks. These checks run before a developer pushes the code to a branch. This project aims to strengthen these pre-submit checks.
+**Aim**: At Oppia, we try our best to keep the codebase clean so that it's as easy as possible for new developers to understand the code's functionality. To enforce this, we rely on a number of checks, one of which are the pre-submit checks. These checks run before a developer pushes the code to a branch. This project aims to strengthen these pre-submit checks.
 
 **Team**: Dev Workflow (mentor: **@apb7**)
 
@@ -197,16 +197,16 @@ _Note: The ENABLE_NEW_STRUCTURES flag in constants.js has to be set to true to a
 - Python
 
 **Suggested milestones**
-1. [Small] https://github.com/oppia/oppia/issues/5310 -- create a python script that does a size check for third_party
+1. [Small] **TBD** -- it will be a suitable issue in the [Dev Workflow project](https://github.com/oppia/oppia/projects/23).
 2. [Small] https://github.com/oppia/oppia/issues/5426 -- have a lint check to ensure that each Angular file contains exactly one service/directive/etc.
 3. [Medium] https://github.com/oppia/oppia/issues/5069 -- remove $parent from HTML files. This involves two parts:
-    - Remove all $parent from html files without breaking anything -- this will require manual testing and a good understanding of the code base. At the moment, we have 50 occurrences of $parent in 16 html files.
-    - Add a check in the pre-commit script for this, similar to the one we have for js files.
+    - Remove all occurrences of $parent from html files without breaking anything -- this will require manual testing and a good understanding of the code base. At the moment, we have 50 occurrences of $parent in 16 html files.
+    - Add a check in the pre-commit script for this, similar to the one we have for JavaScript files.
 
 ***
 ### Project 7: Strengthen Python and CSS lint checks
 
-**Aim**: At Oppia, we give a lot of focus to code readability and maintenance. Thus, the code base houses a number of custom checks which help us to realise the goal. This project aims to improve these checks by adding new lint checks for Python and CSS files.
+**Aim**: At Oppia, we give a lot of focus to code readability and maintenance. The code base includes a number of custom checks which help us to realize this goal. This project aims to improve these checks by adding new lint checks for Python and CSS files.
 
 **Team**: Dev Workflow (mentor: **@apb7**)
 
@@ -225,7 +225,7 @@ _Note: The ENABLE_NEW_STRUCTURES flag in constants.js has to be set to true to a
 ***
 ### Project 8: Building a contributor dashboard
 
-**Aim**: For the community to help out in creating lessons effectively, there needs to be some mechanism using which the creators can communicate their requirements to the contributors. The current idea is to enable creators to display their lessons on a contributor dashboard. When a contributor accesses this lesson, items that require contributions should be highlighted. This includes open image requests, open translation requests, requests to improve hints/solutions, etc. Now when a contributor comes in, there must be an easy way for the contributor to isolate something of interest. This can be done using search options/filters for the open requests. 
+**Aim**: For the community to help out in creating lessons effectively, there needs to be some mechanism which creators can use to communicate their requirements to contributors. The current idea is to enable creators to display their lessons on a contributor dashboard. When a contributor accesses this lesson, items that require contributions should be highlighted. This includes open image requests, open translation requests, requests to improve hints/solutions, etc. No, when a contributor visits this dashboard, they should be able to easily identify something of interest and start helping with it. This can be done using search options/filters for the open requests.
 
 **Team**: Community Contributions (mentor: **@nithusha21**)
 
