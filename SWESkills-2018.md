@@ -62,8 +62,6 @@ _Bash_ [Introduction](http://cs.lmu.edu/~ray/notes/bash/)
 
 ### Project List
 
-**Please note: These are still being worked on, and are not final yet.**
-
 ### Project 1: Takeout functionality
 
 **Aim**: Being a good steward of user data includes providing easy and effective pathways for users to explore the data Oppia has stored in their Oppia profile. This project involves implementing the infrastructure, backend support, and frontend UIs needed for users to download user data associated with their profile from Oppia in a machine-readable format, and to provide an established pattern for exporting future user data.
