@@ -27,7 +27,7 @@ Participants should do 1 starter project, followed by one main project. The expe
 - Main project (milestone 2): by 2 December (2 weeks)
 - Main project (milestone 3): by 13 January (5 weeks)
 
-It’s fine to start on a milestone early, but each milestone must be completed by the due date in order to pass the program. Otherwise, the participant fails.
+It’s fine to start on a milestone early, but each milestone must be completed by the due date in order to pass the program. Otherwise, the participant fails and is withdrawn from the program.
 
 Participants are expected to spend at least 3 hours each day working on their projects, for a total of at least 15 hours a week.
 
