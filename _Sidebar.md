@@ -22,6 +22,7 @@
       * [[Writing tests for custom Pylint Checkers|Writing-Tests-For-Pylint]] 
       * [[End-to-end tests|End-to-End-Tests]]
     * [[Git cheat sheet|Git-cheat-sheet]]
+    * [[Setup your own Travis instance|Setup-your-own-Travis-instance]]
     * [[Mobile development|Mobile-development]]
     * [[Adding new translations|Adding-new-translations-for-i18n]]
     * [[How to develop for i18n|How-to-develop-for-i18n]]
