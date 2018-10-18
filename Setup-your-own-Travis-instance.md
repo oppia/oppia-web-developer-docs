@@ -1,6 +1,6 @@
-At Oppia, we use [Travis CI](https://travis-ci.com/) for running a comprehensive suite of tests for each PR. The Travis jobs are queued and then run for each PR. This process can take some time and if suppose the Travis build fails for your PR due to the changes you've made, you'll need to fix it and then wait again for build to pass. The build might even fail again if not fixed properly in the first attempt.  
+At Oppia, we use [Travis CI](https://travis-ci.com/) for running a comprehensive suite of tests for each PR. The Travis jobs are queued and then run for each PR. This process can take some time and if suppose the Travis build fails for your PR due to the changes you've made, you'll need to fix it and then wait again for build to pass. The build might even fail again if not fixed properly in the first attempt.    
 Therefore, we recommend that developers setup their own Travis instance with a configuration similar to the one used at Oppia so that they can be very sure that the Travis build will pass for their PR on the first attempt. This will save both the developer's as well as the reviewer's time.  
-Setting up a Travis instance for your Oppia's fork hardly takes a couple of minutes. Please follow these steps:
+Setting up a Travis instance for your Oppia's fork hardly takes a couple of minutes. Please follow these steps:  
 1. [Fork](https://help.github.com/articles/fork-a-repo/) the oppia repository to your GitHub account.
 2. Go to https://travis-ci.org and sign in/sign up using your GitHub account.
 3. Authorize Travis CI for Open Source.
