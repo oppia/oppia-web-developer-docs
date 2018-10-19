@@ -14,7 +14,7 @@
     * **[[Built something new?|https://goo.gl/forms/sNBWrW03fS6dBWEp1]]**
     * [[Overview of the codebase|Overview-of-the-Oppia-codebase]]
     * [[Coding style guide|Coding-style-guide]]
-    * [[Writing design doc|Writing-design-doc]]
+    * [[Writing design docs|Writing-design-docs]]
     * [[Analyzing the codebase|Analyzing-the-codebase]]
     * [[Running tests|Running-Tests]]
     * [[If your build fails...|If-Your-Build-Fails]]
