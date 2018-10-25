@@ -7,7 +7,7 @@
   * [Project 1](#project-1-takeout-functionality)
   * [Project 2](#project-2-translation-tab-tests) -- NOT TAKEN
   * [Project 3](#project-3-implement-practice-sessions) -- NOT TAKEN
-  * [Project 4](#project-4-add-linked-questions-section-to-skill-editor)
+  * [Project 4](#project-4-add-a-linked-questions-section-to-the-skill-editor)
   * [Project 5](#project-5-introduce-issues-tab) -- NOT TAKEN
   * [Project 6](#project-6-strengthen-presubmit-checks) -- NOT TAKEN
   * [Project 7](#project-7-strengthen-python-and-css-lint-checks) -- NOT TAKEN
