@@ -1,5 +1,8 @@
 Following are general trouble shooting tips. The platform specific tips are [[Linux|Troubleshooting#linux]], [[windows|Troubleshooting#windows]], [[Mac OS|Troubleshooting#mac-os]] and [[Vagrant|Troubleshooting#vagrant]]:
-  * If you get an error that ends with:
+   
+   * If running `which java` on the terminal does not return any output, you do not have java installed. You can install it by running `sudo apt install openjdk-7-jre-headless`. Note that this command might vary for your local machine.
+
+   * If you get an error that ends with:
 
     ```
       fancy_urllib.InvalidCertificateException?: Host appengine.google.com returned
