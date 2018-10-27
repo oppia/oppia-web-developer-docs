@@ -91,17 +91,12 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 24 Dec - 30 Dec   Yogesh        @1995YogeshSharma
 ```
 
-### Maintainer rota coordinator for the month
+### Maintainer rota coordinator
 **Duties of the maintainer rota coordinator:**
 1. Ensure maintainer rotation is followed.
-2. Send an email to the maintainer reminding him/her of the rota if it has been missed. 
+2. Send a ping/email to the maintainer reminding him/her of the rota if it has been missed. 
 
-```
-September           @DubeySandeep
-October             @apb7
-November            @DubeySandeep
-December            @apb7
-```
+Current rota coordinator: Apurv
 
 ## Areas of expertise
 
