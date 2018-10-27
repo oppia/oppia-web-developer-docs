@@ -34,7 +34,7 @@ Please see [Instructions for Reviewers](https://github.com/oppia/oppia/wiki/Inst
    * one of "needs UI design", "needs UX design", "needs design doc", "needs debugging", as appropriate.
    * a list of checkboxes describing the issue's sub-steps
    * a link to any design doc associated with the issue
-
+4. Further, if you find an issue pertaining to setup which may be caused due to the local specifications of the developers' machine or that may not be fixed from our end (similar to [this](https://github.com/oppia/oppia/issues/5785) issue), please provide a general solution to the issue. You can redirect the developer to any answer found online (StackOverflow etc).   
 **Note:** you do not need to assign a milestone, unless you know what you're doing! Milestones are for explicit tracking of certain high-priority issues.
 
 Here are the meanings of the "needs X" labels:
