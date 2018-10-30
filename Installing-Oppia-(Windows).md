@@ -1,6 +1,6 @@
 **Note:** If you just want to create and share explorations, you may be able to use the hosted server at https://www.oppia.org (in which case you don't need to install anything).
 
-**Note:** Installing Oppia on Windows can be **complicated**. We recommend installing on [Linux](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Linux%29) or [Mac OS](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Mac-OS%29) instead if you're able to do so. If you are running Windows 10, you could also try [installing the Ubuntu terminal](https://tutorials.ubuntu.com/tutorial/tutorial-ubuntu-on-windows#0).
+**Note:** Installing Oppia on Windows can be **complicated**. We recommend installing on [Linux](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Linux%29) or [Mac OS](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Mac-OS%29) instead if you're able to do so. **If you are running Windows 10**, definitely consider [installing the Ubuntu terminal](https://tutorials.ubuntu.com/tutorial/tutorial-ubuntu-on-windows#0) -- it's much easier than using Vagrant.
 
 **Note:** These instructions are tested to work on Windows 10 platform. If you have some other version of windows, we strongly recommend using Linux or Mac OS, if possible. Or if you have sufficient ram (>=6 gb) you may install linux in virtual box and install Oppia on the virtual linux machine.
 
