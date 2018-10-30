@@ -10,7 +10,7 @@ Please follow the following style rules when writing code, in order to minimize 
 - Prefer `xrange` to `range`, so as not to hold the entire range in memory unnecessarily.
 - Consider using a frozenset or tuple to a list, if the data structure is not meant to be subsequently modified. This applies especially to constants.
 - If you need to raise an Exception, just do `raise Exception` -- no need to define custom exceptions. We tend to use exceptions fairly sparingly, though.
-- Otherwise, please follow the [Google Python style guide](https://google.github.io/styleguide/pyguide.html). In particular:
+- Otherwise, please follow the [Google Python style guide](https://github.com/google/styleguide/blob/gh-pages/pyguide.md). In particular:
   - There should be two empty lines before any top-level class or function definition.
   - It's OK for the initial documentation string to be more than one line long.
   - Prefer string interpolation over concatenation -- e.g. prefer: `'My string %s' % varname` to `'My string ' + varname`.
