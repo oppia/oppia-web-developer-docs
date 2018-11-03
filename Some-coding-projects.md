@@ -1,37 +1,22 @@
 ## Table Of Contents
 * [Introduction](#introduction)
-* [Structure of the Program](#structure-of-the-program)
 * [List of Starter Projects](#list-of-starter-projects)
 * [Some Useful Links](#some-useful-links)
 * [Project List](#project-list)
   * [Project 1](#project-1-takeout-functionality)
-  * [Project 2](#project-2-translation-tab-tests) -- NOT TAKEN
-  * [Project 3](#project-3-implement-practice-sessions) -- NOT TAKEN
+  * [Project 2](#project-2-translation-tab-tests)
+  * [Project 3](#project-3-implement-practice-sessions)
   * [Project 4](#project-4-add-a-linked-questions-section-to-the-skill-editor)
-  * [Project 5](#project-5-introduce-issues-tab) -- NOT TAKEN
-  * [Project 6](#project-6-strengthen-presubmit-checks) -- NOT TAKEN
-  * [Project 7](#project-7-strengthen-python-and-css-lint-checks) -- NOT TAKEN
-  * [Project 8](#project-8-building-a-contributor-dashboard) -- NOT TAKEN
-  * [Project 9](#project-9--implement-role-based-art-contributions-for-explorations) -- NOT TAKEN
-  * [Project 10](#project-10-translation-tab-accessibility-and-analytics) -- NOT TAKEN
+  * [Project 5](#project-5-introduce-issues-tab)
+  * [Project 6](#project-6-strengthen-presubmit-checks)
+  * [Project 7](#project-7-strengthen-python-and-css-lint-checks)
+  * [Project 8](#project-8-building-a-contributor-dashboard)
+  * [Project 9](#project-9--implement-role-based-art-contributions-for-explorations)
+  * [Project 10](#project-10-translation-tab-accessibility-and-analytics)
 
 ## Introduction
 
-[SWESkills Academy](http://www.sweskills.org/), a tech accelerator based in Nigeria, is collaborating with Oppia in 2018 to provide real-world engineering project opportunities for their students. This page documents the projects and general instructions.
-
-## Structure of the Program
-
-Participants should do 1 starter project, followed by one main project. The expected timelines are as follows:
-- Starter project: by 28 October
-- Main project (milestone 1): by 18 November (3 weeks)
-- Main project (milestone 2): by 2 December (2 weeks)
-- Main project (milestone 3): by 13 January (5 weeks)
-
-It’s fine to start on a milestone early, but each milestone must be completed by the due date in order to pass the program. Otherwise, the participant fails and is withdrawn from the program.
-
-Participants are expected to spend at least 3 hours each day working on their projects, for a total of at least 15 hours a week.
-
-All code for the relevant project should pass review and be merged into the main trunk. Code will not be merged if it does not include sufficient tests, or if it does not function, or if it is messy and not maintainable. Mentors will try to review code within 24 hours of submission.
+This is a list of projects that we created in 2018 for a collaboration with SWESkills. Unfortunately, due to infrastructural issues, the collaboration did not work out, but the list of projects is still relevant and useful! If you're interested in taking up a project, please contact the relevant team lead.
 
 ## List of starter projects
 
