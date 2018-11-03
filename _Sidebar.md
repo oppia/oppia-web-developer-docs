@@ -1,6 +1,7 @@
   * [README](https://github.com/oppia/oppia/blob/develop/.github/README.md#oppia)
   * **[[Get involved!|Home]]**
     * [Coders](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up)
+      * [Some coding projects](https://github.com/oppia/oppia/wiki/Some-coding-projects)
     * [[Instructional designers|Teaching-with-Oppia]]
       * [[Create a Lesson!|https://github.com/oppia/oppia/wiki/Lesson-Creation-Guide]]
     * [[UX researchers|Conducting-research-with-students]]
