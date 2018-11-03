@@ -18,6 +18,8 @@
 
 This is a list of projects that we created in 2018 for a collaboration with SWESkills. Unfortunately, due to infrastructural issues, the collaboration did not work out, but the list of projects is still relevant and useful! If you're interested in taking up a project, please contact the relevant team lead.
 
+(Also, if you're interested in GSoC: please note that these projects are somewhat smaller than the ones we typically propose for GSoC. However, they might be good practice if you're interested in doing a larger project with Oppia in the future.)
+
 ## List of starter projects
 
 - [Designing and selecting proper icons for audio bar in the translation tab.](https://github.com/oppia/oppia/issues/5745)
