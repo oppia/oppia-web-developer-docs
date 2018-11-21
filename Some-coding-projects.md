@@ -101,7 +101,7 @@ _Bash_ [Introduction](http://cs.lmu.edu/~ray/notes/bash/)
 
 ***
 
-### Project 3: Implement Practice Sessions
+### Project 3: Implement Practice Sessions ([#5893](https://github.com/oppia/oppia/issues/5893))
 
 **Aim**: A topic (like "Fractions") is a collection of lessons. The topic viewer page is supposed to be the location where everything related to a topic can be accessed. This includes the stories that teach the topic, as well as practice sessions which include a set of questions that test skills associated with the topic. This project aims to add practice sessions to the topic viewer page, so that learners can quickly attempt some questions associated with the skills taught by the topic.
 
@@ -121,7 +121,7 @@ _Note: The ENABLE_NEW_STRUCTURES flag in constants.js has to be set to true to a
 3. [Medium] The PretestEngineService can be used to render the received questions to the user, which the user should be able to play through. When they complete the series of questions, they should be redirected back to the topic viewer page.
 
 ***
-### Project 4: Add a "linked questions" section to the skill editor.
+### Project 4: Add a "linked questions" section to the skill editor. ([#5894](https://github.com/oppia/oppia/issues/5894))
 
 **Aim**: A skill is meant to be the most basic unit of learning in Oppia. It has a concept card (that teaches the skill), some worked examples, and a list of misconceptions associated with the skill. It also has a set of linked questions that test the skill. Currently, in the skill editor, the former 3 fields are editable, but the set of linked questions associated with the skill is not visible in the editor. So, this project aims to add that feature to the skill editor.
 
@@ -141,7 +141,7 @@ _Note: The ENABLE_NEW_STRUCTURES flag in constants.js has to be set to true to a
 3. [Medium] Modify SkillEditorStateService to also store these questions (refer to TopicEditorStateService for examples) and render them as a table in the newly-created tab.
 
 ***
-### Project 5: Introduce Issues Tab
+### Project 5: Introduce Issues Tab ([#5798](https://github.com/oppia/oppia/issues/5798))
 
 **Aim**: Add a new Issues Tab to the exploration editor page. The Issues Tab will use the stats we gather from students to create "issues" a creator can resolve to improve their exploration. For this project, we will begin by showing "Feedback" (things a learner had to say about an exploration) as issues that lesson creators can address. These already exist, so the main part of this project will involve re-displaying the data in a new format.
 
