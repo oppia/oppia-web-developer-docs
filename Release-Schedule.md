@@ -14,17 +14,29 @@ Features merged into `develop` after this date will only go out in the following
 1. When the PR has been cherry-picked onto the release branch, apply the label [PR: released](https://github.com/oppia/oppia/labels/PR%3A%20released). (The release coordinator will do this step.)
 
 # Responsibilities of the release testing team
-The release testing team focuses mainly on 2 types of testing. One is to make sure that the core functionality of Oppia is intact (called Happy-paths testing) and the other is to make sure the newly added functionality works fine (testing the PRs added in the current release). 
+The release testing team focuses on testing the critical user journeys on Oppia. This ensures that all the core functionality is working fine!
 
-During the first week of the month the QA lead will send out a mail to the release testers for the month asking for their confirmation of participation. After confirmation, the QA lead will assign tasks to each of the testers before the first Saturday (when the release cut is made) so that the testing can begin on time. 
+The QA coordinator for the month assembles the release testing team before the QA testing weekend (the first weekend of every month). All bugs that need to be prioritized for the current release needs to be reported and triaged by the Monday after the QA weekend. All bugs will need to be fixed before the following Monday, and the release will be pushed during the third weekend.
 
-The testers have to be in constant touch with both the QA lead as well as the release coordinator for that release. During the testing week and the week after that, please prioritize fixing issues under the [blocking bugs milestone](https://github.com/oppia/oppia/milestone/39) so that we can complete the release process on time.  
+The testers have to be in constant touch with both the QA coordinator as well as the release coordinator for that release. During the testing weekend and the week after that, please prioritize fixing issues under the [blocking bugs milestone](https://github.com/oppia/oppia/milestone/39) so that we can complete the release process on time.  
 
 **Note:** If you would like to help out with the release testing, please contact @nithusha21 or @aks681. They will be able to guide you further. 
 
+# Team members
+* Bug fixing team: Vibhor (@vibhor98), Christopher (ctao5660), Rishav (@lilithxxx), Nithesh (@nithusha21), Akshay (@aks681)
+* QA coordinators team: Nithesh (@nithusha21), Akshay (@aks681), Nitish (@bansalnitish), Vibhor (@vibhor98)
+
 # Release coordinators and QA coordinators for upcoming releases
-* Aug: Ben(@BenHenning) and Akshay(@aks681)
-* Sep: Tony(@tjiang) and Nithesh(@nithusha21)
-* Oct: Sean(@seanlip) and Akshay(@aks681)
-* Nov: Ben(@BenHenning) and Nithesh(@nithusha21)
 * Dec: Ben(@BenHenning) and Nithesh(@nithusha21)
+* Jan: Sean(@seanlip) and Vibhor(@vibhor98)
+* Feb: Nithesh(@nithusha21) and Nitish (@bansalnitish)
+* Mar: Ben(@BenHenning) and Akshay (@aks681)
+* Apr: Sean(@seanlip) and Nithesh (@nithusha21)
+* May: Nithesh(@nithusha21) and Vibhor(@vibhor98)
+* Jun: Ben(@BenHenning) and Nitish (@bansalnitish)
+* Jul: Sean(@seanlip) and Akshay (@aks681)
+* Aug: Nithesh(@nithusha21) and Vibhor(@vibhor98)
+* Sept: Ben(@BenHenning) and Akshay (@aks681)
+* Oct: Sean(@seanlip) and Nithesh (@nithusha21)
+* Nov: Nithesh(@nithusha21) and Vibhor(@vibhor98)
+* Dec: Ben(@BenHenning) and Nitish (@bansalnitish)
