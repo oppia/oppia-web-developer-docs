@@ -10,9 +10,7 @@
  
 Oppia relies on a number of programs and third-party libraries. Many of these libraries are downloaded automatically for you when you run the `start.sh` script provided with Oppia. However, there are some things that you will need to do beforehand:
  
-1. Ensure that you have [Python 2.7](http://www.python.org/download/releases/2.7/) installed (Note: you can check this by running `python --version`).
-
-    a. If Python 2.7 is not installed, it is recommended to install via [Homebrew](https://brew.sh) like so: 
+1. Ensure that you have [Python 2.7](http://www.python.org/download/releases/2.7/) installed (Note: you can check this by running `python --version`). If Python 2.7 is not installed, you can install it via [Homebrew](https://brew.sh), as follows:
     
     ```
     brew install python@2
