@@ -39,6 +39,8 @@ In this stage, the creator is advised to breakdown the topic into as many concre
 <ul>
 <li>It is up to the creator to determine what skills should be in scope for a topic. During the review process, your reviewers may discuss why some skills are omitted or suggest additional skills. Creators are strongly encouraged to contribute to these discussions and rationalize with the review team.</li>
 <li>As creators break down the topic, make sure to note any pre-requisite skills that may not be part of the topic scope.</li>
+<li>When specifying prerequisites, these should indeed include specific skills from previous lessons in the series (as well as specific skills from outside the series, if needed). We will use these to generate random review questions at the start of each lesson, in order to make sure that the student still has mastery of the skills they need (since just because they've seen it before doesn't mean they have it under their belts).
+</li>
 </ul>
 <b>Format:</b>
 <ul>
@@ -92,10 +94,13 @@ Developing the Skill Table is the stage that will help you organize and further 
 <li>Remediation - This column lists out how the lesson would help learners address the misconceptions</li>
 <li>Sample Questions - List the question that can be used to test the student’s comprehension of the skill</li>
 <li>Development of the Topic - this is the precursor to your script. It outlines how you plan to approach the topic and introduce it to the student. This includes a mix of math and story.</li></ul>
+<li>When listing misconceptions, the misconceptions should be specific things, not just "student can't do skill X correctly". I.e., the description should be such that, if you give someone else the question and the description of the misconception, they should be able to accurately predict the student's answer.</li>
+<li>Ensure that the questions are staged. One way to verify concretely that you're making leaps that aren't too big is to define for yourself what *single* new skill each new question introduces. Don't introduce more than one skill at a time with each question. Be careful to also account for "hidden" skills that aren't taught explicitly in the lessons you're creating, such as "parsing a complicated word problem" or "knowing the relationship between distance, speed and time".</li>
 </ul>
 <b>Tips:</b>
 <ul>
 <li>Start with a target question in mind and work backwards to determine what skills the students need and where the pitfalls are. Work the problem step-by-step. It is likely that those intermediate steps reflect critical skills.</li>
+<li>When writing the math breakdown, don't worry at all about Oppia's current technical capabilities. Assume that Oppia can do anything you want it to, and ask any question type you want it to. That allows the math breakdown to be used as an "ideal" reference and could drive future improvements in Oppia's tooling.</li>
 </ul>
 <b>Samples:</b>
 <ul><li><a href="https://docs.google.com/document/d/1AJ9l5rL-wPwiePYXhBZwreOz8piQ4Ur-KFj1KPCIPvg/edit">Place values (See the tables)</a></li></ul>
@@ -127,4 +132,9 @@ Developing the Skill Table is the stage that will help you organize and further 
 <b>Format</b>
 <ul>
 <li>Oppia Platform</li>
+</ul>
+<b>Notes</b>
+<ul>
+<li>The alt text for images should clearly describe the images for users who can't see them. E.g. instead of "James", write "A picture of James, jumping excitedly, in a yellow sweatshirt." </li>
+<li>Crop images so that the image is a tight fit with zero empty space around the borders.</li>
 </ul>
