@@ -7,6 +7,7 @@
   - Do the same for projects without leads: [link 1](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+project%3Aoppia%2Foppia%2F22), [link 2](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+project%3Aoppia%2Foppia%2F21), [link 3](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+project%3Aoppia%2Foppia%2F20), [link 4](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+project%3Aoppia%2Foppia%2F12), [link 5](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+project%3Aoppia%2Foppia%2F1).
 - **During the week**:
   - Make sure all incoming issues/PRs are triaged and labelled. Assign incoming PRs to the owners of the issue that's being fixed by the PR.
+  - Ensure that all PRs have clear titles that start with "Fix #bugnum:" or "Fix part of #bugnum:", followed by a clear description. (This is important for generating the changelog during releases.)
   - Welcome and help out new contributors (e.g. on gitter).
   - Do code reviews for simple incoming PRs.
 - **After your shift**:
