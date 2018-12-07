@@ -1,5 +1,5 @@
 # Aim of the project:
-  To make people with disability feel comfortable in using Oppia. The project will increase the accessibility.
+  To improve the accessibility features of translation tab using different methods.
 # Features to be added during this project
   1. Use google analytics in translation tab 
   2. Use of Aria for increasing accessibility of the translation tab
