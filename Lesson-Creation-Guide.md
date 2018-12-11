@@ -46,8 +46,8 @@ In this stage, the creator is advised to breakdown the topic into as many concre
 <ul>
 <li>The creator should arrange the skill in a logical manner - building from simpler skills to more complex ones</li>
 <li>The creator should arrange relevant skills into groups called “lessons”</li>
-<li>It is fine the skill tree in a bulleted list form</li>
-<li>You may repeat similar skill in different lessons</li>
+<li>It is fine if the skill tree is in a bulleted list form</li>
+<li>You may repeat similar skills in different lessons</li>
 </ul>
 <b>Inspiration and Tips:</b>
 <ul>
