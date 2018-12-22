@@ -53,6 +53,32 @@ For information on running tests, please refer to the [Running Tests](https://gi
 
 Add the new changes to the same PR. For instructions on how to do this, see [here](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#address-review-comments-until-all-reviewers-give-lgtm-looks-good-to-me).
 
+### I have merge conflicts on my PR, what should I do ?
+
+In this case, you should resolve these merge conflicts on your local machine and then push the updated version to your branch corresponding to your PR. This is done as follows:
+- First merge your branch with develop locally after fetching from the upstream repository (the master one at oppia/oppia) by doing:
+ ``` 
+   git fetch upstream
+   git checkout <your_branch_name_corresponding_to_PR>
+   git merge upstream/develop 
+ ```
+ (if you get `fatal: 'upstream' does not appear to be a git repository` or a similar error, do `git remote add upstream 
+ https://github.com/oppia/oppia.git` to add the upstream remote to your local fork of the repository and then do the above 
+ 3 steps)
+
+- Now, in the terminal, the files which have merge conflicts will be listed, so in your local editor, go to those files and look for merge conflict markers that look like this:
+ ```
+ <<<<<<< HEAD:<file_name>
+ <code_1>
+ =======
+ <code_2>
+ >>>>>>> <commit_id>:<file_name>
+ ``` 
+ Here <code_1> is the change you did locally, while <code_2> is the corresponding code that is there on develop that is causing the conflict, so here you can choose whether to keep your change, keep the existing one or maybe combine the two.
+
+- After resolving the conflict, the markers (lines starting with `>>>>`, `<<<<` & `===`) should be removed.
+- Do this for all the files with merge conflicts and push the code to your branch corresponding to your PR and the merge conflicts error on your PR would be gone!
+ 
 ### I need more help, where do I go ?
 
 If you run into any problems, please read our [Developer Wiki](https://github.com/oppia/oppia/wiki), or file an issue on our [issue tracker](github.com/oppia/oppia/issues/), or post to our [developer mailing list](https://groups.google.com/forum/?fromgroups#!forum/oppia-dev).
