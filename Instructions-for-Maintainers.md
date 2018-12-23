@@ -102,21 +102,23 @@ Current rota coordinator: Apurv
 ## Areas of expertise
 
 ```
-Allan        Rich-text editor, suggestions
+Allan        Rich-text editor
 Anmol        Machine learning
-Arunabh      Subscriptions, learner dashboard
-Ben          Migrations, StackDriver errors
+Apurv        Devworkflow
+Akshay       Questions, skills, topics and stories
+Ben          Migrations, Storage
 Brian        Exploration statistics tab
 Jacob        Metrics
 Joe          Oppia's blog
 Kevin L      Embedding, collection editor, library index page
-Kevin T      Hints and solutions
 Mark         General UI design, mathematics lessons
-Prasanna     Emails, machine learning
+Nitish       Rich-text editor
+Nithesh      Suggestions, Questions
+Prasanna     Machine learning
 Rachel       User research
-Sandeep      Starter projects
-Tony         Learner view (both collections and explorations)
-Vojtěch      Speed
-Yogesh       Backend stuff, ACLs
+Sandeep      Starter projects, Audio translation
+Tony         Learner experience
+Vojtěch      Speed Improvement
+Yogesh       Backend stuff, ACLs, Speed
 Sean         Everything else
 ```
