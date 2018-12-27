@@ -18,8 +18,9 @@ You might be interested in our GSoC info pages from previous years: [2017](https
 
 Also, please note that acceptance into GSoC isn't a prerequisite for [becoming an Oppia contributor](https://github.com/oppia/oppia/wiki). The Oppia project is run by the community for the community, and we warmly welcome anyone who'd like to help out!
 
-**Update (23 Apr 2018):** We have accepted the following eight GSoC proposals for 2018!
+## Accepted Proposals:
 
+The project's we've accepted (as of 23 Apr 2018) are:
 - [@aks681's proposal](pdfs/GSoC2018AkshayAnand.pdf) for implementing skills functionality. Mentor: Sean Lip.
 - [@apb7's proposal](pdfs/GSoC2018ApurvBajaj.pdf) for improving the development workflow. Mentor: Kevin Lee.
 - [@bansalnitish's proposal](pdfs/GSoC2018NitishBansal.pdf) for upgrading the rich-text editor. Mentor: Allan Zhou.
