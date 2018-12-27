@@ -76,6 +76,17 @@ Please follow the following style rules when writing code, in order to minimize 
 - For directives, include the CSS in the directive template file, similar to what we do in [this file](https://github.com/oppia/oppia/blob/37a43ca249ffd2b60bf98f791995048ce0ec5269/core/templates/dev/head/components/summary_tile/exploration_summary_tile_directive.html). (Note that, in this case, all CSS rules should start with the top-level CSS class of the directive, so that they don't affect other elements outside it.) All other CSS should go in `core/templates/dev/head/css/oppia.css`.
 
 ----
+### How to ensure that your code follows the coding guidelines:
+
+You can invoke the pre-commit script to ensure that your code follows the coding guidelines for a particular file that you've modified by running the following command from the root directory:
+```bash
+python scripts/pre_commit_linter --path filepath
+```
+
+If you'd like to run the checks for a list of files, run the following command:
+```bash
+python scripts/pre_commit_linter.py --files file_1 file_2 ... file_n
+```
 
 ### Note for Sublime Text users
 
