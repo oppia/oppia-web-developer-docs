@@ -138,6 +138,7 @@ Here's how to make a one-off code change. (If you're working on a larger feature
     * Once you've finished addressing everything, and would like the reviewer to take another look, **please write a top-level comment explicitly asking them to do so**, and set them as the Assignee for the PR.
     * At the end, the reviewer will merge the pull request.
     * **WARNING:** Do not make changes using the online GitHub editor -- this bypasses lint/presubmit checks, and will cause the code on GitHub to diverge from the code on your machine. Always make commits locally, and then push to GitHub.
+    * **WARNING:** Never force-push. This will overwrite history on GitHub and make the incremental changes harder to review.
 6. **Tidy up!** After the PR status has changed to "Merged", delete the feature branch from both your local clone and the GitHub repository:
 
   ```
