@@ -198,6 +198,8 @@ DistutilsOptionError: must supply either home or prefix/exec-prefix -- not both
    HTTPError: HTTP Error 503: Service Unavailable
    ```
    please take a look at this StackOverflow [answer](https://stackoverflow.com/a/19460147) and see if it helps.
+  
+  * If all else fails, and you run into SSL related issues while installing third party libs, [here](https://stackoverflow.com/a/40857561) is what worked for one contributor. **WARNING This disables all SSL verification, so use at your own risk!** 
 
 ### Windows
 
