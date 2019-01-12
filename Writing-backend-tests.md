@@ -141,3 +141,6 @@ class UpdateExplorationVersionHandlerTest(test_utils.GenericTestBase):
    * do the action that leads to a change.
    * test the end line case - check whether the value has changed correctly.
 5. Test the function as exactly and completely as possible. Eg - if you need to check the change in a key in the dict, compare for the equality of whole dict.
+6. **Guidelines for testing private methods/functions**: Tests should never refer to private methods/functions in all cases. All tests should happen through the public interface. Here are some suggestions for what to do in specific cases (if this doesn't help for your particular case and you're not sure what to do, please talk to **@BenHenning**):
+   * If you want to test code execution a private method/function, test it through public interface, or move it to a utility (if it's general-purpose) where it becomes public.
+   * If you’re trying to access hidden information, consider getting that information from one level below instead (e.g. datastore).
