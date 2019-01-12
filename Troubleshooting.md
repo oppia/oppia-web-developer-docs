@@ -95,7 +95,31 @@ Following are general trouble shooting tips. The platform specific tips are [[Li
     ```
 
     please ensure that you are using Python 2. Also, if your system already has numpy installed, please ensure that its version is 1.6.1 (since that is the only one compatible with Google App Engine). For more details, see [this issue](https://github.com/oppia/oppia/issues/1545).
-
+  * If error looks like this: 
+    ```
+    Exception:
+    Traceback (most recent call last):
+      File "/usr/lib/python2.7/dist-packages/pip/basecommand.py", line 215, in main
+        status = self.run(options, args)
+      File "/usr/lib/python2.7/dist-packages/pip/commands/install.py", line 360, in run
+        prefix=options.prefix_path,
+      File "/usr/lib/python2.7/dist-packages/pip/req/req_set.py", line 784, in install
+        **kwargs
+      File "/usr/lib/python2.7/dist-packages/pip/req/req_install.py", line 851, in install
+        self.move_wheel_files(self.source_dir, root=root, prefix=prefix)
+      File "/usr/lib/python2.7/dist-packages/pip/req/req_install.py", line 1064, in move_wheel_files
+        isolated=self.isolated,
+      File "/usr/lib/python2.7/dist-packages/pip/wheel.py", line 247, in move_wheel_files
+        prefix=prefix,
+      File "/usr/lib/python2.7/dist-packages/pip/locations.py", line 153, in distutils_scheme
+        i.finalize_options()
+      File "/usr/share/python-wheels/setuptools-39.0.1-py2.py3-none-any.whl/setuptools/command/install.py", line 38, in finalize_options
+        orig.install.finalize_options(self)
+      File "/usr/lib/python2.7/distutils/command/install.py", line 289, in finalize_options
+        raise DistutilsOptionError("can't combine user with prefix, "
+    DistutilsOptionError: can't combine user with prefix, exec_prefix/home, or install_(plat)base
+    ```
+    add ` --user --prefix= --system` after every pip command with `--target` in [install_third_party.sh](https://github.com/oppia/oppia/blob/develop/scripts/install_third_party.sh)
   * If you get an error that ends with:
 
     ```
