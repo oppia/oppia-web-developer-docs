@@ -134,8 +134,8 @@ class UpdateExplorationVersionHandlerTest(test_utils.GenericTestBase):
 ### Some general guidelines for writing good tests:
 1. You should test the interface and not the implementation. That is, treat the function as a black box and test its functionalities.
 2. Keep the tests simple. Don't put any logic in the test. If you have to test more than one thing in a function, use separate test for each of them.
-3. Each method only tests a single behavior, as that helps both with naming the test, and ensuring tests don't fail for unrelated changes to the corresponding production code. Beyond that, consider using the following format when naming tests:
-       * _test_action_withCondition_withAnotherCondition_hasExpectedOutcome_
+3. Each method only tests a single behavior, as that helps both with naming the test, and ensuring tests don't fail for unrelated changes to the corresponding production code. Beyond that, consider using the following format when naming tests: 
+    - `test_action_withCondition_withAnotherCondition_hasExpectedOutcome`
 4. If some part of function depends on some other function to make decision, use self.swap() to swap that function with a simple function whose output you can define.
 5. Tests should follow a general pattern:
    * setup() - this is where you build inputs/ environment required by function.
