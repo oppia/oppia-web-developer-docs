@@ -134,13 +134,15 @@ class UpdateExplorationVersionHandlerTest(test_utils.GenericTestBase):
 ### Some general guidelines for writing good tests:
 1. You should test the interface and not the implementation. That is, treat the function as a black box and test its functionalities.
 2. Keep the tests simple. Don't put any logic in the test. If you have to test more than one thing in a function, use separate test for each of them.
-3. If some part of function depends on some other function to make decision, use self.swap() to swap that function with a simple function whose output you can define.
-4. Tests should follow a general pattern:
+3. Each method only tests a single behavior, as that helps both with naming the test, and ensuring tests don't fail for unrelated changes to the corresponding production code. Beyond that, consider using the following format when naming tests:
+       * _test_action_withCondition_withAnotherCondition_hasExpectedOutcome_
+4. If some part of function depends on some other function to make decision, use self.swap() to swap that function with a simple function whose output you can define.
+5. Tests should follow a general pattern:
    * setup() - this is where you build inputs/ environment required by function.
    * test baseline case - check the values without performing any action.
    * do the action that leads to a change.
    * test the end line case - check whether the value has changed correctly.
-5. Test the function as exactly and completely as possible. Eg - if you need to check the change in a key in the dict, compare for the equality of whole dict.
-6. **Guidelines for testing private methods/functions**: Tests should never refer to private methods/functions in all cases. All tests should happen through the public interface. Here are some suggestions for what to do in specific cases (if this doesn't help for your particular case and you're not sure what to do, please talk to **@BenHenning**):
+6. Test the function as exactly and completely as possible. Eg - if you need to check the change in a key in the dict, compare for the equality of whole dict.
+7. **Guidelines for testing private methods/functions**: Tests should never refer to private methods/functions in all cases. All tests should happen through the public interface. Here are some suggestions for what to do in specific cases (if this doesn't help for your particular case and you're not sure what to do, please talk to **@BenHenning**):
    * If you want to test code execution a private method/function, test it through public interface, or move it to a utility (if it's general-purpose) where it becomes public.
    * If you’re trying to access hidden information, consider getting that information from one level below instead (e.g. datastore).
