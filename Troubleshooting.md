@@ -2,15 +2,27 @@ Following are general trouble shooting tips. The platform specific tips are [[Li
    
    * If running `which java` on the terminal does not return any output, you do not have java installed. You can install it by running `sudo apt install openjdk-7-jre-headless`. Note that this command might vary for your local machine.
 
+   * If you're unable to run front-end tests while pushing your changes due to the script getting stuck, please go to "node_modules" directory (located at the same level as that of the root directory) and delete the "protractor" directory present inside that folder.
+
+   * If the selenium server is not killed on pressing Ctrl-C or Command-C (on Mac) and you get an error something like this:
+
+     ```
+       LocalError: Either another browserstack local client is running on your machine or some server is 
+       listening on port 45691
+     ```
+
+     You can kill the process manually by `sudo lsof -t -i:45691` or `sudo kill $(sudo lsof -t -i:45691)`.
+These commands can be used anywhere to kill a running process on any port by using the appropriate port number.
+
    * If you get an error that ends with:
 
-    ```
-      fancy_urllib.InvalidCertificateException?: Host appengine.google.com returned
-      an invalid certificate (ssl.c:507: error:14090086:SSL
-      routines:SSL3_GET_SERVER_CERTIFICATE:certificate verify failed):
-    ```
+     ```
+       fancy_urllib.InvalidCertificateException?: Host appengine.google.com returned
+       an invalid certificate (ssl.c:507: error:14090086:SSL
+       routines:SSL3_GET_SERVER_CERTIFICATE:certificate verify failed):
+     ```
 
-    try removing the `cacerts.txt` and `urlfetch_cacerts.txt` files as described [here](http://stackoverflow.com/questions/13899530/gae-sdk-1-7-4-and-invalidcertificateexception) and [here](http://stackoverflow.com/questions/17777994/why-cant-i-launch-my-app-from-the-shell).
+     try removing the `cacerts.txt` and `urlfetch_cacerts.txt` files as described [here](http://stackoverflow.com/questions/13899530/gae-sdk-1-7-4-and-invalidcertificateexception) and [here](http://stackoverflow.com/questions/17777994/why-cant-i-launch-my-app-from-the-shell).
 
 
   * If you get an error that ends with:
@@ -128,6 +140,12 @@ Following are general trouble shooting tips. The platform specific tips are [[Li
     ImportError: cannot import name RAND_egd
     ```
     go to `oppia_tools/google_appengine_1.9.50/google_appengine/google/appengine/dist27` and open the `socket.py` file. In this file go to the line 73 (or, alternatively, search for ‘RAND_egd’) and remove import of ‘RAND_egd’ from that line.
+  * If you get an error that ends with something like this:
+
+    ```
+    tarfile.ReadError: not a gzip file
+    ```
+    use `urllib2.request` for downloading the third party libraries instead of `urllib.urlretrieve` in "scripts/install_third_party.py".
 
 ### Mac OS
   * If you get an error that includes:
