@@ -85,44 +85,44 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 18 Mar - 24 Mar	  Allan         @AllanYangZhou
 25 Mar - 31 Mar	  Vojtěch       @vojtechjelinek
  1 Apr -  7 Apr	  Jacob         @jacobdavis11
- 8 Apr - 14 Apr	  Akshay         @aks681
-15 Apr - 21 Apr	  Yogesh         @1995YogeshSharma
-22 Apr - 28 Apr	  Kevin          @kevinlee12
-29 Apr -  5 May	  Sandeep        @DubeySandeep
- 6 May - 12 May	  Allan          @AllanYangZhou
-13 May - 19 May	  Nithesh        @nithusha21
-20 May - 26 May	  Apurv          @apb7
+ 8 Apr - 14 Apr	  Akshay        @aks681
+15 Apr - 21 Apr	  Yogesh        @1995YogeshSharma
+22 Apr - 28 Apr	  Kevin         @kevinlee12
+29 Apr -  5 May	  Sandeep       @DubeySandeep
+ 6 May - 12 May	  Allan         @AllanYangZhou
+13 May - 19 May	  Nithesh       @nithusha21
+20 May - 26 May	  Apurv         @apb7
 27 May - 2 Jun	  Vojtěch       @vojtechjelinek
- 3 Jun - 9 Jun	  Jacob          @jacobdavis11
-10 Jun - 16 Jun	  Akshay         @aks681
-17 Jun - 23 Jun	  Nithesh        @nithusha21
-24 Jun - 30 Jun	  Apurv          @apb7
- 1 Jul - 7 Jul	  Yogesh         @1995YogeshSharma
- 8 Jul - 14 Jul	  Kevin          @kevinlee12
-15 Jul - 21 Jul	  Sandeep        @DubeySandeep
-22 Jul - 28 Jul	  Allan          @AllanYangZhou
+ 3 Jun - 9 Jun	  Jacob         @jacobdavis11
+10 Jun - 16 Jun	  Akshay        @aks681
+17 Jun - 23 Jun	  Nithesh       @nithusha21
+24 Jun - 30 Jun	  Apurv         @apb7
+ 1 Jul - 7 Jul	  Yogesh        @1995YogeshSharma
+ 8 Jul - 14 Jul	  Kevin         @kevinlee12
+15 Jul - 21 Jul	  Sandeep       @DubeySandeep
+22 Jul - 28 Jul	  Allan         @AllanYangZhou
 29 Jul - 4 Aug	  Vojtěch       @vojtechjelinek
- 5 Aug- 11 Aug	  Jacob          @jacobdavis11
-12 Aug - 18 Aug	  Akshay         @aks681
-19 Aug - 25 Aug	  Nithesh        @nithusha21
-26 Aug - 1 Sep	  Apurv          @apb7 
- 2 Sep - 8 Sep	  Yogesh         @1995YogeshSharma
- 9 Sep - 15 Sep	  Kevin          @kevinlee12
-16 Sep - 22 Sep	  Sandeep        @DubeySandeep
-23 Sep - 29 Sep	  Allan          @AllanYangZhou
-30 Sep - 6 Oct	  Akshay         @aks681
- 7 Oct - 13 Oct	  Jacob          @jacobdavis11
-14 Oct - 20 Oct	  Allan          @AllanYangZhou
-21 Oct - 27 Oct	  Nithesh        @nithusha21
-28 Oct - 3 Nov	  Apurv          @apb7
- 4 Nov - 10 Nov	  Yogesh         @1995YogeshSharma
-11 Nov - 17 Nov	  Kevin          @kevinlee12
-18 Nov - 24 Nov	  Sandeep        @DubeySandeep
+ 5 Aug- 11 Aug	  Jacob         @jacobdavis11
+12 Aug - 18 Aug	  Akshay        @aks681
+19 Aug - 25 Aug	  Nithesh       @nithusha21
+26 Aug - 1 Sep	  Apurv         @apb7 
+ 2 Sep - 8 Sep	  Yogesh        @1995YogeshSharma
+ 9 Sep - 15 Sep	  Kevin         @kevinlee12
+16 Sep - 22 Sep	  Sandeep       @DubeySandeep
+23 Sep - 29 Sep	  Allan         @AllanYangZhou
+30 Sep - 6 Oct	  Akshay        @aks681
+ 7 Oct - 13 Oct	  Jacob         @jacobdavis11
+14 Oct - 20 Oct	  Allan         @AllanYangZhou
+21 Oct - 27 Oct	  Nithesh       @nithusha21
+28 Oct - 3 Nov	  Apurv         @apb7
+ 4 Nov - 10 Nov	  Yogesh        @1995YogeshSharma
+11 Nov - 17 Nov	  Kevin         @kevinlee12
+18 Nov - 24 Nov	  Sandeep       @DubeySandeep
 25 Nov - 1 Dec	  Vojtěch       @vojtechjelinek
- 2 Dec - 8 Dec	  Akshay         @aks681
- 9 Dec - 15 Dec	  Jacob          @jacobdavis11
-16 Dec - 22 Dec	  Nithesh        @nithusha21
-23 Dec- 29 Dec	  Apurv          @apb7
+ 2 Dec - 8 Dec	  Akshay        @aks681
+ 9 Dec - 15 Dec	  Jacob         @jacobdavis11
+16 Dec - 22 Dec	  Nithesh       @nithusha21
+23 Dec- 29 Dec	  Apurv         @apb7
 ```
 
 ### Maintainer rota coordinator
