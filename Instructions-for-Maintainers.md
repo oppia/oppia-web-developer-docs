@@ -74,13 +74,6 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 ## Maintainer Rota
 
 ```
- 3 Dec -  9 Dec   Akshay        @aks681
-10 Dec - 16 Dec   Nithesh       @nithusha21
-17 Dec - 23 Dec   Apurv         @apb7
-24 Dec - 30 Dec   Yogesh        @1995YogeshSharma
-31 Dec -  6 Jan   Kevin         @kevinlee12
- 7 Jan - 13 Jan   Sandeep       @DubeySandeep
-14 Jan - 20 Jan   Anmol         @anmolshkl
 21 Jan - 27 Jan	  Jacob         @jacobdavis11
 28 Jan -  3 Feb	  Akshay        @aks681
  4 Feb - 10 Feb	  Nithesh       @nithusha21
