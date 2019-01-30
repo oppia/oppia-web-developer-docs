@@ -20,6 +20,9 @@ This diagram shows how the voice and tone characteristics are derived from Oppia
 4. **Turn paragraphs into bullet points.** To the user, a paragraph can feel like a lot to take in. Make important information in the UI more digestible by breaking it up into bullet points (even if it’s just 2 or 3 sentences). This will allow users to get the info they need quickly.
 5. **Avoid text based on physical direction.** To ensure UI text is accessible to those who may not be able to see the screen or page, try to avoid words like "below", "above", "here", etc. when instructing users. For example, instead of “Enter your account details below,” just use "Enter your account details".
 6. **Error messages = explanation + solution, that’s it.** Explain the problem in simple language, then tell the user how to fix it (or offer to fix it for them). A few tips: consider adding helpful links, don’t blame the user, avoid humor.
+7. **Modals UX**:
+    - Modal having forms within it should not get closed through clicking in the blurred background, should get closed using ESC key or clicking cancel button of the modal.
+    - Modal having warnings or suggestions should get closed on clicking in the blurred background,, pressing Esc key or clicking cancel button of the modal.
 
 ## Punctuation
 - **Ampersand (&).** Use ampersand (&) in headlines on the site when referencing two items (i.e. ' Snacks & drinks' ). In a list of three or more items, spell out ' and'  (i.e. ' Snacks, drinks, and more' ). 
