@@ -103,7 +103,9 @@ Developing the Skill Table is the stage that will help you organize and further 
 <li>When writing the math breakdown, don't worry at all about Oppia's current technical capabilities. Assume that Oppia can do anything you want it to, and ask any question type you want it to. That allows the math breakdown to be used as an "ideal" reference and could drive future improvements in Oppia's tooling.</li>
 </ul>
 <b>Samples:</b>
-<ul><li><a href="https://docs.google.com/document/d/1AJ9l5rL-wPwiePYXhBZwreOz8piQ4Ur-KFj1KPCIPvg/edit">Place values (See the tables)</a></li></ul>
+<ul>
+<li><a href="https://docs.google.com/document/d/1GNP_slUbT1ZjA9BhDquvSTEWEIBlBgM2NdXcaCDSeVo/edit">Fractions (See the tables)</a></li>
+</ul>
 
 <h2 id="Script">Script Writing</h2>
 <p>The Script Writing is the stage that combines the work you did in the Skill Table with your Story Outline.</p> 
