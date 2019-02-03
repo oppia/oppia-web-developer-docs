@@ -22,6 +22,16 @@ The testers have to be in constant touch with both the QA coordinator as well as
 
 **Note:** If you would like to help out with the release testing, please contact @nithusha21 or @aks681. They will be able to guide you further. 
 
+# Instructions for QA member in charge of monitoring PRs
+* This is a weekly rota. During the week, monitor all PRs that come in, and all issues being filed.
+* For PRs, make sure the PR maintains quality of the codebase. This means that: 
+    * PR must maintain backend and frontend coverage values. Any new code being added needs to come with unit tests.
+    * If the PR completes a new feature (or a part, for which the following apply), the PR must add e2e tests for the same. Make sure to record this in the critical user journeys, or the functional capabilities as applicable. If this is a large feature, which needs to be tested with a small subset of the end users (intuitiveness testing) before we can make it public, initiate discussions regarding the same. 
+* For issues, make sure that any breakage of existing functionality reported is escalated to the appropriate contributor(s). Add user-facing bugs to the [bug fixing team project](https://github.com/oppia/oppia/projects/27#column-4117882).
+* At the end of the week (Sunday), notify the next QA team member about their upcoming shift. 
+
+**Note: ** If you can't make it to a shift mentioned in the below rota, please make sure to swap with someone else in advance! 
+
 # Team members
 * Bug fixing team: Vibhor (@vibhor98), Christopher (ctao5660), Rishav (@lilithxxx), Nithesh (@nithusha21), Akshay (@aks681)
 * QA coordinators team: Nithesh (@nithusha21), Akshay (@aks681), Nitish (@bansalnitish), Vibhor (@vibhor98)
