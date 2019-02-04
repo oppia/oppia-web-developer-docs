@@ -303,7 +303,7 @@ Note that parameterization might also extend to expressing the same question in 
 
 **Notes**
 * Good technical judgement is really important for this project, particularly in ensuring that the system that is built is not too complicated. We expect a GSoC project for this idea to cover only a sub-part of what is described in the description above; figuring out a suitable scope for this subproblem (and explaining clearly how it could be extended in the future) is an important part of the proposal.
-* The existing parameters/expressions framework might be a useful starting point. Note that there is some existing functionality for parameters in the codebase, but it is not well-maintained. It is probably best to figure out a design for this system from scratch, and only then see whether the existing parameter functionality can fit well into the proposed system.
+* The existing [parameters/expressions framework](http://oppia.github.io/#/Parameters) might be a useful starting point. Note that there is some existing functionality for parameters in the codebase, but it is not well-maintained. It is probably best to figure out a design for this system from scratch, and only then see whether the existing parameter functionality can fit well into the proposed system.
 * There should be a way for creators to audit that the parameterizations they have picked work well in all cases and result in sensible questions. The user flow for doing this should be clearly laid out.
 * Proposals should explain clearly how the rules in answer groups will handle parameters without complicating the default lesson creation experience.
 * [Stretch] Suggest a way to handle audio translations for parameterized questions.
@@ -314,7 +314,7 @@ Note that parameterization might also extend to expressing the same question in 
 ### 2.1. Highlight text in a lesson as audio is played
 We have found that audio voiceovers (especially in native languages) are very helpful for learners for whom English is not a first language. However, for longer cards, it is difficult for learners to match the audio voiceover to the text on the card. It would be great for learners to be able to track the audio with the text. 
 
-The aim of this project would be to allow lesson translators and voiceover artists to annotate textual translations and voiceover audio respectively, so that the relevant text can be highlighted in the exploration player while the corresponding audio is playing. A rough requirements doc for this project can be found here.
+The aim of this project would be to allow lesson translators and voiceover artists to annotate textual translations and voiceover audio respectively, so that the relevant text can be highlighted in the exploration player while the corresponding audio is playing. A rough requirements doc for this project can be found [here](https://docs.google.com/document/d/1VUaXm4V0YxyPXRBz8W_YMWEC_guzcnccju8d3KWz5jw/edit?usp=sharing).
 
 **Potential mentors**: @DubeySandeep
 
@@ -576,7 +576,7 @@ The aim of this project is to figure out all the invariants that should hold bet
 
 **Notes**
 * The above list is not representative, and we expect there to be many more such validations. The proposal should include a full list of these.
-* This project ties in very closely to Oppia’s release process. Make sure you are acquainted with Oppia’s release timeline, as well as the procedure for running one-off jobs in production.
+* This project ties in very closely to Oppia’s release process. Make sure you are acquainted with [Oppia’s release timeline](https://github.com/oppia/oppia/wiki/Release-Schedule), as well as the [procedure for running one-off jobs in production](https://github.com/oppia/oppia/wiki/Running-jobs-in-production).
 
 ***
 
