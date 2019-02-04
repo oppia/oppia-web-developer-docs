@@ -311,6 +311,100 @@ Note that parameterization might also extend to expressing the same question in 
 ***
 
 ## Learner View Projects
+### 2.1. Highlight text in a lesson as audio is played
+We have found that audio voiceovers (especially in native languages) are very helpful for learners for whom English is not a first language. However, for longer cards, it is difficult for learners to match the audio voiceover to the text on the card. It would be great for learners to be able to track the audio with the text. 
+
+The aim of this project would be to allow lesson translators and voiceover artists to annotate textual translations and voiceover audio respectively, so that the relevant text can be highlighted in the exploration player while the corresponding audio is playing. A rough requirements doc for this project can be found here.
+
+**Potential mentors**: @DubeySandeep
+
+**Difficulty**: Hard
+
+**Knowledge/Skills needed**: 
+* Full stack development
+* Good UX design
+
+**Suggested milestones**:
+1. Change the backend schema for an exploration as required (in order to include annotations) and migrate existing explorations to the new schema.
+1. Create a frontend UI that allows translators and voiceover artists to easily specify the correspondences between an audio voiceover (possibly in a different language), the text of the written translation in that language, and the text of the original exploration card.
+1. Update the learner view to allow the corresponding text to be highlighted when the audio is playing.
+
+**Notes**
+* Proposals should include clear descriptions of the workflows for annotators (both those who are working on written translations and audio voiceovers).
+
+***
+
+### 2.2. Functionality for asking students why they picked a particular answer
+We would like to add a feature to the lesson player that allows students to explain how they arrived at a (wrong) answer. The aim of this feature is to encourage reflection on the student’s part, as well as provide (anonymized) information to creators about student misconceptions, so that the creator can improve Oppia’s feedback for future students.
+
+**Potential mentors**: @vibhor98 (primary), @aks681
+
+Difficulty: Medium
+
+**Knowledge/Skills needed**
+* Good technical and UI/UX design
+* Full stack development
+
+**Suggested milestones**
+1. Implement the backend data storage models, domain objects, services and controllers needed for this feature. Note that this feature should be whitelisted to the same set of explorations for which learner playthroughs are whitelisted.
+1. Augment the learner view UI to enable learners to fill out responses.
+1. Augment the editor view UI to surface these responses to creators, and complete the end-to-end feature so that the complete life-cycle functions correctly. Add e2e tests to verify the overall life-cycle.
+
+**Notes**
+* Proposals must clearly state when this information must be recorded. The process should not unduly obstruct the learner -- e.g, it would not be nice to surface a modal with “explain your approach” every time the learner clicks submit. Proposals should also outline when and where this data is surfaced to creators. 
+* Proposals must clearly state the complete lifecycle of this feature, starting from the learner’s submission and proceeding all the way to the creator improving the lesson based on that feedback. Be sure to consider “non happy path” flows as well, such as when the student does not provide an explanation that the creator can understand. The proposal should also include mocks for both the learner and creator views.
+
+***
+
+### 2.3. Memorization Experience for Learners
+For some topics, attention needs to be given on memorizing data (such as the names of the counting numbers, the times table, the months in a year, or the planets in the solar system). There should be an effective way for learners to do this as needed, in a topic or in an exploration. The creator should be able to specify the information that needs to be memorized, and there should be a built-in mechanism in Oppia that helps the learner commit this information to memory as quickly and accurately as possible.
+
+**Potential mentors**: @seanlip (primary)
+
+**Difficulty**: Medium/Hard. This project is somewhat open-ended. We encourage coming up with a proposal which is reasonable in scope, but which also can be backed by evidence that implementing it would lead to an effective learning experience.
+
+**Knowledge/Skills needed**
+* Full stack development
+* Good technical design
+* Good UX design
+
+**Suggested milestones**
+These will depend strongly on the nature of the proposal. In general, we recommend:
+1. Make all necessary backend changes for this project, working through the stack, starting from the storage models to the backend controllers.
+1. Make all necessary frontend changes for the editor view to enable the creation of such experiences for learners.
+1. Make all necessary frontend changes for the learner view to enable them to experience this feature.
+
+**Notes**
+* Proposals should define where this experience takes place, and why -- is this a separate experience at the topic level, or is it part of an exploration? The user experience for the student should be a natural one, and be defined in the proposal as clearly as possible.
+* The success of this project is based on how effectively it helps students memorize a list of predetermined facts/words. The proposal should explain why the approach chosen is likely to be effective.
+
+***
+
+### 2.5. Review tests and other improvements to the questions framework
+While explorations and stories help encourage a learner to continue learning, it is also useful for a learner to be able to keep track of their understanding as the learning progresses. Review tests are an upcoming feature in Oppia that aims to help learners test the skills they’ve learned after they have completed 2-3 lessons in a story in that topic. These review tests would be automatically presented to the learner once they have progressed up to a certain point in the story, and would need to be completed successfully in order to advance to the next part of the story.
+
+This project aims to create the learner view for review tests, and to improve the question framework as a whole so that the experience of practising questions on Oppia (via pre-tests, review tests and practice sessions) is as effective and enjoyable as possible.
+
+**Potential mentors**: @vinitamurti (primary), @aks681
+
+**Difficulty**: Medium
+
+**Knowledge/Skills needed**
+* UI/UX design
+* Python (backend development)
+* Angular JS (frontend development)
+
+**Suggested milestones**
+1. Implement the full user flow for review tests. After this milestone, review tests should be presented to students at the right time, making use of the existing question player component. At the end of the review test, there should be a way for the student to return to the story they were on.
+1. Update the question player framework to return more information than just the score, once the learner has completed the test. Specifically, the question player framework should be able to return the score, as well as calculate and return the mastery of the skill(s) that were tested. At the end of this milestone, the question player API should return score as well as a list of skills tested along with their mastery levels. Note, the proposal should define  mastery levels as well.
+1. Use the skill mastery information returned by the question player API in each of the tests (i.e. pre-tests, practice sessions, and review tests). Each of the tests would have to use the skill mastery levels in different ways. Pre-tests would use mastery to decide whether the learner has passed the requirements and can proceed with the lesson, whereas review tests and practice sessions would use the mastery values primarily to pass on the information to the learner and keep track of their progress.
+
+**Notes**
+* Proposals should include user flows for what the review tests experience would look like.
+* Proposals should include a clear definition of how to measure the effectiveness of the questions framework.
+
+***
+
 ## Infrastructure Projects
 
 # Other useful information
