@@ -406,6 +406,179 @@ This project aims to create the learner view for review tests, and to improve th
 ***
 
 ## Infrastructure Projects
+### 3.1. Frontend and e2e tests
+The Oppia frontend is quite extensive in terms of functionality, and we lay a lot of emphasis on a smooth user-facing experience. Thus, we would like to ensure that all functionality is fully tested, at all times, before it goes into production.
+
+The aim of this project is twofold: (a) to achieve 100% coverage for the frontend tests and ensure that this state is preserved in the future, as well as (b) to improve Oppia’s end-to-end tests coverage and make them run faster. The framework and guidelines should make it easy for future developers to incorporate the necessary tests along with their code, and prevent insufficiently-tested code from making it into the codebase.
+
+**Potential mentors**: @apb7 (primary), @nithusha21
+
+**Difficulty**: Medium
+
+**Knowledge/Skills needed**
+* Familiarity with Karma and Protractor
+* Basic understanding of AngularJS
+* A good “testing” mentality.
+
+**Suggested milestones**
+1. Extend frontend unit tests to reach at least 75% coverage.
+1. Extend frontend unit tests to reach 100% coverage and lay down guidelines/rules which ensure that this state is preserved, that is, the coverage always remains at 100%.
+1. Optimize the e2e tests on the following grounds (while ensuring that the coverage remains at 100%):
+    1. Pull out common flows from the e2e tests that run on both desktop (core/protractor_desktop) and mobile (core/protractor_mobile), and organize them in core/protractor instead.
+    1. Make the tests faster by minimizing repetition of statements between different tests. (Refer to the first bullet point under Notes.)
+
+**Related issues**: #4057
+
+**Notes**
+* A general problem observed with the end-to-end tests is the repetition of statements -- the initial setup and the steps performed. This makes the end-to-end tests a bit inefficient and they take more time to be completed. Proposals should clearly explain how they are planning to ensure that this problem is removed once and for all, and what amendments must be made to the guidelines for end-to-end tests.
+* The present frontend coverage is 46.07% with respect to statements (12562 statements covered out of a total of 27266 statements). Proposals should explain a plan to reach 100% coverage and outline how this state of affairs will be preserved in the future.
+
+***
+
+### 3.2. Improving backend test coverage and Python migration
+This project aims to improve backend test coverage to 100%, and then migrate the backend codebase to be simultaneously compatible with both Python 2 and Python 3. The reason these two projects are linked is because one prerequisite for a safe migration is to have full test coverage, so it is important to make sure that the coverage is 100% before migrating. 
+
+Unfortunately, we cannot do a full migration to Python 3 at this time due to incompatibility issues with Google App Engine (GAE) dependencies. So, the current plan is to have the codebase python3 ready, so that we can easily upgrade to python3 as soon as the GAE issues are resolved.
+ 
+**Potential mentors**: @apb7 (primary), @brianrodri
+
+**Difficulty**: Medium
+
+**Knowledge/Skills needed**
+* Python
+* A good testing mentality
+* bash scripting knowledge.
+
+**Suggested milestones**
+1. Make coverage visible from the CI build. This will allow us to not merge PRs which reduce the coverage percentage. Improve the coverage of the existing code to from 89% to 100% (2314 lines missing of 21562 at the time this was written), and put guidelines in place to ensure that no uncovered backend code makes it into the develop branch.
+1. Make sure that all libraries we use are compatible with python 3: if not, suggest mitigation approaches and migrate the libraries accordingly. In addition, make updates to the codebase to ensure that it is compatible with both Python 2 and Python 3, while ensuring that all setup and deployment scripts continue to work fine.
+1. Convert all bash scripts to python. Put measures in place (like lint checks) to ensure that the backend code always remains compatible with both python 2 and python 3, regardless of subsequent developer changes. Create a list of remaining steps that need to be taken for a final migration to python 3 (once a solution is found for the GAE dependency issues); this list should be as short as possible.
+
+**Related issues**: #5134
+
+**Notes** 
+* See https://docs.python.org/3/howto/pyporting.html for migration instructions.
+* Proposals must clearly state how to achieve the 100% coverage state from our current state.
+
+***
+
+### 3.3. Upgrade Angular dependencies + migrate to Angular 2 
+With the announcement that AngularJS will no longer be maintained or updated, we would like to upgrade our frontend to use Angular 2. The migration will need to happen step by step, while maintaining the working state of the codebase. 
+
+**Potential mentors**: @kevinlee12 (primary), @bansalnitish
+
+Difficulty: Hard
+
+**Knowledge/Skills needed**
+* Angular
+* Angular2
+* good technical design
+
+**Prerequisites**
+This project will only be offered for GSoC if the pre-work to convert the codebase to a migratable state (and update any necessary third-party libraries) is completed before the start of GSoC.
+
+**Suggested milestones**:
+1. Upgrade at least 30% of the codebase to Angular 2, including test files. Communicate to developers the changes that are going on, and ensure that documentation exists for them to easily set up an Angular 2 environment and get started with development using Angular 2.
+1. Upgrade at least 60% of the codebase to Angular 2, including test files.
+1. Upgrade the entire codebase to Angular 2, including test files.
+
+**Notes**:
+* Proposals should demonstrate a clear understanding of the upgrade process, and specify a clear plan for tackling this project that can be fully conducted during the GSoC period.
+* Proposals should explain the impact of the changes on developers, and how to minimize this.
+* See https://angular.io/guide/upgrade for the official upgrade instructions.
+
+***
+
+### 3.4. Upgrade third-party libraries
+Some of the third party libraries that Oppia uses have been updated, and migrating to newer versions of these libraries might help fix some issues on the issue tracker. The aim of this project is to upgrade all third-party libraries (carefully!) to the latest stable version. 
+
+**Potential mentors**: @vojtechjelinek (primary), @bansalnitish
+
+**Knowledge/Skills needed**
+* Bash
+* Python (to understand the use cases of the library)
+* Javascript (to understand the use cases of the library)
+
+**Suggested milestones**
+1. Upgrade 70% of the libraries in ./third_party.
+1. Upgrade 100% of the libraries in ./third_party.
+1. Upgrade Node to the latest stable version and then upgrade all libraries in ../node_modules. Upgrade all libraries in ../oppia_tools.
+
+**Difficulty**: Easy/Medium
+
+Notes:
+* An important part of upgrading libraries is to make necessary changes to support the upgraded libraries (in case new versions introduce breaking changes or are not backward-compatible). There are several libraries in ./third_party for which this is more difficult than others. The proposal should explain which libraries these are, and describe a plan to upgrade them safely.
+* Milestone 3 comes last because node and ../oppia_tools are not user-facing.
+
+***
+
+### 3.5. Static serving
+Currently, Oppia serves all pages using the Jinja templating engine, which isn't very efficient -- for one thing, because pages are dynamically composed using Jinja, they can’t be cached. The aim of this project is therefore to serve as much of Oppia's pages as we can statically, and handle all dynamic content using AJAX calls. In order to do this, we'll need to get rid of the Jinja footprint in our codebase. Furthermore, we sometimes use Jinja to include static files (like header_js_libs.html or footer.html); and will therefore need to find an alternative way to include these in a Jinja-less environment (perhaps in our build process, or with ngInclude).
+
+**Potential mentors**: @vojtechjelinek, @1995YogeshSharma
+
+**Difficulty**: Medium
+
+**Knowledge/Skills needed**
+* Full-stack development
+* Technical design
+
+**Suggested milestones**:
+1. Devise a way to serve the About page statically (this requires getting rid of any remaining Jinja constructs on that page), using an approach that is generalizable to other pages. Identify other issues that can arise from serving the remaining pages statically.
+1. Convert all mostly-static pages in Oppia, as well as at least one non-static page, to use the new framework developed in milestone 1.
+1. Serve all pages in Oppia statically.
+
+
+**Related issues**:
+* #4220: MusicNotesInput static images are not hash interpolated.
+* #2308: Add pre-rendering and other pre improvements to Oppia pages.
+* #5002: Remove GLOBALS from HTML
+* #5597: Jinja replacement with angular for page title
+* #3950: Replace Jinja templates in the frontend with Angular
+
+**Notes**:
+* The proposal should include a clear analysis of how to get rid of Jinja for all pages.
+* This project may require some changes in the build process, because we currently sometimes use {% include %} just to have clearer dev processes. Good proposals will include a coherent analysis of how to deal with this issue, as well as the pros/cons of possible approaches. Some starting-point ideas are provided below, but there may be others:
+    * re-build the finalized templates at release time, then serve them statically from then on (rather than try 
+to re-construct them at every request). But how would we handle local development, where the changed files must be available immediately?
+    * Look into stuff like ngInclude in Angular. But that might lead to too many calls to the server (even if only to retrieve static files). That said, we could cache the templates.
+* This project requires the usage of some kind of module bundling (webpack). We hope to have this completed prior to GSoC -- talk to @vojtechjelinek for more details.
+* In order to get rid of Jinja, we need to find alternative ways to handle all the GLOBALS variables that are currently sent to the frontend using Jinja. Work on this is currently ongoing at #5002 -- talk to @vojtechjelinek if you’d like to help with this.
+
+***
+
+### 3.6. Verify/validate production data
+We would like to validate that Oppia deployments have valid data and relationships between datastore storage models. Some sample validations include:
+
+* All explorations have correct ExplorationRights objects defined
+* All images are linked up with an existing exploration
+* All audio files are linked up with an existing exploration
+* All explorations in collections have corresponding model instances
+* Feedback/Suggestions have corresponding explorations attached to them
+* All RTE fields are correctly formatted
+
+The aim of this project is to figure out all the invariants that should hold between Oppia storage models, and put in place an audit job to verify that they hold in a production deployment, as well as put steps in place to ensure that, if the invariants hold at a point in time, they continue to hold in perpetuity.
+
+**Potential mentors**: @bansalnitish (primary), @seanlip
+
+**Difficulty**: Medium
+
+**Knowledge/Skills needed**
+* Python
+* Map Reduce jobs
+* Good technical design
+* Good eye for testing
+
+**Suggested milestones**
+1. Update the backend code to ensure that all desired invariants continue to hold in perpetuity, and create an audit job to verify that all desired invariants hold. This audit job should be run in production immediately after Milestone 1 and will produce a list of discrepancies that need to be addressed.
+1. Resolve at least half of the discrepancies found during Milestone 1.
+1. Resolve all the discrepancies found during Milestone 1.
+
+**Notes**
+* The above list is not representative, and we expect there to be many more such validations. The proposal should include a full list of these.
+* This project ties in very closely to Oppia’s release process. Make sure you are acquainted with Oppia’s release timeline, as well as the procedure for running one-off jobs in production.
+
+***
 
 # Other useful information
 
