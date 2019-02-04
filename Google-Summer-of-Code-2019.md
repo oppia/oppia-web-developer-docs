@@ -385,7 +385,7 @@ While explorations and stories help encourage a learner to continue learning, it
 
 This project aims to create the learner view for review tests, and to improve the question framework as a whole so that the experience of practising questions on Oppia (via pre-tests, review tests and practice sessions) is as effective and enjoyable as possible.
 
-**Potential mentors**: @vinitamurti (primary), @aks681
+**Potential mentors**: @vinitamurthi (primary), @aks681
 
 **Difficulty**: Medium
 
@@ -603,7 +603,7 @@ Noteworthy dates for 2019:
 * Sandeep (@DubeySandeep)
 * Sean (@seanlip)
 * Vibhor (@vibhor98)
-* Vinita (@vinitamurti)
+* Vinita (@vinitamurthi)
 * Vojta (@vojtechjelinek)
 * Yogesh (1995YogeshSharma)
 
