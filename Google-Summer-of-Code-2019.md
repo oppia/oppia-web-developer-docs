@@ -205,7 +205,7 @@ _To be decided_
 
 ***
 
-### 1.3. Audio project: Making fully feature audio translation tab.
+### 1.3. Translation infrastructure enhancement
 Currently, Oppia provides a simple platform for translators for recording and tracking audio translations work. This platform mostly covers the managerial part for audio translation like checking audio translation coverage at a single glance for any language, we had few interaction with oppia translators and we found that we improve the platform in many ways to make the translation process easy and simple. We have enlisted few important features which can be integrated to the translation structure:
 * Caching/storing recorded audio locally until they are saved.
 * Allowing users to upload multiple audio files at a time.
