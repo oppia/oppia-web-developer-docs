@@ -592,7 +592,20 @@ Noteworthy dates for 2019:
 * **May 27 - Aug 19**: Students enjoy the summer by contributing code to their projects
 * **Aug 26*: GSoC officially ends
 
-## List of Mentors
+## List of Potential Mentors
+
+* Akshay (@aks681)
+* Apurv (@apb7)
+* Brian (@brianrodri)
+* Kevin Lee (@kevinlee12)
+* Nithesh (@nithusha21)
+* Nitish (@bansalnitish)
+* Sandeep (@DubeySandeep)
+* Sean (@seanlip)
+* Vibhor (@vibhor98)
+* Vinita (@vinitamurti)
+* Vojta (@vojtechjelinek)
+* Yogesh (1995YogeshSharma)
 
 ## Communication
 
