@@ -129,17 +129,189 @@ Please note that all mentor assignments are provisional, and that they may chang
 
 This year, the Oppia team is offering three types of projects: infrastructure projects, projects that improve the learner experience, and projects that improve the creator experience. Some of the project ideas are annotated with notes and suggestions from the mentors, but please bear in mind that the main purpose of these notes is simply to suggest ideas or possible starting points; they aren't meant to be prescriptive. You'd also be welcome to include discussions of other relevant aspects (that aren't mentioned in the notes) to your proposal. For more information, see: [Tips for writing a good project plan](#tips-for-writing-a-good-project-plan).
 
-- [Infrastructure Projects](#infrastructure-projects)
-  
-- [Learner View Projects](#learner-view-projects)
-  
-- ["Creator Experience" Projects](#creator-experience-projects)
+1. [Creator Experience Projects](#creator-experience-projects)
+     1. Building a Lesson Artist Dashboard
+     1. Define and Implement Continuous Real-Time Effectiveness Metric for Explorations 
+     1. Translation infrastructure enhancement
+     1. Allow exporting an exploration to a linear view for easy review/improvement 
+     1. Improvements to the editor flow, including
+     1. Allow creation of parameterized questions
 
-## Infrastructure Projects
+1. [Learner View Projects](#learner-view-projects)
+    1. Highlight words as audio is played.
+    1. Functionality for asking students why they picked a particular answer 
+    1. Memorization Experience for Learners
+    1. Review tests and improvements to the questions framework
 
-## Learner View Projects
+1. [Infrastructure Projects](#infrastructure-projects)
+    1. Improve frontend test coverage (to 100%) and optimize e2e test suite
+    1. Improve backend test coverage (to 100%) and making sure the codebase follows python 3 syntax, and is ready for migration. 
+    1. Upgrade Angular dependencies and migrate to Angular 2
+    1. Upgrade third-party libs
+    1. Static serving
+    1. Validate production data
 
 ## "Creator Experience" Projects
+### 1.1. Building a Lesson Artist Dashboard
+Art and graphics form an integral part of most explorations on Oppia, and is especially important in making lessons learner-friendly. Typically, art is used for illustrative images, decorative images, or images for questions or answers. We have developed a standardized process for creating lessons, and are currently working on creating lessons in relevant subject areas that are as good as possible. However, one major blocker for getting lessons out fast to learners is the lack of designers/artists, and we would like to have a framework that enables artists to contribute to lessons as easily as developers can contribute to GitHub repositories.
+
+The idea behind this project is to enable two things. Firstly, add functionality to have dedicated artists for explorations: this will allow creators to assign artist roles, and allow the art development workflow to happen in parallel with other creative work. Secondly, implement a way to crowdsource these graphics (using the existing suggestions framework). For this, all open image requests should be surfaced to non-editors/artists of the exploration, and they should be allowed to suggest an image. This will be reviewed by the editors/artists, and once approved, can be added to the lesson. 
+
+**Potential mentors**: @nithusha21 (primary)
+
+**Difficulty**: Medium
+
+**Knowledge/Skills needed**
+* Good technical design 
+* UX design
+* Full stack development
+
+**Suggested milestones**
+1. Implement an “image placeholder” component in rich-text editor fields for an exploration, and implement a new role for artists that gives them permissions to contribute images to these image placeholders (or replace existing images).
+1. Implement a single common view for all explorations that lists all open image requests. The creator of the exploration should be able to flip a setting, which would either enable or disable image placeholders within their exploration to be displayed in the common view. This common view must be accessible to all, and should be easily reachable from the creator/learner dashboards. Suggestions for images would happen through this view.
+1. Implement a suggestion-based approach to suggest an image for a placeholder. This will enable all users to contribute an image to the lesson. The suggested images should appear on the feedback tab of the exploration creation page (this is exploration specific, and should not be reachable by all). The artists/editors of the exploration should be able to review the suggestion, and if the image is accepted, the suggested image should be added to the exploration.
+
+***
+
+### 1.2. Real-Time Measurement of Exploration Effectiveness
+We want to provide creators meta-analysis for the improvements they make to their explorations. This gives them confidence in following through with our suggested improvements, and allows them to quantitatively understand the effectiveness of their explorations.
+
+**Open Questions**:
+* How do we "prove" explorations have improved for learners?
+* What kind of data can we collect to argue an exploration has improved?
+* Can they be anonymized?
+* How will we intuitively show these metrics to creators?
+
+**Potential mentors**: @brianrodri (primary), @kevinlee12
+
+**Difficulty**: Medium
+
+**Knowledge/Skills needed**
+* Full stack development
+* Python
+* Angular JS
+
+**Suggested milestones**
+_To be decided_
+
+**Related issues**
+* Define and Implement Continuous Real-Time Effectiveness Metric for Explorations (#5801)
+
+**Notes**
+* Proposals must:
+    * Suggest 2-3 well-defined metrics to be monitored, and why/how they will determine effectiveness.
+    * Mock of the directive which shows the metrics.
+    * Define all domain objects +tests, services +tests, directives +tests, backend schemas/models + tests which will be implemented.
+
+***
+
+### 1.3. Audio project: Making fully feature audio translation tab.
+Currently, Oppia provides a simple platform for translators for recording and tracking audio translations work. This platform mostly covers the managerial part for audio translation like checking audio translation coverage at a single glance for any language, we had few interaction with oppia translators and we found that we improve the platform in many ways to make the translation process easy and simple. We have enlisted few important features which can be integrated to the translation structure:
+* Caching/storing recorded audio locally until they are saved.
+* Allowing users to upload multiple audio files at a time.
+* Allowing multiple translators to work in parallel without losing their draft changes.
+
+**Potential mentors**: @DubeySandeep (primary)
+
+**Difficulty**: Medium
+
+**Knowledge/Skills needed**
+* Frontend development
+* Good UI/UX design
+
+**Suggested milestones**:
+1. In the first milestone, you can work on backend structure to implement “Allowing multiple translators to work in parallel without losing their draft changes.”
+1. In the second milestone, try to cover the usability of translation tab, i.e, caching recorded audio so that translator can easily navigate in translation tab without losing any recorded audio. Allowing translators to upload multiple files at a time and automatically (or allowing them to select) locate audio files to the correct place.
+1. In the third milestone, you can implement a functionality to allow translators to upload multiple audio files at a time.
+
+***
+
+### 1.4. Creating a “Reviewer View” for Explorations
+In order to ensure a high level of quality, explorations are often reviewed by an experienced lesson creator before publication. However, this is currently a somewhat tedious process that requires lots of clicking from one state to another, which can make it difficult for the reviewer to get a sense of the main “flow” of the exploration.
+
+It would be nice to have a more linear, scrollable view of the entire exploration which is optimized for reviewers, and which supports basic commenting functionality. The aim of this project is to build this view.
+
+**Potential mentors**: @1995YogeshSharma (primary), @seanlip
+
+**Difficulty**: Hard
+
+**Knowledge/Skills needed**
+* Python and AngularJS
+* Good UI/UX design
+* Good technical design
+* Very good understanding of what an exploration is, and what its various components are
+
+**Suggested milestones**
+1. Implement a basic “reviewer’s view” of the exploration in the editor tab. In addition to the “content” section of each card, this view should also include a representation of at least two of the following: interaction, feedback/responses, hints, solution.
+1. Fully implement the reviewer’s view. Implement the backend storage for reviewer comments on parts of an exploration (in a way that involves expanding the existing feedback system to allow reference to specific parts of a card, rather than creating a brand-new sibling system from scratch).
+1. Implement the frontend system for reviewer comments on parts of an exploration.
+
+**Notes**
+* Proposals must include clear mockups or wireframes for how the display would look. A sample exploration converted into linear view as an example would be great!
+* Proposals should clearly indicate how each of the components of an exploration would be handled (interaction, hints, solutions, answer groups). Be sure to think about what makes the most sense for the reviewer -- you don’t need to include everything in full detail. For example, the reviewer probably won’t need to see fully-fledged interactions that they can interact with. The user flow for a reviewer should be clearly laid out.
+* The proposal should explain how branching explorations would be handled. (Note, though, that explorations are typically fairly linear in nature, with branching used only for reviewing earlier material and/or going back to earlier cards. The reviewers’ view should be optimized for that use case, but there should be some reasonable way to handle non-linear explorations.)
+* The view should support comments like Google Docs. Proposals should give examples about what this would look like and how it would work.  
+
+***
+
+### 1.5. Improvements to the Editor Saving Flow
+There are a number of serious issues with current workflows in the exploration editor that can occasionally cause loss of work. In particular:
+
+* When an exploration is migrated to a newer schema version, any existing draft changelists should also be updated accordingly. Currently, draft changelists are not updated, resulting in a version mismatch and a loss of work when the exploration creator subsequently tries to apply the draft. (See #4438 for some discussion.)
+* When an exploration is updated, any existing suggestions in the feedback tab should be updated accordingly. Currently, such suggestions are not updated, resulting in a version mismatch and a loss of work when the exploration creator subsequently tries to apply the suggestion.
+* When changes cannot be saved to an exploration, a “lost changes” modal pops up so that the creator can make a copy of their edits and then reapply them. However, the code for this modal is not robust, and in particular it does not take into account draft changelists that were stored in an older format. Thus, when it tries to display such drafts, it breaks and ends up not showing anything.
+* It is difficult to change an interaction into a slightly different one (e.g. from text input to number-with-input) without losing all the associated responses, hints and solutions. It would be nice to declare a suitable transformation that allows this data to be carried over from one interaction type to a closely-related one, and to auto-migrate as much of the responses as possible so that the creator does not lose their work.
+
+The aim of this project is to fix any three of these issues.
+
+**Potential mentors**: @vibhor98 @1995YogeshSharma 
+
+**Difficulty**: Medium
+
+**Knowledge/Skills needed**
+* Full stack development including Python and AngularJS
+* Good technical design
+
+**Suggested milestones**
+Choose three of the issues above, and fix them. Fixing each issue counts as a single milestone.
+
+**Notes**:
+If you would like to get a bit more familiar with the exploration editor, here is a simpler issue along the same lines that you might like to have a go at: When switching from a rule type to a different rule type, the inputs to the old rule type get lost, even though both rule types have the same types of inputs and it is possible to carry the inputs over.
+
+***
+
+### 1.6. Allow creation of parameterized questions
+With the addition of the questions framework, there is potential to create a large question bank for practice questions. However, it would be tedious for creators to create a large number of questions with similar formats but slight variations (e.g. “Add ⅘ and ¾”, “Add ⅔ and ⅗”, etc.)
+
+Instead, we would like to introduce the concept of parameterized questions, where the creator can specify parameters which can be used to generate many questions at once. (In the example given above, the question might be of the form “Add a/b + c/d”, with parameters a, b, c, d. The question creator would specify ranges of values for the parameters in order to generate questions.)
+
+Note that parameterization might also extend to expressing the same question in different ways. For example, we might want to be able to treat the questions “Add a/b + c/d”, “Find the sum of a/b and c/d”, and “{{name}} has a/b of a cake and {{other_name}} has c/d of the same cake; what is the total amount of cake they have?” as the same.
+
+**Potential mentors**: @aks681, @vinitamurthi
+
+**Difficulty**: Hard
+
+**Knowledge/Skills needed**
+* Full stack development
+* Good technical design
+* Good UX design
+
+**Suggested milestones**
+* Make any backend changes that are necessary to allow parameter values / ranges to be stored along with a question, and implement functionality (hidden behind a flag) for specifying these values / ranges in the frontend.
+* Implement functionality that allows authors to use parameters in question content and rules.
+* Implement functionality to allow creators to audit that the parameterizations they have chosen work well in all cases, and result in sensible questions.
+
+**Notes**
+* Good technical judgement is really important for this project, particularly in ensuring that the system that is built is not too complicated. We expect a GSoC project for this idea to cover only a sub-part of what is described in the description above; figuring out a suitable scope for this subproblem (and explaining clearly how it could be extended in the future) is an important part of the proposal.
+* The existing parameters/expressions framework might be a useful starting point. Note that there is some existing functionality for parameters in the codebase, but it is not well-maintained. It is probably best to figure out a design for this system from scratch, and only then see whether the existing parameter functionality can fit well into the proposed system.
+* There should be a way for creators to audit that the parameterizations they have picked work well in all cases and result in sensible questions. The user flow for doing this should be clearly laid out.
+* Proposals should explain clearly how the rules in answer groups will handle parameters without complicating the default lesson creation experience.
+* [Stretch] Suggest a way to handle audio translations for parameterized questions.
+
+***
+
+## Learner View Projects
+## Infrastructure Projects
 
 # Other useful information
 
