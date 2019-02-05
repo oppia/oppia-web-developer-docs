@@ -70,7 +70,7 @@ When submitting a proposal, please use the following template:
 - What interests you about this project? Why is it worth doing?
 - Prior experience (especially with regards to technical skills that are needed for the project).
 - Links to 1-5 PRs you've made that showcase your best work, especially any Oppia ones. The list should include at least one Oppia PR, but you can also include some other PRs from major open-source projects if you like.
-- Project plan and implementation strategy.
+- Project plan and implementation strategy. This should be detailed, and should follow [Oppia's design doc template](https://docs.google.com/document/d/1eMivKj5uWkOkj4AB684JVJslAe49gSskZ-VsyUjgPN4/edit).
 
 **Summer Plans**
 - Which timezone(s) will you primarily be in during the summer?
@@ -83,13 +83,19 @@ When submitting a proposal, please use the following template:
 
 ### Tips for writing a good project plan
 
-The project plan is the most important section of the proposal, since it outlines what you'll be doing during the summer. Here's some guidance on what the mentors and organization admins will be looking for in this section:
+The project plan is the most important section of the proposal, since it outlines what you'll be doing during the summer. The plan must follow [Oppia's design doc template](https://docs.google.com/document/d/1eMivKj5uWkOkj4AB684JVJslAe49gSskZ-VsyUjgPN4/edit). The linked document has instructions and illustrations on what the various sections should contain. Please follow them. If any section isn't relevant for the project, please keep the section and mention why it isn't relevant. If you're stuck about how to start off a design doc, tie it back to [Oppia's overall strategy](https://github.com/oppia/oppia/wiki/Oppia's-Mission) with a clean and cogent argument, i.e., Oppia wants to do X, hence we have Y, hence we have Z, hence we need this feature. This will also help you get a deeper understanding regarding the project, and help you write better proposals, and build meaningful products for Oppia's end users!
+
+
+Here's some guidance on what the mentors and organization admins will be looking for in this section:
+
 
 - **Three clear milestones** explaining the deliverables to be achieved by the end of each of the three GSoC coding periods. Strong proposals will have clear, concrete and well-defined milestones, whose success can be readily evaluated by an external observer. It's OK to break up a milestone into smaller milestones over smaller timescales, but individual milestones should represent *concrete* deliverables that can be merged safely into the "develop" branch and included in a subsequent Oppia release. **<u>Please try to be realistic when setting milestones, and don't over-promise.</u>**
 
 - **A technical design and implementation plan**. The project ideas below are annotated with some notes from the mentors, but please bear in mind that these notes are not exclusive and shouldn't serve as a substitute for thinking carefully and critically about the project from first principles -- their main purpose is to suggest ideas or possible starting points. If, in your thinking, you find aspects not mentioned in the notes, feel free to include a discussion of these aspects in your proposal. (For example, certain projects may require a migration of existing production data, and this needs to be accounted for in the project plan.) Strong proposals will demonstrate familiarity with the codebase, a realistic implementation plan, and attention to detail.
 
 - **Mocks or wireframes**, if appropriate. For user-facing projects, we strongly favour proposals that demonstrate an empathy for the user. If you're proposing frontend design mocks, we suggest showing your ideas to your friends and getting their critical feedback, so that you can be confident that others find them intuitive as well. Note that you do not need to make your mocks pixel-perfect, but they should illustrate the primary user journeys clearly enough for us to understand exactly what you're proposing. Also, bear in mind that "more is not necessarily better" -- an important aspect of user-focused design is deciding what _not_ to do.
+
+- **Testing** forms an important portion of any project. This includes two parts. For any functionality added into Oppia's codebase, we expect it be backed with unit tests. For any core user journey added, there must exist a corresponding end-to-end test. Migration jobs would need to be tested on production, so be sure to consider that in your timeline. The other aspect is manual testing. Always make sure to test your changes manually, before submitting. You should consider time for doing such testing. Also, before the feature can be released, it needs to pass the monthly QA process, where it will be tested thoroughly. 
 
 ### Sample proposals from past years
 
@@ -123,7 +129,7 @@ For the proposal, we generally look for a clear indication that the student has 
 
 # Oppia's Project Ideas
 
-The following is a list of Oppia's 2019 GSoC project ideas. You are welcome to choose among these ideas, or propose your own! However, if you are proposing something original, it's essential to engage with the Oppia community in order to get feedback and guidance to improve the proposal, as well as to make sure that it fits in with the team's overall plans.
+The following is a list of Oppia's 2019 GSoC project ideas. You are welcome to choose among these ideas, or propose your own! However, if you are proposing something original, it's essential to engage with the Oppia community in order to get feedback and guidance to improve the proposal. You can also take a look at [Oppia's mission](https://github.com/oppia/oppia/wiki/Oppia's-Mission), and try to streamline the projects you propose based on our mission. 
 
 Please note that all mentor assignments are provisional, and that they may change depending on which proposals are eventually accepted.
 
