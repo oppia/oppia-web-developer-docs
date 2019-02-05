@@ -148,6 +148,32 @@ These commands can be used anywhere to kill a running process on any port by usi
     use `urllib2.request` for downloading the third party libraries instead of `urllib.urlretrieve` in "scripts/install_third_party.py".
 
 ### Mac OS
+  * If, on MacOS Mojave V10.14.3, you get an issue arises while installing PIL library that looks something like this:
+
+     ```
+     10.12-x86_64-2.7/libImaging/RawDecode.o build/temp.macosx-10.12-x86_64-2.7/libImaging/RawEncode.o build/temp.macosx-10.12-x86_64-2.7/libImaging/Storage.o build/temp.macosx-10.12-x86_64-2.7/libImaging/SunRleDecode.o build/temp.macosx-10.12-x86_64-2.7/libImaging/TgaRleDecode.o build/temp.macosx-10.12-x86_64-2.7/libImaging/Unpack.o build/temp.macosx-10.12-x86_64-2.7/libImaging/UnpackYCC.o build/temp.macosx-10.12-x86_64-2.7/libImaging/UnsharpMask.o build/temp.macosx-10.12-x86_64-2.7/libImaging/XbmDecode.o build/temp.macosx-10.12-x86_64-2.7/libImaging/XbmEncode.o build/temp.macosx-10.12-x86_64-2.7/libImaging/ZipDecode.o build/temp.macosx-10.12-x86_64-2.7/libImaging/ZipEncode.o -L/usr/local/lib -L/Users/me/opensource/env/lib -L/usr/lib -o build/lib.macosx-10.12-x86_64-2.7/_imaging.so
+    building '_imagingtk' extension
+    creating build/temp.macosx-10.12-x86_64-2.7/Tk
+    clang -fno-strict-aliasing -fno-common -dynamic -g -O2 -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -IlibImaging -I/Users/me/opensource/env/include -I/usr/local/include -I/usr/local/Cellar/python/2.7.14/Frameworks/Python.framework/Versions/2.7/include/python2.7 -c _imagingtk.c -o build/temp.macosx-10.12-x86_64-2.7/_imagingtk.o -framework Tcl -framework Tk
+    clang: warning: -framework Tcl: 'linker' input unused [-Wunused-command-line-argument]
+    clang: warning: -framework Tk: 'linker' input unused [-Wunused-command-line-argument]
+    In file included from _imagingtk.c:19:
+    /usr/local/include/tk.h:71:13: fatal error: 'X11/Xlib.h' file not found
+    #   include <X11/Xlib.h>
+                ^~~~~~~~~~~~
+    1 error generated.
+    error: command 'clang' failed with exit status 1
+    ----------------------------------------
+    Command "/Users/me/opensource/env/bin/python -u -c "import setuptools, tokenize;__file__='/private/var/folders/70/z9tbnv8x7s52phpcxhg7xfl00000gn/T/pip-req-build-l7X7r_/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" install --record /private/var/folders/70/z9tbnv8x7s52phpcxhg7xfl00000gn/T/pip-record-M1M85b/install-record.txt --single-version-externally-managed --compile --install-headers /Users/me/opensource/env/bin/../include/site/python2.7/PIL --home=/private/var/folders/70/z9tbnv8x7s52phpcxhg7xfl00000gn/T/pip-target-_MD2r2" failed with error code 1 in /private/var/folders/70/z9tbnv8x7s52phpcxhg7xfl00000gn/T/pip-req-build-l7X7r_/
+    ```
+
+    try running this command on terminal ([reference](https://github.com/python-pillow/Pillow/issues/3438)):
+
+    ```
+      sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /
+    ```   
+
+
   * If you get an error that includes:
 
     ```
@@ -158,7 +184,7 @@ These commands can be used anywhere to kill a running process on any port by usi
     error: Command "gcc -fno-strict-aliasing -fno-common -dynamic -arch x86_64 -arch i386 -g -Os -pipe -fno-common -fno-strict-aliasing -fwrapv -DENABLE_DTRACE -DMACOSX -DNDEBUG -Wall -Wstrict-prototypes -Wshorten-64-to-32 -DNDEBUG -g -fwrapv -Os -Wall -Wstrict-prototypes -DENABLE_DTRACE -arch x86_64 -arch i386 -pipe -DNO_ATLAS_INFO=3 -Inumpy/core/blasdot -Inumpy/core/include -Ibuild/src.macosx-10.10-intel-2.7/numpy/core/include/numpy -Inumpy/core/src/private -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/include -I/System/Library/Frameworks/Python.framework/Versions/2.7/include/python2.7 -Ibuild/src.macosx-10.10-intel-2.7/numpy/core/src/multiarray -Ibuild/src.macosx-10.10-intel-2.7/numpy/core/src/umath -c numpy/core/blasdot/_dotblas.c -o build/temp.macosx-10.10-intel-2.7/numpy/core/blasdot/_dotblas.o -faltivec -I/System/Library/Frameworks/vecLib.framework/Headers" failed with exit status 1
     ```
 
-  please see the instructions in [issue #1179](https://github.com/oppia/oppia/issues/1179) for a fix.
+    please see the instructions in [issue #1179](https://github.com/oppia/oppia/issues/1179) for a fix.
 
   * If you get an error that includes:
 
@@ -166,42 +192,42 @@ These commands can be used anywhere to kill a running process on any port by usi
    GitPython is not installed for Python 2.x
    The 'dist' command will not work without it. Get it using pip or easy_install
    ```
-   please install [GitPython](http://gitpython.readthedocs.io/en/stable/intro.html#installing-gitpython) before proceeding further.
+     please install [GitPython](http://gitpython.readthedocs.io/en/stable/intro.html#installing-gitpython) before proceeding further.
 
   * If you get an error that includes:
 
    ```
 Command "/usr/local/opt/python@2/bin/python2.7 -u -c "import setuptools, tokenize;__file__='/private/tmp/pip-req-build-TGvu2M/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" install --record /private/tmp/pip-record-6nuoQh/install-record.txt --single-version-externally-managed --compile --home=/private/tmp/pip-target-CMgDrw" failed with error code 1 in /private/tmp/pip-req-build-TGvu2M/ 
   ```
-   please run the following comands:-
-```
-export CFLAGS=-Qunused-arguments
-export CPPFLAGS=-Qunused-arguments
-pip install http://effbot.org/downloads/Imaging-1.1.7.tar.gz
-```
-For more details look up the following [link](https://answers.ros.org/question/145856/having-trouble-installing-pil-in-mac-osx/?answer=146471#post-id-146471)
+      please run the following comands:-
+     ```
+     export CFLAGS=-Qunused-arguments
+     export CPPFLAGS=-Qunused-arguments
+     pip install http://effbot.org/downloads/Imaging-1.1.7.tar.gz
+     ```
+     For more details look up the following [link](https://answers.ros.org/question/145856/having-trouble-installing-pil-in-mac-osx/?answer=146471#post-id-146471)
 
   * If you get an error that includes:
 
-   ```
-   No Java runtime present, requesting install.
-   closure-compiler failed.
-   ```
-   please download [Java](https://support.apple.com/kb/DL1572?locale=en_US) and install it.
+    ```
+    No Java runtime present, requesting install.
+    closure-compiler failed.
+    ```
+    please download [Java](https://support.apple.com/kb/DL1572?locale=en_US) and install it.
 
   * if you get an error that includes:
    
-   ```
-   Checking whether Skulpt is installed in third_party
-   cp: /Users/sdawson/opensource/oppia_tools/skulpt-0.10.0/skulpt/dist/*: No such file or directory
-   ```
-   please remove the below mentioned directories and try running `start.sh` again:
-   ```
-   ../oppia_tools/
-   ../node_modules/
-   third_party/
-   core/templates/prod/
-   ```
+    ```
+    Checking whether Skulpt is installed in third_party
+    cp: /Users/sdawson/opensource/oppia_tools/skulpt-0.10.0/skulpt/dist/*: No such file or directory
+    ```
+    please remove the below mentioned directories and try running `start.sh` again:
+    ```
+    ../oppia_tools/
+    ../node_modules/
+    third_party/
+    core/templates/prod/
+    ```
    
   * if you run into issues while installing numpy, and the error message looks something like this:
 
