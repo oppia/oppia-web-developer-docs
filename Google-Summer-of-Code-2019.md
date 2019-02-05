@@ -93,7 +93,7 @@ The project plan is the most important section of the proposal, since it outline
 
 ### Sample proposals from past years
 
-If you'd like to get a sense of what a proposal might contain, here are some examples of student proposals that we accepted: <To be added> 
+If you'd like to get a sense of what a proposal might contain, please see our GSoC pages from past years for examples of student proposals that we accepted: [2018](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2018), [2017](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2017).
 
 ## Types of work related to Oppia projects
 In order to ensure a well-rounded engineering experience, developers will do some or all of the following depending on their project:
@@ -127,32 +127,32 @@ The following is a list of Oppia's 2019 GSoC project ideas. You are welcome to c
 
 Please note that all mentor assignments are provisional, and that they may change depending on which proposals are eventually accepted.
 
-This year, the Oppia team is offering three types of projects: infrastructure projects, projects that improve the learner experience, and projects that improve the creator experience. Some of the project ideas are annotated with notes and suggestions from the mentors, but please bear in mind that the main purpose of these notes is simply to suggest ideas or possible starting points; they aren't meant to be prescriptive. You'd also be welcome to include discussions of other relevant aspects (that aren't mentioned in the notes) to your proposal. For more information, see: [Tips for writing a good project plan](#tips-for-writing-a-good-project-plan).
+This year, the Oppia team is offering three types of projects: projects that improve the creator experience, projects that improve the learner experience, and infrastructure projects. Some of the project ideas are annotated with notes and suggestions from the mentors, but please bear in mind that the main purpose of these notes is simply to suggest ideas or possible starting points; they aren't meant to be prescriptive. You'd also be welcome to include discussions of other relevant aspects (that aren't mentioned in the notes) to your proposal. For more information, see: [Tips for writing a good project plan](#tips-for-writing-a-good-project-plan).
 
 1. [Creator Experience Projects](#creator-experience-projects)
-     1. Building a Lesson Artist Dashboard
-     1. Define and Implement Continuous Real-Time Effectiveness Metric for Explorations 
-     1. Translation infrastructure enhancement
-     1. Allow exporting an exploration to a linear view for easy review/improvement 
-     1. Improvements to the editor flow, including
+     1. Building a lesson artist dashboard
+     1. Real-time measurement of exploration effectiveness
+     1. Translation infrastructure enhancements
+     1. Creating a "reviewer view" for explorations
+     1. Improvements to the editor saving flow
      1. Allow creation of parameterized questions
 
 1. [Learner View Projects](#learner-view-projects)
-    1. Highlight words as audio is played.
+    1. Highlight text in a lesson as audio is played
     1. Functionality for asking students why they picked a particular answer 
-    1. Memorization Experience for Learners
-    1. Review tests and improvements to the questions framework
+    1. Memorization experience for learners
+    1. Review tests and other improvements to the questions framework
 
 1. [Infrastructure Projects](#infrastructure-projects)
-    1. Improve frontend test coverage (to 100%) and optimize e2e test suite
-    1. Improve backend test coverage (to 100%) and making sure the codebase follows python 3 syntax, and is ready for migration. 
-    1. Upgrade Angular dependencies and migrate to Angular 2
-    1. Upgrade third-party libs
+    1. Improve frontend and end-to-end tests
+    1. Improve backend test coverage and upgrading it to support Python 3
+    1. Migrate the frontend to Angular 2
+    1. Upgrade third-party libraries
     1. Static serving
-    1. Validate production data
+    1. Validate invariants between data models
 
 ## "Creator Experience" Projects
-### 1.1. Building a Lesson Artist Dashboard
+### 1.1. Building a lesson artist dashboard
 Art and graphics form an integral part of most explorations on Oppia, and is especially important in making lessons learner-friendly. Typically, art is used for illustrative images, decorative images, or images for questions or answers. We have developed a standardized process for creating lessons, and are currently working on creating lessons in relevant subject areas that are as good as possible. However, one major blocker for getting lessons out fast to learners is the lack of designers/artists, and we would like to have a framework that enables artists to contribute to lessons as easily as developers can contribute to GitHub repositories.
 
 The idea behind this project is to enable two things. Firstly, add functionality to have dedicated artists for explorations: this will allow creators to assign artist roles, and allow the art development workflow to happen in parallel with other creative work. Secondly, implement a way to crowdsource these graphics (using the existing suggestions framework). For this, all open image requests should be surfaced to non-editors/artists of the exploration, and they should be allowed to suggest an image. This will be reviewed by the editors/artists, and once approved, can be added to the lesson. 
@@ -173,7 +173,7 @@ The idea behind this project is to enable two things. Firstly, add functionality
 
 ***
 
-### 1.2. Real-Time Measurement of Exploration Effectiveness
+### 1.2. Real-Time measurement of exploration effectiveness
 We want to provide creators meta-analysis for the improvements they make to their explorations. This gives them confidence in following through with our suggested improvements, and allows them to quantitatively understand the effectiveness of their explorations.
 
 **Open Questions**:
@@ -205,7 +205,7 @@ _To be decided_
 
 ***
 
-### 1.3. Translation infrastructure enhancement
+### 1.3. Translation infrastructure enhancements
 Currently, Oppia provides a simple platform for translators for recording and tracking audio translations work. This platform mostly covers the managerial part for audio translation like checking audio translation coverage at a single glance for any language, we had few interaction with oppia translators and we found that we improve the platform in many ways to make the translation process easy and simple. We have enlisted few important features which can be integrated to the translation structure:
 * Caching/storing recorded audio locally until they are saved.
 * Allowing users to upload multiple audio files at a time.
@@ -226,7 +226,7 @@ Currently, Oppia provides a simple platform for translators for recording and tr
 
 ***
 
-### 1.4. Creating a “Reviewer View” for Explorations
+### 1.4. Creating a "reviewer view" for explorations
 In order to ensure a high level of quality, explorations are often reviewed by an experienced lesson creator before publication. However, this is currently a somewhat tedious process that requires lots of clicking from one state to another, which can make it difficult for the reviewer to get a sense of the main “flow” of the exploration.
 
 It would be nice to have a more linear, scrollable view of the entire exploration which is optimized for reviewers, and which supports basic commenting functionality. The aim of this project is to build this view.
@@ -254,7 +254,7 @@ It would be nice to have a more linear, scrollable view of the entire exploratio
 
 ***
 
-### 1.5. Improvements to the Editor Saving Flow
+### 1.5. Improvements to the editor saving flow
 There are a number of serious issues with current workflows in the exploration editor that can occasionally cause loss of work. In particular:
 
 * When an exploration is migrated to a newer schema version, any existing draft changelists should also be updated accordingly. Currently, draft changelists are not updated, resulting in a version mismatch and a loss of work when the exploration creator subsequently tries to apply the draft. (See #4438 for some discussion.)
@@ -406,7 +406,7 @@ This project aims to create the learner view for review tests, and to improve th
 ***
 
 ## Infrastructure Projects
-### 3.1. Frontend and e2e tests
+### 3.1. Improve frontend and end-to-end tests
 The Oppia frontend is quite extensive in terms of functionality, and we lay a lot of emphasis on a smooth user-facing experience. Thus, we would like to ensure that all functionality is fully tested, at all times, before it goes into production.
 
 The aim of this project is twofold: (a) to achieve 100% coverage for the frontend tests and ensure that this state is preserved in the future, as well as (b) to improve Oppia’s end-to-end tests coverage and make them run faster. The framework and guidelines should make it easy for future developers to incorporate the necessary tests along with their code, and prevent insufficiently-tested code from making it into the codebase.
@@ -435,7 +435,7 @@ The aim of this project is twofold: (a) to achieve 100% coverage for the fronten
 
 ***
 
-### 3.2. Improving backend test coverage and Python migration
+### 3.2. Improve backend test coverage and upgrading it to support Python 3
 This project aims to improve backend test coverage to 100%, and then migrate the backend codebase to be simultaneously compatible with both Python 2 and Python 3. The reason these two projects are linked is because one prerequisite for a safe migration is to have full test coverage, so it is important to make sure that the coverage is 100% before migrating. 
 
 Unfortunately, we cannot do a full migration to Python 3 at this time due to incompatibility issues with Google App Engine (GAE) dependencies. So, the current plan is to have the codebase python3 ready, so that we can easily upgrade to python3 as soon as the GAE issues are resolved.
@@ -462,7 +462,7 @@ Unfortunately, we cannot do a full migration to Python 3 at this time due to inc
 
 ***
 
-### 3.3. Upgrade Angular dependencies + migrate to Angular 2 
+### 3.3. Migrate the frontend to Angular 2
 With the announcement that AngularJS will no longer be maintained or updated, we would like to upgrade our frontend to use Angular 2. The migration will need to happen step by step, while maintaining the working state of the codebase. 
 
 **Potential mentors**: @kevinlee12 (primary), @bansalnitish
@@ -547,7 +547,7 @@ to re-construct them at every request). But how would we handle local developmen
 
 ***
 
-### 3.6. Verify/validate production data
+### 3.6. Validate invariants between data models
 We would like to validate that Oppia deployments have valid data and relationships between datastore storage models. Some sample validations include:
 
 * All explorations have correct ExplorationRights objects defined
