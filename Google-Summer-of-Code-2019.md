@@ -153,9 +153,9 @@ This year, the Oppia team is offering three types of projects: projects that imp
 
 ## "Creator Experience" Projects
 ### 1.1. Building a lesson artist dashboard
-Art and graphics form an integral part of most explorations on Oppia, and is especially important in making lessons learner-friendly. Typically, art is used for illustrative images, decorative images, or images for questions or answers. We have developed a standardized process for creating lessons, and are currently working on creating lessons in relevant subject areas that are as good as possible. However, one major blocker for getting lessons out fast to learners is the lack of designers/artists, and we would like to have a framework that enables artists to contribute to lessons as easily as developers can contribute to GitHub repositories.
+Art and graphics form an integral part of most explorations on Oppia, and are especially important for making lessons learner-friendly. Typically, art is used for illustrative images, decorative images, or images for questions and answers. We have developed a standardized process for creating lessons, and are currently working on creating lessons in relevant subject areas that are as good as possible. However, one major blocker for getting lessons out fast to learners is the lack of designers/artists, and we would like to have a framework that enables artists to contribute to lessons as easily as developers can contribute to GitHub repositories.
 
-The idea behind this project is to enable two things. Firstly, add functionality to have dedicated artists for explorations: this will allow creators to assign artist roles, and allow the art development workflow to happen in parallel with other creative work. Secondly, implement a way to crowdsource these graphics (using the existing suggestions framework). For this, all open image requests should be surfaced to non-editors/artists of the exploration, and they should be allowed to suggest an image. This will be reviewed by the editors/artists, and once approved, can be added to the lesson. 
+This project has two goals. Firstly, we would like to make it possible to have dedicated artists for explorations: this will allow creators to assign artist roles, and allow the art development workflow to happen in parallel with other creative work. Secondly, we would like to implement a way to crowdsource these graphics (using the existing suggestions framework). For this, all open image requests should be surfaced to non-editors/artists of the exploration, and they should be allowed to suggest an image. Once a suggested image is approved by the editors/artists, it can be added to the lesson.
 
 **Potential mentors**: @nithusha21 (primary)
 
@@ -167,13 +167,13 @@ The idea behind this project is to enable two things. Firstly, add functionality
 * Full stack development
 
 **Suggested milestones**
-1. Implement an “image placeholder” component in rich-text editor fields for an exploration, and implement a new role for artists that gives them permissions to contribute images to these image placeholders (or replace existing images).
-1. Implement a single common view for all explorations that lists all open image requests. The creator of the exploration should be able to flip a setting, which would either enable or disable image placeholders within their exploration to be displayed in the common view. This common view must be accessible to all, and should be easily reachable from the creator/learner dashboards. Suggestions for images would happen through this view.
+1. Implement an "image placeholder" component in rich-text editor fields for an exploration, and implement a new role for artists that gives them permissions to contribute images to these image placeholders (or replace existing images).
+1. Implement a single common view for all explorations that lists all open image requests. The creator of the exploration should be able to flip a setting, which would either enable or disable image placeholders within their exploration to be displayed in the common view. This common view must be accessible to all, and should be easily reachable from the creator/learner dashboards. Suggestions for images would be submitted through this view.
 1. Implement a suggestion-based approach to suggest an image for a placeholder. This will enable all users to contribute an image to the lesson. The suggested images should appear on the feedback tab of the exploration creation page (this is exploration specific, and should not be reachable by all). The artists/editors of the exploration should be able to review the suggestion, and if the image is accepted, the suggested image should be added to the exploration.
 
 ***
 
-### 1.2. Real-Time measurement of exploration effectiveness
+### 1.2. Real-time measurement of exploration effectiveness
 We want to provide creators meta-analysis for the improvements they make to their explorations. This gives them confidence in following through with our suggested improvements, and allows them to quantitatively understand the effectiveness of their explorations.
 
 **Open Questions**:
@@ -201,13 +201,13 @@ _To be decided_
 * Proposals must:
     * Suggest 2-3 well-defined metrics to be monitored, and why/how they will determine effectiveness.
     * Mock of the directive which shows the metrics.
-    * Define all domain objects +tests, services +tests, directives +tests, backend schemas/models + tests which will be implemented.
+    * Define all domain objects, services, directives, backend schemas/models and tests which will be implemented.
 
 ***
 
 ### 1.3. Translation infrastructure enhancements
-Currently, Oppia provides a simple platform for translators for recording and tracking audio translations work. This platform mostly covers the managerial part for audio translation like checking audio translation coverage at a single glance for any language, we had few interaction with oppia translators and we found that we improve the platform in many ways to make the translation process easy and simple. We have enlisted few important features which can be integrated to the translation structure:
-* Caching/storing recorded audio locally until they are saved.
+Currently, Oppia provides a simple platform for translators to record and track the progress of audio voiceovers that are contributed to lessons. From talking to translators, we have found that there are some improvements that could be made to this platform that would make it easier to translate lessons, namely:
+* Caching/storing recorded audio locally until it is saved, so that translators can easily check their work by clicking "Play" after uploading an audio file.
 * Allowing users to upload multiple audio files at a time.
 * Allowing multiple translators to work in parallel without losing their draft changes.
 
@@ -220,14 +220,12 @@ Currently, Oppia provides a simple platform for translators for recording and tr
 * Good UI/UX design
 
 **Suggested milestones**:
-1. In the first milestone, you can work on backend structure to implement “Allowing multiple translators to work in parallel without losing their draft changes.”
-1. In the second milestone, try to cover the usability of translation tab, i.e, caching recorded audio so that translator can easily navigate in translation tab without losing any recorded audio. Allowing translators to upload multiple files at a time and automatically (or allowing them to select) locate audio files to the correct place.
-1. In the third milestone, you can implement a functionality to allow translators to upload multiple audio files at a time.
-
-***
+1. Make it possible for translators to upload multiple audio files at a time for a single card, and automatically (or allow them to) match audio files to the correct place.
+2. Cache recorded audio so that translators can easily play audio after uploading it.
+3. Enable multiple translators to work in parallel without losing their draft changes.
 
 ### 1.4. Creating a "reviewer view" for explorations
-In order to ensure a high level of quality, explorations are often reviewed by an experienced lesson creator before publication. However, this is currently a somewhat tedious process that requires lots of clicking from one state to another, which can make it difficult for the reviewer to get a sense of the main “flow” of the exploration.
+In order to ensure a high level of quality, explorations are often reviewed by an experienced lesson creator before publication. However, this is currently a somewhat tedious process that requires lots of clicking from one state to another, which can make it difficult for the reviewer to get a sense of the main "flow" of the exploration.
 
 It would be nice to have a more linear, scrollable view of the entire exploration which is optimized for reviewers, and which supports basic commenting functionality. The aim of this project is to build this view.
 
@@ -242,7 +240,7 @@ It would be nice to have a more linear, scrollable view of the entire exploratio
 * Very good understanding of what an exploration is, and what its various components are
 
 **Suggested milestones**
-1. Implement a basic “reviewer’s view” of the exploration in the editor tab. In addition to the “content” section of each card, this view should also include a representation of at least two of the following: interaction, feedback/responses, hints, solution.
+1. Implement a basic "reviewer’s view" of the exploration in the editor tab. In addition to the "content" section of each card, this view should also include a representation of at least two of the following: interaction, feedback/responses, hints, solution.
 1. Fully implement the reviewer’s view. Implement the backend storage for reviewer comments on parts of an exploration (in a way that involves expanding the existing feedback system to allow reference to specific parts of a card, rather than creating a brand-new sibling system from scratch).
 1. Implement the frontend system for reviewer comments on parts of an exploration.
 
@@ -281,11 +279,11 @@ If you would like to get a bit more familiar with the exploration editor, here i
 ***
 
 ### 1.6. Allow creation of parameterized questions
-With the addition of the questions framework, there is potential to create a large question bank for practice questions. However, it would be tedious for creators to create a large number of questions with similar formats but slight variations (e.g. “Add ⅘ and ¾”, “Add ⅔ and ⅗”, etc.)
+With the addition of the questions framework, there is potential to create a large question bank for practice questions. However, it would be tedious for creators to create a large number of questions with similar formats but slight variations (e.g. "Add 4/5 and 3/4", "Add 2/3 and 3/5", etc.)
 
 Instead, we would like to introduce the concept of parameterized questions, where the creator can specify parameters which can be used to generate many questions at once. (In the example given above, the question might be of the form “Add a/b + c/d”, with parameters a, b, c, d. The question creator would specify ranges of values for the parameters in order to generate questions.)
 
-Note that parameterization might also extend to expressing the same question in different ways. For example, we might want to be able to treat the questions “Add a/b + c/d”, “Find the sum of a/b and c/d”, and “{{name}} has a/b of a cake and {{other_name}} has c/d of the same cake; what is the total amount of cake they have?” as the same.
+Note that parameterization might potentially extend to expressing the same question in different ways. For example, we might want to be able to treat the questions "Add a/b + c/d", "Find the sum of a/b and c/d", and "{{name}} has a/b of a cake and {{other_name}} has c/d of the same cake; what is the total amount of cake they have?" as the same.
 
 **Potential mentors**: @aks681, @vinitamurthi
 
@@ -297,9 +295,9 @@ Note that parameterization might also extend to expressing the same question in 
 * Good UX design
 
 **Suggested milestones**
-* Make any backend changes that are necessary to allow parameter values / ranges to be stored along with a question, and implement functionality (hidden behind a flag) for specifying these values / ranges in the frontend.
-* Implement functionality that allows authors to use parameters in question content and rules.
-* Implement functionality to allow creators to audit that the parameterizations they have chosen work well in all cases, and result in sensible questions.
+1. Make any backend changes that are necessary to allow parameter values / ranges to be stored along with a question, and implement functionality (hidden behind a flag) for specifying these values / ranges in the frontend.
+2. Implement functionality that allows authors to use parameters in question content and rules.
+3. Implement functionality to allow creators to audit that the parameterizations they have chosen work well in all cases, and result in sensible questions.
 
 **Notes**
 * Good technical judgement is really important for this project, particularly in ensuring that the system that is built is not too complicated. We expect a GSoC project for this idea to cover only a sub-part of what is described in the description above; figuring out a suitable scope for this subproblem (and explaining clearly how it could be extended in the future) is an important part of the proposal.
@@ -380,7 +378,7 @@ These will depend strongly on the nature of the proposal. In general, we recomme
 
 ***
 
-### 2.5. Review tests and other improvements to the questions framework
+### 2.4. Review tests and other improvements to the questions framework
 While explorations and stories help encourage a learner to continue learning, it is also useful for a learner to be able to keep track of their understanding as the learning progresses. Review tests are an upcoming feature in Oppia that aims to help learners test the skills they’ve learned after they have completed 2-3 lessons in a story in that topic. These review tests would be automatically presented to the learner once they have progressed up to a certain point in the story, and would need to be completed successfully in order to advance to the next part of the story.
 
 This project aims to create the learner view for review tests, and to improve the question framework as a whole so that the experience of practising questions on Oppia (via pre-tests, review tests and practice sessions) is as effective and enjoyable as possible.
