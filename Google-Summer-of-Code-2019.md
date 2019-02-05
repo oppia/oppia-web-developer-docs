@@ -224,6 +224,8 @@ Currently, Oppia provides a simple platform for translators to record and track 
 2. Cache recorded audio so that translators can easily play audio after uploading it.
 3. Enable multiple translators to work in parallel without losing their draft changes.
 
+***
+
 ### 1.4. Creating a "reviewer view" for explorations
 In order to ensure a high level of quality, explorations are often reviewed by an experienced lesson creator before publication. However, this is currently a somewhat tedious process that requires lots of clicking from one state to another, which can make it difficult for the reviewer to get a sense of the main "flow" of the exploration.
 
