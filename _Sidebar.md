@@ -47,6 +47,7 @@
     * [[Collection editor page|Collection-editor-page]]
     * [[Calculating statistics|Calculating-statistics]]
     * [[Writing style guide|Writing-style-guide]]
+    * [[UX guidelines & rationales|Oppia-UX-guidelines-&-rationales]]
     * [[Glossary of terms|Glossary-of-terms]]
     * [[Math explorations|Math-explorations]]
     * [[Playtesting explorations|Playtesting-explorations]]
