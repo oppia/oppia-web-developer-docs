@@ -1,3 +1,11 @@
+### How do I ask for help?
+
+We would like to help you out but please ensure that you propose solutions instead of saying "solve this for me" or "debug this for me".
+For example, make sure that your comment on any issue/pull request includes a very clear question at the end that is easy to answer, otherwise people don't know what you're looking for. This often involves showing your work (e.g. what happened when you searched for the error message? what analysis have you done to figure out the root of the issue?). Examples of good questions include: "here is my proposed solution, and here's the analysis I've done to support it, do you agree?" or "here are two ways I could proceed, and the rationale I chose for each; which one would you suggest I go with?". If you can't formulate your question in this way, that might be a sign that you have not yet done enough debugging/analysis on your own.  
+
+### I have not yet received any response/review on an issue/pull request. What should I do?
+
+If you are running into a lack of response and this is blocking work, please feel free to ping again after a couple of days, and if you still get no response please escalate to the development workflow team (which Apurv leads) or Sean. We'd be happy to look into the situation.
 
 ### How do I install Oppia ?
 
