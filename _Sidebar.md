@@ -62,6 +62,7 @@
     * [[Instructions for Reviewers|Instructions-for-Reviewers]]
     * [[Instructions for Maintainers|Instructions-for-Maintainers]]
     * [[Instructions for making changes to roles and actions|Instructions-for-editing-roles-or-actions]]
+    * [[Instructions for dev workflow team members|Instructions-for-dev-workflow-team-members]]
   * Past Events
     * [[Hacktoberfest 2018|Hacktoberfest-2018]]
     * [[GHC Open Source Day 2018|GHC-Open-Source-Day]]
