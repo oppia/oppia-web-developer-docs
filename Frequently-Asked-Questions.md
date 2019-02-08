@@ -5,7 +5,7 @@ For example, make sure that your comment on any issue/pull request includes a ve
 
 ### I have not yet received any response/review on an issue/pull request. What should I do?
 
-If you are running into a lack of response and this is blocking work, please feel free to ping again after a couple of days, and if you still get no response please escalate to the development workflow team (which Apurv leads) or Sean. We'd be happy to look into the situation.
+If you are running into a lack of response and this is blocking work, please feel free to ping again after a couple of days, and if you still get no response please escalate to the development workflow team (led by @apb7). We'd be happy to look into the situation.
 
 ### How do I install Oppia ?
 
