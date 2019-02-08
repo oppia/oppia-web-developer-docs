@@ -116,7 +116,7 @@ In order to select students for GSoC, we will mainly be looking at three things:
 
 - The quality of the submitted proposal
 - The quality of the applicant's previously-submitted PRs (in order to assess their ability to code, debug, break down complex tasks, etc.). Note that quantity isn't a prerequisite in itself, though contributors who've submitted multiple PRs are likely to have had more opportunities to demonstrate the abilities needed to succeed in GSoC.
-- Our prior experience working with the student: do they keep commitments, communicate well, demonstrate independence/initiative/responsiveness, help others (e.g. by doing code reviews, making it easier for new contributors to get started, or helping fellow contributors solve problems), etc.
+- Our prior experience working with the student: do they keep commitments, communicate well, demonstrate independence/initiative/responsiveness, help others, etc. (Note that there are lots of different ways to help -- e.g. doing code reviews or making it easier for new contributors to get started.)
 
 We believe that strong performance in these dimensions is likely to correlate well with the student having an enjoyable, fulfilling and productive experience over the summer, and successfully completing the GSoC program.
 
