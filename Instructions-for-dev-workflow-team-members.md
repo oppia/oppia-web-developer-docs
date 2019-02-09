@@ -11,6 +11,29 @@ If the issue is solved by you:
 * _Update the troubleshooting page of the wiki._
 * Remove the issue from the spreadsheet after its been written down in the wiki.
 
+#### Dev-flow Rota:
+```
+January	  Apurv         @apb7
+February  Rishav        @lilithxxx
+March  	  Anubhav       @anubhavsinha98
+April     Yash          @YashJipkate
+May 	  Apurv         @apb7
+June      Rishav        @lilithxxx
+July 	  Anubhav       @anubhavsinha98
+August 	  Yash          @YashJipkate
+September Apurv         @apb7
+October	  Rishav        @lilithxxx
+November  Anubhav       @anubhavsinha98
+December  Yash          @YashJipkate
+```
+#### Dev-flow rota coordinator:
+**Duties of the dev-flow rota coordinator:**
+1. Ensure member rotation is followed.
+2. Send a ping/email to the member reminding him/her of the rota if it has been missed. 
+
+Rota coordinator: Rishav
+
+
 #### [@lilithxxx]: 
 * If the issue is solved by someone other than a dev-flow member, write down the issue with its solution in the troubleshooting page of the wiki so that other contributor does not face the same problem.
 * Monitor that the solutions of all setup issues are indeed jotted down in the wiki. 
