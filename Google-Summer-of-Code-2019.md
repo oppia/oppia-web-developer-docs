@@ -97,7 +97,9 @@ Here's some guidance on what the mentors and organization admins will be looking
 
 ### Sample proposals from past years
 
-If you'd like to get a sense of what a proposal might contain, please see our [GSoC 2018 page](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2018) for examples of proposals that we accepted in 2018.
+If you'd like to get a sense of what a proposal might contain, please see our [GSoC 2018 page](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2018) for examples of proposals that we accepted in 2018. 
+
+_**Note:** although some of these proposals are a bit on the long side, there's no formal length requirement for your proposal -- in general, the quality of what you write is much more important than the amount of text you write. For the actual requirements, please see the [GSoC Proposal Template](#gsoc-proposal-template) section above._
 
 ## Types of work related to Oppia projects
 In order to ensure a well-rounded engineering experience, developers will do some or all of the following depending on their project:
@@ -127,33 +129,49 @@ For the proposal, we generally look for a clear indication that the student has 
 
 # Oppia's Project Ideas
 
-The following is a list of Oppia's 2019 GSoC project ideas. You are welcome to choose among these ideas, or propose your own! However, if you are proposing something original, it's essential to engage with the Oppia community in order to get feedback and guidance to improve the proposal. You can also take a look at [Oppia's mission](https://github.com/oppia/oppia/wiki/Oppia's-Mission), and try to streamline the projects you propose based on our mission. 
+The following is a list of Oppia's 2019 GSoC project ideas. (Please note that all mentor assignments listed below are provisional, and may change depending on which proposals are eventually accepted.)
 
-Please note that all mentor assignments are provisional, and that they may change depending on which proposals are eventually accepted.
+You are welcome to choose among these ideas, or propose your own! However, if you're planning to propose something original, it's essential to engage with the Oppia community in order to get feedback and guidance to improve the proposal. We also recommend taking a look at [Oppia's mission](https://github.com/oppia/oppia/wiki/Oppia's-Mission) and seeing if there is a natural way to tie your idea to the Oppia project's goals, otherwise it might not be a good fit at this time.
 
-This year, the Oppia team is offering three types of projects: projects that improve the creator experience, projects that improve the learner experience, and infrastructure projects. Some of the project ideas are annotated with notes and suggestions from the mentors, but please bear in mind that the main purpose of these notes is simply to suggest ideas or possible starting points; they aren't meant to be prescriptive. You'd also be welcome to include discussions of other relevant aspects (that aren't mentioned in the notes) to your proposal. For more information, see: [Tips for writing a good project plan](#tips-for-writing-a-good-project-plan).
+This year, the Oppia team is offering three types of projects: projects that improve the creator experience, projects that improve the learner experience, and infrastructure projects. Some of the project ideas are annotated with notes and suggestions from the mentors, but please bear in mind that the main purpose of these notes is simply to suggest ideas or possible starting points; they aren't meant to be prescriptive. You'd also be welcome to include discussions of other relevant aspects (that aren't mentioned in the notes) in your proposal. For more information, see: [Tips for writing a good project plan](#tips-for-writing-a-good-project-plan).
 
-1. [Creator Experience Projects](#creator-experience-projects)
-     1. Building a lesson artist dashboard
-     1. Real-time measurement of exploration effectiveness
-     1. Translation infrastructure enhancements
-     1. Creating a "reviewer view" for explorations
-     1. Improvements to the editor saving flow
-     1. Allow creation of parameterized questions
+### "Creator Experience" Projects
 
-1. [Learner View Projects](#learner-view-projects)
-    1. Highlight text in a lesson as audio is played
-    1. Functionality for asking students why they picked a particular answer 
-    1. Memorization experience for learners
-    1. Review tests and other improvements to the questions framework
+1.1. [Building a lesson artist dashboard](#11-building-a-lesson-artist-dashboard)
 
-1. [Infrastructure Projects](#infrastructure-projects)
-    1. Improve frontend and end-to-end tests
-    1. Improve backend test coverage and upgrading it to support Python 3
-    1. Migrate the frontend to Angular 2
-    1. Upgrade third-party libraries
-    1. Static serving
-    1. Validate invariants between data models
+1.2. [Infrastructure for measuring exploration enjoyability](#12-infrastructure-for-measuring-exploration-enjoyability)
+
+1.3. [Translation infrastructure enhancements](#13-translation-infrastructure-enhancements)
+
+1.4. [Creating a "reviewer view" for explorations](#14-creating-a-reviewer-view-for-explorations)
+
+1.5. [Improvements to the editor saving flow](#15-improvements-to-the-editor-saving-flow)
+
+1.6. [Allow creation of parameterized questions](#16-allow-creation-of-parameterized-questions)
+
+### Learner View Projects
+
+2.1. [Highlight text in a lesson as audio is played](#21-highlight-text-in-a-lesson-as-audio-is-played)
+
+2.2. [Asking students why they picked a particular answer](#22-asking-students-why-they-picked-a-particular-answer)
+
+2.3. [Memorization experience for learners](#23-memorization-experience-for-learners)
+
+2.4. [Review tests and other improvements to the questions framework](#24-review-tests-and-other-improvements-to-the-questions-framework)
+
+### Infrastructure Projects
+
+3.1. [Improve frontend and end-to-end tests](#31-improve-frontend-and-end-to-end-tests)
+
+3.2. [Improve backend test coverage and upgrading it to support Python 3](#32-improve-backend-test-coverage-and-upgrading-it-to-support-python-3)
+
+3.3. [Migrate the frontend to Angular 2](#33-migrate-the-frontend-to-angular-2)
+
+3.4. [Upgrade third-party libraries](#34-upgrade-third-party-libraries)
+
+3.5. [Static serving](#35-static-serving)
+
+3.6. [Validate invariants between data models](#36-validate-invariants-between-data-models)
 
 ## "Creator Experience" Projects
 ### 1.1. Building a lesson artist dashboard
@@ -177,7 +195,7 @@ This project has two goals. Firstly, we would like to make it possible to have d
 
 ***
 
-### 1.2. Real-time measurement of exploration effectiveness
+### 1.2. Infrastructure for measuring exploration enjoyability
 In order to make sure that students enjoy the lessons on Oppia, we need to develop a way to measure lesson "enjoyability" so that creators can see the effects of their changes. The aim of this project is to define and put in place the necessary infrastructure for this. By the end of the project, we’d like to make it possible for creators to see whether their lessons are enjoyable, as well as figure out which parts of their lessons might be frustrating/confusing/boring so that they can fix those for future learners.
 
 In order to do this, we would need to figure out what “enjoyability” means. Here are some initial suggestions for metrics (proposals have full creative liberty over these):
@@ -339,7 +357,7 @@ The aim of this project would be to allow lesson translators and voiceover artis
 
 ***
 
-### 2.2. Functionality for asking students why they picked a particular answer
+### 2.2. Asking students why they picked a particular answer
 We would like to add a feature to the lesson player that allows students to explain how they arrived at a (wrong) answer. The aim of this feature is to encourage reflection on the student’s part, as well as provide (anonymized) information to creators about student misconceptions, so that the creator can improve Oppia’s feedback for future students.
 
 **Potential mentors**: @vibhor98 (primary), @aks681
