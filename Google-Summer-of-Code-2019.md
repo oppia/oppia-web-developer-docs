@@ -143,9 +143,9 @@ This year, the Oppia team is offering three types of projects: projects that imp
 
 1.3. [Translation infrastructure enhancements](#13-translation-infrastructure-enhancements)
 
-1.4. [Creating a "reviewer view" for explorations](#14-creating-a-reviewer-view-for-explorations)
+1.4. [Improvements to the editor saving flow](#14-improvements-to-the-editor-saving-flow)
 
-1.5. [Improvements to the editor saving flow](#15-improvements-to-the-editor-saving-flow)
+1.5. [Creating a "reviewer view" for explorations](#15-creating-a-reviewer-view-for-explorations)
 
 1.6. [Allow creation of parameterized questions](#16-allow-creation-of-parameterized-questions)
 
@@ -153,17 +153,17 @@ This year, the Oppia team is offering three types of projects: projects that imp
 
 2.1. [Highlight text in a lesson as audio is played](#21-highlight-text-in-a-lesson-as-audio-is-played)
 
-2.2. [Asking students why they picked a particular answer](#22-asking-students-why-they-picked-a-particular-answer)
+2.2. [Review tests and other improvements to the questions framework](#22-review-tests-and-other-improvements-to-the-questions-framework)
 
-2.3. [Memorization experience for learners](#23-memorization-experience-for-learners)
+2.3. [Asking students why they picked a particular answer](#23-asking-students-why-they-picked-a-particular-answer)
 
-2.4. [Review tests and other improvements to the questions framework](#24-review-tests-and-other-improvements-to-the-questions-framework)
+2.4. [Memorization experience for learners](#24-memorization-experience-for-learners)
 
 ### Infrastructure Projects
 
 3.1. [Improve frontend and end-to-end tests](#31-improve-frontend-and-end-to-end-tests)
 
-3.2. [Improve backend test coverage and upgrading it to support Python 3](#32-improve-backend-test-coverage-and-upgrading-it-to-support-python-3)
+3.2. [Improve backend test coverage and upgrade it to support Python 3](#32-improve-backend-test-coverage-and-upgrade-it-to-support-python-3)
 
 3.3. [Migrate the frontend to Angular 2](#33-migrate-the-frontend-to-angular-2)
 
@@ -247,7 +247,33 @@ Currently, Oppia provides a simple platform for translators to record and track 
 
 ***
 
-### 1.4. Creating a "reviewer view" for explorations
+### 1.4. Improvements to the editor saving flow
+There are several serious issues with current workflows in the exploration editor that can occasionally cause loss of work. In particular:
+
+* When an exploration is migrated to a newer schema version, any existing draft changelists should also be updated accordingly. Currently, draft changelists are not updated, resulting in a version mismatch and a loss of work when the exploration creator subsequently tries to apply the draft. (See #4438 for some discussion.)
+* When an exploration is updated, any existing suggestions in the feedback tab should be updated accordingly. Currently, such suggestions are not updated, resulting in a version mismatch and a loss of work when the exploration creator subsequently tries to apply the suggestion.
+* When changes cannot be saved to an exploration, a "lost changes" modal pops up so that the creator can make a copy of their edits and then reapply them. However, the code for this modal is not robust, and in particular it does not take into account draft changelists that were stored in an older format. Thus, when it tries to display such drafts, it breaks and ends up not showing anything.
+* It is difficult to change an interaction into a slightly different one (e.g. from text input to number-with-input) without losing all the associated responses, hints and solutions. It would be nice to declare a suitable transformation that allows this data to be carried over from one interaction type to a closely-related one, and to auto-migrate as much of the responses as possible so that the creator does not lose their work.
+
+The aim of this project is to fix any three of these issues.
+
+**Potential mentors**: **@vibhor98** (primary), **@1995YogeshSharma**
+
+**Difficulty**: Medium
+
+**Knowledge/Skills needed**
+* Full stack development including Python and AngularJS
+* Good technical design
+
+**Suggested milestones**
+Choose three of the issues above, and fix them. Fixing each issue counts as a single milestone.
+
+**Notes**:
+If you'd like to get a bit more familiar with the exploration editor, here is a simpler issue along the same lines that you might like to have a go at: When switching from a rule type to a different rule type, the inputs to the old rule type get lost, even though both rule types have the same types of inputs and it is possible to carry the inputs over.
+
+***
+
+### 1.5. Creating a "reviewer view" for explorations
 In order to ensure a high level of quality, explorations are often reviewed by an experienced lesson creator before publication. However, this is currently a somewhat tedious process that requires lots of clicking from one state to another, which can make it difficult for the reviewer to get a sense of the main "flow" of the exploration.
 
 It would be nice to have a more linear, scrollable view of the entire exploration which is optimized for reviewers, and which supports basic commenting functionality. The aim of this project is to build this view.
@@ -273,32 +299,6 @@ It would be nice to have a more linear, scrollable view of the entire exploratio
 * The proposal should explain how branching explorations would be handled. (Note, though, that explorations are typically fairly linear in nature, with branching used only for reviewing earlier material and/or going back to earlier cards. The reviewers' view should be strongly optimized for that use case, but there should be a clear plan for how to handle non-linear explorations.) Note that the overview graph in the exploration editor page already shows a "main trunk" for the exploration, which could serve as the basis for how to pick the cards to display in a linear view.
 * In milestone 2, we recommend trying to expand the existing feedback system to allow references to specific parts of a card, rather than creating a brand-new system from scratch.
 * The reviewer view should support simple threaded comments like Google Docs and the existing exploration editor feedback tab (but it doesn't need to support any form of collaborative editing).
-
-***
-
-### 1.5. Improvements to the editor saving flow
-There are several serious issues with current workflows in the exploration editor that can occasionally cause loss of work. In particular:
-
-* When an exploration is migrated to a newer schema version, any existing draft changelists should also be updated accordingly. Currently, draft changelists are not updated, resulting in a version mismatch and a loss of work when the exploration creator subsequently tries to apply the draft. (See #4438 for some discussion.)
-* When an exploration is updated, any existing suggestions in the feedback tab should be updated accordingly. Currently, such suggestions are not updated, resulting in a version mismatch and a loss of work when the exploration creator subsequently tries to apply the suggestion.
-* When changes cannot be saved to an exploration, a "lost changes" modal pops up so that the creator can make a copy of their edits and then reapply them. However, the code for this modal is not robust, and in particular it does not take into account draft changelists that were stored in an older format. Thus, when it tries to display such drafts, it breaks and ends up not showing anything.
-* It is difficult to change an interaction into a slightly different one (e.g. from text input to number-with-input) without losing all the associated responses, hints and solutions. It would be nice to declare a suitable transformation that allows this data to be carried over from one interaction type to a closely-related one, and to auto-migrate as much of the responses as possible so that the creator does not lose their work.
-
-The aim of this project is to fix any three of these issues.
-
-**Potential mentors**: **@vibhor98** (primary), **@1995YogeshSharma**
-
-**Difficulty**: Medium
-
-**Knowledge/Skills needed**
-* Full stack development including Python and AngularJS
-* Good technical design
-
-**Suggested milestones**
-Choose three of the issues above, and fix them. Fixing each issue counts as a single milestone.
-
-**Notes**:
-If you'd like to get a bit more familiar with the exploration editor, here is a simpler issue along the same lines that you might like to have a go at: When switching from a rule type to a different rule type, the inputs to the old rule type get lost, even though both rule types have the same types of inputs and it is possible to carry the inputs over.
 
 ***
 
@@ -357,7 +357,32 @@ The aim of this project would be to allow lesson translators and voiceover artis
 
 ***
 
-### 2.2. Asking students why they picked a particular answer
+### 2.2. Review tests and other improvements to the questions framework
+While explorations and stories help encourage a learner to continue learning, it is also useful for a learner to be able to keep track of their understanding as their learning progresses. Review tests are an upcoming feature in Oppia that aims to help learners test the skills they've learned after they have completed 2-3 lessons in a story in that topic. These review tests would be automatically presented to the learner once they have progressed up to a certain point in the story, and would need to be completed successfully in order to advance to the next part of the story.
+
+This project aims to create the learner view for review tests, and to improve the question framework as a whole so that the experience of practising questions on Oppia (via pre-tests, review tests and practice sessions) is as effective and enjoyable as possible.
+
+**Potential mentors**: **@vinitamurthi** (primary), **@aks681**
+
+**Difficulty**: Medium
+
+**Knowledge/Skills needed**
+* UI/UX design
+* Full-stack development (Python and AngularJS)
+
+**Suggested milestones**
+1. Implement the full user flow for review tests. After this milestone, review tests should be presented to students at the right time, making use of the existing question player component. At the end of the review test, there should be a way for the student to return to the story they were on.
+1. Update the question player framework to return more information than just the score, once the learner has completed the test. Specifically, the question player framework should be able to return the score, as well as calculate and return the mastery of the skill(s) that were tested. At the end of this milestone, the question player API should return score as well as a list of skills tested along with their mastery levels.
+1. Use the skill mastery information returned by the question player API in each of the tests (i.e. pre-tests, practice sessions, and review tests). Each of the tests would have to use the skill mastery levels in different ways. Pre-tests would use mastery to decide whether the learner has passed the requirements and can proceed with the lesson, whereas review tests and practice sessions would use the mastery values primarily to keep track of the learner's progress and pass on recommendations for next steps to the learner.
+
+**Notes**
+* Proposals should include user flows for what the review tests experience would look like.
+* For Milestone 2, proposals should define a reasonable approach for measuring and modifying skill mastery levels (which would be represented as floating-point numbers between 0.0 and 1.0 for each skill).
+* Proposals should include a clear definition of how to measure the effectiveness of the questions framework.
+
+***
+
+### 2.3. Asking students why they picked a particular answer
 We would like to add a feature to the lesson player that allows students to explain how they arrived at a (wrong) answer. The aim of this feature is to encourage reflection on the student's part, as well as provide (anonymized) information to creators about student misconceptions, so that the creator can improve Oppia’s feedback for future students.
 
 **Potential mentors**: **@vibhor98** (primary), **@aks681**
@@ -380,7 +405,7 @@ Difficulty: Medium
 
 ***
 
-### 2.3. Memorization Experience for Learners
+### 2.4. Memorization Experience for Learners
 For some topics, attention needs to be given on memorizing data (such as the names of the counting numbers, the times table, the months in a year, or the planets in the solar system). There should be an effective way for learners to do this as needed, in a topic or in an exploration. The creator should be able to specify the information that needs to be memorized, and there should be a built-in mechanism in Oppia that helps the learner commit this information to memory as quickly and accurately as possible.
 
 **Potential mentors**: **@seanlip** (primary)
@@ -388,7 +413,7 @@ For some topics, attention needs to be given on memorizing data (such as the nam
 **Difficulty**: Medium/Hard. This project is somewhat open-ended. We encourage coming up with a proposal which is reasonable in scope, but which also can be backed by evidence that implementing it would lead to an effective learning experience.
 
 **Knowledge/Skills needed**
-* Full stack development
+* Full-stack development
 * Good technical design
 * Good UX design
 
@@ -405,36 +430,11 @@ These will depend strongly on the nature of the proposal. In general, we recomme
 
 ***
 
-### 2.4. Review tests and other improvements to the questions framework
-While explorations and stories help encourage a learner to continue learning, it is also useful for a learner to be able to keep track of their understanding as their learning progresses. Review tests are an upcoming feature in Oppia that aims to help learners test the skills they've learned after they have completed 2-3 lessons in a story in that topic. These review tests would be automatically presented to the learner once they have progressed up to a certain point in the story, and would need to be completed successfully in order to advance to the next part of the story.
-
-This project aims to create the learner view for review tests, and to improve the question framework as a whole so that the experience of practising questions on Oppia (via pre-tests, review tests and practice sessions) is as effective and enjoyable as possible.
-
-**Potential mentors**: **@vinitamurthi** (primary), **@aks681**
-
-**Difficulty**: Medium
-
-**Knowledge/Skills needed**
-* UI/UX design
-* Python (backend development)
-* Angular JS (frontend development)
-
-**Suggested milestones**
-1. Implement the full user flow for review tests. After this milestone, review tests should be presented to students at the right time, making use of the existing question player component. At the end of the review test, there should be a way for the student to return to the story they were on.
-1. Update the question player framework to return more information than just the score, once the learner has completed the test. Specifically, the question player framework should be able to return the score, as well as calculate and return the mastery of the skill(s) that were tested. At the end of this milestone, the question player API should return score as well as a list of skills tested along with their mastery levels. Note, the proposal should define  mastery levels as well.
-1. Use the skill mastery information returned by the question player API in each of the tests (i.e. pre-tests, practice sessions, and review tests). Each of the tests would have to use the skill mastery levels in different ways. Pre-tests would use mastery to decide whether the learner has passed the requirements and can proceed with the lesson, whereas review tests and practice sessions would use the mastery values primarily to pass on the information to the learner and keep track of their progress.
-
-**Notes**
-* Proposals should include user flows for what the review tests experience would look like.
-* Proposals should include a clear definition of how to measure the effectiveness of the questions framework.
-
-***
-
 ## Infrastructure Projects
 ### 3.1. Improve frontend and end-to-end tests
-The Oppia frontend is quite extensive in terms of functionality, and we lay a lot of emphasis on a smooth user-facing experience. Thus, we would like to ensure that all functionality is fully tested, at all times, before it goes into production.
+In order to ensure that users of Oppia have a smooth experience, we would like to ensure that all frontend functionality in Oppia is fully tested, at all times, before it goes into production.
 
-The aim of this project is twofold: (a) to achieve 100% coverage for the frontend tests and ensure that this state is preserved in the future, as well as (b) to improve Oppia’s end-to-end tests coverage and make them run faster. The framework and guidelines should make it easy for future developers to incorporate the necessary tests along with their code, and prevent insufficiently-tested code from making it into the codebase.
+The aim of this project is twofold: (a) to achieve 100% coverage for the frontend tests and ensure that this state is preserved in the future, as well as (b) to improve Oppia's end-to-end tests coverage and make them run faster.
 
 **Potential mentors**: **@apb7** (primary), **@nithusha21**
 
@@ -443,25 +443,25 @@ The aim of this project is twofold: (a) to achieve 100% coverage for the fronten
 **Knowledge/Skills needed**
 * Familiarity with Karma and Protractor
 * Basic understanding of AngularJS
-* A good “testing” mentality.
+* A good "testing" mentality.
 
 **Suggested milestones**
 1. Extend frontend unit tests to reach at least 75% coverage.
-1. Extend frontend unit tests to reach 100% coverage and lay down guidelines/rules which ensure that this state is preserved, that is, the coverage always remains at 100%.
-1. Optimize the e2e tests on the following grounds (while ensuring that the coverage remains at 100%):
+1. Extend frontend unit tests to reach 100% coverage and lay down guidelines/rules which ensure that this state is preserved, that is, the coverage always remains at 100%. These guidelines/rules should make it easy for future developers to incorporate the necessary tests along with their code, and prevent insufficiently-tested code from making it into the codebase.
+1. Optimize the e2e tests on the following grounds (while ensuring that coverage remains at 100%):
     1. Pull out common flows from the e2e tests that run on both desktop (core/protractor_desktop) and mobile (core/protractor_mobile), and organize them in core/protractor instead.
     1. Make the tests faster by minimizing repetition of statements between different tests. (Refer to the first bullet point under Notes.)
 
 **Related issues**: #4057
 
 **Notes**
-* A general problem observed with the end-to-end tests is the repetition of statements -- the initial setup and the steps performed. This makes the end-to-end tests a bit inefficient and they take more time to be completed. Proposals should clearly explain how they are planning to ensure that this problem is removed once and for all, and what amendments must be made to the guidelines for end-to-end tests.
+* A general problem observed with the end-to-end tests is the repetition of actions, in both the initial setup and the steps performed. This makes the end-to-end tests a bit inefficient and results in their taking more time to be completed. Proposals should clearly explain how they are planning to ensure that this problem is removed once and for all, and what amendments must be made to the guidelines for end-to-end tests.
 * The present frontend coverage is 46.07% with respect to statements (12562 statements covered out of a total of 27266 statements). Proposals should explain a plan to reach 100% coverage and outline how this state of affairs will be preserved in the future.
 
 ***
 
-### 3.2. Improve backend test coverage and upgrading it to support Python 3
-This project aims to improve backend test coverage to 100%, and then migrate the backend codebase to be simultaneously compatible with both Python 2 and Python 3. The reason these two projects are linked is because one prerequisite for a safe migration is to have full test coverage, so it is important to make sure that the coverage is 100% before migrating. 
+### 3.2. Improve backend test coverage and upgrade it to support Python 3
+This project aims to improve backend test coverage to 100%, and then migrate the backend codebase to be simultaneously compatible with both Python 2 and Python 3. The reason these two projects are linked is because one prerequisite for a safe migration is to have full test coverage, so it's important to make sure that the backend coverage is 100% before migrating. We would also like to standardize all scripts in the codebase to be written in Python (currently, there is a mixture of bash and Python being used).
 
 Unfortunately, we cannot do a full migration to Python 3 at this time due to incompatibility issues with Google App Engine (GAE) dependencies. So, the current plan is to have the codebase python3 ready, so that we can easily upgrade to python3 as soon as the GAE issues are resolved.
  
@@ -472,44 +472,44 @@ Unfortunately, we cannot do a full migration to Python 3 at this time due to inc
 **Knowledge/Skills needed**
 * Python
 * A good testing mentality
-* bash scripting knowledge.
+* Bash scripting knowledge.
 
 **Suggested milestones**
 1. Make coverage visible from the CI build. This will allow us to not merge PRs which reduce the coverage percentage. Improve the coverage of the existing code to from 89% to 100% (2314 lines missing of 21562 at the time this was written), and put guidelines in place to ensure that no uncovered backend code makes it into the develop branch.
-1. Make sure that all libraries we use are compatible with python 3: if not, suggest mitigation approaches and migrate the libraries accordingly. In addition, make updates to the codebase to ensure that it is compatible with both Python 2 and Python 3, while ensuring that all setup and deployment scripts continue to work fine.
-1. Convert all bash scripts to python. Put measures in place (like lint checks) to ensure that the backend code always remains compatible with both python 2 and python 3, regardless of subsequent developer changes. Create a list of remaining steps that need to be taken for a final migration to python 3 (once a solution is found for the GAE dependency issues); this list should be as short as possible.
+1. Convert all bash scripts to python. Update the codebase to ensure that it is compatible with both Python 2 and Python 3, while ensuring that all setup and deployment scripts continue to work fine. Make sure that all libraries we use are compatible with python 3: if not, suggest mitigation approaches and migrate the libraries accordingly.
+1. Put measures in place (like lint checks) to ensure that the backend code always remains compatible with both python 2 and python 3, regardless of subsequent developer changes. Create a list of remaining steps that need to be taken for a final migration to python 3 (once a solution is found for the GAE dependency issues); this list should be as short as possible.
 
 **Related issues**: #5134
 
 **Notes** 
 * See https://docs.python.org/3/howto/pyporting.html for migration instructions.
-* Proposals must clearly state how to achieve the 100% coverage state from our current state.
+* Proposals must clearly state a plan for how to achieve the 100% coverage state from our current state.
 
 ***
 
 ### 3.3. Migrate the frontend to Angular 2
-With the announcement that AngularJS will no longer be maintained or updated, we would like to upgrade our frontend to use Angular 2. The migration will need to happen step by step, while maintaining the working state of the codebase. 
+With the announcement that [AngularJS will no longer be maintained or updated](https://blog.angular.io/stable-angularjs-and-long-term-support-7e077635ee9c), we would like to upgrade our frontend to use Angular 2. The migration will need to happen step by step, while maintaining the working state of the codebase. 
 
 **Potential mentors**: **@kevinlee12** (primary), **@bansalnitish**
 
 Difficulty: Hard
 
 **Knowledge/Skills needed**
-* Angular
-* Angular2
-* good technical design
+* AngularJS and Angular2
+* Good technical design
 
 **Prerequisites**
-This project will only be offered for GSoC if the pre-work to convert the codebase to a migratable state (and update any necessary third-party libraries) is completed before the start of GSoC.
+This project will only be offered for GSoC if the pre-work to convert the codebase to a migratable state (and update any necessary third-party libraries) is completed before the start of GSoC. This work is tracked in the ["Angular 2 Migration" GitHub project](https://github.com/oppia/oppia/projects/32).
 
 **Suggested milestones**:
-1. Upgrade at least 30% of the codebase to Angular 2, including test files. Communicate to developers the changes that are going on, and ensure that documentation exists for them to easily set up an Angular 2 environment and get started with development using Angular 2.
-1. Upgrade at least 60% of the codebase to Angular 2, including test files.
+1. Upgrade at least 40% of the codebase to Angular 2, including test files. Communicate to developers the changes that are going on, and ensure that documentation exists for them to easily set up an Angular 2 environment and get started with development using Angular 2.
+1. Upgrade at least 70% of the codebase to Angular 2, including test files.
 1. Upgrade the entire codebase to Angular 2, including test files.
 
 **Notes**:
 * Proposals should demonstrate a clear understanding of the upgrade process, and specify a clear plan for tackling this project that can be fully conducted during the GSoC period.
 * Proposals should explain the impact of the changes on developers, and how to minimize this.
+* Proposals should explain how they intend to measure progress, and how the "40%" and "70%" numbers above can be verified objectively. (Note that the number for Milestone 1 is slightly higher because we expect the easier parts of this project to be completed earlier.)
 * See https://angular.io/guide/upgrade for the official upgrade instructions.
 
 ***
@@ -525,15 +525,16 @@ Some of the third party libraries that Oppia uses have been updated, and migrati
 * Javascript (to understand the use cases of the library)
 
 **Suggested milestones**
-1. Upgrade 70% of the libraries in ./third_party.
-1. Upgrade 100% of the libraries in ./third_party.
+1. Upgrade 70% of the libraries in ./third_party, with no regressions.
+1. Upgrade 100% of the libraries in ./third_party, with no regressions.
 1. Upgrade Node to the latest stable version and then upgrade all libraries in ../node_modules. Upgrade all libraries in ../oppia_tools.
 
 **Difficulty**: Easy/Medium
 
 Notes:
 * An important part of upgrading libraries is to make necessary changes to support the upgraded libraries (in case new versions introduce breaking changes or are not backward-compatible). There are several libraries in ./third_party for which this is more difficult than others. The proposal should explain which libraries these are, and describe a plan to upgrade them safely.
-* Milestone 3 comes last because node and ../oppia_tools are not user-facing.
+* Note that Milestone 3 comes last because node and ../oppia_tools are not user-facing.
+* Proposals should explain how they intend to measure progress, and how the "70%" number in Milestone 1 can be verified objectively.
 
 ***
 
@@ -549,10 +550,9 @@ Currently, Oppia serves all pages using the Jinja templating engine, which isn't
 * Technical design
 
 **Suggested milestones**:
-1. Devise a way to serve the About page statically (this requires getting rid of any remaining Jinja constructs on that page), using an approach that is generalizable to other pages. Identify other issues that can arise from serving the remaining pages statically.
-1. Convert all mostly-static pages in Oppia, as well as at least one non-static page, to use the new framework developed in milestone 1.
+1. Devise a way to serve the [About page](https://github.com/oppia/oppia/blob/develop/core/templates/dev/head/pages/about/about.html) or the [Fractions landing page](https://github.com/oppia/oppia/blob/develop/core/templates/dev/head/pages/landing/fractions/landing_page_teacher.html) statically (this requires getting rid of any remaining Jinja constructs on that page), using an approach that is generalizable to other pages. Identify other issues that can arise from serving the remaining pages statically.
+1. Convert all mostly-static pages in Oppia, as well as at least one non-static page, to use the new framework developed in Milestone 1.
 1. Serve all pages in Oppia statically.
-
 
 **Related issues**:
 * #4220: MusicNotesInput static images are not hash interpolated.
@@ -563,12 +563,12 @@ Currently, Oppia serves all pages using the Jinja templating engine, which isn't
 
 **Notes**:
 * The proposal should include a clear analysis of how to get rid of Jinja for all pages.
-* This project may require some changes in the build process, because we currently sometimes use {% include %} just to have clearer dev processes. Good proposals will include a coherent analysis of how to deal with this issue, as well as the pros/cons of possible approaches. Some starting-point ideas are provided below, but there may be others:
+* This project may require some changes in the build process, because we currently sometimes use `{% include %}` just to have clearer dev processes. Good proposals will include a coherent analysis of how to deal with this issue, as well as the pros/cons of possible approaches. Some starting-point ideas are provided below, but there may be others:
     * re-build the finalized templates at release time, then serve them statically from then on (rather than try 
 to re-construct them at every request). But how would we handle local development, where the changed files must be available immediately?
     * Look into stuff like ngInclude in Angular. But that might lead to too many calls to the server (even if only to retrieve static files). That said, we could cache the templates.
-* This project requires the usage of some kind of module bundling (webpack). We hope to have this completed prior to GSoC -- talk to @vojtechjelinek for more details.
-* In order to get rid of Jinja, we need to find alternative ways to handle all the GLOBALS variables that are currently sent to the frontend using Jinja. Work on this is currently ongoing at #5002 -- talk to @vojtechjelinek if you’d like to help with this.
+* This project requires the usage of some kind of module bundling (webpack). We hope to have this completed prior to GSoC -- please talk to **@vojtechjelinek** for more details.
+* In order to get rid of Jinja, we need to find alternative ways to handle all the GLOBALS variables that are currently sent to the frontend using Jinja. Work on this is currently ongoing at #5002 -- please talk to **@vojtechjelinek** if you’d like to help with this.
 
 ***
 
@@ -601,7 +601,7 @@ The aim of this project is to figure out all the invariants that should hold bet
 
 **Notes**
 * The above list is not representative, and we expect there to be many more such validations. The proposal should include a full list of these.
-* This project ties in very closely to Oppia’s release process. Make sure you are acquainted with [Oppia’s release timeline](https://github.com/oppia/oppia/wiki/Release-Schedule), as well as the [procedure for running one-off jobs in production](https://github.com/oppia/oppia/wiki/Running-jobs-in-production).
+* This project ties in very closely to Oppia's release process. Make sure you are acquainted with [Oppia’s release timeline](https://github.com/oppia/oppia/wiki/Release-Schedule), as well as the [procedure for running one-off jobs in production](https://github.com/oppia/oppia/wiki/Running-jobs-in-production).
 
 ***
 
@@ -622,7 +622,7 @@ Noteworthy dates for 2019:
 * Akshay (@aks681)
 * Apurv (@apb7)
 * Brian (@brianrodri)
-* Kevin Lee (@kevinlee12)
+* Kevin (@kevinlee12)
 * Nithesh (@nithusha21)
 * Nitish (@bansalnitish)
 * Sandeep (@DubeySandeep)
