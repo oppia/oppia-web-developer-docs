@@ -180,13 +180,16 @@ This project has two goals. Firstly, we would like to make it possible to have d
 ***
 
 ### 1.2. Real-time measurement of exploration effectiveness
-We want to provide creators meta-analysis for the improvements they make to their explorations. This gives them confidence in following through with our suggested improvements, and allows them to quantitatively understand the effectiveness of their explorations.
+In order to make sure that students enjoy the lessons on Oppia, we need to develop a way to measure lesson "enjoyability" so that creators can see the effects of their changes. The aim of this project is to define and put in place the necessary infrastructure for this. By the end of the project, we’d like to make it possible for creators to see whether their lessons are enjoyable, as well as figure out which parts of their lessons might be frustrating/confusing/boring so that they can fix those for future learners.
 
-**Open Questions**:
-* How do we "prove" explorations have improved for learners?
-* What kind of data can we collect to argue an exploration has improved?
-* Can they be anonymized?
-* How will we intuitively show these metrics to creators?
+In order to do this, we would need to figure out what “enjoyability” means. Here are some initial suggestions for metrics (proposals have full creative liberty over these):
+* Enjoyability:
+  * Did a student finish the exploration?
+  * Did they carry on to the next exploration in the series?
+* Possible ways to detect issues:
+  * Frustration: An answer is submitted more than once without leaving the card.
+  * Confusion: An answer is submitted more than once, with at least one other answer to that card in between consecutive submissions.
+  * Boredom: _We're not sure :) What do you think?_
 
 **Potential mentors**: @brianrodri (primary), @kevinlee12
 
@@ -198,16 +201,14 @@ We want to provide creators meta-analysis for the improvements they make to thei
 * Angular JS
 
 **Suggested milestones**
-_To be decided_
+1. Find a way to calculate and store the "continuation metric" (i.e. does the student continue with the next lesson in the series). Then, create a unified page for all curated lessons that shows, for each lesson, the combined completion + continuation stats.
+
+2. Introduce a frontend service which detects signals indicating student boredom / frustration / confusion, creates cross-sectional metrics in real-time, and sends those metrics to the backend, which stores them as aggregate metrics. Additionally, add new types of playthroughs as needed to match these metrics (e.g., a playthrough which demonstrates "boredom") to be used as supporting evidence when debugging them.
+
+3. Show the signals detected in Milestone 2 in the statistics tab. Audit the full detection/resolution flow and fix any other issues in order to ensure that the end-to-end experience for lesson creators is fully intuitive.
 
 **Related issues**
-* Define and Implement Continuous Real-Time Effectiveness Metric for Explorations (#5801)
-
-**Notes**
-* Proposals must:
-    * Suggest 2-3 well-defined metrics to be monitored, and why/how they will determine effectiveness.
-    * Mock of the directive which shows the metrics.
-    * Define all domain objects, services, directives, backend schemas/models and tests which will be implemented.
+* Define and Implement Continuous Real-Time Enjoyability Metric for Explorations (#5801)
 
 ***
 
