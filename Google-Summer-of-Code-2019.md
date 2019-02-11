@@ -179,7 +179,7 @@ Art and graphics form an integral part of most explorations on Oppia, and are es
 
 This project has two goals. Firstly, we would like to make it possible to have dedicated artists for explorations: this will allow creators to assign artist roles, and allow the art development workflow to happen in parallel with other creative work. Secondly, we would like to implement a way to crowdsource these graphics (using the existing suggestions framework). For this, all open image requests should be surfaced to non-editors/artists of the exploration, and they should be allowed to suggest an image. Once a suggested image is approved by the editors/artists, it can be added to the lesson.
 
-**Potential mentors**: @nithusha21 (primary)
+**Potential mentors**: **@nithusha21** (primary)
 
 **Difficulty**: Medium
 
@@ -207,7 +207,7 @@ In order to do this, we would need to figure out what “enjoyability” means. 
   * Confusion: An answer is submitted more than once, with at least one other answer to that card in between consecutive submissions.
   * Boredom: _We're not sure :) What do you think?_
 
-**Potential mentors**: @brianrodri (primary), @kevinlee12
+**Potential mentors**: **@brianrodri** (primary), **@kevinlee12**
 
 **Difficulty**: Medium
 
@@ -234,7 +234,7 @@ Currently, Oppia provides a simple platform for translators to record and track 
 * Allowing users to upload multiple audio files at a time.
 * Allowing multiple translators to work in parallel without losing their draft changes.
 
-**Potential mentors**: @DubeySandeep (primary)
+**Potential mentors**: **@DubeySandeep** (primary)
 
 **Difficulty**: Medium
 
@@ -254,7 +254,7 @@ In order to ensure a high level of quality, explorations are often reviewed by a
 
 It would be nice to have a more linear, scrollable view of the entire exploration which is optimized for reviewers, and which supports basic commenting functionality. The aim of this project is to build this view.
 
-**Potential mentors**: @1995YogeshSharma (primary), @seanlip
+**Potential mentors**: **@1995YogeshSharma** (primary), **@seanlip**
 
 **Difficulty**: Hard
 
@@ -287,7 +287,7 @@ There are a number of serious issues with current workflows in the exploration e
 
 The aim of this project is to fix any three of these issues.
 
-**Potential mentors**: @vibhor98 @1995YogeshSharma 
+**Potential mentors**: **@vibhor98** (primary), **@1995YogeshSharma**
 
 **Difficulty**: Medium
 
@@ -310,7 +310,7 @@ Instead, we would like to introduce the concept of parameterized questions, wher
 
 Note that parameterization might potentially extend to expressing the same question in different ways. For example, we might want to be able to treat the questions "Add a/b + c/d", "Find the sum of a/b and c/d", and "{{name}} has a/b of a cake and {{other_name}} has c/d of the same cake; what is the total amount of cake they have?" as the same.
 
-**Potential mentors**: @aks681, @vinitamurthi
+**Potential mentors**: **@aks681** (primary), **@vinitamurthi**
 
 **Difficulty**: Hard
 
@@ -339,7 +339,7 @@ We have found that audio voiceovers (especially in native languages) are very he
 
 The aim of this project would be to allow lesson translators and voiceover artists to annotate textual translations and voiceover audio respectively, so that the relevant text can be highlighted in the exploration player while the corresponding audio is playing. A rough requirements doc for this project can be found [here](https://docs.google.com/document/d/1VUaXm4V0YxyPXRBz8W_YMWEC_guzcnccju8d3KWz5jw/edit?usp=sharing).
 
-**Potential mentors**: @DubeySandeep
+**Potential mentors**: **@DubeySandeep** (primary)
 
 **Difficulty**: Hard
 
@@ -360,7 +360,7 @@ The aim of this project would be to allow lesson translators and voiceover artis
 ### 2.2. Asking students why they picked a particular answer
 We would like to add a feature to the lesson player that allows students to explain how they arrived at a (wrong) answer. The aim of this feature is to encourage reflection on the student’s part, as well as provide (anonymized) information to creators about student misconceptions, so that the creator can improve Oppia’s feedback for future students.
 
-**Potential mentors**: @vibhor98 (primary), @aks681
+**Potential mentors**: **@vibhor98** (primary), **@aks681**
 
 Difficulty: Medium
 
@@ -382,7 +382,7 @@ Difficulty: Medium
 ### 2.3. Memorization Experience for Learners
 For some topics, attention needs to be given on memorizing data (such as the names of the counting numbers, the times table, the months in a year, or the planets in the solar system). There should be an effective way for learners to do this as needed, in a topic or in an exploration. The creator should be able to specify the information that needs to be memorized, and there should be a built-in mechanism in Oppia that helps the learner commit this information to memory as quickly and accurately as possible.
 
-**Potential mentors**: @seanlip (primary)
+**Potential mentors**: **@seanlip** (primary)
 
 **Difficulty**: Medium/Hard. This project is somewhat open-ended. We encourage coming up with a proposal which is reasonable in scope, but which also can be backed by evidence that implementing it would lead to an effective learning experience.
 
@@ -408,7 +408,7 @@ While explorations and stories help encourage a learner to continue learning, it
 
 This project aims to create the learner view for review tests, and to improve the question framework as a whole so that the experience of practising questions on Oppia (via pre-tests, review tests and practice sessions) is as effective and enjoyable as possible.
 
-**Potential mentors**: @vinitamurthi (primary), @aks681
+**Potential mentors**: **@vinitamurthi** (primary), **@aks681**
 
 **Difficulty**: Medium
 
@@ -434,7 +434,7 @@ The Oppia frontend is quite extensive in terms of functionality, and we lay a lo
 
 The aim of this project is twofold: (a) to achieve 100% coverage for the frontend tests and ensure that this state is preserved in the future, as well as (b) to improve Oppia’s end-to-end tests coverage and make them run faster. The framework and guidelines should make it easy for future developers to incorporate the necessary tests along with their code, and prevent insufficiently-tested code from making it into the codebase.
 
-**Potential mentors**: @apb7 (primary), @nithusha21
+**Potential mentors**: **@apb7** (primary), **@nithusha21**
 
 **Difficulty**: Medium
 
@@ -463,7 +463,7 @@ This project aims to improve backend test coverage to 100%, and then migrate the
 
 Unfortunately, we cannot do a full migration to Python 3 at this time due to incompatibility issues with Google App Engine (GAE) dependencies. So, the current plan is to have the codebase python3 ready, so that we can easily upgrade to python3 as soon as the GAE issues are resolved.
  
-**Potential mentors**: @apb7 (primary), @brianrodri
+**Potential mentors**: **@apb7** (primary), **@brianrodri**
 
 **Difficulty**: Medium
 
@@ -488,7 +488,7 @@ Unfortunately, we cannot do a full migration to Python 3 at this time due to inc
 ### 3.3. Migrate the frontend to Angular 2
 With the announcement that AngularJS will no longer be maintained or updated, we would like to upgrade our frontend to use Angular 2. The migration will need to happen step by step, while maintaining the working state of the codebase. 
 
-**Potential mentors**: @kevinlee12 (primary), @bansalnitish
+**Potential mentors**: **@kevinlee12** (primary), **@bansalnitish**
 
 Difficulty: Hard
 
@@ -515,7 +515,7 @@ This project will only be offered for GSoC if the pre-work to convert the codeba
 ### 3.4. Upgrade third-party libraries
 Some of the third party libraries that Oppia uses have been updated, and migrating to newer versions of these libraries might help fix some issues on the issue tracker. The aim of this project is to upgrade all third-party libraries (carefully!) to the latest stable version. 
 
-**Potential mentors**: @vojtechjelinek (primary), @bansalnitish
+**Potential mentors**: **@vojtechjelinek** (primary), **@bansalnitish**
 
 **Knowledge/Skills needed**
 * Bash
@@ -538,7 +538,7 @@ Notes:
 ### 3.5. Static serving
 Currently, Oppia serves all pages using the Jinja templating engine, which isn't very efficient -- for one thing, because pages are dynamically composed using Jinja, they can’t be cached. The aim of this project is therefore to serve as much of Oppia's pages as we can statically, and handle all dynamic content using AJAX calls. In order to do this, we'll need to get rid of the Jinja footprint in our codebase. Furthermore, we sometimes use Jinja to include static files (like header_js_libs.html or footer.html); and will therefore need to find an alternative way to include these in a Jinja-less environment (perhaps in our build process, or with ngInclude).
 
-**Potential mentors**: @vojtechjelinek, @1995YogeshSharma
+**Potential mentors**: **@vojtechjelinek** (primary), **@1995YogeshSharma**
 
 **Difficulty**: Medium
 
@@ -582,7 +582,7 @@ We would like to validate that Oppia deployments have valid data and relationshi
 
 The aim of this project is to figure out all the invariants that should hold between Oppia storage models, and put in place an audit job to verify that they hold in a production deployment, as well as put steps in place to ensure that, if the invariants hold at a point in time, they continue to hold in perpetuity.
 
-**Potential mentors**: @bansalnitish (primary), @seanlip
+**Potential mentors**: **@bansalnitish** (primary), **@seanlip**
 
 **Difficulty**: Medium
 
