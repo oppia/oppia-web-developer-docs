@@ -328,15 +328,15 @@ Note that parameterization might potentially extend to expressing the same quest
 * The existing [parameters/expressions framework](http://oppia.github.io/#/Parameters) might be a useful starting point. Note that there is some existing functionality for parameters in the codebase, but it is not well-maintained. It is probably best to figure out a design for this system from scratch, and only then see whether the existing "parameter" functionality can fit well into the proposed system.
 * There should be a way for creators to audit that the parameterizations they have picked work well in all cases and result in sensible questions (cf. Milestone 3). The user flow for doing this should be clearly laid out.
 * Proposals should explain clearly how the rules in answer groups will handle parameters without complicating the default lesson creation experience. Perhaps there could be an "advanced view" which shows a more complicated UI only when parameters are activated in the Settings tab.
-* [Stretch] Suggest a way to handle audio translations for parameterized questions.
+* [Bonus] Currently, Oppia lessons can be augmented with translations and voiceovers in other languages, which are very helpful for learners. It would be great if you could suggest a clean way to handle audio translations for parameterized questions -- but note that this isn't a requirement for the project!
 
 ***
 
 ## Learner View Projects
 ### 2.1. Highlight text in a lesson as audio is played
-We have found that audio voiceovers (especially in native languages) are very helpful for learners for whom English is not a first language. However, for longer cards, it is difficult for learners to match the audio voiceover to the text on the card. It would be great for learners to be able to track the audio with the text. 
+We have found that audio voiceovers (especially in native languages) are very helpful for learners for whom English isn't a first language. However, for longer cards, it is difficult for learners to match the audio voiceover to the text on the card. It would be great for learners to be able to track the audio with the text. 
 
-The aim of this project would be to allow lesson translators and voiceover artists to annotate textual translations and voiceover audio respectively, so that the relevant text can be highlighted in the exploration player while the corresponding audio is playing. A rough requirements doc for this project can be found [here](https://docs.google.com/document/d/1VUaXm4V0YxyPXRBz8W_YMWEC_guzcnccju8d3KWz5jw/edit?usp=sharing).
+The aim of this project would be to allow lesson translators and voiceover artists to annotate textual translations and voiceover audio respectively, so that the relevant text can be highlighted in the exploration player while the corresponding audio is playing. A rough requirements doc for this project can be found [here](https://docs.google.com/document/d/1VUaXm4V0YxyPXRBz8W_YMWEC_guzcnccju8d3KWz5jw/edit).
 
 **Potential mentors**: **@DubeySandeep** (primary)
 
@@ -353,11 +353,12 @@ The aim of this project would be to allow lesson translators and voiceover artis
 
 **Notes**
 * Proposals should include clear descriptions of the workflows for annotators (both those who are working on written translations and audio voiceovers).
+* A lot of the difficulty of this project arises in handling edge cases correctly, while still ensuring that the workflow for creators is as simple as possible. Strong proposals would carefully explain how they plan to handle edge cases.
 
 ***
 
 ### 2.2. Asking students why they picked a particular answer
-We would like to add a feature to the lesson player that allows students to explain how they arrived at a (wrong) answer. The aim of this feature is to encourage reflection on the student’s part, as well as provide (anonymized) information to creators about student misconceptions, so that the creator can improve Oppia’s feedback for future students.
+We would like to add a feature to the lesson player that allows students to explain how they arrived at a (wrong) answer. The aim of this feature is to encourage reflection on the student's part, as well as provide (anonymized) information to creators about student misconceptions, so that the creator can improve Oppia’s feedback for future students.
 
 **Potential mentors**: **@vibhor98** (primary), **@aks681**
 
@@ -373,8 +374,9 @@ Difficulty: Medium
 1. Augment the editor view UI to surface these responses to creators, and complete the end-to-end feature so that the complete life-cycle functions correctly. Add e2e tests to verify the overall life-cycle.
 
 **Notes**
-* Proposals must clearly state when this information must be recorded. The process should not unduly obstruct the learner -- e.g, it would not be nice to surface a modal with “explain your approach” every time the learner clicks submit. Proposals should also outline when and where this data is surfaced to creators. 
-* Proposals must clearly state the complete lifecycle of this feature, starting from the learner’s submission and proceeding all the way to the creator improving the lesson based on that feedback. Be sure to consider “non happy path” flows as well, such as when the student does not provide an explanation that the creator can understand. The proposal should also include mocks for both the learner and creator views.
+* Proposals must clearly state what conditions trigger this flow. The process should not unduly obstruct the learner -- e.g, it would not be nice to surface a modal with "explain your approach" every time the learner clicks submit, and perhaps we might want to do this at most once per lesson. Proposals should also outline when and where this data is surfaced to creators.
+* Proposals must clearly explain the complete lifecycle of this feature, starting from the learner's submission and proceeding all the way to the creator improving the lesson based on that feedback. Be sure to consider "non happy path" flows as well, such as when the student does not provide an explanation that the creator can understand, or does not want to provide an explanation at all.
+* Proposals should include mocks for both the learner and creator user journeys.
 
 ***
 
@@ -397,13 +399,14 @@ These will depend strongly on the nature of the proposal. In general, we recomme
 1. Make all necessary frontend changes for the learner view to enable them to experience this feature.
 
 **Notes**
-* Proposals should define where this experience takes place, and why -- is this a separate experience at the topic level, or is it part of an exploration? The user experience for the student should be a natural one, and be defined in the proposal as clearly as possible.
+* Proposals should define where this experience takes place, and why -- is this a separate experience at the topic level, or is it part of an exploration? The overall user experience for the student should be a natural one, and be defined in the proposal as clearly as possible.
 * The success of this project is based on how effectively it helps students memorize a list of predetermined facts/words. The proposal should explain why the approach chosen is likely to be effective.
+* For this project, simple and elegant approaches are preferred to more complex ones.
 
 ***
 
 ### 2.4. Review tests and other improvements to the questions framework
-While explorations and stories help encourage a learner to continue learning, it is also useful for a learner to be able to keep track of their understanding as the learning progresses. Review tests are an upcoming feature in Oppia that aims to help learners test the skills they’ve learned after they have completed 2-3 lessons in a story in that topic. These review tests would be automatically presented to the learner once they have progressed up to a certain point in the story, and would need to be completed successfully in order to advance to the next part of the story.
+While explorations and stories help encourage a learner to continue learning, it is also useful for a learner to be able to keep track of their understanding as their learning progresses. Review tests are an upcoming feature in Oppia that aims to help learners test the skills they've learned after they have completed 2-3 lessons in a story in that topic. These review tests would be automatically presented to the learner once they have progressed up to a certain point in the story, and would need to be completed successfully in order to advance to the next part of the story.
 
 This project aims to create the learner view for review tests, and to improve the question framework as a whole so that the experience of practising questions on Oppia (via pre-tests, review tests and practice sessions) is as effective and enjoyable as possible.
 
