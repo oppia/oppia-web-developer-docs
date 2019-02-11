@@ -597,7 +597,7 @@ Noteworthy dates for 2019:
 * **May 6**: Accepted students are announced
 * **May 6 - May 27**: Community bonding period
 * **May 27 - Aug 19**: Students enjoy the summer by contributing code to their projects
-* **Aug 26*: GSoC officially ends
+* **Aug 26**: GSoC officially ends
 
 ## List of Potential Mentors
 
