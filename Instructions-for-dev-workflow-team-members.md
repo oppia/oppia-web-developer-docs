@@ -2,7 +2,7 @@ Jot down the issues faced by developers related to developer-workflow in the [se
 ) with the possible solutions (if known) from which they will be noted in the [Troubleshooting page](https://github.com/oppia/oppia/wiki/Troubleshooting) of the wiki.
 
 ### Tasks:
-* Look through the gitter channel, the mailing list and all issues/PRs where a dev-flow member is mentioned.
+* Look through the gitter channel, the mailing list and all issues/PRs where the dev-flow team (@dev-workflow-team) is tagged.
 * If a setup issue is seen more than 2 times in the codebase then open a new issue with the label ‘setup issues’ in github.
 
 #### [@apb7 + @lilithxxx + @anubhavsinha98 + @YashJipkate]: 
