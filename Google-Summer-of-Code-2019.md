@@ -21,7 +21,7 @@ Also, please note that acceptance into GSoC isn't a prerequisite for [becoming a
 # Students
 GSoC is an excellent opportunity for students to get paid to work on an open source project. If you're interested in applying as a student, you should definitely read the following resources:
 
-- [Google Summer of Code student guide](http://write.flossmanuals.net/gsocstudentguide/what-is-google-summer-of-code/)
+- [Google Summer of Code student guide](https://google.github.io/gsocguides/student/)
 - [Google's list of resources](https://developers.google.com/open-source/gsoc/resources/)
 - [GSoC FAQ](https://developers.google.com/open-source/gsoc/faq)
 
