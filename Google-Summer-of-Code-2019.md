@@ -95,7 +95,7 @@ Here's some guidance on what the mentors and organization admins will be looking
 
 - **A testing plan.** Testing is an important part of any coding project, and should be taken into account when planning the schedule. In particular, any new functionality added to Oppia's codebase should be backed by unit tests, and any new core user journey should be accompanied by a corresponding end-to-end test. If your project includes migrations, please also take the [pre-release testing in production](https://github.com/oppia/oppia/wiki/Running-jobs-in-production) process into account when planning. Finally,  make sure to budget enough time to test your changes manually before submitting each PR -- otherwise, any bugs that are subsequently discovered during review (or the monthly QA process) could result in significant delays and lead to the failure of an otherwise successful project.
 
-Here's some advice that we collated from 2018 students and mentors (which might be useful for milestone timeline planning):
+Also, here's some advice that we collated from 2018 students and mentors (which might be useful for milestone timeline planning):
 - Define milestones with enough detail to get a proper ETA for each milestone (so, don't just say "write e2e tests"), otherwise you run the risk of significantly underestimating the timeline.
 - Try to design milestones in such a way that the last 1 week of each milestone period is free, and can be used as a testing period.
 - The timeline should explicitly account for the time it will take to get PRs reviewed.
