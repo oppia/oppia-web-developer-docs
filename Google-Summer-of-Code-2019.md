@@ -95,11 +95,13 @@ Here's some guidance on what the mentors and organization admins will be looking
 
 - **A testing plan.** Testing is an important part of any coding project, and should be taken into account when planning the schedule. In particular, any new functionality added to Oppia's codebase should be backed by unit tests, and any new core user journey should be accompanied by a corresponding end-to-end test. If your project includes migrations, please also take the [pre-release testing in production](https://github.com/oppia/oppia/wiki/Running-jobs-in-production) process into account when planning. Finally,  make sure to budget enough time to test your changes manually before submitting each PR -- otherwise, any bugs that are subsequently discovered during review (or the monthly QA process) could result in significant delays and lead to the failure of an otherwise successful project.
 
-Also, here's some advice that we collated from 2018 students and mentors (which might be useful for milestone timeline planning):
+**[NEW!]** Here's some advice about proposals and milestone timeline planning that we collated from 2018 students and mentors:
+- Choose a project you're interested in! If you have a strong interest in your project, this will help you pick up necessary skills and tackle any unforeseen difficulties that arise during GSoC.
+- Familiarize yourself with the relevant part of the codebase for your project, especially if you haven't touched it before. It's important to think about how to integrate your project with the current Oppia structure -- don't design in a vacuum.
 - Define milestones with enough detail to get a proper ETA for each milestone (so, don't just say "write e2e tests"), otherwise you run the risk of significantly underestimating the timeline.
 - Try to design milestones in such a way that the last 1 week of each milestone period is free, and can be used as a testing period.
 - The timeline should explicitly account for the time it will take to get PRs reviewed.
-- If work needs to make a certain release, the initial PR should be sent well in advance of the [release cutoff date](https://github.com/oppia/oppia/wiki/Release-Schedule).
+- If work needs to be done in time for a particular release, the initial PR should be sent well in advance of the [release cutoff date](https://github.com/oppia/oppia/wiki/Release-Schedule).
 - If you're working on tasks that depend on jobs being [run in production](https://github.com/oppia/oppia/wiki/Running-jobs-in-production), the timeline should account for any delays inherent in this process.
 
 ### Sample proposals from past years
@@ -116,6 +118,29 @@ In order to ensure a well-rounded engineering experience, developers will do som
 - Write automated tests for their projects
 - Create UI mocks (if doing frontend development)
 - Write design documents (if implementing large features or introducing new systems)
+
+**[NEW!]** In 2018, we asked our students what they learned during GSoC. Here are the collated answers:
+- Technical ability
+  - Writing clean code with comments
+  - Writing tests
+  - My debugging skills improved a lot.
+  - Refactoring skills.
+- Technical domain knowledge
+  - I'm much more fluent in Python and AngularJS.
+  - I feel that I can now pick up any new framework/language/skill easily, without much uncertainty.
+  - I got to know about the one-off jobs in detail.
+- Technical leadership skills
+  - Single-handedly releasing a big feature end-to-end.
+  - Reviewing others' code
+  - Technical design skills (and validation of technical ideas)
+  - Organizing release testing teams
+  - I feel that I can think about a feature end to end and prune out all the not so essential features, so that we can create a minimum viable product!
+  - I learnt how to coordinate with folks around me.
+- Communication
+  - Putting forward my thoughts more systematically and deeply so that everyone can understand me well.
+  - Better communication skills.
+  - How to write a good proposal.
+- I learned a lot other than coding, including writing technical documents, doing meetings, presentations, testing, etc. This was also the first time I was writing well-tested backend code, which was also an interesting learning experience for me.
 
 ## Selection Criteria
 
