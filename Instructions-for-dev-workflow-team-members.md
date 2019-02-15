@@ -8,7 +8,7 @@ Jot down the issues faced by developers related to developer-workflow in the [se
 #### [@apb7 + @lilithxxx + @anubhavsinha98 + @YashJipkate]: 
 _If a new issue comes in_, clearly explain the issue faced by the developer with its possible solutions (if known) in the above issues spreadsheet.
 If the issue is solved by you:
-* _Update the troubleshooting page of the wiki._
+* **Update the troubleshooting page of the wiki.**
 * Remove the issue from the spreadsheet after its been written down in the wiki.
 
 #### Dev-flow Rota:
