@@ -80,7 +80,7 @@ Please follow the following style rules when writing code, in order to minimize 
 
 You can invoke the pre-commit script to ensure that your code follows the coding guidelines for a particular file that you've modified by running the following command from the root directory:
 ```bash
-python scripts/pre_commit_linter --path filepath
+python scripts/pre_commit_linter.py --path filepath
 ```
 
 If you'd like to run the checks for a list of files, run the following command:
