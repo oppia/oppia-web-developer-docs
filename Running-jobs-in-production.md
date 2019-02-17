@@ -38,4 +38,4 @@ Once your job has been fully tested on oppiatestserver, please submit a request 
 
 Requests must be submitted before the [date of the relevant release cutoff](https://github.com/oppia/oppia/wiki/Release-Schedule), which is typically the first Saturday of the corresponding month.
 
-You can check the status of your job in [this spreadsheet](https://docs.google.com/spreadsheets/d/1PAVWMxu7w-tOuJEzbixHRQL4GO34uHggbgQCcH1AXJg/edit#gid=0). Only release coordinators and QA leads will have edit access. If you see that something is wrong, please leave a comment on the spreadsheet, or send an email to oppia-release-team@googlegroups.com . 
+You can check the status of your job in [this spreadsheet](https://docs.google.com/spreadsheets/d/1Wegd0rZhVOm3Q3VCIw0xMbLC7IWtRyrEahiPn61Fhoo/edit). Only release coordinators and QA leads will have edit access. If you see that something is wrong, please leave a comment on the spreadsheet, or send an email to oppia-release-team@googlegroups.com . 
