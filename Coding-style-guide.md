@@ -65,6 +65,17 @@ Please follow the following style rules when writing code, in order to minimize 
 - We use extra parentheses if a statement breaks across multiple lines, similar to Python.
 - The indentation is always 2 spaces.
 - We are moving away from using underscores as prefixes for variable names, so, in the future, use `var localVariable` and not `var _localVariable`. Instead, we are adopting the convention that anything declared using `var` is private to the controller/service/etc. If you want a variable to be accessible to the controller, declare it on $scope instead.
+- Try to start only function names with verbs to help distinguish them from variables. 
+
+   For example:
+ 
+   - For a boolean variable to check if a card is displayed:
+        - Correct: `cardIsDisplayed`
+        - Wrong: `isCardDisplayed`
+
+   - For a function to check if a card is displayed:
+        - Correct: `isCardDisplayed()`
+        - Wrong: `cardIsDisplayed()`
 - We have started compiling a [style guide for JavaScript](https://docs.google.com/document/d/1ZDmLN66f53WdDPItFChu9Lr37z0dKoqR-ASX8UM5y60). This is currently a work in progress. However, please use this as the definitive guide when figuring out the correct way to name things (CamelCase, snake_case, etc.)
 
 ## CSS
