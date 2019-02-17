@@ -150,7 +150,7 @@ Here's how to make a one-off code change. (If you're working on a larger feature
 
 ### Notes
 
-We do not use author tags in files, since they tend to be inaccurate or become stale when the author is no longer a regular contributor. However, you can still find the author of a particular change in a file by running the command:
+* We do not use author tags in files, since they tend to be inaccurate or become stale when the author is no longer a regular contributor. However, you can still find the author of a particular change in a file by running the command:
 
 ```
 git blame file-name
@@ -165,6 +165,8 @@ git blame -L 40,60 file-name
 The output will then show lines 40 to 60 of the particular file.
 
 For more `git blame` options, you can visit the [git blame documentation](https://git-scm.com/docs/git-blame).
+
+* If you face any issues while setting things up or your PR build fails unexpectedly (please go through the logs of the PR build and try debugging the problem on your own first!), feel free to ping @oppia/dev-workflow-team.
 
 ## Communication channels
 
