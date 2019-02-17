@@ -6,6 +6,7 @@ When you receive a code review request, please try to do the review as soon as p
 
   1. When you get an email saying a pull request has been assigned to you for review, click on the link to open it in GitHub.
   1. Ensure that the correct target branch (usually "develop") has been selected to merge the branch into.
+  1. Ensure that a "changelog" label is applied on the PR. If not, select an appropriate changelog category label for the PR. 
   1. If you want to CC additional reviewers, you can do so using "/cc @username". Say why you're adding them.
 
 ## Doing the review
