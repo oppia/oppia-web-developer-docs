@@ -150,7 +150,7 @@ Here's how to make a one-off code change. (If you're working on a larger feature
 
 ### Notes
 
-* If you face any issues while setting things up or your PR build fails unexpectedly (please go through the logs of the PR build and try debugging the problem on your own first!), feel free to ping @oppia/dev-workflow-team.
+* If you face any issues while setting things up or your PR build fails unexpectedly (please go through the logs of the PR build and try debugging the problem on your own first!), feel free to ping **@oppia/dev-workflow-team** for help.
 
 * We do not use author tags in files, since they tend to be inaccurate or become stale when the author is no longer a regular contributor. However, you can still find the author of a particular change in a file by running the command:
 
