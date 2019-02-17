@@ -100,7 +100,7 @@ Here's some guidance on what the mentors and organization admins will be looking
 - Familiarize yourself with the relevant part of the codebase for your project, especially if you haven't touched it before. It's important to think about how to integrate your project with the current Oppia structure -- don't design in a vacuum.
 - Define milestones with enough detail to get a proper ETA for each milestone (so, don't just say "write e2e tests"), otherwise you run the risk of significantly underestimating the timeline.
 - Try to design milestones in such a way that the last 1 week of each milestone period is free, and can be used as a testing period.
-- The timeline should explicitly account for the time it will take to get PRs reviewed.
+- The timeline should explicitly account for the time it will take to get PRs reviewed. One way to do this is to specify two dates: when the initial PR should be sent in by, and when it should be merged by.
 - If work needs to be done in time for a particular release, the initial PR should be sent well in advance of the [release cutoff date](https://github.com/oppia/oppia/wiki/Release-Schedule).
 - If you're working on tasks that depend on jobs being [run in production](https://github.com/oppia/oppia/wiki/Running-jobs-in-production), the timeline should account for any delays inherent in this process.
 
