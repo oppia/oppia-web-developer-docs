@@ -150,23 +150,23 @@ Here's how to make a one-off code change. (If you're working on a larger feature
 
 ### Notes
 
+* If you face any issues while setting things up or your PR build fails unexpectedly (please go through the logs of the PR build and try debugging the problem on your own first!), feel free to ping @oppia/dev-workflow-team.
+
 * We do not use author tags in files, since they tend to be inaccurate or become stale when the author is no longer a regular contributor. However, you can still find the author of a particular change in a file by running the command:
 
-```
-git blame file-name
-```
-The output will show the latest commit SHA, author, date, and time of commit for each line.
+  ```
+  git blame file-name
+  ```
+  The output will show the latest commit SHA, author, date, and time of commit for each line.
 
-To confine the search of an author between particular lines in a file, you can use:
+  To confine the search of an author between particular lines in a file, you can use:
 
-```
-git blame -L 40,60 file-name
-```
-The output will then show lines 40 to 60 of the particular file.
+  ```
+  git blame -L 40,60 file-name
+  ```
+  The output will then show lines 40 to 60 of the particular file.
 
-For more `git blame` options, you can visit the [git blame documentation](https://git-scm.com/docs/git-blame).
-
-* If you face any issues while setting things up or your PR build fails unexpectedly (please go through the logs of the PR build and try debugging the problem on your own first!), feel free to ping @oppia/dev-workflow-team.
+  For more `git blame` options, you can visit the [git blame documentation](https://git-scm.com/docs/git-blame).
 
 ## Communication channels
 
