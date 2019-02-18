@@ -41,6 +41,7 @@ Welcome! Please make sure to follow the [setup instructions](https://github.com/
 - [#3950](https://github.com/oppia/oppia/issues/3950) (frontend)
 - [#4057](https://github.com/oppia/oppia/issues/4057) (frontend; Karma tests)
 - [#5002](https://github.com/oppia/oppia/issues/5002) (full stack; removing GLOBALS from html)
+- [#6240](https://github.com/oppia/oppia/issues/6240) (writing end to end tests)
 
 so that you can become familiar with the codebase and the development workflow. If you decide to do so, please go ahead and leave a comment saying which part of the issue you're taking, and submit a follow-up PR by following the [instructions below](Contributing-code-to-Oppia#instructions-for-making-a-code-change). You don't need to wait for approval to get started!
 
