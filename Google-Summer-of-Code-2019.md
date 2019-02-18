@@ -221,7 +221,7 @@ This project has two goals. Firstly, we would like to make it possible to have d
 * Full stack development (Python + AngularJS)
 
 **Suggested milestones**
-1. Implement an "image placeholder" component in rich-text editor fields for explorations, and implement a new role for artists that gives them permissions to contribute images to these image placeholders (or replace existing images).
+1. Implement an "image placeholder" component in rich-text editor fields for explorations, and implement a new role for artists that gives them permissions to contribute images to these image placeholders (or replace existing images). It should also be possible for exploration creators (who, typically, aren't artists) to upload temporary images to these placeholders, but mark those temporary images as still needing to be replaced with a proper image.
 1. Implement a single common view for all explorations that lists all open image requests. The creator of the exploration should be able to flip a boolean setting which would enable image placeholders within their (typically, not yet published) explorations to be displayed in this common view. The common view should be accessible to all logged-in users and easily reachable from the creator/learner dashboards. Suggestions for images would be submitted through this view.
 1. Enable users to contribute images for the requests in the common view. Suggested images should appear on the feedback tab of the editor page for the specific exploration. The exploration's artists/editors should then be able to review the suggestion. If the image is accepted, the suggested image should then be added to the exploration.
 
