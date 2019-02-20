@@ -77,6 +77,19 @@ Please follow the following style rules when writing code, in order to minimize 
         - Correct: `isCardDisplayed()`
         - Wrong: `cardIsDisplayed()`
 - We have started compiling a [style guide for JavaScript](https://docs.google.com/document/d/1ZDmLN66f53WdDPItFChu9Lr37z0dKoqR-ASX8UM5y60). This is currently a work in progress. However, please use this as the definitive guide when figuring out the correct way to name things (CamelCase, snake_case, etc.)
+- The dependencies mentioned in strings and functional parameters of controllers, directives and factories should be in the following manner: dollar imports (e.g. ```$log, $scope``` etc.), regular imports (e.g. ```ContextService, PageService``` etc.), and constant imports (e.g ```COLLECTION_TAGS, DELETE_COLLECTION``` etc.) all in sorted order.
+
+    For Example:
+    ```javascript
+    oppia.thing('ThingName', [
+      '$sortedDollarImports', 'SortedRegularImports',
+      'SORTED_CONSTANT_IMPORTS',
+      function(
+          $sortedDollarImports, SortedRegularImports,
+          SORTED_CONSTANT_IMPORTS) {
+        // The implementation of `ThingName`.
+      }]);
+    ```
 
 ## CSS
 - Do not include units if the value is 0. E.g. `margin-left: 0` instead of `margin-left: 0px`.
