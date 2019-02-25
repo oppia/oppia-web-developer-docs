@@ -9,7 +9,7 @@
 * [Oppia's Project Ideas](#oppias-project-ideas)
 * [Other useful information](#other-useful-information)
     * [Dates and Deadlines](#dates-and-deadlines)
-    * [List of Mentors](#list-of-mentors)
+    * [List of Mentors](#list-of-potential-mentors)
     * [Communication](#communication)
 
 Oppia is planning to participate in [Google Summer of Code 2019](https://developers.google.com/open-source/gsoc/)! GSoC is a global program which offers post-secondary students an opportunity to discover and work with open source organizations over the course of 3 months, while being paid a stipend. Students work closely with one or more mentors from an open source organization in order to implement either a project idea by the organization, or a proposal of their own.
@@ -289,7 +289,7 @@ There are several serious issues with current workflows in the exploration edito
 
 The aim of this project is to fix any three of these issues.
 
-**Potential mentors**: **@vibhor98** (primary), **@1995YogeshSharma**
+**Potential mentors**: **@seanlip** (primary), **@1995YogeshSharma**
 
 **Difficulty**: Medium
 
@@ -417,7 +417,7 @@ This project aims to create the learner view for review tests, and to improve th
 ### 2.3. Asking students why they picked a particular answer
 We would like to add a feature to the lesson player that allows students to explain how they arrived at a (wrong) answer. The aim of this feature is to encourage reflection on the student's part, as well as provide (anonymized) information to creators about student misconceptions, so that the creator can improve Oppia’s feedback for future students.
 
-**Potential mentors**: **@vibhor98** (primary), **@aks681**
+**Potential mentors**: **@nithusha21** (primary), **@aks681**
 
 Difficulty: Medium
 
@@ -659,7 +659,6 @@ Noteworthy dates for 2019:
 * Nitish (@bansalnitish)
 * Sandeep (@DubeySandeep)
 * Sean (@seanlip)
-* Vibhor (@vibhor98)
 * Vinita (@vinitamurthi)
 * Vojta (@vojtechjelinek)
 * Yogesh (1995YogeshSharma)
