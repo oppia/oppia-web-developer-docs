@@ -43,7 +43,9 @@ Welcome! Please make sure to follow the [setup instructions](https://github.com/
 - [#5002](https://github.com/oppia/oppia/issues/5002) (full stack; removing GLOBALS from html)
 - [#6240](https://github.com/oppia/oppia/issues/6240) (writing end to end tests)
 
-so that you can become familiar with the codebase and the development workflow. If you decide to do so, please go ahead and leave a comment saying which part of the issue you're taking, and submit a follow-up PR by following the [instructions below](Contributing-code-to-Oppia#instructions-for-making-a-code-change). You don't need to wait for approval to get started!
+so that you can become familiar with the codebase and the development workflow. If you decide to do so, please go ahead and leave a comment saying which part of the issue you're taking, and submit a follow-up PR by following the [instructions below](Contributing-code-to-Oppia#instructions-for-making-a-code-change). You don't need to wait for approval to get started! 
+
+**Important Note**: Please make sure to read and follow the [PR instructions](Contributing-code-to-Oppia#instructions-for-making-a-code-change) carefully, otherwise your PR review may be delayed.
 
 ### ... after completing two starter projects
 
