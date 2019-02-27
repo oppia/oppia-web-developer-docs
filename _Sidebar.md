@@ -22,7 +22,7 @@
       * [[Writing backend tests]]
       * [[Writing tests for custom Pylint Checkers|Writing-Tests-For-Pylint]] 
       * [[End-to-end tests|End-to-End-Tests]]
-    * [[Writing state migration | Writing-state-migration]]
+    * [[Writing state migrations | Writing-state-migrations]]
     * [[Git cheat sheet|Git-cheat-sheet]]
     * [[Setup your own Travis instance|Setup-your-own-Travis-instance]]
     * [[Mobile development|Mobile-development]]
