@@ -76,7 +76,7 @@ Our central development branch is `develop`, which should be clean and ready for
 Here's how to make a one-off code change. (If you're working on a larger feature, see the instructions at the end.)
 
 1. **Choose a descriptive branch name.** It should be lowercase and hyphen-separated, such as `fuzzy-rules`. Also, it shouldn't start with `hotfix` or `release`.
-2. **Create a new branch with this name, starting from 'develop'.** I.e., run:
+2. **Before coding anything, create a new branch with this name, starting from 'develop'.** I.e., run:
 
     ```
       git fetch upstream
