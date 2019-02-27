@@ -1,3 +1,5 @@
+If your PR changes the properties of an exploration or state (or other structure), it should also include a migration so that existing entities in the datastore can be migrated smoothly to the new structural format. The following instructions describe how to write such a migration.
+
 # Steps to follow while writing state migration
 1. Make the necessary changes to the State class (or its descendant classes) to reflect the post-migration state structure.
 2. Make the necessary changes to the NEW_STATE_TEMPLATE in the constants.js file to reflect the post-migration state dict structure.
