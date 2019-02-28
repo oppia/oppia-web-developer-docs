@@ -6,6 +6,12 @@ The tests are organized as follows:
 4. `protractor_utils`: This directory contains utilities for performing actions using elements from the core components of oppia (those found in `core/templates/dev/head`).
 5. `extensions/**/protractor.js`: This directory houses utilities for actions specific to a particular extension (such as interactions and rules).
 
+**Note**: The e2e test files are owned by Devworkflow and QA team.
+ - Firstly, QA team will look for the test coverage in a PR, then they will ask
+   Devworkflow team for a final review.
+ - Devworkflow team will look for the code quality i.e, whether the e2e tests
+   can be optimized any further and they will do a final approval.
+
 
 ## Configuration ##
 
