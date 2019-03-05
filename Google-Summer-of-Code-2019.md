@@ -507,7 +507,7 @@ Unfortunately, we cannot do a full migration to Python 3 at this time due to inc
 * Bash scripting knowledge.
 
 **Suggested milestones**
-1. Make coverage visible from the CI build. This will allow us to not merge PRs which reduce the coverage percentage. Improve the coverage of the existing code to from 89% to 100% (2314 lines missing of 21562 at the time this was written), and put guidelines in place to ensure that no uncovered backend code makes it into the develop branch.
+1. Improve the coverage of the existing backend code from 89% to 100% (2314 lines missing of 21562 at the time this was written), and put automated checks and guidelines in place to ensure that no untested backend code makes it into the develop branch.
 1. Convert all bash scripts to python. Update the codebase to ensure that it is compatible with both Python 2 and Python 3, while ensuring that all setup and deployment scripts continue to work fine. Make sure that all libraries we use are compatible with python 3: if not, suggest mitigation approaches and migrate the libraries accordingly.
 1. Put measures in place (like lint checks) to ensure that the backend code always remains compatible with both python 2 and python 3, regardless of subsequent developer changes. Create a list of remaining steps that need to be taken for a final migration to python 3 (once a solution is found for the GAE dependency issues); this list should be as short as possible.
 
