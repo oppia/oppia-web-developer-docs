@@ -582,7 +582,7 @@ Currently, Oppia serves all pages using the Jinja templating engine, which isn't
 * Technical design
 
 **Suggested milestones**:
-1. Devise a way to serve the [About page](https://github.com/oppia/oppia/blob/develop/core/templates/dev/head/pages/about/about.html) or the [Fractions landing page](https://github.com/oppia/oppia/blob/develop/core/templates/dev/head/pages/landing/fractions/landing_page_teacher.html) statically (this requires getting rid of any remaining Jinja constructs on that page), using an approach that is generalizable to other pages. Identify other issues that can arise from serving the remaining pages statically.
+1. Devise a way to serve the [About page](https://github.com/oppia/oppia/blob/develop/core/templates/dev/head/pages/about/about.html) or the [Fractions landing page](https://github.com/oppia/oppia/blob/develop/core/templates/dev/head/pages/landing/topic_landing_page.html) statically (this requires getting rid of any remaining Jinja constructs on that page), using an approach that is generalizable to other pages. Identify other issues that can arise from serving the remaining pages statically.
 1. Convert all mostly-static pages in Oppia, as well as at least one non-static page, to use the new framework developed in Milestone 1.
 1. Serve all pages in Oppia statically.
 
