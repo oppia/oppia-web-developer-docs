@@ -37,7 +37,7 @@ The code for defining the Rich Text Components are housed in [`oppia/extensions/
 * `/directives` contains files (JS, HTML) for directives used by the component one Angular directive is master directive for that component. In the directive controller, the component attributes are processed and saved onto the scope to be used by the template. In some cases this is as simple as using `oppiaHtmlEscaper.escapedJsonToObj` to parse each attribute into an object, but a more complicated example is in [`VideoDirective.js`](https://github.com/oppia/oppia/blob/develop/extensions/rich_text_components/Video/directives/VideoDirective.js).
 * `<component>.png` is an icon representing the component, used in the RTE toolbar button
 
-The properties of components are specified in `/assets/rich_text_components_specs.js`. Each component is described by the following properties:
+The properties of components are specified in `/assets/rich_text_components_definitions.js`. Each component is described by the following properties:
 * `backend_id`: A string used to identify this rich-text component in the backend.
 * `category`: The category the rich-text component falls under in the repository.
 * `description`: A description of the rich-text component.
