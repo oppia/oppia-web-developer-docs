@@ -82,8 +82,8 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 25 Feb -  3 Mar	  Yogesh        @1995YogeshSharma
  4 Mar - 10 Mar	  Kevin         @kevinlee12
 11 Mar - 17 Mar	  Sandeep       @DubeySandeep
-18 Mar - 24 Mar	  Allan         @AllanYangZhou
-25 Mar - 31 Mar	  Vojtěch       @vojtechjelinek
+18 Mar - 24 Mar	  Vojtěch       @vojtechjelinek
+25 Mar - 31 Mar	  Allan         @AllanYangZhou
  1 Apr -  7 Apr	  Jacob         @jacobdavis11
  8 Apr - 14 Apr	  Akshay        @aks681
 15 Apr - 21 Apr	  Yogesh        @1995YogeshSharma
