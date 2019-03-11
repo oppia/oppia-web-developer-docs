@@ -58,6 +58,15 @@ A: GSoC is intended to be a full-time commitment, so the main concern is whether
 
 A: All the projects we've listed here are important, and we'd be very happy to see good progress made on any of them! Projects are treated as equally important during selection. Note that the relative importance of a project to Oppia is not part of the [selection criteria](#selection-criteria).
 
+**Q: Can I submit more than one proposal to Oppia?**
+
+A: Yes you can. However, we strongly recommend picking one project and writing a solid proposal for the same. Splitting attention across multiple projects might not be a great idea. 
+
+**Q: How early should I start working on the proposal?**
+
+A: As early as possible. Make sure to get feedback from mentors before finally submitting the proposal. This will help you to write a better proposal as you can refine the details based on the feedback you receive. The mentors would need some time to review, and hence it is a good idea to begin as early as possible.  
+
+
 ## GSoC Proposal Template
 
 **Important:** Please make sure that your final proposal is self-contained! In particular, to be fair to all applicants, key components of the proposal should not be editable after the deadline, and you shouldn't assume that reviewers will follow external links.
