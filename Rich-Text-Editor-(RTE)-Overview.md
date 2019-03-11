@@ -82,7 +82,7 @@ The `ck.on('instanceReady', function)` function is executed when any new instanc
 The `ck.on('change', function)` function is executed whenever the content of CKEditor changes. It binds the value of ng-model to the content written in the editor.
 
 ### Adding Rich Text Components to CKEditor
-These rich text components are added to CKEditor in [app.js](https://github.com/oppia/oppia/blob/develop/core/templates/dev/head/app.js). The components are dynamically added to CKEditor as [widgets](https://docs.ckeditor.com/ckeditor4/latest/guide/widget_sdk_intro.html).
+These rich text components are added to CKEditor in [CkEditorWidgetsInitializer.js](https://github.com/oppia/oppia/blob/develop/core/templates/dev/head/components/CkEditorWidgetsInitializer.js). The components are dynamically added to CKEditor as [widgets](https://docs.ckeditor.com/ckeditor4/latest/guide/widget_sdk_intro.html).
 We use the `getRichTextComponents()` to obtain the information of each rich text component and construct there respective widgets. We also have a function of `isInlineComponent()` to check whether a rich text component is inline or block component.
 
 #### componentTemplate
