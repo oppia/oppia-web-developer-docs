@@ -90,7 +90,7 @@ These commands can be used anywhere to kill a running process on any port by usi
         text = '\n'.join(complete_log)
     UnicodeDecodeError: 'ascii' codec can't decode byte 0xe2 in position 72: ordinal not in range(128)
     ```
-    try updating the version of pip to v8.1.2 (as described in [this comment](https://github.com/oppia/oppia/issues/1580#issuecomment-218423065)).
+    try either (a) updating the version of pip to v8.1.2 (as described in [this comment](https://github.com/oppia/oppia/issues/1580#issuecomment-218423065)), or (b) going into scripts/install_third_party.sh and (temporarily) adding a `--system` flag to all the invocations of pip before re-running the startup script. (See `pip install -h` for the meaning of the flags. [This page](https://docs.python.org/3/install/index.html#alternate-installation) might also be useful.)
 
   * If you get an error that ends with either:
 
