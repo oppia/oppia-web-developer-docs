@@ -140,7 +140,7 @@ Here's how to make a one-off code change. (If you're working on a larger feature
         git push origin new-branch-name
       ```
     * Run `bash scripts/start.sh` and play with the dev server in order to make sure that everything still works, and also to install any new dependencies that have been added since you last synced the repo.
-    * Once you've finished addressing everything, and would like the reviewer to take another look, **please write a top-level comment explicitly asking them to do so**, and set them as the Assignee for the PR.
+    * Once you've finished addressing everything, and would like the reviewer to take another look, **please write a top-level comment explicitly asking them to do so** (e.g. just say "@XXX PTAL"), and set them as the Assignee for the PR.
     * At the end, the reviewer will merge the pull request.
     * **WARNING:** **Do not make changes using the online GitHub editor** -- this bypasses lint/presubmit checks, and will cause the code on GitHub to diverge from the code on your machine. Always make commits locally, and then push to GitHub.
     * **WARNING:** **Do not force-push a PR once reviews have started.** This will overwrite history on GitHub and make the incremental changes harder to review.
