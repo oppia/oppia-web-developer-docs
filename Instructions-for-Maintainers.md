@@ -1,6 +1,6 @@
 ## Maintainer responsibilities
 - If you cannot make your shift (see [rota](https://github.com/oppia/oppia/wiki/Instructions-for-Maintainers#maintainer-rota)), please swap with someone else **in advance**.
-- **On Monday, at the start of your shift**:
+- **On Saturday, at the start of your shift**:
   - Pin this tab, so you have it handy for reference!
   - If you aren't already watching the repository, please change your [notification preferences](https://github.com/oppia/oppia/subscription) to "watching", just for this week.
   - Go to the [list of important issues](https://github.com/oppia/oppia/issues?q=is%3Aissue+is%3Aopen+label%3Aimportant). For any existing issue with an assignee, ping them and ask for a status update if there's been no response for 6-7 days. Deassign the issue from the current assignee if there's been no indication of progress or response to pings for > 10 days.
@@ -81,48 +81,48 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 18 Feb - 24 Feb	  Apurv         @apb7
 25 Feb -  3 Mar	  Yogesh        @1995YogeshSharma
  4 Mar - 10 Mar	  Kevin         @kevinlee12
-11 Mar - 17 Mar	  Sandeep       @DubeySandeep
-18 Mar - 24 Mar	  Vojtěch       @vojtechjelinek
-25 Mar - 31 Mar	  Allan         @AllanYangZhou
- 1 Apr -  7 Apr	  Jacob         @jacobdavis11
- 8 Apr - 14 Apr	  Akshay        @aks681
-15 Apr - 21 Apr	  Yogesh        @1995YogeshSharma
-22 Apr - 28 Apr	  Kevin         @kevinlee12
-29 Apr -  5 May	  Sandeep       @DubeySandeep
- 6 May - 12 May	  Allan         @AllanYangZhou
-13 May - 19 May	  Nithesh       @nithusha21
-20 May - 26 May	  Apurv         @apb7
-27 May - 2 Jun	  Vojtěch       @vojtechjelinek
- 3 Jun - 9 Jun	  Jacob         @jacobdavis11
-10 Jun - 16 Jun	  Akshay        @aks681
-17 Jun - 23 Jun	  Nithesh       @nithusha21
-24 Jun - 30 Jun	  Apurv         @apb7
- 1 Jul - 7 Jul	  Yogesh        @1995YogeshSharma
- 8 Jul - 14 Jul	  Kevin         @kevinlee12
-15 Jul - 21 Jul	  Sandeep       @DubeySandeep
-22 Jul - 28 Jul	  Allan         @AllanYangZhou
-29 Jul - 4 Aug	  Vojtěch       @vojtechjelinek
- 5 Aug- 11 Aug	  Jacob         @jacobdavis11
-12 Aug - 18 Aug	  Akshay        @aks681
-19 Aug - 25 Aug	  Nithesh       @nithusha21
-26 Aug - 1 Sep	  Apurv         @apb7 
- 2 Sep - 8 Sep	  Yogesh        @1995YogeshSharma
- 9 Sep - 15 Sep	  Kevin         @kevinlee12
-16 Sep - 22 Sep	  Sandeep       @DubeySandeep
-23 Sep - 29 Sep	  Allan         @AllanYangZhou
-30 Sep - 6 Oct	  Akshay        @aks681
- 7 Oct - 13 Oct	  Jacob         @jacobdavis11
-14 Oct - 20 Oct	  Allan         @AllanYangZhou
-21 Oct - 27 Oct	  Nithesh       @nithusha21
-28 Oct - 3 Nov	  Apurv         @apb7
- 4 Nov - 10 Nov	  Yogesh        @1995YogeshSharma
-11 Nov - 17 Nov	  Kevin         @kevinlee12
-18 Nov - 24 Nov	  Sandeep       @DubeySandeep
-25 Nov - 1 Dec	  Vojtěch       @vojtechjelinek
- 2 Dec - 8 Dec	  Akshay        @aks681
- 9 Dec - 15 Dec	  Jacob         @jacobdavis11
-16 Dec - 22 Dec	  Nithesh       @nithusha21
-23 Dec- 29 Dec	  Apurv         @apb7
+11 Mar - 15 Mar	  Sandeep       @DubeySandeep
+16 Mar - 22 Mar	  Vojtěch       @vojtechjelinek
+23 Mar - 29 Mar	  Allan         @AllanYangZhou
+ 30 Apr -  5 Apr  Jacob         @jacobdavis11
+ 6 Apr - 12 Apr	  Akshay        @aks681
+13 Apr - 19 Apr	  Yogesh        @1995YogeshSharma
+20 Apr - 26 Apr	  Kevin         @kevinlee12
+27 Apr -  3 May	  Sandeep       @DubeySandeep
+ 4 May - 10 May	  Allan         @AllanYangZhou
+11 May - 17 May	  Nithesh       @nithusha21
+18 May - 24 May	  Apurv         @apb7
+25 May - 31 May	  Vojtěch       @vojtechjelinek
+ 1 Jun - 7 Jun	  Jacob         @jacobdavis11
+ 8 Jun - 14 Jun	  Akshay        @aks681
+15 Jun - 21 Jun	  Nithesh       @nithusha21
+22 Jun - 28 Jun	  Apurv         @apb7
+29 Jun -  5 Jul	  Yogesh        @1995YogeshSharma
+ 6 Jul - 12 Jul	  Kevin         @kevinlee12
+13 Jul - 19 Jul	  Sandeep       @DubeySandeep
+20 Jul - 26 Jul	  Allan         @AllanYangZhou
+27 Jul -  2 Aug	  Vojtěch       @vojtechjelinek
+ 3 Aug -  9 Aug	  Jacob         @jacobdavis11
+10 Aug - 16 Aug	  Akshay        @aks681
+17 Aug - 23 Aug	  Nithesh       @nithusha21
+24 Aug - 30 Aug	  Apurv         @apb7 
+31 Aug -  6 Sep   Yogesh        @1995YogeshSharma
+ 7 Sep - 13 Sep	  Kevin         @kevinlee12
+14 Sep - 20 Sep	  Sandeep       @DubeySandeep
+21 Sep - 27 Sep	  Allan         @AllanYangZhou
+28 Sep -  4 Oct	  Akshay        @aks681
+ 5 Oct - 11 Oct	  Jacob         @jacobdavis11
+12 Oct - 18 Oct	  Allan         @AllanYangZhou
+19 Oct - 25 Oct	  Nithesh       @nithusha21
+26 Oct -  1 Nov	  Apurv         @apb7
+ 2 Nov -  8 Nov	  Yogesh        @1995YogeshSharma
+ 9 Nov - 15 Nov	  Kevin         @kevinlee12
+16 Nov - 22 Nov	  Sandeep       @DubeySandeep
+23 Nov - 29 Nov	  Vojtěch       @vojtechjelinek
+30 Nov - 6 Dec	  Akshay        @aks681
+ 7 Dec - 13 Dec	  Jacob         @jacobdavis11
+14 Dec - 20 Dec	  Nithesh       @nithusha21
+21 Dec - 27 Dec	  Apurv         @apb7
 ```
 
 ### Maintainer rota coordinator
