@@ -8,7 +8,6 @@ If your PR changes the properties of an exploration or state (or other structure
 5. Start with writing _convert_states_v(old_state_version)_dict_to_v(old_state_version + 1)_dict method in exp_domain.py files under Exploration class and in question_domain.py under Question class.
 6. Changing existing test files:
    - Change core/tests/data/oppia-ThetitleforZIPdownloadhandlertest!-v2-gold.zip file with the updated schema.
-   - Update the CURRENT_STATE_SCHEMA of the feconf.py file.
    - Change the dict and yaml form of state in the following files wherever required:
      - core/controllers/editor_test.py
      - core/domain/exp_domain_test.py
