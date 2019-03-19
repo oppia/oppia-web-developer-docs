@@ -17,6 +17,11 @@ If your PR changes the properties of an exploration or state (or other structure
      - core/domain/state_domain_test.py
      - core/tests/test_utils.py (Change the VERSION_(Old_version)_STATE_DICT to a new one)
 
+7. Create a PR, if the tests fails try resolving the test issues.
+8. Once your PR is finalized, create a new one-off job (ExplorationMigrationValidationJob) which will make changes to the dict of existing exploration model and validates that the migration will be successful.
+9. Once the one-off job PR gets merged and the job result is successful, try updating your migration PR and deleting the one-off job (as this will not be required anymore).
+10. Get your migration PR merged.
+
 **Note:** These steps are for the migration where one is changing the schema of all existing states, depending on the changes your migration is going to make the steps will be less as you’ll have to change very fewer test files.
 
 If you find new test files where changes needed to be required, try updating the list. 
@@ -25,3 +30,4 @@ If you find new test files where changes needed to be required, try updating the
  - Migration related to changing state schema for all possible states: [#6249](https://github.com/oppia/oppia/pull/6249)
 
  - Migration related to changing specific interaction schema: [#6177](https://github.com/oppia/oppia/pull/6177)
+ - One-off job related tomigration: [#6249](https://github.com/oppia/oppia/pull/6249)
