@@ -2,7 +2,7 @@
 
 * **If you’re interested in joining the team, please ensure that you are a part of at most one team at Oppia.** This is to ensure that you’re able to devote sufficient time to each team.
 * Go through the team’s mission, ongoing workflow and the project on GitHub [here](https://github.com/oppia/oppia/projects/23).
-* **You need to solve a couple of dev-workflow issues before being inducted as a permanent member of the team.** Feel free to assign yourself any project-specific starter issue here. When you create a PR for any of these issues, ask **@apb7** for review.
+* **You need to solve a couple of dev-workflow issues before being inducted as a permanent member of the team.** Feel free to assign yourself any project-specific starter issue [here](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+project%3Aoppia%2Foppia%2F23+label%3A%22Project-specific+starter+issue%22). When you create a PR for any of these issues, ask **@apb7** for review.
 * After you’ve successfully fixed two dev-workflow-specific starter issues, follow these steps:
   * Ping **@apb7** to make you a member of the dev-workflow-team.
   * Ping **@apb7** to assign you one of the sub-missions of the Team. If the sub-mission is already being led by any team member, please ping them for suggested work. The following are the current sub leads:
@@ -12,10 +12,10 @@
     * **Yash**: Tracking and adding new lint checks to the codebase.
   * Ping **@apb7** to extend the team meeting invites to you. Please RSVP to them as soon as possible.
   * Ping **@apb7** to add you to the Dev Workflow Team Hangouts group. The Team usually has quick discussions here.
-  * Ping **@lilithxxx** to assign you a rota for tracking setup issues, here.
+  * Ping **@lilithxxx** to assign you a rota for tracking setup issues, [here](https://github.com/oppia/oppia/wiki/Instructions-for-dev-workflow-team-members#dev-flow-rota).
   * Subscribe to both, CircleCI and Travis build notifications. Please follow this:
-    * CircleCI: Login to CircleCI using your GitHub account and go to this link. There you’ll find an option to follow oppia/oppia.  
-    * Travis: Make a PR adding your email id to .travis.yml similar to this PR.
+    * CircleCI: Login to CircleCI using your GitHub account and go to [this link](https://circleci.com/gh/oppia/oppia/edit). There you’ll find an option to follow oppia/oppia.  
+    * Travis: Make a PR adding your email id to .travis.yml similar to [this PR](https://github.com/oppia/oppia/pull/6330/files).
   * You’re all set now -- start working on the assigned sub mission. This generally involves fixing devflow issues on GitHub.
 
 
