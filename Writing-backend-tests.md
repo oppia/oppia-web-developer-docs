@@ -69,7 +69,7 @@ The report lists each backend file along with the lines missing coverage in test
    * If you want to test code execution a private method/function, test it through public interface, or move it to a utility (if it's general-purpose) where it becomes public. Avoid testing private APIs since that may lead to brittle test in unexpected situations (such as when the implementation of the API changes, but the behaviour remains the same).
    * If you’re trying to access hidden information, consider getting that information from one level below instead (e.g. datastore).
 
-1. For assertion errors, try using a regex to remove the part of the error message that relies on a specific variable (like a name that relies on an ID or key). This will prevent the test from breaking due to a name change that doesn't actually affect the behavior of the code that's being tested.
+1. For assertions that check errors (e.g. self.assertRaises or self.assertRaisesRegexp) try using a regex to remove the part of the error message that relies on a specific variable (like a name that relies on an ID or key). This will prevent the test from breaking due to a name change that doesn't actually affect the behavior of the code that's being tested. Also, keep the part of the code enclosed in self.assertRaises as small as possible, so that you can be sure that the error is actually being caused by that part of the code (and not, say, by the setup code).
 
 
 ## Example: Writing unit tests for domain classes
