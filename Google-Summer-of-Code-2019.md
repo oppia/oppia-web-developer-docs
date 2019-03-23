@@ -298,7 +298,7 @@ There are several serious issues with current workflows in the exploration edito
 
 The aim of this project is to fix any three of these issues.
 
-**Potential mentors**: **@seanlip** (primary), **@1995YogeshSharma**
+**Potential mentors**: **@seanlip** (primary)
 
 **Difficulty**: Medium
 
@@ -319,7 +319,7 @@ In order to ensure a high level of quality, explorations are often reviewed by a
 
 It would be nice to have a more linear, scrollable view of the entire exploration which is optimized for reviewers, and which supports basic commenting functionality. The aim of this project is to build this view.
 
-**Potential mentors**: **@1995YogeshSharma** (primary), **@seanlip**
+**Potential mentors**: **@aks681** (primary), **@seanlip**
 
 **Difficulty**: Medium/Hard
 
@@ -582,7 +582,7 @@ Notes:
 ### 3.5. Static serving
 Currently, Oppia serves all pages using the Jinja templating engine, which isn't very efficient -- for one thing, because pages are dynamically composed using Jinja, they can’t be cached. The aim of this project is therefore to serve as much of Oppia's pages as we can statically, and handle all dynamic content using AJAX calls. In order to do this, we'll need to get rid of the Jinja footprint in our codebase. Furthermore, we sometimes use Jinja to include static files (like header_js_libs.html or footer.html); and will therefore need to find an alternative way to include these in a Jinja-less environment (perhaps in our build process, or with ngInclude).
 
-**Potential mentors**: **@vojtechjelinek** (primary), **@1995YogeshSharma**
+**Potential mentors**: **@vojtechjelinek** (primary)
 
 **Difficulty**: Medium
 
@@ -670,7 +670,6 @@ Noteworthy dates for 2019:
 * Sean (@seanlip)
 * Vinita (@vinitamurthi)
 * Vojta (@vojtechjelinek)
-* Yogesh (1995YogeshSharma)
 
 ## Communication
 
