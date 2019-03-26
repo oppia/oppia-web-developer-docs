@@ -62,5 +62,8 @@ Rota coordinator: Rishav
 * If the issue is solved by someone other than a dev-flow member, write down the issue with its solution in the troubleshooting page of the wiki so that other contributor does not face the same problem.
 * Monitor that the solutions of all setup issues are indeed jotted down in the wiki. 
 
+***
+## Communication Channel:
 To discuss anything with oppia dev workflow, mail us at : oppia-dev-workflow-team@googlegroups.com
+
 Or post your query here [oppia-dev-workflow-team](https://groups.google.com/forum/#!forum/oppia-dev-workflow-team)
