@@ -419,7 +419,6 @@ This project aims to create the learner view for review tests, and to improve th
 **Notes**
 * Proposals should include user flows for what the review tests experience would look like.
 * For Milestone 2, proposals should define a reasonable approach for measuring and modifying skill mastery levels (which would be represented as floating-point numbers between 0.0 and 1.0 for each skill).
-* Proposals should include a clear definition of how to measure the effectiveness of the questions framework.
 
 ***
 
