@@ -3,6 +3,17 @@
 - If you are working on an issue related to a Job.
 - If you are looking through the code of a Job and want to see what it does.
 
+### Some examples of the one off jobs
+
+* **Migration one off jobs** - These jobs are used for migrating from one schema version to other. If you are creating a new schema version for any model, make sure to run the migration job and check if the migration works as expected. One of the examples is `ExplorationMigrationJobManager` which is used for migration of explorations to the latest version.
+
+* **Feedback Continuous Computation one off jobs** - These jobs are used for continuously computing feedback analytics and updating them. You can run these jobs when you are making changes to the feedback system and check if the analytics are computed and updated correctly.
+
+* **Validation One off jobs** - These jobs can be used to validate the exploration data. One such example is the `ContentValidationJobForCKEditor` which validates if the html is in correct format for ckeditor. You can run this job to find invalid html content in an exploration which does not fit the ckeditor schema. Any validation job can be used to find the cases which violate the required schema.
+
+* **Jobs for finding statistics** - These jobs can be used to calculate various statistics related to a model. One such example is `HintsAuditOneOffJob` which is used to find hints used in each state of an exploration. These jobs can be run if you need to find out specific statistics associated with any model.
+
+ 
 ## How to run a Job on your dev server?
 1.) Start the dev server and log in as admin.
 
