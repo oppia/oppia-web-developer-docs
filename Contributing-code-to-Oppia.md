@@ -73,9 +73,7 @@ If an issue hasn't got someone assigned to it, and there's no existing PR for th
 
 *If your change isn't trivial, please [talk to us](https://gitter.im/oppia/oppia-chat) before you start working on it -- this helps avoid duplication of effort, and allows us to offer advice and suggestions. For larger changes, it may be better to first create a short doc outlining a suggested implementation plan, and send it to the dev team for feedback.*
 
-Our central development branch is `develop`, which should be clean and ready for release at any time. All changes should be done in feature branches based off of `develop`. (In case you're interested, we mainly use the [Gitflow workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow), which also incorporates `master`, `hotfix-` and `release-` branches -- but you don't need to worry about these.)
-
-Here's how to make a one-off code change:
+The following instructions describe how to make a one-off code change using a feature branch. (In case you're interested, we mainly use the [Gitflow workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).) Please follow them carefully, otherwise your code review may be delayed.
 
 1. **Choose a descriptive branch name.** It should be lowercase and hyphen-separated, such as `fuzzy-rules`. Also, it shouldn't start with `hotfix` or `release`.
 2. **Before coding anything, create a new branch with this name, starting from 'develop'.** I.e., run:
@@ -153,9 +151,11 @@ Here's how to make a one-off code change:
 
 ### Notes
 
-* If you face any issues while setting things up or your PR build fails unexpectedly (please go through the logs of the PR build and try debugging the problem on your own first!), feel free to ping **@oppia/dev-workflow-team** for help.
+* Our central development branch is `develop`, which should be clean and ready for release at any time. All changes should be done in feature branches based off of `develop`.
 
-* We do not use author tags in files, since they tend to be inaccurate or become stale when the author is no longer a regular contributor. However, you can still find the author of a particular change in a file by running the command:
+* If you face any issues while setting things up, or your PR build fails unexpectedly (please go through the logs of the PR build and try debugging the problem on your own first!), feel free to ping **@oppia/dev-workflow-team** for help.
+
+* To find the author of a particular change in a file, run this command:
 
   ```
   git blame file-name
