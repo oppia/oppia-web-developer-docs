@@ -11,7 +11,7 @@
 
 * **Validation One off jobs** - These jobs can be used to validate the exploration data. One such example is the `ContentValidationJobForCKEditor` which validates if the html is in correct format for ckeditor. You can run this job to find invalid html content in an exploration which does not fit the ckeditor schema. Any validation job can be used to find the cases which violate the required schema.
 
-* **Audit One off Jobs** - These jobs can be used to audit various properties related to a model. One such example is `HintsAuditOneOffJob` which is used to find number of hints used in each state of an exploration. These jobs can be run if you need to audit any property associated with any model.
+* **Audit One off jobs** - These jobs can be used to audit various properties related to a model. One such example is `HintsAuditOneOffJob` which is used to find number of hints used in each state of an exploration. These jobs can be run if you need to audit any property associated with any model.
 
  
 ## How to run a Job on your dev server?
