@@ -11,15 +11,19 @@
 
 * **Validation One off jobs** - These jobs can be used to validate the exploration data. One such example is the `ContentValidationJobForCKEditor` which validates if the html is in correct format for ckeditor. You can run this job to find invalid html content in an exploration which does not fit the ckeditor schema. Any validation job can be used to find the cases which violate the required schema.
 
-* **Jobs for finding statistics** - These jobs can be used to calculate various statistics related to a model. One such example is `HintsAuditOneOffJob` which is used to find hints used in each state of an exploration. These jobs can be run if you need to find out specific statistics associated with any model.
+* **Audit One off Jobs** - These jobs can be used to audit various properties related to a model. One such example is `HintsAuditOneOffJob` which is used to find hints used in each state of an exploration. These jobs can be run if you need to find out specific statistics associated with any model.
 
  
 ## How to run a Job on your dev server?
 1.) Start the dev server and log in as admin.
+![](https://imgur.com/w0nG10Z)
+![](https://imgur.com/WgGId3x)
 
 2.) Hover over the user avatar and select the Admin Page.
+![](https://imgur.com/Rxl9HjK)
 
 3.) Select the Jobs tab and start it from the list.
+![](https://imgur.com/sBGVTz1)
 
 ## How to find what a Job does?
 - go to `core/domain/`
