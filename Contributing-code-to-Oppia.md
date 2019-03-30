@@ -8,16 +8,18 @@ Also, if you'd like to get familiar with Oppia from a user's point of view, you 
 
 1. Please sign the CLA so that we can accept your contributions. If you're contributing as an individual, use the [individual CLA](https://goo.gl/forms/AttNH80OV0). If your company owns the copyright to your contributions, a company representative should sign the [corporate CLA](https://goo.gl/forms/xDq9gK3Zcv).
 1. Fill in the [Oppia contributor survey](https://goo.gl/forms/otv30JV3Ihv0dT3C3) to let us know what your interests are. (You can always change your responses later.)  
-1. Create a new, empty folder called `opensource/` in your computer's home folder. Navigate to it (`cd opensource`), then [fork and clone](https://help.github.com/articles/fork-a-repo/) ([why?](https://github.com/oppia/oppia/wiki/Why-fork-and-clone-Oppia%3F)) the Oppia repo so that it gets downloaded into `opensource/oppia`. Then, go to `opensource/oppia` (`cd oppia`) and do `git remote add upstream https://github.com/oppia/oppia.git` to add a remote called upstream and link it to Oppia's main repository (this will be used to merge with the latest version on develop, mentioned later on and also to prevent running lint checks on merge commits when the user updates his/her local branch with upstream/develop). Then follow the appropriate installation instructions -- [Linux](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Linux%29), [Mac OS](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Mac-OS%29), [Windows](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Windows%29). (Please do not use `sudo` at any point of the installation. Oppia's setup does not require it. If you face any permission issues, please make sure that the directory where you're trying to setup Oppia, does not require additional permissions. If you run into any other problems during installation, please read [these notes](https://github.com/oppia/oppia/wiki/Issues-with-installation%3F).)
+1. Create a new, empty folder called `opensource/` in your computer's home folder. Navigate to it (`cd opensource`), then [fork and clone](https://help.github.com/articles/fork-a-repo/) ([why?](https://github.com/oppia/oppia/wiki/Why-fork-and-clone-Oppia%3F)) the Oppia repo so that it gets downloaded into `opensource/oppia`. Then, go to `opensource/oppia` (`cd oppia`) and do `git remote add upstream https://github.com/oppia/oppia.git` to add a remote called upstream and link it to Oppia's main repository (this will be used to merge with the latest version on develop, mentioned later on and also to prevent running lint checks on merge commits when you later update your local branch with upstream/develop). Then follow the appropriate installation instructions -- [Linux](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Linux%29), [Mac OS](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Mac-OS%29), [Windows](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Windows%29).
+    - **Please do not use `sudo` at any point of the installation.** Oppia's setup does not require it. If you face any permissions issues, please make sure that the directory where you're trying to setup Oppia does not require additional permissions. If you run into any other problems during installation, please read [these notes](https://github.com/oppia/oppia/wiki/Issues-with-installation%3F).
 1. Update your GitHub settings:
    * [Set up 2FA](https://help.github.com/articles/securing-your-account-with-two-factor-authentication-2fa/) on your GitHub account. **This is important to prevent people from impersonating you.**
-       * You might need to create [personal access token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) so you can log in from the command line.
-   * Go to your settings page (click the Settings option under the profile menu in the top right), then go to 'Notifications' and ensure that everything's as you want it.
+       * You might need to create a [personal access token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) so that you can log in from the command line.
+   * Go to your [Notifications page](https://github.com/settings/notifications), and configure it according to your preferences.
    * (Optional) Consider setting up [automatic auth](https://help.github.com/articles/caching-your-github-password-in-git/) so you don't have to type in a username and password each time you commit a change.
    * (Optional) Go to the [Oppia repo](https://github.com/oppia/oppia), and click 'Watch' at the top right. Ensure that you're not 'ignoring' the repo, so that you'll be notified when someone replies to a conversation you're part of.
 1. Familiarize yourself with the resources linked to from the sidebar of this page, especially the [overview of the codebase](https://github.com/oppia/oppia/wiki/Overview-of-the-Oppia-codebase), the [coding style guide](https://github.com/oppia/oppia/wiki/Coding-style-guide), and our [Frequently Asked Questions](https://github.com/oppia/oppia/wiki/Frequently-Asked-Questions). You don't have to read all the other stuff right now, but it's a good idea to be aware of what's available, so that you can refer to it later if needed.
 1. Join the [oppia-dev@](https://groups.google.com/forum/#!forum/oppia-dev) mailing list, and say hi on the [gitter](https://gitter.im/oppia/oppia-chat) chat channel!
 1. On your browser, consider [pinning](https://support.mozilla.org/en-US/kb/pinned-tabs-keep-favorite-websites-open) both this wiki page (for easy reference later) and the [Gitter tab](https://gitter.im/oppia/oppia-chat) (so that you can keep abreast of new activity). To pin a tab, just right-click the tab you want to pin, and select "Pin Tab".
+1. If you use [Sublime Text](http://www.sublimetext.com/), consider installing the SublimeLinter, [SublimeLinter-jscs](https://github.com/SublimeLinter/SublimeLinter-jscs) and [SublimeLinter-pylint](https://github.com/SublimeLinter/SublimeLinter-pylint) plugins, following the instructions on their respective pages.
 1. Take up your first starter project! You can find more details in the next section.
 
 ## Developing your skills
@@ -71,9 +73,9 @@ If an issue hasn't got someone assigned to it, and there's no existing PR for th
 
 *If your change isn't trivial, please [talk to us](https://gitter.im/oppia/oppia-chat) before you start working on it -- this helps avoid duplication of effort, and allows us to offer advice and suggestions. For larger changes, it may be better to first create a short doc outlining a suggested implementation plan, and send it to the dev team for feedback.*
 
-Our central development branch is `develop`, which should be clean and ready for release at any time. In general, all changes should be done as feature branches based off of `develop`. (In case you're interested, we mainly use the [Gitflow workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow), which also incorporates `master`, `hotfix-` and `release-` branches -- but you don't need to worry about these.)
+Our central development branch is `develop`, which should be clean and ready for release at any time. All changes should be done in feature branches based off of `develop`. (In case you're interested, we mainly use the [Gitflow workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow), which also incorporates `master`, `hotfix-` and `release-` branches -- but you don't need to worry about these.)
 
-Here's how to make a one-off code change. (If you're working on a larger feature, see the instructions at the end.)
+Here's how to make a one-off code change:
 
 1. **Choose a descriptive branch name.** It should be lowercase and hyphen-separated, such as `fuzzy-rules`. Also, it shouldn't start with `hotfix` or `release`.
 2. **Before coding anything, create a new branch with this name, starting from 'develop'.** I.e., run:
@@ -85,17 +87,17 @@ Here's how to make a one-off code change. (If you're working on a larger feature
       git checkout -b your-branch-name
     ```
 
-3. **Make commit(s) to your feature branch.** Each commit should be self-contained and have a descriptive commit message that helps other developers understand why the changes were made.
-    * You can refer to relevant issues in the commit message by writing, e.g., "Fix issue #105".
-    * Please read [these style rules](https://github.com/oppia/oppia/wiki/Coding-style-guide) and ensure that your code follows them. If you use [Sublime Text](http://www.sublimetext.com/), consider installing the SublimeLinter, [SublimeLinter-jscs](https://github.com/SublimeLinter/SublimeLinter-jscs) and [SublimeLinter-pylint](https://github.com/SublimeLinter/SublimeLinter-pylint) plugins, following the instructions on their respective pages.
-    * Please ensure that the code you write is well-tested.
-    * Before making the commit, start up a local instance of Oppia and do some manual testing in order to check that you haven't broken anything! After that, ensure that the added code has no lint errors and passes all automated tests by running the presubmit script:
+3. **Make commit(s) to your feature branch.** Each commit should be self-contained and have a descriptive commit message that helps other developers understand why the changes were made. However, **do not write "Fix #ISSUE_NUMBER"** (e.g. Fix #99999) in your commit messages, as this will cause Github to close the original issue automatically. You can rename your commit messages using `git commit --amend`.
 
-        ```
-          bash scripts/run_presubmit_checks.sh
-        ```
+    * Before making the commit, do some sanity-checks:
+       * Start up a local instance of Oppia and do some manual testing in order to check that you haven't broken anything!
+       * Ensure that your code follows [the style rules](https://github.com/oppia/oppia/wiki/Coding-style-guide) and that it is well-tested.
+       * Ensure that the code has no lint errors and passes all automated tests by running the presubmit script:
 
-    * Check that the changes you've made are exactly what you want them to be, and that you haven't left in anything spurious. You can do this by using a tool like `git diff` or `meld`. Make sure to do this _before_ you push.
+            ```
+              bash scripts/run_presubmit_checks.sh
+            ```
+      * Use a tool like `git diff` or `meld` to check that the changes you've made are exactly what you want them to be, and that you haven't left in anything spurious. Make sure to do this _before_ you push.
 
     * To actually make the commit and push it to your GitHub fork, run:
 
@@ -103,31 +105,26 @@ Here's how to make a one-off code change. (If you're working on a larger feature
           git commit -a -m "{{YOUR COMMIT MESSAGE HERE}}"
           git push origin {{YOUR BRANCH NAME}}
         ```
-    
-      Before your code gets uploaded to GitHub, a script is automatically executed that checks the styling of all changed JavaScript and Python files and runs the front-end tests. Run the push command in command line, and not GitHub's Desktop client, as the script needs access to other tools like pip.
-    
-      **If any of the tests fail, the push will be interrupted**. If this happens, fix the issues that the tests tell you about and **repeat the instructions above** ('commit' and then 'push').
 
-      **Please do not use the keyword "Fix #ISSUE_NUMBER"** (e.g. Fix #99999) in your commit messages as Github will close the original issue automatically. You can use `git commit --amend` to rename your commit messages.
+      Make sure to do this from the command line (and not GitHub's Desktop client), since this also runs some important presubmit checks before your code gets uploaded to GitHub. **If any of these checks fail, the push will be interrupted**. If this happens, fix the issues that the tests tell you about and **repeat the instructions above** ('commit' and then 'push').
 
 4. **When your feature is ready to merge, create a pull request.**
-    * Go to your fork on GitHub, select your branch from the dropdown menu, and click "pull request". Ensure that the 'base' repository is the main oppia repo and that the 'base' branch is 'develop'.
-    * Add a descriptive title explaining the purpose of the PR (e.g. "Fix issue #bugnum: add a warning when the user leaves a page in the middle of an exploration."). The "Fix issue #bugnum: " prefix **must** be included if this PR resolves an issue on the issue tracker.
-    * If your PR fixes a part of a bigger issue(i.e the first-contributor-issues listed above), please __do not__ use the __keyword "Fix #ISSUE_NO"__ in your PR title, PR descriptions or commit messages. As a Github feature, your PR, once merged, will close the first contributor issues while it may not be fully completed yet.
-    * Ensure that the PR description includes the issue number (e.g. "This PR fixes issue #bugnum").
-    * Click "Create pull request".
-    * **Important:** Manually check the "Files changed" tab on your PR on GitHub to make sure that the list of files you want to submit, and the changes you want to make to each, are correct -- e.g., that you haven't left additional console logging statements in them, or left out important files that should be part of the PR. (If not, please fix this by making additional commits, or by closing this PR and submitting a new one, before requesting a review.)
-    * Request a review from the issue's "owner" (which can be found in a label on the issue) **and** set the assignee of the PR to be the same person.
+    * Go to your fork on GitHub, select your branch from the dropdown menu, and click "pull request". Ensure that the 'base' repository is the main oppia repo and that the 'base' branch is 'develop'. Add a descriptive title explaining the purpose of the PR (e.g. "Fix issue #bugnum: add a warning when the user leaves a page in the middle of an exploration.").
+       * If the PR resolves an issue on the issue tracker, the title must start with **"Fix #bugnum: "**. This will be the case for most PRs.
+       * However, if your PR fixes part of a bigger issue (e.g. the first-contributor-issues listed above), please use **"Fix part of #bugnum: "** instead. Otherwise, GitHub will close the entire issue automatically when your PR is merged.
+    * Fill out the PR checklist, ensuring that your PR description includes the issue number (e.g. "This PR fixes issue #bugnum" or "This PR fixes part of issue #bugnum").
+    * If users can now do any actions as a result of your PR that they couldn't do before (e.g. rating an exploration, adding a hint to a state, or replying to a feedback thread), **cc the QA team** (using @oppia/qa-team) so that they can ensure that there is sufficient automated test coverage and/or add it to the list of critical user journeys. (This is important to prevent the new functionality you added from breaking in the future!)
+    * Click "Create pull request", then **immediately** check the "Files changed" tab on your PR on GitHub and read it carefully to make sure that the changes are correct (e.g., that you haven't left out important files that should be part of the PR. (If not, please fix this by making additional commits, or by closing this PR and submitting a new one, before requesting a review.) This is a good way to catch obvious errors that would otherwise lead to delays in the review process.
+    * Request a review from the issue's "owner" (which can be found in a label on the issue) **and** also set them as the PR assignee.
     * After a while, check your PR to see whether the Travis checks have passed. If not, follow the instructions at "[If your build fails...](https://github.com/oppia/oppia/wiki/If-your-build-fails)".
-    * N.B.: If your PR is incomplete, please add a list of checkboxes representing the to-do list to the github conversation thread (like [this example](https://github.com/oppia/oppia/issues/1205)). That lets the reviewer know that you're already aware of those issues, so that they don't spend time telling you things you already know!
-    * N.B.: While you're waiting for a review, it's fine to start work on a new PR. Just make sure to **checkout the develop branch** and sync to HEAD before you check out a new branch, so that each of your feature branches is based off the main trunk.
-    * Note: For PRs, which add new core user journeys to Oppia, please notify the QA team (using @oppia/qa-team) so that we can add it to the list of things we manually test every release. This would typically include any fairly large feature implemented. Some examples include "Add translation for a card" or "search for an exploration in the library and play it".
-    * Note: For PRs which add smaller functional capabilities to Oppia, please notify the QA team (using @oppia/qa-team). We keep track of our end-to-end testing coverage, and try to make sure that all of these functional capabilities have representative tests in the automated test suite. This would include smaller features too, for example "Add exploration to play later list", "Rate an exploration" as well as some larger features like "Add a hint to a state", "Reply to feedback threads". 
+    * Then, wait for your code to get reviewed! While you're doing so, it's totally fine to start work on a new PR if you like. Just make sure to **checkout the develop branch** and sync to HEAD before you check out a new branch, so that each of your feature branches is based off the main trunk.
 
 5. #### **Address review comments until all reviewers give LGTM ('looks good to me').** 
     * When your reviewer has reviewed the code, you'll get an email. You'll need to respond in two ways:
-       * Make a new commit addressing the comments you agree with, and push it to the same branch. Ideally, the commit message would explain what the commit does (e.g. "Fix lint error"), but if there are lots of disparate review comments, it's fine to refer to the original commit message and add something like "(address review comments)".
-       * In addition, go to the Files Changed tab, and reply to each comment, choosing the "Start a review" option for the first comment. Each reply should be either "Done" or a response explaining why the corresponding suggestion wasn't implemented. Once you have replied "Done" (or similar), you can also click "Resolve conversation" to close the comment thread. When you've responded to all comments, you can add all your messages to the main thread by submitting the review. All comments must be responded to and resolved before LGTM can be given.
+       * Make a new commit addressing the comments you agree with, and push it to the same branch. (Continue to use descriptive commit messages. If your commit addresses lots of disparate review comments, it's fine to refer to the original commit message and add something like "(address review comments)".)
+          * **Always make commits locally, and then push to GitHub.** Don't make changes using the online GitHub editor -- this bypasses lint/presubmit checks, and will cause the code on GitHub to diverge from the code on your machine.
+          * **Never force-push changes to GitHub once reviews have started.** This will delay your review, because it overwrites history on GitHub and makes the incremental changes harder to review.
+       * In addition, reply to each comment via the Files Changed tab, choosing the "Start a review" option for the first comment. Each reply should be either "Done" or a response explaining why the corresponding suggestion wasn't implemented. Once you have replied "Done" (or similar), you can also click "Resolve conversation" to close the comment thread. When you've responded to all comments, submit the review to add all your messages to the main thread. All comments must be responded to and resolved before LGTM can be given.
     * Resolve any merge conflicts that arise. To resolve conflicts between 'new-branch-name' (in your fork) and 'develop' (in the oppia repository), run:
 
       ```
@@ -139,17 +136,18 @@ Here's how to make a one-off code change. (If you're working on a larger feature
         git commit -a
         git push origin new-branch-name
       ```
-    * Run `bash scripts/start.sh` and play with the dev server in order to make sure that everything still works, and also to install any new dependencies that have been added since you last synced the repo.
-    * Once you've finished addressing everything, and would like the reviewer to take another look, **please write a top-level comment explicitly asking them to do so** (e.g. just say "@XXX PTAL"), and set them as the Assignee for the PR.
+    * Once you've finished addressing everything, and would like the reviewer to take another look:
+       * Run `bash scripts/start.sh` and play with the dev server in order to make sure that everything still works.
+       * Check that the changes in the "Files Changed" tab are what you intend them to be.
+       * **Write a top-level comment** explicitly asking the reviewer to take another look (e.g. "@XXX PTAL"), and set them as the assignee for the PR.
     * At the end, the reviewer will merge the pull request.
-    * **WARNING:** **Do not make changes using the online GitHub editor** -- this bypasses lint/presubmit checks, and will cause the code on GitHub to diverge from the code on your machine. Always make commits locally, and then push to GitHub.
-    * **WARNING:** **Do not force-push a PR once reviews have started.** This will overwrite history on GitHub and make the incremental changes harder to review.
+
 6. **Tidy up!** After the PR status has changed to "Merged", delete the feature branch from both your local clone and the GitHub repository:
 
-  ```
-    git branch -D new-branch-name
-    git push origin --delete new-branch-name
-  ```
+     ```
+       git branch -D new-branch-name
+       git push origin --delete new-branch-name
+     ```
 
 7. **Celebrate.** Congratulations, you have contributed to Oppia!
 
