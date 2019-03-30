@@ -17,9 +17,16 @@
 ## How to run a Job on your dev server?
 1.) Start the dev server and log in as admin.
 
+![Login as admin](https://i.imgur.com/f7U0lTl.png)
+![Enter your name](https://i.imgur.com/fLkBF7m.png)
+
 2.) Hover over the user avatar and select the Admin Page.
 
+![Hover over the avatar](https://i.imgur.com/XV43Piz.png)
+
 3.) Select the Jobs tab and start it from the list.
+
+![Select the job](https://i.imgur.com/oj6mS6a.png)
 
 ## How to find what a Job does?
 - go to `core/domain/`
