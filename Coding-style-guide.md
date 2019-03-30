@@ -1,5 +1,7 @@
 Please follow the following style rules when writing code, in order to minimize unnecessary back-and-forth during code review. (Note that most, but not all, of the rules on this page are baked into the default linters and the pre-push hook.)
 
+If you use [Sublime Text](http://www.sublimetext.com/), consider installing the SublimeLinter, [SublimeLinter-jscs](https://github.com/SublimeLinter/SublimeLinter-jscs) and [SublimeLinter-pylint](https://github.com/SublimeLinter/SublimeLinter-pylint) plugins, following the instructions on their respective pages.
+
 ## General
 - Ensure that your code looks consistent with the code surrounding it.
 - Strings should use single quotes (`'`) throughout Python and JavaScript.
