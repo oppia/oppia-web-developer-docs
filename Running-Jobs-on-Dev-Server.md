@@ -24,7 +24,7 @@
 
 ![Hover over the avatar](https://i.imgur.com/XV43Piz.png)
 
-3.) Select the Jobs tab and start it from the list.
+3.) Select the Jobs tab and start it from the list. Note that your job will run on the explorations that are present on the server, the job is being run on. Say, if you are running on local host to check how your job is performing you need to have some explorations created on the local server. You could also take a look at the activites tab, there we have some already available explorations. You could just click on `reload` and that corresponding exploration will be made available on your server then (you could browse through your library and you'll see the particular exploration).
 
 ![Select the job](https://i.imgur.com/oj6mS6a.png)
 
