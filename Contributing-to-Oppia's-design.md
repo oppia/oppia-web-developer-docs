@@ -10,10 +10,8 @@ The following instructions explain how to get started, and how to find a fun pro
 ## Ways to contribute… ##
 * **Create art files for lessons**
   * Oppia lessons incorporate colorful illustrations for storytelling and educational purposes. These illustrations are one of the reasons why our lessons are engaging! If you’re interested in helping out with these graphic design efforts, please email us at admin@oppia.org. 
-* **Begin with a starter project** 
-  * We have starter projects for both [UI design](https://github.com/oppia/oppia/labels/TODO%3A%20design%20%28UI%2Finteraction%29) and [UX design](https://github.com/oppia/oppia/labels/TODO%3A%20design%20%28UX%29). We recommend starting with these, since they’re generally smaller in scope. Check out the logs and leave a comment for each issue you'd like to work on.
 * **Suggest improvements**
   * If you notice something on the site that looks a bit off (and that you'd also like to work on), please feel free to log a 
 [new issue](https://github.com/oppia/oppia/issues/new?title=Describe%20your%20feature%20request%20or%20bug%20report%20succinctly&body=If%20you%27d%20like%20to%20propose%20a%20feature,%20describe%20what%20you%27d%20like%20to%20see.%20Mock%20ups%20would%20be%20great!%0A%0AIf%20you%27re%20reporting%20a%20bug,%20please%20be%20sure%20to%20include%20the%20expected%20behaviour,%20the%20observed%20behaviour,%20and%20steps%20to%20reproduce%20the%20problem.%20Console%20copy-pastes%20and%20any%20background%20on%20the%20environment%20would%20also%20be%20helpful.%0A%0AThanks!).
-* **Pick up a larger UX project**
-  * If you’re interested in committing to a larger UX project, please email us at admin@oppia.org.
+* **Pick up a UX project**
+  * If you’re interested in committing to a UX project, please email us at admin@oppia.org.
