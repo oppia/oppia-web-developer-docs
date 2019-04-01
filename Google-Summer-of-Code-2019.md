@@ -374,6 +374,7 @@ Note that parameterization might potentially extend to expressing the same quest
 * [Bonus] Currently, Oppia lessons can be augmented with translations and voiceovers in other languages, which are very helpful for learners. It would be great if you could suggest a clean way to handle audio translations for parameterized questions -- but note that this isn't a requirement for the project!
 
 ***
+
 ### 1.7. Community-based voice-over and translation
 
 Most of the Oppia lessons are in the English language which is used by 15-20% of the entire population in the world. To make our lessons more accessible to people around the world we need our lessons to have translations in different languages. This project focuses on making Oppia lessons more shareable and breaking the language barrier for learning new things by allowing the Oppia community to help to translate and voice-over the exploration in different languages.
@@ -390,7 +391,7 @@ All translators and voice actors should only be actively assigned to one explora
 
 A user may decide to suggest a few written translations to exploration, they should be redirected to the translation tab and allowed to add translation suggestion in the specified language. Once they submit a translation, a proficient translator (in that specific language) should either accept or reject the suggestion.
 
-**Potential mentors**: **DubeySandeep** (Primary), **Nithesh** (Secondary)
+**Potential mentors**: **@DubeySandeep** (Primary), **@nithusha21**
 
 **Difficulty**: Medium/Hard
 
