@@ -395,18 +395,17 @@ A user may decide to suggest a few written translations to exploration, they sho
 **Difficulty**: Medium/Hard
 
 **Knowledge/Skills needed**:
-Python and AngularJS
-Good UI/UX design
-Good technical design
-Good understanding of existing suggestion and review structure.
+* Python and AngularJS
+* Good UI/UX design
+* Good technical design
+* Good understanding of existing suggestion and review structure.
 
 **Suggested milestones**:
-Create a backend structure to provide points to translators/voice-artists based on their work as a translator/voice-artist. Create the backend structure for the “suggestion” workflow (including review system).
+1. Create a backend structure to provide points to translators/voice-artists based on their work as a translator/voice-artist. Create the backend structure for the “suggestion” workflow (including review system).
 
-
-Create the full UI for the suggestion workflow, including functionality for contributors to see the list of explorations which they can translate/voiceover in the dashboard. Create a backend structure for the “project” workflow.
+2. Create the full UI for the suggestion workflow, including functionality for contributors to see the list of explorations which they can translate/voiceover in the dashboard. Create a backend structure for the “project” workflow.
  
-Create the full UI for the project workflow, including allowing users to see reviews of their audio-applications and respond to them.
+3. Create the full UI for the project workflow, including allowing users to see reviews of their audio-applications and respond to them.
 
 **Related issues**: #6536
 
