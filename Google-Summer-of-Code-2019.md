@@ -190,6 +190,8 @@ This year, the Oppia team is offering three types of projects: projects that imp
 
 1.6. [Allow creation of parameterized questions](#16-allow-creation-of-parameterized-questions)
 
+1.7. [Community-based voice-over and translation](#17-community-based-voice-over-and-translation)
+
 ### Learner View Projects
 
 2.1. [Highlight text in a lesson as audio is played](#21-highlight-text-in-a-lesson-as-audio-is-played)
@@ -370,6 +372,43 @@ Note that parameterization might potentially extend to expressing the same quest
 * There should be a way for creators to audit that the parameterizations they have picked work well in all cases and result in sensible questions (cf. Milestone 3). The user flow for doing this should be clearly laid out.
 * Proposals should explain clearly how the rules in answer groups will handle parameters without complicating the default lesson creation experience. Perhaps there could be an "advanced view" which shows a more complicated UI only when parameters are activated in the Settings tab.
 * [Bonus] Currently, Oppia lessons can be augmented with translations and voiceovers in other languages, which are very helpful for learners. It would be great if you could suggest a clean way to handle audio translations for parameterized questions -- but note that this isn't a requirement for the project!
+
+***
+### 1.7. Community-based voice-over and translation
+
+Most of the Oppia lessons are in the English language which is used by 15-20% of the entire population in the world. To make our lessons more accessible to people around the world we need our lessons to have translations in different languages. This project focuses on making Oppia lessons more shareable and breaking the language barrier for learning new things by allowing the Oppia community to help to translate and voice-over the exploration in different languages.
+
+The workflow for voiceovers and translations are going to be different as translations can be done incrementally whereas the voiceovers for the entire exploration needs to be done by a single contributor so that we have a consistent voice throughout the exploration. To accommodate such pattern we are thinking of having two workflows:
+
+“Project” workflow for voiceover:
+As part of their application, the translator or voice actor should submit a voiceover of the initial state. The proficient voice-artist (in that specific language) would review this and decide:
+Whether to accept or reject the application and based on that the contributor will get assigned as a voice-artist for that exploration.
+
+All translators and voice actors should only be actively assigned to one exploration at a time. Once an assignment is made, any remaining pending applications should be cancelled until that task is completed.
+
+“Suggestion” workflow for translations:
+
+A user may decide to suggest a few written translations to exploration, they should be redirected to the translation tab and allowed to add translation suggestion in the specified language. Once they submit a translation, a proficient translator (in that specific language) should either accept or reject the suggestion.
+
+**Potential mentors**: **DubeySandeep** (Primary), **Nithesh** (Secondary)
+
+**Difficulty**: Medium/Hard
+
+**Knowledge/Skills needed**:
+Python and AngularJS
+Good UI/UX design
+Good technical design
+Good understanding of existing suggestion and review structure.
+
+**Suggested milestones**:
+Create a backend structure to provide points to translators/voice-artists based on their work as a translator/voice-artist. Create the backend structure for the “suggestion” workflow (including review system).
+
+
+Create the full UI for the suggestion workflow, including functionality for contributors to see the list of explorations which they can translate/voiceover in the dashboard. Create a backend structure for the “project” workflow.
+ 
+Create the full UI for the project workflow, including allowing users to see reviews of their audio-applications and respond to them.
+
+**Related issues**: #6536
 
 ***
 
