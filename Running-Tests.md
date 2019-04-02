@@ -114,7 +114,7 @@ together with various `protractor.js` files throughout the `extensions` director
 
 Please report any unexpected or inexplicable failures of the tests, together with the error log produced, as there have been some stability issues that we are trying to iron out.
 
-**Debugging**
+#### Debugging
 
 If you find that the e2e tests are failing, first check the error message. If it looks something like "Cannot determine loading status", "Cannot read property 'nodeType' of undefined", or "A Jasmine spec timed out", this is probably a transient issue, and the best thing to do (if the failure is on Travis) is to ask a maintainer to restart the relevant test.
 
