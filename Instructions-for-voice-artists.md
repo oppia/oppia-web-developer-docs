@@ -31,10 +31,12 @@ This page explains the process of adding voiceovers to a lesson. If you run into
     ![](https://lh6.googleusercontent.com/f6cJ_Usfj8jYm09VtaFXGRSpw8uftGyvLPI_mU5XYtuXLfhZQF7ha9HECNewl3OLxgQW-CIGTCUXZRNWg6JB7vp2Y1gZV87ahubzheuukm9g7drranA7HN64hRE44QI-FgHo4d_0)
 
 3. In the translation settings and overview box at the top, select the language that you want to do voiceovers for. There is a progress bar below that dropdown; it will show you how much of the lesson has been covered with voiceovers for that language. (See the red box below.)
+![image](https://user-images.githubusercontent.com/16653571/55646633-4f466f00-57f9-11e9-9118-36de450c2d86.png)
 
 4. Each Oppia lesson is divided into individual “cards”. These cards are shown in the Exploration Overview graph on the right. You can navigate between the different cards by clicking on them in the Exploration Overview. The cards that still need work are the ones shown as yellow or red.
   
     In each card, there are several pieces of text that need voiceovers. You can browse through these by clicking on the tabs in the section on the left (shown by the blue box in the screenshot below).
+    ![](https://lh5.googleusercontent.com/y8MERhNZdT6RH_YL6M6Iq12kuI-Ty0ek8sTUeP4-hHV0Yq3C3E_L_Ab30lKHNO1cj6a4pIHoSkqWDrwNO2TA4HgihnacRUCVQX3er8iTQRFzS_uxBVs0Pvld68QdbG7-RS__Yr7c)
     The meanings of the different tabs are as follows:
     * Content: The main text of the lesson card.
     * Feedback: The feedback that a student receives after providing an answer to a question. We try to give specific guidance if a student has gotten a question incorrect, like a tutor would.
@@ -44,3 +46,25 @@ This page explains the process of adding voiceovers to a lesson. If you run into
     Note that some of the tabs may have multiple pieces of text; in such cases, each piece of text will need a separate voiceover. The main tabs to focus on are the ones with a yellow or red stripe at the top.
 
 5. After you have selected a piece of text, you can record/upload audio files using the audio bar at the bottom (see screenshot below). Once you have done that, the audio file gets matched with the piece of text that is currently active. This will update the progress counter!
+
+    ![image](https://user-images.githubusercontent.com/16653571/55646262-5d47c000-57f8-11e9-8a2e-4df6ab6fa52c.png)
+
+6. Once you are done with the recording/uploading audio for all the cards and the progress bar is full green, **Do not forgot to click the "Save Draft" or "Publish Changes" button** avialable on the top of the navigation bar (See images below) and add a message about the work you have done, like "Added voice-over in English." once a pop-up modal appears after clicking the button.
+    > _'Save Draft' button for the explorations which are not published yet._
+    ![image](https://user-images.githubusercontent.com/16653571/55648417-e1e90d00-57fd-11e9-8fff-a1a1d31d9590.png)
+
+    > _"Publish Changes" button for the explorations which are already published._
+    ![image](https://user-images.githubusercontent.com/16653571/55648581-558b1a00-57fe-11e9-9394-85853c4c73d5.png)
+
+## Tracking your progress
+To see which cards still need voiceovers, you can look at the exploration overview on the right (see the red-bordered section in the screenshot below). Green cards have a complete set of voice-overs, yellow cards have been partially voice-overed, and red cards have not been started yet.
+![](https://lh6.googleusercontent.com/C38TAkdZxfpyf2CYdrAXYS2aQHUaPDcjWMdzLNNbs83ztkvXQNU7p3zO2LB4IE0YVOHLp4b-hMFkCXY5mGuUGCn5a9bsQo9MIU8eqcK4ngHqvrU3zpPmK9cb5mhlVGzcaeaFKFuU)
+
+
+Once all the cards are green, you will have completed the lesson!
+
+## Voiceover tips
+* Read slowly. The audience for these voiceovers is often not very literate or fluent with the language, so it’s important to resist the urge to speak too quickly.
+
+* Keep your voice warm and engaging!
+
