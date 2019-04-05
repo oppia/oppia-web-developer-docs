@@ -5,6 +5,7 @@
     * [[Instructional designers|Teaching-with-Oppia]]
       * [[Create a Lesson!|https://github.com/oppia/oppia/wiki/Lesson-Creation-Guide]]
     * [[UX researchers|Conducting-research-with-students]]
+    * [[Voice-artists | Instructions-for-voice-artists]]
     * [[Designers and artists|Contributing-to-Oppia's-design]]
     * [[Google Summer of Code 2019|Google-Summer-of-Code-2019]]
   * **[[Good first issues|https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22]]**
