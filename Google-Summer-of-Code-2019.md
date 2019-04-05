@@ -558,7 +558,7 @@ Unfortunately, we cannot do a full migration to Python 3 at this time due to inc
 1. Convert all bash scripts to python. Update the codebase to ensure that it is compatible with both Python 2 and Python 3, while ensuring that all setup and deployment scripts continue to work fine. Make sure that all libraries we use are compatible with python 3: if not, suggest mitigation approaches and migrate the libraries accordingly.
 1. Put measures in place (like lint checks) to ensure that the backend code always remains compatible with both python 2 and python 3, regardless of subsequent developer changes. Create a list of remaining steps that need to be taken for a final migration to python 3 (once a solution is found for the GAE dependency issues); this list should be as short as possible.
 
-**Related issues**: #5134
+**Related issues**: [#6550](https://github.com/oppia/oppia/issues/6550)
 
 **Notes** 
 * See https://docs.python.org/3/howto/pyporting.html for migration instructions.
