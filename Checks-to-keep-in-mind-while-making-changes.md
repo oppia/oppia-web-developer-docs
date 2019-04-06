@@ -1186,12 +1186,6 @@ No unnecessary plugin should be added.
 </ul>
    </td>
   </tr>
-  <tr>
-   <td>/scripts/install_third_party.sh 
-   </td>
-   <td>
-   </td>
-  </tr>
 </table>
 
 
