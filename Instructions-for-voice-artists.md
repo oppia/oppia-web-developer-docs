@@ -61,3 +61,5 @@ Once all the cards are green, you will have completed the lesson!
 
 * Keep your voice warm and engaging!
 
+## Known issues
+* In some cards, there are sections of audio which do not have any text. You do not need to add voiceovers for these cards, even though they are marked as red in the exploration overview. Please send Angeli and Sean an email if you run into this problem, so that we can keep track of it!
