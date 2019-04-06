@@ -2,13 +2,7 @@ At Oppia, we constantly try to improve the code quality and the experience for b
 
 Also, the developers who are making the changes to any files must bear in mind the checks they need to perform on their changes making sure it conforms to the rules the folder/file is bound to.
 
-The following is a list of the code-owners and the checks the code-owner looks for in the correspond
-
-The Codeowners Wiki doc.
-
-The name of the codeowner is listed as the heading of the table and the team as the sub-heading.
-The respective codeowners should explain what they check for in the respective file.
-We will add this information to the GitHub wiki so that contributors know what to try and ensure prior to submission.
+The following is a list of the code-owners and the checks the code-owner looks for in the corresponding folders/files.
 
 ## **@prasanna08**
 
