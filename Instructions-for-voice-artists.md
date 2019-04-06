@@ -11,20 +11,16 @@ This page explains the process of adding voiceovers to a lesson. If you run into
 ## How do I get to the lesson?
 
 1. The email contains a link to a lesson. Click this link to visit the lesson’s editor interface, and then log in via the top-right button if you haven’t already.
-2. Alternatively, you can check your creator dashboard on Oppia to see the lessons you are assigned as a voice actor for. To do this
-
-      i. Log in to [Oppia.org](https://www.oppia.org)
-
-     ii. Click on the top right corner of the page and select the Creator Dashboard option.
+2. Alternatively, you can check your creator dashboard on Oppia to see the lessons you are assigned as a voice actor for. To do this, log in to [Oppia.org](https://www.oppia.org), click on the top right corner of the page, and select the Creator Dashboard option.
      
      ![](https://lh3.googleusercontent.com/9gdcXp4wMNA13vOAUx-heTDYn3iaklN9cRrzDLSZhmyJm2zaI_Y7D8ZdbKuw6zBPB1OhKV94bqKKdXRL_yMUeHfhrDKB9UhtnBhf2lXTdQiH7Mb7dQOw7nRTsU3ozgT2OzRSroPm)
 
-    iii. Once the Creator Dashboard page is loaded, click the lesson you want to translate. This will take you to its editor page.
+   Once the Creator Dashboard page is loaded, click the lesson you want to translate. This will take you to its editor page.
 
 
 ## What should I do when I’m on the exploration editor page?
 
-1. Make sure that you are logged in (you can check that your avatar shows up at the top-right of the navigation bar to verify).
+1. Make sure that you are logged in (you can verify this by making sure that your avatar shows up on the right side of the green navigation bar at the top of the page).
 
 2. The editor page contains a special tab for voice-artists and translators. Open this tab by clicking the ![Mic](https://lh3.googleusercontent.com/DDb_FsYAy0kOUOKe2ULYcfDcoH0SNqwltI4gAxb7GGrIEeOxg6orUVrpgfsqBjy3rWmVFgp9UD5tiSZkJOlqiCOBW7fqJrpLgmmEzBmJMXGJjO9OEINECk-3FEO1zo2tTUdvH4Ca) (Mic icon) from the navigation bar (shown in white, in the image below).
 
@@ -49,11 +45,8 @@ This page explains the process of adding voiceovers to a lesson. If you run into
 
     ![image](https://user-images.githubusercontent.com/16653571/55646262-5d47c000-57f8-11e9-8a2e-4df6ab6fa52c.png)
 
-6. Once you are done with the recording/uploading audio for all the cards and the progress bar is full green, **Do not forgot to click the "Save Draft" or "Publish Changes" button** avialable on the top of the navigation bar (See images below) and add a message about the work you have done, like "Added voice-over in English." once a pop-up modal appears after clicking the button.
-    > _'Save Draft' button for the explorations which are not published yet._
-    ![image](https://user-images.githubusercontent.com/16653571/55648417-e1e90d00-57fd-11e9-8fff-a1a1d31d9590.png)
+6. As you record/upload audio for the cards, **make sure to click the "Publish Changes" button** on the top of the navigation bar (see image below). In the pop-up that appears, add a message about the work you have done (like "Added voice-over in English.") and publish the changes.
 
-    > _"Publish Changes" button for the explorations which are already published._
     ![image](https://user-images.githubusercontent.com/16653571/55648581-558b1a00-57fe-11e9-9394-85853c4c73d5.png)
 
 ## Tracking your progress
