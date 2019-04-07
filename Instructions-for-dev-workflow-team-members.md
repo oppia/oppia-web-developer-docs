@@ -70,7 +70,6 @@ November  Apurv (@apb7)        Rishav (@lilithxxx)
 
 4. Ping the team to update their tasks in meeting minutes, before the meeting.
 
-#### Dev-flow rota coordinator:
 **Duties of the dev-flow rota coordinator:**
 1. Ensure member rotation is followed.
 2. Send a ping/email to the member reminding him/her of the rota if it has been missed. 
