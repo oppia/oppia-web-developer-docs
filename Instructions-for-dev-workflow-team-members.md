@@ -35,7 +35,7 @@ If the issue is solved by you:
 * **Update the troubleshooting page of the wiki.**
 * Remove the issue from the spreadsheet after its been written down in the wiki.
 
-#### Dev-flow Rota:
+#### Dev-flow Rota for tracking setup issues:
 ```
 January	  Apurv         @apb7
 February  Rishav        @lilithxxx
@@ -50,6 +50,26 @@ October	  Rishav        @lilithxxx
 November  Anubhav       @anubhavsinha98
 December  Yash          @YashJipkate
 ```
+#### Dev Workflow Rota for Co-Lead:
+```
+April     Apurv (@apb7)        Anubhav (@anubhavsinha98)
+May 	  Yash (@YashJipkate)  Anubhav (@anubhavsinha98)
+June      Yash (@YashJipkate)  Rishav (@lilithxxx)
+July 	  Apurv (@apb7)        Rishav (@lilithxxx)
+August 	  Apurv (@apb7)        Anubhav (@anubhavsinha98)
+September Yash (@YashJipkate)  Anubhav (@anubhavsinha98)
+October	  Yash (@YashJipkate)  Rishav (@lilithxxx)
+November  Apurv (@apb7)        Rishav (@lilithxxx)
+```
+#### Responsibilities of Co-Lead:-
+1. Manage the whole dev workflow team and ensure that every team member is working on at least one issue/bug/feature. 
+
+2. Figure out the lint errors facing by the contributors.
+
+3. Ensure that every comment is being addressed by the dev workflow team member where the dev workflow is cc’d. 
+
+4. Ping the team to update their tasks in meeting minutes, before the meeting.
+
 #### Dev-flow rota coordinator:
 **Duties of the dev-flow rota coordinator:**
 1. Ensure member rotation is followed.
