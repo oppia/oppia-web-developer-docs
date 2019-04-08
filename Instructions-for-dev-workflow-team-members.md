@@ -74,7 +74,7 @@ November  Apurv (@apb7)        Rishav (@lilithxxx)
 1. Ensure member rotation is followed.
 2. Send a ping/email to the member reminding him/her of the rota if it has been missed. 
 
-Rota coordinator: Rishav
+#### Rota coordinator: Rishav
 
 
 #### [@lilithxxx]: 
