@@ -15,6 +15,7 @@
     * **[[Built something new?|https://goo.gl/forms/sNBWrW03fS6dBWEp1]]**
     * [[Overview of the codebase|Overview-of-the-Oppia-codebase]]
     * [[Coding style guide|Coding-style-guide]]
+    * [[Oppia's code owners and checks to be carried out by developers|Oppia's-code-owners-and-checks-to-be-carried-out-by-developers]]
     * [[Writing design docs|Writing-design-docs]]
     * [[Analyzing the codebase|Analyzing-the-codebase]]
     * [[Running tests|Running-Tests]]
