@@ -4,7 +4,7 @@ This page explains the process of adding voiceovers to a lesson. If you run into
 
 ## Getting started
 
-1. Register for an account on the Oppia site, and make a note of your username.
+1. Register for an account on the [https://www.oppia.org](Oppia site), and make a note of your username.
 2. Contact Angeli or Sean for information about which lessons need voiceovers. Please include your Oppia username when contacting them, so that they can assign you to a lesson.
 3. When you have been assigned as the voice artist for a lesson, you’ll receive an email with a link to that lesson!
 
