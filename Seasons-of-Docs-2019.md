@@ -2,6 +2,15 @@ Oppia is planning to participate in first year of [Season of Docs](https://devel
 
 Also, please note that acceptance into Season of Docs isn't a prerequisite for [becoming an Oppia contributor](https://github.com/oppia/oppia/wiki). The Oppia project is run by the community for the community, and we warmly welcome anyone who'd like to help out!
 
+# Getting started
+If you're interested in applying to work with Oppia for Season of Docs, please follow these steps:
+
+1. Sign up to the [oppia-sod-announce@](https://groups.google.com/forum/#!forum/oppia-sod-announce) mailing list in order to receive important notifications about Oppia's participation in Season of Docs. If you like, you can also sign up to the [oppia-sod-discuss@](https://groups.google.com/forum/#!forum/oppia-sod-discuss) mailing list to participate in general discussion related to Oppia's involvement in Season of Docs (see point 5 below, too). Make sure to set your mailing list preferences correctly so that you actually get the emails!
+
+1. Get a better understanding of what Oppia is all about by taking a look at our [user documentation](http://oppia.github.io/#/) — this will help you become familiar with important concepts like explorations and interactions. We also recommend having a go at playing some of the existing lessons on [Oppia.org](https://www.oppia.org), like [these ones on Fractions](https://www.oppia.org/fractions), to get a better idea of what they look like.
+
+1. If you think that you're familiar enough with Oppia, select one or more Season of Docs projects that you're most interested in, and write your project proposal! We strongly encourage you to discuss your project ideas and share your proposal with the community, so that you can get feedback and ensure that what you're writing makes sense to others. The best way to do this is to put your proposal into a collaborative editing tool like Google Docs, allow others to comment on it, and share a link to it on the [Season of Docs discussion mailing list](mailto:oppia-sod-discuss@googlegroups.com). You can also email this mailing list if you have any questions about a project, or would like to discuss your approach with the Oppia community and get feedback. Please be specific when asking questions, since this makes it easier for us to help you.
+
 # Season of Docs Proposal
 **Important**: Please make sure that your final proposal is self-contained! In particular, to be fair to all applicants, key components of the proposal should not be editable after the deadline, and you shouldn't assume that reviewers will follow external links.
 
@@ -26,6 +35,23 @@ When submitting a proposal, please use the following template:
 
 * **Milestones** that will divide your work into multiple parts, you can set milestones for each month or for each week. Strong proposals will have clear, concrete and measurable milestones, whose success can be objectively evaluated by an external observer.
 
+## Selection Criteria
+
+In order to select technical writers for Season of Docs, we will mainly be looking at two things:
+
+- The quality of the submitted proposal
+- The quality of the applicant's previous technical writing related work
+
+We believe that strong performance in these dimensions is likely to correlate well with the technical writer having an enjoyable, fulfilling and productive experience over the summer, and successfully completing the Season of Docs program.
+
+For the proposal, we generally look for a clear indication that the technical writer has a good, deep understanding of the project, and has broken it down sufficiently well, in a way that makes it very likely to succeed. Some indicators that could help with this include:
+- A clear analysis of (and good design decisions that build on top of) the original project idea, with a strong focus on creating a simple, intuitive experience for end users.
+- A concrete, specific breakdown of the work to be done for each milestone. Here's an [example](https://docs.google.com/document/d/1vuwXvHOYXqfM2S2B2KIWhZrAa1PL59wJRUYsqJEd67E/edit) from a previous design doc. (Note that, in the implementation plan, the author has carefully considered and listed which tests need to be written alongside the code; this is a positive indicator.)
+- Sufficient concreteness (e.g. references to particular files and methods) to demonstrate that the applicant is familiar with both the scope of the problem and the existing codebase.
+- A description, if applicable, of how the applicant plans to mitigate risks that could potentially derail the project.
+- Clear, unambiguous communication. (This is important; your proposal will be read by many mentors!)
+
+
 # Project ideas
 ### Beginners’ guide to creating stuff on Oppia
 Guide for new Oppia creators about lessons/explorations, skills, lesson translations, the interface of the Oppia page. Currently our user documentation is hosted on [oppia.github.io](http://oppia.github.io) pages, but if you prefer other platform to host the documentation you can explain that in your proposal.
@@ -38,7 +64,7 @@ Guide for new Oppia creators about lessons/explorations, skills, lesson translat
 * How to add images to a lesson.
 * How to write a lesson that is accessible.
 * How to write practice questions for a skill.
-* About the different roles in the exploration, including the hierarchy and the rights of each role. 
+* Explanation about the different roles in the exploration, including the hierarchy and the rights of each role. 
 #### Knowledge/Skills needed
 * technical writing experience
 
