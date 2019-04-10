@@ -1,3 +1,15 @@
+## Table of Contents
+* [Getting started](#getting-started)
+* [Season of Docs Proposal](#season-of-docs-proposal)
+  * [Template](#template)
+  * [Tips for writing a good project plan](#tips-for-writing-a-good-project-plan)
+  * [Selection criteria](#selection-criteria)
+* [Project Ideas](#project-ideas)
+* [Other useful information](#other-useful-information)
+    * [Dates and Deadlines](#dates-and-deadlines)
+    * [List of Mentors](#list-of-potential-mentors)
+    * [Communication](#communication)
+
 Oppia is planning to participate in first year of [Season of Docs](https://developers.google.com/season-of-docs/). The program connects open source organizations with technical writers, who then work on 3 or 6 month long projects, and then can receive a paid stipend. The technical writers work closely with two or more mentors on finishing a project idea by the organization, or a proposal of their own.
 
 Also, please note that acceptance into Season of Docs isn't a prerequisite for [becoming an Oppia contributor](https://github.com/oppia/oppia/wiki). The Oppia project is run by the community for the community, and we warmly welcome anyone who'd like to help out!
@@ -35,7 +47,9 @@ When submitting a proposal, please use the following template:
 
 * **Milestones** that will divide your work into multiple parts, you can set milestones for each month or for each week. Strong proposals will have clear, concrete and measurable milestones, whose success can be objectively evaluated by an external observer.
 
-## Selection Criteria
+* **Technical analysis** of the pages/guides/how-tos that you plan to write, you want to provide rough draft for each page you plan to write. For guides you might want to make a list of steps that will the guide include and what files will that guide reference.
+
+## Selection criteria
 
 In order to select technical writers for Season of Docs, we will mainly be looking at two things:
 
@@ -44,13 +58,11 @@ In order to select technical writers for Season of Docs, we will mainly be looki
 
 We believe that strong performance in these dimensions is likely to correlate well with the technical writer having an enjoyable, fulfilling and productive experience over the summer, and successfully completing the Season of Docs program.
 
-For the proposal, we generally look for a clear indication that the technical writer has a good, deep understanding of the project, and has broken it down sufficiently well, in a way that makes it very likely to succeed. Some indicators that could help with this include:
-- A clear analysis of (and good design decisions that build on top of) the original project idea, with a strong focus on creating a simple, intuitive experience for end users.
-- A concrete, specific breakdown of the work to be done for each milestone. Here's an [example](https://docs.google.com/document/d/1vuwXvHOYXqfM2S2B2KIWhZrAa1PL59wJRUYsqJEd67E/edit) from a previous design doc. (Note that, in the implementation plan, the author has carefully considered and listed which tests need to be written alongside the code; this is a positive indicator.)
-- Sufficient concreteness (e.g. references to particular files and methods) to demonstrate that the applicant is familiar with both the scope of the problem and the existing codebase.
-- A description, if applicable, of how the applicant plans to mitigate risks that could potentially derail the project.
+For the proposal, we generally look for a clear indication that the technical writer has a good, deep understanding of the project. Some indicators that could help with this include:
+- A clear analysis of (and good design decisions that build on top of) the original project idea, with a strong focus on creating clear and understandable documentation for users or developers.
+- A concrete, specific breakdown of the work to be done for each milestone.
+- Sufficient concreteness (e.g. references to particular files and methods that will be relevant for the documentation) to demonstrate that the applicant is familiar with both the scope of the problem and the existing codebase.
 - Clear, unambiguous communication. (This is important; your proposal will be read by many mentors!)
-
 
 # Project ideas
 ### Beginners’ guide to creating stuff on Oppia
