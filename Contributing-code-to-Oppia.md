@@ -177,5 +177,6 @@ The following instructions describe how to make a one-off code change using a fe
 We have several mailing lists in the form of Google Groups that you can join:
   * [oppia-announce](https://groups.google.com/forum/#!forum/oppia-announce) is for announcements of new releases or blog posts.
   * [oppia-dev](https://groups.google.com/forum/#!forum/oppia-dev) is the main mailing list for communication between developers, and for technical questions.
+  * [oppia-dev-workflow](https://groups.google.com/forum/#!forum/oppia-dev-workflow-team) is the mailing list for communication between Dev Workflow Team, and for workflow issues faced by the contributor.
 
 We also have a developer chat room [here](https://gitter.im/oppia/oppia-chat). Feel free to drop in and say hi!
