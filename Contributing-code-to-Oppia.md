@@ -170,6 +170,12 @@ The following instructions describe how to make a one-off code change using a fe
 
   For more `git blame` options, you can visit the [git blame documentation](https://git-scm.com/docs/git-blame).
 
+* If your PR includes changing the location of the file, if you simply move the file by cut and paste method, then the git will track it as a new file. So to prevent this, use:
+  ```
+  git mv old_file_path new_file_path
+  ```
+  By using this command git will detect the file as a renamed file.
+
 ## Communication channels
 
 ### Mailing lists
