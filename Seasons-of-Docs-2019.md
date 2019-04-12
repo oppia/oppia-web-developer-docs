@@ -104,7 +104,7 @@ This involves organizing the information architecture of the [Oppia wiki](https:
 * slight knowledge of Python
 * slight knowledge of Angular
 
-## Descriptive “how it works” docs for our codebase
+## Descriptive “how it works” docs for the Oppia codebase
 
 This involves creating documentation for the Oppia codebase that explains the structure of our frontend and backend. It could extend some of our already-existing [wiki pages](https://github.com/oppia/oppia/wiki), but if you prefer a different platform to host the documentation, you can explain that in your proposal.
 
