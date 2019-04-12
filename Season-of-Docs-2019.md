@@ -134,13 +134,13 @@ This involves creating documentation for the Oppia codebase that explains the st
 
 # Other useful information
 ## Dates and Deadlines
-Mar 16 – Apr 23: Organizations apply
-Apr 30: Organizations are announced
-Apr 30 – Jun 28: Technical writers application period
-Jul 30: Accepted technical writers are announced
-Aug 1 – Sep 1: Community bonding period
-Sep 2 – Nov 29: Technical writers create documentation to their projects (short-running project)
-Sep 2 – Feb 21 (2020): Technical writers create documentation to their projects (long-running project)
+* Mar 16 – Apr 23: Organizations apply
+* Apr 30: Organizations are announced
+* Apr 30 – Jun 28: Technical writers application period
+* Jul 30: Accepted technical writers are announced
+* Aug 1 – Sep 1: Community bonding period
+* Sep 2 – Nov 29: Technical writers create documentation to their projects (short-running project)
+* Sep 2 – Feb 21 (2020): Technical writers create documentation to their projects (long-running project)
 
 ## List of Potential Mentors
 * Sandeep (@DubeySandeep)
