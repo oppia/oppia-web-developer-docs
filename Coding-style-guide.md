@@ -93,6 +93,134 @@ If you use [Sublime Text](http://www.sublimetext.com/), consider installing the 
       }]);
     ```
 
+## Typescript
+- Make sure to follow all the javascript rules here as well.
+- Declare a variable before usage. For instance:
+  
+  **Wrong usage:**
+  ```              
+  exampleVar = true;
+  if (someCondition) {
+    exampleVar = false;
+  }
+  ```
+  **Right usage:**
+  ```              
+  var exampleVar = true;
+  if (someCondition) {
+    exampleVar = false;
+  }
+  ```        
+- All loop variables should be declared. For instance:     
+
+  **Wrong usage:**
+  ```              
+  for (item in itemList) {
+    ...
+  }
+  ```
+  **Right usage:**
+  ```              
+  for (var item in itemList) {
+    ...
+  }
+  ```    
+
+- Do not add new properties to a declared variable. Ensure that all properties are declared in the variable declaration. For instance:
+
+  **Wrong usage:**
+  ```              
+  var person = {
+    name: 'name',
+    age: 'age'
+  };
+  if (someCondition) {
+    person.address = 'address';
+  }
+  ```
+  **Right usage:**
+  ```              
+  var person = {
+    name: 'name',
+    age: 'age',
+    address: null
+  };
+  if (someCondition) {
+    person.address = 'address';
+  }
+  ``` 
+- Always initialize a variable at declaration. If you do not want a specific value at declaration, initialize the variable with a null value. For instance:
+
+  **Wrong usage:**
+  ```              
+  var person;
+  if (someCondition) {
+    person = 'name';
+  }
+  ```
+  **Right usage:**
+  ```              
+  var person = null;
+  if (someCondition) {
+    person = 'name';
+  }
+  ``` 
+- Do not overwrite the variable with a different type. Instead create a new variable whenever you have a different use case. For instance:
+
+  **Wrong usage:**
+  ```              
+  var person = {
+    name: 'name',
+    schoolName: 'school name'
+  };
+  ...
+  person = {
+    name: 'name',
+    officeName: 'office name'
+  };
+  ```
+  **Right usage:**
+  ```              
+  var personForSchool = {
+    name: 'name',
+    schoolName: 'school name'
+  };
+  ...
+  var personForOffice = {
+    name: 'name',
+    officeName: 'office name'
+  };
+  ``` 
+- If you get compilation error which says that a property does not exist on a particular type, go through the type definitions of the type and do a type casting if required. For instance:
+  ```              
+  var checkMismatch = function(searchQuery) {
+    var isMismatch = true;
+    $('.oppia-search-bar-input').each(function(index) {
+      if ((<string>$(this).val()).trim() === searchQuery) {
+        isMismatch = false;
+      }
+    });
+    return isMismatch;
+  };
+  ```
+  Here `$(this).val()` is type casted to a string by using `<string>$(this).val()`
+  If we do not use a typecast, typescript will give a error `Property 'trim' does not exist on type 'string | number | string[]'` since val can be a string or a number or a string array. So, to use trim we specifically need it as a string. 
+
+  In many cases, you may also need to typecast to `<any>` first and then to the desired type. For example, for converting a number to string, you will need `<string><any>` because neither type sufficiently overlaps with the other.
+
+  You can add a new custom type definitions if type casting is not possible. In the file `typings/custom-element-defs.d.ts`, we add a new property to `HTMLElement` by adding a custom type defintion. In this type casting cannot be used, since we are adding a new property to the existing type instead of changing it to some other type.
+
+### Karma test specific guidelines
+- Use `angular.mock.module` instead of `module` since the typings for angular-mocks does not support the usage of module.
+- Use `angular.mock.inject` instead of `inject` to maintain a consistent behaviour.
+
+### When to add custom type defintions to the typings folder?
+- If you find a missing property in a typings package, create an issue [here](https://github.com/DefinitelyTyped/DefinitelyTyped) and a new file for the custom types with the issue link in the top of the file.
+- If you add a package for which type definitions are not found [here](https://github.com/DefinitelyTyped/DefinitelyTyped), add it to `third-party-defs.d.ts`
+- If you add a new property on window which is not present in typings for window, add it to `custom-window-defs.d.ts`
+- If you add a property on scope defined in a link function, add it to `custom-scope-defs.d.ts` and add a comment specifying the filename for which it is added.
+- Make sure that all files have comments which explain why these custom type defintions are required and additional comments to explain each new added property if required. For example, `typings/custom-scope-defs.d.ts` has a top level comment explaining that the type defintions are needed for properties defined on scope in link function and then there are additional comments with properties added specifying which file they belong to. Go through the existing files and try to follow the same pattern when adding a new file.
+
 ## CSS
 - Do not include units if the value is 0. E.g. `margin-left: 0` instead of `margin-left: 0px`.
 - Within each CSS rule, attributes should be alphabetized (e.g. 'height' before 'margin' before 'top'). This makes it easy to find the value of an attribute if there are lots of them.
