@@ -26,10 +26,14 @@ This page explains the process of adding voiceovers to a lesson. If you run into
 
     ![](https://lh6.googleusercontent.com/f6cJ_Usfj8jYm09VtaFXGRSpw8uftGyvLPI_mU5XYtuXLfhZQF7ha9HECNewl3OLxgQW-CIGTCUXZRNWg6JB7vp2Y1gZV87ahubzheuukm9g7drranA7HN64hRE44QI-FgHo4d_0)
 
-3. In the translation settings and overview box at the top, select the language that you want to do voiceovers for. There is a progress bar below that dropdown; it will show you how much of the lesson has been covered with voiceovers for that language. (See the red box below.)
-![image](https://user-images.githubusercontent.com/16653571/55646633-4f466f00-57f9-11e9-9118-36de450c2d86.png)
+3. Make sure you have selected the voice-over mode from the mode-selector option. See image below:
+![image](https://user-images.githubusercontent.com/16653571/56873490-548d8700-6a50-11e9-8ddf-724d8773d859.png)
 
-4. Each Oppia lesson is divided into individual “cards”. These cards are shown in the Exploration Overview graph on the right. You can navigate between the different cards by clicking on them in the Exploration Overview. The cards that still need work are the ones shown as yellow or red.
+
+4. In the translation settings and overview box at the top, select the language that you want to do voiceovers for. There is a progress bar below that dropdown; it will show you how much of the lesson has been covered with voiceovers for that language. (See the red box below.)
+![image](https://user-images.githubusercontent.com/16653571/56873610-2e1c1b80-6a51-11e9-971b-240cd843336d.png)
+
+5. Each Oppia lesson is divided into individual “cards”. These cards are shown in the Exploration Overview graph on the right. You can navigate between the different cards by clicking on them in the Exploration Overview. The cards that still need work are the ones shown as yellow or red.
   
     In each card, there are several pieces of text that need voiceovers. You can browse through these by clicking on the tabs in the section on the left (shown by the blue box in the screenshot below).
     ![](https://lh5.googleusercontent.com/y8MERhNZdT6RH_YL6M6Iq12kuI-Ty0ek8sTUeP4-hHV0Yq3C3E_L_Ab30lKHNO1cj6a4pIHoSkqWDrwNO2TA4HgihnacRUCVQX3er8iTQRFzS_uxBVs0Pvld68QdbG7-RS__Yr7c)
