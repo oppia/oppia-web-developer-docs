@@ -36,7 +36,7 @@ This page explains the process of adding voiceovers to a lesson. If you run into
 5. Each Oppia lesson is divided into individual “cards”. These cards are shown in the Exploration Overview graph on the right. You can navigate between the different cards by clicking on them in the Exploration Overview. The cards that still need work are the ones shown as yellow or red.
   
     In each card, there are several pieces of text that need voiceovers. You can browse through these by clicking on the tabs in the section on the left (shown by the blue box in the screenshot below).
-    ![](https://lh5.googleusercontent.com/y8MERhNZdT6RH_YL6M6Iq12kuI-Ty0ek8sTUeP4-hHV0Yq3C3E_L_Ab30lKHNO1cj6a4pIHoSkqWDrwNO2TA4HgihnacRUCVQX3er8iTQRFzS_uxBVs0Pvld68QdbG7-RS__Yr7c)
+    ![](https://user-images.githubusercontent.com/16653571/56985223-7fd5ba80-6ba5-11e9-8ebe-f5fc2b8b5dbe.png)
     The meanings of the different tabs are as follows:
     * Content: The main text of the lesson card.
     * Feedback: The feedback that a student receives after providing an answer to a question. We try to give specific guidance if a student has gotten a question incorrect, like a tutor would.
@@ -55,7 +55,7 @@ This page explains the process of adding voiceovers to a lesson. If you run into
 
 ## Tracking your progress
 To see which cards still need voiceovers, you can look at the exploration overview on the right (see the red-bordered section in the screenshot below). Green cards have a complete set of voice-overs, yellow cards have been partially voice-overed, and red cards have not been started yet.
-![](https://lh6.googleusercontent.com/C38TAkdZxfpyf2CYdrAXYS2aQHUaPDcjWMdzLNNbs83ztkvXQNU7p3zO2LB4IE0YVOHLp4b-hMFkCXY5mGuUGCn5a9bsQo9MIU8eqcK4ngHqvrU3zpPmK9cb5mhlVGzcaeaFKFuU)
+![](https://user-images.githubusercontent.com/16653571/56985545-389bf980-6ba6-11e9-9031-378ddc4988a3.png)
 
 
 Once all the cards are green, you will have completed the lesson!
