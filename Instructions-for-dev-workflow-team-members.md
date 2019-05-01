@@ -82,6 +82,19 @@ November  Apurv (@apb7)        Rishav (@lilithxxx)
 * Monitor that the solutions of all setup issues are indeed jotted down in the wiki. 
 
 ***
+
+### Triaging issues and keeping the team updated with progress -- what’s the system we’re using for this?
+* Create an issue first if it’s not already present.
+* If the issue is related to an outage, mark it as important.
+* If it’s an outage, inform oppia-dev regarding the same and the probable causes known at that point of time.
+* Keep the team updated by sending in regular mails to oppia-dev-workflow-team informing them about the progress on the fix. For an outage, post the same on oppia-dev.
+* Keep repeating the above step until the issue is fixed.
+* Once the issue is fixed, post a final update on both the channels. Create a postmortem if the issue is an outage.
+* Responsibilities:
+  Anubhav - Updating oppia-dev and the team.
+* The fix can be carried out by one of the team members as per discussion on the Hangouts group.
+
+
 ## Communication Channel:
 To discuss anything with oppia dev workflow, mail us at : oppia-dev-workflow-team@googlegroups.com
 
