@@ -85,17 +85,27 @@ In this stage, the creator is advised to breakdown the topic into as many concre
 <li><a href="https://docs.google.com/document/d/1AJ9l5rL-wPwiePYXhBZwreOz8piQ4Ur-KFj1KPCIPvg/edit?usp=sharing">Place values (Storyline section)</a></li>
 </ul>
 <h2 id="Table">Skill Table</h2>
-Developing the Skill Table is the stage that will help you organize and further elaborate the math skills you have prepared in the previous steps. It is also the first stage in where you will begin thinking about how your story outline ties to each math skill
+<p>Developing the Skill Table is the stage that will help you organize and further elaborate the math skills you have prepared in the previous steps.</p>
 <b>Format:</b>
 <ul>
 <li>Table Format that consists of the following columns:<ul>
 <li>Skill - these are the same skills that were listed in the Skill Tree. The skills are listed in the order that they would be presented in the actual lesson.</li>
 <li>Specific Errors - This column lists out the common mistakes or misconceptions learners make when dealing with specific skills.</li>
 <li>Remediation - This column lists out how the lesson would help learners address the misconceptions</li>
-<li>Sample Questions - List the question that can be used to test the student’s comprehension of the skill</li>
-<li>Development of the Topic - this is the precursor to your script. It outlines how you plan to approach the topic and introduce it to the student. This includes a mix of math and story.</li></ul>
+<li>Development of the Topic - this is the precursor to your script and is the most important column. It outlines how you plan to explain various skills and the questions that will accompany the explanation. These questions will appear in the script. Some special notations in this column include: 
+<ul>
+<li>denote questions that introduce new concepts with a "[concept]" tag</li>
+<li>denote questions that reinforce previous concepts in the lesson with a "[test]" tag</li>
+<li>denote questions that reinforce previous concepts in past lessons with a "[recap]" tag. Begin each lesson (except the first one) with recap questions</li>
+<li>end each lesson with a series of questions that test skills within the lessons and denote them with a "[Final Challenge]" tag. Unlike the "[test]" tag, [Final Challenges] are always at the end of the lesson</li>
+<li>color code all types of questions with Green, Yellow, and Red highlight depending on difficulty</li>
+</ul>
+</li>
+<li>Additional Recap Questions - include additional recap and test questions in this column. We will add these questions to the question bank so that they can be randomly used later. Use the same denotation as the ones described in the Development of the topic column.</li>
+</ul>
 <li>When listing misconceptions, the misconceptions should be specific things, not just "student can't do skill X correctly". I.e., the description should be such that, if you give someone else the question and the description of the misconception, they should be able to accurately predict the student's answer.</li>
 <li>Ensure that the questions are staged. One way to verify concretely that you're making leaps that aren't too big is to define for yourself what *single* new skill each new question introduces. Don't introduce more than one skill at a time with each question. Be careful to also account for "hidden" skills that aren't taught explicitly in the lessons you're creating, such as "parsing a complicated word problem" or "knowing the relationship between distance, speed and time".</li>
+<li>List Prerequisite skills, acquired skills and practiced skills before the table of each lesson (see sample).</li>
 </ul>
 <b>Tips:</b>
 <ul>
