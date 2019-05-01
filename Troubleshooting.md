@@ -158,6 +158,7 @@ These commands can be used anywhere to kill a running process on any port by usi
     ```
     echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
     ```
+    Use the same command in the cases where the changes made by you to files are not being detected by the server.
 
 ### Mac OS
   * If, on MacOS Mojave V10.14.3, you get an issue arises while installing PIL library that looks something like this:
