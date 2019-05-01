@@ -91,7 +91,7 @@ November  Apurv (@apb7)        Rishav (@lilithxxx)
 * Keep repeating the above step until the issue is fixed.
 * Once the issue is fixed, post a final update on both the channels. Create a postmortem if the issue is an outage.
 * Responsibilities:
-  Anubhav - Updating oppia-dev and the team.
+  **Anubhav** - Updating oppia-dev and the team.
 * The fix can be carried out by one of the team members as per discussion on the Hangouts group.
 
 
