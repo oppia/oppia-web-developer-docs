@@ -101,7 +101,7 @@ In this stage, the creator is advised to breakdown the topic into as many concre
 <li>color code all types of questions with Green, Yellow, and Red highlight depending on difficulty</li>
 </ul>
 </li>
-<li>Additional Recap Questions - include additional recap and test questions in this column. We will add these questions to the question bank so that they can be randomly used later. Use the same denotation as the ones described in the Development of the topic column.</li>
+<li>Additional Recap Questions - include additional recap and test questions in this column. We will add these questions to the question bank which will allow us to randomly populate equivalent questions for students; varying the learning experience each time the students take the lesson. Use the same denotation as the ones described in the Development of the topic column.</li>
 </ul>
 <li>When listing misconceptions, the misconceptions should be specific things, not just "student can't do skill X correctly". I.e., the description should be such that, if you give someone else the question and the description of the misconception, they should be able to accurately predict the student's answer.</li>
 <li>Ensure that the questions are staged. One way to verify concretely that you're making leaps that aren't too big is to define for yourself what *single* new skill each new question introduces. Don't introduce more than one skill at a time with each question. Be careful to also account for "hidden" skills that aren't taught explicitly in the lessons you're creating, such as "parsing a complicated word problem" or "knowing the relationship between distance, speed and time".</li>
