@@ -147,6 +147,18 @@ These commands can be used anywhere to kill a running process on any port by usi
     ```
     use `urllib2.request` for downloading the third party libraries instead of `urllib.urlretrieve` in "scripts/install_third_party.py".
 
+  * If you get an error while running a local server which says something like this:
+
+    ```
+    'watch' errored after 789 ms
+    Error: ENOSPC: System limit for number of file watchers reached, watch 'some filename'
+    ```
+
+    then you will need to increase the number of system watchers by running the command:
+    ```
+    echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+    ```
+
 ### Mac OS
   * If, on MacOS Mojave V10.14.3, you get an issue arises while installing PIL library that looks something like this:
 
