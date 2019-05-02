@@ -89,7 +89,7 @@ November  Apurv (@apb7)        Rishav (@lilithxxx)
 * If it’s an outage, inform oppia-dev regarding the same and the probable causes known at that point of time.
 * Keep the team updated by sending in regular mails to oppia-dev-workflow-team informing them about the progress on the fix. For an outage, post the same on oppia-dev.
 * Keep repeating the above step until the issue is fixed.
-* Once the issue is fixed, post a final update on both the channels. Create a postmortem if the issue is an outage.
+* Once the issue is fixed, post a final update on oppia-dev & oppia-dev-workflow-team. Create a postmortem if the issue is an outage.
 * Responsibilities:
   **Anubhav** - Updating oppia-dev and the team.
 * The fix can be carried out by one of the team members as per discussion on the Hangouts group.
