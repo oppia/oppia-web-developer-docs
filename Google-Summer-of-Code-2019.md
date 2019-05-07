@@ -12,11 +12,25 @@
     * [List of Mentors](#list-of-potential-mentors)
     * [Communication](#communication)
 
-Oppia is planning to participate in [Google Summer of Code 2019](https://developers.google.com/open-source/gsoc/)! GSoC is a global program which offers post-secondary students an opportunity to discover and work with open source organizations over the course of 3 months, while being paid a stipend. Students work closely with one or more mentors from an open source organization in order to implement either a project idea by the organization, or a proposal of their own.
+Oppia is participating in [Google Summer of Code 2019](https://developers.google.com/open-source/gsoc/)! GSoC is a global program which offers post-secondary students an opportunity to discover and work with open source organizations over the course of 3 months, while being paid a stipend. Students work closely with one or more mentors from an open source organization in order to implement either a project idea by the organization, or a proposal of their own.
 
 You might be interested in our GSoC info pages from previous years: [2018](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2018), [2017](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2017), [2016](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2016).
 
 Also, please note that acceptance into GSoC isn't a prerequisite for [becoming an Oppia contributor](https://github.com/oppia/oppia/wiki). The Oppia project is run by the community for the community, and we warmly welcome anyone who'd like to help out!
+
+
+## Accepted Proposals:
+
+The project's we've accepted (as of 6 May 2019) are:
+- @ankita240796's proposal for validating production models. Mentor: Nitish Bansal.
+- @anubhavsinha98's proposal for making it possible for students to say why they provided a given answer. Mentor: Akshay Anand.
+- @Jamesjay4199's proposal for enabling pages to be served statically. Mentor: Vojtěch Jelínek.
+- @import-keshav's proposal for building a flow for artists to submit images to lessons. Mentors: Nithesh Hariharan and Sandeep Dubey.
+- @NishealJ's proposal for upgrading third-party libraries. Mentors: Apurv Bajaj and Sean Lip.
+- @lilithxxx's proposal for making the codebase compatible with Python 3 and covering the backend fully with tests. Mentor: Brian Rodriguez.
+- @sophiewu6's for improvements to the questions framework. Mentor: Vinita Murthi.
+- @YashJipkate's proposal for upgrading the codebase to Angular 2. Mentor: Kevin Lee.
+
 
 # Students
 GSoC is an excellent opportunity for students to get paid to work on an open source project. If you're interested in applying as a student, you should definitely read the following resources:
