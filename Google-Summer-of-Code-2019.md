@@ -22,14 +22,14 @@ Also, please note that acceptance into GSoC isn't a prerequisite for [becoming a
 ## Accepted Proposals:
 
 The project's we've accepted (as of 6 May 2019) are:
-- @ankita240796's proposal for validating production models. Mentor: Nitish Bansal.
-- @anubhavsinha98's proposal for making it possible for students to say why they provided a given answer. Mentor: Akshay Anand.
-- @Jamesjay4199's proposal for enabling pages to be served statically. Mentor: Vojtěch Jelínek.
-- @import-keshav's proposal for building a flow for artists to submit images to lessons. Mentors: Nithesh Hariharan and Sandeep Dubey.
-- @NishealJ's proposal for upgrading third-party libraries. Mentors: Apurv Bajaj and Sean Lip.
-- @lilithxxx's proposal for making the codebase compatible with Python 3 and covering the backend fully with tests. Mentor: Brian Rodriguez.
-- @sophiewu6's for improvements to the questions framework. Mentor: Vinita Murthi.
-- @YashJipkate's proposal for upgrading the codebase to Angular 2. Mentor: Kevin Lee.
+- [@ankita240796's proposal](pdfs/GSoC2019AnkitaSaxena.pdf) for validating production models. Mentor: Nitish Bansal.
+- [@anubhavsinha98's proposal](pdfs/GSoC2019AnubhavSinha.pdf) for enabling students to say why they provided a given answer. Mentor: Akshay Anand.
+- [@Jamesjay4199's proposal](pdfs/GSoC2019JamesJohnJames.pdf) for enabling pages to be served statically. Mentor: Vojtěch Jelínek.
+- [@import-keshav's proposal](pdfs/GSoC2019KeshavBathla.pdf) for building a flow for artists to submit images to lessons. Mentors: Nithesh Hariharan and Sandeep Dubey.
+- [@NishealJ's proposal](pdfs/GSoC2019NishealJohn.pdf) for upgrading third-party libraries. Mentors: Apurv Bajaj and Sean Lip.
+- [@lilithxxx's proposal](pdfs/GSoC2019RishavChakraborty.pdf) for making the codebase compatible with Python 3 and covering the backend fully with tests. Mentor: Brian Rodriguez.
+- [@sophiewu6's proposal](pdfs/GSoC2019ShiqiWu.pdf) for improvements to the questions framework. Mentor: Vinita Murthi.
+- [@YashJipkate's proposal](pdfs/GSoC2019YashJipkate.pdf) for upgrading the codebase to Angular 2. Mentor: Kevin Lee.
 
 
 # Students
