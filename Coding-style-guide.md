@@ -98,14 +98,14 @@ If you use [Sublime Text](http://www.sublimetext.com/), consider installing the 
 - Declare a variable before usage. For instance:
   
   **Wrong usage:**
-  ```              
+  ```javascript              
   exampleVar = true;
   if (someCondition) {
     exampleVar = false;
   }
   ```
   **Right usage:**
-  ```              
+  ```javascript              
   var exampleVar = true;
   if (someCondition) {
     exampleVar = false;
@@ -114,13 +114,13 @@ If you use [Sublime Text](http://www.sublimetext.com/), consider installing the 
 - All loop variables should be declared. For instance:     
 
   **Wrong usage:**
-  ```              
+  ```javascript              
   for (item in itemList) {
     ...
   }
   ```
   **Right usage:**
-  ```              
+  ```javascript              
   for (var item in itemList) {
     ...
   }
@@ -129,7 +129,7 @@ If you use [Sublime Text](http://www.sublimetext.com/), consider installing the 
 - Do not add new properties to a declared variable. Ensure that all properties are declared in the variable declaration. For instance:
 
   **Wrong usage:**
-  ```              
+  ```javascript              
   var person = {
     name: 'name',
     age: 'age'
@@ -139,7 +139,7 @@ If you use [Sublime Text](http://www.sublimetext.com/), consider installing the 
   }
   ```
   **Right usage:**
-  ```              
+  ```javascript              
   var person = {
     name: 'name',
     age: 'age',
@@ -152,14 +152,14 @@ If you use [Sublime Text](http://www.sublimetext.com/), consider installing the 
 - Always initialize a variable at declaration. If you do not want a specific value at declaration, initialize the variable with a null value. For instance:
 
   **Wrong usage:**
-  ```              
+  ```javascript              
   var person;
   if (someCondition) {
     person = 'name';
   }
   ```
   **Right usage:**
-  ```              
+  ```javascript              
   var person = null;
   if (someCondition) {
     person = 'name';
@@ -168,7 +168,7 @@ If you use [Sublime Text](http://www.sublimetext.com/), consider installing the 
 - Do not overwrite the variable with a different type. Instead create a new variable whenever you have a different use case. For instance:
 
   **Wrong usage:**
-  ```              
+  ```javascript              
   var person = {
     name: 'name',
     schoolName: 'school name'
@@ -180,7 +180,7 @@ If you use [Sublime Text](http://www.sublimetext.com/), consider installing the 
   };
   ```
   **Right usage:**
-  ```              
+  ```javascript              
   var personForSchool = {
     name: 'name',
     schoolName: 'school name'
@@ -192,7 +192,7 @@ If you use [Sublime Text](http://www.sublimetext.com/), consider installing the 
   };
   ``` 
 - If you get compilation error which says that a property does not exist on a particular type, go through the type definitions of the type and do a type casting if required. For instance:
-  ```              
+  ```javascript              
   var checkMismatch = function(searchQuery) {
     var isMismatch = true;
     $('.oppia-search-bar-input').each(function(index) {
@@ -220,6 +220,73 @@ If you use [Sublime Text](http://www.sublimetext.com/), consider installing the 
 - If you add a new property on window which is not present in typings for window, add it to `custom-window-defs.d.ts`
 - If you add a property on scope defined in a link function, add it to `custom-scope-defs.d.ts` and add a comment specifying the filename for which it is added.
 - Make sure that all files have comments which explain why these custom type defintions are required and additional comments to explain each new added property if required. For example, `typings/custom-scope-defs.d.ts` has a top level comment explaining that the type defintions are needed for properties defined on scope in link function and then there are additional comments with properties added specifying which file they belong to. Go through the existing files and try to follow the same pattern when adding a new file.
+
+## Webpack
+
+In all TypeScript files in `core/templates/dev/head` we use webpack. That means that instead of including the required files by `<script src="…"></script>` in HTML files we include them by using `require(…)` in the individual TS files.
+
+### Adding `require(…)` to the TypeScript files with service/filter/factory
+When you add new service/filter/factory dependency to service/filter/factory, you need to also `require(…)` it at the top of the file.
+
+For example if you have this filter:
+```javascript
+oppia.filter('normalizeWhitespace', [function() {
+  return function(input) {…};
+}]);
+```
+and need to use `UtilsService` in this filter, you also need to add `require('services/UtilsService.ts');` (the paths are relative to the `core/templates/dev/head` directory), the final filter will look like this:
+```javascript
+require('services/UtilsService.ts');
+
+oppia.filter('normalizeWhitespace', ['UtilsService', function(UtilsService) {
+  return function(input) {…};
+}]);
+```
+
+**The requires should be sorted in alphabetical order.**
+
+### Adding `require(…)` to the TypeScript files with directive
+The rules for directives are little bit more complex. You also need to add `require(…)` for service/filter/factory dependencies, but also if you use custom directive in the HTML you need to `require(…)` it in the TypeScript file too.
+
+For example, if you have directive:
+```javascript
+require('domain/utilities/UrlInterpolationService.ts');
+
+oppia.directive('storySummaryTile', ['UrlInterpolationService', function(UrlInterpolationService) {
+    return {…};
+}]);
+```
+and add `<sharing-links>` into the **story_summary_directive.html** you need to also add the new `require('components/share/SharingLinksDirective.ts');` into the TypeScript file:
+```javascript
+require('components/share/SharingLinksDirective.ts');
+
+require('domain/utilities/UrlInterpolationService.ts');
+
+oppia.directive('storySummaryTile', ['UrlInterpolationService', function(UrlInterpolationService) {
+    return {…};
+}]);
+```
+
+**The requires for directives that are in HTML are included first and separated from the regular requires by empty line.**
+
+### Adding new page
+When you're adding new HTML page that uses TypeScript you also need to add it to `webpack.conf.ts`:
+
+1. You need to define the TypeScript entrypoint for the page into `module.exports.entries`.
+2. You need to add `new HtmlWebpackPlugin({…})` into `module.exports.plugins`.
+
+For example when adding **pages/generic/page.html** with asocciated TypeScript file **pages/generic/Page.ts**, you will need to add `page: commonPrefix + '/pages/generic/Page.ts'` to `module.exports.entries` and
+
+```javascript
+new HtmlWebpackPlugin({
+   chunks: ['page'],
+   filename: 'page.html',
+   template: commonPrefix + '/pages/generic/page.html',
+   minify: htmlMinifyConfig,
+   inject: false
+})
+```
+into `module.exports.plugins`.
 
 ## CSS
 - Do not include units if the value is 0. E.g. `margin-left: 0` instead of `margin-left: 0px`.
