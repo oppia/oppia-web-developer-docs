@@ -1,5 +1,6 @@
 ## Table of Contents
 * [Getting started](#getting-started)
+* [FAQ](#faq)
 * [Season of Docs Proposal](#season-of-docs-proposal)
   * [Template](#template)
   * [Tips for writing a good project plan](#tips-for-writing-a-good-project-plan)
@@ -22,6 +23,12 @@ If you're interested in applying to work with Oppia for Season of Docs, please f
 1. Get a better understanding of what Oppia is all about by taking a look at our [user documentation](http://oppia.github.io/#/) — this will help you become familiar with important concepts like explorations and interactions. We also recommend having a go at playing some of the existing lessons on [Oppia.org](https://www.oppia.org), like [these ones on Fractions](https://www.oppia.org/fractions), to get a better idea of what they look like.
 
 1. If you think that you're familiar enough with Oppia, select one or more Season of Docs projects that you're most interested in, and write your project proposal! We strongly encourage you to discuss your project ideas and share your proposal with the community, so that you can get feedback and ensure that what you're writing makes sense to others. The best way to do this is to put your proposal into a collaborative editing tool like Google Docs, allow others to comment on it, and share a link to it on the [Season of Docs discussion mailing list](mailto:oppia-sod-discuss@googlegroups.com). You can also email this mailing list if you have any questions about a project, or would like to discuss your approach with the Oppia community and get feedback. Please be specific when asking questions, since this makes it easier for us to help you.
+
+#FAQ
+
+Q: How can I increase my chances of getting selected?
+
+A: Writing a good project proposal, engaging with the community, helping other students, successfully contributing to already existing documentation  ([Technical documentation](https://github.com/oppia/oppia/wiki) and [User documentation](http://oppia.github.io/#/)), and demonstrating that you can work independently can all help you. You can also propose some more ambitious projects and changes that we might want to implement in our documentation.
 
 # Season of Docs Proposal
 **Important**: Please make sure that your final proposal is self-contained! In particular, to be fair to all applicants, key components of the proposal should not be editable after the deadline, and you shouldn't assume that reviewers will follow external links.
