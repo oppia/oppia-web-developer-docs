@@ -37,6 +37,7 @@ For each project that we have, you can work on two starter projects, these will 
 * if the project is correct from the technical point of view (it says only things that are true)
 * if the project is grammatically and typografically "correct" (if it is easy to understand)
 
+You can submit the starter project into [oppia-sod-discuss@](https://groups.google.com/forum/#!forum/oppia-sod-discuss) before the deadline for project proposals (June 28).
 #### Beginners’ guide to creating lessons and associated material on Oppia
 * Guide about how to use the "translation tab" and "feedback tab" of the exploration editor effectively.
 * Guide about how to enhance a lesson based on the information provided by stats and playthroughs.
