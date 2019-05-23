@@ -161,26 +161,13 @@ These commands can be used anywhere to kill a running process on any port by usi
     Use the same command in the cases where the changes made by you to files are not being detected by the server.
 
 ### Mac OS
-  * If, on MacOS Mojave V10.14.3, you get an issue arises while installing PIL library that looks something like this:
+  * If, on MacOS Mojave V10.14.x, you get an issue arises while installing PIL library that has a lot of gibberish and that includes stuff like:
 
-     ```
-     10.12-x86_64-2.7/libImaging/RawDecode.o build/temp.macosx-10.12-x86_64-2.7/libImaging/RawEncode.o build/temp.macosx-10.12-x86_64-2.7/libImaging/Storage.o build/temp.macosx-10.12-x86_64-2.7/libImaging/SunRleDecode.o build/temp.macosx-10.12-x86_64-2.7/libImaging/TgaRleDecode.o build/temp.macosx-10.12-x86_64-2.7/libImaging/Unpack.o build/temp.macosx-10.12-x86_64-2.7/libImaging/UnpackYCC.o build/temp.macosx-10.12-x86_64-2.7/libImaging/UnsharpMask.o build/temp.macosx-10.12-x86_64-2.7/libImaging/XbmDecode.o build/temp.macosx-10.12-x86_64-2.7/libImaging/XbmEncode.o build/temp.macosx-10.12-x86_64-2.7/libImaging/ZipDecode.o build/temp.macosx-10.12-x86_64-2.7/libImaging/ZipEncode.o -L/usr/local/lib -L/Users/me/opensource/env/lib -L/usr/lib -o build/lib.macosx-10.12-x86_64-2.7/_imaging.so
-    building '_imagingtk' extension
-    creating build/temp.macosx-10.12-x86_64-2.7/Tk
-    clang -fno-strict-aliasing -fno-common -dynamic -g -O2 -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -IlibImaging -I/Users/me/opensource/env/include -I/usr/local/include -I/usr/local/Cellar/python/2.7.14/Frameworks/Python.framework/Versions/2.7/include/python2.7 -c _imagingtk.c -o build/temp.macosx-10.12-x86_64-2.7/_imagingtk.o -framework Tcl -framework Tk
-    clang: warning: -framework Tcl: 'linker' input unused [-Wunused-command-line-argument]
-    clang: warning: -framework Tk: 'linker' input unused [-Wunused-command-line-argument]
-    In file included from _imagingtk.c:19:
-    /usr/local/include/tk.h:71:13: fatal error: 'X11/Xlib.h' file not found
-    #   include <X11/Xlib.h>
-                ^~~~~~~~~~~~
-    1 error generated.
-    error: command 'clang' failed with exit status 1
-    ----------------------------------------
-    Command "/Users/me/opensource/env/bin/python -u -c "import setuptools, tokenize;__file__='/private/var/folders/70/z9tbnv8x7s52phpcxhg7xfl00000gn/T/pip-req-build-l7X7r_/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" install --record /private/var/folders/70/z9tbnv8x7s52phpcxhg7xfl00000gn/T/pip-record-M1M85b/install-record.txt --single-version-externally-managed --compile --install-headers /Users/me/opensource/env/bin/../include/site/python2.7/PIL --home=/private/var/folders/70/z9tbnv8x7s52phpcxhg7xfl00000gn/T/pip-target-_MD2r2" failed with error code 1 in /private/var/folders/70/z9tbnv8x7s52phpcxhg7xfl00000gn/T/pip-req-build-l7X7r_/
-    ```
+      `error: command 'cc' failed with exit status 1`
 
-    try running this command on terminal ([reference](https://github.com/python-pillow/Pillow/issues/3438)):
+      `error: command 'clang' failed with exit status 1`
+
+    then try running this command on terminal ([reference](https://github.com/python-pillow/Pillow/issues/3438)):
 
     ```
       sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /
