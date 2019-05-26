@@ -44,7 +44,7 @@ The testers have to be in constant touch with both the QA coordinator as well as
 * Apr: Sean(@seanlip) and Nithesh (@nithusha21)
 * May: Nithesh(@nithusha21) and Vibhor(@vibhor98)
 * Jun: Ben(@BenHenning) and Nitish (@bansalnitish)
-* Jul: Sean(@seanlip) and Akshay (@aks681)
+* Jul: Sean(@seanlip) and Anubhav (@anubhavsinha98)
 * Aug: Nithesh(@nithusha21) and Vibhor(@vibhor98)
 * Sept: Ben(@BenHenning) and Akshay (@aks681)
 * Oct: Sean(@seanlip) and Nithesh (@nithusha21)
