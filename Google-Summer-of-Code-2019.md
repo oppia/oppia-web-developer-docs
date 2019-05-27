@@ -21,7 +21,7 @@ Also, please note that acceptance into GSoC isn't a prerequisite for [becoming a
 
 ## Accepted Proposals:
 
-The project's we've accepted (as of 6 May 2019) are:
+The project's we've accepted (as of 6 May 2019), together with their defined milestones, are:
 - [@ankita240796's proposal](pdfs/GSoC2019AnkitaSaxena.pdf) for validating production models. Mentor: Nitish Bansal.
   - **Milestone 1**: All storage models have audit jobs which run without errors in production.
   - **Milestone 2**: All audit jobs created in milestone 1 for Activity, Audit, Exploration, Collection, Recommendation, Story, Config, Topic, File discover no issues when run, and the code is future-proofed to ensure no such issues occur in the future. All cleanup jobs for these models are written and run without errors on the production server. 
