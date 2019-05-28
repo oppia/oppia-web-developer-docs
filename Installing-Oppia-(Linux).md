@@ -38,9 +38,10 @@ bash scripts/install_prerequisites.sh
 
   ```
     ../oppia_tools/
-    ../node_modules/
+    node_modules/
     third_party/
     core/templates/prod/
+    local_compiled_js/
   ```
 
   and running `start.sh` again.
