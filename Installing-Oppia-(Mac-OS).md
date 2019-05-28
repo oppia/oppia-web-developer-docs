@@ -58,8 +58,10 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
  
   ```
     ../oppia_tools/
-    ../node_modules/
+    node_modules/
     third_party/
+    core/templates/prod/
+    local_compiled_js/
   ```
  
   and running `start.sh` again.
