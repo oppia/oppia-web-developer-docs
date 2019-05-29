@@ -6,6 +6,8 @@ We use webpack to bundle almost all TypeScript files in `core/templates/dev/head
 
 Later we plan to use webpack with `extensions` folder, remaining files in `core/templates/dev/head`, dependencies, directives HTML files.
 
+Files that are not yet included in webpack bundles are compiled from TypeScript into JavaScript and are moved into `local_compiled_js` folder.
+
 ### Dev mode
 The configuration info for dev mode is in [`webpack.dev.config.ts`](https://github.com/oppia/oppia/blob/develop/webpack.dev.config.ts). The bundled files are generated into `core/templates/dev/head/dist` and then directly used from there in our server.
 
