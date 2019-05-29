@@ -270,7 +270,7 @@ oppia.directive('storySummaryTile', ['UrlInterpolationService', function(UrlInte
 **The requires for directives that are in HTML are included first and separated from the regular requires by empty line.**
 
 ### Adding new page
-When you're adding new HTML page that uses TypeScript you also need to add it to `webpack.conf.ts`:
+When you're adding new HTML page (not directive HTML) that uses TypeScript you also need to add it to `webpack.conf.ts`:
 
 1. You need to define the TypeScript entrypoint for the page into `module.exports.entries`.
 2. You need to add `new HtmlWebpackPlugin({…})` into `module.exports.plugins`.
