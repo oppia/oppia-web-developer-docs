@@ -25,10 +25,24 @@ If your PR changes the properties of an exploration or state (or other structure
 
 **Note:** These steps are for the migration where one is changing the schema of all existing states, depending on the changes your migration is going to make the steps will be less as you’ll have to change very fewer test files.
 
-If you find new test files where changes needed to be required, try updating the list. 
+If you find new test files where changes needed to be required, try updating the list.
 
 **Links to relevant PRs:**
  - Migration related to changing state schema for all possible states: [#6249](https://github.com/oppia/oppia/pull/6249)
 
  - Migration related to changing specific interaction schema: [#6177](https://github.com/oppia/oppia/pull/6177)
  - One-off job related to migration: [#6249](https://github.com/oppia/oppia/pull/6249)
+
+## Testing state migration locally:
+
+- Checkout develop.
+- Start server and go to the admin page.
+- Load all demo exploration.
+- Create a new exploration and make some changes and don't save them.
+- Go to 0.0.0.0:8000 and flush existing memcache from the memcache tab.
+- Go to the Jobs tab of admin page.
+- Run ExplorationMigrationJobManager and wait for the job to get completed.
+- Check the output of the job and post the screen-shot in your PR.
+- Go to the exploration you have created lately, check whether it's working as expected.
+- Check demo exploration (note demo exploration ids are 0, 1, 2, etc.)
+- Add a report in your migration PR. 
