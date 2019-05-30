@@ -21,7 +21,7 @@ If your PR changes the properties of an exploration or state (or other structure
 8. Once your PR is finalized, create a new one-off job (ExplorationMigrationValidationJob) which will make changes to the dict of existing exploration model and validates that the migration will be successful.
 9. Once the one-off job PR gets merged and the job result is successful, try updating your migration PR and deleting the one-off job (as this will not be required anymore).
 10. Get your migration PR merged.
-11. Once your PR is merged, please submit a request using this [form](https://docs.google.com/forms/d/e/1FAIpQLSfvYWscAn18ok06An1oQ54h1VmBHfCX8uuuV01kIvY9WX0-Ug/viewform) to run this migration in production. Before submitting this request, please ensure that the migration has already been tested manually on your local machine, passed code review, and been merged into develop.
+11. Once your PR is merged, please submit a request using this [form](https://docs.google.com/forms/d/e/1FAIpQLSeI_hrDEM_hsddJIw77HLC_C3pemB5zBXuPpuEJS6FSXQU0iA/viewform?usp=sf_link) to run this migration in production. Before submitting this request, please ensure that the migration has already been tested manually on your local machine, passed code review, and been merged into develop.
 
 **Note:** These steps are for the migration where one is changing the schema of all existing states, depending on the changes your migration is going to make the steps will be less as you’ll have to change very fewer test files.
 
@@ -36,7 +36,7 @@ If you find new test files where changes needed to be required, try updating the
 ## Testing state migration locally:
 
 - Checkout develop.
-- Start server and go to the admin page.
+- Start the server and go to the admin page.
 - Load all demo exploration.
 - Create a new exploration and make some changes and don't save them.
 - Go to 0.0.0.0:8000 and flush existing memcache from the memcache tab.
