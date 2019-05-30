@@ -31,4 +31,4 @@ If you find new test files where changes needed to be required, try updating the
  - Migration related to changing state schema for all possible states: [#6249](https://github.com/oppia/oppia/pull/6249)
 
  - Migration related to changing specific interaction schema: [#6177](https://github.com/oppia/oppia/pull/6177)
- - One-off job related tomigration: [#6249](https://github.com/oppia/oppia/pull/6249)
+ - One-off job related to migration: [#6249](https://github.com/oppia/oppia/pull/6249)
