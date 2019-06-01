@@ -34,7 +34,7 @@ The project's we've accepted (as of 6 May 2019), together with their core milest
   - **Milestone 1**: All static pages serve without Jinja. (NB: dynamic pages are: profile, admin, library, creator_dashboard, skill_editor, story_editor, exploration_{player|editor}, topic_{viewer|editor}, collection_{player|editor}. All others are static.)
   - **Milestone 2**: All dynamic pages have no Jinja constructs except: interaction_templates, dependencies_html, visualizations_html, value_generators_js, rich_text_components.
   - **Milestone 3**: Jinja is fully removed from the Oppia codebase.
-- [@import-keshav's proposal](pdfs/GSoC2019KeshavBathla.pdf) (still tentative) for building a flow for artists to submit images to lessons. Mentors: Nithesh Hariharan and Sandeep Dubey.
+- [@import-keshav's proposal](pdfs/GSoC2019KeshavBathla.pdf) for building a flow for artists to submit images to lessons. Mentors: Nithesh Hariharan and Sandeep Dubey.
   - **Milestone 1**: Lesson creators can add image placeholders in exploration content. They cannot publish the exploration without filling all the placeholders.
   - **Milestone 2**: A full list of open image requests is shown on the community dashboard page. Any user can fulfill an image request by suggesting an image via that page.
   - **Milestone 3**: Proficient artists can review suggested images, leave comments on the review thread, and accept/reject the suggestion.
