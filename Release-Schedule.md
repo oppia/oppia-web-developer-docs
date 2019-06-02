@@ -43,13 +43,13 @@ The testers have to be in constant touch with both the QA coordinator as well as
 * Mar: Ben(@BenHenning) and Akshay (@aks681)
 * Apr: Sean(@seanlip) and Nithesh (@nithusha21)
 * May: Nithesh(@nithusha21) and Vibhor(@vibhor98)
-* Jun: Ben(@BenHenning) and Nitish (@bansalnitish)
-* Jul: Sean(@seanlip) and Anubhav (@anubhavsinha98)
-* Aug: Nithesh(@nithusha21) and Vibhor(@vibhor98)
-* Sept: Ben(@BenHenning) and Akshay (@aks681)
-* Oct: Sean(@seanlip) and Nithesh (@nithusha21)
-* Nov: Nithesh(@nithusha21) and Vibhor(@vibhor98)
-* Dec: Ben(@BenHenning) and Nitish (@bansalnitish)
+* Jun: Akshay/Sean(@aks681/@seanlip) and Nitish (@bansalnitish)
+* Jul: Sandeep(@DubeySandeep) and Anubhav (@anubhavsinha98)
+* Aug: Nithesh(@nithusha21) and Akshay(@aks681)
+* Sep: Sandeep(@DubeySandeep) and Nithesh (@nithusha21)
+* Oct: Sean(@seanlip) and Nitish (@bansalnitish)
+* Nov: Nithesh(@nithusha21) and Anubhav(@anubhavsinha98)
+* Dec: Akshay(@aks681) and Nithesh (@nithusha21)
 
 # QA rota to monitor incoming PRs as per instructions mentioned above
 ```4 Feb - 10 Feb	  Akshay        @aks681
