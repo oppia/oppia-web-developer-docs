@@ -81,6 +81,18 @@ November  Apurv (@apb7)        Rishav (@lilithxxx)
 * If the issue is solved by someone other than a dev-flow member, write down the issue with its solution in the troubleshooting page of the wiki so that other contributor does not face the same problem.
 * Monitor that the solutions of all setup issues are indeed jotted down in the wiki. 
 
+#### Rota for updating metrics tracker:
+```
+April     Apurv (@apb7)
+May 	  Anubhav (@anubhavsinha98)
+June      Yash (@YashJipkate)
+July 	  Rishav (@lilithxxx)
+August 	  Anubhav (@anubhavsinha98)
+September Yash (@YashJipkate)
+October	  Apurv (@apb7)
+November  Rishav (@lilithxxx)
+Decemeber Anubhav (@anubhavsinha98)
+```
 ***
 
 ### Triaging issues and keeping the team updated with progress -- what’s the system we’re using for this?
