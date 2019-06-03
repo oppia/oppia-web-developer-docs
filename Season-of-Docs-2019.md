@@ -33,7 +33,7 @@ A: Writing a good project proposal, engaging with the community, helping other s
 
 # Starter projects
 
-For each project that we have, you can work on two starter projects, these will be evaluated together with your project proposal and should basically present us how will the other pages/guides/docs look like if you get accepted for Season of Docs 2019. You should primary focus on quality and not quantity. The starter projects will be evaluated from two main perspectives:
+For each project that we have, you can pick one of two starter projects to work on, these will be evaluated together with your project proposal and should basically present us how will the other pages/guides/docs look like if you get accepted for Season of Docs 2019. You should primary focus on quality and not quantity. The starter projects will be evaluated from two main perspectives:
 * if the project is correct from the technical point of view (it says only things that are true)
 * if the project is grammatically and typografically "correct" (if it is easy to understand)
 
