@@ -39,7 +39,7 @@ For each project that we have, you can pick one of two starter projects to work 
 
 You can submit the starter project into [oppia-sod-discuss@](https://groups.google.com/forum/#!forum/oppia-sod-discuss) before the deadline for project proposals (June 28).
 #### Beginners’ guide to creating lessons and associated material on Oppia
-* Guide about how to use the "translation tab" and "feedback tab" of the exploration editor effectively.
+* Guide about how to use the "translation tab" of the exploration editor effectively.
 * Guide about how to enhance a lesson based on the information provided by stats and playthroughs.
 #### Guide for Oppia developers
 * Guide about how to write a backend job.
