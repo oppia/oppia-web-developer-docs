@@ -38,8 +38,9 @@ If you find new test files where changes needed to be required, try updating the
 - Checkout develop.
 - Start the server and go to the admin page.
 - Load all demo exploration.
-- Create a new exploration and make some changes and don't save them.
-- Go to 0.0.0.0:8000 and flush existing memcache from the memcache tab.
+- Create a new exploration, make some changes and save them.
+- Checkout the feature branch which contains state migration.
+- Go to 0.0.0.0:8000 and flush existing Memcache from the Memcache tab.
 - Go to the Jobs tab of admin page.
 - Run ExplorationMigrationJobManager and wait for the job to get completed.
 - Check the output of the job and post the screen-shot in your PR.
