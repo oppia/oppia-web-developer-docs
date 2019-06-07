@@ -16,3 +16,21 @@ Setting up a CircleCI instance for your Oppia's fork hardly takes a couple of mi
 
 You've successfully setup CircleCI for your fork of oppia. Enjoy testing your PRs beforehand!
 
+
+***
+## Troubleshooting in case of stalled Codecov coverage checks
+
+In case the Codecov coverage checks on your PR appear to be stalled (something like this except that **there is a yellow dot before `codecov/patch` and `codecov/project` and not a green tick**)
+
+
+![pr-checks](https://user-images.githubusercontent.com/24826041/59090041-42451980-8929-11e9-8fde-1e84c3fac6ea.png)
+
+
+and you have set up your own instance of CircleCI, then please go ahead and unfollow `your-github-name/oppia` project on CircleCI by visiting this link:  
+
+`https://circleci.com/gh/organizations/your-github-username/settings#projects`  
+(please remember to fill in your GitHub username in place of `your-github-username` here). 
+ 
+Once you've done that, please re-trigger the build by making any commit or bringing your PR branch up-to-date with develop.
+
+If you face any further problems, please feel free to ping @oppia/dev-workflow-team.
