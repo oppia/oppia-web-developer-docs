@@ -70,7 +70,7 @@ November  Apurv (@apb7)        Rishav (@lilithxxx)
 
 4. Ping the team to update their tasks in meeting minutes, before the meeting.
 
-5. Do daily passes on the PRs that are more than 1 month old and move them along.
+5. Do daily passes on the PRs that are more than 1 month old and move them along: all initial PRs listed [here](https://github.com/oppia/oppia/pulls?q=is%3Apr+is%3Aopen+sort%3Acreated-asc).
 
 **Duties of the dev-flow rota coordinator:**
 1. Ensure member rotation is followed.
