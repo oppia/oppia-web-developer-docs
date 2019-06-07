@@ -22,18 +22,19 @@
 ***
 
 ## Instructions for existing team members
-Jot down the issues faced by developers related to developer-workflow in the [setup-issues spreadsheet](https://docs.google.com/spreadsheets/d/1pKN1otvhaI8IYlNj79MX_qxArbD4p4L-CdsnQT022Pc/edit?usp=sharing
-) with the possible solutions (if known) from which they will be noted in the [Troubleshooting page](https://github.com/oppia/oppia/wiki/Troubleshooting) of the wiki.
+~Jot down the issues faced by developers related to developer-workflow in the [setup-issues spreadsheet](https://docs.google.com/spreadsheets/d/1pKN1otvhaI8IYlNj79MX_qxArbD4p4L-CdsnQT022Pc/edit?usp=sharing
+) with the possible solutions (if known) from which they will be noted in the [Troubleshooting page](https://github.com/oppia/oppia/wiki/Troubleshooting) of the wiki.~
+File the issues faced by developers related to developer-workflow directly on [the issue tracker](https://github.com/oppia/oppia/issues). Possible solutions (if known) should be noted down in the issue thread. Before closing down the issue, note it down in the [Troubleshooting page](https://github.com/oppia/oppia/wiki/Troubleshooting) of the wiki.
 
 ### Tasks:
 * Look through the gitter channel, the mailing list and all issues/PRs where the dev-flow team (@dev-workflow-team) is tagged.
 * If a setup issue is seen more than 2 times in the codebase then open a new issue with the label ‘setup issues’ in github.
 
 #### [@apb7 + @lilithxxx + @anubhavsinha98 + @YashJipkate]: 
-_If a new issue comes in_, clearly explain the issue faced by the developer with its possible solutions (if known) in the above issues spreadsheet.
+_If a new issue comes in_, clearly explain the issue faced by the developer with its possible solutions (if known) in the filed issue's thread.
 If the issue is solved by you:
 * **Update the troubleshooting page of the wiki.**
-* Remove the issue from the spreadsheet after its been written down in the wiki.
+* Close the issue after its been written down in the wiki.
 
 #### Dev-flow Rota for tracking setup issues:
 ```
