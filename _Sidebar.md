@@ -29,7 +29,7 @@
     * [[Writing state migrations | Writing-state-migrations]]
     * [[Coding for speed in GAE | Coding-for-speed-in-GAE]]
     * [[Git cheat sheet|Git-cheat-sheet]]
-    * [[Setup-your-own-CircleCI-instance|Setup-your-own-CircleCI-instance]]
+    * [[Setup your own CircleCI instance|Setup-your-own-CircleCI-instance]]
     * [[Setup your own Travis instance|Setup-your-own-Travis-instance]]
     * [[Mobile development|Mobile-development]]
     * [[Adding new translations|Adding-new-translations-for-i18n]]
