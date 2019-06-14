@@ -2,6 +2,12 @@ Code review is an important part of the Oppia development cycle. Having a second
 
 When you receive a code review request, please try to do the review as soon as possible! Otherwise, the submitter will be blocked.
 
+## Figuring out which PRs need your attention
+
+Please replace {{USERNAME}} with your GitHub username at the end of this URL: https://github.com/oppia/oppia/pulls/assigned/{{USERNAME}}. 
+
+Clicking on the resulting URL will take you to a list of PRs that are assigned to you.
+
 ## When you first receive a review request
 
   1. When you get an email saying a pull request has been assigned to you for review, click on the link to open it in GitHub.
@@ -21,12 +27,12 @@ When you receive a code review request, please try to do the review as soon as p
      * If the change affects the UI, check out the branch and look at it in a browser. Does the UI look good and intuitive to the user?
 
 
-  **Note**: To checkout branch BRANCH_NAME from committer COMMITTER_USERNAME to your local machine, run:
-  ```
-    git checkout -b {{COMMITTER_NAME}}-{{BRANCH_NAME}} develop
-    git pull https://github.com/{{COMMITTER_NAME}}/oppia.git {{BRANCH_NAME}}
-  ```
-  See also [Checking out pull requests locally](https://help.github.com/articles/checking-out-pull-requests-locally/).
+      **Note**: To checkout branch BRANCH_NAME from committer COMMITTER_USERNAME to your local machine, run:
+      ```
+        git checkout -b {{COMMITTER_NAME}}-{{BRANCH_NAME}} develop
+        git pull https://github.com/{{COMMITTER_NAME}}/oppia.git {{BRANCH_NAME}}
+      ```
+      See also [Checking out pull requests locally](https://help.github.com/articles/checking-out-pull-requests-locally/).
 
   1. After submitting the review, set the Assignee field to the developer's GitHub username, so that they know it's their turn.
 
