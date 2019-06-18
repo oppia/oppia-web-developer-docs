@@ -221,6 +221,13 @@ If you use [Sublime Text](http://www.sublimetext.com/), consider installing the 
 - If you add a property on scope defined in a link function, add it to `custom-scope-defs.d.ts` and add a comment specifying the filename for which it is added.
 - Make sure that all files have comments which explain why these custom type defintions are required and additional comments to explain each new added property if required. For example, `typings/custom-scope-defs.d.ts` has a top level comment explaining that the type defintions are needed for properties defined on scope in link function and then there are additional comments with properties added specifying which file they belong to. Go through the existing files and try to follow the same pattern when adding a new file.
 
+### Component Directives
+Usage of old-style AngularJS directives is discouraged. Instead, use component directives. Component directives are an advanced version of AngularJS directives and are more preferred because of the "isolated scope" it creates and the reusability it offers across modules. This is also the way forward in Angular 2+.
+
+- Do not create standalone controllers. The standalone controllers are those which are associated with the `ng-controller` directive in the HTML file.
+- While creating a new directive, make sure to use the component directive instead of the old style directives. Now, here's something: The component directives create what is called an "isolated scope". So the component directive can be thought of as a reusable component not dependent on its surroundings and hence "isolated". Therefore you must not use `$scope` in the directive, except for some exceptions like `$scope.$on`, `$scope.$apply` and other internal functions of `$scope` which do not have a full replacement. Also `$uibmodal`s are exempted from this rule.
+- There are many instances where this "isolated scope" needs to communicate with the surrounding, in such cases you must pass such data through the `bindToController` key of the component directive. This binds the values to the controller of the component directive and you can access those values in your directive's isolated scope.
+
 ## Webpack
 
 In all TypeScript files in `core/templates/dev/head` we use webpack. That means that instead of including the required files by `<script src="…"></script>` in HTML files we include them by using `require(…)` in the individual TS files.
