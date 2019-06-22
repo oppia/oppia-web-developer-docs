@@ -156,3 +156,21 @@ Vojtěch      Speed Improvement
 Yogesh       Backend stuff, ACLs, Speed
 Sean         Everything else
 ```
+
+***
+
+### How to clear caches for CIs?
+
+We've observed cases in the past where the cache got corrupted leading to build failures for the develop branch and PRs
+If you suspect that PR builds are failing for no apparent reasons, then clearing the cache might fix the builds. In such cases, please ping **Apurv (@apb7)** first. If he's not available at the moment, please follow these instructions to clear build cache.
+
+**Travis CI**
+1. Go to [https://travis-ci.org/oppia/oppia/caches](https://travis-ci.org/oppia/oppia/caches).
+2. You can either delete all repository caches by clicking on `Delete all repository caches` or delete cache for a particular PR by clicking on the `Bin` icon at the end of that PR's row.
+ 
+**Circle CI**
+Clearing cache for builds on CircleCI is not straight forward like Travis CI. Therefore, CircleCI caches are re-built each day. If you think that the problem still persists, then please follow these steps:
+
+1. Create a PR with all `restore_cache` steps commented out in [`.circleci/config.yml`](https://github.com/oppia/oppia/blob/develop/.circleci/config.yml). Basically, comment out the following lines in the above-mentioned config file: [L26-27](https://github.com/oppia/oppia/blob/develop/.circleci/config.yml#L26-L27), [L41-42](https://github.com/oppia/oppia/blob/develop/.circleci/config.yml#L41-L42), [L59-60](https://github.com/oppia/oppia/blob/develop/.circleci/config.yml#L59-L60) and [L77-78](https://github.com/oppia/oppia/blob/develop/.circleci/config.yml#L77-L78).
+2. If the problem is actually with the cache, the PR should be build flawlessly.
+3. If the PR is indeed built successfully, merge this PR into develop to unblock PRs.
