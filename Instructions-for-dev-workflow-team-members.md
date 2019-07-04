@@ -6,13 +6,12 @@
 * After you’ve successfully fixed two dev-workflow-specific starter issues, follow these steps:
   * Ping **@apb7** to make you a member of the dev-workflow-team.
   * Ping **@apb7** to assign you one of the sub-missions of the Team. If the sub-mission is already being led by any team member, please ping them for suggested work. The following are the current sub leads:
-    * **Apurv**: Builds and Review Workflow
-    * **Rishav**: Oppiabot and Setup issues
-    * **Anubhav**: Optimize speed of scripts
+    * **Apurv**: Builds, Review Workflow and Oppiabot
+    * **Anubhav**: Optimize speed of scripts and Setup issues
     * **Yash**: Tracking and adding new lint checks to the codebase.
   * Ping **@apb7** to extend the team meeting invites to you. Please RSVP to them as soon as possible.
   * Ping **@apb7** to add you to the Dev Workflow Team Hangouts group. The Team usually has quick discussions here.
-  * Ping **@lilithxxx** to assign you a rota for tracking setup issues, [here](https://github.com/oppia/oppia/wiki/Instructions-for-dev-workflow-team-members#dev-flow-rota).
+  * Ping **@anubhavsinha98** to assign you a rota for tracking setup issues, [here](https://github.com/oppia/oppia/wiki/Instructions-for-dev-workflow-team-members#dev-flow-rota).
   * Subscribe to both, CircleCI and Travis build notifications. Please follow this:
     * CircleCI: Login to CircleCI using your GitHub account and go to [this link](https://circleci.com/gh/oppia/oppia/edit). There you’ll find an option to follow oppia/oppia.  
     * Travis: Make a PR adding your email id to .travis.yml similar to [this PR](https://github.com/oppia/oppia/pull/6330/files).
@@ -30,7 +29,7 @@ File the issues faced by developers related to developer-workflow directly on [t
 * Look through the gitter channel, the mailing list and all issues/PRs where the dev-flow team (@dev-workflow-team) is tagged.
 * If a setup issue is seen more than 2 times in the codebase then open a new issue with the label ‘setup issues’ in github.
 
-#### [@apb7 + @lilithxxx + @anubhavsinha98 + @YashJipkate]: 
+#### [@apb7 + @anubhavsinha98 + @YashJipkate]: 
 _If a new issue comes in_, clearly explain the issue faced by the developer with its possible solutions (if known) in the filed issue's thread.
 If the issue is solved by you:
 * **Update the troubleshooting page of the wiki.**
@@ -39,15 +38,15 @@ If the issue is solved by you:
 #### Dev-flow Rota for tracking setup issues:
 ```
 January	  Apurv         @apb7
-February  Rishav        @lilithxxx
+February  Apurv         @apb7
 March  	  Anubhav       @anubhavsinha98
 April     Yash          @YashJipkate
 May 	  Apurv         @apb7
-June      Rishav        @lilithxxx
+June      Apurv         @apb7
 July 	  Anubhav       @anubhavsinha98
 August 	  Yash          @YashJipkate
 September Apurv         @apb7
-October	  Rishav        @lilithxxx
+October	  Anubhav       @anubhavsinha98
 November  Anubhav       @anubhavsinha98
 December  Yash          @YashJipkate
 ```
@@ -55,12 +54,12 @@ December  Yash          @YashJipkate
 ```
 April     Apurv (@apb7)        Anubhav (@anubhavsinha98)
 May 	  Yash (@YashJipkate)  Anubhav (@anubhavsinha98)
-June      Yash (@YashJipkate)  Rishav (@lilithxxx)
-July 	  Apurv (@apb7)        Rishav (@lilithxxx)
+June      Yash (@YashJipkate)  Apurv (@apb7)
+July 	  Apurv (@apb7)        Anubhav (@anubhavsinha98
 August 	  Apurv (@apb7)        Anubhav (@anubhavsinha98)
 September Yash (@YashJipkate)  Anubhav (@anubhavsinha98)
-October	  Yash (@YashJipkate)  Rishav (@lilithxxx)
-November  Apurv (@apb7)        Rishav (@lilithxxx)
+October	  Yash (@YashJipkate)  Apurv (@apb7)
+November  Apurv (@apb7)        Anubhav (@anubhavsinha98)
 ```
 #### Responsibilities of Co-Lead:-
 1. Manage the whole dev workflow team and ensure that every team member is working on at least one issue/bug/feature. 
@@ -77,10 +76,10 @@ November  Apurv (@apb7)        Rishav (@lilithxxx)
 1. Ensure member rotation is followed.
 2. Send a ping/email to the member reminding him/her of the rota if it has been missed. 
 
-#### Rota coordinator: Rishav
+#### Rota coordinator: Anubhav
 
 
-#### [@lilithxxx]: 
+#### [@anubhavsinha98]: 
 * If the issue is solved by someone other than a dev-flow member, write down the issue with its solution in the troubleshooting page of the wiki so that other contributor does not face the same problem.
 * Monitor that the solutions of all setup issues are indeed jotted down in the wiki. 
 
@@ -89,11 +88,11 @@ November  Apurv (@apb7)        Rishav (@lilithxxx)
 April     Apurv (@apb7)
 May 	  Anubhav (@anubhavsinha98)
 June      Yash (@YashJipkate)
-July 	  Rishav (@lilithxxx)
+July 	  Apurv (@apb7)
 August 	  Anubhav (@anubhavsinha98)
 September Yash (@YashJipkate)
 October	  Apurv (@apb7)
-November  Rishav (@lilithxxx)
+November  Yash (@YashJipkate)
 Decemeber Anubhav (@anubhavsinha98)
 ```
 ***
