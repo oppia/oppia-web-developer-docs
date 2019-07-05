@@ -50,7 +50,7 @@ October	  Anubhav       @anubhavsinha98
 November  Anubhav       @anubhavsinha98
 December  Yash          @YashJipkate
 ```
-#### Dev Workflow Rota for Co-Lead:
+#### Dev Workflow Rota for Co-Maintainer:
 ```
 April     Apurv (@apb7)        Anubhav (@anubhavsinha98)
 May 	  Yash (@YashJipkate)  Anubhav (@anubhavsinha98)
@@ -61,7 +61,7 @@ September Yash (@YashJipkate)  Anubhav (@anubhavsinha98)
 October	  Yash (@YashJipkate)  Apurv (@apb7)
 November  Apurv (@apb7)        Anubhav (@anubhavsinha98)
 ```
-#### Responsibilities of Co-Lead:-
+#### Responsibilities of Co-Maintainer:-
 1. Manage the whole dev workflow team and ensure that every team member is working on at least one issue/bug/feature. 
 
 2. Figure out the lint errors facing by the contributors.
