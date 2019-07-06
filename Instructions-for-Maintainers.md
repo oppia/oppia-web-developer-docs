@@ -115,7 +115,6 @@ Current rota coordinator: Apurv
 ```
 Allan        Rich-text editor
 Ankita       Production migration jobs, Angular migration, Dev workflow
-Anmol        Machine learning
 Apurv        Dev workflow
 Akshay       Questions, skills, topics and stories
 Ben          Migrations, Storage
@@ -124,12 +123,10 @@ Jacob        Metrics
 Joe          Oppia's blog
 Kevin L      Embedding, collection editor, library index page
 Mark         General UI design, mathematics lessons
-Nitish       Rich-text editor
 Nithesh      Suggestions, Questions
 Prasanna     Machine learning
 Rachel       User research
 Sandeep      Starter projects, Audio translation
-Tony         Learner experience
 Vojtěch      Speed Improvement
 Sean         Everything else
 ```
