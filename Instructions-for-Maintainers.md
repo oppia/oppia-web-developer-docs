@@ -114,8 +114,9 @@ Current rota coordinator: Apurv
 
 ```
 Allan        Rich-text editor
+Ankita       Production migration jobs, Angular migration, Dev workflow
 Anmol        Machine learning
-Apurv        Devworkflow
+Apurv        Dev workflow
 Akshay       Questions, skills, topics and stories
 Ben          Migrations, Storage
 Brian        Exploration statistics tab
@@ -130,7 +131,6 @@ Rachel       User research
 Sandeep      Starter projects, Audio translation
 Tony         Learner experience
 Vojtěch      Speed Improvement
-Yogesh       Backend stuff, ACLs, Speed
 Sean         Everything else
 ```
 
