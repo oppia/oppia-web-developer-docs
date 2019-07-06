@@ -75,30 +75,7 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 ## Maintainer Rota
 
 ```
-21 Jan - 27 Jan	  Jacob         @jacobdavis11
-28 Jan -  3 Feb	  Akshay        @aks681
- 4 Feb - 10 Feb	  Nithesh       @nithusha21
-11 Feb - 17 Feb	  Allan         @AllanYangZhou
-18 Feb - 24 Feb	  Apurv         @apb7
-25 Feb -  3 Mar	  Yogesh        @1995YogeshSharma
- 4 Mar - 10 Mar	  Kevin         @kevinlee12
-11 Mar - 15 Mar	  Sandeep       @DubeySandeep
-16 Mar - 22 Mar	  Vojtěch       @vojtechjelinek
-23 Mar - 29 Mar	  Allan         @AllanYangZhou
-30 Mar -  5 Apr   Jacob         @jacobdavis11
- 6 Apr - 12 Apr	  Akshay        @aks681
-13 Apr - 19 Apr	  Yogesh        @1995YogeshSharma
-20 Apr - 26 Apr	  Kevin         @kevinlee12
-27 Apr -  3 May	  Sandeep       @DubeySandeep
- 4 May - 10 May	  Allan         @AllanYangZhou
-11 May - 17 May	  Nithesh       @nithusha21
-18 May - 24 May	  Apurv         @apb7
-25 May - 31 May	  Vojtěch       @vojtechjelinek
- 1 Jun - 7 Jun	  Jacob         @jacobdavis11
- 8 Jun - 14 Jun	  Akshay        @aks681
-15 Jun - 21 Jun	  Nithesh       @nithusha21
-22 Jun - 28 Jun	  Apurv         @apb7
-29 Jun -  5 Jul	  Yogesh        @1995YogeshSharma
+29 Jun -  5 Jul	  Apurv         @apb7
  6 Jul - 12 Jul	  Kevin         @kevinlee12
 13 Jul - 19 Jul	  Sandeep       @DubeySandeep
 20 Jul - 26 Jul	  Allan         @AllanYangZhou
@@ -107,7 +84,7 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 10 Aug - 16 Aug	  Akshay        @aks681
 17 Aug - 23 Aug	  Nithesh       @nithusha21
 24 Aug - 30 Aug	  Apurv         @apb7 
-31 Aug -  6 Sep   Yogesh        @1995YogeshSharma
+31 Aug -  6 Sep   Ankita        @ankita240796
  7 Sep - 13 Sep	  Kevin         @kevinlee12
 14 Sep - 20 Sep	  Sandeep       @DubeySandeep
 21 Sep - 27 Sep	  Allan         @AllanYangZhou
@@ -116,7 +93,7 @@ Note that all sub-feature branches (like ``creator-landing-page-editor-settings-
 12 Oct - 18 Oct	  Allan         @AllanYangZhou
 19 Oct - 25 Oct	  Nithesh       @nithusha21
 26 Oct -  1 Nov	  Apurv         @apb7
- 2 Nov -  8 Nov	  Yogesh        @1995YogeshSharma
+ 2 Nov -  8 Nov	  Ankita        @ankita240796
  9 Nov - 15 Nov	  Kevin         @kevinlee12
 16 Nov - 22 Nov	  Sandeep       @DubeySandeep
 23 Nov - 29 Nov	  Vojtěch       @vojtechjelinek
