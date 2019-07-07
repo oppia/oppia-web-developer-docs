@@ -11,10 +11,10 @@ This diagram shows how the voice and tone characteristics are derived from Oppia
 ## Style best practices
 
 1. **Keep it simple.**
-  - Use simple words and short phrases. Pretend you’re speaking to someone who’s smart and competent, but doesn’t know technical jargon and may not speak English very well.
-  - Use short words, active verbs, and common nouns.
-  - Put the most important thing first. "Front-load" the first 10 or so characters with the most salient information in the string.
-  - Don’t try to explain subtle differences. They are lost on most users.
+    - Use simple words and short phrases. Pretend you’re speaking to someone who’s smart and competent, but doesn’t know technical jargon and may not speak English very well.
+    - Use short words, active verbs, and common nouns.
+    - Put the most important thing first. "Front-load" the first 10 or so characters with the most salient information in the string.
+    - Don’t try to explain subtle differences. They are lost on most users.
 2. **Use contractions.** Use all conventional contractions wherever possible, i.e. it’s, can’t, wouldn’t, you’re, you’ve, haven’t, don’t. Mirror how we speak.
 3. **Use numerals.** Don’t spell out numbers (even zero through nine) in UI text. Brevity is best. However, it is okay to spell out numbers in longer-form communications (i.e. email) or at the beginning of a sentence. You might also consider rewriting the sentence so it doesn’t start with a number.
 4. **Turn paragraphs into bullet points.** To the user, a paragraph can feel like a lot to take in. Make important information in the UI more digestible by breaking it up into bullet points (even if it’s just 2 or 3 sentences). This will allow users to get the info they need quickly.
