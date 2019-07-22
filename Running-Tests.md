@@ -92,7 +92,7 @@ Note that, on [Travis CI](https://travis-ci.org/oppia/oppia/pull_requests), the 
 
 **Other notes**
 
-Protractor has a screenshot reporting feature, but it needs to be enabled by seeing `_ADD_SCREENSHOT_REPORT` to true in
+Protractor has a screenshot reporting feature, but it needs to be enabled by setting `_ADD_SCREENSHOT_REPORT` to true in
 ```
     core/tests/protractor.conf.js
 ```
