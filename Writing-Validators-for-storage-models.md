@@ -8,15 +8,15 @@ A base validator which defines the following functions:
 
 * `_get_model_id_regex`: Returns a regular expression which is used to validate the model id. The function returns a default regex for models which do not have a specific id format but you should override this method if your model has a different id format.
 
-* `_validate_model_id`: Validates the model id using the regex obtained from `_get_model_id_regex`
+* `_validate_model_id`: Validates the model id using the regex obtained from `_get_model_id_regex`.
 
-* `_get_model_domain_object_instance`: Returns a domain object corresponding to the storage model. The domain object should have a `validate` function defined for the validation of object properties. This function returns a default None but it should be overridden if the model being validated has a domain object validation defined.
+* `_get_model_domain_object_instance`: Returns a domain object corresponding to the storage model. The domain object should have a `validate` function defined for the validation of object properties. This function returns a default value of `None` but it should be overridden if the model being validated has a domain object validation defined.
 
 * `_validate_model_domain_object_instances`: Validates the model properties using the validate method of domain object corresponding to the model.
 
-* `_get_external_id_relationships`: Returns a mapping of external ids related to a model instance mapped to the corresponding external models. The returned dict is of the format: `{FIELD_NAME: (MODEL_CLASS, [KEYS_LIST])}`
+* `_get_external_id_relationships`: Returns a mapping of external ids related to a model instance mapped to the corresponding external models. The returned dict is of the format: `{FIELD_NAME: (MODEL_CLASS, [MODEL_IDS_TO_FETCH])}`
 
-* `_validate_external_id_relationships`: Validates that the external model instances corresponding the model instance are not deleted and exist in the datastore.
+* `_validate_external_id_relationships`: Validates that the external model instances corresponding to the model instance are not deleted and exist in the datastore.
 
 * `_fetch_external_instance_details`: Fetches the external model instances corresponding to a model instance using the dict returned from `_get_external_id_relationships`. Ensure that this method is called before other `_validate` methods so that external models are fetched already if required. The external model details are stored in the dict `external_instance_details`. The format is `{FIELD_NAME: (MODEL_CLASS_NAME, MODEL_ID, MODEL_INSTANCE)}`
 
@@ -94,14 +94,14 @@ A base validator for user models. It inherits from Base Validator and adds the f
   list of exploration_ids in incomplete activities]
   ```
 
-* `_validate_common_properties_do_not_match`: Validates that properties common with an external model are different in item and external model.
+* `_validate_common_properties_do_not_match`: Validates that properties common with an external model are different in model instance and external model.
 
-When you create a new validator, choose the base validator which covers the common code and you do not need to write extra code for the functions already defined. If you are adding a set of common validators which require some common functions not defined in any of the base validators, add a new base validators with all these common functions.
+When you create a new validator, choose the base validator which covers the common code and no extra code is needed for the functions already defined. If you are adding a set of common validators which require some common functions not defined in any of the base validators, add a new base validators with all these common functions.
 
 For writing a validator, prepare a complete list of validation rules which the storage model should follow and ensure that your validator is testing each of those rules.
 
 Once you are done with writing the validator, add a new one off job for audit of the model which inherits from `ProdValidationAuditOneOffJob` and also update the `MODEL_TO_VALIDATOR_MAPPING`.
 
-You can also have extra audit jobs apart from the ones that use the validator. For example, `UserNormalizedNameAuditOneOffJob` does not use validator but instead iterates over a list of normalized usernames of all user models and ensures that no two names are the same.
+You can also have extra audit jobs apart from the ones that use the validator. For example, `UserNormalizedNameAuditOneOffJob` does not use a validator but instead iterates over a list of normalized usernames of all user models and ensures that no two names are the same.
 
 Ensure that all audit jobs defined in `core/domain/prod_validation_jobs_one_off.py` have a corresponding test defined in `core/domain/prod_validation_jobs_one_off_test.py`.
