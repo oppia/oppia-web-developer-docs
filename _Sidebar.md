@@ -28,6 +28,7 @@
       * [[Writing tests for custom Pylint Checkers|Writing-Tests-For-Pylint]] 
       * [[End-to-end tests|End-to-End-Tests]]
     * [[Writing state migrations | Writing-state-migrations]]
+    * [[Writing Validators for storage models | Writing-Validators-for-storage-models]]
     * [[Coding for speed in GAE | Coding-for-speed-in-GAE]]
     * [[Git cheat sheet|Git-cheat-sheet]]
     * [[Setup your own CircleCI instance|Setup-your-own-CircleCI-instance]]
