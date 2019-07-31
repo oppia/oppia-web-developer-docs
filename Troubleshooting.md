@@ -178,6 +178,21 @@ These commands can be used anywhere to kill a running process on any port by usi
     ```
     Use the same command in the cases where the changes made by you to files are not being detected by the server.
 
+  * If you get an error of the format:
+    ```
+    ImportError: No module named functools_lru_cache
+    ```
+
+    First check the directory `../oppia_tools/pylint-1.9.4` and if it is empty, re-install the missing prerequisites by running:
+    ```
+    bash scripts/start.sh
+    ``` 
+
+    If the directory is not empty and you still get the same error, try installing matplotlib by running the following command:
+    ```
+    sudo apt-get install python-matplotlib
+    ```
+
 ### Mac OS
   * If, on MacOS Mojave V10.14.x, you get an issue arises while installing PIL library that has a lot of gibberish and that includes stuff like:
 
