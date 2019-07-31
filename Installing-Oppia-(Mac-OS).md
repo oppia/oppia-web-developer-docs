@@ -40,8 +40,10 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
     If this is successful, the usual `YOURMACBOOK-NAME:directory$` at the start of the terminal line will be replaced with `(env) YOURMACBOOK-NAME:directory$`
     
     The following steps of installation and running the development server should all be done within this virtual environment to ensure compatibility.
+
+    **Note**: If you get errors while setting up virtual environment and running a development server works fine without a virtual environment (there are no conflicts with versions of python, pip or other python modules), you can safely skip the virtual environment setup.
  
- 
+
 ## Running Oppia on a development server ##
  
 1. In a terminal, navigate to `oppia/` and run:
