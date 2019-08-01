@@ -25,7 +25,7 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
  
 3. Download [git](http://git-scm.com/download/mac), then run the package and follow instructions. This allows you to store the source in version control.
  
-4. Set up a virtual environment (virtualenv) for your Oppia dependencies. This ensures that conflicting versions of Python, pip, or any Python modules on your machine do not result in installation issues. In `opensource/` run:
+4. Set up a virtual environment (virtualenv) for your Oppia dependencies. This ensures that conflicting versions of Python, pip, or any Python modules on your machine do not result in installation issues. In **the `opensource/` folder** (the parent directory of oppia/) run:
 
     ```
     pip2 install virtualenv
