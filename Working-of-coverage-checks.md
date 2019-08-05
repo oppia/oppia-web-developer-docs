@@ -20,12 +20,17 @@ For example, look at this one:
 
 But don't look at this one:
 ![ab](https://user-images.githubusercontent.com/32506039/62463151-e3741300-b7a6-11e9-845a-f81a3386d4ef.png)
+
 2. Click on Impacted Files:
 ![ac](https://user-images.githubusercontent.com/32506039/62463233-15857500-b7a7-11e9-82ac-f6bed3d8c532.png)
+
 3. Go to the “Files” tab
+
 4. Look at the red and green dot column. Each signify the number of coverage misses and hits respectively:
 ![ad](https://user-images.githubusercontent.com/32506039/62463260-28984500-b7a7-11e9-8b83-faba18f43d1b.png)
+
 5. Browse to the file which says there is an increase in red dots or a decrease in green dots.
+
 6. In that file, the red lines denote the coverage misses and green lines denote coverage hits. Add tests for the red lines.
 For example, in the screenshot below, line 1429 is an untested line and the others are tested.
 ![ae](https://user-images.githubusercontent.com/32506039/62463283-3d74d880-b7a7-11e9-83be-4fd531ff6209.png)
