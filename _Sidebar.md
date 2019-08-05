@@ -42,6 +42,7 @@
     * [[Release schedule|Release-Schedule]]
     * [[Running jobs in production|Running-jobs-in-production]]
     * [[Team structure|Team-Structure]]
+    * [[Working of coverage checks|Working-of-coverage-checks]]
   * Testing Oppia
     * [[Mobile device testing|Mobile-device-testing]]
     * [[Browser & device testing|Browser-and-Device-Testing-Using-BrowserStack]]
