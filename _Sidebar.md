@@ -23,6 +23,7 @@
     * [[Analyzing the codebase|Analyzing-the-codebase]]
     * [[Running tests|Running-Tests]]
     * [[If your build fails...|If-Your-Build-Fails]]
+      * [[How the coverage checks work|Working-of-coverage-checks]]
     * Writing Tests
       * [[Writing backend tests]]
       * [[Writing tests for custom Pylint Checkers|Writing-Tests-For-Pylint]] 
@@ -42,7 +43,6 @@
     * [[Release schedule|Release-Schedule]]
     * [[Running jobs in production|Running-jobs-in-production]]
     * [[Team structure|Team-Structure]]
-    * [[Working of coverage checks|Working-of-coverage-checks]]
   * Testing Oppia
     * [[Mobile device testing|Mobile-device-testing]]
     * [[Browser & device testing|Browser-and-Device-Testing-Using-BrowserStack]]
