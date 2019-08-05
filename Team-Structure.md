@@ -1,6 +1,6 @@
 ## General notes on team structure
 
-The Oppia team is a distributed team of contributors from all over the world. In order to ensure that the project is as stable as possible, we have a number of infrastructure teams devoted to maintaining the health of various aspects of the development workflow. We also have project leads who are in charge of specific initiatives or sections of the Oppia project.
+The Oppia team is a distributed team of contributors from all over the world. In order to ensure that the project is as stable as possible, we have a number of infrastructure teams devoted to maintaining the health of various aspects of the development workflow. We also have an onboarding team who helps new contributors get started with the project, as well as project leads who are in charge of specific initiatives or sections of the Oppia project.
 
 This wiki page explains the different teams in Oppia and their composition.
 
@@ -72,7 +72,7 @@ The dev workflow team is also supported by a Maintainers team. The role of the m
 - Triage issues during the weekly rota
 - Push things forward in the codebase (assigning the right people, labelling stuff, etc.)
 
-### Onboarding Team
+## Onboarding Team
 
 (Currently led by Sandeep Dubey.)
 
@@ -87,7 +87,7 @@ The current members of this group are:
 - Sandeep Dubey
 
 
-### Project Leads and Code Owners
+## Project Leads and Code Owners
 
 In order to streamline development efforts, many of the major projects in Oppia are organized as small development teams containing 2-5 members. The projects are listed in the [Projects](https://github.com/oppia/oppia/projects) page, and each team has a team lead who is responsible for the success of the project. 
 
