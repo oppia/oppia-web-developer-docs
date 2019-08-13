@@ -40,9 +40,9 @@ Docker allows for an easy installation of Oppia for Windows users and a more rel
     - If successful, the output should say: `successfully tagged {image_name}:latest`. It will also give a security warning, but this is fine. You will be able to see the Docker image’s details by running: `docker images`
     - If it is not successful, it is very likely due to unstable wifi connections. Move next to a router, and retry this step. 
 
-    Successful run:
+    Here's what a successful run looks like:
 
-  ![Screenshot showing terminal output for a successful Docker installation.](images/dockerSuccess.png)
+      ![Screenshot showing terminal output for a successful Docker installation.](images/dockerSuccess.png)
 
 ### Build a Docker container based on image
 
