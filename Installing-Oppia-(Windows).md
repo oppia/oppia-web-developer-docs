@@ -10,7 +10,7 @@
 
 _These notes were kindly contributed by **@ezl-13** on 13 Aug 2019. Note though that getting the frontend (Karma) tests running may not work in a foolproof way, and we haven't figured out how to get the e2e tests running yet. This is being worked on in issues [#7355](https://github.com/oppia/oppia/issues/7355) and [#7345](https://github.com/oppia/oppia/issues/7345)._
 
-Docker allows for an easy installation of Oppia for Windows users and a more reliable testing environment for running test scripts. The following instructions describe how to install Oppia using Docker. (If you need help with troubleshooting, please scroll further down this page.)
+Docker allows for an easy installation of Oppia for Windows users and a more reliable testing environment for running test scripts. The following instructions describe how to install Oppia using Docker. (If you need help with troubleshooting, please see [this section](https://github.com/oppia/oppia/wiki/Installing-Oppia-(Windows)#troubleshooting).)
 
 ## Prerequisites & Getting Docker Container Set Up (you should only need to follow these steps once)
 
