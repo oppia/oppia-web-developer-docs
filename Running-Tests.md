@@ -138,3 +138,29 @@ If you get an error similar to this:
 ```
 while running e2e tests, download and install [Java SE Development Kit 7u79](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html). 
 If the problem still persists, try installing/updating Java Runtime Environment. This should resolve the issue -- see discussion in [#1824](https://github.com/oppia/oppia/issues/1824#issuecomment-219192563)
+
+## Typescript tests ##
+
+You can run typescript tests using
+```
+    python scripts/typescript_checks.py
+```
+
+These tests compile all ts files in the codebase and checks for errors during compilation.
+
+The compiled files are generated in a folder `local_compiled_js_for_test` which is automatically deleted after the tests.
+
+**How do you know whether the tests have passed?**
+
+The tests pass if, at the end of the test output, you see the message:
+```
+    Compilation successful!
+```
+
+However, if you get a message:
+
+```
+    Errors found during compilation
+```
+
+then this means that the test has failed, and the error messages will be displayed below this line.
