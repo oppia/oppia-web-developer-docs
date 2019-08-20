@@ -276,6 +276,49 @@ oppia.directive('storySummaryTile', ['UrlInterpolationService', function(UrlInte
 
 **The requires for directives that are in HTML are included first and separated from the regular requires by empty line.**
 
+### Exporting variables and functions from a Typescript file to be imported in another Typescript file.
+Occasionally, you may want to export separate parts of your code inorder for them to be imported individually.
+This should be done using ES6 exports.
+
+For example, we have a file that contains a bunch of functions that are needed independently,
+```
+  // functions.ts
+  export const functionA = function() {
+    // does something.
+  }
+  export const functionB = function() {
+    // does something else.
+  }
+```
+functions.ts can now be imported as:
+```
+  import {functionA} from 'functions.ts';
+
+  // functionA is available for use here.
+```
+
+```
+  // multiple functions can be imported at the same time.
+  import {functionA, functionB} from 'functions.ts';
+
+  // functionA and functionB are available for use here.
+```
+
+However, if your functions file contains just one function or variable to be exported, it can be done as follows:
+```
+  // functions.ts
+  export default function functionA() {
+    // something happens here.
+  };
+```
+__OR__
+```
+  // functions.ts
+  const functionA = function() {
+    // something happens here.
+  }
+  export default functionA;
+```
 ### Adding new page
 When you're adding new HTML page (not directive HTML) that uses TypeScript you also need to add it to `webpack.conf.ts`:
 
