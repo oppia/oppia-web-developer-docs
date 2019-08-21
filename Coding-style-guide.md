@@ -278,7 +278,14 @@ oppia.directive('storySummaryTile', ['UrlInterpolationService', function(UrlInte
 
 ### Exporting variables and functions from a Typescript file to be imported in another Typescript file.
 
-If the file adds variable to the global scope we want to isolate the scope, you should export the variable that is added to the global scope. This should be done using ES6 exports.
+If the file adds variable to the global scope:
+```
+  // functions.ts
+  var functions = function() {
+    // something happens here.
+  }
+```
+We want to isolate that scope. This can be done by exporting the variable using ES6 exports.
 ```
   // functions.ts
   var functions = function() {
@@ -286,6 +293,7 @@ If the file adds variable to the global scope we want to isolate the scope, you 
   }
   export default functions;
 ```
+And then the variable can be loaded by `import functions from 'folder/folder/functions.ts';`
 
 ### Adding new page
 When you're adding new HTML page (not directive HTML) that uses TypeScript you also need to add it to `webpack.conf.ts`:
