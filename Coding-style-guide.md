@@ -279,19 +279,19 @@ oppia.directive('storySummaryTile', ['UrlInterpolationService', function(UrlInte
 ### Exporting variables and functions from a Typescript file to be imported in another Typescript file.
 
 If the file adds variable to the global scope:
+```javascript
+// functions.ts
+var functions = function() {
+  // something happens here.
+}
 ```
-  // functions.ts
-  var functions = function() {
-    // something happens here.
-  }
-```
-We want to isolate that scope. This can be done by exporting the variable using ES6 exports.
-```
-  // functions.ts
-  var functions = function() {
-    // something happens here.
-  }
-  export default functions;
+We want to isolate that scope, this can be done by exporting the variable using ES6 exports.
+```javascript
+// functions.ts
+var functions = function() {
+  // something happens here.
+}
+export default functions;
 ```
 And then the variable can be loaded by `import functions from 'folder/folder/functions.ts';`
 
