@@ -16,7 +16,9 @@ Docker allows for an easy installation of Oppia for Windows users and a more rel
 
 ### Start Docker
 
-1. Download Docker Desktop for Windows here: https://hub.docker.com/editions/community/docker-ce-desktop-windows
+1. Download Docker Desktop for Windows:
+    - Windows Enterprise and Pro: https://hub.docker.com/editions/community/docker-ce-desktop-windows
+    - Windows 10 Home: https://docs.docker.com/toolbox/toolbox_install_windows/
 
 2. Start Docker by clicking on the Docker application (a Docker icon should appear in your taskbar tray).
 
