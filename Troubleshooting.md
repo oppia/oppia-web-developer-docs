@@ -1,4 +1,4 @@
-Following are general trouble shooting tips. The platform specific tips are [[Linux|Troubleshooting#linux]], [[windows|Troubleshooting#windows]], [[Mac OS|Troubleshooting#mac-os]] and [[Vagrant|Troubleshooting#vagrant]]:
+Here are some general troubleshooting tips for Oppia. The platform specific tips are [[Linux|Troubleshooting#linux]], [[windows|Troubleshooting#windows]], [[Mac OS|Troubleshooting#mac-os]] and [[Vagrant|Troubleshooting#vagrant]]:
    
    * After running `scripts/start.sh`, if your terminal stuck around the following lines (or like the image below):  
      ```
@@ -194,6 +194,33 @@ These commands can be used anywhere to kill a running process on any port by usi
     ```
 
 ### Mac OS
+  * After running `bash scripts/start.sh`, if you get an error around the following lines: 
+    
+    ```
+         File "/opensource/oppia/core/platform/models.py", line 176, in import_gae_image_services
+             from core.platform.image import gae_image_services
+         File "/opensource/oppia/core/platform/image/gae_image_services.py", line 20, in <module>
+             from PIL import Image
+         File "/opensource/oppia_tools/Pillow-6.0.0/PIL/Image.py", line 93, in <module>
+             from . import _imaging as core
+       ImportError: cannot import name _imaging
+    ```
+     (note: [Google search results](https://pillow.readthedocs.io/en/stable/installation.html#warnings) indicate that PIL and Pillow cannot coexist in the same environment)
+
+    First stop the script running with Ctrl + C (or Command-period on a MAC).
+    Try uninstalling PIL:
+    ```
+      $ pip uninstall PIL
+    ```
+
+    Then, uninstall and reinstall Pillow
+    ```
+      $ pip uninstall pillow
+      $ pip install pillow
+    ```
+
+    Finally, try running the `bash scripts/start.sh script` again.
+
   * If, on MacOS Mojave V10.14.x, you get an issue arises while installing PIL library that has a lot of gibberish and that includes stuff like:
 
       `error: command 'cc' failed with exit status 1`
