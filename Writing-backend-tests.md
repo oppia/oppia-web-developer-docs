@@ -24,11 +24,11 @@ The report lists each backend file along with the lines missing coverage in test
    * action - perform the action or function call that leads to the expected change.
    * endline verification - check that the values in the baseline verification have changed accordingly.
 
-1. Each test method should only test a single behavior, as that helps both with naming the test, and ensuring that tests don't fail for unrelated changes to the corresponding production code. Consider using the following format for naming test functions:
+1. Each test method should only test a single behavior, as that helps both with naming the test, and ensuring that tests don't fail for unrelated changes to the corresponding production code. Consider using a format similar to the following for naming test functions:
 
-    `test_action_withCondition_withAnotherCondition_hasExpectedOutcome`
+    `test_{{action}}_{{withCondition}}_{{hasExpectedOutcome}}`
 
-   Put the outcome at the end of the name, so that you and others can easily compare consecutive tests of the same method that have slightly different conditions with divergent outcomes. 
+   where `{{action}}`, `{{withCondition}}` and `{{hasExpectedOutcome}}` are replaced with appropriate descriptions in snake_case. Put the outcome at the end of the name, so that you and others can easily compare consecutive tests of the same method that have slightly different conditions with divergent outcomes. 
 
    If a function is testing more than one behaviour and you are not able to name the function according to the above pattern, split the test into multiple parts. E.g. if you have a single test that looks like this:
      ```
