@@ -27,7 +27,7 @@ bash scripts/install_prerequisites.sh
 1. In a terminal, navigate to `oppia/` and run:
 
   ```
-     bash scripts/start.sh
+     python -m scripts.start
   ```
 
   The first time you run this script, it will take a while (about 5 - 10 minutes when we last tested it in Feb 2014, though this depends on your Internet connection). Subsequent runs should be much faster. The `start.sh` script downloads and installs the required dependencies (such as Google App Engine) if they are not already present, and sets up a development server for you to play with. The development server logs are then output to this terminal, so you will not be able to enter further commands in it until you disconnect the server.
@@ -72,7 +72,7 @@ bash scripts/install_prerequisites.sh
   * To preserve the contents of the local datastore between consecutive runs, use the `--save_datastore` argument when starting up the dev server:
 
   ```
-    bash scripts/start.sh --save_datastore
+    python -m scripts.start --save_datastore
   ```
 
 ## Notes on installation on Arch Linux systems
@@ -112,7 +112,7 @@ Arch uses the pip command for pip 3 (which installs libraries for python 3) and 
   $ touch ./pylint-1.7.1/backports/__init__.py
 ```
 
-Once this step is done, run `bash scripts/start.sh` to install other necessary files such as node modules and static js libraries and google app engine. Even after downloading everything server will fail to start and show errors. If you don’t see any errors then you have successfully setup Oppia in Arch and don’t have to execute following steps but it is highly likely that server won’t work.
+Once this step is done, run `python -m scripts.start` to install other necessary files such as node modules and static js libraries and google app engine. Even after downloading everything server will fail to start and show errors. If you don’t see any errors then you have successfully setup Oppia in Arch and don’t have to execute following steps but it is highly likely that server won’t work.
 
 ### Fixing Python
 
@@ -125,7 +125,7 @@ In Arch, the `python` command refers to python 3 (in contrast to Ubuntu, where `
 
 ### Fix Google App Engine
 
-Note: make sure you have already executed ‘bash scripts/start.sh’ before doing this step and all the necessary files were downloaded by the script. Basically at this point your Oppia server should start showing logs (error logs) in the terminal but you won’t be able to access Oppia in browser.
+Note: make sure you have already executed ‘python -m scripts.start’ before doing this step and all the necessary files were downloaded by the script. Basically at this point your Oppia server should start showing logs (error logs) in the terminal but you won’t be able to access Oppia in browser.
 
 One of the highlights of Arch is that it is always up to date from linux to all packages. That is also the case with python2. Arch uses latest version of the python 2 which is 2.7.14. This version is incompatible with Google App Engine v1.9.50, currently used by Oppia. To fix this go to ‘oppia_tools/google_appengine_1.9.50/google_appengine/google/appengine/dist27’ and open ‘socket.py’ file. In this file go to the line 73 (or, alternatively, search for ‘RAND_egd’) and remove import of ‘RAND_egd’ from that line.
 
