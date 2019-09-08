@@ -12,7 +12,7 @@ This is a a really useful tool while writing backend tests. Coverage reports spe
 
 To generate backend coverage, a flag should be added to the command that runs backend tests.
 
-`bash scripts/run_backend_tests.sh --generate_coverage_report`
+`python -m scripts.run_backend_tests --generate_coverage_report`
 
 The report lists each backend file along with the lines missing coverage in tests.
 
