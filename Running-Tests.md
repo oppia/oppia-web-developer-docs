@@ -6,12 +6,12 @@ Before checking in any commits to the Oppia repository, please ensure that every
 
 You can run server-side tests using
 ```
-    bash scripts/run_backend_tests.sh
+    python -m scripts.run_backend_tests
 ```
 
 Alternatively, to run just a single test module, you can type, e.g.:
 ```
-    bash scripts/run_backend_tests.sh --test_target=core.controllers.editor_test
+    python -m scripts.run_backend_tests --test_target=core.controllers.editor_test
 ```
 
 For more information about `--test_target` and other flags, please see the documentation at the top of the [run_backend_tests.sh](https://github.com/oppia/oppia/blob/develop/scripts/run_backend_tests.sh) script.
@@ -39,7 +39,7 @@ then this means that a test has failed, and the change cannot be checked in as-i
 
 Client-side JavaScript tests need to be run separately from the backend tests, by executing the following command in a terminal:
 ```
-    bash scripts/run_frontend_tests.sh
+    python -m scripts.run_frontend_tests
 ```
 
 This will open a [Karma](http://karma-runner.github.io/0.10/index.html) server that runs in the background, together with a browser window (which you can ignore). The results of the tests will be displayed in the terminal.
