@@ -90,7 +90,7 @@ Docker allows for an easy installation of Oppia for Windows users and a more rel
 
 4. Start bash in the updated Docker container: `docker exec -it {container_name} bash`
 
-5. Now you should have a new terminal prompt`root@...`. Run the start.sh script: `bash scripts/start.sh`
+5. Now you should have a new terminal prompt`root@...`. Run the start.sh script: `python -m scripts.start`
 
 The estimated runtime for this script is about 10-20 minutes. It will open a server at localhost:8181. After the terminal prints `INFO ... http://0.0.0.0:8181` or `+ 27 hidden modules`, open localhost:8181 in your local computer browser. If the Oppia server does not load, restart this step.
 
@@ -100,7 +100,7 @@ The estimated runtime for this script is about 10-20 minutes. It will open a ser
 
 1. Start bash in the Docker container (follow steps 1-4 from running Oppia on a development server).
 
-2. Run the run_frontend_tests.sh script: `bash scripts/run_frontend_tests.sh`. The expected runtime is about 3-7 minutes. 
+2. Run the run_frontend_tests.sh script: `python -m scripts.run_frontend_tests`. The expected runtime is about 3-7 minutes. 
     - If this outputs an error ("failed before timeout of 2000ms"), continue to step 3.
     - If this runs correctly (displays "SUCCESS"), do not go onto step 3.
 
