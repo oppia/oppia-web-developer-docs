@@ -51,7 +51,7 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
 1. In a terminal, navigate to `oppia/` and run:
  
   ```
-     bash scripts/start.sh
+     python -m scripts.start
   ```
  
   The first time you run this script, it will take a while (about 5 - 10 minutes when we last tested it in Dec 2018, though this depends on your Internet connection). Subsequent runs should be much faster. The `start.sh` script downloads and installs the required dependencies (such as Google App Engine) if they are not already present, and sets up a development server for you to play with. The development server logs are then output to this terminal, so you will not be able to enter further commands in it until you disconnect the server.
@@ -96,5 +96,5 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
   * To preserve the contents of the local datastore between consecutive runs, use the `--save_datastore` argument when starting up the dev server:
  
   ```
-    bash scripts/start.sh --save_datastore
+    python -m scripts.start --save_datastore
   ```
