@@ -22,19 +22,19 @@ Also, please note that acceptance into GSoC isn't a prerequisite for [becoming a
 ## Completed Projects
 
 The following projects were fully completed during GSoC 2019:
-- [@anubhavsinha98's proposal](pdfs/GSoC2019AnubhavSinha.pdf) for enabling students to say why they provided a given answer. Mentor: Akshay Anand.
+- [@anubhavsinha98's proposal](pdfs/GSoC2019AnubhavSinha.pdf) and [final blog post](https://medium.com/@anubhavsinha98/gsoc19-journey-oppia-308704ffa3a) for enabling students to say why they provided a given answer. Mentor: Akshay Anand.
   - **Milestone 1**: The creator can add an option, for each state, to ask learners for a response. The infrastructure for storing, retrieving and processing responses from the datastore is implemented.
   - **Milestone 2**: Learners can submit responses for states (if the creator has asked for this).
   - **Milestone 3**: The creator can view all responses received for a state, and can resolve a set of responses by creating a new answer group or updating an existing one.
-- [@Jamesjay4199's proposal](pdfs/GSoC2019JamesJohnJames.pdf) for enabling pages to be served statically. Mentor: Vojtěch Jelínek.
+- [@Jamesjay4199's proposal](pdfs/GSoC2019JamesJohnJames.pdf) and [final blog post](https://medium.com/@jamesjay4199/google-summer-of-code-19-at-oppia-foundation-ce18bf34eb8c) for enabling pages to be served statically. Mentor: Vojtěch Jelínek.
   - **Milestone 1**: All static pages serve without Jinja. (NB: dynamic pages are: profile, admin, library, creator_dashboard, skill_editor, story_editor, exploration_{player|editor}, topic_{viewer|editor}, collection_{player|editor}. All others are static.)
   - **Milestone 2**: All dynamic pages have no Jinja constructs except: interaction_templates, dependencies_html, visualizations_html, value_generators_js, rich_text_components.
   - **Milestone 3**: Jinja is fully removed from the Oppia codebase.
-- [@lilithxxx's proposal](pdfs/GSoC2019RishavChakraborty.pdf) for making the codebase compatible with Python 3 and covering the backend fully with tests. Mentor: Brian Rodriguez.
+- [@lilithxxx's proposal](pdfs/GSoC2019RishavChakraborty.pdf) and [final blog post](https://medium.com/@reshav01/google-summer-of-code-19-with-oppia-a4d4318b1808) for making the codebase compatible with Python 3 and covering the backend fully with tests. Mentor: Brian Rodriguez.
   - **Milestone 1**: At most 500 lines of Python code (outside ‘scripts/’) remain untested.
   - **Milestone 2**: The Python coverage for the codebase reaches 100% and the codebase supports both Python 2 and 3. There are checks which ensure that both these conditions are preserved going forward.
   - **Milestone 3**: All bash files are removed from the codebase.
-- [@sophiewu6's proposal](pdfs/GSoC2019ShiqiWu.pdf) for improvements to the questions framework. Mentor: Vinita Murthi.
+- [@sophiewu6's proposal](pdfs/GSoC2019ShiqiWu.pdf) and [final blog post](https://medium.com/@wushiqi1998/google-summer-of-code-2019-with-oppia-bf585e142a65) for improvements to the questions framework. Mentor: Vinita Murthi.
   - **Milestone 1**: Students encounter review tests after every 2-3 explorations. The modal after each test shows their results for that test.
   - **Milestone 2**: The results of the review test are used to pass or fail students, and show follow-up learning advice. Answer groups are linked to misconceptions in the state editor.
   - **Milestone 3**: Skill mastery levels are updated after every test, and shown in the frontend (in both the skills tab and the result modals). Questions are selected based on difficulty and skill mastery levels.
