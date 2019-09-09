@@ -1,6 +1,21 @@
 Here are some general troubleshooting tips for Oppia. The platform specific tips are [[Linux|Troubleshooting#linux]], [[windows|Troubleshooting#windows]], [[Mac OS|Troubleshooting#mac-os]] and [[Vagrant|Troubleshooting#vagrant]]:
+   * If after running `python -m scripts.start` you get the following lines:
+     ```
+     Traceback (most recent call last):
+     File "/usr/lib/python2.7/runpy.py", line 174, in _run_module_as_main
+        "__main__", fname, loader, pkg_name)
+     File "/usr/lib/python2.7/runpy.py", line 72, in _run_code
+        exec code in run_globals
+     File "/home/user/oppia/oppia/scripts/start.py", line 30, in <module>
+       import python_utils
+     File "python_utils.py", line 36, in <module>
+       import builtins  # isort:skip
+     ImportError: No module named builtins
+     ```
+
+     Then run `pip install future`. 
    
-   * After running `scripts/start.sh`, if your terminal stuck around the following lines (or like the image below):  
+   * After running `python -m scripts.start`, if your terminal stuck around the following lines (or like the image below):  
      ```
         [./node_modules/html-webpack-plugin/lib/loader.js!./core/templates/dev/head/pages/email_dashboard/email_dashboard_result.html] 3.78 KiB {HtmlWebpackPlugin_10} [built]
         [./node_modules/html-webpack-plugin/lib/loader.js!./core/templates/dev/head/pages/error/error.html] 3.02 KiB {HtmlWebpackPlugin_11} [built]
@@ -13,7 +28,7 @@ Here are some general troubleshooting tips for Oppia. The platform specific tips
 
       ![](https://user-images.githubusercontent.com/16653571/58231149-e046ba80-7d53-11e9-804d-b78b165dccb4.png)
 
-      Try re-running `scripts/start.sh`. (You can stop the proccess using Ctrl+C)
+      Try re-running `python -m scripts/start`. (You can stop the proccess using Ctrl+C)
 
       **Note:**
       - Developers are trying to fix this issue you can track the activity at [#6766](https://github.com/oppia/oppia/issues/6766).
@@ -185,7 +200,7 @@ These commands can be used anywhere to kill a running process on any port by usi
 
     First check the directory `../oppia_tools/pylint-1.9.4` and if it is empty, re-install the missing prerequisites by running:
     ```
-    bash scripts/start.sh
+    python -m scripts.start
     ``` 
 
     If the directory is not empty and you still get the same error, try installing matplotlib by running the following command:
@@ -194,7 +209,7 @@ These commands can be used anywhere to kill a running process on any port by usi
     ```
 
 ### Mac OS
-  * After running `bash scripts/start.sh`, if you get an error around the following lines: 
+  * After running `python -m scripts.start`, if you get an error around the following lines: 
     
     ```
          File "/opensource/oppia/core/platform/models.py", line 176, in import_gae_image_services
@@ -219,7 +234,7 @@ These commands can be used anywhere to kill a running process on any port by usi
       $ pip install pillow
     ```
 
-    Finally, try running the `bash scripts/start.sh script` again.
+    Finally, try running the `python -m scripts.start` script again.
 
   * If, on MacOS Mojave V10.14.x, you get an issue arises while installing PIL library that has a lot of gibberish and that includes stuff like:
 
@@ -340,7 +355,7 @@ It's possible that windows firewall might be preventing localhost:8181 to launch
   - Try to build Oppia natively on Windows (this is difficult, and is neither recommended nor supported).
   - Note that doing a `git push` using SSH will not work, since the guest machine cannot see your host's private key. If you want to use SSH, you can add the Vagrant VM's public key to your account, but *this is NOT RECOMMENDED*! Vagrant uses the same SSH key for all machines, so anyone could write to any of your repos. 
 -  If Vagrant prints an error involving `\r not found`, the recommended fix is to ensure you have the [appropriate line endings set up](#prerequisites) and then clone your repo down again after copying out or saving any work.
--  If the service reports that it starts, but then terminates and your vagrant install doesn't respond to port 8181 or 8000. Then try to delete the oppia_tools directory and re-run the scripts/start.sh to reinstall.
+-  If the service reports that it starts, but then terminates and your vagrant install doesn't respond to port 8181 or 8000. Then try to delete the oppia_tools directory and re-run the `python -m scripts.start` to reinstall.
 
 
 ### If the above doesn't work...
