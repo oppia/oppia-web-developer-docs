@@ -19,13 +19,9 @@ You might be interested in our GSoC info pages from previous years: [2018](https
 Also, please note that acceptance into GSoC isn't a prerequisite for [becoming an Oppia contributor](https://github.com/oppia/oppia/wiki). The Oppia project is run by the community for the community, and we warmly welcome anyone who'd like to help out!
 
 
-## Accepted Proposals:
+## Completed Projects
 
-The projects we've accepted (as of 6 May 2019), together with their core milestones, are:
-- [@ankita240796's proposal](pdfs/GSoC2019AnkitaSaxena.pdf) for validating production models. Mentor: Nitish Bansal.
-  - **Milestone 1**: All storage models have audit jobs which run without errors in production.
-  - **Milestone 2**: All audit jobs created in milestone 1 for Activity, Audit, Exploration, Collection, Recommendation, Story, Config, Topic, File discover no issues when run, and the code is future-proofed to ensure no such issues occur in the future. All cleanup jobs for these models are written and run without errors on the production server. 
-  - **Milestone 3**: All audit jobs created in milestone 1 discover no issues when run, and the code is future-proofed to ensure no such issues occur in the future. Cleanup jobs for all models are written and run without errors on the production server.
+The following projects were fully completed during GSoC 2019:
 - [@anubhavsinha98's proposal](pdfs/GSoC2019AnubhavSinha.pdf) for enabling students to say why they provided a given answer. Mentor: Akshay Anand.
   - **Milestone 1**: The creator can add an option, for each state, to ask learners for a response. The infrastructure for storing, retrieving and processing responses from the datastore is implemented.
   - **Milestone 2**: Learners can submit responses for states (if the creator has asked for this).
@@ -34,14 +30,6 @@ The projects we've accepted (as of 6 May 2019), together with their core milesto
   - **Milestone 1**: All static pages serve without Jinja. (NB: dynamic pages are: profile, admin, library, creator_dashboard, skill_editor, story_editor, exploration_{player|editor}, topic_{viewer|editor}, collection_{player|editor}. All others are static.)
   - **Milestone 2**: All dynamic pages have no Jinja constructs except: interaction_templates, dependencies_html, visualizations_html, value_generators_js, rich_text_components.
   - **Milestone 3**: Jinja is fully removed from the Oppia codebase.
-- [@import-keshav's proposal](pdfs/GSoC2019KeshavBathla.pdf) for building a flow for artists to submit images to lessons. Mentors: Nithesh Hariharan and Sandeep Dubey.
-  - **Milestone 1**: Lesson creators can add image placeholders in exploration content. They cannot publish the exploration without filling all the placeholders.
-  - **Milestone 2**: A full list of open image requests is shown on the community dashboard page. Any user can fulfill an image request by suggesting an image via that page.
-  - **Milestone 3**: Proficient artists can review suggested images, leave comments on the review thread, and accept/reject the suggestion.
-- [@NishealJ's proposal](pdfs/GSoC2019NishealJohn.pdf) for upgrading third-party libraries. Mentors: Apurv Bajaj and Sean Lip.
-  - **Milestone 1**: All third-party libraries (including those in oppia_tools & node_modules) are up-to-date, except Bower-Materials, CKEditor and Bootstrap.
-  - **Milestone 2**: All third-party libraries except CKEditor are up-to-date.
-  - **Milestone 3**: All third-party libraries, including CKEditor, are up to date.
 - [@lilithxxx's proposal](pdfs/GSoC2019RishavChakraborty.pdf) for making the codebase compatible with Python 3 and covering the backend fully with tests. Mentor: Brian Rodriguez.
   - **Milestone 1**: At most 500 lines of Python code (outside ‘scripts/’) remain untested.
   - **Milestone 2**: The Python coverage for the codebase reaches 100% and the codebase supports both Python 2 and 3. There are checks which ensure that both these conditions are preserved going forward.
@@ -50,10 +38,7 @@ The projects we've accepted (as of 6 May 2019), together with their core milesto
   - **Milestone 1**: Students encounter review tests after every 2-3 explorations. The modal after each test shows their results for that test.
   - **Milestone 2**: The results of the review test are used to pass or fail students, and show follow-up learning advice. Answer groups are linked to misconceptions in the state editor.
   - **Milestone 3**: Skill mastery levels are updated after every test, and shown in the frontend (in both the skills tab and the result modals). Questions are selected based on difficulty and skill mastery levels.
-- [@YashJipkate's proposal](pdfs/GSoC2019YashJipkate.pdf) for upgrading the codebase to Angular 2. Mentor: Kevin Lee.
-  - **Milestone 1**: All constants serve both AngularJS and Angular 2. All services and their tests are upgraded to Angular 2.
-  - **Milestone 2**: All directives and their tests are upgraded to Angular 2. All native/helper AngularJS services are replaced or removed.
-  - **Milestone 3**: There are no third-party AngularJS dependencies in the codebase. The codebase is fully migrated to Angular 2.
+
 
 
 # Students
