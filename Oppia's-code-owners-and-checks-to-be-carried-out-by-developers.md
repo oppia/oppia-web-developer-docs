@@ -1046,7 +1046,7 @@ No unnecessary plugin should be added.
 </table>
 
 
-## **@vojtechjelinek**
+## **@vojtechjelinek + @Jamesjay4199**
 
 **Simple pages.**
 
@@ -1059,56 +1059,50 @@ No unnecessary plugin should be added.
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/contact/
+   <td>/core/templates/dev/head/pages/contact-page/
    </td>
-   <td rowspan="11" >Ensure that:
-<ul>
-
-<li>no new variables are added into GLOBALS
-
-<li>no new Jinja template structures are added
-</li>
-</ul>
+   <td rowspan="11" >
+Check that UX for the users is positive. Changes should be compatible with mobile. 
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/donate/
+   <td>/core/templates/dev/head/pages/donate-page/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/error/
+   <td>/core/templates/dev/head/pages/error-pages/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/get_started/
+   <td>/core/templates/dev/head/pages/get-started-page/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/landing/
+   <td>/core/templates/dev/head/pages/landing-page/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/maintenance/
+   <td>/core/templates/dev/head/pages/maintenance-page/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/preferences/
+   <td>/core/templates/dev/head/pages/preferences-page/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/signup/
+   <td>/core/templates/dev/head/pages/signup-page/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/splash/
+   <td>/core/templates/dev/head/pages/splash-page/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/teach/
+   <td>/core/templates/dev/head/pages/teach-page/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/thanks/
+   <td>/core/templates/dev/head/pages/thanks-page/
    </td>
   </tr>
 </table>
@@ -1140,31 +1134,9 @@ No unnecessary plugin should be added.
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/base.html
-   </td>
-   <td>Ensure that:
-<ul>
-
-<li>only the script-imports that are needed on all pages are added
-
-<li>no new variables are added into GLOBALS
-
-<li>no new Jinja template structures are added
-</li>
-</ul>
-   </td>
-  </tr>
-  <tr>
    <td>/core/templates/dev/head/pages/footer_js_libs.html
    </td>
-   <td>Ensure that:
-<ul>
-
-<li>only the js libs that are needed on all pages are added
-
-<li>no new Jinja template structures are added
-</li>
-</ul>
+   <td>This file shouldn't be modified at all for now.
    </td>
   </tr>
   <tr>
@@ -1176,14 +1148,23 @@ No unnecessary plugin should be added.
   <tr>
    <td>/core/templates/dev/head/pages/header_js_libs.html
    </td>
-   <td>Ensure that:
-<ul>
-
-<li>only the js libs that are needed on all pages are added
-
-<li>no new Jinja template structures are added
-</li>
-</ul>
+   <td>This file shouldn't be modified at all for now.
+   </td>
+  </tr>
+  <tr>
+   <td>webpack.common.config.ts
+   </td>
+   <td rowspan="3">
+Changes that are common for dev and prod should be done in webpack.common.config.ts.
+All the changes should account for the speed of the webpack build.
+   </td>
+  </tr>
+  <tr>
+   <td>webpack.dev.config.ts
+   </td>
+  </tr>
+  <tr>
+   <td>webpack.prod.config.ts
    </td>
   </tr>
 </table>
