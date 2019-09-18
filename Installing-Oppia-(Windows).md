@@ -32,12 +32,6 @@ Docker allows for an easy installation of Oppia for Windows users and a more rel
     ```
     where you should replace `{image_name}` with whatever you want to call your Docker image (say `oppia_image`).
 
-    If this is not your first time running this command, run:
-    ```
-      docker build -t {image_name} -f ubuntu_dockerfile . --no-cache
-    ```
-    where the `--no-cache` flag tells docker to rebuild from the beginning. 
-
     Expect up to a 2 minute delay until the first line of output is printed to the console. The total runtime for this build should be around 25-30 minutes on a good connection.
     - If successful, the output should say: `successfully tagged {image_name}:latest`. It will also give a security warning, but this is fine. You will be able to see the Docker image’s details by running: `docker images`
     - If it is not successful, it is very likely due to unstable wifi connections. Move next to a router, and retry this step. 
@@ -51,10 +45,10 @@ Docker allows for an easy installation of Oppia for Windows users and a more rel
 4. Now that the Docker image is built, create a Docker container using that image by running:
 
    ```
-     docker run -u 0 -it -p 8181:8181 --name {container_name} {image_name}:latest bash
+     docker run -u 0 -it -p 8181:8181 --name {container_name} -v {path_to_oppia_folder}\oppia:/home/oppia {image_name}:latest bash
    ```
 
-   where you should replace `{container_name}` with whatever you want to call your Docker container (say `oppia_container`) and `{image_name}` with the name of your Docker image (see above).
+   where you should replace `{container_name}` with whatever you want to call your Docker container (say `oppia_container`), {path_to_oppia_folder} with the absolute path to the oppia folder, and `{image_name}` with the name of your Docker image (see above).
 
 5. At this point, a container is built with your current oppia directory. Now you should have a new terminal prompt `root@...`. This is a Linux-based terminal. Everything is now set up to run scripts like start.sh and run_frontend_tests.sh. You can type `exit` to return to your Command Prompt.
 
@@ -69,22 +63,6 @@ Docker allows for an easy installation of Oppia for Windows users and a more rel
 2. Run `docker ps -a`
     - If this outputs names of containers, find the NAME of the most recent container and run: `docker start {container_name}`
     - If this does not output names of containers, run: `docker images` to get the name of a previously built image and follow step 4 from the prerequisite instructions. Then return to step 1 to ensure that the container is running.
-
-### Update the files in the container with your local repo
-
-3. Update the container to have your most recent code. Skip this step if you have not made any changes to your local repo. Note: Please keep in mind the direction of the slashes in the paths ( ‘/’ vs ‘\’).
-    - If you remember what files/directories you have edited, run:
-      ```
-        docker cp {path\to\src} {container_name}:/home/oppia/{path/to/dest} 
-      ```
-
-      where `{path\to\src}` can be the relative path to a file or folder and `{path/to/dest}` is the path within the /home/oppia directory in the container. Example: `docker cp .\core\domain\. oppia_container:/home/oppia/core/domain/`
-
-    - If you do not remember what files you have edited, run:
-      ```
-        docker cp .\. {container_name}:/home/oppia/ 
-      ```
-      in the oppia root directory to copy over the entire oppia/ directory into the container. Note: This will take ~10 minutes to copy over all of the files.
 
 ### Start bash and run the start script
 
