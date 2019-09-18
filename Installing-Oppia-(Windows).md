@@ -48,7 +48,7 @@ Docker allows for an easy installation of Oppia for Windows users and a more rel
      docker run -u 0 -it -p 8181:8181 --name {container_name} -v {path_to_oppia_folder}\oppia:/home/oppia {image_name}:latest bash
    ```
 
-   where you should replace `{container_name}` with whatever you want to call your Docker container (say `oppia_container`), {path_to_oppia_folder} with the absolute path to the oppia folder, and `{image_name}` with the name of your Docker image (see above).
+   where you should replace `{container_name}` with whatever you want to call your Docker container (say `oppia_container`), `{path_to_oppia_folder}` with the absolute path to the oppia folder, and `{image_name}` with the name of your Docker image (see above).
 
 5. At this point, a container is built with your current oppia directory. Now you should have a new terminal prompt `root@...`. This is a Linux-based terminal. Everything is now set up to run scripts like start.sh and run_frontend_tests.sh. You can type `exit` to return to your Command Prompt.
 
