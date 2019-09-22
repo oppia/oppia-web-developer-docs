@@ -50,7 +50,7 @@ Docker allows for an easy installation of Oppia for Windows users and a more rel
 
    where you should replace `{container_name}` with whatever you want to call your Docker container (say `oppia_container`), `{path_to_oppia_folder}` with the absolute path to the oppia folder, and `{image_name}` with the name of your Docker image (see above).
 
-5. At this point, a container is built with your current oppia directory. Now you should have a new terminal prompt `root@...`. This is a Linux-based terminal. Everything is now set up to run scripts like start.sh and run_frontend_tests.sh. You can type `exit` to return to your Command Prompt.
+5. At this point, a container is built with your current oppia directory. Now you should have a new terminal prompt `root@...`. This is a Linux-based terminal. Everything is now set up to run scripts like start.py and run_frontend_tests.py. You can type `exit` to return to your Command Prompt.
 
 ## Running Oppia on a development server
 
@@ -68,17 +68,17 @@ Docker allows for an easy installation of Oppia for Windows users and a more rel
 
 3. Start bash in the updated Docker container: `docker exec -it {container_name} bash`
 
-4. Now you should have a new terminal prompt`root@...`. Run the start.sh script: `python -m scripts.start`
+4. Now you should have a new terminal prompt`root@...`. Run the start.py script: `python -m scripts.start`
 
 The estimated runtime for this script is about 10-20 minutes. It will open a server at localhost:8181. After the terminal prints `INFO ... http://0.0.0.0:8181` or `+ 27 hidden modules`, open localhost:8181 in your local computer browser. If the Oppia server does not load, restart this step.
 
 ## Running frontend tests
 
-**Note**: run_frontend_tests.sh might not run correctly every time, and we’re still working on figuring out why. 
+**Note**: run_frontend_tests.py might not run correctly every time, and we’re still working on figuring out why. 
 
 1. Start bash in the Docker container (follow steps 1-3 from running Oppia on a development server).
 
-2. Run the run_frontend_tests.sh script: `python -m scripts.run_frontend_tests`. The expected runtime is about 3-7 minutes. 
+2. Run the run_frontend_tests.py script: `python -m scripts.run_frontend_tests`. The expected runtime is about 3-7 minutes. 
     - If this outputs an error ("failed before timeout of 2000ms"), continue to step 3.
     - If this runs correctly (displays "SUCCESS"), do not go onto step 3.
 
@@ -99,7 +99,7 @@ The estimated runtime for this script is about 10-20 minutes. It will open a ser
   - Then: restart docker by right clicking on the icon in the taskbar and clicking Restart
 
 - If docker outputs: unzip not found
-  - Then: run bash scripts/install_prerequisites.sh inside of the Docker image (bash)
+  - Then: run bash scripts/install_prerequisites.py inside of the Docker image (bash)
 
 - If docker outputs: npm: no such file or directory
   - Then: run the following two commands:
@@ -110,11 +110,11 @@ The estimated runtime for this script is about 10-20 minutes. It will open a ser
 
 # Installation using the Ubuntu terminal on Windows 10
 
-_These notes were kindly contributed by **@varun-tandon** on 18 Feb 2019. They get Oppia working in a virtual environment on Windows, but with the caveat that the frontend (Karma) tests do not run because the Chrome browser does not open in the virtual environment. We are still looking for a fix for this._
+_These notes were kindly contributed by **@varun-tandon** on 18 Feb 2019. They were last tested successfully by **@BenHenning** on Sep 2019. They get Oppia working in a virtual environment on Windows, but with the caveat that the frontend (Karma) tests do not run because the Chrome browser does not open in the virtual environment. We are still looking for a fix for this._
 
 First, start by [installing the Ubuntu terminal](https://tutorials.ubuntu.com/tutorial/tutorial-ubuntu-on-windows#0). Then, follow [the Ubuntu installation instructions](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Linux%29), **but with the following changes**:
 
-### After the prerequisites, but before running start.sh:
+### After the prerequisites, but before running start.py:
 
 3. Set up a virtual environment (virtualenv) for your Oppia dependencies. This ensures that conflicting versions of Python, pip, or any Python modules on your machine do not result in installation issues. In `opensource/` run:
    ```
@@ -127,8 +127,13 @@ First, start by [installing the Ubuntu terminal](https://tutorials.ubuntu.com/tu
    ```
    If this is successful, the start of the terminal line will now have `(env)` at the beginning of it. The remaining steps of installation and running the development server should all be done within this virtual environment to ensure compatibility.
 
-### When running start.sh:
+### When running start.py:
 
 Please note that the installation process can have some strange hiccups on the Windows Ubuntu subsystem. If you are installing to this subsystem and encounter errors, please restart your computer and try running the start script again. 
 
 If you get an error that indicates that a server is already running, this is a good sign! Navigate to [https://localhost:8181](https://localhost:8181). If the Oppia homepage loads, you have successfully completed installation!
+
+## Troubleshooting
+
+- If you run into `distutilsOptionError`:
+  - Then: Make sure you have set up the virtualenv. See [this comment](https://github.com/oppia/oppia/issues/7613#issuecomment-531429687).
