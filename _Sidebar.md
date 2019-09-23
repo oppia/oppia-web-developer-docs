@@ -1,5 +1,5 @@
   * [README](https://github.com/oppia/oppia/blob/develop/.github/README.md#oppia)
-  * [Oppia's mission](https://github.com/oppia/oppia/wiki/Oppia's-Mission)
+  * [Oppia's mission](https://github.com/oppia/oppia/wiki/Oppia's-Mission) 
   * **[[Get involved!|Home]]**
     * [Coders](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up)
     * [[Instructional designers|Teaching-with-Oppia]]
@@ -9,6 +9,7 @@
     * [[Designers and artists|Contributing-to-Oppia's-design]]
     * [[Season of Docs 2019|Season-of-Docs-2019]]
   * **[[Good first issues|https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22]]**
+  * [GHC Open Source Day 2019](https://github.com/oppia/oppia/wiki/GHC-Open-Source-Day-2019)
   * Developing Oppia
     * [[FAQs|Frequently-Asked-Questions]]
     * [[Installing Oppia|https://github.com/oppia/oppia/wiki/Installing-Oppia]]
