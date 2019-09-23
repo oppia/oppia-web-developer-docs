@@ -101,7 +101,7 @@ If you would like to understand the vocabulary and general structure of content 
 
 The “View Playthrough” button in our Improvements tab currently is shaped like a hexagon, which doesn’t fit the overall style of the page anymore. We need a new design and implementation for this button that better suits the broader styling of the Lesson Improvements tab.
 
- // TODO(vinitamurthi): Add a picture
+![Playthrough button improvement](https://user-images.githubusercontent.com/5094060/62744195-7add9e00-ba13-11e9-8343-e222c3dceb40.png)
 
 [Issue #7334](https://github.com/oppia/oppia/issues/7334)
 
@@ -125,13 +125,13 @@ Easy
 
 Suggestion Improvement cards only render the latest message of the associated thread:
  
-// TODO(vinitamurthi): Add the picture
+![](https://user-images.githubusercontent.com/5094060/61331971-14d57080-a7f1-11e9-9107-4b702c7bf6e8.png)
 
 To view the actual suggestion, creators must click the "Review Thread" button and then the "Review Suggestion" button from the thread modal:
  
- // TODO(vinitamurthi): Add the picture
+ ![](https://user-images.githubusercontent.com/5094060/61331984-1dc64200-a7f1-11e9-9311-764d7dfd8f23.png)
 
- // TODO(vinitamurthi): Add the picture
+![](https://user-images.githubusercontent.com/5094060/61331999-2585e680-a7f1-11e9-8687-69ed86a2d2ab.png)
 
 We'd like to render the suggestion (and possibly the current version) directly on the card to minimize the indirections that creators need to step through when trying to understand what the suggested improvement requires from them.
 
@@ -186,9 +186,10 @@ Steps to reproduce the behavior:
 * Type lots of text in the content card
 * View the blue text at the bottom of the Rich Text Editor (RTE): 
 
-// TODO(vinitamurthi): Add the picture
+![](https://user-images.githubusercontent.com/10575562/52938129-b9708680-3315-11e9-9c86-93b67ccbe580.png)
 
-// TODO(vinitamurthi): Add the picture
+This warning disappears when the RTE is closed:
+![](https://user-images.githubusercontent.com/10575562/52938070-93e37d00-3315-11e9-90c7-831a81b6e106.png)
 
 
 We need this warning to be redesigned such that it is more prominently displayed when users view the card outside of the RTE and inside of the RTE.
@@ -285,11 +286,11 @@ Intermediate
 
 Currently, card views on our creator dashboard look like the following:
 
-// TODO(vinitamurthi): Add the picture
+![](https://user-images.githubusercontent.com/16653571/60619427-4a905780-9df6-11e9-8323-9e3969703206.png)
 
 We need to adjust the styling for the cards to look like the following:
 
-// TODO(vinitamurthi): Add the picture
+![](https://user-images.githubusercontent.com/12159451/63665925-50fdd880-c782-11e9-8fa2-53a41c06cdae.png)
 
 [Issue #7083](https://github.com/oppia/oppia/issues/7083)
 
@@ -461,7 +462,7 @@ Intermediate
 
 When creating a question for a skill, the creator can try to go ahead and create the question without filling any details by clicking on the ‘Save and Publish’ button. Clicking on the button causes an error, but the fact that the button is green indicates that the question can be created without any interaction being filled. This is at odds with other publish/save buttons in Oppia editors which only turn green once all errors are resolved.
 
-//TODO(vinitamurthi): Add the picture
+![](https://user-images.githubusercontent.com/12983742/54720288-46c51780-4b1c-11e9-9902-90c414f558dd.png)
 
 [Issue #6482](https://github.com/oppia/oppia/issues/6482) 
 
