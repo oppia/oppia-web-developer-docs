@@ -89,10 +89,13 @@ Oppia has a [Gitter chat room](https://gitter.im/oppia/oppia-chat) where everyon
 ## List of Projects
 
 For this open source day, we tried to shortlist projects that are fairly self contained, and can be completed within 3-4 hours by a group of 2-3 people. We also tried to pick those projects from our issue tracker itself so that you get an idea of what it’s like to contribute to Oppia on a regular basis. 
-Each project has a brief explanation, a link to the issue tracker, the skills required, and some deliverables. We encourage you to look at the [issue tracker](https://github.com/oppia/oppia/issues) link for the project that interests you. You can comment expressing interest in that project (and mention you will be working on it for OSD). You can also gain more context and ask questions to help get a kickstart for the day. Please work in groups of 2-3 people. We also recommend everyone to try any one file within Project 8 (unit tests) before taking on larger projects, to get a feel for the codebase.
-This list is not an exhaustive list of projects. If none of these projects appeal to you, you can take a look at our issue tracker and comment on the issue that interests you. (also mention that you will be working on it during the OSD event so that we are aware). 
+
+Each project has a brief explanation, a link to the issue tracker, the skills required, and some deliverables. We encourage you to look at the [issue tracker](https://github.com/oppia/oppia/issues) link for the project that interests you. You can comment expressing interest in that project (and mention you will be working on it for OSD). You can also gain more context and ask questions to help get a kickstart for the day. **Please work in groups of 2-3 people**.
+
+This list is not an exhaustive list of projects. If none of these projects appeal to you, you can take a look at our [issue tracker](https://github.com/oppia/oppia/issues) and comment on the issue that interests you. (also mention that you will be working on it during the OSD event so that we are aware). 
 Please tag us (**@dchen97** and **@vinitamurthi**) in any comment expressing interest in a project so that we get notified about this!
-If you would like to understand the vocabulary and general structure of content in Oppia, you can take a look at this document.
+
+If you would like to understand the vocabulary and general structure of content in Oppia, you can take a look at [this document](https://docs.google.com/document/d/1yFrFAXaKARzj1DSfiiy1pOH6ypugNkRLQGz5W5QifMQ/edit?usp=sharing).
 
 ***
 ### Project 1: Change the Style of Playthrough Buttons in Improvements Tab
