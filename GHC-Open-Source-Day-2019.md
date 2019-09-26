@@ -40,9 +40,6 @@ To make code changes, you will require a Github account with 2 factor authentica
 * Create a new, empty folder called `opensource/` in your computer's home folder. Navigate to it (`cd opensource`), then [fork and clone](https://help.github.com/articles/fork-a-repo/) the Oppia repo so that it gets downloaded into `opensource/oppia`.
 * Then follow the appropriate installation instructions -- [Linux](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Linux%29), [Mac OS](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Mac-OS%29), [Windows](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Windows%29). (If you run into any problems during installation, please read [these notes](https://github.com/oppia/oppia/wiki/Issues-with-installation%3F).)
 
-### Join the Gitter channel
-* Join the GHC open source day chatroom at https://gitter.im/oppia/ghc2018 to meet other mentors and participants!
-
 ## Some useful links
 _Gitter_ [GHC chatroom](https://gitter.im/oppia/ghc2018) | [General chatroom](https://gitter.im/oppia/oppia-chat)
 
