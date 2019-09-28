@@ -12,10 +12,6 @@
   - Welcome and help out new contributors (e.g. on gitter).
   - Do code reviews for simple incoming PRs.
 - **After your shift**:
-  - Pass the baton to the next maintainer. In doing so, confirm that:
-    - All issues have labels applied to them (i.e. [this list](https://github.com/oppia/oppia/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+no%3Alabel) should be empty).
-    - All non-starter issues have project assignments (i.e. [this list](https://github.com/oppia/oppia/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20no%3Aproject) should only contain broken-down starter projects owned by **@DubeySandeep**).
-
   - [Optional] If you changed your notification preferences at the start of the shift, you might want to reset them to "not watching" so that you only get emails when you are @mentioned.
 
 ### General
