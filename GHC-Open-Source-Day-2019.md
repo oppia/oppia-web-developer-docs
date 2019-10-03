@@ -73,7 +73,7 @@ git checkout -b your-branch-name
 
 4. **Address review comments until all reviewers give LGTM ('looks good to me').**
    * Resolve any merge conflicts that arise.
-   * Run `bash scripts/start.sh` and play with the dev server in order to make sure that everything still works, and also to install any new dependencies that have been added since you last synced the repo.
+   * Run `python -m scripts.start` and play with the dev server in order to make sure that everything still works, and also to install any new dependencies that have been added since you last synced the repo.
    * WARNING: Do not make changes using the online GitHub editor -- this bypasses lint/presubmit checks, and will cause the code on GitHub to diverge from the code on your machine. Always make commits locally, and then push to GitHub.
 
 5. Tidy up! After the PR status has changed to "Merged", delete the feature branch from both your local clone and the GitHub repository
@@ -81,9 +81,30 @@ git checkout -b your-branch-name
 6. Celebrate. Congratulations, you have contributed to Oppia!
 
 ## What to do when you are stuck
-Oppia has a [Gitter chat room](https://gitter.im/oppia/oppia-chat) where everyone can post their questions and help each other out! The organizers and mentors will also be walking around to help with any questions. We also have a dedicated [GHC Open Source Day chatroom](https://gitter.im/oppia/ghc2018) that you can use too!
+Oppia has a [Gitter chat room](https://gitter.im/oppia/oppia-chat) where everyone can post their questions and help each other out! The organizers and mentors will also be walking around to help with any questions.
 
 ## List of Projects
+
+### Easy
+* [Project 1: Change the style of playthrough buttons](#project-1-change-the-style-of-playthrough-buttons-in-improvements-tab)
+* [Project 3: Limit questions to a specific amount in the question player](#project-3-limit-questions-requested-to-a-specific-amount-in-the-question-player)
+* [Project 5: Lint checks for the yield keyword and inline styling](#project-5-lint-check-to-ensure-a-single-space-after-yield-keyword-in-python-and-to-avoid-inline-styling)
+* [Project 6: Convert frontend dicts to domain objects](#project-6-convert-frontend-dicts-to-domain-objects)
+* [Project 8: Fix the UI in the card view of the creator dashboard](#project-8-resolve-styling-for-card-view-on-creator-dashboard)
+* [Project 9: Convert the QuestionSummary dictionary into a frontend domain object](#project-9-convert-questionsummary-dict-to-a-frontend-domain-object)
+* [Project 10: Remove underscores in the URLs to improve SEO](#project-10-remove-underscores-in-routes-to-improve-seo)
+* [Project 13: Link check to ensure require statements are alphabetized](#project-13-add-a-lint-check-to-ensure-require-statements-are-alphabetized)
+* [Project 15: Disable the save and publish button in the question editor when the question doesnt have an interaction](#project-15-disable-the-save-and-publish-button-in-the-question-editor-when-the-question-doesnt-have-an-interaction)
+### Intermediate
+* [Project 2: Render suggested changes in the suggestion improvement cards](#project-2-render-suggested-changes-in-suggestion-improvement-cards)
+* [Project 4: Improve the design of the card is too long warning](#project-4-card-is-too-long-warning-is-not-prominent-enough-and-isnt-shown-when-the-rte-is-closed)
+* [Project 7: Capture a screenshot in end to end Travis tests](#project-7-capture-screenshot-in-travis-e2e-tests)
+* [Project 11: E2E Tests](#project-11-e2e-tests)
+* [Project 12: Refactor dictionaries to use camel case keys](#project-12-refactor-dicts-in-the-frontend-to-use-camel-case-key)
+* [Project 14: Enable animated gifs in the lessons](#project-14-enable-animated-gifs-in-the-lessons)
+### Hard
+* [Project 16: Add a tutorial for the topic editor on first visit](#project-16-add-a-tutorial-for-the-topic-editor-on-first-visit)
+* [Project 17: Make answers anonymous in the statistics tab](#project-17-make-answers-anonymous-in-the-statistics-tab)
 
 For this open source day, we tried to shortlist projects that are fairly self contained, and can be completed within 3-4 hours by a group of 2-3 people. We also tried to pick those projects from our issue tracker itself so that you get an idea of what it’s like to contribute to Oppia on a regular basis. 
 
