@@ -165,7 +165,7 @@ These commands can be used anywhere to kill a running process on any port by usi
     DistutilsOptionError: can't combine user with prefix, exec_prefix/home, or install_(plat)base
     ```
     add ` --user --prefix= --system` after every pip command with `--target` in [install_third_party.sh](https://github.com/oppia/oppia/blob/develop/scripts/install_third_party.sh)
-  * If you get an error while running install_thord_party.sh which ends with:
+  * If you get an error while running install_third_party.sh which ends with:
     ```
     Traceback (most recent call last):
     File "/usr/bin/pip", line 9, in <module>
