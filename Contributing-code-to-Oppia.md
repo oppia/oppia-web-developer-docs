@@ -175,6 +175,8 @@ The following instructions describe how to make a one-off code change using a fe
   git mv old_file_path new_file_path
   ```
   By using this command git will detect the file as a renamed file.
+* **Important** PRs marked with “critical” label need to be tested in the backup server before being merged. For this, one of the release coordinators (with access to deploy) should checkout a new branch from develop, merge the branch from the PR into the new branch, and initiate deployment to the backup server from this branch. The PR author should give specific testing instructions for the changes (like which job to run, what the expected output is, etc) and the coordinator should verify the same. Once successfully tested, the PR should be merged into develop. This is to prevent cases like exploration migrations which can result in data corruption (as it will auto-migrate) if the migration isn’t safe. The "critical" label needs to be applied on PRs that change data validation checks, and other possibly critical changes which could affect production data. 
+
 
 ## Communication channels
 
