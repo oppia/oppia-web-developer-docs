@@ -45,12 +45,12 @@ Docker allows for an easy installation of Oppia for Windows users and a more rel
 4. Now that the Docker image is built, create a Docker container using that image by running:
 
    ```
-     docker run -u 0 -it -p 8181:8181 --name {container_name} -v {path_to_oppia_folder}\oppia:/home/oppia {image_name}:latest bash
+     docker run -u 0 -it -p 8181:8181 --name {container_name} -v {path_to_oppia_parent_dir}:/home {image_name}:latest bash
    ```
 
-   where you should replace `{container_name}` with whatever you want to call your Docker container (say `oppia_container`), `{path_to_oppia_folder}` with the absolute path to the oppia folder, and `{image_name}` with the name of your Docker image (see above).
+   where you should replace `{container_name}` with whatever you want to call your Docker container (say `oppia_container`), `{path_to_oppia_parent_dir}` with the **absolute path** to your oppia folder's parent directory (which might be '.../opensource'), and `{image_name}` with the name of your Docker image (see above).
 
-5. At this point, a container is built with your current oppia directory. Now you should have a new terminal prompt `root@...`. This is a Linux-based terminal. Everything is now set up to run scripts like start.py and run_frontend_tests.py. You can type `exit` to return to your Command Prompt.
+5. At this point, a container is built with your current oppia directory. Now you should have a new terminal prompt `root@...`. This is a Linux-based terminal. Everything is now set up to run scripts like start.py and run_backend_tests.py. You can type `exit` to return to your Command Prompt.
 
 ## Running Oppia on a development server
 
@@ -76,19 +76,14 @@ The estimated runtime for this script is about 10-20 minutes. It will open a ser
 
 **Note**: run_frontend_tests.py might not run correctly every time, and we’re still working on figuring out why. 
 
-1. Start bash in the Docker container (follow steps 1-3 from running Oppia on a development server).
+1. If you are in the Docker container bash, type `exit` to return to your Command Prompt. 
 
-2. Run the run_frontend_tests.py script: `python -m scripts.run_frontend_tests`. The expected runtime is about 3-7 minutes. 
-    - If this outputs an error ("failed before timeout of 2000ms"), continue to step 3.
-    - If this runs correctly (displays "SUCCESS"), do not go onto step 3.
-
-3. Run these two commands to manually compile the frontend tests and run the tests:
+2. Run these two commands to manually compile the frontend tests and run the tests:
      ```
-       ./node_modules/typescript/bin/tsc --project .
-       ./node_modules/karma/bin/karma start ./core/tests/karma.conf.ts
+       node .\node_modules\typescript\bin\tsc --project .
+       node .\node_modules\karma\bin\karma start .\core\tests\karma.conf.ts
      ```
-   If this outputs an error, try STEP 2 again.
-   If this runs correctly, you will see a SIGKILL at the end. That is okay.
+   If this outputs an error, please see [this section](https://github.com/oppia/oppia/wiki/Installing-Oppia-(Windows)#troubleshooting) for alternative commands.
 
 ## Troubleshooting
 
@@ -107,6 +102,22 @@ The estimated runtime for this script is about 10-20 minutes. It will open a ser
          curl -sL https://deb.nodesource.com/setup_8.x | bash
          apt-get install nodejs 
        ```
+
+- If the frontend test command is not working
+  - Then: try these 2 alternative options:
+    - Option 1:
+       Start bash in the Docker container (follow steps 1-3 from running Oppia on a development server).
+       Run the run_frontend_tests.py script. The expected runtime is about 3-7 minutes. 
+       ```
+         python -m scripts.run_frontend_tests
+       ```
+    - Option 2:
+       Start bash in the Docker container (follow steps 1-3 from running Oppia on a development server).
+       Run these two commands to manually compile the frontend tests and run the tests:
+     ```
+       ./node_modules/typescript/bin/tsc --project .
+       ./node_modules/karma/bin/karma start ./core/tests/karma.conf.ts
+     ```
 
 # Installation using the Ubuntu terminal on Windows 10
 
