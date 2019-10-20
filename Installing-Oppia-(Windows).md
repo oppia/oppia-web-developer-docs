@@ -48,7 +48,7 @@ Docker allows for an easy installation of Oppia for Windows users and a more rel
      docker run -u 0 -it -p 8181:8181 --name {container_name} -v {path_to_oppia_parent_dir}:/home {image_name}:latest bash
    ```
 
-   where you should replace `{container_name}` with whatever you want to call your Docker container (say `oppia_container`), `{path_to_oppia_parent_dir}` with the **absolute path** to your oppia folder's parent directory (which might be '.../opensource'), and `{image_name}` with the name of your Docker image (see above).
+   where you should replace `{container_name}` with whatever you want to call your Docker container (say `oppia_container`), `{path_to_oppia_parent_dir}` with the **absolute path** to your oppia folder's parent directory (which might be `C:\Users\name\Desktop\opensource`), and `{image_name}` with the name of your Docker image (see above).
 
 5. At this point, a container is built with your current oppia directory. Now you should have a new terminal prompt `root@...`. This is a Linux-based terminal. Everything is now set up to run scripts like start.py and run_backend_tests.py. You can type `exit` to return to your Command Prompt.
 
@@ -78,7 +78,11 @@ The estimated runtime for this script is about 10-20 minutes. It will open a ser
 
 1. If you are in the Docker container bash, type `exit` to return to your Command Prompt. 
 
-2. Run these two commands to manually compile the frontend tests and run the tests:
+2. Ensure that node.js is installed on your Windows computer by running `node -v`. If not, install it from [here](https://nodejs.org/en/download/).
+
+3. Run `pip install future`
+
+4. Run these two commands to manually compile the frontend tests and run the tests:
      ```
        node .\node_modules\typescript\bin\tsc --project .
        node .\node_modules\karma\bin\karma start .\core\tests\karma.conf.ts
@@ -114,10 +118,10 @@ The estimated runtime for this script is about 10-20 minutes. It will open a ser
     - Option 2:
        Start bash in the Docker container (follow steps 1-3 from running Oppia on a development server).
        Run these two commands to manually compile the frontend tests and run the tests:
-     ```
-       ./node_modules/typescript/bin/tsc --project .
-       ./node_modules/karma/bin/karma start ./core/tests/karma.conf.ts
-     ```
+       ```
+         ./node_modules/typescript/bin/tsc --project .
+         ./node_modules/karma/bin/karma start ./core/tests/karma.conf.ts
+       ```
 
 # Installation using the Ubuntu terminal on Windows 10
 
