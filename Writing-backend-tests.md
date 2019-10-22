@@ -65,7 +65,7 @@ The report lists each backend file along with the lines missing coverage in test
 
 1. Test the output of each function as exactly and completely as possible. E.g. it's better to compare equality for an entire dict rather than just checking that a particular value has changed.
 
-1. **Guidelines for testing private methods/functions**: Tests should never refer to private methods/functions in all cases. All tests should happen through the public interface. Here are some suggestions for what to do in specific cases (if this doesn't help for your particular case and you're not sure what to do, please talk to **@BenHenning**):
+1. **Guidelines for testing private methods/functions**: Tests should only be written to verify the behaviour of **public** methods/functions. Private functions should not be used in behavioural tests. Here are some suggestions for what to do in specific cases (if this doesn't help for your particular case and you're not sure what to do, please talk to **@BenHenning**):
    * If you want to test code execution a private method/function, test it through public interface, or move it to a utility (if it's general-purpose) where it becomes public. Avoid testing private APIs since that may lead to brittle test in unexpected situations (such as when the implementation of the API changes, but the behaviour remains the same).
    * If you’re trying to access hidden information, consider getting that information from one level below instead (e.g. datastore).
 
