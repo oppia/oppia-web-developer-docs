@@ -40,7 +40,7 @@ That said, we strongly recommend that you be open to learning new things. If you
 
 Welcome! Please make sure to follow the [setup instructions](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up) above if you haven't already. After that, we'd **strongly recommend** tackling some part of one of the following starter issues:
 - [#4057](https://github.com/oppia/oppia/issues/4057) (frontend; Karma tests)
-- [#5002](https://github.com/oppia/oppia/issues/5002) (full stack; removing GLOBALS from html)
+- [#7450](https://github.com/oppia/oppia/issues/7450) (backend; Refactoring unit tests)
 - [#6240](https://github.com/oppia/oppia/issues/6240) (writing end to end tests)
 
 so that you can become familiar with the codebase and the development workflow. If you decide to do so, please go ahead and leave a comment saying which part of the issue you're taking, and submit a follow-up PR by following the [instructions below](Contributing-code-to-Oppia#instructions-for-making-a-code-change). You don't need to wait for approval to get started! 
