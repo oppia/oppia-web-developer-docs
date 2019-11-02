@@ -2,9 +2,54 @@
 
 **Note:** Installing Oppia on Windows can be **complicated**. We strongly recommend installing on [Linux](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Linux%29) or [Mac OS](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Mac-OS%29) instead if you're able to do so.
 
-**Note:** These instructions are tested to work on Windows 10. If you have some other version of windows, we strongly recommend using Linux or Mac OS, if possible. Alternatively, if you have sufficient RAM (>=6 gb), you could try installing Linux in virtualbox and then installing Oppia on the virtual Linux machine.
+**Note:** These instructions are tested to work on Windows 10. If you have some other version of windows, we strongly recommend using Linux or Mac OS, if possible.
 
 *For information on issues that may occasionally arise with the installation process, please see the [Troubleshooting](https://github.com/oppia/oppia/wiki/Troubleshooting) page.*
+
+# Installation in VirtualBox on Windows 10
+_For this method, a machine with at least 8 GB RAM (prefereably 16 GB) and at least a dual core processor (preferably quad core) is recommended._
+
+With VirtualBox, we run an Ubuntu 18.04 VM, with some minor changes to the VM config. With this installation, the terminal and editor for the codebase will be in VM, while the development site itself can be accessed on the Windows host. This is done so that at least some memory usage can be reduced on VM for better performance.
+
+##  Set up VM in VirtualBox (any VM manager is fine, but the instructions here are specific to VirtualBox)
+
+1. Install VirtualBox from [here](https://www.virtualbox.org/wiki/Downloads).
+2. Open VirtualBox and click New.
+3. Select Type as "Linux", Version "Ubuntu 64bit" and give some name for the VM.
+4. In the next page, select an appropriate amount of RAM for the VM (can be changed later). The whole dev environment is verified to work smoothly at 6 GB RAM. At least 4 GB is recommended.
+5. In the next page, select "Create a virtual hard disk now" and click Create.
+6. Select VDI as the file type.
+7. Depending on free space on the machine, either dynamically allocated or static can be chosen here.
+8. Select the amount of storage that is needed (around 20 GB should be fine) and select a location on the machine with enough free space to host the VM and click create.
+
+## Install Ubuntu 18 ISO
+
+1. Download the Ubuntu 18.04 64bit ISO from [here](https://ubuntu.com/download/desktop).
+2. Select the newly created VM in virtual box and click Start.
+3. Here, a window pops up where you have to link the downloaded ISO file. Click the folder icon and select the ISO from your machine.
+4. Now, go through the normal Ubuntu installation steps, you can do the following the specific steps:
+ * Select "Minimal Installation", and check both checkboxes below it.
+ * Select "Erase disk and install Ubuntu". Don't worry, no data in your host machine will be affected :).
+5. Once, Ubuntu is running and everything is done installing, exit from VM.
+
+## Setup VirtualBox config (optional, but recommended)
+_The following has to be done after exiting from VM. Also, the following need only be done if you want the browser on host to have access to the server running in VM. If you allocated enough RAM to handle the browser instance as well in VirtualBox, then you are done and can use the VM as a complete dev environment!_
+
+1. Select the newly created VM in VirtualBox and click Settings.
+2. Go to 'Network' tab. Here, Adapter 1 should be 'NAT', leave it at that.
+3. Go to 'Adapter 2' and enable it. Select the first dropdown to 'Bridged Adapter' and name to whatever is the network adapter that you are using now.
+4. Then, in 'Advanced', set the MAC address to your active adapter's MAC address (Check it out [here](https://kb.netgear.com/1005/How-do-I-find-my-device-s-MAC-address)).
+
+It should look something like this: [Screenshot](https://drive.google.com/file/d/1E06mh-6zlOXbJIBOjjsCJDB7cytFS1hI/view?usp=sharing)
+
+Now, you can open the VM, and follow the Ubuntu install instructions to setup Oppia in the VM. 
+
+If you have done the optional steps, then everytime before running `python -m scripts.start` to start the dev server, change [this](https://github.com/oppia/oppia/blob/c60361e4ef32f01b0da126c24aba4174b99634f5/scripts/start.py#L143) line in start.py to `'8000 --host 0.0.0.0 --port %s --enable_host_checking=False --skip_sdk_update_check true %s' % (`.
+
+Once, this is done, whenever you run the dev server in the VM, you can go to your browser on the Windows host and go to:
+http://<your_vm's_local_ip>:8181 to access the dev server. You can find your VM's local IP address by running `ifconfig`in a terminal in the VM. It should be the `inet` address of the second adapter shown there.
+
+The change mentioned in start.py has to be done everytime before running start.py for this to work, you can revert it after the server has started, i.e site is accessible on host.
 
 # Installation using Docker on Windows 10
 
