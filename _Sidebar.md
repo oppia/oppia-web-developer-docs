@@ -8,9 +8,7 @@
     * [[Voice artists | Instructions-for-voice-artists]]
     * [[Designers and artists|Contributing-to-Oppia's-design]]
     * [[Season of Docs 2019|Season-of-Docs-2019]]
-    * [[Hacktoberfest 2019|Hacktoberfest-2019]]
   * **[[Good first issues|https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22]]**
-  * [GHC Open Source Day 2019](https://github.com/oppia/oppia/wiki/GHC-Open-Source-Day-2019)
   * Developing Oppia
     * [[FAQs|Frequently-Asked-Questions]]
     * [[Installing Oppia|https://github.com/oppia/oppia/wiki/Installing-Oppia]]
@@ -77,6 +75,8 @@
     * [[Instructions for dev workflow team members|Instructions-for-dev-workflow-team-members]]
     * [[Instructions for QA coordinators|Instructions-to-QA-coordinators]]
   * Past Events
+    * [[Hacktoberfest 2019|Hacktoberfest-2019]]
+    * [GHC Open Source Day 2019](https://github.com/oppia/oppia/wiki/GHC-Open-Source-Day-2019)
     * [[Google Summer of Code 2019|Google-Summer-of-Code-2019]]
     * [[Hacktoberfest 2018|Hacktoberfest-2018]]
     * [[GHC Open Source Day 2018|GHC-Open-Source-Day]]
