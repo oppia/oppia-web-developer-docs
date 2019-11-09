@@ -36,7 +36,7 @@
     * [[Mobile development|Mobile-development]]
     * [[Adding new translations|Adding-new-translations-for-i18n]]
     * [[How to develop for i18n|How-to-develop-for-i18n]]
-    * [[How to do QA | How-to-do-QA]]
+    * [[Guide for release testing | Guide-for-release-testing]]
     * [[Adding static assets|Adding-static-assets]]
     * [[Performance testing|Performance-Testing]]
     * [[Release schedule|Release-Schedule]]
