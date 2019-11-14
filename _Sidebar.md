@@ -23,6 +23,7 @@
     * [[Running tests|Running-Tests]]
     * [[If your build fails...|If-Your-Build-Fails]]
       * [[How the coverage checks work|How-the-coverage-checks-work]]
+      * [[Clearing the Travis Cache|Clearing-Travis-Cache]]
     * Writing Tests
       * [[Writing backend tests]]
       * [[Writing tests for custom Pylint Checkers|Writing-Tests-For-Pylint]] 
