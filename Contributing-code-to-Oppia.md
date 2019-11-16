@@ -42,6 +42,8 @@ Welcome! Please make sure to follow the [setup instructions](https://github.com/
 - [#4057](https://github.com/oppia/oppia/issues/4057) (frontend; Karma tests)
 - [#7450](https://github.com/oppia/oppia/issues/7450) (backend; Refactoring unit tests)
 - [#6240](https://github.com/oppia/oppia/issues/6240) (writing end to end tests)
+- [#8015](https://github.com/oppia/oppia/issues/8015) (Refactoring frontend services)
+- [#8016](https://github.com/oppia/oppia/issues/8016) (Refactoring frontend services)
 
 so that you can become familiar with the codebase and the development workflow. If you decide to do so, please go ahead and leave a comment saying which part of the issue you're taking, and submit a follow-up PR by following the [instructions below](Contributing-code-to-Oppia#instructions-for-making-a-code-change). You don't need to wait for approval to get started! 
 
