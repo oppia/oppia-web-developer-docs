@@ -60,6 +60,7 @@ There are special circumstances when standard merging should be done instead of 
 
 ### Other notes
 
+#### Adblock Disable
 You might want to disable adblockers temporarily when doing the review. We once had a regression caused by the "share" buttons on the dashboard tiles not showing up correctly on the reviewer's machine, which caused a screenshot that ought to have looked like
 
   ![Screenshot showing non-ad-blocked view](images/withoutAdBlocker.png)
@@ -67,3 +68,6 @@ You might want to disable adblockers temporarily when doing the review. We once 
 (where the error would have more easily been caught) to look like the following instead:
 
   ![Screenshot showing ad-blocked view](images/withAdBlocker.png)
+
+#### Reducing Email Noise
+If you would like to reduce email noise following a review, click on the "Unsubscribe" button on the right side of the page. However, if you are tagged, you will still get emails. 
