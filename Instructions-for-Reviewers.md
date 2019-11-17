@@ -4,7 +4,7 @@ When you receive a code review request, please try to do the review as soon as p
 
 ## Figuring out which PRs need your attention
 
-Please replace {{USERNAME}} with your GitHub username at the end of this URL: https://github.com/oppia/oppia/pulls/assigned/{{USERNAME}}. 
+Please replace {{USERNAME}} with your GitHub username at the end of this URL: https://github.com/oppia/oppia/pulls/assigned/{{USERNAME}}.
 
 Clicking on the resulting URL will take you to a list of PRs that are assigned to you.
 
@@ -12,7 +12,7 @@ Clicking on the resulting URL will take you to a list of PRs that are assigned t
 
   1. When you get an email saying a pull request has been assigned to you for review, click on the link to open it in GitHub.
   1. Ensure that the correct target branch (usually "develop") has been selected to merge the branch into.
-  1. Ensure that a "changelog" label is applied on the PR. If not, select an appropriate changelog category label for the PR. 
+  1. Ensure that a "changelog" label is applied on the PR. If not, select an appropriate changelog category label for the PR.
   1. If you want to CC additional reviewers, you can do so using "/cc @username". Say why you're adding them.
 
 ## Doing the review
@@ -22,7 +22,7 @@ Clicking on the resulting URL will take you to a list of PRs that are assigned t
      * Is the code doing the right thing?
      * Does the design look sensible?
      * User-facing bugs should be incorporated into unit/e2e tests.
-     * User-facing confusions should be incorporated into manual tests / critical user journeys for functional capabilities. (Ping one of the QA team members on the PR thread). 
+     * User-facing confusions should be incorporated into manual tests / critical user journeys for functional capabilities. (Ping one of the QA team members on the PR thread).
      * Are there tests/docs which should be present, but aren't?
      * If the change affects the UI, check out the branch and look at it in a browser. Does the UI look good and intuitive to the user?
 
@@ -70,4 +70,6 @@ You might want to disable adblockers temporarily when doing the review. We once 
   ![Screenshot showing ad-blocked view](images/withAdBlocker.png)
 
 #### Reducing Email Noise
-If you would like to reduce email noise following a review, click on the "Unsubscribe" button on the right side of the page. However, if you are tagged, you will still get emails. 
+If you would like to reduce email noise following a review, click on the "Unsubscribe" button on the right side of the page. However, if you are tagged, you will still get emails.
+
+  ![Screenshot showing subscribe button](images/unsubscribeButton.png)
