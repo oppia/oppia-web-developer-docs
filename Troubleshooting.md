@@ -19,7 +19,7 @@ Here are some general troubleshooting tips for Oppia. The platform specific tips
 
    * If you're unable to run front-end tests while pushing your changes due to the script getting stuck, please go to "node_modules" directory (located at the same level as that of the root directory) and delete the "protractor" directory present inside that folder.
 
-   * If the selenium server is not killed on pressing Ctrl-C or Command-C (on Mac) and you get an error something like this:
+   * If the selenium server is not killed on pressing Ctrl-C and you get an error something like this:
 
      ```
        LocalError: Either another browserstack local client is running on your machine or some server is 
