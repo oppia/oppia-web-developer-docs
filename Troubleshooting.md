@@ -14,24 +14,6 @@ Here are some general troubleshooting tips for Oppia. The platform specific tips
      ```
 
      Then run `pip install future`. 
-   
-   * After running `python -m scripts.start`, if your terminal stuck around the following lines (or like the image below):  
-     ```
-        [./node_modules/html-webpack-plugin/lib/loader.js!./core/templates/dev/head/pages/email_dashboard/email_dashboard_result.html] 3.78 KiB {HtmlWebpackPlugin_10} [built]
-        [./node_modules/html-webpack-plugin/lib/loader.js!./core/templates/dev/head/pages/error/error.html] 3.02 KiB {HtmlWebpackPlugin_11} [built]
-        [./node_modules/html-webpack-plugin/lib/loader.js!./core/templates/dev/head/pages/exploration_editor/exploration_editor.html] 9.38 KiB {HtmlWebpackPlugin_12} [built]
-        [./node_modules/html-webpack-plugin/lib/loader.js!./core/templates/dev/head/pages/exploration_player/exploration_player.html] 4.15 KiB {HtmlWebpackPlugin_13} [built]
-        [./node_modules/html-webpack-plugin/lib/loader.js!./core/templates/dev/head/pages/get_started/get_started.html] 3.6 KiB {HtmlWebpackPlugin_14} [built]
-        [./node_modules/html-webpack-plugin/lib/loader.js!./core/templates/dev/head/pages/landing/stewards/landing_page_stewards.html] 29.1 KiB {HtmlWebpackPlugin_30} [built]
-        + 26 hidden modules
-     ```
-
-      ![](https://user-images.githubusercontent.com/16653571/58231149-e046ba80-7d53-11e9-804d-b78b165dccb4.png)
-
-      Try re-running `python -m scripts/start`. (You can stop the proccess using Ctrl+C)
-
-      **Note:**
-      - Developers are trying to fix this issue you can track the activity at [#6766](https://github.com/oppia/oppia/issues/6766).
 
    * If running `which java` on the terminal does not return any output, you do not have java installed. You can install it by running `sudo apt install openjdk-7-jre-headless`. Note that this command might vary for your local machine.
 
