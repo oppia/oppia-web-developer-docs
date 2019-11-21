@@ -9,7 +9,7 @@ The following instructions (contributed by @edallison) outline how to test the b
   * Linux: In a terminal, enter `ip addr show`.
 3. In the browser on your mobile device, enter the local IP address found in the previous step into the browser address bar, followed by `:8181` (e.g. `xxx.xxx.xxx.x:8181`).
 
-A lot of developers have faced an issue "Request Host not whitelisted". To workaround this issue, add another param under [this](https://github.com/oppia/oppia/blob/7b1faa427cf4a67be64dbf087d987af8650b0b53/gulpfile.js#L64) line of the form `host: 'xxx.xxx.x.xxx'` where xxx.xxx.x.xxx is your local IP. After this you can access the Oppia instance on your mobile device as mentioned in step 3 above. (Note: If you make a PR after testing using these steps, please remember to revert these changes.)
+A lot of developers have faced an issue "Request Host not whitelisted". To workaround this issue, modify the host parameter [here](https://github.com/oppia/oppia/blob/450e094392995794553b2ad64cd82c233d9b591d/scripts/start.py#L148) from `--host 0.0.0.0` to `--host xxx.xxx.x.xxx` where xxx.xxx.x.xxx is your local IP. After restarting the server, you can access the Oppia instance on your mobile device as mentioned in step 3 above. (Note: If you make a PR after testing using these steps, please remember to revert these changes.)
 
 ## Using the Chrome mobile emulator
 
