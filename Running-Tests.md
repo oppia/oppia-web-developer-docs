@@ -149,7 +149,7 @@ If the problem still persists, try installing/updating Java Runtime Environment.
 
 You can run typescript tests using
 ```
-    python scripts/typescript_checks.py
+    python -m scripts.typescript_checks
 ```
 
 These tests compile all ts files in the codebase and checks for errors during compilation.
