@@ -78,7 +78,7 @@ If you would like to reduce email noise following a review, click on the "Unsubs
 ### View Only Diffs since last review
 It is not possible to review only the diffs. However, one method to review the files that've changed is to change mark the respective files as viewed by clicking on the button as shown below.
 
-  ![Screenshot showing view button](images/codebaseOverview.png)
+  ![Screenshot showing view button](images/viewedButton.png)
 
 Clicking on the viewed button will automatically collapse the file. Any subsequent changes will result to change the status to unviewed, allowing you review only the files that have changed.
 
