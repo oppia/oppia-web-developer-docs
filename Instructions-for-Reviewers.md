@@ -73,3 +73,13 @@ You might want to disable adblockers temporarily when doing the review. We once 
 If you would like to reduce email noise following a review, click on the "Unsubscribe" button on the right side of the page. However, if you are tagged, you will still get emails.
 
   ![Screenshot showing subscribe button](images/unsubscribeButton.png)
+
+
+### View Only Diffs since last review
+It is not possible to review only the diffs. However, one method to review the files that've changed is to change mark the respective files as viewed by clicking on the button as shown below.
+
+  ![Screenshot showing view button](images/codebaseOverview.png)
+
+Clicking on the viewed button will automatically collapse the file. Any subsequent changes will result to change the status to unviewed, allowing you review only the files that have changed.
+
+Viewing the changes across diffs is possible, but commenting on those changes are not possible. To view those changes, simply change the commits in the urls in `https://github.com/oppia/oppia/compare/commit_1...commit_2`. An example is `https://github.com/oppia/oppia/compare/be4b661...b46838c`.
