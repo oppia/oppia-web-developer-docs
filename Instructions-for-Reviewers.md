@@ -82,4 +82,4 @@ It is not possible to do this directly using the GitHub interface. However, one 
 
 Clicking on that button will automatically collapse the file. Any subsequent changes to that file will then change the status to unviewed, allowing you to review only the files that have changed.
 
-Viewing the changes across multiple commits is possible. To do this, use the "Changes from all commits" dropdown in the "Files Changed" tab. (For a view-only version, you can also simply change the commits in the urls in `https://github.com/oppia/oppia/compare/commit_1...commit_2`. An example is `https://github.com/oppia/oppia/compare/be4b661...b46838c`.)
+Viewing the changes across multiple commits is possible. To do this, use the "Changes from all commits" dropdown in the "Files Changed" tab. (For a readonly version of this, you can also change the commit hashes in the URL `https://github.com/oppia/oppia/compare/commit_1...commit_2`. [Here](https://github.com/oppia/oppia/compare/be4b661...b46838c) is an example.)
