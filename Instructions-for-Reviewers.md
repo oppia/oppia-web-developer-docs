@@ -70,7 +70,7 @@ You might want to disable adblockers temporarily when doing the review. We once 
   ![Screenshot showing ad-blocked view](images/withAdBlocker.png)
 
 #### Reducing Email Noise
-If you would like to reduce email noise following a review, click on the "Unsubscribe" button on the right side of the page. However, if your username is @-mentioned, you will still get emails.
+If you would like to reduce email noise following a review, click on the "Unsubscribe" button on the right side of the page. However, if your username is tagged (using the **@username** syntax), you will still get emails.
 
   ![Screenshot showing subscribe button](images/unsubscribeButton.png)
 
