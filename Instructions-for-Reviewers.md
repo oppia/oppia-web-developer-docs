@@ -70,16 +70,16 @@ You might want to disable adblockers temporarily when doing the review. We once 
   ![Screenshot showing ad-blocked view](images/withAdBlocker.png)
 
 #### Reducing Email Noise
-If you would like to reduce email noise following a review, click on the "Unsubscribe" button on the right side of the page. However, if your username is tagged (using the **@username** syntax), you will still get emails.
+If you would like to reduce email noise following a review, click on the "Unsubscribe" button on the right side of the page. However, if your username is tagged (using the "**@username**" syntax), you will still get emails.
 
   ![Screenshot showing subscribe button](images/unsubscribeButton.png)
 
 
 ### View Only Diffs since last review
-It is not possible to review only the diffs. However, one method to review the files that've changed is to change mark the respective files as viewed by clicking on the button as shown below.
+It is not possible to do this directly using the GitHub interface. However, one way to review the files that have changed is to mark the respective files as viewed by clicking on the button as shown below.
 
   ![Screenshot showing view button](images/viewedButton.png)
 
-Clicking on the viewed button will automatically collapse the file. Any subsequent changes will result to change the status to unviewed, allowing you review only the files that have changed.
+Clicking on that button will automatically collapse the file. Any subsequent changes to that file will then change the status to unviewed, allowing you to review only the files that have changed.
 
-Viewing the changes across diffs is possible, but commenting on those changes are not possible. To view those changes, simply change the commits in the urls in `https://github.com/oppia/oppia/compare/commit_1...commit_2`. An example is `https://github.com/oppia/oppia/compare/be4b661...b46838c`.
+Viewing the changes across multiple commits is possible. To do this, use the "Changes from all commits" dropdown in the "Files Changed" tab. (For a view-only version, you can also simply change the commits in the urls in `https://github.com/oppia/oppia/compare/commit_1...commit_2`. An example is `https://github.com/oppia/oppia/compare/be4b661...b46838c`.)
