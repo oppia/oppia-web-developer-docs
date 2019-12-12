@@ -26,6 +26,7 @@
       * [[Clearing the Travis Cache|Clearing-Travis-Cache]]
     * Writing Tests
       * [[Writing backend tests]]
+      * [[Writing frontend tests|Guidelines-for-writing-frontend-tests]]
       * [[Writing tests for custom Pylint Checkers|Writing-Tests-For-Pylint]] 
       * [[End-to-end tests|End-to-End-Tests]]
     * [[Writing state migrations | Writing-state-migrations]]
