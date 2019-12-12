@@ -8,14 +8,15 @@ Setting up a CircleCI instance for your Oppia's fork hardly takes a couple of mi
 
 ![Setup-Project](https://circleci.com/docs/assets/img/docs/CircleCI-add-new-project-list.png)
 
-5. On the next screen, you’re given some options for configuring your project on CircleCI. You can leave everything as-is since you already have a configuration file in your fork of oppia. Click the Start building button a bit down the page on the right. 
+5. On the next screen, you’re given some options for configuring your project on CircleCI. You can leave everything as-is since you already have a configuration file in your fork of oppia. Click the Start building button a bit down the page on the right.
 
 ![Start-Building](https://circleci.com/docs/assets/img/docs/CircleCI-2.0-start-building.png)
 
+**Important Note:** Some builds might be piggybacking off of Oppia's build quota. This occurs when you noticed that your builds are still queued even though that is the only build running on your fork (as shown below). For these cases, please contact [CircleCI support](https://support.circleci.com/) to unpiggyback your account from Oppia's.
 
+![Image](images/queuedForkBuilds.png)
 
 You've successfully setup CircleCI for your fork of oppia. Enjoy testing your PRs beforehand!
-
 
 ***
 ## Troubleshooting in case of stalled Codecov coverage checks
@@ -26,11 +27,11 @@ In case the Codecov coverage checks on your PR appear to be stalled (something l
 ![pr-checks](https://user-images.githubusercontent.com/24826041/59090041-42451980-8929-11e9-8fde-1e84c3fac6ea.png)
 
 
-and you have set up your own instance of CircleCI, then please go ahead and unfollow `your-github-name/oppia` project on CircleCI by visiting this link:  
+and you have set up your own instance of CircleCI, then please go ahead and unfollow `your-github-name/oppia` project on CircleCI by visiting this link:
 
-`https://circleci.com/gh/organizations/your-github-username/settings#projects`  
-(please remember to fill in your GitHub username in place of `your-github-username` here). 
- 
+`https://circleci.com/gh/organizations/your-github-username/settings#projects`
+(please remember to fill in your GitHub username in place of `your-github-username` here).
+
 Once you've done that, please re-trigger the build by making any commit or bringing your PR branch up-to-date with develop.
 
 If you face any further problems, please feel free to ping @oppia/dev-workflow-team.
