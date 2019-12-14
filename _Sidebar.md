@@ -76,7 +76,7 @@
     * [[Instructions for dev workflow team members|Instructions-for-dev-workflow-team-members]]
     * [[Instructions for QA coordinators|Instructions-to-QA-coordinators]]
   * Past Events
-    * GSoC: [[2019|Google-Summer-of-Code-2019]], [[2018|Google-Summer-of-Code-2018]], [[2017|Google-Summer-of-Code-2017]], [[2016|Google-Summer-of-Code-2016]]
-    * Hacktoberfest: [[2019|Hacktoberfest-2019]], [[2018|Hacktoberfest-2018]], [[2017|Hacktoberfest-2017]], [[2016|Hacktoberfest-2016]]
-    * GHC Open Source Day: [[2019|GHC-Open-Source-Day-2019]], [[2018|GHC-Open-Source-Day]]
-    * Season of Docs: [[2019|Season-of-Docs-2019]]
+    * Google Summer of Code ([[2019|Google-Summer-of-Code-2019]], [[2018|Google-Summer-of-Code-2018]], [[2017|Google-Summer-of-Code-2017]], [[2016|Google-Summer-of-Code-2016]])
+    * Hacktoberfest ([[2019|Hacktoberfest-2019]], [[2018|Hacktoberfest-2018]], [[2017|Hacktoberfest-2017]], [[2016|Hacktoberfest-2016]])
+    * GHC Open Source Day ([[2019|GHC-Open-Source-Day-2019]], [[2018|GHC-Open-Source-Day]])
+    * Season of Docs ([[2019|Season-of-Docs-2019]])
