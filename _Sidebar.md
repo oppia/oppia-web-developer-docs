@@ -7,7 +7,6 @@
     * [[UX researchers|Conducting-research-with-students]]
     * [[Voice artists | Instructions-for-voice-artists]]
     * [[Designers and artists|Contributing-to-Oppia's-design]]
-    * [[Season of Docs 2019|Season-of-Docs-2019]]
   * **[[Good first issues|https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22]]**
   * Developing Oppia
     * [[FAQs|Frequently-Asked-Questions]]
@@ -77,6 +76,7 @@
     * [[Instructions for dev workflow team members|Instructions-for-dev-workflow-team-members]]
     * [[Instructions for QA coordinators|Instructions-to-QA-coordinators]]
   * Past Events
+    * [[Season of Docs 2019|Season-of-Docs-2019]]
     * [[Hacktoberfest 2019|Hacktoberfest-2019]]
     * [GHC Open Source Day 2019](https://github.com/oppia/oppia/wiki/GHC-Open-Source-Day-2019)
     * [[Google Summer of Code 2019|Google-Summer-of-Code-2019]]
