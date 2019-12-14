@@ -17,6 +17,8 @@ Clicking on the resulting URL will take you to a list of PRs that are assigned t
 
 ## Doing the review
 
+**Pro-tip**: You can change the review pane on the "Files Changed" tab of a PR to show the old and new versions side-by-side! This makes it easier to review the diffs. See this [GitHub help page](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-comparing-branches-in-pull-requests#diff-view-options) for more information.
+
   1. Look out for the following things:
      * Do you understand exactly what the code is doing? If not, it's probably the writer's fault, and you should tell them so. The logic needs to be very clear.
      * Is the code doing the right thing?
