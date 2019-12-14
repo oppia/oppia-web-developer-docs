@@ -9,4 +9,4 @@ If you're interested in helping out with this effort, we suggest completing this
 1. Check out some of the existing lessons we've created: [Fractions](https://www.oppia.org/learn/maths/fractions), [Ratios](https://www.oppia.org/learn/maths/ratios) and [Negative Numbers](https://www.oppia.org/learn/maths/negative-numbers).
 1. Fill out this form: https://forms.gle/jEytndtgdsx7BrnV6 to let us know what you'd like to help with!
 
-For more information, check out our website: https://www.oppiafoundation.org/.
+For more information on Oppia's mission, check out our website: https://www.oppiafoundation.org/.
