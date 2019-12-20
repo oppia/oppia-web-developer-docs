@@ -37,16 +37,11 @@ The testers have to be in constant touch with both the QA coordinator as well as
 * QA coordinators team: Nithesh (@nithusha21), Akshay (@aks681), Nitish (@bansalnitish), Vibhor (@vibhor98)
 
 # Release coordinators and QA coordinators for upcoming releases
-* Dec: Ben(@BenHenning) and Nithesh(@nithusha21)
-* Jan: Ankita(@ankita240796) and Vibhor(@vibhor98)
-* Feb: Nithesh(@nithusha21) and Nitish (@bansalnitish)
-* Mar: Ben(@BenHenning) and Akshay (@aks681)
-* Apr: Ankita(@ankita240796) and Nithesh (@nithusha21)
-* May: Nithesh/Sandeep(@nithusha21/@DubeySandeep) and Vibhor(@vibhor98)
-* Jun: Akshay/Sean(@aks681/@seanlip) and Anubhav(@anubhavsinha98)
-* Jul: Sandeep(@DubeySandeep) and Akshay (@aks681)
-* Aug: Nithesh(@nithusha21) and Ankita/Nitish(@ankita240796/@bansalnitish)
-* Sep: Ankita(@ankita240796) and Nithesh (@nithusha21)
-* Oct: Sandeep(@DubeySandeep) and Nitish (@bansalnitish)
-* Nov: Nithesh(@nithusha21) and Anubhav(@anubhavsinha98)
-* Dec: Akshay(@aks681) and Nithesh (@nithusha21)
+* Dec: Sandeep(@DubeySandeep) and Nithesh(@nithusha21)
+* Jan: Chris (@U8NWXD) and TBD
+* Feb: TBD
+* Mar: TBD
+* Apr: TBD
+* May: TBD
+* Jun: TBD
+* Jul: TBD
