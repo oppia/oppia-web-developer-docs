@@ -17,11 +17,13 @@ The most popular tests include unit tests, integration testing, end-to-end (e2e)
      - Setup: This is the place where you create variables, dependencies, etc. 
      - Action: This part performs the logic to be tested. 
      - Assertions: Here you add commands to verify that the above action was completed (or not completed) as expected. 
+- [Here](https://github.com/oppia/oppia/blob/17b6e0ff1fc6b88687af92376cb90bf5f247e539/core/templates/dev/head/domain/skill/RubricObjectFactorySpec.ts#L28-L41) is a simple unit test that demonstrates these points.
+
 
 ## General guidelines for good tests:
 - Naming the test is important. The name should include the name of the component being tested, the conditions imposed on the test and the expected outcome of the test. 
     - The test name follows this format: describe(<component name>) and it(‘should <do this action> when <this condition is imposed>’)
-- All possible code paths in the function should be tested. This is important from a coverage perspective.
+- All possible code paths in the function should be tested. This is important from a coverage perspective. [Here](https://github.com/oppia/oppia/blob/develop/core/templates/dev/head/domain/objects/FractionObjectFactorySpec.ts) is a good example of testing all code paths
 - Any common code can be extracted into a helper function to reduce duplication. Make sure the helper function deals with only one of the 3 parts, ie, the helper function can help with either setup, action or assertion, avoid overlapping across the parts.
 - Assert as many things as possible. An example of this is say, the function returns the list, you can assert that the number of elements is as expected, and each element you expect is in the list. Another example is if an object is expected, then assert the various fields of the object are as expected.
-- In the frontend, while writing tests, we don’t make actual calls to the backend. All http calls are mocked, to keep the tests independent of the backend. Similarly, any services can also be mocked. We try to keep such mocks as low as possible.
+- In the frontend, while writing tests, we don’t make actual calls to the backend. All http calls are mocked, to keep the tests independent of the backend. Similarly, any services can also be mocked. We try to keep such mocks as low as possible. [Here](https://github.com/oppia/oppia/blob/develop/core/templates/dev/head/domain/learner_dashboard/learner-playlist.service.spec.ts#L27) is an example usage of $httpBackend to mock the backend responses.
