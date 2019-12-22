@@ -16,7 +16,7 @@ Features merged into `develop` after this date will only go out in the following
 # Responsibilities of the release testing team
 The release testing team focuses on testing the [critical user journeys](https://docs.google.com/document/d/1T3HyMU8cMvXY1tyzs801Zgf5oSxLqaHICUH_YZJa4JM/edit#heading=h.ri1uw1xkq033) on Oppia. This ensures that all the core functionality is working fine!
 
-The QA coordinator for the month assembles the release testing team before the QA testing weekend (the first weekend of every month). All bugs that need to be prioritized for the current release needs to be reported and triaged by the Monday after the QA weekend. All bugs will need to be fixed before the following Monday, and the release will be pushed during the third weekend.
+The QA coordinator for the month assembles the release testing team before the QA testing weekend (the first weekend of every month). All bugs that need to be prioritized for the current release need to be reported and triaged by the Monday after the QA weekend. All bugs will need to be fixed before the following Monday, and the release will be pushed during the third weekend.
 
 The testers have to be in constant touch with both the QA coordinator as well as the release coordinator for that release. During the testing weekend and the week after that, please prioritize fixing issues under the [blocking bugs milestone](https://github.com/oppia/oppia/milestone/39) so that we can complete the release process on time.
 
@@ -24,7 +24,6 @@ We also have a project leads council who will be contacted about project specifi
 
 **Note:** If you would like to help out with the release testing, please contact @nithusha21 or @aks681. They will be able to guide you further. 
 
-**Note:** If you can't make it to a shift mentioned in the below rota, please make sure to swap with someone else in advance! 
 
 # Team members
 * Release coordination team: Ankita Saxena (@ankita240796), Sandeep (@DubeySandeep), Nithesh (@nithusha21), Akshay (@aks681), Vojtech (@vojtechjelinek)
@@ -32,6 +31,9 @@ We also have a project leads council who will be contacted about project specifi
 * QA coordinators team: Nithesh (@nithusha21), Akshay (@aks681), Rishabh (@Showtim3), Chris (@U8NWXD)
 
 # Release coordinators and QA coordinators for upcoming releases
+
+**Note:** If you can't make it to a shift mentioned in the below rota, please make sure to swap with someone else in advance! 
+
 * Dec: Sandeep(@DubeySandeep) and Nithesh(@nithusha21)
 * Jan: TBD and Chris (@U8NWXD)
 * Feb: TBD
