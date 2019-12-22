@@ -26,16 +26,16 @@ We also have a project leads council who will be contacted about project specifi
 
 
 # Team members
-* Release coordination team: Ankita Saxena (@ankita240796), Sandeep (@DubeySandeep), Nithesh (@nithusha21), Akshay (@aks681), Vojtech (@vojtechjelinek)
+* Release coordination team: Ankita Saxena (**@ankita240796**), Sandeep Dubey (**@DubeySandeep**), Nithesh Hariharan (**@nithusha21**), Akshay Anand (**@aks681**), Vojtěch Jelínek (**@vojtechjelinek**)
 
-* QA coordinators team: Nithesh (@nithusha21), Akshay (@aks681), Rishabh (@Showtim3), Chris (@U8NWXD)
+* QA coordinators team: Nithesh Hariharan (**@nithusha21**), Akshay Anand (**@aks681**), Rishabh Rawat (**@Showtim3**), Chris Skalnik (**@U8NWXD**)
 
 # Release coordinators and QA coordinators for upcoming releases
 
 **Note:** If you can't make it to a shift mentioned in the below rota, please make sure to swap with someone else in advance! 
 
-* Dec: Sandeep(@DubeySandeep) and Nithesh(@nithusha21)
-* Jan: TBD and Chris (@U8NWXD)
+* Dec: Sandeep (**@DubeySandeep**) and Nithesh (**@nithusha21**)
+* Jan: TBD and Chris (**@U8NWXD**)
 * Feb: TBD
 * Mar: TBD
 * Apr: TBD
