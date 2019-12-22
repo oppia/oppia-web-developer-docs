@@ -24,7 +24,7 @@ We also have a project leads council who will be contacted about project specifi
 
 **Note:** If you would like to help out with the release testing, please contact @nithusha21 or @aks681. They will be able to guide you further. 
 
-**Note: ** If you can't make it to a shift mentioned in the below rota, please make sure to swap with someone else in advance! 
+**Note:** If you can't make it to a shift mentioned in the below rota, please make sure to swap with someone else in advance! 
 
 # Team members
 * Release coordination team: Ankita Saxena (@ankita240796), Sandeep (@DubeySandeep), Nithesh (@nithusha21), Akshay (@aks681), Vojtech (@vojtechjelinek)
