@@ -11,7 +11,7 @@ Features merged into `develop` after this date will only go out in the following
 # Instructions for fixing release bugs
 1. Make a branch off of `develop`, and fix the bug.
 1. Apply the label [PR: for current release](https://github.com/oppia/oppia/labels/PR%3A%20for%20current%20release) to PRs containing bugfixes that need to go into the current release.
-1. When the PR has been cherry-picked onto the release branch, apply the label [PR: released](https://github.com/oppia/oppia/labels/PR%3A%20released). (The release coordinator will do this step.)
+1. When the PR has been cherry-picked onto the release branch, the **release coordinator** should apply the label [PR: released](https://github.com/oppia/oppia/labels/PR%3A%20released).
 
 # Responsibilities of the release testing team
 The release testing team focuses on testing the [critical user journeys](https://docs.google.com/document/d/1T3HyMU8cMvXY1tyzs801Zgf5oSxLqaHICUH_YZJa4JM/edit#heading=h.ri1uw1xkq033) on Oppia. This ensures that all the core functionality is working fine!
