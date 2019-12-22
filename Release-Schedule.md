@@ -33,12 +33,13 @@ The testers have to be in constant touch with both the QA coordinator as well as
 **Note: ** If you can't make it to a shift mentioned in the below rota, please make sure to swap with someone else in advance! 
 
 # Team members
-* Bug fixing team: Vibhor (@vibhor98), Christopher (ctao5660), Rishav (@lilithxxx), Nithesh (@nithusha21), Akshay (@aks681)
-* QA coordinators team: Nithesh (@nithusha21), Akshay (@aks681), Nitish (@bansalnitish), Vibhor (@vibhor98)
+* Release coordination team: Ankita Saxena (@ankita240796), Sandeep (@DubeySandeep), Nithesh (@nithusha21), Akshay (@aks681), Vojtech (@vojtechjelinek)
+
+* QA coordinators team: Nithesh (@nithusha21), Akshay (@aks681), Rishabh (@Showtim3), Chris (@U8NWXD)
 
 # Release coordinators and QA coordinators for upcoming releases
 * Dec: Sandeep(@DubeySandeep) and Nithesh(@nithusha21)
-* Jan: Chris (@U8NWXD) and TBD
+* Jan: TBD and Chris (@U8NWXD)
 * Feb: TBD
 * Mar: TBD
 * Apr: TBD
