@@ -18,17 +18,11 @@ The release testing team focuses on testing the [critical user journeys](https:/
 
 The QA coordinator for the month assembles the release testing team before the QA testing weekend (the first weekend of every month). All bugs that need to be prioritized for the current release needs to be reported and triaged by the Monday after the QA weekend. All bugs will need to be fixed before the following Monday, and the release will be pushed during the third weekend.
 
-The testers have to be in constant touch with both the QA coordinator as well as the release coordinator for that release. During the testing weekend and the week after that, please prioritize fixing issues under the [blocking bugs milestone](https://github.com/oppia/oppia/milestone/39) so that we can complete the release process on time.  
+The testers have to be in constant touch with both the QA coordinator as well as the release coordinator for that release. During the testing weekend and the week after that, please prioritize fixing issues under the [blocking bugs milestone](https://github.com/oppia/oppia/milestone/39) so that we can complete the release process on time.
+
+We also have a project leads council who will be contacted about project specific bugs, and the QA team will report the bug to the concerned project lead. This will help us get people with experience in the area to help fix the bug quicker.
 
 **Note:** If you would like to help out with the release testing, please contact @nithusha21 or @aks681. They will be able to guide you further. 
-
-# Instructions for QA member in charge of monitoring PRs
-* This is a weekly rota. During the week, monitor all PRs that come in, and all issues being filed.
-* For PRs, make sure the PR maintains quality of the codebase. This means that: 
-    * PR must maintain backend and frontend coverage values. Any new code being added needs to come with unit tests.
-    * If the PR completes a new feature (or a part, for which the following apply), the PR must add e2e tests for the same. Make sure to record this in the critical user journeys, or the functional capabilities as applicable. If this is a large feature, which needs to be tested with a small subset of the end users (intuitiveness testing) before we can make it public, initiate discussions regarding the same. 
-* For issues, make sure that any breakage of existing functionality reported is escalated to the appropriate contributor(s). Add user-facing bugs to the [bug fixing team project](https://github.com/oppia/oppia/projects/27#column-4117882).
-* At the end of the week (Sunday), notify the next QA team member about their upcoming shift. 
 
 **Note: ** If you can't make it to a shift mentioned in the below rota, please make sure to swap with someone else in advance! 
 
