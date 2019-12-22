@@ -19,10 +19,10 @@
     * [[Webpack|Webpack]]
     * [[Writing design docs|Writing-design-docs]]
     * [[Analyzing the codebase|Analyzing-the-codebase]]
-    * [[Running tests|Running-Tests]]
     * [[If your build fails...|If-Your-Build-Fails]]
       * [[How the coverage checks work|How-the-coverage-checks-work]]
       * [[Clearing the Travis Cache|Clearing-Travis-Cache]]
+    * [[Running tests|Running-Tests]]
     * Writing Tests
       * [[Writing backend tests]]
       * [[Writing frontend tests|Guidelines-for-writing-frontend-tests]]
