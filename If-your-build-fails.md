@@ -24,32 +24,32 @@ To figure out what you need to do next, click on the individual failed test(s) a
 
 * If the error has a message like the one below, then it is due to a network error and is unrelated to your PR. Please reach out to a code owner or Core Maintainer to restart your test.
 
-```
-Installing Node.js
-Traceback (most recent call last):
-  File "/usr/local/lib/python2.7/runpy.py", line 174, in _run_module_as_main
-    "__main__", fname, loader, pkg_name)
-  File "/usr/local/lib/python2.7/runpy.py", line 72, in _run_code
-    exec code in run_globals
-  File "/home/circleci/oppia/scripts/install_third_party_libs.py", line 311, in <module>
-    main()
-  File "/home/circleci/oppia/scripts/install_third_party_libs.py", line 236, in main
-    setup.main(args=[])
-  File "scripts/setup.py", line 158, in main
-    download_and_install_node()
-  File "scripts/setup.py", line 120, in download_and_install_node
-    outfile_name)
-  File "scripts/setup.py", line 81, in download_and_install_package
-    python_utils.url_retrieve(url_to_retrieve, filename=filename)
-  File "python_utils.py", line 289, in url_retrieve
-    return urllib.urlretrieve(source_url, filename=filename)
-  File "/usr/local/lib/python2.7/urllib.py", line 98, in urlretrieve
-    return opener.retrieve(url, filename, reporthook, data)
-  File "/usr/local/lib/python2.7/urllib.py", line 289, in retrieve
-    "of %i bytes" % (read, size), result)
-urllib.ContentTooShortError: retrieval incomplete: got only 7372553 out of 18638507 bytes
+   ```
+   Installing Node.js
+   Traceback (most recent call last):
+     File "/usr/local/lib/python2.7/runpy.py", line 174, in _run_module_as_main
+       "__main__", fname, loader, pkg_name)
+     File "/usr/local/lib/python2.7/runpy.py", line 72, in _run_code
+       exec code in run_globals
+     File "/home/circleci/oppia/scripts/install_third_party_libs.py", line 311, in <module>
+       main()
+     File "/home/circleci/oppia/scripts/install_third_party_libs.py", line 236, in main
+       setup.main(args=[])
+     File "scripts/setup.py", line 158, in main
+       download_and_install_node()
+     File "scripts/setup.py", line 120, in download_and_install_node
+       outfile_name)
+     File "scripts/setup.py", line 81, in download_and_install_package
+       python_utils.url_retrieve(url_to_retrieve, filename=filename)
+     File "python_utils.py", line 289, in url_retrieve
+       return urllib.urlretrieve(source_url, filename=filename)
+     File "/usr/local/lib/python2.7/urllib.py", line 98, in urlretrieve
+       return opener.retrieve(url, filename, reporthook, data)
+     File "/usr/local/lib/python2.7/urllib.py", line 289, in retrieve
+       "of %i bytes" % (read, size), result)
+   urllib.ContentTooShortError: retrieval incomplete: got only 7372553 out of 18638507 bytes
 
-Exited with code exit status 1
-```
+   Exited with code exit status 1
+   ```
 
 Following these instructions should result in PRs that are green and ready to merge by the time a reviewer looks at them, thus shortening the review cycle!
