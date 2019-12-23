@@ -1,8 +1,9 @@
-...do not despair! The failure may be due to one of three things:
+...do not despair! The failure may be due to one of following things:
 
 - There's a merge conflict (in which case, Travis won't actually run).
 - Your code is wrong.
 - Travis is being flaky.
+- Network issues
 
 To figure out which it is, check the bottom of the GitHub PR thread. If there's a merge conflict, it will show up there. You'll need to fix the conflict by following the [instructions for making a code change](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#instructions-for-making-a-code-change) and pushing a new commit to the branch before Travis can run.
 
@@ -20,5 +21,35 @@ To figure out what you need to do next, click on the individual failed test(s) a
 
 * If the error seems totally unrelated to your PR, or the test has just stalled (e.g. "Failed: Timed out waiting for Angular"), this might just be Travis being flaky. Make sure you're logged in to Travis (with your GitHub account), then go to the log for the failing test, and click the 'refresh' button in the top right of that specific test page. (Don't click the refresh button in the top right of the overall dashboard, unless you want to run *all* the tests again.) 
   - **Note:** If you're new to Oppia and haven't been added yet as a collaborator to the repo, you might not have permissions to restart the failing test. In that case, please [ask on Gitter](https://gitter.im/oppia/oppia-chat) if someone can help you out, and provide a URL to the Travis CI page for your PR.
+
+* If the error has a message like the one below, then it is due to a network error and is unrelated to your PR. Please reach out to a code owner or Core Maintainer to restart your test.
+
+```
+Installing Node.js
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/runpy.py", line 174, in _run_module_as_main
+    "__main__", fname, loader, pkg_name)
+  File "/usr/local/lib/python2.7/runpy.py", line 72, in _run_code
+    exec code in run_globals
+  File "/home/circleci/oppia/scripts/install_third_party_libs.py", line 311, in <module>
+    main()
+  File "/home/circleci/oppia/scripts/install_third_party_libs.py", line 236, in main
+    setup.main(args=[])
+  File "scripts/setup.py", line 158, in main
+    download_and_install_node()
+  File "scripts/setup.py", line 120, in download_and_install_node
+    outfile_name)
+  File "scripts/setup.py", line 81, in download_and_install_package
+    python_utils.url_retrieve(url_to_retrieve, filename=filename)
+  File "python_utils.py", line 289, in url_retrieve
+    return urllib.urlretrieve(source_url, filename=filename)
+  File "/usr/local/lib/python2.7/urllib.py", line 98, in urlretrieve
+    return opener.retrieve(url, filename, reporthook, data)
+  File "/usr/local/lib/python2.7/urllib.py", line 289, in retrieve
+    "of %i bytes" % (read, size), result)
+urllib.ContentTooShortError: retrieval incomplete: got only 7372553 out of 18638507 bytes
+
+Exited with code exit status 1
+```
 
 Following these instructions should result in PRs that are green and ready to merge by the time a reviewer looks at them, thus shortening the review cycle!
