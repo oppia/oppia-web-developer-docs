@@ -20,7 +20,7 @@ The most popular tests include unit tests, integration testing, end-to-end (e2e)
 - [Here](https://github.com/oppia/oppia/blob/17b6e0ff1fc6b88687af92376cb90bf5f247e539/core/templates/dev/head/domain/skill/RubricObjectFactorySpec.ts#L28-L41) is a simple unit test that demonstrates these points.
 
 
-## General guidelines for good tests:
+## Best practices for good tests:
 - Naming the test is important. The name should include the name of the component being tested, the conditions imposed on the test and the expected outcome of the test. 
     - The test name follows this format: describe(<component name>) and it(‘should <do this action> when <this condition is imposed>’)
 - All possible code paths in the function should be tested. This is important from a coverage perspective. [Here](https://github.com/oppia/oppia/blob/develop/core/templates/dev/head/domain/objects/FractionObjectFactorySpec.ts) is a good example of testing all code paths
