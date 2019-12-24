@@ -25,7 +25,7 @@
     * [[Running tests|Running-Tests]]
     * Writing Tests
       * [[Writing backend tests]]
-      * [[Writing frontend tests|Guidelines-for-writing-frontend-tests]]
+      * [[Writing frontend tests|Frontend-test-best-practices]]
       * [[Writing tests for custom Pylint Checkers|Writing-Tests-For-Pylint]] 
       * [[End-to-end tests|End-to-End-Tests]]
     * [[Writing state migrations | Writing-state-migrations]]
