@@ -12,7 +12,8 @@ Setting up a CircleCI instance for your Oppia's fork hardly takes a couple of mi
 
 ![Start-Building](https://circleci.com/docs/assets/img/docs/CircleCI-2.0-start-building.png)
 
-**Important Note:** Some builds might be piggybacking off of Oppia's build quota. This occurs when you noticed that your builds are still queued even though that is the only build running on your fork (as shown below). For these cases, please contact [CircleCI support](https://support.circleci.com/) to unpiggyback your account from Oppia's.
+### Important Note
+Some builds might be piggybacking off of Oppia's build quota. This occurs when you noticed that your builds are still queued even though that is the only build running on your fork (as shown below). For these cases, please contact [CircleCI support](https://support.circleci.com/) to unpiggyback your account from Oppia's.
 
 ![Image](images/queuedForkBuilds.png)
 
