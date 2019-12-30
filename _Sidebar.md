@@ -71,7 +71,6 @@
     * [[Migration Instructions|Migration-Instructions]]
   * Playbooks
     * [[Instructions for Reviewers|Instructions-for-Reviewers]]
-    * [[Instructions for Maintainers|Instructions-for-Maintainers]]
     * [[Instructions for making changes to roles and actions|Instructions-for-editing-roles-or-actions]]
     * [[Instructions for dev workflow team members|Instructions-for-dev-workflow-team-members]]
     * [[Instructions for QA coordinators|Instructions-to-QA-coordinators]]
