@@ -40,8 +40,8 @@ That said, we strongly recommend that you be open to learning new things. If you
 
 Welcome! Please make sure to follow the [setup instructions](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up) above if you haven't already. After that, we'd **strongly recommend** tackling some part of one of the following starter issues:
 - [#4057](https://github.com/oppia/oppia/issues/4057) (frontend; Karma tests)
-- [#7450](https://github.com/oppia/oppia/issues/7450) (backend; Refactoring unit tests)
 - [#6240](https://github.com/oppia/oppia/issues/6240) (writing end to end tests)
+- [#7176](https://github.com/oppia/oppia/issues/7176) (frontend; creating domain objects)
 - [#8015](https://github.com/oppia/oppia/issues/8015) (Refactoring frontend services)
 - [#8016](https://github.com/oppia/oppia/issues/8016) (Refactoring frontend services)
 
