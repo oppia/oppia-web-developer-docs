@@ -69,14 +69,15 @@ If an issue hasn't got someone assigned to it, and there's no existing PR for th
 
 ## Instructions for making a code change
 
-**Working on your first Pull Request?** You can learn how from this free series: [How to Contribute to an Open Source Project on GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github).
+**Working on your first Pull Request?** *You can learn how from this free series: [How to Contribute to an Open Source Project on GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github).*
 
-*If your change isn't trivial, please [talk to us](https://gitter.im/oppia/oppia-chat) before you start working on it -- this helps avoid duplication of effort, and allows us to offer advice and suggestions. For larger changes, it may be better to first create a short doc outlining a suggested implementation plan, and send it to the dev team for feedback.*
+To make code changes, please follow the following instructions carefully! Otherwise, your code review may be delayed.
 
-The following instructions describe how to make a one-off code change using a feature branch. (In case you're interested, we mainly use the [Gitflow workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).) Please follow them carefully, otherwise your code review may be delayed.
+1. If your change involves more than 500 lines of code or so, we recommend first creating a short [design doc](https://github.com/oppia/oppia/wiki/Writing-design-docs) and sending it to the oppia-dev@googlegroups.com for feedback before writing any code. This helps avoid duplication of effort, and allows us to offer advice and suggestions on the implementation approach.
 
-1. **Choose a descriptive branch name.** It should be lowercase and hyphen-separated, such as `fuzzy-rules`. Also, it shouldn't start with `hotfix` or `release`.
-2. **Before coding anything, create a new branch with this name, starting from 'develop'.** I.e., run:
+2. **Before coding anything, choose a descriptive branch name** that is lowercase and hyphen-separated, e.g. `fuzzy-rules`, and create a new branch with this name, starting from 'develop'. (Also, make sure that your branch name doesn't start with `release`.) 
+
+    You can do all this by running:
 
     ```
       git fetch upstream
