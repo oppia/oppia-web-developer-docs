@@ -70,30 +70,11 @@ A: As early as possible. Make sure to get feedback from mentors before finally s
 
 **Important:** Please make sure that your final proposal is self-contained! In particular, to be fair to all applicants, key components of the proposal should not be editable after the deadline, and you shouldn't assume that reviewers will follow external links.
 
-When submitting a proposal, please use the following template:
-
-**Project Details**
-- Name of the project.
-- Why are you interested in working with Oppia?
-- What interests you about this project?
-- Prior experience (especially with regards to technical skills that are needed for the project).
-- Links to 1-5 PRs you've made that showcase your best work, especially any Oppia ones. The list should include at least one Oppia PR, but you can also include some other PRs from major open-source projects if you like.
-- Project plan and implementation strategy. This is the most important section of the proposal. If you're not sure how to structure it, we strongly recommend following a structure similar to [Oppia's design doc template](https://docs.google.com/document/d/1eMivKj5uWkOkj4AB684JVJslAe49gSskZ-VsyUjgPN4/edit).
-
-**Summer Plans**
-- Which timezone(s) will you primarily be in during the summer?
-- How much time will you be able to commit to this project?
-- What jobs, summer classes, and other obligations might you need to work around? Please be upfront about any existing commitments you may have. (See the [FAQs](#faqs).)
-
-**Communication**
-- What is your contact information, and preferred method of communication?
-- How often, and through which channel(s), do you plan on communicating with your mentor?
+When submitting a proposal, please use the provided [GSoC proposal template](https://docs.google.com/document/d/1C6OgWa5I2wTWYPLTOqoZMVvWrVQ10BGXbe4SNEBMu-s/edit?usp=sharing) -- if any section isn't relevant for the project, please keep the section and explain why it's not relevant. 
 
 ### Tips for writing a good project plan
 
-The project plan is the most important section of the proposal, since it outlines what you'll be doing during the summer. We recommend that you follow a structure similar to [Oppia's design doc template](https://docs.google.com/document/d/1eMivKj5uWkOkj4AB684JVJslAe49gSskZ-VsyUjgPN4/edit) -- if any section isn't relevant for the project, please keep the section and explain why it's not relevant. 
-
-Here's some guidance on what the mentors and organization admins will be looking for in this section:
+The implementation approach and product design (if user-facing project) are the most important sections of the proposal, since it outlines what you'll be doing during the summer. Here's some guidance on what the mentors and organization admins will be looking for in these sections:
 
 - **Three clear milestones** explaining the deliverables to be achieved by the end of each of the three GSoC coding periods. Strong proposals will have clear, concrete and measurable milestones, whose success can be objectively evaluated by an external observer. It's OK to break up a milestone into smaller milestones over smaller timescales, but individual milestones should represent *concrete* deliverables that can be merged safely into the "develop" branch and included in a subsequent Oppia release. **<u>Please try to be realistic when setting milestones, and don't over-promise.</u>**
 
@@ -114,7 +95,7 @@ Here's some guidance on what the mentors and organization admins will be looking
 
 ### Sample proposals from past years
 
-If you'd like to get a sense of what a proposal might contain, please see our [GSoC 2019 page](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2019) for examples of proposals that we accepted in 2019. 
+If you'd like to get a sense of what a proposal might contain, please see our [GSoC 2019 page](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2019) for examples of proposals that we accepted in 2019. The GSoC proposal template (linked above) was created this year, so although it may seem like none of the previous proposals are following the template. we strongly encourage you to follow it this time.
 
 _**Note:** although some of these proposals are a bit on the long side, there's **no** formal length requirement for your proposal -- in general, the quality of what you write is much more important than the amount of text you write. In fact, we encourage you to write shorter proposals that still convey the main aim of the project. For the actual requirements, please see the [GSoC Proposal Template](#gsoc-proposal-template) section above._
 
