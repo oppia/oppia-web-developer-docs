@@ -74,23 +74,11 @@ When submitting a proposal, please use the provided [GSoC proposal template](htt
 
 ### Tips for writing a good project plan
 
-The implementation approach and product design (if user-facing project) are the most important sections of the proposal, since it outlines what you'll be doing during the summer. Here's some guidance on what the mentors and organization admins will be looking for in these sections:
+Here's some advice about proposals and milestone timeline planning that we collated from previous students and mentors:
 
-- **Three clear milestones**  Strong proposals will have clear, concrete and measurable milestones, whose success can be objectively evaluated by an external observer.
-
-- **A technical design and implementation plan**. Strong proposals will demonstrate familiarity with the codebase, a realistic implementation plan, and attention to detail. The project ideas below are annotated with some notes from the mentors, but please bear in mind that these notes are not exclusive and shouldn't serve as a substitute for thinking carefully and critically about the project from first principles -- their main purpose is to suggest ideas or possible starting points. If, in your thinking, you find aspects not mentioned in the notes, feel free to include a discussion of these aspects in your proposal. 
-
-- **Mocks or wireframes**, if appropriate. For user-facing projects, we strongly favour proposals that demonstrate an empathy for the user. Also, bear in mind that "more is not necessarily better" -- an important aspect of user-focused design is deciding what _not_ to do.
-
-- **A testing plan.** Make sure to budget enough time to test your changes manually before submitting each PR -- otherwise, any bugs that are subsequently discovered during review (or the monthly QA process) could result in significant delays and lead to the failure of an otherwise successful project.
-
-**[NEW!]** Here's some advice about proposals and milestone timeline planning that we collated from previous students and mentors:
 - Choose a project you're interested in! If you have a strong interest in your project, this will help you pick up necessary skills and tackle any unforeseen difficulties that arise during GSoC.
 - Familiarize yourself with the relevant part of the codebase for your project, especially if you haven't touched it before. It's important to think about how to integrate your project with the current Oppia structure -- don't design in a vacuum.
 - Define milestones with enough detail to get a proper ETA for each milestone (so, don't just say "write e2e tests"), otherwise you run the risk of significantly underestimating the timeline.
-- The timeline should account for the time it will take to get PRs reviewed. One way to do this is to explicitly specify two dates: (a) when the initial PR should be sent in by, and (b) when it should be merged by.
-- If work needs to be done in time for a particular release, the initial PR should be sent well in advance of the [release cutoff date](https://github.com/oppia/oppia/wiki/Release-Schedule).
-- If you're working on tasks that depend on jobs being [run in production](https://github.com/oppia/oppia/wiki/Running-jobs-in-production), the timeline should account for any delays inherent in this process.
 
 ### Sample proposals from past years
 
