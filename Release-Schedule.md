@@ -16,7 +16,7 @@ Features merged into `develop` after this date will only go out in the following
 1.  (**This should only be done by the release coordinator.**) When the PR has been cherry-picked onto the release branch, apply the label [PR: released](https://github.com/oppia/oppia/labels/PR%3A%20released) to the PR.
 
 # Responsibilities of the release coordinator
-- The release coordinator is responsible for ensuring that the release for the month, and all related processes, happen on time.
+- The release coordinator is responsible for ensuring that the release for the month, and all related processes, happen correctly and on time.
 - Handling all deployments to the test server and the production server.
 - Running any one-off jobs for the release.
 
