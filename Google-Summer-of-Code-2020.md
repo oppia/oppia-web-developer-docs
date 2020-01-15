@@ -6,8 +6,10 @@
   * [Sample proposals from past years](#sample-proposals-from-past-years)
 * [Types of work related to Oppia projects](#types-of-work-related-to-oppia-projects)
 * [Selection Criteria](#selection-criteria)
+* [Oppia's Project Ideas](#oppias-project-ideas)
 * [Other useful information](#other-useful-information)
     * [Dates and Deadlines](#dates-and-deadlines)
+    * [List of Mentors](#list-of-mentors)
     * [Communication](#communication)
 
 Oppia is planning to participate in [Google Summer of Code 2020](https://summerofcode.withgoogle.com/)! GSoC is a global program which offers post-secondary students an opportunity to discover and work with open source organizations over the course of 3 months, while being paid a stipend. Students work closely with one or more mentors from an open source organization in order to implement either a project idea by the organization, or a proposal of their own.
@@ -135,6 +137,10 @@ For the proposal, we generally look for a clear indication that the student has 
 - A description, if applicable, of how the applicant plans to mitigate risks that could potentially derail the project.
 - Clear, unambiguous communication. (This is important; your proposal will be read by many mentors!)
 
+## Oppia's project ideas
+
+TBD
+
 # Other useful information
 
 ## Dates and Deadlines
@@ -146,6 +152,10 @@ Noteworthy dates for 2020:
 * **Apr 27 - May 18**: Community bonding period
 * **May 18 - Aug 10**: Students enjoy the summer by contributing code to their projects
 * **Aug 25**: GSoC officially ends
+
+## List of Mentors
+
+TBD
 
 ## Communication
 
