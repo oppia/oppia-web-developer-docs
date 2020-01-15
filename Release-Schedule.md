@@ -2,9 +2,11 @@
 **The Friday before the first Saturday of each month**: Release branch gets created. Push the release branch onto a test server.
 Features merged into `develop` after this date will only go out in the following release.
 
-**First weekend of each month**: The release team will focus on testing. By the Monday after the first weekend, the testing phase should be completed.
+**First weekend of each month**: The release team will focus on testing. Typically the testing deadline is chosen to be the Monday after the weekend. The testing should be completed by the deadline. All bugs caught should be filed as blocking bugs on Github, and should be assigned to a bugfixer ASAP.
 
 **Second weekend of each month**: The release/QA team and the project leads council will focus on fixing the reported bugs. By the Monday after the second weekend, the bug-fixing phase should be completed.
+
+**Third week of each month**: First the fixes will be cherrypicked and deployed to the test server, and then we test that the bugs are fixed on the test server. Once this verification is complete, we can go ahead with the next step. 
 
 **Third weekend of each month**: The release will be made and an update will be pushed to the live site.
 
@@ -12,6 +14,18 @@ Features merged into `develop` after this date will only go out in the following
 1. Make a branch off of `develop`, and fix the bug.
 1. Apply the label [PR: for current release](https://github.com/oppia/oppia/labels/PR%3A%20for%20current%20release) to PRs containing bugfixes that need to go into the current release.
 1.  (**This should only be done by the release coordinator.**) When the PR has been cherry-picked onto the release branch, apply the label [PR: released](https://github.com/oppia/oppia/labels/PR%3A%20released) to the PR.
+
+# Responsibilities of the release coordinator
+- Handling all deployments to the test server and the production server.
+- Running any one-off jobs for the release.
+
+# Responsibilities of the QA coordinator
+- Gathering a group of testers for the release testing team for the month.
+- Adding any new user journeys which are critical to the [critical user journeys](https://docs.google.com/document/d/1T3HyMU8cMvXY1tyzs801Zgf5oSxLqaHICUH_YZJa4JM/edit#heading=h.ri1uw1xkq033) doc. Any changes to existing user journeys will also need to be reflected in the doc.
+- Assigning tasks (in the doc for the release), and notifying the testers about the same.
+- Making sure all assigned tasks are completed on time.
+- Triaging all reported bugs as blocking/non-blocking. The blocking bugs need to be assigned to a bugfixer ASAP. Help with fixing some of the blocking bugs.
+- Once bug fixes are complete, and deployed to the test server, verify that the bugs no longer exist and affected user journeys play out fine. (This can be a team effort too).
 
 # Responsibilities of the release testing team
 The release testing team focuses on testing the [critical user journeys](https://docs.google.com/document/d/1T3HyMU8cMvXY1tyzs801Zgf5oSxLqaHICUH_YZJa4JM/edit#heading=h.ri1uw1xkq033) on Oppia. This ensures that all the core functionality is working fine!
