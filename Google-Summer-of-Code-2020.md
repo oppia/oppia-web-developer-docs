@@ -173,6 +173,6 @@ https://gitter.im/oppia/oppia-chat)! You can log in using your GitHub account (G
 **Email**
 
 If you have questions pertaining to "how-to-get-started", please ask them on [Gitter](
-https://gitter.im/oppia/oppia-chat), or the oppia-dev@ mailing list. Please be specific when asking questions; this makes it easier for us to help you. Note that full instructions for getting started with Oppia can be found at [this wiki page](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up).
+https://gitter.im/oppia/oppia-chat), or the oppia-dev@ mailing list. Please be specific when asking questions; this makes it easier for us to help you. Note that full instructions for getting started with Oppia can also be found at [this wiki page](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up), and we recommend that you read it before sending an email.
 
 To discuss your project ideas, or share your proposal for feedback from the community, please email the [GSoC discussion mailing list](mailto:oppia-gsoc-discuss@googlegroups.com).
