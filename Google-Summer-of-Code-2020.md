@@ -74,9 +74,9 @@ A: Definitely not! Here are the [selection criteria](https://github.com/oppia/op
 
 ## GSoC Proposal Template
 
-**Important:** Please make sure that your final proposal is self-contained! In particular, to be fair to all applicants, key components of the proposal should not be editable after the deadline, and you shouldn't assume that reviewers will follow external links.
+When submitting a proposal, please use the provided [GSoC proposal template](https://docs.google.com/document/d/1C6OgWa5I2wTWYPLTOqoZMVvWrVQ10BGXbe4SNEBMu-s/edit). We will only consider proposals submitted using this template.
 
-When submitting a proposal, please use the provided [GSoC proposal template](https://docs.google.com/document/d/1C6OgWa5I2wTWYPLTOqoZMVvWrVQ10BGXbe4SNEBMu-s/edit?usp=sharing) -- if any section isn't relevant for the project, please keep the section and explain why it's not relevant. 
+**Important:** Please make sure that your final proposal is self-contained. In particular, to be fair to all applicants, key components of the proposal should not be editable after the deadline, and you shouldn't assume that reviewers will follow external links.
 
 ### Tips for writing a good project plan
 
@@ -88,14 +88,15 @@ Here's some advice about proposals and milestone timeline planning that we colla
 
 ### Sample proposals from past years
 
-If you'd like to get a sense of what a proposal might contain, please see our [GSoC 2019 page](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2019) for examples of proposals that we accepted in 2019. The GSoC proposal template (linked above) was created this year, so although it may seem like none of the previous proposals are following the template. we strongly encourage you to follow it this time.
+If you'd like to get a sense of what a proposal might contain, please see our [GSoC 2019 page](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2019) for examples of proposals that we accepted in 2019. Note that the [GSoC Proposal Template](https://docs.google.com/document/d/1C6OgWa5I2wTWYPLTOqoZMVvWrVQ10BGXbe4SNEBMu-s/edit) was only created in 2020, so although it may seem like none of the previous proposals follow the template, please be sure to follow it this year.
 
-_**Note:** although some of these proposals are a bit on the long side, there's **no** formal length requirement for your proposal -- in general, the quality of what you write is much more important than the amount of text you write. In fact, we encourage you to write shorter proposals that still convey the main aim of the project. For the actual requirements, please see the [GSoC Proposal Template](#gsoc-proposal-template) section above._
+_**Note:** although some of these proposals are a bit on the long side, there's **no** formal length requirement for your proposal. In general, the quality of what you write is much more important than the amount of text you write, and we encourage you to write shorter proposals that still convey the main aim of the project. For the actual requirements, please see the [GSoC Proposal Template](#gsoc-proposal-template) section above._
 
 ## Types of work related to Oppia projects
 In order to ensure a well-rounded engineering experience, developers will do some or all of the following depending on their project:
 - Meet with their mentors regularly
 - Meet with other contributors related to their project area
+- Read and understand parts of the code base related to their project
 - Receive code reviews for all code they write for their project
 - Write automated tests for their projects
 - Create UI mocks (if doing frontend development)
@@ -148,6 +149,7 @@ TBD
 # Other useful information
 
 ## Dates and Deadlines
+
 Noteworthy dates for 2020:
 * **Jan 15 - Feb 6**: Mentoring organizations apply
 * **Feb 21**: Mentoring organizations are announced
@@ -171,6 +173,6 @@ https://gitter.im/oppia/oppia-chat)! You can log in using your GitHub account (G
 **Email**
 
 If you have questions pertaining to "how-to-get-started", please ask them on [Gitter](
-https://gitter.im/oppia/oppia-chat), or the oppia-dev@ mailing list. Please be specific when asking questions; this makes it easier for us to help you.
+https://gitter.im/oppia/oppia-chat), or the oppia-dev@ mailing list. Please be specific when asking questions; this makes it easier for us to help you. Note that full instructions for getting started with Oppia can be found at [this wiki page](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up).
 
-To discuss your project ideas or share your proposal for feedback from the community, please email the [GSoC discussion mailing list](mailto:oppia-gsoc-discuss@googlegroups.com).
+To discuss your project ideas, or share your proposal for feedback from the community, please email the [GSoC discussion mailing list](mailto:oppia-gsoc-discuss@googlegroups.com).
