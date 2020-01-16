@@ -44,6 +44,7 @@ Welcome! Please make sure to follow the [setup instructions](https://github.com/
 - [#7176](https://github.com/oppia/oppia/issues/7176) (frontend; creating domain objects)
 - [#8015](https://github.com/oppia/oppia/issues/8015) (Refactoring frontend services)
 - [#8016](https://github.com/oppia/oppia/issues/8016) (Refactoring frontend services)
+- [#8423](https://github.com/oppia/oppia/issues/8423) (Writing backend lint checks)
 
 so that you can become familiar with the codebase and the development workflow. If you decide to do so, please go ahead and leave a comment saying which part of the issue you're taking, and submit a follow-up PR by following the [instructions below](Contributing-code-to-Oppia#instructions-for-making-a-code-change). You don't need to wait for approval to get started! 
 
