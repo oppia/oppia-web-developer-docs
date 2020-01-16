@@ -6,7 +6,7 @@
   * [Sample proposals from past years](#sample-proposals-from-past-years)
 * [Types of work related to Oppia projects](#types-of-work-related-to-oppia-projects)
 * [Selection Criteria](#selection-criteria)
-* [Oppia's Project Ideas](#oppias-project-ideas)
+* [Oppia's Project Ideas List](#oppias-project-ideas-list)
 * [Other useful information](#other-useful-information)
     * [Dates and Deadlines](#dates-and-deadlines)
     * [List of Mentors](#list-of-mentors)
@@ -144,7 +144,7 @@ For the proposal, we generally look for a clear indication that the student has 
 - A description, if applicable, of how the applicant plans to mitigate risks that could potentially derail the project.
 - Clear, unambiguous communication. (This is important; your proposal will be read by many mentors!)
 
-## Oppia's project ideas
+## Oppia's project ideas list
 
 TBD
 
