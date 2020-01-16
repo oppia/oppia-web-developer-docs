@@ -58,7 +58,7 @@ A: GSoC is intended to be a full-time commitment, so the main concern is whether
 
 **Q: Which projects are most important for Oppia?**
 
-A: All the projects we've listed here are important, and we'd be very happy to see good progress made on any of them! Projects are treated as equally important during selection. Note that the relative importance of a project to Oppia is not part of the [selection criteria](#selection-criteria).
+A: All the projects we've listed here are important, and we'd be very happy to see good progress made on any of them! Projects are treated as equally important during selection. Note that the relative importance of a project to Oppia is not part of the [selection criteria](#selection-criteria). We would encourage you to pick a project that you would enjoy doing over the summer.
 
 **Q: Can I submit more than one proposal to Oppia?**
 
