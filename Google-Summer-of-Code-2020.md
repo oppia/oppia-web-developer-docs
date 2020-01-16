@@ -144,7 +144,7 @@ For the proposal, we generally look for a clear indication that the student has 
 - A description, if applicable, of how the applicant plans to mitigate risks that could potentially derail the project.
 - Clear, unambiguous communication. (This is important; your proposal will be read by many mentors!)
 
-## Oppia's project ideas list
+## Oppia's Project Ideas List
 
 TBD
 
