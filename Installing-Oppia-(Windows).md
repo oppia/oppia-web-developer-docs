@@ -6,7 +6,12 @@
 
 *For information on issues that may occasionally arise with the installation process, please see the [Troubleshooting](https://github.com/oppia/oppia/wiki/Troubleshooting) page.*
 
+There follow instructions for 3 different ways to install Oppia on Windows: using VirtualBox, using Docker, and using the Ubuntu terminal. You only need to follow one of the three.
+
 # Installation in VirtualBox on Windows 10
+
+Last tested by @jkoj25 on Windows 10 in January of 2020.
+
 _For this method, a machine with at least 8 GB RAM (prefereably 16 GB) and at least a dual core processor (preferably quad core) is recommended._
 
 With VirtualBox, we run an Ubuntu 18.04 VM, with some minor changes to the VM config. With this installation, the terminal and editor for the codebase will be in VM, while the development site itself can be accessed on the Windows host. This is done so that at least some memory usage can be reduced on VM for better performance.
@@ -43,9 +48,9 @@ _The following has to be done after exiting from VM. Also, the following need on
 
 It should look something like this: [Screenshot](https://drive.google.com/file/d/1E06mh-6zlOXbJIBOjjsCJDB7cytFS1hI/view?usp=sharing)
 
-Now, you can open the VM, and follow the Ubuntu install instructions to setup Oppia in the VM. 
+Now, you can open the VM, and return to the [code contribution instructions](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia) to clone the Oppia repository from GitHub. When that page instructs you to "follow the appropriate installation instructions", follow the [Ubuntu install instructions](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Linux%29) to setup Oppia in the VM. 
 
-If you have done the optional steps, then everytime before running `python -m scripts.start` to start the dev server, change [this](https://github.com/oppia/oppia/blob/c60361e4ef32f01b0da126c24aba4174b99634f5/scripts/start.py#L143) line in start.py to `'8000 --host 0.0.0.0 --port %s --enable_host_checking=False --skip_sdk_update_check true %s' % (`.
+If you have done the optional steps, then every time before running `python -m scripts.start` to start the dev server, change [this](https://github.com/oppia/oppia/blob/c60361e4ef32f01b0da126c24aba4174b99634f5/scripts/start.py#L143) line in start.py to `'8000 --host 0.0.0.0 --port %s --enable_host_checking=False --skip_sdk_update_check true %s' % (`.
 
 Once, this is done, whenever you run the dev server in the VM, you can go to your browser on the Windows host and go to:
 http://<your_vm's_local_ip>:8181 to access the dev server. You can find your VM's local IP address by running `ifconfig`in a terminal in the VM. It should be the `inet` address of the second adapter shown there.
@@ -134,6 +139,8 @@ The estimated runtime for this script is about 10-20 minutes. It will open a ser
        node .\node_modules\karma\bin\karma start .\core\tests\karma.conf.ts
      ```
    If this outputs an error, please see [this section](https://github.com/oppia/oppia/wiki/Installing-Oppia-(Windows)#troubleshooting) for alternative commands.
+
+You're done! Now return to the [code contribution instructions](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia), skipping the step about cloning the Oppia repository with `git`.
 
 ## Troubleshooting
 
