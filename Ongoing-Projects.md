@@ -1,65 +1,66 @@
-## # **This is the list of currently ongoing projects at Oppia.**
+## **This is the list of currently ongoing projects at Oppia.**
+
 
 * ### QA(Quality Assurance):
-**Project lead**: Nithesh Hariharan
+     **Project lead**: Nithesh Hariharan
 
-**Aim**: Testing and fixing bugs during releases.
+     **Aim**: Testing and fixing bugs during releases.
 
 ***
 
 * ### Release Coordination: 
-**Project lead**: Ankita Saxena
+     **Project lead**: Ankita Saxena
 
-**Aim**: Ensure smooth releases and automation of most of the stuff in the release.
+     **Aim**: Ensure smooth releases and automation of most of the stuff in the release.
 
 ***
 
 * ### Developer Experience: 
-**Project lead**: Kevin Lee
+     **Project lead**: Kevin Lee
 
-**Aim**: Ensure that the codebase is in a working state, tests work smoothly and it is easier for developers to contribute.
+     **Aim**: Ensure that the codebase is in a working state, tests work smoothly and it is easier for developers to contribute.
 
 ***
 
 * ### Lesson Analytics:
-**Project Lead**: Sean Lip
+     **Project Lead**: Sean Lip
 
-**Aim**: Works on adding new features for lessons and new lessons
+     **Aim**: Works on adding new features for lessons and new lessons
 
 ***
 
 * ### Server Errors: 
-**Project lead**: Kevin Thomas
+     **Project lead**: Kevin Thomas
 
-**Aim**: debugging server errors which come in production
+     **Aim**: debugging server errors which come in production
 
 ***
 
 * ### Angular 8 Migration:
-**Project lead**: Nitish Bansal
+     **Project lead**: Nitish Bansal
 
-**Aim**: Upgrading Angularjs to Angular 8
+     **Aim**: Upgrading Angularjs to Angular 8
 
 ***
 
 * ### Learner Experience: 
-**Project Lead**: Akshay Anand
+     **Project Lead**: Akshay Anand
 
-**Aim**: Adding new features for improving learner experience
+     **Aim**: Adding new features for improving learner experience
 
 ***
 
 * ### Speed improvements: 
-**Project lead**: Vojtèch Jelínek
+     **Project lead**: Vojtèch Jelínek
 
-**Aim**: Improving speed with which the Oppia website is rendered
+     **Aim**: Improving speed with which the Oppia website is rendered
 
 ***
 
 * ### Community contributions, audio, and translations:
-**Project lead**: Sandeep Dubey
+     **Project lead**: Sandeep Dubey
 
-**Aim**: Improving translations and voiceover features to remove the barrier of language.
+     **Aim**: Improving translations and voiceover features to remove the barrier of language.
 
 ***
 
