@@ -25,35 +25,35 @@
 * ### Lesson Analytics:
      **Project Lead**: Sean Lip
 
-     **Aim**: Works on adding new features for lessons and new lessons
+     **Aim**: Works on adding new features for lessons and new lessons.
 
 ***
 
 * ### Server Errors: 
      **Project lead**: Kevin Thomas
 
-     **Aim**: debugging server errors which come in production
+     **Aim**: Debugging server errors that come in production.
 
 ***
 
 * ### Angular 8 Migration:
      **Project lead**: Nitish Bansal
 
-     **Aim**: Upgrading Angularjs to Angular 8
+     **Aim**: Upgrading Angularjs to Angular 8.
 
 ***
 
 * ### Learner Experience: 
      **Project Lead**: Akshay Anand
 
-     **Aim**: Adding new features for improving learner experience
+     **Aim**: Adding new features for improving learner experience.
 
 ***
 
 * ### Speed improvements: 
      **Project lead**: Vojtèch Jelínek
 
-     **Aim**: Improving speed with which the Oppia website is rendered
+     **Aim**: Improving speed with which the Oppia website is rendered.
 
 ***
 
