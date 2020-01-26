@@ -23,7 +23,6 @@ The most popular tests include unit tests, integration testing, end-to-end (e2e)
 ## Best practices for good tests:
 - Naming the test is important. The name should include the name of the component being tested, the conditions imposed on the test and the expected outcome of the test. 
     - The test name follows this format: describe(<component name>) and it(‘should <do this action> when <this condition is imposed>’)
-- Use `fdescribe` instead of the outter `describe` when testing on development environment, so only the file you're testing will be considered on karma running. All the frontend files are related by many ways, like dependency injection for example. It could happen one file already be testing the file you're testing. This is to be sure that the test file is covering all the code from the respective file, in despite of other files. Just be sure to change it again to `describe` when commit changes.
 - All possible code paths in the function should be tested. This is important from a coverage perspective. [Here](https://github.com/oppia/oppia/blob/develop/core/templates/dev/head/domain/objects/FractionObjectFactorySpec.ts) is a good example of testing all code paths
 - Any common code can be extracted into a helper function to reduce duplication. Make sure the helper function deals with only one of the 3 parts, ie, the helper function can help with either setup, action or assertion, avoid overlapping across the parts.
 - Assert as many things as possible. An example of this is say, the function returns the list, you can assert that the number of elements is as expected, and each element you expect is in the list. Another example is if an object is expected, then assert the various fields of the object are as expected.
@@ -48,3 +47,6 @@ The most popular tests include unit tests, integration testing, end-to-end (e2e)
       };
     });
 ```
+
+## Practical tips for writing tests:
+- If you're trying to fully cover a specific file's behaviour using frontend tests, change the outer `describe` to `fdescribe` before running the tests locally (with coverage checks), so that only the tests in the file you're writing will run on Karma. This helps to ensure that all methods for the corresponding file are being tested thoroughly, and that the code in the file you're testing isn't being covered "by chance" due to some test from another file. (Remember to change the tag back to `describe` before committing your changes!)
