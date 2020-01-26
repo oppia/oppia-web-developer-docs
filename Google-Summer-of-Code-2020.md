@@ -78,7 +78,7 @@ A: Definitely not! Here are the [selection criteria](https://github.com/oppia/op
 
 When submitting a proposal, please use the provided [GSoC proposal template](https://docs.google.com/document/d/1C6OgWa5I2wTWYPLTOqoZMVvWrVQ10BGXbe4SNEBMu-s/edit). We will only consider proposals submitted using this template.
 
-When asking for proposal review during the proposal preparation phase, complete each section of the proposal sequentially and have it be fully reviewed by the mentor before asking the mentor to review subsequent sections. eg. Have the mentor review the mocks section and once they are satisfied with it, ask them to review the subsequent technical sections.
+When asking for proposal review during the proposal preparation phase, we suggest completing each section of the proposal sequentially, and getting it fully reviewed by the mentor before asking the mentor to review subsequent sections. (E.g. have the mentor review the mocks section, and once they are satisfied with it, ask them to review the subsequent technical design section, and once that looks good, the milestones section can be reviewed.) This helps ensure that later sections of the proposal are building on a solid baseline.
 
 **Important:** Please make sure that your final proposal is self-contained. In particular, to be fair to all applicants, key components of the proposal should not be editable after the deadline, and you shouldn't assume that reviewers will follow external links.
 
