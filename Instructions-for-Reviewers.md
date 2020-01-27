@@ -27,6 +27,7 @@ Clicking on the resulting URL will take you to a list of PRs that are assigned t
      * User-facing confusions should be incorporated into manual tests / critical user journeys for functional capabilities. (Ping one of the QA team members on the PR thread).
      * Are there tests/docs which should be present, but aren't?
      * If the change affects the UI, check out the branch and look at it in a browser. Does the UI look good and intuitive to the user?
+     * **Important:** Please also ensure that, if a PR author files a TODO for future work, they assign themselves to it (or arrange for it to be assigned responsibly to someone else) and don't just abandon it. It should typically be the next thing they work on, unless there is a principled reason to agree otherwise. (In other words, PR authors shouldn't just file TODOs for future work and then abandon them.)
 
 
       **Note**: To checkout branch BRANCH_NAME from committer COMMITTER_USERNAME to your local machine, run:
