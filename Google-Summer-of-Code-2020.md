@@ -190,6 +190,16 @@ This year, the Oppia team is offering projects in four categories: Full-stack, B
 
 3.4. [Oppiabot project](#oppiabot-project)
 
+### Android Projects
+
+4.1. [Designing app for Tablet](#designing-app-for-tablet)
+
+4.2. [Analytics Support](#analytics-support)
+
+4.3. [Interactions](#interactions)
+
+4.4. [Calculating Skill Mastery](#calculating-skill-mastery)
+
 ## Full-stack Projects
 
 ### Fix Exploration Saving Flows
@@ -620,6 +630,107 @@ All the rows in the doc, mentioned in the project description should be done in 
 **Notes**
 
 You should implement at least the rows mentioned in [functionalities doc](https://docs.google.com/spreadsheets/d/1hFSfl6eQs14m-eLPDCTfwWAZazmFUyTbHwDox15qoW8/edit?usp=sharing) and explain this in the proposal. Further the proposal should include implementation details for each functionalities along with mocks.
+
+## Android Projects
+
+### Designing app for Tablet
+
+Currently Oppia Android app is designed for Android Phones only. This design can be scaled to Android Tablets to increase the application user domain. Mostly these designs will not have any mocks at start.
+
+**Team**: Android
+
+**Potential Mentors**: @rt4914, @benhenning, @vinitamurthi
+
+**Consider taking up this project if you...**
+
+* Enjoy working on user interface of the android application (Kotlin/Java & XML)
+* Can design new screens by taking guidelines from existing screens in the application.
+* Are interested in designing software like AdobeXD Software or any other designing software.
+
+**Suggested Milestones**
+
+1. Screen-Diff/Screenshot testing
+2. High-fidelity code for tablet in HomeFragment, Navigation Drawer, TopicTabs and Revision.
+3. High-fidelity code for tablet in ExplorationPlayer, QuestionPlayer, Settings, Help, Feedback, Profile.
+
+**Notes**
+
+In this tasks can be divided in whichever way possible, the above is just a rough breakdown of work items based on the assumption that different major work items should be done first and based on the suggestions in those designs next screens can be easily build.
+
+### Analytics Support
+
+Analytics support in android app needs to be built in such a way that in future it is possible to send that data back to server keeping in mind that no critical information leaves the phone. There are two major types of analytics:
+* Analytics to improve the app, like feedback and reporting, crash reports, logs, performance report. All these analytics are not directly related to the end user but helps to optimise the application.
+* Learner usage analytics like how much time they have spent on the app, what skills they have learnt, how much progress they have made in the entire app, etc.
+
+**Team**: Android
+
+**Potential Mentors**: @rt4914, @benhenning, @vinitamurthi
+
+**Consider taking up this project if you...**
+
+* Are interested in using Firebase in Android app.
+* Are interested in working on improving the performance of an application.
+
+**Suggested Milestones**
+
+1. Firebase integration for app system health stats (battery, CPU, memory, network, and disk), crashes, and Google analytics
+2. Introduce impressions tracking for all screens & major user flows in the app
+3. Track users who are typically offline, ensure their stats are kept offline without using too much disk usage, upload stats later once connectivity is retained, and ensure stats have a marker to indicate they are associated with the offline user.
+
+### Interactions
+
+Oppia-Android can include some interactions from web so as to make the application more open to different types of explorations. These interactions can be a following:
+* Image Region Selection
+* Ratio Interaction
+* Drag and Drop Sort
+
+**Team**: Android
+
+**Potential Mentors**: @rt4914, @benhenning, @vinitamurthi
+
+**Consider taking up this project if you...**
+
+* Enjoy debugging and tracing through Oppia Backend mainly Python and Javascript code.
+* Have good analytical and technical design skills
+* Are interested in creating custom component in android.
+
+**Suggested Milestones**
+
+1. Add Ratio interaction.
+2. Add Image Region Selection interaction.
+3. Add Drag and Drop Sort interaction.
+
+### Calculating Skill Mastery
+
+While a learner goes through explorations, it is useful for them to see what skills they have learned and where they can improve. This project aims to show that to learners in the Android app. In Oppia web, we already calculate skill mastery during tests. We would like to get the same calculation over to the Android app. We would also like to add skill mastery calculation when a learner goes through chapters of a story. Finally, we would like to present that skill mastery value to the user and also use skill mastery values to determine what questions to show to a user during a test.
+
+**Team**: Android
+
+**Potential Mentors**: @rt4914, @benhenning, @vinitamurthi
+
+**Consider taking up this project if you...**
+
+* Enjoy debugging and tracing through Oppia Backend mainly Python and Javascript code.
+* Have good analytical and technical design skills
+* Are interested in creating custom component in android.
+
+**Suggested Milestones**
+
+1. Add skill mastery calculation in the question framework of the android app.
+2. Add skill mastery calculation for explorations. Add UI in the review tab where users can see their mastery values and progress for each skill in the topic.
+3. Modify the question selection algorithm to use skill mastery values for the user as well.
+  * Add learner analytics like
+    * Total time spent daily, weekly, monthly.
+    * Skills mastered along with proficiency level.
+    * Time taken to solve each exploration and questions.
+    * Accuracy level in each exploration.
+
+**Notes**
+
+* For Milestone 2, proposals should include mocks for the review tab UI changes
+* For Milestone 3, proposals should define a reasonable approach for selecting the questions based on question difficulty, and user-skill mastery
+* The image is just a sample representation of how we can show accuracy inside a topic across all subtopics. This is for understanding purpose only.
 
 # Other useful information
 
