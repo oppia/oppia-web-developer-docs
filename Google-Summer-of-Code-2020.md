@@ -170,6 +170,16 @@ This year, the Oppia team is offering projects in four categories: Full-stack, B
 
 1.7. [Image contributions](#image-contributions)
 
+### Frontend Projects
+
+2.1. [Editor Redesigns](#editor-redesigns)
+
+2.2. [Solve all typescript and webpack issues in the codebase](#solve-all-typescript-and-webpack-issues-in-the-codebase)
+
+2.3. [Frontend testing of controllers and directives](#frontend-testing-of-controllers-and-directives)
+
+2.4. [Accessibility Project](#accessibility-project)
+
 ## Full-stack Projects
 
 ### Fix Exploration Saving Flows
