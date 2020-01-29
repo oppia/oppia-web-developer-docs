@@ -154,6 +154,22 @@ You are welcome to choose among these ideas, or propose your own! However, if yo
 
 This year, the Oppia team is offering projects in four categories: Full-stack, Backend, Frontend and Android. Some of the project ideas are annotated with notes and suggestions from the mentors, but please bear in mind that the main purpose of these notes is simply to suggest ideas or possible starting points; they aren't meant to be prescriptive. You'd also be welcome to include discussions of other relevant aspects (that aren't mentioned in the notes) in your proposal. For more information, see: [Tips for writing a good project plan](#tips-for-writing-a-good-project-plan).
 
+### Full-stack Projects
+
+1.1. [Fix Exploration Saving Flows](#fix-exploration-saving-flows)
+
+1.2. [Generate Images for LaTeX expressions](#generate-images-for-latex-expressions)
+
+1.3. [Bulk Upload of Voiceovers](#bulk-upload-of-voiceovers)
+
+1.4. [SVG Diagram Editor in the RTE](#svg-diagram-editor-in-the-rte)
+
+1.5. [Provide an easy, lightweight way for students to log in to save progress](#provide-an-easy-lightweight-way-for-students-to-log-in-to-save-progress)
+
+1.6. [Improvements to TextClassifier for ML based response to student inputs](#improvements-to-textclassifier-for-ml-based-response-to-student-inputs)
+
+1.7. [Image contributions](#image-contributions)
+
 ## Full-stack Projects
 
 ### Fix Exploration Saving Flows
