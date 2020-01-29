@@ -720,11 +720,13 @@ While a learner goes through explorations, it is useful for them to see what ski
 1. Add skill mastery calculation in the question framework of the android app.
 2. Add skill mastery calculation for explorations. Add UI in the review tab where users can see their mastery values and progress for each skill in the topic.
 3. Modify the question selection algorithm to use skill mastery values for the user as well.
-  * Add learner analytics like
-    * Total time spent daily, weekly, monthly.
-    * Skills mastered along with proficiency level.
-    * Time taken to solve each exploration and questions.
-    * Accuracy level in each exploration.
+4. Add learner analytics like
+  * Total time spent daily, weekly, monthly.
+  * Skills mastered along with proficiency level.
+  * Time taken to solve each exploration and questions.
+  * Accuracy level in each exploration.
+
+![Pie chart](https://drive.google.com/file/d/1LsdgUw8EB_davMlvwuItWk0GbMEI3pNZ/view?usp=sharing)
 
 **Notes**
 
