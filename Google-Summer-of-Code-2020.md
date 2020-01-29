@@ -749,7 +749,20 @@ Noteworthy dates for 2020:
 
 ## List of Mentors
 
-TBD
+* Akshay (@aks681)
+* Ankita (@ankita240796)
+* Ben (@BenHenning)
+* Kevin Thomas (@kevintab95)
+* Nithesh (@nithusha21)
+* Nitish (@bansalnitish)
+* Prasanna (@prasanna08)
+* Rajat (@rt4914)
+* Sagang (@sagangwee)
+* Sandeep (@DubeySandeep)
+* Sean (@seanlip)
+* Vinita (@vinitamurthi)
+* Vojta (@vojtechjelinek)
+* Zaman (@mzaman07)
 
 ## Communication
 
