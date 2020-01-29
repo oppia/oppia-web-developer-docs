@@ -148,7 +148,208 @@ For the proposal, we generally look for a clear indication that the student has 
 
 ## Oppia's Project Ideas List
 
-TBD
+The following is a list of Oppia's 2020 GSoC project ideas. (Please note that all mentor assignments listed below are provisional, and may change depending on which proposals are eventually accepted.)
+
+You are welcome to choose among these ideas, or propose your own! However, if you're planning to propose something original, it's essential to engage with the Oppia community in order to get feedback and guidance to improve the proposal. We also recommend taking a look at [Oppia's mission](https://github.com/oppia/oppia/wiki/Oppia's-Mission) and seeing if there is a natural way to tie your idea to the Oppia project's goals, otherwise it might not be a good fit at this time.
+
+This year, the Oppia team is offering projects in four categories: Full-stack, Backend, Frontend and Android. Some of the project ideas are annotated with notes and suggestions from the mentors, but please bear in mind that the main purpose of these notes is simply to suggest ideas or possible starting points; they aren't meant to be prescriptive. You'd also be welcome to include discussions of other relevant aspects (that aren't mentioned in the notes) in your proposal. For more information, see: [Tips for writing a good project plan](#tips-for-writing-a-good-project-plan).
+
+## Full-stack Projects
+
+### Fix Exploration Saving Flows
+
+There are several serious issues with current workflows in the exploration editor that can occasionally cause loss of work. In particular:
+* Add support for creators to indicate whether changes to explorations are major/minor, in order to provide signal to Android app users for when they might want to update their lessons.
+* Implement generalized migration system for all model types and move migration methods to separate files
+* When an exploration is updated, any existing suggestions in the feedback tab should be updated accordingly. Currently, such suggestions are not updated, resulting in a version mismatch and a loss of work when the exploration creator subsequently tries to apply the suggestion.
+* When changes cannot be saved to an exploration, a "lost changes" modal pops up so that the creator can make a copy of their edits and then reapply them. However, the code for this modal is not robust, and in particular it does not take into account draft changelists that were stored in an older format. Thus, when it tries to display such drafts, it breaks and ends up not showing anything.
+* It is difficult to change an interaction into a slightly different one (e.g. from text input to number-with-input) without losing all the associated responses, hints and solutions. It would be nice to declare a suitable transformation that allows this data to be carried over from one interaction type to a closely-related one, and to auto-migrate as much of the responses as possible so that the creator does not lose their work.
+
+The aim of this project is to fix any three of these issues.
+
+**Team**: Learner and Creator Experience
+
+**Potential Mentors**: @seanlip (primary), @kevintab95, @aks681
+
+**Consider taking up this project if you...**
+
+* Enjoy debugging and tracing through Python and JavaScript code to find out how something works
+* Are familiar with the flow of logic between the Oppia backend and frontend
+* Have good analytical and technical design skills
+
+**Suggested Milestones**
+
+Choose three of the issues above, and fix them. Fixing each issue counts as a single milestone.
+
+**Notes**
+
+Your proposal should include clear explanations for how you plan to solve each of the problems you decide to tackle. (This may entail repeating the sections suggested in the proposal template three times, since this GSoC project is essentially made up of three separate mini-projects.)
+
+### Generate images for LaTeX expressions
+
+Introduce SVG rendering for all LaTeX expressions, so that MathJax can be removed from the learner pages
+
+**Team**: Learner and Creator Experience
+
+**Potential Mentors**: @kevintab95 (primary), @aks681
+
+**Consider taking up this project if you...**
+
+* Enjoy full-stack development.
+* Have good technical design skills.
+
+**Suggested Milestones**
+
+1. Populate the SVG field for newly-created math expressions
+2. Migrate all existing expressions on the server to have SVGs in them.
+3. Use the SVG instead of the LaTeX when showing the formula to the user. Remove MathJax libs from the frontend display.
+
+### Bulk Upload of Voiceovers
+
+Voiceover recording is an important feature for giving lessons life in more than one language. As one of the most used features for creators, there are 2 ways voiceovers can be added to the platform: recording and uploading files. Recently there was a concern raised with the workflow for uploading files. The workflow that currently exists for uploads is that one section of the lesson can be updated one at a time. The main premise of this project is to address this by providing voice artists and creators the ability to bulk upload files and give them improved control of setting the individual audio files to desired sections of the lesson. This will streamline the process for improved efficiency and experience.
+
+**Team**: Audio and Translations
+
+**Potential Mentors**: mzaman07 (primary)
+
+**Consider taking up this project if you...**
+
+* If you enjoy designing UI and care about UX.
+* You want to expand on your Front End Development skills.
+* Have great analytical and technical design skills.
+
+**Suggested Milestones**
+
+1. Implement a bulk upload function based on the UI mockup design. Create a form that will take the resulting file upload(s). Cache all the files in the browser. Provide a way to empty/ refresh the cache by the user.
+2. Implement a UI piece that will allow the user to see all the cached files, play them as a preview and set it to a lesson card. Also allow the user to set how the language the voiceover is for. (Can apply to more than one lesson card.) If this makes the existing one file upload button redundant, justify why this should be removed. Make upload feature more dynamic as it probably does not need to refresh the screen. For network performance, consider designing the file uploading to the server work similarly to a FTP queue.
+3. Apply minor cosmetic indicators to show that the file can be uploaded to Oppia. Display it’s byte size / duration, and mime type. (Optional) If certain browser(s) have niche constraints then indicate that to the user.
+
+**Notes**
+
+Think about the design and problem at hand. The main goal of this is to improve the workflow for its users. The proposal should clearly explain the design and how it improves the experience. You may need to research constraints of saving raw audio file data on the browsers. Each browser may have different constraints.
+
+### SVG Diagram Editor in the RTE
+
+Introduce an SVG diagram editor in the RTE. Creators can use this to create custom informative diagrams for their lessons in the browser itself. The images produced would then be stored as SVG for use in the lesson.
+
+**Team**: Learner and Creator Experience
+
+**Potential Mentors**: @kevintab95 (primary), @aks681
+
+**Consider taking up this project if you...**
+
+* Enjoy debugging and tracing JavaScript code to find out how something works
+* Are familiar with the flow of logic between the Oppia backend and frontend
+* Have good analytical and technical design skills
+
+**Suggested Milestones**
+
+* Milestone 1:
+  * Complete backend changes for introducing literallycanvas, svgedit or a similar editor to the RTE framework (eg. saving/retrieving SVG data). Include tests.
+* Milestone 2:
+  * Complete frontend changes for the SVG editor.
+  * Complete the frontend and end-to-end tests.
+* Milestone 3:
+  * Add 2 custom diagrams (eg: circles and rectangles) to the svg editors like geometrical shapes.
+
+**Notes**
+
+Your proposal should contain a detailed plan for each of the milestones and it must include mocks of how the SVG editor will look like once it has been integrated to the RTE.
+
+### Provide an easy, lightweight way for students to log in to save progress
+
+Currently, the only way for a user to save his/her progress in an exploration is to log in with a Google account, which not every person may have or know how to create. So, the aim of this project is to create a lightweight and intuitive way to signup and login without having a google account, by just asking the user for a username, password, and optional email / mobile number, and then allowing them to login using these. Here, the mobile number, email and username should be validated to be unique. (If a mobile number / email is provided, this can be used for profile recovery if the password is lost.)
+
+Another feature that is to be added is to add functionality in that user’s profile page to support the upgrading of such an account into a “full account” later on, if the user wants to link a google account to it.
+
+**Team**: Learner and Creator Experience
+
+**Potential Mentors**: @aks681, @seanlip
+
+**Consider taking up this project if you...**
+
+* Are familiar with the flow of logic between the Oppia backend and frontend
+* Are interested in creating an end-to-end user flow
+* Have good technical design skills
+
+**Suggested Milestones**
+
+1. Finish the backend for signup, login and implement the migration to add the mobile number field to the user model. Also, make sure the email and mobile number fields are optional in the user model.
+2. Create the signup and login page frontend that communicates with the backend, created in the previous milestone.
+3. Integrate these pages into the main website by editing the Signup button on the top right to show 2 options when clicked. Make sure login with redirect URL works as well. Also, write e2e tests for this functionality.
+
+**Notes**
+
+Proposal should discuss design decision: is it better to build profiles on top of the existing UserModels or should there be a separate LightweightUserModel created.
+Proposal should think through all the workflows (e.g. if using two separate models, does lightweight model get deleted when linked to an account).
+
+### Improvements to TextClassifier for ML based response to student inputs
+
+Oppia is used by many tutors around the world to teach new concepts through explorations. A major part of the consumers of these explorations are students. Oppia provides several ways to interact with the students when they are going through an exploration. Text input interaction is one such interaction in which students provide their answers as a text. As of now, Oppia uses hard defined rules such as ‘answer contains xyz’, ‘answer starts with abc’ etc… to figure out proper response to student inputs. Providing a proper response is very important as improper response may confuse students and they may leave explorations in the middle. These rules are created by the creators of exploration. However, it is impossible to enumerate all possible conditions. 
+
+Recent advances in Machine learning / Deep learning could prove to be very useful. The creator simply labels student inputs with proper responses which could be treated as training data to train an ML model. The goal of this project is to do so. To be specific, the goal of this project is to research and implement a machine learning model which can be used to provide appropriate response to the user inputs. The training data is of classification in nature where the model has to predict appropriate class which is a response that should be used by Oppia.
+
+Currently, Oppia has implemented a naive version of such classifier which uses a Bag-of-Words and SVM model. The aim is to use techniques from recent advances in distributed representational learning and improve upon the current mode.
+
+**Team**: Machine learning
+
+**Potential Mentors**: @prasanna08
+
+**Consider taking up this project if you...**
+
+* Are excited about recent research in the NLP community (esp. deep learning based models such as BERT, GPT).
+* Enjoy reading deep learning research papers, critically analysing them, and implementing state-of-the-art models for your own experiments.
+* Enjoy applying cutting-edge ML techniques to real-world, production environment specifications.
+* Have a fair amount of experience with implementing models in Python (note that Oppia currently uses Python 2.7).
+* Have experience coding in AngularJS or Angular.
+
+**Suggested Milestones**
+
+1. **Literature review**: Compile relevant research papers. Explore their methodologies, and implement them (possibly adapting code published by researchers), then test your implementations on the proposed datasets and compare the results with 1-2 baselines. Provide working implementations and a report of the results for at least the initially-proposed idea and the baselines. Submit a list of at least 4 ideas that you would like to try in the next month.
+2. **Experiment and build a classifier**: Experiment with the ideas proposed in the previous milestone, and provide a report on the results, including a clear specification of the model you are going to implement in Oppia, as well as a full list of changes that are required to implement the classifier using the current ML pipeline. The performance of the final classifier must be adequate (compared to state-of-the-art performance on the proposed datasets), and it must satisfy the constraints in the “notes” section below. You will need to provide sufficient evidence to show that the classifier meets these criteria. 
+3. **Implement and test**: Implement the final classifier in the Oppia code base, and create a dummy exploration on which it can be tested. Note that the responses given by the classifier are more important than the on-paper test results. Also, depending upon the model you propose, you might need to make some changes to the existing ML pipeline.
+
+**Notes**
+
+The ML pipeline implemented in Oppia performs the classification in the browser of a student's machine. The models are trained by a backend server called “Oppia-ML”, and then they are transferred to the frontend where prediction is carried out in the browser in JavaScript. Hence, there are several constraints on the model which need to be adhered to:
+1. The model must be small, i.e., it should fit within a few MBs. 
+2. Inference must be fast on a machine with nominal specifications (4GB RAM, i3 process, no GPUs).
+3. It must be possible to implement the inference code in JavaScript in the frontend. The backend could be anything Python-based (e.g. tensorflow, pytorch), but the inference code has to be implemented in JavaScript.
+4. The model must have reasonably good performance (compared to state-of-the-art benchmarks) on natural language inference datasets (e.g. SNLI or equivalent).
+
+The student proposal should focus on the following points. (Important: While preparing your proposal, please use [this](https://docs.google.com/document/d/1RiOlOKcztnjv69wyhUI-n17lmSN81Y2jKLpnna39bPs/edit?usp=sharing) template instead of the default one for the “Project Details” section of the proposal.)
+* **Selection of promising techniques**. Start by providing a list of at least 3 deep learning / NLP / ML techniques that could potentially be used to address this problem. From this list, pick the most promising options and explain why you think they are the most promising; also, explain why the rejected options are not worth pursuing. Develop the promising options into initial ideas that (i) can be implemented and tested quickly and (ii) could form baselines for further experiments that you will do during GSoC. (These ideas do not need to be complex.)
+* **Baselines**. Provide baseline models that you are going to compare against, and specify which metrics you will be using for comparison. Student should propose an ambitious baseline, rather than something simple such as “SVM with tf-idf”. (It may happen that, at the end of your experiments, your baseline turns out to perform the best; that is OK.)
+* **Datasets**. Specify the datasets on which the classifier will be tested. One such example is SNLI, but you can use any dataset you wish, as long as you give an explanation on why that particular dataset would be a good choice.
+* Prior experience. Provide details of any previous experience you may have with researching such models.
+
+### Image contributions
+
+Art and graphics form an integral part of most explorations on Oppia, and are especially important for making lessons learner-friendly and communicating key concepts to learners, especially since good graphics can transcend language barriers. However, one major blocker when creating lessons is the lack of an easy way for designers/artists to add images to lessons. We would like to enable artists to contribute to lessons as easily as developers can contribute to GitHub repositories.
+
+**Team**: Contributor Experience team
+
+**Potential Mentors**: @DubeySandeep, @sagangwee
+
+**Consider taking up this project if you...**
+
+* Are familiar with the flow of logic between the Oppia backend and frontend
+* Familiar with the state migration functionality
+* Familiar with the Rich text editor workflow 
+* Have good technical design skills
+
+**Suggested Milestones**
+
+1. Building a seperate section for images in different entities, writing migration (if required) and allowing owner/editor to add placeholder images in exploration.
+2. Adding new models for the exploration opportunities and presenting the available opportunities in community dashboard page.
+3. Allowing contributors to submit a suggestion for available opportunities and reviewers to review the suggestions.
+
+**Notes**
+
+A few things should be consider while writing design doc:
+1. There should be a separate section in the state object which should have reference to images. (Similar to RecordedVoiceover and WrittenTranslation.)
+2. This will help us to have a separate section which can be edited by the contributors.
+3. While designing the workflow for Rich text editor consider this editor is used in most of the places like story, topics etc. and as of now we don’t need image suggestion there but in future we can, so it should be simple to re-use the changes in RTE for other paces. 
 
 # Other useful information
 
