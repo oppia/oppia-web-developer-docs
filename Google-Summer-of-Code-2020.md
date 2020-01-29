@@ -180,6 +180,16 @@ This year, the Oppia team is offering projects in four categories: Full-stack, B
 
 2.4. [Accessibility Project](#accessibility-project)
 
+### Backend Projects
+
+3.1. [Improve build process for Oppia](#improve-build-process-for-oppia)
+
+3.2. [Validate data invariants between storage models](#validate-data-invariants-between-storage-models)
+
+3.3. [Fix the linter and implement all lint checks](#fix-the-linter-and-implement-all-lint-checks)
+
+3.4. [Oppiabot project](#oppiabot-project)
+
 ## Full-stack Projects
 
 ### Fix Exploration Saving Flows
@@ -474,13 +484,13 @@ Ensure that the entire Oppia website is fully accessible to screen readers (i.e.
     * Topics and Skills dashboard
     * Classroom page
     * Exploration editor page
-  * Ensure automated tests are in place (eg. axe-core, protractor-accessibility-plugin, lighthouse CI)
+  * Ensure automated tests are in place (eg. [axe-core](https://github.com/dequelabs/axe-core), [protractor-accessiblity-plugin](https://github.com/angular/protractor-accessibility-plugin/), [lighthouse CI](https://github.com/GoogleChrome/lighthouse-ci/blob/master/docs/getting-started.md))
 * Milestone 2:
   * At the end of this milestone, the following pages should score 100% in the accessibility audit: 
     * Editor page (stats, history, feedback)
     * Topics editor
     * Skills editor
-  * Complete “Keyboard navigation” feature (eg. Facebook’s shortcuts):
+  * Complete “Keyboard navigation” feature (eg. [Facebook's shortcuts](https://www.facebook.com/help/156151771119453)):
     * Keyboard shortcuts for navigation across Oppia (eg. moving to a particular section of the same page, navigating to a new page).
     * Must include an easy to access “quick reference”.
 * Milestone 3: 
@@ -494,6 +504,122 @@ Ensure that the entire Oppia website is fully accessible to screen readers (i.e.
 **Notes**
 
 Your proposal should contain a detailed plan with technical details for each of the milestones and it must include mocks.
+
+## Backend Projects
+
+### Improve build process for Oppia
+
+The build process that Oppia uses to prepare the files for reliably serving the site was changed quite a lot in the last few months: we introduced webpack, changed our build scripts from bash to Python, and also upgraded some libraries. Since a lot of these changes affected the build process and sometimes weren’t accounted for, the build process is now clunky and quite hard to understand. 
+
+This project’s aim is to simplify the build process, making it easy for developers to work with it and unifying the multiple entry points that need to build some files (backend tests, e2e tests, frontend tests, local dev server) as much as possible. After the project is complete, all the build related stuff should be handled with either Python or webpack.
+
+**Related issues**: 7061, 5676, 6369, 6866, 7601, 6988
+
+**Team**: Speed Team
+
+**Potential Mentors**: @vojtechjelinek
+
+**Consider taking up this project if you...**
+
+* You want to critically analyze and then propose a new architecture for our build process.
+* You enjoy refactoring of previously made code.
+* This project should simplify the Python part of the build process as simple as possible for the ordinary developer, so you should always have that in mind.
+
+**Suggested Milestones**
+
+1. Remove gulp build (#5676). Simplify directory structure (#6369). Replace Java yuicompressor minifying (CSS) by some npm or webpack alternative.
+2. Refactor the production build process to only move and build the files that are actually needed.
+3. Tidy up various scripts that developers use so that they’re more self-explaining -- currently, there’s usually one big (hundreds of lines) main method that does everything; this should be replaced with multiple smaller methods. Document the build process either in a separate document, or together with the code. 
+
+**Notes**
+
+Proposals should demonstrate an understanding of the current build process and explain clearly what the eventual build process (after the refactor) should look like. Clarity of thought and expression is important here.
+
+### Validate data invariants between storage models
+
+The storage models for Oppia's datastore have audit jobs implemented in core/domain/prod_validation_jobs_one_off.py. Run the audit jobs for all storage models and perform a migration to bring them to a valid state. Add tests for all these migration jobs to ensure that they work correctly. Update the existing models to ensure that they remain in a valid state and complete all [existing TODOs](https://github.com/oppia/oppia/issues/8510) in storage models.
+
+**Team**: Server Team
+
+**Potential Mentors**: @ankita240796, @bansalnitish
+
+**Consider taking up this project if you...**
+
+* Enjoy debugging and fixing validation issues
+* Enjoy analyzing errors and finding the root cause of them and fixing the pipeline by eliminating the source of error
+
+**Suggested Milestones**
+
+* Milestone 1: 
+  * Select half of the models from all the models and write a migration for them. Migrate them to a valid state. Update the models to ensure that this valid state remains. Complete all todos defined in storage model classes for the first half of models.
+* Milestone 2:
+  * Write Migration for the second half of models and migrate them to a valid state. Update the models to ensure that this valid state remains. Complete all todos defined in storage model classes for the second half of the models.
+* Milestone 3:
+  * Wrap up all the todos defined in core/storage/. Refer [this issue](https://github.com/oppia/oppia/issues/8510).
+
+**Notes**
+
+This project follows the following pipeline for a model. This is explained with an example for [ExplorationModel](https://github.com/oppia/oppia/blob/develop/core/storage/exploration/gae_models.py#L43):
+* Understand our [release schedule](https://github.com/oppia/oppia/wiki/Release-Schedule) and the way to [make a request to run a job](https://github.com/oppia/oppia/wiki/Running-jobs-in-production).
+* Run the [validation job for ExplorationModel](https://github.com/oppia/oppia/blob/develop/core/domain/prod_validation_jobs_one_off.py#L5199) on test server. 
+* If the job fails, analyze the failure and fix it and re-run on test server. You need to repeat this step until the job passes.
+* Once the job is successful, repeat the above two steps on the prod server.
+* Collect all the cases which are produced as job output and analyze the root cause for these invalid cases
+* Write a Migration pipeline to fix these issues and run it on test server & prod server similar to the validation job.
+* Fix the code to ensure that such cases do not occur in future.
+A complete pipeline should be run for at least one model before GSoC and the details should be included in the proposal.
+
+### Fix the linter and implement all lint checks
+
+This project aims at implementing the remaining lint checks in the codebase.
+
+**Team**: Server Team
+
+**Potential Mentors**: @ankita240796, @bansalnitish
+
+**Consider taking up this project if you...**
+
+* Enjoy debugging and fixing issues
+* Enjoy refactoring a process and increasing its efficiency
+* Have good control over how linting works for different languages
+
+**Suggested Milestones**
+
+1. Refactor linter to make it more robust + implement linter tests
+- Refactor it to split it up into two (maybe)
+- Make lint output cleaner and less verbose
+- Handle errors correctly
+- Make code simpler.
+- Make sure verbose mode does the right thing.
+
+2+3. Writing new lint checks, see master list: [#8423](https://github.com/oppia/oppia/issues/8423)
+
+**Notes**
+
+The proposal should include a detailed plan in the format of a table which mentions which new lint checks will be added along with the timeline. It should include implementation for adding at least 2 new checks. 
+The proposal should include implementation details for the refactor process and a clear strategy on how the refactoring will improve the linter.
+
+### Oppiabot project
+
+This project aims at adding more functionality to the oppia bot to make the overall developer workflow smoother. The doc with the required functionalities is [here](https://docs.google.com/spreadsheets/d/1hFSfl6eQs14m-eLPDCTfwWAZazmFUyTbHwDox15qoW8/edit?usp=sharing).
+
+**Team**: Server Team
+
+**Potential Mentors**: @ankita240796, @bansalnitish
+
+**Consider taking up this project if you...**
+
+* Enjoy automating stuff
+* Enjoy adding new features to an existing framework
+* Have a good control over github APIs
+
+**Suggested Milestones**
+
+All the rows in the doc, mentioned in the project description should be done in 3 milestones. How, it is split between 3 milestones is upto the student.
+
+**Notes**
+
+You should implement at least the rows mentioned in [functionalities doc](https://docs.google.com/spreadsheets/d/1hFSfl6eQs14m-eLPDCTfwWAZazmFUyTbHwDox15qoW8/edit?usp=sharing) and explain this in the proposal. Further the proposal should include implementation details for each functionalities along with mocks.
 
 # Other useful information
 
