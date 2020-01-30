@@ -189,7 +189,7 @@ This year, the Oppia team is offering projects in four categories: Full-stack, B
 
 3.3. [Fix the linter and implement all lint checks](#33-fix-the-linter-and-implement-all-lint-checks)
 
-3.4. [Oppiabot project](#34-oppiabot-project)
+3.4. [Making Oppiabot more useful](#34-making-oppiabot-more-useful)
 
 ### Android Projects
 
@@ -554,7 +554,7 @@ The storage models for Oppia's datastore have audit jobs implemented in core/dom
 
 **Team**: Server Team
 
-**Potential Mentors**: @ankita240796, @bansalnitish
+**Potential Mentors**: @ankita240796 (primary), @bansalnitish
 
 **Consider taking up this project if you...**
 
@@ -574,59 +574,63 @@ This project follows the following pipeline for a model. This is explained with 
 * Run the [validation job for ExplorationModel](https://github.com/oppia/oppia/blob/develop/core/domain/prod_validation_jobs_one_off.py#L5199) on a backup prod server (you can ask an admin to help you with this).
 * If the job fails, collect all the cases which are produced as job output, and analyze the root cause for these invalid cases. Write a migration job to fix these issues and run it on the backup prod server. Also, fix the code to ensure that such cases do not occur in future. Repeat this step until the validation job passes.
 
-We recommend that you try to run a complete pipeline for at least one model before GSoC, and include the details of this process in the proposal.
+We recommend that you try to run a complete pipeline for at least one model before GSoC, and include, in your proposal, the details on how the pipeline was implemented and run.
+
 
 ### 3.3. Fix the linter and implement all lint checks
 
-This project aims at implementing the remaining lint checks in the codebase.
+The Oppia development workflow uses lint checks to help detect style errors before they reach the review phase. This project aims to implement the remaining lint checks in the codebase and make the linting process more robust by adding tests (since we've had some cases in the past where the linter happily let everything through, and this wasn't detected until several months later!)
 
-**Team**: Server Team
+**Team**: Development Workflow
 
-**Potential Mentors**: @ankita240796, @bansalnitish
+**Potential Mentors**: @bansalnitish (primary), @ankita240796
 
 **Consider taking up this project if you...**
 
 * Enjoy debugging and fixing issues
 * Enjoy refactoring a process and increasing its efficiency
-* Have good control over how linting works for different languages
+* Have a good sense for how the linting process works for different programming languages
 
 **Suggested Milestones**
 
-1. Refactor linter to make it more robust + implement linter tests
-- Refactor it to split it up into two (maybe)
-- Make lint output cleaner and less verbose
-- Handle errors correctly
-- Make code simpler.
-- Make sure verbose mode does the right thing.
+1. Refactor the linter to make it more robust, and implement tests for it. Specifically:
+- Refactor it to split it up into two (if this makes sense).
+- Make the lint output cleaner and less verbose.
+- Handle errors correctly.
+- Make the code simpler.
+- Make sure that verbose mode does the right thing.
 
-2+3. Writing new lint checks, see master list: [#8423](https://github.com/oppia/oppia/issues/8423)
+2+3. Writing new lint checks. See the master list: [#8423](https://github.com/oppia/oppia/issues/8423)
 
 **Notes**
 
-The proposal should include a detailed plan in the format of a table which mentions which new lint checks will be added along with the timeline. It should include implementation for adding at least 2 new checks. 
-The proposal should include implementation details for the refactor process and a clear strategy on how the refactoring will improve the linter.
+- The proposal should include a detailed plan in the format of a table which mentions which new lint checks will be added along with the timeline. It should include code samples for implementing at least 2 new checks (if you like, these can be done by linking to PRs that you have previously submitted to the codebase).
+- The proposal should also include implementation details for the refactor process, as well as a clear description of the "end state" and an explanation of how this refactoring will improve the linter. 
+- Mentors will examine proposals for this project to see whether the applicant has a good understanding of the existing linting process, as well as organizational clarity (i.e. do they have a good understanding of the "big picture" and a clear vision for how these and future lint checks should be implemented so as to fit into a standard organizational structure).
 
-### 3.4. Oppiabot project
 
-This project aims at adding more functionality to the oppia bot to make the overall developer workflow smoother. The doc with the required functionalities is [here](https://docs.google.com/spreadsheets/d/1hFSfl6eQs14m-eLPDCTfwWAZazmFUyTbHwDox15qoW8/edit?usp=sharing).
+### 3.4. Making Oppiabot more useful
 
-**Team**: Server Team
+This project aims to add more functionality to [Oppiabot](https://github.com/oppia/oppiabot) to make the overall developer workflow smoother. The doc with the required functionality is [here](https://docs.google.com/spreadsheets/d/1hFSfl6eQs14m-eLPDCTfwWAZazmFUyTbHwDox15qoW8/edit?usp=sharing).
 
-**Potential Mentors**: @ankita240796, @bansalnitish
+**Team**: Development workflow
+
+**Potential Mentors**: @ankita240796 (primary), @bansalnitish
 
 **Consider taking up this project if you...**
 
 * Enjoy automating stuff
 * Enjoy adding new features to an existing framework
-* Have a good control over github APIs
+* Have a good understanding of GitHub APIs
 
 **Suggested Milestones**
 
-All the rows in the doc, mentioned in the project description should be done in 3 milestones. How, it is split between 3 milestones is upto the student.
+All the rows in the doc mentioned in the project description above should be completed by the end of the 3 GSoC milestones. It is up to the student how to split this work between the 3 milestones, though we recommend grouping related functionality into the same milestone.
 
 **Notes**
 
-You should implement at least the rows mentioned in [functionalities doc](https://docs.google.com/spreadsheets/d/1hFSfl6eQs14m-eLPDCTfwWAZazmFUyTbHwDox15qoW8/edit?usp=sharing) and explain this in the proposal. Further the proposal should include implementation details for each functionalities along with mocks.
+We recommend implementing at least two of the rows mentioned in the [functionalities doc](https://docs.google.com/spreadsheets/d/1hFSfl6eQs14m-eLPDCTfwWAZazmFUyTbHwDox15qoW8/edit?usp=sharing) and explaining your implementation in the proposal. The proposal should also include details of how you would implement the remaining functionality, along with mocks to illustrate what Oppiabot does in the various situations that occur.
+
 
 ## Android Projects
 
