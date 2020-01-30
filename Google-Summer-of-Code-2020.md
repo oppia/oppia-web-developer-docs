@@ -166,7 +166,7 @@ This year, the Oppia team is offering projects in four categories: Full-stack, B
 
 1.5. [Provide an easy, lightweight way for students to log in to save progress](#15-provide-an-easy-lightweight-way-for-students-to-log-in-to-save-progress)
 
-1.6. [Improvements to TextClassifier for ML based response to student inputs](#16-improvements-to-textclassifier-for-ml-based-response-to-student-inputs)
+1.6. [Improvements to TextClassifier for ML based response to student inputs](#16-improvements-to-textclassifier-for-ml-based-responses-to-student-inputs)
 
 1.7. [Image contributions](#17-image-contributions)
 
