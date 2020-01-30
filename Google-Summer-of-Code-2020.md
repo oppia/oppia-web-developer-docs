@@ -152,7 +152,8 @@ The following is a list of Oppia's 2020 GSoC project ideas. (Please note that al
 
 You are welcome to choose among these ideas, or propose your own! However, if you're planning to propose something original, it's essential to engage with the Oppia community in order to get feedback and guidance to improve the proposal. We also recommend taking a look at [Oppia's mission](https://github.com/oppia/oppia/wiki/Oppia's-Mission) and seeing if there is a natural way to tie your idea to the Oppia project's goals, otherwise it might not be a good fit at this time.
 
-This year, the Oppia team is offering projects in four categories: Full-stack, Backend, Frontend and Android. Some of the project ideas are annotated with notes and suggestions from the mentors, but please bear in mind that the main purpose of these notes is simply to suggest ideas or possible starting points; they aren't meant to be prescriptive. You'd also be welcome to include discussions of other relevant aspects (that aren't mentioned in the notes) in your proposal. For more information, see: [Tips for writing a good project plan](#tips-for-writing-a-good-project-plan).
+This year, the Oppia team is offering projects in four categories: Full-stack, Backend, Frontend and Android. Some of the project ideas are annotated with notes and suggestions from the mentors, but please bear in mind that the main purpose of these notes is simply to suggest ideas or possible starting points; they aren't meant to be prescriptive. You'd also be welcome to include discussions of other relevant aspects (that aren't mentioned in the notes) in your proposal. Also, please note that the suggested milestones are only suggestions. You are welcome to divide up the project in an appropriate way based on how you plan to approach it, as long as each milestone has a concrete deliverable and the timeline makes sense. For more information, see: [Tips for writing a good project plan](#tips-for-writing-a-good-project-plan).
+
 
 ### Full-stack Projects
 
@@ -172,13 +173,13 @@ This year, the Oppia team is offering projects in four categories: Full-stack, B
 
 ### Frontend Projects
 
-2.1. [Editor Redesigns](#21-editor-redesigns)
+2.1. [Editor Page Redesigns](#21-editor-page-redesigns)
 
 2.2. [Solve all typescript and webpack issues in the codebase](#22-solve-all-typescript-and-webpack-issues-in-the-codebase)
 
 2.3. [Frontend testing of controllers and directives](#23-frontend-testing-of-controllers-and-directives)
 
-2.4. [Accessibility Project](#24-accessibility-project)
+2.4. [Ensuring that Oppia is fully accessible](#24-ensuring-that-oppia-is-fully-accessible)
 
 ### Backend Projects
 
@@ -314,7 +315,7 @@ This project also aims to add functionality in the corresponding user's profile 
 
 **Team**: Learner and Creator Experience
 
-**Potential Mentors**: @aks681, @seanlip
+**Potential Mentors**: @aks681 (primary), @seanlip
 
 **Consider taking up this project if you...**
 
@@ -341,7 +342,7 @@ Currently, Oppia has already implemented a naive version of such a classifier, w
 
 **Team**: Machine learning
 
-**Potential Mentors**: @prasanna08
+**Potential Mentors**: @prasanna08 (primary)
 
 **Consider taking up this project if you...**
 
@@ -377,7 +378,7 @@ Art and graphics form an integral part of most explorations on Oppia, and are es
 
 **Team**: Contributor Experience team
 
-**Potential Mentors**: @DubeySandeep, @sagangwee
+**Potential Mentors**: @DubeySandeep (primary), @sagangwee
 
 **Consider taking up this project if you...**
 
@@ -400,13 +401,13 @@ A few things should be considered while writing the design doc:
  
 ## Frontend Projects
 
-### 2.1. Editor Redesigns
+### 2.1. Editor Page Redesigns
 
-The aim of this project is to redesign the topic, exploration, story and skill editor pages so they are more visually appealing and work better on mobile, while retaining all of their features. Some initial mocks that we created visualizing these changes can be found here (will be linked when they are ready). Though, in general, feel free to suggest changes to the mocks if you think that would enhance the learner experience.
+The aim of this project is to redesign the topic, exploration, story and skill editor pages so they are more visually appealing and work better on mobile, while retaining all of their features. Some initial mocks that we created visualizing these changes can be found here (these will be linked when they are ready). (Feel free to suggest changes to the mocks if you think that would enhance the creator experience.)
 
 **Team**: Learner and Creator Experience
 
-**Potential Mentors**: @aks681, @kevintab95
+**Potential Mentors**: @aks681 (primary), @kevintab95
 
 **Consider taking up this project if you...**
 
@@ -421,17 +422,18 @@ The aim of this project is to redesign the topic, exploration, story and skill e
 
 **Notes**
 
-* The mocks for the editor pages would be provided, the student has to implement it.
-* The proposal should explain the files that would be changed and the changes themselves briefly.
-* Proposal review would be based on if the student understands the codebase well enough and past PRs related to the editor pages.
+* The mocks for these editor pages will be provided. The goal of this project is to implement them.
+* The proposal should explain the files that would be changed and briefly explain the nature of the changes to be made.
+* The proposal review will be based on whether the student understands the codebase well enough, as well as past PRs related to the editor (or other user-facing) pages, with emphasis on attention to detail in the UI.
 
 ### 2.2. Solve all typescript and webpack issues in the codebase
 
-Complete all remaining typescript + webpack tasks to ensure a smooth development workflow. In particular:
+The aim of this project is to complete all remaining typescript and webpack tasks in order to ensure a smooth development workflow. In particular:
+
 * Remove all custom typings for typescript
-* Remove "any" types for third-party stuff
+* Remove "any" types for third-party libraries
 * Remove all "any" types from the codebase
-* Replace third_party and remaining <script> imports with webpack
+* Replace third_party and remaining `<script>` imports with webpack
 * Reduce the overall time for webpack compilation (under 8s for develop and 60s for production builds)
 * Add documentation on all typescript and webpack errors and solutions on how to fix them.
  
@@ -439,33 +441,38 @@ Complete all remaining typescript + webpack tasks to ensure a smooth development
 
 **Team**: Dev Workflow
 
-**Potential Mentors**: @vojtechjelinek, @ankita240796
+**Potential Mentors**: @vojtechjelinek (primary), @ankita240796
 
 **Consider taking up this project if you...**
 
-* You want to work with TypeScript and Webpack.
-* You will be working mainly on the build process and not on the final product, so be prepared for that.
-* This project should simplify the TypeScript and Webpack part of the build process as simple as possible for the ordinary developer, so you should always have that in mind.
+* Want to work with TypeScript and Webpack.
+* Are fine with working mainly on the build process and not the final product.
+* Enjoy making processes simpler and easier to understand.
 
 **Suggested Milestones**
 
-1. Remove all custom typings for typescript. “Custom typings” denotes the extra typing files that we have for jQuery, html element and scope defs. We have custom type definitions for third party libraries [here](https://github.com/oppia/oppia/tree/develop/typings). We need to remove these and add our own typedefs for third party libraries instead of defining them as any.
-2. Remove "any" types for third-party libraries. Remove all "any" types from the codebase. (Here, "any" types denotes all the declarations which do not have a type specified, or where the type specified is ‘any’.)
-3. Replace third_party and remaining <script> tags with webpack. Reduce the overall time for webpack compilation. Add documentation on all typescript and webpack errors, and solutions on how to fix them.
+1. Remove all custom typings for typescript. "Custom typings" denotes the extra typing files that we have for jQuery, HTML element and scope defs. We have custom type definitions for third party libraries [here](https://github.com/oppia/oppia/tree/develop/typings). We need to remove these and add our own typedefs for third party libraries instead of defining them as "any".
+2. Remove "any" types for third-party libraries. Remove all "any" types from the codebase. (Here, "any" types denotes all the declarations which do not have a type specified, or where the type specified is `any`.)
+3. Replace third_party and remaining `<script>` tags with webpack. Reduce the overall time for webpack compilation. Add documentation on all typescript and webpack errors, and solutions on how to fix them.
+
+**Notes**
+
+* This project should simplify the TypeScript and Webpack part of the build process as much as possible for the ordinary developer. Always keep this aim in mind.
+
 
 ### 2.3. Frontend testing of controllers and directives
 
-This project aims at improving the frontend test coverage of controllers and directives to a 100%.
+This project aims at improving the frontend test coverage of controllers and directives to reach 100%.
 
 **Team**: QA Team
 
-**Potential Mentors**: @nithusha21
+**Potential Mentors**: @nithusha21 (primary)
 
 **Consider taking up this project if you...**
 
-* Are interested in testing. Most of the project would involve writing unit tests. 
-* You will be reading through a lot of the source code of Oppia, so you should have the ability to read through someone else’s code, and understand what needs to be tested.
-* Like to handle technical challenges! It will be very likely that you run into problems while trying to test the code as is, and will need to research and come up with solutions to test certain constructs.
+* Are interested in testing (since most of the project would involve writing unit tests).
+* Have the ability to read through someone else’s code, in order to understand what needs to be tested. (This project will involve reading through a lot of Oppia's source code.)
+* Like to handle technical challenges! It is very likely that you'll run into problems while trying to test the code as is, and you will almost certainly need to research and come up with solutions to test certain constructs.
 
 **Suggested Milestones**
 
@@ -473,7 +480,7 @@ This project aims at improving the frontend test coverage of controllers and dir
 2. Fully cover 60% of the controllers and directives.
 3. Fully cover 100% of the controllers and directives.
 
-### 2.4. Accessibility Project
+### 2.4. Ensuring that Oppia is Fully Accessible
 
 Ensure that the entire Oppia website is fully accessible to screen readers (i.e., all pages should score 100% on the Chrome browser’s inbuilt Accessibility audit tool), and that automated tests are put in place to ensure this is the case going forward.
 
@@ -489,32 +496,28 @@ Ensure that the entire Oppia website is fully accessible to screen readers (i.e.
 **Suggested Milestones**
 
 * Milestone 1: 
-  * At the end of this milestone, the following pages should score 100% in the accessibility audit:
+  * The following pages should score 100% in both Chrome and manual accessibility audits:
     * Learner dashboard
     * Creator dashboard
     * Topics and Skills dashboard
     * Classroom page
     * Exploration editor page
-  * Ensure automated tests are in place (eg. [axe-core](https://github.com/dequelabs/axe-core), [protractor-accessiblity-plugin](https://github.com/angular/protractor-accessibility-plugin/), [lighthouse CI](https://github.com/GoogleChrome/lighthouse-ci/blob/master/docs/getting-started.md))
+  * Ensure that automated tests are put in place (eg. [axe-core](https://github.com/dequelabs/axe-core), [protractor-accessiblity-plugin](https://github.com/angular/protractor-accessibility-plugin/), [lighthouse CI](https://github.com/GoogleChrome/lighthouse-ci/blob/master/docs/getting-started.md)) to ensure that this score is maintained, going forward.
 * Milestone 2:
-  * At the end of this milestone, the following pages should score 100% in the accessibility audit: 
+  * The following pages should score 100% in the accessibility audit: 
     * Editor page (stats, history, feedback)
     * Topics editor
     * Skills editor
-  * Complete “Keyboard navigation” feature (eg. [Facebook's shortcuts](https://www.facebook.com/help/156151771119453)):
+  * Complete the "Keyboard navigation" feature (eg. [Facebook's shortcuts](https://www.facebook.com/help/156151771119453)):
     * Keyboard shortcuts for navigation across Oppia (eg. moving to a particular section of the same page, navigating to a new page).
-    * Must include an easy to access “quick reference”.
+    * Must include an easy to access "quick reference".
 * Milestone 3: 
-  * At the end of this milestone, the following pages should score 100% in the accessibility audit: 
+  * The following pages should score 100% in the accessibility audit: 
     * Story editor
     * Preferences
     * Profile
     * Library
     * Splash and remaining pages.
-
-**Notes**
-
-Your proposal should contain a detailed plan with technical details for each of the milestones and it must include mocks.
 
 ## Backend Projects
 
