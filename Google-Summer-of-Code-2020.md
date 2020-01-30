@@ -636,27 +636,27 @@ We recommend implementing at least two of the rows mentioned in the [functionali
 
 ### 4.1. Designing app for Tablet
 
-Currently Oppia Android app is designed for Android Phones only. This design can be scaled to Android Tablets to increase the application user domain. Mostly these designs will not have any mocks at start.
+Currently, the Oppia Android app is designed for Android Phones only. This design can be scaled to Android Tablets to increase the application user domain. The project also aims to add screendiff/screenshot testing to validate the UI designs so that no regressions occur.
 
 **Team**: Android
 
-**Potential Mentors**: @rt4914, @benhenning, @vinitamurthi
+**Potential Mentors**: @rt4914 (primary), @BenHenning, @vinitamurthi
 
 **Consider taking up this project if you...**
 
-* Enjoy working on user interface of the android application (Kotlin/Java & XML)
-* Can design new screens by taking guidelines from existing screens in the application.
-* Are interested in designing software like AdobeXD Software or any other designing software.
+* Enjoy working on the user interface of the Android application (Kotlin/Java & XML).
+* Can design new screens based on existing screens in the application.
+* Are able to use design software (such as Adobe XD) to design mocks.
 
 **Suggested Milestones**
 
-1. Screen-Diff/Screenshot testing
-2. High-fidelity code for tablet in HomeFragment, Navigation Drawer, TopicTabs and Revision.
-3. High-fidelity code for tablet in ExplorationPlayer, QuestionPlayer, Settings, Help, Feedback, Profile.
+1. Introduce screen-diff/screenshot testing to the application, and write test cases to cover the current (mobile phone) UI. This framework should also be used in subsequent milestones to validate the tablet UI and ensure that no regressions occur.
+2. Implement high-fidelity code for tablet UI in the HomeFragment, Navigation Drawer, TopicTabs and Revision screens.
+3. Implement high-fidelity code for tablet UI in all remaining screens (ExplorationPlayer, QuestionPlayer, Settings, Help, Feedback, Profile).
 
 **Notes**
-
-In this tasks can be divided in whichever way possible, the above is just a rough breakdown of work items based on the assumption that different major work items should be done first and based on the suggestions in those designs next screens can be easily build.
+- It is fine to switch around the tasks in milestones 2 and 3. The above is just a rough breakdown of work items based on the assumption that the more important ones should be done first.
+- Proposals should include mocks for the tablet views.
 
 ### 4.2. Analytics Support
 
@@ -708,7 +708,7 @@ While a learner goes through explorations, it is useful for them to see what ski
 
 **Team**: Android
 
-**Potential Mentors**: @rt4914, @benhenning, @vinitamurthi
+**Potential Mentors**: @vinitamurthi (primary), @rt4914, @benhenning
 
 **Consider taking up this project if you...**
 
