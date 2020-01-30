@@ -156,49 +156,49 @@ This year, the Oppia team is offering projects in four categories: Full-stack, B
 
 ### Full-stack Projects
 
-1.1. [Fix Exploration Saving Flows](#fix-exploration-saving-flows)
+1.1. [Fix Exploration Saving Flows](#11-fix-exploration-saving-flows)
 
-1.2. [Generate Images for LaTeX expressions](#generate-images-for-latex-expressions)
+1.2. [Generate Images for LaTeX expressions](#12-generate-images-for-latex-expressions)
 
-1.3. [Bulk Upload of Voiceovers](#bulk-upload-of-voiceovers)
+1.3. [Bulk Upload of Voiceovers](#13-bulk-upload-of-voiceovers)
 
-1.4. [Add an SVG Diagram Editor to the RTE](#add-an-svg-diagram-editor-to-the-rte)
+1.4. [Add an SVG Diagram Editor to the RTE](#14-add-an-svg-diagram-editor-to-the-rte)
 
-1.5. [Provide an easy, lightweight way for students to log in to save progress](#provide-an-easy-lightweight-way-for-students-to-log-in-to-save-progress)
+1.5. [Provide an easy, lightweight way for students to log in to save progress](#15-provide-an-easy-lightweight-way-for-students-to-log-in-to-save-progress)
 
-1.6. [Improvements to TextClassifier for ML based response to student inputs](#improvements-to-textclassifier-for-ml-based-response-to-student-inputs)
+1.6. [Improvements to TextClassifier for ML based response to student inputs](#16-improvements-to-textclassifier-for-ml-based-response-to-student-inputs)
 
-1.7. [Image contributions](#image-contributions)
+1.7. [Image contributions](#17-image-contributions)
 
 ### Frontend Projects
 
-2.1. [Editor Redesigns](#editor-redesigns)
+2.1. [Editor Redesigns](#21-editor-redesigns)
 
-2.2. [Solve all typescript and webpack issues in the codebase](#solve-all-typescript-and-webpack-issues-in-the-codebase)
+2.2. [Solve all typescript and webpack issues in the codebase](#22-solve-all-typescript-and-webpack-issues-in-the-codebase)
 
-2.3. [Frontend testing of controllers and directives](#frontend-testing-of-controllers-and-directives)
+2.3. [Frontend testing of controllers and directives](#23-frontend-testing-of-controllers-and-directives)
 
-2.4. [Accessibility Project](#accessibility-project)
+2.4. [Accessibility Project](#24-accessibility-project)
 
 ### Backend Projects
 
-3.1. [Improve build process for Oppia](#improve-build-process-for-oppia)
+3.1. [Improve build process for Oppia](#31-improve-build-process-for-oppia)
 
-3.2. [Validate data invariants between storage models](#validate-data-invariants-between-storage-models)
+3.2. [Validate data invariants between storage models](#32-validate-data-invariants-between-storage-models)
 
-3.3. [Fix the linter and implement all lint checks](#fix-the-linter-and-implement-all-lint-checks)
+3.3. [Fix the linter and implement all lint checks](#33-fix-the-linter-and-implement-all-lint-checks)
 
-3.4. [Oppiabot project](#oppiabot-project)
+3.4. [Oppiabot project](#34-oppiabot-project)
 
 ### Android Projects
 
-4.1. [Designing app for Tablet](#designing-app-for-tablet)
+4.1. [Designing app for Tablet](#41-designing-app-for-tablet)
 
-4.2. [Analytics Support](#analytics-support)
+4.2. [Analytics Support](#42-analytics-support)
 
-4.3. [Interactions](#interactions)
+4.3. [Interactions](#43-interactions)
 
-4.4. [Calculating Skill Mastery](#calculating-skill-mastery)
+4.4. [Calculating Skill Mastery](#44-calculating-skill-mastery)
 
 ## Full-stack Projects
 
