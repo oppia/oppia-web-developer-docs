@@ -356,7 +356,7 @@ Currently, Oppia has already implemented a naive version of such a classifier, w
 
 1. **Literature review**: Compile relevant research papers. Explore their methodologies, and implement them (possibly adapting code published by researchers), then test your implementations on the proposed datasets and compare the results with 1-2 baselines. Provide working implementations and a report of the results for at least the initially-proposed idea and the baselines. Submit a list of at least 4 ideas that you would like to try in the next month.
 2. **Experiment and build a classifier**: Experiment with the ideas proposed in the previous milestone, and provide a report on the results, including a clear specification of the model you are going to implement in Oppia, as well as a full list of changes that are required to implement the classifier using the current ML pipeline. The performance of the final classifier must be adequate (compared to state-of-the-art performance on the proposed datasets), and it must satisfy the constraints in the “notes” section below. You will need to provide sufficient evidence to show that the classifier meets these criteria. 
-3. **Implement and test**: Implement the final classifier in the Oppia code base, and create a dummy exploration on which it can be tested. Note that the responses given by the classifier are more important than the on-paper test results. Also, depending upon the model you propose, you might need to make some changes to the existing ML pipeline.
+3. **Implement and test**: Implement the final classifier in the Oppia code base, and create a dummy exploration on which it can be tested. Note that the responses that end up being given by the classifier in manual testing are the primary success criterion here (rather than the reports that were created in earlier milestones). Also, depending upon the model you propose, you might need to make some changes to the existing ML pipeline.
 
 **Notes**
 
@@ -647,22 +647,21 @@ Currently, the Oppia Android app is designed for Android Phones only. This desig
 * Enjoy working on the user interface of the Android application (Kotlin/Java & XML).
 * Can design new screens based on existing screens in the application.
 * Are able to use design software (such as Adobe XD) to design mocks.
+* Have experience with writing UI-based test cases.
 
 **Suggested Milestones**
 
 1. Introduce screen-diff/screenshot testing to the application, and write test cases to cover the current (mobile phone) UI. This framework should also be used in subsequent milestones to validate the tablet UI and ensure that no regressions occur.
-2. Implement high-fidelity code for tablet UI in the HomeFragment, Navigation Drawer, TopicTabs and Revision screens.
-3. Implement high-fidelity code for tablet UI in all remaining screens (ExplorationPlayer, QuestionPlayer, Settings, Help, Feedback, Profile).
+2. Create designs for all tablet screens. Implement high-fidelity code for tablet UI in the HomeFragment, Navigation Drawer, TopicTabs and Revision screens.
+3. Implement high-fidelity code for tablet UI in all remaining screens (ExplorationPlayer, QuestionPlayer, Settings, Help, Feedback, Profile, Revision and any other screens present in the application).
 
 **Notes**
+- Your proposal should include the approach for screenshot testing and how the tablet layout will be introduced in the current codebase. Also, add designs/mocks for at least 3 screens from for any of the following: HomeFragment, Navigation Drawer, TopicTabs, ExplorationPlayer, QuestionPlayer, Revision.
 - It is fine to switch around the tasks in milestones 2 and 3. The above is just a rough breakdown of work items based on the assumption that the more important ones should be done first.
-- Proposals should include mocks for the tablet views.
 
 ### 4.2. Analytics Support
 
-Analytics support needs to be built in the Android app in such a way that, in future, it is possible to send that data back to the server while ensuring that no sensitive information leaves the phone. There are two major types of analytics:
-* Analytics to improve the app, such as feedback and reporting, crash reports, logs and performance reports. All these analytics are not directly related to the end user, but can help with diagnosing and fixing errors in the application.
-* Learner usage analytics, such as: how much time they have spent on the app, what skills they have learnt, how much progress they have made in the entire app, etc.
+Analytics support needs to be built in the Android app in such a way that, in future, it is possible to send that data back to the server while ensuring that no sensitive information leaves the phone. The aim of this project is to gather analytics to track crash reports, logs and app-health reports, as well as add feedback & reporting which will transfer those logs in case of any issues. We also want to persist learner usage analytics, such as: how much time they have spent on the app, what skills they have learnt, how much progress they have made in the entire app, etc.
 
 **Team**: Android
 
@@ -671,13 +670,17 @@ Analytics support needs to be built in the Android app in such a way that, in fu
 **Consider taking up this project if you...**
 
 * Are interested in using Firebase in an Android app.
-* Are interested in working on improving the performance of an application.
+* Are interested in working on system usage tracking and analytics.
 
 **Suggested Milestones**
 
-1. Implement Firebase integration for app system health stats (battery, CPU, memory, network, and disk), crashes, and Google Analytics.
-2. Introduce impressions tracking for all screens and major user flows in the app.
-3. Track users who are typically offline, ensure that their stats are kept offline without using too much disk usage, upload these stats later once connectivity is retained, and ensure that these stats have a marker to indicate that they are associated with the corresponding user. (This is to help users recover their progress if something happens to their phone.)
+1. Integrate Firebase to track app-system health stats (battery, CPU, memory, network, and disk), crashes, and feedback/reporting.
+2. Introduce Google Analytics to track in-app impressions (which button was clicked how many times, which screen was visited for how long, etc.)
+3. For users who are typically offline, ensure that their stats are kept offline without using too much disk usage. Upload these stats later once connectivity is retained, and ensure that these stats have a marker to indicate that they are associated with the corresponding user. (This is to help users recover their progress if something happens to their phone.)
+
+**Notes:**
+- Your proposal should include how Firebase and Google Analytics will be introduced in the application.
+- You should also focus on mentioning the approach for saving the stats/analytics/logs offline and uploading these analytics once the user is online.
 
 ### 4.3. Additional interaction types
 
@@ -720,21 +723,20 @@ While a learner goes through explorations, it is useful for them to see what ski
 **Suggested Milestones**
 
 1. Add skill mastery calculation in the question framework of the android app.
-2. Add skill mastery calculation for explorations. Add UI in the review tab where users can see their mastery values and progress for each skill in the topic.
-3. Modify the question selection algorithm to use skill mastery values for the user as well.
-4. Add learner analytics like
+2. Add UI in the review tab where users can see their mastery values and progress for each skill in the topic. Also show learner analytics, such as:
   * Total time spent daily, weekly, monthly.
   * Skills mastered along with proficiency level.
   * Time taken to solve each exploration and questions.
   * Accuracy level in each exploration.
+3. Modify the question selection algorithm to use skill mastery values for the user as well.
 
 <img src="https://user-images.githubusercontent.com/22347970/73383506-796c9e80-42ef-11ea-9b2f-4af518190dd2.png" width="300">
 
 **Notes**
 
-* For Milestone 2, proposals should include mocks for the review tab UI changes
-* For Milestone 3, proposals should define a reasonable approach for selecting the questions based on question difficulty, and user-skill mastery
-* The image is just a sample representation of how we can show accuracy inside a topic across all subtopics. This is for understanding purpose only.
+* For Milestone 2, proposals should include mocks for the review tab UI changes.
+* For Milestone 3, proposals should define a reasonable approach for selecting the questions based on question difficulty, and user-skill mastery.
+* The image is just a sample representation of how we can show accuracy inside a topic across all subtopics. It is just meant for illustration.
 
 # Other useful information
 
