@@ -183,7 +183,7 @@ This year, the Oppia team is offering projects in four categories: Full-stack, B
 
 ### Backend Projects
 
-3.1. [Improve build process for Oppia](#31-improve-build-process-for-oppia)
+3.1. [Simplify the Oppia build process](#31-simplify-the-oppia-build-process)
 
 3.2. [Validate data invariants between storage models](#32-validate-data-invariants-between-storage-models)
 
@@ -521,37 +521,36 @@ Ensure that the entire Oppia website is fully accessible to screen readers (i.e.
 
 ## Backend Projects
 
-### 3.1. Improve build process for Oppia
+### 3.1. Simplify the Oppia build process
 
 The build process that Oppia uses to prepare the files for reliably serving the site was changed quite a lot in the last few months: we introduced webpack, changed our build scripts from bash to Python, and also upgraded some libraries. Since a lot of these changes affected the build process and sometimes weren’t accounted for, the build process is now clunky and quite hard to understand. 
 
-This project’s aim is to simplify the build process, making it easy for developers to work with it and unifying the multiple entry points that need to build some files (backend tests, e2e tests, frontend tests, local dev server) as much as possible. After the project is complete, all the build related stuff should be handled with either Python or webpack.
+This project’s aim is to simplify the build process, making it easy for developers to work with it and unifying the multiple entry points that need to build some files (backend tests, e2e tests, frontend tests, local dev server) as much as possible. After the project is complete, all the build-related stuff should be handled exclusively with either Python or webpack.
 
 **Related issues**: 7061, 5676, 6369, 6866, 7601, 6988
 
 **Team**: Speed Team
 
-**Potential Mentors**: @vojtechjelinek
+**Potential Mentors**: @vojtechjelinek (primary)
 
 **Consider taking up this project if you...**
 
-* You want to critically analyze and then propose a new architecture for our build process.
-* You enjoy refactoring of previously made code.
-* This project should simplify the Python part of the build process as simple as possible for the ordinary developer, so you should always have that in mind.
+* Want to critically analyze and then propose a new architecture for our build process.
+* Enjoy refactoring previously-written code.
 
 **Suggested Milestones**
 
-1. Remove gulp build (#5676). Simplify directory structure (#6369). Replace Java yuicompressor minifying (CSS) by some npm or webpack alternative.
+1. Remove gulp build (#5676). Simplify directory structure (#6369). Replace Java yuicompressor minification of CSS by some npm or webpack alternative.
 2. Refactor the production build process to only move and build the files that are actually needed.
-3. Tidy up various scripts that developers use so that they’re more self-explaining -- currently, there’s usually one big (hundreds of lines) main method that does everything; this should be replaced with multiple smaller methods. Document the build process either in a separate document, or together with the code. 
+3. Tidy up various scripts that developers use so that they’re more self-explaining. Currently, there's usually one big (hundreds of lines) main method that does everything; this should be replaced with multiple smaller methods. Document the updated build process either in a separate document, or together with the code. 
 
 **Notes**
 
-Proposals should demonstrate an understanding of the current build process and explain clearly what the eventual build process (after the refactor) should look like. Clarity of thought and expression is important here.
+While writing your proposal, please make sure to keep in mind that a key aim of this project is to simplify the Python part of the build process as much as possible for the ordinary developer. Proposals should demonstrate an understanding of the current build process and explain clearly what the eventual build process (after the refactor) should look like. Clarity of thought and expression is important here.
 
 ### 3.2. Validate data invariants between storage models
 
-The storage models for Oppia's datastore have audit jobs implemented in core/domain/prod_validation_jobs_one_off.py. Run the audit jobs for all storage models and perform a migration to bring them to a valid state. Add tests for all these migration jobs to ensure that they work correctly. Update the existing models to ensure that they remain in a valid state and complete all [existing TODOs](https://github.com/oppia/oppia/issues/8510) in storage models.
+The storage models for Oppia's datastore have audit jobs implemented in core/domain/prod_validation_jobs_one_off.py. Run the audit jobs for all storage models and perform a migration to bring them to a valid state. Add tests for all these migration jobs to ensure that they work correctly. Update the existing models to ensure that they remain in a valid state, and complete all [remaining TODOs](https://github.com/oppia/oppia/issues/8510) in the storage models.
 
 **Team**: Server Team
 
@@ -559,29 +558,23 @@ The storage models for Oppia's datastore have audit jobs implemented in core/dom
 
 **Consider taking up this project if you...**
 
-* Enjoy debugging and fixing validation issues
-* Enjoy analyzing errors and finding the root cause of them and fixing the pipeline by eliminating the source of error
+* Enjoy debugging and fixing validation issues.
+* Enjoy analyzing errors and finding their root cause, as well as fixing the pipeline by eliminating the sources of error.
 
 **Suggested Milestones**
 
-* Milestone 1: 
-  * Select half of the models from all the models and write a migration for them. Migrate them to a valid state. Update the models to ensure that this valid state remains. Complete all todos defined in storage model classes for the first half of models.
-* Milestone 2:
-  * Write Migration for the second half of models and migrate them to a valid state. Update the models to ensure that this valid state remains. Complete all todos defined in storage model classes for the second half of the models.
-* Milestone 3:
-  * Wrap up all the todos defined in core/storage/. Refer [this issue](https://github.com/oppia/oppia/issues/8510).
+1. Select half of the storage models in the codebase. Run the validation jobs for them, diagnose the errors, find ways to fix them, and write a migration job to bring all the models to a valid state (as well as make code modifications to ensure that they continue to be in a valid state henceforth).
+2. Do the same thing as in Milestone 1 for the rest of the model classes in the codebase.
+3. Complete all remaining TODOs defined in core/storage/. See [this issue](https://github.com/oppia/oppia/issues/8510) for details.
 
 **Notes**
 
 This project follows the following pipeline for a model. This is explained with an example for [ExplorationModel](https://github.com/oppia/oppia/blob/develop/core/storage/exploration/gae_models.py#L43):
 * Understand our [release schedule](https://github.com/oppia/oppia/wiki/Release-Schedule) and the way to [make a request to run a job](https://github.com/oppia/oppia/wiki/Running-jobs-in-production).
-* Run the [validation job for ExplorationModel](https://github.com/oppia/oppia/blob/develop/core/domain/prod_validation_jobs_one_off.py#L5199) on test server. 
-* If the job fails, analyze the failure and fix it and re-run on test server. You need to repeat this step until the job passes.
-* Once the job is successful, repeat the above two steps on the prod server.
-* Collect all the cases which are produced as job output and analyze the root cause for these invalid cases
-* Write a Migration pipeline to fix these issues and run it on test server & prod server similar to the validation job.
-* Fix the code to ensure that such cases do not occur in future.
-A complete pipeline should be run for at least one model before GSoC and the details should be included in the proposal.
+* Run the [validation job for ExplorationModel](https://github.com/oppia/oppia/blob/develop/core/domain/prod_validation_jobs_one_off.py#L5199) on a backup prod server (you can ask an admin to help you with this).
+* If the job fails, collect all the cases which are produced as job output, and analyze the root cause for these invalid cases. Write a migration job to fix these issues and run it on the backup prod server. Also, fix the code to ensure that such cases do not occur in future. Repeat this step until the validation job passes.
+
+We recommend that you try to run a complete pipeline for at least one model before GSoC, and include the details of this process in the proposal.
 
 ### 3.3. Fix the linter and implement all lint checks
 
