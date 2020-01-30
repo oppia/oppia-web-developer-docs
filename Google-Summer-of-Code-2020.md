@@ -674,7 +674,7 @@ Analytics support needs to be built in the Android app in such a way that, in fu
 
 **Suggested Milestones**
 
-1. Integrate Firebase to track app-system health stats (battery, CPU, memory, network, and disk), crashes, and feedback/reporting.
+1. Integrate Firebase to track app-system health stats (battery, CPU, memory, network, and disk) and crashes.
 2. Introduce Google Analytics to track in-app impressions (which button was clicked how many times, which screen was visited for how long, etc.)
 3. For users who are typically offline, ensure that their stats are kept offline without using too much disk usage. Upload these stats later once connectivity is retained, and ensure that these stats have a marker to indicate that they are associated with the corresponding user. (This is to help users recover their progress if something happens to their phone.)
 
