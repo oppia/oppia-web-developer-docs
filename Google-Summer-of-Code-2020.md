@@ -197,7 +197,7 @@ This year, the Oppia team is offering projects in four categories: Full-stack, B
 
 4.2. [Analytics Support](#42-analytics-support)
 
-4.3. [Interactions](#43-interactions)
+4.3. [Additional interaction types](#43-additional-interaction-types)
 
 4.4. [Calculating Skill Mastery](#44-calculating-skill-mastery)
 
@@ -660,51 +660,52 @@ Currently, the Oppia Android app is designed for Android Phones only. This desig
 
 ### 4.2. Analytics Support
 
-Analytics support in android app needs to be built in such a way that in future it is possible to send that data back to server keeping in mind that no critical information leaves the phone. There are two major types of analytics:
-* Analytics to improve the app, like feedback and reporting, crash reports, logs, performance report. All these analytics are not directly related to the end user but helps to optimise the application.
-* Learner usage analytics like how much time they have spent on the app, what skills they have learnt, how much progress they have made in the entire app, etc.
+Analytics support needs to be built in the Android app in such a way that, in future, it is possible to send that data back to the server while ensuring that no sensitive information leaves the phone. There are two major types of analytics:
+* Analytics to improve the app, such as feedback and reporting, crash reports, logs and performance reports. All these analytics are not directly related to the end user, but can help with diagnosing and fixing errors in the application.
+* Learner usage analytics, such as: how much time they have spent on the app, what skills they have learnt, how much progress they have made in the entire app, etc.
 
 **Team**: Android
 
-**Potential Mentors**: @rt4914, @benhenning, @vinitamurthi
+**Potential Mentors**: @BenHenning (primary), @rt4914, @vinitamurthi
 
 **Consider taking up this project if you...**
 
-* Are interested in using Firebase in Android app.
+* Are interested in using Firebase in an Android app.
 * Are interested in working on improving the performance of an application.
 
 **Suggested Milestones**
 
-1. Firebase integration for app system health stats (battery, CPU, memory, network, and disk), crashes, and Google analytics
-2. Introduce impressions tracking for all screens & major user flows in the app
-3. Track users who are typically offline, ensure their stats are kept offline without using too much disk usage, upload stats later once connectivity is retained, and ensure stats have a marker to indicate they are associated with the offline user.
+1. Implement Firebase integration for app system health stats (battery, CPU, memory, network, and disk), crashes, and Google Analytics.
+2. Introduce impressions tracking for all screens and major user flows in the app.
+3. Track users who are typically offline, ensure that their stats are kept offline without using too much disk usage, upload these stats later once connectivity is retained, and ensure that these stats have a marker to indicate that they are associated with the corresponding user. (This is to help users recover their progress if something happens to their phone.)
 
-### 4.3. Interactions
+### 4.3. Additional interaction types
 
-Oppia-Android can include some interactions from web so as to make the application more open to different types of explorations. These interactions can be a following:
+Oppia Android currently includes a subset of the interactions (i.e., question types) from the web app. Some additional interactions can be implemented in the Android app, since they are likely to be useful for the mathematics lessons that will be released on it. These interactions include:
+
 * Image Region Selection
-* Ratio Interaction
+* Ratio Input
 * Drag and Drop Sort
 
 **Team**: Android
 
-**Potential Mentors**: @rt4914, @benhenning, @vinitamurthi
+**Potential Mentors**: @rt4914 (primary), @benhenning, @vinitamurthi
 
 **Consider taking up this project if you...**
 
-* Enjoy debugging and tracing through Oppia Backend mainly Python and Javascript code.
+* Enjoy debugging and tracing through the Oppia web codebase (which is written using Python and Angular).
 * Have good analytical and technical design skills
-* Are interested in creating custom component in android.
+* Are interested in creating custom Android components.
 
 **Suggested Milestones**
 
-1. Add Ratio interaction.
-2. Add Image Region Selection interaction.
-3. Add Drag and Drop Sort interaction.
+1. Add an interaction for Ratio input.
+2. Add an interaction for Image Region Selection.
+3. Add an interaction for Drag and Drop Sort.
 
 ### 4.4. Calculating Skill Mastery
 
-While a learner goes through explorations, it is useful for them to see what skills they have learned and where they can improve. This project aims to show that to learners in the Android app. In Oppia web, we already calculate skill mastery during tests. We would like to get the same calculation over to the Android app. We would also like to add skill mastery calculation when a learner goes through chapters of a story. Finally, we would like to present that skill mastery value to the user and also use skill mastery values to determine what questions to show to a user during a test.
+While a learner goes through explorations, it is useful for them to see what skills they have learned and where they can improve. This project aims to show this information to learners in the Android app. In the Oppia web application, we already calculate skill mastery during tests; we would like to do something similar in the Android app. We would also like to add skill mastery calculation when a learner plays through chapters of a story. Finally, we would like to present that skill mastery value to the user, and also use skill mastery values in order to determine what questions to show to a user during a test.
 
 **Team**: Android
 
@@ -712,16 +713,16 @@ While a learner goes through explorations, it is useful for them to see what ski
 
 **Consider taking up this project if you...**
 
-* Enjoy debugging and tracing through Oppia Backend mainly Python and Javascript code.
-* Have good analytical and technical design skills
-* Are interested in creating custom component in android.
+* Enjoy debugging and tracing through the Oppia codebase (which is written in Python and Angular).
+* Have good analytical and technical design skills.
+* Are interested in creating custom Android components.
 
 **Suggested Milestones**
 
-* Add skill mastery calculation in the question framework of the android app.
-* Add skill mastery calculation for explorations. Add UI in the review tab where users can see their mastery values and progress for each skill in the topic.
-* Modify the question selection algorithm to use skill mastery values for the user as well.
-* Add learner analytics like
+1. Add skill mastery calculation in the question framework of the android app.
+2. Add skill mastery calculation for explorations. Add UI in the review tab where users can see their mastery values and progress for each skill in the topic.
+3. Modify the question selection algorithm to use skill mastery values for the user as well.
+4. Add learner analytics like
   * Total time spent daily, weekly, monthly.
   * Skills mastered along with proficiency level.
   * Time taken to solve each exploration and questions.
