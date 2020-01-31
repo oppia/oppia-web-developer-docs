@@ -199,8 +199,6 @@ This year, the Oppia team is offering projects in four categories: Full-stack, B
 
 4.3. [Additional interaction types](#43-additional-interaction-types)
 
-4.4. [Calculating Skill Mastery](#44-calculating-skill-mastery)
-
 ## Full-stack Projects
 
 ### 1.1. Fix Exploration Saving Flows
@@ -652,11 +650,11 @@ Currently, the Oppia Android app is designed for Android Phones only. This desig
 **Suggested Milestones**
 
 1. Introduce screen-diff/screenshot testing to the application, and write test cases to cover the current (mobile phone) UI. This framework should also be used in subsequent milestones to validate the tablet UI and ensure that no regressions occur.
-2. Create designs for all tablet screens. Implement high-fidelity code for tablet UI in the HomeFragment, Navigation Drawer, TopicTabs and Revision screens.
+2. Create designs for all tablet screens. Implement high-fidelity code for tablet UI in the HomeFragment, Navigation Drawer and TopicTabs screens.
 3. Implement high-fidelity code for tablet UI in all remaining screens (ExplorationPlayer, QuestionPlayer, Settings, Help, Feedback, Profile, Revision and any other screens present in the application).
 
 **Notes**
-- Your proposal should include the approach for screenshot testing and how the tablet layout will be introduced in the current codebase. Also, add designs/mocks for at least 3 screens from for any of the following: HomeFragment, Navigation Drawer, TopicTabs, ExplorationPlayer, QuestionPlayer, Revision.
+- Your proposal should include the approach for screenshot testing and how the tablet layout will be introduced in the current codebase. Also, add designs/mocks for at least 3 screens from any of the following: HomeFragment, Navigation Drawer, TopicTabs, ExplorationPlayer, QuestionPlayer, Revision.
 - It is fine to switch around the tasks in milestones 2 and 3. The above is just a rough breakdown of work items based on the assumption that the more important ones should be done first.
 
 ### 4.2. Analytics Support
@@ -675,12 +673,14 @@ Analytics support needs to be built in the Android app in such a way that, in fu
 **Suggested Milestones**
 
 1. Integrate Firebase to track app-system health stats (battery, CPU, memory, network, and disk) and crashes.
-2. Introduce Google Analytics to track in-app impressions (which button was clicked how many times, which screen was visited for how long, etc.)
+2. Introduce Google Analytics to track in-app impressions (which button was clicked how many times, which screen was visited for how long, etc.).
 3. For users who are typically offline, ensure that their stats are kept offline without using too much disk usage. Upload these stats later once connectivity is retained, and ensure that these stats have a marker to indicate that they are associated with the corresponding user. (This is to help users recover their progress if something happens to their phone.)
 
 **Notes:**
 - Your proposal should include how Firebase and Google Analytics will be introduced in the application.
+- Your proposal should include how the team can access collected stats to create graphs to monitor app health over time.
 - You should also focus on mentioning the approach for saving the stats/analytics/logs offline and uploading these analytics once the user is online.
+- Your project should consider device constraints (such as lack of consistent internet connectivity, internet connectivity failures when uploading stats, short bursts of available time to upload stats due to the app being frequently killed by the system, battery considerations (e.g. no wakelocks), and storage consumption).
 
 ### 4.3. Additional interaction types
 
@@ -696,44 +696,21 @@ Oppia Android currently includes a subset of the interactions (i.e., question ty
 
 **Consider taking up this project if you...**
 
-* Enjoy debugging and tracing through the Oppia web codebase (which is written using Python and Angular).
+* Enjoy debugging and tracing through the Oppia web/backend codebase (which is written using Python and Angular).
 * Have good analytical and technical design skills
-* Are interested in creating custom Android components.
+* Are interested in introducing both UI and service functionality in the Android app.
 
 **Suggested Milestones**
 
-1. Add an interaction for Ratio input.
-2. Add an interaction for Image Region Selection.
+1. Add an interaction for Image Region Selection.
+2. Add an interaction for Ratio input. This includes changing Oppia's web backend, too.
 3. Add an interaction for Drag and Drop Sort.
 
-### 4.4. Calculating Skill Mastery
-
-While a learner goes through explorations, it is useful for them to see what skills they have learned and where they can improve. This project aims to show this information to learners in the Android app. In the Oppia web application, we already calculate skill mastery during tests; we would like to do something similar in the Android app. We would also like to add skill mastery calculation when a learner plays through chapters of a story. Finally, we would like to present that skill mastery value to the user, and also use skill mastery values in order to determine what questions to show to a user during a test.
-
-**Team**: Android
-
-**Potential Mentors**: @vinitamurthi (primary), @rt4914, @benhenning
-
-**Consider taking up this project if you...**
-
-* Enjoy debugging and tracing through the Oppia codebase (which is written in Python and Angular).
-* Have good analytical and technical design skills.
-* Are interested in creating custom Android components.
-
-**Suggested Milestones**
-
-1. Add skill mastery calculation in the question framework of the android app.
-2. Add UI in the review tab where users can see their mastery values and progress for each skill in the topic. Also show learner analytics, such as:
-      * Total time spent daily, weekly, monthly.
-      * Skills mastered along with proficiency level.
-      * Time taken to solve each exploration and questions.
-      * Accuracy level in each exploration.
-3. Modify the question selection algorithm to use skill mastery values for the user as well.
-
-**Notes**
-
-* For Milestone 2, proposals should include mocks for the review tab UI changes.
-* For Milestone 3, proposals should define a reasonable approach for selecting the questions based on question difficulty, and user-skill mastery.
+**Notes:**
+- Your proposal should focus on the best approach for introducing these interactions in such a way that they can be used anywhere throughout the application easily.
+- Going through the Oppia web codebase and knowing how the interaction has been implemented on the web can help you write a better approach for the Android app. Note that there are already quite a few examples of existing interactions in the Web codebase, and some documentation on the wiki for how to create new ones.
+- We're specifically looking for how the interactions will be developed in both codebases (note that some of these are already implemented in Oppia's backend/web codebase).
+- Introducing interactions also includes introducing support for classifying answers for each, which in turn may require additional Oppia Android/web work (see how other rule classifiers are implemented in both of these codebases). Proposals should demonstrate understanding of how interactions are structured, rendered, represented in schemas, and how they interact with the rest of the Oppia system, especially answer classification. A good understanding of this is key to coming up with a feasible plan for implementing new interactions, and porting over existing ones.
 
 
 # Other useful information
