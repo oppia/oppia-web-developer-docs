@@ -100,9 +100,9 @@ To make code changes, please follow the following instructions carefully! Otherw
           git commit -a -m "{{YOUR COMMIT MESSAGE HERE}}"
         ```
 
-3. **Push your changes to your GitHub fork.** 
+3. **Push changes to your GitHub fork.** 
 
-    * **Before you push** the changes, make sure to check the following things, otherwise you will incur delays with the review process or the automated checks:
+    * **Before pushing**, make sure to check the following things, otherwise you will incur delays with the review process or the automated checks:
 
        * Do some manual testing on your local instance of Oppia to check that you haven't broken anything. You can do this by running `python -m scripts.start`. **This is important, in order to avoid breakages. Don't rely on the automated tests alone.**
 
@@ -116,21 +116,20 @@ To make code changes, please follow the following instructions carefully! Otherw
           git push origin {{YOUR BRANCH NAME}}
         ```
 
-      Make sure to do this from the command line (and not GitHub's Desktop client), since this also runs some important presubmit checks before your code gets uploaded to GitHub. **If any of these checks fail, the push will be interrupted**. If this happens, read the failure messages and fix the issues by making a new commit (see step 3), then **repeat the previous instructions** to retry the push to your fork.
+      **Make sure to do this from the command line** (and not GitHub's Desktop client), since this also runs some important presubmit checks before your code gets uploaded to GitHub. If any of these checks fail, read the failure messages and fix the issues by making a new commit (see step 3), then **repeat the previous instructions** to retry the push. **Do not bypass these checks, since doing so will lead to delays in the review process.**
 
 4. **When your feature is ready to merge, create a pull request.**
     * Go to your fork on GitHub, select your branch from the dropdown menu, and click "pull request". Ensure that the 'base' repository is the main oppia repo and that the 'base' branch is 'develop'. 
-    * Add a descriptive title explaining the purpose of the PR (e.g. "Fix issue #bugnum: add a warning when the user leaves a page in the middle of an exploration."). Make sure to follow the guidance in the PR checklist.
+    * Following the guidance in the PR checklist, add a descriptive title explaining the purpose of the PR (e.g. "Fix issue #bugnum: add a warning when the user leaves a page in the middle of an exploration."). 
     * Fill out the rest of the PR checklist.
-    * If users can now do any actions as a result of your PR that they couldn't do before (e.g. rating an exploration, adding a hint to a state, or replying to a feedback thread), **cc the QA team** (using @oppia/qa-team) so that they can ensure that there is sufficient automated test coverage and/or add it to the list of critical user journeys. (This is important to prevent the new functionality you added from breaking in the future!)
-    * Click "Create pull request", then **immediately** check the "Files changed" tab on your PR on GitHub and read it carefully to make sure that the changes are correct (e.g., no missing newlines at the ends of files; no files left out by mistake). This is a good way to catch obvious errors that would otherwise lead to delays in the review process. If you find an error, please fix this by making additional commits, or by closing the PR and submitting a new one before requesting a review.
+    * Click "Create pull request", then **immediately** check the "Files changed" tab on your PR on GitHub and read it carefully to make sure that the changes are correct (e.g., no missing newlines at the ends of files; no files left out by mistake). This is a good way to catch obvious errors that would otherwise lead to delays in the review process. If you find an error, you can either make additional commits to the same PR to fix it, or close the PR and submit a new one.
     * Request a review from the issue's "owner" (which can be found in a label on the issue) **and** also set them as the PR assignee. Make sure to assign a reviewer explicitly in both the Reviewers and Assignees fields. Also, leave a top-level comment on your PR saying "@{{reviewer}} PTAL", where {{reviewer}} is the GitHub username of your reviewer. ("PTAL" means "Please take a look".)
     * After a while, check your PR to see whether the Travis checks have passed. If not, follow the instructions at "[If your build fails...](https://github.com/oppia/oppia/wiki/If-your-build-fails)".
-    * Then, wait for your code to get reviewed! While you're doing so, it's totally fine to start work on a new PR if you like. Just make sure to **checkout the develop branch** and sync to HEAD before you check out a new branch, so that each of your feature branches is based off the main trunk.
+    * Then, wait for your code to get reviewed! 
+       * While you're waiting, it's totally fine to start work on a new PR if you like. Just make sure to **checkout the develop branch** and sync to HEAD before you check out a new branch, so that each of your feature branches is based off the main trunk.
 
 5. #### **Address review comments until all reviewers give LGTM ('looks good to me').** 
-    * When your reviewer has completed their review, they will reassign the PR back to you, at which point you should push updates, respond to **all** comments, and reassign it back to them. This continues until the reviewer gives LGTM, after which the PR is merged.
-    * More specifically, here is how to respond to a review:
+    * When your reviewer has completed their review, they will reassign the PR back to you, at which point you should push updates, respond to **all** comments, and reassign it back to them. This continues until the reviewer gives LGTM, after which the PR is merged. Here is the procedure for responding to a review:
        * Merge develop into your branch. If you run into conflicts, run the following commands to resolve them (**note:** replace new-branch-name with the name of your branch):
 
       ```
@@ -142,7 +141,7 @@ To make code changes, please follow the following instructions carefully! Otherw
         git commit -a
         git push origin new-branch-name
       ```
-       * Make a new commit addressing the comments you agree with, and push it to the same branch. (Continue to use descriptive commit messages, or something like "Address review comments" if you're addressing many disparate review comments in the same commit.)
+       * Make a new commit addressing the comments you agree with, and push it to the same branch. (Continue to use descriptive commit messages, or something like "Address review comments" if you're addressing many disparate review comments in the same commit.) **You do not need to close your PR and create a new one -- it's fine to push new commits to the existing PR.**
           * **Always make commits locally, and then push to GitHub.** Don't make changes using the online GitHub editor -- this bypasses lint/presubmit checks, and will cause the code on GitHub to diverge from the code on your machine.
           * **Never force-push changes to GitHub once reviews have started.** This will delay your review because it overwrites history on GitHub and makes the incremental changes harder to review. It may also lead to the PR being closed.
        * As you are making changes, track them by replying to each comment via the Files Changed tab, **choosing the "Start a review" option** for the first comment. Each reply should be either "Done" or a response explaining why the corresponding suggestion wasn't implemented. When you've responded to all comments, submit the review to add all your messages to the main thread. 
