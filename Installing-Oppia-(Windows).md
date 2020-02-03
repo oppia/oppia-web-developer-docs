@@ -48,7 +48,7 @@ _The following has to be done after exiting from VM. Also, the following need on
 
 It should look something like this: [Screenshot](https://drive.google.com/file/d/1E06mh-6zlOXbJIBOjjsCJDB7cytFS1hI/view?usp=sharing)
 
-Now, you can open the VM, and clone the Oppia repository from GitHub following the [Ubuntu installation instructions](https://github.com/oppia/oppia/wiki/Installing-Oppia-(Linux)#downloading-oppia) to setup Oppia in the VM. 
+Now, you can open the VM. After that, clone and install the Oppia repository from GitHub following the [Ubuntu installation instructions](https://github.com/oppia/oppia/wiki/Installing-Oppia-(Linux)#downloading-oppia) in order to setup Oppia in the VM. 
 
 If you have done the optional steps, then every time before running `python -m scripts.start` to start the dev server, change [this](https://github.com/oppia/oppia/blob/c60361e4ef32f01b0da126c24aba4174b99634f5/scripts/start.py#L143) line in start.py to `'8000 --host 0.0.0.0 --port %s --enable_host_checking=False --skip_sdk_update_check true %s' % (`.
 
