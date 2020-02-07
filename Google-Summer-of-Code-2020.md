@@ -603,6 +603,7 @@ The Oppia development workflow uses lint checks to help detect style errors befo
 **Notes**
 
 - The proposal should include a detailed plan in the format of a table which mentions which new lint checks will be added along with the timeline. It should include code samples for implementing at least 2 new checks (if you like, these can be done by linking to PRs that you have previously submitted to the codebase).
+- Milestones 2 and 3 should be separately defined by the student in their proposal.
 - The proposal should also include implementation details for the refactor process, as well as a clear description of the "end state" and an explanation of how this refactoring will improve the linter. 
 - Mentors will examine proposals for this project to see whether the applicant has a good understanding of the existing linting process, as well as organizational clarity (i.e. do they have a good understanding of the "big picture" and a clear vision for how these and future lint checks should be implemented so as to fit into a standard organizational structure).
 
