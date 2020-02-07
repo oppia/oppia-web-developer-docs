@@ -479,6 +479,11 @@ This project aims at improving the frontend test coverage of controllers and dir
 2. Fully cover 60% of the controllers and directives.
 3. Fully cover 100% of the controllers and directives.
 
+**Notes**
+1. Currently we don't have a way to test controllers and directives in the codebase. The applicant would need to research suggested methods and pick one such strategy to implement the tests in Oppia (this should be a part of the proposal). A proof of concept pull request would be great. 
+2. Please checkout our wiki page for best practices while writing frontend tests. It outlines standard guidelines which need to be followed while writing frontend tests. 
+3. The project would involve applying the testing template to a large number of controllers and directives. The proposals must contain a concrete plan (preferably as a table) which outlines which file will be worked out at what time. 
+
 ### 2.4. Ensuring that Oppia is Fully Accessible
 
 Ensure that the entire Oppia website is fully accessible to screen readers (i.e., all pages should score 100% on the Chrome browser’s inbuilt Accessibility audit tool), and that automated tests are put in place to ensure this is the case going forward.
