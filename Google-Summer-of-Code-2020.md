@@ -523,7 +523,7 @@ Ensure that the entire Oppia website is fully accessible to screen readers (i.e.
     * Library
     * Splash and remaining pages.
 
-* Notes:
+**Notes**:
 - A good proposal would evaluate how accessible Oppia is currently and describe clearly how it can be improved.
 - Evaluate relevant automated tools that can be used and how they can be introduced into the project.
 - Explain in detail how the "Keyboard navigation" feature will be introduced.
