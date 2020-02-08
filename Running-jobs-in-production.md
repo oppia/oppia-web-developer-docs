@@ -21,6 +21,10 @@ All jobs must adhere to the following requirements before they can be run on the
   - What the release coordinator should do with any output produced by the job
   - What the release coordinator should do if the job run fails midway, both in terms of how to recover from the run (e.g. by running a job to delete all instances of a newly-created model class, etc.) and how to debug the job (e.g. do other jobs need to be run to provide additional information, is there error output that can be manually investigated, etc.)
 
+### Submitting a PR with a new job
+
+If a PR introduces a new job, it can be merged only after it is tested on the backup server. The author of the PR should submit a request using [this form](https://goo.gl/forms/XIj00RJ2h5L55XzU2) as soon as the PR is approved by all the reviewers. The form responses should go to the server jobs admin (currently @seanlip) and the admin should respond to the contributor within 24 hours. If the job runs successfully the admin should update the corresponding [spreadsheet](https://docs.google.com/spreadsheets/d/1Wegd0rZhVOm3Q3VCIw0xMbLC7IWtRyrEahiPn61Fhoo/edit#gid=948463314) row to mention that. 
+
 ### Running your job on the backup server (and possibly in production)
 
 In order to test a job, please submit a request using [this form](https://goo.gl/forms/XIj00RJ2h5L55XzU2) (or [this form](https://docs.google.com/forms/d/e/1FAIpQLSeI_hrDEM_hsddJIw77HLC_C3pemB5zBXuPpuEJS6FSXQU0iA/viewform?usp=sf_link) if you want to run an existing one-off job like exploration migration job). Before submitting a testing request, please ensure that the job has already been tested manually on your local machine, passed code review, and been merged into develop.
