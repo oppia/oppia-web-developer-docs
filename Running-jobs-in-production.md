@@ -23,7 +23,7 @@ All jobs must adhere to the following requirements before they can be run on the
 
 ### Submitting a PR with a new job
 
-If a PR introduces a new job, it can be merged only after it is tested on the backup server. The author of the PR should submit a request using [this form](https://goo.gl/forms/XIj00RJ2h5L55XzU2) as soon as the PR is approved by all the reviewers. The form responses should go to the server jobs admin (currently **@seanlip**) and the admin should respond to the contributor within 24 hours. If the job runs successfully the admin should update the corresponding [spreadsheet](https://docs.google.com/spreadsheets/d/1Wegd0rZhVOm3Q3VCIw0xMbLC7IWtRyrEahiPn61Fhoo/edit#gid=948463314) row to mention that. 
+If a PR introduces a new job, it can be merged only after it is tested on the backup server. The author of the PR should submit a request using [this form](https://goo.gl/forms/XIj00RJ2h5L55XzU2) as soon as the PR is approved by all the reviewers. The form responses should go to the server jobs admin (currently **@seanlip**) and the admin should respond to the contributor within 24 hours. If the job runs successfully, the admin should update the corresponding [spreadsheet](https://docs.google.com/spreadsheets/d/1Wegd0rZhVOm3Q3VCIw0xMbLC7IWtRyrEahiPn61Fhoo/edit#gid=948463314) row to mention that. 
 
 ### Running your job on the backup server (and possibly in production)
 
