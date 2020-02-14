@@ -10,7 +10,7 @@ There follow instructions for 3 different ways to install Oppia on Windows: usin
 
 # Installation in VirtualBox on Windows 10
 
-Last tested by **@jkoj25** on Windows 10 in January of 2020. Frontend and backend tests tested.
+Last tested by **@jkoj25** on Windows 10 in January of 2020. Frontend and backend tests worked at that point.
 
 _For this method, a machine with at least 8 GB RAM (prefereably 16 GB) and at least a dual core processor (preferably quad core) is recommended._
 
