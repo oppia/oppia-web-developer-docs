@@ -180,7 +180,7 @@ This year, the Oppia team is offering projects in four categories: Full-stack, B
 
 2.3. [Frontend testing of controllers and directives](#23-frontend-testing-of-controllers-and-directives)
 
-2.4. [Ensuring that Oppia is fully accessible](#24-ensuring-that-oppia-is-fully-accessible)
+2.4. [Ensure that Oppia is fully accessible](#24-ensure-that-oppia-is-fully-accessible)
 
 ### Backend Projects
 
@@ -190,11 +190,11 @@ This year, the Oppia team is offering projects in four categories: Full-stack, B
 
 3.3. [Fix the linter and implement all lint checks](#33-fix-the-linter-and-implement-all-lint-checks)
 
-3.4. [Making Oppiabot more useful](#34-making-oppiabot-more-useful)
+3.4. [Make Oppiabot more useful](#34-make-oppiabot-more-useful)
 
 ### Android Projects
 
-4.1. [Designing app for Tablet](#41-designing-app-for-tablet)
+4.1. [Support tablet interfaces](#41-support-tablet-interfaces)
 
 4.2. [Analytics Support](#42-analytics-support)
 
@@ -484,7 +484,7 @@ This project aims at improving the frontend test coverage of controllers and dir
 2. Please checkout our wiki page for best practices while writing frontend tests. It outlines standard guidelines which need to be followed while writing frontend tests. 
 3. The project would involve applying the testing template to a large number of controllers and directives. The proposals must contain a concrete plan (preferably as a table) which outlines which file will be worked out at what time. 
 
-### 2.4. Ensuring that Oppia is Fully Accessible
+### 2.4. Ensure that Oppia is Fully Accessible
 
 Ensure that the entire Oppia website is fully accessible to screen readers (i.e., all pages should score 100% on the Chrome browser’s inbuilt Accessibility audit tool), and that automated tests are put in place to ensure this is the case going forward.
 
@@ -619,7 +619,7 @@ The Oppia development workflow uses lint checks to help detect style errors befo
 - Mentors will examine proposals for this project to see whether the applicant has a good understanding of the existing linting process, as well as organizational clarity (i.e. do they have a good understanding of the "big picture" and a clear vision for how these and future lint checks should be implemented so as to fit into a standard organizational structure).
 
 
-### 3.4. Making Oppiabot more useful
+### 3.4. Make Oppiabot more useful
 
 This project aims to add more functionality to [Oppiabot](https://github.com/oppia/oppiabot) to make the overall developer workflow smoother. The doc with the required functionality is [here](https://docs.google.com/spreadsheets/d/1hFSfl6eQs14m-eLPDCTfwWAZazmFUyTbHwDox15qoW8/edit?usp=sharing).
 
@@ -644,7 +644,7 @@ We recommend implementing at least two of the rows mentioned in the [functionali
 
 ## Android Projects
 
-### 4.1. Designing app for Tablet
+### 4.1. Support Tablet Interfaces
 
 Currently, the Oppia Android app is designed for Android Phones only. This design can be scaled to Android Tablets to increase the application user domain. The project also aims to add screendiff/screenshot testing to validate the UI designs so that no regressions occur.
 
