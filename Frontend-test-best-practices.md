@@ -28,7 +28,7 @@ The most popular tests include unit tests, integration testing, end-to-end (e2e)
 - Assert as many things as possible. An example of this is say, the function returns the list, you can assert that the number of elements is as expected, and each element you expect is in the list. Another example is if an object is expected, then assert the various fields of the object are as expected.
 - In the frontend, while writing tests, we don’t make actual calls to the backend. All http calls are mocked, to keep the tests independent of the backend. Similarly, any services can also be mocked. We try to keep such mocks as low as possible. [Here](https://github.com/oppia/oppia/blob/develop/core/templates/dev/head/domain/learner_dashboard/learner-playlist.service.spec.ts#L27) is an example usage of $httpBackend to mock the backend responses.
 - When writing asynchronous tests, always have one of the following:
-1. Use `fakeAsync` and `flushMicrotasks` for microtasks - fakeAsync() creates an environment where each microtask (example promises) goes into an array. None of such microtasks is executed until it encounters `flushMicrotasks()` where all microtasks execute first and then execution moves ahead.
+1. Use `fakeAsync` and `flushMicrotasks` for microtasks - `fakeAsync()` creates an environment where each microtask (example promises) goes into an array. None of such microtasks is executed until it encounters `flushMicrotasks()` where all microtasks execute first and then execution moves ahead.
 ```typescript
 it('should test some asynchronous code', fakeAsync(() => {
 
@@ -52,7 +52,7 @@ it('should test some asynchronous code', fakeAsync(() => {
 ```
 2. Use `done` for macrotasks which are time interval functions like setTimeOut().
 ```typescript
-  it('does a thing', function(done) {
+it('does a thing', function(done) {
   someAsyncFunction(result) {
     expect(result).toEqual(someExpectedValue);
     done();
