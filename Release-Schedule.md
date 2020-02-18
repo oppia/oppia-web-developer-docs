@@ -12,7 +12,7 @@ Features merged into `develop` after this date will only go out in the following
 
 # Instructions for deciding if a bug is blocking
 
-The bugs reported during a release fall under two categories: Blocking & Non-blocking. The goal of the release co-ordinator & QA co-ordinator should be to decide which bugs should block the release in a timely manner. To make this decision, following rules should be followed:
+The bugs reported during a release fall under two categories: Blocking & Non-blocking. The goal of the release co-ordinator & QA co-ordinator should be to decide which bugs should block the release in a timely manner. To make this decision, the following rules should be followed:
 
 1. **Interference with Critical Journeys**: If a bug prevents a user from completing any of the critical user journeys it should block the release. This requirement should be overridden only in the most extreme circumstances. For example if a bug prevented the publishing of new explorations, it should block the release.
 
