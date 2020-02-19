@@ -27,7 +27,7 @@ The most popular tests include unit tests, integration testing, end-to-end (e2e)
 - Any common code can be extracted into a helper function to reduce duplication. Make sure the helper function deals with only one of the 3 parts, ie, the helper function can help with either setup, action or assertion, avoid overlapping across the parts.
 - Assert as many things as possible. An example of this is say, the function returns the list, you can assert that the number of elements is as expected, and each element you expect is in the list. Another example is if an object is expected, then assert the various fields of the object are as expected.
 - In the frontend, while writing tests, we don’t make actual calls to the backend. All http calls are mocked, to keep the tests independent of the backend. Similarly, any services can also be mocked. We try to keep such mocks as low as possible. [Here](https://github.com/oppia/oppia/blob/develop/core/templates/dev/head/domain/learner_dashboard/learner-playlist.service.spec.ts#L27) is an example usage of $httpBackend to mock the backend responses.
-- When writing asynchronous tests, if your asynchronous calls does not involves intervalTimer() functions like setInterval use `fakeAsync()` and `flushMicrotasks()`. A sample of code is given below:
+- When writing asynchronous tests, if your asynchronous calls does not involves `intervalTimer()` functions like `setInterval` use `fakeAsync()` and `flushMicrotasks()`. A sample of code is given below:
   ```typescript
   it('should test some asynchronous code', fakeAsync(() => {
 
@@ -50,7 +50,7 @@ The most popular tests include unit tests, integration testing, end-to-end (e2e)
   }));
   ```
 
-  If your asynchronous calls involves intervalTimer() functions such as `setInterval()` then use 
+  If your asynchronous calls involves `intervalTimer()` functions such as `setInterval()` then use 
   `done`. A code sample for the same is given below:
 
   ```typescript
