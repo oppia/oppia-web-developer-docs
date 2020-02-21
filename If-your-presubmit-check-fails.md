@@ -12,7 +12,10 @@ Checks Not Passed.
 --------------------
 ```
 
-The reason for the failing tests will also be present in the console, and the errors should be pretty straightforward to read, understand and fix. You may need to scroll up in order to see the full error log. After fixing the issues, make another commit (or use `git add` and then `git commit --amend`) to stage your changes before trying to re-push to GitHub.
+The reason for the failing tests will also be present in the console, and it should generally be fairly straightforward to read, understand and fix the errors. You may need to scroll up in order to see the full error log. After fixing the issues, make another commit (or use `git add` and then `git commit --amend`) to stage your changes before trying to re-push to GitHub.
+
+**Important:** Please make sure to fix the errors *before* you push to GitHub. Do not bypass these checks, otherwise it will lead to delays in code review.
+
 
 ### Examples
 
