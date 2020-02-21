@@ -23,7 +23,7 @@
 - value -> empty list.
 To add actions corresponding to this role follow instructions [here](#add_action).
 
-1.10 Run backend test corresponding to role changes `bash scripts/run_backend_tests.sh --test_target=core.domain.role_services_test`.
+1.10 Run backend test corresponding to role changes `python -m scripts.run_backend_tests --test_target=core.domain.role_services_test`.
 
 1.11 Follow instructions [here](#update_user_role) to attach users to this role.
 
@@ -47,7 +47,7 @@ To add actions corresponding to this role follow instructions [here](#add_action
 
 2.6 Go to feconf.py and delete the role Id variable corresponding to this role.
 
-2.7 Run backend test corresponding to role changes `bash scripts/run_backend_tests.sh --test_target=core.domain.role_services_test`.
+2.7 Run backend test corresponding to role changes `python -m scripts.run_backend_tests --test_target=core.domain.role_services_test`.
 
 ***
 

@@ -76,7 +76,7 @@ git checkout -b your-branch-name
 
 4. **Address review comments until all reviewers give LGTM ('looks good to me').**
    * Resolve any merge conflicts that arise.
-   * Run `bash scripts/start.sh` and play with the dev server in order to make sure that everything still works, and also to install any new dependencies that have been added since you last synced the repo.
+   * Run `python -m scripts.start` and play with the dev server in order to make sure that everything still works, and also to install any new dependencies that have been added since you last synced the repo.
    * WARNING: Do not make changes using the online GitHub editor -- this bypasses lint/presubmit checks, and will cause the code on GitHub to diverge from the code on your machine. Always make commits locally, and then push to GitHub.
 
 5. Tidy up! After the PR status has changed to "Merged", delete the feature branch from both your local clone and the GitHub repository
@@ -107,16 +107,38 @@ Starter project
 * [Project 8: Improve unit tests](#project-8-improve-unit-tests)
 
 Easy
-* [Project 2: Create toasts for success messages](#project-2-create-toasts-for-success-messages)
-* [Project 7: Improve linter checks](#project-7-improve-linter-checks)
-* [Project 9: Writing Selenium tests for interactions](#project-9-writing-selenium-tests-for-interactions)
-* [Project 10: Expose "upload exploration" functionality in admin page](#project-10-expose-upload-exploration-functionality-in-admin-page)
-* [Project 13: Find ways to make the audio translation tab interface clearer](#project-13-find-ways-to-make-the-audio-translation-tab-interface-clearer)
-* [Project 14: Feedback threads in feedback tab do not reorder by recent updates in real time](#project-14-feedback-threads-in-feedback-tab-do-not-reorder-by-recent-updates-in-real-time)
-* [Project 16: Cross Browser Compatibility Improvement - Translation console for Safari](#project-20-cross-browser-compatibility-improvement---translation-console-for-safari)
-* [Project 17: Improving oppia.org experience on mobile](#project-17-improving-oppiaorg-experience-on-mobile)
-* [Project 18: Accessibility Improvements - Tabbing Order](#project-18-accessibility-improvements---tabbing-order)
-* [Project 19: Accessibility Improvements - Fixing Contrast in Image Region Selectors](#project-19-accessibility-improvements---fixing-contrast-in-image-region-selectors)
+- [Getting Ready for Open Source Day](#getting-ready-for-open-source-day)
+  - [Table Of Contents](#table-of-contents)
+  - [How To Get Started](#how-to-get-started)
+  - [Setting Up Before Open Source Day](#setting-up-before-open-source-day)
+    - [Sign the CLA](#sign-the-cla)
+    - [Create a GitHub account](#create-a-github-account)
+    - [Install Oppia on your machine](#install-oppia-on-your-machine)
+    - [Join the Gitter channel](#join-the-gitter-channel)
+  - [Some useful links](#some-useful-links)
+  - [Making A Code Change](#making-a-code-change)
+  - [What to do when you are stuck](#what-to-do-when-you-are-stuck)
+  - [List of Projects](#list-of-projects)
+    - [Project List](#project-list)
+    - [Project 1: Implement a reusable sort/filter list view for skills](#project-1-implement-a-reusable-sortfilter-list-view-for-skills)
+    - [Project 2: Create toasts for success messages](#project-2-create-toasts-for-success-messages)
+    - [Project 3: Use case-insensitive names rather than IDs in the URL for a topic](#project-3-use-case-insensitive-names-rather-than-ids-in-the-url-for-a-topic)
+    - [Project 4: Allow users to suggest new questions for a skill](#project-4-allow-users-to-suggest-new-questions-for-a-skill)
+    - [Project 5: Allow users to suggest edits to concept cards](#project-5-allow-users-to-suggest-edits-to-concept-cards)
+    - [Project 6: Allow translators to see the changes made in content by editor](#project-6-allow-translators-to-see-the-changes-made-in-content-by-editor)
+    - [Project 7: Improve linter checks](#project-7-improve-linter-checks)
+    - [Project 8: Improve unit tests](#project-8-improve-unit-tests)
+    - [Project 9: Writing Selenium tests for interactions](#project-9-writing-selenium-tests-for-interactions)
+    - [Project 10: Expose "upload exploration" functionality in admin page](#project-10-expose-%22upload-exploration%22-functionality-in-admin-page)
+    - [Project 11: Randomize the pretest questions.](#project-11-randomize-the-pretest-questions)
+    - [Project 12: Multiple choice answers could be shuffled](#project-12-multiple-choice-answers-could-be-shuffled)
+    - [Project 13: Find ways to make the audio translation tab interface clearer](#project-13-find-ways-to-make-the-audio-translation-tab-interface-clearer)
+    - [Project 14: Feedback threads in feedback tab do not reorder by recent updates in real time](#project-14-feedback-threads-in-feedback-tab-do-not-reorder-by-recent-updates-in-real-time)
+    - [Project 15: Speed Improvements](#project-15-speed-improvements)
+    - [Project 16: Cross Browser Compatibility Improvement - Translation console for Safari](#project-16-cross-browser-compatibility-improvement---translation-console-for-safari)
+    - [Project 17: Improving the library page experience on mobile](#project-17-improving-the-library-page-experience-on-mobile)
+    - [Project 18: Accessibility Improvements - Tabbing Order](#project-18-accessibility-improvements---tabbing-order)
+    - [Project 19: Accessibility Improvements - Fixing Contrast in Image Region Selectors](#project-19-accessibility-improvements---fixing-contrast-in-image-region-selectors)
 
 
 Intermediate

@@ -1,28 +1,28 @@
 ### Running tests.
 
-To run performance tests for all pages:  
+To run performance tests for all pages:
 ``
-bash scripts/run_performance_tests.sh
+python -m scripts.run_performance_tests
 ``
 
-To run test for a specific page:  
+To run test for a specific page:
 ``
-bash scripts/run_performance_tests.sh --test_name=page_test
-``  
+python -m scripts.run_performance_tests --test_name=page_test
+``
 
 page_test is the name of the file containing that test eg. splash_test. Refer to `core/tests/performance_tests` directory for the files containing these tests.
 
 ### The Framework.
 
-The framework has two major components to it:  
+The framework has two major components to it:
 
-1. Performance Data Fetcher:  
-We use selenium and browsermob-proxy to fetch performance data for the different Oppia pages.  
-Selenium helps in programmatically interacting with a browser and browsermob-proxy is used to capture HTTP Archive (referred to as HAR) data by recording the communication between the client and server.  
+1. Performance Data Fetcher:
+We use selenium and browsermob-proxy to fetch performance data for the different Oppia pages.
+Selenium helps in programmatically interacting with a browser and browsermob-proxy is used to capture HTTP Archive (referred to as HAR) data by recording the communication between the client and server.
 The **HTTP Archive** format is a JSON-formatted archive file format used for logging a web browser's interaction with a site. It contains detailed performance data, including information about page loading and displaying and per-resource statistics. Each entry contains the URL requested and request and response headers. For additional details, please see: https://dvcs.w3.org/hg/webperf/raw-file/tip/specs/HAR/Overview.html
 
-2. Performance Metrics Provider:  
-Refer to: `PageSessionMetrics` and `MultiplePageSessionMetrics` objects in `perf_domain.py`.  
+2. Performance Metrics Provider:
+Refer to: `PageSessionMetrics` and `MultiplePageSessionMetrics` objects in `perf_domain.py`.
 
 ### Metrics that we consider.
 
