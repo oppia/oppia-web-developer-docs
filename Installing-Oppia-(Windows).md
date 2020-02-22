@@ -151,7 +151,7 @@ You're done! Now return to the [code contribution instructions](https://github.c
   - Then: restart docker by right clicking on the icon in the taskbar and clicking Restart
 
 - If docker outputs: unzip not found
-  - Then: run bash scripts/install_prerequisites.py inside of the Docker image (bash)
+  - Then: run bash scripts/install_prerequisites.sh inside of the Docker image (bash)
 
 - If docker outputs: npm: no such file or directory
   - Then: run the following two commands:

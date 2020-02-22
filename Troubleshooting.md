@@ -154,7 +154,7 @@ These commands can be used anywhere to kill a running process on any port by usi
     from pip import main
     ImportError: cannot import name main
     ```
-    Try running `$ python -m pip uninstall pip` followed by running `$ bash scripts/install_third_party.sh` (source: [SO thread](https://stackoverflow.com/questions/49964093/file-usr-bin-pip-line-9-in-module-from-pip-import-main-importerror-canno)).
+    Try running `$ python -m pip uninstall pip` followed by running `$ python -m scripts.install_third_party` (source: [SO thread](https://stackoverflow.com/questions/49964093/file-usr-bin-pip-line-9-in-module-from-pip-import-main-importerror-canno)).
   * If you get an error that ends with:
 
     ```
