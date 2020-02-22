@@ -23,6 +23,7 @@
     * [[If your build fails...|If-Your-Build-Fails]]
       * [[How the coverage checks work|How-the-coverage-checks-work]]
       * [[Clearing the Travis Cache|Clearing-Travis-Cache]]
+    * [[If your presubmit checks fail|If-your-presubmit-check-fails]]
     * [[Running tests|Running-Tests]]
     * Writing Tests
       * [[Writing backend tests]]

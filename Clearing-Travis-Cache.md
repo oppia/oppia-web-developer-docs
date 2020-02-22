@@ -1,6 +1,7 @@
 ## When to clear cache
 
-- Third party package (ie. node, etc)
+- Third party package version changes (ie. node, etc)
+- No apparent cause for failures that are not due to flakiness.
 - Errors with package installation on Travis, for example:
 ```
 dpkg-deb (subprocess): decompressing archive member: lzma error: unexpected end of input
