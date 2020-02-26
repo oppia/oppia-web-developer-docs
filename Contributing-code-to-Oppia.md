@@ -154,7 +154,7 @@ To make code changes, please follow the following instructions carefully! Otherw
        * Make sure you've posted responses to all the review comments.
        * In the conversation thread, **write a top-level comment** explicitly asking the reviewer to take another look (e.g. "@XXX PTAL"), and assign them to the PR.
 
-6. **Make sure all CI checks pass.** While waiting to get LGTM from reviewers, make sure that all the CI checks pass, since otherwise you won't be able to merge your PR. (See "[If your build fails...](https://github.com/oppia/oppia/wiki/If-your-build-fails)" for some suggestions on what to do if you run into issues.) If all reviewers have given LGTM but you're still waiting for the CI checks to pass, make sure you're assigned to the PR, so that you can merge it once the CI checks are complete.
+6. **Make sure all CI checks pass.** While waiting to get LGTM from reviewers, make sure that all the CI checks (Travis, CircleCI, etc.) pass, since otherwise you won't be able to merge your PR. (See "[If your build fails...](https://github.com/oppia/oppia/wiki/If-your-build-fails)" for some suggestions on what to do if you run into issues.) If all reviewers have given LGTM but you're still waiting for the CI checks to pass, make sure you're assigned to the PR, so that you can merge it once the CI checks are complete.
 
 7. **Tidy up!** After the PR status has changed to "Merged", delete the feature branch from both your local clone and the GitHub repository:
 
