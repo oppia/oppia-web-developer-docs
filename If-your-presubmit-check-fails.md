@@ -21,7 +21,7 @@ The reason for the failing tests will also be present in the console, and it sho
 
 **1.**
 ```
-Users/apple/codebase/opensource/oppia/core/templates/dev/head/services/assets-backend-api.service.spec.ts
+Users/apple/codebase/opensource/oppia/core/templates/services/assets-backend-api.service.spec.ts
    46:1  error  This line has a length of 85. Maximum allowed is 80  max-len
 ```
 Here, in the file **assets-backend-api.service.spec.ts**, the error is at line number **46** and the error is that the line has exceeded the max length of 80. So to fix that, this line needs to be broken down into two lines.
@@ -30,14 +30,14 @@ So, you would change this
 ```
     fileDownloadRequestObjectFactory = TestBed.get(FileDownloadRequestObjectFactory);
 ```
-to 
+to
 ```
     fileDownloadRequestObjectFactory = TestBed.get(
         FileDownloadRequestObjectFactory);
 ```
 **2.**
 ```
-core/templates/dev/head/services/assets-backend-api.service.spec.ts --> Line 30: In tests, please use 'describe' instead of 'ddescribe'or 'fdescribe'
+core/templates/services/assets-backend-api.service.spec.ts --> Line 30: In tests, please use 'describe' instead of 'ddescribe'or 'fdescribe'
 ```
 
 Here, the `fdescribe` needs to be changed to `describe`. You would find the relevant line of code in the file, and change this:

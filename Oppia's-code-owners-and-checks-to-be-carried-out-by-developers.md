@@ -17,33 +17,33 @@ The following is a list of the code-owners and the checks the code-owner looks f
    </td>
   </tr>
   <tr>
-   <td>/core/controllers/classifier*.py 
+   <td>/core/controllers/classifier*.py
    </td>
    <td>Ensure that Signature verification algorithm is in sync with signature generation algorithm at <a href="https://github.com/oppia/oppia-ml/blob/develop/core/services/remote_access_services.py#L65">Oppia-ml</a>. This code should not break and end to end tests (synchronization between Oppia and Oppia-ml) must be carried out manually by the developer if the code is to be changed.
    </td>
   </tr>
   <tr>
-   <td>/core/domain/classifier*.py 
+   <td>/core/domain/classifier*.py
    </td>
    <td>Most of the functionality has automated tests but ensure that logic for fetching new jobs (used by Oppia-ml to poll for jobs) and logic for when to submit a new job should stay intact.
    </td>
   </tr>
   <tr>
-   <td>/core/storage/classifier/ 
+   <td>/core/storage/classifier/
    </td>
    <td>This module is mostly covered by automated tests.
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/domain/classifier/ 
+   <td>/core/templates/domain/classifier/
    </td>
    <td>These are domain files used by prediction services to store the prediction result. They are supported by automated tests.
    </td>
   </tr>
   <tr>
-   <td>/extensions/classifiers/ 
+   <td>/extensions/classifiers/
    </td>
-   <td>These files (are most crucial and) use the trained model stored by Oppia-ml on Oppia. 
+   <td>These files (are most crucial and) use the trained model stored by Oppia-ml on Oppia.
 <ul>
 
 <li>Hence, data format used by these files should be in sync with those submitted by Oppia-ml.
@@ -71,7 +71,7 @@ The following is a list of the code-owners and the checks the code-owner looks f
    </td>
   </tr>
   <tr>
-   <td>/core/controllers/translator*.py 
+   <td>/core/controllers/translator*.py
    </td>
    <td rowspan="2" >This comes under the audio translation project and needs an approval from the audio translation team:
 <li>General structure of translation workflow and it's coverage in the exploration.
@@ -80,7 +80,7 @@ The following is a list of the code-owners and the checks the code-owner looks f
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/exploration_editor/translation_tab/ 
+   <td>/core/templates/pages/exploration_editor/translation_tab/
    </td>
   </tr>
 </table>
@@ -91,7 +91,7 @@ The following is a list of the code-owners and the checks the code-owner looks f
 
 <table>
   <tr>
-   <td>/core/controllers/editor*.py 
+   <td>/core/controllers/editor*.py
    </td>
    <td rowspan="7" >Ensure the structure of exploration is kept intact:
 
@@ -103,27 +103,27 @@ The following is a list of the code-owners and the checks the code-owner looks f
    </td>
   </tr>
   <tr>
-   <td>/core/domain/exp*.py 
+   <td>/core/domain/exp*.py
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/domain/editor/ 
+   <td>/core/templates/domain/editor/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/domain/exploration/ 
+   <td>/core/templates/domain/exploration/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/exploration_editor/editor_tab/ 
+   <td>/core/templates/pages/exploration_editor/editor_tab/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/exploration_editor/history_tab/ 
+   <td>/core/templates/pages/exploration_editor/history_tab/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/exploration_editor/settings_tab/ 
+   <td>/core/templates/pages/exploration_editor/settings_tab/
    </td>
   </tr>
 </table>
@@ -134,7 +134,7 @@ The following is a list of the code-owners and the checks the code-owner looks f
 
 <table>
   <tr>
-   <td>/core/templates/dev/head/components/forms/ 
+   <td>/core/templates/components/forms/
    </td>
    <td>This contains schema-based editor and forms related to audio projects, we are not expecting to have a lot of changes around this files.
    </td>
@@ -147,7 +147,7 @@ The following is a list of the code-owners and the checks the code-owner looks f
 
 <table>
   <tr>
-   <td>/core/templates/dev/head/domain/utilities/
+   <td>/core/templates/domain/utilities/
    </td>
    <td>This mostly has Object factory related to the audio project. I'll be reviewing this as part of the audio project.
    </td>
@@ -174,31 +174,31 @@ The following is a list of the code-owners and the checks the code-owner looks f
    </td>
   </tr>
   <tr>
-   <td>/core/domain/collection*.py 
+   <td>/core/domain/collection*.py
    </td>
    <td>Check that code is accompanied with the relevant tests; code aligns with coding patterns.
    </td>
   </tr>
   <tr>
-   <td>/core/storage/collection/ 
+   <td>/core/storage/collection/
    </td>
-   <td>No existing changes are expected. 
+   <td>No existing changes are expected.
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/domain/collection/ 
+   <td>/core/templates/domain/collection/
    </td>
    <td>Check that code is accompanied with the relevant tests; code aligns with coding patterns.
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/collection_editor/ 
+   <td>/core/templates/pages/collection_editor/
    </td>
    <td>Ensure that collection editors have a positive UX experience. Check that code aligns with existing code patterns.
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/collection_player/ 
+   <td>/core/templates/pages/collection_player/
    </td>
    <td>Ensure that collection editors have a positive UX experience. Check that code aligns with existing code patterns.
    </td>
@@ -211,7 +211,7 @@ The following is a list of the code-owners and the checks the code-owner looks f
 
 <table>
   <tr>
-   <td>/core/templates/dev/head/domain/objects/
+   <td>/core/templates/domain/objects/
    </td>
    <td>Ensure that objects are related to existing interactions. In general, no changes are expected for existing interactions.
    </td>
@@ -219,7 +219,7 @@ The following is a list of the code-owners and the checks the code-owner looks f
   <tr>
    <td>/extensions/interactions/
    </td>
-   <td>Ensure that users have a positive UX experience. For new interactions, ensure that (informal) UX studies are done. For existing interactions, changes are expected to be minimal except for styling and bug fixes. 
+   <td>Ensure that users have a positive UX experience. For new interactions, ensure that (informal) UX studies are done. For existing interactions, changes are expected to be minimal except for styling and bug fixes.
    </td>
   </tr>
 </table>
@@ -232,11 +232,11 @@ The following is a list of the code-owners and the checks the code-owner looks f
   <tr>
    <td>/core/controllers/library*.py
    </td>
-   <td>No changes are expected here. 
+   <td>No changes are expected here.
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/library/
+   <td>/core/templates/pages/library/
    </td>
    <td>Check that UX for the users is positive. Changes should be compatible with mobile.
    </td>
@@ -249,13 +249,13 @@ The following is a list of the code-owners and the checks the code-owner looks f
 
 <table>
   <tr>
-   <td>/core/templates/dev/head/domain/user/
+   <td>/core/templates/domain/user/
    </td>
    <td>Ensure that users have a positive UI/UX experience (ie. metrics are easily seen, etc).
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/profile/
+   <td>/core/templates/pages/profile/
    </td>
    <td>Ensure that users have a positive UI/UX experience (ie. metrics are easily seen, etc).
    </td>
@@ -282,33 +282,33 @@ The following is a list of the code-owners and the checks the code-owner looks f
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/domain/creator_dashboard/ 
+   <td>/core/templates/domain/creator_dashboard/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/creator_dashboard/ 
+   <td>/core/templates/pages/creator_dashboard/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/domain/learner_dashboard/ 
+   <td>/core/templates/domain/learner_dashboard/
    </td>
    <td rowspan="2" >Review changes from the learner UX perspective. Make sure code is functionally correct, readable, and formatted correctly. Code must be tested using unit tests.
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/learner_dashboard/ 
+   <td>/core/templates/pages/learner_dashboard/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/email_dashboard/ 
+   <td>/core/templates/pages/email_dashboard/
    </td>
-   <td>Changes to UI should be tested. Make sure the UX for users is good. 
+   <td>Changes to UI should be tested. Make sure the UX for users is good.
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/notifications_dashboard/ 
+   <td>/core/templates/pages/notifications_dashboard/
    </td>
-   <td>Changes to UI should be tested. Make sure the UX for users is good. 
+   <td>Changes to UI should be tested. Make sure the UX for users is good.
    </td>
   </tr>
 </table>
@@ -344,11 +344,11 @@ The following is a list of the code-owners and the checks the code-owner looks f
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/domain/suggestion/
+   <td>/core/templates/domain/suggestion/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/suggestion_editor/
+   <td>/core/templates/pages/suggestion_editor/
    </td>
   </tr>
 </table>
@@ -368,7 +368,7 @@ The following is a list of the code-owners and the checks the code-owner looks f
 
 <li>Reduced code duplication, and simplified general code.
 
-<li>No changes to existing models is expected. 
+<li>No changes to existing models is expected.
 
 <li>Changes to UI must include changes for the learner interface and creator interface (to give and view feedback).
 </li>
@@ -384,15 +384,15 @@ The following is a list of the code-owners and the checks the code-owner looks f
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/domain/feedback_message/
+   <td>/core/templates/domain/feedback_message/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/domain/feedback_thread/
+   <td>/core/templates/domain/feedback_thread/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/exploration_editor/feedback_tab/
+   <td>/core/templates/pages/exploration_editor/feedback_tab/
    </td>
   </tr>
 </table>
@@ -403,24 +403,24 @@ The following is a list of the code-owners and the checks the code-owner looks f
 
 <table>
   <tr>
-   <td>/core/templates/dev/head/domain/sidebar/
+   <td>/core/templates/domain/sidebar/
    </td>
-   <td rowspan="4" >No significant changes are expected here. As this serves as the general navigation strategy on Oppia, this should be well tested, and user-friendly. 
+   <td rowspan="4" >No significant changes are expected here. As this serves as the general navigation strategy on Oppia, this should be well tested, and user-friendly.
 <p>
 
 The buttons on the various navigation bars should ideally not change, changes to these files would either touch functionality of existing buttons, or styling changes.
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/components/create_button/
+   <td>/core/templates/components/create_button/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/components/side_navigation_bar/
+   <td>/core/templates/components/side_navigation_bar/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/components/top_navigation_bar/
+   <td>/core/templates/components/top_navigation_bar/
    </td>
   </tr>
 </table>
@@ -440,7 +440,7 @@ The buttons on the various navigation bars should ideally not change, changes to
 
 <li>Make sure they run optimally. Any common setup needs to be written in BeforeAll blocks.
 
-<li>The test follows a user's path for using the feature. 
+<li>The test follows a user's path for using the feature.
 
 <li>Enough assertions (and meaningful ones) are made, which ensures that the state the test has reached matches the expected state.
 
@@ -454,7 +454,7 @@ The buttons on the various navigation bars should ideally not change, changes to
 For protractor_utils:
 <ul>
 
-<li>Make sure style guidelines and naming guidelines are followed. 
+<li>Make sure style guidelines and naming guidelines are followed.
 
 <li>All protractor classes must start with protractor-test-.
 
@@ -482,7 +482,7 @@ For protractor_mobile, the tests should run successfully on Browserstack.
    </td>
   </tr>
   <tr>
-   <td>/scripts/ 
+   <td>/scripts/
    </td>
    <td>For pre_commit_linter.py, pylint_extensions.py and pylint_extensions_test.py, the added lint checks should be optimized and placed at the best location possible within the script.
 <p>
@@ -511,7 +511,7 @@ For other scripts, in general, the changes done should be optimum and do not aff
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/domain/state/ 
+   <td>/core/templates/domain/state/
    </td>
    <td rowspan="2" >
 <ul>
@@ -524,11 +524,11 @@ For other scripts, in general, the changes done should be optimum and do not aff
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/domain/state_card/ 
+   <td>/core/templates/domain/state_card/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/exploration_editor/preview_tab/ 
+   <td>/core/templates/pages/exploration_editor/preview_tab/
    </td>
    <td rowspan="4" >
 <ul>
@@ -541,15 +541,15 @@ For other scripts, in general, the changes done should be optimum and do not aff
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/exploration_player/ 
+   <td>/core/templates/pages/exploration_player/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/state_editor/ 
+   <td>/core/templates/pages/state_editor/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/components/state/ 
+   <td>/core/templates/components/state/
    </td>
   </tr>
 </table>
@@ -574,17 +574,17 @@ For other scripts, in general, the changes done should be optimum and do not aff
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/domain/question/
+   <td>/core/templates/domain/question/
    </td>
    <td rowspan="3" >Any changes to the question editor should be functionally correct and there should be extra care taken to not break the topic or skill editor as both of them use these directives.
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/question_editor/
+   <td>/core/templates/pages/question_editor/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/questions_list/
+   <td>/core/templates/pages/questions_list/
    </td>
   </tr>
 </table>
@@ -611,15 +611,15 @@ The corresponding class  in skill_domain and the functions related to it in skil
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/domain/skill/
+   <td>/core/templates/domain/skill/
    </td>
-   <td rowspan="2" >Same as above, any new field added to skill should be reflected in one of the ObjectFactories. 
+   <td rowspan="2" >Same as above, any new field added to skill should be reflected in one of the ObjectFactories.
 <p>
 UI changes should be intuitive and shouldn't break existing functionality.
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/skill_editor/
+   <td>/core/templates/pages/skill_editor/
    </td>
   </tr>
 </table>
@@ -646,15 +646,15 @@ The corresponding class in story_domain and the functions related to it in story
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/domain/story/
+   <td>/core/templates/domain/story/
    </td>
-   <td rowspan="2" >Same as above, any new field added to story should be reflected in one of the ObjectFactories. 
+   <td rowspan="2" >Same as above, any new field added to story should be reflected in one of the ObjectFactories.
 <p>
 UI changes should be intuitive and shouldn't break existing functionality.
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/story_editor/
+   <td>/core/templates/pages/story_editor/
    </td>
   </tr>
 </table>
@@ -681,23 +681,23 @@ The corresponding class in topic_domain and the functions related to it in topic
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/domain/topic/
+   <td>/core/templates/domain/topic/
    </td>
-   <td rowspan="4" >Same as above, any new field added to topic should be reflected in one of the ObjectFactories. 
+   <td rowspan="4" >Same as above, any new field added to topic should be reflected in one of the ObjectFactories.
 <p>
 UI changes should be intuitive and shouldn't break existing functionality.
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/domain/topic_viewer
+   <td>/core/templates/domain/topic_viewer
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/topic_editor/
+   <td>/core/templates/pages/topic_editor/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/topic_viewer/
+   <td>/core/templates/pages/topic_viewer/
    </td>
   </tr>
 </table>
@@ -714,13 +714,13 @@ UI changes should be intuitive and shouldn't break existing functionality.
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/domain/topics_and_skills_dashboard/
+   <td>/core/templates/domain/topics_and_skills_dashboard/
    </td>
    <td rowspan="2" >There aren't many major changes expected here, but any that are there shouldn't break existing functionality and should be intuitive to the user.
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/topics_and_skills_dashboard/
+   <td>/core/templates/pages/topics_and_skills_dashboard/
    </td>
   </tr>
 </table>
@@ -739,7 +739,7 @@ UI changes should be intuitive and shouldn't break existing functionality.
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/components/alerts/ 
+   <td>/core/templates/components/alerts/
    </td>
    <td rowspan="10" >
 <ul>
@@ -764,39 +764,39 @@ UI changes should be intuitive and shouldn't break existing functionality.
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/components/attribution_guide/ 
+   <td>/core/templates/components/attribution_guide/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/components/background/ 
+   <td>/core/templates/components/background/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/components/embed_modal/ 
+   <td>/core/templates/components/embed_modal/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/components/loading/ 
+   <td>/core/templates/components/loading/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/components/profile_link/ 
+   <td>/core/templates/components/profile_link/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/components/promo/ 
+   <td>/core/templates/components/promo/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/components/share/ 
+   <td>/core/templates/components/share/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/components/social_buttons/ 
+   <td>/core/templates/components/social_buttons/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/components/summary_tile/ 
+   <td>/core/templates/components/summary_tile/
    </td>
   </tr>
 </table>
@@ -807,7 +807,7 @@ UI changes should be intuitive and shouldn't break existing functionality.
 
 <table>
   <tr>
-   <td>/core/templates/dev/head/css/oppia.css 
+   <td>/core/templates/css/oppia.css
    </td>
    <td>Not much to check apart from that the changes don't create any issues in the existing UI. Other css linter stuff is followed. \
 Proper comments are present if certain values are hardcoded.
@@ -829,7 +829,7 @@ Proper comments are present if certain values are hardcoded.
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/expressions/
+   <td>/core/templates/expressions/
    </td>
    <td>Familiar with expressions based on earlier work on parameters. This part of the code is largely unused currently so I expect to see no changes.
    </td>
@@ -874,19 +874,19 @@ Proper comments are present if certain values are hardcoded.
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/domain/statistics/
+   <td>/core/templates/domain/statistics/
    </td>
    <td>As owner of the Statistics tab, Brian should review all code that goes in here.
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/exploration_editor/improvements_tab/
+   <td>/core/templates/pages/exploration_editor/improvements_tab/
    </td>
    <td>As owner of all aspects of the Improvements tab, Brian should review all code that goes in here.
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/exploration_editor/statistics_tab/
+   <td>/core/templates/pages/exploration_editor/statistics_tab/
    </td>
    <td>As owner of the Statistics tab, Brian should review all code that goes in here.
    </td>
@@ -948,25 +948,25 @@ Proper comments are present if certain values are hardcoded.
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/about/
+   <td>/core/templates/pages/about/
    </td>
    <td>This page is how Oppia presents itself to the world, so I would like to keep abreast of any changes that are made to the text.
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/privacy/
+   <td>/core/templates/pages/privacy/
    </td>
    <td>Any changes to this are sensitive and should be approved by a data privacy lead (Ben or Sean) before being merged.
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/terms/
+   <td>/core/templates/pages/terms/
    </td>
    <td>Any changes to this are sensitive and should be approved by a data privacy lead (Ben or Sean) before being merged.
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/tests/
+   <td>/core/templates/pages/tests/
    </td>
    <td>Miscellaneous test files; in general, no changes are expected here.
    </td>
@@ -991,13 +991,13 @@ Proper comments are present if certain values are hardcoded.
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/admin/
+   <td>/core/templates/pages/admin/
    </td>
    <td>In general, no changes are expected here.
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/moderator/
+   <td>/core/templates/pages/moderator/
    </td>
    <td>In general, no changes are expected here.
    </td>
@@ -1024,7 +1024,7 @@ Proper comments are present if certain values are hardcoded.
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/components/CkEditorRteDirective.js
+   <td>/core/templates/components/CkEditorRteDirective.js
    </td>
    <td>It's very important to check that the editor works perfectly. A lot of attention should be paid to the UI.
    </td>
@@ -1032,15 +1032,15 @@ Proper comments are present if certain values are hardcoded.
   <tr>
    <td>/extensions/rich_text_components/
    </td>
-   <td>It's very important to check that the editor works perfectly. A lot of attention should be paid to the UI. 
+   <td>It's very important to check that the editor works perfectly. A lot of attention should be paid to the UI.
    </td>
   </tr>
   <tr>
    <td>/extensions/ckeditor_plugins/
    </td>
-   <td>It's very important to check that the editor works perfectly. A lot of attention should be paid to the UI. 
+   <td>It's very important to check that the editor works perfectly. A lot of attention should be paid to the UI.
 <p>
-No unnecessary plugin should be added. 
+No unnecessary plugin should be added.
    </td>
   </tr>
 </table>
@@ -1059,50 +1059,50 @@ No unnecessary plugin should be added.
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/contact-page/
+   <td>/core/templates/pages/contact-page/
    </td>
    <td rowspan="11" >
-Check that UX for the users is positive. Changes should be compatible with mobile. 
+Check that UX for the users is positive. Changes should be compatible with mobile.
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/donate-page/
+   <td>/core/templates/pages/donate-page/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/error-pages/
+   <td>/core/templates/pages/error-pages/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/get-started-page/
+   <td>/core/templates/pages/get-started-page/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/landing-page/
+   <td>/core/templates/pages/landing-page/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/maintenance-page/
+   <td>/core/templates/pages/maintenance-page/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/preferences-page/
+   <td>/core/templates/pages/preferences-page/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/signup-page/
+   <td>/core/templates/pages/signup-page/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/splash-page/
+   <td>/core/templates/pages/splash-page/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/teach-page/
+   <td>/core/templates/pages/teach-page/
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/thanks-page/
+   <td>/core/templates/pages/thanks-page/
    </td>
   </tr>
 </table>
@@ -1117,7 +1117,7 @@ Check that UX for the users is positive. Changes should be compatible with mobil
   <tr>
    <td>/app.yaml
    </td>
-   <td>Ensure that: 
+   <td>Ensure that:
 <ul>
 
 <li>cache timeouts are not changed
@@ -1134,19 +1134,19 @@ Check that UX for the users is positive. Changes should be compatible with mobil
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/footer_js_libs.html
+   <td>/core/templates/pages/footer_js_libs.html
    </td>
    <td>This file shouldn't be modified at all for now.
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/header_css_libs.html
+   <td>/core/templates/pages/header_css_libs.html
    </td>
    <td>This file shouldn't be modified at all for now.
    </td>
   </tr>
   <tr>
-   <td>/core/templates/dev/head/pages/header_js_libs.html
+   <td>/core/templates/pages/header_js_libs.html
    </td>
    <td>This file shouldn't be modified at all for now.
    </td>

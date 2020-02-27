@@ -12,8 +12,8 @@
 Welcome to Oppia! This wiki page aims to provide a quick-start guide to Oppia and guide you in making your first changes to Oppia's codebase. For a longer, more comprehensive guide to getting started, please see our [full "Getting Started" page](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up).
 
 Some background info about the project:
-* The Oppia codebase sits in Github at https://github.com/oppia. Some knowledge of Github would be useful to make changes to the repository. Take a look at the [Github guides](https://guides.github.com/activities/hello-world/) for a brief introduction to Github along with some common methods! 
-* AngularJS (v1) is used for Oppia's frontend. A nice youtube video tutorial can be found [here](https://www.youtube.com/watch?v=nO1ROKMjPqI&list=PLvZkOAgBYrsS_ugyamsNpCgLSmtIXZGiz). For an outline of AngularJS, please see this [short overview](https://egghead.io/articles/new-to-angularjs-start-learning-here) with pointers to other resources. 
+* The Oppia codebase sits in Github at https://github.com/oppia. Some knowledge of Github would be useful to make changes to the repository. Take a look at the [Github guides](https://guides.github.com/activities/hello-world/) for a brief introduction to Github along with some common methods!
+* AngularJS (v1) is used for Oppia's frontend. A nice youtube video tutorial can be found [here](https://www.youtube.com/watch?v=nO1ROKMjPqI&list=PLvZkOAgBYrsS_ugyamsNpCgLSmtIXZGiz). For an outline of AngularJS, please see this [short overview](https://egghead.io/articles/new-to-angularjs-start-learning-here) with pointers to other resources.
 * If you are new to HTML, some useful tutorials are [Mozilla's guide](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML) (which includes some practice assessments), as well as [this tutorial for beginners](http://htmldog.com/guides/html/beginner/).
 * Some new features will require backend work. Oppia's backend is written in Python 2.7.
 
@@ -54,14 +54,14 @@ _Python 2.7_ [Introduction](https://docs.python.org/2/library/intro.html) | [Tut
 _Bash_ [Introduction](http://cs.lmu.edu/~ray/notes/bash/)
 
 ## Making A Code Change
-Our central development branch is **develop**, which should be clean and ready for release at any time. In general, all changes should be done as feature branches based off of _develop_. For a more detailed explanation on how to make a code change, please take a look at [this wiki page](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#instructions-for-making-a-code-change). 
+Our central development branch is **develop**, which should be clean and ready for release at any time. In general, all changes should be done as feature branches based off of _develop_. For a more detailed explanation on how to make a code change, please take a look at [this wiki page](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#instructions-for-making-a-code-change).
 In order to make a change in the repository, you can follow the steps below:
 
 1. Sync with the _develop_ branch and create a new branch, starting from _develop_ (e.g. _your-branch-name_). The branch name should be descriptive, lowercase, and hyphen-separated. It shouldn’t start with the words _hotfix_ or _release_.
 ```bash
 git fetch upstream
-git checkout develop  
-git merge upstream/develop 
+git checkout develop
+git merge upstream/develop
 git checkout -b your-branch-name
 ```
 
@@ -106,11 +106,11 @@ Oppia has a [Gitter chat room](https://gitter.im/oppia/oppia-chat) where everyon
 * [Project 16: Add a tutorial for the topic editor on first visit](#project-16-add-a-tutorial-for-the-topic-editor-on-first-visit)
 * [Project 17: Make answers anonymous in the statistics tab](#project-17-make-answers-anonymous-in-the-statistics-tab)
 
-For this open source day, we tried to shortlist projects that are fairly self contained, and can be completed within 3-4 hours by a group of 2-3 people. We also tried to pick those projects from our issue tracker itself so that you get an idea of what it’s like to contribute to Oppia on a regular basis. 
+For this open source day, we tried to shortlist projects that are fairly self contained, and can be completed within 3-4 hours by a group of 2-3 people. We also tried to pick those projects from our issue tracker itself so that you get an idea of what it’s like to contribute to Oppia on a regular basis.
 
 Each project has a brief explanation, a link to the issue tracker, the skills required, and some deliverables. We encourage you to look at the [issue tracker](https://github.com/oppia/oppia/issues) link for the project that interests you. You can comment expressing interest in that project (and mention you will be working on it for OSD). You can also gain more context and ask questions to help get a kickstart for the day. **Please work in groups of 2-3 people**.
 
-This list is not an exhaustive list of projects. If none of these projects appeal to you, you can take a look at our [issue tracker](https://github.com/oppia/oppia/issues) and comment on the issue that interests you. (also mention that you will be working on it during the OSD event so that we are aware). 
+This list is not an exhaustive list of projects. If none of these projects appeal to you, you can take a look at our [issue tracker](https://github.com/oppia/oppia/issues) and comment on the issue that interests you. (also mention that you will be working on it during the OSD event so that we are aware).
 Please tag us (**@dchen97** and **@vinitamurthi**) in any comment expressing interest in a project so that we get notified about this!
 
 If you would like to understand the vocabulary and general structure of content in Oppia, you can take a look at [this document](https://docs.google.com/document/d/1yFrFAXaKARzj1DSfiiy1pOH6ypugNkRLQGz5W5QifMQ/edit?usp=sharing).
@@ -136,7 +136,7 @@ AngularJS, Web Development, UX Design, JavaScript
 
 **Difficulty**
 
-Easy 
+Easy
 
 ***
 
@@ -145,11 +145,11 @@ Easy
 **Context**
 
 Suggestion Improvement cards only render the latest message of the associated thread:
- 
+
 ![](https://user-images.githubusercontent.com/5094060/61331971-14d57080-a7f1-11e9-9107-4b702c7bf6e8.png)
 
 To view the actual suggestion, creators must click the "Review Thread" button and then the "Review Suggestion" button from the thread modal:
- 
+
  ![](https://user-images.githubusercontent.com/5094060/61331984-1dc64200-a7f1-11e9-9311-764d7dfd8f23.png)
 
 ![](https://user-images.githubusercontent.com/5094060/61331999-2585e680-a7f1-11e9-8687-69ed86a2d2ab.png)
@@ -169,7 +169,7 @@ AngularJS, Web Development, UX Design, JavaScript
 
 **Difficulty**
 
-Intermediate 
+Intermediate
 
 ***
 
@@ -184,7 +184,7 @@ The question player is a reusable element that is used anywhere we would like to
 **Deliverables**
 
 * Throw an error in the backend controller of the question player if the number of questions requested is greater than 20.
-Throw an error in the frontend API of the question player if the number of questions is > 20. 
+Throw an error in the frontend API of the question player if the number of questions is > 20.
 
 **Required Skills**
 
@@ -200,12 +200,12 @@ Easy
 
 **Context**
 
-Whenever a card in a lesson is too long, a warning should display prominently enough that the lesson editors know to adjust this content (i.e. split up between multiple cards, shorten text, etc.). However, right now, this warning is only displayed when you open up the Rich Text Editor (RTE) for the card and this warning is buried at the bottom of the editor in a way that users do not immediately see or notice the warning. Additionally, when you close the RTE, this warning disappears altogether. 
+Whenever a card in a lesson is too long, a warning should display prominently enough that the lesson editors know to adjust this content (i.e. split up between multiple cards, shorten text, etc.). However, right now, this warning is only displayed when you open up the Rich Text Editor (RTE) for the card and this warning is buried at the bottom of the editor in a way that users do not immediately see or notice the warning. Additionally, when you close the RTE, this warning disappears altogether.
 
 Steps to reproduce the behavior:
 * Log in and create an exploration.
 * Type lots of text in the content card
-* View the blue text at the bottom of the Rich Text Editor (RTE): 
+* View the blue text at the bottom of the Rich Text Editor (RTE):
 
 ![](https://user-images.githubusercontent.com/10575562/52938129-b9708680-3315-11e9-9c86-93b67ccbe580.png)
 
@@ -227,32 +227,32 @@ AngularJS, Web Development, UX Design, JavaScript
 
 **Difficulty**
 
-Intermediate 
+Intermediate
 
 ***
 
 ### Project 5: Lint check to ensure a single space after yield keyword in python and to avoid inline styling
- 
+
 **Context**
 
 For a project as large as Oppia, code health is extremely important. We have a style guide that we expect new developers to read and follow, however it is equally important to have tests that enforce this style guide. That’s where our lint checks come in. Currently we have several lint checks, we would like to improve them by adding two more checks: Ensuring a single space is present after the ‘yield’ keyword in python files ([#6276](https://github.com/oppia/oppia/issues/6276)), and ensure that we do not have any inline styles in HTML pages. Instead we would like to have CSS classes wherever there are inline files([#6212](https://github.com/oppia/oppia/issues/6212)). This project needs to add the lint check, as well as fix any parts of the code base that violate these new checks.
 
 Issues: [#6276](https://github.com/oppia/oppia/issues/6276), [#6212](https://github.com/oppia/oppia/issues/6212)
- 
+
 **Deliverables**
 * Remove all cases where there is more than 1 space after the yield keyword in python files
 * Add a lint check to enforce this
 * Replace all cases of inline styles with CSS classes
 * Add a lint check to stop allowing inline styles.
- 
+
 **Required Skills**
 
 Python
- 
+
 **Difficulty**
 
 Easy
- 
+
 ***
 
 ### Project 6: Convert frontend dicts to domain objects
@@ -279,7 +279,7 @@ Easy
 
 ***
 
-### Project 7: Capture screenshot in Travis e2e tests 
+### Project 7: Capture screenshot in Travis e2e tests
 
 **Context**
 
@@ -301,7 +301,7 @@ Intermediate
 
 ***
 
-### Project 8: Resolve styling for card view on creator-dashboard 
+### Project 8: Resolve styling for card view on creator-dashboard
 
 **Context**
 
@@ -372,7 +372,7 @@ Python, JavaScript
 
 **Difficulty**
 
-Easy 
+Easy
 
 ***
 
@@ -401,7 +401,7 @@ JavaScript
 
 **Difficulty**
 
-Varying difficulty 
+Varying difficulty
 
 ***
 
@@ -424,7 +424,7 @@ JavaScript, Python
 
 **Difficulty**
 
-Intermediate 
+Intermediate
 
 ***
 
@@ -432,12 +432,12 @@ Intermediate
 
 **Context**
 
-At Oppia, we have a style guide that we expect new developers to read and follow, however it is equally important to have tests that enforce this style guide. We use lint checks to ensure that the oppia codebase follows the style guide. In this project, we would like to add another lint check to ensure that all require(...) statements are in alphabetical order. 
+At Oppia, we have a style guide that we expect new developers to read and follow, however it is equally important to have tests that enforce this style guide. We use lint checks to ensure that the oppia codebase follows the style guide. In this project, we would like to add another lint check to ensure that all require(...) statements are in alphabetical order.
 
 [Issue #6748](https://github.com/oppia/oppia/issues/6748)
- 
+
 **Deliverables**
-* Remove all cases where the require statements are not alphabetized in the code base 
+* Remove all cases where the require statements are not alphabetized in the code base
 * Add a lint check to enforce this
 
 **Required Skills**
@@ -450,11 +450,11 @@ Easy
 
 ***
 
-### Project 14: Enable animated GIFs in the lessons 
+### Project 14: Enable animated GIFs in the lessons
 
 **Context**
 
-Animated GIFs provide a powerful way of conveying information in the lessons. However, currently animated GIFs do not play in any of the lessons. In this project, we would like to enable animated GIFs in lessons. In order to test out this behavior you can: 
+Animated GIFs provide a powerful way of conveying information in the lessons. However, currently animated GIFs do not play in any of the lessons. In this project, we would like to enable animated GIFs in lessons. In order to test out this behavior you can:
 1. Create an exploration
 1. Add an animated GIF with several frames to the content section of the exploration
 1. Play the exploration
@@ -485,7 +485,7 @@ When creating a question for a skill, the creator can try to go ahead and create
 
 ![](https://user-images.githubusercontent.com/12983742/54720288-46c51780-4b1c-11e9-9902-90c414f558dd.png)
 
-[Issue #6482](https://github.com/oppia/oppia/issues/6482) 
+[Issue #6482](https://github.com/oppia/oppia/issues/6482)
 
 **Deliverables**
 * Ensure the ‘Save and Publish’ button is enabled only after the question has an interaction in the question editor

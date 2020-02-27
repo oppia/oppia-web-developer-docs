@@ -35,7 +35,7 @@ Sometimes, the page is rendered in the browser before the locale file with the t
 When adding a new string to Oppia's HTML code, please take into account the following tips to prevent FoUC:
 - The FoUC behaves differently in the preferred language (English) and all the other languages. Please manually check that there is no FoUC in both cases.
 - Add the translation key inside the html tag as the value of the translate attribute. This will prevent the key from being shown briefly -- instead, the location of the string will remain empty in the interim.
-- If the string is in a very visible location and there is FoUC in the preferred language, add the key and the translation into the `DEFAULT_TRANSLATIONS` constant defined in the file [i18n.js](https://github.com/oppia/oppia/blob/develop/core/templates/dev/head/i18n.js).
+- If the string is in a very visible location and there is FoUC in the preferred language, add the key and the translation into the `DEFAULT_TRANSLATIONS` constant defined in the file [i18n.js](https://github.com/oppia/oppia/blob/develop/core/templates/i18n.js).
 
 ## Titles
 
@@ -71,7 +71,7 @@ and add the translation into the [en.json file](https://github.com/oppia/oppia/b
 
     “TRANSLATION_KEY”: “{choicesValue, plural, =0{Select no choice.} one{Select one choice.} other{Select # choices.}}”
 
-For a more complete tutorial, refer to the [angular translate guide](http://angular-translate.github.io/docs/#/guide/14_pluralization) and the [messageformat documentation](https://github.com/SlexAxton/messageformat.js/). 
+For a more complete tutorial, refer to the [angular translate guide](http://angular-translate.github.io/docs/#/guide/14_pluralization) and the [messageformat documentation](https://github.com/SlexAxton/messageformat.js/).
 
 ## Testing
 

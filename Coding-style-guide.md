@@ -7,7 +7,7 @@ If you use [Sublime Text](http://www.sublimetext.com/), consider installing the 
 - Strings should use single quotes (`'`) throughout Python and JavaScript.
 - Prefer having comments on their own line (above the code that's being commented on), as opposed to next to a line. The exception is when you need to disable a pylint warning for a specific line.
 - The last character in each file should be a newline. (If you're using Sublime, you can enforce this locally by adding `"ensure_newline_at_eof_on_save": true` to your user preferences file.)
-- Avoid introducing `TODO (#XYZ): ...` comments in the files and instead try to do things correctly the first time. If you are going to add a TODO comment in any file then there needs to be (at minimum) a full comment and justification explaining what has been tried and what the issue is. 
+- Avoid introducing `TODO (#XYZ): ...` comments in the files and instead try to do things correctly the first time. If you are going to add a TODO comment in any file then there needs to be (at minimum) a full comment and justification explaining what has been tried and what the issue is.
 
 ## Python
 - Prefer `xrange` to `range`, so as not to hold the entire range in memory unnecessarily.
@@ -26,7 +26,7 @@ If you use [Sublime Text](http://www.sublimetext.com/), consider installing the 
     ```
 
     over
-    
+
     ```
       my_function_with_a_really_long_name('abc',
                                           'def',
@@ -69,10 +69,10 @@ If you use [Sublime Text](http://www.sublimetext.com/), consider installing the 
 - We use extra parentheses if a statement breaks across multiple lines, similar to Python.
 - The indentation is always 2 spaces.
 - We are moving away from using underscores as prefixes for variable names, so, in the future, use `var localVariable` and not `var _localVariable`. Instead, we are adopting the convention that anything declared using `var` is private to the controller/service/etc. If you want a variable to be accessible to the controller, declare it on $scope instead.
-- Try to start only function names with verbs to help distinguish them from variables. 
+- Try to start only function names with verbs to help distinguish them from variables.
 
    For example:
- 
+
    - For a boolean variable to check if a card is displayed:
         - Correct: `cardIsDisplayed`
         - Wrong: `isCardDisplayed`
@@ -98,40 +98,40 @@ If you use [Sublime Text](http://www.sublimetext.com/), consider installing the 
 ## Typescript
 - Make sure to follow all the javascript rules here as well.
 - Declare a variable before usage. For instance:
-  
+
   **Wrong usage:**
-  ```javascript              
+  ```javascript
   exampleVar = true;
   if (someCondition) {
     exampleVar = false;
   }
   ```
   **Right usage:**
-  ```javascript              
+  ```javascript
   var exampleVar = true;
   if (someCondition) {
     exampleVar = false;
   }
-  ```        
-- All loop variables should be declared. For instance:     
+  ```
+- All loop variables should be declared. For instance:
 
   **Wrong usage:**
-  ```javascript              
+  ```javascript
   for (item in itemList) {
     ...
   }
   ```
   **Right usage:**
-  ```javascript              
+  ```javascript
   for (var item in itemList) {
     ...
   }
-  ```    
+  ```
 
 - Do not add new properties to a declared variable. Ensure that all properties are declared in the variable declaration. For instance:
 
   **Wrong usage:**
-  ```javascript              
+  ```javascript
   var person = {
     name: 'name',
     age: 'age'
@@ -141,7 +141,7 @@ If you use [Sublime Text](http://www.sublimetext.com/), consider installing the 
   }
   ```
   **Right usage:**
-  ```javascript              
+  ```javascript
   var person = {
     name: 'name',
     age: 'age',
@@ -150,27 +150,27 @@ If you use [Sublime Text](http://www.sublimetext.com/), consider installing the 
   if (someCondition) {
     person.address = 'address';
   }
-  ``` 
+  ```
 - Always initialize a variable at declaration. If you do not want a specific value at declaration, initialize the variable with a null value. For instance:
 
   **Wrong usage:**
-  ```javascript              
+  ```javascript
   var person;
   if (someCondition) {
     person = 'name';
   }
   ```
   **Right usage:**
-  ```javascript              
+  ```javascript
   var person = null;
   if (someCondition) {
     person = 'name';
   }
-  ``` 
+  ```
 - Do not overwrite the variable with a different type. Instead create a new variable whenever you have a different use case. For instance:
 
   **Wrong usage:**
-  ```javascript              
+  ```javascript
   var person = {
     name: 'name',
     schoolName: 'school name'
@@ -182,7 +182,7 @@ If you use [Sublime Text](http://www.sublimetext.com/), consider installing the 
   };
   ```
   **Right usage:**
-  ```javascript              
+  ```javascript
   var personForSchool = {
     name: 'name',
     schoolName: 'school name'
@@ -192,9 +192,9 @@ If you use [Sublime Text](http://www.sublimetext.com/), consider installing the 
     name: 'name',
     officeName: 'office name'
   };
-  ``` 
+  ```
 - If you get compilation error which says that a property does not exist on a particular type, go through the type definitions of the type and do a type casting if required. For instance:
-  ```javascript              
+  ```javascript
   var checkMismatch = function(searchQuery) {
     var isMismatch = true;
     $('.oppia-search-bar-input').each(function(index) {
@@ -206,7 +206,7 @@ If you use [Sublime Text](http://www.sublimetext.com/), consider installing the 
   };
   ```
   Here `$(this).val()` is type casted to a string by using `<string>$(this).val()`
-  If we do not use a typecast, typescript will give a error `Property 'trim' does not exist on type 'string | number | string[]'` since val can be a string or a number or a string array. So, to use trim we specifically need it as a string. 
+  If we do not use a typecast, typescript will give a error `Property 'trim' does not exist on type 'string | number | string[]'` since val can be a string or a number or a string array. So, to use trim we specifically need it as a string.
 
   In many cases, you may also need to typecast to `<any>` first and then to the desired type. For example, for converting a number to string, you will need `<string><any>` because neither type sufficiently overlaps with the other.
 
@@ -232,7 +232,7 @@ Usage of old-style AngularJS directives is discouraged. Instead, use component d
 
 ## Webpack
 
-In all TypeScript files in `core/templates/dev/head` we use webpack. That means that instead of including the required files by `<script src="…"></script>` in HTML files we include them by using `require(…)` in the individual TS files.
+In all TypeScript files in `core/templates` we use webpack. That means that instead of including the required files by `<script src="…"></script>` in HTML files we include them by using `require(…)` in the individual TS files.
 
 ### Adding `require(…)` to the TypeScript files with service/filter/factory
 When you add new service/filter/factory dependency to service/filter/factory, you need to also `require(…)` it at the top of the file.
@@ -243,7 +243,7 @@ oppia.filter('normalizeWhitespace', [function() {
   return function(input) {…};
 }]);
 ```
-and need to use `UtilsService` in this filter, you also need to add `require('services/UtilsService.ts');` (the paths are relative to the `core/templates/dev/head` directory), the final filter will look like this:
+and need to use `UtilsService` in this filter, you also need to add `require('services/UtilsService.ts');` (the paths are relative to the `core/templates` directory), the final filter will look like this:
 ```javascript
 require('services/UtilsService.ts');
 
@@ -321,8 +321,8 @@ into `module.exports.plugins`.
 - Within each CSS rule, attributes should be alphabetized (e.g. 'height' before 'margin' before 'top'). This makes it easy to find the value of an attribute if there are lots of them.
 - Avoid using `!important` as much as possible.
 - For colours, use hex values (like "#012345") or rgb(a) values, instead of names (like "white").
-- If the CSS class is oppia-specific, prefix it with `oppia-`. This helps distinguish it from CSS classes used by other third-party libraries. 
-- For directives, include the CSS in the directive template file, similar to what we do in [this file](https://github.com/oppia/oppia/blob/37a43ca249ffd2b60bf98f791995048ce0ec5269/core/templates/dev/head/components/summary_tile/exploration_summary_tile_directive.html). (Note that, in this case, all CSS rules should start with the top-level CSS class of the directive, so that they don't affect other elements outside it.) All other CSS should go in `core/templates/dev/head/css/oppia.css`.
+- If the CSS class is oppia-specific, prefix it with `oppia-`. This helps distinguish it from CSS classes used by other third-party libraries.
+- For directives, include the CSS in the directive template file, similar to what we do in [this file](https://github.com/oppia/oppia/blob/37a43ca249ffd2b60bf98f791995048ce0ec5269/core/templates/components/summary_tile/exploration_summary_tile_directive.html). (Note that, in this case, all CSS rules should start with the top-level CSS class of the directive, so that they don't affect other elements outside it.) All other CSS should go in `core/templates/css/oppia.css`.
 
 ----
 ### How to ensure that your code follows the coding guidelines:
