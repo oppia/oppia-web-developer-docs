@@ -20,7 +20,7 @@ The backend codebase is heavily tested. Tests are contained in `*_test.py` files
 
 ### Frontend
 
-The developer version of the frontend code is contained in `core/templates/dev/head`. (When Oppia is deployed, a `core/templates/prod/head` directory is also produced that contains minified versions of the code, but this is not generally of concern during development.) The frontend code contains the following sub-directories:
+The developer version of the frontend code is contained in `core/templates`. The frontend code contains the following sub-directories:
 
   * `components`: This provides certain reusable components, structured as Angular directives, which are used in one or more pages.
   * `css`: Site-wide CSS. There may be other CSS blocks within individual HTML files.
