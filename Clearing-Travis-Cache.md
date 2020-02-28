@@ -1,7 +1,8 @@
 If your build is consistently failing and one of the following reasons is true, then you may need to reach out to a code owner or Core Maintainer to clear the Travis Cache.
 
-- Third party package version changes (ie. node, etc)
-- No apparent cause for failures that are not due to flakiness.
+- Recent change to third party package versions (ie. node, etc)
+- Recent addition or removal of third party packages
+- No apparent cause for failures that are not due to flakiness
 - Errors with package installation on Travis, for example:
 ```
 dpkg-deb (subprocess): decompressing archive member: lzma error: unexpected end of input
