@@ -26,7 +26,12 @@ subprocess.CalledProcessError: Command '[u'sudo', u'dpkg', u'-i', u'/home/travis
 ```
 
 
-
 ## Instructions
+
 1. Click on the More Options menu on the right, then Caches in the dropdown.
-1. Click on each of the trash cans for each of rows of cache. The Delete All Cache button *does not* work. Note that deleting the cache takes time to reflect on the webpage, so be patient or reload the page. 
+
+   ![Cache Menu](images/travisCISetting.png)
+
+2. Click on each of the trash cans for each of rows of cache. The Delete All Cache button *does not* work. Note that deleting the cache takes time to reflect on the webpage, so be patient or reload the page.
+
+  ![Cache Delete Button](images/travisCacheDelete.png)
