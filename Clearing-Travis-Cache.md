@@ -1,4 +1,4 @@
-## When to clear cache
+If your build is consistently failing and one of the following reasons is true, then you may need to reach out to a code owner or Core Maintainer to clear the Travis Cache.
 
 - Third party package version changes (ie. node, etc)
 - No apparent cause for failures that are not due to flakiness.
@@ -23,6 +23,8 @@ Traceback (most recent call last):
     raise CalledProcessError(retcode, cmd)
 subprocess.CalledProcessError: Command '[u'sudo', u'dpkg', u'-i', u'/home/travis/.cache/TravisChrome/google-chrome-stable_77.0.3865.75-1_amd64.deb']' returned non-zero exit status 1
 ```
+
+
 
 ## Instructions
 1. Click on the More Options menu on the right, then Caches in the dropdown.
