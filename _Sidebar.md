@@ -43,6 +43,7 @@
     * [[Adding static assets|Adding-static-assets]]
     * [[Performance testing|Performance-Testing]]
     * [[Release schedule|Release-Schedule]]
+    * [[Writing audit jobs|Writing-audit-jobs]]
     * [[Running jobs in production|Running-jobs-in-production]]
     * [[Team structure|Team-Structure]]
     * [[Ongoing Projects|Ongoing-Projects]]
