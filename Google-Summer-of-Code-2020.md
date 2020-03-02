@@ -404,7 +404,7 @@ A few things should be considered while writing the design doc:
 
 ### 2.1. Editor Page Redesigns
 
-The aim of this project is to redesign the topic, exploration, story and skill editor pages so they are more visually appealing and work better on mobile, while retaining all of their features. Some initial mocks that we created visualizing these changes can be found [here](https://xd.adobe.com/view/a496f74b-80d1-4d8f-78b5-773b61ea1479-d2a7/). (Feel free to suggest changes to the mocks if you think that would enhance the creator experience.)
+The aim of this project is to redesign the topic, exploration, story and skill editor pages so they are more visually appealing and work better on mobile, while retaining all of their features. Some initial mocks that we created visualizing these changes can be found [here](https://xd.adobe.com/view/a496f74b-80d1-4d8f-78b5-773b61ea1479-d2a7/); please note that this link does not have the full set of mocks yet and they will be updated over time. (Feel free to suggest changes to the mocks if you think that would enhance the creator experience.)
 
 **Team**: Learner and Creator Experience
 
