@@ -2,7 +2,7 @@
 
 The project plan will be iterative. We will migrative the services first and then the controllers and directives. The services would be migrated in the dependency order i.e if A depends on B and B depends on C, we will migrate in the order C, B and A.
 
-We have a script named [create_topological_sort_of_all_services](create_topological_sort_of_all_services) which generates all the services in the dependency order. The codebase has 336 services as of now, out of which 123 are migrated to Angular and remaining 223 are to be migrated. Some files slipped in even without having all the require statements which has affected the output of the script. The plan would be to go in the order of the files that script generates. If the current service that is in order could be migrated -- migrate it, else add missing require statements. We will re-run the script during the second pass and fix the left ones then.
+We have a script named [create_topological_sort_of_all_services](create_topological_sort_of_all_services) which generates all the services in the dependency order. The codebase has about 340 services as of now, out of which 220 are migrated to Angular and remaining 120 are to be migrated. Some files slipped in even without having all the require statements which has affected the output of the script. The plan would be to go in the order of the files that script generates. If the current service that is in order could be migrated -- migrate it, else add missing require statements. We will re-run the script during the second pass and fix the left ones then.
 
 ## Angular Migration Tracker
 
