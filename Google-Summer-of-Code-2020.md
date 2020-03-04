@@ -76,7 +76,7 @@ A: Definitely not! Here are the [selection criteria](https://github.com/oppia/op
 
 **Q: What are the minimum number of PRs that one should have?**
 
-A: There is no specific minimum number. Remember that quality is more important than quantity. It is better to submit a nontrivial PRs rather than a simple bug fix. Start with starter issues, then prioritize ones that are related to your project
+A: There is no specific minimum number. Remember that quality is more important than quantity. It is better to submit a nontrivial PRs rather than a simple bug fix. Start with starter issues, then prioritize ones that are related to your project.
 
 ## GSoC Proposal Template
 
