@@ -166,6 +166,14 @@ To make code changes, please follow the following instructions carefully! Otherw
 
 8. **Celebrate.** Congratulations, you have contributed to Oppia!
 
+## Tips for making a good code change
+
+1. Make dependent (“stacked”) PRs to ensure smaller time between reviews and subsequent PRs. A large PR results in difficulty to review for the reviewer as well as difficulty in making changes according to a review for an author. So, it is better to create smaller PRs which deliver a single small goal. If you have any other code change dependent on a PR, it is better to stack it on the that PR and create a new PR instead of merging it in one PR.
+
+2. Try and follow test-driven development. This is the easiest way to make sure the code you wrote is working fine. Writing tests for the expected behaviour, and then writing code that will pass the tests is the basic idea. Refer our guides for writing good tests: [Backend Tests](https://github.com/oppia/oppia/wiki/Writing-backend-tests), [Frontend Tests](https://github.com/oppia/oppia/wiki/Frontend-test-best-practices), [End to end tests](https://github.com/oppia/oppia/wiki/End-to-End-Tests), [Tests for pylint extensions](https://github.com/oppia/oppia/wiki/Writing-Tests-For-Pylint).
+
+3. If you are making a contribution which involves change in some user interface or introduces a new feature, it is good to start with a design doc to avoid wasting efforts later. Follow our [guide]( https://github.com/oppia/oppia/wiki/Writing-design-docs) for writing design docs. 
+
 ### Notes
 
 * Our central development branch is `develop`, which should be clean and ready for release at any time. All changes should be done in feature branches based off of `develop`.
