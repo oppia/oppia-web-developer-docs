@@ -23,10 +23,21 @@ The most popular tests include unit tests, integration testing, end-to-end (e2e)
 ## Best practices for good tests:
 - Naming the test is important. The name should include the name of the component being tested, the conditions imposed on the test and the expected outcome of the test.
     - The test name follows this format: describe(<component name>) and it(‘should <do this action> when <this condition is imposed>’)
-- All possible code paths in the function should be tested. This is important from a coverage perspective. [Here](https://github.com/oppia/oppia/blob/ae649aa08f1375457ec9e3c90257197b68fec7cd/core/templates/domain/objects/FractionObjectFactorySpec.ts) is a good example of testing all code paths
+    - Here is an example
+
+![image](https://user-images.githubusercontent.com/11898234/75883048-5da56c80-5e48-11ea-89f1-bc097e73bdef.png)
+
+- All possible code paths in the function should be tested. This is important from a coverage perspective. [Here](https://github.com/oppia/oppia/blob/ae649aa08f1375457ec9e3c90257197b68fec7cd/core/templates/domain/objects/FractionObjectFactorySpec.ts) is a good example of testing all code paths. The names of the various tests in the below image should give you an idea of what is expected.
+
+![image](https://user-images.githubusercontent.com/11898234/75883131-83cb0c80-5e48-11ea-91e8-2a36dcefd218.png)
+
 - Any common code can be extracted into a helper function to reduce duplication. Make sure the helper function deals with only one of the 3 parts, ie, the helper function can help with either setup, action or assertion, avoid overlapping across the parts.
 - Assert as many things as possible. An example of this is say, the function returns the list, you can assert that the number of elements is as expected, and each element you expect is in the list. Another example is if an object is expected, then assert the various fields of the object are as expected.
-- In the frontend, while writing tests, we don’t make actual calls to the backend. All http calls are mocked, to keep the tests independent of the backend. Similarly, any services can also be mocked. We try to keep such mocks as low as possible. [Here](https://github.com/oppia/oppia/blob/ae649aa08f1375457ec9e3c90257197b68fec7cd/core/templates/domain/learner_dashboard/learner-playlist.service.spec.ts#L27) is an example usage of $httpBackend to mock the backend responses.
+- In the frontend, while writing tests, we don’t make actual calls to the backend. All http calls are mocked, to keep the tests independent of the backend. Similarly, any services can also be mocked. We try to keep such mocks as low as possible. [Here](https://github.com/oppia/oppia/blob/ae649aa08f1375457ec9e3c90257197b68fec7cd/core/templates/domain/learner_dashboard/learner-playlist.service.spec.ts#L27) is an example usage of $httpBackend to mock the backend responses. A brief version of the code there, with some explanatory comments is given below
+
+![image](https://user-images.githubusercontent.com/11898234/75883248-bb39b900-5e48-11ea-9d50-83157e8f6515.png)
+
+
 - When writing asynchronous tests, if your asynchronous call involves `promises` use `fakeAsync()` and `flushMicrotasks()`. A sample of code is given below:
   ```typescript
   it('should test some asynchronous code', fakeAsync(() => {
