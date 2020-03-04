@@ -78,6 +78,10 @@ A: Definitely not! Here are the [selection criteria](https://github.com/oppia/op
 
 A: There is no specific minimum number. Remember that quality is more important than quantity. It is better to submit a nontrivial PRs rather than a simple bug fix. Start with starter issues, then prioritize ones that are related to your project.
 
+**Q: What is the total number we'll accept?**
+
+A: As many as we think we'll succeed, though GSoC/Outreachy admins may impose quotas.
+
 ## GSoC Proposal Template
 
 When submitting a proposal, please use the provided [GSoC proposal template](https://docs.google.com/document/d/1C6OgWa5I2wTWYPLTOqoZMVvWrVQ10BGXbe4SNEBMu-s/edit). We will only consider proposals submitted using this template.
