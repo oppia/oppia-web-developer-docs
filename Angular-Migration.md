@@ -95,7 +95,7 @@ The [angular migration tracker](https://docs.google.com/spreadsheets/d/1L9Udn-XT
    find this by doing a simple search of the function name in service where get request is handled.
 
 8. For functions in the service, add type definitions for all the arguments as well as return values. 
-**Note** For complex types or some type that is being used over functions or files we can declare interface or export interface (if it has to be imported over files). For example in the file [rating-computation.service.ts](https://github.com/oppia/oppia/blob/develop/core/templates/dev/head/components/ratings/rating-computation/rating-computation.service.ts) we have an export interface to declare the type IRatingFrequencies. In the same file we also have a function named static, which is used by the functions of the class itself. 
+**Note:** For complex types or some type that is being used over functions or files we can declare interface or export interface (if it has to be imported over files). For example in the file [rating-computation.service.ts](https://github.com/oppia/oppia/blob/develop/core/templates/dev/head/components/ratings/rating-computation/rating-computation.service.ts) we have an export interface to declare the type IRatingFrequencies. In the same file we also have a function named static, which is used by the functions of the class itself. 
 
 9. For functions which are private to the service (used as helper functions), add private keyword for those functions.
 
