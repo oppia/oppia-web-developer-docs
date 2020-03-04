@@ -82,6 +82,14 @@ A: There is no specific minimum number. Remember that quality is more important 
 
 A: As many as we think we'll succeed, though GSoC admins may impose quotas.
 
+**Q: I do not have any experience in some XYZ skill. Is some certification required?**
+
+A: Try to work on good first issues and take courses online. You develop experience & expertise once you start working. We do not need any certification.
+
+**Q: Is it okay to focus only on the frontend or backend?**
+
+A: This depends on your project. Focus on the project's goals.
+
 ## GSoC Proposal Template
 
 When submitting a proposal, please use the provided [GSoC proposal template](https://docs.google.com/document/d/1C6OgWa5I2wTWYPLTOqoZMVvWrVQ10BGXbe4SNEBMu-s/edit). We will only consider proposals submitted using this template.
