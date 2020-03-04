@@ -80,7 +80,7 @@ A: There is no specific minimum number. Remember that quality is more important 
 
 **Q: What is the total number we'll accept?**
 
-A: As many as we think we'll succeed, though GSoC/Outreachy admins may impose quotas.
+A: As many as we think we'll succeed, though GSoC admins may impose quotas.
 
 ## GSoC Proposal Template
 
