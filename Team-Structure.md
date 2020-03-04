@@ -21,6 +21,7 @@ The current members of this group are:
 - Ankita Saxena (who also serves as release coordination lead)
 - Kevin Lee (who also serves as dev workflow team lead)
 - Nithesh Hariharan (who also serves as QA team lead)
+- Kevin Thomas
 - Sandeep Dubey
 - Sean Lip
 - Vojtěch Jelínek 
@@ -64,13 +65,6 @@ Ensures that the Oppia development process is smooth, stable and enjoyable, by e
 Long-term projects include:
 - Working with the Onboarding team to identify areas where new contributors get stuck during the onboarding process, and taking steps to fix those issues.
 - Streamlining the code review flow by: (a) adding pre-submit checks for common errors, (b) enabling Oppiabot to automatically handle review/code-owner assignments, (c) speeding up the CI processes.
-- Organizing the maintainer rotation.
-
-### Maintainers Team
-
-The dev workflow team is also supported by a Maintainers team. The role of the maintainers team is to:
-- Triage issues during the weekly rota
-- Push things forward in the codebase (assigning the right people, labelling stuff, etc.)
 
 ## Onboarding Team
 
@@ -83,7 +77,11 @@ The current members of this group are:
 - Akshay Anand
 - Ankita Saxena
 - Brian Rodriguez
+- Chris Skalnik
 - Nithesh Hariharan
+- Nitish Bansal
+- Rajat Talesra
+- Rishabh Rawat
 - Sandeep Dubey
 
 
