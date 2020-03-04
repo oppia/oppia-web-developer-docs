@@ -74,6 +74,10 @@ A: As early as possible. Make sure to get feedback from mentors before finally s
 
 A: Definitely not! Here are the [selection criteria](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2020#selection-criteria) we use when selecting students for GSoC; note that tenure is not part of these criteria. Also, our philosophy is to consider each application based on its own merits, not relative to other applications, and we try to accept every student whose application "meets the bar". The only cases in which we'd need to compare applications against each other are when a project idea receives multiple applications, or we receive fewer "slots" to host students than we originally applied for.
 
+**Q: What are the minimum number of PRs that one should have?**
+
+A: There is no specific minimum number. Remember that quality is more important than quantity. It is better to submit a nontrivial PRs rather than a simple bug fix. Start with starter issues, then prioritize ones that are related to your project
+
 ## GSoC Proposal Template
 
 When submitting a proposal, please use the provided [GSoC proposal template](https://docs.google.com/document/d/1C6OgWa5I2wTWYPLTOqoZMVvWrVQ10BGXbe4SNEBMu-s/edit). We will only consider proposals submitted using this template.
