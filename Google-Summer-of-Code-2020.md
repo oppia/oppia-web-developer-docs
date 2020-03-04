@@ -92,6 +92,7 @@ Here's some advice about proposals and milestone timeline planning that we colla
 - Clear written communication and presentation is crucial in preparing your proposal. The proposal should show that you have a clear understanding of the codebase and the final goal of the project. Eg. In a user-facing proposal, writing about just the files that have to be changed is not enough, detailed mocks and userflows (in the form of diagrams or points) are also essential.
 - Limit proposal length. Remember a lengthy proposal is not equivalent to an excellent proposal.
 - Ensure that the problem statement is within your limits to tackle. You should make sure that what you are proposing is within your capabilities. What we have in the [project ideas section](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2020#oppias-project-ideas-list) are suggested milestones; it is up to you to come up with a complete plan that is within your ability. i.e., students can propose whatever they want; it’s up to us to subsequently figure out (during selection) whether we’re happy about what’s being proposed.
+- Students who make milestone 3 bulky normally run into issues. So, make sure that you distribute work evenly.
 
 
 ### Sample proposals from past years
