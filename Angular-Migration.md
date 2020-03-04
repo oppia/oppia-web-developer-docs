@@ -65,6 +65,10 @@ The [angular migration tracker](https://docs.google.com/spreadsheets/d/1L9Udn-XT
       url, { observe: 'response' }).toPromise().then(
        (response) => {this.dataDict = cloneDeep(response.body);
    ```
+   and import clonedeep like this:
+   ```
+   import cloneDeep from 'lodash/cloneDeep';
+   ```
 
    (b) Search in the  codebase where the service is used to obtain results from get requests and change 
    `response.data` to `response.body`.
