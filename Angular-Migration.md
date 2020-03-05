@@ -92,7 +92,7 @@ The [angular migration tracker](https://docs.google.com/spreadsheets/d/1L9Udn-XT
    ```
 
    (b) Check in the same directory if you’ve a file named *module.ts and add `request-interceptor.service.ts` 
-   similar to how it is added [here](http://shortn/_yl9WQCMR0f) if it’s not present.
+   similar to how it is added [here](https://github.com/oppia/oppia/pull/8228/files#diff-b262806a15d17c3b47d39cfcbfcbd733R27) if it’s not present.
 
    (c) Add `$rootScope.apply()` in the controller/directive that is resolving the http request similar to how it is 
    added [here](https://github.com/oppia/oppia/pull/8427/files#diff-ecf6cefd0707bcbafeb6a0b4009aa60cR78). You can 
