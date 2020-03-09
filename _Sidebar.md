@@ -71,6 +71,7 @@
     * [[Advice on creating explorations|Advice-on-Creating-Explorations]]
     * [[Oppia-ml Extension|Oppia-ml-Extension]]
     * [[Oppiabot|Oppiabot]]
+    * [[Angular Migration | Angular-Migration]]
   * Deploying Oppia
     * [[Migration Instructions|Migration-Instructions]]
   * Playbooks
