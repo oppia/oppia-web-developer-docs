@@ -149,10 +149,10 @@ To make code changes, please follow the following instructions carefully! Otherw
           * **Never force-push changes to GitHub once reviews have started.** This will delay your review because it overwrites history on GitHub and makes the incremental changes harder to review. It may also lead to the PR being closed.
        * As you are making changes, track them by replying to each comment via the Files Changed tab, **choosing the "Start a review" option** for the first comment. Each reply should be either "Done" or a response explaining why the corresponding suggestion wasn't implemented. Also, please **do not** mark the comment as resolved, since this just makes it harder to actually read the comment thread. When you've responded to all comments, submit the review to add all your messages to the main thread. 
           * **Tip:** If a reviewer asks questions about the "why" behind something, consider proactively adding a clear comment above the relevant line in your code, since the fact that the reviewer had to ask suggests that at least one developer doesn't understand what is going on from the code alone. Otherwise, you'll probably get a follow-up review comment asking you to leave a code comment anyway :)
-    * Once you've addressed everything, and would like the reviewer to take another look:
+    * Once you've addressed everything, and would like the reviewer(s) to take another look:
        * Follow the instructions in Step 3 to test your changes locally before pushing.
        * Make the push, and then immediately check that the changes in the "Files Changed" tab are what you intend them to be.
-       * **[Important]** Make sure you've posted responses to **all** the review comments from **all** the reviewers.
+       * **[Important]** Make sure you've posted responses to **all** the review comments from the reviewer(s).
        * **[Important]** In the conversation thread, **write a top-level comment** explicitly asking the reviewer(s) to take another look ("@XXX PTAL"), and assign them to the PR.
 
 6. **Make sure all CI checks pass.** While waiting to get LGTM from reviewers, make sure that all the CI checks (Travis, CircleCI, etc.) pass, since otherwise you won't be able to merge your PR. (See "[If your build fails...](https://github.com/oppia/oppia/wiki/If-your-build-fails)" for some suggestions on what to do if you run into issues.) 
