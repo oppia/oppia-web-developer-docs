@@ -152,7 +152,7 @@ To make code changes, please follow the following instructions carefully! Otherw
     * Once you've addressed everything, and would like the reviewer to take another look:
        * Follow the instructions in Step 3 to test your changes locally before pushing.
        * Make the push, and then immediately check that the changes in the "Files Changed" tab are what you intend them to be.
-       * **[Important]** Make sure you've posted responses to **all** the review comments.
+       * **[Important]** Make sure you've posted responses to **all** the review comments from **all** the reviewers.
        * **[Important]** In the conversation thread, **write a top-level comment** explicitly asking the reviewer(s) to take another look ("@XXX PTAL"), and assign them to the PR.
 
 6. **Make sure all CI checks pass.** While waiting to get LGTM from reviewers, make sure that all the CI checks (Travis, CircleCI, etc.) pass, since otherwise you won't be able to merge your PR. (See "[If your build fails...](https://github.com/oppia/oppia/wiki/If-your-build-fails)" for some suggestions on what to do if you run into issues.) 
