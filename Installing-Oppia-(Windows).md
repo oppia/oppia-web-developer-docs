@@ -42,11 +42,10 @@ _The following has to be done after exiting from VM. Also, the following need on
 
 1. Select the newly created VM in VirtualBox and click Settings.
 2. Go to 'System'. Here, you can change the amount of RAM allocated to the VM, and in the 'Processor' tab, you can change the amount of cores as well. At least 2 cores are recommended, it is verified to work smoothly at 4 cores.
-2. Go to 'Network' tab. Here, Adapter 1 should be 'NAT', leave it at that.
-3. Go to 'Adapter 2' and enable it. Select the first dropdown to 'Bridged Adapter' and name to whatever is the network adapter that you are using now.
-4. Then, in 'Advanced', set the MAC address to your active adapter's MAC address (Check it out [here](https://kb.netgear.com/1005/How-do-I-find-my-device-s-MAC-address)).
+2. Go to 'Network' tab. Here, Adapter 1 should be 'NAT', change it to 'Bridged Adapter'.
+3. Change the name field to whatever is the network adapter that you are using now (like Wi-Fi or ethernet).
 
-It should look something like this: [Screenshot](https://drive.google.com/file/d/1E06mh-6zlOXbJIBOjjsCJDB7cytFS1hI/view?usp=sharing)
+It should look something like this: [Screenshot](https://drive.google.com/file/d/1dt9qippO7lq6CClywPA0ymhcTSGumSrj/view?usp=sharing)
 
 Now, you can open the VM. After that, clone and install the Oppia repository from GitHub following the [Ubuntu installation instructions](https://github.com/oppia/oppia/wiki/Installing-Oppia-(Linux)#downloading-oppia) in order to setup Oppia in the VM. 
 
