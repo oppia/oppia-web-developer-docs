@@ -1,6 +1,11 @@
 ## Overview
 
-The project plan will be iterative. We will migrative the services first and then the controllers and directives. The services would be migrated in the dependency order i.e if A depends on B and B depends on C, we will migrate in the order C, B and A.
+Angular is an app-design framework and development platform for creating efficient and sophisticated apps. Angular has numerous benefits over AngularJS like (some of which are listed here):
+1. Angular is faster than AngularJS.
+2. AngularJS uses JavaScript but Angular 2 and later versions (clubbed together as Angular 2+ for the sake of discussions) use TypeScript. TypeScript is the superset of JavaScript and provides static typing during the development process. Static typing not just improves performance but avoids many runtime pitfalls that were making AngularJS difficult to use for larger and complex applications.
+3. AngularJS does not provide mobile development support but Angular does.
+
+This project aims to migrate the entire codebase from AngularJS to Angular. The project plan will be iterative in nature. We will migrative the services first and then the controllers and directives. The services would be migrated in the dependency order i.e if A depends on B and B depends on C, we will migrate in the order C, B and A.
 
 We have a script named [create_topological_sort_of_all_services](https://github.com/oppia/oppia/blob/develop/scripts/create_topological_sort_of_all_services.py) which generates all the services in the dependency order. The codebase has about 340 services as of now, out of which 220 are migrated to Angular and remaining 120 are to be migrated. Some files slipped in even without having all the require statements which has affected the output of the script. The plan would be to go in the order of the files that script generates. If the current service that is in order could be migrated -- migrate it, else add missing require statements. We will re-run the script during the second pass and fix the left ones then.
 
