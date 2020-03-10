@@ -61,7 +61,7 @@ The most popular tests include unit tests, integration testing, end-to-end (e2e)
   }));
   ```
 
-  If your asynchronous calls involves functions like `setInterval()` then use
+  If your asynchronous calls involves functions like `setInterval()`, `setTimeout()` then use
   `done`. A code sample for the same is given below:
 
   ```typescript
