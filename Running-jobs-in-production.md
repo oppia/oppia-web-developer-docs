@@ -36,3 +36,5 @@ In general, we advise allowing 1-2 weeks for the backup server testing process, 
 You can check the status of your job in [this spreadsheet](https://docs.google.com/spreadsheets/d/1Wegd0rZhVOm3Q3VCIw0xMbLC7IWtRyrEahiPn61Fhoo/edit). Only release coordinators and QA leads will have edit access. If you see that something is wrong, please leave a comment on the spreadsheet, or send an email to oppia-release-team@googlegroups.com . 
 
 If you have any questions about the above, please send an email to oppia-release-team@googlegroups.com .
+
+**Note**: Only the jobs approved by server jobs admin, will be allowed to run on test & production server.
