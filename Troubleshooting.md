@@ -105,7 +105,7 @@ These commands can be used anywhere to kill a running process on any port by usi
         text = '\n'.join(complete_log)
     UnicodeDecodeError: 'ascii' codec can't decode byte 0xe2 in position 72: ordinal not in range(128)
     ```
-    try either (a) updating the version of pip to v8.1.2 (as described in [this comment](https://github.com/oppia/oppia/issues/1580#issuecomment-218423065)), or (b) going into scripts/install_third_party.sh and (temporarily) adding a `--system` flag to all the invocations of pip before re-running the startup script. (See `pip install -h` for the meaning of the flags; [this page](https://docs.python.org/3/install/index.html#alternate-installation) might also be useful.)
+    try either (a) updating the version of pip to v8.1.2 (as described in [this comment](https://github.com/oppia/oppia/issues/1580#issuecomment-218423065)), or (b) going into scripts/install_third_party.py and (temporarily) adding a `--system` flag to all the invocations of pip before re-running the startup script. (See `pip install -h` for the meaning of the flags; [this page](https://docs.python.org/3/install/index.html#alternate-installation) might also be useful.)
 
   * If you get an error that ends with either:
 
@@ -146,8 +146,8 @@ These commands can be used anywhere to kill a running process on any port by usi
         raise DistutilsOptionError("can't combine user with prefix, "
     DistutilsOptionError: can't combine user with prefix, exec_prefix/home, or install_(plat)base
     ```
-    add ` --user --prefix= --system` after every pip command with `--target` in [install_third_party.sh](https://github.com/oppia/oppia/blob/develop/scripts/install_third_party.sh)
-  * If you get an error while running install_third_party.sh which ends with:
+    add ` --user --prefix= --system` after every pip command with `--target` in [install_third_party.py](https://github.com/oppia/oppia/blob/develop/scripts/install_third_party.py)
+  * If you get an error while running install_third_party.py which ends with:
     ```
     Traceback (most recent call last):
     File "/usr/bin/pip", line 9, in <module>
@@ -286,7 +286,7 @@ Command "/usr/local/opt/python@2/bin/python2.7 -u -c "import setuptools, tokeniz
     Checking whether Skulpt is installed in third_party
     cp: /Users/sdawson/opensource/oppia_tools/skulpt-0.10.0/skulpt/dist/*: No such file or directory
     ```
-    please remove the below mentioned directories and try running `start.sh` again:
+    please remove the below mentioned directories and try running `python -m scripts.start` again:
     ```
     ../oppia_tools/
     ../node_modules/
