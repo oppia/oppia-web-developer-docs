@@ -25,6 +25,8 @@ All jobs must adhere to the following requirements before they can be run on the
 
 If a PR introduces a new job, it can be merged only after it is tested on the backup server. The author of the PR should submit a request using [this form](https://goo.gl/forms/XIj00RJ2h5L55XzU2) as soon as the PR is approved by all the reviewers. The form responses should go to the server jobs admin (currently **@seanlip**) and the admin should respond to the contributor within 24 hours. If the job runs successfully, the admin should approve the job for release in the corresponding [spreadsheet row](https://docs.google.com/spreadsheets/d/1Wegd0rZhVOm3Q3VCIw0xMbLC7IWtRyrEahiPn61Fhoo/edit#gid=948463314&range=S:S) to mention that. 
 
+**Note**: If you do not get any update within 24 hours, please send a mail to oppia-release-team@googlegroups.com with a link to your job.
+
 ### Running your job on the backup server (and possibly in production)
 
 In order to test a job, please submit a request using [this form](https://goo.gl/forms/XIj00RJ2h5L55XzU2). Before submitting a testing request, please ensure that the job has already been tested manually on your local machine, passed code review, and been merged into develop.  For an existing job, make sure that you test the job locally and specify clearly in the form that why you want to run the job.
