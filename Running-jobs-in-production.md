@@ -39,3 +39,8 @@ In general, we advise allowing 1-2 weeks for the backup server testing process, 
 You can check the status of your job in [this spreadsheet](https://docs.google.com/spreadsheets/d/1Wegd0rZhVOm3Q3VCIw0xMbLC7IWtRyrEahiPn61Fhoo/edit). Only release coordinators and QA leads will have edit access. If you see that something is wrong, please leave a comment on the spreadsheet, or send an email to oppia-release-team@googlegroups.com . 
 
 If you have any questions about the above, please send an email to oppia-release-team@googlegroups.com .
+
+### What to do if your job is not approved for the targeted release?
+
+If your job is not approved for a targeted release, you will get an email from the server jobs admin as well as a bug will be filed against you. You should fix the issue mentioned in the bug and file a new request for the next release linking in the PRs which fix the issue. 
+If the job is urgent and needs to be run in the targeted release, provide an explanation in the bug filed and if  it is accepted by the server jobs admin and release co-ordinator, create a new PR to fix the issues and ask the release co-ordinator to cherrypick it into the release.
