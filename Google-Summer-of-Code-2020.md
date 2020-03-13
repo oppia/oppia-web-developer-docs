@@ -425,8 +425,8 @@ A few things should be considered while writing the design doc:
 
 ### 2.1. Editor Page Redesigns
 
-The aim of this project is to redesign the topic, exploration, story and skill editor pages so they are more visually appealing and work better on mobile, while retaining all of their features. Some initial mocks that we created visualizing these changes can be found here ([desktop](https://xd.adobe.com/view/a496f74b-80d1-4d8f-78b5-773b61ea1479-d2a7/), [mobile](
-https://xd.adobe.com/view/84eb3b8d-3d19-4971-7e79-9ff756b25c83-f2da/)); please note that these mocks will be updated over time as we finalize the design. (Feel free to suggest changes to the mocks if you think that would enhance the creator experience, or ask any questions on the oppia-gsoc-discuss@ mailing list.)
+The aim of this project is to redesign the topic, exploration, story and skill editor pages so they are more visually appealing and work better on mobile, while retaining all of their features. Some initial mocks that we created visualizing these changes can be found here ([desktop](https://xd.adobe.com/view/a496f74b-80d1-4d8f-78b5-773b61ea1479-d2a7/grid), [mobile](
+https://xd.adobe.com/view/84eb3b8d-3d19-4971-7e79-9ff756b25c83-f2da/grid)); please note that these mocks will be updated over time as we finalize the design. (Feel free to suggest changes to the mocks if you think that would enhance the creator experience, or ask any questions on the oppia-gsoc-discuss@ mailing list.)
 
 **Team**: Learner and Creator Experience
 
