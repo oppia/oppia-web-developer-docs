@@ -715,6 +715,10 @@ Analytics support needs to be built in the Android app in such a way that, in fu
 - Your proposal should include how the team can access collected stats to create graphs to monitor app health over time.
 - You should also focus on mentioning the approach for saving the stats/analytics/logs offline and uploading these analytics once the user is online.
 - Your project should consider device constraints (such as lack of consistent internet connectivity, internet connectivity failures when uploading stats, short bursts of available time to upload stats due to the app being frequently killed by the system, battery considerations (e.g. no wakelocks), and storage consumption).
+- Please consider how each of the stats measurements will be associated with other measurements from the same user/device/play session. App health statistics shouldn't be associated with a user, but they do need to be tied to country/locale/device so that we can perform aggregated analyses on these stats. Learner usage analytics fall into one of three buckets:
+  - They are associated directly with a user (which you can assume is done via a pseudo remote user ID provided by the server--we don't yet have a multi-profile system built, but this assumption will be compatible with future multi-profile work)
+  - They are associated with a specific play session (this should behave in the same way as answer submission on Oppia web, though you'll need to consider how the session ID is generated given the Android app's local caching requirement)
+  - They are not associated with any IDs and are only stored anonymously
 
 ### 4.3. Additional interaction types
 
