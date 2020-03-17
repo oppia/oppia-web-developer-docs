@@ -15,7 +15,7 @@
     * Takeout policy
         * CONTAINS_USER_DATA — the model contains user data
         * NOT_APPLICABLE — the model doesn't contain any user data
-4. (Only if deletion policy is no NOT_APPLICABLE) Add `has_reference_to_user_id(user_id)` to the model, this method should return true when any of the models fields contains the specified `user_id`.
+4. (Only if deletion policy is not NOT_APPLICABLE) Add `has_reference_to_user_id(user_id)` to the model, this method should return true when any of the models fields contains the specified `user_id`.
 5. [Add validator for the model](https://github.com/oppia/oppia/wiki/Writing-Validators-for-storage-models).
 
 ## Deprecating old field
