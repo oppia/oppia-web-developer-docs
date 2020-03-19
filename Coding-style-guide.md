@@ -68,7 +68,7 @@ If you use [Sublime Text](http://www.sublimetext.com/), consider installing the 
 ## JavaScript
 _General note: We use the ES2017 standard for our JavaScript/TypeScript code. (See [tsconfig.json](https://github.com/oppia/oppia/blob/57333f23af7b67914dc039671f4bc4e029fbb6e7/tsconfig.json#L4).)_
 
-- We use extra parentheses if a statement breaks across multiple lines, similar to Python.
+- We use extra parentheses if a statement breaks across multiple lines, similar to Python. In particular, when code in '(...)' or '[...]' spans more than one line, make a line break after the opening parentheses or bracket.
 - The indentation is always 2 spaces.
 - We are moving away from using underscores as prefixes for variable names, so, in the future, use `var localVariable` and not `var _localVariable`. Instead, we are adopting the convention that anything declared using `var` is private to the controller/service/etc. If you want a variable to be accessible to the controller, declare it on $scope instead.
 - Try to start only function names with verbs to help distinguish them from variables.
