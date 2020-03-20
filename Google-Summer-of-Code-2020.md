@@ -109,6 +109,16 @@ Here's some advice about proposals and milestone timeline planning that we colla
 - Ensure that the problem statement is within your limits to tackle. You should make sure that what you are proposing is within your capabilities. What we have in the [project ideas section](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2020#oppias-project-ideas-list) are suggested milestones; it is up to you to come up with a complete plan that is within your ability. i.e., students can propose whatever they want; it’s up to us to subsequently figure out (during selection) whether we’re happy about what’s being proposed.
 - Students who make milestone 3 bulky normally run into issues. So, make sure that you distribute work evenly.
 
+### What should applicants expect from mentors in a proposal review?
+* Applicants should write a proposal assuming that it's their project and from their perspective, proposal should be in the best condition before asking for a review. Please do not assume a mentor to be the person who will find all the flaws in the design as they have a better understanding of the codebase/project. Note, by best condition we do not mean that your proposal to be flawless, we expect you to make mistakes and mentors will guide you on how to improve that. Best condition means that your proposal should demonstrate:
+  * Your ownership of the project
+  * The research you have put into writing it
+  * Your thinking skills
+  * Independence to make complex decisions
+* Make sure that you present solutions and ask for feedback, rather than asking for solutions. It is always a good to present various solutions you came up with in your proposal - mention their advantages & disadvantages from the end user perspective. Finally choose a best solution you have and explain your reasoning behind the same. Note, this does not mean that it is a must to have multiple ideas to a problem, but instead always explain how you reached a solution and why is it the best from end-user's perspective.
+* Mentor's suggestions are "suggestion", not an order (they are too not sure whether the suggestion is correct) so the applicant will have to go through the suggestion and use it if  they  think it's fine to implement/use it. When you are accepting/rejecting a suggestion provided by a mentor, explain your reasoning and the research that led to it.
+* We do not expect you to always agree with your mentor. If you think, that the suggestion doesn't suit your project, it is ok to explain the same and provide reasons for the same. It is always a good idea to have discussions when you have confusions rather than simply agreeing. Note, this does not mean that we encourage you to disagree with your mentor on everything -- this is just a suggestion to keep in mind when you are confused.
+* They should not assume mentors to be the ones who will do the final selection and all the things which they (mentors) are suggesting/asking are to be implemented anyhow else they will fail. In other terms, a student should take help from a mentor (and work together) so that their proposal should get selected in the final review stage.
 
 ### Sample proposals from past years
 
