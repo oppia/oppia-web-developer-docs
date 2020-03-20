@@ -329,7 +329,7 @@ Your proposal should contain a detailed plan for each of the milestones. It shou
 
 ### 1.5. Provide an easy, lightweight way for students to log in to save progress
 
-**(Update 19 Mar 2020) We are withdrawing this project because we've learned that having two login systems is likely to cause user confusion. Please pick a different one. Sorry for the inconvenience!**
+**(Update 19 Mar 2020) We are withdrawing this project because we've learned that having two login systems is likely to cause user confusion. Sorry for the inconvenience!**
 
 Currently, the only way for a user to save their progress in an exploration is to log in with a Google account, which not every person may have or know how to create. The aim of this project is to create a lightweight and intuitive way to signup and login without having a google account, by just asking the user for a username, password, and optional email / mobile number, and then allowing them to login using these. Here, the username, email and mobile number (if provided) should be validated to be unique. (If a mobile number / email is provided, this can subsequently be used for profile recovery if the password is lost.)
 
