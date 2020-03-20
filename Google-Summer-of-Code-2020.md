@@ -187,7 +187,7 @@ This year, the Oppia team is offering projects in four categories: Full-stack, B
 
 1.4. [Add an SVG Diagram Editor to the RTE](#14-add-an-svg-diagram-editor-to-the-rte)
 
-1.5. **CANCELLED** [Provide an easy, lightweight way for students to log in to save progress](#15-provide-an-easy-lightweight-way-for-students-to-log-in-to-save-progress)
+1.5. **[CANCELLED]** ~~[Provide an easy, lightweight way for students to log in to save progress](#15-provide-an-easy-lightweight-way-for-students-to-log-in-to-save-progress)~~
 
 1.6. [Improvements to TextClassifier for ML based response to student inputs](#16-improvements-to-textclassifier-for-ml-based-responses-to-student-inputs)
 
@@ -327,7 +327,7 @@ The aim of this project is to introduce an SVG diagram editor in the rich-text e
 
 Your proposal should contain a detailed plan for each of the milestones. It should also include mocks for how the SVG editor would look like once it has been integrated into the RTE.
 
-### 1.5. Provide an easy, lightweight way for students to log in to save progress (CANCELLED)
+### 1.5. Provide an easy, lightweight way for students to log in to save progress
 
 **(Update 19 Mar 2020) We are withdrawing this project because we've learned that having two login systems is likely to cause user confusion. Please pick a different one. Sorry for the inconvenience!**
 
