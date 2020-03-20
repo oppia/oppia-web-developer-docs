@@ -187,7 +187,7 @@ This year, the Oppia team is offering projects in four categories: Full-stack, B
 
 1.4. [Add an SVG Diagram Editor to the RTE](#14-add-an-svg-diagram-editor-to-the-rte)
 
-1.5. **[CANCELLED]** ~~[Provide an easy, lightweight way for students to log in to save progress](#15-provide-an-easy-lightweight-way-for-students-to-log-in-to-save-progress)~~
+1.5. **[WITHDRAWN]** ~~[Provide an easy, lightweight way for students to log in to save progress](#15-provide-an-easy-lightweight-way-for-students-to-log-in-to-save-progress)~~
 
 1.6. [Improvements to TextClassifier for ML based response to student inputs](#16-improvements-to-textclassifier-for-ml-based-responses-to-student-inputs)
 
