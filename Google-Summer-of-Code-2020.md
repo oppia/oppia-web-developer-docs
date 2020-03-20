@@ -3,6 +3,7 @@
 * [FAQs](#faqs)
 * [GSoC Proposal Template](#gsoc-proposal-template)
   * [Tips for writing a good project plan](#tips-for-writing-a-good-project-plan)
+  * [What should applicants expect from mentors in a proposal review?](#what-should-applicants-expect-from-mentors-in-a-proposal-review-?)
   * [Sample proposals from past years](#sample-proposals-from-past-years)
 * [Types of work related to Oppia projects](#types-of-work-related-to-oppia-projects)
 * [Selection Criteria](#selection-criteria)
