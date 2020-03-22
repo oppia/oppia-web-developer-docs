@@ -675,6 +675,8 @@ All the rows in the doc mentioned in the project description above should be com
 **Notes**
 
 We recommend implementing at least two of the rows mentioned in the [functionalities doc](https://docs.google.com/spreadsheets/d/1hFSfl6eQs14m-eLPDCTfwWAZazmFUyTbHwDox15qoW8/edit?usp=sharing) and explaining your implementation in the proposal. The proposal should also include details of how you would implement the remaining functionality, along with mocks to illustrate what Oppiabot does in the various situations that occur.
+ 
+Use the following [technical design template](https://docs.google.com/document/d/1DdQVdTkGShIbqdz2TTQ9UAKJSoeJ7ut_9jnKFvXnUdc/edit?usp=sharing) for describing technical design of each task mentioned in the [functionalities doc](https://docs.google.com/spreadsheets/d/1hFSfl6eQs14m-eLPDCTfwWAZazmFUyTbHwDox15qoW8/edit?usp=sharing).
 
 
 ## Android Projects
