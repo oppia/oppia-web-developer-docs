@@ -16,7 +16,8 @@
         * CONTAINS_USER_DATA — the model contains user data
         * NOT_APPLICABLE — the model doesn't contain any user data
 4. (Only if deletion policy is not NOT_APPLICABLE) Add `has_reference_to_user_id(user_id)` to the model, this method should return true when any of the models fields contains the specified `user_id`.
-5. [Add validator for the model](https://github.com/oppia/oppia/wiki/Writing-Validators-for-storage-models).
+5. (Only if takeout policy is CONTAINS_USER_DATA) Add `export_data(user_id)` to the model, this method should return the data from the models that belong or reference the specified `user_id`.
+6. [Add validator for the model](https://github.com/oppia/oppia/wiki/Writing-Validators-for-storage-models).
 
 ## Deprecating old field
 For now, the deprecated fields are moved to the bottom of the list of fields and marked with a comment saying `# DEPRECATED in <version>. Do not use.`. If the field was previously set as required it should be set as optional.
