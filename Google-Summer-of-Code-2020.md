@@ -708,7 +708,7 @@ Currently, the Oppia Android app is designed for Android Phones only. This desig
 
 ### 4.2. Analytics Support
 
-Analytics support needs to be built in the Android app in such a way that, in future, it is possible to send that data back to the server while ensuring that no sensitive information leaves the phone. The aim of this project is to gather analytics to track crash reports, logs and app-health reports, as well as add feedback & reporting which will transfer those logs in case of any issues. We also want to persist learner usage analytics, such as: how much time they have spent on the app, what skills they have learnt, how much progress they have made in the entire app, etc.
+Analytics support needs to be built in the Android app in such a way that, in future, it is possible to send that data back to the server while ensuring that no sensitive information leaves the phone. The aim of this project is to gather analytics to track crash reports, logs and app-health reports, as well as add feedback & reporting which will transfer those logs in case of any issues. We also want to persist learner usage analytics, such as: which activities they've opened, how long they spend in each activity, etc.
 
 **Team**: Android
 
@@ -723,7 +723,7 @@ Analytics support needs to be built in the Android app in such a way that, in fu
 
 1. Integrate Firebase to track app-system health stats (battery, CPU, memory, network, and disk) and crashes.
 2. Introduce analytics tracking (e.g. with Firebase or Google Analytics) to track in-app impressions (which button was clicked how many times, which screen was visited for how long, etc.). The dimensions tracked for these impressions should have parity with the existing dimensions we track with Google Analytics for Oppia web (e.g. geography, device information, etc.).
-3. For users who are typically offline, ensure that their stats are kept offline without using too much disk usage. Upload these stats later once connectivity is retained, and ensure that these stats have a marker to indicate that they are associated with the corresponding user. (This is to help users recover their progress if something happens to their phone.)
+3. For users who are typically offline, ensure that their stats are kept offline without using too much disk usage. Upload these stats later once connectivity is retained, and ensure that these stats have a marker to indicate that they are associated with the corresponding user. (This is to help users recover their progress if something happens to their phone.). This milestone should also include logging feedback reports, and possibly uploading them later.
 
 **Notes:**
 - Your proposal should include how Firebase and Google Analytics will be introduced in the application.
