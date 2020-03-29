@@ -12,7 +12,7 @@
   * Ping **@kevinlee12** to extend the team meeting invites to you. Please RSVP to them as soon as possible.
   * Ping **@kevinlee12** to add you to the Dev Workflow Team Hangouts group. The Team usually has quick discussions here.
   * Subscribe to both, CircleCI and Travis build notifications. Please follow this:
-    * CircleCI: Login to CircleCI using your GitHub account and go to [this link](https://circleci.com/gh/oppia/oppia/edit). There you’ll find an option to follow oppia/oppia.  
+    * CircleCI: Login to CircleCI using your GitHub account and go to [this link](https://circleci.com/gh/oppia/oppia/edit). There you’ll find an option to follow oppia/oppia.
     * Travis: We will add you a mailing list.
   * You’re all set now -- start working on the assigned sub mission. This generally involves fixing devflow issues on GitHub.
 
@@ -28,7 +28,7 @@ File the issues faced by developers related to developer-workflow directly on [t
 * Look through the gitter channel, the mailing list and all issues/PRs where the dev-flow team (@dev-workflow-team) is tagged.
 * If a setup issue is seen more than 2 times in the codebase then open a new issue with the label ‘setup issues’ in github.
 
-#### [@kevinlee12]: 
+#### [@kevinlee12]:
 _If a new issue comes in_, clearly explain the issue faced by the developer with its possible solutions (if known) in the filed issue's thread.
 If the issue is solved by you:
 * **Update the troubleshooting page of the wiki.**

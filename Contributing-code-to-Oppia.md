@@ -1,6 +1,6 @@
 *These instructions are for developers who'd like to contribute code to improve the Oppia platform. If you'd prefer to help out with other things, please see our [general contribution guidelines](https://github.com/oppia/oppia/wiki).*
 
-Thanks for your interest in improving the Oppia platform! This page explains how to get set up, how to find something to work on, and how to make a code change. 
+Thanks for your interest in improving the Oppia platform! This page explains how to get set up, how to find something to work on, and how to make a code change.
 
 If you run into any problems along the way, please file an issue on our [issue tracker](https://github.com/oppia/oppia/issues), or get help by posting to the [developers' mailing list](https://groups.google.com/forum/#!forum/oppia-dev). There are also lots of helpful resources in the sidebar, check that out too! Also, if you'd like to get familiar with Oppia from a user's point of view, you can take a look at the [user documentation](http://oppia.github.io/).
 
@@ -29,7 +29,7 @@ That said, we strongly recommend that you be open to learning new things. If you
 
 - Git and Github are used to make changes to the repository. So, it's good to know how to use them to do basic stuff like branching, merging, pull/push etc. [Here](https://github.com/oppia/oppia/wiki/Learning-Resources) is a page we've compiled that contains some links to useful learning materials.
 - AngularJS (v1) and Angular 8 are used for Oppia's frontend; we are currently in the process of migrating from the former to the latter. Most of our open issues are in the frontend and require at least some knowledge of HTML, AngularJS/Angular and CSS, so knowledge of frontend coding will serve you well if you'd like to contribute to Oppia over the longer term.
-  - A nice YouTube video tutorial for AngularJS can be found [here](https://www.youtube.com/watch?v=nO1ROKMjPqI&list=PLvZkOAgBYrsS_ugyamsNpCgLSmtIXZGiz) and you can check the official [tutorial](https://docs.angularjs.org/tutorial/index)/[guide](https://docs.angularjs.org/guide). For an outline of AngularJS, you can also take a look at this [short overview](https://egghead.io/articles/new-to-angularjs-start-learning-here) with pointers to other resources. 
+  - A nice YouTube video tutorial for AngularJS can be found [here](https://www.youtube.com/watch?v=nO1ROKMjPqI&list=PLvZkOAgBYrsS_ugyamsNpCgLSmtIXZGiz) and you can check the official [tutorial](https://docs.angularjs.org/tutorial/index)/[guide](https://docs.angularjs.org/guide). For an outline of AngularJS, you can also take a look at this [short overview](https://egghead.io/articles/new-to-angularjs-start-learning-here) with pointers to other resources.
   - For Angular 8, consider checking out the official documentation [here](https://angular.io/docs), which also includes a [tutorial](https://angular.io/tutorial).
 - If you are new to HTML, some tutorials include [Mozilla's guide](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML) (which includes some practice assessments), as well as [this tutorial for beginners](http://htmldog.com/guides/html/beginner/).
 - We also have some backend (Python) projects available, but not as many, so we'd strongly recommend learning AngularJS if you have the opportunity and inclination -- otherwise, the range of projects you can take up will be more limited. That said, let us know at welcome@oppia.org if you'd like suggestions for non-frontend projects, and we'll do our best to help.
@@ -48,7 +48,7 @@ Welcome! Please make sure to follow the [setup instructions](https://github.com/
 - [#8472](https://github.com/oppia/oppia/issues/8472) (Migrating AngularJS files to Angular 8)
 - [#8423](https://github.com/oppia/oppia/issues/8423) (Writing backend lint checks)
 
-so that you can become familiar with the codebase and the development workflow. If you decide to do so, please go ahead and leave a comment saying which part of the issue you're taking, and submit a follow-up PR by following the [instructions below](Contributing-code-to-Oppia#instructions-for-making-a-code-change). You don't need to wait for approval to get started! 
+so that you can become familiar with the codebase and the development workflow. If you decide to do so, please go ahead and leave a comment saying which part of the issue you're taking, and submit a follow-up PR by following the [instructions below](Contributing-code-to-Oppia#instructions-for-making-a-code-change). You don't need to wait for approval to get started!
 
 **Important Note**: Please make sure to read and follow the [PR instructions](Contributing-code-to-Oppia#instructions-for-making-a-code-change) carefully, otherwise your PR review may be delayed.
 
@@ -79,7 +79,7 @@ If an issue hasn't got someone assigned to it, and there's no existing PR for th
 
 To make code changes, please follow the following instructions carefully! Otherwise, your code review may be delayed.
 
-1. **Before coding anything, choose a descriptive branch name** that is lowercase and hyphen-separated, e.g. `fuzzy-rules`, and create a new branch with this name, starting from 'develop'. (Also, make sure that your branch name doesn't start with `release`.) 
+1. **Before coding anything, choose a descriptive branch name** that is lowercase and hyphen-separated, e.g. `fuzzy-rules`, and create a new branch with this name, starting from 'develop'. (Also, make sure that your branch name doesn't start with `release`.)
 
     You can do all this by running:
 
@@ -103,7 +103,7 @@ To make code changes, please follow the following instructions carefully! Otherw
         ```
     * **Note**: There is no maximum/minimum number of commits required in a PR. Just follow the instructions of the reviewer. Since we make a squash merge, there is no restriction on the number of commits you make but make sure that your commits are meaningful.
 
-3. **Push changes to your GitHub fork.** 
+3. **Push changes to your GitHub fork.**
 
     * **Before pushing**, make sure to check the following things, otherwise you will incur delays with the review process or the automated checks:
 
@@ -122,16 +122,16 @@ To make code changes, please follow the following instructions carefully! Otherw
       **Make sure to do this from the command line** (and not GitHub's Desktop client), since this also runs some important presubmit checks before your code gets uploaded to GitHub. If any of these checks fail, read the failure messages and fix the issues by making a new commit (see step 3), then **repeat the previous instructions** to retry the push. **Do not bypass these checks, since doing so will lead to delays in the review process.**
 
 4. **When your feature is ready to merge, create a pull request.**
-    * Go to your fork on GitHub, select your branch from the dropdown menu, and click "pull request". Ensure that the 'base' repository is the main oppia repo and that the 'base' branch is 'develop'. 
-    * Following the guidance in the PR checklist, add a descriptive title explaining the purpose of the PR (e.g. "Fix issue #bugnum: add a warning when the user leaves a page in the middle of an exploration."). 
+    * Go to your fork on GitHub, select your branch from the dropdown menu, and click "pull request". Ensure that the 'base' repository is the main oppia repo and that the 'base' branch is 'develop'.
+    * Following the guidance in the PR checklist, add a descriptive title explaining the purpose of the PR (e.g. "Fix issue #bugnum: add a warning when the user leaves a page in the middle of an exploration.").
     * Fill out the rest of the PR checklist.
     * Click "Create pull request", then **immediately** check the "Files changed" tab on your PR on GitHub and read it carefully to make sure that the changes are correct (e.g., no missing newlines at the ends of files; no files left out by mistake). This is a good way to catch obvious errors that would otherwise lead to delays in the review process. If you find an error, you can either make additional commits to the same PR to fix it, or close the PR and submit a new one.
     * Request a review from the issue's "owner" (which can be found in a label on the issue) **and** also set them as the PR assignee. Make sure to assign a reviewer explicitly in both the Reviewers and Assignees fields. Also, leave a top-level comment on your PR saying "@{{reviewer}} PTAL", where {{reviewer}} is the GitHub username of your reviewer. ("PTAL" means "Please take a look".)
     * After a while, check your PR to see whether the Travis checks have passed. If not, follow the instructions at "[If your build fails...](https://github.com/oppia/oppia/wiki/If-your-build-fails)".
-    * Then, wait for your code to get reviewed! 
+    * Then, wait for your code to get reviewed!
        * While you're waiting, it's totally fine to start work on a new PR if you like. Just make sure to **checkout the develop branch** and sync to HEAD before you check out a new branch, so that each of your feature branches is based off the main trunk.
 
-5. #### **Address review comments until all reviewers give LGTM ('looks good to me').** 
+5. #### **Address review comments until all reviewers give LGTM ('looks good to me').**
     * When your reviewer has completed their review, they will reassign the PR back to you, at which point you should push updates, respond to **all** comments, and reassign it back to them. This continues until the reviewer gives LGTM, after which the PR is merged. Here is the procedure for responding to a review:
        * Merge develop into your branch. If you run into conflicts, run the following commands to resolve them (**note:** replace new-branch-name with the name of your branch):
 
@@ -147,7 +147,7 @@ To make code changes, please follow the following instructions carefully! Otherw
        * Make a new commit addressing the comments you agree with, and push it to the same branch. (Continue to use descriptive commit messages, or something like "Address review comments" if you're addressing many disparate review comments in the same commit.) **You do not need to close your PR and create a new one -- it's fine to push new commits to the existing PR.**
           * **Always make commits locally, and then push to GitHub.** Don't make changes using the online GitHub editor -- this bypasses lint/presubmit checks, and will cause the code on GitHub to diverge from the code on your machine.
           * **Never force-push changes to GitHub once reviews have started.** This will delay your review because it overwrites history on GitHub and makes the incremental changes harder to review. It may also lead to the PR being closed.
-       * As you are making changes, track them by replying to each comment via the Files Changed tab, **choosing the "Start a review" option** for the first comment. Each reply should be either "Done" or a response explaining why the corresponding suggestion wasn't implemented. Also, please **do not** mark the comment as resolved, since this just makes it harder to actually read the comment thread. When you've responded to all comments, submit the review to add all your messages to the main thread. 
+       * As you are making changes, track them by replying to each comment via the Files Changed tab, **choosing the "Start a review" option** for the first comment. Each reply should be either "Done" or a response explaining why the corresponding suggestion wasn't implemented. Also, please **do not** mark the comment as resolved, since this just makes it harder to actually read the comment thread. When you've responded to all comments, submit the review to add all your messages to the main thread.
           * **Tip:** If a reviewer asks questions about the "why" behind something, consider proactively adding a clear comment above the relevant line in your code, since the fact that the reviewer had to ask suggests that at least one developer doesn't understand what is going on from the code alone. Otherwise, you'll probably get a follow-up review comment asking you to leave a code comment anyway :)
     * Once you've addressed everything, and would like the reviewer(s) to take another look:
        * Follow the instructions in Step 3 to test your changes locally before pushing.
@@ -155,7 +155,7 @@ To make code changes, please follow the following instructions carefully! Otherw
        * **Important:** Make sure you've posted responses to **all** the review comments from the reviewer(s).
        * **Important:** In the conversation thread, **write a top-level comment** explicitly asking the reviewer(s) to take another look ("@XXX PTAL"), and assign them to the PR.
 
-6. **Make sure all CI checks pass.** While waiting to get LGTM from reviewers, make sure that all the CI checks (Travis, CircleCI, etc.) pass, since otherwise you won't be able to merge your PR. (See "[If your build fails...](https://github.com/oppia/oppia/wiki/If-your-build-fails)" for some suggestions on what to do if you run into issues.) 
+6. **Make sure all CI checks pass.** While waiting to get LGTM from reviewers, make sure that all the CI checks (Travis, CircleCI, etc.) pass, since otherwise you won't be able to merge your PR. (See "[If your build fails...](https://github.com/oppia/oppia/wiki/If-your-build-fails)" for some suggestions on what to do if you run into issues.)
     * If all reviewers have given LGTM but you're still waiting for the CI checks to pass, make sure you're assigned to the PR, so that you can merge it once the CI checks are complete.
 
 7. **Tidy up!** After the PR status has changed to "Merged", delete the feature branch from both your local clone and the GitHub repository:
@@ -173,7 +173,7 @@ To make code changes, please follow the following instructions carefully! Otherw
 
 2. Try and follow test-driven development. This is the easiest way to make sure the code you wrote is working fine. Writing tests for the expected behaviour, and then writing code that will pass the tests is the basic idea. Refer our guides for writing good tests: [Backend Tests](https://github.com/oppia/oppia/wiki/Writing-backend-tests), [Frontend Tests](https://github.com/oppia/oppia/wiki/Frontend-test-best-practices), [End to end tests](https://github.com/oppia/oppia/wiki/End-to-End-Tests), [Tests for pylint extensions](https://github.com/oppia/oppia/wiki/Writing-Tests-For-Pylint).
 
-3. If you are making a contribution which involves change in some user interface or introduces a new feature, it is good to start with a design doc to avoid wasting efforts later. Follow our [guide]( https://github.com/oppia/oppia/wiki/Writing-design-docs) for writing design docs. 
+3. If you are making a contribution which involves change in some user interface or introduces a new feature, it is good to start with a design doc to avoid wasting efforts later. Follow our [guide]( https://github.com/oppia/oppia/wiki/Writing-design-docs) for writing design docs.
 
 ### Notes
 
@@ -203,7 +203,7 @@ To make code changes, please follow the following instructions carefully! Otherw
   ```
   By using this command git will detect the file as a renamed file.
 
-* **Important** PRs marked with the “critical” label need to be tested in the backup server before being merged. For this, one of the release coordinators (with access to deploy) should checkout a new branch from develop, merge the branch from the PR into the new branch, and initiate deployment to the backup server from this branch. The PR author should give specific testing instructions for the changes (like which job to run, what the expected output is, etc) and the coordinator should verify the same. Once successfully tested, the PR should be merged into develop. This is to prevent cases like exploration migrations which can result in data corruption (as it will auto-migrate) if the migration isn’t safe. The "critical" label needs to be applied on PRs that change data validation checks, and other possibly critical changes which could affect production data. 
+* **Important** PRs marked with the “critical” label need to be tested in the backup server before being merged. For this, one of the release coordinators (with access to deploy) should checkout a new branch from develop, merge the branch from the PR into the new branch, and initiate deployment to the backup server from this branch. The PR author should give specific testing instructions for the changes (like which job to run, what the expected output is, etc) and the coordinator should verify the same. Once successfully tested, the PR should be merged into develop. This is to prevent cases like exploration migrations which can result in data corruption (as it will auto-migrate) if the migration isn’t safe. The "critical" label needs to be applied on PRs that change data validation checks, and other possibly critical changes which could affect production data.
 
 
 ## Communication channels

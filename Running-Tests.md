@@ -94,7 +94,7 @@ To run the end-to-end tests using minified versions of the files, use the `--pro
 ```
     python -m scripts.run_e2e_tests --prod_env
 ```
-Note that, on [Travis CI](https://travis-ci.org/oppia/oppia/pull_requests), the end-to-end tests run only in this mode (to save time).
+Note that, on [Travis CI](https://travis-ci.com/github/oppia/oppia/pull_requests), the end-to-end tests run only in this mode (to save time).
 
 **Other notes**
 

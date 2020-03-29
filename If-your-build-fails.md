@@ -8,11 +8,11 @@ To figure out which it is, check the bottom of the GitHub PR thread. If there's 
 
 Otherwise, if Travis explicitly shows a failure, click the "Details" link at the bottom of the GitHub PR thread (at the right of "The Travis CI build failed"):
 
-  ![Travis failure indicator.](images/travis1.png)
+  ![Travis failure indicator.](images/travisFailStatus.png)
 
 This will take you to the Travis dashboard for your PR. You can see which tests have failed (marked with an X) and which have stalled (marked with a !); both of these are errors that need to be resolved:
 
-  ![Travis-CI dashboard view.](images/travis3.png)
+  ![Travis-CI dashboard view.](images/travisDashboard.png)
 
 To figure out what you need to do next, click on the individual failed test(s) and have a look at the error log, then:
 

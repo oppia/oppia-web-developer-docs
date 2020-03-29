@@ -297,7 +297,7 @@ Easy
 ### Project 8: Improve unit tests
 **Context**
 
-Unit tests are just as important as coding style while maintaining a large codebase with multiple contributors. At Oppia, we try to ensure all code paths are covered by some unit test. This also ensures that changes to the code don’t break our code base. Before pushing code to github, we run all frontend tests and the push is blocked if even one test is broken. Also, code cannot be merged into the main branch unless both frontend and backend tests pass (the backend checks are done through a [Travis](https://travis-ci.org/) continuous integration system). We analyze the code coverage of unit tests to identify which functions still need unit tests. 
+Unit tests are just as important as coding style while maintaining a large codebase with multiple contributors. At Oppia, we try to ensure all code paths are covered by some unit test. This also ensures that changes to the code don’t break our code base. Before pushing code to github, we run all frontend tests and the push is blocked if even one test is broken. Also, code cannot be merged into the main branch unless both frontend and backend tests pass (the backend checks are done through a [Travis](https://travis-ci.com/) continuous integration system). We analyze the code coverage of unit tests to identify which functions still need unit tests. 
 
 _These projects are typically the kinds of starter projects we assign to new developers. Consider giving this a shot before moving to a larger project!_
 
