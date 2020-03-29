@@ -708,7 +708,11 @@ Currently, the Oppia Android app is designed for Android Phones only. This desig
 
 ### 4.2. Analytics Support
 
-Analytics support needs to be built in the Android app in such a way that, in future, it is possible to send that data back to the server while ensuring that no sensitive information leaves the phone. The aim of this project is to gather analytics to track crash reports, logs and app-health reports, as well as add feedback & reporting which will transfer those logs in case of any issues. We also want to persist learner usage analytics, such as: which activities they've opened, how long they spend in each activity, etc.
+Analytics support needs to be built in the Android app so that it is possible to reliably send usage data to a central location while ensuring that no sensitive information leaves the phone. The aim of this project is to:
+- Collect & upload crash scenarios
+- Collect & upload app health metrics (e.g. memory, CPU usage, etc.)
+- Collect & upload key usage events (e.g. activities & dialogs being opened, button clicks, etc.), and ensure these can be tested
+- Ensure logs can be uploaded offline, potentially months later for users who have infrequent internet access
 
 **Team**: Android
 
@@ -721,19 +725,31 @@ Analytics support needs to be built in the Android app in such a way that, in fu
 
 **Suggested Milestones**
 
-1. Integrate Firebase to track app-system health stats (battery, CPU, memory, network, and disk) and crashes.
-2. Introduce analytics tracking (e.g. with Firebase or Google Analytics) to track in-app impressions (which button was clicked how many times, which screen was visited for how long, etc.). The dimensions tracked for these impressions should have parity with the existing dimensions we track with Google Analytics for Oppia web (e.g. geography, device information, etc.).
-3. For users who are typically offline, ensure that their stats are kept offline without using too much disk usage. Upload these stats later once connectivity is retained, and ensure that these stats have a marker to indicate that they are associated with the corresponding user. (This is to help users recover their progress if something happens to their phone.). This milestone should also include logging feedback reports, and possibly uploading them later.
+1. Integrate with Firebase to track crashes (all crashes in the app, including ANRs), and app health metrics:
+   * App battery usage (distinguishing between foreground/background app usage isn't necessary)
+   * App memory usage (this doesn't need to be broken down by memory type; total_pss is sufficient)
+   * App CPU usage (this doesn't need to be broken down by threads)
+   * App network/bandwidth usage (aggregated data is sufficient; this doesn't need to be broken down by request)
+   * Disk usage (doesn't need to be broken down by cache/app storage; total storage is fine. Should include APK install size, if possible)
+   * Other performance metrics are optional and should only be considered if they're trivial to implement, otherwise they can be implemented by the team later
+2. Analytics tracking with Firebase for usage events like certain activities opening, dialogs opening/closing, key buttons being pressed, expensive operations starting/finishing, and errors being detected. The dimensions for this data in Firebase should have parity with the existing dimensions we track with Google Analytics for Oppia Web (i.e. geography, device information, and language of the user). This milestone includes introducing testing infrastructure to verify that such events are logged (see the notes section below). Your project should outline a list of these events. Consider analyzing the following in the codebase in order to build this list:
+   * Each screen in the app (including both activities & dialogs)
+   * Each button in the app
+   * Cases when the UI requests to load data and when that data loads/fails
+   * Other failure cases in service code (e.g. domain controllers)
+3. The Oppia Android app is being designed to support users who may go months without internet connectivity. For this reason, an additional solution needs to be built to ensure all of the stats from (1) and (2) can be uploaded later after the user reconnects to the internet. It's not expected that Firebase can solve this out of the box, and that additional work will be needed. The following should additionally be considered when outlining the work for this milestone:
+   * How should we retain performance, crash, and usage statistics for potentially months after they initially occurred & upload them later?
+   * How should we ensure the timestamps on submitted data stays correct?
+   * How should we handle limited space on devices? We probably can't retain stats in perpetuity, and therefore need to clean up old stats
+   * How do we ensure data is correctly associated with a specific user? Locally, the user's app profile ID can be used for this purpose. Stats shouldn't be associated with a specific user when uploaded, only with generic information about their device, geography, etc. so that these stats can be aggregated and analyzed later.
 
 **Notes:**
-- Your proposal should include how Firebase and Google Analytics will be introduced in the application.
+- Your proposal should include how Firebase will be introduced in the application.
 - Your proposal should include how the team can access collected stats to create graphs to monitor app health over time.
-- You should also focus on mentioning the approach for saving the stats/analytics/logs offline and uploading these analytics once the user is online.
+- You should also focus on mentioning the approach for saving the stats/analytics/logs offline and uploading these analytics once the user is online (keep in mind that users may go weeks or months without internet connectivity).
 - Your project should consider device constraints (such as lack of consistent internet connectivity, internet connectivity failures when uploading stats, short bursts of available time to upload stats due to the app being frequently killed by the system, battery considerations (e.g. no wakelocks), and storage consumption).
-- Please consider how each of the stats measurements will be associated with other measurements from the same user/device/play session. App health statistics shouldn't be associated with a user, but they do need to be tied to country/locale/device so that we can perform aggregated analyses on these stats. Learner usage analytics fall into one of three buckets:
-  - They are associated directly with a user (which you can assume is done via a pseudo remote user ID provided by the server--we don't yet have a multi-profile system built, but this assumption will be compatible with future multi-profile work)
-  - They are associated with a specific play session (this should behave in the same way as answer submission on Oppia web, though you'll need to consider how the session ID is generated given the Android app's local caching requirement)
-  - They are not associated with any IDs and are only stored anonymously
+- Please consider how each of the stats measurements will be associated with other measurements from the same user/device/play session. App health statistics shouldn't be associated with a user, but they do need to be tied to country/locale/device so that we can perform aggregated analyses on these stats.
+- Milestone 2 includes introducing test infrastructure so that we can verify that specific usage events are logged at the correct time in automated tests. To keep this simple, we suggest describing in your proposal a class that provides a way to verify that a specific usage event was logged, was not logged, and logged N times. You should describe how this will be hooked up. No additional testing infrastructure work is needed beyond this.
 
 ### 4.3. Additional interaction types
 
