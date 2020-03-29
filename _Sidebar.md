@@ -1,5 +1,5 @@
   * [README](https://github.com/oppia/oppia/blob/develop/.github/README.md#oppia)
-  * [Oppia's mission](https://github.com/oppia/oppia/wiki/Oppia's-Mission) 
+  * [Oppia's mission](https://github.com/oppia/oppia/wiki/Oppia's-Mission)
   * **[[Get involved!|Home]]**
     * [Coders](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up)
     * [[Instructional designers|Teaching-with-Oppia]]
@@ -28,7 +28,7 @@
     * Writing Tests
       * [[Writing backend tests]]
       * [[Writing frontend tests|Frontend-test-best-practices]]
-      * [[Writing tests for custom Pylint Checkers|Writing-Tests-For-Pylint]] 
+      * [[Writing tests for custom Pylint Checkers|Writing-Tests-For-Pylint]]
       * [[End-to-end tests|End-to-End-Tests]]
     * [[Writing state migrations | Writing-state-migrations]]
     * [[Creating and modifying storage models | Creating-and-modifying-storage-models]]
@@ -36,6 +36,7 @@
     * [[Coding for speed in GAE | Coding-for-speed-in-GAE]]
     * [[Git cheat sheet|Git-cheat-sheet]]
     * [[Setup your own CircleCI instance|Setup-your-own-CircleCI-instance]]
+    * [[Interpreting CircleCI Results | Interpreting CircleCI Results]]
     * [[Setup your own Travis instance|Setup-your-own-Travis-instance]]
     * [[Mobile development|Mobile-development]]
     * [[Adding new translations|Adding-new-translations-for-i18n]]
