@@ -79,7 +79,7 @@ The most popular tests include unit tests, integration testing, end-to-end (e2e)
 ## Practical tips for writing tests:
 - If you're trying to fully cover a specific file's behaviour using frontend tests, change the outer `describe` to `fdescribe` before running the tests locally (with coverage checks), so that only the tests in the file you're writing will run on Karma. This helps to ensure that all methods for the corresponding file are being tested thoroughly, and that the code in the file you're testing isn't being covered "by chance" due to some test from another file. (Remember to change the tag back to `describe` before committing your changes!)
 
-## Fixing frontend errors:
+## Fixing frontend test errors
 The frontend tests run via 
 ```
 python -m scripts.run_frontend_tests
