@@ -84,7 +84,7 @@ The frontend tests run via
 ```
 python -m scripts.run_frontend_tests
 ```
-- If you see an error like `Error: Trying to get the Angular injector before bootstrapping the corresponding Angular module`, it means you're using a service (directly or indirectly) that is Upgraded to Angular and your test that is written in AngularJS is unable to get that particular service. You can fix this by importing `UpgradedServices` and using it in a `beforeEach` block:
+- If you see an error like `Error: Trying to get the Angular injector before bootstrapping the corresponding Angular module`, it means you are using a service (directly or indirectly) that is Upgraded to Angular and your test that is written in AngularJS is unable to get that particular service. You can fix this by importing `UpgradedServices` and using it in a `beforeEach` block:
 
   ```
   import { UpgradedServices } from 'services/UpgradedServices';
