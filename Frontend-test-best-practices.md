@@ -78,3 +78,22 @@ The most popular tests include unit tests, integration testing, end-to-end (e2e)
   search and read whatever is relevant to you.
 ## Practical tips for writing tests:
 - If you're trying to fully cover a specific file's behaviour using frontend tests, change the outer `describe` to `fdescribe` before running the tests locally (with coverage checks), so that only the tests in the file you're writing will run on Karma. This helps to ensure that all methods for the corresponding file are being tested thoroughly, and that the code in the file you're testing isn't being covered "by chance" due to some test from another file. (Remember to change the tag back to `describe` before committing your changes!)
+
+## Fixing frontend test errors
+The frontend tests run via 
+```
+python -m scripts.run_frontend_tests
+```
+- If you see an error like `Error: Trying to get the Angular injector before bootstrapping the corresponding Angular module`, it means you are using a service (directly or indirectly) that is Upgraded to Angular and your test that is written in AngularJS is unable to get that particular service. You can fix this by importing `UpgradedServices` and using it in a `beforeEach` block:
+
+  ```
+  import { UpgradedServices } from 'services/UpgradedServices';
+  .
+  .
+  beforeEach(angular.mock.module('oppia', function($provide) {
+    var ugs = new UpgradedServices();
+    for (let [key, value] of Object.entries(ugs.getUpgradedServices())) {
+      $provide.value(key, value);
+    }
+  }));
+  ```
