@@ -225,7 +225,7 @@ Take a look as to how the topic-viewer-backend-api.service is migrated in this [
 
 3. Ensure there are no linting errors
    ```
-   python -m scripts.pre_commit_linter
+   python -m scripts.linters.pre_commit_linter
    ```
 
 ## FAQ
