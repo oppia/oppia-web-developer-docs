@@ -28,3 +28,27 @@ A collection is a group of explorations. An exploration may belong to more than 
 **7. Tada! You have successfully landed inside the collection editor page.**
 ![image](https://user-images.githubusercontent.com/16653571/41504590-3cd73c56-7211-11e8-85a1-f3bae3635973.png)
 
+## Steps to create a Topic/Skill:
+
+**1. Create an user having super-admin rights.**
+
+![How to get super-admin rights](https://user-images.githubusercontent.com/16653571/41500954-e88a0262-71b8-11e8-9cac-456fb46782c1.png)
+
+**2. Go to admin panel.**
+
+![How to access admin page](https://user-images.githubusercontent.com/16653571/41501009-e04e9a76-71b9-11e8-958e-985f5bc7122a.png)
+
+**3. Go to ROLES tab in admin page.**
+
+![roles](https://user-images.githubusercontent.com/16653571/41501684-a543b22e-71c6-11e8-883c-cec35e32535e.png)
+
+**4. Assign your username as admin through the form provided.**
+![assignrole](https://user-images.githubusercontent.com/30312043/78745056-b8b70b80-7980-11ea-942a-b2aab314c201.png)
+
+**5. Get back to /splash page and click Topics and Skill Dashboard in the dropdown menu.**
+
+![reate Button](https://user-images.githubusercontent.com/30312043/78745178-06cc0f00-7981-11ea-9eca-f4495e05b0e4.png)
+
+**6. Tada! You have successfully landed inside the Topics and Skill Dashboard and create Topic/Skill as required.**
+![image](https://user-images.githubusercontent.com/30312043/78745230-219e8380-7981-11ea-8fbf-8f4536476358.png)
+
