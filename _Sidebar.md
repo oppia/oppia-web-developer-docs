@@ -61,7 +61,7 @@
       * [[Dependencies|Creating-Dependencies]]
       * [[Value generators|Creating-Value-Generators]]
     * [[Schema-based forms|Schema-based-Forms]]
-    * [[Collection editor page|Collection-editor-page]]
+    * [[Editor pages|Editor-pages]]
     * [[Calculating statistics|Calculating-statistics]]
     * [[Writing style guide|Writing-style-guide]]
     * [[UX guidelines & rationales|https://github.com/oppia/oppia/wiki/Oppia-UX-guidelines-&-rationales]]
