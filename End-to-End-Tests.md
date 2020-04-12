@@ -136,13 +136,39 @@ Sometimes you need to distinguish between several different sibling elements, fo
 ```
 in place of `.element(by.css(...))`. If this does not suffice then you may need to iterate over all the candidates, examining each in turn until you find the right one. An example of how to do so is given by `moveToState` in `core/tests/protractor_utils/editor.js`.
 
+** WARNING: This can lead to flaky and fragile tests, so avoid this if possible. See below for details.**
+
 All the protractor code assumes you are working in an Angular webpage. If you need to move to non-Angular context (for example in an iframe) then look at the login function of `users.js` or the `embedding.js` test for examples of how to proceed.
 
 It can happen that a test fails because the webpage has not finished loading functionality by the point at which protractor attempts to use it; failures of this kind can be inconsistent between successive runs of the same test. If one occurs you can try the following:
   1. Use ExpectedConditions to determine if the element in question is either present, visible or clickable, depending on your use case.
   2. If you are attempting to use an element that is not visible you can try `general.scrollElementIntoView(elem)` to get to it, though normally this should happen automatically.
 
-## Important Gotchas ##
+## Writing Robust Tests ##
 
-The tests may be run either sequentially or in isolation, and they need to be written to function correctly in both cases. To this end we ensure that usernames and emails used in each test are unique by giving them a distinctive form; in e.g. the editorAndPlayer page usernames should look like 'user1EditorAndPlayer' and emails like 'user1@editorAndPlayer.com'.
-All test blocks should have an `afterEach` that runs `general.checkForConsoleErrors` to verify no unexpected console errors appeared while the test was running.
+### Flakiness ###
+
+It is easy to accidentally write _flaky_ end-to-end tests, which means that the tests sometimes pass and sometimes fail for non-deterministic reasons. For example, you might write a test assuming that all the elements of the page load at once. However, you have probably noticed that when your browser slows down, it sometimes loads parts of the page before others. This could lead your test to fail randomly, which is called flaking. Here are some tips for avoiding flakiness in your tests:
+
+* HTML tags should be unique if possible. When they are not unique, for instance when multiple copies of the same HTML are created dynamically, we should not find one with indexing, `.first()`, or `.last()`. A great example of how to do this correctly is in `this.playTutorial` in `ExplorationEditorMainTab.js`.
+    * There is really only one case where it is acceptable to identify HTML elements by index, which is when the following conditions all hold:
+        1. The elements you want to choose among are siblings, meaning that they share the same parent element. If they aren't siblings, then you can add use the parent elements to distinguish between them, for example by adding HTML classes to the parents.
+        2. The elements you want to choose among are identical. In particular, if the elements contain different text, then you can use that text to distinguish them.
+        3. The elements you want to choose among are generated dynamically, so you can't modify them to add HTML classes.
+* Avoid for loops where the loop index is used in asynchronous calls. `this.expectHintsTabContentsToMatch` in `ExplorationEditorTranslationTab.js` is a better way because it puts the index in the CSS selector, so the index is used before the asynchronous part kicks in.
+* Do not use URLs to:
+    * Get IDs, for example IDs for explorations, collections, or topics
+    * Navigate to a page, for example opening the about page by navigating to `/about` instead of clicking the appropriate buttons
+* Do not use `browser.sleep(` calls. This is great for debugging, but in the final test you should use `waitFor` instead.
+
+### Independence ###
+
+The tests may be run either sequentially or in isolation, and they need to be written to function correctly in both cases. Further, we may rearrange which tests are run together to optimize performance. This means that each `describe(...` block of tests should work regardless of what tests are run before (or after) it. Here are some tips for writing independent tests:
+
+* Ensure that usernames and emails used in each test are unique by giving them a distinctive form; in e.g. the editorAndPlayer page usernames should look like 'user1EditorAndPlayer' and emails like 'user1@editorAndPlayer.com'.
+* Avoid accessing items by index. For example, to select an exploration from a list, search for the name of the exploration instead of assuming the exploration will be at some index. Take a look at the `_getExplorationElements` function in [`core/tests/protractor_utils/LibraryPage.js`](https://github.com/oppia/oppia/blob/develop/core/tests/protractor_utils/LibraryPage.js) for an example.
+
+## Important Tips ##
+
+* All test blocks should have an `afterEach` that runs `general.checkForConsoleErrors` to verify no unexpected console errors appeared while the test was running.
+* Check your assumptions! For example, if you are assuming that only one exploration on the server will have a particular title, use an `expect` call to check.
