@@ -10,7 +10,7 @@ Setting up a Travis instance for your Oppia's fork hardly takes a couple of minu
 ![settings](https://user-images.githubusercontent.com/24826041/47151430-5e8f3a00-d2f7-11e8-9b26-4cafc8e0ae39.png)
 6. Now its time to configure "Environment Variables". Add an environment variable with the following details:
 Name: `CHROME_SOURCE_URL`
-Value: `https://github.com/webnicer/chrome-downloads/raw/master/x64.deb/google-chrome-stable_67.0.3396.99-1_amd64.deb`
+Value: `https://github.com/webnicer/chrome-downloads/raw/master/x64.deb/google-chrome-stable_77.0.3865.75-1_amd64.deb`
 Display value in the build log: Yes (Click on the slider so that it turns blue).
 After this, click on the "Add" button.
 Post this process, this section would look something like this:
