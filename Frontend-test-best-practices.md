@@ -84,16 +84,28 @@ The frontend tests run via
 ```
 python -m scripts.run_frontend_tests
 ```
-- If you see an error like `Error: Trying to get the Angular injector before bootstrapping the corresponding Angular module`, it means you are using a service (directly or indirectly) that is Upgraded to Angular and your test that is written in AngularJS is unable to get that particular service. You can fix this by importing `UpgradedServices` and using it in a `beforeEach` block:
+- If you see an error like `Error: Trying to get the Angular injector before bootstrapping the corresponding Angular module`, it means you are using a service (directly or indirectly) that is Upgraded to Angular and this error can throw or two reasons:
+  - Your test that is written in AngularJS is unable to get that particular service.  
+    You can fix this by importing `UpgradedServices` and using it in a `beforeEach` block:
 
-  ```
-  import { UpgradedServices } from 'services/UpgradedServices';
-  .
-  .
-  beforeEach(angular.mock.module('oppia', function($provide) {
-    var ugs = new UpgradedServices();
-    for (let [key, value] of Object.entries(ugs.getUpgradedServices())) {
-      $provide.value(key, value);
-    }
-  }));
-  ```
+    ```
+    import { UpgradedServices } from 'services/UpgradedServices';
+    .
+    .
+    beforeEach(angular.mock.module('oppia', function($provide) {
+      var ugs = new UpgradedServices();
+      for (let [key, value] of Object.entries(ugs.getUpgradedServices())) {
+        $provide.value(key, value);
+      }
+    }));
+    ```
+  - The upgraded service is not listed on `UpgradedServices.ts` file.  
+    You can fix this by adding the upgraded service in `UpgradedService.ts`:
+    
+    ```
+    import { ServiceName } from 'path/to/service';
+    .
+    .
+    .
+    upgradedServices['ServiceName'] = new ServiceName();
+    ```
