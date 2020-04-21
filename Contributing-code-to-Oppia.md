@@ -50,7 +50,8 @@ Welcome! Please make sure to follow the [setup instructions](https://github.com/
 - [#8038](https://github.com/oppia/oppia/issues/8038) (Refactoring frontend services)
 - [#7427](https://github.com/oppia/oppia/issues/7427) (backend; python adding docstrings,args)
 
-so that you can become familiar with the codebase and the development workflow. If you decide to do so, please go ahead and leave a comment saying which part of the issue you're taking, and submit a follow-up PR by following the [instructions below](Contributing-code-to-Oppia#instructions-for-making-a-code-change). You don't need to wait for approval to get started!
+since these issues are hand-picked and ensure that you don't run into unexpected roadblocks while working on them. For other issues, you may need to be more independent because often times, we don’t know how to solve them either. 
+If you decide to pick one of these, please go ahead and leave a comment saying which part of the issue you're taking, and submit a follow-up PR by following the [instructions below](Contributing-code-to-Oppia#instructions-for-making-a-code-change). You don't need to wait for approval to get started!
 
 **Important Note**: Please make sure to read and follow the [PR instructions](Contributing-code-to-Oppia#instructions-for-making-a-code-change) carefully, otherwise your PR review may be delayed.
 
