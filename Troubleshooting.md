@@ -197,6 +197,14 @@ These commands can be used anywhere to kill a running process on any port by usi
     ```
     sudo apt-get install python-matplotlib
     ```
+    
+  * If after running `python -m scripts.linters.pre_commit_linter`, you get an error that contains:
+    ```
+    No module named appengine.api
+    ```
+    If you're not using a virtual environment, make sure that the path to the appengine lib is locatable. Also, make sure that there are no other versions of google libraries installed globally which may cause path conflict issues. Refer to [this blog](https://medium.com/@maanavshah/fixing-python-import-error-no-module-named-appengine-ebcb540e7f18) for more reference.
+    If this error occurs within a virtual environment, try reinstalling the libs by running clean.py followed by start.py.
+
 
 ### Mac OS
   * After running `python -m scripts.start`, if you get an error around the following lines: 
