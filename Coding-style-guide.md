@@ -300,18 +300,18 @@ export default functions;
 And then the variable can be loaded by `import functions from 'folder/folder/functions.ts';`
 
 ### Adding new page
-When you're adding new HTML page (not directive HTML) that uses TypeScript you also need to add it to `webpack.conf.ts`:
+When you're adding new HTML page (not directive HTML) that uses TypeScript you also need to add it to `webpack.common.config.ts`:
 
-1. You need to define the TypeScript entrypoint for the page into `module.exports.entries`.
+1. You need to define the TypeScript entry point for the page into `module.exports.entries`.
 2. You need to add `new HtmlWebpackPlugin({…})` into `module.exports.plugins`.
 
-For example when adding **pages/generic/page.html** with asocciated TypeScript file **pages/generic/Page.ts**, you will need to add `page: commonPrefix + '/pages/generic/Page.ts'` to `module.exports.entries` and
+For example when adding **pages/generic-page/generic-page.mainpage.html** with asocciated TypeScript file **pages/generic-page/generic-page.scripts.ts**, you will need to add `page: commonPrefix + '/pages/generic-page/generic-page.scripts.ts'` to `module.exports.entries` and
 
 ```javascript
 new HtmlWebpackPlugin({
    chunks: ['page'],
-   filename: 'page.html',
-   template: commonPrefix + '/pages/generic/page.html',
+   filename: 'generic-page.mainpage.html',
+   template: commonPrefix + '/pages/generic-page/generic-page.mainpage.html',
    minify: htmlMinifyConfig,
    inject: false
 })
