@@ -216,7 +216,7 @@ Take a look as to how the topic-viewer-backend-api.service is migrated in this [
    ```
 
    Note: If your migrated service involves http calls and when you run the frontend test your frontend test fail 
-   for some other service(One error that might pop is `Error: No pending request to flush !`) then go ahead and migrate the failing tests for the other service too. You might have 
+   for some other service (One error that might pop is `Error: No pending request to flush !`) then go ahead and migrate the failing tests for the other service too. You might have 
    guessed that in such case we have migrated a service which is now making http calls in Angular using HttpClient 
    but some other service that is issuing http requests to this service is still testing by making calls via 
    AngularJS http module (using $httpBackend). Go through this [PR #9029](https://github.com/oppia/oppia/pull/9029/files), 
