@@ -32,6 +32,13 @@ Thus, when testing a file, make sure that:
 - Each file has its own spec file which tests each line of the file.
 - **You should run the tests locally using fdescribe** in the outer describe of the file, and then make sure that the coverage is 100%. See the “Unit Test Structure” section below.
 
+### How to choose a file to work on
+When trying to choose the first files to work on, you might get confused. All the files are separated by a complexity criteria, so you can focus on files which you feel comfortable working with.
+
+|            |      Easy       |     Medium      |        Hard        |
+|------------|:---------------:|:---------------:|:------------------:|
+| Complexity | Up to 100 lines | Up to 250 lines | At least 250 lines |
+
 
 ## Best practices for good tests:
 - Naming the test is important. The name should include the name of the component being tested, the conditions imposed on the test and the expected outcome of the test.
