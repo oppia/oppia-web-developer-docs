@@ -212,7 +212,7 @@ To make code changes, please follow the following instructions carefully! Otherw
 
 Sometimes, it might not be entirely clear how to implement something. In such cases, we recommend creating a short document which states the problem clearly and provides a comparative analysis of the different approaches that you can think of to tackle the issue. 
 
-This will enable you to get reviews from your mentors and other Oppia contributors easily without needing to schedule a meeting, and make it easier to add additional reviewers later if needed. You can find more information on how to write such "design docs" [here](https://github.com/oppia/oppia/wiki/Writing-design-docs).
+This will enable you to get reviews from your mentors and other Oppia contributors easily without needing to schedule a meeting, and make it easier to add additional reviewers later if needed. You can find more information on [this wiki page](https://github.com/oppia/oppia/wiki/Writing-design-docs) about how to write these docs, as well as best practices for responding to doc reviews.
 
 
 ## Communication channels
