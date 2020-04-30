@@ -208,15 +208,9 @@ To make code changes, please follow the following instructions carefully! Otherw
 
 * **Important** PRs marked with the “critical” label need to be tested in the backup server before being merged. For this, one of the release coordinators (with access to deploy) should checkout a new branch from develop, merge the branch from the PR into the new branch, and initiate deployment to the backup server from this branch. The PR author should give specific testing instructions for the changes (like which job to run, what the expected output is, etc) and the coordinator should verify the same. Once successfully tested, the PR should be merged into develop. This is to prevent cases like exploration migrations which can result in data corruption (as it will auto-migrate) if the migration isn’t safe. The "critical" label needs to be applied on PRs that change data validation checks, and other possibly critical changes which could affect production data.
 
-### Instructions for writing design docs
+## Instructions for writing design docs
 
-Sometimes, it might not be entirely clear how to implement something. In such cases, we recommend creating a short document which states the problem clearly and provides a comparative analysis of the different approaches that you can think of to tackle the issue. This way, you can get reviews from your mentors and other Oppia contributors easily without needing to schedule a meeting.
-
-When you're responding to a reviewer's comments in a doc, we recommend that you treat it like responding to a code review. More specifically:
-- Feel free to accept (or reject!) suggestions. If you reject a suggestion, that's fine, but say why.
-- For comments, please treat them just like you would treat comments in a standard code review. In other words:
-  - Reply to each comment (maybe with "Done") and update the doc as needed, but **don't resolve the comment**. Let the reviewer handle that, so that they can keep track of which comments still need to be addressed -- sometimes, more follow-up might be needed when they review the updated version of the doc.
-  - If you have any questions about the reviewer's comments, feel free to ask them for clarification.
+Sometimes, it might not be entirely clear how to implement something. In such cases, we recommend creating a short document which states the problem clearly and provides a comparative analysis of the different approaches that you can think of to tackle the issue. This way, you can get reviews from your mentors and other Oppia contributors easily without needing to schedule a meeting. You can find more information on how to write such "design docs" [here](https://github.com/oppia/oppia/wiki/Writing-design-docs).
 
 
 ## Communication channels
