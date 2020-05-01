@@ -127,6 +127,50 @@ When trying to choose the first files to work on, you might get confused. All th
 |------------|:---------------:|:---------------:|:------------------:|
 | Complexity | Up to 100 lines | Up to 250 lines | At least 250 lines |
 
+## General tips
+
+### Spy utilities  
+One of the main features of Jasmine is allowing you to spy on a method or property of an object. This is helpful in some cases for seeing what is going on:  
+- It can spy on properties of an object (using the spyOnProperty method). [Here](https://github.com/oppia/oppia/blob/develop/core/templates/services/contextual/device-info.service.spec.ts#L48-L55)'s an example.
+- It can mock a property value or a method return. [Here](https://github.com/oppia/oppia/blob/develop/core/templates/pages/exploration-editor-page/feedback-tab/services/thread-data.service.spec.ts#L147)'s an example.
+- It allows you to provide fake implementations that can be called when a method is executed. This is commonly used when mocking AngularJS promises with $defer. [Here](https://github.com/oppia/oppia/blob/develop/core/templates/pages/email-dashboard-pages/email-dashboard-page.controller.spec.ts#L121-L133)'s an example.
+- It can spy on a method to check whether that method is being called when the spec runs. [Here](https://github.com/oppia/oppia/blob/develop/core/templates/services/schema-default-value.service.spec.ts#L109-L118)'s an example.
+
+#### Spying on and handling with third-party libraries  
+Also, the spy can be used when mocking third-party libraries, like JQuery, mostly when doing ajax calls. [Here](https://github.com/oppia/oppia/blob/develop/core/templates/services/assets-backend-api.service.spec.ts#L274-L292)'s a good example when mocking JQuery ajax calls.
+
+#### Handling Window events and reloads
+Spying on window object is very common, mainly because some native behaviors can cause the tests to fail or make them unpredictable. This happens in two specific cases:
+
+##### When window calls reload  
+When reload is called in the native form, it will fail the tests. You can fix it by using the Spy `returnValue()` method. Also, the image below gives an example of how to avoid native `reload()` calls by mocking using an empty function, but you may need to adjust this based on the context you’re testing. Check it out how to mock `reload()` correctly [here](https://github.com/oppia/oppia/blob/develop/core/templates/pages/about-page/about-page.controller.spec.ts#L72-L77).
+
+### How to handle common errors  
+- If you see an error like `Error: Trying to get the Angular injector before bootstrapping the corresponding Angular module`, it means you are using a service (directly or indirectly) that is Upgraded to Angular and this error can throw or two reasons:
+  - Your test that is written in AngularJS is unable to get that particular service.  
+    You can fix this by importing `UpgradedServices` and using it in a `beforeEach` block:
+
+    ```
+    import { UpgradedServices } from 'services/UpgradedServices';
+    .
+    .
+    beforeEach(angular.mock.module('oppia', function($provide) {
+      var ugs = new UpgradedServices();
+      for (let [key, value] of Object.entries(ugs.getUpgradedServices())) {
+        $provide.value(key, value);
+      }
+    }));
+    ```
+  - The upgraded service is not listed on `UpgradedServices.ts` file.  
+    You can fix this by adding the upgraded service in `UpgradedService.ts`:
+    
+    ```
+    import { ServiceName } from 'path/to/service';
+    .
+    .
+    .
+    upgradedServices['ServiceName'] = new ServiceName();
+    ```
 
 ## Best practices for good tests:
 - Naming the test is important. The name should include the name of the component being tested, the conditions imposed on the test and the expected outcome of the test.
@@ -187,33 +231,6 @@ When trying to choose the first files to work on, you might get confused. All th
 ## Practical tips for writing tests:
 - If you're trying to fully cover a specific file's behaviour using frontend tests, change the outer `describe` to `fdescribe` before running the tests locally (with coverage checks), so that only the tests in the file you're writing will run on Karma. This helps to ensure that all methods for the corresponding file are being tested thoroughly, and that the code in the file you're testing isn't being covered "by chance" due to some test from another file. (Remember to change the tag back to `describe` before committing your changes!)
 
-## Fixing frontend test errors
-- If you see an error like `Error: Trying to get the Angular injector before bootstrapping the corresponding Angular module`, it means you are using a service (directly or indirectly) that is Upgraded to Angular and this error can throw or two reasons:
-  - Your test that is written in AngularJS is unable to get that particular service.  
-    You can fix this by importing `UpgradedServices` and using it in a `beforeEach` block:
-
-    ```
-    import { UpgradedServices } from 'services/UpgradedServices';
-    .
-    .
-    beforeEach(angular.mock.module('oppia', function($provide) {
-      var ugs = new UpgradedServices();
-      for (let [key, value] of Object.entries(ugs.getUpgradedServices())) {
-        $provide.value(key, value);
-      }
-    }));
-    ```
-  - The upgraded service is not listed on `UpgradedServices.ts` file.  
-    You can fix this by adding the upgraded service in `UpgradedService.ts`:
-    
-    ```
-    import { ServiceName } from 'path/to/service';
-    .
-    .
-    .
-    upgradedServices['ServiceName'] = new ServiceName();
-    ```
-
 ## Services  
 Services are one of the most important features in the codebase. They contain logic that can be used across the codebase multiple times. There are three possible extensions for services:  
 - *.service.ts
@@ -221,7 +238,7 @@ Services are one of the most important features in the codebase. They contain lo
 - *.factory.ts
 - *.tokenizer.ts  
 
-As a good first issue, all the services that need to be tested are listed in [issue #4057](https://github.com/oppia/oppia/issues/4057), grouped by the complexity criteria.
+As a good first issue, all the services that need to be tested are listed in [issue #4057](https://github.com/oppia/oppia/issues/4057), grouped by the [complexity criteria](https://github.com/oppia/oppia/wiki/Frontend-unit-tests-guide#how-to-choose-a-file-to-work-on).
 
 ### AngularJS
 
