@@ -2,7 +2,7 @@
 
 - There's a merge conflict (in which case, Travis won't actually run).
 - Your code is wrong.
-- Travis is being flaky (e.g. network issues).
+- Travis or CircleCI is being flaky (e.g. network issues).
 
 To figure out which it is, check the bottom of the GitHub PR thread. If there's a merge conflict, it will show up there. You'll need to fix the conflict by following the [instructions for making a code change](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#instructions-for-making-a-code-change) and pushing a new commit to the branch before Travis can run.
 
@@ -17,6 +17,8 @@ This will take you to the Travis dashboard for your PR. You can see which tests 
 To figure out what you need to do next, click on the individual failed test(s) and have a look at the error log, then:
 
 * If the error seems related to your PR, you probably have an error somewhere. You can try to reproduce the error locally: see the relevant section in [Running Tests](https://github.com/oppia/oppia/wiki/Running-Tests#end-to-end-tests) for instructions on how to run specific e2e tests on your local machine. If it still happens locally, then it's something that needs to be fixed. Note that all linter and backend errors fall into this category.
+
+* If the error cannot be reproduced, try to merge from upstream/develop and debug. All CI tests merge from upstream develop before running your tests.
 
 * If the error seems unrelated to your PR, it might be due to a recently-merged PR. Try figuring out the root cause of the error. If it is due to a recently-merged PR, then identify the PR that caused the issue and revert it. (In general, it is better to revert the bad PR rather than trying to fix the issue, since the latter would cause further delays in resolution and more PRs to get blocked while the fix is in progress.)
 
