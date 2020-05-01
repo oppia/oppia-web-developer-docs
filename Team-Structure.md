@@ -24,7 +24,7 @@ The current members of this group are:
 - Kevin Thomas
 - Sandeep Dubey
 - Sean Lip
-- Vojtěch Jelínek 
+- Vojtěch Jelínek
 
 Membership of this group is decided by appointment, by a committee made up of the currently-serving core maintainers.
 

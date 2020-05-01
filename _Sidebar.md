@@ -79,7 +79,6 @@
   * Playbooks
     * [[Instructions for Reviewers|Instructions-for-Reviewers]]
     * [[Instructions for making changes to roles and actions|Instructions-for-editing-roles-or-actions]]
-    * [[Instructions for dev workflow team members|Instructions-for-dev-workflow-team-members]]
     * [[Instructions for QA coordinators|Instructions-to-QA-coordinators]]
   * Past Events
     * Google Summer of Code: [[2019|Google-Summer-of-Code-2019]], [[2018|Google-Summer-of-Code-2018]], [[2017|Google-Summer-of-Code-2017]], [[2016|Google-Summer-of-Code-2016]]
