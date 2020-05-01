@@ -44,13 +44,32 @@ A unit test checks the behavior of small components, which are called units. A c
 A unit test should depend only on the “external” behavior to be tested, not the specific implementation of the function. This means that the behavior of other components is out of scope (it may confuse you when working on components that are using other components method, for example).
 [Here](https://github.com/oppia/oppia/blob/ae649aa08f1375457ec9e3c90257197b68fec7cd/core/templates/domain/skill/RubricObjectFactorySpec.ts#L28-L41) is a simple unit test that demonstrates these points.
 
+## Helpful resources
+This list contains some resources that might help you while writing unit tests:
+- [Jasmine documentation](https://jasmine.github.io/api/edge/global)
+- [Angular 2+ testing](https://angular.io/guide/testing)
+- [AngularJS testing](https://docs.angularjs.org/guide/unit-testing)
+
 ## Generating coverage reports
 Coverage reports are an indispensable tool when working with unit tests. They can show you which lines are being tested and which are not. Use these reports to help you write better tests and to ensure that all the files and functionality are totally covered by the tests you write.  
 To generate a new coverage report, run the following in the terminal:
     `python -m scripts.run_frontend_tests`  
-The report will be generated at the `karma_coverage_reports/index.html` path, please be sure you’re at **opensource/** path when trying to access it. The coverage will look like this page:
+The report will be generated at the `karma_coverage_reports/index.html` path, please be sure you’re at `opensource/` path when trying to access it. The coverage will look like this page:
 ![Karma Coverage reports](https://user-images.githubusercontent.com/34922478/80640321-9e30f900-8a39-11ea-8b8e-98dab4a3d48b.png)
 You can use this report to determine which lines in the codebase still need to be covered by tests.
+
+### Ensuring that coverage is maintained  
+In order to make the coverage stable, all fully-covered files are listed in the file `scripts/check_frontend_coverage.py`. This list is very helpful for some reasons:
+- If your changes decrease the coverage of a fully covered file, you can’t push it to GitHub.
+- If you have tested a file until it reaches 100% coverage, you can’t push it to Github, unless you add the file name to the whitelist in the `scripts/check_frontend_coverage.p`y file.
+- If you have removed a fully covered file (it may happen for many reasons: e.g. the file is not used anymore, the file is being migrated to Angular 2+, etc), you need to remove it manually from the whitelist. Then, you can push your commit to GitHub.  
+
+If you need to track the coverage changes (maybe a new file has achieved 100% coverage, or a fully-covered file has had its coverage reduced) before pushing the changes to GitHub, you can pass a flag to the command:  
+    `python -m scripts.run_frontend_tests --check_coverage`  
+
+For example, let’s suppose `local-storage.service.ts` used to be fully covered but your changes have decreased it. By running this command, you’ll be able to see an output like this:  
+
+![Example of an output by tracking the changes in the frontend unit tests](https://user-images.githubusercontent.com/34922478/80845732-8182f580-8be0-11ea-9c47-0f46f1f44c2f.png)
 
 ## Fundamentals
 
@@ -70,10 +89,10 @@ Before starting to write a unit test, you need to be aware of some rules that mu
 Karma is a test runner that is used in the frontend codebase. Karma runs tests by compiling them all at once. This causes a tricky problem: a method in a file might be covered by a test suite for a different file, which can provide a false positive on the coverage report because each file is supposed to be fully covered by its corresponding spec file.
 Thus, when testing a file, make sure that:
 - Each file has its own spec file which tests each line of the file.
-- **You should run the tests locally using fdescribe** in the outer describe of the file, and then make sure that the coverage is 100%. See the “Unit Test Structure” section below.
+- **You should run the tests locally using fdescribe** in the outer describe of the file, and then make sure that the coverage is 100%. See the [Unit Test Structure](#unit-test-structure) section below.
 
 ### Unit test structure
-A unit test is made of functions that configure the test environment, make assertions, and separate the different contexts of each situation. There is some test functions that are used across the codebase:
+A unit test is made of functions that configure the test environment, make assertions, and separate the different contexts of each situation. There are some test functions that are used across the codebase:
 - **describe**  
   The describe function has a string parameter which should contain the name of the component being tested or     (when nested within another describe function) should describe the conditions imposed on the specific context pertaining to the tests in that “describe” block. Here are some examples:
   ```
@@ -170,6 +189,24 @@ One of the main features of Jasmine is allowing you to spy on a method or proper
 
 #### Spying on and handling with third-party libraries  
 Also, the spy can be used when mocking third-party libraries, like JQuery, mostly when doing ajax calls. [Here](https://github.com/oppia/oppia/blob/develop/core/templates/services/assets-backend-api.service.spec.ts#L274-L292)'s a good example when mocking JQuery ajax calls.
+
+#### Spying the same method/property more than one time in same context  
+It is impossible to spy twice the same method or property in the same context (block). For instance, the code below would throw an error:
+```
+spyOn('should throw an error when spying twice', function() {
+  spyOn(console, 'warn').and.stub();
+  spyOn(console, 'warn').and.stub();
+});
+```
+However, there are some situations where you need to change a value or a method’s return value spy in the same spec, for instance by changing the location path in a mock window object, or even reseting a mock to call the original code. You can do it by assigning the spy (without calling any method) into a variable. Then you can use this variable to call the spy methods as many times you want. For example (this code won't throw an error anymore):
+```
+spyOn('should not throw an error when spying twice', function() {
+  var warnSpy = spyOn(console, 'warn');
+  warnSpy.and.stub();
+  warnSpy.and.stub();
+});
+```
+You can check real examples of this approach [here](https://github.com/oppia/oppia/blob/develop/core/templates/pages/landing-pages/topic-landing-page/topic-landing-page.controller.spec.ts#L94-L109) and [here](https://github.com/oppia/oppia/blob/develop/core/templates/pages/about-page/about-page.controller.spec.ts#L24-L29).
 
 #### Handling Window events and reloads
 Spying on window object is very common, mainly because some native behaviors can cause the tests to fail or make them unpredictable. This happens in two specific cases:
