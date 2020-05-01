@@ -45,6 +45,7 @@
     * [[Performance testing|Performance-Testing]]
     * [[Release schedule|Release-Schedule]]
     * [[Writing audit jobs|Writing-audit-jobs]]
+    * [[Writing new one off jobs using map-reduce|Writing-new-one-off-jobs-using-map-reduce]]
     * [[Running jobs in production|Running-jobs-in-production]]
     * [[Team structure|Team-Structure]]
     * [[Ongoing Projects|Ongoing-Projects]]

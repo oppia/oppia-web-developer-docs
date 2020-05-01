@@ -215,6 +215,14 @@ Take a look as to how the topic-viewer-backend-api.service is migrated in this [
    python -m scripts.run_frontend_tests
    ```
 
+   Note: If your migrated service involves http calls and when you run the frontend test your frontend test fail 
+   for some other service (One error that might pop is `Error: No pending request to flush !`) then go ahead and migrate the failing tests for the other service too. You might have 
+   guessed that in such case we have migrated a service which is now making http calls in Angular using HttpClient 
+   but some other service that is issuing http requests to this service is still testing by making calls via 
+   AngularJS http module (using $httpBackend). Go through this [PR #9029](https://github.com/oppia/oppia/pull/9029/files), 
+   wherein `question-creation.service` and `question-backend-api.service` are migrated to Angular and we went 
+   ahead to change relevant tests in `questions-list.service.spec`.
+
 2. Ensure there are no typescript error
    ```
    python -m scripts.typescript_checks

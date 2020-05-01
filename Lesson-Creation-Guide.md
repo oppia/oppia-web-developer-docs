@@ -24,7 +24,7 @@ This is the high-level process of how a lesson is created. When you complete eac
 <h3>Key Contacts</h3>
 For each lesson you create, you will be assigned a lesson coordinator who is there to help mentor you through the process. If you have any questions, please feel free to reach out to your coordinator or contact the team leads below: 
 <ul>
-<li>Joe Kaewbaidhoon (joeyannaphol@oppia.org), Lesson Creation Lead</li>
+<li>Andrew Muliadi (andrewmuliadi@oppia.org), Lesson Creation Lead</li>
 <li>Mark Halpin (markhalpin3@gmail.com), Story Content Advisor/Reviewer</li>
 <li>Sean Lip (sean@seanlip.org), Math Content Advisor/Reviewer</li>
 </ul>
