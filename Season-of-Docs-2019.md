@@ -122,7 +122,6 @@ This involves organizing the information architecture of the [Oppia wiki](https:
 * How to write a new lint check
 * How to write code that is effective and doesn’t affect the page speed
 * How to upgrade third party library
-* Onboarding guide for the dev workflow team
 * Onboarding guide for the QA team
 * Onboarding guide for the onboarding team
 

@@ -182,7 +182,7 @@ To make code changes, please follow the following instructions carefully! Otherw
 
 * Our central development branch is `develop`, which should be clean and ready for release at any time. All changes should be done in feature branches based off of `develop`.
 
-* If you face any issues while setting things up, or your PR build fails unexpectedly (please go through the logs of the PR build and try debugging the problem on your own first!), feel free to ping **@oppia/dev-workflow-team** for help.
+* If you face any issues while setting things up, or your PR build fails unexpectedly (please go through the logs of the PR build and try debugging the problem on your own first!), feel free to ping **@oppia/core-maintainers** for help.
 
 * To find the author of a particular change in a file, run this command:
 
@@ -222,6 +222,5 @@ This will enable you to get reviews from your mentors and other Oppia contributo
 We have several mailing lists in the form of Google Groups that you can join:
   * [oppia-announce](https://groups.google.com/forum/#!forum/oppia-announce) is for announcements of new releases or blog posts.
   * [oppia-dev](https://groups.google.com/forum/#!forum/oppia-dev) is the main mailing list for communication between developers, and for technical questions.
-  * [oppia-dev-workflow](https://groups.google.com/forum/#!forum/oppia-dev-workflow-team) is the mailing list for communication between Dev Workflow Team, and for workflow issues faced by the contributor.
 
 We also have a developer chat room [here](https://gitter.im/oppia/oppia-chat). Feel free to drop in and say hi!
