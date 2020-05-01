@@ -2,6 +2,38 @@ This guide is intended to provide guidance for writing new frontend unit tests. 
 
 This guide can be used by both new Oppia members and developers who have contributed for a long time. If you have suggestions or tips to add, please contact mari.zangue@gmail.com.
 
+## Summary
+- [Goals](#goals)
+- [What are unit tests](#what-are-unit-tests)
+- [Helpful resources](#helpful-resources)
+- [Generating coverage reports](#generating-coverage-reports)
+  - [Ensuring that coverage is maintained](#ensuring-that-coverage-is-maintained)
+- [Fundamentals](#fundamentals)
+  - [How to analyze the file's coverage](#how-to-analyze-the-files-coverage)
+  - [Rules](#rules)
+  - [Unit test structure](#unit-test-structure)
+  - [How to choose a file to work on](#how-to-choose-a-file-to-work-on)
+- [General tips](#general-tips)
+  - [Spy utilities](#spy-utilities)
+    - [Spying on and handling with third-party libraries]()
+    - [Spying a same object more than one time in same context]()
+  - [Handling Window events and reloads]()
+    - [When window calls reload]()
+  - [Handling with asynchronous code]()
+    - [Making HTTP calls]()
+      - [AngularJS]()
+      - [Angular 2+]()
+    - [Using done and done.fail from Jasmine]()
+    - [Mocking with $q API in AngularJS]()
+  - [When should the upgraded services be imported in the test file?]()
+  - [beforeEach order calls in AngularJS]()
+  - [How to handle some common errors]()
+- [Services](#services)
+  - [AngularJS]()
+    - [Testing controller property on $uibModal.open method]()
+  - [Angular 2+]()
+- [Controllers]()
+
 ## Goals
 Our goal is to achieve **100% coverage** in all files on the frontend application. It means each line should be tested, ascertaining if its behavior is the expected one, thinking from a **behavior-first perspective**. That is, instead of just increasing the line coverage, it’s more important to test the file behavior by checking happy (expected) and unhappy (unexpected) paths. [Here](https://github.com/oppia/oppia/blob/ae649aa08f/core/templates/services/questions-list.service.spec.ts) is a good example to follow when talking about behavior testing -- note the detailed descriptions of what the expected behavior is in each case.
 
