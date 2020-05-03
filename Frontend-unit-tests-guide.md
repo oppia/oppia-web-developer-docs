@@ -24,6 +24,7 @@ This guide can be used by both new Oppia members and developers who have contrib
     - [Using the same object reference in both file and spec file](#using-the-same-object-reference-in-both-file-and-spec-file)
   - [Handling with asynchronous code](#handling-with-asynchronous-code)
     - [Making HTTP calls](#making-http-calls)
+      - [Seting up CsrfToken](#seting-up-csrf-token)
       - [AngularJS](#angularjs)
       - [Angular 2+](#angular-2)
     - [Using done and done.fail from Jasmine](#using-done-and-donefail-from-jasmine)
@@ -50,6 +51,7 @@ A unit test should depend only on the “external” behavior to be tested, not 
 ## Helpful resources
 This list contains some resources that might help you while writing unit tests:
 - [Jasmine documentation](https://jasmine.github.io/api/edge/global)
+- [Karma](https://karma-runner.github.io/)
 - [Angular 2+ testing](https://angular.io/guide/testing)
 - [AngularJS testing](https://docs.angularjs.org/guide/unit-testing)
 
@@ -67,15 +69,15 @@ You can use this report to determine which lines in the codebase still need to b
 ### Ensuring that coverage is maintained  
 In order to make the coverage stable, all fully-covered files are listed in the file `scripts/check_frontend_coverage.py`. This list is very helpful for some reasons:
 - If your changes decrease the coverage of a fully covered file, you can’t push it to GitHub.
-- If you have tested a file until it reaches 100% coverage, you can’t push it to Github, unless you add the file name to the whitelist in the `scripts/check_frontend_coverage.p`y file.
+- If you have tested a file until it reaches 100% coverage, you can’t push it to Github, unless you add the file name to the whitelist in the `scripts/check_frontend_coverage.py` file.
 - If you have removed a fully covered file (it may happen for many reasons: e.g. the file is not used anymore, the file is being migrated to Angular 2+, etc), you need to remove it manually from the whitelist. Then, you can push your commit to GitHub.  
 
 If you need to track the coverage changes (maybe a new file has achieved 100% coverage, or a fully-covered file has had its coverage reduced) before pushing the changes to GitHub, you can pass a flag to the command:  
     `python -m scripts.run_frontend_tests --check_coverage`  
 
-For example, let’s suppose `local-storage.service.ts` used to be fully covered but your changes have decreased it. By running this command, you’ll be able to see an output like this:  
+For example, let’s suppose `local-storage.service.ts` is fully covered but your changes had decreased it. By running this command, you’ll be able to see an output like this:  
 
-![Example of an output by tracking the changes in the frontend unit tests](https://user-images.githubusercontent.com/34922478/80845732-8182f580-8be0-11ea-9c47-0f46f1f44c2f.png)
+![Example of output by tracking the changes in the frontend unit tests](https://user-images.githubusercontent.com/34922478/80845732-8182f580-8be0-11ea-9c47-0f46f1f44c2f.png)
 
 ## Fundamentals
 
@@ -125,7 +127,7 @@ A unit test is made of functions that configure the test environment, make asser
 
 - **beforeEach**
   The beforeEach function is used to set up essential configurations and variables before each spec runs. This function is used basically for three things:
-  - Injecting the modules to be tested or to be used as a helper inside the test file. For [example](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/splash-page/splash-page.controller.spec.ts#L37-L49).
+  - Injecting the modules to be tested or to be used as a helper inside the test file, for [example](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/splash-page/splash-page.controller.spec.ts#L37-L49).
   - Mocking the unit test’s external dependencies (It’s used only on AngularJS files):
     ```
     beforeEach(angular.mock.module(function($provide) {
@@ -149,12 +151,12 @@ A unit test is made of functions that configure the test environment, make asser
   Like describe, the it function has the variants `fit` and `xit` and they can be used in the same as `fdescribe` and `xdescribe`.
 
 - **afterEach**  
-  The afterEach function is not used often in the unit tests. It’s used when we are handling async features as HTTP and timeout calls (both in AngularJS and Angular 2+). [Here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/domain/exploration/read-only-exploration-backend-api.service.spec.ts#L100-L103)'s an example to handle HTTP mocks in AngularJS.
+  The afterEach function is not used often in the unit tests. It’s used when we are handling async features as HTTP and timeout calls (both in AngularJS and Angular 2+). [Here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/domain/exploration/read-only-exploration-backend-api.service.spec.ts#L100-L103)'s an example to handle HTTP mocks in AngularJS and [here](https://github.com/oppia/oppia/blob/ae649aa08f/core/templates/domain/classroom/classroom-backend-api.service.spec.ts#L72-L74)'s an example of doing the same in Angular 2+.
 - **afterAll**  
   The afterAll function is almost never used in the codebase. But there is a specific case which it might be very helpful: when a global variable needs to be reassigned during the tests, you need to reset it to the default value after all the assertions are finished. Check an example of this case [here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/services/site-analytics.service.spec.ts#L40-L42).
 
 - **expect**  
-  The expect function is used to assert a condition in the test. You can check all its methods in the [Jasmine documentation](https://jasmine.github.io/api/edge/global). [Here's](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/exploration-editor-page/services/graph-data.service.spec.ts#L92-L112) a good example of how to use expect correctly.
+  The expect function is used to assert a condition in the test. You can check all its methods in the [Jasmine documentation](https://jasmine.github.io/api/edge/matchers.html). [Here's](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/exploration-editor-page/services/graph-data.service.spec.ts#L92-L112) a good example of how to use expect correctly.
 
 ### How to choose a file to work on
 When trying to choose the first files to work on, you might get confused. All the files are separated by complexity criteria, so you can focus on files which you feel comfortable working with.
@@ -208,6 +210,16 @@ In some cases, you might need to share the same window object in the file you’
 In the frontend, while writing tests, we don’t make actual calls to the backend. All HTTP calls are mocked since the frontend tests actually run without a backend in place.  
 Similarly, any services can also be mocked. We try to keep the usage of such mocks as low as possible since the more mocks there are, the more divergence there is with the underlying code.  
 
+##### Seting up Csrf Token
+In order to make HTTP calls in a secure way, it's common that applications have tokens to authenticate the user while they using the platform. In the codebase, there is a specific service to handle the token, called CsrfTokenService. When mocking HTTP calls, you must use this service in the test file so the tests won't fail (you don't have a real token when running unit tests so it needs to be mocked). Then, you should just copy and paste this piece of code inside a beforeEach block (the CsrfService will be a variable with the return of `$injector.get('CsrfTokenService')` -- in AngularJS -- or `TestBed.get(CsrfTokenService)` -- in Angular2+):
+```
+spyOn(CsrfService, 'getTokenAsync').and.callFake(function() {
+  var deferred = $q.defer();
+  deferred.resolve('sample-csrf-token');
+  return deferred.promise;
+});
+```
+
 ##### AngularJS
 [Here](https://github.com/oppia/oppia/blob/ae649aa08f1375457ec9e3c90257197b68fec7cd/core/templates/domain/learner_dashboard/learner-playlist.service.spec.ts#L84-L99) is an example which uses `$httpBackend` to mock the backend responses. A brief version of the code there, with some explanatory comments is given below.     
 To mock a backend call, you need to use `$httpBackend` dependency. There are two ways to expect a HTTP method (you can use both):
@@ -224,15 +236,15 @@ As the AngularJS way to mock HTTP calls, the Angular 2+ has flush functions to r
 #### Using `done` and `done.fail` from Jasmine  
 Using `done` and `done.fail` is another way to test asynchronous code in Jasmine. You can use it on promises (HTTP calls and so on), timers as `setTimeout` and `setInterval` (`$interval` and `$timeout` in AngularJS).  
 
-There’s a specific case where you should use done on mocking HTTP calls: when you want to assert the result of the fulfilled or reject promise, as you can see [here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/services/assets-backend-api.service.spec.ts#L274-L292). In this piece of code, we need to assert the response variable, then we use done after doing the assertion so Jasmine understands the asynchronous code has been completed.  
+There’s a specific case where you should use `done` on mocking HTTP calls: when you want to assert the result of the fulfilled or reject promise, as you can see [here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/services/assets-backend-api.service.spec.ts#L274-L292). In this piece of code, we need to assert the response variable, then we use `done` after doing the assertion so Jasmine understands the asynchronous code has been completed. You can use `done.fail` when handling with rejected promises.
 
-You can use done in timing events as well, check out this [example](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/teach-page/teach-page.controller.spec.ts#L53-L67).
+You can use `done` in timing events as well, check out this [example](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/teach-page/teach-page.controller.spec.ts#L53-L67).
 
 #### Mocking with `$q` API in AngularJS  
 When mocking a promise in AngularJS, you might use `$q` API. In these cases, you must use `$scope.$apply()` or `$scope.$digest` because it forcibly `$q` promises to be resolved through a Javascript digest. Here are some examples using [$apply](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/email-dashboard-pages/email-dashboard-page.controller.spec.ts#L101-L108) and [$digest](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/exploration-editor-page/services/exploration-states.service.spec.ts#L209-L221).
 
 ### When should the upgraded services be imported in the test file?  
-One of the active projects in Oppia is the Angular 8 migration. By now, the AngularJS services are being migrated and it’s still being used in downgrade files. When testing AngularJS files which uses an Angular 8 as a dependency, you must use the beforeEach call above: 
+One of the active projects in Oppia is the Angular 8 migration. By now, the AngularJS services are being migrated and it’s still being used in downgrade files. When testing AngularJS files which uses an Angular 8 as a dependency (directly or not), you must use the beforeEach call below: 
 ```
 beforeEach(angular.mock.module('oppia', function($provide) {
   var ugs = new UpgradedServices();
@@ -277,8 +289,7 @@ So, what you need to do is to change the order of beforeEach calls, as you can s
     .
     upgradedServices['ServiceName'] = new ServiceName();
     ```
-- If you’re working with async on AngularJS and your tests don’t seem to run correctly, make sure you’re using $apply in the spec, as in this [example](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/topic-editor-page/services/topic-editor-state.service.spec.ts#L716-L720).
-
+- If you’re working with async on AngularJS and your tests don’t seem to run correctly, make sure you’re using `$apply` or `$digest` in the spec, as in this [example](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/topic-editor-page/services/topic-editor-state.service.spec.ts#L716-L720).
 
 ## Services  
 Services are one of the most important features in the codebase. They contain logic that can be used across the codebase multiple times. There are three possible extensions for services:  
