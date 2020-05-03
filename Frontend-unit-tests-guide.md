@@ -24,7 +24,7 @@ This guide can be used by both new Oppia members and developers who have contrib
     - [Using the same object reference in both file and spec file](#using-the-same-object-reference-in-both-file-and-spec-file)
   - [Handling with asynchronous code](#handling-with-asynchronous-code)
     - [Making HTTP calls](#making-http-calls)
-      - [Setting up CsrfToken](#setting-up-csrf-token)
+      - [Setting up CsrfToken](#setting-up-csrftoken)
       - [AngularJS](#angularjs)
       - [Angular 2+](#angular-2)
     - [Using done and done.fail from Jasmine](#using-done-and-donefail-from-jasmine)
@@ -210,8 +210,8 @@ In some cases, you might need to share the same window object in the file you’
 In the frontend, while writing tests, we don’t make actual calls to the backend. All HTTP calls are mocked since the frontend tests actually run without a backend in place.  
 Similarly, any services can also be mocked. We try to keep the usage of such mocks as low as possible since the more mocks there are, the more divergence there is with the underlying code.  
 
-##### Setting up Csrf Token
-In order to make HTTP calls in a secure way, it's common that applications have tokens to authenticate the user while they using the platform. In the codebase, there is a specific service to handle the token, called CsrfTokenService. When mocking HTTP calls, you must use this service in the test file so the tests won't fail (you don't have a real token when running unit tests so it needs to be mocked). Then, you should just copy and paste this piece of code inside a beforeEach block (the CsrfService will be a variable with the return of `$injector.get('CsrfTokenService')` -- in AngularJS -- or `TestBed.get(CsrfTokenService)` -- in Angular2+):
+##### Setting up CsrfToken
+In order to make HTTP calls in a secure way, it's common that applications have tokens to authenticate the user while they using the platform. In the codebase, there is a specific service to handle the token, called CsrfTokenService. When mocking HTTP calls, you must use this service in the test file so the tests won't fail (you don't have a real token when running unit tests so it needs to be mocked). Then, you should just copy and paste this piece of code inside a beforeEach block (the CsrfService will be a variable with the return of `$injector.get('CsrfTokenService')` -- in AngularJS -- or `TestBed.get(CsrfTokenService)` -- in Angular 2+):
 ```
 spyOn(CsrfService, 'getTokenAsync').and.callFake(function() {
   var deferred = $q.defer();
