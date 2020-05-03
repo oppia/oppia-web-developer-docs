@@ -11,7 +11,7 @@ This guide can be used by both new Oppia members and developers who have contrib
 - [Generating coverage reports](#generating-coverage-reports)
   - [Ensuring that coverage is maintained](#ensuring-that-coverage-is-maintained)
 - [Fundamentals](#fundamentals)
-  - [How to analyze the file's coverage](#how-to-analyze-the-files-coverage)
+  - [How to analyze the file's coverage](#how-to-analyze-a-files-coverage)
   - [Rules](#rules)
   - [Unit test structure](#unit-test-structure)
   - [How to choose a file to work on](#how-to-choose-a-file-to-work-on)
