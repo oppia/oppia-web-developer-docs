@@ -17,8 +17,8 @@ This guide can be used by both new Oppia members and developers who have contrib
   - [How to choose a file to work on](#how-to-choose-a-file-to-work-on)
 - [General tips](#general-tips)
   - [Spy utilities](#spy-utilities)
-    - [Spying on and handling with third-party libraries]()
-    - [Spying a same object more than one time in same context]()
+    - [Spying on and handling with third-party libraries](#spying-on-and-handling-with-third-party-libraries)
+    - [Spying a same object more than one time in same context](#spying-the-same-methodproperty-more-than-one-time-in-same-context)
   - [Handling Window events and reloads]()
     - [When window calls reload]()
   - [Handling with asynchronous code]()
@@ -210,11 +210,26 @@ spyOn('should not throw an error when spying twice', function() {
 ```
 You can check real examples of this approach [here](https://github.com/oppia/oppia/blob/develop/core/templates/pages/landing-pages/topic-landing-page/topic-landing-page.controller.spec.ts#L94-L109) and [here](https://github.com/oppia/oppia/blob/develop/core/templates/pages/about-page/about-page.controller.spec.ts#L24-L29).
 
-#### Handling Window events and reloads
+### Handling Window events and reloads
 Spying on window object is very common, mainly because some native behaviors can cause the tests to fail or make them unpredictable. This happens in two specific cases:
 
-##### When window calls reload  
+#### When window calls reload  
 When reload is called in the native form, it will fail the tests. You can fix it by using the Spy `returnValue()` method. Also, the image below gives an example of how to avoid native `reload()` calls by mocking using an empty function, but you may need to adjust this based on the context you’re testing. Check it out how to mock `reload()` correctly [here](https://github.com/oppia/oppia/blob/develop/core/templates/pages/about-page/about-page.controller.spec.ts#L72-L77).
+
+#### Using the same object reference in both file and spec file  
+In some cases, you might need to share the same window object in the file you’re testing and in the spec file itself, mainly if you’re working on window events. [Here](https://github.com/oppia/oppia/blob/develop/core/templates/pages/about-page/about-page.controller.spec.ts#L24-L29)’s an example of how to do it.
+
+### Handling with asynchronous code  
+
+#### Making HTTP calls  
+In the frontend, while writing tests, we don’t make actual calls to the backend. All HTTP calls are mocked since the frontend tests actually run without a backend in place.  
+Similarly, any services can also be mocked. We try to keep the usage of such mocks as low as possible since the more mocks there are, the more divergence there is with the underlying code.  
+
+#### AngularJS
+Here is an example which uses $httpBackend to mock the backend responses. A brief version of the code there, with some explanatory comments is given below.  
+
+#### Angular 2+
+
 
 ### How to handle common errors  
 - If you see an error like `Error: Trying to get the Angular injector before bootstrapping the corresponding Angular module`, it means you are using a service (directly or indirectly) that is Upgraded to Angular and this error can throw or two reasons:
