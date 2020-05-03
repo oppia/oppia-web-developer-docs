@@ -19,22 +19,22 @@ This guide can be used by both new Oppia members and developers who have contrib
   - [Spy utilities](#spy-utilities)
     - [Spying on and handling with third-party libraries](#spying-on-and-handling-with-third-party-libraries)
     - [Spying a same object more than one time in same context](#spying-the-same-methodproperty-more-than-one-time-in-same-context)
-  - [Handling Window events and reloads]()
-    - [When window calls reload]()
-  - [Handling with asynchronous code]()
-    - [Making HTTP calls]()
+  - [Handling Window events and reloads](#handling-window-events-and-reloads)
+    - [When window calls reload](#when-window-calls-reload)
+  - [Handling with asynchronous code](#handling-with-asynchronous-code)
+    - [Making HTTP calls](#making-http-calls)
       - [AngularJS]()
       - [Angular 2+]()
-    - [Using done and done.fail from Jasmine]()
-    - [Mocking with $q API in AngularJS]()
-  - [When should the upgraded services be imported in the test file?]()
-  - [beforeEach order calls in AngularJS]()
-  - [How to handle some common errors]()
+    - [Using done and done.fail from Jasmine](#using-done-and-donefail-from-jasmine)
+    - [Mocking with $q API in AngularJS](#mocking-using-$q-in-angularjs)
+  - [When should the upgraded services be imported in the test file?](#when-should-the-upgraded-services-be-imported-in-the-test-file)
+  - [beforeEach order calls in AngularJS](#beforeeach-order-calls-in-angularjs)
+  - [How to handle some common errors](#how-to-handle-with-common-errors)
 - [Services](#services)
   - [AngularJS]()
-    - [Testing controller property on $uibModal.open method]()
+    - [Testing controller property on $uibModal.open method](#testing-controller-property-on-$uibmodalopen-method)
   - [Angular 2+]()
-- [Controllers]()
+- [Controllers](#controllers)
 
 ## Goals
 Our goal is to achieve **100% coverage** in all files on the frontend application. It means each line should be tested, ascertaining if its behavior is the expected one, thinking from a **behavior-first perspective**. That is, instead of just increasing the line coverage, it’s more important to test the file behavior by checking happy (expected) and unhappy (unexpected) paths. [Here](https://github.com/oppia/oppia/blob/ae649aa08f/core/templates/services/questions-list.service.spec.ts) is a good example to follow when talking about behavior testing -- note the detailed descriptions of what the expected behavior is in each case.
@@ -112,11 +112,11 @@ A unit test is made of functions that configure the test environment, make asser
   ```
   _A describe function nested in another describe function._
 
-  Check it out [a real example](https://github.com/oppia/oppia/blob/develop/core/templates/pages/creator-dashboard-page/suggestion-modal-for-creator-view/suggestion-modal-for-creator-view.controller.spec.ts) in codebase to how use describe properly.
+  Check it out [a real example](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/creator-dashboard-page/suggestion-modal-for-creator-view/suggestion-modal-for-creator-view.controller.spec.ts) in codebase to how use describe properly.
 
   The describe function has also some variants to help you. Use these variants only in the development environment:  
-  - **fdescribe**: This is used when you want to run only the test suite marked as fdescribe. You should use it quite frequently when testing locally, in order to ensure that the coverage remains stable.
-  - **xdescribe**: This is used when you want to run all test suites except the one marked with xdescribe.
+  - **fdescribe**: This is used when you want to run only the test suite marked as `fdescribe`. You should use it quite frequently when testing locally, in order to ensure that the coverage remains stable.
+  - **xdescribe**: This is used when you want to run all test suites except the one marked with `xdescribe`.
 
 - **beforeEach**
   The beforeEach function is used to set up essential configurations and variables before each spec runs. This function is used basically for three things:
@@ -156,8 +156,8 @@ A unit test is made of functions that configure the test environment, make asser
     ```
 - **it**  
   The it function is where the test happens. Like the describe function, its first parameter is a string which should determine the action to be tested and the expected outcome of the tests. The string should have a clear description of what is going to be tested. Also, the string must start with a should word.  
-  All possible code paths in the function should be tested. Here is a good example of testing all code paths. The names of the various tests in this [example in codebase](https://github.com/oppia/oppia/blob/develop/core/templates/services/search.service.spec.ts) give you an idea of what is expected.
-  Like describe, the it function has the variantes fit and xit and they can be used in the same as fdescribe and xdescribe.
+  All possible code paths in the function should be tested. Here is a good example of testing all code paths. The names of the various tests in this [example in codebase](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/services/search.service.spec.ts) give you an idea of what is expected.
+  Like describe, the it function has the variants `fit` and `xit` and they can be used in the same as `fdescribe` and `xdescribe`.
 
 - **afterEach**  
   The afterEach function is not used often in the unit tests. It’s used when we are handling async features as HTTP and timeout calls:
@@ -168,13 +168,13 @@ A unit test is made of functions that configure the test environment, make asser
   });
   ```
 - **afterAll**  
-  The afterAll function is almost never used in the codebase. But there is a specific case which it might be very helpful: when a global variable needs to be reassigned during the tests, you need to reset it to the default value after the all the assertions is finished. Check an example of this case [here](https://github.com/oppia/oppia/blob/develop/core/templates/services/site-analytics.service.spec.ts#L40-L42).
+  The afterAll function is almost never used in the codebase. But there is a specific case which it might be very helpful: when a global variable needs to be reassigned during the tests, you need to reset it to the default value after the all the assertions is finished. Check an example of this case [here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/services/site-analytics.service.spec.ts#L40-L42).
 
 - **expect**  
-  The expect function is used to assert a condition in the test. You can check all its methods in the [Jasmine documentation](https://jasmine.github.io/api/edge/global). [Here's](https://github.com/oppia/oppia/blob/develop/core/templates/pages/exploration-editor-page/services/graph-data.service.spec.ts#L92-L112) a good example of how to use expect correctly.
+  The expect function is used to assert a condition in the test. You can check all its methods in the [Jasmine documentation](https://jasmine.github.io/api/edge/global). [Here's](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/exploration-editor-page/services/graph-data.service.spec.ts#L92-L112) a good example of how to use expect correctly.
 
 ### How to choose a file to work on
-When trying to choose the first files to work on, you might get confused. All the files are separated by a complexity criteria, so you can focus on files which you feel comfortable working with.
+When trying to choose the first files to work on, you might get confused. All the files are separated by complexity criteria, so you can focus on files which you feel comfortable working with.
 
 |            |      Easy       |     Medium      |        Hard        |
 |------------|:---------------:|:---------------:|:------------------:|
@@ -184,13 +184,13 @@ When trying to choose the first files to work on, you might get confused. All th
 
 ### Spy utilities  
 One of the main features of Jasmine is allowing you to spy on a method or property of an object. This is helpful in some cases for seeing what is going on:  
-- It can spy on properties of an object (using the spyOnProperty method). [Here](https://github.com/oppia/oppia/blob/develop/core/templates/services/contextual/device-info.service.spec.ts#L48-L55)'s an example.
-- It can mock a property value or a method return. [Here](https://github.com/oppia/oppia/blob/develop/core/templates/pages/exploration-editor-page/feedback-tab/services/thread-data.service.spec.ts#L147)'s an example.
-- It allows you to provide fake implementations that can be called when a method is executed. This is commonly used when mocking AngularJS promises with $defer. [Here](https://github.com/oppia/oppia/blob/develop/core/templates/pages/email-dashboard-pages/email-dashboard-page.controller.spec.ts#L121-L133)'s an example.
-- It can spy on a method to check whether that method is being called when the spec runs. [Here](https://github.com/oppia/oppia/blob/develop/core/templates/services/schema-default-value.service.spec.ts#L109-L118)'s an example.
+- It can spy on an object's properties (using the `spyOnProperty` method). [Here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/services/contextual/device-info.service.spec.ts#L48-L55)'s an example.
+- It can mock a property value or a method return. [Here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/exploration-editor-page/feedback-tab/services/thread-data.service.spec.ts#L147)'s an example.
+- It allows you to provide fake implementations that can be called when a method is executed. This is commonly used when mocking AngularJS promises with $defer. [Here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/email-dashboard-pages/email-dashboard-page.controller.spec.ts#L121-L133)'s an example.
+- It can spy on a method to check whether that method is being called when the spec runs. [Here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/services/schema-default-value.service.spec.ts#L109-L118)'s an example.
 
 #### Spying on and handling with third-party libraries  
-Also, the spy can be used when mocking third-party libraries, like JQuery, mostly when doing ajax calls. [Here](https://github.com/oppia/oppia/blob/develop/core/templates/services/assets-backend-api.service.spec.ts#L274-L292)'s a good example when mocking JQuery ajax calls.
+Also, the spy can be used when mocking third-party libraries, like JQuery, mostly when doing ajax calls. [Here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/services/assets-backend-api.service.spec.ts#L274-L292)'s a good example when mocking JQuery ajax calls.
 
 #### Spying the same method/property more than one time in same context  
 It is impossible to spy twice the same method or property in the same context (block). For instance, the code below would throw an error:
@@ -208,16 +208,16 @@ spyOn('should not throw an error when spying twice', function() {
   warnSpy.and.stub();
 });
 ```
-You can check real examples of this approach [here](https://github.com/oppia/oppia/blob/develop/core/templates/pages/landing-pages/topic-landing-page/topic-landing-page.controller.spec.ts#L94-L109) and [here](https://github.com/oppia/oppia/blob/develop/core/templates/pages/about-page/about-page.controller.spec.ts#L24-L29).
+You can check real examples of this approach [here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/landing-pages/topic-landing-page/topic-landing-page.controller.spec.ts#L94-L109) and [here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/about-page/about-page.controller.spec.ts#L24-L29).
 
 ### Handling Window events and reloads
 Spying on window object is very common, mainly because some native behaviors can cause the tests to fail or make them unpredictable. This happens in two specific cases:
 
 #### When window calls reload  
-When reload is called in the native form, it will fail the tests. You can fix it by using the Spy `returnValue()` method. Also, the image below gives an example of how to avoid native `reload()` calls by mocking using an empty function, but you may need to adjust this based on the context you’re testing. Check it out how to mock `reload()` correctly [here](https://github.com/oppia/oppia/blob/develop/core/templates/pages/about-page/about-page.controller.spec.ts#L72-L77).
+When reload is called in the native form, it will fail the tests. You can fix it by using the Spy `returnValue()` method. Also, the image below gives an example of how to avoid native `reload()` calls by mocking using an empty function, but you may need to adjust this based on the context you’re testing. Check it out how to mock `reload()` correctly [here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/about-page/about-page.controller.spec.ts#L72-L77).
 
 #### Using the same object reference in both file and spec file  
-In some cases, you might need to share the same window object in the file you’re testing and in the spec file itself, mainly if you’re working on window events. [Here](https://github.com/oppia/oppia/blob/develop/core/templates/pages/about-page/about-page.controller.spec.ts#L24-L29)’s an example of how to do it.
+In some cases, you might need to share the same window object in the file you’re testing and in the spec file itself, mainly if you’re working on window events. [Here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/about-page/about-page.controller.spec.ts#L24-L29)’s an example of how to do it.
 
 ### Handling with asynchronous code  
 
@@ -225,11 +225,48 @@ In some cases, you might need to share the same window object in the file you’
 In the frontend, while writing tests, we don’t make actual calls to the backend. All HTTP calls are mocked since the frontend tests actually run without a backend in place.  
 Similarly, any services can also be mocked. We try to keep the usage of such mocks as low as possible since the more mocks there are, the more divergence there is with the underlying code.  
 
-#### AngularJS
-Here is an example which uses $httpBackend to mock the backend responses. A brief version of the code there, with some explanatory comments is given below.  
+##### AngularJS
+[Here](https://github.com/oppia/oppia/blob/ae649aa08f1375457ec9e3c90257197b68fec7cd/core/templates/domain/learner_dashboard/learner-playlist.service.spec.ts#L84-L99) is an example which uses $httpBackend to mock the backend responses. A brief version of the code there, with some explanatory comments is given below.     
+To mock a backend call, you need to use `$httpBackend` dependency. There are two ways to expect a HTTP method (you can use both):
+- `$httpBackend.expectMETHODNAME(URL)` - like `expectPOST` or `expectGET` for instance
+- `$httpBackend.expect(‘METHOD’, URL)` - You pass the HTTP method as the first argument.  
 
-#### Angular 2+
+When writing HTTP tests (which are asynchronous) we need to always use `$httpBackend.flush()` method. This will ensure that the mocked request call will be executed. So don’t forget to put it into the spec test (otherwise it will throw an error).
 
+##### Angular 2+ 
+When writing HTTP tests on Angular 2+, use `httpTestingController` with `fakeAsync()` and `flushMicrotasks()`. [Here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/domain/classroom/classroom-backend-api.service.spec.ts#L77-L96)’s a good example to follow.  
+
+As the AngularJS way to mock HTTP calls, the Angular 2+ has flush functions to return the expected response and execute the mock correctly as well.
+
+#### Using `done` and `done.fail` from Jasmine  
+Using `done` and `done.fail` is another way to test asynchronous code in Jasmine. You can use it on promises (HTTP calls and so on), timers as `setTimeout` and `setInterval` (`$interval` and `$timeout` in AngularJS).  
+
+There’s a specific case where you should use done on mocking HTTP calls: when you want to assert the result of the fulfilled or reject promise, as you can see [here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/services/assets-backend-api.service.spec.ts#L274-L292). In this piece of code, we need to assert the response variable, then we use done after doing the assertion so Jasmine understands the asynchronous code has been completed.  
+
+You can use done in timing events as well, check out this [example](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/teach-page/teach-page.controller.spec.ts#L53-L67).
+
+#### Mocking with $q API in AngularJS  
+When mocking a promise in AngularJS, you might use $q API. In these cases, you must use $scope.$apply() or $scope.$digest because it forcibly $q promises to be resolved through a Javascript digest. Here are some examples using [$apply](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/email-dashboard-pages/email-dashboard-page.controller.spec.ts#L101-L108) and [$digest](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/exploration-editor-page/services/exploration-states.service.spec.ts#L209-L221).
+
+### When should the upgraded services be imported in the test file?  
+One of the active projects in Oppia is the Angular 8 migration. By now, the AngularJS services are being migrated and it’s still being used in downgrade files. When testing AngularJS files which uses an Angular 8 as a dependency, you must use the beforeEach call above: 
+```
+beforeEach(angular.mock.module('oppia', function($provide) {
+  var ugs = new UpgradedServices();
+  for (let [key, value] of Object.entries(ugs.getUpgradedServices())) {
+    $provide.value(key, value);
+  }
+}));
+``` 
+
+If the file you’re testing doesn’t use any upgraded files, you don’t need to copy and paste this beforeEach call.
+
+### BeforeEach calls in AngularJS  
+If you’re testing an AngularJS file that uses an upgraded service, you’ll need to copy and past the beforeEach block which mocks all the upgraded services. Then, you might notice in beforeEach calls we follow a specific sequence (as you can see [here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/exploration-editor-page/editor-tab/training-panel/training-modal.controller.spec.ts#L35-L48)).  
+
+However, you might face the following situation: you need to mock an Angular 8 service by using `$provide.value`. Here’s the problem: if you use `$provide.value` before calling the updated services, your mock will be overwritten by the original code of the service.
+
+So, what you need to do is to change the order of beforeEach calls, as you can see in this [test](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/exploration-editor-page/improvements-tab/services/improvement-suggestion-thread-modal.controller.spec.ts#L36-L51).
 
 ### How to handle common errors  
 - If you see an error like `Error: Trying to get the Angular injector before bootstrapping the corresponding Angular module`, it means you are using a service (directly or indirectly) that is Upgraded to Angular and this error can throw or two reasons:
@@ -257,65 +294,8 @@ Here is an example which uses $httpBackend to mock the backend responses. A brie
     .
     upgradedServices['ServiceName'] = new ServiceName();
     ```
+- If you’re working with async on AngularJS and your tests don’t seem to run correctly, make sure you’re using $apply in the spec, as in this [example](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/topic-editor-page/services/topic-editor-state.service.spec.ts#L716-L720).
 
-## Best practices for good tests:
-- Naming the test is important. The name should include the name of the component being tested, the conditions imposed on the test and the expected outcome of the test.
-    - The test name follows this format: describe(<component name>) and it(‘should <do this action> when <this condition is imposed>’)
-    - Here is an example
-
-      ![image](https://user-images.githubusercontent.com/11898234/75883048-5da56c80-5e48-11ea-89f1-bc097e73bdef.png)
-
-- All possible code paths in the function should be tested. This is important from a coverage perspective. [Here](https://github.com/oppia/oppia/blob/ae649aa08f1375457ec9e3c90257197b68fec7cd/core/templates/domain/objects/FractionObjectFactorySpec.ts) is a good example of testing all code paths. The names of the various tests in the below image should give you an idea of what is expected.
-
-  ![image](https://user-images.githubusercontent.com/11898234/75883131-83cb0c80-5e48-11ea-91e8-2a36dcefd218.png)
-
-- Any common code can be extracted into a helper function to reduce duplication. Make sure the helper function deals with only one of the 3 parts, ie, the helper function can help with either setup, action or assertion, avoid overlapping across the parts.
-- Assert as many things as possible. An example of this is say, the function returns the list, you can assert that the number of elements is as expected, and each element you expect is in the list. Another example is if an object is expected, then assert the various fields of the object are as expected.
-- In the frontend, while writing tests, we don’t make actual calls to the backend. All http calls are mocked, to keep the tests independent of the backend. Similarly, any services can also be mocked. We try to keep such mocks as low as possible. [Here](https://github.com/oppia/oppia/blob/ae649aa08f1375457ec9e3c90257197b68fec7cd/core/templates/domain/learner_dashboard/learner-playlist.service.spec.ts#L27) is an example usage of $httpBackend to mock the backend responses. A brief version of the code there, with some explanatory comments is given below
-
-  ![image](https://user-images.githubusercontent.com/11898234/75883248-bb39b900-5e48-11ea-9d50-83157e8f6515.png)
-
-
-- When writing asynchronous tests, if your asynchronous call involves `promises` use `fakeAsync()` and `flushMicrotasks()`. A sample of code is given below:
-  ```typescript
-  it('should test some asynchronous code', fakeAsync(() => {
-
-        let flagOne = false;
-        let flagTwo = false;
-
-        Promise.resolve(true).then((result) => {
-            flagOne = true;
-        });
-
-        Promise.resolve(true).then((result) => {
-            flagTwo = true;
-        });
-
-        flushMicrotasks();
-
-        expect(flagOne).toBe(true); // PASSES
-        expect(flagTwo).toBe(true); // PASSES
-
-  }));
-  ```
-
-  If your asynchronous calls involves functions like `setInterval()`, `setTimeout()` then use
-  `done`. A code sample for the same is given below:
-
-  ```typescript
-  it('does a thing', function(done) {
-    someAsyncFunction(result) {
-      expect(result).toEqual(someExpectedValue);
-      done();
-    });
-  });
-  ```
-  If your async calls involves anything other than above two conditions, contact **Nitish**(@bansalnitish).
-
-  You can read here https://angular.io/guide/testing to know more about jasmine testing. It's a long document so
-  search and read whatever is relevant to you.
-## Practical tips for writing tests:
-- If you're trying to fully cover a specific file's behaviour using frontend tests, change the outer `describe` to `fdescribe` before running the tests locally (with coverage checks), so that only the tests in the file you're writing will run on Karma. This helps to ensure that all methods for the corresponding file are being tested thoroughly, and that the code in the file you're testing isn't being covered "by chance" due to some test from another file. (Remember to change the tag back to `describe` before committing your changes!)
 
 ## Services  
 Services are one of the most important features in the codebase. They contain logic that can be used across the codebase multiple times. There are three possible extensions for services:  
@@ -324,7 +304,7 @@ Services are one of the most important features in the codebase. They contain lo
 - *.factory.ts
 - *.tokenizer.ts  
 
-As a good first issue, all the services that need to be tested are listed in [issue #4057](https://github.com/oppia/oppia/issues/4057), grouped by the [complexity criteria](https://github.com/oppia/oppia/wiki/Frontend-unit-tests-guide#how-to-choose-a-file-to-work-on).
+As a good first issue, all the services that need to be tested are listed in [issue #4057](https://github.com/oppia/oppia/issues/4057), grouped by the [complexity criteria](#how-to-choose-a-file-to-work-on).
 
 ### AngularJS
 
@@ -340,8 +320,8 @@ _Code from exploration-states.service.ts_
 
 So, for modals, the correct approach to follow is:  
 - Create a new controller in a separate file and copy the method controller to it.
-- Instead of declaring the controller in the method, refers to the controller you have created.
-- Then, the service can be tested correctly, and the controller as well. [Here](https://github.com/oppia/oppia/blob/develop/core/templates/pages/exploration-editor-page/improvements-tab/services/improvement-modal.service.ts#L56-L66)’s an example.  
+- Instead of declaring the controller in the method, you should refer to the controller you have created.
+- Then, the service can be tested correctly, and the controller as well. [Here](https://github.com/oppia/oppia/tree/2e60d69d7b06f45ac807d66f6de571c627db1397/core/templates/pages/exploration-editor-page/improvements-tab/services/improvement-modal.service.ts#L56-L66)’s an example.  
 
 If you’re interested in working with this kind of file, please check [issue #8924](https://github.com/oppia/oppia/issues/8924) containing all the files with $uibModal to be migrated to a separated file.  
 
