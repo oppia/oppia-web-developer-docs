@@ -6,6 +6,7 @@ More specifically, here’s how to get started:
 1. Make a copy of [this document](https://docs.google.com/document/d/1eMivKj5uWkOkj4AB684JVJslAe49gSskZ-VsyUjgPN4/edit).
 2. Delete the top "instructions" box.
 3. Fill in all the sections with details pertaining to your feature/project (you can remove the existing text, which is just meant to help you get started). For sections that are not required for the particular project you’re working on, write a short explanation of why they’re not required, rather than deleting them altogether.
+4. Make sure to proofread your design doc before asking reviewers to look at it.
 
 ## How to respond to design doc reviews
 
