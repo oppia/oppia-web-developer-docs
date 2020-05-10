@@ -50,7 +50,7 @@ Welcome! Please make sure to follow the [setup instructions](https://github.com/
 - [#8038](https://github.com/oppia/oppia/issues/8038) (Refactoring frontend services)
 - [#7427](https://github.com/oppia/oppia/issues/7427) (backend; python adding docstrings,args)
 
-since these issues are hand-picked and ensure that you don't run into unexpected roadblocks while working on them. For other issues, you may need to be more independent because often times, we don’t know how to solve them either. 
+since these issues are hand-picked and ensure that you don't run into unexpected roadblocks while working on them. For other issues, you may need to be more independent because often times, we don’t know how to solve them either.
 If you decide to pick one of these, please go ahead and leave a comment saying which part of the issue you're taking, and submit a follow-up PR by following the [instructions below](Contributing-code-to-Oppia#instructions-for-making-a-code-change). You don't need to wait for approval to get started!
 
 **Important Note**: Please make sure to read and follow the [PR instructions](Contributing-code-to-Oppia#instructions-for-making-a-code-change) carefully, otherwise your PR review may be delayed.
@@ -208,9 +208,24 @@ To make code changes, please follow the following instructions carefully! Otherw
 
 * **Important** PRs marked with the “critical” label need to be tested in the backup server before being merged. For this, one of the release coordinators (with access to deploy) should checkout a new branch from develop, merge the branch from the PR into the new branch, and initiate deployment to the backup server from this branch. The PR author should give specific testing instructions for the changes (like which job to run, what the expected output is, etc) and the coordinator should verify the same. Once successfully tested, the PR should be merged into develop. This is to prevent cases like exploration migrations which can result in data corruption (as it will auto-migrate) if the migration isn’t safe. The "critical" label needs to be applied on PRs that change data validation checks, and other possibly critical changes which could affect production data.
 
+## Labeling issues and pull requests
+While contributing to Oppia, you will sometimes need to add different labels to issues or pull requests which you are working on.
+However, not all labels are allowed on issues and pull requests.
+Below are labels to be applied to pull requests.
+
+1. Dependencies.
+2. Critical.
+3. Stale -- Should only be added by oppiabot on PRs that have not been active over a period of time.
+4. Changelog (labels containing _PR CHANGELOG_).
+5. Labels starting with **PR** like _PR: LGTM, PR: don’t merge - needs CLA_.
+
+All other labels are to be used on issues.
+It should be noted that the **good first issue** label should only be added by members of the onboarding team.
+
+A complete list of labels can be found [here](https://github.com/oppia/oppia/labels).
 ## Writing design docs
 
-Sometimes, it might not be entirely clear how to implement something. In such cases, we recommend creating a short document which states the problem clearly and provides a comparative analysis of the different approaches that you can think of to tackle the issue. 
+Sometimes, it might not be entirely clear how to implement something. In such cases, we recommend creating a short document which states the problem clearly and provides a comparative analysis of the different approaches that you can think of to tackle the issue.
 
 This will enable you to get reviews from your mentors and other Oppia contributors easily without needing to schedule a meeting, and make it easier to add additional reviewers later if needed. You can find more information on [this wiki page](https://github.com/oppia/oppia/wiki/Writing-design-docs) about how to write these docs, as well as best practices for responding to doc reviews.
 
