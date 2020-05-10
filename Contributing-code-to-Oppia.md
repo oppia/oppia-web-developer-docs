@@ -209,9 +209,12 @@ To make code changes, please follow the following instructions carefully! Otherw
 * **Important** PRs marked with the “critical” label need to be tested in the backup server before being merged. For this, one of the release coordinators (with access to deploy) should checkout a new branch from develop, merge the branch from the PR into the new branch, and initiate deployment to the backup server from this branch. The PR author should give specific testing instructions for the changes (like which job to run, what the expected output is, etc) and the coordinator should verify the same. Once successfully tested, the PR should be merged into develop. This is to prevent cases like exploration migrations which can result in data corruption (as it will auto-migrate) if the migration isn’t safe. The "critical" label needs to be applied on PRs that change data validation checks, and other possibly critical changes which could affect production data.
 
 ## Labeling issues and pull requests
-While contributing to Oppia, you will sometimes need to add different labels to issues or pull requests which you are working on.
+
+While contributing to Oppia, you will need to add different labels to issues or pull requests which you are working on.
+
 However, not all labels are allowed on issues and pull requests.
-Below are labels to be applied to pull requests.
+
+Below are labels which can be applied to pull requests:
 
 1. Dependencies.
 2. Critical.
@@ -220,6 +223,7 @@ Below are labels to be applied to pull requests.
 5. Labels starting with **PR** like _PR: LGTM, PR: don’t merge - needs CLA_.
 
 All other labels are to be used on issues.
+
 It should be noted that the **good first issue** label should only be added by members of the onboarding team.
 
 A complete list of labels can be found [here](https://github.com/oppia/oppia/labels).
