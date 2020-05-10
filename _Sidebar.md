@@ -77,6 +77,7 @@
   * Deploying Oppia
     * [[Migration Instructions|Migration-Instructions]]
   * Playbooks
+    * [[Instructions for making PR passes|Instructions-for-making-PR-passes]]
     * [[Instructions for Reviewers|Instructions-for-Reviewers]]
     * [[Instructions for making changes to roles and actions|Instructions-for-editing-roles-or-actions]]
     * [[Instructions for QA coordinators|Instructions-to-QA-coordinators]]
