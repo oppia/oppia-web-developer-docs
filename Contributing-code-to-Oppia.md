@@ -216,15 +216,15 @@ However, not all labels are allowed on issues and pull requests.
 
 Below are labels which can be applied to pull requests:
 
-1. Dependencies.
-2. Critical.
-3. Stale -- Should only be added by oppiabot on PRs that have not been active over a period of time.
-4. Changelog (labels containing _PR CHANGELOG_).
-5. Labels starting with **PR** like _PR: LGTM, PR: don’t merge - needs CLA_.
+1. Dependencies: Should be added to pull requests that updates one or more dependencies.
+2. Critical: Should be added to pull requests that change the data validation methods.
+3. Stale: Should only be added by oppiabot on pull requests that have not been active over a period of time.
+4. Changelog (labels containing _PR CHANGELOG_): Should be used on pull requests for respective projects. For example, a pull requests which upgrades a service from angularjs to angular 8, should apply the angular migration changelog label __PR CHANGELOG: Angular Migration -- @bansalnitish__.
+5. Labels starting with **PR** like _PR: LGTM, PR: don’t merge - needs CLA_: These labels are used to denote the status of a pull request. For example, the __PR: LGTM__ shows that the PR has been approved and is probably waiting for CI checks to be completed.
 
 All other labels are to be used on issues.
 
-It should be noted that the **good first issue** label should only be added by members of the onboarding team.
+It should be noted that the **good first issue** label should only be added by members of the onboarding team which is lead by [@Showtim3](https://github.com/Showtim3).
 
 A complete list of labels can be found [here](https://github.com/oppia/oppia/labels).
 ## Writing design docs
