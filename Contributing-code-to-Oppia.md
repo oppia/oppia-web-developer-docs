@@ -217,7 +217,7 @@ However, not all labels are allowed on issues and pull requests.
 Below are labels which can be applied to pull requests:
 
 1. Dependencies: Should be added to pull requests that updates one or more dependencies.
-2. Critical: Should be added to pull requests that change the data validation methods.
+2. Critical: Should be added to pull requests that change storage models.
 3. Stale: Should only be added by oppiabot on pull requests that have not been active over a period of time.
 4. Changelog (labels containing _PR CHANGELOG_): Should be used on pull requests for respective projects. For example, a pull requests which upgrades a service from angularjs to angular 8, should apply the angular migration changelog label __PR CHANGELOG: Angular Migration -- @bansalnitish__.
 5. Labels starting with **PR** like _PR: LGTM, PR: don’t merge - needs CLA_: These labels are used to denote the status of a pull request. For example, the __PR: LGTM__ shows that the PR has been approved and is probably waiting for CI checks to be completed.
