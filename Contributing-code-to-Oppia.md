@@ -224,7 +224,7 @@ Below are labels which can be applied to pull requests:
 
 All other labels are to be used on issues.
 
-It should be noted that the **good first issue** label should only be added by members of the onboarding team which is lead by [@Showtim3](https://github.com/Showtim3).
+It should be noted that the **good first issue** label should only be added by members of the onboarding team which is led by [@Showtim3](https://github.com/Showtim3).
 
 A complete list of labels can be found [here](https://github.com/oppia/oppia/labels).
 ## Writing design docs
