@@ -110,6 +110,11 @@ Trickier Patterns
     await elem.click();
   }));
   ```
+* When multiple elements might match a locator, we often use `element.all` to get an [`ElementArrayFinder`](https://www.protractortest.org/#/api?view=ElementArrayFinder). This object can usually be used just like a list, but it appears that with async-await, we can only use the functions it defines. In particular:
+    * Use `elems.count()` instead of `elems.length` to get the length
+    * Use `elems.get(i)` instead of `elems[i]`. `elems.first(i)` and `elems.last(i)` work too.
+
+  Calling these functions is asynchronous, so you need to `await` them. You do *not* need to `await` the `element.all` call itself (we think).
 
 ## Debugging Migrated Tests
 
