@@ -133,8 +133,7 @@ Trickier Patterns
 ## Debugging Migrated Tests
 
 * Check for a missing `await`. This problem probably won't give you very helpful error messages, so carefully read the code and comment out blocks to isolate the problem.
-* Be careful with `element.all` calls. You may need to `await` them.
-* Empty lists don't have a `.first()` method, so if you have a pattern like this:
+* Empty lists don't have a `.first()` method (or a `.last()`), so if you have a pattern like this:
   ```js
   var elems = await element.all(by.css('.protractor-test-elem'));
   await waitFor.visibilityOf(elems.first(), 'elem not visible');
