@@ -100,6 +100,20 @@ Simple Patterns
     return await // doing something with output
   });
   ```
+* Expectations
+  ```js
+  expect(await elem.getText()).toEqual('expectedText'));
+  ```
+* Variable assignments
+  ```js
+  var myVar = await myAsyncFunc();
+  ```
+* If statements
+  ```js
+  if (await elem.getText() === "hi") {
+    await elem.click();
+  }
+  ```
 
 Trickier Patterns
 
