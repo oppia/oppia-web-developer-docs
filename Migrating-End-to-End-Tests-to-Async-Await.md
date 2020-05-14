@@ -1,7 +1,5 @@
 # Migrating to Async-Await
 
-**WARNING: This section is a draft.**
-
 We are migrating all of the end-to-end tests to use async-await instead of Protractor's native control flow. This should help improve stability since async-await is a native Javascript feature and better supported. It is also necessitated by the removal of control flow management from the latest version of Protractor.
 
 We have a lot of code to migrate, and we have to migrate it all at once because async-await is incompatible with Protractor's control flow. We're trying to get this done as quickly as possible before more changes are pushed to the end-to-end tests, so **we need your help!**
@@ -39,6 +37,7 @@ If you are more experienced and can spare more time, please see "Migrate by Suit
 * Clone the branch from the PR. If you already cloned the branch, update from the remote branch. **Pull in remote changes daily if not hourly!**
     * With so many people working on one branch, there's a lot of potential for merge conflicts. Keep this to a minimum by pulling in remote changes early and often.
 * Migrate the file and all of its dependencies by working through the file line-by-line. Each time you find a call to another file, migrate that function in the other file and all of its dependencies recursively. By the time you finish, you should have a fully migrated suite that runs and passes consistently.
+* When you are debugging your migrated code, add to the list of debugging tips below to help future contributors.
 * **Commit your changes, keeping one commit per file or group of files if possible,** and push it to the PR branch
     * This PR is going to be a huge diff, and it will help us review the changes if every file is migrated in its own commit. In this case you might only be migrating parts of files, so you may need to break this rule. Try and keep your commit history easy to understand though.
 * Check the box next to your claimed file.
@@ -89,6 +88,8 @@ Notice that every asynchronous action is prefixed immediately by `await`, and fu
 
 ## Migrating Common Patterns
 
+Simple Patterns
+
 * Getting a URL
   ```js
   await browser.get('someURL');
@@ -100,8 +101,23 @@ Notice that every asynchronous action is prefixed immediately by `await`, and fu
   });
   ```
 
+Trickier Patterns
+
+* `forEach` does not work for async-await. Use a `for ... of` loop instead if you want to operate in sequence, or use `map()` to operate in parallel. See [this stackoverflow post](https://stackoverflow.com/a/37576787) for examples.
+* `map()` returns a list of promises, but `await` will only wait if the expression it is provided evaluates to a single promise. To wait until all of the `map()` operations are complete, use `Promise.all` like this:
+  ```js
+  await Promise.all(myList.map(async function(elem) {
+    await elem.click();
+  }));
+  ```
+
 ## Debugging Migrated Tests
 
-### Tips
-
+* Check for a missing `await`. This problem probably won't give you very helpful error messages, so carefully read the code and comment out blocks to isolate the problem.
 * Be careful with `element.all` calls. You may need to `await` them.
+* Empty lists don't have a `.first()` method, so if you have a pattern like this:
+  ```js
+  var elems = await element.all(by.css('.protractor-test-elem'));
+  await waitFor.visibilityOf(elems.first(), 'elem not visible');
+  ```
+  and `elems` matches no elements, you'll get a `elems.first is not a function` error.
