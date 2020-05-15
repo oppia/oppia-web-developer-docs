@@ -106,6 +106,11 @@ Simple Patterns
     return await // doing something with output
   });
   ```
+  Alternatively, we can avoid using `.then()` entirely. This will make for cleaner code later on, but is not a priority for this migration:
+  ```js
+  var output = await someAsynchronousFunction();
+  await // do something with "output"
+  ```
 * Expectations
   ```js
   expect(await elem.getText()).toEqual('expectedText'));
