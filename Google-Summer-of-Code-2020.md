@@ -26,9 +26,9 @@ The project's we've accepted are:
 - [Abhith Krishna's proposal](pdfs/GSoC2020AbhithKrishna.pdf): Generate images for LaTeX expressions. Mentor: Sandeep Dubey.
 - [Anshul Hudda's proposal](pdfs/GSoC2020AnshulHudda.pdf): Fix the linter and implement all the lint checks. Mentor: Nitish Bansal.
 - [James James's proposal](pdfs/GSoC2020JamesJames.pdf): Make Oppiabot more useful. Mentor: Ankita Saxena.
-- [Jim Zhan's proposal](): Ensure that Oppia is Fully Accessible. Mentor: Sagang Wee.
+- Jim Zhan's proposal: Ensure that Oppia is Fully Accessible. Mentor: Sagang Wee.
 - [Mariana Zangrossi's proposal](pdfs/GSoC2020MarianaZangrossi.pdf): Frontend testing of controllers and directives. Mentor: Nithesh Hariharan.
-- [Mohamed Medhat's proposal](): Support tablet interfaces. Mentor: Rajat Talesra.
+- Mohamed Medhat's proposal: Support tablet interfaces. Mentor: Rajat Talesra.
 - [Nishant Mittal's proposal](pdfs/GSoC2020NishantMittal.pdf): Solve all typescript and webpack issues in the codebase. Mentor: Vojtěch Jelínek.
 - [Prayush Dawda's proposal](pdfs/GSoC2020PrayushDawda.pdf): Revamping Math Interactions. Mentor: Akshay Anand.
 - [Pulkit Aggarwal's proposal](pdfs/GSoC2020PulkitAggarwal.pdf): Additional Interaction Types. Mentor: Ben Henning.
