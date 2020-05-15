@@ -17,6 +17,8 @@ Regardless of which instructions you follow, start by reaching out to [@U8NWXD](
 
 ### Migrate by File
 
+We estimate migrating a file will take 0.5 - 1 hours.
+
 * Read "Introduction to Async-Await"
 * Read "Migrating Common Patterns"
 * Claim an available file from the PR [#9267](https://github.com/oppia/oppia/pull/9267) under `protractor_utils/`
@@ -30,6 +32,8 @@ Regardless of which instructions you follow, start by reaching out to [@U8NWXD](
 * You're done! Thanks for helping us do this migration. Please take up another file and repeat!
 
 ### Migrate by Suite
+
+We estimate migrating a suite will take around 7 hours of work. This is highly dependent on how many un-migrated dependencies there are, though.
 
 * Read "Introduction to Async-Await"
 * Read "Migrating Common Patterns"
