@@ -13,6 +13,8 @@ The "Migrate by File" instructions are for contributors who:
 
 If you are more experienced and can spare more time, please see "Migrate by Suite" below.
 
+Regardless of which instructions you follow, start by reaching out to [@U8NWXD](https://github.com/U8NWXD) at cs.temporary@icloud.com to get edit privileges for the branch we are working on.
+
 ### Migrate by File
 
 * Read "Introduction to Async-Await"
