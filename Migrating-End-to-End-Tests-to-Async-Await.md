@@ -141,6 +141,14 @@ Trickier Patterns
     * Use `elems.get(i)` instead of `elems[i]`. `elems.first(i)` and `elems.last(i)` work too.
 
   Calling these functions is asynchronous, so you need to `await` them. You do *not* need to `await` the `element.all` call itself (we think).
+* Chained Function Calls
+  ```
+  await (async asyncFunc1()).asyncFunc2();
+  ```
+  We have to `await` the result of `asyncFunc1` before calling `asyncFunc2`. This won't work:
+  ```
+  await asyncFunc1().asyncFunc2();
+  ```
 
 ## Debugging Migrated Tests
 
