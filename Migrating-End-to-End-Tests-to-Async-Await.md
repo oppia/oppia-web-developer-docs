@@ -142,11 +142,11 @@ Trickier Patterns
 
   Calling these functions is asynchronous, so you need to `await` them. You do *not* need to `await` the `element.all` call itself (we think).
 * Chained Function Calls
-  ```
+  ```js
   await (async asyncFunc1()).asyncFunc2();
   ```
   We have to `await` the result of `asyncFunc1` before calling `asyncFunc2`. This won't work:
-  ```
+  ```js
   await asyncFunc1().asyncFunc2();
   ```
 
