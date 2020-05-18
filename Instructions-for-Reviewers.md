@@ -64,9 +64,11 @@ There are special circumstances when standard merging should be done instead of 
 
 ## Troubleshooting
 
+### Errors loading the GitHub review conversation page
+
 Sometimes, GitHub shows a "Unicorn!" error page when the PR is too large or there are several hundred comments on a review thread:
 
-![Screenshot from 2020-05-18 16-17-02](https://user-images.githubusercontent.com/10575562/82268138-139a3600-9923-11ea-913e-58892c1a5884.png)
+![Screenshot from 2020-05-18 16-17-02](https://user-images.githubusercontent.com/10575562/82268191-43e1d480-9923-11ea-8b48-fabd6c8ad9a9.png)
 
 As a workaround, we have been advised by GitHub Support that, until the issue gets fixed, we can use an additional timeline_per_page query parameter when viewing such pages. For example, instead of accessing https://github.com/oppia/oppia/pull/8720, you can access https://github.com/oppia/oppia/pull/8720?timeline_per_page=20 instead. (Note that "20" should be a low number.)
 
