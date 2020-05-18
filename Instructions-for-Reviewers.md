@@ -62,6 +62,14 @@ Getting this message correct is important, since it will be used to compile the 
 
 There are special circumstances when standard merging should be done instead of a squash-merge. Generally speaking, commits which have already been squash-merged should not be squash-merged again. Also, if there are multiple contributors who have contributed to a PR, please don't squash-merge -- we want to preserve their history.
 
+## Troubleshooting
+
+Sometimes, GitHub shows a "Unicorn!" error page when the PR is too large or there are several hundred comments on a review thread:
+
+![Screenshot from 2020-05-18 16-17-02](https://user-images.githubusercontent.com/10575562/82268138-139a3600-9923-11ea-913e-58892c1a5884.png)
+
+As a workaround, we have been advised by GitHub Support that, until the issue gets fixed, we can use an additional timeline_per_page query parameter when viewing such pages. For example, instead of accessing https://github.com/oppia/oppia/pull/8720, you can access https://github.com/oppia/oppia/pull/8720?timeline_per_page=20 instead. (Note that "20" should be a low number.)
+
 ### Other notes
 
 #### Adblock Disable
