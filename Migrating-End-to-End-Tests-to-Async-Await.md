@@ -25,7 +25,7 @@ We estimate migrating a file will take 0.5 - 1 hours.
     * Like with starter issues, we claim files by adding our usernames to the end
 * Clone the branch from the PR. If you already cloned the branch, update from the remote branch. **Pull in remote changes daily if not hourly!**
     * With so many people working on one branch, there's a lot of potential for merge conflicts. Keep this to a minimum by pulling in remote changes early and often.
-* Migrate the file
+* Migrate the file. Since you're migrating just a file and not all of its dependencies, you won't have a way to test that you migrated the file correctly. Please be very careful to make sure that you are doing the migration correctly!
 * **Create a single commit with your changes** and push it to the PR branch
     * This PR is going to be a huge diff, and it will help us review the changes if every file is migrated in its own commit.
 * Check the box next to your claimed file.
@@ -42,7 +42,7 @@ We estimate migrating a suite will take around 7 hours of work. This is highly d
     * Like with starter issues, we claim files by adding our usernames to the end
 * Clone the branch from the PR. If you already cloned the branch, update from the remote branch. **Pull in remote changes daily if not hourly!**
     * With so many people working on one branch, there's a lot of potential for merge conflicts. Keep this to a minimum by pulling in remote changes early and often.
-* Migrate the file and all of its dependencies by working through the file line-by-line. Each time you find a call to another file, migrate that function in the other file and all of its dependencies recursively. By the time you finish, you should have a fully migrated suite that runs and passes consistently.
+* Migrate the file and all of its dependencies by working through the file line-by-line. Each time you find a call to another file, migrate that function in the other file and all of its dependencies recursively. By the time you finish, you should have a fully migrated suite that runs and passes consistently. **Make sure it passes!**
 * When you are debugging your migrated code, add to the list of debugging tips below to help future contributors.
 * **Commit your changes, keeping one commit per file or group of files if possible,** and push it to the PR branch
     * This PR is going to be a huge diff, and it will help us review the changes if every file is migrated in its own commit. In this case you might only be migrating parts of files, so you may need to break this rule. Try and keep your commit history easy to understand though.
@@ -106,7 +106,7 @@ Simple Patterns
     return await // doing something with output
   });
   ```
-  Alternatively, we can avoid using `.then()` entirely. This will make for cleaner code later on, but is not a priority for this migration:
+  Alternatively, we can avoid using `.then()` entirely. This will make for cleaner code later on, but is not a priority for this migration. **Only migrate this way if you are migrating a suite and can run your code to make sure you do it right!** We don't want to risk introducing bugs into the migration.
   ```js
   var output = await someAsynchronousFunction();
   await // do something with "output"
@@ -141,6 +141,14 @@ Trickier Patterns
     * Use `elems.get(i)` instead of `elems[i]`. `elems.first(i)` and `elems.last(i)` work too.
 
   Calling these functions is asynchronous, so you need to `await` them. You do *not* need to `await` the `element.all` call itself (we think).
+* Chained Function Calls
+  ```js
+  await (await asyncFunc1()).asyncFunc2();
+  ```
+  We have to `await` the result of `asyncFunc1` before calling `asyncFunc2`. This won't work:
+  ```js
+  await asyncFunc1().asyncFunc2();
+  ```
 
 ## Debugging Migrated Tests
 

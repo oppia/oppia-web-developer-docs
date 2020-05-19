@@ -19,6 +19,23 @@ You might be interested in our GSoC info pages from previous years: [2019](https
 
 Also, please note that acceptance into GSoC isn't a prerequisite for becoming an Oppia contributor. The Oppia project is run by the community for the community, and we warmly welcome anyone who'd like to help out! You can get started by following the instructions [here](https://github.com/oppia/oppia/wiki).
 
+## Accepted Proposals:
+
+The project's we've accepted are:
+
+- [Abhith Krishna's proposal](pdfs/GSoC2020AbhithKrishna.pdf): Generate images for LaTeX expressions. Mentor: Sandeep Dubey.
+- [Anshul Hudda's proposal](pdfs/GSoC2020AnshulHudda.pdf): Fix the linter and implement all the lint checks. Mentor: Nitish Bansal.
+- [James James's proposal](pdfs/GSoC2020JamesJames.pdf): Make Oppiabot more useful. Mentor: Ankita Saxena.
+- Jim Zhan's proposal: Ensure that Oppia is Fully Accessible. Mentor: Sagang Wee.
+- [Mariana Zangrossi's proposal](pdfs/GSoC2020MarianaZangrossi.pdf): Frontend testing of controllers and directives. Mentor: Nithesh Hariharan.
+- Mohamed Medhat's proposal: Support tablet interfaces. Mentor: Rajat Talesra.
+- [Nishant Mittal's proposal](pdfs/GSoC2020NishantMittal.pdf): Solve all typescript and webpack issues in the codebase. Mentor: Vojtěch Jelínek.
+- [Prayush Dawda's proposal](pdfs/GSoC2020PrayushDawda.pdf): Revamping Math Interactions. Mentor: Akshay Anand.
+- [Pulkit Aggarwal's proposal](pdfs/GSoC2020PulkitAggarwal.pdf): Additional Interaction Types. Mentor: Ben Henning.
+- [Rishabh Rawat's proposal](pdfs/GSoC2020RishabhRawat.pdf): Editor Page Redesigns. Mentor: Sean Lip.
+- [Rohit Katlaa's proposal](pdfs/GSoC2020RohitKatlaa.pdf): Adding SVG editor to RTE. Mentor: Kevin Thomas.
+- [Sarthak Agarwal's proposal](pdfs/GSoC2020SarthakAgarwal.pdf): Analytics Support. Mentor: Vinita Murthi.
+
 # Students
 GSoC is an excellent opportunity for students to get paid to work on an open source project. If you're interested in applying as a student, you should definitely read the following resources:
 

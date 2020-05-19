@@ -177,7 +177,7 @@ You're done! Now return to the [code contribution instructions](https://github.c
 
 # Installation using the Ubuntu terminal on Windows 10
 
-_These notes were kindly contributed by **@varun-tandon** on 18 Feb 2019. They were last tested successfully by **@BenHenning** on Sep 2019. They get Oppia working in a virtual environment on Windows, but with the caveat that the frontend (Karma) tests do not run because the Chrome browser does not open in the virtual environment. We are still looking for a fix for this._
+_These notes were kindly contributed by **@varun-tandon** on 18 Feb 2019. They were last tested successfully by **@BenHenning** on Sep 2019. They get Oppia working in a virtual environment on Windows, but with the caveat that the backend tests do not run in the virtual environment. We are still looking for a fix for this._
 
 First, start by [installing the Ubuntu terminal](https://tutorials.ubuntu.com/tutorial/tutorial-ubuntu-on-windows#0). Then, follow [the Ubuntu installation instructions](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Linux%29), **but with the following changes**:
 

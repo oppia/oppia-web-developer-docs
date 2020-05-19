@@ -12,6 +12,7 @@ This guide can be used by both new Oppia members and developers who have contrib
   - [How to analyze the file's coverage](#how-to-analyze-a-files-coverage)
   - [Rules](#rules)
   - [Unit test structure](#unit-test-structure)
+  - [Good practices](#good-practices)
   - [How to choose a file to work on](#how-to-choose-a-file-to-work-on)
 - [General tips](#general-tips)
   - [Spy utilities](#spy-utilities)
@@ -155,6 +156,48 @@ A unit test is made of functions that configure the test environment, make asser
 
 - **expect**  
   The expect function is used to assert a condition in the test. You can check all its methods in the [Jasmine documentation](https://jasmine.github.io/api/edge/matchers.html). [Here's](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/exploration-editor-page/services/graph-data.service.spec.ts#L92-L112) a good example of how to use expect correctly.
+
+### Good practices
+
+#### Do not test private methods/properties
+Private methods/properties can be accessed just by the class or function where it belongs. They starts with `_` and they are called in other methods inside the class or function scope. It's not a good practice to test private methods/properties because since they should not be access from the outside. Instead, you should only test public methods and their output. For example:
+
+Bad:
+```js
+it('should get generic name', function() {
+  var name = component._name;
+  expect(name).toBe('foo');
+});
+```
+
+Good:
+```js
+it('should get generic name', function() {
+  var name = component.getName();
+  expect(name).toBe('foo');
+});
+```
+
+#### Care about behavior and not about percentage
+In despite of our mainly goal, make sure your spec tests the file's behavior. It means that writing tests just to get 100% coverage (just making karma to execute all lines) is not a good practice and it makes the coverage unstable. As you can see on [What are unit tests](#what-are-unit-tests) section, unit tests is about testing the expected output and not the internal implementation. For example:
+
+Bad:
+```js
+it('should get items from api', function() {
+  var consoleSpy = spyOn(console, 'log').and.callThrough();
+  component.fetchApi();
+  expect(consoleSpy).haveBeenCalledWith('fetched!);
+});
+```
+
+Good:
+```js
+it('should get items from api', function() {
+  var MAX_ITEMS_TO_FETCH = 10;
+  component.fetchApi();
+  expect(component.itemsFetched).toEqual(10);
+});
+```
 
 ### How to choose a file to work on
 When trying to choose the first files to work on, you might get confused. All the files are separated by complexity criteria, so you can focus on files which you feel comfortable working with.
