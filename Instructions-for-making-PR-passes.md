@@ -9,6 +9,16 @@ The purpose of making manual passes over PRs is two-fold:
 
 As of this writing, Oppiabot has been in operation for about 2 years with the goal of automating most of the processes that used to be done by the former maintainers group on a weekly basis. However, replacing a human with a bot resulted in decreased "warmth" in the review process and more PRs were being closed rather than being completed. After the dev workflow lead resumed the process of manually reviewing PRs, PRs were being completed faster and fewer were closed. Therefore, the community should strive to have a human in the review process as much as possible.
 
+### For Core Maintainers:
+
+The purpose of the rotation is to gauge the health the community and PR process, it is **not** to take over the responsibility of checking PR health. At the end of completing all of the steps below, you should be able to:
+
+* Gauge the overall wellbeing of the community.
+* Know the current responsibilities of individuals.
+* Determine what dev workflow support the community requires.
+
+Therefore, it is recommended to perform this pass the week before the monthly meeting so that the points above can be reported to the group.
+
 ## Cadence
 
 Cadence depends on the task and increases the investment in time:
