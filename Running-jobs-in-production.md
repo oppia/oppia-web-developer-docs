@@ -43,5 +43,5 @@ If you have any questions about the above, please send an email to oppia-release
 ### What to do if your job is not approved for the targeted release?
 
 * If your job is not approved for a targeted release, you will get an email from the server jobs admin as well as a bug will be filed against you. 
-* You should fix the issue reported in the bug and create a new request for running the job in the next release in [this form](https://goo.gl/forms/XIj00RJ2h5L55XzU2). Make sure to link the PRs which fix the issue. 
-* If the job is urgent and needs to be run in the targeted release, provide an explanation in the bug filed and if  it is accepted by the server jobs admin and release co-ordinator, create a new PR to fix the issues and ask the release co-ordinator to cherrypick it into the release.
+* You should fix the issue reported in the bug and create a new request for running the job in the next release in [this form](https://goo.gl/forms/XIj00RJ2h5L55XzU2). Make sure to link the PRs which fix the issue. (Note that you should have received an email when previously filling out the form with your form submissions; you might find this email useful as a reference.)
+* If the job is urgent and needs to be run in the targeted release, provide an explanation in the bug filed and if it is accepted by the server jobs admin and release co-ordinator, create a new PR to fix the issues and ask the release co-ordinator to cherrypick it into the release.
