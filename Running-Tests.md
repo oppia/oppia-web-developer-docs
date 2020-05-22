@@ -128,6 +128,9 @@ Otherwise, run the affected test on your local machine, and watch it running, so
 
 Finally, if this isn't helping (e.g. the issue is with console errors or something that's not obviously apparent), look up the test file in `core/tests/protractor` and follow its actions manually on a fresh dev server (they should be pretty easy to understand). Keep the browser console open so that you can spot any warnings. This should help you find problems, and fix them.
 
+Also, note that the test logs can sometimes be quite long. In general, it is better to focus on the earliest error for each suite (i.e. the one that appears top-most in the log) since that error will usually cause other follow-up errors. If you fix that error, then the later ones may end up getting fixed automatically as well!
+
+
 **Troubleshooting**
 
 If you get an error similar to this:
