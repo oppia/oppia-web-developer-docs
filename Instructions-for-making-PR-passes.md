@@ -17,7 +17,7 @@ The purpose of the rotation is to gauge the health the community and PR process,
 * Know the current responsibilities of individuals.
 * Determine what dev workflow support the community requires.
 
-Therefore, it is recommended to perform this pass the week before the monthly meeting so that the points above can be reported to the group.
+Therefore, it is recommended to perform this pass the week before the monthly meeting so that the points above can be reported to the group. See [rota](#core-maintainer-rota) below.
 
 ## Cadence
 
@@ -61,3 +61,18 @@ At the very end, ensure that no one contributor has too many open PRs (ie. over 
       1. If there are no outstanding comments, then merge.
       2. Otherwise, @-mention the relevant party and adjust the assignee field accordingly.
    2. If there are failed tests, then restart the relevant suites only if they are known flaky suites. Otherwise, assign it back to the contributor and @-mention the contributor.
+
+## Core Maintainer Rota
+
+It is recommended that the core maintainer complete their pass the week prior to the monthly meeting. However, they may choose to do it earlier if there are schedule constraints.
+
+| Month     | Core Maintainer |
+|-----------|-----------------|
+| May       | Kevin Lee       |
+| June      | Kevin Thomas    |
+| July      | Nithesh         |
+| August    | Ankita          |
+| September | Sandeep         |
+| October   | Sean            |
+| November  | Kevin Thomas    |
+| December  | Nithesh         |
