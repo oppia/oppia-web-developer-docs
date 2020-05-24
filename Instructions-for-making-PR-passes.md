@@ -35,6 +35,7 @@ For **every** PR, perform the following:
 1. If the contributor needs to take action and it's been at least 2 days since the last review, then:
    1. @-mention the contributor that they should take action or reach out if they have questions.
    2. Change Assignee to the contributor and unassign everyone else.
+   3. **Note: If the contributor did not respond to the last ping, do not @-mention the contributor again, let Oppiabot automatically close the PR.**
 2. If the PR received LGTM from all reviewers but tests failed, then:
    1. Check that the tests are not flaky, if so, restart them.
    2. If the tests are not result of flakiness, @-mention the reviewer that tests failed. Change Assignee to the contributor and unassign everyone else.
