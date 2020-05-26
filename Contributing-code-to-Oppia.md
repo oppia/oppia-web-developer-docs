@@ -223,7 +223,7 @@ To make code changes, please follow the following instructions carefully! Otherw
 
 While making a contribution, you may discover that your change is not complete and needs some more work. You may want to make a work in progress (WIP) or a draft pull request so that the reviewers can begin reviewing your changes, however, draft pull requests consumes resources like the Circle CI builds and Travis CI builds and this is not always what you want since the pull request is still a work in progress.
 
-Hence, we advice that you do not open such pull requests or close the pull request if it is a work in progress.
+Hence, we advice that you prefix the commit messages with **[skip ci]** or **[ci skip]** request if it is a work in progress to prevent CI checks from running.
 
 
 ## Labeling issues and pull requests
