@@ -43,7 +43,6 @@ Welcome! Please make sure to follow the [setup instructions](https://github.com/
 - [#4057](https://github.com/oppia/oppia/issues/4057) (frontend; Karma tests)
 - [#8668](https://github.com/oppia/oppia/issues/8668) (frontend; documenting the services)
 - [#6240](https://github.com/oppia/oppia/issues/6240) (writing end to end tests)
-- [#7176](https://github.com/oppia/oppia/issues/7176) (frontend; creating domain objects)
 - [#8015](https://github.com/oppia/oppia/issues/8015) (Refactoring frontend services)
 - [#8016](https://github.com/oppia/oppia/issues/8016) (Refactoring frontend services)
 - [#8472](https://github.com/oppia/oppia/issues/8472) (Migrating AngularJS files to Angular 8)
