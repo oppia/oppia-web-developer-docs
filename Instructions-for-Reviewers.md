@@ -58,7 +58,9 @@ The commit message of the squash should be a clear one-line summary of the chang
 
 Getting this message correct is important, since it will be used to compile the CHANGELOG during the next release. If you like, feel free to also add optional follow-up sentences after the one-line summary.
 
-Also, in general, the last reviewer to give LGTM should merge the PR if the CI tests are passing. Otherwise, they should assign the PR to the author, who should merge it once the CI tests have passed.
+### Who Should Merge
+
+In general, the last reviewer to give LGTM should merge the PR if the CI tests are passing. Otherwise, they should assign the PR to the author, who should merge it once the CI tests have passed.
 
 ### Standard Merging
 
