@@ -224,6 +224,8 @@ While making a contribution, you may discover that your change is not complete a
 
 Hence, we advice that you prefix the commit messages with **[skip ci]** or **[ci skip]** request if it is a work in progress to prevent CI checks from running.
 
+Learn more about skipping a [Travis CI build](https://docs.travis-ci.com/user/customizing-the-build/#skipping-a-build) and skipping a [Circle CI build](https://circleci.com/docs/2.0/skip-build/#skipping-a-build).
+
 
 ## Labeling issues and pull requests
 
