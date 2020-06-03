@@ -48,8 +48,13 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
     
     The following steps of installation and running the development server should all be done within this virtual environment to ensure compatibility.
 
+    **Troubleshooting**: If, after running the `pip2 install virtualenv` command, you encounter a **'pip2 not found error'**, then do the following ([ref 1](https://pip.pypa.io/en/stable/installing/), [ref 2](https://www.architectryan.com/2012/10/02/add-to-the-path-on-mac-os-x-mountain-lion/)):
+      - Run the following command in the terminal: `curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py`. This command downloads the get-pip.py file. 
+      - In the same folder where you ran the above command, run: `python get-pip.py`.
+      - If, after running the above command you get a warning about the directory not being added to PATH, you can add the suggested directory to the PATH by running: `sudo nano /etc/paths` and adding the suggested path at the bottom of the /etc/paths file (e.g. /Users/{{SYSTEM USERNAME}}/Library/Python/2.7/bin).
+
     **Note**: If you get errors while setting up virtual environment and running a development server works fine without a virtual environment (there are no conflicts with versions of python, pip or other python modules), you can safely skip the virtual environment setup.
- 
+       
 
 ## Running Oppia on a development server ##
  
