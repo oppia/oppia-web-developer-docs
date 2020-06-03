@@ -52,6 +52,8 @@ Welcome! Please make sure to follow the [setup instructions](https://github.com/
 since these issues are hand-picked and ensure that you don't run into unexpected roadblocks while working on them. For other issues, you may need to be more independent because often times, we don’t know how to solve them either.
 If you decide to pick one of these, please go ahead and leave a comment saying which part of the issue you're taking, and submit a follow-up PR by following the [instructions below](Contributing-code-to-Oppia#instructions-for-making-a-code-change). You don't need to wait for approval to get started!
 
+If you need some help from someone with a more prominent UI/UX or design perspective, tag @rachelwchen and expect a response within 2-3 days, if not, ping in the Oppia Gitter channel.
+
 **Important Note**: Please make sure to read and follow the [PR instructions](Contributing-code-to-Oppia#instructions-for-making-a-code-change) carefully, otherwise your PR review may be delayed.
 
 ### ... after completing two starter projects
