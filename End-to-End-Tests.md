@@ -156,6 +156,7 @@ It is easy to accidentally write _flaky_ end-to-end tests, which means that the 
     * Get IDs, for example IDs for explorations, collections, or topics
     * Navigate to a page, for example opening the about page by navigating to `/about` instead of clicking the appropriate buttons
 * Do not use `browser.sleep(` calls. This is great for debugging, but in the final test you should use `waitFor` instead.
+* In page objects, each function should use `waitFor` to wait for the elements it acts on to appear or be clickable. If the function effects a change, it should also wait for the change to complete (e.g. the next page to finish loading if the function clicks a link).
 
 ### Independence ###
 
