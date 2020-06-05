@@ -9,6 +9,16 @@ The purpose of making manual passes over PRs is two-fold:
 
 As of this writing, Oppiabot has been in operation for about 2 years with the goal of automating most of the processes that used to be done by the former maintainers group on a weekly basis. However, replacing a human with a bot resulted in decreased "warmth" in the review process and more PRs were being closed rather than being completed. After the dev workflow lead resumed the process of manually reviewing PRs, PRs were being completed faster and fewer were closed. Therefore, the community should strive to have a human in the review process as much as possible.
 
+### For Core Maintainers:
+
+The purpose of the rotation is to gauge the health the community and PR process, it is **not** to take over the responsibility of checking PR health. At the end of completing all of the steps below, you should be able to:
+
+* Gauge the overall wellbeing of the community.
+* Know the current responsibilities of individuals.
+* Determine what dev workflow support the community requires.
+
+Therefore, it is recommended to perform this pass the week before the monthly meeting so that the points above can be reported to the group. See [rota](#core-maintainer-rota) below.
+
 ## Cadence
 
 Cadence depends on the task and increases the investment in time:
@@ -25,6 +35,7 @@ For **every** PR, perform the following:
 1. If the contributor needs to take action and it's been at least 2 days since the last review, then:
    1. @-mention the contributor that they should take action or reach out if they have questions.
    2. Change Assignee to the contributor and unassign everyone else.
+   3. **Note: If the contributor did not respond to the last ping, do not @-mention the contributor again, let Oppiabot automatically close the PR.**
 2. If the PR received LGTM from all reviewers but tests failed, then:
    1. Check that the tests are not flaky, if so, restart them.
    2. If the tests are not result of flakiness, @-mention the reviewer that tests failed. Change Assignee to the contributor and unassign everyone else.
@@ -51,3 +62,18 @@ At the very end, ensure that no one contributor has too many open PRs (ie. over 
       1. If there are no outstanding comments, then merge.
       2. Otherwise, @-mention the relevant party and adjust the assignee field accordingly.
    2. If there are failed tests, then restart the relevant suites only if they are known flaky suites. Otherwise, assign it back to the contributor and @-mention the contributor.
+
+## Core Maintainer Rota
+
+It is recommended that the core maintainer complete their pass the week prior to the monthly meeting. However, they may choose to do it earlier if there are schedule constraints.
+
+| Month     | Core Maintainer |
+|-----------|-----------------|
+| May       | Kevin Lee       |
+| June      | Kevin Thomas    |
+| July      | Nithesh         |
+| August    | Ankita          |
+| September | Sandeep         |
+| October   | Sean            |
+| November  | Kevin Thomas    |
+| December  | Nithesh         |

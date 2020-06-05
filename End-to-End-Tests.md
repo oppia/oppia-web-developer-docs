@@ -156,6 +156,7 @@ It is easy to accidentally write _flaky_ end-to-end tests, which means that the 
     * Get IDs, for example IDs for explorations, collections, or topics
     * Navigate to a page, for example opening the about page by navigating to `/about` instead of clicking the appropriate buttons
 * Do not use `browser.sleep(` calls. This is great for debugging, but in the final test you should use `waitFor` instead.
+* In page objects, each function should use `waitFor` to wait for the elements it acts on to appear or be clickable. If the function effects a change, it should also wait for the change to complete (e.g. the next page to finish loading if the function clicks a link).
 
 ### Independence ###
 
@@ -164,7 +165,136 @@ The tests may be run either sequentially or in isolation, and they need to be wr
 * Ensure that usernames and emails used in each test are unique by giving them a distinctive form; in e.g. the editorAndPlayer page usernames should look like `user1EditorAndPlayer` and emails like `user1@editorAndPlayer.com`. Use this pattern for other names in the tests, for example topic and skill names, for example `skill1EditorAndPlayer`. Some structures have character limits that may disallow this convention. In that case, feel free to shorten the name, e.g. with an abbreviation. You may want to use a constant though if the name gets too unreadable.
 * Avoid accessing items by index. For example, to select an exploration from a list, search for the name of the exploration instead of assuming the exploration will be at some index. Take a look at the `_getExplorationElements` function in [`core/tests/protractor_utils/LibraryPage.js`](https://github.com/oppia/oppia/blob/develop/core/tests/protractor_utils/LibraryPage.js) for an example.
 
+## Async-Await Tips ##
+
+### Good Patterns ###
+
+* Getting a URL
+  ```js
+  await browser.get('someURL');
+  ```
+* Expectations
+  ```js
+  expect(await elem.getText()).toEqual('expectedText'));
+  ```
+* Variable assignments
+  ```js
+  var myVar = await myAsyncFunc();
+  ```
+* If statements
+  ```js
+  if (await elem.getText() === "hi") {
+    await elem.click();
+  }
+  ```
+* `driver.findElement`:
+  ```js
+  await driver.findElement(...)
+  ```
+* `map()` returns a list of promises, but `await` will only wait if the expression it is provided evaluates to a single promise. To wait until all of the `map()` operations are complete, use `Promise.all` like this:
+  ```js
+  await Promise.all(myList.map(async function(elem) {
+    await elem.click();
+  }));
+  ```
+    * This is the advice we see online, but we've also encountered cases where removing the `Promise.all` seems to fix bugs, so this guidance might not be right. Try both.
+* When multiple elements might match a locator, we often use `element.all` to get an [`ElementArrayFinder`](https://www.protractortest.org/#/api?view=ElementArrayFinder). This object can usually be used just like a list, but it appears that with async-await, we can only use the functions it defines. In particular:
+    * Use `elems.count()` instead of `elems.length` to get the length. This is asynchronous!
+    * Use `elems.get(i)` instead of `elems[i]`. `elems.first(i)` and `elems.last(i)` work too.
+
+  You do *not* need to `await` the `element.all` call itself. Also note that a `.map()` or `.filter()` operation on an `ElementArrayFinder` yields a normal array, so you *need* to use `.length` instead of `.count()`.
+* Chained Function Calls
+  ```js
+  await (await asyncFunc1()).asyncFunc2();
+  ```
+  We have to `await` the result of `asyncFunc1` before calling `asyncFunc2`. This won't work:
+  ```js
+  await asyncFunc1().asyncFunc2();
+  ```
+  Here's a common example of when we need these nested `await`s:
+  ```js
+  await (await browser.switchTo().activeElement()).sendKeys(explanation);
+  ```
+* Rejection callbacks
+  ```js
+  waitFor.visibilityOf(dismissWelcomeModalButton,
+    'Welcome modal not becoming visible').then(
+    () => {
+      waitFor.elementToBeClickable(
+        dismissWelcomeModalButton,
+        'Welcome modal is taking too long to appear');
+      dismissWelcomeModalButton.click();
+    },
+    (err) => {
+      // Since the welcome modal appears only once, the wait for its
+      // visibilty will only resolve once and timeout the other times.
+      // This is just an empty error function to catch the timeouts that
+      // happen when the the welcome modal has been dismissed once. If
+      // this is not present then protractor uses the default error
+      // function which is not appropriate in this case as this is not an
+      // error.
+    }
+  );
+  ```
+  Here, we specify an empty rejection callback so that the test can still pass if the wait times out. To replicate this behavior with async-await, we can use a `try` block:
+  ```js
+  try {
+    await waitFor.visibilityOf(
+      dismissWelcomeModalButton, 'Welcome modal not becoming visible');
+    await waitFor.elementToBeClickable(
+      dismissWelcomeModalButton,
+      'Welcome modal is taking too long to appear');
+    await dismissWelcomeModalButton.click();
+    await waitFor.invisibilityOf(
+      translationWelcomeModal,
+      'Translation welcome modal takes too long to disappear');
+  } catch (e) {
+    // Since the welcome modal appears only once, the wait for its
+    // visibilty will only resolve once and timeout the other times.
+    // This is just an empty error function to catch the timeouts that
+    // happen when the the welcome modal has been dismissed once. If
+    // this is not present then protractor uses the default error
+    // function which is not appropriate in this case as this is not an
+    // error.
+  }
+  ```
+* Checking for movement:
+  ```js
+  var pos1 = elem.getAttribute('pos');
+  var pos2 = elem.getAttribute('pos');
+  expect(pos1).not.toBe(pos2);
+  ```
+  Here we want to check that `elem` is moving (represented as its `pos` attribute changing). This might work because the `getAttribute` calls take long enough to execute that in the meantime, `elem` has moved. After migrating to async-await, however, they might run faster. To address this, we can instead wait for the element to move:
+  ```js
+  var pos1 = await elem.getAttribute('pos');
+  try {
+    await waitFor.elementAttributeToBe(elem, 'pos', pos1 + 1, 'elem not moving');
+  } except (e) {
+    var pos2 = await elem.getAttribute('pos');
+    expect(pos1).not.toBe(pos2);
+  }
+  ```
+  Notice that here, we wait for `elem` to advance one unit. If that happens, then the test passes. However, what if `elem` advances 2 units before `waitFor` checks again? To address this, we check whether `elem` has moved after catching the error from the `waitFor`.
+* Make sure you add `async` and `await` in the `afterAll` blocks if they check for console errors (they all should). If you don't the test might pass even though errors are appearing in the console log.
+
+### Anti-Patterns ###
+
+* `forEach` does not work for async-await. Use a `for ... of` loop instead if you want to operate in sequence, or use `map()` to operate in parallel. See [this stackoverflow post](https://stackoverflow.com/a/37576787) for examples.
+* `filter` can be problematic. Consider re-writing as a `for` loop instead.
+* .then() functions
+  ```js
+  someAsynchronousFunction().then(function(output) {
+    return // doing something with output
+  });
+  ```
+  should be written instead as
+  ```js
+  var output = await someAsynchronousFunction();
+  await // do something with "output"
+  ```
+
 ## Important Tips ##
 
 * All test blocks should have an `afterEach` that runs `general.checkForConsoleErrors` to verify no unexpected console errors appeared while the test was running.
 * Check your assumptions! For example, if you are assuming that only one exploration on the server will have a particular title, use an `expect` call to check.
+* End-to-end tests are written using the async-await paradigm. To learn how to write tests in this way, see the [async-await wiki page](https://github.com/oppia/oppia/wiki/Migrating-End-to-End-Tests-to-Async-Await)

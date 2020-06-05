@@ -1,57 +1,8 @@
-# Migrating to Async-Await
-
-We are migrating all of the end-to-end tests to use async-await instead of Protractor's native control flow. This should help improve stability since async-await is a native Javascript feature and better supported. It is also necessitated by the removal of control flow management from the latest version of Protractor.
-
-We have a lot of code to migrate, and we have to migrate it all at once because async-await is incompatible with Protractor's control flow. We're trying to get this done as quickly as possible before more changes are pushed to the end-to-end tests, so **we need your help!**
-
-## Instructions for Helping with Migration
-
-The "Migrate by File" instructions are for contributors who:
-
-* Cannot work as intensively on the migration (< 1 hour a day), or
-* Have limited experience working on the end-to-end tests
-
-If you are more experienced and can spare more time, please see "Migrate by Suite" below.
-
-Regardless of which instructions you follow, start by reaching out to [@U8NWXD](https://github.com/U8NWXD) at cs.temporary@icloud.com to get edit privileges for the branch we are working on.
-
-### Migrate by File
-
-We estimate migrating a file will take 0.5 - 1 hours.
-
-* Read "Introduction to Async-Await"
-* Read "Migrating Common Patterns"
-* Claim an available file from the PR [#9267](https://github.com/oppia/oppia/pull/9267) under `protractor_utils/`
-    * Like with starter issues, we claim files by adding our usernames to the end
-* Clone the branch from the PR. If you already cloned the branch, update from the remote branch. **Pull in remote changes daily if not hourly!**
-    * With so many people working on one branch, there's a lot of potential for merge conflicts. Keep this to a minimum by pulling in remote changes early and often.
-* Migrate the file. Since you're migrating just a file and not all of its dependencies, you won't have a way to test that you migrated the file correctly. Please be very careful to make sure that you are doing the migration correctly!
-* **Create a single commit with your changes** and push it to the PR branch
-    * This PR is going to be a huge diff, and it will help us review the changes if every file is migrated in its own commit.
-* Check the box next to your claimed file.
-* You're done! Thanks for helping us do this migration. Please take up another file and repeat!
-
-### Migrate by Suite
-
-We estimate migrating a suite will take around 7 hours of work. This is highly dependent on how many un-migrated dependencies there are, though.
-
-* Read "Introduction to Async-Await"
-* Read "Migrating Common Patterns"
-* Read "Debugging Migrated Tests"
-* Claim an available file from the PR [#9267](https://github.com/oppia/oppia/pull/9267) under `protractor_desktop/`
-    * Like with starter issues, we claim files by adding our usernames to the end
-* Clone the branch from the PR. If you already cloned the branch, update from the remote branch. **Pull in remote changes daily if not hourly!**
-    * With so many people working on one branch, there's a lot of potential for merge conflicts. Keep this to a minimum by pulling in remote changes early and often.
-* Migrate the file and all of its dependencies by working through the file line-by-line. Each time you find a call to another file, migrate that function in the other file and all of its dependencies recursively. By the time you finish, you should have a fully migrated suite that runs and passes consistently. **Make sure it passes!**
-* When you are debugging your migrated code, add to the list of debugging tips below to help future contributors.
-* **Commit your changes, keeping one commit per file or group of files if possible,** and push it to the PR branch
-    * This PR is going to be a huge diff, and it will help us review the changes if every file is migrated in its own commit. In this case you might only be migrating parts of files, so you may need to break this rule. Try and keep your commit history easy to understand though.
-* Check the box next to your claimed file.
-* You're done! Thanks for helping us do this migration. Please take up another suite and repeat!
+# Using Async-Await with Protractor Tests
 
 ## Introduction to Async-Await
 
-You're probably used to seeing end-to-end tests written like this:
+Without async-await, end-to-end tests are written like this:
 
 ```js
 // ...
@@ -92,6 +43,16 @@ describe('my test page', function() {
 
 Notice that every asynchronous action is prefixed immediately by `await`, and functions that contain `await`s are prefixed by the `async` keyword. Some actions though, like assigning `'hi'` to `expectedText`, happen synchronously, so we don't need an `await`. If we had though, that would be fine. If the expression after `await` doesn't evaluate to a promise, `await` will immediately return the evaluated expression, so the code runs as if the `await` weren't even there.
 
+For more information, see [Protractor's documentation on async-await](https://github.com/angular/protractor/blob/master/docs/async-await.md).
+
+### Async-Await and Control Flow
+
+Unfortunately async-await is fundamentally incompatible with Protractor's control flow (see [this GitHub issue](https://github.com/SeleniumHQ/selenium/issues/3037)). To use async-await with Protractor, we have to disable control flow by adding `SELENIUM_PROMISE_MANAGER: false,` to the protractor configuration file at [`core/tests/protractor.conf.js`](https://github.com/oppia/oppia/tree/develop/core/tests/protractor.conf.js). This is why we had to do a single migration of all the e2e tests at once in [#9267](https://github.com/oppia/oppia/pull/9267/).
+
+### Promise Rejections
+
+Protractor's control flow causes tests to fail when `browser.wait(...)` calls time out, which is exactly what we want to happen. However when we migrated to async-await, we discovered that these timeouts were raising warnings but not crashing the test. To fix this, we added the `--unhandled-rejections=strict` argument when running protractor (see [`scripts/run_e2e_tests.py `](https://github.com/oppia/oppia/tree/develop/scripts/run_e2e_tests.py)).
+
 ## Migrating Common Patterns
 
 Simple Patterns
@@ -102,11 +63,11 @@ Simple Patterns
   ```
 * .then() functions
   ```js
-  someAsynchronousFunction().then(async function(output) {
-    return await // doing something with output
+  someAsynchronousFunction().then(function(output) {
+    return // doing something with output
   });
   ```
-  Alternatively, we can avoid using `.then()` entirely. This will make for cleaner code later on, but is not a priority for this migration. **Only migrate this way if you are migrating a suite and can run your code to make sure you do it right!** We don't want to risk introducing bugs into the migration.
+  can be written instead as
   ```js
   var output = await someAsynchronousFunction();
   await // do something with "output"
@@ -125,10 +86,15 @@ Simple Patterns
     await elem.click();
   }
   ```
+* `driver.findElement`:
+  ```js
+  await driver.findElement(...)
+  ```
 
 Trickier Patterns
 
 * `forEach` does not work for async-await. Use a `for ... of` loop instead if you want to operate in sequence, or use `map()` to operate in parallel. See [this stackoverflow post](https://stackoverflow.com/a/37576787) for examples.
+* `filter` can be problematic. Consider re-writing as a `for` loop instead.
 * `map()` returns a list of promises, but `await` will only wait if the expression it is provided evaluates to a single promise. To wait until all of the `map()` operations are complete, use `Promise.all` like this:
   ```js
   await Promise.all(myList.map(async function(elem) {
@@ -137,10 +103,10 @@ Trickier Patterns
   ```
     * This is the advice we see online, but we've also encountered cases where removing the `Promise.all` seems to fix bugs, so this guidance might not be right. Try both.
 * When multiple elements might match a locator, we often use `element.all` to get an [`ElementArrayFinder`](https://www.protractortest.org/#/api?view=ElementArrayFinder). This object can usually be used just like a list, but it appears that with async-await, we can only use the functions it defines. In particular:
-    * Use `elems.count()` instead of `elems.length` to get the length
+    * Use `elems.count()` instead of `elems.length` to get the length. This is asynchronous!
     * Use `elems.get(i)` instead of `elems[i]`. `elems.first(i)` and `elems.last(i)` work too.
 
-  Calling these functions is asynchronous, so you need to `await` them. You do *not* need to `await` the `element.all` call itself (we think).
+  You do *not* need to `await` the `element.all` call itself. Also note that a `.map()` or `.filter()` operation on an `ElementArrayFinder` yields a normal array, so you *need* to use `.length` instead of `.count()`.
 * Chained Function Calls
   ```js
   await (await asyncFunc1()).asyncFunc2();
@@ -149,6 +115,72 @@ Trickier Patterns
   ```js
   await asyncFunc1().asyncFunc2();
   ```
+  Here's a common example of when we need these nested `await`s:
+  ```js
+  await (await browser.switchTo().activeElement()).sendKeys(explanation);
+  ```
+* Rejection callbacks
+  ```js
+  waitFor.visibilityOf(dismissWelcomeModalButton,
+    'Welcome modal not becoming visible').then(
+    () => {
+      waitFor.elementToBeClickable(
+        dismissWelcomeModalButton,
+        'Welcome modal is taking too long to appear');
+      dismissWelcomeModalButton.click();
+    },
+    (err) => {
+      // Since the welcome modal appears only once, the wait for its
+      // visibilty will only resolve once and timeout the other times.
+      // This is just an empty error function to catch the timeouts that
+      // happen when the the welcome modal has been dismissed once. If
+      // this is not present then protractor uses the default error
+      // function which is not appropriate in this case as this is not an
+      // error.
+    }
+  );
+  ```
+  Here, we specify an empty rejection callback so that the test can still pass if the wait times out. To replicate this behavior with async-await, we can use a `try` block:
+  ```js
+  try {
+    await waitFor.visibilityOf(
+      dismissWelcomeModalButton, 'Welcome modal not becoming visible');
+    await waitFor.elementToBeClickable(
+      dismissWelcomeModalButton,
+      'Welcome modal is taking too long to appear');
+    await dismissWelcomeModalButton.click();
+    await waitFor.invisibilityOf(
+      translationWelcomeModal,
+      'Translation welcome modal takes too long to disappear');
+  } catch (e) {
+    // Since the welcome modal appears only once, the wait for its
+    // visibilty will only resolve once and timeout the other times.
+    // This is just an empty error function to catch the timeouts that
+    // happen when the the welcome modal has been dismissed once. If
+    // this is not present then protractor uses the default error
+    // function which is not appropriate in this case as this is not an
+    // error.
+  }
+  ```
+* Checking for movement:
+  ```js
+  var pos1 = elem.getAttribute('pos');
+  var pos2 = elem.getAttribute('pos');
+  expect(pos1).not.toBe(pos2);
+  ```
+  Here we want to check that `elem` is moving (represented as its `pos` attribute changing). This might work because the `getAttribute` calls take long enough to execute that in the meantime, `elem` has moved. After migrating to async-await, however, they might run faster. To address this, we can instead wait for the element to move:
+  ```js
+  var pos1 = await elem.getAttribute('pos');
+  try {
+    await waitFor.elementAttributeToBe(elem, 'pos', pos1 + 1, 'elem not moving');
+  } except (e) {
+    var pos2 = await elem.getAttribute('pos');
+    expect(pos1).not.toBe(pos2);
+  }
+  ```
+  Notice that here, we wait for `elem` to advance one unit. If that happens, then the test passes. However, what if `elem` advances 2 units before `waitFor` checks again? To address this, we check whether `elem` has moved after catching the error from the `waitFor`.
+
+If you aren't sure whether a function is asynchronous, check what it returns. Anything that returns a promise needs to be `await`ed.
 
 ## Debugging Migrated Tests
 
@@ -159,3 +191,18 @@ Trickier Patterns
   await waitFor.visibilityOf(elems.first(), 'elem not visible');
   ```
   and `elems` matches no elements, you'll get a `elems.first is not a function` error.
+* Make sure you add `async` and `await` in the `afterAll` blocks if they check for console errors (they all should). If you don't the test might pass even though errors are appearing in the console log.
+* Sometimes we see this error:
+  ```
+  Failed: java.net.SocketException: Connection reset
+  ```
+  We're not sure what causes it, though. Please let us know if you find out!
+* If you see an error like this:
+  ```
+  Expected $.length = 2 to equal 0.
+
+      Expected $[0] = Entry({ level: SEVERE, message: 'http://localhost:9001/third_party/static/angularjs-1.7.9/angular.min.js 126:302 Error: Possibly unhandled rejection: null
+  ...
+          timestamp: 1590690168677, type: '' }) to equal undefined.
+  ```
+  Then this error is likely a console error that is being detected by the `checkForConsoleErrors` call in the `afterAll` block. You can check the stack trace to confirm. One potential cause is that the test is clicking outside of an open modal. You may need to add some `waitFor`s to make sure the modal closes before you click.

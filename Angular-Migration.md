@@ -255,8 +255,8 @@ Take a look as to how the topic-viewer-backend-api.service is migrated in this [
     | ng-if | *ngIf |
     | ng-submit | (ngSubmit) |
     | ng-click | (ngClick) |
-    | ng-src | [src]
-
+    | ng-src | [src] |
+    | ng-class | [ngClass] |
 
 Here is pull request for reference: https://github.com/oppia/oppia/pull/9202/files.
 

@@ -31,6 +31,7 @@
       * [[Writing frontend unit tests|Frontend-unit-tests-guide]]
       * [[Writing tests for custom Pylint Checkers|Writing-Tests-For-Pylint]]
       * [[End-to-end tests|End-to-End-Tests]]
+        * [[Migrating tests to Use Async-Await|Migrating-End-to-End-Tests-to-Async-Await]]
     * [[Writing state migrations | Writing-state-migrations]]
     * [[Creating and modifying storage models | Creating-and-modifying-storage-models]]
     * [[Writing Validators for storage models | Writing-Validators-for-storage-models]]
