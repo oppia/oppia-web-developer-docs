@@ -91,7 +91,7 @@ The project's we've accepted are:
 
     - **Milestone 1**:
        - All third-party libraries have type definitions.
-       - All API endpoints have been camelized.  (Only in files migrated to angular)
+       - All HTTP requests are made by backend-api-services. (Only in files migrated to angular).
        - There are less than 20 files in the codebase with ‘any’ under the issue # 7176.
     - **Milestone 2**:
        - There are no occurrences of ‘any’ in the codebase, except for the AngularJS constants $uibModalInstance, $uibModal, $rootScope and $translate (if these are not yet upgraded).
