@@ -110,7 +110,7 @@ The [angular migration tracker](https://docs.google.com/spreadsheets/d/1L9Udn-XT
     angular.module('oppia').factory('ServiceName', downgradeInjectable(ServiceName));
     ```
 
-11. Add the service to the [UpgradedServices.ts](https://github.com/oppia/oppia/blob/develop/core/templates/dev/head/services/UpgradedServices.ts) as it is done for all other upgraded services.
+11. Add the service to the [UpgradedServices.ts](https://github.com/oppia/oppia/blob/develop/core/templates/services/UpgradedServices.ts) as it is done for all other upgraded services.
 
 Take a look as to how the topic-viewer-backend-api.service is migrated in this [pull request](https://github.com/oppia/oppia/pull/8427/files).
 
