@@ -48,7 +48,7 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
     
     The following steps of installation and running the development server should all be done within this virtual environment to ensure compatibility.
 
-    **Troubleshooting**: If, after running the `pip2 install virtualenv` command, you encounter a **'pip2 not found error'**, then do the following ([ref 1](https://pip.pypa.io/en/stable/installing/)):
+    **Troubleshooting**: If, after running the `pip2 install virtualenv` command, you encounter a **'pip2 not found error'**, then do the following ([reference](https://pip.pypa.io/en/stable/installing/)):
       - Run the following command in the terminal: `curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py`. This command downloads the get-pip.py file. 
       - In the same folder where you ran the above command, run: `python get-pip.py`.
       - If, after running the above command you get a warning about the directory not being added to PATH, you can add the suggested directory to the PATH by running: `sudo nano /etc/paths` and adding the suggested path at the bottom of the /etc/paths file (e.g. /Users/{{SYSTEM USERNAME}}/Library/Python/2.7/bin).
