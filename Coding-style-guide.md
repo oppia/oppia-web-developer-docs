@@ -99,6 +99,7 @@ _General note: We use the ES2017 standard for our JavaScript/TypeScript code. (S
 
 ## Typescript
 - Make sure to follow all the javascript rules here as well.
+- Lines containing Url are allowed to have a length of more than 80 characters.
 - Declare a variable before usage. For instance:
 
   **Wrong usage:**
