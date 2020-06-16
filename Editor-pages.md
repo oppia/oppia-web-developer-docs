@@ -52,3 +52,7 @@ A collection is a group of explorations. An exploration may belong to more than 
 **6. Tada! You have successfully landed inside the Topics and Skill Dashboard and create Topic/Skill as required.**
 ![image](https://user-images.githubusercontent.com/30312043/78745230-219e8380-7981-11ea-8fbf-8f4536476358.png)
 
+## Steps to access the classroom page:
+
+The classroom page is hidden behind a flag that needs to be toggled in order to gain access. Follow the steps as shown below:
+![how_to_access_classroom_page](https://user-images.githubusercontent.com/35144226/84793589-eec4db80-b012-11ea-90f5-e6f975f7712e.gif)
