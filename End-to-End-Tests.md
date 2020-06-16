@@ -297,4 +297,3 @@ The tests may be run either sequentially or in isolation, and they need to be wr
 
 * All test blocks should have an `afterEach` that runs `general.checkForConsoleErrors` to verify no unexpected console errors appeared while the test was running.
 * Check your assumptions! For example, if you are assuming that only one exploration on the server will have a particular title, use an `expect` call to check.
-* End-to-end tests are written using the async-await paradigm. To learn how to write tests in this way, see the [async-await wiki page](https://github.com/oppia/oppia/wiki/Migrating-End-to-End-Tests-to-Async-Await)
