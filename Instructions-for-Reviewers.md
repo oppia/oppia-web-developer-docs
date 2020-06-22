@@ -22,7 +22,7 @@ Clicking on the resulting URL will take you to a list of PRs that are assigned t
   1. Look out for the following things:
      * Do you understand exactly what the code is doing, without needing to dig in too much? If not, it's probably the writer's fault, and you should tell them so. The logic needs to be very clear. 
        * Don't be afraid, as a reviewer, about asking for the logic to be broken up or simplified. It's also totally fine (and preferable!) to ask for code to be simplified if it is hard to read (even though it may be technically correct in its current form). Code is typically written once and read many times, so we try to optimize for readability.
-     * Is the code doing the right thing? (Make sure to further expand the parts above and below the code you're looking at, to ensure that you have the full context of what is going on. This is especially important for complex logic -- e.g. can you find the critical bug that was introduced [here](https://github.com/oppia/oppia/pull/9141/files#diff-3d7e1efacf316f35426e24bedbd89564R128)?)
+     * Is the code doing the right thing? (Make sure to further expand the parts above and below the code you're looking at, to ensure that you have the full context of what is going on. This is _especially_ important for complex logic -- e.g. can you find the critical bug that was introduced [here](https://github.com/oppia/oppia/pull/9141/files#diff-3d7e1efacf316f35426e24bedbd89564R128)?)
      * Does the design look sensible?
      * User-facing bugs should be incorporated into unit/e2e tests.
      * User-facing confusions should be incorporated into manual tests / critical user journeys for functional capabilities. (Ping one of the QA team members on the PR thread).
