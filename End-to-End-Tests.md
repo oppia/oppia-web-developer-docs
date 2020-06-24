@@ -198,7 +198,7 @@ The tests may be run either sequentially or in isolation, and they need to be wr
   }));
   ```
     * This is the advice we see online, but we've also encountered cases where removing the `Promise.all` seems to fix bugs, so this guidance might not be right. Try both.
-    * If you are mapping over an element.all selector, we've encountered cases where ```element.all(selector).map(function)``` does not properly handle async functions. Instead of this:
+    * If you are mapping over an element.all selector, we've encountered cases where ```element.all(selector).map(function)``` does not properly await for async functions. Instead of this:
         ```
         let mappedElements = element.all(selector)
         await Promise.all(await mappedElements.map(async(x) => {
