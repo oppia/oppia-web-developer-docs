@@ -62,6 +62,8 @@ We also have a coverage tool that displays what fraction of the front-end code i
 ```
 and clicking through will show exactly which parts of the code are still in need of tests.
 
+Unfortunately the failure messages from the frontend tests are somewhat unhelpful. The line numbers in the stack trace correspond to a file that results from combining all the spec files together, so they are correct in relative but not absolute terms. Until we figure out how to fix this, you can use `console.log(...)` statements to isolate problems.
+
 ## End-to-end tests ##
 
 Oppia has an end-to-end testing framework (Protractor) that incorporates both the client and server. It is run using the following command:
