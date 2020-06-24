@@ -198,6 +198,22 @@ The tests may be run either sequentially or in isolation, and they need to be wr
   }));
   ```
     * This is the advice we see online, but we've also encountered cases where removing the `Promise.all` seems to fix bugs, so this guidance might not be right. Try both.
+    * If you are mapping over an element.all selector, we've encountered cases where ```element.all(selector).map(function)``` does not properly handle async functions. Instead of this:
+        ```
+        let mappedElements = element.all(selector)
+        await Promise.all(await mappedElements.map(async(x) => {
+            return await functionThatIsAsync(x);
+        }));
+        ```
+        Try:
+        ```
+        let mappedElements = element.all(selector)
+        for (let x of (await mappedElements)) {
+          await functionThatIsAsync(x);
+        }
+        ```
+        The above should properly await for each functionThatIsAsync to resolve.
+
 * When multiple elements might match a locator, we often use `element.all` to get an [`ElementArrayFinder`](https://www.protractortest.org/#/api?view=ElementArrayFinder). This object can usually be used just like a list, but it appears that with async-await, we can only use the functions it defines. In particular:
     * Use `elems.count()` instead of `elems.length` to get the length. This is asynchronous!
     * Use `elems.get(i)` instead of `elems[i]`. `elems.first(i)` and `elems.last(i)` work too.
