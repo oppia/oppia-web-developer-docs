@@ -18,6 +18,7 @@ This guide can be used by both new Oppia members and developers who have contrib
   - [Spy utilities](#spy-utilities)
     - [Spying on and handling with third-party libraries](#spying-on-and-handling-with-third-party-libraries)
     - [Spying a same object more than one time in same context](#spying-the-same-methodproperty-more-than-one-time-in-same-context)
+    - [Creating spies reassigning expressions](#creating-spies-reassigning-expressions)
   - [Handling Window events and reloads](#handling-window-events-and-reloads)
     - [When window calls reload](#when-window-calls-reload)
     - [Using the same object reference in both file and spec file](#using-the-same-object-reference-in-both-file-and-spec-file)
@@ -234,7 +235,12 @@ spyOn('should not throw an error when spying twice', function() {
   warnSpy.and.stub();
 });
 ```
-You can check real examples of this approach [here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/landing-pages/topic-landing-page/topic-landing-page.controller.spec.ts#L94-L109) (dealing with window location properties) and [here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/about-page/about-page.controller.spec.ts#L72-L89) (reseting to spy to original code).
+You can check real examples of this approach [here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/landing-pages/topic-landing-page/topic-landing-page.controller.spec.ts#L94-L109) (dealing with window location properties) and [here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/about-page/about-page.controller.spec.ts#L72-L89) (resetting to spy to original code).
+
+#### Creating spies reassigning expressions
+Sometimes you might face some issues trying to spy a certain property or method (mainly when you want to return a custom value). There are many ways to spy and return a custom value for property or a method as you can see in the sections above. However, you must not use spies that are declared by reassigning a **global expression**, like the window object or its properties and methods. Let's suppose you need to return a custom value from `document.getElementById` but you're facing some problems trying to do it. You may find nice solutions searching over the internet, however, make sure the chosen solution is not changing a global value, like in this [case](https://github.com/oppia/oppia/blob/bc8625cb38aef8f93844954d0b0cb797e1bd753b/core/templates/pages/preferences-page/modal-templates/edit-profile-picture-modal.controller.spec.ts#L51-L52). You should find another approach for the goal, like this [example](https://github.com/oppia/oppia/blob/1f20eda67be9bfb78b5885916ce37ddea7f05183/core/templates/pages/preferences-page/modal-templates/edit-profile-picture-modal.controller.spec.ts#L49-L50).  
+
+The problem with the first case is that when changing a global value, it will affect other files that use the expression you've reassigned, making the unit tests error-prone. [Here](https://github.com/oppia/oppia/issues/9660)'s a good example of a bug that appears after using the first case.
 
 ### Handling Window events and reloads
 Spying on window object is very common, mainly because some native behaviors can cause the tests to fail or make them unpredictable. This happens in two specific cases:
