@@ -63,6 +63,41 @@ At the very end, ensure that no one contributor has too many open PRs (ie. over 
       2. Otherwise, @-mention the relevant party and adjust the assignee field accordingly.
    2. If there are failed tests, then restart the relevant suites only if they are known flaky suites. Otherwise, assign it back to the contributor and @-mention the contributor.
 
+## Cancelling CI Builds
+
+### Overview
+Builds sometimes are cancelled for the following reasons:
+
+* CI queue is very high.
+* Contributor clearly needs to perform more work on the PR due to one of the following:
+  * Merge conflict
+  * Outstanding comments from reviewers.
+
+Note: Please ensure that you logged into TravisCI or CircleCI, otherwise, you can't cancel.
+
+### CircleCI
+Keep in mind that it is not possible to cancel all CircleCI builds due to permission issues.
+
+1. Click on any "Details" link that corresponds to CircleCI in the status checks section at the bottom.
+   ![CI Details](images/testStatuses2.png)
+2. Click on "circleci_tests" at the top section.
+   ![CI Top Bar](images/circleCITopbar.png)
+3. Click on the Cancel button in the top left.
+   ![CI Action](images/circleCIWorkflowAction.png)
+   If you don't see the "Cancel" button, you can't cancel this build like the following:
+
+   ![CI Action Disabled](images/circleCIWorkflowActionDisabled.png)
+
+
+### TravisCI
+
+1. Click on Details in the test section for TravisCI.
+   ![CI Details.](images/testStatuses.png)
+2. Click on "The Build" on the TravisCI status page.
+   ![Travis CI Details.](images/travisCIStatusPage.png)
+3. Click on the "Cancel Build" button on the right of the overview section.
+   ![Travis CI Details.](images/travisCIBuildPage.png)
+
 ## Core Maintainer Rota
 
 It is recommended that the core maintainer complete their pass the week prior to the monthly meeting. However, they may choose to do it earlier if there are schedule constraints.
