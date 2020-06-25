@@ -30,7 +30,7 @@ If a PR introduces a new job, it can be merged only after it is tested on the ba
 
 ### Running your job on the backup server (and possibly in production)
 
-In order to test a job, please submit a request using [this form](https://goo.gl/forms/XIj00RJ2h5L55XzU2). Before submitting a testing request, please ensure that the job has already been tested manually on your local machine, passed code review, and been merged into develop.  For an existing job, make sure that you test the job locally and specify clearly in the form that why you want to run the job.
+In order to test a job, please submit a request using [this form](https://goo.gl/forms/XIj00RJ2h5L55XzU2). Before submitting a testing request, please ensure that the job has already been tested manually on your local machine, and that all CI checks are passing in your PR on GitHub. For an existing job, make sure that you test the job locally and specify clearly, in the form, why you want to run the job.
 
 If you are hoping to run your job in a particular release, please plan your work schedule appropriately so that you get the testing completed in time for that release. Jobs must have completed a successful run on the backup server before the [date of the relevant release cutoff](https://github.com/oppia/oppia/wiki/Release-Schedule), which is typically the first Saturday of the corresponding month. Note backup test server jobs will be run within 48 hours of your request submission. (More specifically, the server admin will test the job within 48 hours of the form being filled in, and results will come back after that.)
 

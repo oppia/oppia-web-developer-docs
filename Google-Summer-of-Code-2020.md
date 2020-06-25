@@ -1,4 +1,5 @@
 ## Table of Contents
+* [Accepted Proposals](#accepted-proposals)
 * [Getting started](#getting-started)
 * [FAQs](#faqs)
 * [GSoC Proposal Template](#gsoc-proposal-template)
@@ -24,17 +25,141 @@ Also, please note that acceptance into GSoC isn't a prerequisite for becoming an
 The project's we've accepted are:
 
 - [Abhith Krishna's proposal](pdfs/GSoC2020AbhithKrishna.pdf): Generate images for LaTeX expressions. Mentor: Sandeep Dubey.
+
+    - **Milestone 1**: All RTE math expressions have a new “SVG filename” attribute in addition to the LaTeX value. For existing expressions, this filename will be an empty string. For newly-created expressions, the filename will be non-empty and the corresponding SVG file is guaranteed to exist on the server (but will not be used for display yet).
+    - **Milestone 2**: All RTE math expressions in the server (in explorations, questions, topics, skills, question/translation suggestions and any other RTEs) include a non-empty SVG filename that points to a valid file. There is a validation job that can be used to audit this, and that validation job runs to completion successfully on existing production data.
+    - **Milestone 3**: 
+       - All math expressions are displayed using SVGs in the learner view. 
+       - MathJax is fully removed from the learner view.
+
 - [Anshul Hudda's proposal](pdfs/GSoC2020AnshulHudda.pdf): Fix the linter and implement all the lint checks. Mentor: Nitish Bansal.
+
+    - **Milestone 1**: In non-verbose mode, the linter has less verbose output. The linter raises an exception if there is any error due to the operation of the linter script. All existing lint checks have tests written for them. The linter handles all general and CSS lint errors, and the linter script has 100% test coverage.
+    - **Milestone 2**: The linter fully handles all Python lint checks. All JS/TS lint checks are fully implemented, except for at most 11.
+    - **Milestone 3**: The linter fully handles all JS/TS lint checks.
+
 - [James James's proposal](pdfs/GSoC2020JamesJames.pdf): Make Oppiabot more useful. Mentor: Ankita Saxena.
+
+    - **Milestone 1**: All issue-related Checks and the following "PR creation" checks are fully operational:
+       - WIP PR checks
+       - PR branch name check
+       - PR job check
+    - **Milestone 2**: All Oppiabot checks that should run on PR creation, PR labelling, and force pushes are fully operational.
+    - **Milestone 3**: All Oppiabot checks that should run on PR reviews, PR review comments, merge conflicts, and CI result publication are fully operational. In addition, the following periodic checks are implemented:  PR's aren't stale, issues are associated with a project.
+
 - [Jim Zhan's proposal](pdfs/GSoC2020JimZhan.pdf): Ensure that Oppia is Fully Accessible. Mentor: Sagang Wee.
+
+    - **Milestone 1**:
+       - Set up LightHouse CI for automated testing
+       - For the following web pages: Admin, Classroom, About, Collection_editor, Collection_player, Contact, Console_errors, Creator_dashboard, Community_dashboard, Delete_account, Donate, Email_dashboard, Email_dashboard_Result
+          - Achieve Google Chrome Lighthouse audit report scores of 100
+          - Complete manual accessibility review ([Review Checklist](https://docs.google.com/document/d/1UQpNSqVi2sSoj3nUiArdq5KgK0NPYuTbQrnSXAe5X-w/edit))
+       - Develop and refine a robust manual testing methodology to catch accessibility issues that cannot be checked automatically by Lighthouse, and create documentation for this, so that the QA process includes a full suite of manual tests for accessibility starting from July onwards.
+    - **Milestone 2**:
+       - For all web pages listed above in M1, as well as: Error, Exploration_Editor, Exploration_Player, Get_Started, Landing, Learner_Dashboard, Library, Maintenance, Moderator, Notifications_Dashboard, Pending_Account_Deletion, Practice_session, Privacy.
+          - Achieve Google Chrome Lighthouse audit report scores of 100
+          - Complete manual accessibility review ([Review Checklist](https://docs.google.com/document/d/1UQpNSqVi2sSoj3nUiArdq5KgK0NPYuTbQrnSXAe5X-w/edit))
+       - Users can use keyboard shortcuts to navigate to all critical pages (Get Started, Library, Creator Dashboard, Learner Dashboard, Profile, Notification, Preferences)
+       - Users can use keyboard shortcuts for critical actions on the Library page and Exploration Viewer. Users also have a way of discovering these keyboard shortcuts
+    - **Milestone 3**: 
+       - For all web pages in the Oppia web application, including all webpages listed above in M1 and M2, as well as: Preferences, Profile, Review_Test, Signup, Skill_Editor, Splash, Stewards, Story_Editor, Story_Viewer, Subtopic_Viewer, Teach, Terms, Thanks, Topic_Editor, Topics_and_Skills_Dashboard, Topic_Viewer, and any other pages.
+          - Achieve Google Chrome Lighthouse audit report scores of 100
+          - Complete manual accessibility review ([Review Checklist](https://docs.google.com/document/d/1UQpNSqVi2sSoj3nUiArdq5KgK0NPYuTbQrnSXAe5X-w/edit))
+
 - [Mariana Zangrossi's proposal](pdfs/GSoC2020MarianaZangrossi.pdf): Frontend testing of controllers and directives. Mentor: Nithesh Hariharan.
+
+    - **Milestone 1**:  Achieve 100% coverage of non-inline controllers and fully cover 33 out of 69 inline controllers.
+    - **Milestone 2**: Achieve 100% coverage of inline controllers and 87.5% coverage of files in /core/templates/pages/exploration-editor-page folder.
+    - **Milestone 3**: Achieve 100% on some /core/templates/pages folders:
+       - /exploration-editor-page
+       - /subtopic-viewer-page
+       - /profile-page
+       - /library-page
+       - /story-viewer-page
+       - /review-test-page
+       - /classroom-page
+       - /community-dashboard-page
+       - /learner-dashboard-page
+
 - [Mohamed Medhat's proposal](pdfs/GSoC2020MohamedMedhat.pdf): Support tablet interfaces. Mentor: Rajat Talesra.
+
+    - **Milestone 1**: Review and provide suggestions for all tablet mocks. Implement low-fidelity & high-fidelity code for tablet UI in the Onboarding Flow, HomeFragment , ProfileChooser, NavigationDrawer, and RecentlyPlayedStoryList.
+    - **Milestone 2**: Implement low-fidelity & high-fidelity code for tablet UI in following screens: Topic including all Tabs, ExplorationPlayer, Hints & Solution, QuestionPlayer and Concept Card.
+    - **Milestone 3**: Implement low-fidelity & high-fidelity code for tablet UI in following screens: Admin Controls, ProfileProgressActivity, OngoingTopicList, CompletedStoryList, Options and its 3 child screens(Audio Selection, Language Selection and StoryTextSize Selection). Introduce screen-diff/screenshot testing to the application, and write test cases to cover at least 1 screen for mobile+tablet UI.
+
 - [Nishant Mittal's proposal](pdfs/GSoC2020NishantMittal.pdf): Solve all typescript and webpack issues in the codebase. Mentor: Vojtěch Jelínek.
+
+    - **Milestone 1**:
+       - All third-party libraries have type definitions.
+       - All HTTP requests are made by backend-api-services. (Only in files migrated to angular).
+       - There are less than 20 files in the codebase with ‘any’ under the issue # 7176.
+    - **Milestone 2**:
+       - There are no occurrences of ‘any’ in the codebase, except for the AngularJS constants $uibModalInstance, $uibModal, $rootScope and $translate (if these are not yet upgraded).
+       - No PRs that reach the review stage have ‘any’ defined.
+       - All backend api services migrated to angular return camelCase objects.
+       - There is proper documentation on adding type definitions.
+       - No PRs that reach the review stage have any typescript errors.
+    - **Milestone 3**: 
+       - There will be no generated third_party.js file.
+       - All *scripts.ts files have been renamed to *import.ts
+       - There will be no script imports,  except for jQuery, MathJax, and PencilCode embed.
+       - The webpack compile speed will be reduced to under 30s for dev and under 120s for production (locally).
+       - We may be using Webpack 5.0 (if a non-beta release is made by 15 August and it is compatible with our webpack config).
+       - There will be documentation on:
+          - Dealing with different types of typescript errors.
+          - How our webpack config works.
+          - How to deal with some common errors in webpack.
+
 - [Prayush Dawda's proposal](pdfs/GSoC2020PrayushDawda.pdf): Revamping Math Interactions. Mentor: Akshay Anand.
+
+    - **Milestone 1**:
+       - The Algebraic Expression Input and Math Equation Input interactions will be ready for lesson creators to use with the following two rules:
+          - MatchesExactlyWith
+          - IsEquivalentTo.
+       - The old Math Expression Input interaction will be disabled (will not be visible in the Choose Interaction modal) in order to disallow any new explorations from using it.
+       - A migration job to upgrade all the explorations that use the old math interaction will be merged for the July release, and will have passed successfully without errors on a test run on production data.
+    - **Milestone 2**:
+       - The Numeric Expression Input interaction will be ready to use with all its rules implemented.
+       - No exploration on the production server uses the old MathExpressionInput interaction.
+    - **Milestone 3**: 
+       - The following rules will be added to the Algebraic Expression Input and Math Equation Input interaction:
+          - ContainsSomeOf
+          - OmitsSomeOf
+          - MatchesWithGeneralForm
+       - The old Math Expression Input interaction will be stably deprecated and all related code will be removed from the codebase.
+
 - [Pulkit Aggarwal's proposal](pdfs/GSoC2020PulkitAggarwal.pdf): Additional Interaction Types. Mentor: Ben Henning.
+
+    - **Milestone 1**: Fully implement the drag-and-drop sorting interaction in the Android app.
+    - **Milestone 2**:
+       - Fully implement the image region interaction in the Android app.
+       - Implement backend support for ratio input.
+    - **Milestone 3**: Fully implement the ratio input interaction in the Android app.
+
 - [Rishabh Rawat's proposal](pdfs/GSoC2020RishabhRawat.pdf): Editor Page Redesigns. Mentor: Sean Lip.
+
+    - **Milestone 1**: Complete the Topics-and-Skills dashboard, Topic Editor page, and Skill Editor page redesigns (both mobile and desktop).
+    - **Milestone 2**: Complete the Subtopic Editor page and Question Editor page redesigns (both desktop and mobile).
+    - **Milestone 3**: Complete the Story Editor page redesign (both desktop and mobile) and Exploration Editor page redesign (both desktop and mobile).
+
 - [Rohit Katlaa's proposal](pdfs/GSoC2020RohitKatlaa.pdf): Adding SVG editor to RTE. Mentor: Kevin Thomas.
+
+    - **Milestone 1**:
+       - All required backend changes and validations will be in place.
+       - It is possible to create and save the diagrams, but the UI for doing so will be hidden behind a flag variable (to be turned on for the public in Milestone 2). Saved diagrams will be displayed in the card content.
+    - **Milestone 2**:
+       - All E2E tests for the svg editor will be completed.
+       - The flag variable is removed and the UI is fully available for creators.
+       - The user will be able to use the pie chart tool to add pie charts to the editor.
+    - **Milestone 3**: 
+       - The user will be able to use the arc tool to draw arcs.
+       - The user will be able to use the import image tool to import the required image into the editor.
+
 - [Sarthak Agarwal's proposal](pdfs/GSoC2020SarthakAgarwal.pdf): Analytics Support. Mentor: Vinita Murthi.
+
+    - **Milestone 1**: When a crash or an event arises, the corresponding crash report or event report is uploaded to the Firebase console when there is network connectivity. A full suite of unit tests will be written for both the crashlytics logging wrapper and the event analytics logging wrapper.
+    - **Milestone 2**: In the absence of network connectivity, event analytics stats are stored offline. Logs will be stored in disk, with the maximum size of the files determined by a constant specified in the code. If the max size is reached, logs will be removed based on their priority and their recency (i.e. timestamp). This functionality will be achieved via a log persistence class. A full suite of unit tests will be written for the log persistence functionality.
+    - **Milestone 3**: In the absence of network connectivity, crash reports are stored offline. In the presence of network connectivity, these offline records of crashes/events are uploaded to the firebase console using a work manager. There will be a full suite of unit tests for this work manager. In addition, event stats for the following 5 views of the oppia application can be analysed via the Firebase analytics dashboard: the home screen, and the 4 tabs of the topic page (i.e. info, lessons, practice, and revision). There is also clear documentation for how to create similar dashboards in the future for other views.
 
 # Students
 GSoC is an excellent opportunity for students to get paid to work on an open source project. If you're interested in applying as a student, you should definitely read the following resources:
@@ -453,7 +578,7 @@ A few things should be considered while writing the design doc:
 
 ### 2.1. Editor Page Redesigns
 
-The aim of this project is to redesign the topic, exploration, story and skill editor pages so they are more visually appealing and work better on mobile, while retaining all of their features. Some initial mocks that we created visualizing these changes can be found here ([desktop](https://xd.adobe.com/view/a496f74b-80d1-4d8f-78b5-773b61ea1479-d2a7/grid), [mobile](
+The aim of this project is to redesign the topic, exploration, story and skill editor pages so they are more visually appealing and work better on mobile, while retaining all of their features. Some initial mocks that we created visualizing these changes can be found here ([desktop](https://xd.adobe.com/view/3940de63-c416-4008-4b32-a73dc43fd7a1-4f71/), [mobile](
 https://xd.adobe.com/view/84eb3b8d-3d19-4971-7e79-9ff756b25c83-f2da/grid)); please note that these mocks will be updated over time as we finalize the design. (Feel free to suggest changes to the mocks if you think that would enhance the creator experience, or ask any questions on the oppia-gsoc-discuss@ mailing list.)
 
 **Team**: Learner and Creator Experience

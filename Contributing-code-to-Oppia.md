@@ -43,7 +43,6 @@ Welcome! Please make sure to follow the [setup instructions](https://github.com/
 - [#4057](https://github.com/oppia/oppia/issues/4057) (frontend; Karma tests)
 - [#8668](https://github.com/oppia/oppia/issues/8668) (frontend; documenting the services)
 - [#6240](https://github.com/oppia/oppia/issues/6240) (writing end to end tests)
-- [#7176](https://github.com/oppia/oppia/issues/7176) (frontend; creating domain objects)
 - [#8015](https://github.com/oppia/oppia/issues/8015) (Refactoring frontend services)
 - [#8016](https://github.com/oppia/oppia/issues/8016) (Refactoring frontend services)
 - [#8472](https://github.com/oppia/oppia/issues/8472) (Migrating AngularJS files to Angular 8)
@@ -52,6 +51,8 @@ Welcome! Please make sure to follow the [setup instructions](https://github.com/
 
 since these issues are hand-picked and ensure that you don't run into unexpected roadblocks while working on them. For other issues, you may need to be more independent because often times, we don’t know how to solve them either.
 If you decide to pick one of these, please go ahead and leave a comment saying which part of the issue you're taking, and submit a follow-up PR by following the [instructions below](Contributing-code-to-Oppia#instructions-for-making-a-code-change). You don't need to wait for approval to get started!
+
+If you need some help from someone with a more prominent UI/UX or design perspective, tag @rachelwchen and expect a response within 2-3 days, if not, ping in the Oppia Gitter channel.
 
 **Important Note**: Please make sure to read and follow the [PR instructions](Contributing-code-to-Oppia#instructions-for-making-a-code-change) carefully, otherwise your PR review may be delayed.
 
@@ -81,7 +82,7 @@ If an issue hasn't got someone assigned to it, and there's no existing PR for th
 
 To make code changes, please follow the following instructions carefully! Otherwise, your code review may be delayed.
 
-1. **Before coding anything, choose a descriptive branch name** that is lowercase and hyphen-separated, e.g. `fuzzy-rules`, and create a new branch with this name, starting from 'develop'. (Also, make sure that your branch name doesn't start with `release`.)
+1. **Before coding anything, choose a descriptive branch name** that is lowercase and hyphen-separated, e.g. `fuzzy-rules`, and create a new branch with this name, starting from 'develop'. Make sure that your branch name doesn't start with `develop`, `release` or `test`.
 
    You can do all this by running:
 
@@ -223,7 +224,9 @@ To make code changes, please follow the following instructions carefully! Otherw
 
 While making a contribution, you may discover that your change is not complete and needs some more work. You may want to make a work in progress (WIP) or a draft pull request so that the reviewers can begin reviewing your changes, however, draft pull requests consumes resources like the Circle CI builds and Travis CI builds and this is not always what you want since the pull request is still a work in progress.
 
-Hence, we advice that you do not open such pull requests or close the pull request if it is a work in progress.
+Hence, we advice that you prefix the commit messages with **[skip ci]** or **[ci skip]** request if it is a work in progress to prevent CI checks from running.
+
+Learn more about skipping a [Travis CI build](https://docs.travis-ci.com/user/customizing-the-build/#skipping-a-build) and skipping a [Circle CI build](https://circleci.com/docs/2.0/skip-build/#skipping-a-build).
 
 
 ## Labeling issues and pull requests

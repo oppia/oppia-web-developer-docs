@@ -20,8 +20,9 @@ Clicking on the resulting URL will take you to a list of PRs that are assigned t
 **Pro-tip**: You can change the review pane on the "Files Changed" tab of a PR to show the old and new versions side-by-side! This makes it easier to review the diffs. See this [GitHub help page](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-comparing-branches-in-pull-requests#diff-view-options) for more information.
 
   1. Look out for the following things:
-     * Do you understand exactly what the code is doing? If not, it's probably the writer's fault, and you should tell them so. The logic needs to be very clear.
-     * Is the code doing the right thing?
+     * Do you understand exactly what the code is doing, without needing to dig in too much? If not, it's probably the writer's fault, and you should tell them so. The logic needs to be very clear. 
+       * Don't be afraid, as a reviewer, about asking for the logic to be broken up or simplified. It's also totally fine (and preferable!) to ask for code to be simplified if it is hard to read (even though it may be technically correct in its current form). Code is typically written once and read many times, so we try to optimize for readability.
+     * Is the code doing the right thing? (Make sure to further expand the parts above and below the code you're looking at, to ensure that you have the full context of what is going on. This is _especially_ important for complex logic -- e.g. can you find the critical bug that was introduced [here](https://github.com/oppia/oppia/pull/9141/files#diff-3d7e1efacf316f35426e24bedbd89564R128)?)
      * Does the design look sensible?
      * User-facing bugs should be incorporated into unit/e2e tests.
      * User-facing confusions should be incorporated into manual tests / critical user journeys for functional capabilities. (Ping one of the QA team members on the PR thread).
@@ -57,6 +58,10 @@ The commit message of the squash should be a clear one-line summary of the chang
 * ``Update the exploration editor to do X better.``
 
 Getting this message correct is important, since it will be used to compile the CHANGELOG during the next release. If you like, feel free to also add optional follow-up sentences after the one-line summary.
+
+### Who Should Merge
+
+In general, the last reviewer to give LGTM should merge the PR if the CI tests are passing. Otherwise, they should assign the PR to the author, who should merge it once the CI tests have passed.
 
 ### Standard Merging
 
