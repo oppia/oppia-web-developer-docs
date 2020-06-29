@@ -46,7 +46,6 @@ Welcome! Please make sure to follow the [setup instructions](https://github.com/
 - [#8015](https://github.com/oppia/oppia/issues/8015) (Refactoring frontend services)
 - [#8016](https://github.com/oppia/oppia/issues/8016) (Refactoring frontend services)
 - [#8472](https://github.com/oppia/oppia/issues/8472) (Migrating AngularJS files to Angular 8)
-- [#8423](https://github.com/oppia/oppia/issues/8423) (Writing backend lint checks)
 - [#8038](https://github.com/oppia/oppia/issues/8038) (Refactoring frontend services)
 
 since these issues are hand-picked and ensure that you don't run into unexpected roadblocks while working on them. For other issues, you may need to be more independent because often times, we don’t know how to solve them either.
