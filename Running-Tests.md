@@ -14,6 +14,11 @@ Alternatively, to run just a single test module, you can type, e.g.:
     python -m scripts.run_backend_tests --test_target=core.controllers.editor_test
 ```
 
+You can also run a class/group of tests or a single test with ```--test_target```:
+* Class of tests: ```--test_target=core.controllers.editor_test.BaseEditorControllerTests```
+* Single test: ```--test_target=core.controllers.editor_test.BaseEditorControllerTests.setUp```
+
+
 If you also want to see print and error logs in the terminal, use `--verbose`. E.g.:
 
 ```
