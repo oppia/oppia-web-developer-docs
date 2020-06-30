@@ -304,11 +304,340 @@ Take a look as to how the topic-viewer-backend-api.service is migrated in this [
     | --- | --- |
     | ng-if | *ngIf |
     | ng-submit | (ngSubmit) |
-    | ng-click | (ngClick) |
+    | ng-click | (click) |
     | ng-src | [src] |
     | ng-class | [ngClass] |
 
 Here is pull request for reference: https://github.com/oppia/oppia/pull/9202/files.
+
+## Implementation details to migrate directives
+
+There are two parts to this migration. (The ts file and the HTML file)
+Migrating directives requires the contributor to be aware of the context
+
+### Migrating the logic part (ts file):
+Here are the steps to migrate the logic part
+#### 1. Create a basic component in the directive file:
+Import Component to the file.
+`import { Component } from '@angular/core';`
+
+The take a look at the directive declaration. For example if the directive is declared like this:
+```
+angular.module('oppia').directive('conceptCard', [
+  'UrlInterpolationService', function(UrlInterpolationService) {
+    return {
+      restrict: 'E',
+      scope: {},
+      bindToController: {
+        getSkillIds: '&skillIds',
+        index: '='
+      },
+      templateUrl: UrlInterpolationService.getDirectiveTemplateUrl(
+        '/components/concept-card/concept-card.directive.html'),
+      controllerAs: '$ctrl',
+      controller: [
+        '$scope', '$filter', '$rootScope',
+        'ConceptCardBackendApiService', 'ConceptCardObjectFactory',
+```
+
+then add the following at the end of the file.
+```
+@Component({
+  selector: 'concept-card',
+  templateUrl: './concept-card.directive.html',
+  styleUrls: []
+})
+export class ConceptCardComponent {}
+```
+
+Some points to note:
+* Please keep in mind the name of the directive declared. In this case, it is 'conceptCard'.
+* The directive name converted to kebab-case is the selector (conceptCard -> concept-card).
+* The name of the class is in CamelCase (note the first letter is capital) suffixed with component. So conceptCard -> ConceptCardComponent.
+* The template of the directive (in 99% of the cases) exists in the same folder as the directive.ts file.
+
+#### 2. Import and inject the dependencies:
+```
+controller: [
+        '$scope', '$rootScope',
+        'ConceptCardBackendApiService', 'ConceptCardObjectFactory',
+```
+
+The first two dependencies are interesting ones. If you find something like $scope.$on, $scope.$broadcast, $scope.$watch and similarly for $rootScope in the file you are migrating, please contact/ ping @bansalnitish (nitishbansal2297@gmail.com) or @srijanreddy98(srijanreddy98@gmail.com) via email/gitter or in the issue thread itself.
+
+If you didn't find that case above, you will mostly find `$scope.someVariable = ` or `$rootScope.$apply()`. In that case, you can proceed.
+
+Now, we have the other two dependencies ('ConceptCardBackendApiService', 'ConceptCardObjectFactory'). These are called injectables as they are "injected". So these go into your constructor.
+
+First, import these two services into the directive.
+
+```
+import { ConceptCardBackendApiService } from 'service/some-service.ts';
+import { ConceptCardObjectFactory } from 'services/some-other-service.ts';
+```
+
+Create a constructor for the class you made in the previous step and add those injectables there:
+```
+export class ConceptCardComponent {
+
+constructor(
+  private conceptCardBackendApiService: ConceptCardBackendApiService,
+  private conceptCardObjectFactory: ConceptCardObjectFactory
+) {}
+
+}
+```
+**Notice the casing very carefully. The service is ConceptCardBackendApiService but its instance is called conceptCardBackendApiService (with a small c)**
+
+#### 3. Adding OnInit:
+You will notice that in almost every directive you have ctrl.$onInit. The equivalent of this in angular is ngOnInit.
+First, you need to import OnInit from '@angular/core'; Then implement it in the class. So change the class declaration to this:
+`export class ConceptCard implements OnInit {` and add an `ngOnInit() {}` below the constructor.
+After this step the component class would look like this:
+
+```
+import { Component, OnInit } from '@angular/core';
+...
+export class ConceptCardComponent implements OnInit {
+
+  constructor(
+    private conceptCardBackendApiService: ConceptCardBackendApiService,
+    private conceptCardObjectFactory: ConceptCardObjectFactory
+  ) {}
+  
+  ngOnInit() {
+  }
+}
+```
+
+#### 4. Changing the bindToController:
+If there is some value in bindToController then import `Input` from `@angular/core`;
+
+There are four "syntaxes" that you could run into when trying to migrate bindToController:
+1. `'@'`
+2. `'<'`
+3. `'='`
+4. `'&'`
+
+The syntax for `'@'` and `'<'` is pretty straight forward:
+```
+  layoutType: '@',
+  layoutAlignType: '<',
+```
+will change to
+```
+  @Input() layoutType: string;
+  @Input() layoutAlignType: string;
+```
+**Note that `'@'` is always a string but `'<'` can be of any type (string, number, object or custom types).**
+
+You will find `'&'` with a syntax that looks like `getSkillIds: '&skillIds',`. This requires some significant changes so please follow the next steps ver carefully:
+
+Take a look at the directive name (in this case it is conceptCard). Now do a global search for `<concept-card`. (Note the change to snake_case and the extra '<' at the beginning).
+When you get the results, in each and every case you will find something like `skill-ids=skillIds`. Change that to `skill-ids=<[skillIds]>`.
+This will work if it is a simple string, but what about when you have to send an array?
+In that case, you have to assign skillIds to the ctrl in the other directive (whose HTML you just found using global search) and then change it to `skill-ids=ctrl.skillIds`.
+
+#### 5. Start separating the other functions:
+
+Take a look at the directive code:
+```
+          var ctrl = this;
+          ctrl.isLastWorkedExample = function() {
+            return ctrl.numberOfWorkedExamplesShown ===
+              ctrl.currentConceptCard.getWorkedExamples().length;
+          };
+
+          ctrl.showMoreWorkedExamples = function() {
+            ctrl.explanationIsShown = false;
+            ctrl.numberOfWorkedExamplesShown++;
+          };
+
+          ctrl.$onInit = function() {
+            ctrl.conceptCards = [];
+            ctrl.currentConceptCard = null;
+            ctrl.numberOfWorkedExamplesShown = 0;
+            ctrl.loadingMessage = 'Loading';
+            ConceptCardBackendApiService.loadConceptCards(
+              ctrl.getSkillIds()
+            ).then(function(conceptCardObjects) {
+              conceptCardObjects.forEach(function(conceptCardObject) {
+                ctrl.conceptCards.push(conceptCardObject);
+              });
+              ctrl.loadingMessage = '';
+              ctrl.currentConceptCard = ctrl.conceptCards[ctrl.index];
+              ctrl.numberOfWorkedExamplesShown = 0;
+              if (ctrl.currentConceptCard.getWorkedExamples().length > 0) {
+                ctrl.numberOfWorkedExamplesShown = 1;
+              }
+              // TODO(#8521): Remove when this directive is migrated to Angular.
+              $rootScope.$apply();
+            });
+          };
+```
+Look at all lines matching the pattern `ctrl.someVariable = function(...) {...`.
+
+In the component you made in step one, just create those functions without the `ctrl` and `= function`:
+```
+export class ConceptCardComponent implements OnInit {
+
+constructor(
+  private conceptCardBackendApiService: ConceptCardBackendApiService,
+  private conceptCardObjectFactory: ConceptCardObjectFactory
+) {}
+
+  ngOnInit() {
+  }
+
+  isLastWorkedExample() {
+  }
+
+  showMoreWorkedExamples() {
+  }
+
+}
+```
+
+#### 6. Create class members (variables):
+Till now we only looked at `ctrl.someVariable = function()`. Now we will look at all the other cases.
+Looking at the directive code again:
+Take a look at the directive code:
+```
+          var ctrl = this;
+          ctrl.isLastWorkedExample = function() {
+            return ctrl.numberOfWorkedExamplesShown ===
+              ctrl.currentConceptCard.getWorkedExamples().length;
+          };
+
+          ctrl.showMoreWorkedExamples = function() {
+            ctrl.explanationIsShown = false;
+            ctrl.numberOfWorkedExamplesShown++;
+          };
+
+          ctrl.$onInit = function() {
+            ctrl.conceptCards = [];
+            ctrl.currentConceptCard = null;
+            ctrl.numberOfWorkedExamplesShown = 0;
+            ctrl.loadingMessage = 'Loading';
+            ConceptCardBackendApiService.loadConceptCards(
+              ctrl.getSkillIds()
+            ).then(function(conceptCardObjects) {
+              conceptCardObjects.forEach(function(conceptCardObject) {
+                ctrl.conceptCards.push(conceptCardObject);
+              });
+              ctrl.loadingMessage = '';
+              ctrl.currentConceptCard = ctrl.conceptCards[ctrl.index];
+              ctrl.numberOfWorkedExamplesShown = 0;
+              if (ctrl.currentConceptCard.getWorkedExamples().length > 0) {
+                ctrl.numberOfWorkedExamplesShown = 1;
+              }
+              // TODO(#8521): Remove when this directive is migrated to Angular.
+              $rootScope.$apply();
+            });
+          };
+```
+So looking at all the other `ctrl.` declaration we find:
+ctrl.numberOfWorkedExamplesShown, ctrl.currentConceptCard, ctrl.explanationIsShown, ctrl.numberOfWorkedExamplesShown++, ctrl.conceptCards, ctrl.loadingMessage, etc.
+
+Now we have to define them as class members. In order to do so just remove `ctrl.` in front of the variable and add them to the class above the constructor.
+```
+export class ConceptCardComponent implements OnInit {
+numberOfWorkedExamplesShown: number = 0;
+currentConceptCard: ConceptCard;
+explanationIsShown: boolean = false;
+conceptCards: Array<ConceptCard>;
+loadingMessage: string = '';
+
+constructor(
+  private conceptCardBackendApiService: ConceptCardBackendApiService,
+  private conceptCardObjectFactory: ConceptCardObjectFactory
+) {}
+
+  ngOnInit() {
+  }
+
+  isLastWorkedExample() {
+  }
+
+  showMoreWorkedExamples() {
+  }
+
+}
+```
+
+#### Now we copy the contents of the functions:
+It very simple, anything with `ctrl.` becomes `this.`.
+For example:
+```
+ctrl.isLastWorkedExample = function() {
+  return ctrl.numberOfWorkedExamplesShown ===  
+    ctrl.currentConceptCard.getWorkedExamples().length;
+};
+```
+becomes
+
+```
+isLastWorkedExample(): boolean {
+  return this.numberOfWorkedExamplesShown ===
+    this.currentConceptCard.getWorkedExamples().length;
+}
+```
+**Note the dependency injections also get the `this.` prefix**
+in the controller.$OnInit function we have 
+```
+ConceptCardBackendApiService.loadConceptCards(
+              ctrl.getSkillIds()
+            )
+```
+This will become:
+```
+this.conceptCardBackendApiService.loadConceptCards(
+              this.skillIds
+            )
+```
+
+### Migrating the HTML file:
+
+This is the easier part of migration but still should be migrated carefully:
+Here are the migration patterns:
+
+#### Changing `<[ ... ]>` to `{{ ... }}`
+
+The interpolation in angular uses `{{ }}` to interpolate. So change `<[ ]>` to `{{ }}`.
+
+`<li><[credit]></li>` becomes `<li>{{ credit }} </li>`
+
+#### Removing $ctrl ($ctrl -> )
+By default, all the variables of the class you migrated are available in HTML in angular (unlike angularjs where it was prefixed by $ctrl or had to attached to the $scope). Remove all `$ctrl.` from html.
+
+`<li ng-if="$ctrl.credits === 0"><[credit]></li>` becomes `<li *ngIf="credits === 0"> {{ credit }} </li>`
+
+#### Change ng-if -> *ngIF
+
+`<li ng-if="$ctrl.credits === 0"><[credit]></li>` becomes `<li *ngIf="credits === 0"> {{ credit }} </li>`
+
+#### Change ng-repeat to *ngFor
+| AJS | ng2+ |
+|-----|------|
+|`<div class="oppia-about-credits-letter-groups three-col">` | `<div class="oppia-about-credits-letter-groups three-col">`|
+|`<span ng-repeat-start="item in $ctrl.allCredits">`| `<div *ngFor="let credit of allCredits">`|
+|`<[item.letter]></span>` | `<span>{{ credit.letter }}</span>` |
+|`<ul ng-repeat-end>` | `<ul>`|
+|`<li ng-repeat="credit in item.credits"><[credit]></li>` | `<li *ngFor="let name of credit.names">{{ name }}</li>`|
+|`</ul>` | `</ul>`|
+|`</div>`| `</div>`|
+
+#### HTML tag attributes
+
+If you see any HTML attribute which looks like this:
+`<div editable=<[$ctrl.edit]>`, then just change it to `<div [editable]="edit">`
+
+If you ng-src, change it to [src].
+
+#### HTML events:
+
+All the events in HTML are available in angular. Example onClick -> (click), ng-click -> (click), ng-submit -> (ngSubmit)
+
 
 ## Testing your Pull Request
 
