@@ -257,58 +257,6 @@ Take a look as to how the topic-viewer-backend-api.service is migrated in this [
 
    flushMicrotasks();
    ```
-## Implementation details to migrate directives
-
-1. Import the following dependencies
-   ```
-   import { Component, OnInit } from '@angular/core';
-   import { downgradeComponent } from '@angular/upgrade/static';
-   ```
-
-2. Import all the required dependencies (if any)
-
-3. Add a decorator named Component with a selector and a template
-   ```
-   @Component({
-     selector: 'background-banner', // Tag to be used in html
-     template: require('./background-banner.component.html'), // Corresponding html file
-     styleUrls: [] // css files if any
-   })
-   ```
-
-4. Add the class definition with the constructor injecting all the required services
-   ```
-   export class BackgroundBannerComponent implements OnInit {
-     constructor(private urlInterpolationService: UrlInterpolationService) {}
-   ```
-
-5. Add all the variables and functions that are attached to the controller as class properties
-   `Change ctrl.bannerImageFileUrl to bannerImageFileUrl: string = null`
-
-6. Change the `ctrl.$onInit()` to `ngOnInit()`
-
-7. Add downgrade statement at the end of the file
-   ```
-   angular.module('oppia').directive(
-     'backgroundBanner', downgradeComponent(
-       {component: BackgroundBannerComponent}));
-   ```
-
-8. Change the name of the file from `*directive|controller.ts` to `*component.ts`. Import this component into the corresponding module page and add it in the `declarations` and `entryComponents`.
-
-9. Move to the corresponding html file. Replace use of `<{$ctrl.propertyName}>` -> `propertyName`.
-
-10. Change some of the in-built directives as well with a form compatible with Angular. This table will be growing as we see more such in-built terms
-
-    | AngularJS code | Angular code |
-    | --- | --- |
-    | ng-if | *ngIf |
-    | ng-submit | (ngSubmit) |
-    | ng-click | (click) |
-    | ng-src | [src] |
-    | ng-class | [ngClass] |
-
-Here is pull request for reference: https://github.com/oppia/oppia/pull/9202/files.
 
 ## Implementation details to migrate directives
 
@@ -565,7 +513,7 @@ constructor(
 }
 ```
 
-#### Now we copy the contents of the functions:
+#### 7. Now we copy the contents of the functions:
 It very simple, anything with `ctrl.` becomes `this.`.
 For example:
 ```
@@ -595,6 +543,16 @@ this.conceptCardBackendApiService.loadConceptCards(
               this.skillIds
             )
 ```
+
+#### 8. Add downgrade statement at the end of the file and import downgradeComponent from '@angular/upgrade/static'
+   ```
+   angular.module('oppia').directive(
+     'conceptCard', downgradeComponent(
+       {component: ConceptCardComponent}));
+   ```
+
+#### 9. Change the name of the file from `*directive|controller.ts` to `*component.ts`. Import this component into the corresponding module page and add it in the `declarations` and `entryComponents`.
+
 
 ### Migrating the HTML file:
 
