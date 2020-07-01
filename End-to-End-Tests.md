@@ -1,3 +1,42 @@
+## Temporary Flakiness Mitigation Measures ##
+
+We have recently seen a lot of flakes in the end-to-end tests, so we are implementing the following mitigation measures. We recognize that they will be inconvenient for contributors changing the end-to-end tests, and we're sorry about that. We think the inconvenience will be worthwhile because this should help us resolve the end-to-end test flakiness that has been slowing down PRs and frustrating contributors.
+
+### If You are Changing the End-to-End Tests ###
+
+When submitting a pull request please re-run any tests you modify multiple times to make sure they pass consistently. We will ask for screenshots in the PR thread showing:
+
+* 3 consecutive passes of all end-to-end tests if you are modifying code used by multiple test suites. For example, this applies to PRs that modify utilities under `protractor_utils/`, editor objects, etc.
+* 5 consecutive passes of the suite(s) you are modifying suite files. For example, this applies to PRs modifying tests under `protractor/` and `protractor_desktop`, among others.
+* Both if your PR modifies both.
+
+When re-running your test, you will likely see flakes that are not related to your changes. These do not count toward the required number of passes, and they do not count against the requirement that the passes be consecutive. For example, if you modified a utility file, the following would be sufficient:
+
+1. All tests pass
+2. All but one test pass. The failing test does not use the utility you changed.
+3. All tests pass
+4. All tests pass
+
+Please re-run your tests on CircleCI and/or TravisCI, depending on which platform the affected tests run on. If you can, please run TravisCI tests on your own fork so you aren't competing for resources with the rest of the community. Also, the tests will run faster that way!
+
+### If You Are Adding End-to-End Tests ###
+
+First, please make sure the tests aren't flaky by running them on your own a bunch of times. You could do this by running them locally or on your own TravisCI fork.
+
+Next, add your tests to a separate test suite. On TravisCI, this should run as its own job. On CircleCI, add this as another `run` command to an existing job. This will make it easy for us to tell whether a failure is due to your test or not.
+
+Finally, we'll ask that you go through the same process as for changing end-to-end tests described above to ensure the tests don't flake.
+
+### If the End-to-End Tests are Failing on Your PR ###
+
+First, check that your changes couldn't be responsible. For example, run the test locally on your computer. If it fails there too, dig into why. If it passes locally, then it's probably a flake.
+
+Once you've confirmed it's a flake, go ahead and re-run the test until it passes. We're putting together a way for you to report these flakes to us, and we'll add that to this page once it's ready.
+
+---------------
+
+## Introduction ##
+
 At Oppia, we highly regard the end user, that is, both the creator as well as the learner. Therefore, we have an extensive system of end-to-end tests to test each functionality thoroughly. The end-to-end tests cover both the desktop as well as mobile intefaces.
 The tests are organized as follows:
 1. `protractor`: This directory contains test suites which are common for both desktop and mobile interfaces. Certain operations are possible only on one or the other interface. To distinguish between the interfaces, we use the boolean, `browser.isMobile` defined in `onPrepare` of the protractor configuration file.
