@@ -367,24 +367,51 @@ There are four "syntaxes" that you could run into when trying to migrate bindToC
 3. `'='`
 4. `'&'`
 
-The syntax for `'@'` and `'<'` is pretty straight forward:
+The syntax for `'@'` is pretty straight forward:
 ```
   layoutType: '@',
-  layoutAlignType: '<',
 ```
 will change to
 ```
   @Input() layoutType: string;
-  @Input() layoutAlignType: string;
 ```
 **Note that `'@'` is always a string but `'<'` can be of any type (string, number, object or custom types).**
 
-You will find `'&'` with a syntax that looks like `getSkillIds: '&skillIds',`. This requires some significant changes so please follow the next steps ver carefully:
-
+The syntax for '<'.
+```
+  layoutAlignType: '<',
+```
+changes to 
+```
+  @Input() layoutAlignType: string;
+```
 Take a look at the directive name (in this case it is conceptCard). Now do a global search for `<concept-card`. (Note the change to snake_case and the extra '<' at the beginning).
-When you get the results, in each and every case you will find something like `skill-ids=skillIds`. Change that to `skill-ids=<[skillIds]>`.
-This will work if it is a simple string, but what about when you have to send an array?
-In that case, you have to assign skillIds to the ctrl in the other directive (whose HTML you just found using global search) and then change it to `skill-ids=ctrl.skillIds`.
+When you get the results, in each and every case you will find something like `skill-ids=skillIds`. Change that to `[layout-align-type]="layout"`.
+
+The changes required for `'&'`:
+
+You will find `'&'` with a syntax that looks like `getSkillIds: '&skillIds',`. This requires some significant changes so please follow the next steps very carefully:
+
+First, change the 
+```
+getSkillIds: '&skillIds',
+``` 
+to 
+```@Input() skillIds: Array<string>',```
+(Array<string> is an example. please be aware of the type used in your case).
+Then change all cases of `ctrl.getSkillIds()` to `this.skillIds`. (Notice the parenthesis were also removed).
+
+Take a look at the directive name (in this case it is conceptCard). Now do a global search for `<concept-card`. (Note the change to kebab-case and the extra '<' at the beginning).
+When you get the results, in each and every case you will find something like `skill-ids=skillIds`.
+**If it is an angularjs template**, change that to `[skill-ids]=skillIds`.
+(Notice in the component it was `skillIds` but in HTML it is [skill-ids]. The camelCase to kebab-case change is required when the template is a template of an angularjs component/directive).
+
+**Otherwise, change it to `[skillIds]=skillIds`.**
+
+The syntax for `=`:
+
+In most cases, the `=` is the same as `<` when looked at from an angular2+ perspective. So just follow the steps given for `<` migration.
+
 
 #### 5. Start separating the other functions:
 
