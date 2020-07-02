@@ -100,19 +100,21 @@ The [angular migration tracker](https://docs.google.com/spreadsheets/d/1L9Udn-XT
    added [here](https://github.com/oppia/oppia/pull/8427/files#diff-ecf6cefd0707bcbafeb6a0b4009aa60cR78). You can 
    find this by doing a simple search of the function name in service where get request is handled.
 
-8. For functions in the service, add type definitions for all the arguments as well as return values. 
+8. If you are migrating a service that is named as `.*-backend-api.service.ts` then please return a domain object and not a dict in the `successCallback` function. For example take a look at this change [PR #9505](https://github.com/oppia/oppia/pull/9505/files#diff-05de50229b44c01bdaeac172928b514dR64), where the domain object is created via object factory and this is sent ahead. You also need to change the piece of code where this response is used because it is not the same response that is being sent now. If there is no specific object factory to alter the response to domain object, create one similar to how it is done in this [change](https://github.com/oppia/oppia/pull/9570/files#diff-09e3c3999c18dabdf2ddedf6e3e250f8R1).
+
+9. For functions in the service, add type definitions for all the arguments as well as return values. 
 **Note:** For complex types or some type that is being used over functions or files we can declare interface or export interface (if it has to be imported over files). For example in the file [rating-computation.service.ts](https://github.com/oppia/oppia/blob/develop/core/templates/components/ratings/rating-computation/rating-computation.service.ts) we have an export interface to declare the type IRatingFrequencies. In the same file we also have a function named static, which is used by the functions of the class itself. 
 
-9. For functions which are private to the service (used as helper functions), add private keyword for those functions.
+10. For functions which are private to the service (used as helper functions), add private keyword for those functions.
 
-10. In  the file end add
+11. In  the file end add
     ```
     angular.module('oppia').factory('ServiceName', downgradeInjectable(ServiceName));
     ```
 
-11. Add the service to the [UpgradedServices.ts](https://github.com/oppia/oppia/blob/develop/core/templates/services/UpgradedServices.ts) as it is done for all other upgraded services.
+12. Add the service to the [UpgradedServices.ts](https://github.com/oppia/oppia/blob/develop/core/templates/services/UpgradedServices.ts) as it is done for all other upgraded services.
 
-12. Add the service to [oppia-angular-root.component.ts](https://github.com/oppia/oppia/blob/develop/core/templates/components/oppia-angular-root.component.ts).
+13. Add the service to [oppia-angular-root.component.ts](https://github.com/oppia/oppia/blob/develop/core/templates/components/oppia-angular-root.component.ts).
 
     Follow these steps to add a migrated service to oppia-angular-root.component.ts.
 
