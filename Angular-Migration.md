@@ -369,7 +369,7 @@ There are four "syntaxes" that you could run into when trying to migrate bindToC
 3. `'='`
 4. `'&'`
 
-The syntax for `'@'` is pretty straight forward:
+##### The syntax for `'@'` is pretty straight forward:
 ```
   layoutType: '@',
 ```
@@ -379,7 +379,7 @@ will change to
 ```
 **Note that `'@'` is always a string but `'<'` can be of any type (string, number, object or custom types).**
 
-The syntax for '<'.
+##### The syntax for '<'.
 ```
   layoutAlignType: '<',
 ```
@@ -387,10 +387,17 @@ changes to
 ```
   @Input() layoutAlignType: string;
 ```
+(The type of layoutAlignType being string is an example. please be aware of the type used in your case).
 Take a look at the directive name (in this case it is conceptCard). Now do a global search for `<concept-card`. (Note the change to snake_case and the extra '<' at the beginning).
-When you get the results, in each and every case you will find something like `skill-ids=skillIds`. Change that to `[layout-align-type]="layout"`.
+When you get the results, in each and every case you will find something like `layout-align-type=layoutAlign`.
+**If it is an angularjs template**, change that to `[layout-align-type]=layoutAlign`.
+(Notice in the component it was `layoutAlignType` but in HTML it is [layout-align-type]. The camelCase to kebab-case change is required when the template is a template of an angularjs component/directive).
 
-The changes required for `'&'`:
+**Otherwise, change it to `[layoutAlignType]=layoutAlign`.**
+
+**If you find something like `layout-align-type="center center"`, leave it as it is, do not change it. The `[]` syntax can only be used with variables. If the attribute is not surrounded by `[]` and the attribute value is surrounded by double quotes, that means the passed value is a string.** 
+
+##### The changes required for `'&'`:
 
 You will find `'&'` with a syntax that looks like `getSkillIds: '&skillIds',`. This requires some significant changes so please follow the next steps very carefully:
 
@@ -399,18 +406,22 @@ First, change the
 getSkillIds: '&skillIds',
 ``` 
 to 
-```@Input() skillIds: Array<string>',```
+```
+@Input() skillIds: Array<string>',
+```
 (Array<string> is an example. please be aware of the type used in your case).
 Then change all cases of `ctrl.getSkillIds()` to `this.skillIds`. (Notice the parenthesis were also removed).
 
 Take a look at the directive name (in this case it is conceptCard). Now do a global search for `<concept-card`. (Note the change to kebab-case and the extra '<' at the beginning).
 When you get the results, in each and every case you will find something like `skill-ids=skillIds`.
 **If it is an angularjs template**, change that to `[skill-ids]=skillIds`.
-(Notice in the component it was `skillIds` but in HTML it is [skill-ids]. The camelCase to kebab-case change is required when the template is a template of an angularjs component/directive).
+(Notice in the component it was `skillIds` but in HTML it is [skill-ids]. The camelCase to kebab-case change is required when the template is a template of an angularjs component/directive). 
 
 **Otherwise, change it to `[skillIds]=skillIds`.**
 
-The syntax for `=`:
+**Note: If you find something like `skill-type="supersonic"`, leave it as it is, do not change it. The `[]` syntax can only be used with variables. If the attribute is not surrounded by `[]` and the attribute value is surrounded by double quotes, that means the passed value is a string.** 
+
+##### The syntax for `=`:
 
 In most cases, the `=` is the same as `<` when looked at from an angular2+ perspective. So just follow the steps given for `<` migration.
 
