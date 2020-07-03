@@ -77,6 +77,14 @@ Oppia has an end-to-end testing framework (Protractor) that incorporates both th
 ```
 This will load a test version of the server (on ports 4444 and 4445), open a Google Chrome browser and automatically run through a series of simulated user actions. If any of the tests fail the simulation will attempt to move on to the next test, and then report the problem at the end. However a single failure may leave the browser in a state (e.g. with an open alert message) that causes a cascade of failures in the other tests, so generally the first failure reported is the significant one.
 
+**Setting chromedriver version**
+
+The end-to-end tests are run on Chrome browser. The chromedriver version to be used depends on the Chrome browser version installed on the machine. To automatically set the matching chromedriver version, please use the following command:
+
+```
+    python -m scripts.run_e2e_tests --auto_select_chromedriver
+``` 
+
 **Sharding tests**
 
 The end-to-end tests are also sharded across 3 Chrome browser instances. It is recommended to close background processes to maximize the test performance. You can disable sharding as follows:
