@@ -1,12 +1,12 @@
 **Note:** If you just want to create and share explorations, you may be able to use the hosted server at https://www.oppia.org (in which case you don't need to install anything).
 
-**Note:** Installing Oppia on Windows can be **complicated**. We strongly recommend installing on [Linux](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Linux%29) or [Mac OS](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Mac-OS%29) instead if you're able to do so.
+**Note:** Installing Oppia on Windows is **complicated**. We strongly recommend installing on [Linux](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Linux%29) or [Mac OS](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Mac-OS%29) instead if you're able to do so.
 
 **Note:** These instructions are tested to work on Windows 10. If you have some other version of windows, we strongly recommend using Linux or Mac OS, if possible.
 
 *For information on issues that may occasionally arise with the installation process, please see the [Troubleshooting](https://github.com/oppia/oppia/wiki/Troubleshooting) page.*
 
-There follow instructions for 3 different ways to install Oppia on Windows: using VirtualBox, using Docker, and using the Ubuntu terminal. You only need to follow one of the three.
+There follow instructions for 3 different ways to install Oppia on Windows: using VirtualBox, using Docker, and using the Ubuntu terminal. You only need to follow one of the three. (**Caution**: as mentioned above, installing on Windows is hard and we strongly recommend using the Linux/Mac installation pathways if possible. New contributors have often reported running into unforeseen complications when installing on Windows, and the Oppia team has limited ability to provide support for this, although we would welcome help in improving this state of affairs!)
 
 # Installation in VirtualBox on Windows 10
 
