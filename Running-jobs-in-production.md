@@ -8,7 +8,8 @@ If your job is not essential for the release and has not been fully tested by th
 - The job has the expected outcome (this must be verified by e.g. user-facing changes, or introspection of the datastore, or a validation job, or an output check, etc.).
 - The job should be explicitly approved by server jobs admin (currently @seanlip).
 
-Also, in case your job is a new migration job (not any already existing migrations), there has to be an audit job accompanying it to verify that the data that you are migrating is valid in the server. **The audit job will have to be "Fully tested" before testing on the migration job can start.**
+Also, in case your job is a new migration job (not any already existing migrations), there has to be an audit job accompanying it to verify that the data that you are migrating is valid in the server. **The audit job will have to be "Fully tested" before testing on the migration job can start.** 
+In case there is invalid data observed, either your migration job should fix it programmatically, or the corresponding data has to be manually fixed before the migration job can be run. This is valid for both testing in the backup server and running in production.
 
 ## Instructions
 
