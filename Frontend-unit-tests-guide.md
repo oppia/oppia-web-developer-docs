@@ -137,12 +137,21 @@ A unit test is made of functions that configure the test environment, make asser
     }));
     ```
   - Providing Angular 8 services in downgrade files when it uses any upgraded service as a dependency.
+    Let us assume that the test requires MyExampleService which is an angular8 service.
     ```
+    import { TestBed } from '@angular/core/testing';
+    import { MyExampleService } from 'services/my-example.service'; 
+    .
+    .
+    .
+      beforeEach(() => {
+        TestBed.configureTestingModule({
+        imports: [HttpClientTestingModule]
+      });
+    });
     beforeEach(angular.mock.module('oppia', function($provide) {
-      var ugs = new UpgradedServices();
-      for (let [key, value] of Object.entries(ugs.getUpgradedServices())) {
-        $provide.value(key, value);
-      }
+      $provide.value('MyExampleService',
+        TestBed.get(MyExampleService));
     }));
     ```
 - **it**  
@@ -291,15 +300,25 @@ You can use `done` in timing events as well, check out this [example](https://gi
 When mocking a promise in AngularJS, you might use `$q` API. In these cases, you must use `$scope.$apply()` or `$scope.$digest` because it forcibly `$q` promises to be resolved through a Javascript digest. Here are some examples using [$apply](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/email-dashboard-pages/email-dashboard-page.controller.spec.ts#L101-L108) and [$digest](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/exploration-editor-page/services/exploration-states.service.spec.ts#L209-L221).
 
 ### When should the upgraded services be imported in the test file?  
-One of the active projects in Oppia is the Angular 8 migration. By now, the AngularJS services are being migrated and it’s still being used in downgrade files. When testing AngularJS files which uses an Angular 8 as a dependency (directly or not), you must use the beforeEach call below: 
-```
-beforeEach(angular.mock.module('oppia', function($provide) {
-  var ugs = new UpgradedServices();
-  for (let [key, value] of Object.entries(ugs.getUpgradedServices())) {
-    $provide.value(key, value);
-  }
-}));
-``` 
+One of the active projects in Oppia is the Angular 8 migration. By now, the AngularJS services are being migrated and it’s still being used in downgrade files. When testing AngularJS files which uses an Angular 8 as a dependency, you must use the beforeEach call below: 
+Let us assume that the test requires MyExampleService which is an angular8 service.
+
+    ```
+    import { TestBed } from '@angular/core/testing';
+    import { MyExampleService } from 'services/my-example.service'; 
+    .
+    .
+    .
+      beforeEach(() => {
+        TestBed.configureTestingModule({
+        imports: [HttpClientTestingModule]
+      });
+    });
+    beforeEach(angular.mock.module('oppia', function($provide) {
+      $provide.value('MyExampleService',
+        TestBed.get(MyExampleService));
+    }));
+    ```
 
 If the file you’re testing doesn’t use any upgraded files, you don’t need to copy and paste this beforeEach call.
 
@@ -312,29 +331,25 @@ So, what you need to do is to change the order of beforeEach calls, as you can s
 
 ### How to handle common errors  
 - If you see an error like `Error: Trying to get the Angular injector before bootstrapping the corresponding Angular module`, it means you are using a service (directly or indirectly) that is Upgraded to Angular and this error can throw or two reasons:
-  - Your test that is written in AngularJS is unable to get that particular service.  
-    You can fix this by importing `UpgradedServices` and using it in a `beforeEach` block:
+  - Your test that is written in AngularJS is unable to get that particular service.
+    You can fix this by providing the value of angular8 service using $provide.
 
+    Let us assume that the test requires MyExampleService which is an angular8 service.
     ```
-    import { UpgradedServices } from 'services/UpgradedServices';
+    import { TestBed } from '@angular/core/testing';
+    import { MyExampleService } from 'services/my-example.service'; 
     .
     .
+    .
+      beforeEach(() => {
+        TestBed.configureTestingModule({
+        imports: [HttpClientTestingModule]
+      });
+    });
     beforeEach(angular.mock.module('oppia', function($provide) {
-      var ugs = new UpgradedServices();
-      for (let [key, value] of Object.entries(ugs.getUpgradedServices())) {
-        $provide.value(key, value);
-      }
+      $provide.value('MyExampleService',
+        TestBed.get(MyExampleService));
     }));
-    ```
-  - The upgraded service is not listed on `UpgradedServices.ts` file.  
-    You can fix this by adding the upgraded service in `UpgradedService.ts`:
-    
-    ```
-    import { ServiceName } from 'path/to/service';
-    .
-    .
-    .
-    upgradedServices['ServiceName'] = new ServiceName();
     ```
 - If you’re working with async on AngularJS and your tests don’t seem to run correctly, make sure you’re using `$apply` or `$digest` in the spec, as in this [example](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/topic-editor-page/services/topic-editor-state.service.spec.ts#L716-L720).
 
