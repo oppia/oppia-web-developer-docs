@@ -79,11 +79,14 @@ This will load a test version of the server (on ports 4444 and 4445), open a Goo
 
 **Setting chromedriver version**
 
-The end-to-end tests are run on Chrome browser. The chromedriver version to be used depends on the Chrome browser version installed on the machine. To automatically set the matching chromedriver version, please use the following command:
+The end-to-end tests are run on Chrome browser. The chromedriver version to be used depends on the Chrome browser version installed on the machine. To manually set the chromedriver version, please use the following command:
 
 ```
-    python -m scripts.run_e2e_tests --auto_select_chromedriver
+    python -m scripts.run_e2e_tests --chrome_driver_version <version>
 ``` 
+To determine which version of chromedriver to use, please follow instructions in [this](https://chromedriver.chromium.org/downloads/version-selection) page. If you see a failure due to the webdriver, please double check that the chromedriver version provided is in sync with the Chrome browser version installed on the machine.
+
+Note: If this flag is not used, the chromedriver version is determined automatically.
 
 **Sharding tests**
 
