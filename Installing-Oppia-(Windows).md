@@ -49,7 +49,7 @@ It should look something like this: [Screenshot](https://drive.google.com/file/d
 
 Now, you can open the VM. After that, clone and install the Oppia repository from GitHub following the [Ubuntu installation instructions](https://github.com/oppia/oppia/wiki/Installing-Oppia-(Linux)#downloading-oppia) in order to setup Oppia in the VM. 
 
-If you have done the optional steps, then when running the dev server in the  VM, use the command `python -m scripts.start --disable_host_checking` so that the host can access the server started in the VM.
+If you have done the optional steps, then when running the dev server in the VM, use the command `python -m scripts.start --disable_host_checking` so that the host can access the server started in the VM. This has to be done whenever you start a server in the VM, if you require the host to access the page.
 
 Once, this is done, whenever you run the dev server in the VM, you can go to your browser on the Windows host and go to:
 http://<your_vm's_local_ip>:8181 to access the dev server. You can find your VM's local IP address by running `ifconfig`in a terminal in the VM. It should be the `inet` address of the second adapter shown there (usually starts with 192.168 or 10.0).
