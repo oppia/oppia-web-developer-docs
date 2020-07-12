@@ -10,7 +10,7 @@ There follow instructions for 3 different ways to install Oppia on Windows: usin
 
 # Installation in VirtualBox on Windows 10
 
-Last tested by **@aks681** on Windows 10 in July of 2020. E2e, frontend and backend tests worked at that point.
+_Last tested by **@aks681** on Windows 10 in July of 2020. E2e, frontend and backend tests worked at that point._
 
 _For this method, a machine with at least 8 GB RAM (prefereably 16 GB) and at least a dual core processor (preferably quad core) is recommended._
 
@@ -56,7 +56,7 @@ http://<your_vm's_local_ip>:8181 to access the dev server. You can find your VM'
 
 # Installation using Docker on Windows 10
 
-_These notes were kindly contributed by **@ezl-13** on 13 Aug 2019. Note though that getting the frontend (Karma) tests running may not work in a foolproof way, and we haven't figured out how to get the e2e tests running yet. This is being worked on in issues [#7355](https://github.com/oppia/oppia/issues/7355) and [#7345](https://github.com/oppia/oppia/issues/7345)._
+_These notes were kindly contributed by **@ezl-13** on 13 Aug 2019. **Note, though, that this installation method has problems**: getting the frontend (Karma) tests running may not work in a foolproof way, and we haven't figured out how to get the e2e tests running yet. This is being worked on in issues [#7355](https://github.com/oppia/oppia/issues/7355) and [#7345](https://github.com/oppia/oppia/issues/7345)._
 
 Docker allows for an easy installation of Oppia for Windows users and a more reliable testing environment for running test scripts. The following instructions describe how to install Oppia using Docker. (If you need help with troubleshooting, please see [this section](https://github.com/oppia/oppia/wiki/Installing-Oppia-(Windows)#troubleshooting).)
 
