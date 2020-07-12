@@ -97,7 +97,7 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
  
   You can also view the App Engine admin console at http://localhost:8000.
  
-3. *Loading the demo explorations.* The default Oppia installation comes with a set of [demo explorations](https://github.com/oppia/oppia/tree/master/data/explorations). On startup, none of these are loaded. To load them, log in to your server as an admin, then click your username in the top-right corner and choose 'Admin Page'. This will open the admin page, from which you can load the demo explorations.
+3. *Loading the demo explorations.* The default Oppia installation comes with a set of [demo explorations](https://github.com/oppia/oppia/tree/61f19354098669bcb408ef7b65fa50d92c076488/data/explorations). On startup, none of these are loaded. To load them, log in to your server as an admin, then click your username in the top-right corner and choose 'Admin Page'. This will open the admin page, from which you can load the demo explorations.
  
 4. *Shutting down the development server.* When you're done, you can shut down the development server by typing Ctrl+C into the terminal.
  
