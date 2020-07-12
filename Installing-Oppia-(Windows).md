@@ -10,13 +10,13 @@ There follow instructions for 3 different ways to install Oppia on Windows: usin
 
 # Installation in VirtualBox on Windows 10
 
-Last tested by **@jkoj25** on Windows 10 in January of 2020. Frontend and backend tests worked at that point.
+Last tested by **@aks681** on Windows 10 in July of 2020. E2e, frontend and backend tests worked at that point.
 
 _For this method, a machine with at least 8 GB RAM (prefereably 16 GB) and at least a dual core processor (preferably quad core) is recommended._
 
 With VirtualBox, we run an Ubuntu 18.04 VM, with some minor changes to the VM config. With this installation, the terminal and editor for the codebase will be in VM, while the development site itself can be accessed on the Windows host. This is done so that at least some memory usage can be reduced on VM for better performance.
 
-##  Set up VM in VirtualBox (any VM manager is fine, but the instructions here are specific to VirtualBox)
+##  Set up Ubuntu VM in VirtualBox (any VM manager is fine, but the instructions here are specific to VirtualBox)
 
 1. Install VirtualBox from [here](https://www.virtualbox.org/wiki/Downloads).
 2. Open VirtualBox and click New.
@@ -29,7 +29,7 @@ With VirtualBox, we run an Ubuntu 18.04 VM, with some minor changes to the VM co
 
 ## Install Ubuntu 18 ISO
 
-1. Download the Ubuntu 18.04 64bit ISO from [here](https://ubuntu.com/download/desktop).
+1. Download the Ubuntu 18.04 64bit ISO from [here](https://releases.ubuntu.com/18.04/).
 2. Select the newly created VM in virtual box and click Start.
 3. Here, a window pops up where you have to link the downloaded ISO file. Click the folder icon and select the ISO from your machine.
 4. Now, go through the normal Ubuntu installation steps, you can do the following the specific steps:
@@ -49,12 +49,10 @@ It should look something like this: [Screenshot](https://drive.google.com/file/d
 
 Now, you can open the VM. After that, clone and install the Oppia repository from GitHub following the [Ubuntu installation instructions](https://github.com/oppia/oppia/wiki/Installing-Oppia-(Linux)#downloading-oppia) in order to setup Oppia in the VM. 
 
-If you have done the optional steps, then every time before running `python -m scripts.start` to start the dev server, change [this](https://github.com/oppia/oppia/blob/c60361e4ef32f01b0da126c24aba4174b99634f5/scripts/start.py#L143) line in start.py to `'8000 --host 0.0.0.0 --port %s --enable_host_checking=False --skip_sdk_update_check true %s' % (`.
+If you have done the optional steps, then when running the dev server in the  VM, use the command `python -m scripts.start --disable_host_checking` so that the host can access the server started in the VM.
 
 Once, this is done, whenever you run the dev server in the VM, you can go to your browser on the Windows host and go to:
-http://<your_vm's_local_ip>:8181 to access the dev server. You can find your VM's local IP address by running `ifconfig`in a terminal in the VM. It should be the `inet` address of the second adapter shown there.
-
-The change mentioned in start.py has to be done everytime before running start.py for this to work, you can revert it after the server has started, i.e site is accessible on host.
+http://<your_vm's_local_ip>:8181 to access the dev server. You can find your VM's local IP address by running `ifconfig`in a terminal in the VM. It should be the `inet` address of the second adapter shown there (usually starts with 192.168 or 10.0).
 
 # Installation using Docker on Windows 10
 
