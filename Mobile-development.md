@@ -1,5 +1,7 @@
 The following instructions, adapted by royshouvik@ from the [Chrome DevTools Docs](https://developer.chrome.com/devtools/docs/remote-debugging), explain how to do remote debugging on Android devices using Chrome.
 
+**NOTE**: If you just want to view the website on a mobile device, without full fledged debugging, you can start the server as follows: `python -m scripts.start --disable_host_checking` and connect your mobile device to the same Wi-Fi network as your PC. Then, by going to 'http://<[local-ip-address-of-pc]>:8181' on your mobile will open the dev server on it.
+
 ## Remote Debugging on Android with Chrome
 
 The way your web content behaves on mobile can be dramatically different from the desktop experience. Remote debugging with Chrome DevTools lets you debug live content on your Android device from your development machine.
