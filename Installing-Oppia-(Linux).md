@@ -1,5 +1,7 @@
 **Note:** If you just want to create and share explorations, you may be able to use the hosted server at https://www.oppia.org (in which case you don't need to install anything).
 
+**Note:** If you have a fresh installation of Ubuntu 20 (not upgraded from previous versions), you might face issues when installing Python 2 packages since Python 2 libraries are no longer present in Ubuntu 20 repositories ([reference](https://linuxize.com/post/how-to-install-pip-on-ubuntu-20.04/)).
+
 *These installation instructions were last tested on 22 Feb 2016. For more information on issues that may occasionally arise with the installation process, please see the [Troubleshooting](https://github.com/oppia/oppia/wiki/Troubleshooting) page.*
 
 ## Downloading Oppia ##
