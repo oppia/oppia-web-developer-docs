@@ -387,6 +387,41 @@ Use some files that are correctly following the testing patterns as reference:
 - [editability.service.spec.ts](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/services/editability.service.spec.ts#L21)
 - [exploration-html-formatter.service.spec.ts](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/services/exploration-html-formatter.service.spec.ts#L27)
 
+### Testing Angular2+ components:
+
+Let us assume that we are writing tests for an Angular2+ component called BannerComponent.
+
+The first thing to do is to import all dependencies, we have a boilerplate for that:
+
+```
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { BannerComponent } from './banner.component';
+
+describe('BannerComponent', () => {
+  let component: BannerComponent;
+  let fixture: ComponentFixture<BannerComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ BannerComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(BannerComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeDefined();
+  });
+});
+```
+
+Once this is done, you have the class instance in the variable called `component` and you can continue writing the tests as a class testing. We don't enforce dom testing.
+
 ## Controllers  
 Use some files that are correctly following the testing patterns as reference:  
 - [improvement-confirmation-modal.controller.spec.ts](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/exploration-editor-page/improvements-tab/services/improvement-confirmation-modal.controller.spec.ts#L19)
