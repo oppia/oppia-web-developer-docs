@@ -74,6 +74,9 @@ You can read the detailed documentation on interfaces [here](https://www.typescr
 
 ## Some Coding Style Conventions
 
+### Using string, number, boolean and array as types
+`string`, `number`, `boolean` and `t[]` should be used when declaring types instead of `String`, `Number`, `Boolean` and `Array<t>`. This is because the latter are javascript types for constructing those things. Reference - https://stackoverflow.com/a/14727461
+
 ### While using HTTP Client
 Don't do
 
