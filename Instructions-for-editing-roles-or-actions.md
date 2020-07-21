@@ -52,13 +52,15 @@ To add actions corresponding to this role follow instructions [here](#add_action
 ***
 
 ### 3. <a name="add_action"></a> ADD ACTION
-3.1 Implement decorator corresponding to this action in domain/action_decorators.py and apply it in necessary places.
+3.1 Implement decorator corresponding to this action in controllers/acl_decorators.py and apply it in necessary places.
 
 3.2 To make this action work, you have to add this to ROLE_ACTIONS. Go to core/domain/role_services.py
 
 3.3 Search `ACTION_` and add constant variable corresponding to the action.
 
 3.4 Search `ROLE_ACTIONS` and add the action to the appropriate role (minimum role required to perform this action).
+
+3.5. Implement the tests for the new decorator in controllers/acl_decorators_test.py, in order to check the proper functioning of this decorator.
 
 ***
 
