@@ -136,7 +136,10 @@ To make code changes, please follow the following instructions carefully! Otherw
    - Then, wait for your code to get reviewed!
      - While you're waiting, it's totally fine to start work on a new PR if you like. Just make sure to **checkout the develop branch** and sync to HEAD before you check out a new branch, so that each of your feature branches is based off the main trunk.
 
-5. #### **Address review comments until all reviewers give LGTM ('looks good to me').**
+5. #### **Test your PR to confirm that the changes you have made are working properly**
+   - Test all the places where the changes are made, including buttons, tabs, lists etc. Make a screen recording of these changes and add it to your PR
+
+6. #### **Address review comments until all reviewers give LGTM ('looks good to me').**
 
    - When your reviewer has completed their review, they will reassign the PR back to you, at which point you should push updates, respond to **all** comments, and reassign it back to them. This continues until the reviewer gives LGTM, after which the PR is merged. Here is the procedure for responding to a review:
 
@@ -164,18 +167,18 @@ To make code changes, please follow the following instructions carefully! Otherw
      - **Important:** Make sure you've posted responses to **all** the review comments from the reviewer(s).
      - **Important:** In the conversation thread, **write a top-level comment** explicitly asking the reviewer(s) to take another look ("@XXX PTAL"), and assign them to the PR.
 
-6. **Make sure all CI checks pass.** While waiting to get LGTM from reviewers, make sure that all the CI checks (Travis, CircleCI, etc.) pass, since otherwise you won't be able to merge your PR. (See "[If your build fails...](https://github.com/oppia/oppia/wiki/If-your-build-fails)" for some suggestions on what to do if you run into issues.)
+7. **Make sure all CI checks pass.** While waiting to get LGTM from reviewers, make sure that all the CI checks (Travis, CircleCI, etc.) pass, since otherwise you won't be able to merge your PR. (See "[If your build fails...](https://github.com/oppia/oppia/wiki/If-your-build-fails)" for some suggestions on what to do if you run into issues.)
 
    - If all reviewers have given LGTM but you're still waiting for the CI checks to pass, make sure you're assigned to the PR, so that you can merge it once the CI checks are complete.
 
-7. **Tidy up!** After the PR status has changed to "Merged", delete the feature branch from both your local clone and the GitHub repository:
+8. **Tidy up!** After the PR status has changed to "Merged", delete the feature branch from both your local clone and the GitHub repository:
 
    ```
      git branch -D new-branch-name
      git push origin --delete new-branch-name
    ```
 
-8. **Celebrate.** Congratulations, you have contributed to Oppia!
+9. **Celebrate.** Congratulations, you have contributed to Oppia!
 
 ## Tips for making a good code change
 
