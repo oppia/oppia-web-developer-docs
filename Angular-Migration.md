@@ -748,17 +748,7 @@ Please note the single-quote marks around `I18N_VARIABLE_NAME`
 ## FAQ
 
 **Common Issues with Migrating Services**
-
-1. Trying to get Angular Injector error: You might come across this error while running front-end tests after migrating a service. This comes because the injector is trying to inject the service for the tests, but it has not been provided to the injector by `$provide` yet. So to do this add the following to the test file:
- ```
-   beforeEach(angular.mock.module('oppia', function($provide) {
-    var ugs = new UpgradedServices();
-    for (let [key, value] of Object.entries(ugs.getUpgradedServices())) {
-      $provide.value(key, value);
-    }
-  }));
- ``` 
-2. Front-end tests fail
+1. Front-end tests fail
     This can for various reasons, but the most common one is return types. You will get errors like: ‘a’ is not defined on an object of type ‘X’. Try console logging the object you are receiving actually has the property you’re calling and adjust accordingly. This will mostly happen with HttpResponse objects.
 
 **Common Issues with Migrating Directives**
