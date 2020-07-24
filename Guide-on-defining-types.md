@@ -15,7 +15,7 @@
   * [Using string, number, boolean and array as types](#using-string--number--boolean-and-array-as-types)
   * [While using HTTP Client](#while-using-http-client)
   * [Declaring generic types](#declaring-generic-types)
-  * [The interfaces should not begin with `I`](#the-interfaces-should-not-begin-with--i-)
+  * [The interfaces should not begin with `I`](#the-interfaces-should-not-begin-with-i)
 - [Advanced types](#advanced-types)
   * [Union Types](#union-types)
   * [Discrimated Unions](#discrimated-unions)
