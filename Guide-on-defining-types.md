@@ -44,7 +44,7 @@ function exampleFunction(arg1: string, arg2: number): boolean {
 
 ### Classes
 - The properties of the class should have a type.
-- The arguments in the contructor should have a type.
+- The arguments in the constructor should have a type.
 - The functions specified in the class should have types as listed in the section above.
 
 For example - A class with types would look something like this.
@@ -64,9 +64,12 @@ class ExampleClass {
 ```
 
 ## How to determine the types while migrating to Angular?
-- Determining types of variables is often an easy job. And most of the times the types can be determined by a little reading of the code.
-- But if you're unable to determine the type of variable in that file. You can look for the places where that class or function is used.
-- If you are working on a backend api service, you can try to look in the backend `controllers` to check the response dict. The backend `controllers` and `domains` have docstrings which clearly explain the types of data.
+
+Determining types of variables is often an easy job. Most of the time, the types can be determined by a little reading of the code.
+
+However, if you're unable to determine the type of variable in a file, you can look for the places where that class or function is used.
+
+Also, if you are working on a backend api service, you can try to look at the corresponding backend Python `controllers` file to check the response dict. The backend `controller` and `domain` layers have docstrings which clearly explain the types of data that are passed to the frontend.
 
 ## Defining types for a third party library
 
