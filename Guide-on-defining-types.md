@@ -65,9 +65,7 @@ class ExampleClass {
 
 ## How to determine the types while migrating to Angular?
 
-Determining types of variables is often an easy job. Most of the time, the types can be determined by a little reading of the code.
-
-However, if you're unable to determine the type of variable in a file, you can look for the places where that class or function is used.
+Determining types of variables is often an easy job. Most of the time, the types can be determined by a little reading of the code. However, if you're unable to determine the type of variable in a file, you can look for the places where that class or function is used.
 
 Also, if you are working on a backend api service, you can try to look at the corresponding backend Python `controllers` file to check the response dict. The backend `controller` and `domain` layers have docstrings which clearly explain the types of data that are passed to the frontend.
 
