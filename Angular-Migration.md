@@ -1,5 +1,6 @@
 
 
+
 ## Overview
 
 Angular is an app-design framework and development platform for creating efficient and sophisticated apps. Angular has numerous benefits over AngularJS like (some of which are listed here):
@@ -80,7 +81,15 @@ The [angular migration tracker](https://docs.google.com/spreadsheets/d/1L9Udn-XT
    (b) Search in the  codebase where the service is used to obtain results from get requests and change 
    `response.data` to `response.body`.
 
-   (c) Add `$rootScope.apply()` in the controller/directive that is resolving the http request similar to how it is 
+   (c) Return the `errorCallback` (the reject function) with `errorResponse.error.error` as follows:
+  
+   ```
+   (errorResponse) => {
+     errorCallback(errorResponse.error.error);
+   }
+   ```
+
+   (d) Add `$rootScope.apply()` in the controller/directive that is resolving the http request similar to how it is 
    added [here](https://github.com/oppia/oppia/pull/8427/files#diff-ecf6cefd0707bcbafeb6a0b4009aa60cR78). You can 
    find this by doing a simple search of the function name in service where get request is handled.
       To do this, make a global search in the code-base for the function. eg. if the service is `SkillBackendApiService` and the function in which the call is made is `fetchSkill`. The search the code-base for `SkillBackendApiService.fetchSkill`. You will find instances like the following:
