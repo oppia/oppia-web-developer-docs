@@ -102,7 +102,7 @@ Thus, when testing a file, make sure that:
 
 ### Unit test structure
 A unit test is made of functions that configure the test environment, make assertions, and separate the different contexts of each situation. There are some test functions that are used across the codebase:
-- **describe**  
+- #### **describe**  
   The describe function has a string parameter which should contain the name of the component being tested or     (when nested within another describe function) should describe the conditions imposed on the specific context pertaining to the tests in that “describe” block. Here are some examples:
   ```
   describe('Component Name', function() {
@@ -122,13 +122,13 @@ A unit test is made of functions that configure the test environment, make asser
   Check it out [a real example](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/creator-dashboard-page/suggestion-modal-for-creator-view/suggestion-modal-for-creator-view.controller.spec.ts#L24-L310) in codebase to how use describe properly.
 
   The describe function has also some variants to help you. Use these variants only in the development environment:  
-  - **fdescribe**: This is used when you want to run only the test suite marked as `fdescribe`. You should use it quite frequently when testing locally, in order to ensure that the coverage remains stable.
-  - **xdescribe**: This is used when you want to run all test suites except the one marked with `xdescribe`.
+  - #### **fdescribe**: This is used when you want to run only the test suite marked as `fdescribe`. You should use it quite frequently when testing locally, in order to ensure that the coverage remains stable.
+  - ####  **xdescribe**: This is used when you want to run all test suites except the one marked with `xdescribe`.
 
-- **beforeEach**
+- #### **beforeEach**
   The beforeEach function is used to set up essential configurations and variables before each spec runs. This function is used basically for three things:
-  - Injecting the modules to be tested or to be used as a helper inside the test file, for [example](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/splash-page/splash-page.controller.spec.ts#L37-L49).
-  - Mocking the unit test’s external dependencies (It’s used only on AngularJS files):
+  - #### Injecting the modules to be tested or to be used as a helper inside the test file, for [example](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/splash-page/splash-page.controller.spec.ts#L37-L49).
+  - #### Mocking the unit test’s external dependencies (It’s used only on AngularJS files):
     ```
     beforeEach(angular.mock.module(function($provide) {
       $provide.value('ExplorationStatesService', {
@@ -136,7 +136,7 @@ A unit test is made of functions that configure the test environment, make asser
       });    
     }));
     ```
-  - Providing Angular 8 services in downgrade files when it uses any upgraded service as a dependency.
+  - #### Providing Angular 8 services in downgrade files when it uses any upgraded service as a dependency.
     Let us assume that the test requires MyExampleService which is an angular8 service.
     ```
     import { TestBed } from '@angular/core/testing';
