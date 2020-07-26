@@ -24,7 +24,7 @@
 
 ## Why do we need to define types?
 - Earlier detection of errors which in turn speeds development
-- No run-time penalty for determining type.
+- No run-time penalty for determining the type.
 - Clean code. This allows developers to write more robust code and maintain it, resulting in better, cleaner code.
 - Makes it easier for fellow developers to understand and use the already written code.
 
@@ -71,34 +71,32 @@ Also, if you are working on a backend api service, you can try to look at the co
 
 ## Defining types for a third party library
 
-### Check if the library already has types
-- Some libraries already have types along with them.
-- Check if the library has types in [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped).
-
-### Find the source code of the third party library
-
-For adding type definitions for a js library, the first step is to find the source code of the library.
-
-Try to find the file that imports the js script of the library. For example **PencilCodeEmbed** is imported by the [pencilcode.html](https://github.com/oppia/oppia/blob/develop/extensions/interactions/pencilcode.html) file.
-
-### Create a file for the type definitions
-
-Create a file which will contain the type definitions in the typings directory with name `library-name-defs.d.ts`.
+First of all check if the library already has types -
+- Some libraries already have types along with them. If yes, you need not do anything.
+- Check if the library has types in [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped). If yes, you can just install the types using `yarn`.
 
 
-### Write the type definitions
+If the library doesn't have any types. You'll have to write types for the lib using the following instructions.
 
-For writing custom definitions, existing type definitions in [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) and [this guide](http://blog.wolksoftware.com/contributing-to-definitelytyped) can be used as a reference.
+1.  Find the source code of the third party library
+
+    For adding type definitions for a js library, the first step is to find the source code of the library.
+
+    Try to find the file that imports the js script of the library. For example **PencilCodeEmbed** is imported by the [pencilcode.html](https://github.com/oppia/oppia/blob/develop/extensions/interactions/pencilcode.html) file.
+
+2. Create a file for the type definitions
+
+    Create a file that will contain the type definitions in the typings directory with the name `library-name-defs.d.ts`.
 
 
-### Updating the version of the library
+3. Write the type definitions
 
-- Look for the difference in the code of the library compared to the present version.
-
-- Update the type definitions accordingly if the arguments or return types are modified or some new functions or variables are defined.
+    For writing custom definitions, existing type definitions in [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) and [this guide](http://blog.wolksoftware.com/contributing-to-definitelytyped) can be used as a reference.
 
 
 Refer [this doc](https://docs.google.com/document/d/19V1d46DSRgTC9K2StZAcgUABpaRjzSzYaEVZIRo_Mlk/edit?usp=sharing) for detailed instructions & example.
+
+When updating the version of the library look for the difference in the code of the library compared to the present version. Update the type definitions accordingly if the arguments or return types are modified, or some new functions or variables are defined.
 
 ## Typescript interfaces
 You can read the detailed documentation on interfaces [here](https://www.typescriptlang.org/docs/handbook/interfaces.html).
@@ -130,7 +128,7 @@ type A<T> = {
 };
 ```
 
-Avoid **exporting** these kind of types unless its **necessary** to do so.
+Avoid **exporting** these kind of types unless its **necessary** to do so because other developers may be confused on how to use that generic type and what arugments does it need. So, it's better to not export these generic types.
 
 ### The interfaces should not begin with `I`
 The interfaces should not have an extra `I`. For example `IAnswerStats` should just be `AnswerStats`.
@@ -143,14 +141,14 @@ These are just a few example of Advanced Types that we use. For full documentaio
 ### Union Types
 This can be used when we a variable may be of different types. In some cases Discriminated Unions (described below) may be a better option to make the types more strict.
 
-For example when a variable may be either string or a number. We can do
+For example, when a variable may be either string or a number. We can do
 ```typescript
 let a: string | number;
 ```
 
-But when you use this variable `a` like a string or a number there can be typescript errors.
+But when you use this variable `a` like a string or a number, there can be typescript errors.
 
-For example if you try to do
+For example, if you try to do
 ```typescript
 console.log(a.length);
 ```
@@ -163,7 +161,7 @@ Property 'length' does not exist on type 'string | number'.
 
 So, now you have two options.
 
-The first method is to add a `if` condition checking if the `a` is a string.
+The first method is to add an `if` condition checking if the `a` is a string.
 
 ```typescript
 if (typeof a === 'string') {
@@ -171,13 +169,13 @@ if (typeof a === 'string') {
 }
 ```
 
-The second method is type casting. Although you should _prefer_ the first method if possible.
+The second method is typecasting. However, you should _prefer_ the first method if possible.
 
 ```typescript
 console.log((<string> a).length);
 ```
 
-### Discrimated Unions
+### Discriminated Unions
 You can combine singleton types, union types, type guards, and type aliases to build an advanced pattern called discriminated unions, also known as tagged unions or algebraic data types. Discriminated unions are useful in functional programming. These are very helpful in making types more strict. There are three ingredients:
 
 1. Types that have a common, singleton type property — the discriminant.
@@ -212,7 +210,7 @@ function area(s: Shape) {
 ```
 
 ### Conditional Types
-TypeScript 2.8 introduces conditional types which add the ability to express non-uniform type mappings.
+You can also change the types in a generic type function using `extends`.
 
 Example
 ```typescript
@@ -232,4 +230,112 @@ type T4 = TypeName<string[]>;  // "object"
 ```
 
 ### Example
-You can refer [this file](https://github.com/oppia/oppia/blob/develop/core/templates/domain/statistics/LearnerActionObjectFactory.ts) to check a example where Discriminated Unions and Conditional Types are both used to build strict types.
+You can refer [this file](https://github.com/oppia/oppia/blob/ef6f64122988057f161bde3e6fd212ed307425a9/core/templates/domain/statistics/LearnerActionObjectFactory.ts) to check a example where Discriminated Unions and Conditional Types are both used to build strict types.
+
+In this file the `Learner Action` has a `action_type` and `action_customization_args` which are interdependent i.e. the schema of customization args depend on the action type.
+So, here first we defined a generic type that changes its type according to the type parameter.
+
+```typescript
+type ActionCustomizationArgs<ActionType> = (
+  ActionType extends 'ExplorationStart' ?
+  ExplorationStartCustomizationArgs :
+  ActionType extends 'AnswerSubmit' ? AnswerSubmitCustomizationArgs :
+  ActionType extends 'ExplorationQuit' ?
+  ExplorationQuitCustomizationArgs : never);
+```
+
+ Then we built a generic interface for the learner action backend dict.
+
+```typescript
+interface LearnerActionBackendDictBase<ActionType> {
+  'action_type': ActionType;
+  'action_customization_args': ActionCustomizationArgs<ActionType>;
+  'schema_version': number;
+}
+```
+
+Then we defined the strict backend dict interfaces to avoid exporting the generic type.
+
+```typescript
+export type ExplorationStartLearnerActionBackendDict = (
+  LearnerActionBackendDictBase<'ExplorationStart'>);
+
+export type AnswerSubmitLearnerActionBackendDict = (
+  LearnerActionBackendDictBase<'AnswerSubmit'>);
+
+export type ExplorationQuitLearnerActionBackendDict = (
+  LearnerActionBackendDictBase<'ExplorationQuit'>);
+
+export type LearnerActionBackendDict = (
+  ExplorationStartLearnerActionBackendDict |
+  AnswerSubmitLearnerActionBackendDict |
+  ExplorationQuitLearnerActionBackendDict);
+```
+
+Similarly, we can create a base class for learner action.
+
+```typescript
+class LearnerActionBase<ActionType> {
+  constructor(
+      public readonly actionType: ActionType,
+      public actionCustomizationArgs: ActionCustomizationArgs<ActionType>,
+      public schemaVersion: number) {}
+
+  toBackendDict(): LearnerActionBackendDictBase<ActionType> {
+    return {
+      action_type: this.actionType,
+      action_customization_args: this.actionCustomizationArgs,
+      schema_version: this.schemaVersion,
+    };
+  }
+}
+
+export class ExplorationStartLearnerAction extends
+  LearnerActionBase<'ExplorationStart'> {}
+
+export class AnswerSubmitLearnerAction extends
+  LearnerActionBase<'AnswerSubmit'> {}
+
+export class ExplorationQuitLearnerAction extends
+  LearnerActionBase<'ExplorationQuit'> {}
+
+export type LearnerAction = (
+  ExplorationStartLearnerAction |
+  AnswerSubmitLearnerAction |
+  ExplorationQuitLearnerAction);
+```
+
+And now, finally, the object factory can create domain objects based on the `action_type` in the backend dict.
+
+```typescript
+export class LearnerActionObjectFactory {
+  createFromBackendDict(
+      learnerActionBackendDict: LearnerActionBackendDict): LearnerAction {
+    switch (learnerActionBackendDict.action_type) {
+      case 'ExplorationStart':
+        return new ExplorationStartLearnerAction(
+          learnerActionBackendDict.action_type,
+          learnerActionBackendDict.action_customization_args,
+          learnerActionBackendDict.schema_version);
+      case 'AnswerSubmit':
+        return new AnswerSubmitLearnerAction(
+          learnerActionBackendDict.action_type,
+          learnerActionBackendDict.action_customization_args,
+          learnerActionBackendDict.schema_version);
+      case 'ExplorationQuit':
+        return new ExplorationQuitLearnerAction(
+          learnerActionBackendDict.action_type,
+          learnerActionBackendDict.action_customization_args,
+          learnerActionBackendDict.schema_version);
+      default:
+        break;
+    }
+    const invalidBackendDict: never = learnerActionBackendDict;
+    throw new Error(
+      'Backend dict does not match any known action type: ' +
+      angular.toJson(invalidBackendDict));
+  }
+}
+```
+
+Passing invalid combinations of `action_type` and `customization_args` to the `createFromBackendDict` function would throw typescript errors, and that's what we want.
