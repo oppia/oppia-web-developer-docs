@@ -67,6 +67,23 @@ In general, the last reviewer to give LGTM should merge the PR if the CI tests a
 
 There are special circumstances when standard merging should be done instead of a squash-merge. Generally speaking, commits which have already been squash-merged should not be squash-merged again. Also, if there are multiple contributors who have contributed to a PR, please don't squash-merge -- we want to preserve their history.
 
+## Resolving merge conflicts as a reviewer
+
+In some cases, the reviewer (contributors with write access) might want to fix the merge conflicts for a PR. This is allowed in the cases when the PR being merged to:
+
+* is urgent or is a bugfix
+* is already fully approved (everything is done except for merge) but the contributor has become inactive
+
+### Instructions
+
+1. Add PR author fork as a new remote, `git remote add {{AUTHOR_NAME}} git@github.com:{{AUTHOR_NAME}}/oppia.git`.
+1. Locally fetch author branches, `git fetch {{AUTHOR_NAME}}`.   
+1. Checkout to the fetched branch, `git checkout -b {{AUTHOR_NAME}}-{{BRANCH_NAME}} {{AUTHOR_NAME}}/{{BRANCH_NAME}}`.
+1. Update that branch from develop, `git pull upstream develop` and fix the merge conflicts as usual.
+1. Push back to the branch, `git push {{AUTHOR_NAME}} HEAD:{{BRANCH_NAME}}`.
+1. Notify the PR author by adding a comment to the PR saying: "I've updated your PR from develop, if you want add any more commits you first need to pull the branch locally by using `git pull origin {{BRANCH_NAME}}`".
+
+
 ## Troubleshooting
 
 ### Errors loading the GitHub review conversation page
