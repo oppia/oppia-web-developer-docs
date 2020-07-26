@@ -96,6 +96,18 @@ _General note: We use the ES2017 standard for our JavaScript/TypeScript code. (S
         // The implementation of `ThingName`.
       }]);
     ```
+- For asynchronous functions that return a promise, use the following convention:
+  - At the function declaration, use the keyword `async` (see [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)).
+  - Add 'Async' to the function name. example:
+    ```ts
+    const getUserInfoAsync = async function() {
+      return new Promise(resolve => {
+        setTimeout(function() {
+          resolve("something");
+        }, 2000);
+       });
+    }
+    ```
 
 ## Typescript
 - Make sure to follow all the javascript rules here as well.
