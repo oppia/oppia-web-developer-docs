@@ -37,6 +37,13 @@ function exampleFunction(arg1: string, arg2: number): boolean {
 }
 ```
 
+NOTE - You can skip adding types if the argument has default values like
+```typescript
+function exampleFunction(arg1 = 'test'): number {
+  // Here typescript compiler assumes arg1 to be of type string.
+}
+```
+
 ### Classes
 - The properties of the class should have a type.
 - The arguments in the constructor should have a type.
