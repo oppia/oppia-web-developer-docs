@@ -348,6 +348,31 @@ The tests may be run either sequentially or in isolation, and they need to be wr
   await // do something with "output"
   ```
 
+## Debugging end to end tests ##
+Steps to use the debugger tool is as follows:
+1. Add a break-point in the code you want the control to stop at by adding a statement called "debugger;".
+   eg.
+   ```js
+   ...
+   await adminPage.get();
+   await adminPage.updateRole('moderator1', 'moderator');
+   debugger;
+   await adminPage.viewRolesbyUsername('moderator1');
+   ...
+   ```
+2. Run the e2e script with the flag --debug_mode.
+   eg. `python -m scripts.run_e2e_tests --debug_mode --suite="topicAndStoryEditor"`
+3. The execution of the script will show following log:
+   ```
+   Debugger listening on ws://127.0.0.1:9229/e4779cc6-72e9-4d8d-889e-1fb3b2628781
+   For help, see: https://nodejs.org/en/docs/inspector
+   ```
+4. At this point, go to `chrome://inspect/#devices` on your Chrome browser.
+5. Click on "inspect" under Remote Target (see screenshot below).
+![Inspect Page](https://user-images.githubusercontent.com/11008603/88563290-714bac80-d04f-11ea-8b36-fc43c66d6e3d.png)
+6. A Chrome dev tools instance will open up and the e2e test should start executing in a new window.
+7. The control will stop at the point where the debugger statement was added. You can now choose to inspect elements, log variables in the test, or add more break-points.
+
 ## Important Tips ##
 
 * All test blocks should have an `afterEach` that runs `general.checkForConsoleErrors` to verify no unexpected console errors appeared while the test was running.
