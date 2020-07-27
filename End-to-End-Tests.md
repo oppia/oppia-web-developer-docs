@@ -362,7 +362,7 @@ Steps to use the debugger tool is as follows:
    ```
 2. Run the e2e script with the flag --debug_mode.
    eg. `python -m scripts.run_e2e_tests --debug_mode --suite="topicAndStoryEditor"`
-3. The execution of the script will show following log:
+3. Wait for the script to show the following log:
    ```
    Debugger listening on ws://127.0.0.1:9229/e4779cc6-72e9-4d8d-889e-1fb3b2628781
    For help, see: https://nodejs.org/en/docs/inspector
