@@ -26,16 +26,16 @@ The project's we've accepted are:
 
 - [Abhith Krishna's proposal](pdfs/GSoC2020AbhithKrishna.pdf): Generate images for LaTeX expressions. Mentor: Sandeep Dubey.
 
-    - **Milestone 1**: All RTE math expressions have a new “SVG filename” attribute in addition to the LaTeX value. For existing expressions, this filename will be an empty string. For newly-created expressions, the filename will be non-empty and the corresponding SVG file is guaranteed to exist on the server (but will not be used for display yet).
-    - **Milestone 2**: All RTE math expressions in the server (in explorations, questions, topics, skills, question/translation suggestions and any other RTEs) include a non-empty SVG filename that points to a valid file. There is a validation job that can be used to audit this, and that validation job runs to completion successfully on existing production data.
+    - **Milestone 1**: All RTE math expressions have a new “SVG filename” attribute in addition to the LaTeX value. For existing expressions, this filename will be an empty string. For newly-created expressions other than expressions created in suggestions, the filename will be non-empty and the corresponding SVG file is guaranteed to exist on the server (but will not be used for display yet).
+    - **Milestone 2**: All RTE math expressions in the server (in explorations, questions, topics, skills, question/translation suggestions, and any other RTEs) include a non-empty SVG filename that points to a valid file. There is a validation job that can be used to audit this, and that validation job runs to completion successfully on existing production data.
     - **Milestone 3**: 
        - All math expressions are displayed using SVGs in the learner view. 
        - MathJax is fully removed from the learner view.
 
 - [Anshul Hudda's proposal](pdfs/GSoC2020AnshulHudda.pdf): Fix the linter and implement all the lint checks. Mentor: Nitish Bansal.
 
-    - **Milestone 1**: In non-verbose mode, the linter has less verbose output. The linter raises an exception if there is any error due to the operation of the linter script. All existing lint checks have tests written for them. The linter handles all general and CSS lint errors, and the linter script has 100% test coverage.
-    - **Milestone 2**: The linter fully handles all Python lint checks. All JS/TS lint checks are fully implemented, except for at most 11.
+    - **Milestone 1**: In non-verbose mode, the linter has less verbose output, and raises an exception if there is any error due to the operation of the linter script. All existing lint checks have tests written for them. The linter handles all general and CSS lint errors except for at most one CSS check, and the linter script has 100% test coverage.
+    - **Milestone 2**: The linter fully handles all Python and CSS lint checks. All JS/TS lint checks are fully implemented, except for at most 11.
     - **Milestone 3**: The linter fully handles all JS/TS lint checks.
 
 - [James James's proposal](pdfs/GSoC2020JamesJames.pdf): Make Oppiabot more useful. Mentor: Ankita Saxena.
@@ -117,11 +117,13 @@ The project's we've accepted are:
           - MatchesExactlyWith
           - IsEquivalentTo.
        - The old Math Expression Input interaction will be disabled (will not be visible in the Choose Interaction modal) in order to disallow any new explorations from using it.
-       - A migration job to upgrade all the explorations that use the old math interaction will be merged for the July release, and will have passed successfully without errors on a test run on production data.
+       - An audit job will be merged and ready to run on production that will output the validity and type of inputs present in the explorations that use the old MathExpressionInput interaction. This will help in the migration of these explorations to the new interactions.
     - **Milestone 2**:
        - The Numeric Expression Input interaction will be ready to use with all its rules implemented.
-       - No exploration on the production server uses the old MathExpressionInput interaction.
+       - A customized OSK will be added for mobile friendliness of the guppy editor.
+       - A migration job will be merged and ready to be run on production that will appropriately upgrade the explorations that use the old math interaction based on the output of the audit job that would have been merged in Milestone 1.
     - **Milestone 3**: 
+       - The migration job from M2 will be run on prod and no exploration on the production server will use the old MathExpressionInput interaction.
        - The following rules will be added to the Algebraic Expression Input and Math Equation Input interaction:
           - ContainsSomeOf
           - OmitsSomeOf
@@ -139,8 +141,13 @@ The project's we've accepted are:
 - [Rishabh Rawat's proposal](pdfs/GSoC2020RishabhRawat.pdf): Editor Page Redesigns. Mentor: Sean Lip.
 
     - **Milestone 1**: Complete the Topics-and-Skills dashboard, Topic Editor page, and Skill Editor page redesigns (both mobile and desktop).
-    - **Milestone 2**: Complete the Subtopic Editor page and Question Editor page redesigns (both desktop and mobile).
-    - **Milestone 3**: Complete the Story Editor page redesign (both desktop and mobile) and Exploration Editor page redesign (both desktop and mobile).
+    - **Milestone 2**:
+       - Redesign the Subtopic Editor(Desktop and mobile view)
+       - Redesign the Story Editor(Desktop and mobile view)
+       - Redesign the Chapter Editor(Desktop and mobile view)
+    - **Milestone 3**:
+       - Redesign the Question Editor(Desktop and mobile view)
+       - Redesign the Exploration Editor(Desktop and mobile view)
 
 - [Rohit Katlaa's proposal](pdfs/GSoC2020RohitKatlaa.pdf): Adding SVG editor to RTE. Mentor: Kevin Thomas.
 
