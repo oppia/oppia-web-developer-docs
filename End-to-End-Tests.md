@@ -377,3 +377,21 @@ Steps to use the debugger tool is as follows:
 
 * All test blocks should have an `afterEach` that runs `general.checkForConsoleErrors` to verify no unexpected console errors appeared while the test was running.
 * Check your assumptions! For example, if you are assuming that only one exploration on the server will have a particular title, use an `expect` call to check.
+
+## Codeowner Checks ##
+
+When the QA team does a codeowner review on your PR that changes the e2e tests, they will be looking to make sure that you follow all the guidance in this wiki page. In the checklist below, we list some of the most common problems we see. To get your PR merged faster, please check that your PR satisfies each item:
+
+* [ ] All constants should be in all-caps. (This isn't really an e2e test issue, but we see it a lot.)
+* [ ] All element selectors, e.g. `element(by.css('.protractor-test-my-element'))`, need to be at the top of the file. There are a few exceptions:
+    * Keeping selectors with the code that uses them is okay in some utility files where the utilities do not generally share selectors.
+    * When you are chaining selectors, only the root selector (first in the chain) needs to be at the top of the file.
+* [ ] Any time you create something in Oppia that needs a globally unique name to be identified by the tests (e.g. explorations, topics, skills, and users), make sure to follow the naming guidance in the [Independence](https://github.com/oppia/oppia/wiki/End-to-End-Tests#independence) section above.
+* [ ] Each `it` block in the test must be able to be run independently of the others. Imagine running any number of your `it` blocks in any order. Regardless of which you choose and in what order you run them, they should work correctly.
+* [ ] Before you interact with _any_ element on the page, you must wait for it to be present, visible, or clickable (depending on how you interact with it) using the [`waitFor`](https://github.com/oppia/oppia/blob/develop/core/tests/protractor_utils/waitFor.js) functions. The [`actions`](https://github.com/oppia/oppia/blob/develop/core/tests/protractor_utils/action.js) functions handle this for you.
+* [ ] You don't need (and shouldn't include) `await` keywords for `.first()`, `.last()` or `.get(i)` calls.
+* [ ] If you repeat some code a lot, make it a function! This also makes it a lot easier to review your code.
+* [ ] If you make a generally useful function, add it to the relevant utilities file so that other people can benefit from it too.
+* [ ] You will need to provide screenshots showing that the tests aren't flaky after your changes. The requirements are detailed above in the [Temporary Flakiness Mitigation Measures](https://github.com/oppia/oppia/wiki/End-to-End-Tests#temporary-flakiness-mitigation-measures) section.
+* [ ] Variables should be named as nouns, and functions should be named as verbs. In particular, make sure your page element variable names are nouns. For example, use `itemSelectButton` instead of `itemSelect`.
+* [ ] All HTML classes you reference in root selectors in the tests should begin with `protractor-test-`. If you can't change the classes on an element you need to select, find a parent element you can change and then chain the selectors like this: `element(by.css('.protractor-test-parent-element')).element(by.css('.class-of-element-you-cannot-change'))`.
