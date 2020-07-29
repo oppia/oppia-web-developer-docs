@@ -428,7 +428,7 @@ The buttons on the various navigation bars should ideally not change, changes to
 
 ## **QA Team.**
 
-### **+@apb7**
+### **@U8NWXD**
 
 
 <table>
@@ -450,6 +450,8 @@ The buttons on the various navigation bars should ideally not change, changes to
 
 <li>Tests must cover non-happy paths (error-prone paths) if applicable. Like, what happens when the uploaded audio is too big?
 
+</ul>
+
 <p>
 For protractor_utils:
 <ul>
@@ -458,8 +460,14 @@ For protractor_utils:
 
 <li>All protractor classes must start with protractor-test-.
 
+</ul>
+
 <p>
 For protractor_mobile, the tests should run successfully on Browserstack.
+
+<p>
+
+Also make sure your PR meets all the points in the [codeowners checklist on the wiki](https://github.com/oppia/oppia/wiki/End-to-End-Tests#codeowner-checks).
 </li>
 </ul>
 </li>
