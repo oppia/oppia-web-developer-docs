@@ -35,8 +35,8 @@ The project's we've accepted are:
 - [Anshul Hudda's proposal](pdfs/GSoC2020AnshulHudda.pdf): Fix the linter and implement all the lint checks. Mentor: Nitish Bansal.
 
     - **Milestone 1**: In non-verbose mode, the linter has less verbose output, and raises an exception if there is any error due to the operation of the linter script. All existing lint checks have tests written for them. The linter handles all general and CSS lint errors except for at most one CSS check, and the linter script has 100% test coverage.
-    - **Milestone 2**: The linter fully handles all Python and CSS lint checks. All JS/TS lint checks are fully implemented, except for at most 11.
-    - **Milestone 3**: The linter fully handles all JS/TS lint checks.
+    - **Milestone 2**: The linter fully handles all Python checks. All JS/TS lint checks are fully implemented, except for at most 11.
+    - **Milestone 3**: The linter fully handles all JS/TS lint checks and CSS lint checks.
 
 - [James James's proposal](pdfs/GSoC2020JamesJames.pdf): Make Oppiabot more useful. Mentor: Ankita Saxena.
 
