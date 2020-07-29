@@ -99,7 +99,7 @@ If the library doesn't have any types. You'll have to write types for the lib us
 Refer [this doc](https://docs.google.com/document/d/19V1d46DSRgTC9K2StZAcgUABpaRjzSzYaEVZIRo_Mlk/edit?usp=sharing) for detailed instructions & example.
 
 Sample PRs
-- [Upgrade version of wavesurfer and use type defs from DefinitelyTyped](https://github.com/oppia/oppia/pull/9831) - Here the custom types for wavesurfer were declared, but we found that there were definitions for wavesurfer in DefinitelyTyped. So, this PR delets the custom types and uses the definitions from DefinitelyTyped.
+- [Upgrade version of wavesurfer and use type defs from DefinitelyTyped](https://github.com/oppia/oppia/pull/9831) - Here the custom types for wavesurfer were declared, but we found that there were definitions for wavesurfer in DefinitelyTyped. So, this PR deletes the custom types and uses the definitions from DefinitelyTyped.
 - [Type definitions for midi, skulpt, math expressions](https://github.com/oppia/oppia/pull/9266) - In this PR the custom types for midi skulpt and math expressions libraries are declared.
 
 When updating the version of the library look for the difference in the code of the library compared to the present version. Update the type definitions accordingly if the arguments or return types are modified, or some new functions or variables are defined.
