@@ -1,3 +1,24 @@
+## Table of Contents ##
+
+* [Temporary Flakiness Mitigation Measures](#temporary-flakiness-mitigation-measures)
+* [Introduction](#introduction)
+* [Configuration](#configuration)
+* [The Tests](#the-tests)
+* [Core Utilities](#core-utilities)
+* [Forms and objects](#forms-and-objects)
+    * [Rich Text](#rich-text)
+    * [Writing utilities](#writing-utilities)
+* [Writing Robust Tests](#writing-robust-tests)
+    * [Flakiness](#flakiness)
+    * [Independence](#independence)
+* [Async-Await Tips](#async-await-tips)
+    * [Good Patterns](#good-patterns)
+    * [Anti-Patterns](#anti-patterns)
+* [Debugging end to end tests](#debugging-end-to-end-tests)
+* [Important Tips](#important-tips)
+* [Codeowner Checks](#codeowner-checks)
+
+
 ## Temporary Flakiness Mitigation Measures ##
 
 We have recently seen a lot of flakes in the end-to-end tests, so we are implementing the following mitigation measures. We recognize that they will be inconvenient for contributors changing the end-to-end tests, and we're sorry about that. We think the inconvenience will be worthwhile because this should help us resolve the end-to-end test flakiness that has been slowing down PRs and frustrating contributors.
