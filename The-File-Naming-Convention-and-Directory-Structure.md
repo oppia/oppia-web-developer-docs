@@ -35,7 +35,7 @@ The naming follows a general pattern:
 
     - _Template_: These are the shared HTML files which are required by various other functions like modals, jinja templating, etc.  These names are to end with "**.template.html**" 
 
-- Script files: These are the TS files which are for the sole purpose of importing the required TS files for the HTML file. Such files are to end with “**.scripts.ts**”. For example if a file get-started.mainpage.html needs a script file then the file would be named “get-started.scripts.ts”
+- Import files: These are the TS files which are for the sole purpose of importing the required TS files for the HTML file. Such files are to end with “**.import.ts**”. For example if a file get-started.mainpage.html needs a script file then the file would be named “get-started.import.ts”
 
 ### Directory Structure:
 
