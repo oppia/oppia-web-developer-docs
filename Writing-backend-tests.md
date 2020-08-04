@@ -24,13 +24,19 @@ The report lists each backend file along with the lines missing coverage in test
    * action - perform the action or function call that leads to the expected change.
    * endline verification - check that the values in the baseline verification have changed accordingly.
 
-1. Each test method should only test a single behavior, as that helps both with naming the test, and ensuring that tests don't fail for unrelated changes to the corresponding production code. Consider using a format similar to the following for naming test functions:
+1. Each test method should only test a single behavior, as that helps both with naming the test, and ensuring that tests don't fail for unrelated changes to the corresponding production code. Test names should follow this format:
 
-    `test_{{action}}_{{withCondition}}_{{hasExpectedOutcome}}`
+    `test_{{action}}_{{withCondition1}}_{{withCondition2}}_{{hasExpectedOutcome}}`
 
-   where `{{action}}`, `{{withCondition}}` and `{{hasExpectedOutcome}}` are replaced with appropriate descriptions in snake_case. Put the outcome at the end of the name, so that you and others can easily compare consecutive tests of the same method that have slightly different conditions with divergent outcomes. 
+   where `{{action}}`, `{{withCondition}}` and `{{hasExpectedOutcome}}` are replaced with appropriate descriptions in snake_case. Put the outcome at the end of the name, so that you and others can easily compare consecutive tests of the same method that have slightly different conditions with divergent outcomes. Here are some examples of good test names:
+   - ``test_get_by_auth_id_with_invalid_auth_method_name_is_none``
+   - ``test_get_by_auth_id_for_unregistered_auth_id_is_empty_list``
 
-   If a function is testing more than one behaviour and you are not able to name the function according to the above pattern, split the test into multiple parts. E.g. if you have a single test that looks like this:
+   These are good test names because it's quickly clear what the differences are between the tests: one is testing an invalid auth versus an unregistered auth. Correspondingly, these conditions lead to different outcomes ('name is none' vs. 'auth ID is empty list').
+
+   In general, when naming a test you should start with a full sentence and only abbreviate if needed to fit within the 80 column character limit. Prefer to not abbreviate, and be careful when abbreviating to avoid important meaning being taken away from the test name.
+
+1. If a function is testing more than one behaviour and you are not able to name the function according to the above pattern, split the test into multiple parts. E.g. if you have a single test that looks like this:
      ```
      * Setup
      * Action 1
