@@ -28,6 +28,7 @@ This guide can be used by both new Oppia members and developers who have contrib
       - [AngularJS](#angularjs)
       - [Angular 2+](#angular-2)
     - [Using done and done.fail from Jasmine](#using-done-and-donefail-from-jasmine)
+    - [Handling $timeout correctly](#handling-$timeout-correctly)
     - [Mocking with $q API in AngularJS](#mocking-with-q-api-in-angularjs)
   - [When should the upgraded services be imported in the test file?](#when-should-the-upgraded-services-be-imported-in-the-test-file)
   - [beforeEach calls in AngularJS](#beforeeach-calls-in-angularjs)
@@ -290,11 +291,33 @@ When writing HTTP tests on Angular 2+, use `httpTestingController` with `fakeAsy
 As the AngularJS way to mock HTTP calls, the Angular 2+ has flush functions to return the expected response and execute the mock correctly as well.
 
 #### Using `done` and `done.fail` from Jasmine  
-Using `done` and `done.fail` is another way to test asynchronous code in Jasmine. You can use it on promises (HTTP calls and so on), timers as `setTimeout` and `setInterval` (`$interval` and `$timeout` in AngularJS).  
+Using `done` and `done.fail` is another way to test asynchronous code in Jasmine. You can use it on promises (HTTP calls and so on), timers as `setTimeout`(`$timeout` in AngularJS).  
 
 There’s a specific case where you should use `done` on mocking HTTP calls: when you want to assert the result of the fulfilled or reject promise, as you can see [here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/services/assets-backend-api.service.spec.ts#L274-L292). In this piece of code, we need to assert the response variable, then we use `done` after doing the assertion so Jasmine understands the asynchronous code has been completed. You can use `done.fail` when handling with rejected promises.
 
 You can use `done` in timing events as well, check out this [example](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/teach-page/teach-page.controller.spec.ts#L53-L67).
+
+#### Handling $timeout correctly
+We use a lot of `$timeout` across the database. When testing a `$timeout` callback, we used to call another `$timeout` in the unit tests, in order to wait for the original callback to be called. However, this approach was tricky and it was making the tests to fail. When testing $timeout behavior, you should use [$flushPendingTasks](https://docs.angularjs.org/api/ngMock/service/$flushPendingTasks), which is cleaner and error-prone than `$timeout`. Here's an example:
+
+**Bad code:**
+```
+it('should wait for 10 seconds to call console.log', function() {
+  spyOn(console, 'log');
+  $timeout(function() {
+    expect(console.log).toHaveBeenCalled();
+  }, 10);
+});
+```
+
+**Good code:**
+```
+it('should wait for 10 seconds to call console.log', function() {
+  spyOn(console, 'log');
+  $flushPendingTasks();
+  expect(console.log).toHaveBeenCalled();
+});
+```
 
 #### Mocking with `$q` API in AngularJS  
 When mocking a promise in AngularJS, you might use `$q` API. In these cases, you must use `$scope.$apply()` or `$scope.$digest` because it forcibly `$q` promises to be resolved through a Javascript digest. Here are some examples using [$apply](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/email-dashboard-pages/email-dashboard-page.controller.spec.ts#L101-L108) and [$digest](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/exploration-editor-page/services/exploration-states.service.spec.ts#L209-L221).
