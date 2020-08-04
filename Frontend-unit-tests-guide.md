@@ -28,7 +28,7 @@ This guide can be used by both new Oppia members and developers who have contrib
       - [AngularJS](#angularjs)
       - [Angular 2+](#angular-2)
     - [Using done and done.fail from Jasmine](#using-done-and-donefail-from-jasmine)
-    - [Handling $timeout correctly](#handling-$timeout-correctly)
+    - [Handling $timeout correctly](#handling-timeout-correctly)
     - [Mocking with $q API in AngularJS](#mocking-with-q-api-in-angularjs)
   - [When should the upgraded services be imported in the test file?](#when-should-the-upgraded-services-be-imported-in-the-test-file)
   - [beforeEach calls in AngularJS](#beforeeach-calls-in-angularjs)
