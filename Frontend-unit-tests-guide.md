@@ -22,6 +22,7 @@ This guide can be used by both new Oppia members and developers who have contrib
   - [Handling Window events and reloads](#handling-window-events-and-reloads)
     - [When window calls reload](#when-window-calls-reload)
     - [Using the same object reference in both file and spec file](#using-the-same-object-reference-in-both-file-and-spec-file)
+  - [Handling with date](#handling-with-date)
   - [Handling with asynchronous code](#handling-with-asynchronous-code)
     - [Making HTTP calls](#making-http-calls)
       - [Setting up CsrfToken](#setting-up-csrftoken)
@@ -261,6 +262,9 @@ When reload is called in the native form, it will fail the tests. You can fix it
 #### Using the same object reference in both file and spec file  
 In some cases, you might need to share the same window object in the file you’re testing and in the spec file itself, mainly if you’re working on window events. [Here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/about-page/about-page.controller.spec.ts#L24-L29)’s an example of how to do it.
 
+### Handling with date
+As Oppia is a worldwide project, testing date methods turns to be very tricky. For example, if you want to get the date from a huge number representing milliseconds, it can return different dates depending on the timezone of where you live, making the tests unstable. To avoid errors when testing any date method that can change its value depending on timezone, you should mock it to return a fixed date. Check this [example](https://github.com/oppia/oppia/blob/7aa80c49f81270c886818e3dce587715dcebac68/core/templates/pages/exploration-editor-page/feedback-tab/thread-table/thread-table.component.spec.ts#L52-L59).
+
 ### Handling with asynchronous code  
 
 #### Making HTTP calls  
@@ -291,14 +295,14 @@ When writing HTTP tests on Angular 2+, use `httpTestingController` with `fakeAsy
 As the AngularJS way to mock HTTP calls, the Angular 2+ has flush functions to return the expected response and execute the mock correctly as well.
 
 #### Using `done` and `done.fail` from Jasmine  
-Using `done` and `done.fail` is another way to test asynchronous code in Jasmine. You can use it on promises (HTTP calls and so on), timers as `setTimeout`(`$timeout` in AngularJS).  
+Using `done` and `done.fail` is another way to test asynchronous code in Jasmine. You can use it on promises (HTTP calls and so on), timers as `setTimeout`.  
 
 There’s a specific case where you should use `done` on mocking HTTP calls: when you want to assert the result of the fulfilled or reject promise, as you can see [here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/services/assets-backend-api.service.spec.ts#L274-L292). In this piece of code, we need to assert the response variable, then we use `done` after doing the assertion so Jasmine understands the asynchronous code has been completed. You can use `done.fail` when handling with rejected promises.
 
-You can use `done` in timing events as well, check out this [example](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/teach-page/teach-page.controller.spec.ts#L53-L67).
+You can use `done` when using `setTimeout` for specific cases as well, check out this [example](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/teach-page/teach-page.controller.spec.ts#L53-L67).
 
-#### Handling $timeout correctly
-We use a lot of `$timeout` across the database. When testing a `$timeout` callback, we used to call another `$timeout` in the unit tests, in order to wait for the original callback to be called. However, this approach was tricky and it was making the tests to fail. When testing $timeout behavior, you should use [$flushPendingTasks](https://docs.angularjs.org/api/ngMock/service/$flushPendingTasks), which is cleaner and error-prone than `$timeout`. Here's an example:
+#### Handling `$timeout` correctly
+We use a lot of `$timeout` across the database. When testing a `$timeout` callback, we used to call another `$timeout` in the unit tests, in order to wait for the original callback to be called. However, this approach was tricky and it was making the tests to fail. When testing `$timeout` behavior, you should use [$flushPendingTasks](https://docs.angularjs.org/api/ngMock/service/$flushPendingTasks), which is cleaner and error-prone than `$timeout`. Here's an example:
 
 **Bad code:**
 ```
