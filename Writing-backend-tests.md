@@ -32,9 +32,9 @@ The report lists each backend file along with the lines missing coverage in test
    - ``test_get_by_auth_id_with_invalid_auth_method_name_is_none``
    - ``test_get_by_auth_id_for_unregistered_auth_id_is_empty_list``
 
-   These are good test names because it's quickly clear what the differences are between the tests: one is testing an invalid auth versus an unregistered auth. Correspondingly, these conditions lead to different outcomes ('name is none' vs. 'auth ID is empty list').
+   These are good test names because it's quickly clear what the differences are between the tests: one is testing an invalid auth, and the other ist testing an unregistered auth. Correspondingly, these conditions lead to different outcomes ('name is none' vs. 'auth ID is empty list').
 
-   In general, when naming a test you should start with a full sentence and only abbreviate if needed to fit within the 80 column character limit. Prefer to not abbreviate, and be careful when abbreviating to avoid important meaning being taken away from the test name.
+   In general, when naming a test, start by writing a full sentence, and only abbreviate if needed to fit within the 80-character limit. Where possible, prefer to not abbreviate, and when abbreviating, be careful to ensure that the resulting test name is still meaningful and easy to understand.
 
 1. If a function is testing more than one behaviour and you are not able to name the function according to the above pattern, split the test into multiple parts. E.g. if you have a single test that looks like this:
      ```
