@@ -752,7 +752,7 @@ Please note the single-quote marks around `I18N_VARIABLE_NAME`
    python -m scripts.linters.pre_commit_linter
    ``
  4. Manual testing
-	 See where the directive you have migrated is being used. You can do this by seeing where it's corresponding `selector` is being used. Then check whether functionality that you have implemented works as expected (like on the develop branch). Add screenshots of before and after when you open your PR!
+	 See where the directive you have migrated is being used. You can do this by seeing where it's corresponding `selector` is being used. Then check whether functionality that you have implemented works as expected (like on the develop branch). Add a screen recording of the places where the directive is used when you open your PR!
 
 ## FAQ
 
