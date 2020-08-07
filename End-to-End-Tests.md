@@ -370,7 +370,7 @@ The tests may be run either sequentially or in isolation, and they need to be wr
   ```
 
 ## Debugging end to end tests ##
-Steps to use the debugger tool is as follows:
+### Steps to use the debugger tool ###
 1. Add a break-point in the code you want the control to stop at by adding a statement called "debugger;".
    eg.
    ```js
@@ -393,6 +393,10 @@ Steps to use the debugger tool is as follows:
 ![Inspect Page](https://user-images.githubusercontent.com/11008603/88563290-714bac80-d04f-11ea-8b36-fc43c66d6e3d.png)
 6. A Chrome dev tools instance will open up and the e2e test should start executing in a new window.
 7. The control will stop at the point where the debugger statement was added. You can now choose to inspect elements, log variables in the test, or add more break-points.
+
+### Debugging Circle CI builds ###
+Circle CI allows debugging using SSH. For details please read [this](https://circleci.com/docs/2.0/ssh-access-jobs/#steps).
+
 
 ## Important Tips ##
 
