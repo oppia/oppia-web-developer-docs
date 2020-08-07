@@ -395,7 +395,7 @@ The tests may be run either sequentially or in isolation, and they need to be wr
 7. The control will stop at the point where the debugger statement was added. You can now choose to inspect elements, log variables in the test, or add more break-points.
 
 ### Debugging Circle CI builds ###
-Circle CI allows debugging using SSH. For details please read [this](https://circleci.com/docs/2.0/ssh-access-jobs/#steps).
+Circle CI allows debugging using SSH. For details, please read [this](https://circleci.com/docs/2.0/ssh-access-jobs/#steps).
 
 
 ## Important Tips ##
