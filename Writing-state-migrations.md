@@ -19,10 +19,10 @@ If your PR changes the properties of an exploration or state (or other structure
      - core/tests/test_utils.py (Change the VERSION_(Old_version)_STATE_DICT to a new one)
 
 8. Create a PR, if the tests fails try resolving the test issues.
-9. Once your PR is finalized, file a one off job request for ExplorationMigrationAuditJob [here](https://docs.google.com/forms/d/e/1FAIpQLSeI_hrDEM_hsddJIw77HLC_C3pemB5zBXuPpuEJS6FSXQU0iA/viewform?usp=sf_link). The job tests a migration by making changes to the dict of existing exploration models and validating that the migration will be successful without committing the changes to the datastore.
+9. Once your PR is finalized, file a one off job request for the ExplorationMigrationAuditJob on this [form](https://docs.google.com/forms/d/e/1FAIpQLSfvYWscAn18ok06An1oQ54h1VmBHfCX8uuuV01kIvY9WX0-Ug/viewform). The job tests a migration by making changes to the dict of existing exploration models and validating that the migration will be successful without committing the changes to the datastore.
 10. Fix any issues or errors from the audit job above.
 11. Get your migration PR merged.
-12. Once your PR is merged, please submit a request using this [form](https://docs.google.com/forms/d/e/1FAIpQLSeI_hrDEM_hsddJIw77HLC_C3pemB5zBXuPpuEJS6FSXQU0iA/viewform?usp=sf_link) to run this migration in production. Before submitting this request, please ensure that the migration has already been tested manually on your local machine, passed code review, and been merged into develop.
+12. Once your PR is merged, please submit a request using this [form](https://docs.google.com/forms/d/e/1FAIpQLSfvYWscAn18ok06An1oQ54h1VmBHfCX8uuuV01kIvY9WX0-Ug/viewform) to run this migration in production. Before submitting this request, please ensure that the migration has already been tested manually on your local machine, passed code review, and been merged into develop.
 
 **Note:** These steps are for the migration where one is changing the schema of all existing states, depending on the changes your migration is going to make the steps will be less as you’ll have to change very fewer test files.
 
