@@ -5,8 +5,9 @@ If your PR changes the properties of an exploration or state (or other structure
 2. Make the necessary changes to the NEW_STATE_TEMPLATE in the constants.js file to reflect the post-migration state dict structure.
 3. Increment the CURRENT_STATE_SCHEMA_VERSION in the feconf.py file.
 4. Increment the CURRENT_EXP_SCHEMA_VERSION in the exp_domain.py file and similar changes in the question_domain.py file.
-5. Start with writing _convert_states_v(old_state_version)_dict_to_v(old_state_version + 1)_dict method in exp_domain.py files under Exploration class and in question_domain.py under Question class.
-6. Changing existing test files:
+5. Start with writing _convert_states_v(old_state_version)_dict_to_v(old_state_version + 1)_dict method in exp_domain.py files under Exploration class and in question_domain.py under Question class. In exp_domain.py, update the ```Exploration._migrate_to_latest_yaml_version``` method to use your conversion function (not required for question_domain.py, this is done automatically).
+6. Write a conversion function _convert_states_v(old_state_version)_dict_to_v(old_state_version + 1)_dict in draft_upgrade_services.py that makes appropriate upgrades to data that resides in ExplorationChange lists.
+7. Changing existing test files:
    - Change core/tests/data/oppia-ThetitleforZIPdownloadhandlertest!-v2-gold.zip file with the updated schema.
    - Change the dict and yaml form of state in the following files wherever required:
      - core/controllers/editor_test.py
@@ -17,11 +18,11 @@ If your PR changes the properties of an exploration or state (or other structure
      - core/domain/state_domain_test.py
      - core/tests/test_utils.py (Change the VERSION_(Old_version)_STATE_DICT to a new one)
 
-7. Create a PR, if the tests fails try resolving the test issues.
-8. Once your PR is finalized, create a new one-off job (ExplorationMigrationValidationJob) which will make changes to the dict of existing exploration model and validates that the migration will be successful.
-9. Once the one-off job PR gets merged and the job result is successful, try updating your migration PR and deleting the one-off job (as this will not be required anymore).
-10. Get your migration PR merged.
-11. Once your PR is merged, please submit a request using this [form](https://docs.google.com/forms/d/e/1FAIpQLSeI_hrDEM_hsddJIw77HLC_C3pemB5zBXuPpuEJS6FSXQU0iA/viewform?usp=sf_link) to run this migration in production. Before submitting this request, please ensure that the migration has already been tested manually on your local machine, passed code review, and been merged into develop.
+8. Create a PR, if the tests fails try resolving the test issues.
+9. Once your PR is finalized, file a one off job request for ExplorationMigrationAuditJob [here](https://docs.google.com/forms/d/e/1FAIpQLSeI_hrDEM_hsddJIw77HLC_C3pemB5zBXuPpuEJS6FSXQU0iA/viewform?usp=sf_link). The job tests a migration by making changes to the dict of existing exploration models and validating that the migration will be successful without committing the changes to the datastore.
+10. Fix any issues or errors from the audit job above.
+11. Get your migration PR merged.
+12. Once your PR is merged, please submit a request using this [form](https://docs.google.com/forms/d/e/1FAIpQLSeI_hrDEM_hsddJIw77HLC_C3pemB5zBXuPpuEJS6FSXQU0iA/viewform?usp=sf_link) to run this migration in production. Before submitting this request, please ensure that the migration has already been tested manually on your local machine, passed code review, and been merged into develop.
 
 **Note:** These steps are for the migration where one is changing the schema of all existing states, depending on the changes your migration is going to make the steps will be less as you’ll have to change very fewer test files.
 
