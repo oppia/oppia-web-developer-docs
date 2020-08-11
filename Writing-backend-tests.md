@@ -1,42 +1,66 @@
 _NB: For details on **running** the backend tests, see https://github.com/oppia/oppia/wiki/Running-Tests#server-side-tests._
 
-Any and all code that you want to get merged into Oppia, needs to be tested extensively before. This guide gives you an idea of how backend integration tests are usually structured.
+All code that you want to merge into Oppia must be supported by a strong set of unit tests. Tests are important because they can help catch bugs, provide an entry-point for newcomers to understand the code, and ensure that your changes won’t get broken by other developers in the long run.
 
-All classes and tests written below are just examples, and not actual code in the codebase.
+This guide aims to give you an idea of how Oppia’s backend tests are structured. (We also have separate pages for [frontend tests](https://github.com/oppia/oppia/wiki/Frontend-unit-tests-guide) and [end-to-end tests](https://github.com/oppia/oppia/wiki/End-to-End-Tests).)
 
 # Generating Coverage Reports
 
-This is a a really useful tool while writing backend tests. Coverage reports specify which lines of each file have not been used in any test, and the overall coverage percentage of each file. So, while writing a test for some function or a class, a coverage report can be generated to verify that all lines of the function/class have been included in the tests.
+We use a simple tool, called *code coverage*, to check that all of Oppia’s backend code is fully covered by at least one test. Coverage reports specify which lines of each file have not been used in any test, and the overall coverage percentage of each file. Currently, Oppia has achieved **100% backend coverage**; please help us maintain this going forward!
 
-**The ultimate goal is to achieve 100% backend coverage.**
+When writing a test for a function or class, you can generate a coverage report to verify that all the lines of the function/class have been included in the tests. To do this, simply add the `--generate_coverage_report` flag to the `run_backend_tests` command:
 
-To generate backend coverage, a flag should be added to the command that runs backend tests.
+        python -m scripts.run_backend_tests --generate_coverage_report
 
-`python -m scripts.run_backend_tests --generate_coverage_report`
+The resulting coverage report lists each backend file, along with the lines in it which are not covered by tests. Use this info to add new tests that cover those lines.
 
-The report lists each backend file along with the lines missing coverage in tests.
+**Important note:** Getting to 100% coverage is a necessary, but not sufficient, indicator of the quality of your tests. You'll also need to ensure that your tests are sufficiently robust, and in particular, that your tests are written based on figuring out what **behaviour** you want to check. The following guidelines will help you write better tests that will lead to more maintainable code.
 
 # Guidelines for writing good tests
 
-1. Tests should use the following general pattern:
-   * setup - this is where you prepare any inputs/environment needed for the test.
-   * baseline verification - check the values without performing any action.
-   * action - perform the action or function call that leads to the expected change.
-   * endline verification - check that the values in the baseline verification have changed accordingly.
+1. **Each test method should test only a single behaviour.** This helps both with naming the test, and ensuring that the test doesn't fail for unrelated code changes.
 
-1. Each test method should only test a single behavior, as that helps both with naming the test, and ensuring that tests don't fail for unrelated changes to the corresponding production code. Test names should follow this format:
+   - When naming a test, start by writing a full sentence that clearly describes its behaviour. Try not to abbreviate if possible, but, if you need to do so in order to fit within the 80-character limit, make sure that the resulting test name is still meaningful and easy to understand.
 
-    `test_{{action}}_{{withCondition1}}_{{withCondition2}}_{{hasExpectedOutcome}}`
+   - We recommend that test names follow the format:
 
-   where `{{action}}`, `{{withCondition}}` and `{{hasExpectedOutcome}}` are replaced with appropriate descriptions in snake_case. Put the outcome at the end of the name, so that you and others can easily compare consecutive tests of the same method that have slightly different conditions with divergent outcomes. Here are some examples of good test names:
-   - ``test_get_by_auth_id_with_invalid_auth_method_name_is_none``
-   - ``test_get_by_auth_id_for_unregistered_auth_id_is_empty_list``
+            test_{{action}}_{{withCondition1}}_{{withCondition2}}_{{hasExpectedOutcome}}`
 
-   These are good test names because it's quickly clear what the differences are between the tests: one is testing an invalid auth, and the other ist testing an unregistered auth. Correspondingly, these conditions lead to different outcomes ('name is none' vs. 'auth ID is empty list').
+      where `{{action}}`, `{{withCondition}}` and `{{hasExpectedOutcome}}` are replaced with appropriate descriptions in snake_case. Put the outcome at the end, so that it's easy to compare consecutive tests that have slightly different conditions with divergent outcomes. 
 
-   In general, when naming a test, start by writing a full sentence, and only abbreviate if needed to fit within the 80-character limit. Where possible, prefer to not abbreviate, and when abbreviating, be careful to ensure that the resulting test name is still meaningful and easy to understand.
+   - Here are some examples of good test names:
+       - `test_get_by_auth_id_with_invalid_auth_method_name_is_none`
+       - `test_get_by_auth_id_for_unregistered_auth_id_is_empty_list`
 
-1. If a function is testing more than one behaviour and you are not able to name the function according to the above pattern, split the test into multiple parts. E.g. if you have a single test that looks like this:
+      These names are good because it's easy to see what the differences between the tests are: one tests an invalid auth, and the other tests an unregistered auth. Correspondingly, these conditions lead to different outcomes ('name is none' vs. 'auth ID is empty list').
+
+1. Tests should use the following general structure:
+   * **Setup** - this is where you prepare any inputs/environment needed for the test.
+   * **Baseline verification** - check the values without performing any action. This step is only needed if your action is state-changing (i.e., if the same assert statement would lead to one result at baseline, and a different result at endline). Use the same assertion here that you would use at endline.
+   * **Action** - perform the action or function call that leads to the expected change.
+   * **Endline verification** - check that the values in the baseline verification have changed accordingly.
+
+1. **Test the interface**, not the implementation. That is, treat the function as a black box and test its functionalities. This will help you design a better API from an external user’s perspective.
+
+1. Keep tests **simple**. Don't include any logic in the test. Write the test as a series of straightforward, descriptive and meaningful commands (also known in programming circles as "DAMP"). It's fine if there's some repetition, as long as the tests are easy to read.
+
+1. When building your suite of tests, try to include a range of possible behaviours, such as:
+     * "Happy path" cases
+     * Boundary/edge cases
+     * Failure cases
+     * Ambiguous cases
+
+    Also, try testing multiple contrasting behaviours in order to ensure that the test is correct. E.g. if you are checking that an exception is raised under a certain criterion, also add a test to ensure that the exception is not raised when the criterion is not satisfied.
+
+1. For **test outputs**, follow these guidelines:
+     * Test each output as exactly and completely as possible. E.g. it's better to compare equality for an entire dict, rather than just checking that a particular value has changed.
+     * Use `assertTrue()` / `assertFalse()` instead of `assertEqual(value, True/False)`.
+     * Use `assertIsNone` instead of `assertEqual(value, None)`.
+
+## Common testing scenarios
+
+1. If a function tests **more than one behaviour**, split the test into multiple parts. E.g. if you have a single test that looks like this:
+
      ```
      * Setup
      * Action 1
@@ -57,25 +81,13 @@ The report lists each backend file along with the lines missing coverage in test
      * Assertion 2
      ```
 
-1. Keep tests simple. Don't include any logic in the test. If you have to test more than one behavior in a function, write a separate test for each specific behavior (see above).
+1. If the function under test **depends on some other function**, you can use self.swap() to swap the second function with a simple "mock" function whose output you can define.
 
-1. Test the interface and not the implementation. That is, treat the function as a black box and test its functionalities.
+1. For assertions that **check errors** (e.g. self.assertRaises or self.assertRaisesRegexp), keep the part of the code enclosed in self.assertRaises as small as possible, so that you can be sure that the error is actually being caused by that part of the code (and not, say, by the setup code).
 
-1. Try testing multiple contrasting behaviours in order to ensure that the test is correct. E.g. if you are checking that an exception is raised under a certain criterion, also add a test to ensure that the exception is not raised when the criterion is not satisfied.
-
-1. If the function under test depends on some other function, you can use self.swap() to swap the second function with a simple "mock" function whose output you can define.
-
-1. Use:
-   * `assertTrue() / assertFalse()` instead of `assertEqual(value, True/False)`
-   * `assertIsNone` instead of `assertEqual(value, None)`
-
-1. Test the output of each function as exactly and completely as possible. E.g. it's better to compare equality for an entire dict rather than just checking that a particular value has changed.
-
-1. **Guidelines for testing private methods/functions**: Tests should only be written to verify the behaviour of **public** methods/functions. Private functions should not be used in behavioural tests. Here are some suggestions for what to do in specific cases (if this doesn't help for your particular case and you're not sure what to do, please talk to **@BenHenning**):
-   * If you want to test code execution a private method/function, test it through public interface, or move it to a utility (if it's general-purpose) where it becomes public. Avoid testing private APIs since that may lead to brittle test in unexpected situations (such as when the implementation of the API changes, but the behaviour remains the same).
+1. **Guidelines for testing private methods/functions**: Tests should only be written to verify the behaviour of **public** methods/functions. Here are some suggestions for what to do in specific cases involving private functions (if this doesn't help for your particular case and you're not sure what to do, please talk to **@BenHenning**):
    * If you’re trying to access hidden information, consider getting that information from one level below instead (e.g. datastore).
-
-1. For assertions that check errors (e.g. self.assertRaises or self.assertRaisesRegexp), keep the part of the code enclosed in self.assertRaises as small as possible, so that you can be sure that the error is actually being caused by that part of the code (and not, say, by the setup code).
+   * If you want to test code within a private method/function, test it by instead calling a public function that makes use of that function, or move it to a utility (if it's general-purpose) where it becomes public. Avoid testing private APIs since that may lead to brittle tests in unexpected situations (such as when the implementation of the API changes, but the behaviour remains the same).
 
 
 ## Example: Writing unit tests for domain classes
