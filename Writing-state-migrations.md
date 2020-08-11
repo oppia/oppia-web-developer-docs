@@ -19,7 +19,7 @@ If your PR changes the properties of an exploration or state (or other structure
      - core/tests/test_utils.py (Change the VERSION_(Old_version)_STATE_DICT to a new one)
 
 8. Create a PR, if the tests fails try resolving the test issues.
-9. Once your PR is finalized, file a one off job request for the ExplorationMigrationAuditJob using this [form](https://docs.google.com/forms/d/e/1FAIpQLSfvYWscAn18ok06An1oQ54h1VmBHfCX8uuuV01kIvY9WX0-Ug/viewform). The job tests a migration by making changes to the dict of existing exploration models and validating that the migration will be successful without committing the changes to the datastore.
+9. Once your PR is finalized, file a one off job request for the ExplorationMigrationAuditJob using this [form](https://docs.google.com/forms/d/e/1FAIpQLSfvYWscAn18ok06An1oQ54h1VmBHfCX8uuuV01kIvY9WX0-Ug/viewform). The job tests a migration by running your conversion function on the dicts of existing exploration models and validating that the migration will be successful. It does this without committing the changes to the datastore.
 10. Fix any issues or errors from the audit job above.
 11. Get your migration PR merged.
 12. Once your PR is merged, please submit a request using this [form](https://docs.google.com/forms/d/e/1FAIpQLSfvYWscAn18ok06An1oQ54h1VmBHfCX8uuuV01kIvY9WX0-Ug/viewform) to run this migration in production. Before submitting this request, please ensure that the migration has already been tested manually on your local machine, passed code review, and been merged into develop.
