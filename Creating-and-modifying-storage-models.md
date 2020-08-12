@@ -33,5 +33,5 @@ Firstly, the removed field is moved to the bottom of the list of fields and mark
 
 1. Remove the field form the storage model code itself.
 2. Add a migration job to remove the field from already existing models. The one-off job for removing the `username` from commit log models looks like this: https://github.com/oppia/oppia/blob/170bdeae5912ced0abc71257f5b0e5ca98fd1418/core/domain/activity_jobs_one_off.py#L142-L182
-4. Add `_reconstitute` method for the model that will ensure that when we revert to older version of the model we properly remove the field so that the model can be loaded. `_reconstitute` is already implemented for the `CollectionRightsModel` and `ExplorationRightsModel` https://github.com/oppia/oppia/blob/7623cd028d15a6326cac186f673f368dcae30929/core/storage/exploration/gae_models.py#L403-L440
+4. Add `_reconstitute` method for the model that will ensure that when we revert to older version of the model we properly remove the field so that the model can be loaded. `_reconstitute` is already implemented for the `CollectionRightsModel` and `ExplorationRightsModel` (https://github.com/oppia/oppia/blob/7623cd028d15a6326cac186f673f368dcae30929/core/storage/exploration/gae_models.py#L403-L440).
 4. Create a PR and submit the job to be tested on the backup server.
