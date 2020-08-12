@@ -50,7 +50,7 @@ If your PR changes the properties of an exploration or state (or other structure
      - core/templates/services/state-interaction-stats.service.spec.ts
      - core/templates/services/state-top-answers-stats.service.spec.ts
 
-8. Create a PR, if the tests fails try resolving the test issues.
+8. Create a PR. If the tests fail, try resolving the test issues.
 9. Once your PR is finalized, file a one off job request for the ExplorationMigrationAuditJob using this [form](https://docs.google.com/forms/d/e/1FAIpQLSfvYWscAn18ok06An1oQ54h1VmBHfCX8uuuV01kIvY9WX0-Ug/viewform). The job tests a migration by running your conversion function on the dicts of existing exploration models and validating that the migration will be successful. It does this without committing the changes to the datastore.
 10. Fix any issues or errors from the audit job above.
 11. Get your migration PR merged.
