@@ -12,6 +12,8 @@ This project aims to migrate the entire codebase from AngularJS to Angular. The 
 
 We have a script named [create_topological_sort_of_all_services](https://github.com/oppia/oppia/blob/develop/scripts/create_topological_sort_of_all_services.py) which generates all the services in the dependency order. The codebase has about 340 services as of now, out of which 220 are migrated to Angular and remaining 120 are to be migrated. Some files slipped in even without having all the require statements which has affected the output of the script. The plan would be to go in the order of the files that script generates. If the current service that is in order could be migrated -- migrate it, else add missing require statements. We will re-run the script during the second pass and fix the left ones then.
 
+**Note: Angular Migration Pull Requests must be accompanied with a video showing the before and after effects of their change to ensure that nothing is broken. This ensures faster review and lower risks of reverted PRs**
+
 ## Angular Migration Tracker
 
 The [angular migration tracker](https://docs.google.com/spreadsheets/d/1L9Udn-XT6Lk1qaTBUySTw1AnhvQMR-30Qry4rfd-Ovg/edit?usp=sharing) holds the record of which services have been migrated and which are to be migrated. The order of services mentioned in the tracker is in dependency order i.e if serviceA depends on serviceB and serviceB depends on serviceC, then the order of services written in the tracker would be serviceC, serviceB followed by serviceA.
