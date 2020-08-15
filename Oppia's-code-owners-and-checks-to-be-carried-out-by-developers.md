@@ -1178,3 +1178,14 @@ All the changes should account for the speed of the webpack build.
 </table>
 
 
+# Temporary codeowner transfer process
+If you will be unavailable for more than 24 hours, please transfer your ownership with a delegate, follow the process detailed below:
+
+1. Create an issue using the "Temporary codeowner transfer" template on Github. [Note down the ISSUE_NUMBER.]
+2. Do the changes in CODOWNER file and add a top level comment: `TODO(#ISSUE_NUMBER): Revert ownership to @USERNAME after YYYY-MM-DD.`
+3. Create a PR with the title: `Fix part of #<ISSUE_NUMBER>: Temporary codeowner transfer`
+4. Assign the contributor whom you have transferred the responsibility as reviewer for the PR. [Make sure to get this PR merged before you leave.]
+5. [Once you are back] Undo the old changes in CODEOWNER file and remove the TODO comment.
+6. Create a revert PR of the old-codeowner transfer PR with title Fix #<ISSUE_NUMBER>: Revert temporary codeowner transfer.   
+7. Assign the contributor whom you had transferred the responsibility as a reviewer for the PR.
+8. Get the revert PR merged!
