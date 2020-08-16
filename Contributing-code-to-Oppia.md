@@ -158,8 +158,10 @@ To make code changes, please follow the following instructions carefully! Otherw
      - Make a new commit addressing the comments you agree with, and push it to the same branch. (Continue to use descriptive commit messages, or something like "Address review comments" if you're addressing many disparate review comments in the same commit.) **You do not need to close your PR and create a new one -- it's fine to push new commits to the existing PR.**
        - **Always make commits locally, and then push to GitHub.** Don't make changes using the online GitHub editor -- this bypasses lint/presubmit checks, and will cause the code on GitHub to diverge from the code on your machine.
        - **Never force-push changes to GitHub once reviews have started.** This will delay your review because it overwrites history on GitHub and makes the incremental changes harder to review. It may also lead to the PR being closed.
-     - As you are making changes, track them by replying to each comment via the Files Changed tab, **choosing the "Start a review" option** for the first comment. Each reply should be either "Done" or a response explaining why the corresponding suggestion wasn't implemented. Also, please **do not** mark the comment as resolved, since this just makes it harder to actually read the comment thread. When you've responded to all comments, submit the review to add all your messages to the main thread.
+     - As you are making changes, track them by replying to each comment via the Files Changed tab, **choosing the "Start a review" option** for the first comment. Each reply should be either "Done" or a response explaining why the corresponding suggestion wasn't implemented. Also, please **do not** mark the comment as resolved, since this just makes it harder to actually read the comment thread. When you've 
+responded to all comments, submit the review to add all your messages to the main thread.
        - **Tip:** If a reviewer asks questions about the "why" behind something, consider proactively adding a clear comment above the relevant line in your code, since the fact that the reviewer had to ask suggests that at least one developer doesn't understand what is going on from the code alone. Otherwise, you'll probably get a follow-up review comment asking you to leave a code comment anyway :)
+       - **Note:** If any comments require follow-up PRs, please file an issue to track the necessary changes, and mention the issue number in the relevant review comment thread. (You should do this automatically for any deferred changes; reviewers may defer approval until you do.)
 
    - Once you've addressed everything, and would like the reviewer(s) to take another look:
      - Follow the instructions in Step 3 to test your changes locally before pushing.
@@ -193,6 +195,8 @@ To make code changes, please follow the following instructions carefully! Otherw
 - Our central development branch is `develop`, which should be clean and ready for release at any time. All changes should be done in feature branches based off of `develop`.
 
 - If you face any issues while setting things up, or your PR build fails unexpectedly (please go through the logs of the PR build and try debugging the problem on your own first!), feel free to ping **@oppia/core-maintainers** for help.
+
+- Sometimes, GitHub comments in the main conversation thread don't have a reply box. This seems to be a quirk with GitHub: apparently the reply box doesn't show up on outdated threads if you're currently in the middle of a review (or a reply to someone else's review) that you haven't submitted. After you submit the review, the reply field should show up again. For larger PRs, you might want to always include a summary of links to unresolved threads in the general top-level comment of your response, so that it is easier to keep track of what is still "open".
 
 - To find the author of a particular change in a file, run this command:
 
@@ -257,6 +261,20 @@ A complete list of labels can be found [here](https://github.com/oppia/oppia/lab
 Sometimes, it might not be entirely clear how to implement something. In such cases, we recommend creating a short document which states the problem clearly and provides a comparative analysis of the different approaches that you can think of to tackle the issue.
 
 This will enable you to get reviews from your mentors and other Oppia contributors easily without needing to schedule a meeting, and make it easier to add additional reviewers later if needed. You can find more information on [this wiki page](https://github.com/oppia/oppia/wiki/Writing-design-docs) about how to write these docs, as well as best practices for responding to doc reviews.
+
+## Juggling multiple pull requests
+
+After you've submitted a PR, and are waiting for it to get reviewed, you might want to start working on a new issue in the meantime. Git allows you to do this seamlessly! Here are some tips that might be helpful:
+
+- Always prioritize following up on your existing PRs and getting them ready for the next round of review. In particular, only start working on new issues/PRs after **all** the other PRs you're working on are in the "waiting for review" stage. This helps avoids creating a logjam in the build queues.
+
+- When starting work on a new issue, make sure you're on the `develop` branch first (and not a branch associated with any of your existing PRs) before checking out a new branch. In other words, run:
+
+   git checkout develop
+   git checkout -b {{NEW_BRANCH_NAME}}
+
+  You can then subsequently switch between branches by typing `git checkout {{BRANCH_NAME}}`, where `{{BRANCH_NAME}}` is the branch you want to switch to.
+
 
 ## Communication channels
 
