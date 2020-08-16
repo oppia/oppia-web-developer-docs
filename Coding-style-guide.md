@@ -9,6 +9,11 @@ If you use [Sublime Text](http://www.sublimetext.com/), consider installing the 
 - The last character in each file should be a newline. (If you're using Sublime, you can enforce this locally by adding `"ensure_newline_at_eof_on_save": true` to your user preferences file.)
 - Avoid introducing `TODO (#XYZ): ...` comments in the files and instead try to do things correctly the first time. If you are going to add a TODO comment in any file then there needs to be (at minimum) a full comment and justification explaining what has been tried and what the issue is. The TODo should also reference an issue created on GitHub for thracking the problem.
 
+## Design tips
+- Avoid referencing elements of a list by a hardcoded index number, e.g. `item[0]`, `item[1]`. This is because the reader typically has no idea what is significant about the element index in question. If the values in the list are of different types, consider using a domain object instead to model the item being passed around.
+- Avoid passing raw "dictionaries" (Python dicts or JS objects) between functions, because it's possible to add new fields to them midway through their lifecycle, which can get confusing for readers of the code. Use domain objects instead, since they have a fixed set of fields.
+- Avoid redefining the same variable more than once. Use different names to represent different variables, since each variable (conceptually) stores a different thing.
+
 ## Python
 - Prefer `xrange` to `range`, so as not to hold the entire range in memory unnecessarily.
 - Consider using a frozenset or tuple to a list, if the data structure is not meant to be subsequently modified. This applies especially to constants.
