@@ -196,7 +196,7 @@ responded to all comments, submit the review to add all your messages to the mai
 
 - If you face any issues while setting things up, or your PR build fails unexpectedly (please go through the logs of the PR build and try debugging the problem on your own first!), feel free to ping **@oppia/core-maintainers** for help.
 
-- Sometimes, GitHub comments in the main conversation thread don't have a reply box. This seems to be a quirk with GitHub: apparently the reply box doesn't show up on outdated threads if you're currently in the middle of a review (or a reply to someone else's review) that you haven't submitted. After you submit the review, the reply field should show up again. For larger PRs, you might want to always include a summary of links to unresolved threads in the general top-level comment of your response, so that it is easier to keep track of what is still "open".
+- Sometimes, GitHub comments in the main conversation thread don't have a reply box. This seems to be a quirk with GitHub: apparently the reply box doesn't show up on outdated threads if you're currently in the middle of a review (or a reply to someone else's review) that you haven't submitted. After you submit the review, the reply field should show up again. 
 
 - To find the author of a particular change in a file, run this command:
 
