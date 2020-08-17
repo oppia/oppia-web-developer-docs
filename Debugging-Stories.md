@@ -7,10 +7,7 @@ _Contributed by Kevin Zhang_ (**@kevjumba**)
 Previously, in our setup for Google App Engine, we would download a deprecated version of the Google App Engine package, namely google_appengine_1.9.67 with all of the required utilities needed for Oppia operation. We would also have a separate download for an old version of the Google Cloud SDK that performs certain gcloud utility operations. 
 
 ### Primary Motivation
-Google App Engine has since deprecated the separation of the Google App Engine package from the regular Google Cloud SDK. The latest version of the Google Cloud SDK contains within it, similar but upgraded functionality of Google App Engine so the need for the older individual Google App Engine package no longer exists. Furthermore, the newer version of Google App Engine contained within Google Cloud SDK version 304.0.0 provides support for VPC access connector functionality.
-
-### Debug Log
-During the upgrade, I encountered many errors related to the upgrade and incompatibilities with our old usage. This is documentation of my debugging process and certain things I’ve learned that may be able to help future developers.
+Google App Engine has since deprecated the separation of the Google App Engine package from the regular Google Cloud SDK. The latest version of the Google Cloud SDK contains within it, similar but upgraded functionality of Google App Engine so the need for the older individual Google App Engine package no longer exists. Furthermore, the newer version of Google App Engine contained within Google Cloud SDK version 304.0.0 provides support for VPC access connector functionality. During the upgrade, I encountered many errors related to the upgrade and incompatibilities with our old usage.
 
 ### Debug Process
 1. To replace the dev_appserver.py functionality, which is the python script provided to start a development application server of Google App Engine for local development testing, I found a dev_appserver.py script on the top level of the Google Cloud SDK directory (the old dev_appserver.py was also on the top level in the old setup) and replaced all paths to that script with the new Google Cloud SDK path.
