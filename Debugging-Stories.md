@@ -23,13 +23,10 @@ During the upgrade, I encountered many errors related to the upgrade and incompa
        - I added a subprocess command to print out the file permissions right before the dev_appserver is started and compared the permissions to the permissions of my own directory and they seemed similar or at least the same where it counted (I researched what files Python touches when an import happens and made sure that those files in the grpc folder matched with mine).
        - Since the permissions seemed to match, I changed the command to start the dev server to use sudo as a test of whether or not it is actual user permissions. Since the error still occurred, I realized it’s probably some other issue.
        - I decided I need to ssh into the instance for more debugging. In order to do this, rerun a job with the button ‘Rerun job with SSH’ on the top right of the circle ci console and expand the tab at the bottom labeled, ‘Enable SSH’. It should provide you with details to log in to the terminal.
-
-  - I logged into the SSH instance and tried a variety of tests.
-       - Tried importing grpc from the command line. Resulted in an error shown below. This error is due to the fact that the Circle CI instance runs Ubuntu which has a default Python that uses 4 character unicode. However, the downloaded version of grpc uses a 2 character unicode compilation so the compilations don’t match. I did research on whether it was possible to build CircleCI’s python docker image with a different unicode setting but this was not possible.
-
-       - Tried resetting the entire directory of Google App Engine to have max privileges. (Didn’t work)
-       - Tried running the dev_appserver.py script from the terminal. (Didn’t work)
-
+     - I logged into the SSH instance and tried a variety of tests.
+        - Tried importing grpc from the command line. Resulted in an error shown below. This error is due to the fact that the Circle CI instance runs Ubuntu which has a default Python that uses 4 character unicode. However, the downloaded version of grpc uses a 2 character unicode compilation so the compilations don’t match. I did research on whether it was possible to build CircleCI’s python docker image with a different unicode setting but this was not possible.
+        - Tried resetting the entire directory of Google App Engine to have max privileges. (Didn’t work)
+        - Tried running the dev_appserver.py script from the terminal. (Didn’t work)
    - Finally, by pure coincidence, I decided to run the nested dev_appserver.py script by itself instead of relying on the top level script. This turns out to have a similar configuration to the older version of the dev_appserver so the errors finally went away. 
 
 
