@@ -1,7 +1,7 @@
 Sometimes, things go wrong while programming, and the reason for that is not obvious! In order to figure out what's happening, you will need to **debug** the code. This is an important skill to learn, but not an easy one to teach. On this page, we present a few examples of "debugging stories" from team members, so that you can see how other people approach tricky problems in the codebase.
 
 ## Google App Engine SDK Upgrade
-_Contributed by Kevin Zhang (**@kevjumba**)
+_Contributed by Kevin Zhang_ (**@kevjumba**)
 
 ### Oppia's Previous Setup
 Previously, in our setup for Google App Engine, we would download a deprecated version of the Google App Engine package, namely google_appengine_1.9.67 with all of the required utilities needed for Oppia operation. We would also have a separate download for an old version of the Google Cloud SDK that performs certain gcloud utility operations. 
