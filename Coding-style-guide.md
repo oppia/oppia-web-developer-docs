@@ -15,7 +15,6 @@ If you use [Sublime Text](http://www.sublimetext.com/), consider installing the 
 - Avoid redefining the same variable more than once. Use different names to represent different variables, since each variable (conceptually) stores a different thing.
 
 ## Python
-- Prefer `xrange` to `range`, so as not to hold the entire range in memory unnecessarily.
 - Consider using a frozenset or tuple to a list, if the data structure is not meant to be subsequently modified. This applies especially to constants.
 - If you need to raise an Exception, just do `raise Exception` -- no need to define custom exceptions. We tend to use exceptions fairly sparingly, though.
 - Do not use `str()` under any circumstances. Please try to use `python_utils.convert_to_bytes()` or the `b'` prefix for the strings used in webapp2\'s built-in methods or for strings used directly in NDB datastore models. If you need to cast ints/floats to strings, please use `python_utils.UNICODE()` instead. Avoid casting strings to other types of strings using str(), unicode(), etc. Also, there should be no need to prefix any string literals with b' or u', since all string literals in Python files are prefixed with `u'` by default (due to the import of unicode_literals at the top of the file).
