@@ -12,7 +12,10 @@ If you use [Sublime Text](http://www.sublimetext.com/), consider installing the 
 ## Design tips
 - Avoid referencing elements of a list by a hardcoded index number, e.g. `item[0]`, `item[1]`. This is because the reader typically has no idea what is significant about the element index in question. If the values in the list are of different types, consider using a domain object instead to model the item being passed around.
 - Avoid passing raw "dictionaries" (Python dicts or JS objects) between functions, because it's possible to add new fields to them midway through their lifecycle, which can get confusing for readers of the code. Use domain objects instead, since they have a fixed set of fields.
+  - Similarly, if you are passing in two lists of variables and you require both lists to be the same length (because the elements need to correspond with each other), consider using one list of composite domain objects instead.
 - Avoid redefining the same variable more than once. Use different names to represent different variables, since each variable (conceptually) stores a different thing.
+- Functions that start with "get", or which have GET semantics, should, under no circumstances, update or delete anything. They should be safe to call and have no side effects.
+
 
 ## Python
 - Consider using a frozenset or tuple to a list, if the data structure is not meant to be subsequently modified. This applies especially to constants.
