@@ -60,3 +60,33 @@ The following tips correspond to projects that span 3+ months:
   iii. Milestone 3: Performing any necessary migrations in production
 - When estimating a milestone, first estimate how much time each task takes and then fit as many tasks as you can within a milestone. Don't change your time estimates based on the milestone (just because something is expected to get done within a certain timeframe doesn't mean it can). If the milestones don't provide enough time to finish the project, that may indicate that the project needs to be rescoped.
 - If the project has multiple developers, ensure tasks and milestones have clear owners assigned to them
+
+### Generating Sequence Diagrams using Text ###
+
+1. Starting from the entry method, when a new file is referred to, add the file as a new 'participant'. E.g.
+participant <new_file>
+
+2. When a call is made to a method in a different file, use this syntax:
+current_file->new_file: method_being_called()
+
+3. Represent execution of a fetch call, using this syntax:
+Note over current_file: Get XYZ from datastore
+
+4. When the method execution is completed, use this syntax to show control returning to the calling method and the data returned:
+current_file-->new_file:XYZ model
+
+5. Represent loops using a note to the left of the calling method. E.g.
+Note left of current_file: LOOP BEGIN:\nIterate over XYZ ids
+current_file->new_file: method_being_called()
+new_file-->current_file: XYZ model
+Note left of current_file: LOOP END
+
+6. Once the text file is ready, generate the sequence diagram SVG by going this site:
+https://bramp.github.io/js-sequence-diagrams/
+7. Copy paste the text content into one of the 'Demo' boxes, select 'Simple' as the theme, and download the SVG file.
+
+See examples:
+https://gist.github.com/kevintab95/3b2375f71f04476b507b22e7ad8d123f
+
+Reference for syntax:
+https://bramp.github.io/js-sequence-diagrams/
