@@ -86,8 +86,7 @@ https://bramp.github.io/js-sequence-diagrams/
 
 7. Copy paste the text content into one of the 'Demo' boxes, select 'Simple' as the theme, and download the SVG file.
 
-See examples:
-https://gist.github.com/kevintab95/3b2375f71f04476b507b22e7ad8d123f
+See examples [here](https://gist.github.com/kevintab95/3b2375f71f04476b507b22e7ad8d123f).
 
 Reference for syntax:
 https://bramp.github.io/js-sequence-diagrams/
