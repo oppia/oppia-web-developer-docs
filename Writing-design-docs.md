@@ -81,8 +81,9 @@ current_file->new_file: method_being_called()
 new_file-->current_file: XYZ model
 Note left of current_file: LOOP END
 
-6. Once the text file is ready, generate the sequence diagram SVG by going this site:
+6. Once the text file is ready, generate the sequence diagram SVG by going to this page:
 https://bramp.github.io/js-sequence-diagrams/
+
 7. Copy paste the text content into one of the 'Demo' boxes, select 'Simple' as the theme, and download the SVG file.
 
 See examples:
