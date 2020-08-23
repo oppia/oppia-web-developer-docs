@@ -730,6 +730,16 @@ Convert it like this:
 If there are no translate-values, simply use `"'I18N_VARIABLE_NAME' | translate"`
 
 Please note the single-quote marks around `I18N_VARIABLE_NAME`
+#### CSS updates
+There may be some style updates required to make sure that the pages look exactly like before.
+
+You can find the following changes here: https://github.com/oppia/oppia/pull/9980/files#diff-1d203da36aa74eef4c39b05a27eafbaeR40-R46
+
+Besides this, styles that contain the directive name now need to be enclosed in a `<div>` tag.
+
+eg: Original: https://github.com/oppia/oppia/pull/9957/files#diff-25860f544f47c16a020aff8bb0c389fdL1-L3
+
+Modified: https://github.com/oppia/oppia/pull/9957/files#diff-45cbfaec92adcc709712a85df070f455R1-R4
 
 ## Testing your Pull Request
 
