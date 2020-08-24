@@ -36,8 +36,11 @@ This guide can be used by both new Oppia members and developers who have contrib
   - [How to handle common errors](#how-to-handle-common-errors)
 - [Services](#services)
   - [AngularJS](#angularjs-1)
-    - [Testing controller property on $uibModal.open method](#testing-controller-property-on-uibmodalopen-method)
   - [Angular 2+](#angular-2-1)
+- [Controllers](#controllers)
+- [Directives/components](#directivescomponents)
+  - [AngularJS](#angularjs-2)
+  - [Angular 2+](#angular-2-2)
 - [Controllers](#controllers)
 
 ## Goals
@@ -408,6 +411,8 @@ Controllers are used often for AngularJS UI Bootstrap library's modals. Here are
 - [skill-preview-modal.controller.spec.ts](https://github.com/oppia/oppia/blob/125e4388c665c86cb932dc2391093fa6946a5a83/core/templates/pages/skill-editor-page/editor-tab/skill-preview-modal.controller.spec.ts)
 - [improvement-confirmation-modal.controller.spec.ts](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/exploration-editor-page/improvements-tab/services/improvement-confirmation-modal.controller.spec.ts#L19)
 - [stewards-landing-page.controller.spec.ts](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/landing-pages/stewards-landing-page/stewards-landing-page.controller.spec.ts#L25)
+
+**Note:** If you intend to create a new modal using `$uibModal.open` method, please be aware to create its controller in a separate file. Here's the [issue #8924](https://github.com/oppia/oppia/issues/8924) for more information.
 
 Also, there are controllers that are not linked to modals. Here are some examples:
 - [logic-demo-test.controller.spec.ts](https://github.com/oppia/oppia/blob/04570fb22780d9a22d94e33916a1d0e8d17c2a6d/extensions/interactions/LogicProof/static/js/tools/logic-demo-test.controller.spec.ts)
