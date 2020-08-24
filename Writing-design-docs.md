@@ -65,15 +65,15 @@ The following tips correspond to projects that span 3+ months:
 
 Sequence diagrams can be used to convey the structure of a system more clearly. It helps represent the main interactions between different layers such as controllers / domain / storage.
 
-In order to create a sequence diagram, we will use this [tool](https://bramp.github.io/js-sequence-diagrams/). The tool takes a text source as input to generate an SVG file with the sequence diagram. We will use a text editor to type out the source text following the steps below. Once source text is complete, we will copy-paste it in one of the 'Demo' boxes in the webpage, select 'Simple' as the theme, and then download the generated SVG file.
+In order to create a sequence diagram, you can use this [tool](https://bramp.github.io/js-sequence-diagrams/). The tool takes a text source as input to generate an SVG file with the sequence diagram. You will use a text editor to type out the source text following the steps below. Once source text is complete, we will copy-paste it in one of the 'Demo' boxes in the webpage, select 'Simple' as the theme, and then download the generated SVG file.
 
 #### Tips to write the source text for sequence diagrams ####
 1. Select an entry method which will serve as the starting point of the sequence diagram.
 1. Starting from the entry method, whenever a new file is referred to, add the file as a new 'participant' in the top of the source text.
 E.g. `participant <new_file>`
-2. When a call is made to a method in a different file, use this syntax: current_file->new_file: method_being_called(). In other words, this
+2. When a call is made to a method in a different file, use this syntax: `current_file->new_file: method_being_called()`. In other words, this
 represents new_file.method_being_called() is executed in current_file.
-3. Represent execution of a fetch call using this syntax: Note over current_file: Get XYZ from datastore.
+3. Represent execution of a fetch call using this syntax: `Note over current_file: Get XYZ from datastore.`
 4. When the method execution is completed, use this syntax to show control returning to the calling method and the data returned:
 ```current_file-->new_file:XYZ model```
 5. Represent loops using a note to the left of the calling method.
