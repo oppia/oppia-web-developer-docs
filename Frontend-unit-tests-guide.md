@@ -420,7 +420,7 @@ Also, there are controllers that are not linked to modals. Here are some example
 ## Directives/components
 
 ### AngularJS
-**Note** If you're creating a new AngularJS directive, please make sure the value of the restrict `property` is not `E`. If it's an `E`, change the directive to an AngularJS component. You can check out [this PR](https://github.com/oppia/oppia/pull/9850) how to properly make the changes.
+**Note** If you're creating a new AngularJS directive, please make sure the value of the restrict `property` is not `E`. If it's an `E`, change the directive to an AngularJS component. You can check out [this PR](https://github.com/oppia/oppia/pull/9850) to learn how to properly make the changes.
 
 Use some AngularJS component files that are correctly following the testing patterns as reference:  
 - [search-bar.component.spec.ts](https://github.com/oppia/oppia/blob/a9bece78fd45344f5e0e741ab21f8ea0c289a923/core/templates/pages/library-page/search-bar/search-bar.component.spec.ts)
