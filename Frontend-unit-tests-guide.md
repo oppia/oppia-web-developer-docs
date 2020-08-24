@@ -406,7 +406,7 @@ Use some files that are correctly following the testing patterns as reference:
 
 ## Controllers
 Controllers are used often for AngularJS UI Bootstrap library's modals. Here are some files that are correctly being tested and follow the testing patterns as reference:
-- [welcome-modal.controller.spec.ts]()
+- [welcome-modal.controller.spec.ts](https://github.com/oppia/oppia/blob/aa288fd246dec2f8a30a1e9f72a77bd97952c132/core/templates/pages/exploration-editor-page/modal-templates/welcome-modal.controller.spec.ts)
 - [merge-skill-modal.controller.spec.ts](https://github.com/oppia/oppia/blob/3642a4c21e387493f85c7bb72fe1789d214ffffb/core/templates/components/skill-selector/merge-skill-modal.controller.spec.ts)
 - [skill-preview-modal.controller.spec.ts](https://github.com/oppia/oppia/blob/125e4388c665c86cb932dc2391093fa6946a5a83/core/templates/pages/skill-editor-page/editor-tab/skill-preview-modal.controller.spec.ts)
 - [improvement-confirmation-modal.controller.spec.ts](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/exploration-editor-page/improvements-tab/services/improvement-confirmation-modal.controller.spec.ts#L19)
@@ -420,7 +420,17 @@ Also, there are controllers that are not linked to modals. Here are some example
 ## Directives/components
 
 ### AngularJS
+**Note** If you're creating a new AngularJS directive, please make sure the value of the restrict `property` is not `E`. If it's an `E`, change the directive to an AngularJS component. You can check out [this PR](https://github.com/oppia/oppia/pull/9850) how to properly make the changes.
 
+Use some AngularJS component files that are correctly following the testing patterns as reference:  
+- [search-bar.component.spec.ts](https://github.com/oppia/oppia/blob/a9bece78fd45344f5e0e741ab21f8ea0c289a923/core/templates/pages/library-page/search-bar/search-bar.component.spec.ts)
+- [preferences-page.component.spec.ts](https://github.com/oppia/oppia/blob/3642a4c21e387493f85c7bb72fe1789d214ffffb/core/templates/pages/preferences-page/preferences-page.component.spec.ts)
+- [practice-tab.component.spec.ts](https://github.com/oppia/oppia/blob/fcb44f8cc6e0e00aaa082045cf8b363daa510479/core/templates/pages/topic-viewer-page/practice-tab/practice-tab.component.spec.ts)
+
+Use some AngularJS directive files that are correctly following the testing patterns as reference:
+- [value-generator-editor.directive.spec.ts](https://github.com/oppia/oppia/blob/7aa80c49f81270c886818e3dce587715dcebac68/core/templates/pages/exploration-editor-page/param-changes-editor/value-generator-editor.directive.spec.ts)
+- [audio-translation-bar.directive.spec.ts](https://github.com/oppia/oppia/blob/4ec7b9cc70e2a255653952450fe44932607755af/core/templates/pages/exploration-editor-page/translation-tab/audio-translation-bar/audio-translation-bar.directive.spec.ts)
+- [oppia-visualization-click-hexbins.directive.spec.ts](https://github.com/oppia/oppia/blob/89a809b521af0c2d21b71db5cdc8c644d893a577/extensions/visualizations/oppia-visualization-click-hexbins.directive.spec.ts)
 
 ### Angular2+
 Let us assume that we are writing tests for an Angular2+ component called BannerComponent.
@@ -455,5 +465,11 @@ describe('BannerComponent', () => {
 ```
 
 Once this is done, you have the class instance in the variable called `component` and you can continue writing the tests as a class testing. We don't enforce dom testing.
+
+Use some Angular2+ component files that are correctly following the testing patterns as reference:
+- [donate-page.component.spec.ts](https://github.com/oppia/oppia/blob/327df0c22ec839d4ad4232492749c78443b15fb0/core/templates/pages/donate-page/donate-page.component.spec.ts)
+- [teach-page.component.spec.ts](https://github.com/oppia/oppia/blob/13b1da20ee6c0e4eabc9720a3d1ca3d87c62fe8c/core/templates/pages/teach-page/teach-page.component.spec.ts)
+- [about-page.component.spec.ts](https://github.com/oppia/oppia/blob/b46dd92fdb40e51ce8a9b66c507acd23a55a69d5/core/templates/pages/about-page/about-page.component.spec.ts)
+
 
 
