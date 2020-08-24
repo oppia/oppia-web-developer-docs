@@ -93,16 +93,16 @@ def get_topic(topic_id):
     return topic_models.get(topic_id)
 ```
 
-The entry point of the sequence diagram will be controller.get_topic_page(). Starting from that method, whenever a new file is referred to, add it as a 'participant' in the top of the source text.
+The entry point of the sequence diagram will be `controller.get_topic_page()`. Starting from that method, whenever a new file is referred to, add it as a 'participant' in the top of the source text.
 Remember to also add the file containing the entry method as a participant.
-In the example, get_topic_page() refers to service to execute the method service.get_all_topics(). So 'service' needs to be added as a participant. The source file will look like this:
+In the example, `get_topic_page()` refers to service to execute the method `service.get_all_topics()`. So 'service' needs to be added as a participant. The source file will look like this:
 text_source.txt
 ```
 participant controller
 participant service
 ```
 
-When a call is made to a method in a different file, use this syntax: ```current_file->new_file: method_being_called()```. In other words, this represents new_file.method_being_called() is executed in current_file.
+When a call is made to a method in a different file, use this syntax: ```current_file->new_file: method_being_called()```. In other words, this represents `new_file.method_being_called()` is executed in current_file.
 In the example, ```service.get_all_topics()``` is called in get_topic_page(). The corresponding representation in the source text will be as follows:
 ```
 participant controller
@@ -111,7 +111,7 @@ participant service
 controller -> service: get_all_topics()
 ```
 
-This also represents that the control flow goes to service.get_all_topics(). In service.get_all_topics(), ```fetcher.get_topic()``` is called inside a loop.
+This also represents that the control flow goes to `service.get_all_topics()`. In `service.get_all_topics()`, ```fetcher.get_topic()``` is called inside a loop.
 In order to represent a loop, add 2 notes to the left of the calling method where the first indicates the beginning and the second inidates the end of the loop.
 The statements between the two notes should represent the calls made inside the loop. The source text for this will look as follows:
 ```
