@@ -67,27 +67,92 @@ Sequence diagrams can be used to convey the structure of a system more clearly. 
 
 In order to create a sequence diagram, you can use this [tool](https://bramp.github.io/js-sequence-diagrams/). The tool takes a text source as input to generate an SVG file with the sequence diagram. You will use a text editor to type out the source text following the steps below. Once source text is complete, we will copy-paste it in one of the 'Demo' boxes in the webpage, select 'Simple' as the theme, and then download the generated SVG file.
 
-#### Tips to write the source text for sequence diagrams ####
-1. Select an entry method which will serve as the starting point of the sequence diagram.
-1. Starting from the entry method, whenever a new file is referred to, add the file as a new 'participant' in the top of the source text.
-E.g. `participant <new_file>`
-2. When a call is made to a method in a different file, use this syntax: `current_file->new_file: method_being_called()`. In other words, this
-represents new_file.method_being_called() is executed in current_file.
-3. Represent execution of a fetch call using this syntax: `Note over current_file: Get XYZ from datastore.`
-4. When the method execution is completed, use this syntax to show control returning to the calling method and the data returned:
-```current_file-->new_file:XYZ model```
-5. Represent loops using a note to the left of the calling method.
-E.g. 
-```
-Note left of current_file: LOOP BEGIN:\nIterate over XYZ ids
-current_file->new_file: method_being_called()
-new_file-->current_file: XYZ model
-Note left of current_file: LOOP END
-```
-6. Once the text file is ready, generate the sequence diagram SVG by going to this page: https://bramp.github.io/js-sequence-diagrams/
-7. Copy-paste the text content into one of the 'Demo' boxes, select 'Simple' as the theme, and download the SVG file.
+#### Tutorial to write source text ####
+For the sake of this tutorial, assume that you have to generate a sequence diagram for `get_topic_page()` (defined below).
 
-See examples [here](https://gist.github.com/kevintab95/3b2375f71f04476b507b22e7ad8d123f).
+
+`controller.py`
+```
+def get_topic_page(self):
+    topic = service.get_all_topics()
+    return topic
+```
+
+`service.py`
+```
+def get_all_topics():
+    topics = []
+    for i in range(MAX_TOPICS):
+        topics.append(fetcher.get_topic(i))
+    return topics
+```
+
+`fetcher.py`
+```
+def get_topic(topic_id):
+    return topic_models.get(topic_id)
+```
+
+The entry point of the sequence diagram will be controller.get_topic_page(). Starting from that method, whenever a new file is referred to, add it as a 'participant' in the top of the source text.
+Remember to also add the file containing the entry method as a participant.
+In the example, get_topic_page() refers to service to execute the method service.get_all_topics(). So 'service' needs to be added as a participant. The source file will look like this:
+text_source.txt
+```
+participant controller
+participant service
+```
+
+When a call is made to a method in a different file, use this syntax: ```current_file->new_file: method_being_called()```. In other words, this represents new_file.method_being_called() is executed in current_file.
+In the example, ```service.get_all_topics()``` is called in get_topic_page(). The corresponding representation in the source text will be as follows:
+```
+participant controller
+participant service
+
+controller -> service: get_all_topics()
+```
+
+This also represents that the control flow goes to service.get_all_topics(). In service.get_all_topics(), ```fetcher.get_topic()``` is called inside a loop.
+In order to represent a loop, add 2 notes to the left of the calling method where the first indicates the beginning and the second inidates the end of the loop.
+The statements between the two notes should represent the calls made inside the loop. The source text for this will look as follows:
+```
+Note left of service: LOOP BEGIN:\nLoop MAX_TOPICS times
+// Logic inside the loop.
+Note left of service: LOOP END
+```
+
+```fetcher.get_topic()``` does a fetch from the datastore. This can be represented in the source text like this:
+```Note over fetcher: Get Topic from datastore```
+
+When a method execution is completed, use this syntax to show control returning to the calling method and the data returned: ```current_file --> new_file: XYZ model```
+In the example, ```get_topic()``` returns the Topic model to the calling method. This can be represented in the source text like this:
+```
+fetcher --> service: Topic model
+```
+
+After combining these statements, the source text should look like this:
+```
+participant controller
+participant service
+participant fetcher
+
+controller -> service: get_all_topics()
+Note left of service: LOOP BEGIN:\nLoop MAX_TOPICS times
+service -> fetcher: get_topic()
+Note over fetcher: Get Topic from datastore
+fetcher --> service: Topic model
+Note left of service: LOOP END
+service -> controller: Topic list
+```
+You can generate an SVG sequence diagram by copying this source text into one of the 'Demo' boxes at https://bramp.github.io/js-sequence-diagrams/.
+
+Select 'Simple' as the theme and download the SVG file. The downloaded SVG file will contain the sequence diagram.
+
+The generated sequence diagram will look like this:
+
+<img src="https://user-images.githubusercontent.com/11008603/91026669-b34d1b80-e618-11ea-9df8-e234f3f6d0fe.png" width="600px"/>
+
+
+See more examples [here](https://gist.github.com/kevintab95/3b2375f71f04476b507b22e7ad8d123f).
 
 Reference for syntax:
 https://bramp.github.io/js-sequence-diagrams/
