@@ -390,23 +390,10 @@ Services are one of the most important features in the codebase. They contain lo
 As a good first issue, all the services that need to be tested are listed in [issue #4057](https://github.com/oppia/oppia/issues/4057), grouped by the [complexity criteria](#how-to-choose-a-file-to-work-on).
 
 ### AngularJS
-
 Use some files that are correctly following the testing patterns as reference:  
 - [current-interaction.service.spec.ts](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/exploration-player-page/services/current-interaction.service.spec.ts#L39)
 - [editable-exploration-backend-api.service.spec.ts](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/domain/exploration/editable-exploration-backend-api.service.spec.ts#L30)
 - [improvement-task.service.spec.ts](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/services/improvement-task.service.spec.ts#L29)
-
-#### Testing controller property on $uibModal.open method  
-There are some services which use the $uibModal.open method from [Angular UI Bootstrap](https://angular-ui.github.io/bootstrap/) library, which can make the service itself very tricky to test:  
-![Tricky test](https://user-images.githubusercontent.com/34922478/80816478-f7b63680-8ba5-11ea-81d7-ddd408e35682.png)  
-_Code from [exploration-states.service.ts](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/exploration-editor-page/services/exploration-states.service.ts#L41)_  
-
-So, for modals, the correct approach to follow is:  
-- Create a new controller in a separate file and copy the method controller to it.
-- Instead of declaring the controller in the method, you should refer to the controller you have created.
-- Then, the service can be tested correctly, and the controller as well. [Here](https://github.com/oppia/oppia/tree/2e60d69d7b06f45ac807d66f6de571c627db1397/core/templates/pages/exploration-editor-page/improvements-tab/services/improvement-modal.service.ts#L56-L66)’s an example.  
-
-If you’re interested in working with this kind of file, please check [issue #8924](https://github.com/oppia/oppia/issues/8924) containing all the files with `$uibModal` to be migrated to a separated file.  
 
 ### Angular 2+  
 Use some files that are correctly following the testing patterns as reference:  
@@ -414,8 +401,23 @@ Use some files that are correctly following the testing patterns as reference:
 - [editability.service.spec.ts](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/services/editability.service.spec.ts#L21)
 - [exploration-html-formatter.service.spec.ts](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/services/exploration-html-formatter.service.spec.ts#L27)
 
-### Testing Angular2+ components:
+## Controllers
+Controllers are used often for AngularJS UI Bootstrap library's modals. Here are some files that are correctly being tested and follow the testing patterns as reference:
+- [welcome-modal.controller.spec.ts]()
+- [merge-skill-modal.controller.spec.ts](https://github.com/oppia/oppia/blob/3642a4c21e387493f85c7bb72fe1789d214ffffb/core/templates/components/skill-selector/merge-skill-modal.controller.spec.ts)
+- [skill-preview-modal.controller.spec.ts](https://github.com/oppia/oppia/blob/125e4388c665c86cb932dc2391093fa6946a5a83/core/templates/pages/skill-editor-page/editor-tab/skill-preview-modal.controller.spec.ts)
+- [improvement-confirmation-modal.controller.spec.ts](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/exploration-editor-page/improvements-tab/services/improvement-confirmation-modal.controller.spec.ts#L19)
+- [stewards-landing-page.controller.spec.ts](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/landing-pages/stewards-landing-page/stewards-landing-page.controller.spec.ts#L25)
 
+Also, there are controllers that are not linked to modals. Here are some examples:
+- [logic-demo-test.controller.spec.ts](https://github.com/oppia/oppia/blob/04570fb22780d9a22d94e33916a1d0e8d17c2a6d/extensions/interactions/LogicProof/static/js/tools/logic-demo-test.controller.spec.ts)
+
+## Directives/components
+
+### AngularJS
+
+
+### Angular2+
 Let us assume that we are writing tests for an Angular2+ component called BannerComponent.
 
 The first thing to do is to import all dependencies, we have a boilerplate for that:
@@ -448,13 +450,5 @@ describe('BannerComponent', () => {
 ```
 
 Once this is done, you have the class instance in the variable called `component` and you can continue writing the tests as a class testing. We don't enforce dom testing.
-
-## Controllers  
-Use some files that are correctly following the testing patterns as reference:  
-- [improvement-confirmation-modal.controller.spec.ts](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/exploration-editor-page/improvements-tab/services/improvement-confirmation-modal.controller.spec.ts#L19)
-- [stewards-landing-page.controller.spec.ts](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/landing-pages/stewards-landing-page/stewards-landing-page.controller.spec.ts#L25)
-
-Also, please take a look at [Pull Request #8528](https://github.com/oppia/oppia/pull/8528) where you can find more about how to test controllers.
-
 
 
