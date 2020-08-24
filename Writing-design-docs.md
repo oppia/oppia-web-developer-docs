@@ -61,13 +61,13 @@ The following tips correspond to projects that span 3+ months:
 - When estimating a milestone, first estimate how much time each task takes and then fit as many tasks as you can within a milestone. Don't change your time estimates based on the milestone (just because something is expected to get done within a certain timeframe doesn't mean it can). If the milestones don't provide enough time to finish the project, that may indicate that the project needs to be rescoped.
 - If the project has multiple developers, ensure tasks and milestones have clear owners assigned to them
 
-## Generating Sequence Diagrams using Text ###
+## Generating Sequence Diagrams using Text
 
 Sequence diagrams can be used to convey the structure of a system more clearly. It helps represent the main interactions between different layers such as controllers / domain / storage.
 
 In order to create a sequence diagram, you can use this [tool](https://bramp.github.io/js-sequence-diagrams/). The tool takes a text source as input to generate an SVG file with the sequence diagram. You will use a text editor to type out the source text following the steps below. Once source text is complete, we will copy-paste it in one of the 'Demo' boxes in the webpage, select 'Simple' as the theme, and then download the generated SVG file.
 
-#### Tutorial to write source text ####
+### Tutorial to write source text
 For the sake of this tutorial, assume that you have to generate a sequence diagram for `get_topic_page()` (defined below).
 
 
