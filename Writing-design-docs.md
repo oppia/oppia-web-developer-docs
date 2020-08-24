@@ -61,7 +61,7 @@ The following tips correspond to projects that span 3+ months:
 - When estimating a milestone, first estimate how much time each task takes and then fit as many tasks as you can within a milestone. Don't change your time estimates based on the milestone (just because something is expected to get done within a certain timeframe doesn't mean it can). If the milestones don't provide enough time to finish the project, that may indicate that the project needs to be rescoped.
 - If the project has multiple developers, ensure tasks and milestones have clear owners assigned to them
 
-### Generating Sequence Diagrams using Text ###
+## Generating Sequence Diagrams using Text ###
 
 Sequence diagrams can be used to convey the structure of a system more clearly. It helps represent the main interactions between different layers such as controllers / domain / storage.
 
