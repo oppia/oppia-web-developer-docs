@@ -25,3 +25,53 @@ Google App Engine has since deprecated the separation of the Google App Engine p
         - Tried resetting the entire directory of Google App Engine to have max privileges. (Didn’t work)
         - Tried running the dev_appserver.py script from the terminal. (Didn’t work)
    - Finally, by pure coincidence, I decided to run the nested dev_appserver.py script by itself instead of relying on the top level script. This turns out to have a similar configuration to the older version of the dev_appserver so the errors finally went away. 
+
+## Speeding Up Frontend Tests
+_Contributed by Kevin Thomas_ (**@kevintab95**)
+
+Around the 2nd week of March 2020, Oppia devs reported that the frontend tests were taking too long to complete execution. The issue was investigated and fixed in #8864. This document details the process behind the fix.
+
+An initial inspection of the console output revealed that the “build” part of the test script took a considerable amount of time to complete compared to the execution of the tests. The build process is expected to take time because all the test files need to be bundled into a large file and it is known the webpack build process is slow. So in order to speed up the script, one would have to speed up the actual tests.
+
+The output provided in the terminal seemed insufficient to debug. So, to get a more verbose output and to be able to use more advanced tools, the following settings in karma.conf.ts were changed:
+
+<p align="center"><img width="600px" src="https://user-images.githubusercontent.com/11008603/91498050-b710c480-e8dc-11ea-87e9-74c95978c2ed.png" /></p>
+
+The “browser” was set to Chrome instead of headless Chrome and “singleRun” was set to false so that the browser remains open after the tests complete execution. Running the tests on Chrome browser, will allow leveraging the built-in devtools for debugging purposes.
+
+Running the test with these settings opens up the Chrome browser:
+
+<p align="center"><img width="600px" src="https://user-images.githubusercontent.com/11008603/91498453-68175f00-e8dd-11ea-9452-980604768abc.gif" /></p>
+
+To allow debugging, “DEBUG” mode is enabled by clicking on the debug button as seen in the image above.
+
+In the console tab, a significant number of “response errors” were logged.
+
+<p align="center"><img width="400px" src="https://user-images.githubusercontent.com/11008603/91498552-92691c80-e8dd-11ea-8217-94765c400906.png" /></p>
+
+These errors occur because spec files mock backend calls may expect resolved/rejected responses. So what could be investigated was to check if there were any bottlenecks when these errors are logged. Standard way to identify performance bottlenecks is to use the  built-in Javascript Profiler.
+
+Once the test has started to execute, devtools can be fired up and a javascript profiling tool can be used to record a small segment of the test execution (e.g. 10-20 seconds).
+
+<p align="center"><img width="600px" src="https://user-images.githubusercontent.com/11008603/91498651-c6dcd880-e8dd-11ea-929f-2fddcc0963f1.gif" /></p>
+
+The recording is stopped after 10-20s and the result is exported as a JSON and the remainder of the test script is stopped.
+
+In a new browser instance, the captured JS profile is uploaded.
+
+<p align="center"><img width="600px" src="https://user-images.githubusercontent.com/11008603/91498725-ed027880-e8dd-11ea-9484-07ba6dec06c6.gif" /></p>
+
+Searching for “responseError” in the loaded profile, showed a large number of results. 
+
+<p align="center"><img width="800px" src="https://user-images.githubusercontent.com/11008603/91498828-19b69000-e8de-11ea-85dd-7cffd82ca3a9.png" /></p>
+
+Zooming into a few of the results indicated that the “mapStacktrace” operation was executed for every “responseError” call. Although the operation seemed to take only a short time to execute (~5ms), this seemed like a potential bottleneck because of the frequency of its occurrence when it could be avoided altogether. It is an expensive operation to map the stack trace info of the bundled code to that of the individual files and since tests are run in DEV mode, this operation seemed unnecessary.
+
+<p align="center"><img width="800px" src="https://user-images.githubusercontent.com/11008603/91498863-2935d900-e8de-11ea-8f2a-308f83024081.png" /></p>
+
+As a fix, a check was added such that the “mapStacktrace” operation only executes if DEV_MODE is false.
+
+Subsequent test runs with this fix indicated a significant decrease in the runtime (~by half, from 8m to 4m).
+
+<p align="center"><img src="https://user-images.githubusercontent.com/11008603/91499014-60a48580-e8de-11ea-89c0-bda7b4e52478.png" /></p>
+
