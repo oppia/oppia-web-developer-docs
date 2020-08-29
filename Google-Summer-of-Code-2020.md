@@ -865,7 +865,7 @@ Analytics support needs to be built in the Android app so that it is possible to
 
 **Team**: Android
 
-**Potential Mentors**: @BenHenning (primary), @rt4914, @vinitamurthi
+**Potential Mentors**: @vinitamurthi (primary), @rt4914, @BenHenning
 
 **Consider taking up this project if you...**
 
