@@ -14,7 +14,7 @@ However, currently, Google no longer supports a standalone GAE package. Instead,
 2. The 'dev_appserver.py' script is a special python script provided by the Google App Engine package that allows us to start our own local development server. In the standalone Google App Engine package, 'dev_appserver.py' resided in the top level directory. However, the Google Cloud SDK added a new version of the 'dev_appserver.py' file in a bin folder under the **root** folder, namely 'root/bin/'.
 3. Oppia uses CircleCI. This software allocates certain instances of a Ubuntu VM to us so we can run tests on their Ubuntu instances whenever a PR is updated or created.
 
-### Debug Process
+### Migration Process
 1. I first replaced all of the old usages of 'dev_appserver.py' with usage of the newer Google Cloud SDK version.
 
 2. The normal development server started fine. I tested some functionality on the development server and nothing seemed out of the ordinary. However, after making a pull request, Circle CI e2e tests started failing. When the dev app server tried to start on the Circle CI build, the build errored out with the error message: "Permission Denied". The problem was that this error refused to manifest on my local machine and there was no indication of why the Circle CI ubuntu instance would be different than my own UNIX instance.
