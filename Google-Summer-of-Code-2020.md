@@ -85,7 +85,12 @@ The project's we've accepted are:
 
     - **Milestone 1**: Review and provide suggestions for all tablet mocks. Implement low-fidelity & high-fidelity code for tablet UI in the Onboarding Flow, HomeFragment , ProfileChooser, NavigationDrawer, and RecentlyPlayedStoryList.
     - **Milestone 2**: Implement low-fidelity & high-fidelity code for tablet UI in following screens: Topic including all Tabs, ExplorationPlayer, Hints & Solution, QuestionPlayer and Concept Card.
-    - **Milestone 3**: Implement low-fidelity & high-fidelity code for tablet UI in following screens: Admin Controls, ProfileProgressActivity, OngoingTopicList, CompletedStoryList, Options and its 3 child screens(Audio Selection, Language Selection and StoryTextSize Selection). Introduce screen-diff/screenshot testing to the application, and write test cases to cover at least 1 screen for mobile+tablet UI.
+    - **Milestone 3**: 
+        - Implement low-fidelity & high-fidelity code for tablet UI in following screens: 
+           - Admin Controls
+           - Options and its 3 child screens(Audio Selection, Language Selection and StoryTextSize Selection). 
+        - Create an API in android which can take a screenshot in the test case and the image should be accessible for comparison.
+
 
 - [Nishant Mittal's proposal](pdfs/GSoC2020NishantMittal.pdf): Solve all typescript and webpack issues in the codebase. Mentor: Vojtěch Jelínek.
 
