@@ -34,7 +34,7 @@ However, currently, Google no longer supports a standalone GAE package. Instead,
         - Neither of these possible solutions worked so I postulated that it's possible we aren't supposed to actually run the 'dev_appserver.py' from the **root** directory in the way that we did. 
 
 
-   - **Find the Solution:** I remembered from a previous discovery that the **root** folder 'dev_appserver.py' script actually calls a nested 'dev_appserver.py' script so I went to investigate what exactly that script does. From reading the contents, it seemed like this script provided most of the functionality that our app needed. I changed all of the paths to point the nested python script instead and tried running the e2e tests. Thankfully, it finally started the development server and started running the tests.
+   - **Arriving at the Solution:** I remembered from a previous discovery that the **root** folder 'dev_appserver.py' script actually calls a nested 'dev_appserver.py' script so I went to investigate what exactly that script does. From reading the contents, it seemed like this script provided most of the functionality that our app needed. I changed all of the paths to point the nested python script instead and tried running the e2e tests. Thankfully, it finally started the development server and started running the tests.
 
 ## Speeding Up Frontend Tests
 _Contributed by Kevin Thomas_ (**@kevintab95**)
