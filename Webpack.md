@@ -41,7 +41,7 @@ in the code that it's building it automatically resolves the path `@angular/upgr
 
 Btw, we need this alias for angular migration because of an issue in the `@angular/upgrade` package. Reference -> https://github.com/angular/angular/issues/13137
 
-In the `entry` property, we define the entry files for webpack. Basically, we have an separate entry file for each page. The entry files end with `.import.ts` and and present in each of the folders in `core/templates/pages/`. For example an entry looks something like
+In the `entry` property, we define the entry files for webpack. Basically, we have a separate entry file for each page. The entry files end with `.import.ts` and present in each of the folders in `core/templates/pages/`. For example, an entry looks something like
 
 ```typescript
 about: commonPrefix + '/pages/about-page/about-page.import.ts'
@@ -72,13 +72,13 @@ new HtmlWebpackPlugin({
 }),
 ```
 
-Here the `chunks` contain a chunk whose name should be same as the name we gave to its chunk in the entry component above.
+Here the `chunks` contain a chunk whose name should be the same as the name we gave to its chunk in the entry component above.
 
-Similar to the `.import.ts` files all the pages i.e. all the folders in `core/templates/pages/` directory contain a `.mainpage.html` file that serves as the main html template for that page. As you can see we set the `template` and `filename` properties according to this file.
+Similar to the `.import.ts` files all the pages i.e. all the folders in `core/templates/pages/` directory contain a `.mainpage.html` file that serves as the main HTML template for that page. As you can see we set the `template` and `filename` properties according to this file.
 
-`meta` is used to include the meta tags in the html page. `minify` is used to provide the config for minifying the output html page.
+`meta` is used to include the meta tags in the HTML page. `minify` is used to provide the config for minifying the output HTML page.
 
-`inject` property is used to inject all the assets to the output html. We have set it to `false` because we do this manually in our templates [here](https://github.com/oppia/oppia/blob/e088975944db1b7f44acdc88f72caeac4dd2674e/core/templates/pages/footer_js_libs.html#L5-L11).
+`inject` property is used to inject all the assets to the output HTML. We have set it to `false` because we do this manually in our templates [here](https://github.com/oppia/oppia/blob/e088975944db1b7f44acdc88f72caeac4dd2674e/core/templates/pages/footer_js_libs.html#L5-L11).
 
 #### CleanWebpackPlugin
 This plugin is used to clean the webpack files after every successful rebuild.
@@ -104,14 +104,14 @@ The `externals` property is used to define the external libs that are not includ
 
 ### webpack.common.macros.ts
 
-In this file we have defined two macros i.e. `load` and `loadExtensions`. We use use these in the html template files for loading other html files.
-These work like `require` statement in typescript files.
+In this file, we have defined two macros i.e. `load` and `loadExtensions`. We use these in the HTML template files for loading other HTML files.
+These work like `require` statements in typescript files.
 
 Examples where macros are used -> [load](https://github.com/oppia/oppia/blob/424c985d940951a0e5688c272c4dfa54d58db0dd/core/templates/pages/contributor-dashboard-page/contributor-dashboard-page.mainpage.html#L22), [loadExtensions](https://github.com/oppia/oppia/blob/424c985d940951a0e5688c272c4dfa54d58db0dd/extensions/interactions/dependency_html.html#L1).
 
 ### webpack.dev.config.ts
 
-This files adds some additional config to the `webpack.common.config.ts`. In particular the config specified in this file is
+This file adds some additional config to the `webpack.common.config.ts`. In particular, the config specified in this file is
 
 ```typescript
 mode: 'development',
@@ -152,7 +152,7 @@ These are the webpack configs that are used for building using source maps. We d
 
 This config is used while deploying oppia. You can also build using source maps by adding a `--source_maps` flag in the start script. Like `python -m scripts.start --source_maps`.
 
-In these config files we use the main config (`webpack.dev.config.ts` or `webpack.prod.config.ts`) and change the devtools used in them. For example this is how `webpack.dev.sourcemap.config.ts` looks like.
+In these config files, we use the main config (`webpack.dev.config.ts` or `webpack.prod.config.ts`) and change the devtools used in them. For example, this is how `webpack.dev.sourcemap.config.ts` looks like.
 
 ```typescript
 const { merge } = require('webpack-merge');
@@ -173,4 +173,12 @@ These are the devtools we use
 
 ### webpack.terser.config.ts
 
-This config was written so that it can be used in the e2e tests run on circleci. You can refer this [discussion](https://discuss.circleci.com/t/build-fails-with-error-spawn-enomem/30537/10) on why it was needed. This basically disables the parallelism in the terser config.
+This config was written so that it can be used in the e2e tests run on Circle CI. You can refer to this [discussion](https://discuss.circleci.com/t/build-fails-with-error-spawn-enomem/30537/10) on why it was needed. This basically disables the parallelism in the terser config.
+
+
+## Common Errors in webpack
+
+### Module not found: Error: Can't resolve '...'
+This is most likely caused due to incorrect path mentioned in import or require statements. In this case, try to look for errors like spelling mistakes in the path or ensure that a file exists in that path.
+
+If the import statement refers to a third-party library. Running `yarn install` should fix this problem.
