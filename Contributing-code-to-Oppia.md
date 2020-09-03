@@ -4,8 +4,6 @@ Thanks for your interest in improving the Oppia platform! This page explains how
 
 If you run into any problems along the way, please file an issue on our [issue tracker](https://github.com/oppia/oppia/issues), or get help by posting to the [developers' mailing list](https://groups.google.com/forum/#!forum/oppia-dev). There are also lots of helpful resources in the sidebar, check that out too! Also, if you'd like to get familiar with Oppia from a user's point of view, you can take a look at the [user documentation](http://oppia.github.io/).
 
-**Important! Please read this page in its entirety before making any code changes.** It contains lots of really important information, particularly the section near the end on [how to make a code change](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#instructions-for-making-a-code-change). If, after reading this page, you still have questions, feel free to ask us on [Gitter](https://gitter.im/oppia/oppia-chat)!
-
 ## Setting things up
 
 1. Please sign the CLA so that we can accept your contributions. If you're contributing as an individual, use the [individual CLA](https://goo.gl/forms/AttNH80OV0). If your company owns the copyright to your contributions, a company representative should sign the [corporate CLA](https://goo.gl/forms/xDq9gK3Zcv).
@@ -161,7 +159,7 @@ To make code changes, please follow the following instructions carefully! Otherw
      - Make a new commit addressing the comments you agree with, and push it to the same branch. (Continue to use descriptive commit messages, or something like "Address review comments" if you're addressing many disparate review comments in the same commit.) **You do not need to close your PR and create a new one -- it's fine to push new commits to the existing PR.**
        - **Always make commits locally, and then push to GitHub.** Don't make changes using the online GitHub editor -- this bypasses lint/presubmit checks, and will cause the code on GitHub to diverge from the code on your machine.
        - **Never force-push changes to GitHub once reviews have started.** This will delay your review because it overwrites history on GitHub and makes the incremental changes harder to review. It may also lead to the PR being closed.
-     - As you are making changes, track them by replying to each comment via the Files Changed tab, **choosing the "Start a review" option** for the first comment. Each reply should be either "Done" or a response explaining why the corresponding suggestion wasn't implemented. Also, please **do not** mark the comment as resolved, since this just makes it harder to actually read the comment thread. When you've 
+     - As you are making changes, track them by replying to each comment via the Files Changed tab, **choosing the "Start a review" option** for the first comment. Each reply should be either "Done" or a response explaining why the corresponding suggestion wasn't implemented. Also, please **do not** mark the comment as resolved, since this just makes it harder to actually read the comment thread. When you've
 responded to all comments, submit the review to add all your messages to the main thread.
        - **Tip:** If a reviewer asks questions about the "why" behind something, consider proactively adding a clear comment above the relevant line in your code, since the fact that the reviewer had to ask suggests that at least one developer doesn't understand what is going on from the code alone. Otherwise, you'll probably get a follow-up review comment asking you to leave a code comment anyway :)
        - **Note:** If any comments require follow-up PRs, please file an issue to track the necessary changes, and mention the issue number in the relevant review comment thread. (You should do this automatically for any deferred changes; reviewers may defer approval until you do.)
@@ -170,7 +168,7 @@ responded to all comments, submit the review to add all your messages to the mai
      - Follow the instructions in Step 3 to test your changes locally before pushing.
      - Make the push, and then immediately check that the changes in the "Files Changed" tab are what you intend them to be.
      - **Important:** Make sure you've posted responses to **all** the review comments from the reviewer(s).
-     - **Important:** In the conversation thread, **write a top-level comment** explicitly asking the reviewer(s) to take another look ("@XXX PTAL"), and assign them to the PR.
+     - **Important:** In the conversation thread, **write a top-level comment** explicitly asking the reviewer(s) to take another look ("@XXX PTAL"), and assign them to the PR. If however, you forget to assign the reviewer(s), Oppiabot will assign them for you.
 
 7. **Make sure all CI checks pass.** While waiting to get LGTM from reviewers, make sure that all the CI checks (Travis, CircleCI, etc.) pass, since otherwise you won't be able to merge your PR. (See "[If your build fails...](https://github.com/oppia/oppia/wiki/If-your-build-fails)" for some suggestions on what to do if you run into issues.)
 
@@ -199,7 +197,7 @@ responded to all comments, submit the review to add all your messages to the mai
 
 - If you face any issues while setting things up, or your PR build fails unexpectedly (please go through the logs of the PR build and try debugging the problem on your own first!), feel free to ping **@oppia/core-maintainers** for help.
 
-- Sometimes, GitHub comments in the main conversation thread don't have a reply box. This seems to be a quirk with GitHub: apparently the reply box doesn't show up on outdated threads if you're currently in the middle of a review (or a reply to someone else's review) that you haven't submitted. After you submit the review, the reply field should show up again. 
+- Sometimes, GitHub comments in the main conversation thread don't have a reply box. This seems to be a quirk with GitHub: apparently the reply box doesn't show up on outdated threads if you're currently in the middle of a review (or a reply to someone else's review) that you haven't submitted. After you submit the review, the reply field should show up again.
 
 - If you want to do a codebase change that is large and somewhat repetitive, do a small trial PR first for a limited subset of the change, and check with reviewers whether the approach makes sense. Then, only do the full change after getting that trial PR merged (or at least approved by all reviewers).
    - This helps because, if you just did the full PR at the outset instead, then if a reviewer requests changes to the approach, you'd need to go back and modify all the files. On the other hand, with a trial PR, addressing an initial round of changes is less work, and by the time you get to the full PR, you'd already know what you need to do!
