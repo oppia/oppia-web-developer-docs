@@ -1,5 +1,4 @@
 # Accessibility Manual Tests
-Not all issues can be caught by the lighthouse, however, and conducting manual tests are important as well.
 ## Software Required
 ### Screen Readers
 If you’re on a Mac check out this [this video on using VoiceOver](https://www.youtube.com/watch?v=5R-6WvAihms&list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g&index=6) the screen reader that comes with Mac OS. If you’re on a PC [this video on using NVDA](https://www.youtube.com/watch?v=Jao3s_CwdRU&list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g&index=4), a donation-supported, open-source screen reader for Windows. If you’re on Linux, you can use [ChromeVox](https://chrome.google.com/webstore/detail/chromevox-classic-extensi/kgejglhpjiefppelpmljglcjbhoiplfn?hl=en), a Chrome extension, or [ORCA](https://help.gnome.org/users/orca/stable/introduction.html.en).
