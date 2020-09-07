@@ -73,6 +73,7 @@
     * [[Playtesting explorations|Playtesting-explorations]]
     * [[Testing for Accessibility|Testing-for-Accessibility]]
     * [[How to do Accessibility reviews|How-to-do-Accessibility-reviews]]
+    * [[How to do add a webpage to lighthouse tests|How-to-add-a-webpage-to-lighthouse-tests]]
     * [[Rich Text Editor (RTE)|Rich-Text-Editor-(RTE)-Overview]]
     * [[Advice on creating explorations|Advice-on-Creating-Explorations]]
     * [[Oppia-ml Extension|Oppia-ml-Extension]]
