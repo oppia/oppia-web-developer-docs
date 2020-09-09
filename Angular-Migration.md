@@ -144,60 +144,7 @@ Please note that interfaces/properties in Object Factories and the `.*-backend-a
     angular.module('oppia').factory('ServiceName', downgradeInjectable(ServiceName));
     ```
 
-12. Add the service to the [UpgradedServices.ts](https://github.com/oppia/oppia/blob/develop/core/templates/services/UpgradedServices.ts) as it is done for all other upgraded services.
-For this, you have to look at the dependencies of the migrated services. For example if a service has dependencies A, B, C, D. First look at the topological order of each of these dependencies in UpgradedServices.ts  
-Then `topological order of the service` = `(max topological order of (A, B, C, D)) + 1`  
-If the service has no dependencies, its topological order is 0.
 
-14. Add the service to [oppia-angular-root.component.ts](https://github.com/oppia/oppia/blob/develop/core/templates/components/oppia-angular-root.component.ts).
-
-    Follow these steps to add a migrated service to oppia-angular-root.component.ts.
-
-    (a) First, import the migrated service and add it to the constructor of the component. (Taking an example of a hypothetical service called `MigratedService` here).
-    ```
-    ...
-    import { MigratedService } from 'services/migrated-service';
-    ...
-    export class OppiaAngularRootComponent implements AfterViewInit {
-      ...
-      constructor(
-        ...
-        private migratedService: MigratedService
-        ...) {}
-      ...
-    }
-    ```
-    (b) Then, created a static class variable called `migratedService` and assigned it the value of `this.migratedService` in `ngAfterViewInit` like this:
-
-    `OppiaAngularRootComponent.migratedService = this.migratedService;`
-
-    After you have followed the steps, the component should now look like this:
-    ```
-    ...
-    import { MigratedService } from 'services/migrated-service';
-    ...
-    export class OppiaAngularRootComponent implements AfterViewInit {
-      ...
-      static migratedService: MigratedService;
-      ...
-      constructor( 
-        ...
-        private migratedService: MigratedService,
-        ...) {}
-      ...
-      ngAfterViewInit() {
-        ...
-        OppiaAngularRootComponent.migratedService = this.migratedService;
-        ...
-      }
-    }
-    ```
-
-    Make sure that you have:
-    1. imported the service.
-    2. created a static class variable (use camelCase of the service class name as the static variable name).
-    3. added the service to the constructor.
-    4. assigned the service to the static class variable in ngAfterViewInit
 
 Take a look as to how the topic-viewer-backend-api.service is migrated in this [pull request](https://github.com/oppia/oppia/pull/8427/files).
 
