@@ -1,3 +1,5 @@
+_Note: If you're writing a new one-off job that needs to be run in production, please see the ["Running Jobs in Production" wiki page](https://github.com/oppia/oppia/wiki/Running-jobs-in-production) in order to understand how the deployment procedure works._
+
 ## Follow the steps below to write a new one-off job:
 1. Add a new class to the `<domain-name>_jobs_one_off.py` file (Create one if it doesn't exist.)
 2. Find the model which you want to map over.
