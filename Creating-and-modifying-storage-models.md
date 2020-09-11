@@ -17,9 +17,13 @@ _If you miss any info or do not understand some instruction in this wiki page pl
     * Takeout policy
         * CONTAINS_USER_DATA — the model contains user data
         * NOT_APPLICABLE — the model doesn't contain any user data
-4. (Only if deletion policy is not NOT_APPLICABLE) Add `has_reference_to_user_id(user_id)` to the model, this method should return true when any of the models fields contains the specified `user_id`.
-5. (Only if takeout policy is CONTAINS_USER_DATA) Add `export_data(user_id)` to the model, this method should return the data from the models that belong or reference the specified `user_id`.
-6. [Add validator for the model](https://github.com/oppia/oppia/wiki/Writing-Validators-for-storage-models).
+4. Decide the lowest level role in the [role hierarchy](https://github.com/oppia/oppia/wiki/Instructions-for-editing-roles-or-actions#7-view-role-hierarchy) for which the model can be populated. 
+    - By default, the static method `get_lowest_supported_role` (defined in the storage base model) assumes `EXPLORATION_EDITOR` to be the lowest role (meaning that the model can be created for all roles above this role in the hierarchy, including itself).
+    - To set a different role, simply override the method in the model class and specify the desired value. 
+    - For example - `UserSettingsModel` overrides the `get_lowest_supported_role` and sets the lowest supported role to `LEARNER`. 
+5. (Only if deletion policy is not NOT_APPLICABLE) Add `has_reference_to_user_id(user_id)` to the model, this method should return true when any of the models fields contains the specified `user_id`.
+6. (Only if takeout policy is CONTAINS_USER_DATA) Add `export_data(user_id)` to the model, this method should return the data from the models that belong or reference the specified `user_id`.
+7. [Add validator for the model](https://github.com/oppia/oppia/wiki/Writing-Validators-for-storage-models).
 
 ## Modifying a model field
 
