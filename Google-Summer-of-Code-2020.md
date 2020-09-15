@@ -20,11 +20,11 @@ You might be interested in our GSoC info pages from previous years: [2019](https
 
 Also, please note that acceptance into GSoC isn't a prerequisite for becoming an Oppia contributor. The Oppia project is run by the community for the community, and we warmly welcome anyone who'd like to help out! You can get started by following the instructions [here](https://github.com/oppia/oppia/wiki).
 
-## Accepted Proposals:
+## Completed Projects:
 
-The project's we've accepted are:
+The following projects were fully completed during GSoC 2020:
 
-- [Abhith Krishna's proposal](pdfs/GSoC2020AbhithKrishna.pdf): Generate images for LaTeX expressions. Mentor: Sandeep Dubey.
+- [Abhith Krishna's proposal](pdfs/GSoC2020AbhithKrishna.pdf) and [final blog post](https://medium.com/@abyk476/google-summer-of-code20-with-oppia-1c5bd87ad9d7): Generate images for LaTeX expressions. Mentor: Sandeep Dubey.
 
     - **Milestone 1**: All RTE math expressions have a new “SVG filename” attribute in addition to the LaTeX value. For existing expressions, this filename will be an empty string. For newly-created expressions other than expressions created in suggestions, the filename will be non-empty and the corresponding SVG file is guaranteed to exist on the server (but will not be used for display yet).
     - **Milestone 2**: All RTE math expressions in the server (in explorations, questions, topics, skills, question/translation suggestions, and any other RTEs) include a non-empty SVG filename that points to a valid file. There is a validation job that can be used to audit this, and that validation job runs to completion successfully on existing production data.
@@ -32,13 +32,13 @@ The project's we've accepted are:
        - All math expressions are displayed using SVGs in the learner view. 
        - MathJax is fully removed from the learner view.
 
-- [Anshul Hudda's proposal](pdfs/GSoC2020AnshulHudda.pdf): Fix the linter and implement all the lint checks. Mentor: Nitish Bansal.
+- [Anshul Hudda's proposal](pdfs/GSoC2020AnshulHudda.pdf) and [final blog post](https://medium.com/@anshulhudda.ssap/google-summer-of-code20-with-oppia-60208850be57): Fix the linter and implement all the lint checks. Mentor: Nitish Bansal.
 
     - **Milestone 1**: In non-verbose mode, the linter has less verbose output, and raises an exception if there is any error due to the operation of the linter script. All existing lint checks have tests written for them. The linter handles all general and CSS lint errors except for at most one CSS check, and the linter script has 100% test coverage.
     - **Milestone 2**: The linter fully handles all Python checks. All JS/TS lint checks are fully implemented, except for at most 11.
     - **Milestone 3**: The linter fully handles all JS/TS lint checks and CSS lint checks.
 
-- [James James's proposal](pdfs/GSoC2020JamesJames.pdf): Make Oppiabot more useful. Mentor: Ankita Saxena.
+- [James James's proposal](pdfs/GSoC2020JamesJames.pdf) and [final blog post](https://medium.com/@jamesjay4199/google-summer-of-code-20-at-oppia-foundation-b2b39c3ebde7): Make Oppiabot more useful. Mentor: Ankita Saxena.
 
     - **Milestone 1**: All issue-related Checks and the following "PR creation" checks are fully operational:
        - WIP PR checks
@@ -47,7 +47,7 @@ The project's we've accepted are:
     - **Milestone 2**: All Oppiabot checks that should run on PR creation, PR labelling, and force pushes are fully operational.
     - **Milestone 3**: All Oppiabot checks that should run on PR reviews, PR review comments, merge conflicts, and CI result publication are fully operational. In addition, the following periodic checks are implemented:  PR's aren't stale, issues are associated with a project.
 
-- [Jim Zhan's proposal](pdfs/GSoC2020JimZhan.pdf): Ensure that Oppia is Fully Accessible. Mentor: Sagang Wee.
+- [Jim Zhan's proposal](pdfs/GSoC2020JimZhan.pdf) and [final blog post](https://medium.com/@jimz_89254/google-summer-of-code-20-with-oppia-a1a366d03aea): Ensure that Oppia is Fully Accessible. Mentor: Sagang Wee.
 
     - **Milestone 1**:
        - Set up LightHouse CI for automated testing
@@ -66,7 +66,7 @@ The project's we've accepted are:
           - Achieve Google Chrome Lighthouse audit report scores of 100
           - Complete manual accessibility review ([Review Checklist](https://docs.google.com/document/d/1UQpNSqVi2sSoj3nUiArdq5KgK0NPYuTbQrnSXAe5X-w/edit))
 
-- [Mariana Zangrossi's proposal](pdfs/GSoC2020MarianaZangrossi.pdf): Frontend testing of controllers and directives. Mentor: Nithesh Hariharan.
+- [Mariana Zangrossi's proposal](pdfs/GSoC2020MarianaZangrossi.pdf) and [final blog post](https://medium.com/@mari.zangue/my-journey-through-gsoc20-with-oppia-9eb6b27e7a02): Frontend testing of controllers and directives. Mentor: Nithesh Hariharan.
 
     - **Milestone 1**:  Achieve 100% coverage of non-inline controllers and fully cover 33 out of 69 inline controllers.
     - **Milestone 2**: Achieve 100% coverage of inline controllers and 87.5% coverage of files in /core/templates/pages/exploration-editor-page folder.
@@ -81,7 +81,7 @@ The project's we've accepted are:
        - /community-dashboard-page
        - /learner-dashboard-page
 
-- [Mohamed Medhat's proposal](pdfs/GSoC2020MohamedMedhat.pdf): Support tablet interfaces. Mentor: Rajat Talesra.
+- [Mohamed Medhat's proposal](pdfs/GSoC2020MohamedMedhat.pdf) and [final blog post](https://medium.com/@mohamed.medhat0298/gsoc-2020-oppia-foundation-ef9ecaf69903): Support tablet interfaces. Mentor: Rajat Talesra.
 
     - **Milestone 1**: Review and provide suggestions for all tablet mocks. Implement low-fidelity & high-fidelity code for tablet UI in the Onboarding Flow, HomeFragment , ProfileChooser, NavigationDrawer, and RecentlyPlayedStoryList.
     - **Milestone 2**: Implement low-fidelity & high-fidelity code for tablet UI in following screens: Topic including all Tabs, ExplorationPlayer, Hints & Solution, QuestionPlayer and Concept Card.
@@ -92,7 +92,7 @@ The project's we've accepted are:
         - Create an API in android which can take a screenshot in the test case and the image should be accessible for comparison.
 
 
-- [Nishant Mittal's proposal](pdfs/GSoC2020NishantMittal.pdf): Solve all typescript and webpack issues in the codebase. Mentor: Vojtěch Jelínek.
+- [Nishant Mittal's proposal](pdfs/GSoC2020NishantMittal.pdf) and [final blog post](https://www.nishantwrp.com/posts/google-summer-of-code-2020-with-oppia/): Solve all typescript and webpack issues in the codebase. Mentor: Vojtěch Jelínek.
 
     - **Milestone 1**:
        - All third-party libraries have type definitions.
@@ -115,7 +115,7 @@ The project's we've accepted are:
           - How our webpack config works.
           - How to deal with some common errors in webpack.
 
-- [Prayush Dawda's proposal](pdfs/GSoC2020PrayushDawda.pdf): Revamping Math Interactions. Mentor: Akshay Anand.
+- [Prayush Dawda's proposal](pdfs/GSoC2020PrayushDawda.pdf) and [final blog post](https://medium.com/@ThePegasus/google-summer-of-code-2020-with-oppia-7542804bb9e9): Revamping Math Interactions. Mentor: Akshay Anand.
 
     - **Milestone 1**:
        - The Algebraic Expression Input and Math Equation Input interactions will be ready for lesson creators to use with the following two rules:
@@ -135,7 +135,7 @@ The project's we've accepted are:
           - MatchesWithGeneralForm
        - The old Math Expression Input interaction will be stably deprecated and all related code will be removed from the codebase.
 
-- [Pulkit Aggarwal's proposal](pdfs/GSoC2020PulkitAggarwal.pdf): Additional Interaction Types. Mentor: Ben Henning.
+- [Pulkit Aggarwal's proposal](pdfs/GSoC2020PulkitAggarwal.pdf) and [final blog post](https://gist.github.com/aggarwalpulkit596/84c23a09cd4244624092f2967b0eae38): Additional Interaction Types. Mentor: Ben Henning.
 
     - **Milestone 1**: Fully implement the drag-and-drop sorting interaction in the Android app.
     - **Milestone 2**:
@@ -143,7 +143,7 @@ The project's we've accepted are:
        - Implement backend support for ratio input.
     - **Milestone 3**: Fully implement the ratio input interaction in the Android app.
 
-- [Rishabh Rawat's proposal](pdfs/GSoC2020RishabhRawat.pdf): Editor Page Redesigns. Mentor: Sean Lip.
+- [Rishabh Rawat's proposal](pdfs/GSoC2020RishabhRawat.pdf) and [final blog post](https://medium.com/@coolrishabhrawat/google-summer-of-code-20-at-oppia-foundation-944359e027fe): Editor Page Redesigns. Mentor: Sean Lip.
 
     - **Milestone 1**: Complete the Topics-and-Skills dashboard, Topic Editor page, and Skill Editor page redesigns (both mobile and desktop).
     - **Milestone 2**:
@@ -154,7 +154,7 @@ The project's we've accepted are:
        - Redesign the Question Editor(Desktop and mobile view)
        - Redesign the Exploration Editor(Desktop and mobile view)
 
-- [Rohit Katlaa's proposal](pdfs/GSoC2020RohitKatlaa.pdf): Adding SVG editor to RTE. Mentor: Kevin Thomas.
+- [Rohit Katlaa's proposal](pdfs/GSoC2020RohitKatlaa.pdf) and [final blog post](https://medium.com/@rohitkatlaa/my-work-with-oppia-during-gsoc20-8adf72de92bd?sk=573e4fe56ea30a4d9cee72aec541ed51): Adding SVG editor to RTE. Mentor: Kevin Thomas.
 
     - **Milestone 1**:
        - All required backend changes and validations will be in place.
@@ -167,7 +167,7 @@ The project's we've accepted are:
        - The user will be able to use the arc tool to draw arcs.
        - The user will be able to use the import image tool to import the required image into the editor.
 
-- [Sarthak Agarwal's proposal](pdfs/GSoC2020SarthakAgarwal.pdf): Analytics Support. Mentor: Vinita Murthi.
+- [Sarthak Agarwal's proposal](pdfs/GSoC2020SarthakAgarwal.pdf) and [final blog post](https://medium.com/@agarwal.sarthak262012/google-summer-of-code-2020-oppia-f7a71dba5506): Analytics Support. Mentor: Vinita Murthi.
 
     - **Milestone 1**: When a crash or an event arises, the corresponding crash report or event report is uploaded to the Firebase console when there is network connectivity. A full suite of unit tests will be written for both the crashlytics logging wrapper and the event analytics logging wrapper.
     - **Milestone 2**: In the absence of network connectivity, event analytics stats are stored offline. Logs will be stored in disk, with the maximum size of the files determined by a constant specified in the code. If the max size is reached, logs will be removed based on their priority and their recency (i.e. timestamp). This functionality will be achieved via a log persistence class. A full suite of unit tests will be written for the log persistence functionality.
