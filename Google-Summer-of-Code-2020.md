@@ -1,5 +1,5 @@
 ## Table of Contents
-* [Accepted Proposals](#accepted-proposals)
+* [Completed Projects](#completed-projects)
 * [Getting started](#getting-started)
 * [FAQs](#faqs)
 * [GSoC Proposal Template](#gsoc-proposal-template)
