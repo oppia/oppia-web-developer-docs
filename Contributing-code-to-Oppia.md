@@ -43,13 +43,12 @@ That said, we strongly recommend that you be open to learning new things. If you
 
 Welcome! Please make sure to follow the [setup instructions](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up) above if you haven't already. After that, we'd **strongly recommend** tackling some part of one of the following starter issues:
 
+- [#8472](https://github.com/oppia/oppia/issues/8472) (Migrating AngularJS files to Angular 8)
 - [#4057](https://github.com/oppia/oppia/issues/4057) (frontend; Karma tests)
 - [#8668](https://github.com/oppia/oppia/issues/8668) (frontend; documenting the services)
-- [#6240](https://github.com/oppia/oppia/issues/6240) (writing end to end tests)
-- [#8015](https://github.com/oppia/oppia/issues/8015) (Refactoring frontend services)
-- [#8016](https://github.com/oppia/oppia/issues/8016) (Refactoring frontend services)
-- [#8472](https://github.com/oppia/oppia/issues/8472) (Migrating AngularJS files to Angular 8)
-- [#8038](https://github.com/oppia/oppia/issues/8038) (Refactoring frontend services)
+- [#8015](https://github.com/oppia/oppia/issues/8015) (Refactoring frontend - Services should return domain objects instead of dicts)
+- [#8016](https://github.com/oppia/oppia/issues/8016) (Refactoring frontend - The backend api calls in the frontend should only happen through services)
+- [#8038](https://github.com/oppia/oppia/issues/8038) (Refactoring frontend services - The backend api calls in the frontend should only happen through services)
 - [#10474](https://github.com/oppia/oppia/issues/10474) (Make typescript checks strict)
 
 since these issues are hand-picked and ensure that you don't run into unexpected roadblocks while working on them. For other issues, you may need to be more independent because often times, we don’t know how to solve them either.
