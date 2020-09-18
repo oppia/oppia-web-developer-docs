@@ -22,7 +22,7 @@
     * [[Webpack|Webpack]]
     * [[Writing design docs|Writing-design-docs]]
     * [[Analyzing the codebase|Analyzing-the-codebase]]
-    * [[Debugging stories|Debugging-Stories]]
+    * [[Debugging Stories|Debugging-Stories]]
     * [[If your build fails...|If-Your-Build-Fails]]
       * [[How the coverage checks work|How-the-coverage-checks-work]]
       * [[Interpreting CircleCI Results | Interpreting CircleCI Results]]
