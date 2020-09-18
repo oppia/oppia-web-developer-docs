@@ -304,8 +304,8 @@ The very first time it will ask for username and password. Enter the username an
 - Open a new terminal tab and run your e2e tests 🙂. To check you can run `python -m scripts.run_e2e_tests --suite="users"` 
 
 ## Miscellaneous
+- The WSL environment does not support audio, but it can be enabled by installing the [PulseAudio](https://wiki.ubuntu.com/PulseAudio) server on Windows following [this guide](https://token2shell.com/howto/x410/enabling-sound-in-wsl-ubuntu-let-it-sing/). With the latest [wslu package](https://launchpad.net/ubuntu/+source/wslu) installed the starting Ubuntu app detects the running [PulseAudio](https://wiki.ubuntu.com/PulseAudio) server and enables audio.
 - You only need to use the RDP client to run e2e tests. You don't have to start the X server for developing and pushing code.
 - VSCode comes with an extension called remote-wsl, that makes it very easy to code when the code exists in your Ubuntu folder.
 - You can clone your oppia repository in your windows file system. You can go to your C drive by `cd /mnt/c/` and setup up there. That way you can edit with your favourite code editor 🙂.
 - When in the ubuntu file system, you can type `explorer.exe .`  (don't forget the extra dot at the end) to open that folder in your windows file explorer.
-- The WSL environment does not support audio, but it can be enabled by installing the [PulseAudio](https://wiki.ubuntu.com/PulseAudio) server on Windows following [this guide](https://token2shell.com/howto/x410/enabling-sound-in-wsl-ubuntu-let-it-sing/). With the latest [wslu package](https://launchpad.net/ubuntu/+source/wslu) installed the starting Ubuntu app detects the running [PulseAudio](https://wiki.ubuntu.com/PulseAudio) server and enables audio.
