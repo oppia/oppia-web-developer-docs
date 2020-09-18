@@ -17,7 +17,7 @@
     * [[Launching new features|Launching-new-features]] 
     * [[Overview of the codebase|Overview-of-the-Oppia-codebase]]
     * [[Coding style guide|Coding-style-guide]]
-    * [[Writing Linter|Writing-Linter]]
+    * [[Writing Linter|How-to-Write-Lint-Checks]]
     * [[Guide on defining types|Guide-on-defining-types]]
     * [[The File Naming Convention and Directory Structure|The-File-Naming-Convention-and-Directory-Structure]]
     * [[Oppia's code owners and checks to be carried out by developers|Oppia's-code-owners-and-checks-to-be-carried-out-by-developers]]
