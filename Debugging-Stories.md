@@ -1,5 +1,7 @@
 Sometimes, things go wrong while programming, and the reason for that is not obvious! In order to figure out what's happening, you will need to **debug** the code. This is an important skill to learn, but not an easy one to teach. On this page, we present a few examples of "debugging stories" from team members, so that you can see how other people approach tricky problems in the codebase.
 
+_Oppia contributors: If you have other cool debugging stories to share, please feel free to add them below!_
+
 ## Google App Engine SDK Upgrade
 _Contributed by Kevin Zhang_ (**@kevjumba**)
 
