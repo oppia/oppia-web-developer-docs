@@ -248,7 +248,7 @@ python -m scripts.start
 ```
 Open your browser and start developing 🙂.
 
-## Step 6: Download and install google-chrome
+## Step 5: Download and install google-chrome
 
 Run the following command to download latest chrome: 
 ```
@@ -257,7 +257,7 @@ sudo apt install ./google-chrome-stable_current_amd64.deb
 ```
 **Note: make sure to download this outside the oppia folder so that you don't have to worry about pushing the file by mistake.**
 
-## Step 7: Adding a lightweight desktop environment
+## Step 6: Adding a lightweight desktop environment
 ```
 sudo apt update && sudo apt -y upgrade  
 sudo apt-get purge xrdp  
@@ -285,10 +285,10 @@ and add these lines:
 # xfce
 startxfce4
 ```
-## Step 8: Start the rdp server:
+## Step 7: Start the rdp server:
 `sudo /etc/init.d/xrdp start`
 
-## Step 9: Connect to the server using the Windows RDP client:
+## Step 8: Connect to the server using the Windows RDP client:
 Name of the app is "Remote Desktop Connection". It is already installed the windows system by default. No need to use any third-party app.
 
 ![Screenshot 2020-09-19 at 12 33 03 AM](https://user-images.githubusercontent.com/23002114/93635466-f334d200-fa0f-11ea-99d3-da39d4deecd8.png)
