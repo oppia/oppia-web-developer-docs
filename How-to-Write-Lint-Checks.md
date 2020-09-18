@@ -5,7 +5,7 @@ The Oppia linter is a tool which runs over all files in the codebase, with the p
 This makes the task of reviewers easy, since they don't need to manually investigate all the syntax errors (as the lint tests will catch these). Furthermore, the linter is automatically run before a commit is pushed to GitHub, and the push will be stopped if there are any errors in the changed files.
 
 
-## How to run linter
+## How to run the linter
 
 To run the linter:
 1. To lint only files that have been touched in a commit
