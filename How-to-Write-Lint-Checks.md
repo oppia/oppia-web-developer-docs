@@ -1,6 +1,8 @@
 ## Introduction
 
-The Oppia linter is a tool which runs over all files in the codebase, with the purpose of finding common syntax errors and bad expressions in the files. It flags these issues and reports them on the terminal asking the user to look at specific line numbers where the issue is and fix them. This makes the task of reviewers easy since they don't need to manually investigate all the syntax errors (as the lint tests will catch these). Further, the linter is automatically run before a commit is pushed to github and will stop the push in case of errors in the changed files.
+The Oppia linter is a tool which runs over all files in the codebase, with the purpose of finding common syntax errors and bad expressions in the files. It flags these issues and reports them on the terminal asking the user to look at specific line numbers where the issue is and fix them.
+
+This makes the task of reviewers easy, since they don't need to manually investigate all the syntax errors (as the lint tests will catch these). Furthermore, the linter is automatically run before a commit is pushed to GitHub, and the push will be stopped if there are any errors in the changed files.
 
 
 ## How to run linter
