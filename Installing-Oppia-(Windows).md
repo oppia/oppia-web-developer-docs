@@ -289,7 +289,7 @@ startxfce4
 `sudo /etc/init.d/xrdp start`
 
 ## Step 8: Connect to the server using the Windows RDP client:
-Name of the app is "Remote Desktop Connection". It is already installed the windows system by default. No need to use any third-party app.
+Name of the app is "Remote Desktop Connection". It is already installed in the windows system by default. No need to use any third-party app.
 
 ![Screenshot 2020-09-19 at 12 33 03 AM](https://user-images.githubusercontent.com/23002114/93635466-f334d200-fa0f-11ea-99d3-da39d4deecd8.png)
 
@@ -309,3 +309,7 @@ The very first time it will ask for username and password. Enter the username an
 - VSCode comes with an extension called remote-wsl, that makes it very easy to code when the code exists in your Ubuntu folder.
 - You can clone your oppia repository in your windows file system. You can go to your C drive by `cd /mnt/c/` and setup up there. That way you can edit with your favourite code editor 🙂.
 - When in the ubuntu file system, you can type `explorer.exe .`  (don't forget the extra dot at the end) to open that folder in your windows file explorer.
+- Default terminal apps in windows don't have many features. Windows Terminal is an app by Microsoft. It enables multiple tabs (quickly switch between multiple Linux command lines, Windows Command Prompt, PowerShell, Azure CLI, etc), create custom key bindings (shortcut keys for opening or closing tabs, copy+paste, etc.), use the search feature, and custom themes (color schemes, font styles and sizes, background image/blur/transparency). [Learn More](https://docs.microsoft.com/en-us/windows/terminal).
+[Link to Install Windows Terminal](https://docs.microsoft.com/en-us/windows/terminal/get-started).
+
+
