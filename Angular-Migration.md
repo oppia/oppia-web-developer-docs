@@ -146,7 +146,7 @@ Please note that interfaces/properties in Object Factories and the `.*-backend-a
 
 
 
-Take a look as to how the topic-viewer-backend-api.service is migrated in this [pull request](https://github.com/oppia/oppia/pull/8427/files).
+Take a look as to how the skill-backend-api.service is migrated in this [pull request](https://github.com/oppia/oppia/pull/10693/files).
 
 ## Implementation details to migrate tests
 
