@@ -22,7 +22,7 @@ The project plan will be iterative in nature. We will migrative the services fir
 
 ## Angular Migration Tracker
 
-The [angular migration tracker](https://docs.google.com/spreadsheets/d/1L9Udn-XT6Lk1qaTBUySTw1AnhvQMR-30Qry4rfd-Ovg/edit?usp=sharing) holds the record of which services have been migrated and which are to be migrated. The order of services mentioned in the tracker is in dependency order i.e if serviceA depends on serviceB and serviceB depends on serviceC, then the order of services written in the tracker would be serviceC, serviceB followed by serviceA.
+The [angular migration tracker](https://docs.google.com/spreadsheets/d/1L9Udn-XT6Lk1qaTBUySTw1AnhvQMR-30Qry4rfd-Ovg/edit?usp=sharing) holds the record of which services which are to be migrated. The issue [#8472](https://github.com/oppia/oppia/issues/8472) holds a subset of those services that can be migrated without any major blockers.
 
 ## Implementation details to migrate services
 
@@ -78,16 +78,14 @@ The [angular migration tracker](https://docs.google.com/spreadsheets/d/1L9Udn-XT
    to
    ```
    this.http.get(
-      url, { observe: 'response' }).toPromise().then(
-       (response) => {this.dataDict = cloneDeep(response.body);
+      url).toPromise().then(
+       (response) => {
+
    ```
-   and import clonedeep like this:
-   ```
-   import cloneDeep from 'lodash/cloneDeep';
-   ```
+   The `dataDict` is not required in Angular services. You can directly use the `response` variable.
 
    (b) Search in the  codebase where the service is used to obtain results from get requests and change 
-   `response.data` to `response.body`.
+   `response.data` to `response`.
 
    (c) Return the `errorCallback` (the reject function) with `errorResponse.error.error` as follows:
   
@@ -98,8 +96,7 @@ The [angular migration tracker](https://docs.google.com/spreadsheets/d/1L9Udn-XT
    ```
 
    (d) Add `$rootScope.apply()` in the controller/directive that is resolving the http request similar to how it is 
-   added [here](https://github.com/oppia/oppia/pull/8427/files#diff-ecf6cefd0707bcbafeb6a0b4009aa60cR78). You can 
-   find this by doing a simple search of the function name in service where get request is handled.
+   added [here](https://github.com/oppia/oppia/pull/8427/files#diff-ecf6cefd0707bcbafeb6a0b4009aa60cR78). You can find this by doing a simple search of the function name in service where get request is handled.
       To do this, make a global search in the code-base for the function. eg. if the service is `SkillBackendApiService` and the function in which the call is made is `fetchSkill`. The search the code-base for `SkillBackendApiService.fetchSkill`. You will find instances like the following:
    ```
    SkillBackendApiService.fetchSkill(...).then((...) => {
@@ -138,9 +135,9 @@ To do this, do a global search in the code-base for the function, eg. `SkillBack
 Please note that interfaces/properties in Object Factories and the `.*-backend-api.service.ts` could be in snake_case, please surround them with single quotes as in `'some_property'`. Except for these two categories, all the properties inside all other files should be camel case: `someProperty`.
 
 9. For functions in the service, add type definitions for all the arguments as well as return values. 
-**Note:** For complex types or some type that is being used over functions or files we can declare interface or export interface (if it has to be imported over files). For example in the file [rating-computation.service.ts](https://github.com/oppia/oppia/blob/develop/core/templates/components/ratings/rating-computation/rating-computation.service.ts) we have an export interface to declare the type IRatingFrequencies. In the same file we also have a function named static, which is used by the functions of the class itself. 
+**Note:** For complex types or some type that is being used over functions or files we can declare interface or export interface (if it has to be imported over files). For example in the file [rating-computation.service.ts](https://github.com/oppia/oppia/blob/develop/core/templates/components/ratings/rating-computation/rating-computation.service.ts) we have an export interface to declare the type RatingFrequencies. In the same file, we also have a function named static, which is used by the functions of the class itself. 
 
-10. For functions which are private to the service (used as helper functions), add private keyword for those functions.
+10. For functions which are private to the service (used as helper functions) add the private keyword for those functions.
 
 11. In  the file end add
     ```
@@ -149,7 +146,7 @@ Please note that interfaces/properties in Object Factories and the `.*-backend-a
 
 
 
-Take a look as to how the skill-backend-api.service is migrated in this [pull request](https://github.com/oppia/oppia/pull/10693/files).
+ This [pull request](https://github.com/oppia/oppia/pull/10693/files) can be used as a reference.
 
 ## Implementation details to migrate tests
 
