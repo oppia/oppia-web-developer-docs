@@ -319,25 +319,6 @@ export default functions;
 ```
 And then the variable can be loaded by `import functions from 'folder/folder/functions.ts';`
 
-### Adding new page
-When you're adding new HTML page (not directive HTML) that uses TypeScript you also need to add it to `webpack.common.config.ts`:
-
-1. You need to define the TypeScript entry point for the page into `module.exports.entries`.
-2. You need to add `new HtmlWebpackPlugin({…})` into `module.exports.plugins`.
-
-For example when adding **pages/generic-page/generic-page.mainpage.html** with asocciated TypeScript file **pages/generic-page/generic-page.scripts.ts**, you will need to add `page: commonPrefix + '/pages/generic-page/generic-page.scripts.ts'` to `module.exports.entries` and
-
-```javascript
-new HtmlWebpackPlugin({
-   chunks: ['page'],
-   filename: 'generic-page.mainpage.html',
-   template: commonPrefix + '/pages/generic-page/generic-page.mainpage.html',
-   minify: htmlMinifyConfig,
-   inject: false
-})
-```
-into `module.exports.plugins`.
-
 ## CSS
 - Do not include units if the value is 0. E.g. `margin-left: 0` instead of `margin-left: 0px`.
 - Within each CSS rule, attributes should be alphabetized (e.g. 'height' before 'margin' before 'top'). This makes it easy to find the value of an attribute if there are lots of them.
