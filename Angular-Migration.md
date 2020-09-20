@@ -3,14 +3,11 @@
 
 ## Overview
 
-Angular is an app-design framework and development platform for creating efficient and sophisticated apps. Angular has numerous benefits over AngularJS like (some of which are listed here):
-1. Angular is faster than AngularJS.
-2. AngularJS uses JavaScript but Angular 2 and later versions (clubbed together as Angular 2+ for the sake of discussions) use TypeScript. TypeScript is the superset of JavaScript and provides static typing during the development process. Static typing not just improves performance but avoids many runtime pitfalls that were making AngularJS difficult to use for larger and complex applications.
-3. AngularJS does not provide mobile development support but Angular does.
+Angular is an app-design framework and development platform for creating efficient and sophisticated apps.
 
-This project aims to migrate the entire codebase from AngularJS to Angular. The project plan will be iterative in nature. We will migrative the services first and then the controllers and directives. The services would be migrated in the dependency order i.e if A depends on B and B depends on C, we will migrate in the order C, B and A.
+Currently, the project is in a hybrid state where we have both Angular and AngularJS. This makes our application slow and bulky. The codebase has duplication of libraries since many of the AngularJS libraries are not compatible with Angular. This project aims to migrate the entire codebase to Angular so as to improve the end-user experience and also the developer experience.
 
-We have a script named [create_topological_sort_of_all_services](https://github.com/oppia/oppia/blob/develop/scripts/create_topological_sort_of_all_services.py) which generates all the services in the dependency order. The codebase has about 340 services as of now, out of which 220 are migrated to Angular and remaining 120 are to be migrated. Some files slipped in even without having all the require statements which has affected the output of the script. The plan would be to go in the order of the files that script generates. If the current service that is in order could be migrated -- migrate it, else add missing require statements. We will re-run the script during the second pass and fix the left ones then.
+The project plan will be iterative in nature. We will migrative the services first and then the controllers and directives. The services would be migrated in the dependency order i.e if A depends on B and B depends on C, we will migrate in the order C, B and A.
 
 ### Testing videos
 
@@ -124,15 +121,14 @@ The [angular migration tracker](https://docs.google.com/spreadsheets/d/1L9Udn-XT
       (response) => {...;
    ```
 
-   (b) Add `$rootScope.apply()` in the controller/directive that is resolving the http request similar to how it is 
-   added [here](https://github.com/oppia/oppia/pull/8427/files#diff-ecf6cefd0707bcbafeb6a0b4009aa60cR78). You can 
-   find this by doing a simple search of the function name in service where get request is handled.
+   (b) Add `$rootScope.apply()` in the controller/directive that is resolving the HTTP request similar to how it is 
+   added [here](https://github.com/oppia/oppia/pull/8427/files#diff-ecf6cefd0707bcbafeb6a0b4009aa60cR78). You can find this by doing a simple search of the function name in service where get request is handled.
 
-8. If you are migrating a service that is named as `.*-backend-api.service.ts` then please return a domain object and not a dict in the `successCallback` function. For example take a look at this change [PR #9505](https://github.com/oppia/oppia/pull/9505/files#diff-05de50229b44c01bdaeac172928b514dR64), where the domain object is created via object factory and this is sent ahead. You also need to change the piece of code where this response is used because the response is now a domain object instead of a dict. If there is no specific object factory to alter the response to domain object, create one similar to how it is done in this [change](https://github.com/oppia/oppia/pull/9570/files#diff-09e3c3999c18dabdf2ddedf6e3e250f8R1).
+8. If you are migrating a service that is named as `.*-backend-api.service.ts` then please return a domain object and not a dict in the `successCallback` function. For example take a look at this change [PR #9505](https://github.com/oppia/oppia/pull/9505/files#diff-05de50229b44c01bdaeac172928b514dR64), where the domain object is created via an object factory and this is sent ahead. You also need to change the piece of code where this response is used because the response is now a domain object instead of a dict. If there is no specific object factory to alter the response to a domain object, create one similar to how it is done in this [change](https://github.com/oppia/oppia/pull/9570/files#diff-09e3c3999c18dabdf2ddedf6e3e250f8R1).
 Topic Domain Objects need to contain properties that are being read from the backend. So, the Topic Domain Object does not depend on the service being migrated, but the expected return value of the function. For example, in `SkillBackendApiService`, the function `fetchSkill` will clearly return a `Skill` object. Note that `SkillObjectFactory.ts` already exists, so we don't need to create it. But if there is no corresponding Object Factory, you need to create one similar to how `SkillObjectFactory` is created. So, we take the response from the backend and instead of `successCallback(response)`, we resolve `successCallback(SkillObjectFactory.createFromBackendDict(response))`. This passes the frontend `Skill` object to functions that call `fetchSkill` when the promise gets resolved.  
 However, there is more to it. Since before you migrated the file, the calling functions were expecting a backend dict object, the references need to be changed as well.  
 To do this, do a global search in the code-base for the function, eg. `SkillBackendApiService.fetchSkill` and refactor the code inside the resolve function to reflect that the parameter is now a `Skill` object and not a backend dict object.
-Please note that interfaces/properties in Object Factories and the `.*-backend-api.service.ts` could be in snake_case, please surround them with single quotes as in `'some_property'`. Except these two categories, all the properties inside all other files should be camel case: `someProperty`.
+Please note that interfaces/properties in Object Factories and the `.*-backend-api.service.ts` could be in snake_case, please surround them with single quotes as in `'some_property'`. Except for these two categories, all the properties inside all other files should be camel case: `someProperty`.
 
 9. For functions in the service, add type definitions for all the arguments as well as return values. 
 **Note:** For complex types or some type that is being used over functions or files we can declare interface or export interface (if it has to be imported over files). For example in the file [rating-computation.service.ts](https://github.com/oppia/oppia/blob/develop/core/templates/components/ratings/rating-computation/rating-computation.service.ts) we have an export interface to declare the type IRatingFrequencies. In the same file we also have a function named static, which is used by the functions of the class itself. 
@@ -168,7 +164,7 @@ Take a look as to how the skill-backend-api.service is migrated in this [pull re
    import { ServiceName } from ...
    ```
 
-   If your test is for a service that makes http requests, you also need to import the following
+   If your test is for a service that makes HTTP requests, you also need to import the following
    ```
    import { HttpClientTestingModule, HttpTestingController } from
       '@angular/common/http/testing';
@@ -192,7 +188,7 @@ Take a look as to how the skill-backend-api.service is migrated in this [pull re
      instance = TestBed.get(ServiceName);
    ```
 
-   (b) If your spec file tests service that makes http requests, you need to make a HttpClientTestingModule and 
+   (b) If your spec file tests service that makes HTTP requests, you need to make a HttpClientTestingModule and 
    add afterEach statement to check there are no pending requests after each test.
    ```
    beforeEach(() => {
@@ -210,7 +206,7 @@ Take a look as to how the skill-backend-api.service is migrated in this [pull re
 
 5. For each test, replace the name of the service with the instance name that is created above using TestBed.
 
-6. If your spec file is for a service that makes http requests then
+6. If your spec file is for a service that makes HTTP requests then
 
    (a) Convert each individual test defined in it block as follows
    ```
@@ -220,7 +216,7 @@ Take a look as to how the skill-backend-api.service is migrated in this [pull re
    }));
    ```
 
-   (b) Change the test to create a http request via httpTestingController (taking an example from the `topic-viewer-backend-api.service.spec.ts`)
+   (b) Change the test to create an HTTP request via httpTestingController (taking an example from the `topic-viewer-backend-api.service.spec.ts`)
    ```
    $httpBackend.expect('GET', '/topic_data_handler/0').respond(
      sampleDataResults);
@@ -285,7 +281,7 @@ export class ConceptCardComponent {}
 Some points to note:
 * Please keep in mind the name of the directive declared. In this case, it is 'conceptCard'.
 * The directive name converted to kebab-case is the selector (conceptCard -> concept-card).
-* The name of the class is in CamelCase (note the first letter is capital) suffixed with component. So conceptCard -> ConceptCardComponent.
+* The name of the class is in CamelCase (note the first letter is capital) suffixed with "Component". So conceptCard -> ConceptCardComponent.
 * The template of the directive (in 99% of the cases) exists in the same folder as the directive.ts file.
 
 #### 2. Import and inject the dependencies:
