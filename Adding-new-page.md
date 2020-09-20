@@ -3,9 +3,9 @@
 
 ### Files
 
-_generic-page.import.ts_ — imports necessary for the page initialization
-_generic-page.mainpage.html_ — the main HTML
-_generic-page.module.ts_ — Angular module definition 
+* _generic-page.import.ts_ — imports necessary for the page initialization
+* _generic-page.mainpage.html_ — the main HTML
+* _generic-page.module.ts_ — Angular module definition 
 
 ### Webpack
 When you're adding new HTML page (not directive HTML) that uses TypeScript you also need to add it to `webpack.common.config.ts`:
