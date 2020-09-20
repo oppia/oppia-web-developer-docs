@@ -5,7 +5,14 @@
 
 Angular is an app-design framework and development platform for creating efficient and sophisticated apps.
 
-Currently, the project is in a hybrid state where we have both Angular and AngularJS. This makes our application slow and bulky. The codebase has duplication of libraries since many of the AngularJS libraries are not compatible with Angular. This project aims to migrate the entire codebase to Angular so as to improve the end-user experience and also the developer experience.
+Currently, the project is in a hybrid state where we have both Angular and AngularJS. This makes our application slow and bulky. The codebase has a duplication of libraries since many of the AngularJS libraries are not compatible with Angular. This project aims to migrate the entire codebase to Angular. The benefits of doing this are:
+* Improved Developer Experience: 
+  * Developing when the application is a hybrid state opens us to a whole host of complicated errors which are in some cases not possible to be solved.
+  * Angular is being actively maintained and comes out with a lot of new features that aid in developing new features.
+* Improved User Experience:
+  * When the codebase is completely migrated, the developers will focus their efforts on making new features for the website rather than fixing nasty errors that pop up because of the hybrid state.
+  * Decrease in page loading times as a result of not bundling two SPA frameworks.
+  * Better application performance in general.
 
 The project plan will be iterative in nature. We will migrative the services first and then the controllers and directives. The services would be migrated in the dependency order i.e if A depends on B and B depends on C, we will migrate in the order C, B and A.
 
