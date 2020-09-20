@@ -59,6 +59,7 @@
     * [[Browser & device testing|Browser-and-Device-Testing-Using-BrowserStack]]
   * References
     * [User documentation](https://oppia.github.io/)
+    * [[Angular Migration | Angular-Migration]]
     * [[Extension frameworks|Extensions-Overview]]
       * [[Interactions|Creating-Interactions]]
       * [[Rules|Creating-Rules]]
@@ -80,7 +81,6 @@
     * [[Advice on creating explorations|Advice-on-Creating-Explorations]]
     * [[Oppia-ml Extension|Oppia-ml-Extension]]
     * [[Oppiabot|Oppiabot]]
-    * [[Angular Migration | Angular-Migration]]
   * Deploying Oppia
     * [[Migration Instructions|Migration-Instructions]]
   * Playbooks
