@@ -1,3 +1,12 @@
+
+## Technical part
+
+### Files
+
+_generic-page.import.ts_ — imports necessary for the page initialization
+_generic-page.mainpage.html_ — the main HTML
+_generic-page.module.ts_ — Angular module definition 
+
 ### Webpack
 When you're adding new HTML page (not directive HTML) that uses TypeScript you also need to add it to `webpack.common.config.ts`:
 
@@ -8,18 +17,22 @@ For example when adding **pages/generic-page/generic-page.mainpage.html** with a
 
 ```javascript
 new HtmlWebpackPlugin({
-   chunks: ['page'],
-   filename: 'generic-page.mainpage.html',
-   template: commonPrefix + '/pages/generic-page/generic-page.mainpage.html',
-   minify: htmlMinifyConfig,
-   inject: false
+  chunks: ['page'],
+  meta: { // if default meta is used this can be ommited
+    name: 'name',
+    description: 'description'
+  },
+  filename: 'generic-page.mainpage.html',
+  template: commonPrefix + '/pages/generic-page/generic-page.mainpage.html',
+  minify: htmlMinifyConfig,
+  inject: false
 })
 ```
 into `module.exports.plugins`.
 
 ### Lighthouse
 
-The new page should be added both to the _.lighthouserc.js_ and _.lighthouserc-accessibility.js_. The page URL should be added to `ci.collect.url` and in the _.lighthouserc.js_ 
+The new page should be added both to the _.lighthouserc.js_ and _.lighthouserc-accessibility.js_. The page URL should be added to `ci.collect.url` and in the _.lighthouserc.js_
 ```javascript
 {
   'matchingUrlPattern': 'http://[^/]+/url',
