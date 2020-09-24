@@ -1,12 +1,14 @@
+
+***
 **Note:** If you just want to create and share explorations, you may be able to use the hosted server at https://www.oppia.org (in which case you don't need to install anything).
 
-**Note:** Installing Oppia on Windows is **complicated**. We strongly recommend installing on [Linux](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Linux%29) or [Mac OS](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Mac-OS%29) instead if you're able to do so.
+**Note:** Installing Oppia on Windows is ever so slightly more **complicated** when compared to Linux/ Mac. We strongly recommend installing on [Linux](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Linux%29) or [Mac OS](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Mac-OS%29) instead if you're able to do so.
 
 **Note:** These instructions are tested to work on Windows 10. If you have some other version of windows, we strongly recommend using Linux or Mac OS, if possible.
 
 *For information on issues that may occasionally arise with the installation process, please see the [Troubleshooting](https://github.com/oppia/oppia/wiki/Troubleshooting) page.*
 
-There follow instructions for 3 different ways to install Oppia on Windows: using VirtualBox, using Docker, and using the Ubuntu terminal. You only need to follow one of the three. (**Caution**: as mentioned above, installing on Windows is hard and we strongly recommend using the Linux/Mac installation pathways if possible. New contributors have often reported running into unforeseen complications when installing on Windows, and the Oppia team has limited ability to provide support for this, although we would welcome help in improving this state of affairs!)
+There follow instructions for 4 different ways to install Oppia on Windows: using WSL2, using VirtualBox, using Docker, and using the Ubuntu terminal (WSL-1 or just WSL). You only need to follow one of the four.
 
 # Installing Oppia in Windows and WSL2:
 
@@ -335,5 +337,3 @@ If you get an error that indicates that a server is already running, this is a g
 - XRDP: xrdp is a free and open-source implementation of Microsoft RDP server that enables operating systems other than Microsoft Windows to provide a fully functional RDP-compatible remote desktop experience. It works by bridging graphics from the X Window System to the client and relaying controls from the client back to X. [More Info](https://en.wikipedia.org/wiki/Xrdp).
 
 - XFCE: Xfce or XFCE is a free and open-source desktop environment for Linux and BSD operating systems. Xfce aims to be fast and lightweight while still being visually appealing and easy to use. Xfce embodies the traditional Unix philosophy of modularity and re-usability. [More Info](https://en.wikipedia.org/wiki/Xfce).
-
-
