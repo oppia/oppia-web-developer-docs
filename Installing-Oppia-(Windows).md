@@ -2,13 +2,14 @@
 ***
 **Note:** If you just want to create and share explorations, you may be able to use the hosted server at https://www.oppia.org (in which case you don't need to install anything).
 
-**Note:** Installing Oppia on Windows is ever so slightly more **complicated** when compared to Linux/ Mac. We strongly recommend installing on [Linux](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Linux%29) or [Mac OS](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Mac-OS%29) instead if you're able to do so.
+**Note:** Installing Oppia on Windows is ever so slightly more **complicated** when compared to Linux/ Mac. We recommend installing on [Linux](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Linux%29) or [Mac OS](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Mac-OS%29) instead if you are facing a lot of issues in Windows.
 
 **Note:** These instructions are tested to work on Windows 10. If you have some other version of windows, we strongly recommend using Linux or Mac OS, if possible.
 
 *For information on issues that may occasionally arise with the installation process, please see the [Troubleshooting](https://github.com/oppia/oppia/wiki/Troubleshooting) page.*
 
-There follow instructions for 4 different ways to install Oppia on Windows: using WSL2, using VirtualBox, using Docker, and using the Ubuntu terminal (WSL-1 or just WSL). You only need to follow one of the four.
+There follow instructions for 4 different ways to install Oppia on Windows: using WSL2, using VirtualBox, using Docker, and using the Ubuntu terminal (WSL-1 or just WSL). You only need to follow one of the four. 
+**The first approach (Installing Oppia in Windows and WSL2) is recommended.**
 
 # Installing Oppia in Windows and WSL2:
 
