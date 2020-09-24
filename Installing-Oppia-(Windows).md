@@ -96,7 +96,7 @@ and add these lines:
 startxfce4
 ```
 Once inside Nano, you can use the arrow keys to move between lines. When you are done with your changes press: `ctrl+x` followedby `Y` followedby enter to save the file.
-You can read more about RDP, XFCE, XRDP here.
+You can read more about RDP, XFCE, XRDP in the [Appendix](https://github.com/oppia/oppia/wiki/Installing-Oppia-(Windows)#appendix).
 
 
 ## Step 7: Start the rdp server:
