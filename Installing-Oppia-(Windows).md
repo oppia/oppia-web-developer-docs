@@ -25,7 +25,7 @@ This will open up a window. Note down your windows version number and build numb
 ## Step 2: Install WSL2
 You can install WSL2 by following steps here:
 https://docs.microsoft.com/en-us/windows/wsl/install-win10
-- Please only follow till step 5 in the link given above.
+- **Please only follow till step 5 in the link given above.**
 - The windows version number and build number will be useful in determining whether or not your system needs to be updated.
 
 ## Step 3: Installing the ubuntu app from the Microsoft Store.
@@ -42,6 +42,7 @@ Once it is installed, run the app from the startup menu. After initializing your
 ## Step 4: Clone your fork and setup:
 Run the following commands:
 ```
+sudo apt update && sudo apt -y upgrade  
 sudo apt install python-minimal
 sudo apt install python-pip
 mkdir oppia
@@ -51,16 +52,20 @@ cd oppia
 bash scripts/install_prerequisites.sh
 python -m scripts.start
 ```
-Open your browser and start developing 🙂.
+If you are facing problems with pushing the code to your fork check this link: [WSL_GIT](https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-git).
 
-## Step 5: Download and install google-chrome
+**Note: The very first-time `python -m scripts.start` takes ~10 mins. If it stuck at `INFO     2020-09-20 02:31:28,856 module.py:865] default: "GET /_ah/warmup HTTP/1.1" 200 -` don't be worried. It takes some time**
+
+## Step 5: Download and install google-chrome (in the Ubuntu Environment):
+
+_Even if you have Chrome installed on you windows system, you still need to do this to run E2E tests and unit tests._
 
 Run the following command to download latest chrome: 
 ```
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo apt install ./google-chrome-stable_current_amd64.deb
 ```
-**Note: make sure to download this outside the oppia folder so that you don't have to worry about pushing the file by mistake.**
+**Note: make sure to download this outside the oppia folder so that you don't have to worry about pushing the file to your repo by mistake.**
 
 ## Step 6: Adding a lightweight desktop environment
 ```
@@ -90,6 +95,10 @@ and add these lines:
 # xfce
 startxfce4
 ```
+Once inside Nano, you can use the arrow keys to move between lines. When you are done with your changes press: `ctrl+x` followedby `Y` followedby enter to save the file.
+You can read more about RDP, XFCE, XRDP here.
+
+
 ## Step 7: Start the rdp server:
 `sudo /etc/init.d/xrdp start`
 
@@ -104,13 +113,20 @@ It will ask for a field called "computer". Add `localhost:3390` in that field an
 
 The very first time it will ask for username and password. Enter the username and password you created in step 3.
 
+You will be asked about the setup for the panel. Just click on default config.
+
+![image](https://user-images.githubusercontent.com/23002114/94156539-d24fff00-fe9d-11ea-8f7a-039db7a7ce51.png)
+
 ## Running the e2e test:
 - Open the terminal (in the ubuntu-desktop env/ the RDP client) and run `google-chrome`
 - Open a new terminal tab and run your e2e tests 🙂. To check you can run `python -m scripts.run_e2e_tests --suite="users"` 
 
+**Note: You only need to use the RDP client to run e2e tests. You don't have to start the X server for developing and pushing code.**
+
+The Oppia setup is done. Got to https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#finding-something-to-do to start contributing. 
+
 ## Miscellaneous
 - The WSL environment does not support audio, but it can be enabled by installing the [PulseAudio](https://wiki.ubuntu.com/PulseAudio) server on Windows following [this guide](https://token2shell.com/howto/x410/enabling-sound-in-wsl-ubuntu-let-it-sing/). With the latest [wslu package](https://launchpad.net/ubuntu/+source/wslu) installed the starting Ubuntu app detects the running [PulseAudio](https://wiki.ubuntu.com/PulseAudio) server and enables audio.
-- You only need to use the RDP client to run e2e tests. You don't have to start the X server for developing and pushing code.
 - VSCode comes with an extension called remote-wsl, that makes it very easy to code when the code exists in your Ubuntu folder.
 - You can clone your oppia repository in your windows file system. You can go to your C drive by `cd /mnt/c/` and setup up there. That way you can edit with your favourite code editor 🙂.
 - When in the ubuntu file system, you can type `explorer.exe .`  (don't forget the extra dot at the end) to open that folder in your windows file explorer.
@@ -311,3 +327,13 @@ If you get an error that indicates that a server is already running, this is a g
 
 - If you run into `distutilsOptionError`:
   - Then: Make sure you have set up the virtualenv. See [this comment](https://github.com/oppia/oppia/issues/7613#issuecomment-531429687).
+
+# Appendix:
+
+- RDP: Remote Desktop Protocol is a proprietary protocol developed by Microsoft which provides a user with a graphical interface to connect to another computer over a network connection. The user employs RDP client software for this purpose, while the other computer must run RDP server software. [More Info](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol).
+
+- XRDP: xrdp is a free and open-source implementation of Microsoft RDP server that enables operating systems other than Microsoft Windows to provide a fully functional RDP-compatible remote desktop experience. It works by bridging graphics from the X Window System to the client and relaying controls from the client back to X. [More Info](https://en.wikipedia.org/wiki/Xrdp).
+
+- XFCE: Xfce or XFCE is a free and open-source desktop environment for Linux and BSD operating systems. Xfce aims to be fast and lightweight while still being visually appealing and easy to use. Xfce embodies the traditional Unix philosophy of modularity and re-usability. [More Info](https://en.wikipedia.org/wiki/Xfce).
+
+
