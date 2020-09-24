@@ -8,6 +8,115 @@
 
 There follow instructions for 3 different ways to install Oppia on Windows: using VirtualBox, using Docker, and using the Ubuntu terminal. You only need to follow one of the three. (**Caution**: as mentioned above, installing on Windows is hard and we strongly recommend using the Linux/Mac installation pathways if possible. New contributors have often reported running into unforeseen complications when installing on Windows, and the Oppia team has limited ability to provide support for this, although we would welcome help in improving this state of affairs!)
 
+# Installing Oppia in Windows and WSL2:
+
+## Step 1: Check if your Windows is up to date.
+To do so press "windows-key + r" and type `winver`.
+
+![Screenshot 2020-09-18 at 11 56 20 PM](https://user-images.githubusercontent.com/23002114/93634575-75bc9200-fa0e-11ea-8690-98afbda2a02e.png)
+
+This will open up a window. Note down your windows version number and build number.
+![Screenshot 2020-09-18 at 11 56 54 PM](https://user-images.githubusercontent.com/23002114/93634585-79e8af80-fa0e-11ea-97f8-d60275130e01.png)
+
+- For x64 systems: Version 1903 or higher, with Build 18362 or higher.
+- For ARM64 systems: Version 2004 or higher, with Build 19041 or higher.
+- Builds lower than 18362 do not support WSL 2. Use the Windows Update Assistant to update your version of Windows.
+
+## Step 2: Install WSL2
+You can install WSL2 by following steps here:
+https://docs.microsoft.com/en-us/windows/wsl/install-win10
+- Please only follow till step 5 in the link given above.
+- The windows version number and build number will be useful in determining whether or not your system needs to be updated.
+
+## Step 3: Installing the ubuntu app from the Microsoft Store.
+Install Ubuntu 18.04 LTS from the Microsoft Store.
+Once it is installed, run the app from the startup menu. After initializing your environment, it will ask you to create a user. Provide a username and password.
+
+![Screenshot 2020-09-18 at 11 57 10 PM](https://user-images.githubusercontent.com/23002114/93634594-7ce3a000-fa0e-11ea-93ef-255ac6b90290.png)
+| | |
+|-|-|
+|![Screenshot 2020-09-18 at 11 57 22 PM](https://user-images.githubusercontent.com/23002114/93634596-7e14cd00-fa0e-11ea-8a07-0b4b65499225.png)|![Screenshot 2020-09-18 at 11 57 35 PM](https://user-images.githubusercontent.com/23002114/93634597-7fde9080-fa0e-11ea-8ba1-0c29be080fd7.png)|
+
+**Note: You can go for Ubuntu 20.04 as well but it comes as a barebones config. It means that you will have to install gcc, make, etc to run oppia.**
+
+## Step 4: Clone your fork and setup:
+Run the following commands:
+```
+sudo apt install python-minimal
+sudo apt install python-pip
+mkdir oppia
+cd oppia
+git clone https://github.com/your_username/oppia.git
+cd oppia
+bash scripts/install_prerequisites.sh
+python -m scripts.start
+```
+Open your browser and start developing 🙂.
+
+## Step 5: Download and install google-chrome
+
+Run the following command to download latest chrome: 
+```
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt install ./google-chrome-stable_current_amd64.deb
+```
+**Note: make sure to download this outside the oppia folder so that you don't have to worry about pushing the file by mistake.**
+
+## Step 6: Adding a lightweight desktop environment
+```
+sudo apt update && sudo apt -y upgrade  
+sudo apt-get purge xrdp  
+sudo apt install -y xrdp  
+sudo apt install -y xfce4  
+sudo apt install -y xfce4-goodies  
+sudo cp /etc/xrdp/xrdp.ini /etc/xrdp/xrdp.ini.bak  
+sudo sed -i 's/3389/3390/g' /etc/xrdp/xrdp.ini  
+sudo sed -i 's/max_bpp=32/#max_bpp=32\nmax_bpp=128/g' /etc/xrdp/xrdp.ini  
+sudo sed -i 's/xserverbpp=24/#xserverbpp=24\nxserverbpp=128/g' /etc/xrdp/xrdp.ini  
+echo xfce4-session > ~/.xsession
+```
+
+### Edit config.
+```
+sudo nano /etc/xrdp/startwm.sh 
+```
+comment these lines to: 
+```
+#test -x /etc/X11/Xsession && exec /etc/X11/Xsession
+#exec /bin/sh /etc/X11/Xsession
+```
+and add these lines: 
+```
+# xfce
+startxfce4
+```
+## Step 7: Start the rdp server:
+`sudo /etc/init.d/xrdp start`
+
+## Step 8: Connect to the server using the Windows RDP client:
+Name of the app is "Remote Desktop Connection". It is already installed in the windows system by default. No need to use any third-party app.
+
+![Screenshot 2020-09-19 at 12 33 03 AM](https://user-images.githubusercontent.com/23002114/93635466-f334d200-fa0f-11ea-99d3-da39d4deecd8.png)
+
+It will ask for a field called "computer". Add `localhost:3390` in that field and hit connect.
+
+![Screenshot 2020-09-19 at 12 33 38 AM](https://user-images.githubusercontent.com/23002114/93635471-f4fe9580-fa0f-11ea-995b-48b15f45150f.png)
+
+The very first time it will ask for username and password. Enter the username and password you created in step 3.
+
+## Running the e2e test:
+- Open the terminal (in the ubuntu-desktop env/ the RDP client) and run `google-chrome`
+- Open a new terminal tab and run your e2e tests 🙂. To check you can run `python -m scripts.run_e2e_tests --suite="users"` 
+
+## Miscellaneous
+- The WSL environment does not support audio, but it can be enabled by installing the [PulseAudio](https://wiki.ubuntu.com/PulseAudio) server on Windows following [this guide](https://token2shell.com/howto/x410/enabling-sound-in-wsl-ubuntu-let-it-sing/). With the latest [wslu package](https://launchpad.net/ubuntu/+source/wslu) installed the starting Ubuntu app detects the running [PulseAudio](https://wiki.ubuntu.com/PulseAudio) server and enables audio.
+- You only need to use the RDP client to run e2e tests. You don't have to start the X server for developing and pushing code.
+- VSCode comes with an extension called remote-wsl, that makes it very easy to code when the code exists in your Ubuntu folder.
+- You can clone your oppia repository in your windows file system. You can go to your C drive by `cd /mnt/c/` and setup up there. That way you can edit with your favourite code editor 🙂.
+- When in the ubuntu file system, you can type `explorer.exe .`  (don't forget the extra dot at the end) to open that folder in your windows file explorer.
+- Default terminal apps in windows don't have many features. Windows Terminal is an app by Microsoft. It enables multiple tabs (quickly switch between multiple Linux command lines, Windows Command Prompt, PowerShell, Azure CLI, etc), create custom key bindings (shortcut keys for opening or closing tabs, copy+paste, etc.), use the search feature, and custom themes (color schemes, font styles and sizes, background image/blur/transparency). [Learn More](https://docs.microsoft.com/en-us/windows/terminal).
+[Link to Install Windows Terminal](https://docs.microsoft.com/en-us/windows/terminal/get-started).
+
 # Installation in VirtualBox on Windows 10
 
 _Last tested by **@aks681** on Windows 10 in July of 2020. E2e, frontend and backend tests worked at that point._
@@ -202,114 +311,3 @@ If you get an error that indicates that a server is already running, this is a g
 
 - If you run into `distutilsOptionError`:
   - Then: Make sure you have set up the virtualenv. See [this comment](https://github.com/oppia/oppia/issues/7613#issuecomment-531429687).
-
-# Installing Oppia in Windows and WSL2:
-
-## Step 1: Check if your Windows is up to date.
-To do so press "windows-key + r" and type `winver`.
-
-![Screenshot 2020-09-18 at 11 56 20 PM](https://user-images.githubusercontent.com/23002114/93634575-75bc9200-fa0e-11ea-8690-98afbda2a02e.png)
-
-This will open up a window. Note down your windows version number and build number.
-![Screenshot 2020-09-18 at 11 56 54 PM](https://user-images.githubusercontent.com/23002114/93634585-79e8af80-fa0e-11ea-97f8-d60275130e01.png)
-
-- For x64 systems: Version 1903 or higher, with Build 18362 or higher.
-- For ARM64 systems: Version 2004 or higher, with Build 19041 or higher.
-- Builds lower than 18362 do not support WSL 2. Use the Windows Update Assistant to update your version of Windows.
-
-## Step 2: Install WSL2
-You can install WSL2 by following steps here:
-https://docs.microsoft.com/en-us/windows/wsl/install-win10
-- Please only follow till step 5 in the link given above.
-- The windows version number and build number will be useful in determining whether or not your system needs to be updated.
-
-## Step 3: Installing the ubuntu app from the Microsoft Store.
-Install Ubuntu 18.04 LTS from the Microsoft Store.
-Once it is installed, run the app from the startup menu. After initializing your environment, it will ask you to create a user. Provide a username and password.
-
-![Screenshot 2020-09-18 at 11 57 10 PM](https://user-images.githubusercontent.com/23002114/93634594-7ce3a000-fa0e-11ea-93ef-255ac6b90290.png)
-| | |
-|-|-|
-|![Screenshot 2020-09-18 at 11 57 22 PM](https://user-images.githubusercontent.com/23002114/93634596-7e14cd00-fa0e-11ea-8a07-0b4b65499225.png)|![Screenshot 2020-09-18 at 11 57 35 PM](https://user-images.githubusercontent.com/23002114/93634597-7fde9080-fa0e-11ea-8ba1-0c29be080fd7.png)|
-
-**Note: You can go for Ubuntu 20.04 as well but it comes as a barebones config. It means that you will have to install gcc, make, etc to run oppia.**
-
-## Step 4: Clone your fork and setup:
-Run the following commands:
-```
-sudo apt install python-minimal
-sudo apt install python-pip
-mkdir oppia
-cd oppia
-git clone https://github.com/your_username/oppia.git
-cd oppia
-bash scripts/install_prerequisites.sh
-python -m scripts.start
-```
-Open your browser and start developing 🙂.
-
-## Step 5: Download and install google-chrome
-
-Run the following command to download latest chrome: 
-```
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo apt install ./google-chrome-stable_current_amd64.deb
-```
-**Note: make sure to download this outside the oppia folder so that you don't have to worry about pushing the file by mistake.**
-
-## Step 6: Adding a lightweight desktop environment
-```
-sudo apt update && sudo apt -y upgrade  
-sudo apt-get purge xrdp  
-sudo apt install -y xrdp  
-sudo apt install -y xfce4  
-sudo apt install -y xfce4-goodies  
-sudo cp /etc/xrdp/xrdp.ini /etc/xrdp/xrdp.ini.bak  
-sudo sed -i 's/3389/3390/g' /etc/xrdp/xrdp.ini  
-sudo sed -i 's/max_bpp=32/#max_bpp=32\nmax_bpp=128/g' /etc/xrdp/xrdp.ini  
-sudo sed -i 's/xserverbpp=24/#xserverbpp=24\nxserverbpp=128/g' /etc/xrdp/xrdp.ini  
-echo xfce4-session > ~/.xsession
-```
-
-### Edit config.
-```
-sudo nano /etc/xrdp/startwm.sh 
-```
-comment these lines to: 
-```
-#test -x /etc/X11/Xsession && exec /etc/X11/Xsession
-#exec /bin/sh /etc/X11/Xsession
-```
-and add these lines: 
-```
-# xfce
-startxfce4
-```
-## Step 7: Start the rdp server:
-`sudo /etc/init.d/xrdp start`
-
-## Step 8: Connect to the server using the Windows RDP client:
-Name of the app is "Remote Desktop Connection". It is already installed in the windows system by default. No need to use any third-party app.
-
-![Screenshot 2020-09-19 at 12 33 03 AM](https://user-images.githubusercontent.com/23002114/93635466-f334d200-fa0f-11ea-99d3-da39d4deecd8.png)
-
-It will ask for a field called "computer". Add `localhost:3390` in that field and hit connect.
-
-![Screenshot 2020-09-19 at 12 33 38 AM](https://user-images.githubusercontent.com/23002114/93635471-f4fe9580-fa0f-11ea-995b-48b15f45150f.png)
-
-The very first time it will ask for username and password. Enter the username and password you created in step 3.
-
-## Running the e2e test:
-- Open the terminal (in the ubuntu-desktop env/ the RDP client) and run `google-chrome`
-- Open a new terminal tab and run your e2e tests 🙂. To check you can run `python -m scripts.run_e2e_tests --suite="users"` 
-
-## Miscellaneous
-- The WSL environment does not support audio, but it can be enabled by installing the [PulseAudio](https://wiki.ubuntu.com/PulseAudio) server on Windows following [this guide](https://token2shell.com/howto/x410/enabling-sound-in-wsl-ubuntu-let-it-sing/). With the latest [wslu package](https://launchpad.net/ubuntu/+source/wslu) installed the starting Ubuntu app detects the running [PulseAudio](https://wiki.ubuntu.com/PulseAudio) server and enables audio.
-- You only need to use the RDP client to run e2e tests. You don't have to start the X server for developing and pushing code.
-- VSCode comes with an extension called remote-wsl, that makes it very easy to code when the code exists in your Ubuntu folder.
-- You can clone your oppia repository in your windows file system. You can go to your C drive by `cd /mnt/c/` and setup up there. That way you can edit with your favourite code editor 🙂.
-- When in the ubuntu file system, you can type `explorer.exe .`  (don't forget the extra dot at the end) to open that folder in your windows file explorer.
-- Default terminal apps in windows don't have many features. Windows Terminal is an app by Microsoft. It enables multiple tabs (quickly switch between multiple Linux command lines, Windows Command Prompt, PowerShell, Azure CLI, etc), create custom key bindings (shortcut keys for opening or closing tabs, copy+paste, etc.), use the search feature, and custom themes (color schemes, font styles and sizes, background image/blur/transparency). [Learn More](https://docs.microsoft.com/en-us/windows/terminal).
-[Link to Install Windows Terminal](https://docs.microsoft.com/en-us/windows/terminal/get-started).
-
-
