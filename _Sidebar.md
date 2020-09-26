@@ -54,6 +54,7 @@
     * [[Running jobs in production|Running-jobs-in-production]]
     * [[Team structure|Team-Structure]]
     * [[Ongoing Projects|Ongoing-Projects]]
+    * [[Revert and Regression Policy|Revert-and-Regression-Policy]]
   * Testing Oppia
     * [[Mobile device testing|Mobile-device-testing]]
     * [[Browser & device testing|Browser-and-Device-Testing-Using-BrowserStack]]
