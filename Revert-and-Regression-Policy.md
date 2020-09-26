@@ -91,4 +91,4 @@ If the PR that introduced the regression hasn't been reverted, please follow the
     
 5.  Submit a new PR with your original changes + the fixes and tests from (4). Make sure to detail the investigation in this new PR, and reference the original issue that tracked the regression.
 
-Finally, be aware that everyone causes regressions. While we have a lot of checks in place to try and avoid regressions from being checked in, they will still happen. Focus on learning from the situation rather focusing on the fact that a regression happened
+Finally, be aware that everyone causes regressions. While we have a lot of checks in place to try and avoid regressions from being checked in, they will still happen. Focus on learning from the situation rather focusing on the fact that a regression happened.
