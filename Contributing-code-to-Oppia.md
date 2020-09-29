@@ -44,6 +44,7 @@ That said, we strongly recommend that you be open to learning new things. If you
 Welcome! Please make sure to follow the [setup instructions](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up) above if you haven't already. After that, we'd **strongly recommend** tackling some part of one of the following starter issues:
 
 - [#8472](https://github.com/oppia/oppia/issues/8472) (Migrating AngularJS files to Angular 8)
+- [#10798](https://github.com/oppia/oppia/issues/10798) (Fixing end-to-end tests, which are written with protractor)
 - [#4057](https://github.com/oppia/oppia/issues/4057) (frontend; Karma tests)
 - [#8668](https://github.com/oppia/oppia/issues/8668) (frontend; documenting the services)
 - [#8015](https://github.com/oppia/oppia/issues/8015) (Refactoring frontend - Services should return domain objects instead of dicts)
