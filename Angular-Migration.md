@@ -801,4 +801,153 @@ When a service has a dependent service, DI (dependency injector) finds or create
     
 5.  What are MockServices/FakeServices that are in the codebase? MockServices are basically just used to imitate real services and provide functionality for tests via inorganically made function copies of the service. These are faster but don’t test services so be wary of using them. The reason we use them is that we want to want to test the current service, not the other service, so we just use a small shell to use the functionality we want.
 
-_For any queries related to angular migration, please don't hesitate to reach out to **Nitish Bansal (@bansalnitish)**._
+## Implementation details to refactor Object Factories:
+
+### 1. Remove the following imports:
+
+The following imports will no longer be required.
+
+```
+import { downgradeInjectable } from '@angular/upgrade/static';	
+import { Injectable } from '@angular/core';
+```
+
+### 2. Change the file overview
+Change the file overview to not include the term Object Factory. Instead, replace it with the word "model".
+
+eg:
+| Before | After |
+|--------|-------|
+|`Factory for creating new frontend instances of ParamMetadata`|`Model class for creating new frontend instances of ParamMetadata`|
+
+### 3. Move functions from ObjectFactory class.
+
+Locate a class in the whose name is suffixed by ObjectFactory. Move all the functions from that ObjectFactory class (except the constructor) and add them to the other class in the file. Add static in front of all the functions you moved.
+
+Before:
+```
+export class ParamMetadata {
+  action: string;
+  paramName: string;
+  source: string;
+  sourceInd: string;
+  constructor(
+      action: string, paramName: string, source: string, sourceInd: string) {
+    this.action = action;
+    this.paramName = paramName;
+    this.source = source;
+    this.sourceInd = sourceInd;
+  }
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ParamMetadataObjectFactory {
+  createWithSetAction(
+      paramName: string, source: string, sourceInd: string): ParamMetadata {
+    return new ParamMetadata(
+      ExplorationEditorPageConstants.PARAM_ACTION_SET, paramName, source,
+      sourceInd);
+  }
+
+  createWithGetAction(
+      paramName: string, source: string, sourceInd: string): ParamMetadata {
+    return new ParamMetadata(
+      ExplorationEditorPageConstants.PARAM_ACTION_GET, paramName, source,
+      sourceInd);
+  }
+}
+```
+After
+```
+export class ParamMetadata {
+  action: string;
+  paramName: string;
+  source: string;
+  sourceInd: string;
+  constructor(
+      action: string, paramName: string, source: string, sourceInd: string) {
+    this.action = action;
+    this.paramName = paramName;
+    this.source = source;
+    this.sourceInd = sourceInd;
+  }
+
+  static createWithSetAction(
+      paramName: string, source: string, sourceInd: string): ParamMetadata {
+    return new ParamMetadata(
+      ExplorationEditorPageConstants.PARAM_ACTION_SET, paramName, source,
+      sourceInd);
+  }
+
+  static createWithGetAction(
+      paramName: string, source: string, sourceInd: string): ParamMetadata {
+    return new ParamMetadata(
+      ExplorationEditorPageConstants.PARAM_ACTION_GET, paramName, source,
+      sourceInd);
+  }
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ParamMetadataObjectFactory {
+
+}
+```
+Remove the @Injectable and the object factory class after this.
+Remove these:
+```
+@Injectable({
+  providedIn: 'root'
+})
+export class ParamMetadataObjectFactory {
+
+}
+angular.module('oppia').factory(
+  'ParamMetadataObjectFactory',
+  downgradeInjectable(ParamMetadataObjectFactory));
+
+```
+
+### 4. Remove the imports and class listings/ instantiation from the following files:
+- angular-service.index.ts
+- oppia-angular-root.component.ts
+- UgradedServices.ts
+
+### 5. Rename the file.
+
+The file you would be working on will be named either `*-object.factory.ts` or `*ObjectFactory.ts`. You need to remove the object factory part and add .model.ts instead. For example, `PlaythroughObjectFactory.ts` should be renamed to `playthrough-object.model.ts and `skill-summary-object.factory.ts` should be renamed to `skill-summary.model.ts`.
+
+### 6. Change the import (as you have changed the name of the file) and its usage around the codebase.
+
+Patterns that will change:
+** Make sure to search with the function name**
+For example, let one of the functions that you moved before (in step 3) be `createWithGetAction`.
+
+#### Pattern 1. ParamMetadataObjectFactory.createWithGetAction(...);
+
+import ParamMetadata from param-metadata.model.ts
+
+Change `ParamMetadataObjectFactory.createWithGetAction()` to `ParamMetadata.createWithGetAction(...)`;
+
+Do this for all functions.
+
+Remove any other ParamMetadataObjectFactory left in the file.
+
+#### Pattern 2. this.paramMetadataObjectFactory.createWithGetAction(...);
+
+Make sure that ParamMetadata has been imported.
+
+Change `this.paramMetadataObjectFactory.createWithGetAction(...)` to `ParamMetadata.createWithGetAction(...)`;
+
+Do this for all functions.
+
+Remove paramMetadataObjectFactory from constructor.
+
+### 7. Changing the spec file:
+
+Each *-object.factory.ts will have its corresponding spec file name *-object.factory.spec.ts. You will need to follow the procedure mentioned in step 6,i.e. the previous step, to refactor the spec as well. Note that in spec file ParamMetadataObjectFactory could be shortened as `pmof`. So searching by function name in the spec file will be more accurate.
+
+_For any queries related to angular migration, please don't hesitate to reach out to **Srijan Reddy (@srijanreddy98)**._
