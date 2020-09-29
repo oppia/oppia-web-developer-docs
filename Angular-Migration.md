@@ -949,5 +949,5 @@ Remove paramMetadataObjectFactory from constructor.
 ### 7. Changing the spec file:
 
 Each *-object.factory.ts will have its corresponding spec file name *-object.factory.spec.ts. You will need to follow the procedure mentioned in step 6,i.e. the previous step, to refactor the spec as well. Note that in spec file ParamMetadataObjectFactory could be shortened as `pmof`. So searching by function name in the spec file will be more accurate.
-
+PR's for reference: [#10701](https://github.com/oppia/oppia/pull/10701/), [#10713](https://github.com/oppia/oppia/pull/10713/)
 _For any queries related to angular migration, please don't hesitate to reach out to **Srijan Reddy (@srijanreddy98)**._
