@@ -712,94 +712,6 @@ Modified: https://github.com/oppia/oppia/pull/9957/files#diff-45cbfaec92adcc7097
  4. Manual testing
 	 See where the directive you have migrated is being used. You can do this by seeing where it's corresponding `selector` is being used. Then check whether functionality that you have implemented works as expected (like on the develop branch). Add a screen recording of the places where the directive is used when you open your PR!
 
-## FAQ
-
-**Common Issues with Migrating Services**
-1. Front-end tests fail
-    This can for various reasons, but the most common one is return types. You will get errors like: ‘a’ is not defined on an object of type ‘X’. Try console logging the object you are receiving actually has the property you’re calling and adjust accordingly. This will mostly happen with HttpResponse objects.
-
-**Common Issues with Migrating Directives**
-
-1. Error like this:
- ```
- 'some-selector' is not a known element: 
- 1. If 'some-selector' is an Angular component, then verify that it is part of this module. 
- 2. 2. If 'some-selector' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
- ```
- This can occur for a couple of reasons:
-	 a. The corresponding external Angular module is not yet integrated into the code-base eg. For `ngModel`, you need the `FormsModule`
-	b. It is another unmigrated directive. You need to wrap it in an Angular wrapper and import it into your current module. Do it via the shared component module. Use [#9237](https://github.com/oppia/oppia/pull/9237/files) for reference
-	c. The Angular module has a different selector i.e `md-card` becomes `mat-card`
-
-
-**Why do we need @Injectable decorator?**
-
-The first line is needed since our app is in hybrid state i.e half angular and half AngularJS and we need to downgrade each of our services to AngularJS so that our application runs smoothly. The second line is needed as a decorator in every service. To define a class as a service, Angular uses the @Injectable() decorator to provide the metadata that allows Angular to inject it into a component as a dependency. 
-For any class that is to be used as service, we need to add the following decorator for the above reason.
-When we provide the service at the root level, Angular creates a single, shared instance of the service and injects it into any class that asks for it. Registering the provider in the @Injectable() metadata also allows Angular to optimize an app by removing the service from the compiled app if it isn't used. There are two other methods for registering a service but we’ll go with the one described above.
-
-**Why do we need `$rootScope.$apply` with HTTP requests?**
-
-As you can see in the link here, the directive updates the value when the promise is resolved.
-```
-TopicViewerBackendApiService.fetchTopicData(ctrl.topicName).then(
-  function(topicDataDict) {
-    ctrl.topicId = topicDataDict.topic_id;
-    ctrl.canonicalStoriesList = topicDataDict.canonical_story_dicts;
-    ctrl.degreesOfMastery = topicDataDict.degrees_of_mastery;
-    ctrl.skillDescriptions = topicDataDict.skill_descriptions;
-    ctrl.subtopics = topicDataDict.subtopics;
-    $rootScope.loadingMessage = '';
-    ctrl.topicId = topicDataDict.id;
-```
-Everything was working fine before the migration, but after migration, we noticed that all the values in the above-mentioned function were updated but not propagated to the corresponding HTML file. Searched online gave [stackoverflow](https://stackoverflow.com/a/21659051) link which mentions four points of which one is
-
-_Yes, AngularJS's bindings are "turn-based", they only fire on certain DOM events and on calls to `$apply/$digest`. There are some useful services like `$http` and `$timeout` that do the wrapping for you, but anything outside of that requires calls to either `$apply` or `$digest`._
-`$digest` cycle is not running after we've upgraded `$http` to `HttpClient` and adding `$rootScope.$apply` to explicitly ask Angular to propagate the changes to Html is the solution that works perfectly.
-
-**What is TestBed?**
-
-When a service has a dependent service, DI (dependency injector) finds or creates that dependent service. And if that dependent service has its own dependencies, DI finds-or-creates them as well. From Angular docs “As a service tester, you must at least think about the first level of service dependencies but you can let Angular DI do the service creation and deal with constructor argument order when you use the TestBed testing utility to provide and create services” i.e DI will deal with a constructor argument
-
-**Some Common Migration Queries**
-1.  What are Promises? - Promises are exactly what they sound like. In the simplest words, they are a promise to the developer that things will work, what to do when they work, and also when they don’t work.
-    
-	 They can have three states:
-	    
-
-	1.  Resolved: The caller of the promise has executed as expected.
-	    
-	2.  Rejected: The caller of the promise didn’t execute as expected
-	    
-	3.  Pending: The caller is yet to be executed
-    
-	So,  then what exactly are the resolve and reject that we pass? They are simply the function calls that we pass. Eg. successCallback(abcd) will give parameter abcd to the resolve function when the promise caller is called.
-	    
-	How is it structured? A promise is called using a .then() statement after the function. Note that you cannot put this after any function, only one that returns a promise. Then functions follow. If there is only one function, it is the resolve function. If there are two functions, they are called resolve and reject respectively. The reject function is used mostly for error handling and unexpected behaviour
-    
-	  For more reading check out the [MDN Guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)!
-    
-
-2. What is `rootScope`? - Angular has scopes. `$scope` is a local scope, which is bound to exactly one controller. It can local properties and functions of the controller. `$rootScope` on the other hand, is the global scope and can be accessed from everywhere.
-    
-
-	What is `$rootScope.$apply()` and why do we use it? `$rootScope.$apply` is used to update the global properties and variables so that the new state can be used by the function where it is called. As to why it is not updated automatically, the reason is that the Angular DOM basically runs in cycles, and apply causes the changes to be saved. Mostly this is done explicitly, but in some cases, we have to do it explicitly. This is mentioned in the Angular migration guide. Remember that this function will go in the resolve of the promise! This is because we want the variables to get to their new state in case of expected behaviour.
-    
-	For more reference: [Scopes](https://docs.angularjs.org/guide/scope)
-    
-
-3. How to assign types in the Angular file?
-    
-	Follow a trail. Some are really simple. But they all follow the same pattern. Keep following the variable through different references to see what type to assign. You can even use other references of that variable. Eg. If you wanted to assign a type to a function that returned WindowRef.nativeWindow! I went to window-ref.service file saw that nativeWindow returned the _window object which had a type Window. Just follow trails.
-    
-	Other times it might be obvious from the name. Eg SkillList is obviously an array of Skills. However, double-check these!
-    
-	The final way is to use a console log statement. This is good for complicated data types. Run the python development server and log the value where you get the return. You’ll see something of type Object with certain properties. Global search these properties in the codebase and find out what type it is!
-    
-
-4.  What is fakeAsync() and flushMicrotasks() and why do we use it? For this we need to understand why being synchronous is a problem for tests. Compilers don’t compile code line by line and instead push processes into a queue as they come and the resulting processes are pushed once these end. What this means is that a process whose parent was called earlier may be executed after another whose parent was called later due to how much time the parent processes took. To make an asynchronous function synchronous we use fakeAsync combined with flushMicrotasks. FakeAsync creates a fake asynchronous zone wherein you can control process flow. When flushMicrotasks is called, it flushes the task queues, i.e it waits for the processes to leave the queue before proceeding further. So, the tests are consistent!
-    
-5.  What are MockServices/FakeServices that are in the codebase? MockServices are basically just used to imitate real services and provide functionality for tests via inorganically made function copies of the service. These are faster but don’t test services so be wary of using them. The reason we use them is that we want to want to test the current service, not the other service, so we just use a small shell to use the functionality we want.
 
 ## Implementation details to refactor Object Factories:
 
@@ -949,5 +861,96 @@ Remove paramMetadataObjectFactory from constructor.
 ### 7. Changing the spec file:
 
 Each *-object.factory.ts will have its corresponding spec file name *-object.factory.spec.ts. You will need to follow the procedure mentioned in step 6,i.e. the previous step, to refactor the spec as well. Note that in spec file ParamMetadataObjectFactory could be shortened as `pmof`. So searching by function name in the spec file will be more accurate.
-PR's for reference: [#10701](https://github.com/oppia/oppia/pull/10701/), [#10713](https://github.com/oppia/oppia/pull/10713/)
+
+**PR's for reference: [#10701](https://github.com/oppia/oppia/pull/10701/), [#10713](https://github.com/oppia/oppia/pull/10713/)**
+
+## FAQ
+
+**Common Issues with Migrating Services**
+1. Front-end tests fail
+    This can for various reasons, but the most common one is return types. You will get errors like: ‘a’ is not defined on an object of type ‘X’. Try console logging the object you are receiving actually has the property you’re calling and adjust accordingly. This will mostly happen with HttpResponse objects.
+
+**Common Issues with Migrating Directives**
+
+1. Error like this:
+ ```
+ 'some-selector' is not a known element: 
+ 1. If 'some-selector' is an Angular component, then verify that it is part of this module. 
+ 2. 2. If 'some-selector' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+ ```
+ This can occur for a couple of reasons:
+	 a. The corresponding external Angular module is not yet integrated into the code-base eg. For `ngModel`, you need the `FormsModule`
+	b. It is another unmigrated directive. You need to wrap it in an Angular wrapper and import it into your current module. Do it via the shared component module. Use [#9237](https://github.com/oppia/oppia/pull/9237/files) for reference
+	c. The Angular module has a different selector i.e `md-card` becomes `mat-card`
+
+
+**Why do we need @Injectable decorator?**
+
+The first line is needed since our app is in hybrid state i.e half angular and half AngularJS and we need to downgrade each of our services to AngularJS so that our application runs smoothly. The second line is needed as a decorator in every service. To define a class as a service, Angular uses the @Injectable() decorator to provide the metadata that allows Angular to inject it into a component as a dependency. 
+For any class that is to be used as service, we need to add the following decorator for the above reason.
+When we provide the service at the root level, Angular creates a single, shared instance of the service and injects it into any class that asks for it. Registering the provider in the @Injectable() metadata also allows Angular to optimize an app by removing the service from the compiled app if it isn't used. There are two other methods for registering a service but we’ll go with the one described above.
+
+**Why do we need `$rootScope.$apply` with HTTP requests?**
+
+As you can see in the link here, the directive updates the value when the promise is resolved.
+```
+TopicViewerBackendApiService.fetchTopicData(ctrl.topicName).then(
+  function(topicDataDict) {
+    ctrl.topicId = topicDataDict.topic_id;
+    ctrl.canonicalStoriesList = topicDataDict.canonical_story_dicts;
+    ctrl.degreesOfMastery = topicDataDict.degrees_of_mastery;
+    ctrl.skillDescriptions = topicDataDict.skill_descriptions;
+    ctrl.subtopics = topicDataDict.subtopics;
+    $rootScope.loadingMessage = '';
+    ctrl.topicId = topicDataDict.id;
+```
+Everything was working fine before the migration, but after migration, we noticed that all the values in the above-mentioned function were updated but not propagated to the corresponding HTML file. Searched online gave [stackoverflow](https://stackoverflow.com/a/21659051) link which mentions four points of which one is
+
+_Yes, AngularJS's bindings are "turn-based", they only fire on certain DOM events and on calls to `$apply/$digest`. There are some useful services like `$http` and `$timeout` that do the wrapping for you, but anything outside of that requires calls to either `$apply` or `$digest`._
+`$digest` cycle is not running after we've upgraded `$http` to `HttpClient` and adding `$rootScope.$apply` to explicitly ask Angular to propagate the changes to Html is the solution that works perfectly.
+
+**What is TestBed?**
+
+When a service has a dependent service, DI (dependency injector) finds or creates that dependent service. And if that dependent service has its own dependencies, DI finds-or-creates them as well. From Angular docs “As a service tester, you must at least think about the first level of service dependencies but you can let Angular DI do the service creation and deal with constructor argument order when you use the TestBed testing utility to provide and create services” i.e DI will deal with a constructor argument
+
+**Some Common Migration Queries**
+1.  What are Promises? - Promises are exactly what they sound like. In the simplest words, they are a promise to the developer that things will work, what to do when they work, and also when they don’t work.
+    
+	 They can have three states:
+	    
+
+	1.  Resolved: The caller of the promise has executed as expected.
+	    
+	2.  Rejected: The caller of the promise didn’t execute as expected
+	    
+	3.  Pending: The caller is yet to be executed
+    
+	So,  then what exactly are the resolve and reject that we pass? They are simply the function calls that we pass. Eg. successCallback(abcd) will give parameter abcd to the resolve function when the promise caller is called.
+	    
+	How is it structured? A promise is called using a .then() statement after the function. Note that you cannot put this after any function, only one that returns a promise. Then functions follow. If there is only one function, it is the resolve function. If there are two functions, they are called resolve and reject respectively. The reject function is used mostly for error handling and unexpected behaviour
+    
+	  For more reading check out the [MDN Guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)!
+    
+
+2. What is `rootScope`? - Angular has scopes. `$scope` is a local scope, which is bound to exactly one controller. It can local properties and functions of the controller. `$rootScope` on the other hand, is the global scope and can be accessed from everywhere.
+    
+
+	What is `$rootScope.$apply()` and why do we use it? `$rootScope.$apply` is used to update the global properties and variables so that the new state can be used by the function where it is called. As to why it is not updated automatically, the reason is that the Angular DOM basically runs in cycles, and apply causes the changes to be saved. Mostly this is done explicitly, but in some cases, we have to do it explicitly. This is mentioned in the Angular migration guide. Remember that this function will go in the resolve of the promise! This is because we want the variables to get to their new state in case of expected behaviour.
+    
+	For more reference: [Scopes](https://docs.angularjs.org/guide/scope)
+    
+
+3. How to assign types in the Angular file?
+    
+	Follow a trail. Some are really simple. But they all follow the same pattern. Keep following the variable through different references to see what type to assign. You can even use other references of that variable. Eg. If you wanted to assign a type to a function that returned WindowRef.nativeWindow! I went to window-ref.service file saw that nativeWindow returned the _window object which had a type Window. Just follow trails.
+    
+	Other times it might be obvious from the name. Eg SkillList is obviously an array of Skills. However, double-check these!
+    
+	The final way is to use a console log statement. This is good for complicated data types. Run the python development server and log the value where you get the return. You’ll see something of type Object with certain properties. Global search these properties in the codebase and find out what type it is!
+    
+
+4.  What is fakeAsync() and flushMicrotasks() and why do we use it? For this we need to understand why being synchronous is a problem for tests. Compilers don’t compile code line by line and instead push processes into a queue as they come and the resulting processes are pushed once these end. What this means is that a process whose parent was called earlier may be executed after another whose parent was called later due to how much time the parent processes took. To make an asynchronous function synchronous we use fakeAsync combined with flushMicrotasks. FakeAsync creates a fake asynchronous zone wherein you can control process flow. When flushMicrotasks is called, it flushes the task queues, i.e it waits for the processes to leave the queue before proceeding further. So, the tests are consistent!
+    
+5.  What are MockServices/FakeServices that are in the codebase? MockServices are basically just used to imitate real services and provide functionality for tests via inorganically made function copies of the service. These are faster but don’t test services so be wary of using them. The reason we use them is that we want to want to test the current service, not the other service, so we just use a small shell to use the functionality we want.
+
 _For any queries related to angular migration, please don't hesitate to reach out to **Srijan Reddy (@srijanreddy98)**._
