@@ -57,8 +57,6 @@ python -m scripts.start
 ```
 If you are facing problems with pushing the code to your fork check this link: [WSL_GIT](https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-git).
 
-**Note: The very first-time `python -m scripts.start` takes ~10 mins. If it stuck at `INFO     2020-09-20 02:31:28,856 module.py:865] default: "GET /_ah/warmup HTTP/1.1" 200 -` don't be worried. It takes some time**
-
 ## Step 5: Download and install google-chrome (in the Ubuntu Environment):
 
 _Even if you have Chrome installed on you windows system, you still need to do this to run E2E tests and unit tests._
