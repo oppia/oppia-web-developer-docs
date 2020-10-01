@@ -42,7 +42,8 @@ That said, we strongly recommend that you be open to learning new things. If you
 ### ... as a new contributor
 
 Welcome! Please make sure to follow the [setup instructions](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up) above if you haven't already. After that, we'd **strongly recommend** tackling some part of one of the following starter issues:
-
+- [#10700](https://github.com/oppia/oppia/issues/10700) (Refactor all migrated object factories to model.ts files in angular)
+- [#9749](https://github.com/oppia/oppia/issues/9749) (Migrate directives/controllers to Angular components)
 - [#8472](https://github.com/oppia/oppia/issues/8472) (Migrating AngularJS files to Angular 8)
 - [#10798](https://github.com/oppia/oppia/issues/10798) (Fixing end-to-end tests, which are written with protractor)
 - [#4057](https://github.com/oppia/oppia/issues/4057) (frontend; Karma tests)
