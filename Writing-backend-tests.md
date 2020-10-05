@@ -34,17 +34,21 @@ The resulting coverage report lists each backend file, along with the lines in i
 
       These names are good because it's easy to see what the differences between the tests are: one tests an invalid auth, and the other tests an unregistered auth. Correspondingly, these conditions lead to different outcomes ('name is none' vs. 'auth ID is empty list').
 
-1. Tests should use the following general structure:
+2. Tests should use the following general structure:
    * **Setup** - this is where you prepare any inputs/environment needed for the test.
    * **Baseline verification** - check the values without performing any action. This step is only needed if your action is state-changing (i.e., if the same assert statement would lead to one result at baseline, and a different result at endline). Use the same assertion here that you would use at endline.
    * **Action** - perform the action or function call that leads to the expected change.
    * **Endline verification** - check that the values in the baseline verification have changed accordingly.
 
-1. **Test the interface**, not the implementation. That is, treat the function as a black box and test its functionalities. This will help you design a better API from an external user’s perspective.
+3. **Test the interface**, not the implementation. That is, treat the function as a black box and test its functionalities. This will help you design a better API from an external user’s perspective.
 
-1. Keep tests **simple**. Don't include any logic in the test. Write the test as a series of straightforward, descriptive and meaningful commands (also known in programming circles as "DAMP"). It's fine if there's some repetition, as long as the tests are easy to read.
+4. Keep tests **simple**. Don't include any logic in the test. Write the test as a series of straightforward, descriptive and meaningful commands (also known in programming circles as "DAMP"). It's fine if there's some repetition, as long as the tests are easy to read.
 
-1. When building your suite of tests, try to include a range of possible behaviours, such as:
+5. **Don't use what you don't need.** By default, prefer to inherit from `unittest.TestCase` when writing tests. Only use `test_utils.GenericTestCase` when you need to interact with models or the app itself. This helps keep our tests lean and fast.
+
+   As a general rule, if the only thing your test needs to do is run a function and assert something about its return value, then `unittest.TestCase` is good enough. See https://github.com/oppia/oppia/pull/10869/files for an example of where both kinds of tests were necessary.
+
+6. When building your suite of tests, try to include a range of possible behaviours, such as:
      * "Happy path" cases
      * Boundary/edge cases
      * Failure cases
@@ -52,7 +56,7 @@ The resulting coverage report lists each backend file, along with the lines in i
 
     Also, try testing multiple contrasting behaviours in order to ensure that the test is correct. E.g. if you are checking that an exception is raised under a certain criterion, also add a test to ensure that the exception is not raised when the criterion is not satisfied.
 
-1. For **test outputs**, follow these guidelines:
+7. For **test outputs**, follow these guidelines:
      * Test each output as exactly and completely as possible. E.g. it's better to compare equality for an entire dict, rather than just checking that a particular value has changed.
      * Use `assertTrue()` / `assertFalse()` instead of `assertEqual(value, True/False)`.
      * Use `assertIsNone` instead of `assertEqual(value, None)`.
@@ -81,11 +85,11 @@ The resulting coverage report lists each backend file, along with the lines in i
      * Assertion 2
      ```
 
-1. If the function under test **depends on some other function**, you can use self.swap() to swap the second function with a simple "mock" function whose output you can define.
+2. If the function under test **depends on some other function**, you can use self.swap() to swap the second function with a simple "mock" function whose output you can define.
 
-1. For assertions that **check errors** (e.g. self.assertRaises or self.assertRaisesRegexp), keep the part of the code enclosed in self.assertRaises as small as possible, so that you can be sure that the error is actually being caused by that part of the code (and not, say, by the setup code).
+3. For assertions that **check errors** (e.g. self.assertRaises or self.assertRaisesRegexp), keep the part of the code enclosed in self.assertRaises as small as possible, so that you can be sure that the error is actually being caused by that part of the code (and not, say, by the setup code).
 
-1. **Guidelines for testing private methods/functions**: Tests should only be written to verify the behaviour of **public** methods/functions. Here are some suggestions for what to do in specific cases involving private functions (if this doesn't help for your particular case and you're not sure what to do, please talk to **@BenHenning**):
+4. **Guidelines for testing private methods/functions**: Tests should only be written to verify the behaviour of **public** methods/functions. Here are some suggestions for what to do in specific cases involving private functions (if this doesn't help for your particular case and you're not sure what to do, please talk to **@BenHenning**):
    * If you’re trying to access hidden information, consider getting that information from one level below instead (e.g. datastore).
    * If you want to test code within a private method/function, test it by instead calling a public function that makes use of that function, or move it to a utility (if it's general-purpose) where it becomes public. Avoid testing private APIs since that may lead to brittle tests in unexpected situations (such as when the implementation of the API changes, but the behaviour remains the same).
 
@@ -128,7 +132,7 @@ class ExplorationTheme(object):
 a test would be written like:
 
 ```python
-class ExplorationThemeDomainUnitTests(test_utils.GenericTestBase):
+class ExplorationThemeDomainUnitTests(unittest.TestCase):
   """Tests for exploration theme domain class."""
 
   def setUp(self):
