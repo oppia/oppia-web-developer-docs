@@ -19,7 +19,7 @@ _The following instructions will install Oppia on your local machine._
 
 Oppia relies on a number of programs and third-party libraries. Many of these libraries are downloaded automatically for you when you first run the `start.py` script provided with Oppia (see step 1 in the next section). However, there are some things that you will need to do beforehand:
 
-1. Ensure that you have [Python 2.7](http://www.python.org/download/releases/2.7/) installed.
+1. Ensure that you have [Python 2.7](http://www.python.org/download/releases/2.7/) installed (Note: you can check this by running `python --version`). If Python 2.7 is not installed, you can probably install it through your package manager. If not, download and run the latest Python 2.7 installer from https://www.python.org/downloads/. Make sure you download an installer for Python 2 and not Python 3!
 
 2. Make sure you have curl (used to download third-party libraries), setuptools (needed for installing coverage, which checks test coverage for the Python code), git (which allows you to store the source in version control), python-dev (which is used for the numpy installation), python-pip (which is also used for the numpy installation) and pyyaml (which is used to parse YAML files):
 
