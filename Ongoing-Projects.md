@@ -37,7 +37,7 @@
 ***
 
 * ### Angular 8 Migration:
-     **Project lead**: Nitish Bansal
+     **Project lead**: Srijan Reddy
 
      **Aim**: Upgrading Angularjs to Angular 8.
 
