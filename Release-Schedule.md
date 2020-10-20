@@ -63,7 +63,7 @@ We also have a project leads council who will be contacted about project specifi
 # Team members
 * Release coordination team: Ankita Saxena (**@ankita240796**), Sandeep Dubey (**@DubeySandeep**), Nithesh Hariharan (**@nithusha21**), Akshay Anand (**@aks681**), Vojtěch Jelínek (**@vojtechjelinek**)
 
-* QA coordinators team: Nithesh Hariharan (**@nithusha21**), Akshay Anand (**@aks681**), Rishabh Rawat (**@Showtim3**), Chris Skalnik (**@U8NWXD**)
+* QA coordinators team: Nithesh Hariharan (**@nithusha21**), Akshay Anand (**@aks681**), Rishabh Rawat (**@Showtim3**), Chris Skalnik (**@U8NWXD**), Kevin Thomas (**@kevintab95**)
 
 # Release coordinators and QA coordinators for upcoming releases
 
