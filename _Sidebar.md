@@ -10,6 +10,7 @@
     * [[Hacktoberfest 2020|Hacktoberfest-2020]]
     * [[SLoP (Semester Long Project) 2020|SLoP-2020]]
   * **[[Good first issues|https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22]]**
+  * [Code of Conduct](https://github.com/oppia/oppia/blob/develop/.github/CODE_OF_CONDUCT.md)
   * Developing Oppia
     * [[FAQs|Frequently-Asked-Questions]]
     * [[Installing Oppia|https://github.com/oppia/oppia/wiki/Installing-Oppia]]
