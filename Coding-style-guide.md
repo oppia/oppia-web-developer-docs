@@ -77,7 +77,6 @@ _General note: We use the ES2017 standard for our JavaScript/TypeScript code. (S
 
 - We use extra parentheses if a statement breaks across multiple lines, similar to Python. In particular, when code in '(...)' or '[...]' spans more than one line, make a line break after the opening parentheses or bracket.
 - The indentation is always 2 spaces.
-- Use underscores as prefixes for private variables or functions that should not be exposed outside their immediate controller/service.
 - Try to start only function names with verbs to help distinguish them from variables. Conversely, do not start variable names with verbs.
 
    For example:
@@ -115,6 +114,7 @@ _General note: We use the ES2017 standard for our JavaScript/TypeScript code. (S
        });
     }
     ```
+- For functions or variables that are private and that should not be exposed outside their immediate controller/service, prefix their names with an underscore (`_`) and add the `private` keyword.
 
 ## Typescript
 - Make sure to follow all the javascript rules here as well.
