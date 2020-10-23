@@ -9,3 +9,4 @@ Procedure to apply for launching new features:
 - The tester will be given 1 week to file any issues they find.
 - The bugs will need to be fixed before the target release. (Preferably before the release cut, but if it doesn’t make it, then all the issues will be considered blockers for the release).
 - If the major bugs aren't fixed by the time of the release, you'll need to toggle the feature off, and cherrypick that PR for the release.
+- If you like, you can fill in [this form](https://goo.gl/forms/sNBWrW03fS6dBWEp1) to announce your feature to the public!
