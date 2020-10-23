@@ -1,6 +1,6 @@
-Procedure to apply for launching new features:
+Please use the following process for launching major new features that lead to a user-visible change:
 
-- Things to check before filling out the form:
+- Before doing anything else, please:
     - Make sure e2e tests are present for your feature.
     - Make sure it is easy to toggle on and off, in case it needs to be aborted for the release. This implies proper gating of views, controllers, etc.
 - Fill out this [google form](https://forms.gle/m2u1VkQDXWee4euAA).
