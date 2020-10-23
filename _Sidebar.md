@@ -14,8 +14,7 @@
   * Developing Oppia
     * [[FAQs|Frequently-Asked-Questions]]
     * [[Installing Oppia|https://github.com/oppia/oppia/wiki/Installing-Oppia]]
-    * **[[Built something new?|https://goo.gl/forms/sNBWrW03fS6dBWEp1]]**
-    * [[Launching new features|Launching-new-features]] 
+    * **[[Launching new features|Launching-new-features]]**
     * [[Overview of the codebase|Overview-of-the-Oppia-codebase]]
     * [[Coding style guide|Coding-style-guide]]
     * [[How to write lint checks|How-to-Write-Lint-Checks]]
