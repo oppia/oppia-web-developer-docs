@@ -14,7 +14,6 @@
   * Developing Oppia
     * [[FAQs|Frequently-Asked-Questions]]
     * [[Installing Oppia|https://github.com/oppia/oppia/wiki/Installing-Oppia]]
-    * **[[Launching new features|Launching-new-features]]**
     * [[Overview of the codebase|Overview-of-the-Oppia-codebase]]
     * [[Coding style guide|Coding-style-guide]]
     * [[How to write lint checks|How-to-Write-Lint-Checks]]
@@ -52,6 +51,7 @@
     * [[Writing audit jobs|Writing-audit-jobs]]
     * [[Writing new one off jobs using map-reduce|Writing-new-one-off-jobs-using-map-reduce]]
     * [[Running jobs in production|Running-jobs-in-production]]
+    * **[[Launching new features|Launching-new-features]]**
     * [[Team structure|Team-Structure]]
     * [[Ongoing Projects|Ongoing-Projects]]
     * [[Revert and Regression Policy|Revert-and-Regression-Policy]]
