@@ -10,7 +10,6 @@ _If you miss any info or do not understand some instruction in this wiki page pl
     * Deletion policy is a policy used when the user requests the deletion of their user account. The deletion policy should be decided together with the data admins. Some models can be affected by this, there are multiple deletion policies:
         * KEEP — the model should be kept for auditing or logging purposes
         * DELETE — the model only belongs to one user and should be deleted
-        * ANONYMIZE — the model should be completely anonymized
         * LOCALLY_PSEUDONYMIZE — the model should be anonymized accounting for the local context (for example messages from one user in the same thread should have the same id) 
         * KEEP_IF_PUBLIC — the model should be kept if it is accessible from the public (like published explorations)
         * NOT_APPLICABLE — the model is not related to user data at all
