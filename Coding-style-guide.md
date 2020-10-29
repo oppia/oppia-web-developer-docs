@@ -72,6 +72,8 @@ If you use [Sublime Text](http://www.sublimetext.com/), consider installing the 
     ```
   - Be careful [not to use mutable objects](https://google.github.io/styleguide/pyguide.html?showone=Default_Argument_Values#Default_Argument_Values) as default values in the function or method definition. i.e., don't do things like `def foo(a, b=[]):`.
 
+  - Imports should be in three groups: standard libraries, files within the Oppia codebase, and third-party files. Each group should be separated by a single newline. Within each group, imports should be organized alphabetically. If you have additional questions, feel free to reference the [Google Python Style Guide](https://google.github.io/styleguide/pyguide.html#313-imports-formatting).
+
 ## JavaScript
 _General note: We use the ES2017 standard for our JavaScript/TypeScript code. (See [tsconfig.json](https://github.com/oppia/oppia/blob/57333f23af7b67914dc039671f4bc4e029fbb6e7/tsconfig.json#L4).)_
 
