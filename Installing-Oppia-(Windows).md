@@ -247,6 +247,8 @@ Docker allows for an easy installation of Oppia for Windows users and a more rel
 
 The estimated runtime for this script is about 10-20 minutes. It will open a server at localhost:8181. After the terminal prints `INFO ... http://0.0.0.0:8181` or `+ 27 hidden modules`, open localhost:8181 in your local computer browser. If the Oppia server does not load, restart this step.
 
+**Note:** The script should continue to run so long as the development server is on (you’ll see a lot of lines that start with “INFO”) and you’re able to navigate to the page. 
+
 ## Running frontend tests
 
 **Note**: run_frontend_tests.py might not run correctly every time, and we’re still working on figuring out why. 
