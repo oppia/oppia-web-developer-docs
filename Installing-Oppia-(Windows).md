@@ -32,7 +32,8 @@ https://docs.microsoft.com/en-us/windows/wsl/install-win10
 - The windows version number and build number will be useful in determining whether or not your system needs to be updated.
 
 ## Step 3: Installing the ubuntu app from the Microsoft Store.
-Install Ubuntu 18.04 LTS from the Microsoft Store.
+Install Ubuntu 18.04 LTS from the Microsoft Store. **NOTE:** Using “Ubuntu” will NOT work. Only use either Ubuntu 18.04 or Ubuntu 20.04.
+
 Once it is installed, run the app from the startup menu. After initializing your environment, it will ask you to create a user. Provide a username and password.
 
 ![Screenshot 2020-09-18 at 11 57 10 PM](https://user-images.githubusercontent.com/23002114/93634594-7ce3a000-fa0e-11ea-93ef-255ac6b90290.png)
