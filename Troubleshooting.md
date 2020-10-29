@@ -59,6 +59,30 @@ These commands can be used anywhere to kill a running process on any port by usi
     go to `oppia_tools/google_app_engine_1.9.XX/google_appengine/google/appengine/tools` and open the `appengine_rpc.py` file. Comment the following line in it. `opener.add_handler(fancy_urllib.FancyProxyHandler())` . Run the server again.
  [Resource](https://stackoverflow.com/questions/16698621/google-app-engine-error-httperror/17522082)
 
+* If you see an error that contains `OError: [Errno socket error] [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version` when trying to run scripts.start, try installing LibreSSL, uninstall Python, then reinstall Python. [Source](https://github.com/espressif/arduino-esp32/issues/1143)
+
+  * If you’re seeing issues when trying to merge from upstream/develop that say something like `While opening file “/Users/….../oppia/.git/MERGE_MSG” dated: ….. NEWER than swap file!` then try following the given instructions in the error message (more info [here](https://stackoverflow.com/questions/13361729/found-a-swap-file-by-the-name/13361874)). If that doesn’t work, your forked repo may be out of sync with Oppia’s. Make sure your develop branch does NOT have any changes or commits that aren’t present on the original Oppia repo.
+
+   * **Note:** There may be a few warnings that appear after running `start.py`. Don’t worry about these so long as you see the Oppia home page once you go to http://localhost:8181. The script should continue to run so long as the development server is on (you’ll see a lot of lines that start with “INFO”) and you’re able to navigate to the page. 
+
+   * If you see an error that says something along the lines of `OSError: [Errno 2] No such file or directory: '/.../opensource/oppia_tools/google-cloud-sdk-304.0.0/google-cloud-sdk/platform/google_appengine/google/appengine'` while running `scripts.start` - then try deleting the `../oppia_tools` directory and then running `scripts.start` again.
+
+   * If you see any error that contains `/usr/bin/python3:...` that means you’re trying to run something using Python 3, which we do not support. Be sure that you have installed and are using Python 2 instead.
+
+   * If you have issues cloning the GitHub repository, make sure of the following…
+     1. That you’ve already [forked](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/fork-a-repo) the Oppia repository
+     2. That you’re making sure to [clone](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/fork-a-repo#keep-your-fork-synced) from your own fork (making sure to replace `YOUR_USERNAME` in `git clone https://github.com/YOUR-USERNAME/oppia.git` with your GitHub username)
+     3. If you have two-factor authentication (which you should), that you’re typing in your [access token](https://webkul.com/blog/github-push-with-two-factor-authentication/) as your password when prompted (rather than your GitHub password).
+
+   * If you see an error that says something like, `IOError: [Errno socket error] [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed` then try applying the fix detailed in [this StackOverflow question](https://stackoverflow.com/questions/49183801/ssl-certificate-verify-failed-with-urllib).
+
+   * If you see an error that contains `No module named scripts` when trying to run any of our scripts, then make sure that you’re currently in the correct folder (i.e. the directory called `oppia` that directly contains the `scripts` directory). Note that, in general, all scripts should be run from oppia/ (and not from scripts/ or other directories). You can find more information about how to navigate folders using the command line [here](https://www.macworld.com/article/2042378/master-the-command-line-navigating-files-and-folders.html).
+
+   * If you’re using PyCharm or another IDE to run your tests and you see an error that contains `AttributeError: type object '_FailedTest' has no attribute '...'`, double check that your IDE is pointing to a virtual environment with Python 2. You can learn how to edit the configuration of your runner in Pycharm [here](https://www.jetbrains.com/help/pycharm/creating-and-editing-run-debug-configurations.html#createExplicitly).
+
+   * If you repeatedly get errors with `SyntaxError: invalid syntax` for a module or class that you didn’t edit and/or is part of a third party library, then try doing either of the following…
+       * Be sure that libraries were installed using Python 2. If not, uninstall all Python 3 environments and reinstall everything in Python 2.
+       * Delete the `oppia_tools` directory and rerun the script
 
 ### Linux
 
@@ -204,7 +228,6 @@ These commands can be used anywhere to kill a running process on any port by usi
     ```
     If you're not using a virtual environment, make sure that the path to the appengine lib is locatable. Also, make sure that there are no other versions of google libraries installed globally which may cause path conflict issues. Refer to [this blog](https://medium.com/@maanavshah/fixing-python-import-error-no-module-named-appengine-ebcb540e7f18) for more reference.
     If this error occurs within a virtual environment, try reinstalling the libs by running clean.py followed by start.py.
-
 
 ### Mac OS
   * After running `python -m scripts.start`, if you get an error around the following lines: 
