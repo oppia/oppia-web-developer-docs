@@ -10,8 +10,9 @@ _If you miss any info or do not understand some instruction in this wiki page pl
     * Deletion policy is a policy used when the user requests the deletion of their user account. The deletion policy should be decided together with the data admins. Some models can be affected by this, there are multiple deletion policies:
         * KEEP — the model should be kept for auditing or logging purposes
         * DELETE — the model only belongs to one user and should be deleted
+        * DELETE_AT_END — the model only belongs to one user and should be deleted, but the data in that model are relevant for the wipeout process so the model needs to be deleted at the end after all other models are deleted
         * LOCALLY_PSEUDONYMIZE — the model should be anonymized accounting for the local context (for example messages from one user in the same thread should have the same id) 
-        * KEEP_IF_PUBLIC — the model should be kept if it is accessible from the public (like published explorations)
+        * PSEUDONYMIZE_IF_PUBLIC_DELETE_IF_PRIVATE — the model should be pseudonymized if it is accessible from the public (like published explorations) and deleted if it is not public
         * NOT_APPLICABLE — the model is not related to user data at all
     * Takeout policy
         * CONTAINS_USER_DATA — the model contains user data
