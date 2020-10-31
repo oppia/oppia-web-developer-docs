@@ -1,6 +1,6 @@
 _If you miss any info or do not understand some instruction in this wiki page please contact @vojtechjelinek (vojtin.j@gmail.com)._
 
-## Creating a new model
+## Creating a new model class
 
 1. Decide if the model should be versioned or not. 
     * The versioned model preserves the history of all the fields in its snapshots and should be able to revert the current state into the any historical version. Versioned storage models need to inherit from `VersionedModel` (more info is defined in the [VersionedModel docstring](https://github.com/oppia/oppia/blob/develop/core/storage/base_model/gae_models.py#L526))
@@ -21,9 +21,10 @@ _If you miss any info or do not understand some instruction in this wiki page pl
     - By default, the static method `get_lowest_supported_role` (defined in the storage base model) assumes `EXPLORATION_EDITOR` to be the lowest role (meaning that the model can be created for all roles above this role in the hierarchy, including itself).
     - To set a different role, simply override the method in the model class and specify the desired value. 
     - For example - `UserSettingsModel` overrides the `get_lowest_supported_role` and sets the lowest supported role to `LEARNER`. 
-5. (Only if deletion policy is not NOT_APPLICABLE) Add `has_reference_to_user_id(user_id)` to the model, this method should return true when any of the models fields contains the specified `user_id`.
-6. (Only if takeout policy is CONTAINS_USER_DATA) Add `export_data(user_id)` to the model, this method should return the data from the models that belong or reference the specified `user_id`.
-7. [Add validator for the model](https://github.com/oppia/oppia/wiki/Writing-Validators-for-storage-models).
+5. (Only if deletion policy is not NOT_APPLICABLE) Add `has_reference_to_user_id(cls, user_id)` to the model, this method should return true when any of the models fields contains the specified `user_id`.
+6. (Only if deletion policy is DELETE) Add `apply_deletion_policy(cls, user_id)` to the model, this method should delete all the models of this class that in any field reference the user with `user_id`.
+7. (Only if takeout policy is CONTAINS_USER_DATA) Add `export_data(user_id)` to the model, this method should return the data from the models that belong or reference the specified `user_id`.
+8. [Add validator for the model](https://github.com/oppia/oppia/wiki/Writing-Validators-for-storage-models).
 
 ## Modifying a model field
 
