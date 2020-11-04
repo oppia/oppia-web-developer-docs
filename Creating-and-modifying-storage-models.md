@@ -22,9 +22,9 @@ _If you miss any info or do not understand some instruction in this wiki page pl
     - To set a different role, simply override the method in the model class and specify the desired value. 
     - For example - `UserSettingsModel` overrides the `get_lowest_supported_role` and sets the lowest supported role to `LEARNER`. 
 5. (Only if deletion policy **is not** NOT_APPLICABLE) Add `has_reference_to_user_id(cls, user_id)` to the model, this method should return true when any of the models fields contains the specified `user_id`.
-6. (Only if deletion policy is DELETE or DELETE_AT_END) Add `apply_deletion_policy(cls, user_id)` to the model, this method should delete all the models of this class that in any field reference the user with `user_id`.
-7. (Only if deletion policy is LOCALLY_PSEUDONYMIZE or PSEUDONYMIZE_IF_PUBLIC_DELETE_IF_PRIVATE) You will need to know the context of this model and do the pseudonymization in a wipeout service.
-9. (Only if deletion policy is CONTAINS_USER_DATA) Add `export_data(user_id)` to the model, this method should return the data from the models that belong or reference the specified `user_id`.
+6. If the deletion policy is:
+    - DELETE or DELETE_AT_END: Add `apply_deletion_policy(cls, user_id)` to the model, this method should delete all the models of this class that in any field reference the user with `user_id`.
+    - LOCALLY_PSEUDONYMIZE or PSEUDONYMIZE_IF_PUBLIC_DELETE_IF_PRIVATE: You will need to know the context of this model and do the pseudonymization in a wipeout service.
 10. (Only if takeout policy is CONTAINS_USER_DATA) Add `export_data(user_id)` to the model, this method should return the data from the models that belong or reference the specified `user_id`.
 11. [Add validator for the model](https://github.com/oppia/oppia/wiki/Writing-Validators-for-storage-models).
 12. **If this model relates to some parent models (for example this is a model that will exist for every exploration so the parent model would be `ExplorationModel`) make sure that when the parent model is deleted this model is also deleted.**
