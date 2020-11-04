@@ -8,12 +8,12 @@ _If you miss any info or do not understand some instruction in this wiki page pl
 2. Add properties to the model, all info regarding properties is explained in [Entity property reference](https://cloud.google.com/appengine/docs/standard/python/ndb/entity-property-reference).
 3. Decide the model deletion and takeout policy.
     * Deletion policy is a policy used when the user requests the deletion of their user account. The deletion policy should be decided together with the data admins. Some models can be affected by this, there are multiple deletion policies:
-        * KEEP — the model should be kept for auditing or logging purposes
-        * DELETE — the model only belongs to one user and should be deleted
-        * DELETE_AT_END — the model only belongs to one user and should be deleted, but the data in that model are relevant for the wipeout process so the model needs to be deleted at the end after all other models are deleted
-        * LOCALLY_PSEUDONYMIZE — the model should be anonymized accounting for the local context (for example messages from one user in the same thread should have the same id) 
-        * PSEUDONYMIZE_IF_PUBLIC_DELETE_IF_PRIVATE — the model should be pseudonymized if it is accessible from the public (like published explorations) and deleted if it is not public
-        * NOT_APPLICABLE — the model is not related to user data at all
+        * KEEP — the model should be kept for auditing or logging purposes (for example `DeletedUserModel` or `SentEmailModel`)
+        * DELETE — the model only belongs to one user and should be deleted (for example `CompletedActivitiesModel` or `LearnerPlaylistModel`)
+        * DELETE_AT_END — the model only belongs to one user and should be deleted, but the data in that model are relevant for the wipeout process so the model needs to be deleted at the end after all other models are deleted (for example `UserSettingsModel` or `UserAuthDetailsModel`)
+        * LOCALLY_PSEUDONYMIZE — the model should be anonymized accounting for the local context (for `GeneralFeedbackThreadModel` is pseudonymized together with `GeneralFeedbackMessageModel` and `GeneralSuggestionModel`) 
+        * PSEUDONYMIZE_IF_PUBLIC_DELETE_IF_PRIVATE — the model should be pseudonymized if it is accessible from the public (like published explorations) and deleted if it is not public (for example `ExplorationRightsModel` or `ExpSummaryModel`)
+        * NOT_APPLICABLE — the model is not related to user data at all (for example `ClassifierTrainingJobModel` or `CommunityContributionStatsModel`)
     * Takeout policy
         * CONTAINS_USER_DATA — the model contains user data
         * NOT_APPLICABLE — the model doesn't contain any user data
