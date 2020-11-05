@@ -93,7 +93,7 @@ If an issue hasn't got someone assigned to it, and there's no existing PR for th
 
 To make code changes, please follow the following instructions carefully! Otherwise, your code review may be delayed.
 
-1. **Before coding anything, choose a descriptive branch name** that is lowercase and hyphen-separated, e.g. `fuzzy-rules`, and create a new branch with this name, starting from 'develop'. Make sure that your branch name doesn't start with `develop`, `release` or `test`.
+1. **Before coding anything, choose a descriptive branch name** that is lowercase and hyphen-separated, e.g. `fuzzy-rules`, and create a new branch with this name, from 'develop' branch. Make sure that your branch name doesn't start with `develop`, `release` or `test`.
 
    You can do all this by running:
 
