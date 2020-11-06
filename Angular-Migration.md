@@ -628,7 +628,7 @@ By default, all the variables of the class you migrated are available in HTML in
 
 `<li ng-if="$ctrl.credits === 0"><[$ctrl.credits]></li>` becomes `<li *ngIf="credits === 0"> {{ credit }} </li>`
 
-#### Change ng-if -> *ngIF
+#### Change ng-if -> *ngIf
 
 `<li ng-if="$ctrl.credits === 0"><[$ctrl.credits]></li>` becomes `<li *ngIf="credits === 0"> {{ credit }} </li>`
 
