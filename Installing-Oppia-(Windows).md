@@ -30,7 +30,7 @@ You can install WSL2 by following steps here:
 https://docs.microsoft.com/en-us/windows/wsl/install-win10
 - **Please only follow till step 5 in the link given above.**
 - The windows version number and build number will be useful in determining whether or not your system needs to be updated.
-- Note: If you use VirtualBox, it will stop working after installing WSL2 because the hypervisor resource gets locked by WSL2, and can't be used by VirtualBox
+- Note: If you use VirtualBox, it will stop working after installing WSL2 because the hypervisor resource gets locked by WSL2, and can't be used by VirtualBox. If you already use VirtualBox, try following [these instructions](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Windows%29#installation-in-virtualbox-on-windows-10). WSL2 is much faster, but make sure to copy over all your data from the VM before proceeding with the installation of WSL2.
 
 ## Step 3: Installing the ubuntu app from the Microsoft Store.
 Install Ubuntu 18.04 LTS from the Microsoft Store. **NOTE:** Using “Ubuntu” will NOT work. Only use either Ubuntu 18.04 or Ubuntu 20.04.
