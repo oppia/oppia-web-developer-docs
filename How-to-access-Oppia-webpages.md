@@ -25,9 +25,8 @@ This is a quick guide on how to access webpages on the Oppia dev server.
 
 **Creator_dashboard**
 1. Login into Oppia
-2. Navigate to the creator dashboard page
+2. Navigate to the creator dashboard page at http://localhost:8181/creator-dashboard
 
-**https://oppiatestserver.appspot.com/creator_dashboard**
 **contributor-dashboard webpage **
 1. In feconf.py change variable  COMMUNITY_DASHBOARD_ENABLED = True
 2. Login into Oppia and change role to Admin
