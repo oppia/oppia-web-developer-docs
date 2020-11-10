@@ -23,6 +23,7 @@
     * [[Webpack|Webpack]]
     * [[Writing design docs|Writing-design-docs]]
     * [[Analyzing the codebase|Analyzing-the-codebase]]
+    * [[How to access Oppia webpages|How-to-access-Oppia-webpages]]
     * [[Debugging Stories|Debugging-Stories]]
     * [[If your build fails...|If-Your-Build-Fails]]
       * [[How the coverage checks work|How-the-coverage-checks-work]]
