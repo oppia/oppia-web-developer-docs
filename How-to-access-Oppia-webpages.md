@@ -37,7 +37,7 @@ This is a quick guide on how to access webpages on the Oppia dev server.
 2. Navigate to http://localhost:8181/delete-account
 
 **Donate**
-1. Go to https://oppiatestserver.appspot.com/donate
+1. Go to http://localhost:8181/donate
 Or click on the donate button in the navigation bar
 
 **12. email_dashboard**
@@ -69,20 +69,20 @@ https://oppiatestserver.appspot.com/community-libraryt
 
 1. Set Role to Admin 
 2. Go to topic_and_skills_dashboard and create a topic
-3. Go to the topic editor and scroll down to the create skill button
+3. Go to the topic editor and scroll down to the Create Skill button
 4. Create a skill, and wait for the skill editor tab to open
 
 **19. Story_Editor**
 1. Set Role to Admin 
 2. Go to topic_and_skills_dashboard and create a topic
-3. Go to the topic editor and scroll down to the create story button
+3. Go to the topic editor and scroll down to the Create Story button
 4. Complete create story modal, and wait for the story editor page to load
 
 **20. Story Player**
 1. Follow steps in story editor CUJ
 2. Add a chapter to the story 
 3. Create an exploration and link it to the story
-4. Go to the preview tab of the Story player
+4. Go to the Preview tab of the Story player
 
 **21. Topic editor/Subtopic Player**
 1. Set Role to Admin 
@@ -94,7 +94,7 @@ https://oppiatestserver.appspot.com/community-libraryt
 
 **22. Preferences**
 Sign into oppia
-Go to https://oppiatestserver.appspot.com/preferences
+Go to http://localhost:8181/preferences
 
 **23. Profile**
 1. Sign in to oppia
@@ -111,14 +111,14 @@ Go to https://oppiatestserver.appspot.com/preferences
 3. Go back to the topic_and_skills_dashboard
 
 **26. Thanks**
-Go to https://oppiatestserver.appspot.com/thanks
+Go to http://localhost:8181/thanks
 
 **27. Terms**
-1. Go to https://oppiatestserver.appspot.com/terms
+1. Go to http://localhost:8181/terms
 
 **28. Sign Up (run locally on release)**
-1. Click sign in button on top nav bar
-2. Go through login page
+1. Click the sign-in button on the top nav bar
+2. Go through the login page
 3. Wait for redirection to sign up page
 
 
