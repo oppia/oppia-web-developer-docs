@@ -55,15 +55,15 @@ Or click on the donate button in the navigation bar
 
 **15. Exploration_Player**
 1. Navigate to
-https://oppiatestserver.appspot.com/community-libraryt
+http://localhost:8181/community-library
 2. Enter fractions into the search bar
 3. Click on the exploration titled ‘Fractions 1 - What is the Fraction?’
 
 **16. Get_Started**
-1. Navigate to https://oppiatestserver.appspot.com/get-started
+1. Navigate to http://localhost:8181/get-started
 
 **17. Landing pages**
-1. Navigate to https://oppiatestserver.appspot.com/teachers
+1. Navigate to http://localhost:8181/teachers
 
 **18. Skill_Editor**
 
@@ -90,18 +90,18 @@ https://oppiatestserver.appspot.com/community-libraryt
 3. Activate your Screen reader go through the checklist (For topic editor)
 4. Create some skills and a topic and assign these skills to the topic.
 5. Edit and publish the topic after adding subtopics (add some content for these), and a story with few chapters.
-6. Use preview button to navigate to topic player
+6. Use the preview button to navigate to the topic player
 
 **22. Preferences**
-Sign into oppia
+Sign into Oppia
 Go to http://localhost:8181/preferences
 
 **23. Profile**
-1. Sign in to oppia
+1. Sign in to Oppia
 2. Click on the profile menu and click your username to go to the profile page
 
 **24. Community-library**
-1. Sign into oppia
+1. Sign in to Oppia
 2. Go to https://oppiatestserver.appspot.com/community-library
 
 
@@ -117,7 +117,7 @@ Go to http://localhost:8181/thanks
 1. Go to http://localhost:8181/terms
 
 **28. Sign Up (run locally on release)**
-1. Click the sign-in button on the top nav bar
+1. Click the sign-in button on the top navigation bar
 2. Go through the login page
 3. Wait for redirection to sign up page
 
