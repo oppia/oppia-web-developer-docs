@@ -102,7 +102,7 @@ Go to http://localhost:8181/preferences
 
 **24. Community-library**
 1. Sign in to Oppia
-2. Go to https://oppiatestserver.appspot.com/community-library
+2. Go to http://localhost:8181/community-library
 
 
 **25. Topic_and_skills_dashboard**
