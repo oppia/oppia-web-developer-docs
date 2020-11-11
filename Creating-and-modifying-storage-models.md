@@ -1,6 +1,6 @@
 _If you miss any info or do not understand some instruction in this wiki page please contact @vojtechjelinek (vojtin.j@gmail.com)._ 
 
-The purpose of this wiki is to provide guides on how to add, remove, or modify model classes.
+The purpose of this wiki is to provide step-by-step guides on how to add, remove, or modify model classes.
 
 ## Creating a new model class
 
