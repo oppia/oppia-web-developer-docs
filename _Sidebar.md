@@ -56,6 +56,7 @@
     * [[Team structure|Team-Structure]]
     * [[Ongoing Projects|Ongoing-Projects]]
     * [[Revert and Regression Policy|Revert-and-Regression-Policy]]
+    * [[Gating Features|Developing-new-features-with-feature-gating]]
   * Testing Oppia
     * [[Mobile device testing|Mobile-device-testing]]
     * [[Browser & device testing|Browser-and-Device-Testing-Using-BrowserStack]]
