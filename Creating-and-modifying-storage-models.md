@@ -26,10 +26,19 @@ The purpose of this wiki is to provide guides on how to add, remove, or modify m
 5. (Only if deletion policy **is not** NOT_APPLICABLE) Add `has_reference_to_user_id(cls, user_id)` to the model, this method should return true when any of the models fields contains the specified `user_id`.
 6. If the deletion policy is:
     - DELETE or DELETE_AT_END: Add `apply_deletion_policy(cls, user_id)` to the model, this method should delete all the models of this class that in any field reference the user with `user_id`.
-    - LOCALLY_PSEUDONYMIZE or PSEUDONYMIZE_IF_PUBLIC_DELETE_IF_PRIVATE: You will need to know the context of this model and do the pseudonymization in a wipeout service.
+    - LOCALLY_PSEUDONYMIZE or PSEUDONYMIZE_IF_PUBLIC_DELETE_IF_PRIVATE: You will need to know the context of this model and do the pseudonymization in a wipeout service, see [Adding pseudonymizable models](https://github.com/oppia/oppia/wiki/Creating-and-modifying-storage-models#adding-pseudonymizable-models)
 10. (Only if takeout policy is CONTAINS_USER_DATA) Add `export_data(user_id)` to the model, this method should return the data from the models that belong or reference the specified `user_id`.
 11. [Add validator for the model](https://github.com/oppia/oppia/wiki/Writing-Validators-for-storage-models).
 12. **If this model relates to some parent models (for example this is a model that will exist for every exploration so the parent model would be `ExplorationModel`) make sure that when the parent model is deleted this model is also deleted.**
+
+### Adding pseudonymizable models
+
+1. Check if the new model is already connected to some existing model or set of models. For example, when you add a model that is supposed to track statistics for a feedback thread it would be connected to GeneralFeedbackThreadModel.
+    - If it is connected to an existing model find where the model is handled in the wipeout service and include the new model in that place to be part of the pseudonymization. Continuing with the example the new feedback model would need to be included in the _pseudonymize_feedback_models function. 
+    - If it is not connected to an existing model create a new function in the wipeout service that will handle the pseudonymization. You can inspire by the existing pseudonymization functions like _pseudonymize_feedback_models or _pseudonymize_activity_models_without_associated_rights_models.
+2. If the model should be deleted if it is private (has deletion policy of PSEUDONYMIZE_IF_PUBLIC_DELETE_IF_PRIVATE) make sure that in the case of the private model the whole model is actually deleted and not only pseudonymized.
+
+
 
 ## Modifying a model field
 
