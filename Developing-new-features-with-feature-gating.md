@@ -1,5 +1,7 @@
 If you are developing a new feature that hasn't been in a stable state, you may want to limit the scope of the feature so that it's only enabled when certain criteria is met (e.g. only enabled in dev environment). In these cases you can use the dynamic feature gating system to gate the enabling of the features with a feature flag.
 
+If you have any question regarding the feature gating system, feel free to contact @MegrezZhu.
+
 ## Follow the steps below to add a new feature flag
 
 1. Add a unique feature flag name in the `PARAM_NAMES` enum in `core/domain/platform_parameter_list.py`. Example:
