@@ -9,7 +9,7 @@ The purpose of this wiki is to provide step-by-step guides on how to add, remove
     * Normal (non-versioned) models preserve just the current version. Normal storage models should inherit from `BaseModel`.
 2. Add properties to the model. For more information about properties, please see the [GAE "Entity property reference" docs](https://cloud.google.com/appengine/docs/standard/python/ndb/entity-property-reference).
 3. Decide the model deletion and takeout policy.
-    * The deletion policy is used when the user requests the deletion of their user account. The deletion policy should be decided together with the data admins (**@BenHenning** and **@seanlip**). Some models can be affected by this, there are multiple deletion policies:
+    * The deletion policy is used when the user requests the deletion of their user account. The deletion policy should be decided together with the data admins (**@BenHenning** and **@seanlip**). There are multiple deletion policies:
         * KEEP — the model should be kept for auditing or logging purposes (for example `DeletedUserModel` or `SentEmailModel`)
         * DELETE — the model only belongs to one user and should be deleted (for example `CompletedActivitiesModel` or `LearnerPlaylistModel`)
         * DELETE_AT_END — the model only belongs to one user and should be deleted, but the data in that model are relevant for the wipeout process so the model needs to be deleted at the end after all other models are deleted (for example `UserSettingsModel` or `UserAuthDetailsModel`)
