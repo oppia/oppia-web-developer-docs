@@ -5,11 +5,11 @@ The purpose of this wiki is to provide step-by-step guides on how to add, remove
 ## Creating a new model class
 
 1. Decide if the model should be versioned or not. 
-    * The versioned model preserves the history of all the fields in its snapshots and should be able to revert the current state into the any historical version. Versioned storage models need to inherit from `VersionedModel` (more info is defined in the [VersionedModel docstring](https://github.com/oppia/oppia/blob/develop/core/storage/base_model/gae_models.py#L526))
-    * The normal model preserves just the current version. Normal storage models need to inherit from `BaseModel`.
-2. Add properties to the model, all info regarding properties is explained in [Entity property reference](https://cloud.google.com/appengine/docs/standard/python/ndb/entity-property-reference).
+    * Versioned models preserve the history of all fields in their snapshots, and support reverts to any historical version. Versioned storage models should inherit from `VersionedModel` (more info is defined in the [VersionedModel docstring](https://github.com/oppia/oppia/blob/develop/core/storage/base_model/gae_models.py#L526))
+    * Normal (non-versioned) models preserve just the current version. Normal storage models should inherit from `BaseModel`.
+2. Add properties to the model. For more information about properties, please see the [GAE "Entity property reference" docs](https://cloud.google.com/appengine/docs/standard/python/ndb/entity-property-reference).
 3. Decide the model deletion and takeout policy.
-    * Deletion policy is a policy used when the user requests the deletion of their user account. The deletion policy should be decided together with the data admins. Some models can be affected by this, there are multiple deletion policies:
+    * The deletion policy is used when the user requests the deletion of their user account. The deletion policy should be decided together with the data admins (**@BenHenning** and **@seanlip**). Some models can be affected by this, there are multiple deletion policies:
         * KEEP — the model should be kept for auditing or logging purposes (for example `DeletedUserModel` or `SentEmailModel`)
         * DELETE — the model only belongs to one user and should be deleted (for example `CompletedActivitiesModel` or `LearnerPlaylistModel`)
         * DELETE_AT_END — the model only belongs to one user and should be deleted, but the data in that model are relevant for the wipeout process so the model needs to be deleted at the end after all other models are deleted (for example `UserSettingsModel` or `UserAuthDetailsModel`)
