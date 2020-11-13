@@ -29,7 +29,7 @@ The purpose of this wiki is to provide step-by-step guides on how to add, remove
     - LOCALLY_PSEUDONYMIZE or PSEUDONYMIZE_IF_PUBLIC_DELETE_IF_PRIVATE: You will need to know the context of this model and do the pseudonymization in a wipeout service. See [Adding pseudonymizable models](https://github.com/oppia/oppia/wiki/Creating-and-modifying-storage-models#adding-pseudonymizable-models) below for more information.
 7. (Only if the takeout policy is CONTAINS_USER_DATA) Add an `export_data(user_id)` method to the model. This method should return the data fields that are associated with or refer to the given user.
 8. [Add a validator for the model](https://github.com/oppia/oppia/wiki/Writing-Validators-for-storage-models).
-9. **If this model relates to other models (e.g., if this model exists for every exploration, the "other models" would be `ExplorationModel` and other exploration-related models) then make sure that, when the other models are deleted, this model is also deleted.**
+9. **If this model relates to other models** (e.g., if this model exists for every exploration, the "other models" would be `ExplorationModel` and other exploration-related models) **then make sure that, when the other models are deleted, this model is also deleted.**
 
 ### Adding pseudonymizable models
 
