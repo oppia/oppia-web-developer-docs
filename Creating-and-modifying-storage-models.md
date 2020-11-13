@@ -25,7 +25,7 @@ The purpose of this wiki is to provide step-by-step guides on how to add, remove
     - For example, `UserSettingsModel` overrides the `get_lowest_supported_role` and sets the lowest supported role to `LEARNER`.
 5. (Only if deletion policy **is not** NOT_APPLICABLE) Add a `has_reference_to_user_id(cls, user_id)` method to the model. This method should return `True` when any of the model fields contains the given `user_id`.
 6. If the deletion policy is:
-    - DELETE or DELETE_AT_END: Add an `apply_deletion_policy(cls, user_id)` method to the model. This method should delete all the models of this class that reference the user with `user_id` in any field.
+    - DELETE or DELETE_AT_END: Add an `apply_deletion_policy(cls, user_id)` method to the model. This method should delete all the models of this class that in any field reference the user through the user ID.
     - LOCALLY_PSEUDONYMIZE or PSEUDONYMIZE_IF_PUBLIC_DELETE_IF_PRIVATE: You will need to know the context of this model and do the pseudonymization in a wipeout service. See [Adding pseudonymizable models](https://github.com/oppia/oppia/wiki/Creating-and-modifying-storage-models#adding-pseudonymizable-models) below for more information.
 7. (Only if the takeout policy is CONTAINS_USER_DATA) Add an `export_data(user_id)` method to the model. This method should return the data fields that are associated with or refer to the given user.
 8. [Add a validator for the model](https://github.com/oppia/oppia/wiki/Writing-Validators-for-storage-models).
@@ -34,7 +34,7 @@ The purpose of this wiki is to provide step-by-step guides on how to add, remove
 ### Adding pseudonymizable models
 
 1. Check whether the new model is already connected to some existing model or set of models. (For example, when you add a model that is supposed to track statistics for a feedback thread, it would be connected to `GeneralFeedbackThreadModel`.)
-    - If it is connected to an existing model, find where the model is handled in the wipeout service and include the new model in that place to be part of the pseudonymization. (Continuing with the example above, the new feedback model would need to be included in the `_pseudonymize_feedback_models()` function.)
+    - If it is connected to an existing model, find where the existing model is handled in the [wipeout_service.py](https://github.com/oppia/oppia/blob/develop/core/domain/wipeout_service.py) and include the new model in that place to be part of the pseudonymization. (Continuing with the example above, the new feedback model would need to be included in the `_pseudonymize_feedback_models()` function.)
     - If it is not connected to an existing model, create a new function in the wipeout service that will handle the pseudonymization. (You can take a look at the existing pseudonymization functions like `_pseudonymize_feedback_models()` or `_pseudonymize_activity_models_without_associated_rights_models()` for inspiration.)
 2. If the model has a deletion policy of PSEUDONYMIZE_IF_PUBLIC_DELETE_IF_PRIVATE, make sure that, for private models, the whole model is actually deleted and not just pseudonymized. This should be done in deletion functions that are usually placed in the model services files. (E.g., for explorations, there is a `delete_exploration()` function in [exp_services.py](https://github.com/oppia/oppia/blob/develop/core/domain/exp_services.py)).
 
