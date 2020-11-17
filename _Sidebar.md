@@ -71,6 +71,8 @@
   * [[Team structure|Team-Structure]]
   * [[Gating Features|Developing-new-features-with-feature-gating]]
 
+---
+
 **References**
   * [User documentation](https://oppia.github.io/)
   * [[Angular Migration | Angular-Migration]]
