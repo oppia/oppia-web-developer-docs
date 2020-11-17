@@ -11,7 +11,8 @@
     * [[SLoP (Semester Long Project) 2020|SLoP-2020]]
   * **[[Good first issues|https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22]]**
   * [Code of Conduct](https://github.com/oppia/oppia/blob/develop/.github/CODE_OF_CONDUCT.md)
----
+
+
 **Developing Oppia**
   * [[FAQs|Frequently-Asked-Questions]]
   * [[Installing Oppia|https://github.com/oppia/oppia/wiki/Installing-Oppia]]
@@ -68,7 +69,7 @@
   * **[[Launching new features|Launching-new-features]]**
   * [[Team structure|Team-Structure]]
   * [[Gating Features|Developing-new-features-with-feature-gating]]
----
+
 **References**
   * [User documentation](https://oppia.github.io/)
   * [[Angular Migration | Angular-Migration]]
