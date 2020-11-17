@@ -29,7 +29,7 @@ The purpose of this wiki is to provide step-by-step guides on how to add, remove
     - LOCALLY_PSEUDONYMIZE or PSEUDONYMIZE_IF_PUBLIC_DELETE_IF_PRIVATE: You will need to know the context of this model and do the pseudonymization in a wipeout service. See [Adding pseudonymizable models](https://github.com/oppia/oppia/wiki/Creating-and-modifying-storage-models#adding-pseudonymizable-models) below for more information.
 7. (Only if the takeout policy is CONTAINS_USER_DATA) Add an `export_data(user_id)` method to the model. This method should return the data fields that are associated with or refer to the given user.
 8. [Add a validator for the model](https://github.com/oppia/oppia/wiki/Writing-Validators-for-storage-models).
-9. **If this model relates to other models** (e.g., if this model exists for every exploration, the "other models" would be `ExplorationModel` and other exploration-related models) **then make sure that, when the other models are deleted, this model is also deleted.**
+9. **If this model relates to other models** (e.g., if this model exists for every exploration, the "other models" would be `ExplorationModel` and other exploration-related models) **then make sure that, when the other models are deleted, this model is also deleted (in case of `ExplorationModel` the `delete_explorations` method should also be modified to include the newly added model). Also, add tests that will verify that the model is deleted when the other models are deleted (in case of `ExplorationModel` the test souhld be added for the `delete_exploration` explicitely testing that the newly added model is also deleted).**
 
 ### Adding pseudonymizable models
 
@@ -37,7 +37,7 @@ The purpose of this wiki is to provide step-by-step guides on how to add, remove
     - If it is connected to an existing model, find where the existing model is handled in the [wipeout_service.py](https://github.com/oppia/oppia/blob/develop/core/domain/wipeout_service.py) and include the new model in that place to be part of the pseudonymization. (Continuing with the example above, the new feedback model would need to be included in the `_pseudonymize_feedback_models()` function.)
     - If it is not connected to an existing model, create a new function in the wipeout service that will handle the pseudonymization. (You can take a look at the existing pseudonymization functions like `_pseudonymize_feedback_models()` or `_pseudonymize_activity_models_without_associated_rights_models()` for inspiration.)
 2. If the model has a deletion policy of PSEUDONYMIZE_IF_PUBLIC_DELETE_IF_PRIVATE, make sure that, for private models, the whole model is actually deleted and not just pseudonymized. This should be done in deletion functions that are usually placed in the model services files. (E.g., for explorations, there is a `delete_exploration()` function in [exp_services.py](https://github.com/oppia/oppia/blob/develop/core/domain/exp_services.py)).
-
+3. Do not forget to add tests for the newly added model into the [wipeout_service_test.py](https://github.com/oppia/oppia/blob/develop/core/domain/wipeout_service_test.py). The tests are structured in a way that for each storage module there are two tests classes, one for deletion and other for verification part, add new test methods for your newly created model to both classes. 
 
 ## Modifying a model field
 
