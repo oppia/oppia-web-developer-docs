@@ -1,4 +1,4 @@
-**Core docs**
+**Core documentation**
   * [README](https://github.com/oppia/oppia/blob/develop/.github/README.md#oppia)
   * [Oppia's mission](https://github.com/oppia/oppia/wiki/Oppia's-Mission)
   * **[[Get involved!|Home]]**
