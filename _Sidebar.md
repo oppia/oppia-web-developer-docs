@@ -46,6 +46,7 @@
       * [[Writing frontend unit tests|Frontend-unit-tests-guide]]
       * [[Writing tests for custom Pylint Checkers|Writing-Tests-For-Pylint]]
       * [[End-to-end tests|End-to-End-Tests]]
+      * [[How to do add a webpage to lighthouse tests|How-to-add-a-webpage-to-lighthouse-tests]]
     * [[Setup your own Travis instance|Setup-your-own-Travis-instance]]
     * [[Guide for release testing | Guide-for-release-testing]]
       * [[Release schedule|Release-Schedule]]
@@ -60,7 +61,7 @@
     * [[Adding static assets|Adding-static-assets]]
     * One-off jobs
       * [[Writing audit jobs|Writing-audit-jobs]]
-      * [[Writing new one off jobs using map-reduce|Writing-new-one-off-jobs-using-map-reduce]]
+      * [[Writing new one-off jobs using map-reduce|Writing-new-one-off-jobs-using-map-reduce]]
       * [[Running jobs in production|Running-jobs-in-production]]
   * Translations
     * [[Adding new translations|Adding-new-translations-for-i18n]]
@@ -92,7 +93,6 @@
   * [[Playtesting explorations|Playtesting-explorations]]
   * [[Testing for Accessibility|Testing-for-Accessibility]]
   * [[How to do Accessibility reviews|How-to-do-Accessibility-reviews]]
-  * [[How to do add a webpage to lighthouse tests|How-to-add-a-webpage-to-lighthouse-tests]]
   * [[Rich Text Editor (RTE)|Rich-Text-Editor-(RTE)-Overview]]
   * [[Advice on creating explorations|Advice-on-Creating-Explorations]]
   * [[Oppia-ml Extension|Oppia-ml-Extension]]
