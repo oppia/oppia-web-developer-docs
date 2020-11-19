@@ -104,11 +104,9 @@ It is recommended that the core maintainer complete their pass the week prior to
 
 | Month     | Core Maintainer |
 |-----------|-----------------|
-| May       | Kevin Lee       |
-| June      | Kevin Thomas    |
-| July      | Nithesh         |
-| August    | Ankita          |
-| September | Sandeep         |
-| October   | Sean            |
 | November  | Kevin Thomas    |
 | December  | Nithesh         |
+| January   | Srijan          |
+| February  | Sean            |
+| March     | Sandeep         |
+| April     | Vojtěch         |
