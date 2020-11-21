@@ -17,8 +17,8 @@ The purpose of this wiki is to provide step-by-step guides on how to add, remove
         * PSEUDONYMIZE_IF_PUBLIC_DELETE_IF_PRIVATE — the model should be pseudonymized if it is accessible by the general public (like published explorations) and deleted if it is not public (e.g. `ExplorationRightsModel` or `ExpSummaryModel`).
         * NOT_APPLICABLE — the model is not related to user data at all (e.g. `ClassifierTrainingJobModel` or `CommunityContributionStatsModel`).
     * Takeout policy
-        * CONTAINS_USER_DATA — the model contains user data
-        * NOT_APPLICABLE — the model doesn't contain any user data
+        * CONTAINS_USER_DATA — the model contains data corresponding to users
+        * NOT_APPLICABLE — the model doesn't contain data corresponding to particular users, or does not need to be exportable
 4. Decide the lowest-level role in the [role hierarchy](https://github.com/oppia/oppia/wiki/Instructions-for-editing-roles-or-actions#7-view-role-hierarchy) by whom the model can be created. 
     - By default, the static method `get_lowest_supported_role` (defined in the storage base model) assumes `EXPLORATION_EDITOR` to be the lowest role (meaning that the model can be created by all roles above this role in the hierarchy, including itself).
     - To set a different role, simply override the method in the model class and specify the desired value. 
