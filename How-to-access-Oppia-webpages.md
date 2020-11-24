@@ -1,7 +1,7 @@
 This is a quick guide on how to access webpages on the Oppia dev server.
 
 **Sign in**
-To access most webpages, you will need to sign in with admin privileges
+To access most webpages, you will need to sign in as adminstrator
 1. Click the sign-in button on the nav bar on the top
 2. Sign in as the administrator
 
@@ -9,9 +9,9 @@ To access most webpages, you will need to sign in with admin privileges
 
 **Admin Page**
 1. Login into the Oppia as an administrator
+2. Go to the profile menu and click on the "Admin" link
 
 ![](https://user-images.githubusercontent.com/16653571/41501009-e04e9a76-71b9-11e8-958e-985f5bc7122a.png)
-2. Go to the profile menu and click on the "admin" link
 
 **About Page**
 1. Click on the About menu at the top navigation Bar
@@ -19,9 +19,23 @@ To access most webpages, you will need to sign in with admin privileges
 
 **Collection_editor**
 1. Navigate to the Admin webpage
+2. Go to roles tab in Admin page
 
-2. Navigate to the creator dashboard and click on the “Create” button in the top navigation bar
-3. Select “Create Collection”
+![](https://user-images.githubusercontent.com/16653571/41501684-a543b22e-71c6-11e8-883c-cec35e32535e.png)
+
+3. Assign your username as a collection editor
+
+
+![assignrole](https://user-images.githubusercontent.com/16653571/41503346-ff754c9e-71ee-11e8-9b72-9e16dae46418.png)
+
+
+4. Navigate to the splash page and click on the “Create” button in the top navigation bar
+
+![Create Button](https://user-images.githubusercontent.com/16653571/41504441-a7f60512-720c-11e8-85c2-8fee5f55a42c.png)
+
+5. Select “Create Collection”
+
+![CREATE COLLECTION button](https://user-images.githubusercontent.com/16653571/41504483-d946fd3c-720d-11e8-997d-943cd8703e57.png)
 
 **Collection_player**
 1. Login into Oppia and change role to collection_editor
@@ -96,8 +110,14 @@ http://localhost:8181/community-library
 
 **21. Topic editor/Subtopic Player**
 1. Set Role to Admin 
+
+![assignrole](https://user-images.githubusercontent.com/30312043/78745056-b8b70b80-7980-11ea-942a-b2aab314c201.png)
+
 2. Go to topic_and_skills_dashboard and create a topic
-3. Activate your Screen reader go through the checklist (For topic editor)
+
+![Create Button](https://user-images.githubusercontent.com/30312043/78745178-06cc0f00-7981-11ea-9eca-f4495e05b0e4.png)
+
+
 4. Create some skills and a topic and assign these skills to the topic.
 5. Edit and publish the topic after adding subtopics (add some content for these), and a story with few chapters.
 6. Use the preview button to navigate to the topic player
