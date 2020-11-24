@@ -3,20 +3,23 @@ This is a quick guide on how to access webpages on the Oppia dev server.
 **Sign in**
 To access most webpages, you will need to sign in with admin privileges
 1. Click the sign-in button on the nav bar on the top
-2. Click the administrator check box
+2. Sign in as the administrator
 
 ![](https://user-images.githubusercontent.com/16653571/41500954-e88a0262-71b8-11e8-9cac-456fb46782c1.png)
 
 **Admin Page**
 1. Login into the Oppia as an administrator
+
+![](https://user-images.githubusercontent.com/16653571/41501009-e04e9a76-71b9-11e8-958e-985f5bc7122a.png)
 2. Go to the profile menu and click on the "admin" link
-![](file:///Users/jimzhan/Desktop/Screen%20Shot%202020-11-24%20at%201.28.35%20PM.png)
+
 **About Page**
 1. Click on the About menu at the top navigation Bar
 2. Click on the “About Oppia” link
 
-**collection_editor**
-1. Login into Oppia and change role to collection_editor
+**Collection_editor**
+1. Navigate to the Admin webpage
+
 2. Navigate to the creator dashboard and click on the “Create” button in the top navigation bar
 3. Select “Create Collection”
 
