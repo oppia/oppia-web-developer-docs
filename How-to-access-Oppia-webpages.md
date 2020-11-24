@@ -1,9 +1,13 @@
 This is a quick guide on how to access webpages on the Oppia dev server.
 
+**Sign in**
+To access most webpages, you will need to sign it first.
+1. Click the sign-in button on the top right corner
+
 **Admin Page**
 1. Login into the Oppia as an administrator
 2. Go to the profile menu and click on the "admin" link
-
+![](file:///Users/jimzhan/Desktop/Screen%20Shot%202020-11-24%20at%201.28.35%20PM.png)
 **About Page**
 1. Click on the About menu at the top navigation Bar
 2. Click on the “About Oppia” link
