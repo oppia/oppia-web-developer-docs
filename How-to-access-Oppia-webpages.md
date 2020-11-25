@@ -100,7 +100,7 @@ http://localhost:8181/community-library
 
 2. Go to topic_and_skills_dashboard and create a topic
 
-![createtopic](images/Webpage-Guide/createTopicModal.png=250x250)
+![createtopic](images/Webpage-Guide/createTopicModal.png =250x250)
 
 3. Go to the topic editor and click on the Add Story button
 
@@ -108,7 +108,7 @@ http://localhost:8181/community-library
 
 4. Complete create story modal, and wait for the story editor page to load
 
-![createtopic](images/Webpage-Guide/addStoryModal.png=250x250)
+![createtopic](images/Webpage-Guide/addStoryModal.png =250x250)
 
 **Story Player Page**
 1. Follow steps in story editor page
@@ -123,9 +123,9 @@ http://localhost:8181/community-library
 
 2. Go to topic_and_skills_dashboard and create a topic
 
-![Create Button](https://user-images.githubusercontent.com/30312043/78745178-06cc0f00-7981-11ea-9eca-f4495e05b0e4.png=250x250)
+![Create Button](https://user-images.githubusercontent.com/30312043/78745178-06cc0f00-7981-11ea-9eca-f4495e05b0e4.png =250x250)
 
-![Create Topic and Skill Buttons](images/Webpage-Guide/createTopicAndSkillButton.png=250x250)
+![Create Topic and Skill Buttons](images/Webpage-Guide/createTopicAndSkillButton.png =250x250)
 
 4. Create some skills and a topic and assign these skills to the topic.
 
