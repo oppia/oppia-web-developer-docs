@@ -2,7 +2,7 @@ This is a quick guide on how to access webpages on the Oppia dev server.
 
 **Sign Up (run locally on release)**
 
-To access most Oppia , you will need to sign in as adminstrator
+To access most Oppia, you will need to sign in as an administrator
 1. Click the sign-in button on the nav bar on the top
 
 ![Sign-In Button](images/Webpage-Guide/signInButton.png)
@@ -94,13 +94,24 @@ http://localhost:8181/community-library
 4. Create a skill, and wait for the skill editor tab to open
 
 **Story Editor Page**
-1. Set Role to Admin 
+1. Set Role to Admin
+
+![assignrole](https://user-images.githubusercontent.com/30312043/78745056-b8b70b80-7980-11ea-942a-b2aab314c201.png)
+
 2. Go to topic_and_skills_dashboard and create a topic
-3. Go to the topic editor and scroll down to the Create Story button
+
+![createtopic](images/Webpage-Guide/createTopicModal.png)
+
+3. Go to the topic editor and click on the Add Story button
+
+![createtopic](images/Webpage-Guide/addStoryButton.png)
+
 4. Complete create story modal, and wait for the story editor page to load
 
+![createtopic](images/Webpage-Guide/addStoryModal.png)
+
 **Story Player Page**
-1. Follow steps in story editor CUJ
+1. Follow steps in story editor page
 2. Add a chapter to the story 
 3. Create an exploration and link it to the story
 4. Go to the Preview tab of the Story player
@@ -114,8 +125,12 @@ http://localhost:8181/community-library
 
 ![Create Button](https://user-images.githubusercontent.com/30312043/78745178-06cc0f00-7981-11ea-9eca-f4495e05b0e4.png)
 
+![Create Topic and Skill Buttons](images/Webpage-Guide/createTopicAndSkillButton.png)
 
 4. Create some skills and a topic and assign these skills to the topic.
+
+![Create Topic and Skill Buttons](images/Webpage-Guide/createTopicAndSkillButton.png)
+
 5. Edit and publish the topic after adding subtopics (add some content for these), and a story with few chapters.
 6. Use the preview button to navigate to the topic player
 
@@ -131,11 +146,11 @@ http://localhost:8181/community-library
 1. Sign in to Oppia
 2. Go to http://localhost:8181/community-library
 
-
 **Topic_And_Skills_Dashboard Page**
 1. Set Role to Admin 
-2. Go to topic_and_skills_dashboard and create a topic and create a skill
-3. Go back to the topic_and_skills_dashboard
+2. Go to http://localhost:8181/topics-and-skills-dashboard or click the topic and skills dashboard link
+
+![Create Topic Button](images/Webpage-Guide/topicAndSkillDashboardLink.png)
 
 **Thanks Page**
 1. Go to http://localhost:8181/thanks
