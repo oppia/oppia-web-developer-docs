@@ -40,21 +40,21 @@ To access most webpages, you will need to sign in as adminstrator
 
 ![CREATE COLLECTION button](https://user-images.githubusercontent.com/16653571/41504483-d946fd3c-720d-11e8-997d-943cd8703e57.png)
 
-**Collection_player**
+**Collection_Player Page**
 1. Login into Oppia and change role to collection_editor
 2. Go to the admin activities tab and reload the collection “welcome_to_collections.yaml”
 3. Navigate back to the community-library page and type in the search bar “collections”
 4. Click on the card titled Introduction to collections in Oppia
 
-**contact**
+**Contact Page**
 1. Click on the About menu at the top navigation Bar
 2. Click on the “Contact Us” link
 
-**Creator_dashboard**
+**Creator_Dashboard**
 1. Login into Oppia
 2. Navigate to the creator dashboard page at http://localhost:8181/creator-dashboard
 
-**contributor-dashboard webpage **
+**Contributor-Dashboard Webpage **
 1. In feconf.py change variable  COMMUNITY_DASHBOARD_ENABLED = True
 2. Login into Oppia and change role to Admin
 3. Go to the community-dashboard webpage
