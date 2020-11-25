@@ -4,17 +4,17 @@ This is a quick guide on how to access webpages on the Oppia dev server.
 To access most webpages, you will need to sign in as adminstrator
 1. Click the sign-in button on the nav bar on the top
 
-![](images/Webpage-Guide/signInButton.png)
+![Sign-In Button](images/Webpage-Guide/signInButton.png)
 
 2. Sign in as the administrator
 
-![](https://user-images.githubusercontent.com/16653571/41500954-e88a0262-71b8-11e8-9cac-456fb46782c1.png)
+![Sign-In page](https://user-images.githubusercontent.com/16653571/41500954-e88a0262-71b8-11e8-9cac-456fb46782c1.png)
 
 **Admin Page**
 1. Login into the Oppia as an administrator
 2. Go to the profile menu and click on the "Admin" link
 
-![](https://user-images.githubusercontent.com/16653571/41501009-e04e9a76-71b9-11e8-958e-985f5bc7122a.png)
+![Admin Panel Link](https://user-images.githubusercontent.com/16653571/41501009-e04e9a76-71b9-11e8-958e-985f5bc7122a.png)
 
 **About Page**
 1. Click on the About menu at the top navigation Bar
@@ -24,7 +24,7 @@ To access most webpages, you will need to sign in as adminstrator
 1. Navigate to the Admin webpage
 2. Go to roles tab in Admin page
 
-![](https://user-images.githubusercontent.com/16653571/41501684-a543b22e-71c6-11e8-883c-cec35e32535e.png)
+![Admin Role Tab](https://user-images.githubusercontent.com/16653571/41501684-a543b22e-71c6-11e8-883c-cec35e32535e.png)
 
 3. Assign your username as a collection editor
 
@@ -50,14 +50,13 @@ To access most webpages, you will need to sign in as adminstrator
 1. Click on the About menu at the top navigation Bar
 2. Click on the “Contact Us” link
 
-**Creator_Dashboard**
+**Creator-Dashboard page**
 1. Login into Oppia
-2. Navigate to the creator dashboard page at http://localhost:8181/creator-dashboard
+2. Navigate to the Creator-Dashboard page at http://localhost:8181/creator-dashboard
 
-**Contributor-Dashboard Webpage **
-1. In feconf.py change variable  COMMUNITY_DASHBOARD_ENABLED = True
-2. Login into Oppia and change role to Admin
-3. Go to the community-dashboard webpage
+**Contributor-Dashboard Page**
+1. Login into Oppia
+2. Navigate to the Contributor-Dashboard page at http://localhost:8181/contributor-dashboard
 
 **delete_account webpage**
 1. Go to constants.ts and change "ENABLE_ACCOUNT_DELETION": false -> true
