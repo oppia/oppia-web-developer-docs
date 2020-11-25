@@ -1,7 +1,8 @@
 This is a quick guide on how to access webpages on the Oppia dev server.
 
-**Sign in**
-To access most webpages, you will need to sign in as adminstrator
+**Sign Up (run locally on release)**
+
+To access most Oppia , you will need to sign in as adminstrator
 1. Click the sign-in button on the nav bar on the top
 
 ![Sign-In Button](images/Webpage-Guide/signInButton.png)
@@ -40,7 +41,7 @@ To access most webpages, you will need to sign in as adminstrator
 
 ![CREATE COLLECTION button](https://user-images.githubusercontent.com/16653571/41504483-d946fd3c-720d-11e8-997d-943cd8703e57.png)
 
-**Collection_Player Page**
+**Collection-Player Page**
 1. Login into Oppia and change role to collection_editor
 2. Go to the admin activities tab and reload the collection “welcome_to_collections.yaml”
 3. Navigate back to the community-library page and type in the search bar “collections”
@@ -50,7 +51,7 @@ To access most webpages, you will need to sign in as adminstrator
 1. Click on the About menu at the top navigation Bar
 2. Click on the “Contact Us” link
 
-**Creator-Dashboard page**
+**Creator-Dashboard Page**
 1. Login into Oppia
 2. Navigate to the Creator-Dashboard page at http://localhost:8181/creator-dashboard
 
@@ -58,59 +59,53 @@ To access most webpages, you will need to sign in as adminstrator
 1. Login into Oppia
 2. Navigate to the Contributor-Dashboard page at http://localhost:8181/contributor-dashboard
 
-**delete_account webpage**
+**Delete-Account Page**
 1. Go to constants.ts and change "ENABLE_ACCOUNT_DELETION": false -> true
 2. Navigate to http://localhost:8181/delete-account
 
-**Donate**
+**Donate Page**
 1. Go to http://localhost:8181/donate
 Or click on the donate button in the navigation bar
 
-**12. email_dashboard**
+**Emaildashboard Page**
 1. Login into Oppia and change role to Admin
 2. Navigate to http://localhost:8181/emaildashboard
 
-**13. email_dashboard_result**
-1. Login into Oppia and change role to Admin
-2. Navigate to http://localhost:8181/emaildashboard
-3. Submit a query and click on the link provided
-
-**14. Exploration_Editor**
+**Exploration-Editor Page**
 1. Login into Oppia
 2. Click the create button on the top right
 
-**15. Exploration_Player**
+**Exploration-Player Page**
 1. Navigate to
 http://localhost:8181/community-library
 2. Enter fractions into the search bar
 3. Click on the exploration titled ‘Fractions 1 - What is the Fraction?’
 
-**16. Get_Started**
+**Get-Started Page**
 1. Navigate to http://localhost:8181/get-started
 
-**17. Landing pages**
+**Landing Pages**
 1. Navigate to http://localhost:8181/teachers
 
-**18. Skill_Editor**
-
+**Skill Editor Page**
 1. Set Role to Admin 
 2. Go to topic_and_skills_dashboard and create a topic
 3. Go to the topic editor and scroll down to the Create Skill button
 4. Create a skill, and wait for the skill editor tab to open
 
-**19. Story_Editor**
+**Story Editor Page**
 1. Set Role to Admin 
 2. Go to topic_and_skills_dashboard and create a topic
 3. Go to the topic editor and scroll down to the Create Story button
 4. Complete create story modal, and wait for the story editor page to load
 
-**20. Story Player**
+**Story Player Page**
 1. Follow steps in story editor CUJ
 2. Add a chapter to the story 
 3. Create an exploration and link it to the story
 4. Go to the Preview tab of the Story player
 
-**21. Topic editor/Subtopic Player**
+**Topic editor/Subtopic Player Page**
 1. Set Role to Admin 
 
 ![assignrole](https://user-images.githubusercontent.com/30312043/78745056-b8b70b80-7980-11ea-942a-b2aab314c201.png)
@@ -124,33 +119,26 @@ http://localhost:8181/community-library
 5. Edit and publish the topic after adding subtopics (add some content for these), and a story with few chapters.
 6. Use the preview button to navigate to the topic player
 
-**22. Preferences**
-Sign into Oppia
-Go to http://localhost:8181/preferences
+**Preferences Page**
+1. Sign into Oppia
+2. Go to http://localhost:8181/preferences
 
-**23. Profile**
+**Profile Page**
 1. Sign in to Oppia
 2. Click on the profile menu and click your username to go to the profile page
 
-**24. Community-library**
+**Community-Library Page**
 1. Sign in to Oppia
 2. Go to http://localhost:8181/community-library
 
 
-**25. Topic_and_skills_dashboard**
+**Topic_And_Skills_Dashboard Page**
 1. Set Role to Admin 
 2. Go to topic_and_skills_dashboard and create a topic and create a skill
 3. Go back to the topic_and_skills_dashboard
 
-**26. Thanks**
-Go to http://localhost:8181/thanks
+**Thanks Page**
+1. Go to http://localhost:8181/thanks
 
-**27. Terms**
+**Terms Page**
 1. Go to http://localhost:8181/terms
-
-**28. Sign Up (run locally on release)**
-1. Click the sign-in button on the top navigation bar
-2. Go through the login page
-3. Wait for redirection to sign up page
-
-
