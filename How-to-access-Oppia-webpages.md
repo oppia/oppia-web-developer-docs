@@ -21,6 +21,8 @@ To access most Oppia, you will need to sign in as an administrator
 1. Click on the About menu at the top navigation Bar
 2. Click on the “About Oppia” link
 
+![AboutPageLink](images/Webpage-Guide/aboutPageLink.png)
+
 **Collection_editor**
 1. Navigate to the Admin webpage
 2. Go to roles tab in Admin page
@@ -29,9 +31,7 @@ To access most Oppia, you will need to sign in as an administrator
 
 3. Assign your username as a collection editor
 
-
 ![assignrole](https://user-images.githubusercontent.com/16653571/41503346-ff754c9e-71ee-11e8-9b72-9e16dae46418.png)
-
 
 4. Navigate to the splash page and click on the “Create” button in the top navigation bar
 
@@ -44,6 +44,9 @@ To access most Oppia, you will need to sign in as an administrator
 **Collection-Player Page**
 1. Login into Oppia and change role to collection_editor
 2. Go to the admin activities tab and reload the collection “welcome_to_collections.yaml”
+
+![Reload Collections](images/Webpage-Guide/reloadCollections.png)
+
 3. Navigate back to the community-library page and type in the search bar “collections”
 4. Click on the card titled Introduction to collections in Oppia
 
