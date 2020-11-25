@@ -125,14 +125,9 @@ http://localhost:8181/community-library
 
 ![Create Button](https://user-images.githubusercontent.com/30312043/78745178-06cc0f00-7981-11ea-9eca-f4495e05b0e4.png)
 
-![Create Topic and Skill Buttons](images/Webpage-Guide/createTopicAndSkillButton.png)
-
-4. Create some skills and a topic and assign these skills to the topic.
-
-![Create Topic and Skill Buttons](images/Webpage-Guide/createTopicAndSkillButton.png)
-
-5. Edit and publish the topic after adding subtopics (add some content for these), and a story with few chapters.
-6. Use the preview button to navigate to the topic player
+3. Create some skills and a topic and assign these skills to the topic.
+4. Edit and publish the topic after adding subtopics (add some content for these), and a story with few chapters.
+5. Use the preview button to navigate to the topic player
 
 **Preferences Page**
 1. Sign into Oppia
