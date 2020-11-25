@@ -100,7 +100,7 @@ http://localhost:8181/community-library
 
 2. Go to topic_and_skills_dashboard and create a topic
 
-![createtopic](images/Webpage-Guide/createTopicModal.png)
+![createtopic](images/Webpage-Guide/createTopicModal.png=250x250)
 
 3. Go to the topic editor and click on the Add Story button
 
@@ -108,7 +108,7 @@ http://localhost:8181/community-library
 
 4. Complete create story modal, and wait for the story editor page to load
 
-![createtopic](images/Webpage-Guide/addStoryModal.png)
+![createtopic](images/Webpage-Guide/addStoryModal.png=250x250)
 
 **Story Player Page**
 1. Follow steps in story editor page
