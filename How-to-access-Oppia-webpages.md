@@ -3,6 +3,9 @@ This is a quick guide on how to access webpages on the Oppia dev server.
 **Sign in**
 To access most webpages, you will need to sign in as adminstrator
 1. Click the sign-in button on the nav bar on the top
+
+![](images/circleCIWorkflow.png)
+
 2. Sign in as the administrator
 
 ![](https://user-images.githubusercontent.com/16653571/41500954-e88a0262-71b8-11e8-9cac-456fb46782c1.png)
