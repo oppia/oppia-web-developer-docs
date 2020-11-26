@@ -1,4 +1,4 @@
-(See also this wiki page for reference: [Creating and modifying storage models](https://github.com/oppia/oppia/wiki/Creating-and-modifying-storage-models).)
+_If you miss any info or do not understand some instruction in this wiki page please contact @vojtechjelinek (vojtin.j@gmail.com). See also this wiki page for reference: [Creating and modifying storage models](https://github.com/oppia/oppia/wiki/Creating-and-modifying-storage-models)._
 
 
 # Wipeout design
