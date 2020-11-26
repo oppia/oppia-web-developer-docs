@@ -30,7 +30,7 @@
     * [[Oppia's code owners and checks to be carried out by developers|Oppia's-code-owners-and-checks-to-be-carried-out-by-developers]]
     * [[Revert and Regression Policy|Revert-and-Regression-Policy]]
   * [[How to access Oppia webpages|How-to-access-Oppia-webpages]]
-  * Team structure
+  * [[Team structure|Team-Structure]]
     * [[Ongoing Projects|Ongoing-Projects]]
   * Stuck somewhere?
     * [[If your build fails...|If-Your-Build-Fails]]
@@ -69,7 +69,6 @@
   * [[Mobile development|Mobile-development]]
   * [[Webpack|Webpack]]
   * **[[Launching new features|Launching-new-features]]**
-  * [[Team structure|Team-Structure]]
   * [[Gating Features|Developing-new-features-with-feature-gating]]
 
 ---
@@ -83,6 +82,7 @@
     * [[Objects|Creating-Objects]]
     * [[Dependencies|Creating-Dependencies]]
     * [[Value generators|Creating-Value-Generators]]
+  * [[Wipeout Implementation|Wipeout-Implementation-Documentation]]
   * [[Schema-based forms|Schema-based-Forms]]
   * [[Editor pages|Editor-pages]]
   * [[Calculating statistics|Calculating-statistics]]
