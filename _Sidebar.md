@@ -82,7 +82,7 @@
     * [[Objects|Creating-Objects]]
     * [[Dependencies|Creating-Dependencies]]
     * [[Value generators|Creating-Value-Generators]]
-  * [[Wipeout Implementation|Wipeout-Implementation-Documentation]]
+  * [[Wipeout Implementation|Wipeout-Implementation]]
   * [[Schema-based forms|Schema-based-Forms]]
   * [[Editor pages|Editor-pages]]
   * [[Calculating statistics|Calculating-statistics]]
