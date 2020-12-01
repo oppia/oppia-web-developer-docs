@@ -28,7 +28,7 @@ The current members of this group are:
 
 Membership of this group is decided by appointment, by a committee made up of the currently-serving core maintainers.
 
-Contributors should notify the Core Maintainers when they see major bugs or security vulnerabilities (general or npm). The Core Maintainers group can be contacted via the **@oppia/core-maintainers** alias.
+Contributors should notify the Core Maintainers when they see major bugs or security vulnerabilities (general or npm). The Core Maintainers group can be contacted via the **@oppia/core-maintainers** alias or at oppia-core-maintainers@googlegroups.com.
 
 ### Release process team
 
