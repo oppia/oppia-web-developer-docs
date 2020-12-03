@@ -73,7 +73,7 @@ We also have a project leads council who will be contacted about project specifi
 * Jan: Nithesh (**@nithusha21**) and Akshay (**@aks6815**)
 * Feb: Kevin (**@kevintab95**) and Chris (**@U8NWXD**)
 * Mar: Vojtěch (**@vojtechjelinek**) and Nithesh (**@nithusha21**)
-* Apr: Akshay (**@aks681**) and Vojtěch (**@vojtechjelinek**)
+* Apr: Akshay (**@aks681**) and Chris (**@U8NWXD**)
 * May: Sandeep (**@DubeySandeep**) and Kevin (**@kevintab95**)
-* Jun: Nithesh (**@nithusha21**) and Chris (**@U8NWXD**)
+* Jun: Nithesh (**@nithusha21**) and Vojtěch (**@vojtechjelinek**)
 
