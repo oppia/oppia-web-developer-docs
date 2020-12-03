@@ -69,9 +69,10 @@ We also have a project leads council who will be contacted about project specifi
 
 **Note:** If you can't make it to a shift mentioned in the below rota, please make sure to swap with someone else in advance! 
 
-* Jul: Nithesh (**@nithusha21**) and Rishabh (**@Showtim3**)
-* Aug: Akshay (**@aks681**) and Chris (**@U8NWXD**)
-* Sep: Sandeep (**@DubeySandeep**) and Kevin (**@kevintab95**)
-* Oct: Ankita (**@ankita240796**) and Nithesh (**@nithusha21**)
-* Nov: Vojtěch (**@vojtechjelinek**) and Akshay (**@aks681**)
-* Dec: Nithesh (**@nithusha21**) and Chris (**@U8NWXD**)
+* Dec: Sandeep (**@DubeySandeep**) and Chris (**@U8NWXD**)
+* Jan: Nithesh (**@nithusha21**) and Kevin (**@kevintab95**)
+* Feb: Kevin (**@kevintab95**) and Akshay (**@aks681**)
+* Mar: Vojtěch (**@vojtechjelinek**) and Nithesh (**@nithusha21**)
+* Apr: Akshay (**@aks681**) and Chris (**@U8NWXD**)
+* May: Sandeep (**@DubeySandeep**) and Vojtěch (**@vojtechjelinek**)
+* Jun: Nithesh (**@nithusha21**) and Kevin (**@kevintab95**)
