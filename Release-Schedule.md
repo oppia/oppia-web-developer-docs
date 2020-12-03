@@ -61,7 +61,7 @@ We also have a project leads council who will be contacted about project specifi
 
 
 # Team members
-* Release coordination team: Ankita Saxena (**@ankita240796**), Sandeep Dubey (**@DubeySandeep**), Nithesh Hariharan (**@nithusha21**), Akshay Anand (**@aks681**), Vojtěch Jelínek (**@vojtechjelinek**), Kevin Thomas (**@kevintab95**)
+* Release coordination team: Sandeep Dubey (**@DubeySandeep**), Nithesh Hariharan (**@nithusha21**), Akshay Anand (**@aks681**), Vojtěch Jelínek (**@vojtechjelinek**), Kevin Thomas (**@kevintab95**)
 
 * QA coordinators team: Nithesh Hariharan (**@nithusha21**), Akshay Anand (**@aks681**), Chris Skalnik (**@U8NWXD**), Kevin Thomas (**@kevintab95**), Vojtěch Jelínek (**@vojtechjelinek**)
 
@@ -70,9 +70,10 @@ We also have a project leads council who will be contacted about project specifi
 **Note:** If you can't make it to a shift mentioned in the below rota, please make sure to swap with someone else in advance! 
 
 * Dec: Sandeep (**@DubeySandeep**) and Chris (**@U8NWXD**)
-* Jan: Nithesh (**@nithusha21**) and Kevin (**@kevintab95**)
-* Feb: Kevin (**@kevintab95**) and Akshay (**@aks681**)
+* Jan: Nithesh (**@nithusha21**) and Akshay (**@aks6815**)
+* Feb: Kevin (**@kevintab95**) and Chris (**@U8NWXD**)
 * Mar: Vojtěch (**@vojtechjelinek**) and Nithesh (**@nithusha21**)
-* Apr: Akshay (**@aks681**) and Chris (**@U8NWXD**)
-* May: Sandeep (**@DubeySandeep**) and Vojtěch (**@vojtechjelinek**)
-* Jun: Nithesh (**@nithusha21**) and Kevin (**@kevintab95**)
+* Apr: Akshay (**@aks681**) and Vojtěch (**@vojtechjelinek**)
+* May: Sandeep (**@DubeySandeep**) and Kevin (**@kevintab95**)
+* Jun: Nithesh (**@nithusha21**) and Chris (**@U8NWXD**)
+
