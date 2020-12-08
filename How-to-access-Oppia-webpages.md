@@ -27,7 +27,7 @@ The Admin page is a page exclusively for developers. It has many functionalities
 
 **About Page**
 
-The About page provides a brief overview of information about Oppia. It details the goals of the Oppia organization and provides links to guides and tutorials on how to explore Oppia
+The About page provides a brief overview of Oppia. It details the goals of the Oppia organization, credits its contributors, and provides links to guides and tutorials on how to further explore Oppia
 
 1. Click the About Menu button on the top right navigation bar
 
