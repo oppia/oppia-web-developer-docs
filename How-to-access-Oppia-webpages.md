@@ -7,7 +7,7 @@ Many Oppia Pages require authentication to access. In order to sign in:
 1. Click the sign-in button on the top left navigation bar
 ![Sign-In Button](images/Webpage-Guide/signInButton.png)
 
-2. Once redirected to the login page, click the Sign in as Administrator checkbox and then login.
+2. Once redirected to the login page, click the **Sign in as Administrator checkbox** and then login.
 
 ![Sign-In page](https://user-images.githubusercontent.com/16653571/41500954-e88a0262-71b8-11e8-9cac-456fb46782c1.png)
 
