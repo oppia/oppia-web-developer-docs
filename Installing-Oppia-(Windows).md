@@ -35,7 +35,7 @@ https://docs.microsoft.com/en-us/windows/wsl/install-win10
 
 
 ## Step 3: Installing the ubuntu app from the Microsoft Store.
-Install Ubuntu 18.04 LTS from the Microsoft Store. **NOTE:** Using “Ubuntu” will NOT work. Only use either Ubuntu 18.04 or Ubuntu 20.04.
+Install Ubuntu 18.04 LTS from the Microsoft Store. **NOTE:** Using “Ubuntu” or "or Ubuntu 20.04" will NOT work. Only use Ubuntu 18.04.
 
 Once it is installed, run the app from the startup menu. After initializing your environment, it will ask you to create a user. Provide a username and password.
 
@@ -44,7 +44,7 @@ Once it is installed, run the app from the startup menu. After initializing your
 |-|-|
 |![Screenshot 2020-09-18 at 11 57 22 PM](https://user-images.githubusercontent.com/23002114/93634596-7e14cd00-fa0e-11ea-8a07-0b4b65499225.png)|![Screenshot 2020-09-18 at 11 57 35 PM](https://user-images.githubusercontent.com/23002114/93634597-7fde9080-fa0e-11ea-8ba1-0c29be080fd7.png)|
 
-**Note: You can go for Ubuntu 20.04 as well but it comes as a barebones config. It means that you will have to install gcc, make, etc to run oppia.**
+**Note: You can go for Ubuntu 20.04 or "Ubuntu" as well but it comes as a barebones config. It means that you will have to install all the libs yourself, i.e, gcc, make, etc to run oppia. If you are familiar with these processes then you can use these as well.**
 
 ## Step 4: Clone your fork and setup:
 Run the following commands:
