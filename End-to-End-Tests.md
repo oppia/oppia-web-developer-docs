@@ -395,8 +395,13 @@ The tests may be run either sequentially or in isolation, and they need to be wr
 7. The control will stop at the point where the debugger statement was added. You can now choose to inspect elements, log variables in the test, or add more break-points.
 
 ### Debugging Circle CI builds ###
-Circle CI allows debugging using SSH. For details, please read [this](https://circleci.com/docs/2.0/ssh-access-jobs/#steps).
 
+#### Rerunning with SSH ####
+Circle CI allows debugging using SSH. For details, please read [this](https://circleci.com/docs/2.0/ssh-access-jobs/#steps). Debugging with SSH only reruns that particular job, so it is a great way to rerun a passing test to see if it flakes without rerunning all the tests.
+
+#### Downloading Screenshots ####
+
+When E2E tests run on Circle CI, we can capture screenshots of failing tests. These are available under the `Artifacts` tab of the failure log page. [Here](https://circleci.com/docs/2.0/artifacts/) is the Circle CI artifacts documentation. Note that this might not be available quite yet if [#11266](https://github.com/oppia/oppia/pull/11266) hasn't been merged yet.
 
 ## Important Tips ##
 
