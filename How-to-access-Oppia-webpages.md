@@ -1,8 +1,9 @@
-This is a quick guide on how to access webpages on the Oppia dev server.
+# How to access Oppia webpages
+This is a comprehensive guide on how to access all Oppia webpages. Before a contributor makes a PR, we expect that the contributor has thoroughly tested the changes made in the PR for functional correctness. Part of this process is manually testing any pages that are affected by their code.
 
-**Sign Up (run locally on release)**
+## Sign Up
 
-To access most Oppia, you will need to sign in as an administrator
+Many Oppia Pages require authentication to access. In order to sign in:
 1. Click the sign-in button on the nav bar on the top
 
 ![Sign-In Button](images/Webpage-Guide/signInButton.png)
