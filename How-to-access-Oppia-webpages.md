@@ -16,7 +16,11 @@ Many Oppia Pages require authentication to access. In order to sign in:
 **Admin Page**
 
 The Admin page is a page exclusively for developers. It has many functionalities including changing permissions, configuration values, and running jobs. Certain webpages cannot be accessed unless the current user does not have the permissions. 
+
 1. Login into the Oppia as an administrator
+
+![Sign-In page](https://user-images.githubusercontent.com/16653571/41500954-e88a0262-71b8-11e8-9cac-456fb46782c1.png)
+
 2. Go to the profile menu and click on the "Admin" link
 
 ![Admin Panel Link](https://user-images.githubusercontent.com/16653571/41501009-e04e9a76-71b9-11e8-958e-985f5bc7122a.png)
