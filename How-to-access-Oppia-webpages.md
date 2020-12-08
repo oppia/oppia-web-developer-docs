@@ -29,14 +29,15 @@ The Admin page is a page exclusively for developers. It has many functionalities
 
 The About page provides a brief overview of information about Oppia. It details the goals of the Oppia organization and provides links to guides and tutorials on how to explore Oppia
 
-1. Click on the About menu at the top navigation Bar
+1. Click the About Menu button on the top right navigation bar
+
 2. Click on the “About Oppia” link
 
 ![AboutPageLink](images/Webpage-Guide/aboutPageLink.png)
 
 **Collection_editor**
 1. Navigate to the Admin webpage
-2. Go to roles tab in Admin page
+2. Go to roles tab on the Admin page
 
 ![Admin Role Tab](https://user-images.githubusercontent.com/16653571/41501684-a543b22e-71c6-11e8-883c-cec35e32535e.png)
 
