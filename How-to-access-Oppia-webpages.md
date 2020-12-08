@@ -211,13 +211,22 @@ The Community-Library Page allows users to view and search for explorations on O
 2. Go to http://localhost:8181/community-library
 
 **Topic_And_Skills_Dashboard Page**
+
+The Topic_And_Skills_Dashboard Page allows users to view their created topics and skills
+
 1. Set Role to Admin 
 2. Go to http://localhost:8181/topics-and-skills-dashboard or click the topic and skills dashboard link
 
 ![Create Topic Button](images/Webpage-Guide/topicAndSkillDashboardLink.png)
 
 **Thanks Page**
+
+The Thanks page acknowledges people who support Oppia
+
 1. Go to http://localhost:8181/thanks
 
 **Terms Page**
+
+The Terms page addresses the terms and conditions of Oppia
+
 1. Go to http://localhost:8181/terms
