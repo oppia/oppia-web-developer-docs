@@ -15,7 +15,7 @@ Many Oppia Pages require authentication to access. In order to sign in:
 
 **Admin Page**
 
-The Admin page is a page exclusively for developers. It has many functionalities including changing permissions, configuration values, and running jobs. Certain webpages cannot be accessed unless the current user does not have the permissions. 
+The Admin page is a page exclusively for developers. It has many functionalities including changing permissions, configuration values, and running jobs. Certain webpages cannot be accessed unless the current user does not have the required permissions. 
 
 1. Login into the Oppia as an administrator
 
