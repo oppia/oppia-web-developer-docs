@@ -357,7 +357,7 @@ The tests may be run either sequentially or in isolation, and they need to be wr
 
 * `forEach` does not work for async-await. Use a `for ... of` loop instead if you want to operate in sequence, or use `map()` to operate in parallel. See [this stackoverflow post](https://stackoverflow.com/a/37576787) for examples.
 * `filter` can be problematic. Consider re-writing as a `for` loop instead.
-* .then() functions
+* `.then()` functions
   ```js
   someAsynchronousFunction().then(function(output) {
     return // doing something with output
@@ -368,6 +368,7 @@ The tests may be run either sequentially or in isolation, and they need to be wr
   var output = await someAsynchronousFunction();
   await // do something with "output"
   ```
+* `browser.switchTo().activeElement()` can cause problems when combined with our `action` functions. One such problem is a `Cannot read property 'bind' of undefined` error. Instead, use the normal `element(...)` element selectors to get the element you want to interact with. You can use a `debugger` statement (see the debugging section below) right before `browser.switchTo().activeElement()` to find what active is element there.
 
 ## Debugging end to end tests ##
 ### Steps to use the debugger tool ###
