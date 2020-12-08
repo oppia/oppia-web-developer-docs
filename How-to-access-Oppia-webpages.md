@@ -26,6 +26,9 @@ The Admin page is a page exclusively for developers. It has many functionalities
 ![Admin Panel Link](https://user-images.githubusercontent.com/16653571/41501009-e04e9a76-71b9-11e8-958e-985f5bc7122a.png)
 
 **About Page**
+
+The About page provides a brief overview of information about Oppia. It details the goals of the Oppia organization and provides links to guides and tutorials on how to explore Oppia
+
 1. Click on the About menu at the top navigation Bar
 2. Click on the “About Oppia” link
 
