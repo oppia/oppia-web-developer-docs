@@ -1,7 +1,7 @@
 # How to access Oppia webpages
-This is a comprehensive guide on how to access all Oppia webpages. Before a contributor makes a PR, we expect that the contributor has thoroughly tested the changes made in the PR for functional correctness. Part of this process is manually testing any pages that are affected by their code.
+Oppia has many webpages and this is a comprehensive guide on how to access all those pages. Before a contributor makes a PR, we expect that the contributor has thoroughly tested the changes made in the PR for functional correctness. Part of this process is manually testing any pages that are affected by their code.
 
-## Sign Up
+## Sign Up (As Administrator)
 
 Many Oppia Pages require authentication to access. In order to sign in:
 1. Click the sign-in button on the top left navigation bar
@@ -12,6 +12,7 @@ Many Oppia Pages require authentication to access. In order to sign in:
 ![Sign-In page](https://user-images.githubusercontent.com/16653571/41500954-e88a0262-71b8-11e8-9cac-456fb46782c1.png)
 
 **Admin Page**
+The Admin page is a page exclusively for developers. It has many functionalities including changing permissions, configuration values, and running jobs. Certain webpages cannot be accessed unless the current user does not have the permissions. 
 1. Login into the Oppia as an administrator
 2. Go to the profile menu and click on the "Admin" link
 
