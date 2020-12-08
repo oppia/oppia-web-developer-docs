@@ -36,6 +36,8 @@ The About page provides a brief overview of Oppia. It details the goals of the O
 ![AboutPageLink](images/Webpage-Guide/aboutPageLink.png)
 
 **Collection_editor**
+The Collection page allows users to create collections in Oppia. The collection editor page can only be accessed by users with the role _COLLECTION_EDITOR_
+
 1. Navigate to the Admin webpage
 2. Go to roles tab on the Admin page
 
