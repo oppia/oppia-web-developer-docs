@@ -141,6 +141,9 @@ The Skill Editor allows the creation of skills in Oppia
 
 1. Set Role to Admin 
 2. Go to topic_and_skills_dashboard and create a topic
+
+![createtopic](images/Webpage-Guide/createTopicModal.png)
+
 3. Go to the topic editor and scroll down to the Create Skill button
 4. Create a skill, and wait for the skill editor tab to open
 
@@ -166,16 +169,16 @@ The Story Editor Page allows users to create Storys in Oppia
 
 **Story Player Page**
 
-The Story Player allows people to play storys
+The Story Player allows people to play stories
 
-1. Follow steps in story editor page
+1. Follow steps on the story editor page
 2. Add a chapter to the story 
 3. Create an exploration and link it to the story
 4. Go to the Preview tab of the Story player
 
 **Topic editor/Subtopic Player Page**
 
-The Story Editor Page allows users to create topics in Oppia
+The Topic editor Page allows users to create topics in Oppia
 
 1. Set Role to Admin 
 
@@ -184,6 +187,8 @@ The Story Editor Page allows users to create topics in Oppia
 2. Go to topic_and_skills_dashboard and create a topic
 
 ![Create Button](https://user-images.githubusercontent.com/30312043/78745178-06cc0f00-7981-11ea-9eca-f4495e05b0e4.png)
+
+![createtopic](images/Webpage-Guide/createTopicModal.png)
 
 3. Create some skills and a topic and assign these skills to the topic.
 4. Edit and publish the topic after adding subtopics (add some content for these), and a story with few chapters.
