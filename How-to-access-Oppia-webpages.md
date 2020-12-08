@@ -125,20 +125,29 @@ http://localhost:8181/community-library
 
 **Get-Started Page**
 
-The Get-Started page allows users to play explorations in Oppia.
+The Get-Started page provides information for people new to Oppia
 
 1. Navigate to http://localhost:8181/get-started
 
 **Landing Pages**
+
+The landing pages are a series of pages that provide information for people who want to help contribute to Oppia.
+
 1. Navigate to http://localhost:8181/teachers
 
 **Skill Editor Page**
+
+The Skill Editor allows the creation of skills in Oppia
+
 1. Set Role to Admin 
 2. Go to topic_and_skills_dashboard and create a topic
 3. Go to the topic editor and scroll down to the Create Skill button
 4. Create a skill, and wait for the skill editor tab to open
 
 **Story Editor Page**
+
+The Story Editor Page allows users to create Storys in Oppia
+
 1. Set Role to Admin
 
 ![assignrole](https://user-images.githubusercontent.com/30312043/78745056-b8b70b80-7980-11ea-942a-b2aab314c201.png)
@@ -156,12 +165,18 @@ The Get-Started page allows users to play explorations in Oppia.
 ![createtopic](images/Webpage-Guide/addStoryModal.png)
 
 **Story Player Page**
+
+The Story Player allows people to play storys
+
 1. Follow steps in story editor page
 2. Add a chapter to the story 
 3. Create an exploration and link it to the story
 4. Go to the Preview tab of the Story player
 
 **Topic editor/Subtopic Player Page**
+
+The Story Editor Page allows users to create topics in Oppia
+
 1. Set Role to Admin 
 
 ![assignrole](https://user-images.githubusercontent.com/30312043/78745056-b8b70b80-7980-11ea-942a-b2aab314c201.png)
@@ -175,14 +190,23 @@ The Get-Started page allows users to play explorations in Oppia.
 5. Use the preview button to navigate to the topic player
 
 **Preferences Page**
+
+The Preferences Page allows users to change their settings on oppia
+
 1. Sign into Oppia
 2. Go to http://localhost:8181/preferences
 
 **Profile Page**
+
+The Profile Page allows users to view and change their profile on Oppia
+
 1. Sign in to Oppia
 2. Click on the profile menu and click your username to go to the profile page
 
 **Community-Library Page**
+
+The Community-Library Page allows users to view and search for explorations on Oppia
+
 1. Sign in to Oppia
 2. Go to http://localhost:8181/community-library
 
