@@ -127,7 +127,6 @@ You will be asked about the setup for the panel. Just click on default config.
 - Open a new terminal tab and run your e2e tests 🙂. To check you can run `python -m scripts.run_e2e_tests --suite="users"` 
 
 **Note: You only need to use the RDP client to run e2e tests. You don't have to start the X server for developing and pushing code.**
-
 The Oppia setup is done. Got to https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#finding-something-to-do to start contributing. 
 
 ## Miscellaneous
@@ -137,6 +136,11 @@ The Oppia setup is done. Got to https://github.com/oppia/oppia/wiki/Contributing
 - When in the ubuntu file system, you can type `explorer.exe .`  (don't forget the extra dot at the end) to open that folder in your windows file explorer.
 - Default terminal apps in windows don't have many features. Windows Terminal is an app by Microsoft. It enables multiple tabs (quickly switch between multiple Linux command lines, Windows Command Prompt, PowerShell, Azure CLI, etc), create custom key bindings (shortcut keys for opening or closing tabs, copy+paste, etc.), use the search feature, and custom themes (color schemes, font styles and sizes, background image/blur/transparency). [Learn More](https://docs.microsoft.com/en-us/windows/terminal).
 [Link to Install Windows Terminal](https://docs.microsoft.com/en-us/windows/terminal/get-started).
+
+- If you want to run backend tests and check coverage, please install these 2 pip libraries globally (or in your venv).
+```
+pip install coverage configparser
+```
 
 # Installation in VirtualBox on Windows 10
 
