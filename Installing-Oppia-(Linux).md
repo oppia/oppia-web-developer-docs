@@ -33,6 +33,10 @@ Alternatively, if you are on Debian/Ubuntu, you can use the `install_prerequisit
 bash scripts/install_prerequisites.sh
 ```
 
+3. If you want to run backend tests and check coverage, please install these 2 pip libraries globally (or in your venv).
+```
+pip install coverage configparser
+```
 ## Running Oppia on a development server ##
 
 1. In a terminal, navigate to `oppia/` and run:
