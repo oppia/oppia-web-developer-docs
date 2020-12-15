@@ -8,8 +8,6 @@
     * [[UX researchers|Conducting-research-with-students]]
     * [[Voice artists | Instructions-for-voice-artists]]
     * [[Designers and artists|Contributing-to-Oppia's-design]]
-    * [[Hacktoberfest 2020|Hacktoberfest-2020]]
-    * [[SLoP (Semester Long Project) 2020|SLoP-2020]]
   * **[[Good first issues|https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22]]**
   * [Code of Conduct](https://github.com/oppia/oppia/blob/develop/.github/CODE_OF_CONDUCT.md)
 
@@ -107,6 +105,7 @@
     * [[Leading Oppia Teams|Leading-Oppia-Teams]]
   * Past Events
     * Google Summer of Code: [[2020|Google-Summer-of-Code-2020]] [[2019|Google-Summer-of-Code-2019]], [[2018|Google-Summer-of-Code-2018]], [[2017|Google-Summer-of-Code-2017]], [[2016|Google-Summer-of-Code-2016]]
-    * Hacktoberfest: [[2019|Hacktoberfest-2019]], [[2018|Hacktoberfest-2018]], [[2017|Hacktoberfest-2017]], [[2016|Hacktoberfest-2016]]
+    * Hacktoberfest: [[2020|Hacktoberfest-2020]], [[2019|Hacktoberfest-2019]], [[2018|Hacktoberfest-2018]], [[2017|Hacktoberfest-2017]], [[2016|Hacktoberfest-2016]]
     * GHC Open Source Day: [[2019|GHC-Open-Source-Day-2019]], [[2018|GHC-Open-Source-Day]]
     * Season of Docs: [[2019|Season-of-Docs-2019]]
+    * DSC-SLoP (Semester Long Project): [[2020|SLoP-2020]]
