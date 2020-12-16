@@ -22,7 +22,7 @@
   * Coding Guidelines
     * [[Coding style guide|Coding-style-guide]]
     * [[How to write lint checks|How-to-Write-Lint-Checks]]
-    * [[Defining types|Guide-on-defining-types]]
+    * [[How to write type definitions|Guide-on-defining-types]]
     * [[The File Naming Convention and Directory Structure|The-File-Naming-Convention-and-Directory-Structure]]
     * [[Writing design docs|Writing-design-docs]]
     * [[Oppia's code owners and checks to be carried out by developers|Oppia's-code-owners-and-checks-to-be-carried-out-by-developers]]
