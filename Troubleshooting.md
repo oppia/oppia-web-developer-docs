@@ -362,6 +362,8 @@ DistutilsOptionError: must supply either home or prefix/exec-prefix -- not both
    HTTPError: HTTP Error 503: Service Unavailable
    ```
    please take a look at this StackOverflow [answer](https://stackoverflow.com/a/19460147) and see if it helps.
+
+  * If you get an error with `IOError: [Errno socket error] [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:727)` at the bottom, one contributor found that the error occurred intermitently. If you rerun your command, you should get further down the list of files to download. Keep rerunning until all the downloads succeed.
   
   * If all else fails, and you run into SSL related issues while installing third party libs, [here](https://stackoverflow.com/a/40857561) is what worked for one contributor. **WARNING This disables all SSL verification, so use at your own risk!** 
 
