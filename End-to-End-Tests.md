@@ -371,6 +371,9 @@ The tests may be run either sequentially or in isolation, and they need to be wr
 * `browser.switchTo().activeElement()` can cause problems when combined with our `action` functions. One such problem is a `Cannot read property 'bind' of undefined` error. Instead, use the normal `element(...)` element selectors to get the element you want to interact with. You can use a `debugger` statement (see the debugging section below) right before `browser.switchTo().activeElement()` to find what active is element there.
 
 ## Debugging end to end tests ##
+
+Whenever you're debugging tests, you should create a debugging doc to document your work. This helps future contributors if they run into a similar bug in the future. If other people come in later to help you, they can also use the debugging doc to get up to speed on what you've already figured out. You can make a copy of [this template debugging doc](https://docs.google.com/document/d/1qRbvKjJ0A7NPVK8g6XJNISMx_6BuepoCL7F2eIfrGqM/edit?usp=sharing) to get started.
+
 ### Steps to use the debugger tool ###
 1. Add a break-point in the code you want the control to stop at by adding a statement called "debugger;".
    eg.
