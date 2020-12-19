@@ -1,4 +1,4 @@
-...do not despair! The failure may be due to one of following things:
+...do not despair! The failure may be due to one of the following things:
 
 - There's a merge conflict (in which case, the CI tests won't actually run).
 - Your code is wrong.
@@ -16,7 +16,7 @@ Otherwise, if the CI explicitly shows a failure, click on the individual failed 
 
 * If the error seems totally unrelated to your PR, and is not due to a recently-merged PR, or the test has just stalled (e.g. "Failed: Timed out waiting for Angular"), this might just be the CI being flaky. In this case, the test will need to be restarted.
 
-  - **Note:** If you're new to Oppia and haven't been added yet as a collaborator to the repo, you might not have permissions to restart the failing test. In that case, please @-mention one of the codeowners or your mentor, and provide a URL to the  CI page for your PR so they can restart the test for you.
+  - **Note:** If you're new to Oppia and haven't been added yet as a collaborator to the repo, you might not have permissions to restart the failing test. In that case, please `@-mention PTAL!` one of the codeowners, reviewers, or your mentor, and provide a URL to the  CI page for your PR so they can restart the test for you. (The `PTAL` in the comment will assign the @-mentioned user to the PR so that they can help you with your comment.)
   - **Note:** The Core Maintainers have a [spreadsheet](https://docs.google.com/spreadsheets/d/1y_zk1S7YjybqxKXXh8GLPnILhBIGOr7zRvE80CPvCKk/edit#gid=0) that tracks CI failure issues which affect multiple PRs. If you do not see your issue there (or if the issue is there but has an old filing date), and can confirm that the issue is affecting other PRs and is not due to your code specifically, please email oppia-core-maintainers@googlegroups.com and the team will look into it.
   - **Note:** A list of known flakiness issues, for which restarting is the only option, can be found at the bottom of this wiki page. You can also check the [oppia-dev@ mailing list](https://groups.google.com/forum/#!forum/oppia-dev) for announcements of known issues.
 
