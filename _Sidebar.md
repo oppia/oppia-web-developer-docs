@@ -73,6 +73,7 @@
 
 **References**
   * [User documentation](https://oppia.github.io/)
+  * [Adding a New Page](https://github.com/oppia/oppia/wiki/Adding-new-page)
   * [[Angular Migration | Angular-Migration]]
   * [[Extension frameworks|Extensions-Overview]]
     * [[Interactions|Creating-Interactions]]
