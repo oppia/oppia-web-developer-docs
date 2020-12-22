@@ -66,6 +66,10 @@ If you find new test files where changes needed to be required, try updating the
  - Migration related to changing specific interaction schema: [#6177](https://github.com/oppia/oppia/pull/6177)
  - One-off job related to migration: [#6249](https://github.com/oppia/oppia/pull/6249)
 
+## Important note:
+
+- Make sure to add a thorough test for the migration function covering each possible case. Check the PR [#11466](https://github.com/oppia/oppia/pull/11466/files) for reference.
+
 ## Testing state migration locally:
 
 - Checkout develop.
