@@ -48,6 +48,7 @@
     * [[Setup your own Travis instance|Setup-your-own-Travis-instance]]
     * [[Guide for release testing | Guide-for-release-testing]]
       * [[Release schedule|Release-Schedule]]
+      * [[Release-testing-quickstart-guide|Release-testing-quickstart-guide]]
     * [[Performance testing|Performance-Testing]]
     * [[Mobile device testing|Mobile-device-testing]]
     * [[Browser & device testing|Browser-and-Device-Testing-Using-BrowserStack]]
