@@ -35,7 +35,7 @@
       * [[Interpreting CircleCI Results | Interpreting CircleCI Results]]
       * [[Debugging Stories|Debugging-Stories]]
     * **[[Guidelines for launching new features|Launching-new-features]]**
-      * [[Gating Features|Developing-new-features-with-feature-gating]]
+    * [[Feature Gating|Developing-new-features-with-feature-gating]]
     * [[Oppia's code owners and checks to be carried out by developers|Oppia's-code-owners-and-checks-to-be-carried-out-by-developers]]
   * Testing Guidelines
     * [[Running tests|Running-Tests]]
@@ -50,8 +50,7 @@
   * Release Process
     * [[Release schedule|Release-Schedule]]
     * [[Running jobs in production|Running-jobs-in-production]]
-    * [[Guide for release testing | Guide-for-release-testing]]
-      * [[Release testing quickstart guide|Release-testing-quickstart-guide]]
+    * [[Guide for release testing | Guide-for-release-testing]] & [[Release testing quickstart guide|Release-testing-quickstart-guide]]
 
 ---
 **Developer Reference**
