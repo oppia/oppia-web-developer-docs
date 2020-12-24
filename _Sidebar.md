@@ -45,11 +45,13 @@
       * [[Writing tests for custom Pylint Checkers|Writing-Tests-For-Pylint]]
       * [[End-to-end tests|End-to-End-Tests]]
       * [[How to do add a webpage to lighthouse tests|How-to-add-a-webpage-to-lighthouse-tests]]
-    * [[Guide for release testing | Guide-for-release-testing]]
-      * [[Release schedule|Release-Schedule]]
-      * [[Release testing quickstart guide|Release-testing-quickstart-guide]]
     * [[Testing for Accessibility|Testing-for-Accessibility]]
     * [[How to do Accessibility reviews|How-to-do-Accessibility-reviews]]
+  * Release Process
+    * [[Release schedule|Release-Schedule]]
+    * [[Running jobs in production|Running-jobs-in-production]]
+    * [[Guide for release testing | Guide-for-release-testing]]
+      * [[Release testing quickstart guide|Release-testing-quickstart-guide]]
 
 ---
 **Developer Reference**
@@ -57,24 +59,21 @@
   * [[Oppiabot|Oppiabot]]
   * Frontend
     * [[Angular Migration | Angular-Migration]]
-    * Design
-      * [UX guidelines](https://github.com/oppia/oppia/wiki/Oppia-UX-guidelines-&-rationales)
-      * [[Writing style guide|Writing-style-guide]]
+    * [UX guidelines](https://github.com/oppia/oppia/wiki/Oppia-UX-guidelines-&-rationales)
+    * [[Writing style guide|Writing-style-guide]]
     * [[Schema-based forms|Schema-based-Forms]]
     * [[Editor pages|Editor-pages]]
     * [[Rich Text Editor (RTE)|Rich-Text-Editor-(RTE)-Overview]]
   * Backend
     * [[Writing state migrations | Writing-state-migrations]]
+    * [[Writing audit jobs|Writing-audit-jobs]]
+    * [[Writing new one-off MapReduce jobs|Writing-new-one-off-jobs-using-map-reduce]]
+    * [[Calculating statistics|Calculating-statistics]]
     * [[Creating and modifying storage models | Creating-and-modifying-storage-models]]
     * [[Writing validators for storage models | Writing-Validators-for-storage-models]]
     * [[Coding for speed in GAE | Coding-for-speed-in-GAE]]
     * [[Adding static assets|Adding-static-assets]]
-    * One-off jobs
-      * [[Writing audit jobs|Writing-audit-jobs]]
-      * [[Writing new one-off jobs using map-reduce|Writing-new-one-off-jobs-using-map-reduce]]
-      * [[Running jobs in production|Running-jobs-in-production]]
     * [[Wipeout Implementation|Wipeout-Implementation]]
-    * [[Calculating statistics|Calculating-statistics]]
   * Translations
     * [[Adding new translations|Adding-new-translations-for-i18n]]
     * [[How to develop for i18n|How-to-develop-for-i18n]]
