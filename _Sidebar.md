@@ -17,7 +17,7 @@
   * [[Codebase Overview|Overview-of-the-Oppia-codebase]]
     * [[Tips for analyzing the codebase|Analyzing-the-codebase]]
     * [[Tour of Oppia webpages|How-to-access-Oppia-webpages]]
-    * [[Ongoing Projects|https://github.com/oppia/oppia/projects]]
+  * [[List of current projects|https://github.com/oppia/oppia/projects]]
   * **[[Good first issues|https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22]]**
   * Coding Guidelines
     * [[Coding style guide|Coding-style-guide]]
@@ -32,7 +32,7 @@
       * [[How the coverage checks work|How-the-coverage-checks-work]]
       * [[Interpreting CircleCI Results | Interpreting CircleCI Results]]
       * [[Debugging Stories|Debugging-Stories]]
-    * **[[Launching new features|Launching-new-features]]**
+    * **[[Guidelines for launching new features|Launching-new-features]]**
       * [[Gating Features|Developing-new-features-with-feature-gating]]
     * [[Oppia's code owners and checks to be carried out by developers|Oppia's-code-owners-and-checks-to-be-carried-out-by-developers]]
   * Testing Guidelines
@@ -61,6 +61,10 @@
   * Translations
     * [[Adding new translations|Adding-new-translations-for-i18n]]
     * [[How to develop for i18n|How-to-develop-for-i18n]]
+  * Design
+    * [UX guidelines|https://github.com/oppia/oppia/wiki/Oppia-UX-guidelines-&-rationales]
+    * [[Writing style guide|Writing-style-guide]]
+  * [[Angular Migration | Angular-Migration]]
   * [[Webpack|Webpack]]
   * [[Team structure|Team-Structure]]
 
@@ -68,7 +72,6 @@
 
 **References**
   * [User documentation](https://oppia.github.io/)
-  * [[Angular Migration | Angular-Migration]]
   * [[Extension frameworks|Extensions-Overview]]
     * [[Interactions|Creating-Interactions]]
     * [[Rules|Creating-Rules]]
@@ -79,8 +82,6 @@
   * [[Schema-based forms|Schema-based-Forms]]
   * [[Editor pages|Editor-pages]]
   * [[Calculating statistics|Calculating-statistics]]
-  * [[Writing style guide|Writing-style-guide]]
-  * [[UX guidelines & rationales|Oppia-UX-guidelines-&-rationales]]
   * [[Glossary of terms|Glossary-of-terms]]
   * [[Rich Text Editor (RTE)|Rich-Text-Editor-(RTE)-Overview]]
   * [[Advice on creating explorations|Advice-on-Creating-Explorations]]
