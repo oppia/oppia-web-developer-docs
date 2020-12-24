@@ -22,6 +22,7 @@
   * Coding Guidelines
     * [[Coding style guide|Coding-style-guide]]
     * [[Guidelines for creating new files|The-File-Naming-Convention-and-Directory-Structure]]
+    * [[How to add a new page|Adding-new-page]]
     * [[How to write lint checks|How-to-Write-Lint-Checks]]
     * [[How to write type definitions|Guide-on-defining-types]]
     * [[How to write design docs|Writing-design-docs]]
@@ -45,6 +46,8 @@
     * [[Guide for release testing | Guide-for-release-testing]]
       * [[Release schedule|Release-Schedule]]
       * [[Release testing quickstart guide|Release-testing-quickstart-guide]]
+    * [[Testing for Accessibility|Testing-for-Accessibility]]
+    * [[How to do Accessibility reviews|How-to-do-Accessibility-reviews]]
   * Backend
     * [[Writing state migrations | Writing-state-migrations]]
     * [[Creating and modifying storage models | Creating-and-modifying-storage-models]]
@@ -65,7 +68,6 @@
 
 **References**
   * [User documentation](https://oppia.github.io/)
-  * [Adding a New Page](https://github.com/oppia/oppia/wiki/Adding-new-page)
   * [[Angular Migration | Angular-Migration]]
   * [[Extension frameworks|Extensions-Overview]]
     * [[Interactions|Creating-Interactions]]
@@ -78,12 +80,8 @@
   * [[Editor pages|Editor-pages]]
   * [[Calculating statistics|Calculating-statistics]]
   * [[Writing style guide|Writing-style-guide]]
-  * [[UX guidelines & rationales|https://github.com/oppia/oppia/wiki/Oppia-UX-guidelines-&-rationales]]
+  * [[UX guidelines & rationales|Oppia-UX-guidelines-&-rationales]]
   * [[Glossary of terms|Glossary-of-terms]]
-  * [[Math explorations|Math-explorations]]
-  * [[Playtesting explorations|Playtesting-explorations]]
-  * [[Testing for Accessibility|Testing-for-Accessibility]]
-  * [[How to do Accessibility reviews|How-to-do-Accessibility-reviews]]
   * [[Rich Text Editor (RTE)|Rich-Text-Editor-(RTE)-Overview]]
   * [[Advice on creating explorations|Advice-on-Creating-Explorations]]
   * [[Oppia-ml Extension|Oppia-ml-Extension]]
@@ -91,12 +89,9 @@
   * [[Mobile development|Mobile-development]]
   * [[Mobile device testing|Mobile-device-testing]]
   * [[Performance testing|Performance-Testing]]
-  * Deploying Oppia
-    * [[Migration Instructions|Migration-Instructions]]
   * Playbooks
     * [[Instructions for making PR passes|Instructions-for-making-PR-passes]]
     * [[Instructions for Reviewers|Instructions-for-Reviewers]]
-    * [[Instructions for making changes to roles and actions|Instructions-for-editing-roles-or-actions]]
     * [[Instructions for QA coordinators|Instructions-to-QA-coordinators]]
     * [[Leading Oppia Teams|Leading-Oppia-Teams]]
   * Past Events
