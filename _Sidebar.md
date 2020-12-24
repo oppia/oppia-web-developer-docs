@@ -15,8 +15,10 @@
   * [[Installing Oppia|https://github.com/oppia/oppia/wiki/Installing-Oppia]]
   * [[Git cheat sheet|Git-cheat-sheet]]
   * [[Codebase Overview|Overview-of-the-Oppia-codebase]]
+    * [[Glossary of terms|Glossary-of-terms]]
     * [[Tips for analyzing the codebase|Analyzing-the-codebase]]
     * [[Tour of Oppia webpages|How-to-access-Oppia-webpages]]
+    * [User documentation](https://oppia.github.io/)
   * [[List of current projects|https://github.com/oppia/oppia/projects]]
   * **[[Good first issues|https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22]]**
   * Coding Guidelines
@@ -48,6 +50,19 @@
       * [[Release testing quickstart guide|Release-testing-quickstart-guide]]
     * [[Testing for Accessibility|Testing-for-Accessibility]]
     * [[How to do Accessibility reviews|How-to-do-Accessibility-reviews]]
+
+---
+**Developer Reference**
+
+  * [[Oppiabot|Oppiabot]]
+  * Frontend
+    * [[Angular Migration | Angular-Migration]]
+    * Design
+      * [UX guidelines](https://github.com/oppia/oppia/wiki/Oppia-UX-guidelines-&-rationales)
+      * [[Writing style guide|Writing-style-guide]]
+    * [[Schema-based forms|Schema-based-Forms]]
+    * [[Editor pages|Editor-pages]]
+    * [[Rich Text Editor (RTE)|Rich-Text-Editor-(RTE)-Overview]]
   * Backend
     * [[Writing state migrations | Writing-state-migrations]]
     * [[Creating and modifying storage models | Creating-and-modifying-storage-models]]
@@ -58,38 +73,24 @@
       * [[Writing audit jobs|Writing-audit-jobs]]
       * [[Writing new one-off jobs using map-reduce|Writing-new-one-off-jobs-using-map-reduce]]
       * [[Running jobs in production|Running-jobs-in-production]]
+    * [[Wipeout Implementation|Wipeout-Implementation]]
+    * [[Calculating statistics|Calculating-statistics]]
   * Translations
     * [[Adding new translations|Adding-new-translations-for-i18n]]
     * [[How to develop for i18n|How-to-develop-for-i18n]]
-  * Design
-    * [UX guidelines|https://github.com/oppia/oppia/wiki/Oppia-UX-guidelines-&-rationales]
-    * [[Writing style guide|Writing-style-guide]]
-  * [[Angular Migration | Angular-Migration]]
   * [[Webpack|Webpack]]
-  * [[Team structure|Team-Structure]]
-
----
-
-**References**
-  * [User documentation](https://oppia.github.io/)
   * [[Extension frameworks|Extensions-Overview]]
     * [[Interactions|Creating-Interactions]]
     * [[Rules|Creating-Rules]]
     * [[Objects|Creating-Objects]]
     * [[Dependencies|Creating-Dependencies]]
     * [[Value generators|Creating-Value-Generators]]
-  * [[Wipeout Implementation|Wipeout-Implementation]]
-  * [[Schema-based forms|Schema-based-Forms]]
-  * [[Editor pages|Editor-pages]]
-  * [[Calculating statistics|Calculating-statistics]]
-  * [[Glossary of terms|Glossary-of-terms]]
-  * [[Rich Text Editor (RTE)|Rich-Text-Editor-(RTE)-Overview]]
   * [[Advice on creating explorations|Advice-on-Creating-Explorations]]
   * [[Oppia-ml Extension|Oppia-ml-Extension]]
-  * [[Oppiabot|Oppiabot]]
   * [[Mobile development|Mobile-development]]
   * [[Mobile device testing|Mobile-device-testing]]
   * [[Performance testing|Performance-Testing]]
+  * [[Team structure|Team-Structure]]
   * Playbooks
     * [[Instructions for making PR passes|Instructions-for-making-PR-passes]]
     * [[Instructions for Reviewers|Instructions-for-Reviewers]]
