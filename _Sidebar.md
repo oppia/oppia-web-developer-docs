@@ -1,6 +1,6 @@
 **Core documentation**
-  * [README](https://github.com/oppia/oppia/blob/develop/.github/README.md#oppia)
   * [Oppia's mission](https://github.com/oppia/oppia/wiki/Oppia's-Mission)
+  * [Code of Conduct](https://github.com/oppia/oppia/blob/develop/.github/CODE_OF_CONDUCT.md)
   * **[[Get involved!|Home]]**
     * [Coders](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up)
     * [[Instructional designers|Teaching-with-Oppia]]
@@ -8,36 +8,33 @@
     * [[UX researchers|Conducting-research-with-students]]
     * [[Voice artists | Instructions-for-voice-artists]]
     * [[Designers and artists|Contributing-to-Oppia's-design]]
-  * **[[Good first issues|https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22]]**
-  * [Code of Conduct](https://github.com/oppia/oppia/blob/develop/.github/CODE_OF_CONDUCT.md)
 
 ---
 **Developing Oppia**
   * [[FAQs|Frequently-Asked-Questions]]
   * [[Installing Oppia|https://github.com/oppia/oppia/wiki/Installing-Oppia]]
   * [[Git cheat sheet|Git-cheat-sheet]]
-  * About the codebase
-    * [[Overview|Overview-of-the-Oppia-codebase]]
-    * [[Analyzing the codebase|Analyzing-the-codebase]]
+  * [[Codebase Overview|Overview-of-the-Oppia-codebase]]
+    * [[Tips for analyzing the codebase|Analyzing-the-codebase]]
+    * [[Tour of Oppia webpages|How-to-access-Oppia-webpages]]
+    * [[Ongoing Projects|https://github.com/oppia/oppia/projects]]
+  * **[[Good first issues|https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22]]**
   * Coding Guidelines
     * [[Coding style guide|Coding-style-guide]]
+    * [[Guidelines for creating new files|The-File-Naming-Convention-and-Directory-Structure]]
     * [[How to write lint checks|How-to-Write-Lint-Checks]]
     * [[How to write type definitions|Guide-on-defining-types]]
-    * [[The File Naming Convention and Directory Structure|The-File-Naming-Convention-and-Directory-Structure]]
-    * [[Writing design docs|Writing-design-docs]]
-    * [[Oppia's code owners and checks to be carried out by developers|Oppia's-code-owners-and-checks-to-be-carried-out-by-developers]]
+    * [[How to write design docs|Writing-design-docs]]
     * [[Revert and Regression Policy|Revert-and-Regression-Policy]]
-  * [[How to access Oppia webpages|How-to-access-Oppia-webpages]]
-  * [[Team structure|Team-Structure]]
-    * [[Ongoing Projects|Ongoing-Projects]]
-  * Stuck somewhere?
     * [[If your build fails...|If-Your-Build-Fails]]
+      * [[If your presubmit checks fail|If-your-presubmit-check-fails]]
       * [[How the coverage checks work|How-the-coverage-checks-work]]
       * [[Interpreting CircleCI Results | Interpreting CircleCI Results]]
-      * [[Clearing the Travis Cache|Clearing-Travis-Cache]]
-    * [[If your presubmit checks fail|If-your-presubmit-check-fails]]
-    * [[Debugging Stories|Debugging-Stories]]
-  * Testing
+      * [[Debugging Stories|Debugging-Stories]]
+    * **[[Launching new features|Launching-new-features]]**
+      * [[Gating Features|Developing-new-features-with-feature-gating]]
+    * [[Oppia's code owners and checks to be carried out by developers|Oppia's-code-owners-and-checks-to-be-carried-out-by-developers]]
+  * Testing Guidelines
     * [[Running tests|Running-Tests]]
     * Writing Tests
       * [[Writing backend tests]]
@@ -45,17 +42,13 @@
       * [[Writing tests for custom Pylint Checkers|Writing-Tests-For-Pylint]]
       * [[End-to-end tests|End-to-End-Tests]]
       * [[How to do add a webpage to lighthouse tests|How-to-add-a-webpage-to-lighthouse-tests]]
-    * [[Setup your own Travis instance|Setup-your-own-Travis-instance]]
     * [[Guide for release testing | Guide-for-release-testing]]
       * [[Release schedule|Release-Schedule]]
       * [[Release testing quickstart guide|Release-testing-quickstart-guide]]
-    * [[Performance testing|Performance-Testing]]
-    * [[Mobile device testing|Mobile-device-testing]]
-    * [[Browser & device testing|Browser-and-Device-Testing-Using-BrowserStack]]
   * Backend
     * [[Writing state migrations | Writing-state-migrations]]
     * [[Creating and modifying storage models | Creating-and-modifying-storage-models]]
-    * [[Writing Validators for storage models | Writing-Validators-for-storage-models]]
+    * [[Writing validators for storage models | Writing-Validators-for-storage-models]]
     * [[Coding for speed in GAE | Coding-for-speed-in-GAE]]
     * [[Adding static assets|Adding-static-assets]]
     * One-off jobs
@@ -65,10 +58,8 @@
   * Translations
     * [[Adding new translations|Adding-new-translations-for-i18n]]
     * [[How to develop for i18n|How-to-develop-for-i18n]]
-  * [[Mobile development|Mobile-development]]
   * [[Webpack|Webpack]]
-  * **[[Launching new features|Launching-new-features]]**
-  * [[Gating Features|Developing-new-features-with-feature-gating]]
+  * [[Team structure|Team-Structure]]
 
 ---
 
@@ -97,6 +88,9 @@
   * [[Advice on creating explorations|Advice-on-Creating-Explorations]]
   * [[Oppia-ml Extension|Oppia-ml-Extension]]
   * [[Oppiabot|Oppiabot]]
+  * [[Mobile development|Mobile-development]]
+  * [[Mobile device testing|Mobile-device-testing]]
+  * [[Performance testing|Performance-Testing]]
   * Deploying Oppia
     * [[Migration Instructions|Migration-Instructions]]
   * Playbooks
