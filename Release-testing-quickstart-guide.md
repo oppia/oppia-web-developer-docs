@@ -8,7 +8,7 @@ Here is a quick start guide that could help you get involved with the testing:
     - If it is your first time doing the testing, you will be paired up with a tester who has done testing multiple times before. If you run into any issues while testing the feature, you can get in touch with them or the testing coordinator. 
 - This doc outlines the [Critical User Journeys](https://docs.google.com/document/d/1s3MG2MVh_7m7B0wIlZb7sAcoyUdY0zq7a1JEFtwYBjI/edit#heading=h.gs2e2lh85so7). You will be assigned a few of these to test during the release testing phase.
     - You can go through these and try some of them yourself.
-- Go through this [guide for release testing](https://github.com/oppia/oppia/wiki/Guide-for-release-testing). It outlines many common things to look out for while testing.
+- Go through the rest of this page to understand how we do testing in Oppia!
 
 ## How do we do testing in Oppia?
 
