@@ -50,7 +50,7 @@
   * Release Process
     * [[Release schedule|Release-Schedule]]
     * [[Running jobs in production|Running-jobs-in-production]]
-    * [[Guide for release testing | Guide-for-release-testing]] & [[Release testing quickstart guide|Release-testing-quickstart-guide]]
+    * [[Release testing quickstart guide|Release-testing-quickstart-guide]]
 
 ---
 **Developer Reference**
