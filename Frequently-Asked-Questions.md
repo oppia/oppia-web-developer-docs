@@ -97,3 +97,7 @@ In this case, you should resolve these merge conflicts on your local machine and
 
 If you run into any problems, please read our [Developer Wiki](https://github.com/oppia/oppia/wiki), or file an issue on our [issue tracker](github.com/oppia/oppia/issues/), or post to our [developer mailing list](https://groups.google.com/forum/?fromgroups#!forum/oppia-dev).
 Or you could probably ask your questions on our official [Gitter](http://gitter.im/oppia/oppia-chat) channel.
+
+## How to enable maintenance mode in the local server?
+
+The maintenance mode can be enabled by setting the [ENABLE_MAINTENANCE_MODE](https://github.com/oppia/oppia/blob/release-2.5.0/feconf.py#L264) flag to True in feconf.
