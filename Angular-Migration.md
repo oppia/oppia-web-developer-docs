@@ -102,7 +102,7 @@ The [angular migration tracker](https://docs.google.com/spreadsheets/d/1L9Udn-XT
    SkillBackendApiService.fetchSkill(...).then((...) => {
        //resolve function
        ...
-       $rootScope.$apply() //add here
+       $rootScope.$applyAsync() //add here
     }, (...) => {
        ...
        //reject function	
@@ -295,7 +295,7 @@ controller: [
         'ConceptCardBackendApiService', 'ConceptCardObjectFactory',
 ```
 
-The first two dependencies are interesting ones. They don't have a direct equivalent in angular. In most of the cases, you will find something like `$scope.someVariable = `, `$scope.$onDestroy`, `$scope.$onInit`, and `$rootScope.$apply()`. In other cases contact your onboarding mentor or @srijanreddy98.
+The first two dependencies are interesting ones. They don't have a direct equivalent in angular. In most of the cases, you will find something like `$scope.someVariable = `, `$scope.$onDestroy`, `$scope.$onInit`, and `$rootScope.$applyAsync()`. In other cases contact your onboarding mentor or @srijanreddy98.
 
 Now, we have the other two dependencies ('ConceptCardBackendApiService', 'ConceptCardObjectFactory'). These are called injectables as they are "injected". So these go into your constructor.
 
@@ -474,7 +474,7 @@ Take a look at the directive code:
                 ctrl.numberOfWorkedExamplesShown = 1;
               }
               // TODO(#8521): Remove when this directive is migrated to Angular.
-              $rootScope.$apply();
+              $rootScope.$applyAsync();
             });
           };
 ```
@@ -535,7 +535,7 @@ Take a look at the directive code:
                 ctrl.numberOfWorkedExamplesShown = 1;
               }
               // TODO(#8521): Remove when this directive is migrated to Angular.
-              $rootScope.$apply();
+              $rootScope.$applyAsync();
             });
           };
 ```
@@ -890,7 +890,7 @@ The first line is needed since our app is in hybrid state i.e half angular and h
 For any class that is to be used as service, we need to add the following decorator for the above reason.
 When we provide the service at the root level, Angular creates a single, shared instance of the service and injects it into any class that asks for it. Registering the provider in the @Injectable() metadata also allows Angular to optimize an app by removing the service from the compiled app if it isn't used. There are two other methods for registering a service but we’ll go with the one described above.
 
-**Why do we need `$rootScope.$apply` with HTTP requests?**
+**Why do we need `$rootScope.$applyAsync` with HTTP requests?**
 
 As you can see in the link here, the directive updates the value when the promise is resolved.
 ```
@@ -906,8 +906,8 @@ TopicViewerBackendApiService.fetchTopicData(ctrl.topicName).then(
 ```
 Everything was working fine before the migration, but after migration, we noticed that all the values in the above-mentioned function were updated but not propagated to the corresponding HTML file. Searched online gave [stackoverflow](https://stackoverflow.com/a/21659051) link which mentions four points of which one is
 
-_Yes, AngularJS's bindings are "turn-based", they only fire on certain DOM events and on calls to `$apply/$digest`. There are some useful services like `$http` and `$timeout` that do the wrapping for you, but anything outside of that requires calls to either `$apply` or `$digest`._
-`$digest` cycle is not running after we've upgraded `$http` to `HttpClient` and adding `$rootScope.$apply` to explicitly ask Angular to propagate the changes to Html is the solution that works perfectly.
+_Yes, AngularJS's bindings are "turn-based", they only fire on certain DOM events and on calls to `$applyAsync/$digest`. There are some useful services like `$http` and `$timeout` that do the wrapping for you, but anything outside of that requires calls to either `$applyAsync` or `$digest`._
+`$digest` cycle is not running after we've upgraded `$http` to `HttpClient` and adding `$rootScope.$applyAsync` to explicitly ask Angular to propagate the changes to Html is the solution that works perfectly.
 
 **What is TestBed?**
 
@@ -935,7 +935,7 @@ When a service has a dependent service, DI (dependency injector) finds or create
 2. What is `rootScope`? - Angular has scopes. `$scope` is a local scope, which is bound to exactly one controller. It can local properties and functions of the controller. `$rootScope` on the other hand, is the global scope and can be accessed from everywhere.
     
 
-	What is `$rootScope.$apply()` and why do we use it? `$rootScope.$apply` is used to update the global properties and variables so that the new state can be used by the function where it is called. As to why it is not updated automatically, the reason is that the Angular DOM basically runs in cycles, and apply causes the changes to be saved. Mostly this is done explicitly, but in some cases, we have to do it explicitly. This is mentioned in the Angular migration guide. Remember that this function will go in the resolve of the promise! This is because we want the variables to get to their new state in case of expected behaviour.
+	What is `$rootScope.$applyAsync()` and why do we use it? `$rootScope.$applyAsync` is used to update the global properties and variables so that the new state can be used by the function where it is called. As to why it is not updated automatically, the reason is that the Angular DOM basically runs in cycles, and apply causes the changes to be saved. Mostly this is done explicitly, but in some cases, we have to do it explicitly. This is mentioned in the Angular migration guide. Remember that this function will go in the resolve of the promise! This is because we want the variables to get to their new state in case of expected behaviour.
     
 	For more reference: [Scopes](https://docs.angularjs.org/guide/scope)
     
