@@ -30,9 +30,13 @@ The bugs reported during a release fall under two categories: Blocking & Non-blo
 
 6. **Regressions**: Regression can be thought of as a bug where the behaviour of something on the current published site is better than the behaviour of something in the release cut. It is similar to breaking existing functionality. This should be considered blocking and fixed since it impacts the user experience.
 
+7. **Broken Jobs**: If a job cannot be run on the test server, it should be taken as a blocking bug.
+
 # Instructions for fixing release bugs
 ## Deciding whether to fix the bug or remove the changes from the release
 If the blocking bug is coming from a newly introduced feature, the release coordinator **can** allow small fixes to UI problems, but for all other problems, the feature needs to be removed from the release (preferably by disabling the feature via some flag), and the changes need to be fixed before the **next release**.
+
+If the blocking bug is a job that cannot be run the decision whether to exclude or include it in the release depends on if the job can be delayed to the next release or not. Jobs that cleanup old stuff should be delayed until the next release, but jobs needed for some new feature should be fixed immediately.
 
 ## Fixing the release bug
 1. Make a branch off of `develop`, and fix the bug.
