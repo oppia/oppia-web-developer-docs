@@ -81,8 +81,7 @@ In some cases, the reviewer (contributors with write access) might want to fix t
 1. Checkout to the fetched branch, `git checkout -b {{AUTHOR_NAME}}-{{BRANCH_NAME}} {{AUTHOR_NAME}}/{{BRANCH_NAME}}`.
 1. Update that branch from develop, `git pull upstream develop` and fix the merge conflicts as usual.
 1. Push back to the branch, `git push {{AUTHOR_NAME}} HEAD:{{BRANCH_NAME}}`.
-1. Notify the PR author by adding a comment to the PR saying: "I've updated your PR from develop, if you want add any more commits you first need to pull the branch locally by using `git pull origin {{BRANCH_NAME}}`".
-
+1. Notify the PR author by adding a comment to the PR saying: "I've updated your PR from develop. If you want to add any more commits, you will first need to pull the branch locally by using `git pull origin {{BRANCH_NAME}}`. Thanks!".
 
 ## Troubleshooting
 
