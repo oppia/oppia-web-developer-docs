@@ -31,6 +31,10 @@ The bugs reported during a release fall under two categories: Blocking & Non-blo
 6. **Regressions**: Regression can be thought of as a bug where the behaviour of something on the current published site is better than the behaviour of something in the release cut. It is similar to breaking existing functionality. This should be considered blocking and fixed since it impacts the user experience.
 
 # Instructions for fixing release bugs
+## Deciding whether to fix the bug or remove the changes from the release
+If the blocking bug is coming from a newly introduced feature, the release coordinator **can** allow small fixes to UI problems, but for all other problems, the feature needs to be removed from the release (preferably by disabling the feature via some flag), and the changes need to be fixed before the **next release**.
+
+## Fixing the release bug
 1. Make a branch off of `develop`, and fix the bug.
 1. Apply the label [PR: for current release](https://github.com/oppia/oppia/labels/PR%3A%20for%20current%20release) to PRs containing bugfixes that need to go into the current release.
 1.  (**This should only be done by the release coordinator.**) When the PR has been cherry-picked onto the release branch, apply the label [PR: released](https://github.com/oppia/oppia/labels/PR%3A%20released) to the PR.
