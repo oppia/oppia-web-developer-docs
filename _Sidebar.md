@@ -48,7 +48,7 @@
     * [[Testing for Accessibility|Testing-for-Accessibility]]
     * [[How to do Accessibility reviews|How-to-do-Accessibility-reviews]]
   * Release Process
-    * [[Release schedule|Release-Schedule]]
+    * [[Release schedule|Release-schedule-and-other-informations]]
     * [[Running jobs in production|Running-jobs-in-production]]
     * [[Release testing quickstart guide|Release-testing-quickstart-guide]]
 
