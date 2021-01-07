@@ -91,6 +91,12 @@ The other files in the `linters` folder have the following use cases:
    python -m scripts.run_backend_tests --test_target=scripts.linters.<test-file-name>
    ```
 
+   If you added a JS lint check, add tests to the corresponding `*.spec.js` file instead. Then run it like this:
+
+   ```
+   python -m scripts.run_custom_eslint_tests
+   ```
+
 5. Run the pre_commit_linter module corresponding to the file type for which the linter is added. Fix all the issues, and re-run the linter to verify. Once that is done, push the changes to GitHub.
 
 ## Important code pointers
