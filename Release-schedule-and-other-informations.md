@@ -78,7 +78,7 @@ We also have a project leads council who will be contacted about project specifi
 **Note:** If you can't make it to a shift mentioned in the below rota, please make sure to swap with someone else in advance! 
 
 * Dec: Sandeep (**@DubeySandeep**) and Chris (**@U8NWXD**)
-* Jan: Nithesh (**@nithusha21**) and Akshay (**@aks6815**)
+* Jan: Nithesh (**@nithusha21**) and Akshay (**@aks681**)
 * Feb: Kevin (**@kevintab95**) and Chris (**@U8NWXD**)
 * Mar: Vojtěch (**@vojtechjelinek**) and Nithesh (**@nithusha21**)
 * Apr: Akshay (**@aks681**) and Chris (**@U8NWXD**)
