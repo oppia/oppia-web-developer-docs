@@ -112,7 +112,7 @@ Here's some advice about proposals and milestone timeline planning that we colla
 - Students who make the last milestone bulky normally run into issues. So, make sure that you distribute work evenly.
 
 ### What should applicants expect from mentors in a proposal review?
-* Please write your proposal on the assumption that you "own" your chosen project. From your perspective, the submitted proposal should be in as good a condition as possible before you ask for a review. Make sure you have a sufficiently good understanding of the codebase/project to find flaws in the design; don't assume that reviewers are responsible for doing this for you. Note that, by "as good a condition as possible", we don't mean that your proposal needs to be flawless -- we expect that you might make mistakes, and reviewers will be happy to guide you on how to improve. Instead, by "as good a condition as possible", we mean that your proposal should demonstrate:
+* Please write your proposal on the assumption that you "own" your chosen project. From your perspective, the submitted proposal should be in as good a condition as possible before you ask for a review. Make sure you have a sufficiently good understanding of the codebase/project to find flaws in the design; don't assume that reviewers are responsible for doing this for you. Note that your proposal doesn't need to be flawless -- we expect that you might make mistakes, and reviewers will be happy to guide you on how to improve. Instead, by "as good a condition as possible", we mean that your proposal should demonstrate:
   * Your ownership of the project
   * The research you have put into writing it
   * Your analytical skills
@@ -126,7 +126,7 @@ Here's some advice about proposals and milestone timeline planning that we colla
 
 If you'd like to get a sense of what a proposal might contain, please see our [GSoC 2020 page](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2020) for examples of proposals that we accepted in 2020. Note that the [GSoC Proposal Template](https://docs.google.com/document/d/1fZ8yJG70zoANYGJgOv5wsIzz3arOX4Up4EJqfUU6nis/edit) was edited for 2021, so please be sure to follow the 2021 template.
 
-_**Note:** although some of these proposals are a bit on the long side, there's **no** formal length requirement for your proposal. In general, the quality of what you write is much more important than the amount of text you write, and we encourage you to write shorter proposals that still convey the main aim of the project. For the actual requirements, please see the [GSoC Proposal Template](#gsoc-proposal-template) section above._
+_**Note:** although some of the previous years proposals are a bit on the long side, there's **no** formal length requirement for your proposal. In general, the quality of what you write is much more important than the amount of text you write, and we encourage you to write shorter proposals that still convey the main aim of the project. For the actual requirements, please see the [GSoC Proposal Template](#gsoc-proposal-template) section above._
 
 ## Types of work related to Oppia projects
 In order to ensure a well-rounded engineering experience, developers will do some or all of the following depending on their project:
