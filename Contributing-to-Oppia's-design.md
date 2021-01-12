@@ -5,7 +5,7 @@ The following instructions explain how to get started, and how to find a fun pro
 ## Getting Started ##
 1. Sign the CLA so that we can accept your contributions. If you're contributing as an individual, use the [individual CLA](https://goo.gl/forms/AttNH80OV0). If your company owns the copyright to your contributions, a company representative should sign the [corporate CLA](https://goo.gl/forms/xDq9gK3Zcv).
 2. Fill in the [Oppia contributor survey](https://goo.gl/forms/otv30JV3Ihv0dT3C3) to let us know your interests. You can always update your responses later.
-3. Join our [Slack workspace](https://oppia-org.slack.com). It’s a good alternative to using email.
+    - *Note that when filling out this survey, be aware that specifying that you want to contribute to the codebase will result in you also being added to the technical onboarding process. If you're not actually interested in contributing code, you should answer 'No' to that question.*
 
 ## Ways to contribute… ##
 * **Create art files for lessons**
