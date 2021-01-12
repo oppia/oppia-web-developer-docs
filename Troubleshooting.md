@@ -369,7 +369,12 @@ DistutilsOptionError: must supply either home or prefix/exec-prefix -- not both
 
 ### Windows
 
-It's possible that windows firewall might be preventing localhost:8181 to launch. In such a case, you should re-config the firewall by adding new inbound rule so that ports 8181 and 8000 are allowed. (Instruction about how to add inbound rules can be found [here](https://msdn.microsoft.com/en-us/library/hh168549(v=nav.90).aspx))
+* It's possible that windows firewall might be preventing localhost:8181 to launch. In such a case, you should re-config the firewall by adding new inbound rule so that ports 8181 and 8000 are allowed. (Instruction about how to add inbound rules can be found [here](https://msdn.microsoft.com/en-us/library/hh168549(v=nav.90).aspx))
+* One contributor found that when installing on Windows with WSL2, they got this error:
+  ```
+  [OSError: [Errno 2] No such file or directory: `/dev/disk/by-id/`
+  ```
+  To fix this, try adding the `--no_browser` argument to your command, e.g. `python -m scripts.start --no_browser`.
 
 ### Vagrant
 
