@@ -99,6 +99,8 @@ The other files in the `linters` folder have the following use cases:
 
 5. Run the pre_commit_linter module corresponding to the file type for which the linter is added. Fix all the issues, and re-run the linter to verify. Once that is done, push the changes to GitHub.
 
+   Note that for custom ESLint checks, you need to delete the `node_modules/eslint-plugin-oppia/` folder and then run `yarn install` to install your updated ESLint check. Only then will the pre-commit linter run your new checks.
+
 ## Important code pointers
 
 ### Python:
