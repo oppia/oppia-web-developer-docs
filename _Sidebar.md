@@ -25,7 +25,6 @@
     * [[Coding style guide|Coding-style-guide]]
     * [[Guidelines for creating new files|The-File-Naming-Convention-and-Directory-Structure]]
     * [[How to add a new page|Adding-new-page]]
-    * [[How to write lint checks|How-to-Write-Lint-Checks]]
     * [[How to write type definitions|Guide-on-defining-types]]
     * [[How to write design docs|Writing-design-docs]]
     * [[Revert and Regression Policy|Revert-and-Regression-Policy]]
@@ -36,6 +35,9 @@
       * [[Debugging Stories|Debugging-Stories]]
     * **[[Guidelines for launching new features|Launching-new-features]]**
     * [[Feature Gating|Developing-new-features-with-feature-gating]]
+    * [[Lint Checks|Lint-Checks#how-to-run-the-linter]]
+       * [[How to run lint checks?|Lint-Checks#how-to-run-the-linter]]
+       * [[How to write lintchecks?|Lint-Checks#directory-structure]]
     * [[Oppia's code owners and checks to be carried out by developers|Oppia's-code-owners-and-checks-to-be-carried-out-by-developers]]
   * Testing Guidelines
     * [[Running tests|Running-Tests]]
