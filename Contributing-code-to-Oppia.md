@@ -115,6 +115,7 @@ To make code changes, please follow the following instructions carefully! Otherw
      ```
        git commit -a -m "{{YOUR COMMIT MESSAGE HERE}}"
      ```
+     For eg. `git commit -a -m "address nit changes"`.
 
    - **Note**: There is no maximum/minimum number of commits required in a PR. Just follow the instructions of the reviewer. Since we make a squash merge, there is no restriction on the number of commits you make but make sure that your commits are meaningful.
 
