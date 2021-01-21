@@ -30,9 +30,9 @@ In general, it's easier to contribute to the Oppia codebase if you have some kno
 That said, we strongly recommend that you be open to learning new things. If you need to brush up on some of the technologies used in Oppia, here are some resources that may help:
 
 - Git and Github are used to make changes to the repository. So, it's good to know how to use them to do basic stuff like branching, merging, pull/push etc. [Here](https://github.com/oppia/oppia/wiki/Learning-Resources) is a page we've compiled that contains some links to useful learning materials.
-- AngularJS (v1) and Angular 8 are used for Oppia's frontend; we are currently in the process of migrating from the former to the latter. Most of our open issues are in the frontend and require at least some knowledge of HTML, AngularJS/Angular and CSS, so knowledge of frontend coding will serve you well if you'd like to contribute to Oppia over the longer term.
+- AngularJS (v1) and Angular 2+ are used for Oppia's frontend; we are currently in the process of migrating from the former to the latter. Most of our open issues are in the frontend and require at least some knowledge of HTML, AngularJS/Angular and CSS, so knowledge of frontend coding will serve you well if you'd like to contribute to Oppia over the longer term.
   - A nice YouTube video tutorial for AngularJS can be found [here](https://www.youtube.com/watch?v=nO1ROKMjPqI&list=PLvZkOAgBYrsS_ugyamsNpCgLSmtIXZGiz) and you can check the official [tutorial](https://docs.angularjs.org/tutorial/index)/[guide](https://docs.angularjs.org/guide). For an outline of AngularJS, you can also take a look at this [short overview](https://egghead.io/articles/new-to-angularjs-start-learning-here) with pointers to other resources.
-  - For Angular 8, consider checking out the official documentation [here](https://angular.io/docs), which also includes a [tutorial](https://angular.io/tutorial).
+  - For Angular 2+, consider checking out the official documentation [here](https://angular.io/docs), which also includes a [tutorial](https://angular.io/tutorial).
 - If you are new to HTML, some tutorials include [Mozilla's guide](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML) (which includes some practice assessments), as well as [this tutorial for beginners](http://htmldog.com/guides/html/beginner/).
 - We also have some backend (Python) projects available, but not as many, so we'd strongly recommend learning AngularJS if you have the opportunity and inclination -- otherwise, the range of projects you can take up will be more limited. That said, let us know at welcome@oppia.org if you'd like suggestions for non-frontend projects, and we'll do our best to help.
 
@@ -49,7 +49,7 @@ Welcome! Please make sure to follow the [setup instructions](https://github.com/
 #### Frontend:
 - [#10700](https://github.com/oppia/oppia/issues/10700) (Refactor all migrated object factories to model.ts files in angular)
 - [#9749](https://github.com/oppia/oppia/issues/9749) (Migrate directives/controllers to Angular components)
-- [#8472](https://github.com/oppia/oppia/issues/8472) (Migrating AngularJS files to Angular 8)
+- [#8472](https://github.com/oppia/oppia/issues/8472) (Migrating AngularJS files to Angular 2+)
 - [#10798](https://github.com/oppia/oppia/issues/10798) (Fixing end-to-end tests, which are written with protractor)
 - [#4057](https://github.com/oppia/oppia/issues/4057) (frontend; Karma tests)
 - [#8668](https://github.com/oppia/oppia/issues/8668) (frontend; documenting the services)
@@ -261,7 +261,7 @@ Below are labels which can be applied to pull requests:
 1. Dependencies: Should be added to pull requests that updates one or more dependencies.
 2. Critical: Should be added to pull requests that change storage models.
 3. Stale: Should only be added by oppiabot on pull requests that have not been active over a period of time.
-4. Changelog (labels containing _PR CHANGELOG_): Should be used on pull requests for respective projects. For example, a pull requests which upgrades a service from angularjs to angular 8, should apply the angular migration changelog label **PR CHANGELOG: Angular Migration -- @bansalnitish**.
+4. Changelog (labels containing _PR CHANGELOG_): Should be used on pull requests for respective projects. For example, a pull requests which upgrades a service from angularjs to angular 2+, should apply the angular migration changelog label **PR CHANGELOG: Angular Migration -- @bansalnitish**.
 5. Labels starting with **PR** like _PR: LGTM, PR: don’t merge - needs CLA_: These labels are used to denote the status of a pull request. For example, the **PR: LGTM** shows that the PR has been approved and is probably waiting for CI checks to be completed.
 6. **PR: require post-merge sync to HEAD**: Should only be applied to pull requests which when merged will require all other open pull requests to be updated with the develop branch.
 
