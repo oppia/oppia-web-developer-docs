@@ -141,8 +141,8 @@ A unit test is made of functions that configure the test environment, make asser
       });    
     }));
     ```
-  - #### Providing Angular 8 services in downgrade files when it uses any upgraded service as a dependency.
-    Let us assume that the test requires MyExampleService which is an angular8 service.
+  - #### Providing Angular2+ services in downgrade files when it uses any upgraded service as a dependency.
+    Let us assume that the test requires MyExampleService which is an Angular2+ service.
     ```
     import { TestBed } from '@angular/core/testing';
     import { MyExampleService } from 'services/my-example.service'; 
@@ -330,8 +330,8 @@ it('should wait for 10 seconds to call console.log', function() {
 When mocking a promise in AngularJS, you might use `$q` API. In these cases, you must use `$scope.$apply()` or `$scope.$digest` because it forcibly `$q` promises to be resolved through a Javascript digest. Here are some examples using [$apply](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/email-dashboard-pages/email-dashboard-page.controller.spec.ts#L101-L108) and [$digest](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/exploration-editor-page/services/exploration-states.service.spec.ts#L209-L221).
 
 ### When should the upgraded services be imported in the test file?  
-One of the active projects in Oppia is the Angular 8 migration. By now, the AngularJS services are being migrated and it’s still being used in downgrade files. When testing AngularJS files which uses an Angular 8 as a dependency, you must use the beforeEach call below: 
-Let us assume that the test requires MyExampleService which is an angular8 service.
+One of the active projects in Oppia is the Angular2+ migration. By now, the AngularJS services are being migrated and it’s still being used in downgrade files. When testing AngularJS files which uses an Angular2+ as a dependency, you must use the beforeEach call below: 
+Let us assume that the test requires MyExampleService which is an Angular2+ service.
 
     ```
     import { TestBed } from '@angular/core/testing';
@@ -355,16 +355,16 @@ If the file you’re testing doesn’t use any upgraded files, you don’t need 
 ### BeforeEach calls in AngularJS  
 If you’re testing an AngularJS file that uses an upgraded service, you’ll need to copy and past the beforeEach block which mocks all the upgraded services. Then, you might notice in beforeEach calls we follow a specific sequence (as you can see [here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/exploration-editor-page/editor-tab/training-panel/training-modal.controller.spec.ts#L35-L48)).  
 
-However, you might face the following situation: you need to mock an Angular 8 service by using `$provide.value`. Here’s the problem: if you use `$provide.value` before calling the updated services, your mock will be overwritten by the original code of the service.
+However, you might face the following situation: you need to mock an Angular2+ service by using `$provide.value`. Here’s the problem: if you use `$provide.value` before calling the updated services, your mock will be overwritten by the original code of the service.
 
 So, what you need to do is to change the order of beforeEach calls, as you can see in this [test](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/exploration-editor-page/improvements-tab/services/improvement-suggestion-thread-modal.controller.spec.ts#L36-L51).
 
 ### How to handle common errors  
 - If you see an error like `Error: Trying to get the Angular injector before bootstrapping the corresponding Angular module`, it means you are using a service (directly or indirectly) that is Upgraded to Angular and this error can throw or two reasons:
   - Your test that is written in AngularJS is unable to get that particular service.
-    You can fix this by providing the value of angular8 service using $provide.
+    You can fix this by providing the value of Angular2+ service using $provide.
 
-    Let us assume that the test requires MyExampleService which is an angular8 service.
+    Let us assume that the test requires MyExampleService which is an Angular2+ service.
     ```
     import { TestBed } from '@angular/core/testing';
     import { MyExampleService } from 'services/my-example.service'; 
