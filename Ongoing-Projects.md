@@ -36,10 +36,10 @@
 
 ***
 
-* ### Angular 8 Migration:
+* ### Angular 2+ Migration:
      **Project lead**: Srijan Reddy
 
-     **Aim**: Upgrading Angularjs to Angular 8.
+     **Aim**: Upgrading Angularjs to Angular 2+.
 
 ***
 
