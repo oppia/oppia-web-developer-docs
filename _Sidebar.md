@@ -46,7 +46,7 @@
       * [[Writing frontend unit tests|Frontend-unit-tests-guide]]
       * [[Writing tests for custom Pylint Checkers|Writing-Tests-For-Pylint]]
       * [[End-to-end tests|End-to-End-Tests]]
-      * [[How to do add a webpage to lighthouse tests|How-to-add-a-webpage-to-lighthouse-tests]]
+      * [[Lighthouse Tests|Lighthouse-Tests]]
     * [[Testing for Accessibility|Testing-for-Accessibility]]
     * [[How to do Accessibility reviews|How-to-do-Accessibility-reviews]]
   * Release Process
