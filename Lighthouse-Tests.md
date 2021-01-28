@@ -8,6 +8,8 @@ or
 
 The script will run the Oppia server, and then run Lighthouse checks on all the webpages outlined in the lighthouserc.js config. The Lighthouse tests also automatically test against any PR with Github Actions. The accessibility tests run only accessibility audits while the general lighthouse test audits best practices and performance
 
+# How to add new pages to lighthouse tests
+
 If you have recently created a new webpage on Oppia, it should be covered by lighthouse tests to ensure that your page is accessible.
 
 ## Add a static webpage
