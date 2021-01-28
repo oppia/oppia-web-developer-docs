@@ -77,3 +77,4 @@ def export_url(url):
     },
 ```
 
+# Debugging Lighthouse Tests
