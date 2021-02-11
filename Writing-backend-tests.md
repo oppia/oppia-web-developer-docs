@@ -61,6 +61,8 @@ The resulting coverage report lists each backend file, along with the lines in i
      * Use `assertTrue()` / `assertFalse()` instead of `assertEqual(value, True/False)`.
      * Use `assertIsNone` instead of `assertEqual(value, None)`.
 
+8. If you create a new test module (a `*_test.py` file), you will need to add it to a shard in [`oppia/scripts/backend_test_shards.json`](https://github.com/oppia/oppia/blob/develop/scripts/backend_test_shards.json). These shards run in parallel on PRs, so we want to keep the shard run-times relatively equal. You can help by putting your new module in the shard with the shortest run-time.
+
 ## Common testing scenarios
 
 1. If a function tests **more than one behaviour**, split the test into multiple parts. E.g. if you have a single test that looks like this:
