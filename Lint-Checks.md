@@ -67,7 +67,7 @@ The other files in the `linters` folder have the following use cases:
 
 1. Confirm the file type for which you want to add the lint check. 
 
-2. If it is possible to introduce the test by just adding a rule in the [eslint](https://github.com/oppia/oppia/blob/develop/.eslintrc) (for JS/TS)  [pylint] / (https://github.com/oppia/oppia/blob/develop/.pylintrc) (for python) / [htmllint](https://github.com/oppia/oppia/blob/develop/.htmllintrc) (for HTML) / [stylelint](https://github.com/oppia/oppia/blob/develop/.stylelintrc) (for CSS) configs, just add the new rule there.
+2. If it is possible to introduce the test by just adding a rule in the [eslint](https://github.com/oppia/oppia/blob/develop/.eslintrc) (for JS/TS) / [pylint](https://github.com/oppia/oppia/blob/develop/.pylintrc) (for python) / [htmllint](https://github.com/oppia/oppia/blob/develop/.htmllintrc) (for HTML) / [stylelint](https://github.com/oppia/oppia/blob/develop/.stylelintrc) (for CSS) configs, just add the new rule there.
 
    * Refer to this documentation for the list of available rules:
 
