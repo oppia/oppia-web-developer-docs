@@ -186,7 +186,7 @@ Sample PRs where checks were added:
 
    * A new case added in pylint_extensions.py and the test file is updated for that check: https://github.com/oppia/oppia/pull/10107/files#diff-c9f33564b072eb94beb16826ae5f8a28
 
-   * To understand how to write a unit test for lint checks, please refer to the [Pylint documentation](https://pylint.readthedocs.io/en/latest/how_tos/custom_checkers.html#testing-a-checker).
+   * To understand **how to write a unit test for lint checks**, please refer to the [Pylint documentation](https://pylint.readthedocs.io/en/latest/how_tos/custom_checkers.html#testing-a-checker).
 
    * Note, that no update is required to pylintrc. By default, it includes all extensions in the pylint_extensions file.
 
