@@ -199,4 +199,4 @@ Sample PRs where checks were added:
    * Verifying all jobs are registered in jobs_registry file: https://github.com/oppia/oppia/blob/develop/scripts/linters/python_linter.py#L129 
 
 ## Contact
-Please reach out to **Sajal Asati (@sajalasati, sajalasati107@gmail.com) or Sandeep (@DubeySandeep, dubeysandeep.in@gmail.com)** in case you’ve any queries.
+Please reach out to **Sajal Asati (@sajalasati, sajalasati107@gmail.com) or Sandeep Dubey (@DubeySandeep, dubeysandeep.in@gmail.com)** in case you’ve any queries.
