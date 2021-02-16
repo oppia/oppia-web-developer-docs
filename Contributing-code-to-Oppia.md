@@ -157,7 +157,7 @@ To make code changes, please follow the following instructions carefully! Otherw
 
      - Merge develop into your branch. If you run into conflicts, run the following commands to resolve them (**note:** replace new-branch-name with the name of your branch):
 
-     ```
+       ```
        git checkout new-branch-name
        git fetch upstream
        git merge upstream/develop
@@ -165,7 +165,9 @@ To make code changes, please follow the following instructions carefully! Otherw
        ...[make sure the tests pass before committing]...
        git commit -a
        git push origin new-branch-name
-     ```
+       ```
+
+       **Note:** Do not squash commits when you merge develop into your branch! This often happens when you are using an graphical interface instead of the command line. Squashing commits can confuse GitHub and cause the changes you merge in from develop to be treated as changes you made. This makes PRs really hard to review!
 
      - Make a new commit addressing the comments you agree with, and push it to the same branch. (Continue to use descriptive commit messages, or something like "Address review comments" if you're addressing many disparate review comments in the same commit.) **You do not need to close your PR and create a new one -- it's fine to push new commits to the existing PR.**
        - **Always make commits locally, and then push to GitHub.** Don't make changes using the online GitHub editor -- this bypasses lint/presubmit checks, and will cause the code on GitHub to diverge from the code on your machine.
