@@ -199,17 +199,16 @@ The schema validation should be implemented based on schema_utils.py (possibly w
 
 **Potential Mentors:** @vojtechjelinek, @rohitkatlaa
 
-**Difficulty:** Intermediate
-
 **Consider taking up this project if you:**
 
 *   Know how to code in Python
 *   Have knowledge of how different HTTP methods work
 *   Know how to code a bit in TypeScript and Angular
 
-**What we're looking for in the proposal:** 
+**What we're looking for in the proposal:**
 
 *   Comparison of the pros/cons of using third-party library or schema_utils.py for the schema validation.
+*   An explanation on how you want to introduce the schema validators to the codebase.
 
 **Dependency on Release Schedule:** None, although it would be useful to implement most of the stuff before the August release so that the changes are tested.
 
@@ -241,6 +240,8 @@ The schema validation should be implemented based on schema_utils.py (possibly w
     *   _platform_feature.py_
     *   _practice_sessions.py_
 
+
+
 ---
 
 ### Make backend code typed
@@ -253,11 +254,14 @@ The checking of type annotations should be done with mypy (or any other typing a
 
 **Potential Mentors:** @vojtechjelinek, @rohitkatlaa
 
-**Difficulty:** Intermediate
-
 **Consider taking up this project if you:**
 
 *   Know to work with types in Python 3 and how to use even more complicated typing constructs like `Optional` or `Union` 
+
+**What we're looking for in the proposal:**
+
+*   An explanation on how you want to introduce the typing to the codebase.
+*   An explanation on how you want to introduce the protobuf for the constants.
 
 **Dependency on Release Schedule:** None.
 
@@ -269,13 +273,17 @@ The checking of type annotations should be done with mypy (or any other typing a
 ---
 
 ### Simplify the Oppia build process
+
 The build process that Oppia uses to prepare the files for reliably serving the site was changed quite a lot in the last years: we introduced webpack, changed our build scripts from bash to Python, and also upgraded some libraries. Since a lot of these changes affected the build process and sometimes weren’t accounted for, the build process is now clunky and quite hard to understand.
 
 This project’s aim is to simplify the build process, making it easy for developers to work with it and unifying the multiple entry points that need to build some files (backend tests, e2e tests, frontend tests, local dev server) as much as possible. After the project is complete, all the build-related stuff should be handled exclusively with the Angular CLI. **Note: This has a dependency on angular migration being complete. Incase migration looks like it might go well beyond the start of GSoC, please consider applying for a project that removes AngularJS from the codebase and introduces angular router.**
 
 **Potential Mentors:** @vojtechjelinek, @seanlip, @dubeysandeep, @srijanreddy98
 
-**Difficulty:** Hard
+**Consider taking up this project if you:**
+
+*   Want to critically analyze and then propose a new architecture for our build process.
+*   Enjoy refactoring previously-written code.
 
 **What we're looking for in the proposal:**
 
@@ -283,43 +291,36 @@ This project’s aim is to simplify the build process, making it easy for develo
 *   Having in depth understanding of Angular cli and the angular build system.
 *   Brownie points for having PRs related to angular migration that demonstrate your ability to migrate from AngularJS to Angular 2+
 
-**Consider taking up this project if you:**
-
-*   Want to critically analyze and then propose a new architecture for our build process.
-*   Enjoy refactoring previously-written code.
-
 **Dependency on Release Schedule:** None.
 
 **Suggested Milestones:**
 
-*   Milestone 1: Introduce the angular router, auth guards.
-*   Milestone 2: Move to build process to angular-cli.
+*   Milestone 1: Unify the entry points by using the angular router and have only one entry point in the webpack config file. Specifics of the previously existing entry points should be handled by the angular router. The strategy for top-level routing should be lazy loading. 
+*   Milestone 2: Move the frontend build process from webpack to angular-cli.
 
 ---
 
 ### Improve frontend type system
 
-Our frontend codebase is almost fully typed. However there are some inconsistencies in the frontend and backend. This project will have the following tasks:
-
-*   Convert Object Factories to Model.ts files and keep the entire typings in a folder.
-*   Write a lint check to keep the HTTP request and response types in the frontend and backend synced. I.e. if a new field is added in the response from the backend, the frontend should also have the field added, otherwise the linter should pick up on that.
-*   In the frontend, there are a lot of repeated types (eg. LostChanges and ExplorationChange). Properly extend/ implement types and create a program to generate a graph that shows the relationship between types.
+Our frontend codebase is fully typed, but our typing doesn’t pass strict TypeScript checks. In this project you should firstly change the strict TypeScript config file so that all newly added files need to be strictly typed and then you should introduce strict typing for around 120 twins of files and tests for those files (so 240 files all together). You can get the files that should be handled from the [UpgradedServices.ts](https://github.com/oppia/oppia/blob/develop/core/templates/services/UpgradedServices.ts), you should start with files from the lower topological level and then move up.
 
 **Potential Mentors:** @vojtechjelinek, @rohitkatlaa, @dubeysandeep
-
-**Difficulty:** Hard
 
 **Consider taking up this project if you:**
 
 *   Enjoy coming up with cool patterns to simplify development workflow.
 *   Are interested in critically analysing various solutions to a single problem.
 
-**Dependency on Release Schedule:** None
+**What we're looking for in the proposal:**
+
+*   Links to one or more PRs in which you added types for TypeScript files. Overall, these PRs should show you adding tests to fully cover at least four TypeScript files.
+
+**Dependency on Release Schedule:** None.
 
 **Suggested Milestones:**
 
-*   Milestone 1: Create a robust system for types. Create lint checks so that no type can exist outside the system. Change ~60% of the existing types to follow the system.
-*   Milestone 2: Modify the remaining types and write lint checks to keep the HTTP request and response types in the frontend and backend synced.
+*   Milestone 1: Change the TypeScript config file so that all newly added files need to be strictly typed, introduce typing for 55 twins of files and tests for those files (so 110 files all together).
+*   Milestone 2: Introduce typing for 65 twins of files and tests for those files (so 130 files all together).
 
 ---
 
@@ -329,11 +330,9 @@ Our frontend codebase is almost fully typed. However there are some inconsistenc
 
 This project aims to write frontend tests to fully cover each service. When you begin, some services may have tests that incompletely cover the service, while others may have no tests at all. Much of the past work writing frontend tests has been tracked by [oppia/oppia#4057](https://github.com/oppia/oppia/issues/4057). This is a good reference, as is our [wiki page](https://github.com/oppia/oppia/wiki/Frontend-unit-tests-guide). It outlines best practices and standard guidelines you should follow.
 
-The project will involve writing tests for many (around 80 as of January 2021) services. The proposals must contain a concrete plan (preferably as a table) that specifies when each file will be fully covered by tests.
+The project will involve writing tests for many (35) services. The proposals must contain a concrete plan (preferably as a table) that specifies when each file will be fully covered by tests.
 
 **Potential Mentors:** @kevintab95, @aks681, @iamprayush
-
-**Difficulty:** Intermediate
 
 **Consider taking up this project if you:**
 
@@ -349,8 +348,12 @@ The project will involve writing tests for many (around 80 as of January 2021) s
 
 **Suggested Milestones:**
 
-*   Milestone 1: Fully cover half of the remaining services.
-*   Milestone 2: Fully cover all of the services.
+We are looking for 2 students to work on this project. Each student will work on one of the projects listed in the [list of frontend files to cover](https://docs.google.com/document/d/1yjSHA0Xk7IJKjblC2pUGlwpxm5TJMUgN_z8iBTWnLKA/edit?usp=sharing) under “Services.”
+
+*   Milestone 1: Fully cover half of the assigned services.
+*   Milestone 2: Fully cover all of the assigned services.
+
+It is possible that by the time you start on this project, one of your services will already have been fully tested by another contributor. In that case, you can replace the already-completed service with one from the [“Remaining” section](https://docs.google.com/document/d/1yjSHA0Xk7IJKjblC2pUGlwpxm5TJMUgN_z8iBTWnLKA/edit#heading=h.bfwqex4xygsm) in the previously mentioned list of files to cover.
 
 ---
 
@@ -358,11 +361,9 @@ The project will involve writing tests for many (around 80 as of January 2021) s
 
 This project aims to write frontend tests to fully cover each directive/component. Note that “directives” and “components” serve the same role (“directive” is the AngularJS term while “component” is the Angular term). When you begin, some directives/components may have tests that incompletely cover them, while others may have no tests at all. A 2020 GSoC student began work on this, and their [blog post](https://mari-zangue.medium.com/my-journey-through-gsoc20-with-oppia-9eb6b27e7a02) may be a helpful reference. You should also reference our [wiki page](https://github.com/oppia/oppia/wiki/Frontend-unit-tests-guide). It outlines best practices and standard guidelines you should follow.
 
-The project will involve writing tests for many (around 80) directives/components. The proposals must contain a concrete plan (preferably as a table) that specifies when each file will be fully covered by tests.
+The project will involve writing tests for many (35) directives/components. The proposals must contain a concrete plan (preferably as a table) that specifies when each file will be fully covered by tests.
 
 **Potential Mentors:** @kevintab95, @aks681, @iamprayush
-
-**Difficulty:** Intermediate
 
 **Consider taking up this project if you:**
 
@@ -378,106 +379,145 @@ The project will involve writing tests for many (around 80) directives/component
 
 **Suggested Milestones:**
 
-We are looking for 4 students to work on this project. Below, we specify the milestones for each student:
+We are looking for 2 students to work on this project. Each student will work on one of the projects listed in the [list of frontend files to cover](https://docs.google.com/document/d/1yjSHA0Xk7IJKjblC2pUGlwpxm5TJMUgN_z8iBTWnLKA/edit?usp=sharing) under “Directives and Components.”
 
-*   Student 1 (90 directives/components)
-    *   Tasks: Fully cover all the directives/components in the following directories:
-        *   ./core/templates/base-components/
-        *   ./core/templates/components/button-directives/
-        *   ./core/templates/components/ck-editor-helpers/
-        *   ./core/templates/components/common-layout-directives/
-        *   ./core/templates/components/concept-card/
-        *   ./core/templates/components/forms/
-        *   ./core/templates/components/keyboard-shortcut-help/
-        *   ./core/templates/components/on-screen-keyboard/
-        *   ./core/templates/components/oppia-angular-root.component.ts
-        *   ./core/templates/components/profile-link-directives/
-        *   ./core/templates/components/question-difficulty-selector/
-        *   ./core/templates/components/question-directives/
-        *   ./core/templates/components/ratings/
-        *   ./core/templates/components/review-material-editor/
-        *   ./core/templates/components/rubrics-editor/
-        *   ./core/templates/components/score-ring/
-        *   ./core/templates/components/skill-mastery/
-        *   ./core/templates/components/skill-selector/
-        *   ./core/templates/components/skills-mastery-list/
-        *   ./core/templates/components/state-directives/
-        *   ./core/templates/components/state-editor/
-        *   ./extensions/rich_text_components
-    *   Milestones
-        *   Milestone 1: Fully cover half of the assigned components/directives.
-        *   Milestone 2: Fully cover all of the assigned components/directives.
-*   Student 2 (94 components/directives)
-    *   Tasks: Fully cover all the directives/components in the following directories:
-        *   ./core/templates/components/state-editor/
-        *   ./core/templates/components/statistics-directives/
-        *   ./core/templates/components/summary-tile/
-        *   ./core/templates/components/version-diff-visualization/
-        *   ./core/templates/directives/
-        *   ./core/templates/domain/
-        *   ./core/templates/pages/about-page/
-        *   ./core/templates/pages/admin-page/
-        *   ./core/templates/pages/classroom-page/
-        *   ./core/templates/pages/collection-player-page/
-        *   ./core/templates/pages/contributor-dashboard-page/
-        *   ./core/templates/pages/creator-dashboard-page/
-        *   ./core/templates/pages/delete-account-page/
-        *   ./core/templates/pages/donate-page/
-        *   ./core/templates/pages/email-dashboard-pages/
-        *   ./core/templates/pages/error-pages/
-        *   ./core/templates/pages/exploration-editor-page/
-    *   Milestones
-        *   Milestone 1: Fully cover half of the assigned components/directives.
-        *   Milestone 2: Fully cover all of the assigned components/directives.
-*   Student 3 (88 components/directives)
-    *   Tasks: Fully cover all the directives/components in the following directories:
-        *   ./core/templates/pages/exploration-player-page/
-        *   ./core/templates/pages/landing-pages/
-        *   ./core/templates/pages/learner-dashboard-page/
-        *   ./core/templates/pages/library-page/
-        *   ./core/templates/pages/maintenance-page/
-        *   ./core/templates/pages/moderator-page/
-        *   ./core/templates/pages/notifications-dashboard-page/
-        *   ./core/templates/pages/practice-session-page/
-        *   ./core/templates/pages/preferences-page/
-        *   ./core/templates/pages/profile-page/
-        *   ./core/templates/pages/review-test-page/
-        *   ./core/templates/pages/signup-page/
-        *   ./core/templates/pages/skill-editor-page/
-        *   ./core/templates/pages/splash-page/
-        *   ./core/templates/pages/story-editor-page/
-        *   ./core/templates/pages/story-viewer-page/
-        *   ./core/templates/pages/subtopic-viewer-page/
-        *   ./core/templates/pages/teach-page/
-        *   ./core/templates/pages/terms-page/
-        *   ./core/templates/pages/thanks-page/
-        *   ./core/templates/pages/topic-editor-page/
-        *   ./core/templates/pages/topic-viewer-page/
-        *   ./core/templates/pages/topics-and-skills-dashboard-page/
-        *   ./extensions/value_generators/
-        *   ./extensions/visualizations/
-    *   Milestones
-        *   Milestone 1: Fully cover half of the assigned components/directives.
-        *   Milestone 2: Fully cover all of the assigned components/directives.
-*   Student 4 (105 components/directives)
-    *   Tasks: Fully cover all the directives/components in the following directories:
-        *   ./extensions/interactions
-        *   ./extensions/objects
-    *   Milestones
-        *   Milestone 1: Fully cover half of the assigned components/directives.
-        *   Milestone 2: Fully cover all of the assigned components/directives.
+*   Milestone 1: Fully cover half of the assigned files.
+*   Milestone 2: Fully cover all of the assigned files.
+
+It is possible that by the time you start on this project, one of your files will already have been fully tested by another contributor. In that case, you can replace the already-completed file with one from the [“Remaining” section](https://docs.google.com/document/d/1yjSHA0Xk7IJKjblC2pUGlwpxm5TJMUgN_z8iBTWnLKA/edit#heading=h.19wyt7w4drou) in the previously mentioned list of files to cover.
 
 ---
 
 ## Learner and Creator Experience team
+
+### Generalised migration flow for all models using JsonProperty fields
+
+Each model type (topic, story, exploration, etc.) currently has its own migration system, and all these systems are similar. We would like to consolidate this by having the migration functionality come "out of the box" when introducing a new JsonProperty field for any model. This involves implementing a generalized migration system for all model types, and moving the migration methods to their own files.
+
+**Potential Mentors:** @kevintab95, @aks681, @iamprayush
+
+**Consider taking up this project if you:**
+
+*   Like to learn about how schema migrations are done.
+*   Enjoy consolidating repeated logic and making it easier for developers to write code. 
+
+**What we're looking for in the proposal:**
+
+*   A clear plan for how the existing migration logic can be refactored.
+*   How to enforce that any model with a JsonProperty field uses the new migration system?
+
+**Dependency on Release Schedule:** None.
+
+**Suggested Milestones:**
+
+*   Milestone 1:
+    *   Introduce the generalised migration system for all models that may need migration.
+    *   Write backend tests for the new code.
+*   Milestone 2:
+    *   Write a linter to ensure that all models that require a migration flow uses the newly introduced migration system.
+
+---
+
+### Handling Exploration updates in suggestions and ‘lost changes’ improvements
+
+There are several serious issues with current saving/migration workflows in the exploration editor that can occasionally cause loss of work. In particular:
+
+*   When an exploration is updated, any existing suggestions in the feedback tab should be updated accordingly. Currently, such suggestions are not updated, resulting in a version mismatch and a loss of work when the exploration creator subsequently tries to apply the suggestion.
+*   When changes cannot be saved to an exploration, a "lost changes" modal pops up so that the creator can make a copy of their edits and then reapply them. However, the code for this modal is not robust, and in particular it does not take into account draft changelists that were stored in an older format. Thus, when it tries to display such drafts, it breaks and ends up not showing anything.
+
+**Potential Mentors:** @kevintab95, @aks681, @iamprayush
+
+**Consider taking up this project if you:**
+
+*   Like to learn about how schema migrations are done.
+*   Interested in writing MapReduce jobs to handle existing data on the server.
+*   Enjoy full-stack development.
+
+**What we're looking for in the proposal:**
+
+*   Detailed plan for handling existing data on the server including how to handle incompatible or invalid suggestions.
+*   Describe in detail the scenarios where the “Lost changes” modal might break and provide a plan to handle this.
+
+**Dependency on Release Schedule:** Yes, since the features affect the editor flows directly they need to be properly tested and issues can arise in the release.
+
+**Suggested Milestones:**
+
+*   Milestone 1
+    *   Handle changes to existing suggestions when exploration is updated.
+    *   Write a job to handle existing old suggestions on the server.
+*   Milestone 2
+    *   Fix ‘lost changes’ modal breaking when draft changes are of an older format.
+
+---
+
+### Improve Exploration save flow: Syncing edits in the background
+
+*   When multiple creators try to edit an exploration at the same time, a case may arise where some changes are not saved because the exploration version in the browser and server don’t match. It would be good to have the changes synced in the background, especially if the changes are unrelated (often creators work on different parts of the exploration and it may not intersect). When there are no merge conflicts it should be possible to merge.
+*   Autosaving fails when there is no connectivity. Have a way for creators to continue work on their explorations even if they are offline or the connection is flaky and then save their progress automatically when they have reliable network access.
+
+**Potential Mentors:** @kevintab95, @aks681, @iamprayush
+
+**Consider taking up this project if you:**
+
+*   Enjoy full-stack development.
+*   Interested in exploring technologies that enable offline functionality.
+*   Are excited about enabling real-time collaboration between creators within the application.
+
+**What we're looking for in the proposal:**
+
+*   Detailed plan for syncing exploration changes and handling merge conflicts.
+*   Include user journeys and mocks for all user-facing changes.
+
+**Dependency on Release Schedule:** None.
+
+**Suggested Milestones:**
+
+*   Milestone 1
+    *   Introduce functionality such that edits made by a user should be propagated to all clients. The changes should be applied if the changes are unrelated or else the user should be informed of the merge conflict (and a suitable way to handle it should be offered).
+*   Milestone 2
+    *   Enabling the exploration to work offline in case of connectivity issues.
+
+---
+
+### Enhancing the Skill functionality
+
+This is a collection of Github issues that are related to the Skill functionality.
+
+1. Skills list in the concept card editor takes too long to load [#10822](https://github.com/oppia/oppia/issues/10822)
+    1. Maybe we can use the filter from the dashboard. See also: Implement a reusable sort/filter list view for skills [#5670](https://github.com/oppia/oppia/issues/5670) ([#5670](https://github.com/oppia/oppia/issues/5670))
+2. Add validation for `MAX_SKILLS_PER_QUESTION` when creating questions and add question skill links [#6956](https://github.com/oppia/oppia/issues/6956)
+3. Allow bulk assigning skills to a topic in the topics + skills dashboard [#10668](https://github.com/oppia/oppia/issues/10668)
+4. Edits lost on Topic page when adding skills [#10599](https://github.com/oppia/oppia/issues/10599)
+5. While creating skill/topic- A blank tab is opened and loads after few seconds which misleads user [#9807](https://github.com/oppia/oppia/issues/9807)
+6. Topics and Skills Dashboard Does Not Show Total Number of Skills [#10278](https://github.com/oppia/oppia/issues/10278)
+7. Long skill names in the skills list in the subtopic editor seems to break alignment [#10892](https://github.com/oppia/oppia/issues/10892). May need to be handled in other areas in the editor as well.
+
+**Potential Mentors: **@kevintab95, @aks681, @iamprayush
+
+**Consider taking up this project if you:**
+
+*   Enjoy full-stack development.
+*   Interested in owning and improving one of the core functionalities used by curated lessons at Oppia.
+
+**What we're looking for in the proposal:**
+
+*   Detailed explanation for speed related improvements should be provided.
+*   Include mocks for all user-facing changes.
+
+**Dependency on Release Schedule:** None.
+
+**Suggested Milestones:**
+
+*   Milestone 1: Complete 1–3.
+*   Milestone 2: Complete 4–7.
+
+---
 
 ### Integrating the Oppia blog with Oppia.org
 
 Today’s Oppia.org blog is currently hosted on a separate site, Medium. We would prefer to have the blog page directly on Oppia.org so that it is directly connected to the rest of the site. The aim of this project is to add a “blog” page hosted on Oppia.org, and implement a simple interface for editing it.
 
 **Potential Mentors:** @aks681
-
-**Difficulty:** Intermediate
 
 **Consider taking up this project if you:**
 
@@ -486,12 +526,12 @@ Today’s Oppia.org blog is currently hosted on a separate site, Medium. We woul
 *   Like to create new user flows and UX.
 *   Are interested in working with Python, Angular (Typescript) and HTML.
 
-**What we're looking for in the proposal:** 
+** What we're looking for in the proposal:**
 
 *   There should be plans to handle both the backend and frontend of the blog integration.
 *   Should provide a view to transfer existing blogs from Medium to this. This can be a manual transfer, though it should be possible.
 
-**Dependency on Release Schedule:** Yes, M2 would need to be tested in release as that includes the addition of new pages.
+**Dependency on Release Schedule:** Yes. M2 would need to be tested in release as that includes the addition of new pages.
 
 **Suggested Milestones:**
 
@@ -506,17 +546,53 @@ Today’s Oppia.org blog is currently hosted on a separate site, Medium. We woul
 
 ---
 
+### Creating learner playlists 
+
+Currently, we have a “play later” functionality where the learner can add any exploration to the “play later” list, which is visible in the learner dashboard. We’d like to improve this and make this more helpful to the learners. This would include integrating stories and subtopics to this list.
+
+The learner dashboard should support, at least, the following features:
+
+*   Each learner should be able to create a playlist with subtopics and stories of their choice.
+*   In the curated viewer pages, the learner should be able to add any subtopic or any story into an already existing playlist or a newly created playlist, which can be created either in the learner dashboard or on the spot.
+*   These playlists should be visible in the learner dashboard in a separate tab.
+*   The learner should be able to reorder the subtopics/stories in the playlist and be able to open them from the dashboard as well.
+*   Both subtopics and stories can be shown in the same list, but they should be differentiated by some UI. They can also be color coded by the topic they are in as well.
+
+These are just some base features that can be added. Any other features that can help the learners are also welcome!
+
+**Potential Mentors:** @aks681
+
+**Consider taking up this project if you:**
+
+*   Are interested in thinking critically and designing a full user flow from scratch, by thinking from the user's perspective.
+*   Like working with the full stack, which includes creating storage models and frontend views.
+*   Owning a specific section of the codebase.
+*   Are interested in working with Python, Angular (Typescript) and HTML.
+
+** What we're looking for in the proposal:**
+
+*   There should be mockups or wireframes on the new modals / components that are added.
+*   Any new storage model that should be added is explained.
+*   How you’ll handle the features mentioned in the description.
+
+**Dependency on Release Schedule:** Yes, would depend on release for M2, since the full product would be launched then.
+
+**Suggested Milestones:**
+
+*   Milestone 1: Complete the full backend for adding all the features.
+*   Milestone 2: The frontend to create, edit and view playlists, as well as add structures to playlist is done.
+
+---
+
 ## Contributor Experience team
 
-### Contributor Dashboard Mobile UI [wiki]
+### Contributor Dashboard Mobile UI
 
 The Contributor Dashboard allows users to submit suggestions for translations and practice questions which are then reviewed and accepted/rejected. Currently, the dashboard has only been developed with a desktop view in mind. We want users to have a smooth experience on any platform/device.
 
 In this project, you will work with designers to flesh out the design and UX experience of the contributor dashboard on mobile devices. Once the mocks are complete, you will then implement the new mobile UI for the entire contributor dashboard page and related user flows. 
 
-**Potential Mentors:** @seanlip
-
-**Difficulty:** Intermediate
+**Potential Mentors:** @kevintab95, @aks681
 
 **Consider taking up this project if you:**
 
