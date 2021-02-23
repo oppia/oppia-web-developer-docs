@@ -74,7 +74,7 @@ You can use this report to determine which lines in the codebase still need to b
 ### Ensuring that coverage is maintained  
 In order to make the coverage stable, all fully-covered files are listed in the file `scripts/check_frontend_coverage.py`. This list is very helpful for some reasons:
 - If your changes decrease the coverage of a fully covered file, you can’t push it to GitHub.
-- If you have tested a file until it reaches 100% coverage, you can’t push it to Github, unless you add the file name to the whitelist in the `scripts/check_frontend_coverage.py` file.
+- If you have tested a file, but it is not yet at 100% coverage, you can’t push it to Github. Note that newly-added files must be covered fully by tests.
 - If you have removed a fully covered file (it may happen for many reasons: e.g. the file is not used anymore, the file is being migrated to Angular 2+, etc), you need to remove it manually from the whitelist. Then, you can push your commit to GitHub.  
 
 If you need to track the coverage changes (maybe a new file has achieved 100% coverage, or a fully-covered file has had its coverage reduced) before pushing the changes to GitHub, you can pass a flag to the command:  
