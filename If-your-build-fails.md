@@ -3,6 +3,7 @@
 - There's a merge conflict (in which case, the CI tests won't actually run).
 - Your code is wrong.
 - Actions or CircleCI is being flaky (e.g. network issues).
+- Your code has insufficient test coverage (see [this link](https://github.com/oppia/oppia/wiki/Frontend-unit-tests-guide#generating-coverage-reports) for details).
 
 To figure out which it is, check the bottom of the GitHub PR thread. If there's a merge conflict, it will show up there. You'll need to fix the conflict by following the [instructions for making a code change](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#instructions-for-making-a-code-change) and pushing a new commit to the branch before the CI can run.
 
