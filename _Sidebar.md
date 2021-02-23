@@ -30,7 +30,6 @@
     * [[Revert and Regression Policy|Revert-and-Regression-Policy]]
     * [[If your build fails...|If-Your-Build-Fails]]
       * [[If your presubmit checks fail|If-your-presubmit-check-fails]]
-      * [[How the coverage checks work|How-the-coverage-checks-work]]
       * [[Interpreting CircleCI Results | Interpreting CircleCI Results]]
       * [[Debugging Stories|Debugging-Stories]]
     * **[[Guidelines for launching new features|Launching-new-features]]**
