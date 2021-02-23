@@ -12,7 +12,22 @@ When writing a test for a function or class, you can generate a coverage report 
 
         python -m scripts.run_backend_tests --generate_coverage_report
 
-The resulting coverage report lists each backend file, along with the lines in it which are not covered by tests. Use this info to add new tests that cover those lines.
+If there are **any** backend test errors, no coverage report will be produced. Please fix those errors and then re-run the above command.
+
+Otherwise, the resulting coverage report lists each backend file, along with the lines in it which are not covered by tests (as in the example below). Use this info to add new tests that cover those lines.
+
+```
+Name                                                                             Stmts   Miss  Cover   Missing
+--------------------------------------------------------------------------------------------------------------
+appengine_config.py                                                                 23      0   100%
+constants.py                                                                        20      0   100%
+core/controllers/acl_decorators.py                                                 686      0   100%
+core/controllers/admin.py                                                          304      0   100%
+core/controllers/base.py                                                           258      0   100%
+core/controllers/classifier.py                                                      79      0   100%
+core/controllers/classroom.py                                                       39      0   100%
+```
+
 
 **Important note:** Getting to 100% coverage is a necessary, but not sufficient, indicator of the quality of your tests. You'll also need to ensure that your tests are sufficiently robust, and in particular, that your tests are written based on figuring out what **behaviour** you want to check. The following guidelines will help you write better tests that will lead to more maintainable code.
 
