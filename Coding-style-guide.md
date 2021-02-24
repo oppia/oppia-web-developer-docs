@@ -82,8 +82,10 @@ If you use [Sublime Text](http://www.sublimetext.com/), consider installing the 
     ```python
     pcoll = (
         input_pcoll
-        | "Op1" >> Operation()
+        | "Op1" >> Operation1()
         | "Op2" >> Operation2()
+        | "Op3" >> Operation3()
+        | "Op4" >> Operation4()
     )
     ```
 
@@ -91,8 +93,9 @@ If you use [Sublime Text](http://www.sublimetext.com/), consider installing the 
 
     ```python
     pcoll = (
-        input_pcoll | "Op1" >> Operation() | "Op2" >>
-        Operation2()
+        input_pcoll | "Op1" >> Operation1() | "Op2" >>
+        Operation2() | "Op3" >> Operation3() |
+        "Op4" >> Operation4() 
     )
     ```
 
