@@ -49,6 +49,8 @@ This page explains the process of adding voiceovers to a lesson. If you run into
 
     ![image](https://user-images.githubusercontent.com/16653571/55646262-5d47c000-57f8-11e9-8a2e-4df6ab6fa52c.png)
 
+**Note:** Some voiceover artists have experienced issues when recording within the browser. For this reason, we recommend that you upload files instead of using the Record button.
+
 6. As you record/upload audio for the cards, **make sure to click the "Publish Changes" button** on the top of the navigation bar (see image below). In the pop-up that appears, add a message about the work you have done (like "Added voice-over in English.") and publish the changes.
 
     ![image](https://user-images.githubusercontent.com/16653571/55648581-558b1a00-57fe-11e9-9394-85853c4c73d5.png)
