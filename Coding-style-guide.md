@@ -74,6 +74,35 @@ If you use [Sublime Text](http://www.sublimetext.com/), consider installing the 
 
   - Imports should be in three groups: standard libraries, files within the Oppia codebase, and third-party files. Each group should be separated by a single newline. Within each group, imports should be organized alphabetically. If you have additional questions, feel free to reference the [Google Python Style Guide](https://google.github.io/styleguide/pyguide.html#313-imports-formatting).
 
+### Apache Beam logic
+  - For pipe operations that span multiple lines, always have the pipe operator (`|`) begin on the new line.
+
+    e.g., prefer:
+
+    ```python
+    pcoll = (
+        input_pcoll
+        | "Op1" >> Operation()
+        | "Op2" >> Operation2()
+    )
+    ```
+
+    over:
+
+    ```python
+    pcoll = (
+        input_pcoll | "Op1" >> Operation() | "Op2" >>
+        Operation2()
+    )
+    ```
+
+    Note: when all pipe operations can fit in a single line, there's no need to break them up:
+    ```python
+    pcoll = input_pcoll | "Sort" >> Sort()
+    pcoll = (
+        input_pcoll | "Sort" >> Sort() | "Unique" >> Unique())
+    ````
+
 ## JavaScript
 _General note: We use the ES2017 standard for our JavaScript/TypeScript code. (See [tsconfig.json](https://github.com/oppia/oppia/blob/57333f23af7b67914dc039671f4bc4e029fbb6e7/tsconfig.json#L4).)_
 
