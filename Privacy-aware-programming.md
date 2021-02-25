@@ -2,6 +2,8 @@ _This wiki page is not a legal document and does not give binding legal advice i
 
 This wiki page contains a basic explanation of privacy-aware programming, a section about privacy practices to follow in the design stage and a third section about privacy practices to follow in the implementation stage. A lot of the content of this page is based on [Privacy Design Strategies](https://www.cs.ru.nl/J.H.Hoepman/publications/pds-booklet.pdf) by Jaap-Henk Hoepman.
 
+For more detailed overview of our privacy policy you can look at [Being Good Stewards of Oppia User Data](https://docs.google.com/document/d/1eRD0fz-vbgkGGKisvmDm08yJq4167Kaf-5-W8XBMqk0/edit#).
+
 
 ## Basics
 
