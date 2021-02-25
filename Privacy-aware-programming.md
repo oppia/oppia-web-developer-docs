@@ -61,19 +61,19 @@ For every student that logs in during the time when we have the promotion, we wo
 
 #### Privacy strategies application
 
-##### Minimize privacy strategy applied
+##### *Minimize* privacy strategy applied
 
 Instead of collecting the mail address for everyone we only collect the mail address for users that successfully complete the math topic. Also, after the promotion ends and all items are sent we remove the mail addresses from Oppia.
 
-##### Separate privacy strategy applied
+##### *Separate* privacy strategy applied
 
 Instead of collecting the data in the UserSettingsModel, a new model is created and used for saving the mail address.
 
-##### Abstract privacy strategy applied
+##### *Abstract* privacy strategy applied
 
 Provide the students a way to retrieve the physical item in some other way, without providing their mail address. For example, they can receive the item through their schools.
 
-##### Hide privacy strategy applied
+##### *Hide* privacy strategy applied
 
 Instead of collecting the mail address directly, Oppia generates code for the students that successfully complete a math topic. That code can then be used for redeeming the physical item on the website of the company that handles the deliveries or the students can provide the code to their school and the school will validate it and give the students the physical item.
 
