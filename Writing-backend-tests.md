@@ -76,7 +76,36 @@ core/controllers/classroom.py                                                   
      * Use `assertTrue()` / `assertFalse()` instead of `assertEqual(value, True/False)`.
      * Use `assertIsNone` instead of `assertEqual(value, None)`.
 
-8. If you create a new test module (a `*_test.py` file), you will need to add it to a shard in [`oppia/scripts/backend_test_shards.json`](https://github.com/oppia/oppia/blob/develop/scripts/backend_test_shards.json). These shards run in parallel on PRs, so we want to keep the shard run-times relatively equal. You can help by putting your new module in the shard with the shortest run-time.
+8. If you create a new test module (a `*_test.py` file), you will need to add it to a shard in [`oppia/scripts/backend_test_shards.json`](https://github.com/oppia/oppia/blob/develop/scripts/backend_test_shards.json). See the section on shards below.
+
+### Sharded Backend Tests
+
+#### How Sharding Works
+
+We shard the backend tests into many smaller jobs that run in parallel on GitHub Actions. In your PRs, you'll see something like this:
+
+![Display of backend test jobs on a pull request](https://user-images.githubusercontent.com/19878639/109242853-ddd78700-77a9-11eb-9cae-da5cece9ab26.png)
+
+The jobs named like `Run backend tests (ubuntu-18.04, i)` are running the sharded jobs, each with its own number `i`. The last job, `Check combined backend test coverage`. All these jobs are defined in [`.github/workflows/backend_tests.yml`](https://github.com/oppia/oppia/blob/develop/.github/workflows/backend_tests.yml).
+
+The shards are defined in [`scripts/backend_test_shards.json`](https://github.com/oppia/oppia/blob/develop/scripts/backend_test_shards.json). Here's what that top of file looks like:
+
+```json
+{
+    "1": [
+        "core.controllers.base_test",
+        "core.controllers.collection_editor_test",
+```
+
+Each shard is identified by a name, in this case `1`. You could run this shard with `python -m scripts.run_backend_tests --test_shard 1`. The shards are then defined by a list of test modules. For example, the module name for `core/controllers/base_test.py` is `core.controllers.base_test`. Notice that there is no `.py` at the end!
+
+#### Common Errors
+
+Whenever you run a shard of backend tests, the `run_backend_tests.py` script checks to make sure the test modules on the filesystem and the modules in the shards file are exactly the same. If you add a module to a shard that isn't in the filesystem, you'll get a `Modules ... in shards not found` error. This often happens if the module name is incorrect. On the other hand, if there is a module on the filesystem that's not in the shards, you'll get a `Modules ... not in shards` error. This often happens because you forgot to add a new test to the shards.
+
+#### Adding New Tests to Shards
+
+The point of sharding the backend tests is to speed up test runs on PRs. When the backend tests run in parallel, we spread the tests out across the multiple machines available to us on GitHub Actions. This means it's important for the tests to remain evenly distributed across the shards. To help with that, please **add any new tests to the shard with the shortest runtime.** Further, **make sure that all shards run in under 30 minutes.** If all the shards are taking close to 30 minutes, create a new shard in the JSON file.
 
 ## Common testing scenarios
 
