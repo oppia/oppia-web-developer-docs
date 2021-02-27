@@ -44,6 +44,7 @@ Welcome! Please make sure to follow the [setup instructions](https://github.com/
 
 #### Backend:
 - [#8423](https://github.com/oppia/oppia/issues/8423) (Implement new linter checks)
+- [#11496](https://github.com/oppia/oppia/issues/11496) (Write lint checks for the end-to-end tests)
 
 #### Frontend:
 - [#10700](https://github.com/oppia/oppia/issues/10700) (Refactor all migrated object factories to model.ts files in angular)
