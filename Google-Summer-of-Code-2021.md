@@ -379,7 +379,7 @@ The project will involve writing tests for many (35) directives/components. The 
 
 **Suggested Milestones:**
 
-We are looking for 2 students to work on this project. Each student will work on one of the projects listed in the [list of frontend files to cover](https://docs.google.com/document/d/1yjSHA0Xk7IJKjblC2pUGlwpxm5TJMUgN_z8iBTWnLKA/edit?usp=sharing) under “Directives and Components.”
+We are looking for 6 students to work on this project. Each student will work on one of the projects listed in the [list of frontend files to cover](https://docs.google.com/document/d/1yjSHA0Xk7IJKjblC2pUGlwpxm5TJMUgN_z8iBTWnLKA/edit?usp=sharing) under “Directives and Components.”
 
 *   Milestone 1: Fully cover half of the assigned files.
 *   Milestone 2: Fully cover all of the assigned files.
