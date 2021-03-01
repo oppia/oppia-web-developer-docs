@@ -84,6 +84,11 @@ These commands can be used anywhere to kill a running process on any port by usi
        * Be sure that libraries were installed using Python 2. If not, uninstall all Python 3 environments and reinstall everything in Python 2.
        * Delete the `oppia_tools` directory and rerun the script
 
+* If you run into the following error when running `start.py`, you can follow the answer [here](https://stackoverflow.com/a/55885634), which says to run `../oppia_tools/elasticsearch-7.10.1/bin/elasticsearch-keystore create` (run it from opensource/oppia/). When prompted, confirm to manually overwrite the key already created.
+
+Exception in thread "main" java.io.EOFException: read past EOF: SimpleFSIndexInput(path="/home/[user]/opensource/oppia_tools/elasticsearch-7.10.1/config/elasticsearch.keystore")
+
+
 ### Linux
 
   * If you get an error that ends with:
