@@ -10,18 +10,18 @@ Finally, these documents can serve as records of debugging strategies and bug ca
 
 ## How to Write a Debugging Doc
 
-1. Debugging docs should begin with a detailed description of what's going wrong. This should include:
+1. Debugging docs should begin with a **detailed description of what's going wrong**. This should include:
 
    * Context: What branch or PR is the bug happening on? If this is happening locally, what system are you running, and what code changes have you made?
    * How the Bug Manifests: This might include error logs that you pasted into the document, screenshots, or links to a test run on a PR. **If you provide a link, copy the relevant part of the page you are linking to.** This keeps the document self-contained so we can search them. It also makes the doc easier for people to read.
 
-2. Next, describe any investigation you did. What did you try, and what happened when you tried it? You want to include enough detail so that someone could reproduce your investigation to see if they get the same results.
+2. Next, **describe any investigation** you did. What did you try, and what happened when you tried it? You want to include enough detail so that someone could reproduce your investigation to see if they get the same results.
 
-3. After some investigation, you might have some ideas for what might be going wrong. Document this guess and describe how you go about testing it. Report the results of that testing and describe whether you think your guess was right. What's your reasoning?
+3. After some investigation, you might have some ideas for what might be going wrong. **Document your guesses and describe how you go about testing them**. Report the results of that testing and describe whether you think your guess was right. What's your reasoning?
 
-4. Continue documenting the your investigations, guesses, and tests of those guesses.
+4. **Continue** documenting the your investigations, guesses, and tests of those guesses.
 
-5. Once you figure out what the problem was, write that down too! Include an analysis of how the root cause you identify caused the errors you described at the top.
+5. Once you figure out what the problem was, write that down too! **Include an analysis of how the root cause you identify caused the errors you described at the top**.
 
 Ready to get started with your own debugging doc? You can make a copy of [this template](https://docs.google.com/document/d/1qRbvKjJ0A7NPVK8g6XJNISMx_6BuepoCL7F2eIfrGqM/edit?usp=sharing) to get started. On the Automated QA team we store all our debugging documents in a [folder](https://drive.google.com/drive/folders/1wYdiP6PfhiF553FEIqNBhW2hQxWmWo_Y?usp=sharing) on Google Drive. Check with your team to see what works best for you.
 
