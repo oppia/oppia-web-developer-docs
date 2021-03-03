@@ -187,6 +187,75 @@ You are welcome to choose among these ideas, or propose your own! However, if yo
 The list of project ideas is not fixed and more projects can be added. Also, please note that **the project descriptions are not final yet** -- we are still working them out, and some of them may change a bit.
 
 
+## Developer Experience
+
+### Solving dev-workflow issues
+
+This project will focus on tackling some of the interesting issues in the Oppia development workflow. There are 2 parts in the project:
+
+*   The first part of the project focuses on restructuring the existing lint checks. We want to move the existing custom lint scripts to pylint.
+*   The second part of the project focuses on automating the task of code ownership transfer in Oppia Org. The current process of transferring code ownership is quite manual, and also lacks flexibility in terms of the options that it provides to the codeowners, so the aim is to come up with a design to overcome those shortcomings.
+
+**Potential Mentors:** @sajalasati, @DubeySandeep
+
+**Consider taking up this project if you:**
+
+1. Know how to code in Python, Javascript.
+2. Enjoy refactoring code.
+3. Enjoy the system designing process to come up with a solution based on requirements that covers all test cases.
+
+**What we're looking for in the proposal:** 
+
+*   Link to one or more PRs showing contribution to the linter project or other dev-workflow issues.
+*   The second part of the project is open for design, so we expect the proposed design to:
+    *   cover all the edge cases of problem,
+    *   be usable for codeowners to use,
+    *   meet all the listed requirements.
+
+**Dependency on Release Schedule:** None
+
+**Suggested Milestones:**
+
+*   Milestone 1: Ensure all the Python related lint checks are in Pylint. This includes:
+    *   Moving all checks from _BAD_PATTERNS_PYTHON_REGEXP_ in `general_purpose_linter.py` to pylint, and
+    *   Moving the lint check _check_that_all_jobs_are_listed_in_the_job_registry_file_ from `python_linter.py` to backend tests.
+    *   Remove the PythonLintChecksManager class from the `python_linter.py file.`
+*   Milestone 2: Implement the complete flow for Automating Code Ownership transfer. The design has to meet the following requirements:
+    *   Allow code owners to define their future unavailability, and collect enough info from them in advance so that the ownership is automatically transferred and restored back on specified dates.
+    *   Allow code owners to define custom availability for each day of the week. 
+    *   Each code owner could be assigned to multiple code files, so make sure we properly assign new code owners for each of those files.
+        *   The expectation here is to come up with an intelligent approach for doing so, such that it’s least cumbersome and also error-prone and feasible.
+    *   Ensure PR authors have proper expectations for when a code review will take place.
+    *   Though the primary task here is to design the flow for temporary ownership transfer, keep the design open to also consider the possibility of permanent transfer (one-time transfer).
+
+To understand the current flow of making a code ownership transfer and get ideas for implementing the project, please see [this doc](https://docs.google.com/document/d/1xXXjUVd0dHXWrUTGw5k1Rpsr6w4oLqDtRzBFP7hkMxw/edit?usp=sharing).
+
+---
+
+### Move custom JS\TS lint checks to eslint
+
+The Oppia development workflow uses lint checks to help detect style errors before they reach the review phase. This project aims to migrate the JS\TS checks from python to eslint checks and implement the remaining E2E lint checks in the codebase.
+
+**Potential Mentors:** @Hudda, @DubeySandeep
+
+**Consider taking up this project if you:**
+
+1. Know how to code in Python, JavaScript.
+2. Enjoy refactoring code.
+
+**What we're looking for in the proposal:** 
+
+*   Link to one or more PRs showing contribution to the linter project.
+
+**Dependency on Release Schedule:** None
+
+**Suggested Milestones:**
+
+*   Milestone 1: Migrate JS\TS lint checks to custom Eslint checks  [#10816](https://github.com/oppia/oppia/issues/10816). Migrate some of the _BAD_PATTERNS_JS_AND_TS_REGEXP_ to custom eslint checks from _general_purpose_linter.py_.
+*   Milestone 2: Implement 4 E2E lint checks from [#8423](https://github.com/oppia/oppia/issues/8423) and move remaining _BAD_PATTERNS_JS_AND_TS_REGEXP_ to custom eslint checks.
+
+---
+
 ## Data and stability team
 
 ### Implement schema validators for the handler params
@@ -492,7 +561,7 @@ This is a collection of Github issues that are related to the Skill functionalit
 6. Topics and Skills Dashboard Does Not Show Total Number of Skills [#10278](https://github.com/oppia/oppia/issues/10278)
 7. Long skill names in the skills list in the subtopic editor seems to break alignment [#10892](https://github.com/oppia/oppia/issues/10892). May need to be handled in other areas in the editor as well.
 
-**Potential Mentors: **@kevintab95, @aks681, @iamprayush
+**Potential Mentors:** @kevintab95, @aks681, @iamprayush
 
 **Consider taking up this project if you:**
 
@@ -501,7 +570,7 @@ This is a collection of Github issues that are related to the Skill functionalit
 
 **What we're looking for in the proposal:**
 
-*   Detailed explanation for speed related improvements should be provided.
+*   Detailed explanation for speed-related improvements should be provided.
 *   Include mocks for all user-facing changes.
 
 **Dependency on Release Schedule:** None.
@@ -526,7 +595,7 @@ Today’s Oppia.org blog is currently hosted on a separate site, Medium. We woul
 *   Like to create new user flows and UX.
 *   Are interested in working with Python, Angular (Typescript) and HTML.
 
-** What we're looking for in the proposal:**
+**What we're looking for in the proposal:**
 
 *   There should be plans to handle both the backend and frontend of the blog integration.
 *   Should provide a view to transfer existing blogs from Medium to this. This can be a manual transfer, though it should be possible.
@@ -569,7 +638,7 @@ These are just some base features that can be added. Any other features that can
 *   Owning a specific section of the codebase.
 *   Are interested in working with Python, Angular (Typescript) and HTML.
 
-** What we're looking for in the proposal:**
+**What we're looking for in the proposal:**
 
 *   There should be mockups or wireframes on the new modals / components that are added.
 *   Any new storage model that should be added is explained.
@@ -610,6 +679,55 @@ In this project, you will work with designers to flesh out the design and UX exp
 ---
 
 ## Android team
+
+### Developer Options Menu
+
+The Oppia-Android application needs a developer options menu so that developers can alter app settings or stored data in real time. This is important because during PR reviews and testing there are cases where we need to create data like finishing a topic crashing the app, and doing this manually takes up a lot of time (or even isn't possible) and therefore having a developer menu where we can do these database related changes easily will make development and testing process easier. Note that a core requirement of this project is to ensure any implemented options do not "punch holes" in the existing app (e.g. if a user is using the production version of the app, it should not contain any code pertaining to the developer menu including the functionality needed to enable the debug functionality).
+
+This option should be visible inside `Administrator Controls` only if the running app is a `Debug` flavor of the app. It's expected that this feature will only work on Bazel versions of the app and not Gradle since the former lets us properly exclude functionality from certain builds.
+
+The options/functionality that should be implemented are:
+
+*   The ability to mark each of the following completed with all versions of each as available options (note that this will require validation to make sure the app doesn't end in a broken state):
+    *   Topics
+    *   Stories
+    *   Chapters
+*   View analytic event logs
+*   App-wide behavior changes
+    *   Force all hints/solutions on by default (as a toggle)
+    *   Force app to run in wifi/cellular/no network cases irrespective of the actual state on the phone (though we need to take care to make sure impossible cases don't happen, such as forcing wifi/cellular when there is no connectivity at all)
+*   An action to crash the app (for investigation & logging purposes)
+
+**Potential Mentors:** @Sarthak2601, @anandwana001, @rt4914, @BenHenning
+
+**Consider taking up this project if you:**
+
+*   Want to gain exposure to implementing new Android UIs
+*   Like to dig into large systems & write code with clean separation
+*   Want to learn about the Bazel build system
+*   Want to support other developers by making their lives easier
+
+**What we're looking for in the proposal:**
+
+*   Proof that you can build the entire project on Bazel.
+*   Some PRs related to UI related work and test cases in app layer.
+*   A logically organized document written in a way that's easy to understand, and doesn't make any assumptions about what the reader knows or doesn't know (e.g. make sure any implied context is specifically called out)
+
+**Knowledge/Skills Recommended:**
+
+*   Familiarity with Android development (esp. UI), particularly using Kotlin
+*   Strong capacity to read/understand existing code
+*   Good sense for modularizing code since that will be a key part of making sure this project does not interfere with the existing app structure
+*   Familiarity with Bazel will help, but it's not expected students will know Bazel ahead of time
+
+**Dependency on Release Schedule:** None.
+
+**Suggested Milestones:**
+
+*   Milestone 1: Introduce the initial UI & an option to crash the app as a proof-of-concept. This menu should be disabled by default in non-developer builds of the app. We suggest using Bazel modules & Dagger for this purpose. Add features that will not require broad changes in the codebase: marking specific topics/stories/chapters completed, and viewing event logs.
+*   Milestone 2: Add support for features that require broader changes: forcing connectivity type, and forcing hints/solutions to automatically show. Note that the functionality used elsewhere in the app to support this should be built in such a way where it's not included in production builds of the app, and in a way that doesn't "punch holes" in the app. We suggest considering how staging is done in milestone 1 as a baseline for determining how to approach the work for this milestone.
+
+---
 
 ### Static Analysis Checks + Improvements
 
@@ -698,7 +816,7 @@ For reference, see this [Codacy report](https://app.codacy.com/gh/anandwana001/o
 
 ### End-to-End Testing Support
 
-Oppia Android's current testing corpus includes unit tests using the Robolectric testing framework & integration tests using the Espresso testing framework (to ensure that the app operates as expected on real Android). The current tests have a few limitations: they do not correctly facilitate cross-activity navigation flows which actual users will be triggering, and they do not verify that the app can interact with Oppia's backend correctly.
+Oppia Android's current testing corpus includes unit tests using the Robolectric testing framework & integration tests using the Espresso testing framework (to ensure that the app operates as expected in a real Android environment). The current tests have a few limitations: they do not correctly facilitate cross-activity navigation flows which actual users will be triggering, and they do not verify that the app can interact with Oppia's backend correctly.
 
 To prepare for the global launch of the app, we need end-to-end tests that:
 
@@ -707,37 +825,39 @@ To prepare for the global launch of the app, we need end-to-end tests that:
 
 We expect that the tests will be written using UiAutomator & are set up for interacting with a local development server (see [relevant documentation](https://developer.android.com/studio/run/emulator-networking.html)).
 
-Note that this project requires running Linux with virtualization support (in order to run an Android emulator). Some machines support running VMs that in turn can virtualize software--you should verify this. We will be checking this during the application period.
+Note that this project requires running Linux with virtualization support (in order to run an Android emulator). You will need to make sure your computer supports [KVM](https://help.ubuntu.com/community/KVM/Installation) and is running Linux.
 
 **Potential Mentors:** @anandwana001, @BenHenning
 
-**Difficulty:** Hard
-
-**Consider taking up this project if you...**
+**Consider taking up this project if you:**
 
 *   Enjoy thinking like a user or QA tester, and want to ensure the user's experience is well-protected by excellent end-to-end tests
 *   Want to get a good understanding of how the cross-stack integrations between the Android app and web backend work
 *   Want to learn how to write instrumentation tests (particularly with UiAutomator), or understand what's involved to write end-to-end tests
 
+**What we're looking for in the proposal:**
+
+*   Submitted Android PRs that include app module tests with Espresso actions (to demonstrate familiarity with writing these tests)
+*   Verification (e.g. a screenshot) that you can build the app with Bazel locally & run app module tests
+*   Verification that your local development machine is running Linux & supports KVM (e.g. by running [kvm-ok](http://manpages.ubuntu.com/manpages/bionic/man1/kvm-ok.1.html) and including a screenshot of the output)
+*   A clear plan on what type of test data support needs to be added to the backend, and how this will be done in a way where it can be loaded from outside the server (i.e. via a parameter passed to `start.py`)
+*   A logically organized document written in a way that's easy to understand, and doesn't make any assumptions about what the reader knows or doesn't know (e.g. make sure any implied context is specifically called out)
+
 **Knowledge/Skills Recommended:**
 
 *   Kotlin
 *   Python (this project will involve changing Oppia's backend)
-*   Bazel may help (the end-to-end tests must be written using Bazel--they won't have Gradle support)
+*   Bazel may help (the end-to-end tests must be written using Bazel--we don't plan to use Gradle)
 *   Android testing (especially Espresso and/or UiAutomator), or other end-to-end testing (such as Protractor)
 
-**Dependency on Release Schedule:** No (since the backend changes are only needed for developer runs of the app)
+**Dependency on Release Schedule:** None, since the backend changes are only needed for developer runs of the app.
 
 **Suggested Milestones:**
 
-*   Milestone 1: Introduce developer-only functionality in the Oppia backend to prepopulate test topics, stories, chapters, explorations, revision cards, skills, and questions. Set up infrastructure for end-to-end testing using UiAutomator & Bazel (which will include some remodularization of the app to ensure the app can run in a mode that allows connecting to a local server). Write 1 basic end-to-end test demonstrating functionality.
-    *   Note that the test data does not need to be sensible, it just needs to be able to ensure key test scenarios can be tested in the app
+*   Milestone 1: Introduce developer-only functionality in the Oppia backend to prepopulate test topics, stories, chapters, explorations, revision cards, skills, and questions. Remodularize the necessary parts of the app to support connecting to a developer instance of the Oppia backend.
+    *   Note that the test data does not need to actually make sense, it just needs to be able to ensure key test scenarios can be tested in the app
     *   Note that the test explorations can leverage the existing test explorations [bundled](https://github.com/oppia/oppia/tree/develop/data/explorations) with the backend, but it's recommended the student create a test exploration that has proper compatibility with the Oppia app (see [Android's test explorations](https://github.com/oppia/oppia-android/tree/develop/domain/src/main/assets) for an idea on exploration compatibility)
-    *   Note that the initial test does not need to verify anything important, it just needs to demonstrate that the tests can work
-*   Milestone 2: Write end-to-end tests for critical user journeys from the following packages:
-    *   Create a profile & log into it
-    *   Download a topic
-    *   Play through one exploration
+*   Milestone 2: Set up infrastructure for end-to-end testing using UiAutomator & Bazel. Write end-to-end tests for downloading & playing through one exploration
 
 ---
 
@@ -772,6 +892,93 @@ Note that this project actually involves introducing what are called platform pa
 *   Milestone 2: Introduce runtime parameter support by hooking up to Oppia backend's platform parameter API & connecting these flags back to the predefined compile-time parameters. Note that the lifecycle of these parameters need to be carefully managed: they should not be applied until the app restarts. This part of the project will include caching results from the server, and introducing a lightweight synchronization mechanism so that the app periodically verifies that its copies of the parameters are up-to-date.
 
 ---
+
+### Implement lightweight checkpointing
+
+Oppia's lessons can require between 15 minutes and an hour of time depending on a number of factors from learners: understanding of the material, literacy capabilities, and general focus. One potential behavior in the app is that we don't save the user's progress if they navigate away from an exploration (lesson) which, given how long lessons can take, is expected to be a frustrating experience. To mitigate this, we'd like to introduce support for a lightweight checkpointing system wherein users' saved state is fully retained if they navigate away from a lesson & back.
+
+This project is actually part of a larger & broader project happening both in Android & web codebases to introduce  the idea of checkpointing: letting learners save their progress at specific points & return to those points. Note that lightweight checkpointing is different than this:
+
+*   Lightweight checkpointing is an Android-only feature
+*   Lightweight checkpointing involves saving progress & resuming _wherever_ the learner stops playing (rather than being taken to a specific moment in the lesson)
+
+This project is being spec'd out currently in a [PRD](https://docs.google.com/document/d/1d8yjwz76mngtsPRxC7fubgLKg8mfA7kG1sWRWdbiaVw/edit#) (product requirement document). The expectation is that the student's proposal will summarize the product requirements for the lightweight checkpointing part of this feature, and specify the entirety of how it should be built.
+
+**Potential Mentors:** @BenHenning, @aggarwalpulkit596, @rt4914
+
+**What we are looking for in the proposal:**
+
+*   A clean & consistently layered design that outlines a plan to save & restore lesson state across app instances, accounting for potential changes in the lesson proto structure
+*   Utilizing existing technologies in the codebase rather than solutions typically found in blogs or stack overflow (e.g. the proposal should use PersistentCacheStore rather than SharedPreferences or Room)
+*   Clear solutions for handling all edge cases in this project (e.g. cases when upgrades fail, or when we need to expire saved content due to the learner being away from the app for too long)
+*   An analysis for how much disk space each individual checkpoint will take
+*   A logically organized document written in a way that's easy to understand, and doesn't make any assumptions about what the reader knows or doesn't know (e.g. make sure any implied context is specifically called out)
+
+**Consider taking up this project if you:**
+
+*   Want to work on a user-facing problem that is quite likely to make users happy (even if they won't be aware of the alternative)
+*   Want to better understand data pipelining & persistence in larger scale Android apps
+
+**Knowledge/Skills Recommended:**
+
+*   Kotlin
+*   Android UI development
+*   Architectural design may help
+*   Dagger/dependency injection may help
+
+**Dependency on Release Schedule:** None.
+
+**Suggested Milestones:**
+
+*   Milestone 1: Implement domain layer checking whether a checkpoint is saved for a lesson, support for creating a new checkpoint at the domain layer, and support for restoring the checkpoint. Checkpoints should also be automatically expired on a least-recently-used policy basis if more than 10MB of space are consumed by checkpoints. This milestone should involve extensive testing.
+*   Milestone 2: Implement the UI changes needed to represent checkpoints that are in progress, changes to existing notices, and proper UI/domain layer support for automatically expiring checkpoints when the user has been away from the app for too long or if the app has decided to automatically expire a checkpoint to save space. Implement success metrics for the feature.
+
+---
+
+### Introduce support for displaying copyright licenses in the app
+
+It's important for software to properly attribute all dependencies on which it depends, and to display the specific copyright licenses for those dependencies. Beyond being the right thing to do, fulfilling this in a way that can scale across future dependencies can be difficult. In fact, Oppia Android already has nearly 100 transitive (direct + indirect) dependencies, each of which has its own license.
+
+This project aims to introduce the necessary functionality to collect third party licenses, build a UI (via the 'Help' menu) to display those licenses, and add CI checks to ensure future changes don't break baseline expectations. Note that due to the difficulty of this problem, this project is being scoped down to specific focus on Maven dependencies that we can more easily look up. There will be additional work for the team to complete after this project is done to ensure _all_ dependencies are being considered.
+
+We recommend that you approach this project as follows:
+
+*   Utilize a Kotlin script to compile the actual list of dependencies & their versions (+ a link to their license file). This list will actually be explicitly checked into the codebase.
+*   Introduce a GitHub CI check to verify that the list above is kept up-to-date for every code change (which lets us easily audit when indirect dependencies are added).
+*   Introduce a UI that reads from an asset list file & strings to populate the list of libraries, their versions, and their licenses. These files can be checked into git, but when they are changed (see next step) their changes should never be checked into git. Measures should be taken to prevent this.
+*   Introduce a Kotlin script that, when run, populates the UI files using the dependencies list. This script should fail if the dependencies list is missing any actual new dependencies.
+
+**Potential Mentors:** @BenHenning, @anandwana001
+
+**What we are looking for in the proposal:**
+
+*   A well thought-out system for collecting, embedding, and displaying copyright licenses from both current & future dependencies. The proposal should include dataflow & sequence diagrams to clearly explain the steps involved, and specifics on how each step will work.
+*   Excellent explanations for when each piece of data will be available, and how. For example, the actual licenses themselves should never be copied into the repository. This means that we will need a script that can collect the licenses themselves. That being said, we should be building this in a way where we can easily verify via CI whether a new dependency properly interops with the system as expected.
+*   An explicit example (e.g. screenshot & Gist link) that you can reverse-look up all of Oppia Android's Maven dependencies using bazel query
+*   A logically organized document written in a way that's easy to understand, and doesn't make any assumptions about what the reader knows or doesn't know (e.g. make sure any implied context is specifically called out)
+
+**Consider taking up this project if you:**
+
+*   Are interested in understanding how to build Kotlin scripts
+*   Are interested in understanding how to leverage a scalable build system like Bazel to manage dependencies
+*   Would like to work on a project that involves a more-complicated-than-usual data pipeline
+
+**Knowledge/Skills Recommended:**
+
+*   Kotlin
+*   Android UI development
+*   Bazel will be a big help; the scripts themselves should be written in Kotlin + Bazel to simplify work, and Bazel will be used for queries
+*   GitHub Actions will help
+
+**Dependency on Release Schedule:** None.
+
+**Suggested Milestones:**
+
+*   Milestone 1: Introduce a script for generating a list of dependencies using a reverse-deps lookup of Oppia Android's //third_party Maven dependencies. Introduce a script for converting the dependency list to actual license content files.
+*   Milestone 2: Introduce & hook-up a UI to properly display all of the licenses included in the app. Introduce a GitHub Actions check to verify that the list of dependencies is kept up-to-date over time. Introduce extra checks to ensure that generations of the license files can't be accidentally checked into the repository.
+
+---
+
 
 ## Oppiabot team
 
