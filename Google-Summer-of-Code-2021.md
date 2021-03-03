@@ -948,7 +948,7 @@ We recommend that you approach this project as follows:
 *   Introduce a UI that reads from an asset list file & strings to populate the list of libraries, their versions, and their licenses. These files can be checked into git, but when they are changed (see next step) their changes should never be checked into git. Measures should be taken to prevent this.
 *   Introduce a Kotlin script that, when run, populates the UI files using the dependencies list. This script should fail if the dependencies list is missing any actual new dependencies.
 
-**Potential Mentors:** @BenHenning, @anandwana001
+**Potential Mentors:** @BenHenning, @anandwana001, @Sarthak2601
 
 **What we are looking for in the proposal:**
 
