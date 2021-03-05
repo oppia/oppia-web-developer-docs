@@ -733,84 +733,81 @@ The options/functionality that should be implemented are:
 
 One key part in ensuring a development team reaches optimal efficiency is by ensuring there are reasonable checks in place to avoid regressing previous fixes, reducing trivial verification during code reviews, and ensuring that team members are utilizing best practices. A popular way to achieve this is with static analysis tools like linters. While the Oppia Android team has linters & automated tests implemented, we'd like to fill in some of the gaps in our static analysis tooling by providing ways to enforce best practices & further simplify code reviews.
 
-Potential checks:
+Suggested checks to add (note that these are picked to provide a wide variety of static analysis support so that the team can add many more checks in the future):
 
 *   Verify activities have accessibility labels
-*   Verify all files have a corresponding test file
+*   Verify that TODOs correspond to current, open issues on GitHub. We should also run this particular analysis check when an issue changes so that we can detect if issues are closed before their TODOs are addressed & then reopen the issue.
+*   Verify all production files have a corresponding test file
 *   Ensure activities/fragments/views can't be used outside of the app module, or in testing
-*   Ensure KDocs are present for every non-private class, method, and field (even trivial ones)
-*   Ensure we can easily add future checks on file names or file contents using RegEx
-*   All non-test activities always have a label assigned. (important for A11y)
-
-In particular, we're looking for static analysis improvements in a few areas:
-
-*   Syntax verification improvements
-    *   XML: verifying that our XML files are consistently formatted & follow our Android style guide for layout files
-    *   Kotlin: providing style enforcement for KDoc comments in Kotlin files
-*   Best practices enforcements
-    *   Involves introducing a general-purpose framework that allows us to easily define prohibited regular expression patterns that match either contents of targeted files, or filenames themselves to trigger a blocking CI failure
-    *   Involves collecting a list of best practices that can be enforced with this system & populating a list of prohibited patterns to enforce these patterns
-    *   Involves introducing a check to ensure every new file has a corresponding test file, and that test file has a Bazel target defined for it (this may require whitelisting files that do not require tests, such as modules or Dagger component classes)
+*   Ensure KDocs are present for every non-private class, method, and field (even trivial ones). We expect that this will require an extension to ktlint.
+*   Ensure we can easily add future checks on file names or file contents using RegEx (note that both checks should be able to be matched against filepath patterns, e.g. we may want to verify that all layout XML files don't use marginLeft)
+*   Ensure all XML files follow our XML style guide
 
 **Potential Mentors:** @BenHenning, @aggarwalpulkit596
 
-**Difficulty:** Intermediate
-
-**Consider taking up this project if you...**
+**Consider taking up this project if you:**
 
 *   Like really clean code & want to keep it that way
 *   Want to help other developers reduce mistakes that could cost the team valuable development time, or in the worst case cause issues for users
 *   Want to make code development & reviewing easier
 
+**What we're looking for in the proposal:**
+
+*   A good demonstrated foundation for GitHub Actions (either via PRs or strong explanations & references go existing documentation)
+*   Solid explanations for each check that we want to implement & well-reasoned justifications for why each one is important (e.g. what its expected impact is/what sorts of situations it will prevent the team from running into)
+*   A logically organized document written in a way that's easy to understand, and doesn't make any assumptions about what the reader knows or doesn't know (e.g. make sure any implied context is specifically called out)
+
 **Knowledge/Skills Recommended:**
 
 *   Familiarity with style guides is helpful, though the student will need to become familiar with the team's style guide in order to make progress
-*   Ability to collect requirements & turn them into code (in particular, identifying best practice checks to enforce from our best practices lists, style guides, and from interviewing team members)
 *   Familiarity with GitHub Actions will help
 *   Understanding of regular expressions strongly recommended
-*   Knowledge of scripting, particularly using JavaScript & Kotlin
+*   Knowledge of scripting, particularly using Kotlin
 
-**Dependency on Release Schedule:** No
+**Dependency on Release Schedule:** None.
 
 **Suggested Milestones:**
 
-*   Milestone 1: Introduce infrastructure for enforcing file content & name patterns in CI. Implement checks that enforce 10-20+ of team best practices.
-*   Milestone 2: Introduce XML linter with Android style enforcement. Add Ktlint extension to check for KDoc formatting. Add check to ensure new files have tests.
+*   Milestone 1: Introduce improved linter support: KDoc & XML style enforcement. These checks should be run in GitHub Actions. Introduce support for custom RegExp checks for file names & contents that runs in GitHub Actions with a check that verifies activities are defined with accessibility labels.
+*   Milestone 2: Add a GitHub Actions check to verify that production files have corresponding test files. Introduce TODO verification. This check should be run in GitHub Actions and triggered both for PRs and for issue changes where failures in the latter should automatically reopen the issue.
 
 ---
 
 ### Improved Code Coverage & CI Support
 
-The Oppia Android strongly values testing new code, and ensuring that these tests are thorough. Tests are a key way to protect new code from breaking in the future, something that everyone on the team appreciates. However, the team does not currently have a way to measure or enforce code coverage. This leads to gaps and missed behaviors that could break in the future. We need infrastructure that can record code coverage for existing tests & report the coverage in an easy-to-consume way. Further, this project involves establishing processes to improve the actual code coverage in the app and make the overall project more robust.
-
-Note: This project will require additional onboarding work to take an existing test that is lacking some test coverage & work to fill in the gaps with new tests.
+The Oppia Android team strongly values testing new code, and ensuring that these tests are comprehensive. Tests are a key way to protect new code from breaking in the future, something that everyone on the team appreciates. However, the team does not currently have a way to measure or enforce code coverage. This leads to gaps and missed behaviors that could break in the future. We need infrastructure that can record code coverage for existing tests, report the coverage in an easy-to-consume way, and enforce that a minimum code coverage is met. Further, this project involves establishing processes to improve the actual code coverage in the app and improving code coverage in a few classes.
 
 For reference, see this [Codacy report](https://app.codacy.com/gh/anandwana001/oppia-android/dashboard) of Akshay’s Oppia Android fork for an idea on nice code coverage reporting.
 
 **Potential Mentors:** @anandwana001, @BenHenning
 
-**Difficulty:** Intermediate
-
-**Consider taking up this project if you...**
+**Consider taking up this project if you:**
 
 *   Want to understand how to write very clean tests
 *   Want to help other team members learn how to write clean tests
 *   Want to understand how to turn missing lines of code into new tests
 *   Want to help improve the team's confidence when writing code (e.g. due to having better test coverage)
 
+**What we're looking for in the proposal:**
+
+*   A successful local run of JaCoCo in one module of the codebase. This report should show the actual classes that are missing code coverage.
+*   Submitted Android PRs that include writing new tests.
+*   Excellent English writing skills since this project will involve writing documentation that the rest of the team will follow
+*   A logically organized document written in a way that's easy to understand, and doesn't make any assumptions about what the reader knows or doesn't know (e.g. make sure any implied context is specifically called out)
+
 **Knowledge/Skills Recommended:**
 
 *   Kotlin
 *   Familiarity with writing tests; a key part of this project is finding the gaps in existing code coverage & writing tests to fill in the gaps
-*   Excellent English writing skills since this project will involve writing documentation that the rest of the team will follow
 *   Good troubleshooting skills since early analyses have revealed challenges in setting up JaCoCo
+*   Familiarity with GitHub actions could help
 
-**Dependency on Release Schedule:** No
+**Dependency on Release Schedule:** None.
 
 **Suggested Milestones:**
 
-*   Milestone 1: Ensure code coverage documentation is thorough; set up code coverage support in CI with Gradle & JaCoCo. Set up Codacy. Successfully improve the code coverage for 1 class/component to 100% test coverage.
-*   Milestone 2: Bring at least 10 different classes/components totalling at least 10k test LOC to 100% test coverage (all of these should be starting at less than 80% code coverage). 
+*   Milestone 1: Add support for code coverage in Gradle using JaCoCo for all modules in the app, and add a CI check that uploads a report & outputs an overall code coverage percentage. Ensure there's clear documentation explaining how to turn missing lines of code into tests by identifying the missing production behavior(s). Introduce a CI check which supports instituting a minimum code coverage for specific classes when their corresponding test suite is run (if possible, otherwise this check should be verifying overall code coverage). The initial code coverage % should start as the current codebase's code coverage.
+*   Milestone 2: Use code coverage results & the process established by this documentation to bring at least 5 different classes/components totalling at least 5k test LOC to 100% test coverage (all of these should be starting at less than 80% code coverage). Set up Codacy & hook it up to the project. Ensure there's clear documentation for how to run the code coverage tool.
 
 ---
 
@@ -871,9 +868,14 @@ Note that this project actually involves introducing what are called platform pa
 
 **Potential Mentors:** @vinitamurthi, @Sarthak2601, @BenHenning
 
-**Difficulty:** Hard
+**What we are looking for in the proposal:**
 
-**Consider taking up this project if you...**
+*   An overall system design for reading, storing, and providing feature flag values to the Android app
+*   A clearly defined solution for organizing platform parameters at compile-time (e.g. using Dagger modules & Bazel features)
+*   A solution to fetch the Oppia backend’s platform parameters at runtime
+*   A logically organized document written in a way that's easy to understand, and doesn't make any assumptions about what the reader knows or doesn't know (e.g. make sure any implied context is specifically called out)
+
+**Consider taking up this project if you:**
 
 *   Are interested in understanding how to release large scale features in a production system
 *   Would like to work on a project that touches several layers of the system. This means that you would get a greater understanding of how all the pieces of the app fit together and how they work with the backend too!
@@ -882,13 +884,14 @@ Note that this project actually involves introducing what are called platform pa
 
 *   Kotlin
 *   Python
-*   Architectural design, especially when it comes to writing test doubles/fakes
+*   Architectural design
+*   Dagger/dependency injection
 
-**Dependency on Release Schedule:** No
+**Dependency on Release Schedule:** None.
 
 **Suggested Milestones:**
 
-*   Milestone 1: Introduce a platform parameter system that initially has support for compile-time definitions (e.g. using Dagger modules). A major component of this milestone includes writing test infrastructure that can be used to enable features via JUnit annotations for select tests so that the team can write tests specifically for certain features being enabled/disabled.
+*   Milestone 1: Introduce platform parameter system that initially has support for compile-time definitions (e.g. using Dagger modules, Dagger constants, ). The resulting platform parameter support should be built such that we can easily combine the compile-time gating with runtime parameters.
 *   Milestone 2: Introduce runtime parameter support by hooking up to Oppia backend's platform parameter API & connecting these flags back to the predefined compile-time parameters. Note that the lifecycle of these parameters need to be carefully managed: they should not be applied until the app restarts. This part of the project will include caching results from the server, and introducing a lightweight synchronization mechanism so that the app periodically verifies that its copies of the parameters are up-to-date.
 
 ---
