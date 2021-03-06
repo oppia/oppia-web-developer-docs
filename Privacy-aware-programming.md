@@ -99,7 +99,7 @@ Instead of collecting the data in the UserSettingsModel, a new model is created 
 
 ##### Abstract privacy strategy applied
 
-Provide the students a way to retrieve the physical item in some other way, without providing their mail address. For example, they can receive the item through their schools.
+Provide the students a way to retrieve the physical item in some other way, without providing their mail address. For example, they can receive the item through their schools and thus instead of collecting their exact mail address we only need to know their school.
 
 ##### Hide privacy strategy applied
 
