@@ -84,7 +84,9 @@ An example of a good practice in Oppia codebase:
 #### Task
 
 Imagine we wanted to have a time-limited promotion where every student that completed a particular math topic would receive some kind of physical item via mail. The sending of the physical item is handled by a separate company (in this example we assume that the company handles privacy with utmost concern too).
-Possible solution
+
+#### Possible solution
+
 For every student that logs in during the time when we have the promotion, we would collect their physical mail address. That address would be saved in the UserSettingsModel. The address is then available for all admins so that they can pass the mail addresses to the company that handles the delivery.
 
 #### Privacy strategies application
