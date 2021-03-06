@@ -13,6 +13,7 @@
 **Developing Oppia**
   * [[FAQs|Frequently-Asked-Questions]]
   * [[Installing Oppia|https://github.com/oppia/oppia/wiki/Installing-Oppia]]
+  * [[How to Ask Questions|Guide-on-How-to-Ask-Questions]]
   * [[Git cheat sheet|Git-cheat-sheet]]
   * [[Codebase Overview|Overview-of-the-Oppia-codebase]]
     * [[Glossary of terms|Glossary-of-terms]]
