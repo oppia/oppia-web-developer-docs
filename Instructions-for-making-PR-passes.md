@@ -7,11 +7,11 @@ The purpose of making manual passes over PRs is two-fold:
 * To give a human touch to the PR process.
 * To decrease the number of open PRs.
 
-As of this writing, Oppiabot has been in operation for about 2 years with the goal of automating most of the processes that used to be done by the former maintainers group on a weekly basis. However, replacing a human with a bot resulted in decreased "warmth" in the review process and more PRs were being closed rather than being completed. After the dev workflow lead resumed the process of manually reviewing PRs, PRs were being completed faster and fewer were closed. Therefore, the community should strive to have a human in the review process as much as possible.
+As of this writing, Oppiabot has been in operation for about 2 years with the goal of automating most of the processes that used to be done by the former maintainers group on a weekly basis. However, replacing a human with a bot resulted in decreased "warmth" in the review process and more PRs were being closed rather than being completed. After the dev workflow lead resumed the process of manually reviewing PRs, PRs were being completed faster, and fewer were closed. Therefore, the community should strive to have a human in the review process as much as possible.
 
-### For Core Maintainers:
+### Purpose:
 
-The purpose of the rotation is to gauge the health the community and PR process, it is **not** to take over the responsibility of checking PR health. At the end of completing all of the steps below, you should be able to:
+The purpose of the rotation is to gauge the health of the community and the PR process, it is **not** to take over the responsibility of checking PR health. At the end of completing all of the steps below, you should be able to:
 
 * Gauge the overall wellbeing of the community.
 * Know the current responsibilities of individuals.
@@ -55,27 +55,18 @@ On Github:
 **Note:** If the contributor did not respond to the last ping, do not @-mention the contributor again, let Oppiabot automatically close the PR.
 3. If the PR has LGTM label but tests failed, then:
    - Check that the tests are not flaky, if so, restart them.
-   - If the tests are not the result of flakiness, @-mention the reviewer that tests failed.
+   - If the tests are not the result of flakiness, @-mention the author that tests failed.
 4. If the PR has an LGTM label and all tests pass, then:
    - Check that there are no outstanding comments
       - If there are none, then merge the PR.
-At the very end, ensure that no one contributor has too many open PRs (ie. over 3), if so, please encourage them to complete those PRs before opening new ones. Also, if there is a reviewer with a lot of PRs assigned to them, then it's worth starting a conversion whether the reviewer needs to focus their code ownership. Finally, if there are any community wide issues, please let the community and core maintainers know.
 
-## Approved PRs
 
-**Goal:** Merge as many approved PRs as possible.
-
-1. Put in `is:pr is:open review:approved` in the PR query.
-2. For every PR perform the following:
-   1. If Github shows a green "Squash and merge" button, then:
-      1. If there are no outstanding comments, then merge.
-      2. Otherwise, @-mention the relevant party and adjust the assignee field accordingly.
-   2. If there are failed tests, then restart the relevant suites only if they are known flaky suites. Otherwise, assign it back to the contributor and @-mention the contributor.
+At the very end, ensure that no one contributor has too many open PRs (ie. over 3), if so, please encourage them to complete those PRs before opening new ones. Also, if there is a reviewer with a lot of PRs assigned to them, then it's worth starting a conversion whether the reviewer needs to focus their code ownership. Finally, if there are any community-wide issues, please let the community and core maintainers know.
 
 ## Cancelling CI Builds
 
 ### Overview
-Builds sometimes are cancelled for the following reasons:
+Builds sometimes are canceled for the following reasons:
 
 * CI queue is very high.
 * Contributor clearly needs to perform more work on the PR due to one of the following:
@@ -107,15 +98,6 @@ Keep in mind that it is not possible to cancel all CircleCI builds due to permis
 3. Click on the "Cancel Build" button on the right of the overview section.
    ![Travis CI Details.](images/travisCIBuildPage.png)
 
-## Core Maintainer Rota
+## Rota
 
-It is recommended that the core maintainer complete their pass the week prior to the monthly meeting. However, they may choose to do it earlier if there are schedule constraints.
 
-| Month     | Core Maintainer |
-|-----------|-----------------|
-| November  | Kevin Thomas    |
-| December  | Nithesh         |
-| January   | Srijan          |
-| February  | Sean            |
-| March     | Sandeep         |
-| April     | Vojtěch         |
