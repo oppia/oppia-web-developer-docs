@@ -84,5 +84,6 @@ Keep in mind that it is not possible to cancel all CircleCI builds due to permis
 
 Dev-workflow team members are expected to take a [full pass](#full-pass) on a weekly basis and create a report which the team lead can share with Core-maintainers in the Core-maintainer's meeting.
 
-**Current Dev-workflow team members taking pass:** @Sajalasati & @DubeySandep
-Weekly report doc: https://docs.google.com/document/d/1lisXJYYXbmLGLGWoJx0E0XxAMndVG0J98KMp8N-hOho
+**Current Dev-workflow team members taking pass:** @sajalasati & @DubeySandep
+
+**Weekly report doc:** https://docs.google.com/document/d/1lisXJYYXbmLGLGWoJx0E0XxAMndVG0J98KMp8N-hOho
