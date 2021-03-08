@@ -125,8 +125,7 @@ When writing code that affects or works with user data, always try to trace thro
 
 In the backend, the data needs to be saved in models and in fields which clearly indicate that they can contain user data. Old logs or outputs of jobs are deleted periodically so it is fine to leave user data there. **User data in Oppia's backend must not be stored anywhere else, including in log statements.** Determining where user data should be stored is a decision that should be handled in the design doc, and care should be taken during implementation to ensure that it is not accidentally stored in the wrong place.
 
-In the frontend, we need to make sure that the data is only displayed to and modifiable by the appropriate user, and that any other operation for editing user data is located in the admin page.
-
+We need to make sure that the data is only displayed to and modifiable by the appropriate user, and that any other operation for editing user data is located on the admin page. The checks should always be performed on the backend because hiding stuff in the frontend still makes it available for malicious users who have experience with accessing frontend stuff like caches or requests.
 
 ### Wipeout and Takeout
 
