@@ -7,7 +7,7 @@ The purpose of making manual passes over PRs is two-fold:
 * To give a human touch to the PR process.
 * To decrease the number of open PRs.
 
-As of this writing, Oppiabot has been in operation for about 2 years with the goal of automating most of the processes that used to be done by the former maintainers group on a weekly basis. However, replacing a human with a bot resulted in decreased "warmth" in the review process and more PRs were being closed rather than being completed. After the dev workflow lead resumed the process of manually reviewing PRs, PRs were being completed faster, and fewer were closed. Therefore, the community should strive to have a human in the review process as much as possible.
+As of this writing, Oppiabot has been in operation for about 2 years with the goal of automating most of the processes that used to be done by the former maintainer's group on a weekly basis. However, replacing a human with a bot resulted in decreased "warmth" in the review process and more PRs were being closed rather than being completed. After the dev workflow lead resumed the process of manually reviewing PRs, PRs were being completed faster, and fewer were closed. Therefore, the community should strive to have a human in the review process as much as possible.
 
 ### Purpose:
 
@@ -16,15 +16,6 @@ The purpose of the rotation is to gauge the health of the community and the PR p
 * Gauge the overall wellbeing of the community.
 * Know the current responsibilities of individuals.
 * Determine what dev workflow support the community requires.
-
-Therefore, it is recommended to perform this pass the week before the monthly meeting so that the points above can be reported to the group. See [rota](#core-maintainer-rota) below.
-
-## Cadence
-
-Cadence depends on the task and increases the investment in time:
-
-* Full Passes: Weekly
-* Approved PRs Passes: Daily
 
 ## Full Pass
 
@@ -89,15 +80,9 @@ Keep in mind that it is not possible to cancel all CircleCI builds due to permis
    ![CI Action Disabled](images/circleCIWorkflowActionDisabled.png)
 
 
-### TravisCI
-
-1. Click on Details in the test section for TravisCI.
-   ![CI Details.](images/testStatuses.png)
-2. Click on "The Build" on the TravisCI status page.
-   ![Travis CI Details.](images/travisCIStatusPage.png)
-3. Click on the "Cancel Build" button on the right of the overview section.
-   ![Travis CI Details.](images/travisCIBuildPage.png)
-
 ## Rota
 
+Dev-workflow team members are expected to take a [full pass](#full-pass) on a weekly basis and create a report which the team lead can share with Core-maintainers in the Core-maintainer's meeting.
 
+Current Dev-workflow team members taking pass: @Sajalasati & @DubeySandep
+Weekly report doc: https://docs.google.com/document/d/1lisXJYYXbmLGLGWoJx0E0XxAMndVG0J98KMp8N-hOho
