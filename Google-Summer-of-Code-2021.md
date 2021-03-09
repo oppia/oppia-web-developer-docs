@@ -592,19 +592,13 @@ Today’s Oppia.org blog is currently hosted on a separate site, Medium. We woul
 
 ---
 
-### Creating learner playlists 
+### Redesigning and updating the learner dashboard 
 
-Currently, we have a “play later” functionality where the learner can add any exploration to the “play later” list, which is visible in the learner dashboard. We’d like to improve this and make this more helpful to the learners. This would include integrating stories and subtopics to this list.
+Update the learner dashboard to incorporate planning and recommendation of topics, stories and skills to the learners. The following features should be added as part of the project (design for the new pages will be provided):
 
-The learner dashboard should support, at least, the following features:
-
-*   Each learner should be able to create a playlist with subtopics and stories of their choice.
-*   In the curated viewer pages, the learner should be able to add any subtopic or any story into an already existing playlist or a newly created playlist, which can be created either in the learner dashboard or on the spot.
-*   These playlists should be visible in the learner dashboard in a separate tab.
-*   The learner should be able to reorder the subtopics/stories in the playlist and be able to open them from the dashboard as well.
-*   Both subtopics and stories can be shown in the same list, but they should be differentiated by some UI. They can also be color coded by the topic they are in as well.
-
-These are just some base features that can be added. Any other features that can help the learners are also welcome!
+*   A customizable todo list, which would consist of the next incomplete story in topics that the learner has selected (selected in the goal editor below).
+*   The ‘edit’ button for the above todo list would lead to a ‘goal editor'; where the learner can choose which all topics to track their progress on, and the next incomplete story in those topics will be filled in the todo list (mentioned above).
+*   A separate progress tab in the learner dashboard where the learner can track their progress across topics. In each topic, it should show their mastery in the various subtopics and the progress in the stories in the topic. The mocks for this page will be given.
 
 **Potential Mentors:** @aks681
 
@@ -617,16 +611,47 @@ These are just some base features that can be added. Any other features that can
 
 **What we're looking for in the proposal:**
 
-*   There should be mockups or wireframes on the new modals / components that are added.
-*   Any new storage model that should be added is explained.
+*   Any new storage model/modifications to existing storage models is explained.
+*   How you’ll handle the features mentioned in the description.
+
+**Dependency on Release Schedule:** Yes, would depend on release for both milestones, since major frontend changes would be there for both.
+
+**Suggested Milestones:**
+
+*   Milestone 1: Redesign the learner dashboard except the todo list and goals section. So, the progress tab and its related backend changes (if any) should also be done in this milestone, or justified, if moved to the next milestone.
+*   Milestone 2: The backend model, services and domain changes and the corresponding frontend changes for adding the todo list and goal editor is done.
+
+---
+
+### Customize difficulty for practice sessions
+
+Currently, in the Practice tab in the topic viewer page, a learner can choose the subtopics to practice and practice questions on them. This project aims to add more customizability where the learner can fine tune the difficulty on which the questions are asked, from each subtopic that they want to practice. Following are main objectives:
+
+*   Mastery should be calculated at the subtopic level, as the average of mastery of all skills in the subtopic and should be displayed in the topic viewer page.
+*   Practice sessions should be made more independent and it’s difficulty level also customizable, in the sense that the learner can set the difficulty range of questions that would be asked in the practice session, at a subtopic level.
+*   These should also be represented by cards. So, in the topic viewer’s Practice tab, there are some cards that we recommend (eg: Easy Questions on Subtopic A, Hard Questions on Subtopic B etc.), which the learner can click to quickly start a session or they can fine tune difficulty per subtopic themselves and start a session as well.
+*   These cards should be shown based on a learner’s mastery in a subtopic. For example, if a learner has < 50% mastery in a subtopic, we should only show Easy and Easy/Medium practice cards and not Hard etc.
+
+**Potential Mentors:** @aks681
+
+**Consider taking up this project if you:**
+
+*   Are interested in thinking critically and modifying an existing user flow to better suit the learners.
+*   Like working with the full stack, which includes creating storage models and frontend views.
+*   Owning a specific section of the codebase.
+*   Are interested in working with Python, Angular (Typescript) and HTML.
+
+**What we're looking for in the proposal:**
+
+*   Any new storage model/modifications to existing storage models is explained.
 *   How you’ll handle the features mentioned in the description.
 
 **Dependency on Release Schedule:** Yes, would depend on release for M2, since the full product would be launched then.
 
 **Suggested Milestones:**
 
-*   Milestone 1: Complete the full backend for adding all the features.
-*   Milestone 2: The frontend to create, edit and view playlists, as well as add structures to playlist is done.
+*   Milestone 1: Complete the backend and frontend domain and other infrastructure changes to handle different practice sessions customizable by the learner based on difficulty.
+*   Milestone 2: Add the topic viewer changes and cards, as mentioned in the description so that the full practice session user flow is done.
 
 ---
 
