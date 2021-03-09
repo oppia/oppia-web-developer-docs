@@ -395,65 +395,42 @@ Our frontend codebase is fully typed, but our typing doesn’t pass strict TypeS
 
 ## Automated QA team
 
-### Write Frontend Tests for Services
+### Write Frontend Tests
 
-This project aims to write frontend tests to fully cover each service. When you begin, some services may have tests that incompletely cover the service, while others may have no tests at all. Much of the past work writing frontend tests has been tracked by [oppia/oppia#4057](https://github.com/oppia/oppia/issues/4057). This is a good reference, as is our [wiki page](https://github.com/oppia/oppia/wiki/Frontend-unit-tests-guide). It outlines best practices and standard guidelines you should follow.
+This project aims to write frontend tests to fully cover each service, directive, and component. When you begin, some files may have tests that incompletely cover the code, while others may have no tests at all. Many of the files you write tests for will contain directives, which you will need to convert to components first. Much of the past work writing frontend tests has been tracked by [oppia/oppia#4057](https://github.com/oppia/oppia/issues/4057). You should also look at the [blog post](https://mari-zangue.medium.com/my-journey-through-gsoc20-with-oppia-9eb6b27e7a02) by a GSoC student last year who worked on a similar project. This is a good reference, as is our [wiki page](https://github.com/oppia/oppia/wiki/Frontend-unit-tests-guide). It outlines best practices and standard guidelines you should follow.
 
-The project will involve writing tests for many (35) services. The proposals must contain a concrete plan (preferably as a table) that specifies when each file will be fully covered by tests.
+The project will involve writing a lot of tests. The proposals must contain a concrete plan for how you will cover all of your assigned code in the allotted time. For your reference, here are the line counts as of March 8, 2020:
 
-**Potential Mentors:** @kevintab95, @aks681, @iamprayush
+|           | Total Lines | Covered Lines | Uncovered Lines |
+|-----------|-------------|---------------|-----------------|
+| Component | 7646        | 7254          | 392             |
+| Directive | 10794       | 2658          | 8136            |
+| Other     | 9828        | 9028          | 800             |
+| Service   | 11636       | 10247         | 1389            |
 
-**Consider taking up this project if you:**
-
-*   Are interested in testing (since most of the project will involve writing unit tests).
-*   Have the ability to read through someone else’s code, in order to understand what needs to be tested. (This project will involve reading through a lot of Oppia's source code.)
-*   Like to handle technical challenges! It is very likely that you'll run into problems while trying to test the code as is, and you will almost certainly need to research and come up with solutions to test certain constructs.
-
-**What we're looking for in the proposal:**
-
-*   Links to one or more PRs in which you added tests for services. Overall, these PRs should show you adding tests to fully cover at least two services.
-
-**Dependency on Release Schedule:** None.
-
-**Suggested Milestones:**
-
-We are looking for 2 students to work on this project. Each student will work on one of the projects listed in the [list of frontend files to cover](https://docs.google.com/document/d/1yjSHA0Xk7IJKjblC2pUGlwpxm5TJMUgN_z8iBTWnLKA/edit?usp=sharing) under “Services.”
-
-*   Milestone 1: Fully cover half of the assigned services.
-*   Milestone 2: Fully cover all of the assigned services.
-
-It is possible that by the time you start on this project, one of your services will already have been fully tested by another contributor. In that case, you can replace the already-completed service with one from the [“Remaining” section](https://docs.google.com/document/d/1yjSHA0Xk7IJKjblC2pUGlwpxm5TJMUgN_z8iBTWnLKA/edit#heading=h.bfwqex4xygsm) in the previously mentioned list of files to cover.
-
----
-
-### Write Frontend Tests for Directives and Components
-
-This project aims to write frontend tests to fully cover each directive/component. Note that “directives” and “components” serve the same role (“directive” is the AngularJS term while “component” is the Angular term). When you begin, some directives/components may have tests that incompletely cover them, while others may have no tests at all. A 2020 GSoC student began work on this, and their [blog post](https://mari-zangue.medium.com/my-journey-through-gsoc20-with-oppia-9eb6b27e7a02) may be a helpful reference. You should also reference our [wiki page](https://github.com/oppia/oppia/wiki/Frontend-unit-tests-guide). It outlines best practices and standard guidelines you should follow.
-
-The project will involve writing tests for many (35) directives/components. The proposals must contain a concrete plan (preferably as a table) that specifies when each file will be fully covered by tests.
+These line counts are calculated from the `karma_coverage_reports/lcov.info` file generated by our frontend test coverage checks. You can parse this file using the functions in `scripts/check_frontend_coverage.py`. For this project, we won’t be worrying about the “Other” files, so we have 9,917 lines to cover in total.
 
 **Potential Mentors:** @kevintab95, @aks681, @iamprayush
 
 **Consider taking up this project if you:**
 
-*   Are interested in testing (since most of the project will involve writing unit tests).
-*   Have the ability to read through someone else’s code, in order to understand what needs to be tested. (This project will involve reading through a lot of Oppia's source code.)
-*   Like to handle technical challenges! It is very likely that you'll run into problems while trying to test the code as is, and you will almost certainly need to research and come up with solutions to test certain constructs.
+* Are interested in testing (since most of the project will involve writing unit tests).
+* Have the ability to read through someone else’s code, in order to understand what needs to be tested. (This project will involve reading through a lot of Oppia's source code.)
+* Like to handle technical challenges! It is very likely that you'll run into problems while trying to test the code as is, and you will almost certainly need to research and come up with solutions to test certain constructs.
 
 **What we're looking for in the proposal:**
 
-*   Links to one or more PRs in which you added tests for directives or components. Overall, these PRs should show you adding tests to fully cover at least two directives or components.
+* Links to one or more PRs in which you added tests for the frontend code. Overall, these PRs should show you adding tests to fully cover at least one service. They should also show you migrating at least one directive to a component and then testing that component.
+* A clear demonstration that you can migrate any directive and write tests for any service component. We won’t be assigning specific files until after we have selected students because the files that need to be covered are changing constantly. Therefore, it is critical that you show us you can handle any code we assign you.
 
 **Dependency on Release Schedule:** None.
 
 **Suggested Milestones:**
 
-We are looking for 6 students to work on this project. Each student will work on one of the projects listed in the [list of frontend files to cover](https://docs.google.com/document/d/1yjSHA0Xk7IJKjblC2pUGlwpxm5TJMUgN_z8iBTWnLKA/edit?usp=sharing) under “Directives and Components.”
+We are looking for 3 students to work on this project. Each student will work on covering approximately 3,300 lines of frontend code. You are free to let us know if you have any preferences for what code to work on, but we may not be able to honor your requests.
 
-*   Milestone 1: Fully cover half of the assigned files.
-*   Milestone 2: Fully cover all of the assigned files.
-
-It is possible that by the time you start on this project, one of your files will already have been fully tested by another contributor. In that case, you can replace the already-completed file with one from the [“Remaining” section](https://docs.google.com/document/d/1yjSHA0Xk7IJKjblC2pUGlwpxm5TJMUgN_z8iBTWnLKA/edit#heading=h.19wyt7w4drou) in the previously mentioned list of files to cover.
+* Milestone 1: Fully cover half of the assigned code.
+* Milestone 2: Fully cover all of the assigned code.
 
 ---
 
