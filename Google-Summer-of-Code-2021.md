@@ -429,7 +429,7 @@ These line counts are calculated from the `karma_coverage_reports/lcov.info` fil
 
 **Suggested Milestones:**
 
-We are looking for 3 students to work on this project. Each student will work on covering approximately 3,300 lines of frontend code. You are free to let us know if you have any preferences for what code to work on, but we may not be able to honor your requests.
+We are looking for 1-3 students to work on this project. Each student will work on covering approximately 3,300 lines of frontend code. You are free to let us know if you have any preferences for what code to work on, but we may not be able to honor your requests.
 
 * Milestone 1: Fully cover half of the assigned code.
 * Milestone 2: Fully cover all of the assigned code.
