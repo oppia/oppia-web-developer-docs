@@ -777,44 +777,6 @@ Suggested checks to add (note that these are picked to provide a wide variety of
 
 ---
 
-### Improved Code Coverage & CI Support
-
-The Oppia Android team strongly values testing new code, and ensuring that these tests are comprehensive. Tests are a key way to protect new code from breaking in the future, something that everyone on the team appreciates. However, the team does not currently have a way to measure or enforce code coverage. This leads to gaps and missed behaviors that could break in the future. We need infrastructure that can record code coverage for existing tests, report the coverage in an easy-to-consume way, and enforce that a minimum code coverage is met. Further, this project involves establishing processes to improve the actual code coverage in the app and improving code coverage in a few classes.
-
-For reference, see this [Codacy report](https://app.codacy.com/gh/anandwana001/oppia-android/dashboard) of Akshay’s Oppia Android fork for an idea on nice code coverage reporting.
-
-**Potential Mentors:** @anandwana001, @BenHenning
-
-**Consider taking up this project if you:**
-
-*   Want to understand how to write very clean tests
-*   Want to help other team members learn how to write clean tests
-*   Want to understand how to turn missing lines of code into new tests
-*   Want to help improve the team's confidence when writing code (e.g. due to having better test coverage)
-
-**What we're looking for in the proposal:**
-
-*   A successful local run of JaCoCo in one module of the codebase. This report should show the actual classes that are missing code coverage.
-*   Submitted Android PRs that include writing new tests.
-*   Excellent English writing skills since this project will involve writing documentation that the rest of the team will follow
-*   A logically organized document written in a way that's easy to understand, and doesn't make any assumptions about what the reader knows or doesn't know (e.g. make sure any implied context is specifically called out)
-
-**Knowledge/Skills Recommended:**
-
-*   Kotlin
-*   Familiarity with writing tests; a key part of this project is finding the gaps in existing code coverage & writing tests to fill in the gaps
-*   Good troubleshooting skills since early analyses have revealed challenges in setting up JaCoCo
-*   Familiarity with GitHub actions could help
-
-**Dependency on Release Schedule:** None.
-
-**Suggested Milestones:**
-
-*   Milestone 1: Add support for code coverage in Gradle using JaCoCo for all modules in the app, and add a CI check that uploads a report & outputs an overall code coverage percentage. Ensure there's clear documentation explaining how to turn missing lines of code into tests by identifying the missing production behavior(s). Introduce a CI check which supports instituting a minimum code coverage for specific classes when their corresponding test suite is run (if possible, otherwise this check should be verifying overall code coverage). The initial code coverage % should start as the current codebase's code coverage.
-*   Milestone 2: Use code coverage results & the process established by this documentation to bring at least 5 different classes/components totalling at least 5k test LOC to 100% test coverage (all of these should be starting at less than 80% code coverage). Set up Codacy & hook it up to the project. Ensure there's clear documentation for how to run the code coverage tool.
-
----
-
 ### End-to-End Testing Support
 
 Oppia Android's current testing corpus includes unit tests using the Robolectric testing framework & integration tests using the Espresso testing framework (to ensure that the app operates as expected in a real Android environment). The current tests have a few limitations: they do not correctly facilitate cross-activity navigation flows which actual users will be triggering, and they do not verify that the app can interact with Oppia's backend correctly.
