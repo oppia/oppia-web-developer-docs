@@ -663,7 +663,27 @@ Currently, in the Practice tab in the topic viewer page, a learner can choose th
 
 The Contributor Dashboard allows users to submit suggestions for translations and practice questions which are then reviewed and accepted/rejected. Currently, the dashboard has only been developed with a desktop view in mind. We want users to have a smooth experience on any platform/device.
 
-In this project, you will work with designers to flesh out the design and UX experience of the contributor dashboard on mobile devices. Once the mocks are complete, you will then implement the new mobile UI for the entire contributor dashboard page and related user flows. 
+In this project, you will work with designers to flesh out the design and UX experience of the contributor dashboard on mobile devices (you will not need to create the mocks yourself). Once the mocks are complete, you will then implement the new mobile UI for the entire contributor dashboard page and related user flows. 
+
+The UI elements that need to be updated are as follows.
+
+#### Landing Page
+* Page tab navigation bar
+* User header with review rights details
+* Side navigation bar for reviewers and contributors
+* Review modals for question and translation suggestions
+* Submitted contribution modals
+* Opportunity card pagination 
+
+#### Translate Text Tab
+* User header with translation language selection
+* Translation opportunity card elements
+* Translation modal
+
+#### Submit Question Tab
+* User header
+* Question opportunity card elements
+* Question editor in question suggestion modal
 
 **Potential Mentors:** @kevintab95, @aks681
 
@@ -677,8 +697,8 @@ In this project, you will work with designers to flesh out the design and UX exp
 
 **Suggested Milestones:**
 
-*   Milestone 1: Implement the mobile UI for the contributor dashboard landing page and translation suggestion flow
-*   Milestone 2: Implement the mobile UI for the question suggestion flow
+*   Milestone 1: Implement the mobile UI for the contributor dashboard landing page
+*   Milestone 2: Implement the mobile UI for the translation and question pages
 
 ---
 
