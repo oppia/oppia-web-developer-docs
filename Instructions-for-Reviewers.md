@@ -29,6 +29,9 @@ Clicking on the resulting URL will take you to a list of PRs that are assigned t
      * Are there tests/docs which should be present, but aren't?
      * If the change affects the UI, check out the branch and look at it in a browser. Does the UI look good and intuitive to the user?
      * Are there any files or folders which are renamed? If yes, make sure that all the documentation and instructions where the names of the file/folder is mentioned is changed too.
+     * Are there changes to or additions of new models, if so verify that all the steps mentioned in [Creating and modifying storage models](https://github.com/oppia/oppia/wiki/) are included.
+     * Does the PR include changes to user data or changes that relate to privacy, if so check that all the measures mentioned in [Privacy aware programming](https://github.com/oppia/oppia/wiki/Privacy-aware-programming#implementation-stage) were addressed.
+     * If the PR includes changes to how we handle Wipeout or Takeout, verify that even with these changes all the user data still get deleted (Wipeout) and that all the user data are exported (Takeout).
      * **Important:** Please also ensure that, if a PR author files a TODO for future work, they assign themselves to it (or arrange for it to be assigned responsibly to someone else) and don't just abandon it. It should typically be the next thing they work on, unless there is a principled reason to agree otherwise. (In other words, PR authors shouldn't just file TODOs for future work and then abandon them.)
 
 
