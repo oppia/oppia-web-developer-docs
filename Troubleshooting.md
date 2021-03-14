@@ -86,8 +86,11 @@ These commands can be used anywhere to kill a running process on any port by usi
 
 * If you run into the following error when running `start.py`, you can follow the answer [here](https://stackoverflow.com/a/55885634), which says to run `../oppia_tools/elasticsearch-7.10.1/bin/elasticsearch-keystore create` (run it from opensource/oppia/). When prompted, confirm to manually overwrite the key already created.
 
-Exception in thread "main" java.io.EOFException: read past EOF: SimpleFSIndexInput(path="/home/[user]/opensource/oppia_tools/elasticsearch-7.10.1/config/elasticsearch.keystore")
+  ```
+  Exception in thread "main" java.io.EOFException: read past EOF: SimpleFSIndexInput(path="/home/[user]/opensource/oppia_tools/elasticsearch-7.10.1/config/elasticsearch.keystore")
+  ```
 
+* Oppia does not work well on machines with little available memory. Contributors have reported problems running on machines with less than 4 GB of RAM that were resolved when switching to a machine with 8 GB of RAM. You may also experience problems if your computer has memory-intensive tasks running. See [#12098](https://github.com/oppia/oppia/issues/12098) for an example of how this problem can manifest.
 
 ### Linux
 
