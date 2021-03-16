@@ -192,7 +192,7 @@ Sometimes you need to distinguish between several different sibling elements, fo
 ```
 in place of `.element(by.css(...))`. If this does not suffice then you may need to iterate over all the candidates, examining each in turn until you find the right one. An example of how to do so is given by `moveToState` in `core/tests/protractor_utils/editor.js`.
 
-** WARNING: This can lead to flaky and fragile tests, so avoid this if possible. See below for details.**
+**WARNING: This can lead to flaky and fragile tests, so avoid this if possible. See below for details.**
 
 All the protractor code assumes you are working in an Angular webpage. If you need to move to non-Angular context (for example in an iframe) then look at the login function of `users.js` or the `embedding.js` test for examples of how to proceed.
 
