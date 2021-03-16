@@ -57,7 +57,7 @@ cd oppia
 git clone https://github.com/your_username/oppia.git
 cd oppia
 bash scripts/install_prerequisites.sh
-python -m scripts.start
+python -m scripts.start --no_browser
 ```
 If you are facing problems with pushing the code to your fork check this link: [WSL_GIT](https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-git).
 
