@@ -343,11 +343,15 @@ The checking of type annotations should be done with mypy (or any other typing a
 
 ---
 
-### Simplify the Oppia build process
+### Angular Migration
+
+#### Note: This project can change a lot based on the progress of migration made till the community bonding period. We will try our best to make sure that the project doesn't change. That said, if such last-minute changes are troublesome for you, please consider applying to other projects.
 
 The build process that Oppia uses to prepare the files for reliably serving the site was changed quite a lot in the last years: we introduced webpack, changed our build scripts from bash to Python, and also upgraded some libraries. Since a lot of these changes affected the build process and sometimes weren’t accounted for, the build process is now clunky and quite hard to understand.
 
-This project’s aim is to simplify the build process, making it easy for developers to work with it and unifying the multiple entry points that need to build some files (backend tests, e2e tests, frontend tests, local dev server) as much as possible. After the project is complete, all the build-related stuff should be handled exclusively with the Angular CLI. **Note: This has a dependency on angular migration being complete. Incase migration looks like it might go well beyond the start of GSoC, please consider applying for a project that removes AngularJS from the codebase and introduces angular router.**
+This project’s aim is to simplify the build process by migrating to Angular-CLI, making it easy for developers to work with it and unifying the multiple entry points that need to build some files (backend tests, e2e tests, frontend tests, local dev server) as much as possible. After the project is complete, all the build-related stuff should be handled exclusively with the Angular CLI. 
+
+**Note: If the migration of all directives and services is not complete before the start of GSoC, the student may have to migrate the remaining files. Based on the number of files left, we might remove the requirement of the migration to Angular-CLI (if the student is ok with the project be downsized). Hence, there could be a case that you research a lot about Angular-CLI and may not want to/ get to work on it during GSoC. Please consider these before applying to the angular migration project.**
 
 **Potential Mentors:** @vojtechjelinek, @seanlip, @dubeysandeep, @srijanreddy98
 
@@ -359,8 +363,8 @@ This project’s aim is to simplify the build process, making it easy for develo
 **What we're looking for in the proposal:**
 
 *   Having a good understanding of the Angular router.
-*   Having in depth understanding of Angular cli and the angular build system.
-*   Brownie points for having PRs related to angular migration that demonstrate your ability to migrate from AngularJS to Angular 2+
+*   Having an in-depth understanding of Angular CLI and the angular build system.
+*   PRs related to angular migration that demonstrates your ability to migrate from AngularJS to Angular 2+
 
 **Dependency on Release Schedule:** None.
 
@@ -1059,3 +1063,4 @@ If you have questions pertaining to "how-to-get-started", please ask them on [Gi
 https://gitter.im/oppia/oppia-chat), or the oppia-dev@ mailing list. Please be specific when asking questions; this makes it easier for us to help you. Also, please make sure to read our ["getting started" wiki page](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up) before sending an email, since the answer to your question might already be contained there!
 
 To discuss your project ideas, or share your proposal for feedback from the community, please email the [GSoC discussion mailing list](mailto:oppia-gsoc-discuss@googlegroups.com). You can also use this list for specific questions about GSoC.
+***
