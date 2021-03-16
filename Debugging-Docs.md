@@ -19,7 +19,7 @@ Your description should include:
 
 Example from a [doc from the Automated QA team](https://docs.google.com/document/d/1cI8fqAIFqsmZj5v35y49ohhNvgmE0_vH_sT02Aws77Y/edit):
 
-![Example of a debugging doc](https://user-images.githubusercontent.com/19878639/111086358-15586a00-84f2-11eb-8f10-8a33473db6fe.png)
+> ![Example of a debugging doc](https://user-images.githubusercontent.com/19878639/111086358-15586a00-84f2-11eb-8f10-8a33473db6fe.png)
 
 ### 2. Describe Your Investigations
 
@@ -27,7 +27,7 @@ What did you try, and what happened when you tried it? You want to include enoug
 
 Here's an example of code tracing [from another debugging doc](https://docs.google.com/document/d/13vc63wZyMsWBLA0LO3p0YrylKEVMQlLbFA2tCvQABDY/edit):
 
-![Example of code tracing](https://user-images.githubusercontent.com/19878639/111086556-13db7180-84f3-11eb-9ed6-fd2f35ccb5b8.png)
+> ![Example of code tracing](https://user-images.githubusercontent.com/19878639/111086556-13db7180-84f3-11eb-9ed6-fd2f35ccb5b8.png)
 
 ### 3. Document Your Guesses and Testing
 
@@ -35,7 +35,7 @@ After some investigation, you might have some ideas for what might be going wron
 
 Here's an example from [one of the Automated QA team's first debugging docs](https://docs.google.com/document/d/1cI8fqAIFqsmZj5v35y49ohhNvgmE0_vH_sT02Aws77Y/edit#):
 
-![Example guess with associated testing and solution](https://user-images.githubusercontent.com/19878639/111086637-97955e00-84f3-11eb-8804-132a6230208c.png)
+> ![Example guess with associated testing and solution](https://user-images.githubusercontent.com/19878639/111086637-97955e00-84f3-11eb-8804-132a6230208c.png)
 
 This guess turned out to be wrong, but that's okay! The point of debugging docs is to record your debugging process, including all its twists, turns, and false starts.
 
@@ -47,7 +47,7 @@ Keep going! Continue documenting the your investigations, guesses, and tests of 
 
 Once you figure out what the problem was, write that down too! Include an analysis of how the root cause you identify caused the errors you described at the top. Often, this will take the form of one of your suspected solutions. Here's an example from a [debugging doc](https://docs.google.com/document/d/1cI8fqAIFqsmZj5v35y49ohhNvgmE0_vH_sT02Aws77Y/edit#):
 
-![Screenshot of a suspected solution that turned out to be right](https://user-images.githubusercontent.com/19878639/111087012-ae3cb480-84f5-11eb-80f5-a21e3090f8d4.png)
+> ![Screenshot of a suspected solution that turned out to be right](https://user-images.githubusercontent.com/19878639/111087012-ae3cb480-84f5-11eb-80f5-a21e3090f8d4.png)
 
 ## Get Started
 
