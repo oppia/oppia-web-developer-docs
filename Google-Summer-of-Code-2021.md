@@ -1024,7 +1024,25 @@ Noteworthy dates for 2021 ([Full Timeline](https://developers.google.com/open-so
 * **Aug 31**: GSoC officially ends
 
 ## List of Mentors
-_Please come back to this section at the end of Jan/early Feb 2021 for the final list of mentors!_
+* Sandeep Dubey
+* Srijan Reddy
+* Kevin Thomas
+* Akshay Anand
+* Vojta Jelínek
+* Sean Lip
+* Rohit Katlaa
+* Vinita Murthi
+* Rajat Talesra
+* Ben Henning
+* Akshay Nandwana
+* Pulkit Aggarwal
+* Sarthak Agarwal
+* Prayush Dawda
+* Sajal Asati
+* Anshul Hudda
+* James James
+* Nithesh Hariharan
+* Sagang Wee
 
 ## Communication
 
