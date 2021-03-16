@@ -52,7 +52,7 @@ Finally, we'll ask that you go through the same process as for changing end-to-e
 
 First, check that your changes couldn't be responsible. For example, run the test locally on your computer. If it fails there too, dig into why. If it passes locally, then it's probably a flake.
 
-Once you've confirmed it's a flake, go ahead and re-run the test until it passes. We're putting together a way for you to report these flakes to us, and we'll add that to this page once it's ready.
+Once you've confirmed it's a flake, go ahead and re-run the test until it passes.
 
 ---------------
 
