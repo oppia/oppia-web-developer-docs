@@ -1,29 +1,36 @@
 ## Table of Contents ##
 
 * [Temporary Flakiness Mitigation Measures](#temporary-flakiness-mitigation-measures)
+    * [If You are Changing the End-to-End Tests](#if-you-are-changing-the-end-to-end-tests)
+    * [If You Are Adding End-to-End Tests](#if-you-are-adding-end-to-end-tests)
+    * [If the End-to-End Tests are Failing on Your PR](#if-the-end-to-end-tests-are-failing-on-your-pr)
 * [Introduction](#introduction)
-* [Configuration](#configuration)
-* [The Tests](#the-tests)
-* [Core Utilities](#core-utilities)
-* [Forms and objects](#forms-and-objects)
-    * [Rich Text](#rich-text)
-    * [Writing utilities](#writing-utilities)
-* [Writing Robust Tests](#writing-robust-tests)
-    * [Flakiness](#flakiness)
-    * [Independence](#independence)
-* [Async-Await Tips](#async-await-tips)
-    * [Good Patterns](#good-patterns)
-    * [Anti-Patterns](#anti-patterns)
+* [Layout of the End-to-End Test Files](#layout-of-the-end-to-end-test-files)
+    * [Suite Files](#suite-files)
+    * [Utilities](#utilities)
+* [Writing New Tests](#writing-new-tests)
+    * [Where to Add the Test](#where-to-add-the-test)
+    * [Writing the Test](#writing-the-test)
+    * [Writing Utilities](#writing-utilities)
+    * [Writing Robust Tests](#writing-robust-tests)
+    * [Codeowner Checks](#codeowner-checks)
+    * [Important Tips](#important-tips)
 * [Debugging end to end tests](#debugging-end-to-end-tests)
-* [Important Tips](#important-tips)
-* [Codeowner Checks](#codeowner-checks)
+    * [Using the Debugger](#using-the-debugger)
+    * [Rerunning with SSH](#rerunning-with-ssh)
+    * [Downloading Screenshots](#downloading-screenshots)
+* [Metrics](#metrics)
+* [Reference](#reference)
+    * [Forms and objects](#forms-and-objects)
+    * [Async-Await Tips](#async-await-tips)
 
+----------
 
-## Temporary Flakiness Mitigation Measures ##
+## Temporary Flakiness Mitigation Measures
 
 We have recently seen a lot of flakes in the end-to-end tests, so we are implementing the following mitigation measures. We recognize that they will be inconvenient for contributors changing the end-to-end tests, and we're sorry about that. We think the inconvenience will be worthwhile because this should help us resolve the end-to-end test flakiness that has been slowing down PRs and frustrating contributors.
 
-### If You are Changing the End-to-End Tests ###
+### If You are Changing the End-to-End Tests
 
 When submitting a pull request please re-run any tests you modify multiple times to make sure they pass consistently. We will ask for screenshots in the PR thread showing:
 
@@ -40,7 +47,7 @@ When re-running your test, you will likely see flakes that are not related to yo
 
 Please re-run your tests on CircleCI and/or TravisCI, depending on which platform the affected tests run on. If you can, please run TravisCI tests on your own fork so you aren't competing for resources with the rest of the community. Also, the tests will run faster that way!
 
-### If You Are Adding End-to-End Tests ###
+### If You Are Adding End-to-End Tests
 
 First, please make sure the tests aren't flaky by running them on your own a bunch of times. You could do this by running them locally or on your own TravisCI fork.
 
@@ -48,7 +55,7 @@ Next, add your tests to a separate test suite. On TravisCI, this should run as i
 
 Finally, we'll ask that you go through the same process as for changing end-to-end tests described above to ensure the tests don't flake.
 
-### If the End-to-End Tests are Failing on Your PR ###
+### If the End-to-End Tests are Failing on Your PR
 
 First, check that your changes couldn't be responsible. For example, run the test locally on your computer. If it fails there too, dig into why. If it passes locally, then it's probably a flake.
 
@@ -56,9 +63,9 @@ Once you've confirmed it's a flake, go ahead and re-run the test until it passes
 
 ---------------
 
-## Introduction ##
+## Introduction
 
-At Oppia, we highly regard the end user, that is, both the creator as well as the learner. Therefore, we have an extensive system of end-to-end tests to test each functionality thoroughly. The end-to-end tests cover both the desktop as well as mobile intefaces.
+At Oppia, we highly regard the end user, that is, both the creator as well as the learner. Therefore, we have an extensive system of end-to-end tests to test each functionality thoroughly. The end-to-end tests cover both the desktop as well as mobile interfaces.
 The tests are organized as follows:
 1. `protractor`: This directory contains test suites which are common for both desktop and mobile interfaces. Certain operations are possible only on one or the other interface. To distinguish between the interfaces, we use the boolean, `browser.isMobile` defined in `onPrepare` of the protractor configuration file.
 2. `protractor_desktop`: This directory houses all test suites which are exclusive for desktop interfaces. This generally includes core creator components like the rich-text editor.
@@ -66,18 +73,11 @@ The tests are organized as follows:
 4. `protractor_utils`: This directory contains utilities for performing actions using elements from the core components of oppia (those found in `core/templates`).
 5. `extensions/**/protractor.js`: This directory houses utilities for actions specific to a particular extension (such as interactions and rules).
 
-**Note**: The e2e test files are owned by the QA team.
+**Note**: The e2e test files are owned by the Automated QA team.
 
+## Layout of the End-to-End Test Files
 
-## Configuration ##
-
-The end-to-end tests for desktop interface run on Travis using a headless Chrome browser. The mobile tests use appium. Since protractor does not [officially support](http://www.protractortest.org/#/mobile-setup) appium as of now and neither does Travis provide a headless mobile browser, we use Browserstack to run the mobile tests on Travis. Also, mobile tests require a different configuration. Therefore, we have two protractor configuration files, `protractor.conf.js` and `protractor-browserstack.conf.js`.
-For details on how to use Browserstack with Travis CI, please follow [this link](https://docs.travis-ci.com/user/browserstack/).
-To run local tests for mobile on Browserstack, copy the contents of `core/tests/.browserstack.env.example` into a newly created file, `core/tests/.browserstack.env` and follow [this link](https://github.com/oppia/oppia/wiki/Browser-and-Device-Testing-Using-BrowserStack#get-access-to-browserstack) to get access to the login credentials required to run tests on Browserstack.
-
-If you are just creating a new interaction and want to add end-to-end tests for it then you can follow the guidance given at [[Creating Interactions|Creating-Interactions]], though the "forms and objects" section of this page may also be helpful.
-
-## The Tests ##
+### Suite Files
 
 This section lists down all the suites directory-wise.
 
@@ -105,7 +105,7 @@ This section lists down all the suites directory-wise.
 #### 3. `core/tests/protractor_mobile`:
 * `navigation.js`:  End-to-end tests for testing navigation on mobile as a guest.
 
-## Core Utilities ##
+### Utilities
 
 The core protractor utilities consist of the following files:
   * `AdminPage.js`: Manipulations of controls on the /admin page.
@@ -137,7 +137,174 @@ The core protractor utilities consist of the following files:
 
 The protractor tests use the above functions to simulate a user interacting with Oppia. They should not engage in direct interactions with the page (e.g. using `element`) but instead make use of the `protractor_utils`. If new functionality is needed for a test then it should be added in the utilities directory, so that is available for future tests to use and easy to maintain. A minor exception to this are the `embedding.js` tests which interact with a page constructed specifically to demonstrate embedding, and which is thus not of any wider interest.
 
-## Forms and objects ##
+## Writing New Tests
+
+### Where to Add the Test
+
+#### Interactions
+
+If you are just creating a new interaction and want to add end-to-end tests for it then you can follow the guidance given at [[Creating Interactions|Creating-Interactions]], though the "forms and objects" section of this page may also be helpful.
+
+If you are adding functionality to an existing interaction, you can probably just add test cases to its `protractor.js` file. For example, the `AlgebraicExpressionInput` interaction's file is at [`oppia/extensions/interactions/AlgebraicExpressionInput/protractor.js`](https://github.com/oppia/oppia/blob/develop/extensions/interactions/AlgebraicExpressionInput/protractor.js)
+
+#### Existing Suite
+
+First, take a look at the existing test suites in [`core/tests/protractor`](https://github.com/oppia/oppia/tree/develop/core/tests/protractor) and [`core/tests/protractor_desktop`](https://github.com/oppia/oppia/tree/develop/core/tests/protractor_desktop). If your test fits well into any of those suites, you should add it there.
+
+#### New Suite
+
+If you need to, you can add a new test suite to [`core/tests/protractor_desktop`](https://github.com/oppia/oppia/tree/develop/core/tests/protractor_desktop):
+
+1. Create the new test file under `core/tests/protractor_desktop`
+2. Create a new suite in [`core/tests/protractor.conf.js`](https://github.com/oppia/oppia/blob/develop/core/tests/protractor.conf.js) for your file.
+3. Add your new suite to GitHub Actions, whose workflow files are in [`.github/workflows`](https://github.com/oppia/oppia/tree/develop/.github/workflows). If there is an existing workflow that your suite would fit well with, add your suite there. Otherwise, create a new workflow. Note that we want all CI workflows to finish in less than 30 minutes, so check the workflow runtimes after your change!
+
+### Writing the Test
+
+1. Think through what user journeys you want to test. Each user journey is a sequence of actions that a user could take. The end-to-end tests you write should execute those steps and make sure that Oppia behaves appropriately. Remember:
+    * Test everything from the user's perspective. For example, instead of jumping to a page by the URL, navigate to the page using the links on the webpage like a user would.
+    * Check the "happy paths" where the user does what you expect.
+    * Check the "unhappy paths" where the user does something wrong. For example, if a text field only accepts 30 characters, your test should try entering 31 characters to make sure the appropriate error messages appear.
+2. Write the [utilities](#writing-utilities) you will need. Your test file should never interact with the page directly. All interactions should go through utilities.
+3. Write the test! For information on writing tests with protractor, see the [protractor documentation](https://www.protractortest.org/#/)
+
+### Writing Utilities
+
+Much of the difficulty of writing protractor code lies in specifying the element with which you wish to interact. It is important to do so in a way that is as insensitive as possible to superficial DOM features such as text and styling, so as to reduce the likelihood that changes will have to be made when the production html is changed. The order in which to attempt to specify an element in Oppia is as follows:
+
+  1. Adding a `protractor-test-some-name` code to the class of the element in question, and then referencing it by `by.css('.protractor-test-some-name')`. We do not use `by.id` for this purpose because Oppia frequently displays multiple copies of a DOM element on the same page, and if an `id` is repeated then references to it will not work properly. This is the preferred method, since it makes clear to those editing production code exactly what the dependence on protractor is, thus minimising the likelihood of confusing errors when they make changes. Sometimes this may not work, though (e.g. for embedded pages, third-party libraries and generated HTML), in which case you may instead need to use one of the options (2) - (4) below.
+  2. Existing element ids, for example `explorationLanguageCode`. We avoid using existing classes for this purpose as they are generally style specifications such as `big-button` that may be changed in the future.
+  3. You can use `by.tagName` if you are sure you are in a context where only one element will have (or is likely to have in future) the given name. The `<input>` and `<button>` tags often fall under this category. Try to avoid `by.buttonText` and `by.linkText` since they are sensitive to the choice of user-facing text.
+  4. Finally, you can use `by.xpath` to specify an exact path from the starting element to the one you get to. This is not ideal since it renders the tests fragile to changes in the DOM. However sometimes it is necessary, for example to send elements to `expectRichText` in `forms.js` which requires it receive an exact element that cannot be directly specified.
+
+Sometimes you need to distinguish between several different sibling elements, for which purpose you can use commands of the form
+```
+    .all(by.css(...)).first()
+    .all(by.css(...)).last()
+    .all(by.css(...)).get(n)
+```
+in place of `.element(by.css(...))`. If this does not suffice then you may need to iterate over all the candidates, examining each in turn until you find the right one. An example of how to do so is given by `moveToState` in `core/tests/protractor_utils/editor.js`.
+
+**WARNING: This can lead to flaky and fragile tests, so avoid this if possible. See below for details.**
+
+All the protractor code assumes you are working in an Angular webpage. If you need to move to non-Angular context (for example in an iframe) then look at the login function of `users.js` or the `embedding.js` test for examples of how to proceed.
+
+It can happen that a test fails because the webpage has not finished loading functionality by the point at which protractor attempts to use it; failures of this kind can be inconsistent between successive runs of the same test. If one occurs you can try the following:
+
+  1. Use ExpectedConditions to determine if the element in question is either present, visible or clickable, depending on your use case.
+  2. If you are attempting to use an element that is not visible you can try `general.scrollElementIntoView(elem)` to get to it, though normally this should happen automatically.
+
+### Writing Robust Tests
+
+#### Flakiness
+
+It is easy to accidentally write _flaky_ end-to-end tests, which means that the tests sometimes pass and sometimes fail for non-deterministic reasons. For example, you might write a test assuming that all the elements of the page load at once. However, you have probably noticed that when your browser slows down, it sometimes loads parts of the page before others. This could lead your test to fail randomly, which is called flaking. Here are some tips for avoiding flakiness in your tests:
+
+* HTML tags should be unique if possible. When they are not unique, for instance when multiple copies of the same HTML are created dynamically, we should not find one with indexing, `.first()`, or `.last()`. A great example of how to do this correctly is in `this.playTutorial` in `ExplorationEditorMainTab.js`.
+    * There is really only one case where it is acceptable to identify HTML elements by index, which is when the following conditions all hold:
+        1. The elements you want to choose among are siblings, meaning that they share the same parent element. If they aren't siblings, then you can add use the parent elements to distinguish between them, for example by adding HTML classes to the parents.
+        2. The elements you want to choose among are identical. In particular, if the elements contain different text, then you can use that text to distinguish them.
+        3. The elements you want to choose among are generated dynamically, so you can't modify them to add HTML classes.
+* Avoid for loops where the loop index is used in asynchronous calls. `this.expectHintsTabContentsToMatch` in `ExplorationEditorTranslationTab.js` is a better way because it puts the index in the CSS selector, so the index is used before the asynchronous part kicks in.
+* Do not use URLs to:
+    * Get IDs, for example IDs for explorations, collections, or topics
+    * Navigate to a page, for example opening the about page by navigating to `/about` instead of clicking the appropriate buttons
+* Do not use `browser.sleep(` calls. This is great for debugging, but in the final test you should use `waitFor` instead.
+* In page objects, each function should use `waitFor` to wait for the elements it acts on to appear or be clickable. If the function effects a change, it should also wait for the change to complete (e.g. the next page to finish loading if the function clicks a link).
+
+#### Independence
+
+The tests may be run either sequentially or in isolation, and they need to be written to function correctly in both cases. Further, we may rearrange which tests are run together to optimize performance. This means that each `describe(...` block of tests should work regardless of what tests are run before (or after) it. Here are some tips for writing independent tests:
+
+* Ensure that usernames and emails used in each test are unique by giving them a distinctive form; in e.g. the editorAndPlayer page usernames should look like `user1EditorAndPlayer` and emails like `user1@editorAndPlayer.com`. Use this pattern for other names in the tests, for example topic and skill names, for example `skill1EditorAndPlayer`. Some structures have character limits that may disallow this convention. In that case, feel free to shorten the name, e.g. with an abbreviation. You may want to use a constant though if the name gets too unreadable.
+* Avoid accessing items by index. For example, to select an exploration from a list, search for the name of the exploration instead of assuming the exploration will be at some index. Take a look at the `_getExplorationElements` function in [`core/tests/protractor_utils/LibraryPage.js`](https://github.com/oppia/oppia/blob/develop/core/tests/protractor_utils/LibraryPage.js) for an example.
+
+### Codeowner Checks
+
+When the QA team does a codeowner review on your PR that changes the e2e tests, they will be looking to make sure that you follow all the guidance in this wiki page. In the checklist below, we list some of the most common problems we see. To get your PR merged faster, please check that your PR satisfies each item:
+
+* [ ] All constants should be in all-caps. (This isn't really an e2e test issue, but we see it a lot.)
+* [ ] All element selectors, e.g. `element(by.css('.protractor-test-my-element'))`, need to be at the top of the file. There are a few exceptions:
+    * Keeping selectors with the code that uses them is okay in some utility files where the utilities do not generally share selectors.
+    * When you are chaining selectors, only the root selector (first in the chain) needs to be at the top of the file.
+* [ ] Any time you create something in Oppia that needs a globally unique name to be identified by the tests (e.g. explorations, topics, skills, and users), make sure to follow the naming guidance in the [Independence](https://github.com/oppia/oppia/wiki/End-to-End-Tests#independence) section above.
+* [ ] Each `it` block in the test must be able to be run independently of the others. Imagine running any number of your `it` blocks in any order. Regardless of which you choose and in what order you run them, they should work correctly.
+* [ ] Before you interact with _any_ element on the page, you must wait for it to be present, visible, or clickable (depending on how you interact with it) using the [`waitFor`](https://github.com/oppia/oppia/blob/develop/core/tests/protractor_utils/waitFor.js) functions. The [`actions`](https://github.com/oppia/oppia/blob/develop/core/tests/protractor_utils/action.js) functions handle this for you.
+* [ ] You don't need (and shouldn't include) `await` keywords for `.first()`, `.last()` or `.get(i)` calls.
+* [ ] If you repeat some code a lot, make it a function! This also makes it a lot easier to review your code.
+* [ ] If you make a generally useful function, add it to the relevant utilities file so that other people can benefit from it too.
+* [ ] You will need to provide screenshots showing that the tests aren't flaky after your changes. The requirements are detailed above in the [Temporary Flakiness Mitigation Measures](https://github.com/oppia/oppia/wiki/End-to-End-Tests#temporary-flakiness-mitigation-measures) section.
+* [ ] Variables should be named as nouns, and functions should be named as verbs. In particular, make sure your page element variable names are nouns. For example, use `itemSelectButton` instead of `itemSelect`.
+* [ ] All HTML classes you reference in root selectors in the tests should begin with `protractor-test-`. If you can't change the classes on an element you need to select, find a parent element you can change and then chain the selectors like this: `element(by.css('.protractor-test-parent-element')).element(by.css('.class-of-element-you-cannot-change'))` or like this: `element(by.css('.protractor-test-parent-element .class-of-element-you-cannot-change'))`.
+
+### Important Tips
+
+* All test blocks should have an `afterEach` that runs `general.checkForConsoleErrors` to verify no unexpected console errors appeared while the test was running.
+* Check your assumptions! For example, if you are assuming that only one exploration on the server will have a particular title, use an `expect` call to check.
+
+## Debugging End-to-End tests
+
+Whenever you're debugging tests, you should create a debugging doc to document your work. This helps future contributors if they run into a similar bug in the future. If other people come in later to help you, they can also use the debugging doc to get up to speed on what you've already figured out. You can make a copy of [this template debugging doc](https://docs.google.com/document/d/1qRbvKjJ0A7NPVK8g6XJNISMx_6BuepoCL7F2eIfrGqM/edit?usp=sharing) to get started. Also, check out the [[debugging docs wiki page|debugging-docs]].
+
+### Using the Debugger
+
+1. Add a break-point in the code you want the control to stop at by adding a statement called "debugger;".
+   eg.
+   ```js
+   ...
+   await adminPage.get();
+   await adminPage.updateRole('moderator1', 'moderator');
+   debugger;
+   await adminPage.viewRolesbyUsername('moderator1');
+   ...
+   ```
+2. Run the e2e script with the flag --debug_mode.
+   eg. `python -m scripts.run_e2e_tests --debug_mode --suite="topicAndStoryEditor"`
+3. Wait for the script to show the following log:
+   ```
+   Debugger listening on ws://127.0.0.1:9229/e4779cc6-72e9-4d8d-889e-1fb3b2628781
+   For help, see: https://nodejs.org/en/docs/inspector
+   ```
+4. At this point, go to `chrome://inspect/#devices` on your Chrome browser.
+5. Click on "inspect" under Remote Target (see screenshot below).
+![Inspect Page](https://user-images.githubusercontent.com/11008603/88563290-714bac80-d04f-11ea-8b36-fc43c66d6e3d.png)
+6. A Chrome dev tools instance will open up and the e2e test should start executing in a new window.
+7. The control will stop at the point where the debugger statement was added. You can now choose to inspect elements, log variables in the test, or add more break-points.
+
+### Rerunning with SSH
+Circle CI allows debugging using SSH. For details, please read [this](https://circleci.com/docs/2.0/ssh-access-jobs/#steps). Debugging with SSH only reruns that particular job, so it is a great way to rerun a passing test to see if it flakes without rerunning all the tests.
+
+### Downloading Screenshots
+
+We capture screenshots of failing tests. On Circle CI, these are available under the `Artifacts` tab of the failure log page. You may also want to reference the [Circle CI artifacts documentation](https://circleci.com/docs/2.0/artifacts/). On GitHub Actions, look for an `Artifacts` link in the upper right where you can download a zip file of the screenshots.
+
+Here's an example of what artifacts on Circle CI look like:
+
+![Circle CI artifacts page with hyperlinks to screenshots and reports](https://user-images.githubusercontent.com/19878639/111242142-f1ba2000-85d4-11eb-8bf1-66cfbbf71975.png)
+
+There are two kinds of artifacts:
+
+* Reports, which have the filename `report.html`
+* Screenshots, which have a filename that follows the name of the test from which the screenshot was captured. For example, `Topic editor functionality should publish and unpublish a story correctly.png`.
+
+Artifacts are grouped into folders based on attempt number. For example, the report at `protractor-screenshots/6b0d444200b12988799019647e6ed7a9/report.html` is in the folder `6b0d444200b12988799019647e6ed7a9`, which holds all the artifacts from one attempt (we attempt the tests multiple times to handle flakiness). You can use the reports to figure out which attempt goes with which folder. For example, if attempt number 2 has an error message
+
+```
+Failed: Story could not be saved.
+Wait timed out after 10003ms
+```
+
+then you can look for the report that includes this message. Times like `10003ms` will be particularly useful for this since they're usually unique. Say you find this error message in `protractor-screenshots/6b0d444200b12988799019647e6ed7a9/report.html`. Now you know that the screenshots from the attempt are all under `protractor-screenshots/6b0d444200b12988799019647e6ed7a9`!
+
+Sometimes you'll get screenshots that just aren't very helpful. For example, a lot of screenshots show the login page for some reason. You can check other examples of a flake though. One of the others might have a useful screenshot.
+
+## Metrics
+
+We track passes, known flakes, and failures that aren't known to be flakes (called "failures") using a logging server. You can view these metrics at https://oppia-e2e-test-results-logger.herokuapp.com.
+
+## Reference
+
+### Forms and objects
 
 There are certain types of input that are used so commonly throughout oppia that they have specialised functionality, which can be found in `core/templates/forms/`. There are corresponding protractor functions to manipulate the different forms located in `core/tests/protractor_utils/forms.js`. The available forms are:
   * Dictionary: This provides the function `editEntry` which will return the relevant protractor editor for the given entry of the dictionary.
@@ -148,7 +315,7 @@ There are certain types of input that are used so commonly throughout oppia that
 
 There are more specialised input types in `extensions/objects` which you can also make use of (generally in interactions). The dictionary and list functions above will look for entry / item editors first in `core/tests/protractor_utils/forms.js` and then in `extensions/objects/protractor.js`.
 
-### Rich Text ###
+#### Rich Text
 
 One of the most important forms is the rich-text editor, which is used both directly in the editor and in various interactions. When you want to use it, then you will be provided with a function such as `setContent` (for the state content) to which you should send a function that performs your desired actions using the relevant rich text editor. This second function will be supplied with a `richTextEditor` that exposes various functions such as `appendBoldText` for you to use. So for example you might write the function
 ```
@@ -176,58 +343,9 @@ Frequently you will just want to put plain text into a rich text area. For this 
 ```
 which will work for both the editing and checking cases.
 
-### Writing utilities ###
+### Async-Await Tips
 
-Much of the difficulty of writing protractor code lies in specifying the element with which you wish to interact. It is important to do so in a way that is as insensitive as possible to superficial DOM features such as text and styling, so as to reduce the likelihood that changes will have to be made when the production html is changed. The order in which to attempt to specify an element in Oppia is as follows:
-  1. Adding a `protractor-test-some-name` code to the class of the element in question, and then referencing it by `by.css('.protractor-test-some-name')`. We do not use `by.id` for this purpose because Oppia frequently displays multiple copies of a DOM element on the same page, and if an `id` is repeated then references to it will not work properly. This is the preferred method, since it makes clear to those editing production code exactly what the dependence on protractor is, thus minimising the likelihood of confusing errors when they make changes. Sometimes this may not work, though (e.g. for embedded pages, third-party libraries and generated HTML), in which case you may instead need to use one of the options (2) - (4) below.
-  2. Existing element ids, for example `explorationLanguageCode`. We avoid using existing classes for this purpose as they are generally style specifications such as `big-button` that may be changed in the future.
-  3. You can use `by.tagName` if you are sure you are in a context where only one element will have (or is likely to have in future) the given name. The `<input>` and `<button>` tags often fall under this category. Try to avoid `by.buttonText` and `by.linkText` since they are sensitive to the choice of user-facing text.
-  4. Finally, you can use `by.xpath` to specify an exact path from the starting element to the one you get to. This is not ideal since it renders the tests fragile to changes in the DOM. However sometimes it is necessary, for example to send elements to `expectRichText` in `forms.js` which requires it receive an exact element that cannot be directly specified.
-
-Sometimes you need to distinguish between several different sibling elements, for which purpose you can use commands of the form
-```
-    .all(by.css(...)).first()
-    .all(by.css(...)).last()
-    .all(by.css(...)).get(n)
-```
-in place of `.element(by.css(...))`. If this does not suffice then you may need to iterate over all the candidates, examining each in turn until you find the right one. An example of how to do so is given by `moveToState` in `core/tests/protractor_utils/editor.js`.
-
-**WARNING: This can lead to flaky and fragile tests, so avoid this if possible. See below for details.**
-
-All the protractor code assumes you are working in an Angular webpage. If you need to move to non-Angular context (for example in an iframe) then look at the login function of `users.js` or the `embedding.js` test for examples of how to proceed.
-
-It can happen that a test fails because the webpage has not finished loading functionality by the point at which protractor attempts to use it; failures of this kind can be inconsistent between successive runs of the same test. If one occurs you can try the following:
-  1. Use ExpectedConditions to determine if the element in question is either present, visible or clickable, depending on your use case.
-  2. If you are attempting to use an element that is not visible you can try `general.scrollElementIntoView(elem)` to get to it, though normally this should happen automatically.
-
-## Writing Robust Tests ##
-
-### Flakiness ###
-
-It is easy to accidentally write _flaky_ end-to-end tests, which means that the tests sometimes pass and sometimes fail for non-deterministic reasons. For example, you might write a test assuming that all the elements of the page load at once. However, you have probably noticed that when your browser slows down, it sometimes loads parts of the page before others. This could lead your test to fail randomly, which is called flaking. Here are some tips for avoiding flakiness in your tests:
-
-* HTML tags should be unique if possible. When they are not unique, for instance when multiple copies of the same HTML are created dynamically, we should not find one with indexing, `.first()`, or `.last()`. A great example of how to do this correctly is in `this.playTutorial` in `ExplorationEditorMainTab.js`.
-    * There is really only one case where it is acceptable to identify HTML elements by index, which is when the following conditions all hold:
-        1. The elements you want to choose among are siblings, meaning that they share the same parent element. If they aren't siblings, then you can add use the parent elements to distinguish between them, for example by adding HTML classes to the parents.
-        2. The elements you want to choose among are identical. In particular, if the elements contain different text, then you can use that text to distinguish them.
-        3. The elements you want to choose among are generated dynamically, so you can't modify them to add HTML classes.
-* Avoid for loops where the loop index is used in asynchronous calls. `this.expectHintsTabContentsToMatch` in `ExplorationEditorTranslationTab.js` is a better way because it puts the index in the CSS selector, so the index is used before the asynchronous part kicks in.
-* Do not use URLs to:
-    * Get IDs, for example IDs for explorations, collections, or topics
-    * Navigate to a page, for example opening the about page by navigating to `/about` instead of clicking the appropriate buttons
-* Do not use `browser.sleep(` calls. This is great for debugging, but in the final test you should use `waitFor` instead.
-* In page objects, each function should use `waitFor` to wait for the elements it acts on to appear or be clickable. If the function effects a change, it should also wait for the change to complete (e.g. the next page to finish loading if the function clicks a link).
-
-### Independence ###
-
-The tests may be run either sequentially or in isolation, and they need to be written to function correctly in both cases. Further, we may rearrange which tests are run together to optimize performance. This means that each `describe(...` block of tests should work regardless of what tests are run before (or after) it. Here are some tips for writing independent tests:
-
-* Ensure that usernames and emails used in each test are unique by giving them a distinctive form; in e.g. the editorAndPlayer page usernames should look like `user1EditorAndPlayer` and emails like `user1@editorAndPlayer.com`. Use this pattern for other names in the tests, for example topic and skill names, for example `skill1EditorAndPlayer`. Some structures have character limits that may disallow this convention. In that case, feel free to shorten the name, e.g. with an abbreviation. You may want to use a constant though if the name gets too unreadable.
-* Avoid accessing items by index. For example, to select an exploration from a list, search for the name of the exploration instead of assuming the exploration will be at some index. Take a look at the `_getExplorationElements` function in [`core/tests/protractor_utils/LibraryPage.js`](https://github.com/oppia/oppia/blob/develop/core/tests/protractor_utils/LibraryPage.js) for an example.
-
-## Async-Await Tips ##
-
-### Good Patterns ###
+#### Good Patterns
 
 * Getting a URL
   ```js
@@ -353,7 +471,7 @@ The tests may be run either sequentially or in isolation, and they need to be wr
   Notice that here, we wait for `elem` to advance one unit. If that happens, then the test passes. However, what if `elem` advances 2 units before `waitFor` checks again? To address this, we check whether `elem` has moved after catching the error from the `waitFor`.
 * Make sure you add `async` and `await` in the `afterAll` blocks if they check for console errors (they all should). If you don't the test might pass even though errors are appearing in the console log.
 
-### Anti-Patterns ###
+#### Anti-Patterns
 
 * `forEach` does not work for async-await. Use a `for ... of` loop instead if you want to operate in sequence, or use `map()` to operate in parallel. See [this stackoverflow post](https://stackoverflow.com/a/37576787) for examples.
 * `filter` can be problematic. Consider re-writing as a `for` loop instead.
@@ -369,63 +487,3 @@ The tests may be run either sequentially or in isolation, and they need to be wr
   await // do something with "output"
   ```
 * `browser.switchTo().activeElement()` can cause problems when combined with our `action` functions. One such problem is a `Cannot read property 'bind' of undefined` error. Instead, use the normal `element(...)` element selectors to get the element you want to interact with. You can use a `debugger` statement (see the debugging section below) right before `browser.switchTo().activeElement()` to find what active is element there.
-
-## Debugging end to end tests ##
-
-Whenever you're debugging tests, you should create a debugging doc to document your work. This helps future contributors if they run into a similar bug in the future. If other people come in later to help you, they can also use the debugging doc to get up to speed on what you've already figured out. You can make a copy of [this template debugging doc](https://docs.google.com/document/d/1qRbvKjJ0A7NPVK8g6XJNISMx_6BuepoCL7F2eIfrGqM/edit?usp=sharing) to get started.
-
-### Steps to use the debugger tool ###
-1. Add a break-point in the code you want the control to stop at by adding a statement called "debugger;".
-   eg.
-   ```js
-   ...
-   await adminPage.get();
-   await adminPage.updateRole('moderator1', 'moderator');
-   debugger;
-   await adminPage.viewRolesbyUsername('moderator1');
-   ...
-   ```
-2. Run the e2e script with the flag --debug_mode.
-   eg. `python -m scripts.run_e2e_tests --debug_mode --suite="topicAndStoryEditor"`
-3. Wait for the script to show the following log:
-   ```
-   Debugger listening on ws://127.0.0.1:9229/e4779cc6-72e9-4d8d-889e-1fb3b2628781
-   For help, see: https://nodejs.org/en/docs/inspector
-   ```
-4. At this point, go to `chrome://inspect/#devices` on your Chrome browser.
-5. Click on "inspect" under Remote Target (see screenshot below).
-![Inspect Page](https://user-images.githubusercontent.com/11008603/88563290-714bac80-d04f-11ea-8b36-fc43c66d6e3d.png)
-6. A Chrome dev tools instance will open up and the e2e test should start executing in a new window.
-7. The control will stop at the point where the debugger statement was added. You can now choose to inspect elements, log variables in the test, or add more break-points.
-
-### Debugging Circle CI builds ###
-
-#### Rerunning with SSH ####
-Circle CI allows debugging using SSH. For details, please read [this](https://circleci.com/docs/2.0/ssh-access-jobs/#steps). Debugging with SSH only reruns that particular job, so it is a great way to rerun a passing test to see if it flakes without rerunning all the tests.
-
-#### Downloading Screenshots ####
-
-When E2E tests run on Circle CI, we can capture screenshots of failing tests. These are available under the `Artifacts` tab of the failure log page. [Here](https://circleci.com/docs/2.0/artifacts/) is the Circle CI artifacts documentation. Note that this might not be available quite yet if [#11266](https://github.com/oppia/oppia/pull/11266) hasn't been merged yet.
-
-## Important Tips ##
-
-* All test blocks should have an `afterEach` that runs `general.checkForConsoleErrors` to verify no unexpected console errors appeared while the test was running.
-* Check your assumptions! For example, if you are assuming that only one exploration on the server will have a particular title, use an `expect` call to check.
-
-## Codeowner Checks ##
-
-When the QA team does a codeowner review on your PR that changes the e2e tests, they will be looking to make sure that you follow all the guidance in this wiki page. In the checklist below, we list some of the most common problems we see. To get your PR merged faster, please check that your PR satisfies each item:
-
-* [ ] All constants should be in all-caps. (This isn't really an e2e test issue, but we see it a lot.)
-* [ ] All element selectors, e.g. `element(by.css('.protractor-test-my-element'))`, need to be at the top of the file. There are a few exceptions:
-    * Keeping selectors with the code that uses them is okay in some utility files where the utilities do not generally share selectors.
-    * When you are chaining selectors, only the root selector (first in the chain) needs to be at the top of the file.
-* [ ] Any time you create something in Oppia that needs a globally unique name to be identified by the tests (e.g. explorations, topics, skills, and users), make sure to follow the naming guidance in the [Independence](https://github.com/oppia/oppia/wiki/End-to-End-Tests#independence) section above.
-* [ ] Each `it` block in the test must be able to be run independently of the others. Imagine running any number of your `it` blocks in any order. Regardless of which you choose and in what order you run them, they should work correctly.
-* [ ] Before you interact with _any_ element on the page, you must wait for it to be present, visible, or clickable (depending on how you interact with it) using the [`waitFor`](https://github.com/oppia/oppia/blob/develop/core/tests/protractor_utils/waitFor.js) functions. The [`actions`](https://github.com/oppia/oppia/blob/develop/core/tests/protractor_utils/action.js) functions handle this for you.
-* [ ] You don't need (and shouldn't include) `await` keywords for `.first()`, `.last()` or `.get(i)` calls.
-* [ ] If you repeat some code a lot, make it a function! This also makes it a lot easier to review your code.
-* [ ] If you make a generally useful function, add it to the relevant utilities file so that other people can benefit from it too.
-* [ ] You will need to provide screenshots showing that the tests aren't flaky after your changes. The requirements are detailed above in the [Temporary Flakiness Mitigation Measures](https://github.com/oppia/oppia/wiki/End-to-End-Tests#temporary-flakiness-mitigation-measures) section.
-* [ ] Variables should be named as nouns, and functions should be named as verbs. In particular, make sure your page element variable names are nouns. For example, use `itemSelectButton` instead of `itemSelect`.
-* [ ] All HTML classes you reference in root selectors in the tests should begin with `protractor-test-`. If you can't change the classes on an element you need to select, find a parent element you can change and then chain the selectors like this: `element(by.css('.protractor-test-parent-element')).element(by.css('.class-of-element-you-cannot-change'))` or like this: `element(by.css('.protractor-test-parent-element .class-of-element-you-cannot-change'))`.
