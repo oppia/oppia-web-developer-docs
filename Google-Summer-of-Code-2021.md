@@ -254,7 +254,7 @@ The Oppia development workflow uses lint checks to help detect style errors befo
 
 **What we're looking for in the proposal:** 
 
-*   Link to one or more PRs showing contribution to the linter project.
+*   Link to one or more PRs implementing custom eslint checks.
 
 **Dependency on Release Schedule:** None
 
