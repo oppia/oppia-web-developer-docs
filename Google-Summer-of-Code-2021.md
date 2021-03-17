@@ -8,7 +8,7 @@
 * [Types of work related to Oppia projects](#types-of-work-related-to-oppia-projects)
 * [Selection Criteria](#selection-criteria)
 * [Oppia's Project Ideas List](#oppias-project-ideas-list)
-    * [Developer Experience](#developer-experience)
+    * [Developer Experience Team](#developer-experience)
     * [Data and Stability Team](#data-and-stability-team)
     * [Automated QA Team](#automated-qa-team)
     * [Learner and Creator Experience Team](#learner-and-creator-experience-team)
