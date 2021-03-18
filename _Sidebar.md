@@ -13,6 +13,8 @@
 **Developing Oppia**
   * [[FAQs|Frequently-Asked-Questions]]
   * [[Installing Oppia|https://github.com/oppia/oppia/wiki/Installing-Oppia]]
+  * [[Working with Firebase authentication|Working-with-Firebase-authentication]]
+    * [[Creating an Administrator account|https://github.com/oppia/oppia/wiki/Working-with-Firebase-authentication#creating-an-administrator-account]]
   * [[How to Ask Questions|Guide-on-How-to-Ask-Questions]]
   * [[Git cheat sheet|Git-cheat-sheet]]
   * [[Codebase Overview|Overview-of-the-Oppia-codebase]]
