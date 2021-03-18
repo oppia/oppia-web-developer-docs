@@ -6,7 +6,7 @@ A password will automatically be generated for the account. The password is the 
 
 # Creating an Administrator account
 
-There are two options:## 
+There are two options:
 
 1. Sign-in as `feconf.ADMIN_EMAIL_ADDRESS` → `testadmin@example.com`.
 
