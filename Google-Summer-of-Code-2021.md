@@ -273,7 +273,7 @@ We would like to robustly validate all arguments passed to GET/POST/DELETE handl
 
 This project should add the framework for adding schema validation to all handlers, lint checks ensuring that for newly added handlers schema must be added, and documentation about the schema validation. Then the schema validation should be enabled on at least a part of our current handlers.
 
-The schema validation should be implemented based on schema_utils.py (possibly with additional extensions) or through some third party library. Some changes to frontend code might also be required in order to unify how we send data between backend and frontend.
+The schema validation should be implemented based on schema_utils.py (possibly with additional extensions) or through some third party library. You can take a look at a [list of possible third-party libraries](https://docs.google.com/document/d/1s_nVczNVGgwO8-Jo2JNcoVla2x0-QYuwPmA2u0w9UsQ/edit?usp=sharing) for inspiration. Some changes to frontend code might also be required in order to unify how we send data between backend and frontend.
 
 **Potential Mentors:** @vojtechjelinek, @rohitkatlaa
 
