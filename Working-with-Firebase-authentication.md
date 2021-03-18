@@ -1,8 +1,6 @@
 As of April 2021, Oppia uses [Firebase](https://firebase.google.com/docs/auth) to handle user authentication. Log-in sessions are tracked using HTTP session cookies. The name of the session cookie is defined by `feconf.FIREBASE_SESSION_COOKIE_NAME`.
 
-For developers' convenience, the only thing needed to sign-in is an email address:
-
-A password will automatically be generated for the account. The password is the md5 hash of the email address. **This will never happen in production.** Production redirects users to the Google account page instead.
+For developers' convenience, the only thing needed to sign-in is an email address. A password will automatically be generated for the account. The password is the md5 hash of the email address. **This does not happen in production!** Production redirects users to the Google sign-in page instead (hence, Oppia users require a real Google account).
 
 # Creating an Administrator account
 
