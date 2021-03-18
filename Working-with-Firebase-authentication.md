@@ -15,7 +15,7 @@ There are two options:
    2. Go to http://localhost:4000/auth
    3. Find the corresponding Firebase account, click on the "3 dots" button, then click on **Edit user**: ![image](https://user-images.githubusercontent.com/5094060/111571879-e3f3ce80-877d-11eb-9353-aca9f60dc858.png)
 
-   4. Set the Custom Claims value to `{"role": "super_admin"}` then click **Save**: ![image](https://user-images.githubusercontent.com/5094060/111571913-fc63e900-877d-11eb-82ad-930b9b84fef6.png)
+   4. Set the Custom Claims value to `{"role":"super_admin"}` then click **Save**: ![image](https://user-images.githubusercontent.com/5094060/111571913-fc63e900-877d-11eb-82ad-930b9b84fef6.png)
 
    5. Log-out and log back in to refresh your session.
 
