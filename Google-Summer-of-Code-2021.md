@@ -939,7 +939,9 @@ This project is being spec'd out currently in a [PRD](https://docs.google.com/do
 
 It's important for software to properly attribute all dependencies on which it depends, and to display the specific copyright licenses for those dependencies. Beyond being the right thing to do, fulfilling this in a way that can scale across future dependencies can be difficult. In fact, Oppia Android already has nearly 100 transitive (direct + indirect) dependencies, each of which has its own license.
 
-This project aims to introduce the necessary functionality to collect third party licenses, build a UI (via the 'Help' menu) to display those licenses, and add CI checks to ensure future changes don't break baseline expectations. Note that due to the difficulty of this problem, this project is being scoped down to specific focus on Maven dependencies that we can more easily look up. There will be additional work for the team to complete after this project is done to ensure _all_ dependencies are being considered.
+This project aims to introduce the necessary functionality to collect third party licenses, build a UI (via the 'Help' menu) to display those licenses (similar to , and add CI checks to ensure future changes don't break baseline expectations. Note that due to the difficulty of this problem, this project is being scoped down to specific focus on Maven dependencies that we can more easily look up. There will be additional work for the team to complete after this project is done to ensure _all_ dependencies are being considered.
+
+This project will behave similarly to Google's Play Services [version of the feature](https://developers.google.com/android/guides/opensource). Also, please note that this is a Bazel-only feature (which is why we can't use the Gradle plugin linked earlier).
 
 We recommend that you approach this project as follows:
 
