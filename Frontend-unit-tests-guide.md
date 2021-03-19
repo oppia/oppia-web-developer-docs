@@ -464,7 +464,9 @@ describe('BannerComponent', () => {
 });
 ```
 
-Once this is done, you have the class instance in the variable called `component` and you can continue writing the tests as a class testing. We don't enforce dom testing.
+Once this is done, you have the class instance in the variable called `component` and you can continue writing the tests as a class testing. 
+
+At the moment, we don't enforce [DOM testing](https://angular.io/guide/testing-components-basics#component-dom-testing). However, as the docs say, the component is not fully tested until we test the DOM too. Eventually we hope to add DOM tests for all our components, however, for the moment if you are making a PR fixing a bug caused due to incorrect DOM bindings, then add DOM tests for that component. You aren't mandated (through our coverage checks) to add DOM tests to your PR.
 
 Use some Angular2+ component files that are correctly following the testing patterns as reference:
 - [donate-page.component.spec.ts](https://github.com/oppia/oppia/blob/327df0c22ec839d4ad4232492749c78443b15fb0/core/templates/pages/donate-page/donate-page.component.spec.ts)
