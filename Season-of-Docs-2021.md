@@ -12,7 +12,7 @@
     * [List of Mentors](#list-of-potential-mentors)
     * [Communication](#communication)
 
-Oppia is participating in [Season of Docs](https://developers.google.com/season-of-docs/) program! This program provides support for open source projects to improve their documentation and gives professional technical writers an opportunity to gain experience in open source. The technical writers work closely with one or more mentors on finishing a project idea given by the organization.
+Oppia has applied to participate in the [Season of Docs](https://developers.google.com/season-of-docs/) 2021 program! This program provides support for open source projects to improve their documentation and gives professional technical writers an opportunity to gain experience in open source. The technical writers work closely with one or more mentors on finishing a project idea given by the organization.
 
 Please note that acceptance into Season of Docs isn't a prerequisite for [becoming an Oppia contributor](https://github.com/oppia/oppia/wiki). The Oppia project is run by the community for the community, and we warmly welcome anyone who'd like to help out!
 
@@ -29,7 +29,7 @@ If you're interested in applying to work with Oppia for Season of Docs, please f
 
 **Q: How can I increase my chances of getting selected?**
 
-A: Writing a good project proposal, engaging with the community, helping other students, successfully contributing to already existing documentation  ([Technical documentation](https://github.com/oppia/oppia/wiki) and [User documentation](http://oppia.github.io/#/)), and demonstrating that you can work independently can all help you. You can also propose some more ambitious projects and changes that we might want to implement in our documentation.
+A: Writing a good project proposal, engaging with the community, helping other applicants, successfully contributing to already existing documentation  ([Technical documentation](https://github.com/oppia/oppia/wiki) and [User documentation](http://oppia.github.io/#/)), and demonstrating that you can work independently can all help you. You can also propose some more ambitious projects and changes that we might want to implement in our documentation.
 
 # Starter projects
 ### _Starter projects will be added soon_
@@ -76,7 +76,7 @@ For the proposal, we generally look for a clear indication that the technical wr
 - A concrete, specific breakdown of the work to be done for each milestone.
 - A proposal that is sufficiently concrete to demonstrate that the applicant is familiar with the scope of the problem they're tackling. This may include pointers to parts of the Oppia codebase.
 
-# Project ideas
+# Project Idea
 
 ## Guide for Oppia developers
 
@@ -84,8 +84,9 @@ For the proposal, we generally look for a clear indication that the technical wr
 The Oppia project has a large technical community, comprising numerous open-source contributors from around the world. However, there are several development processes, principles, and practices that the team follows but which are not clearly documented anywhere. This can sometimes make it hard for newer contributors to the project to get started, since it results in their being unaware of these processes and practices, and sometimes lacking the necessary context to tackle issues successfully.
 
 Currently, reviewers and mentors help/guide contributors with such questions. However, we do need to document these guidelines/principles in order to ensure that the project is welcoming and accessible for new contributors, and to help these developers contribute independently and effectively.
+
 ### Project’s scope
-This project involves organizing the information architecture of the Oppia wiki. As part of this, several new additional short guides for Oppia developers in the form of “how-tos” will need to be written; these guides are intended to be helpful in addressing common questions asked by both new and experienced developers. The aim is to address all questions that Oppia developers regularly face in their work. This project would therefore include writing/updating documentation on the following topics:
+This project involves organizing the information architecture of the Oppia wiki. As part of this, several new additional short guides for Oppia developers in the form of "how-tos" will need to be written; these guides are intended to be helpful in addressing common questions asked by both new and experienced developers. The aim is to address all questions that Oppia developers regularly face in their work. This project would therefore include writing/updating documentation on the following topics:
 1. How-to docs:
    * How to set-up the development environment in different[a] text editors/IDEs [Sublime, VScode, Atom]
       * How to integrate third-party linters and register custom linters.
@@ -126,9 +127,8 @@ This project involves organizing the information architecture of the Oppia wiki.
 * Apr 16 – May 17: Technical writer hiring
 * Apr 16: Doc development can officially begin
 
-## List of Potential Mentors
-* Sandeep (@DubeySandeep)
-* Sean (@seanlip)
+## List of Mentors
+* Sandeep Dubey (@DubeySandeep)
 
 ## Communication
 
