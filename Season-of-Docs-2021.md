@@ -84,7 +84,7 @@ For the proposal, we generally look for a clear indication that the technical wr
 The Oppia project has a large technical community, comprising numerous open-source contributors from around the world. However, there are several development processes, principles, and practices that the team follows but which are not clearly documented anywhere. This can sometimes make it hard for newer contributors to the project to get started, since it results in their being unaware of these processes and practices, and sometimes lacking the necessary context to tackle issues successfully.
 
 Currently, reviewers and mentors help/guide contributors with such questions. However, we do need to document these guidelines/principles in order to ensure that the project is welcoming and accessible for new contributors, and to help these developers contribute independently and effectively.
-Project’s scope
+### Project’s scope
 This project involves organizing the information architecture of the Oppia wiki. As part of this, several new additional short guides for Oppia developers in the form of “how-tos” will need to be written; these guides are intended to be helpful in addressing common questions asked by both new and experienced developers. The aim is to address all questions that Oppia developers regularly face in their work. This project would therefore include writing/updating documentation on the following topics:
 1. How-to docs:
    * How to set-up the development environment in different[a] text editors/IDEs [Sublime, VScode, Atom]
