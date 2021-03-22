@@ -876,7 +876,7 @@ Note that this project actually involves introducing what are called platform pa
 **What we are looking for in the proposal:**
 
 -   An overall system design for reading, storing, and providing feature flag values to the Android app
--   A clearly defined solution for organizing platform parameters at compile-time (e.g. using Dagger modules & Bazel features)
+-   A clearly defined solution for organizing platform parameters at compile-time (e.g. using Dagger modules)
 -   A solution to fetch the Oppia backend’s platform parameters at runtime
 -   A logically organized document written in a way that's easy to understand, and doesn't make any assumptions about what the reader knows or doesn't know (e.g. make sure any implied context is specifically called out)
 
