@@ -83,7 +83,7 @@ The other files in the `linters` folder have the following use cases:
 
    * If the check is for a python file, prefer adding a custom [pylint extension](https://github.com/oppia/oppia/blob/develop/scripts/linters/pylint_extensions.py) instead of a new method in [python_linter](https://github.com/oppia/oppia/blob/develop/scripts/linters/python_linter.py) file. (Refer this [guide](http://pylint.pycqa.org/en/latest/how_tos/plugins.html) for adding pylint extensions).
 
-   * If the check is for a js/ts file, prefer adding a [custom eslint extension](https://github.com/oppia/oppia/tree/develop/scripts/linters/custom_eslint_checks/) instead of a new method in [js/ts linter](https://github.com/oppia/oppia/blob/develop/scripts/linters/js_ts_linter.py) file. (Refer this [guide](https://eslint.org/docs/developer-guide/working-with-rules) for adding eslint extensions).
+   * If the check is for a js/ts file, prefer adding a [custom eslint extension](https://github.com/oppia/oppia/tree/develop/scripts/linters/custom_eslint_checks/) instead of a new method in [js/ts linter](https://github.com/oppia/oppia/blob/develop/scripts/linters/js_ts_linter.py) file. (Refer this [guide](https://eslint.org/docs/developer-guide/working-with-rules) for adding eslint extensions). You may also find https://astexplorer.net/ helpful for understanding how ASTs work.
 
 4. Update the corresponding `*_test.py` file by adding new test cases for the newly-added check, and verify that the test is running as expected:
 
