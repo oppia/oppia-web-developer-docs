@@ -21,7 +21,7 @@ Otherwise, if the CI explicitly shows a failure, click on the individual failed 
   - **Note:** The Core Maintainers have a [spreadsheet](https://docs.google.com/spreadsheets/d/1y_zk1S7YjybqxKXXh8GLPnILhBIGOr7zRvE80CPvCKk/edit#gid=0) that tracks CI failure issues which affect multiple PRs. If you do not see your issue there (or if the issue is there but has an old filing date), and can confirm that the issue is affecting other PRs and is not due to your code specifically, please email oppia-core-maintainers@googlegroups.com and the team will look into it.
   - **Note:** A list of known flakiness issues, for which restarting is the only option, can be found at the bottom of this wiki page. You can also check the [oppia-dev@ mailing list](https://groups.google.com/forum/#!forum/oppia-dev) for announcements of known issues.
 
-Following these instructions should result in PRs that are green and ready to merge by the time a reviewer looks at them, thus shortening the review cycle!
+Following these instructions should result in PRs that are green and ready to merge by the time a reviewer looks at them, thus shortening the review cycle! If you are still unable to resolve the issues yourself, please follow our template on [How to Ask Questions](https://github.com/oppia/oppia/wiki/Guide-on-How-to-Ask-Questions) to raise a question with necessary information. 
 
 
 ## Common flakiness issues
