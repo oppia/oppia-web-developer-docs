@@ -675,17 +675,22 @@ Currently, in the Practice tab in the topic viewer page, a learner can choose th
 
 ## Contributor Experience team
 
-### Contributor Dashboard Mobile UI
+### Contributor Dashboard Responsive UI
 
-The Contributor Dashboard allows users to submit suggestions for translations and practice questions which are then reviewed and accepted/rejected. Currently, the dashboard has only been developed with a desktop view in mind. We want users to have a smooth experience on any platform/device.
+The Contributor Dashboard (oppia.org/contributor-dashboard) allows users to submit suggestions for translations and practice questions which are then reviewed and accepted/rejected. Currently, the dashboard has only been developed with a desktop view in mind. We want users to have a smooth experience on any platform/device.
 
-In this project, you will work with designers to flesh out the design and UX experience of the contributor dashboard on mobile devices (you will not need to create the mocks yourself). Once the mocks are complete, you will then implement the new mobile UI for the entire contributor dashboard page and related user flows.
+In this project, you will be given design mocks for which to implement a responsive UI for the contributor dashboard page and related user flows. You will not need to create the mocks yourself. Initial first drafts of the mocks are currently in progress and this page will be updated to links to the mocks when ready.
+
+#### Contributor Dashboard Resources
+* See the [creator documentation](https://oppia-lesson-creator-documentation.readthedocs.io/en/latest/contributor/contribute.html) for a tutorial on contributing translations and practice questions via the contributor dashboard.
+* See the [Admin Playbook](https://docs.google.com/document/d/1VqNiJttq85YyR6cQkd8M9lGGkOP8OlUlkI37Xw6SovM/edit?usp=sharing) for instructions on enabling the contributor dashboard on a local dev server. 
+* See [this](https://docs.google.com/document/d/1JYX4nvTcblaVVYAlTi7rApE0lWSBx0v_ZCCr_8WW4Wc/edit?usp=sharing) doc for instructions on populating sample data on a local dev server.
 
 The UI elements that need to be updated are as follows.
 
 #### Landing Page
 
--   Page tab navigation bar
+-   Page tab navigation bar (for navigating between the "My Contribution", "Translate Text", and "Submit Question" tabs)
 -   User header with review rights details
 -   Side navigation bar for reviewers and contributors
 -   Review modals for question and translation suggestions
@@ -711,6 +716,12 @@ The UI elements that need to be updated are as follows.
 -   Like to work collaboratively with others in different domains, working together to create a complete engineering product
 -   Are interested in working on the frontend with Angular, Typescript, HTML, CSS
 -   Respect the user and are committed to debugging and tweaking in response to feedback
+
+**What we're looking for in the proposal:**
+- A plan for minimizing code duplication, e.g. if we're planning on writing a lot of the same CSS across files, how can we structure the code in such a way so that we only write it once?
+- A short summary of the proposed changes for each frontend component. Most of the changes will likely be static style changes, but if say you need to introduce new Angular components or files, then outline these changes with justifications for why they are needed.
+- Some consideration on testing—is there a way to automate testing of the responsive design?
+- The milestones broken down into clear tasks with PR open/merge time estimates. 
 
 **Dependency on Release Schedule:** Yes. Mobile UI changes will need to be pushed to test or production servers to be tested more widely in order to catch edge cases in user journeys.
 
