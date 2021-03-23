@@ -786,7 +786,8 @@ Suggested checks to add (note that these are picked to provide a wide variety of
 -   Ensure we can easily add future checks on file names or file contents using RegEx (note that both checks should be able to be matched against filepath patterns, e.g. we may want to verify that all layout XML files don't use marginLeft)
 -   Ensure all XML files follow our XML style guide
 
-**Potential Mentors:** @BenHenning, @aggarwalpulkit596
+**Potential Mentors:** @rt4914, @anandwana
+
 
 **Consider taking up this project if you:**
 
