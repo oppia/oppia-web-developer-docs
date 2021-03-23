@@ -32,7 +32,36 @@ If you're interested in applying to work with Oppia for Season of Docs, please f
 A: Writing a good project proposal, engaging with the community, helping other applicants, successfully contributing to already existing documentation  ([Technical documentation](https://github.com/oppia/oppia/wiki) and [User documentation](http://oppia.github.io/#/)), and demonstrating that you can work independently can all help you. You can also propose some more ambitious projects and changes that we might want to implement in our documentation.
 
 # Starter projects
-### _Starter projects will be added soon_
+
+### Create "Table of contents" for wiki pages
+Currently, each wiki page contains lots of information but it's hard to navigate the full page and find the required info. We believe that providing a "Table of content" at the top of the wiki page will help developers navigate and understand the content of the page quickly.
+
+Steps to follow:
+- Pick one/multiple "unresolved" page(s) form the tracker sheet [here](https://docs.google.com/spreadsheets/d/1ZRFxHvBusniFqP53LbIRekDVcwTa6eB-GdkzrecopFo/edit#gid=0).
+- Ask the mentor to assign you to those pages.
+- Audit the wiki page and create a table of content for the assigned wiki pages.
+- Share the "Table of contents" on google docs with the mentor and ask for a review.
+- Once the doc gets approved, work with the mentor to update the wiki page and tracker sheet.
+
+### Helpful tips/guidelines for having a good contribution experience:
+
+Add a wiki page with helpful tips/guidelines for contributors which can help them have better contribution experiences. Some of the helpful points mentioned below:
+  - Don't be blocked
+  - Working with volunteers
+  - Good practices for asking questions
+  - Getting set up
+  - Do a self-review
+  - Find your own mistakes. Reviews take time.
+  - Do small PRs
+  - How to search a codebase?
+  - Understanding what's going on is super important. Don't make random changes.
+
+Steps to follow:
+- Ask a mentor to assign you to this task.
+- Create a google doc and start writing the document.
+- Ask a mentor for help if needed.
+- Ask the mentor for a review.
+- Work with the mentor to get approval on the doc and adding the wiki page on Github.
 
 # Season of Docs Proposal
 **Important**: Please make sure that your final proposal is self-contained! In particular, to be fair to all applicants, key components of the proposal should not be editable after the deadline, and you shouldn't assume that reviewers will follow external links.
