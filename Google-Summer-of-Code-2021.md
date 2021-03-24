@@ -580,6 +580,7 @@ This is a collection of Github issues that are related to the Skill functionalit
 ### Integrating the Oppia blog with Oppia.org
 
 Today’s Oppia.org blog is currently hosted on a separate site, Medium. We would prefer to have the blog page directly on Oppia.org so that it is directly connected to the rest of the site. The aim of this project is to add a “blog” page hosted on Oppia.org, and implement a simple interface for editing it.
+Mocks for the new pages can be found [here](https://xd.adobe.com/view/9bb82409-cdca-432a-b11c-88324643e2c0-ceeb/grid).
 
 **Potential Mentors:** @aks681
 
@@ -612,7 +613,7 @@ Today’s Oppia.org blog is currently hosted on a separate site, Medium. We woul
 
 ### Redesigning and updating the learner dashboard
 
-Update the learner dashboard to incorporate planning and recommendation of topics, stories and skills to the learners. The following features should be added as part of the project (design for the new pages will be provided):
+Update the learner dashboard to incorporate planning and recommendation of topics, stories and skills to the learners. The following features should be added as part of the project (design for the new pages can be found [here](https://xd.adobe.com/view/b54892aa-dbe6-49cf-bc4f-9bb8c77de619-e01b/grid)):
 
 -   A customizable todo list, which would consist of the next incomplete story in topics that the learner has selected (selected in the goal editor below).
 -   The ‘edit’ button for the above todo list would lead to a ‘goal editor'; where the learner can choose which all topics to track their progress on, and the next incomplete story in those topics will be filled in the todo list (mentioned above).
