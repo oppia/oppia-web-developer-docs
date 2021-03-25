@@ -52,11 +52,11 @@ Run the following commands:
 sudo apt update && sudo apt -y upgrade  
 sudo apt install python-minimal
 sudo apt install python-pip
-mkdir oppia
-cd oppia
+mkdir opensource
+cd opensource
 git clone https://github.com/your_username/oppia.git
 cd oppia
-bash scripts/install_prerequisites.sh
+python -m scripts.install_third_party_libs
 python -m scripts.start --no_browser
 ```
 If you are facing problems with pushing the code to your fork check this link: [WSL_GIT](https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-git).
