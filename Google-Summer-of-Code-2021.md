@@ -722,7 +722,8 @@ The UI elements that need to be updated are as follows.
 - A plan for minimizing code duplication, e.g. if we're planning on writing a lot of the same CSS across files, how can we structure the code in such a way so that we only write it once?
 - A short summary of the proposed changes for each frontend component. Most of the changes will likely be static style changes, but if say you need to introduce new Angular components or files, then outline these changes with justifications for why they are needed.
 - Some consideration on testing—is there a way to automate testing of the responsive design?
-- The milestones broken down into clear tasks with PR open/merge time estimates. 
+- The milestones broken down into clear tasks with PR open/merge time estimates.
+- Clear, concise, organized writing. See https://developers.google.com/tech-writing/overview for technical writing tips. 
 
 **Dependency on Release Schedule:** Yes. Mobile UI changes will need to be pushed to test or production servers to be tested more widely in order to catch edge cases in user journeys.
 
