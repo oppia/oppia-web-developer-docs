@@ -109,4 +109,4 @@
     * DSC-SLoP (Semester Long Project): [[2020|SLoP-2020]]
 ---
 ** Fun **
-* Events Team: [Events-Team]
+* [Events Team](https://github.com/oppia/oppia/wiki/Events-Team)
