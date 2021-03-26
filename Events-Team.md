@@ -1,6 +1,6 @@
 # Oppia Events team
 ## Overview
-Oppia events team conducts various events from tech talks to game nights. These events happen approximately twice a month. The team currently consists of Akshay Anand, Apruv Bolte, Kevin Thomas, Nithesh Hariharan and Srijan Reddy.
+Oppia events team conducts various events from tech talks to game nights. These events happen approximately twice a month. The team currently consists of Akshay Anand, Apurv Botle, Kevin Thomas, Nithesh Hariharan and Srijan Reddy.
 
 ## Events
 
