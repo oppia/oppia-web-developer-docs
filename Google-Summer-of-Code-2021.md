@@ -613,7 +613,7 @@ Mocks for the new pages can be found [here](https://xd.adobe.com/view/9bb82409-c
 
 ### Redesigning and updating the learner dashboard
 
-Update the learner dashboard to incorporate planning and recommendation of topics, stories and skills to the learners. The following features should be added as part of the project (design for the new pages can be found [here](https://xd.adobe.com/view/b54892aa-dbe6-49cf-bc4f-9bb8c77de619-e01b/grid)):
+Update the learner dashboard to incorporate planning and recommendation of topics, stories and skills to the learners. The following features should be added as part of the project (design for the new pages can be found [here](https://xd.adobe.com/view/b54892aa-dbe6-49cf-bc4f-9bb8c77de619-e01b/grid). NOTE: in the to-do list, this project aims to only add the "Learn" section and tracking stories. The "Mastery" related goal items need not be done.):
 
 -   A customizable todo list, which would consist of the next incomplete story in topics that the learner has selected (selected in the goal editor below).
 -   The ‘edit’ button for the above todo list would lead to a ‘goal editor'; where the learner can choose which all topics to track their progress on, and the next incomplete story in those topics will be filled in the todo list (mentioned above).
