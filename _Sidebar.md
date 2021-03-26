@@ -108,5 +108,5 @@
     * Season of Docs: [[2019|Season-of-Docs-2019]]
     * DSC-SLoP (Semester Long Project): [[2020|SLoP-2020]]
 ---
-** Fun **
+**Fun**
 * [Events Team](https://github.com/oppia/oppia/wiki/Events-Team)
