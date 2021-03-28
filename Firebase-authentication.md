@@ -5,21 +5,23 @@ For developers' convenience, the only thing needed to sign-in is an email addres
 # Creating an Administrator account
 
 ## 1. Sign in with `testadmin@example.com`
-![image](https://user-images.githubusercontent.com/5094060/112760738-1abfb500-8fc6-11eb-9e72-64d30a1aa2cb.png)
+![image](https://user-images.githubusercontent.com/5094060/112763949-8741b080-8fd4-11eb-9828-044d18b926b7.png)
+
 
 ## 2. Add custom claims to a Firebase account
 
 1. Sign in with any email address.
-![image](https://user-images.githubusercontent.com/5094060/112760672-daf8cd80-8fc5-11eb-807e-59257023fa64.png)
+![image](https://user-images.githubusercontent.com/5094060/112763966-a04a6180-8fd4-11eb-9c21-58b6ba9f9b2f.png)
 
 2. Go to http://localhost:4000/auth.
+![image](https://user-images.githubusercontent.com/5094060/112764105-29619880-8fd5-11eb-915d-786ab229c563.png)
 
 3. Find the corresponding Firebase account, click on the "3 dots" button, then click on **Edit user**.
-![image](https://user-images.githubusercontent.com/5094060/111571879-e3f3ce80-877d-11eb-9353-aca9f60dc858.png)
+![image](https://user-images.githubusercontent.com/5094060/112764057-f3bcaf80-8fd4-11eb-9561-8b4412cf9b23.png)
 
 4. Set the Custom Claims value to `{"role":"super_admin"}` then click **Save**.
-![image](https://user-images.githubusercontent.com/5094060/111571913-fc63e900-877d-11eb-82ad-930b9b84fef6.png)
+![image](https://user-images.githubusercontent.com/5094060/112764082-13ec6e80-8fd5-11eb-8508-a9bc24683e9f.png)
 
 5. Sign out and sign back in to refresh your session cookie.
 
-6. **DONE!** You should now have access to the admin page: ![image](https://user-images.githubusercontent.com/5094060/111572389-db4fc800-877e-11eb-8d56-0a5826db4a63.png)
+6. **DONE!** You should now have access to the admin page: ![image](https://user-images.githubusercontent.com/5094060/112764033-dc7dc200-8fd4-11eb-9256-3957584d4eee.png)
