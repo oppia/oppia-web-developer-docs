@@ -9,15 +9,17 @@ For developers' convenience, the only thing needed to sign-in is an email addres
 
 ## 2. Add custom claims to a Firebase account
 
-1. Sign in with any email address
+1. Sign in with any email address.
 ![image](https://user-images.githubusercontent.com/5094060/112760672-daf8cd80-8fc5-11eb-807e-59257023fa64.png)
 
-2. Go to http://localhost:4000/auth
+2. Go to http://localhost:4000/auth.
 
-3. Find the corresponding Firebase account, click on the "3 dots" button, then click on **Edit user**: ![image](https://user-images.githubusercontent.com/5094060/111571879-e3f3ce80-877d-11eb-9353-aca9f60dc858.png)
+3. Find the corresponding Firebase account, click on the "3 dots" button, then click on **Edit user**.
+![image](https://user-images.githubusercontent.com/5094060/111571879-e3f3ce80-877d-11eb-9353-aca9f60dc858.png)
 
-4. Set the Custom Claims value to `{"role":"super_admin"}` then click **Save**: ![image](https://user-images.githubusercontent.com/5094060/111571913-fc63e900-877d-11eb-82ad-930b9b84fef6.png)
+4. Set the Custom Claims value to `{"role":"super_admin"}` then click **Save**.
+![image](https://user-images.githubusercontent.com/5094060/111571913-fc63e900-877d-11eb-82ad-930b9b84fef6.png)
 
-5. Log out and then log back in to refresh your session cookie.
+5. Sign out and sign back in to refresh your session cookie.
 
 6. **DONE!** You should now have access to the admin page: ![image](https://user-images.githubusercontent.com/5094060/111572389-db4fc800-877e-11eb-8d56-0a5826db4a63.png)
