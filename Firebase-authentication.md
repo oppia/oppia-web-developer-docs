@@ -1,4 +1,4 @@
-As of April 2021, Oppia uses [Firebase](https://firebase.google.com/docs/auth) to handle user authentication. User sessions are managed with HTTP session cookies. The name of the session cookie is defined in `feconf.py` (`FIREBASE_SESSION_COOKIE_NAME = 'session'`).
+As of April 2021, Oppia uses [Firebase](https://firebase.google.com/docs/auth) to handle user authentication. User sessions are managed with HTTP session cookies. The name of the session cookie is defined in `feconf.py`: `FIREBASE_SESSION_COOKIE_NAME = 'session'`.
 
 For developers' convenience, only an email address is necessary to create an account. The account's password is generated automatically. Specifically, the password is the email's md5 hash. **This does not happen in production!**
 
