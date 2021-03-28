@@ -5,23 +5,24 @@ For developers' convenience, the only thing needed to sign-in is an email addres
 # Creating an Administrator account
 
 ## 1. Sign in with `testadmin@example.com`
-![image](https://user-images.githubusercontent.com/5094060/112763949-8741b080-8fd4-11eb-9828-044d18b926b7.png)
+![Signing in as testadmin@example.com](https://user-images.githubusercontent.com/5094060/112763949-8741b080-8fd4-11eb-9828-044d18b926b7.png)
 
 
 ## 2. Add custom claims to a Firebase account
 
 1. Sign in with any email address.
-![image](https://user-images.githubusercontent.com/5094060/112763966-a04a6180-8fd4-11eb-9c21-58b6ba9f9b2f.png)
+![Signing in as a@a.com](https://user-images.githubusercontent.com/5094060/112763966-a04a6180-8fd4-11eb-9c21-58b6ba9f9b2f.png)
 
-2. Go to http://localhost:4000/auth.
-![image](https://user-images.githubusercontent.com/5094060/112764105-29619880-8fd5-11eb-915d-786ab229c563.png)
+2. Go to the Firebase Emulator UI: http://localhost:4000/auth.
+![Firebase emulator UI](https://user-images.githubusercontent.com/5094060/112764105-29619880-8fd5-11eb-915d-786ab229c563.png)
 
 3. Find the corresponding Firebase account, click on the "3 dots" button, then click on **Edit user**.
-![image](https://user-images.githubusercontent.com/5094060/112764057-f3bcaf80-8fd4-11eb-9561-8b4412cf9b23.png)
+![Finding the Edit user button](https://user-images.githubusercontent.com/5094060/112764057-f3bcaf80-8fd4-11eb-9561-8b4412cf9b23.png)
 
 4. Set the Custom Claims value to `{"role":"super_admin"}` then click **Save**.
-![image](https://user-images.githubusercontent.com/5094060/112764082-13ec6e80-8fd5-11eb-8508-a9bc24683e9f.png)
+![Setting custom claims](https://user-images.githubusercontent.com/5094060/112764082-13ec6e80-8fd5-11eb-8508-a9bc24683e9f.png)
 
-5. Sign out and sign back in to refresh your session cookie.
+5. Logout and sign in again to refresh the session cookie.
 
-6. **DONE!** You should now have access to the admin page: ![image](https://user-images.githubusercontent.com/5094060/112764033-dc7dc200-8fd4-11eb-9256-3957584d4eee.png)
+6. **Done!** The account now has access to the Admin Page.
+![Admin Page is now listed](https://user-images.githubusercontent.com/5094060/112764033-dc7dc200-8fd4-11eb-9256-3957584d4eee.png)
