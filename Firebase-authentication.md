@@ -12,7 +12,7 @@ For developers' convenience, the only thing needed to sign-in is an email addres
 1. Sign in with any email address.
 ![image](https://user-images.githubusercontent.com/5094060/112760672-daf8cd80-8fc5-11eb-807e-59257023fa64.png)
 
-2. Go to http://localhost:4000/auth.
+2. Go to <a href="http://localhost:4000/auth" target="_blank">http://localhost:4000/auth</a>.
 
 3. Find the corresponding Firebase account, click on the "3 dots" button, then click on **Edit user**.
 ![image](https://user-images.githubusercontent.com/5094060/111571879-e3f3ce80-877d-11eb-9353-aca9f60dc858.png)
