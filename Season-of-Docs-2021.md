@@ -1,4 +1,5 @@
 ## Table of Contents
+* [Timeline](#the-program-timeline)
 * [Getting started](#getting-started)
 * [FAQ](#faq)
 * [Starter projects](#starter-projects)
@@ -6,6 +7,7 @@
   * [Template](#template)
   * [Tips for writing a good project plan](#tips-for-writing-a-good-project-plan)
   * [Selection criteria](#selection-criteria)
+* [How to apply?](#how-to-apply)
 * [Project Ideas](#project-ideas)
 * [Other useful information](#other-useful-information)
     * [Dates and Deadlines](#dates-and-deadlines)
@@ -15,6 +17,19 @@
 Oppia has applied to participate in the [Season of Docs](https://developers.google.com/season-of-docs/) 2021 program! This program provides support for open source projects to improve their documentation and gives professional technical writers an opportunity to gain experience in open source. The technical writers work closely with one or more mentors on finishing a project idea given by the organization.
 
 Please note that acceptance into Season of Docs isn't a prerequisite for [becoming an Oppia contributor](https://github.com/oppia/oppia/wiki). The Oppia project is run by the community for the community, and we warmly welcome anyone who'd like to help out!
+
+
+# The program timeline
+
+![image](https://user-images.githubusercontent.com/16653571/113033115-48675280-91ae-11eb-8767-8e715cebf8f3.png)
+
+**Project discussion:** Technical writers can discuss the project ideas with mentors and can ask mentors to give feedback on their draft “Statement of interest” doc. Submit your queries on oppia-sod-discuss@googlegroups.com
+
+**Proposal submission:** Technical writers are expected to submit their “Statement of interest” on <email-id>  before the deadline to show their interest in the project.
+
+**Selection announcement:** The admin* will announce the selected technical writers on <email-id> on 6th May 2021, 22:00 IST.
+
+*_Admin_: The organization administrators who are organizing and representative for the Season of docs program on behalf of the organization.
 
 # Getting started
 If you're interested in applying to work with Oppia for Season of Docs, please follow these steps:
@@ -91,19 +106,24 @@ When submitting a proposal, please use the following template:
 
 ## Selection criteria
 
-In order to select technical writers for Season of Docs, we will mainly be looking at three things:
+In order to select technical writers for the project, we will mainly be looking at three things:
 
-- The quality of the submitted proposal
-- The quality of the applicant's previous technical writing related work
+- The quality of the submitted “Statement of interest”
+- The quality of the applicant's previous technical writing-related work
 - The quality of the applicant's starter project
 
-We believe that strong performance in these dimensions is likely to correlate well with the technical writer having an enjoyable, fulfilling and productive experience over the summer, and successfully completing the Season of Docs program.
+We believe that strong performance in these dimensions is likely to correlate well with the technical writer having an enjoyable, fulfilling, and productive experience over the summer, and successfully completing the project.
 
-For the proposal, we generally look for a clear indication that the technical writer has a good, deep understanding of the project. Some indicators that could help with this include:
+For the  “Statement of interest”, we generally look for a clear indication that the technical writer has a good, deep understanding of the project. Some indicators that could help with this include:
+
 - Clear, unambiguous communication.
-- A clear analysis of (and good design decisions that build on top of) the original project idea, with a strong focus on creating clear and understandable documentation for users or developers.
+- A clear analysis of the original project idea, with a strong focus on creating clear and understandable documentation for users or developers.
 - A concrete, specific breakdown of the work to be done for each milestone.
-- A proposal that is sufficiently concrete to demonstrate that the applicant is familiar with the scope of the problem they're tackling. This may include pointers to parts of the Oppia codebase.
+- Should be sufficiently concrete to demonstrate that the applicant is familiar with the scope of the problem they're tackling. This may include pointers to parts of the Oppia codebase.
+
+# How to apply?
+Contributors are expected to fillup the form and share the final “Statement of interest (SOI)” in a pdf format before the deadline.
+If you fail to submit the form before the deadline then the organizations will not be able to see your SOI and therefore will not be able to accept you.
 
 # Project Idea
 
