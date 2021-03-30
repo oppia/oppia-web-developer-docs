@@ -6,7 +6,7 @@ When you receive a code review request, please try to do the review as soon as p
 
 Simply visit this URL: https://github.com/pulls/assigned. It takes you to a list of PRs that are assigned to you, across all repositories. 
 
-**Note:** If you just want to restrict to the oppia/oppia repository, use https://github.com/oppia/oppia/pulls/assigned/{{USERNAME}} instead (replacing `{{USERNAME}}` with your GitHub username at the end. But note that this will omit your assigned PRs from other Oppia repositories.
+**Note:** If you just want to restrict to the oppia/oppia repository, use https://github.com/oppia/oppia/pulls/assigned/{{USERNAME}} instead (replacing `{{USERNAME}}` with your GitHub username at the end. However, the resulting list will not include your assigned PRs from other Oppia repositories.
 
 ## When you first receive a review request
 
