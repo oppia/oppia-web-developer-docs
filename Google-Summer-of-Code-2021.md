@@ -754,6 +754,8 @@ The options/functionality that should be implemented are:
     -   Force app to run in wifi/cellular/no network cases irrespective of the actual state on the phone (though we need to take care to make sure impossible cases don't happen, such as forcing wifi/cellular when there is no connectivity at all)
 -   An action to crash the app (for investigation & logging purposes)
 
+We have mocks ready for this project, you can view them [here.](https://xd.adobe.com/view/e8aa4198-3940-47f9-514a-f41cc54457f6-9e9b/screen/5ced965e-1a0a-48cf-85dd-f28ba68f0b99/)
+
 **Potential Mentors:** @Sarthak2601, @anandwana001, @rt4914, @BenHenning
 
 **Consider taking up this project if you:**
@@ -971,6 +973,8 @@ We recommend that you approach this project as follows:
 -   Introduce a GitHub CI check to verify that the list above is kept up-to-date for every code change (which lets us easily audit when indirect dependencies are added).
 -   Introduce a UI that reads from an asset list file & strings to populate the list of libraries, their versions, and their licenses. These files can be checked into git, but when they are changed (see next step) their changes should never be checked into git. Measures should be taken to prevent this.
 -   Introduce a Kotlin script that, when run, populates the UI files using the dependencies list. This script should fail if the dependencies list is missing any actual new dependencies.
+
+We have mocks ready for this project, you can view them [here.](We have mocks ready for this project, you can view them [here.](https://xd.adobe.com/view/e8aa4198-3940-47f9-514a-f41cc54457f6-9e9b/screen/5ced965e-1a0a-48cf-85dd-f28ba68f0b99/)
 
 **Potential Mentors:** @BenHenning, @anandwana001, @Sarthak2601
 
