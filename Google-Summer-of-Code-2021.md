@@ -934,7 +934,7 @@ This project is being spec'd out currently in a [PRD](https://docs.google.com/do
 
 -   A clean & consistently layered design that outlines a plan to save & restore lesson state across app instances, accounting for potential changes in the lesson proto structure
 -   Utilizing existing technologies in the codebase rather than solutions typically found in blogs or stack overflow (e.g. the proposal should use PersistentCacheStore rather than SharedPreferences or Room)
--   Clear solutions for handling all edge cases in this project (e.g. cases when upgrades fail, or when we need to expire saved content due to the learner being away from the app for too long)
+-   Clear solutions for handling all edge cases in this project (e.g. cases when upgrades fail, or crashes)
 -   An analysis for how much disk space each individual checkpoint will take
 -   A logically organized document written in a way that's easy to understand, and doesn't make any assumptions about what the reader knows or doesn't know (e.g. make sure any implied context is specifically called out)
 
