@@ -740,7 +740,7 @@ The UI elements that need to be updated are as follows.
 
 The Oppia-Android application needs a developer options menu so that developers can alter app settings or stored data in real time. This is important because during PR reviews and testing there are cases where we need to create data like finishing a topic crashing the app, and doing this manually takes up a lot of time (or even isn't possible) and therefore having a developer menu where we can do these database related changes easily will make development and testing process easier. Note that a core requirement of this project is to ensure any implemented options do not "punch holes" in the existing app (e.g. if a user is using the production version of the app, it should not contain any code pertaining to the developer menu including the functionality needed to enable the debug functionality).
 
-This option should be visible inside `Administrator Controls` only if the running app is a `Debug` flavor of the app. It's expected that this feature will only work on Bazel versions of the app and not Gradle since the former lets us properly exclude functionality from certain builds.
+This option should be visible as a top-level navigation item in the navigation drawer for all profiles, but only if the running app is a `Debug` flavor of the app. It's expected that this feature will only work on Bazel versions of the app and not Gradle since the former lets us properly exclude functionality from certain builds.
 
 The options/functionality that should be implemented are:
 
