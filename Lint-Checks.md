@@ -25,7 +25,7 @@ This makes the task of reviewers easy since they don't need to manually investig
    python -m scripts.linters.pre_commit_linter --files filepath_1 filepath_2 ... filepath_n
    ```
 
-4. To lint files in verbose mode
+4. To lint files in verbose mode [This also helps in debugging lint checks i.e, it enables logging!]
 
    ```
    python -m scripts.linters.pre_commit_linter --verbose
@@ -88,8 +88,10 @@ The other files in the `linters` folder have the following use cases:
 4. Update the corresponding `*_test.py` file by adding new test cases for the newly-added check, and verify that the test is running as expected:
 
    ```
-   python -m scripts.run_backend_tests --test_target=scripts.linters.<test-file-name>
+   python -m scripts.run_backend_tests --test_target=scripts.linters.<test-file-name> --verbose
    ```
+
+   Note: `--verbose` will help in debugging i.e, logging the print statements.
 
    If you added a JS lint check, add tests to the corresponding `*.spec.js` file instead. Then run it like this:
 
