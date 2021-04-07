@@ -44,7 +44,6 @@ That said, we strongly recommend that you be open to learning new things. If you
 Welcome! Please make sure to follow the [setup instructions](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up) above if you haven't already. After that, we'd **strongly recommend** tackling some part of one of the following starter issues:
 
 #### Backend:
-- [#8423](https://github.com/oppia/oppia/issues/8423) (Implement new linter checks)
 - [#11496](https://github.com/oppia/oppia/issues/11496) (Write lint checks for the end-to-end tests)
 
 #### Frontend:
