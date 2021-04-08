@@ -680,7 +680,7 @@ Currently, in the Practice tab in the topic viewer page, a learner can choose th
 
 The Contributor Dashboard (oppia.org/contributor-dashboard) allows users to submit suggestions for translations and practice questions which are then reviewed and accepted/rejected. Currently, the dashboard has only been developed with a desktop view in mind. We want users to have a smooth experience on any platform/device.
 
-In this project, you will be given design mocks for which to implement a responsive UI for the contributor dashboard page and related user flows. You will not need to create the mocks yourself. The mid-fidelity mocks can be found [here](https://www.figma.com/file/FNA3qSJP2dLmQMMnjgMLQI/Contributor-Dashboard-(final-draft)?node-id=0%3A1).
+In this project, you will be given design mocks for which to implement a responsive UI for the contributor dashboard page and related user flows. You will not need to create the mocks yourself. The mid-fidelity mocks can be found [here](https://www.figma.com/file/FNA3qSJP2dLmQMMnjgMLQI/Contributor-Dashboard-(final-draft)?node-id=0%3A1). The high-fidelity mocks can be found [here](https://xd.adobe.com/view/8eeae0ca-4aaa-4b6e-84e2-a80796089530-dbb9/?fullscreen).
 
 #### Contributor Dashboard Resources
 * See the [creator documentation](https://oppia-lesson-creator-documentation.readthedocs.io/en/latest/contributor/contribute.html) for a tutorial on contributing translations and practice questions via the contributor dashboard.
