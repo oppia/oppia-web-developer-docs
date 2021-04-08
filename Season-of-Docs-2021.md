@@ -23,11 +23,11 @@ Please note that acceptance into Season of Docs isn't a prerequisite for [becomi
 
 ![image](https://user-images.githubusercontent.com/16653571/113033115-48675280-91ae-11eb-8767-8e715cebf8f3.png)
 
-**Project discussion:** Technical writers can discuss the project ideas with mentors and can ask mentors to give feedback on their draft “Statement of interest” doc. Submit your queries on oppia-sod-discuss@googlegroups.com
+**Project discussion:** Technical writers can discuss the project ideas with mentors and can ask mentors to give feedback on their draft “Statement of interest” doc. Submit your queries on [oppia-sod-discuss@](https://groups.google.com/g/oppia-sod-discuss)
 
-**Proposal submission:** Technical writers are expected to submit their “Statement of interest” on <email-id>  before the deadline to show their interest in the project.
+**Proposal submission:** Technical writers are expected to submit their “Statement of interest” in a pdf format through _the google form_ before the deadline to show their interest in the project.
 
-**Selection announcement:** The admin* will announce the selected technical writers on <email-id> on 6th May 2021, 22:00 IST.
+**Selection announcement:** The admin* will announce the selected technical writers on [oppia-sod-announce@](https://groups.google.com/g/oppia-sod-announce) on 6th May 2021, 22:00 IST.
 
 *_Admin_: The organization administrators who are organizing and representative for the Season of docs program on behalf of the organization.
 
