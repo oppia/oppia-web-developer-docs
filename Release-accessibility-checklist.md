@@ -41,4 +41,4 @@ These are general guidelines you should follow as you manually audit each page.
 * If an alt description is not appropriate, note that all images must still have an alt attribute. Learn more about determining when an alt description is appropriate through [WebAIM: http://webaim.org/techniques/alttext/#context](http://webaim.org/techniques/alttext/#context)
 
 ## Additional Accessibility Features
-The four points above are the most critical accessibility features we want to ensure Oppia has. Without them, people who rely on screen readers may not be able to fully navigate the Oppia website. For more information on accessibility practices checkout this [article on accessibility testing](http://accessibility.voxmedia.com/) or 
+The four points above are the most critical accessibility features we want to ensure Oppia has. Without them, people who rely on screen readers may not be able to fully navigate the Oppia website. For more information on accessibility practices checkout this [article on accessibility testing](http://accessibility.voxmedia.com/) 
