@@ -78,6 +78,7 @@ If you find new test files where changes needed to be required, try updating the
 - Create a new exploration, make some changes and save them.
 - Checkout the feature branch which contains state migration.
 - Go to 0.0.0.0:8000 and flush existing Memcache from the Memcache tab.
+- Go to the Misc tab of admin page and flush cache.
 - Go to the Jobs tab of admin page.
 - Run ExplorationMigrationJobManager and wait for the job to get completed.
 - Check the output of the job and post the screen-shot in your PR.
