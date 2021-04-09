@@ -9,6 +9,8 @@
     * [[Voice artists | Instructions-for-voice-artists]]
     * [[Designers and artists|Contributing-to-Oppia's-design]]
   * **[[Google Summer of Code 2021|Google-Summer-of-Code-2021]]**
+  * **[[Season of Docs 2021|Season-of-Docs-2021]]**
+
 ---
 **Developing Oppia**
   * [[FAQs|Frequently-Asked-Questions]]
