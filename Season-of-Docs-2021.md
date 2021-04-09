@@ -25,7 +25,7 @@ Please note that acceptance into Season of Docs isn't a prerequisite for [becomi
 
 **Project discussion:** Technical writers can discuss the project ideas with mentors and can ask mentors to give feedback on their draft “Statement of interest” doc. Submit your queries on [oppia-sod-discuss@](https://groups.google.com/g/oppia-sod-discuss)
 
-**Proposal submission:** Technical writers are expected to submit their “Statement of interest” in a pdf format through _the google form_ before the deadline to show their interest in the project.
+**Proposal submission:** Technical writers are expected to submit their “Statement of interest” in a pdf format through [the google form](https://forms.gle/bxR1j5sqFsQwRV3m7) before the deadline to show their interest in the project.
 
 **Selection announcement:** The admin* will announce the selected technical writers on [oppia-sod-announce@](https://groups.google.com/g/oppia-sod-announce) on 6th May 2021, 22:00 IST.
 
@@ -52,7 +52,7 @@ A: Writing a good project proposal, engaging with the community, helping other a
 Currently, each wiki page contains lots of information but it's hard to navigate the full page and find the required info. We believe that providing a "Table of content" at the top of the wiki page will help developers navigate and understand the content of the page quickly.
 
 Steps to follow:
-- Pick one/multiple "unresolved" page(s) form the tracker sheet [here](https://docs.google.com/spreadsheets/d/1ZRFxHvBusniFqP53LbIRekDVcwTa6eB-GdkzrecopFo/edit#gid=0).
+- Pick one/multiple "unresolved" page(s) from the tracker sheet [here](https://docs.google.com/spreadsheets/d/1ZRFxHvBusniFqP53LbIRekDVcwTa6eB-GdkzrecopFo/edit#gid=0).
 - Ask the mentor to assign you to those pages.
 - Audit the wiki page and create a table of content for the assigned wiki pages.
 - Share the "Table of contents" on google docs with the mentor and ask for a review.
@@ -122,7 +122,7 @@ For the  “Statement of interest”, we generally look for a clear indication t
 - Should be sufficiently concrete to demonstrate that the applicant is familiar with the scope of the problem they're tackling. This may include pointers to parts of the Oppia codebase.
 
 # How to apply?
-Contributors are expected to fillup the form and share the final “Statement of interest (SOI)” in a pdf format before the deadline.
+Contributors are expected to fill up the form and share the final “Statement of interest (SOI)” in a pdf format before the deadline.
 If you fail to submit the form before the deadline then the organizations will not be able to see your SOI and therefore will not be able to accept you.
 
 # Project Idea
@@ -172,7 +172,7 @@ This project involves organizing the information architecture of the Oppia wiki.
 ## Dates and Deadlines
 * Feb 09 – Mar 26: Organizations apply
 * Apr 16: Organizations are announced
-* _Last date for submitting your proposal to be announced soon_
+* 1st May: Last date for submitting your proposal
 * Apr 16 – May 17: Technical writer hiring
 * Apr 16: Doc development can officially begin
 
