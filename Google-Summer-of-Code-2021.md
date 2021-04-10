@@ -954,7 +954,7 @@ This project is being spec'd out currently in a [PRD](https://docs.google.com/do
 
 **Suggested Milestones:**
 
--   Milestone 1: Implement domain layer checking whether a checkpoint is saved for a lesson, support for creating a new checkpoint at the domain layer, and support for restoring the checkpoint. Checkpoints should also be automatically expired on a least-recently-used policy basis if more than 10MB of space are consumed by checkpoints. This milestone should involve extensive testing.
+-   Milestone 1: Implement domain layer checking whether a checkpoint is saved for a lesson, support for creating a new checkpoint at the domain layer, and support for restoring the checkpoint. Checkpoints should also be automatically expired on a least-recently-used policy basis if more than 2MB of space are consumed by checkpoints (per profile). This milestone should involve extensive testing.
 -   Milestone 2: Implement the UI changes needed to represent checkpoints that are in progress, changes to existing notices, and proper UI/domain layer support for automatically expiring checkpoints when the user has been away from the app for too long or if the app has decided to automatically expire a checkpoint to save space. Implement success metrics for the feature.
 
 ---
