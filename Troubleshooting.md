@@ -92,6 +92,24 @@ These commands can be used anywhere to kill a running process on any port by usi
 
 * Oppia does not work well on machines with little available memory. Contributors have reported problems running on machines with less than 4 GB of RAM that were resolved when switching to a machine with 8 GB of RAM. You may also experience problems if your computer has memory-intensive tasks running. See [#12098](https://github.com/oppia/oppia/issues/12098) for an example of how this problem can manifest.
 
+* If you see `Failed to start server on port XXXX, exiting ...` here are some possible solutions:
+
+  * Sometimes this happens because the service is taking a long time to start running on that port. If the service takes longer than our timeout, you'll see this message. To fix this, you can increase the timeout in `scripts/common.py` by increasing the value of `MAX_WAIT_TIME_FOR_PORT_TO_OPEN_SECS`. This can also happen when your machine is running more slowly than usual. Quitting resource-intensive applications or rebooting may help.
+  * Sometimes this happens because the server earlier failed to shutdown correctly. You may need to kill remaining processes. You can search for processes containing `oppia`, and `elasticsearch` like this: `ps -ax | grep <search term>`. This will show the process ID numbers, which you can pass to `kill` to kill the process like this: `kill <process ID`.
+  * Some developers have found that they have to run some services manually to get Oppia to work. This is an unsupported workaround, but you may find it useful:
+    * Redis (port 6379) on M1 macs:
+      1. Install Rosetta 2 try [this](https://www.google.com/url?q=https://stackoverflow.com/questions/64882584/how-to-run-the-homebrew-installer-under-rosetta-2-on-m1-macbook%23:~:text%3DYou%2520can%2520run%2520Terminal%2520with,%2522Open%2520using%2520Rosetta%2522%2520option&sa=D&source=hangouts&ust=1611504651223000&usg=AFQjCNFhJysGCAFdzLswFuK5JVoxjs6CwQ)
+      2. Inside Rosetta perform all the installations/prerequisites.
+         Note: If `sudo easy_install pyyaml` does not work try using `pip3 install pyyaml`.
+      3. Open the rosetta terminal and download redis server using `pip3 install redis`.
+      4. Run redis-server with the following cmd: `redis-server` (**Don't stop the redis server**)
+      5. Open another rosetta terminal and run `python -m scripts.start`
+    * Elasticsearch (port 9200):
+      ```console
+      $ oppia_tools/elasticsearch-<version>/bin/elasticsearch
+      ```
+      For some version number `<version>`.
+
 ### Linux
 
   * If you get an error that ends with:
