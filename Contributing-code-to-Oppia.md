@@ -68,7 +68,7 @@ If you need some help from someone with a more prominent UI/UX or design perspec
 
 ### ... after completing two starter projects
 
-After you've completed parts of at least two different starter projects and successfully submitted PRs for them into develop, we'll mail you a collaborator invite link for the Oppia repository. This is a manual process and may take up to 48 hours. Please visit [this link](https://github.com/oppia/oppia/invitations) to accept the invitation to collaborate. We'll also get in touch to suggest suitable longer-term projects based on your interests, but please feel free to email us at admin@oppia.org if you don't receive the email!
+After you've completed parts of at least two different non-trivial starter projects and successfully submitted PRs for them into develop, we'll mail you a collaborator invite link for the Oppia repository. This is a manual process and may take up to 48 hours. Please visit [this link](https://github.com/oppia/oppia/invitations) to accept the invitation to collaborate. We'll also get in touch to suggest suitable longer-term projects based on your interests, but please feel free to email us at admin@oppia.org if you don't receive the email!
 
 ### ... as an existing contributor
 
