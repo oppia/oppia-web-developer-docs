@@ -58,6 +58,8 @@ Welcome! Please make sure to follow the [setup instructions](https://github.com/
 - [#8038](https://github.com/oppia/oppia/issues/8038) (Refactoring frontend services - The backend api calls in the frontend should only happen through services)
 - [#10474](https://github.com/oppia/oppia/issues/10474) (Make typescript checks strict)
 - [#10306](https://github.com/oppia/oppia/issues/10306) (Refactoring frontend - Add "async" keyword to asynchronous functions that return a promise)
+- [#10616](https://github.com/oppia/oppia/issues/10616) (Introduce new @typesctript-eslint rules n the codebase)
+
 
 since these issues are hand-picked and ensure that you don't run into unexpected roadblocks while working on them. For other issues, you may need to be more independent because often times, we don’t know how to solve them either.
 If you decide to pick one of these, please go ahead and leave a comment saying which part of the issue you're taking, and submit a follow-up PR by following the [instructions below](Contributing-code-to-Oppia#instructions-for-making-a-code-change). You don't need to wait for approval to get started!
