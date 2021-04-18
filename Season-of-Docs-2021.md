@@ -34,6 +34,8 @@ Please note that acceptance into Season of Docs isn't a prerequisite for [becomi
 # Getting started
 If you're interested in applying to work with Oppia for Season of Docs, please follow these steps:
 
+1. Read and follow [the instructions to sign CLA and fill up the survey form](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up) carefully.
+
 1. Sign up to the [oppia-sod-announce@](https://groups.google.com/forum/#!forum/oppia-sod-announce) mailing list in order to receive important notifications about Oppia's participation in Season of Docs. If you like, you can also sign up to the [oppia-sod-discuss@](https://groups.google.com/forum/#!forum/oppia-sod-discuss) mailing list to participate in general discussion related to Oppia's involvement in Season of Docs. Make sure to set your mailing list preferences correctly so that you actually get the emails!
 
 1. Get a better understanding of what Oppia is all about by taking a look at our [user documentation](http://oppia.github.io/#/) — this will help you become familiar with important concepts like explorations and interactions. We also recommend having a go at playing some of the existing lessons on [Oppia.org](https://www.oppia.org), like [these ones on Fractions](https://www.oppia.org/fractions), to get a better idea of what they look like.
