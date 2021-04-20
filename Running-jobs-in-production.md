@@ -1,1 +1,1 @@
-# Please go to [Testing jobs and other stuff on production](https://github.com/oppia/oppia/wiki/Testing-jobs-and-other-stuff-on-production)
+# Please go to [[Testing jobs and other features on production|Testing-jobs-and-other-features-on-production]]
