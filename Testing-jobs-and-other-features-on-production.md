@@ -1,6 +1,6 @@
 ## Requirements
 
-Before a job or feature that cannot be fully tested locally (for example, stuff that requires some third-party API, like Cloud Tasks, Cloud Storage or Cloud Translate) can be run and deployed in production, it must first be tested on the Oppia backup server.
+Before a job or feature that cannot be fully tested locally (for example, stuff that requires some third-party API, like Cloud Tasks, Cloud Storage, or Cloud Translate) can be run and deployed in production, it must first be tested on the Oppia backup server.
 
 If your job or feature is not essential for the release and has not been fully tested by the release cut, then it is not going into the release. "Fully tested" means:
 - The job or feature should run without failures on the Oppia backup server.
