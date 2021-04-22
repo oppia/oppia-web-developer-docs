@@ -43,6 +43,7 @@ paste a screenshot
 
 ### Before you ask a question
 1. We expect that you have already **set up Oppia on your machine**, and it is successfully running. (If not, kindly do that first!)
+2. Prepare a debugging doc following [the guidelines provided on the wiki page](https://github.com/oppia/oppia/wiki/Debugging-Docs).
 2. If there are **failing e2e tests** on your PR, and you haven’t done any changes in that direction, kindly understand that sometimes they just fail due to flakiness. You should request for a re-run of those only when it’s preventing your PR from getting merged.
 
 ### How to ask a general question?
@@ -67,6 +68,7 @@ Follow the template below for asking questions (fill in the values inside <> bra
 **Approaches already used to resolve the issue**
 
 (eg: Link to a stackoverflow answer or any solution that you have tried)
+- #{{Link to the debugging doc}}
 - enter any additional description
 ``````
 
