@@ -55,7 +55,7 @@ Currently, each wiki page contains lots of information but it's hard to navigate
 
 Steps to follow:
 - Pick one/multiple "unresolved" page(s) from the tracker sheet [here](https://docs.google.com/spreadsheets/d/1ZRFxHvBusniFqP53LbIRekDVcwTa6eB-GdkzrecopFo/edit#gid=0).
-- Ask the mentor to assign you to those pages.
+- Ask the mentor to assign you to those pages (leave a comment in the sheet).
 - Audit the wiki page and create a table of content for the assigned wiki pages.
 - Share the "Table of contents" on google docs with the mentor and ask for a review.
 - Once the doc gets approved, work with the mentor to update the wiki page and tracker sheet.
