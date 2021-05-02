@@ -21,7 +21,7 @@ Please note that acceptance into Season of Docs isn't a prerequisite for [becomi
 
 # The program timeline
 
-![image](https://user-images.githubusercontent.com/16653571/113033115-48675280-91ae-11eb-8767-8e715cebf8f3.png)
+![image](https://user-images.githubusercontent.com/16653571/116831126-2573f800-abcb-11eb-961b-ddfebc9944b2.png)
 
 **Project discussion:** Technical writers can discuss the project ideas with mentors and can ask mentors to give feedback on their draft “Statement of interest” doc. Submit your queries on [oppia-sod-discuss@](https://groups.google.com/g/oppia-sod-discuss)
 
