@@ -1,3 +1,9 @@
+## Table of Contents
+- [Overview](#Overview)
+- [When you encounter an installation error](#When-you-encounter-an-installation-error)
+
+***
+
 ## Overview
 
 The Oppia team has tried to make it easy to install Oppia on a number of different platforms. At the moment, the installation process on [Linux](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Linux%29) and [Mac OS](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Mac-OS%29) is fairly straightforward, but the [Windows installation process](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Windows%29) is much trickier and has a number of pitfalls.
