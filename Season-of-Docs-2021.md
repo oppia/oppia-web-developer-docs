@@ -84,13 +84,7 @@ Steps to follow:
 **Important**: Please make sure that your final proposal is self-contained! In particular, to be fair to all applicants, key components of the proposal should not be editable after the deadline, and you shouldn't assume that reviewers will follow external links.
 
 ## Template
-When submitting a proposal, please use the following template:
-#### Project Details
-* Name of the project.
-* Why are you interested in working with Oppia?
-* What interests you about this project?
-* Project plan and implementation strategy. This is the most important section of the proposal.
-* The platform you want to use for hosting the documentation
+When submitting a proposal, please use the provided [SoD proposal template](https://docs.google.com/document/d/1SNB66nZzov4OfWGYTF4GZVW8HczYcSbCqHREKBF9tF0). You are welcome to ask mentors for reviews during the proposal preparation phase.
 
 #### Other Commitments
 * Which timezone(s) will you primarily be in during the implementation phase?
