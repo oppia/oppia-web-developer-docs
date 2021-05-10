@@ -21,13 +21,13 @@ Please note that acceptance into Season of Docs isn't a prerequisite for [becomi
 
 # The program timeline
 
-![image](https://user-images.githubusercontent.com/16653571/116831126-2573f800-abcb-11eb-961b-ddfebc9944b2.png)
+![image](https://user-images.githubusercontent.com/16653571/117705980-5f0bbb00-b1ea-11eb-8b86-ef8d13a9a70a.png)
 
 **Project discussion:** Technical writers can discuss the project ideas with mentors and can ask mentors to give feedback on their draft “Statement of interest” doc. Submit your queries on [oppia-sod-discuss@](https://groups.google.com/g/oppia-sod-discuss)
 
 **Proposal submission:** Technical writers are expected to submit their “Statement of interest” in a pdf format through [the google form](https://forms.gle/bxR1j5sqFsQwRV3m7) before the deadline to show their interest in the project.
 
-**Selection announcement:** The admin* will announce the selected technical writers on [oppia-sod-announce@](https://groups.google.com/g/oppia-sod-announce) on 6th May 2021, 22:00 IST.
+**Selection announcement:** The admin* will announce the selected technical writers on [oppia-sod-announce@](https://groups.google.com/g/oppia-sod-announce) on 14th May 2021, 22:00 IST.
 
 *_Admin_: The organization administrators who are organizing and representative for the Season of docs program on behalf of the organization.
 
