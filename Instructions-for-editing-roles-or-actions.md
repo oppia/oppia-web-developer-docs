@@ -1,106 +1,66 @@
-
-### 1. ADD ROLE
-1.1 Open file feconf.py.
-
-1.2 Search for `ROLE_ID_GUEST` to go to the appropriate place where role Ids are defined.
-
-1.3 Add a constant for the new role string (follow the convention used in defining other roles).
-
-1.4 Go to core/domain/role_services.py.
-
-1.5 [_If a user can be updated to this role via admin interface_] Search `UPDATABLE_ROLES` and add the role Id in the list.
-
-1.6 [_If a user can be viewed by this role via admin interface_] Search `VIEWABLE_ROLES` and add the role Id in the list.
-
-1.7 Search `HUMAN_READABLE_ROLES` and add the corresponding entry for this role.
-
-1.8 Search `PARENT_ROLES` and add a new entry for the role.
-- key -> the role variable from feconf.
-- value -> list of roles from which this role inherits actions.
-
-1.9 Search `ROLE_ACTIONS` and add a new entry for the role.
-- key -> the role variable from feconf.
-- value -> empty list.
-To add actions corresponding to this role follow instructions [here](#add_action).
-
-1.10 Run backend test corresponding to role changes `python -m scripts.run_backend_tests --test_target=core.domain.role_services_test`.
-
-1.11 Follow instructions [here](#update_user_role) to attach users to this role.
+Oppia users are associated with a role. There are multiple roles in the Oppia platform, each role is independent and associated with a set of actions. The user role defines the actions which the user can perform on the Oppia platform.
 
 
-***
+Editing roles and actions for the platform can be done using the following instructions: 
+## Adding a new role
+1. Open file feconf.py.
+2. Search for ROLE_ID_GUEST to go to the appropriate place where role Ids are defined.
+3. Add a constant for the new role string (follow the convention used in defining other roles).
+4. Go to core/domain/role_services.py.
+   1. If a user can be updated to this role via the admin interface
+      1. Search UPDATABLE_ROLES and add the role Id to the list.
+   2. If a user can be viewed by this role via the admin interface
+      1. Search VIEWABLE_ROLES and add the role Id to the list.
+   3. Search HUMAN_READABLE_ROLES and add the corresponding entry for this role.
+   4. Search _ROLE_ACTIONS and add a new entry for the role.
+      1. key → The role variable from feconf.
+      2. value -> The list of actions allowed for the role.
+5. Run backend test corresponding to role changes python -m scripts.run_backend_tests --test_target=core.domain.role_services_test.
+6. Manually test the changes by [assigning the new role to a user](#assigning-a-role-to-a-user) and through [roles and actions visualizer](#roles-and-actions-visualizer).
 
-### 2. REMOVE ROLE
-2.1 Make sure no user is attached to the role you are going to delete. Instructions to [view role](#view_user_role) and [update role](#update_user_role).
+## Removing the existing role
+1. Make sure no user is attached to the role you are going to remove. 
+   1. Write a one-off job to audit to check whether a user is associated with such a role.
+   2. Write a one-off job to remove such a role from the users, if it exists. [Talk to admins before planning the removal.]
+2. Open core/domain/role_services.py in the editor
+   1. Search UPDATABLE_ROLES, VIEWABLE_ROLES, and HUMAN_READABLE_ROLES. Delete the entry corresponding to this role (if any).
+   2. Check _ROLE_ACTIONS and [remove all unique actions](#removing-existing-action) allocated to the given role. 
+   3. Remove the role entry from ROLE_ACTIONS
+3. Open feconf.py and delete the ROLE_ID* variable corresponding to the given role.
+4. Run backend test corresponding to role changes python -m scripts.run_backend_tests --test_target=core.domain.role_services_test.
+5. Manually test the changes
+   1. Roles and actions visualizer should not show the given [role and associated unique actions](#roles-and-actions-visualizer).
 
-2.2 Go to core/domain/role_services.py
 
-2.3 Search `UPDATABLE_ROLES`, `VIEWABLE_ROLES` and `HUMAN_READABLE_ROLES`. Delete the entry corresponding to this role (if any).
+## Adding new action
+1. Open core/domain/role_services.py
+   1. Search for “ACTION_”, and add a constant variable corresponding to the new action.
+   2. Search for “ROLE_ACTIONS” and add the new action to the appropriate roles.
+2. Implement a decorator corresponding to this action in controllers/acl_decorators.py and apply it in necessary places.
+3. Implement the tests for the new decorator in controllers/acl_decorators_test.py, in order to check the proper functioning of this decorator.
 
-2.4 Go to ROLE_ACTIONS to delete the role from here:
-- delete all actions from ROLE_ACTIONS[role_to_delete] instructions to remove action are [here](#remove_action).
-- Remove the role from ROLE_ACTIONS.
+## Removing existing action
+1. Open core/domain/role_services.py.
+   1. Search ACTION_ and remove the constant corresponding to this action.
+   2. Remove the action from ROLE_ACTIONS.
+2. Remove the corresponding decorator of action (and corresponding tests) from controller/action_decorators.py and from wherever it is applied.
 
-2.5 Go to PARENT_ROLES to delete the role:
-- Add elements in role’s list to all its children.
-- Remove the role from ROLE_ACTIONS.
 
-2.6 Go to feconf.py and delete the role Id variable corresponding to this role.
+## Assigning a role to a user
+1. Go to /admin
+2. Switch to the “Roles” tab
+3. Fill in the form “Update Role”
+   1. Enter the username of the user
+   2. Select the role.
+4. Click the “Update role” button
 
-2.7 Run backend test corresponding to role changes `python -m scripts.run_backend_tests --test_target=core.domain.role_services_test`.
+## View user role
+1. There are two ways by which you can see the user’s role (by role and by username)
+2. Go to /admin#roles
+3. Fill in the form to view roles
 
-***
-
-### 3. <a name="add_action"></a> ADD ACTION
-3.1 Implement decorator corresponding to this action in controllers/acl_decorators.py and apply it in necessary places.
-
-3.2 To make this action work, you have to add this to ROLE_ACTIONS. Go to core/domain/role_services.py
-
-3.3 Search `ACTION_` and add constant variable corresponding to the action.
-
-3.4 Search `ROLE_ACTIONS` and add the action to the appropriate role (minimum role required to perform this action).
-
-3.5. Implement the tests for the new decorator in controllers/acl_decorators_test.py, in order to check the proper functioning of this decorator.
-
-***
-
-### 4. <a name="remove_action"></a> REMOVE ACTION
-4.1 Remove the corresponding decorator of action from domain/action_decorators.py and from wherever it is applied.
-
-4.2 Go to file core/domain/role_services.py.
-
-4.3 Remove the constant corresponding to this action.
-
-4.4 Remove the role from ROLE_ACTIONS dict.
-
-***
-
-### 5. <a name="view_user_role"></a> VIEW USER ROLE
-5.1 There are two ways by which you can see user’s role (by role and by username).
-
-5.2 Go to /admin#roles.
-
-5.3 Fill the form to view roles.
-
-***
-
-### 6. <a name="update_user_role"></a> UPDATE USER ROLE
-6.1 Go to /admin#roles.
-
-6.2 Fill the form to update user’s role.
-
-***
-
-### 7. VIEW ROLE HIERARCHY
-7.1 Go to /admin#roles.
-
-7.2 Role Hierarchy is shown on the page.
-
-***
-
-### 8. UPDATE_ROLE_HIERARCHY
-8.1 Existing role hierarchy can be seen on /admin#roles page.
-
-8.2 Go to core/domain/role_services.py.
-
-8.3 Update the list values in PARENT_ROLES dict to adjust hierarchy and go to /admin#roles to view the changes.
+## Roles and actions visualizer
+1. Go to /admin
+2. Switch to the “Roles” tab
+3. “Role and actions” card will appear on the right side of the page
+4. Click the role you’re interested in to check the actions allocated to the selected role.
