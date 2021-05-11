@@ -86,14 +86,6 @@ Steps to follow:
 ## Template
 When submitting a proposal, please use the provided [SoD proposal template](https://docs.google.com/document/d/1SNB66nZzov4OfWGYTF4GZVW8HczYcSbCqHREKBF9tF0). You are welcome to ask mentors for reviews during the proposal preparation phase.
 
-#### Other Commitments
-* Which timezone(s) will you primarily be in during the implementation phase?
-* How much time will you be able to commit to this project?
-
-#### Communication
-* What is your contact information, and preferred method of communication?
-* How often, and through which channel(s), do you plan on communicating with your mentor?
-
 ## Tips for writing a good project plan
 
 * The plan should include **milestones** that divide your work into multiple parts. You can set monthly or weekly milestones. Strong proposals will have clear, concrete and measurable milestones, whose success can be objectively evaluated by an external observer.
