@@ -19,6 +19,7 @@
     * [Using the Debugger](#using-the-debugger)
     * [Rerunning with SSH](#rerunning-with-ssh)
     * [Downloading Screenshots](#downloading-screenshots)
+    * [Videos of E2E Tests](#videos-of-end-to-end-tests)
 * [Metrics](#metrics)
 * [Reference](#reference)
     * [Forms and objects](#forms-and-objects)
@@ -297,6 +298,28 @@ Wait timed out after 10003ms
 then you can look for the report that includes this message. Times like `10003ms` will be particularly useful for this since they're usually unique. Say you find this error message in `protractor-screenshots/6b0d444200b12988799019647e6ed7a9/report.html`. Now you know that the screenshots from the attempt are all under `protractor-screenshots/6b0d444200b12988799019647e6ed7a9`!
 
 Sometimes you'll get screenshots that just aren't very helpful. For example, a lot of screenshots show the login page for some reason. You can check other examples of a flake though. One of the others might have a useful screenshot.
+
+### Videos of End-to-end Tests
+
+The Automated QA team has implemented a video recording system -- now, videos of end-to-end test runs on GitHub Actions may be accessed. This system will help developers solve problems in e2e tests that only occur on CI or are difficult to replicate locally.
+
+Each individual test within each suite gets its own video. The video of each test gets a randomly assigned name, and this gets printed out above the suite, like this: 
+
+![Name of video for test gets printed out above test](https://user-images.githubusercontent.com/52176783/118647333-486cf180-b7f2-11eb-999b-9edbbb89b5a7.png)
+
+Note that no videos will be generated on Circle CI due to memory issues when running the video recorder.
+
+Only videos of failing tests will be saved. You can have videos of all tests be saved by enabling `ALL_VIDEOS` in `protractor.conf.js`. 
+
+To download a zip file of the videos, look for the `Artifacts` link in the top-right of your test run.
+
+![Artifacts Tab at the top-right](https://user-images.githubusercontent.com/52176783/118647397-5a4e9480-b7f2-11eb-868a-ea5b0058f378.png)
+
+If you don’t see the `Artifacts` link, go to the summary of the failing workflow, you will see the artifacts at the bottom of that page too.
+
+![Artifacts section in summary of e2e run](https://user-images.githubusercontent.com/52176783/118647358-502c9600-b7f2-11eb-9e41-a6f5f962ddfb.png)
+
+People on macOS -- Quicktime doesn’t seem to like the videos we generate, so you might need to use VLC media player to view the videos.
 
 ## Metrics
 
