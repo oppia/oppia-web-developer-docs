@@ -1,5 +1,12 @@
 Write access to the `oppia/oppia` repository comes with increased expectations. Individuals with write access have greater potential to damage the project, so everyone with write access is expected to follow these guidelines, which are designed to minimize the risk of such damage.
 
+## Approving CI Test Runs
+
+When new contributors open PRs, a developer with write access has to approve their CI test runs (note that this is different from approving a PR). Before approving, you should check any changes they make to the CI tests (e.g. the files in `.circleci/` and `.github/`, as well as the script files used by the tests) to make sure they are safe. We are primarily worried about 2 kinds of changes:
+
+1. A new contributor could change the tests to mine cryptocurrency, which violates GitHub's terms.
+2. We have secrets that are available to our CI runners that we don't want to be public. These are stored in environment variables and, in the case of GitHub Actions, in contexts. We don't want to allow changes that would leak these secrets.
+
 ## Merging Pull Requests
 
 Before merging a pull request, ensure that all of the following criteria have been met:
