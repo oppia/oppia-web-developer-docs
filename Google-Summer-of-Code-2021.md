@@ -21,13 +21,35 @@
     -   [List of Mentors](#list-of-mentors)
     -   [Communication](#communication)
 
-Oppia has applied to participate in [Google Summer of Code 2021](https://summerofcode.withgoogle.com/)! GSoC is a global program which offers post-secondary students an opportunity to discover and work with open source organizations over the course of 3 months, while being paid a stipend. Students work closely with one or more mentors from an open source organization in order to implement either a project idea by the organization, or a proposal of their own.
+Oppia has been selected to participate in [Google Summer of Code 2021](https://summerofcode.withgoogle.com/)! GSoC is a global program which offers post-secondary students an opportunity to discover and work with open source organizations over the course of 3 months, while being paid a stipend. Students work closely with one or more mentors from an open source organization in order to implement either a project idea by the organization, or a proposal of their own.
 
 In order to receive updates about GSoC at Oppia please subscribe to [Oppia GSoC Announce](https://groups.google.com/g/oppia-gsoc-announce).
 
 You might be interested in our GSoC info pages from previous years: [2020](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2020), [2019](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2019), [2018](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2018), [2017](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2017), [2016](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2016).
 
 Also, please note that acceptance into GSoC isn't a prerequisite for becoming an Oppia contributor. The Oppia project is run by the community for the community, and we warmly welcome anyone who'd like to help out! You can get started by following the instructions [here](https://github.com/oppia/oppia/wiki).
+
+## Accepted Proposals:
+The project's we've accepted are:
+* [Abhay Garg's proposal](): Introduce support for displaying copyright licenses in the app. Mentor: Rajat Talesra
+* [Aditya Dubey's proposal](): Move custom JS\TS lint checks to eslint. Mentor: Anshul Hudda
+* [Aishwary Saxena's proposal](): Write frontend tests. Mentor: Kevin Thomas
+* [Apoorv Srivastava's proposal](): Implement lightweight checkpointing. Mentor: Pulkit Aggarwal
+* [Arjun Gupta's proposal](): Implement feature flags & platform parameters. Mentor: Vinita Murthi
+* [Aryaman Gupta's proposal](): Improve Exploration save flow: Syncing edits in the background. Mentor: Kevin Thomas
+* [Ashutosh Chauhan's proposal](): Angular migration. Mentor: Srijan Reddy Vasa
+* [Eesha Arif's proposal](): Improve frontend type system. Mentor: Vojtěch Jelínek
+* [Farees Hussain Syed's proposal](): End-to-End testing support. Mentor: Akshay Nandwana
+* [Gangavarapu Praneeth's proposal](): Write frontend tests. Mentor: Nithesh Hariharan
+* [Hardik Katehara's proposal](): Make backend code typed. Mentor: Sajal Asati
+* [Krishita Jain's proposal](): Redesigning and updating the learner dashboard. Mentor: Akshay Anand
+* [Mridul Setia's proposal](): Improve frontend type system. Mentor: Srijan Reddy Vasa
+* [Nikhil Agarwal's proposal](): Implement schema validators for the handler params. Mentor: Rohit Katlaa
+* [Radesh Kumar's proposal](): Write frontend tests. Mentor: Nithesh Hariharan
+* [Rijuta Singh's proposal](): Integrating the Oppia blog with Oppia.org. Mentor: Prayush Dawda
+* [Sparsh Agrawal's proposal](): Static analysis checks + Improvements. Mentor: Ben Henning
+* [Yash Raj's proposal](): Developer options menu. Mentor: Sarthak Agarwal
+
 
 # Students
 
