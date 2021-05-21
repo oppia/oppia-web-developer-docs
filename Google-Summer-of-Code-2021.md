@@ -31,24 +31,24 @@ Also, please note that acceptance into GSoC isn't a prerequisite for becoming an
 
 ## Accepted Proposals:
 The project's we've accepted are:
-* [Abhay Garg's proposal](../pdfs/GSoC2021AbhayGarg.pdf): Introduce support for displaying copyright licenses in the app. Mentor: Rajat Talesra
-* [Aditya Dubey's proposal](../pdfs/GSoC2021AdityaDubey.pdf): Move custom JS\TS lint checks to eslint. Mentor: Anshul Hudda
-* [Aishwary Saxena's proposal](../pdfs/GSoC2021AishwarySaxena.pdf): Write frontend tests. Mentor: Kevin Thomas
-* [Apoorv Srivastava's proposal](../pdfs/GSoC2021ApoorvSrivastava.pdf): Implement lightweight checkpointing. Mentor: Pulkit Aggarwal
-* [Arjun Gupta's proposal](../pdfs/GSoC2021ArjunGupta.pdf): Implement feature flags & platform parameters. Mentor: Vinita Murthi
-* [Aryaman Gupta's proposal](../pdfs/GSoC2021AryamanGupta.pdf): Improve Exploration save flow: Syncing edits in the background. Mentor: Kevin Thomas
-* [Ashutosh Chauhan's proposal](../pdfs/GSoC2021AshutoshChauhan.pdf): Angular migration. Mentor: Srijan Reddy Vasa
-* [Eesha Arif's proposal](../pdfs/GSoC2021EeshaArif.pdf): Improve frontend type system. Mentor: Vojtěch Jelínek
-* [Farees Hussain Syed's proposal](../pdfs/GSoC2021FareesHussain.pdf): End-to-End testing support. Mentor: Akshay Nandwana
-* [Gangavarapu Praneeth's proposal](../pdfs/GSoC2021GangavarapuPraneeth.pdf): Write frontend tests. Mentor: Nithesh Hariharan
-* [Hardik Katehara's proposal](../pdfs/GSoC2021HardikKatehara.pdf): Make backend code typed. Mentor: Sajal Asati
-* [Krishita Jain's proposal](../pdfs/GSoC2021KrishitaJain.pdf): Redesigning and updating the learner dashboard. Mentor: Akshay Anand
-* [Mridul Setia's proposal](../pdfs/GSoC2021MridulSetia.pdf): Improve frontend type system. Mentor: Srijan Reddy Vasa
-* [Nikhil Agarwal's proposal](../pdfs/GSoC2021NikhilAgarwal.pdf): Implement schema validators for the handler params. Mentor: Rohit Katlaa
-* [Radesh Kumar's proposal](../pdfs/GSoC2021RadeshKumar.pdf): Write frontend tests. Mentor: Nithesh Hariharan
-* [Rijuta Singh's proposal](../pdfs/GSoC2021RijutaSingh.pdf): Integrating the Oppia blog with Oppia.org. Mentor: Prayush Dawda
-* [Sparsh Agrawal's proposal](../pdfs/GSoC2021SparshAgrawal.pdf): Static analysis checks + Improvements. Mentor: Ben Henning
-* [Yash Raj's proposal](../pdfs/GSoC2021YashRaj.pdf): Developer options menu. Mentor: Sarthak Agarwal
+* [Abhay Garg's proposal](pdfs/GSoC2021AbhayGarg.pdf): Introduce support for displaying copyright licenses in the app. Mentor: Rajat Talesra
+* [Aditya Dubey's proposal](pdfs/GSoC2021AdityaDubey.pdf): Move custom JS\TS lint checks to eslint. Mentor: Anshul Hudda
+* [Aishwary Saxena's proposal](pdfs/GSoC2021AishwarySaxena.pdf): Write frontend tests. Mentor: Kevin Thomas
+* [Apoorv Srivastava's proposal](pdfs/GSoC2021ApoorvSrivastava.pdf): Implement lightweight checkpointing. Mentor: Pulkit Aggarwal
+* [Arjun Gupta's proposal](pdfs/GSoC2021ArjunGupta.pdf): Implement feature flags & platform parameters. Mentor: Vinita Murthi
+* [Aryaman Gupta's proposal](pdfs/GSoC2021AryamanGupta.pdf): Improve Exploration save flow: Syncing edits in the background. Mentor: Kevin Thomas
+* [Ashutosh Chauhan's proposal](pdfs/GSoC2021AshutoshChauhan.pdf): Angular migration. Mentor: Srijan Reddy Vasa
+* [Eesha Arif's proposal](pdfs/GSoC2021EeshaArif.pdf): Improve frontend type system. Mentor: Vojtěch Jelínek
+* [Farees Hussain Syed's proposal](pdfs/GSoC2021FareesHussain.pdf): End-to-End testing support. Mentor: Akshay Nandwana
+* [Gangavarapu Praneeth's proposal](pdfs/GSoC2021GangavarapuPraneeth.pdf): Write frontend tests. Mentor: Nithesh Hariharan
+* [Hardik Katehara's proposal](pdfs/GSoC2021HardikKatehara.pdf): Make backend code typed. Mentor: Sajal Asati
+* [Krishita Jain's proposal](pdfs/GSoC2021KrishitaJain.pdf): Redesigning and updating the learner dashboard. Mentor: Akshay Anand
+* [Mridul Setia's proposal](pdfs/GSoC2021MridulSetia.pdf): Improve frontend type system. Mentor: Srijan Reddy Vasa
+* [Nikhil Agarwal's proposal](pdfs/GSoC2021NikhilAgarwal.pdf): Implement schema validators for the handler params. Mentor: Rohit Katlaa
+* [Radesh Kumar's proposal](pdfs/GSoC2021RadeshKumar.pdf): Write frontend tests. Mentor: Nithesh Hariharan
+* [Rijuta Singh's proposal](pdfs/GSoC2021RijutaSingh.pdf): Integrating the Oppia blog with Oppia.org. Mentor: Prayush Dawda
+* [Sparsh Agrawal's proposal](pdfs/GSoC2021SparshAgrawal.pdf): Static analysis checks + Improvements. Mentor: Ben Henning
+* [Yash Raj's proposal](pdfs/GSoC2021YashRaj.pdf): Developer options menu. Mentor: Sarthak Agarwal
 
 
 # Students
