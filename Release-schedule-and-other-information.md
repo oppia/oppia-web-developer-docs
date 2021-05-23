@@ -1,6 +1,8 @@
 # Schedule
 **The Friday before the first Saturday of each month**: Release branch gets created. Push the release branch onto a test server.
-Features merged into `develop` after this date will only go out in the following release.
+Features merged into `develop` after this date will only go out in the following release. 
+
+The Friday before the first Saturday of each month is the soft deadline for the start of the release. The release cut should be made on the soft deadline if there is no PR that needs to get into the release. If there is some PR that needs to get into the release, the release cut can be delayed. The maximum delay for the release cut is one week, so the Friday before the second Saturday of each month is the hard deadline for the release cut. In between the soft and the hard deadline the release coordinator is the person that decides when the release should happen exactly.
 
 **First weekend of each month**: The release team will focus on testing. Typically the testing deadline is chosen to be the Monday after the weekend. The testing should be completed by the deadline. All bugs caught should be filed as blocking bugs on Github, and should be assigned to a bugfixer ASAP.
 
