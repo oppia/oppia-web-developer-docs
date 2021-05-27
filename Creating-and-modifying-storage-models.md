@@ -27,12 +27,6 @@ The purpose of this wiki is to provide step-by-step guides on how to add, remove
             * `field_name: base_models.EXPORTED_AS_KEY_FOR_TAKEOUT_DICT`. In this case, the indicated field is exported as one of the keys for a subdictionary within the takeout dictionary. For example, consider the case where we have a model with a MULTIPLE_INSTANCE_PER_USER association to a user. In this case, in order to distinguish between multiple models in the Takeout dictionary, we need a unique ID per model. Thus, we may export the model ID as a key for the subdictionaries within the takeout dictionary. For an example of this, reference any model with a MULTIPLE_INSTANCE_PER_USER association.
             * `field_name: base_models.EXPORT_POLICY.NOT_APPLICABLE`. In this case, the indicated field is not exported as part of the Takeout dictionary.
 
-
-
-4. Decide the lowest-level role in the [role hierarchy](https://github.com/oppia/oppia/wiki/Instructions-for-editing-roles-or-actions#7-view-role-hierarchy) by whom the model can be created. 
-    - By default, the static method `get_lowest_supported_role` (defined in the storage base model) assumes `EXPLORATION_EDITOR` to be the lowest role (meaning that the model can be created by all roles above this role in the hierarchy, including itself).
-    - To set a different role, simply override the method in the model class and specify the desired value. 
-    - For example, `UserSettingsModel` overrides the `get_lowest_supported_role` and sets the lowest supported role to `LEARNER`.
 5. (Only if deletion policy **is not** NOT_APPLICABLE) Add a `has_reference_to_user_id(cls, user_id)` method to the model. This method should return `True` when any of the model fields contains the given `user_id`.
 6. If the deletion policy is:
     - DELETE or DELETE_AT_END: Add an `apply_deletion_policy(cls, user_id)` method to the model. This method should delete all the models of this class that in any field reference the user through the user ID.
