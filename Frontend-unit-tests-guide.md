@@ -223,6 +223,10 @@ When trying to choose the first files to work on, you might get confused. All th
 
 ## General tips
 
+### Debugging with Print Statements
+
+If you are used to using `console.log(...)` to debug tests, remember to use `console.error(...)` instead. We suppress log-level output to avoid printing status messages for specs that pass, so `console.log(...)` output will not be visible. We let error-level output through though, so `console.error(...)` works!
+
 ### Spy utilities  
 One of the main features of Jasmine is allowing you to spy on a method or property of an object. This is helpful in some cases for seeing what is going on:  
 - It can spy on an object's properties (using the `spyOnProperty` method). [Here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/services/contextual/device-info.service.spec.ts#L48-L55)'s an example.
