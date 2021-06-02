@@ -15,7 +15,7 @@ This guide can be used by both new Oppia members and developers who have contrib
   - [Good practices](#good-practices)
   - [How to choose a file to work on](#how-to-choose-a-file-to-work-on)
 - [General tips](#general-tips)
-  - [Debugging Print Statements](#debugging-print-statements)
+  - [Debugging with Print Statements](#debugging-with-print-statements)
   - [Spy utilities](#spy-utilities)
     - [Spying on and handling with third-party libraries](#spying-on-and-handling-with-third-party-libraries)
     - [Spying a same object more than one time in same context](#spying-the-same-methodproperty-more-than-one-time-in-same-context)
