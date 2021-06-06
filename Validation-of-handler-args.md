@@ -1,23 +1,23 @@
 ## Contents 
-* [Introduction]()
-* Directory Structure
+* [Introduction](https://github.com/oppia/oppia/wiki/Validation-of-handler-args#introduction)
+* [Directory Structure](https://github.com/oppia/oppia/wiki/Validation-of-handler-args#directory-structure)
     * validate_args_schema() in base.py
     * validate() method in payload_validator.py
     * normalize_against_schema() in schema_utils.py 
-* Schema keys
-* How to write schema for handler args.
-* Important code pointers.
-* Default & Optional arguments.
+* [Schema keys](https://github.com/oppia/oppia/wiki/Validation-of-handler-args#schema-keys)
+* [How to write schema for handler args](https://github.com/oppia/oppia/wiki/Validation-of-handler-args#how-to-write-validation-schema-for-handlers)
+* [Important code pointers](https://github.com/oppia/oppia/wiki/Validation-of-handler-args#important-code-pointers)
+* [Default & Optional arguments]()
 * Domain object arguments.
 * Extra validators
 * Extra arguments
 * Non-arg-receiving handlers.
-* Common Error faced
+* [Common Error faced](https://github.com/oppia/oppia/wiki/Validation-of-handler-args#common-error-faced)
     * NotImplementedError
     * InvalidInputException
 * Example references
-* Debugging tricks
-* Contact
+* [Debugging tricks](https://github.com/oppia/oppia/wiki/Validation-of-handler-args#debugging-tricks)
+* [Contact](https://github.com/oppia/oppia/wiki/Validation-of-handler-args#contact)
 
 ## Introduction
 All arguments passed to the GET/POST/PUT/DELETE methods of the handler classes in the Oppia controller layer need to be robustly validated before being passed to the domain layer in the backend. This can be done using the help of a Schema-Validation-System(SVS) architecture. The SVS architecture is responsible for validating the args coming from payloads or requests before passing those args into the backend structure.
