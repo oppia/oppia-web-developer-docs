@@ -1,5 +1,5 @@
 ## Contents 
-* [Introduction](https://github.com/oppia/oppia/wiki/Validation-of-handler-args#introduction)
+* [Introduction](#introduction)
 * [Directory Structure](https://github.com/oppia/oppia/wiki/Validation-of-handler-args#directory-structure)
     * validate_args_schema() in base.py
     * validate() method in payload_validator.py
