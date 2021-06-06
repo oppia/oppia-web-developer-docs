@@ -128,11 +128,7 @@ HANDLER_ARGS_SCHEMAS = {
 
 ## Important code pointers
 When adding schemas for the args of a particular handler class, some analysis is typically needed. The following points discuss the conventions adopted throughout the codebase for adding schemas to handler classes. **Please read these conventions carefully**:  
-    * [Default & Optional arguments](#default-optional-arguments)
-    * [Domain object arguments](#domain-object-arguments)
-    * [Extra validators](#extra-validators)
-    * [Extra arguments](#extra-arguments)
-    * [Non-args-receiving handlers](#non-args-receiving-handlers)
+  
 ### Default & Optional arguments
 If an argument is not present in a payload/request, and the schema for that argument is defined in the handler, then that argument is treated as “missing”. For missing args, schema utils will raise AssertionError which is represented as InvalidInputException by validate_args_schema() method.  
 To provide default args for a handler, include a key with the name “default_value” in the schema. The value for this key is the default value with which the arg will be updated if no value for that arg is provided in the request. If an argument is optional and it is not supposed to be updated with any default value, then the “default_value” key should contain None. 
@@ -162,10 +158,10 @@ To provide default args for a handler, include a key with the name “default_va
 Pr link for reference: (Example)
 
 ### Domain objects arguments
-	Objects which are represented by classes written in the domain layer of the codebase are called domain objects. These classes typically include methods to validate their objects.  
+Objects which are represented by classes written in the domain layer of the codebase are called domain objects. These classes typically include methods to validate their objects.  
 For validating domain objects through SVS architecture, the class for that corresponding domain object should be passed directly to the schema. Schemas for domain objects have two keys:as follows:  
 1. “type”: “object_dict”
-2. “object_class”: the corresponding domain object class
+2. “object_class”: the corresponding domain object class  
 **Example**: Let change_list be a list of dicts where each dict item is a representation of the ExplorationChange domain object in the exp_domain file. The schema for change_list should look like:
 ```
 'PUT': {
@@ -196,12 +192,11 @@ By providing validators, you can increase a schema’s functionality. The `valid
 ```
 
 ### Extra arguments
-
 Any received arguments which do not correspond to a schema in the handler class are treated as extra arguments. By default, schema_utils will raise AssertionError for extra args. However, for html handlers, extra args are allowed (to accommodate e.g. utm parameters which are not used by the backend but needed for analytics -- see this link for an explanation). Note that the schema for HTML handlers can be written in the usual way. (The functionality for allowing extra arguments in HTML handlers is already handled by the schema validation infrastructure.)
 
 ### Handlers with no arguments
-Handlers with no request arguments still need a schema defined, otherwise you will face NotImplemented Error.
-	In this case, the schema should look like the following (note that the keys for HANDLER_ARGS_SCHEMA depend on which handler methods are present):
+Handlers with no request arguments still need a schema defined, otherwise you will face NotImplemented Error.  
+In this case, the schema should look like the following (note that the keys for HANDLER_ARGS_SCHEMA depend on which handler methods are present):
 ```
         URL_PATH_ARGS_SCHEMAS = {}
         HANDLER_ARGS_SCHEMAS = {
@@ -238,11 +233,89 @@ Examples of pr for different types is given below:
 - Pr link for type bool
 - Pr link for type int
 
+## Debogging tricks
+When writing the schema for a handler class, you will often need to add a couple of print statements to gain information about the arguments coming from payload/request. In this section we will add a schema step by step for ExplorationRightsHandler.
+**Steps**:
+1. Find the handler class.
+ExplorationRightsHandler is present in the editor.py file.
+2. Identify the request methods.
+ExplorationRightsHandler contains PUT and DELETE request methods.
+3. Make a list of all arguments.  
+    - URL path elements: exploration_id
+    - Payload arguments: version, make_community_owned, new_member_username, 
+    new_member_role, viewable_if_private.
+    - URL query parameters: username
+4. Add print statements
+Add these print statements in the validate_args_schema() of the base.py. Make sure to add these print statements after their declaration in the code.
+```
+print('\n'*3)
+        print('------------'*3)
+        print('Request url = ',self.request.uri)
+        print('Handler class name = ',handler_class_name)
+        print('Arguments = ', self.request.arguments())
+        print('Iterating over arguments...')
+        for j in self.request.arguments():
+            print(j, self.request.get(j))
+        print('URL path elements = ', self.request.route_kwargs)
+        print('Request method = ',request_method)
+        print('HANDLER_ARGS_SCHEMA =  ', self.HANDLER_ARGS_SCHEMA)
+        print('URL_PATH_ARGS_SCHEMA = , ', self.URL_PATH_ARGS_SCHEMA)
+        print('------------'*3)
+        print('\n'*3)
+```
+5. Hit the handler through frontend
+Start the server and hit the handlers from the frontend then view terminal. For ExplorationRightsHandler, the print logs should look like:
+**todo**
+6. Write schema by following the boilerplate code
+Writing the schema is the most crucial part, and it is important to get this correct. The print logs from the previous step can help you get started, but please be sure to dig into the backend and frontend code, and follow calls to methods/functions to see how the incoming data is used. This will help you avoid making errors. In particular:  
+For the backend: Try to read code as well as docstrings of all the methods which use the arguments from payload/request.  
+For the frontend: Try to read the functions which are associated with an url.  
+The eventual schema for ExplorationRightsHandler should look like:
+```
+class ExplorationRightsHandler(EditorHandler):
+    """Handles management of exploration editing rights."""
 
+    URL_PATH_ARGS_SCHEMA = {
+            'exploration_id': {
+                'type': 'unicode'
+            }
+        }
 
+    HANDLER_ARGS_SCHEMA = {
+            'DELETE': {
+                'username': {
+                        'type': 'unicode'
+                    }
+            },
+            'PUT':{
+                'version': {
+                    'type': 'int'
+                },
+                'make_community_owned': {
+                    'type': 'bool',
+                    'default_value': None
+                },
+                'new_member_username': {
+                    'type': 'unicode',
+                    'default_value': None
+                },
+                'new_member_role': {
+                    'type': 'unicode',
+                    'default_value': None
+                },
+                'viewable_if_private': {
+                    'type': 'bool',
+                    'default_value': None
+                }
+            }
+        }
 
+```
+7. Remove print statements
+Remove all the print statements and verify schema validation by again hitting the handler from the frontend.
 
-
+## Contact
+For any discussion please contact Rohit(@rohitkatlaa) or Vojtech(@vojtechjelinek) or Nikhil(@Nik-09).
 
 
 
