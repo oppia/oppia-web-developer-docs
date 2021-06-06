@@ -37,6 +37,85 @@ The following key methods are used in the validation of handler args through the
     This method normalizes the obj against its schema and raises AssertionError if any of the validation checks fail. This assertionerror is 
     represented as InvalidInputException to the users.
 
+## Schema Keys
+Data can be validated using Oppia’s SVS by providing a schema for the data(args). A schema takes the form of a dictionary with the following fields:
+- *type*: The type of the data.
+    - Possible values: bool, int, float, unicode, list, dict, html, custom, object_dict.
+       - The list type has additional fields len, items in its schema (see here).
+       - The dict type has additional field properties in its schema. (see here)
+       - The custom type refers to data with a defined object class in objects.py. The 
+         object class needs to be mentioned in the obj_type field of the schema (see here).
+       - The object_dict type refers to dicts which correspond to domain object classes 
+         which already have a validate() method. The class should be passed with the 
+         object_class field of the schema (see here).
+- **choices** (optional): A list of possible values for the given type. The value entered 
+  must be equal to one of the elements in the list.
+- **validators** (optional):  list of validators to apply to the return value, in order. (see here).
+- **default_value** (optional): Either None (which indicates that the corresponding field 
+  is optional), or a value that conforms to the rest of the schema and is used to replace 
+  the object if it is missing or None. (see here)
+- [for type=list] **items**: The schema for an item in the list.  Note to developers: The 
+  elements of all schema-validated lists should always have the same data types. If you are 
+  considering using a polymorphic list for a handler argument, please consider using a dict 
+  instead.
+- [for type=list] **len** (optional): A numeric value, representing the length of the list. 
+  The value must be greater than 0. No elements can be added or deleted.
+- [for type=dict] **properties**: A list whose elements are dicts, each representing a 
+  single field (key-value pair) of the data. Each dict in the list should have two 
+  mandatory keys:
+    - **name**: The name of the field.
+    - **schema**: The schema for the value corresponding to this field.
+- [for type=dict] **description** (optional): A human-readable description of the field.
+- [for type=custom] **obj_type**: The name of the class of the object, defined in 
+  objects.py.
+- [for type=object_dict] **object_class**: The class of the domain object whose dictionary 
+  form this object represents. (See here)
+
+## How to write validation schema for handlers
+
+If you’re writing a new handler method, you’ll need to add schema validation for the handler args. To do this, follow the steps below:
+1. **List all the arguments passed to each method in the handler**
+  Make a list of all the arguments passed to each method in the handler class. Arguments 
+  received by a handler class method can be categorized into 3 types:
+  - URL path elements: The data which is present inside the URL are called URL path 
+     elements. Example: in ```url/<exploration_id>/```, the exploration_id is a URL path 
+     element.
+  - Payload arguments: The data which comes from payloads are called payload arguments. 
+    These data are typically received by PUT and POST methods.
+  - URL query parameters: The data which comes to the handlers via the query strings in 
+    urls are called URL query parameters. Example: in ```url/<exploration_id>?username=nikhil```, 
+    there is a single URL query parameter, with arg name “username” and value “nikhil”. URL 
+    query parameters are typically received by GET and DELETE methods.
+If you face any difficulty see the debugging section or reach out to any of the persons mentioned in the contact section.
+Determine the schema for each argument.
+For writing schema each argument should be analysed deeply, like the use of argument in the backend structure of the code and based on the analysis, schema for the arguments should be written by following the boilerplate code.
+See these links for more information on allowed schema keys, Important code pointers, and examples.
+Define schemas for URL path elements in URL_PATH_ARGS_SCHEMA
+The schemas for URL path elements should be written in URL_PATH_ARGS_SCHEMA.
+The keys of URL_PATH_ARGS_SCHEMA should be the full set of URL path elements and the corresponding values should be the schemas for those args. If there are no URL path elements, then URL_PATH_ARGS_SCHEMA should be set to {} (an empty dict).
+Examples:  Let exploration_id be a data present in the url path. Then, the schema for exploration_id should look like:
+URL_PATH_ARGS_SCHEMA = {
+            'exploration_id': {
+                'type': 'unicode'
+            }
+        }
+
+
+
+Define schemas for payload arguments and URL query parameter in HANDLER_ARGS_SCHEMA
+The schemas for payload arguments and URL query parameters are written in HANDLER_ARGS_SCHEMA.
+After writing boilerplate code for the HANDLER_ARGS_SCHEMA, the value corresponding to each request method key (GET/PUT/POST/DELETE) should contain all the payload args and URL query parameters for the corresponding method where each key represents the name of an argument and the corresponding value represents its schema.
+Note: While writing boilerplate code, make sure to remove the request keys which do not correspond to any request method in the handler class. 
+Examples:  Let “username” be an argument passed to the delete request method of a handler class. Then, the schema for the delete request method should look like: 
+
+HANDLER_ARGS_SCHEMA = {
+            'DELETE': {
+                'username': {
+                        'type': 'unicode',
+                 }
+            }
+   }
+
 
 
 
