@@ -1,9 +1,6 @@
 ## Contents 
 * [Introduction](#introduction)
-* [Directory Structure](#directory-structure)
-    * [validate_args_schema in base.py()](#validate_args_schema-in-base.py)
-    * [validate method in payload_validator.py](#validate-method-in-payload_validator.py)
-    * [normalize_against_schema in schema_utils.py](#normalize_against_schema-in-schema_utils.py) 
+* [Directory Structure](#directory-structure) 
 * [Schema keys](#schema-keys)
 * [How to write schema for handler args](#how-to-write-validation-schema-for-handlers)
 * [Important code pointers](#important-code-pointers)
@@ -13,8 +10,6 @@
     * [Extra arguments](#extra-arguments)
     * [Non-args-receiving handlers](#non-args-receiving-handlers)
 * [Common Error faced](#common-error-faced)
-    * [NotImplementedError](#notimplementederror)
-    * [InvalidInputException](#invalidinputexception)
 * [Example references](#example-references)
 * [Debugging tricks](#debugging-tricks)
 * [Contact](#contact)
@@ -64,8 +59,8 @@ Data can be validated using Oppia’s SVS by providing a schema for the data(arg
   in order. ([see here](#extra-validators))
 - **default_value** (optional): Either None (which indicates that the 
   corresponding field is optional), or a value that conforms to the rest of the 
-  schema and is used to replace the object if it is missing or None. ([see here] 
-(#default-optional-arguments))
+  schema and is used to replace the object if it is missing or None. (
+[see here](#default-optional-arguments))
 - [for type=list] **items**: The schema for an item in the list.  Note to 
   developers: The elements of all schema-validated lists should always have the 
   same data types. If you are considering using a polymorphic list for a handler 
@@ -263,7 +258,7 @@ ExplorationRightsHandler contains PUT and DELETE request methods.
     - Payload arguments: version, make_community_owned, new_member_username, 
     new_member_role, viewable_if_private.
     - URL query parameters: username
-4. Add print statements
+4. Add print statements  
 Add these print statements in the validate_args_schema() of the base.py. Make sure to add these print statements after their declaration in the code.
 ```
         print('\n'*3)
@@ -281,10 +276,10 @@ Add these print statements in the validate_args_schema() of the base.py. Make su
         print('------------'*3)
         print('\n'*3)
 ```
-5. Hit the handler through frontend
-Start the server and hit the handlers from the frontend then view terminal. For ExplorationRightsHandler, the print logs should look like:
+5. Hit the handler through frontend  
+Start the server and hit the handlers from the frontend then view terminal. For "ExplorationRightsHandler", the print logs should look like:
 **todo**
-6. Write schema by following the boilerplate code
+6. Write schema by following the boilerplate code  
 Writing the schema is the most crucial part, and it is important to get this correct. The print logs from the previous step can help you get started, but please be sure to dig into the backend and frontend code, and follow calls to methods/functions to see how the incoming data is used. This will help you avoid making errors. In particular:  
 For the backend: Try to read code as well as docstrings of all the methods which use the arguments from payload/request.  
 For the frontend: Try to read the functions which are associated with an url.  
