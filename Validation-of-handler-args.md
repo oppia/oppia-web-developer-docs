@@ -82,7 +82,7 @@ If you’re writing a new handler method, you’ll need to add schema validation
 1. **List all the arguments passed to each method in the handler**
   Make a list of all the arguments passed to each method in the handler class. Arguments 
   received by a handler class method can be categorized into 3 types:
-    - ** URL path elements** : The data which is present inside the URL are called URL path elements. Example: in ```url/<exploration_id>/```, the exploration_id is a URL path element.
+    - **URL path elements** : The data which is present inside the URL are called URL path elements. Example: in ```url/<exploration_id>/```, the exploration_id is a URL path element.
     - Payload arguments: The data which comes from payloads are called payload 
     arguments. These data are typically received by PUT and POST methods.
     - URL query parameters: The data which comes to the handlers via the query strings in urls are called URL query parameters. Example: in ```url/<exploration_id>?username=nikhil```, there is a single URL query parameter, with arg name “username” and value “nikhil”. URL query parameters are typically received by GET and DELETE methods.  
@@ -125,3 +125,53 @@ HANDLER_ARGS_SCHEMAS = {
             }
    }
 ```
+
+## Important code pointers
+When adding schemas for the args of a particular handler class, some analysis is typically needed. The following points discuss the conventions adopted throughout the codebase for adding schemas to handler classes. **Please read these conventions carefully**:
+    * [Default & Optional arguments](#default-&-optional-arguments)
+    * [Domain object arguments](#domain-object-arguments)
+    * [Extra validators](#extra-validators)
+    * [Extra arguments](#extra-arguments)
+    * [Non-args-receiving handlers](#non-args-receiving-handlers)
+### Default & Optional arguments
+If an argument is not present in a payload/request, and the schema for that argument is defined in the handler, then that argument is treated as “missing”. For missing args, schema utils will raise AssertionError which is represented as InvalidInputException by validate_args_schema() method.  
+To provide default args for a handler, include a key with the name “default_value” in the schema. The value for this key is the default value with which the arg will be updated if no value for that arg is provided in the request. If an argument is optional and it is not supposed to be updated with any default value, then the “default_value” key should contain None. 
+ 
+**Example when default value is provided**: Let apply_draft be an optional argument which should take the default value False if no value for that arg is provided in the request/payload. In that case, the schema for apply_draft should look like:
+```
+{
+'GET': {
+                'apply_draft': {
+                    'type': 'bool',
+                    'default_value': False
+                }
+            }
+}
+```
+**Example when default value is not provided**: Suppose make_community_owned is an optional argument which should not take any default value if no value for that arg is provided in the request/payload. In that case, the schema for ‘make_community_owned’ should look like:
+```
+{
+'PUT':{
+                'make_community_owned': {
+                    'type': 'bool',
+                    'default_value': None
+                }
+   }
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
