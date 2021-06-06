@@ -29,11 +29,14 @@ The following key methods are used in the validation of handler args through the
 - **validate_args_schema()** in base.py  
     This method is defined in the BaseHandler class of base.py.  
     The validate_args_schema method is responsible for raising all kinds of errors in the context of validation of handler args, like - 
-    **InvalidInputException** and **NotImplemented** error. (See [this section](#common-errors) for a list of common errors that may arise.)
+    **InvalidInputException** and **NotImplemented** error. (See [this section](#common-error-faced) for a list of common errors that may arise.)
 - **validate(handler_args, handler_args_schema)** in payload_validator.py  
     **handler_args**: The arguments from payload/ request.  
-    **handler_args_schema**: Schema from the handler class. (See [this link](#how-to-write-validation-schema-for-handlers) for more information on how to write a schema).
-    This method is the core method for SVS functionality. It collects all the AssertionErrors raised from schema_utils.
+    **handler_args_schema**: Schema from the handler class.(See [this link](#how- 
+    to-write-validation-schema-for-handlers) for more information on how to write 
+    a schema).  
+    This method is the core method for SVS functionality. It collects all the 
+    AssertionErrors raised from schema_utils.
 - **normalize_against_schema(obj, schema)** in schema_utils.py  
     **obj**: The object which needs to be normalized.  
     **schema**: The schema for the object.  
@@ -46,35 +49,40 @@ The following key methods are used in the validation of handler args through the
 Data can be validated using Oppia’s SVS by providing a schema for the data(args). A schema takes the form of a dictionary with the following fields:
 - **type**: The type of the data.
     - Possible values: bool, int, float, unicode, list, dict, html, custom, object_dict.
-       - The list type has additional fields len, items in its schema (see here).
-       - The dict type has additional field properties in its schema. (see here)
-       - The custom type refers to data with a defined object class in objects.py. The 
-         object class needs to be mentioned in the obj_type field of the schema (see here).
-       - The object_dict type refers to dicts which correspond to domain object classes 
-         which already have a validate() method. The class should be passed with the 
-         object_class field of the schema (see here).
-- **choices** (optional): A list of possible values for the given type. The value entered 
-  must be equal to one of the elements in the list.
-- **validators** (optional):  list of validators to apply to the return value, in order. (see here).
-- **default_value** (optional): Either None (which indicates that the corresponding field 
-  is optional), or a value that conforms to the rest of the schema and is used to replace 
-  the object if it is missing or None. (see here)
-- [for type=list] **items**: The schema for an item in the list.  Note to developers: The 
-  elements of all schema-validated lists should always have the same data types. If you are 
-  considering using a polymorphic list for a handler argument, please consider using a dict 
-  instead.
-- [for type=list] **len** (optional): A numeric value, representing the length of the list. 
-  The value must be greater than 0. No elements can be added or deleted.
-- [for type=dict] **properties**: A list whose elements are dicts, each representing a 
-  single field (key-value pair) of the data. Each dict in the list should have two 
-  mandatory keys:
+       - The list type has additional fields len, items in its schema.
+       - The dict type has additional field properties in its schema.
+       - The custom type refers to data with a defined object class in 
+         objects.py. The object class needs to be mentioned in the obj_type field 
+         of the schema.
+       - The object_dict type refers to dicts which correspond to domain object 
+         classes which already have a validate() method. The class should be 
+         passed with the object_class field of the schema (see here).
+- **choices** (optional): A list of possible values for the given type. The value 
+  entered must be equal to one of the elements in the list.
+- **validators** (optional): A list of validators to apply to the return value, 
+  in order. ([see here](#extra-validators)
+- **default_value** (optional): Either None (which indicates that the 
+  corresponding field is optional), or a value that conforms to the rest of the 
+  schema and is used to replace the object if it is missing or None. ([see here] 
+  (#default--optional-arguments))
+- [for type=list] **items**: The schema for an item in the list.  Note to 
+  developers: The elements of all schema-validated lists should always have the 
+  same data types. If you are considering using a polymorphic list for a handler 
+  argument, please consider using a dict instead.
+- [for type=list] **len** (optional): A numeric value, representing the length of 
+  the list. The value must be greater than 0. No elements can be added or 
+  deleted.
+- [for type=dict] **properties**: A list whose elements are dicts, each 
+  representing a single field (key-value pair) of the data. Each dict in the list 
+  should have two mandatory keys:
     - **name**: The name of the field.
     - **schema**: The schema for the value corresponding to this field.
-- [for type=dict] **description** (optional): A human-readable description of the field.
+- [for type=dict] **description** (optional): A human-readable description of the 
+  field.
 - [for type=custom] **obj_type**: The name of the class of the object, defined in 
   objects.py.
-- [for type=object_dict] **object_class**: The class of the domain object whose dictionary 
-  form this object represents. (See here)
+- [for type=object_dict] **object_class**: The class of the domain object whose 
+  dictionary form this object represents. ([See here](#domain-objects-arguments))
 
 ## How to write validation schema for handlers
 
