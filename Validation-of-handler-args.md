@@ -69,11 +69,12 @@ Define schemas for URL path elements in URL_PATH_ARGS_SCHEMA
 The schemas for URL path elements should be written in URL_PATH_ARGS_SCHEMA.
 The keys of URL_PATH_ARGS_SCHEMA should be the full set of URL path elements and the corresponding values should be the schemas for those args. If there are no URL path elements, then URL_PATH_ARGS_SCHEMA should be set to {} (an empty dict).
 Examples:  Let exploration_id be a data present in the url path. Then, the schema for exploration_id should look like:
-URL_PATH_ARGS_SCHEMA = {
-            'exploration_id': {
-                'type': 'unicode'
+
+    URL_PATH_ARGS_SCHEMA = {
+                'exploration_id': {
+                    'type': 'unicode'
+                }
             }
-        }
 
 
 
@@ -82,13 +83,13 @@ The schemas for payload arguments and URL query parameters are written in HANDLE
 After writing boilerplate code for the HANDLER_ARGS_SCHEMA, the value corresponding to each request method (GET/PUT/POST/DELETE) key should contain all the payload args and URL query parameters for the corresponding method where each key represents the name of an argument and the corresponding value represents its schema.
 Examples:  Let “username” be an argument passed to the delete request method of a handler class. Then, the schema for the delete request method should look like: 
 
-HANDLER_ARGS_SCHEMA = {
-            'DELETE': {
-                'username': {
-                        'type': 'unicode',
-                 }
-            },
-   }
+    HANDLER_ARGS_SCHEMA = {
+                'DELETE': {
+                    'username': {
+                            'type': 'unicode',
+                     }
+                },
+       }
 
 
 
@@ -109,26 +110,26 @@ Default args for a handler should therefore include a key with name “default_v
 
 Example when default value is provided: Let apply_draft be an optional argument which should take the default value False if no value for that arg is provided in the request/payload. In that case, the schema for apply_draft should look like:
 
-{
-'GET': {
-                'apply_draft': {
-                    'type': 'bool',
-                    'default_value': False
+    {
+    'GET': {
+                    'apply_draft': {
+                        'type': 'bool',
+                        'default_value': False
+                    }
                 }
-            }
-}
+    }
 
 
 Example when default value is not provided: Suppose make_community_owned is optional argument which should not take any default value if no value for that arg is provided in the request/payload. In that case, the schema for ‘make_community_owned’ should look like:  
 
-{
-'PUT':{
-                'make_community_owned': {
-                    'type': 'bool',
-                    'default_value': None
-                }
-   }
-}
+    {
+    'PUT':{
+                    'make_community_owned': {
+                        'type': 'bool',
+                        'default_value': None
+                    }
+       }
+    }
 
 
 Pr link for reference: (Example)
@@ -141,7 +142,7 @@ Add schema key “object_class” and its value as name of the domain object cla
 
 Example:  Let change_list be a domain object, and it's validate method is written in the ExplorationChange class of exp_domain file. The schema for change_list should look like:
 
-'PUT': {
+    'PUT': {
                 'change_list': {
                     'type': 'list',
                     'items': {
@@ -156,6 +157,8 @@ Extra validators
 	By providing validators, you can increase the functionality of schema. The validators field in the schema contains the list of dicts, where each dict contains a key “id” and the value of the key should be the name of the validator. Existing validator methods can be found in _Validator class of  schema utils. Based on a particular condition, an existing validator may be used, or a new one can be written.
 
 Example: Let us assume that language_code is a handler arg that needs to be validated in order to check whether it is a supported language code. The validator checking this is already written in schema_utils. So the schema for language code would look like:
+
+
      HANDLER_ARGS_SCHEMA = {
             'PUT': {
                 'language_code': {
@@ -179,6 +182,8 @@ If the argument received is not used by the backend structure of the codebase, t
 Non args receiving handlers
 	For handlers which do not receive any arguments from payload/request, they should only contain the boilerplate for writing schema else you will face NotImplemented Error.
 Example: Boilerplate for writing schema should look like:
+
+
         URL_PATH_ARGS_SCHEMA = {}
         HANDLER_ARGS_SCHEMA = {
             'PUT': {},
@@ -219,20 +224,22 @@ Payload arguments: version, make_community_owned, new_member_username, new_membe
 URL query parameters: username 
 Add print statements
 Add these print statements in the validate_args_schema() of the base.py. Make sure to add these print statements after their declaration in the code.
-        print('\n'*3)
-        print('------------'*3)
-        print('Request url = ',self.request.uri)
-        print('Handler class name = ',handler_class_name)
-        print('Arguments = ', self.request.arguments())
-        print('Iterating over arguments...')
-        for j in self.request.arguments():
-            print(j, self.request.get(j))
-        print('URL path elements = ', self.request.route_kwargs)
-        print('Request method = ',request_method)
-        print('HANDLER_ARGS_SCHEMA =  ', self.HANDLER_ARGS_SCHEMA)
-        print('URL_PATH_ARGS_SCHEMA = , ', self.URL_PATH_ARGS_SCHEMA)
-        print('------------'*3)
-        print('\n'*3)
+
+
+            print('\n'*3)
+            print('------------'*3)
+            print('Request url = ',self.request.uri)
+            print('Handler class name = ',handler_class_name)
+            print('Arguments = ', self.request.arguments())
+            print('Iterating over arguments...')
+            for j in self.request.arguments():
+                print(j, self.request.get(j))
+            print('URL path elements = ', self.request.route_kwargs)
+            print('Request method = ',request_method)
+            print('HANDLER_ARGS_SCHEMA =  ', self.HANDLER_ARGS_SCHEMA)
+            print('URL_PATH_ARGS_SCHEMA = , ', self.URL_PATH_ARGS_SCHEMA)
+            print('------------'*3)
+            print('\n'*3)
 
 Hit the handler through frontend.
 Start the server and hit the handlers from the frontend then view terminal. For ExplorationRightsHandler, the print logs should look like:
@@ -282,6 +289,6 @@ class ExplorationRightsHandler(EditorHandler):
 Remove print statements
 Remove all the print statements and verify schema validation by again hitting the handler from the frontend.
 ## Contact
-	For any discussion please contact Rohit(@rohitkatlaa) or Vojtech(@vojtechjelinek) or Nikhil(@Nik-09).
+For any discussion please contact Rohit(@rohitkatlaa) or Vojtech(@vojtechjelinek) or Nikhil(@Nik-09).
 
 
