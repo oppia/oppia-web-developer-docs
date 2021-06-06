@@ -20,8 +20,11 @@
 * [Contact](#contact)
 
 ## Introduction
+
 All arguments passed to the GET/POST/PUT/DELETE methods of the handler classes in the Oppia controller layer need to be robustly validated before being passed to the domain layer in the backend. This can be done using the help of a Schema-Validation-System(SVS) architecture. The SVS architecture is responsible for validating the args coming from payloads or requests before passing those args into the backend structure.
+
 ## Directory Structure
+
 The following key methods are used in the validation of handler args through the SVS architecture:
 - validate_args_schema() in base.py  
     This method is defined in the BaseHandler class of base.py.  
@@ -34,12 +37,14 @@ The following key methods are used in the validation of handler args through the
 - normalize_against_schema(obj, schema) in schema_utils.py  
     obj: The object which needs to be normalized.
     schema: The schema for the object.
-    This method normalizes the obj against its schema and raises AssertionError if any of the validation checks fail. This assertionerror is 
+    This method normalizes the obj against its schema and raises AssertionError 
+    if any of the validation checks fail. This assertionerror is 
     represented as InvalidInputException to the users.
 
 ## Schema Keys
+
 Data can be validated using Oppia’s SVS by providing a schema for the data(args). A schema takes the form of a dictionary with the following fields:
-- *type*: The type of the data.
+- **type**: The type of the data.
     - Possible values: bool, int, float, unicode, list, dict, html, custom, object_dict.
        - The list type has additional fields len, items in its schema (see here).
        - The dict type has additional field properties in its schema. (see here)
@@ -82,26 +87,24 @@ If you’re writing a new handler method, you’ll need to add schema validation
      element.
   - Payload arguments: The data which comes from payloads are called payload arguments. 
     These data are typically received by PUT and POST methods.
-  - URL query parameters: The data which comes to the handlers via the query strings in 
-    urls are called URL query parameters. Example: in ```url/<exploration_id>?username=nikhil```, 
-    there is a single URL query parameter, with arg name “username” and value “nikhil”. URL 
-    query parameters are typically received by GET and DELETE methods.
+  - URL query parameters: The data which comes to the handlers via the query strings in urls are called URL query parameters. Example: in ```url/<exploration_id>?username=nikhil```, there is a single URL query parameter, with arg name “username” and value “nikhil”. URL query parameters are typically received by GET and DELETE methods.  
 If you face any difficulty see the debugging section or reach out to any of the persons mentioned in the contact section.
-Determine the schema for each argument.
-For writing schema each argument should be analysed deeply, like the use of argument in the backend structure of the code and based on the analysis, schema for the arguments should be written by following the boilerplate code.
-See these links for more information on allowed schema keys, Important code pointers, and examples.
-Define schemas for URL path elements in URL_PATH_ARGS_SCHEMA
+2. **Determine the schema for each argument**
+    For writing schema each argument should be analysed deeply, like the use of 
+   argument in the backend structure of the code and based on the analysis, 
+   schema for the arguments should be written by following the boilerplate code.
+   See these links for more information on allowed schema keys, Important code 
+   pointers, and examples.
+3. **Define schemas for URL path elements in URL_PATH_ARGS_SCHEMA**
 The schemas for URL path elements should be written in URL_PATH_ARGS_SCHEMA.
 The keys of URL_PATH_ARGS_SCHEMA should be the full set of URL path elements and the corresponding values should be the schemas for those args. If there are no URL path elements, then URL_PATH_ARGS_SCHEMA should be set to {} (an empty dict).
 Examples:  Let exploration_id be a data present in the url path. Then, the schema for exploration_id should look like:
-URL_PATH_ARGS_SCHEMA = {
+```URL_PATH_ARGS_SCHEMA = {
             'exploration_id': {
                 'type': 'unicode'
             }
         }
-
-
-
+```
 Define schemas for payload arguments and URL query parameter in HANDLER_ARGS_SCHEMA
 The schemas for payload arguments and URL query parameters are written in HANDLER_ARGS_SCHEMA.
 After writing boilerplate code for the HANDLER_ARGS_SCHEMA, the value corresponding to each request method key (GET/PUT/POST/DELETE) should contain all the payload args and URL query parameters for the corresponding method where each key represents the name of an argument and the corresponding value represents its schema.
