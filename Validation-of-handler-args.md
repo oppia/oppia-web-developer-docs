@@ -267,8 +267,8 @@ Add these print statements in the validate_args_schema() of the base.py. Make su
             print(j, self.request.get(j))
         print('URL path elements = ', self.request.route_kwargs)
         print('Request method = ',request_method)
-        print('HANDLER_ARGS_SCHEMA =  ', self.HANDLER_ARGS_SCHEMA)
-        print('URL_PATH_ARGS_SCHEMA = , ', self.URL_PATH_ARGS_SCHEMA)
+        print('HANDLER_ARGS_SCHEMAS =  ', self.HANDLER_ARGS_SCHEMAS)
+        print('URL_PATH_ARGS_SCHEMAS = , ', self.URL_PATH_ARGS_SCHEMAS)
         print('------------'*3)
         print('\n'*3)
 ```
@@ -301,13 +301,13 @@ The eventual schema for ExplorationRightsHandler should look like:
 class ExplorationRightsHandler(EditorHandler):
     """Handles management of exploration editing rights."""
 
-    URL_PATH_ARGS_SCHEMA = {
+    URL_PATH_ARGS_SCHEMAS = {
             'exploration_id': {
                 'type': 'unicode'
             }
         }
 
-    HANDLER_ARGS_SCHEMA = {
+    HANDLER_ARGS_SCHEMAS = {
             'DELETE': {
                 'username': {
                         'type': 'unicode'
