@@ -5,9 +5,9 @@
     * [validate method in payload_validator.py](#validate-method-in-payload_validator.py)
     * [normalize_against_schema in schema_utils.py](#normalize_against_schema-in-schema_utils.py) 
 * [Schema keys](#schema-keys)
-* [How to write schema for handler args](#how-to-write-schema)
+* [How to write schema for handler args](#how-to-write-validation-schema-for-handlers)
 * [Important code pointers](#important-code-pointers)
-    * [Default & Optional arguments](#default-&-optional-arguments)
+    * [Default & Optional arguments](#default-optional-arguments)
     * [Domain object arguments](#domain-object-arguments)
     * [Extra validators](#extra-validators)
     * [Extra arguments](#extra-arguments)
@@ -127,8 +127,8 @@ HANDLER_ARGS_SCHEMAS = {
 ```
 
 ## Important code pointers
-When adding schemas for the args of a particular handler class, some analysis is typically needed. The following points discuss the conventions adopted throughout the codebase for adding schemas to handler classes. **Please read these conventions carefully**:
-    * [Default & Optional arguments](#default-&-optional-arguments)
+When adding schemas for the args of a particular handler class, some analysis is typically needed. The following points discuss the conventions adopted throughout the codebase for adding schemas to handler classes. **Please read these conventions carefully**:  
+    * [Default & Optional arguments](#default-optional-arguments)
     * [Domain object arguments](#domain-object-arguments)
     * [Extra validators](#extra-validators)
     * [Extra arguments](#extra-arguments)
@@ -159,13 +159,84 @@ To provide default args for a handler, include a key with the name “default_va
    }
 }
 ```
+Pr link for reference: (Example)
 
+### Domain objects arguments
+	Objects which are represented by classes written in the domain layer of the codebase are called domain objects. These classes typically include methods to validate their objects.  
+For validating domain objects through SVS architecture, the class for that corresponding domain object should be passed directly to the schema. Schemas for domain objects have two keys:as follows:  
+1. “type”: “object_dict”
+2. “object_class”: the corresponding domain object class
+**Example**: Let change_list be a list of dicts where each dict item is a representation of the ExplorationChange domain object in the exp_domain file. The schema for change_list should look like:
+```
+'PUT': {
+                'change_list': {
+                    'type': 'list',
+                    'items': {
+                        'type': 'object_dict',
+                        'object_class': exp_domain.ExplorationChange
+                    }
+                }
+       }
 
+```
+### Extra validators
+By providing validators, you can increase a schema’s functionality. The `validators` field in the schema contains a list of dicts, where each dict contains a key “id” whose value is the name of the validator. Existing validator methods can be found in _Validator class of  schema utils. You can use the existing validators, or write new ones.
+**Example**: Let us assume that language_code is a handler arg that needs to be validated in order to check whether it is a supported language code. The validator checking this is already written in schema_utils. So the schema for language code would look like:
+```
+ HANDLER_ARGS_SCHEMA = {
+            'PUT': {
+                'language_code': {
+                    'type': 'unicode',
+                    'validators': [{
+                        'id': 'is_supported_language_code'
+                    }]
+               }   
+            }
+        }
+```
 
+### Extra arguments
 
+Any received arguments which do not correspond to a schema in the handler class are treated as extra arguments. By default, schema_utils will raise AssertionError for extra args. However, for html handlers, extra args are allowed (to accommodate e.g. utm parameters which are not used by the backend but needed for analytics -- see this link for an explanation). Note that the schema for HTML handlers can be written in the usual way. (The functionality for allowing extra arguments in HTML handlers is already handled by the schema validation infrastructure.)
 
+### Handlers with no arguments
+Handlers with no request arguments still need a schema defined, otherwise you will face NotImplemented Error.
+	In this case, the schema should look like the following (note that the keys for HANDLER_ARGS_SCHEMA depend on which handler methods are present):
+```
+        URL_PATH_ARGS_SCHEMAS = {}
+        HANDLER_ARGS_SCHEMAS = {
+            'PUT': {},
+            'GET': {},
+            'PUT': {},
+            'POST': {}  
+        }
+```
 
+## Common Error faced
+When writing handler args, you may encounter NotImplementedErrors or InvalidInputException. Here is how to handle these:
+1. **NotImplementedError**
+    - **Description**: This error will be raised if any necessary schemas (i.e, 
+      HANDLER_ARGS_SCHEMAS or URL_PATH_ARGS_SCHEMAS) are not present in the 
+      corresponding handler class.
+    - **How to resolve**: This error message is raised with the name of the 
+      handler which is missing a schema definition. So, by reading the error 
+      message, you can know which handler class needs schemas to be added.
+2. **InvalidInputException**
+    - **Description**: This error will be raised if schema validation failed for 
+      any argument. It may be due to extra args, missing args or any type 
+      mismatch.
+    - **How to resolve**: This error message is raised by the 
+      validate_args_schema() method with the name of the argument for which 
+      schema validation failed. So by looking at error messages and stack traces, 
+      you can find which argument is failing the schema validation test.
 
+## Example for reference
+Examples of pr for different types is given below:
+- Pr link for type dict
+- Pr link for type list
+- Pr link for type object_dict
+- Pr link for type bool
+- Pr link for type int
 
 
 
