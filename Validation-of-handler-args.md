@@ -274,7 +274,24 @@ Add these print statements in the validate_args_schema() of the base.py. Make su
 ```
 5. Hit the handler through frontend  
 Start the server and hit the handlers from the frontend then view terminal. For "ExplorationRightsHandler", the print logs should look like:
-**todo**
+```
+
+------------------------------------
+(u'Request url = ', 'http://localhost:8181/createhandler/rights/QuWbhgRTovXr')
+(u'Handler class name = ', 'ExplorationRightsHandler')
+(u'Arguments = ', ['csrf_token', 'payload', 'source'])
+Iterating over arguments...
+('csrf_token', u'1622997677/wOV5q43bIZf1cvOhCB4vrQ==')
+('payload', u'{"version":1,"new_member_role":"owner","new_member_username":"nikhil"}')
+('source', u'http://localhost:8181/create/QuWbhgRTovXr#/settings')
+(u'URL path elements = ', {u'exploration_id': 'QuWbhgRTovXr'})
+(u'Request method = ', 'PUT')
+(u'HANDLER_ARGS_SCHEMAS =  ', {u'DELETE': {u'username': {u'type': u'unicode'}}, u'PUT': {u'make_community_owned': {u'default_value': None, u'type': u'bool'}, u'new_member_role': {u'default_value': None, u'type': u'unicode'}, u'new_member_username': {u'default_value': None, u'type': u'unicode'}, u'viewable_if_private': {u'default_value': None, u'type': u'bool'}, u'version': {u'type': u'int'}}})
+(u'URL_PATH_ARGS_SCHEMAS = , ', {u'exploration_id': {u'type': u'unicode'}})
+------------------------------------
+
+
+```
 6. Write schema by following the boilerplate code  
 Writing the schema is the most crucial part, and it is important to get this correct. The print logs from the previous step can help you get started, but please be sure to dig into the backend and frontend code, and follow calls to methods/functions to see how the incoming data is used. This will help you avoid making errors. In particular:  
 For the backend: Try to read code as well as docstrings of all the methods which use the arguments from payload/request.  
