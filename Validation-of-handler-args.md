@@ -32,8 +32,8 @@ The following key methods are used in the validation of handler args through the
     **InvalidInputException** and **NotImplemented** error. (See [this section](#common-error-faced) for a list of common errors that may arise.)
 - **validate(handler_args, handler_args_schema)** in payload_validator.py  
     **handler_args**: The arguments from payload/ request.  
-    **handler_args_schema**: Schema from the handler class.(See [this link](#how- 
-    to-write-validation-schema-for-handlers) for more information on how to write 
+    **handler_args_schema**: Schema from the handler class.(See [this link]
+(#how-to-write-validation-schema-for-handlers) for more information on how to write 
     a schema).  
     This method is the core method for SVS functionality. It collects all the 
     AssertionErrors raised from schema_utils.
@@ -57,15 +57,15 @@ Data can be validated using Oppia’s SVS by providing a schema for the data(arg
          of the schema.
        - The object_dict type refers to dicts which correspond to domain object 
          classes which already have a validate() method. The class should be 
-         passed with the object_class field of the schema (see here).
+         passed with the object_class field of the schema.
 - **choices** (optional): A list of possible values for the given type. The value 
   entered must be equal to one of the elements in the list.
 - **validators** (optional): A list of validators to apply to the return value, 
-  in order. ([see here](#extra-validators)
+  in order. ([see here](#extra-validators))
 - **default_value** (optional): Either None (which indicates that the 
   corresponding field is optional), or a value that conforms to the rest of the 
   schema and is used to replace the object if it is missing or None. ([see here] 
-  (#default-optional-arguments))
+(#default-optional-arguments))
 - [for type=list] **items**: The schema for an item in the list.  Note to 
   developers: The elements of all schema-validated lists should always have the 
   same data types. If you are considering using a polymorphic list for a handler 
@@ -173,7 +173,7 @@ To provide default args for a handler, include a key with the name “default_va
    }
 }
 ```
-Pr link for reference: (Example)
+Pr link for reference: (**Example**)
 
 ### Domain objects arguments
 Objects which are represented by classes written in the domain layer of the codebase are called domain objects. These classes typically include methods to validate their objects.  
@@ -194,10 +194,10 @@ For validating domain objects through SVS architecture, the class for that corre
 
 ```
 ### Extra validators
-By providing validators, you can increase a schema’s functionality. The `validators` field in the schema contains a list of dicts, where each dict contains a key “id” whose value is the name of the validator. Existing validator methods can be found in _Validator class of  schema utils. You can use the existing validators, or write new ones.
+By providing validators, you can increase a schema’s functionality. The `validators` field in the schema contains a list of dicts, where each dict contains a key “id” whose value is the name of the validator. Existing validator methods can be found in _Validator class of  schema utils. You can use the existing validators, or write new ones.  
 **Example**: Let us assume that language_code is a handler arg that needs to be validated in order to check whether it is a supported language code. The validator checking this is already written in schema_utils. So the schema for language code would look like:
 ```
- HANDLER_ARGS_SCHEMA = {
+ HANDLER_ARGS_SCHEMAS = {
             'PUT': {
                 'language_code': {
                     'type': 'unicode',
@@ -210,11 +210,11 @@ By providing validators, you can increase a schema’s functionality. The `valid
 ```
 
 ### Extra arguments
-Any received arguments which do not correspond to a schema in the handler class are treated as extra arguments. By default, schema_utils will raise AssertionError for extra args. However, for html handlers, extra args are allowed (to accommodate e.g. utm parameters which are not used by the backend but needed for analytics -- see this link for an explanation). Note that the schema for HTML handlers can be written in the usual way. (The functionality for allowing extra arguments in HTML handlers is already handled by the schema validation infrastructure.)
+Any received arguments which do not correspond to a schema in the handler class are treated as extra arguments. By default, schema_utils will raise AssertionError for extra args. However, for html handlers, extra args are allowed (to accommodate e.g. utm parameters which are not used by the backend but needed for analytics -- see [this link](https://support.google.com/analytics/answer/1033863?hl=en#zippy=%2Cin-this-article) for an explanation). Note that the schema for HTML handlers can be written in the usual way. (The functionality for allowing extra arguments in HTML handlers is already handled by the schema validation infrastructure.)
 
 ### Handlers with no arguments
 Handlers with no request arguments still need a schema defined, otherwise you will face NotImplemented Error.  
-In this case, the schema should look like the following (note that the keys for HANDLER_ARGS_SCHEMA depend on which handler methods are present):
+In this case, the schema should look like the following (note that the keys for HANDLER_ARGS_SCHEMAS depend on which handler methods are present):
 ```
         URL_PATH_ARGS_SCHEMAS = {}
         HANDLER_ARGS_SCHEMAS = {
@@ -252,7 +252,7 @@ Examples of pr for different types is given below:
 - Pr link for type int
 
 ## Debugging tricks
-When writing the schema for a handler class, you will often need to add a couple of print statements to gain information about the arguments coming from payload/request. In this section we will add a schema step by step for ExplorationRightsHandler.
+When writing the schema for a handler class, you will often need to add a couple of print statements to gain information about the arguments coming from payload/request. In this section we will add a schema step by step for ExplorationRightsHandler.  
 **Steps**:
 1. Find the handler class.
 ExplorationRightsHandler is present in the editor.py file.
@@ -266,7 +266,7 @@ ExplorationRightsHandler contains PUT and DELETE request methods.
 4. Add print statements
 Add these print statements in the validate_args_schema() of the base.py. Make sure to add these print statements after their declaration in the code.
 ```
-print('\n'*3)
+        print('\n'*3)
         print('------------'*3)
         print('Request url = ',self.request.uri)
         print('Handler class name = ',handler_class_name)
