@@ -7,11 +7,11 @@
 * [Schema keys](https://github.com/oppia/oppia/wiki/Validation-of-handler-args#schema-keys)
 * [How to write schema for handler args](https://github.com/oppia/oppia/wiki/Validation-of-handler-args#how-to-write-validation-schema-for-handlers)
 * [Important code pointers](https://github.com/oppia/oppia/wiki/Validation-of-handler-args#important-code-pointers)
-* [Default & Optional arguments]()
-* Domain object arguments.
-* Extra validators
-* Extra arguments
-* Non-arg-receiving handlers.
+    * [Default & Optional arguments]()
+    * Domain object arguments.
+    * Extra validators
+    * Extra arguments
+    * Non-arg-receiving handlers.
 * [Common Error faced](https://github.com/oppia/oppia/wiki/Validation-of-handler-args#common-error-faced)
     * NotImplementedError
     * InvalidInputException
