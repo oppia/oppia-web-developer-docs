@@ -59,8 +59,8 @@ Data can be validated using Oppia’s SVS by providing a schema for the data(arg
   in order. ([see here](#extra-validators))
 - **default_value** (optional): Either None (which indicates that the 
   corresponding field is optional), or a value that conforms to the rest of the 
-  schema and is used to replace the object if it is missing or None. (
-[see this](#default-optional-arguments))
+  schema and is used to replace the object if it is missing or None. 
+([see this](#default--optional-arguments))
 - [for type=list] **items**: The schema for an item in the list.  Note to 
   developers: The elements of all schema-validated lists should always have the 
   same data types. If you are considering using a polymorphic list for a handler 
