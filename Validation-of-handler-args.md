@@ -82,12 +82,10 @@ If you’re writing a new handler method, you’ll need to add schema validation
 1. **List all the arguments passed to each method in the handler**
   Make a list of all the arguments passed to each method in the handler class. Arguments 
   received by a handler class method can be categorized into 3 types:
-  - URL path elements: The data which is present inside the URL are called URL path 
-     elements. Example: in ```url/<exploration_id>/```, the exploration_id is a URL path 
-     element.
-  - Payload arguments: The data which comes from payloads are called payload arguments. 
-    These data are typically received by PUT and POST methods.
-  - URL query parameters: The data which comes to the handlers via the query strings in urls are called URL query parameters. Example: in ```url/<exploration_id>?username=nikhil```, there is a single URL query parameter, with arg name “username” and value “nikhil”. URL query parameters are typically received by GET and DELETE methods.  
+    - ** URL path elements** : The data which is present inside the URL are called URL path elements. Example: in ```url/<exploration_id>/```, the exploration_id is a URL path element.
+    - Payload arguments: The data which comes from payloads are called payload 
+    arguments. These data are typically received by PUT and POST methods.
+    - URL query parameters: The data which comes to the handlers via the query strings in urls are called URL query parameters. Example: in ```url/<exploration_id>?username=nikhil```, there is a single URL query parameter, with arg name “username” and value “nikhil”. URL query parameters are typically received by GET and DELETE methods.  
 If you face any difficulty see the debugging section or reach out to any of the persons mentioned in the contact section.
 2. **Determine the schema for each argument**
     For writing schema each argument should be analysed deeply, like the use of 
@@ -99,26 +97,31 @@ If you face any difficulty see the debugging section or reach out to any of the 
 The schemas for URL path elements should be written in URL_PATH_ARGS_SCHEMA.
 The keys of URL_PATH_ARGS_SCHEMA should be the full set of URL path elements and the corresponding values should be the schemas for those args. If there are no URL path elements, then URL_PATH_ARGS_SCHEMA should be set to {} (an empty dict).
 Examples:  Let exploration_id be a data present in the url path. Then, the schema for exploration_id should look like:
-```URL_PATH_ARGS_SCHEMA = {
+```URL_PATH_ARGS_SCHEMAS = {
             'exploration_id': {
                 'type': 'unicode'
             }
         }
 ```
-Define schemas for payload arguments and URL query parameter in HANDLER_ARGS_SCHEMA
-The schemas for payload arguments and URL query parameters are written in HANDLER_ARGS_SCHEMA.
-After writing boilerplate code for the HANDLER_ARGS_SCHEMA, the value corresponding to each request method key (GET/PUT/POST/DELETE) should contain all the payload args and URL query parameters for the corresponding method where each key represents the name of an argument and the corresponding value represents its schema.
-Note: While writing boilerplate code, make sure to remove the request keys which do not correspond to any request method in the handler class. 
-Examples:  Let “username” be an argument passed to the delete request method of a handler class. Then, the schema for the delete request method should look like: 
-
-HANDLER_ARGS_SCHEMA = {
+4. **Define schemas for payload arguments and URL query parameter in HANDLER_ARGS_SCHEMAS**
+    - The schemas for payload arguments and URL query parameters are written in 
+    HANDLER_ARGS_SCHEMAS.
+    - After writing boilerplate code for the HANDLER_ARGS_SCHEMA, the value 
+    corresponding to each request method key (GET/PUT/POST/DELETE) should contain 
+    all the payload args and URL query parameters for the corresponding method 
+    where each key represents the name of an argument and the corresponding value 
+    represents its schema.
+    Note: While writing boilerplate code, make sure to remove the request keys 
+    which do not correspond to any request method in the handler class. 
+    Examples:  Let “username” be an argument passed to the delete request method 
+    of a handler class. Then, the schema for the delete request method should 
+    look like: 
+```
+HANDLER_ARGS_SCHEMAS = {
             'DELETE': {
                 'username': {
                         'type': 'unicode',
                  }
             }
    }
-
-
-
-
+```
