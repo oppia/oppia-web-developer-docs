@@ -1,9 +1,9 @@
 ## Contents 
 * [Introduction](#introduction)
-* [Directory Structure](https://github.com/oppia/oppia/wiki/Validation-of-handler-args#directory-structure)
-    * validate_args_schema() in base.py
-    * validate() method in payload_validator.py
-    * normalize_against_schema() in schema_utils.py 
+* [Directory Structure](#directory-structure)
+    * [validate_args_schema in base.py()](#validate_args_schema-in-base.py)
+    * [validate method in payload_validator.py])(#validate-method-in-payload_validator.py)
+    * [normalize_against_schema in schema_utils.py](#normalize_against_schema-in-schema_utils.py) 
 * [Schema keys](https://github.com/oppia/oppia/wiki/Validation-of-handler-args#schema-keys)
 * [How to write schema for handler args](https://github.com/oppia/oppia/wiki/Validation-of-handler-args#how-to-write-validation-schema-for-handlers)
 * [Important code pointers](https://github.com/oppia/oppia/wiki/Validation-of-handler-args#important-code-pointers)
