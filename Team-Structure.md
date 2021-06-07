@@ -18,13 +18,15 @@ Because this group understands the "big picture" of Oppia, other contributors ar
 
 The current members of this group are:
 
-- Ankita Saxena (who also serves as release coordination lead)
-- Kevin Lee (who also serves as dev workflow team lead)
-- Nithesh Hariharan (who also serves as QA team lead)
+- Ben Henning (who also leads the efforts on Oppia Android)
+- Brian Rodriguez
+- Chris Skalnik
+- Nithesh Hariharan (who also serves as release coordination lead)
 - Kevin Thomas
-- Sandeep Dubey
+- Sandeep Dubey (who also serves as dev workflow team lead)
 - Sean Lip
-- Vojtěch Jelínek
+- Srijan Reddy Vasa
+- Vojtěch Jelínek (who also serves as release coordination lead)
 
 Membership of this group is decided by appointment, by a committee made up of the currently-serving core maintainers.
 
