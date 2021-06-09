@@ -1,4 +1,5 @@
 ## Contents 
+
 * [Introduction](#introduction)
 * [Directory Structure](#directory-structure) 
 * [Schema keys](#schema-keys)
@@ -22,22 +23,18 @@ All arguments passed to the GET/POST/PUT/DELETE methods of the handler classes i
 
 The following key methods are used in the validation of handler args through the SVS architecture:
 - **validate_args_schema()** in base.py  
-    This method is defined in the BaseHandler class of base.py.  
-    The validate_args_schema method is responsible for raising all kinds of errors in the context of validation of handler args, like - 
-    **InvalidInputException** and **NotImplemented** error. (See [this section](#common-error-faced) for a list of common errors that may arise.)
+This method is defined in the BaseHandler class of base.py.  
+The validate_args_schema method is responsible for raising all kinds of errors in the context of validation of handler args, like - 
+**InvalidInputException** and **NotImplemented** error. (See [this section](#common-error-faced) for a list of common errors that may arise.)
 - **validate(handler_args, handler_args_schema)** in payload_validator.py  
-    **handler_args**: The arguments from payload/ request.  
-    **handler_args_schema**: Schema from the handler class.(See 
-[this link](#how-to-write-validation-schema-for-handlers) for more information on how to write 
-    a schema).  
-    This method is the core method for SVS functionality. It collects all the 
-    AssertionErrors raised from schema_utils.
+**handler_args**: The arguments from payload/ request.  
+**handler_args_schema**: Schema from the handler class.(See [this link](#how-to-write-validation-schema-for-handlers) for more information on how to write a schema).  
+ This method is the core method for SVS functionality. It collects all the AssertionErrors raised from schema_utils.
 - **normalize_against_schema(obj, schema)** in schema_utils.py  
-    **obj**: The object which needs to be normalized.  
-    **schema**: The schema for the object.  
-    This method normalizes the obj against its schema and raises AssertionError 
-    if any of the validation checks fail. This assertionerror is 
-    represented as InvalidInputException to the users.
+**obj**: The object which needs to be normalized.  
+**schema**: The schema for the object.  
+This method normalizes the obj against its schema and raises AssertionError if any of the validation checks fail. This assertionerror is 
+represented as InvalidInputException to the users.
 
 ## Schema Keys
 
