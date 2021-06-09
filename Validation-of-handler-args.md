@@ -63,26 +63,15 @@ Data can be validated using Oppia’s SVS by providing a schema for the data(arg
 If you’re writing a new handler method, you’ll need to add schema validation for the handler args. To do this, follow the steps below:
 1. **List all the arguments passed to each method in the handler**  
 Make a list of all the arguments passed to each method in the handler class. Arguments received by a handler class method can be categorized into 3 types:
-    - **URL path elements** : The data which is present inside the URL are called 
-    URL path elements. Example: in ```url/<exploration_id>/```, the 
-    exploration_id is a URL path element.
-    - **Payload arguments**: The data which comes from payloads are called 
-    payload arguments. These data are typically received by PUT and POST methods.
-    - **URL query parameters**: The data which comes to the handlers via the 
-    query strings in urls are called URL query parameters. Example: in 
-    ```url/<exploration_id>?username=nikhil```, there is a single URL query 
-    parameter, with arg name “username” and value “nikhil”. URL query parameters 
-    are typically received by GET and DELETE methods.  
-    If you face any difficulty see the [debugging section](#debugging-tricks) or 
+    - **URL path elements** : The data which is present inside the URL are called URL path elements. Example: in ```url/<exploration_id>/```, the exploration_id is a URL path element.
+    - **Payload arguments**: The data which comes from payloads are called payload arguments. These data are typically received by PUT and POST methods.
+    - **URL query parameters**: The data which comes to the handlers via the query strings in urls are called URL query parameters. Example: in ```url/<exploration_id>?username=nikhil```, there is a single URL query parameter, with arg name “username” and value “nikhil”. URL query parameters are typically received by GET and DELETE methods.  If you face any difficulty see the [debugging section](#debugging-tricks) or 
     reach out to any of the persons mentioned in the [contact section](#contact).
+
 2. **Determine the schema for each argument**  
-   For writing schema each argument should be analysed deeply, like the use of 
-   argument in the backend structure of the code and based on the analysis, 
-   schema for the arguments should be written by following the 
-[boilerplate code](#handlers-with-no-arguments).
-   See these links for more information on [allowed schema keys](#schema-keys), 
-   [Important code pointers](#important-code-pointers), and 
+For writing schema each argument should be analysed deeply, like the use of argument in the backend structure of the code and based on the analysis, schema for the arguments should be written by following the [boilerplate code](#handlers-with-no-arguments). See these links for more information on [allowed schema keys](#schema-keys), [Important code pointers](#important-code-pointers), and 
 [examples](#example-for-reference).
+
 3. **Define schemas for URL path elements in URL_PATH_ARGS_SCHEMAS**  
 The schemas for URL path elements should be written in URL_PATH_ARGS_SCHEMAS.  
 The keys of URL_PATH_ARGS_SCHEMAS should be the full set of URL path elements and the corresponding values should be the schemas for those args. If there are no URL path elements, then URL_PATH_ARGS_SCHEMAS should be set to {} (an empty dict).  
@@ -94,15 +83,11 @@ URL_PATH_ARGS_SCHEMAS = {
     }
 }
 ```
+
 4. **Define schemas for payload arguments and URL query parameter in HANDLER_ARGS_SCHEMAS**  
-    - The schemas for payload arguments and URL query parameters are written in 
-    HANDLER_ARGS_SCHEMAS.
-    - After writing [boilerplate code](#handlers-with-no-arguments) for the HANDLER_ARGS_SCHEMAS, the value corresponding to each request method key (GET/PUT/POST/DELETE) should contain all the payload args and URL query parameters for the corresponding method where each key represents the name of an argument and the corresponding value represents its schema.  
-    Note: While writing boilerplate code, make sure to remove the request keys 
-    which do not correspond to any request method in the handler class.   
-    Examples:  Let “username” be an argument passed to the delete request method 
-    of a handler class. Then, the schema for the delete request method should 
-    look like: 
+    - The schemas for payload arguments and URL query parameters are written in HANDLER_ARGS_SCHEMAS.
+    - After writing [boilerplate code](#handlers-with-no-arguments) for the HANDLER_ARGS_SCHEMAS, the value corresponding to each request method key (GET/PUT/POST/DELETE) should contain all the payload args and URL query parameters for the corresponding method where each key represents the name of an argument and the corresponding value represents its schema.   Note: While writing boilerplate code, make sure to remove the request keys which do not correspond to any request method in the handler class. 
+Examples:  Let ```username``` be an argument passed to the delete request method of a handler class. Then, the schema for the delete request method should look like: 
 ```
 HANDLER_ARGS_SCHEMAS = {
     'DELETE': {
@@ -114,13 +99,15 @@ HANDLER_ARGS_SCHEMAS = {
 ```
 
 ## Important code pointers
+
 When adding schemas for the args of a particular handler class, some analysis is typically needed. The following points discuss the conventions adopted throughout the codebase for adding schemas to handler classes. **Please read these conventions carefully**:  
   
 ### Default & Optional arguments
+
 If an argument is not present in a payload/request, and the schema for that argument is defined in the handler, then that argument is treated as “missing”. For missing args, schema utils will raise AssertionError which is represented as InvalidInputException by validate_args_schema() method.  
-To provide default args for a handler, include a key with the name “default_value” in the schema. The value for this key is the default value with which the arg will be updated if no value for that arg is provided in the request. If an argument is optional and it is not supposed to be updated with any default value, then the “default_value” key should contain None. 
+To provide default args for a handler, include a key with the name ```default_value``` in the schema. The value for this key is the default value with which the arg will be updated if no value for that arg is provided in the request. If an argument is optional and it is not supposed to be updated with any default value, then the “default_value” key should contain None. 
  
-**Example when default value is provided**: Let "apply_draft" be an optional argument which should take the default value False if no value for that arg is provided in the request/payload. In that case, the schema for "apply_draft" should look like:
+**Example when default value is provided**: Let ```apply_draft``` be an optional argument which should take the default value False if no value for that arg is provided in the request/payload. In that case, the schema for "apply_draft" should look like:
 ```
 {
     'GET': {
@@ -131,7 +118,7 @@ To provide default args for a handler, include a key with the name “default_va
     }
 }
 ```
-**Example when default value is not provided**: Suppose "make_community_owned" is an optional argument which should not take any default value if no value for that arg is provided in the request/payload. In that case, the schema for "make_community_owned" should look like:
+**Example when default value is not provided**: Suppose ```make_community_owned``` is an optional argument which should not take any default value if no value for that arg is provided in the request/payload. In that case, the schema for "make_community_owned" should look like:
 ```
 {
     'PUT':{
@@ -145,6 +132,7 @@ To provide default args for a handler, include a key with the name “default_va
 Pr link for reference: (**Example**)
 
 ### Domain objects arguments
+
 Objects which are represented by classes written in the domain layer of the codebase are called domain objects. These classes typically include methods to validate their objects.  
 For validating domain objects through SVS architecture, the class for that corresponding domain object should be passed directly to the schema. Schemas for domain objects have two keys:as follows:  
 1. “type”: “object_dict”
@@ -163,8 +151,9 @@ For validating domain objects through SVS architecture, the class for that corre
 
 ```
 ### Extra validators
+
 By providing validators, you can increase a schema’s functionality. The `validators` field in the schema contains a list of dicts, where each dict contains a key “id” whose value is the name of the validator. Existing validator methods can be found in _Validator class of  schema utils. You can use the existing validators, or write new ones.  
-**Example**: Let us assume that language_code is a handler arg that needs to be validated in order to check whether it is a supported language code. The validator checking this is already written in schema_utils. So the schema for language code would look like:
+**Example**: Let us assume that ```language_code``` is a handler arg that needs to be validated in order to check whether it is a supported language code. The validator checking this is already written in schema_utils. So the schema for language code would look like:
 ```
 HANDLER_ARGS_SCHEMAS = {
     PUT': {
@@ -179,9 +168,11 @@ HANDLER_ARGS_SCHEMAS = {
 ```
 
 ### Extra arguments
+
 Any received arguments which do not correspond to a schema in the handler class are treated as extra arguments. By default, schema_utils will raise AssertionError for extra args. However, for html handlers, extra args are allowed (to accommodate e.g. utm parameters which are not used by the backend but needed for analytics -- see [this link](https://support.google.com/analytics/answer/1033863?hl=en#zippy=%2Cin-this-article) for an explanation). Note that the schema for HTML handlers can be written in the usual way. (The functionality for allowing extra arguments in HTML handlers is already handled by the schema validation infrastructure.)
 
 ### Handlers with no arguments
+
 Handlers with no request arguments still need a schema defined, otherwise you will face NotImplemented Error.  
 In this case, the schema should look like the following (note that the keys for HANDLER_ARGS_SCHEMAS depend on which handler methods are present):
 ```
@@ -195,24 +186,17 @@ In this case, the schema should look like the following (note that the keys for 
 ```
 
 ## Common Error faced
+
 When writing handler args, you may encounter NotImplementedErrors or InvalidInputException. Here is how to handle these:
 1. **NotImplementedError**
-    - **Description**: This error will be raised if any necessary schemas (i.e, 
-      HANDLER_ARGS_SCHEMAS or URL_PATH_ARGS_SCHEMAS) are not present in the 
-      corresponding handler class.
-    - **How to resolve**: This error message is raised with the name of the 
-      handler which is missing a schema definition. So, by reading the error 
-      message, you can know which handler class needs schemas to be added.
+    - **Description**: This error will be raised if any necessary schemas (i.e, HANDLER_ARGS_SCHEMAS or URL_PATH_ARGS_SCHEMAS) are not present in the corresponding handler class.
+    - **How to resolve**: This error message is raised with the name of the handler which is missing a schema definition. So, by reading the error message, you can know which handler class needs schemas to be added.
 2. **InvalidInputException**
-    - **Description**: This error will be raised if schema validation failed for 
-      any argument. It may be due to extra args, missing args or any type 
-      mismatch.
-    - **How to resolve**: This error message is raised by the 
-      validate_args_schema() method with the name of the argument for which 
-      schema validation failed. So by looking at error messages and stack traces, 
-      you can find which argument is failing the schema validation test.
+    - **Description**: This error will be raised if schema validation failed for any argument. It may be due to extra args, missing args or any type mismatch.
+    - **How to resolve**: This error message is raised by the validate_args_schema() method with the name of the argument for which schema validation failed. So by looking at error messages and stack traces, you can find which argument is failing the schema validation test.
 
 ## Example for reference
+
 Examples of pr for different types is given below:
 - Pr link for type dict
 - Pr link for type list
@@ -221,6 +205,7 @@ Examples of pr for different types is given below:
 - Pr link for type int
 
 ## Debugging tricks
+
 When writing the schema for a handler class, you will often need to add a couple of print statements to gain information about the arguments coming from payload/request. In this section we will add a schema step by step for ExplorationRightsHandler.  
 **Steps**:
 1. Find the handler class.
@@ -239,6 +224,7 @@ Add these print statements in the validate_args_schema() of the base.py. Make su
         print('------------'*3)
         print('Request url = ',self.request.uri)
         print('Handler class name = ',handler_class_name)
+        print('handler_args = ',handler_args)
         print('Arguments = ', self.request.arguments())
         print('Iterating over arguments...')
         for j in self.request.arguments():
