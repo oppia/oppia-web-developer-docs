@@ -111,10 +111,10 @@ The keys of URL_PATH_ARGS_SCHEMAS should be the full set of URL path elements an
 Examples:  Let ```exploration_id``` be a data present in the url path. Then, the schema for exploration_id should look like:
 ```
 URL_PATH_ARGS_SCHEMAS = {
-            'exploration_id': {
-                'type': 'unicode'
-            }
-        }
+    'exploration_id': {
+        'type': 'unicode'
+    }
+}
 ```
 4. **Define schemas for payload arguments and URL query parameter in HANDLER_ARGS_SCHEMAS**  
     - The schemas for payload arguments and URL query parameters are written in 
@@ -127,12 +127,12 @@ URL_PATH_ARGS_SCHEMAS = {
     look like: 
 ```
 HANDLER_ARGS_SCHEMAS = {
-            'DELETE': {
-                'username': {
-                        'type': 'unicode',
-                 }
-            }
-   }
+    'DELETE': {
+        'username': {
+            'type': 'unicode'
+        }
+    }
+}
 ```
 
 ## Important code pointers
@@ -145,23 +145,23 @@ To provide default args for a handler, include a key with the name “default_va
 **Example when default value is provided**: Let "apply_draft" be an optional argument which should take the default value False if no value for that arg is provided in the request/payload. In that case, the schema for "apply_draft" should look like:
 ```
 {
-'GET': {
-                'apply_draft': {
-                    'type': 'bool',
-                    'default_value': False
-                }
-            }
+    'GET': {
+        'apply_draft': {
+            'type': 'bool',
+            'default_value': False
+        }
+    }
 }
 ```
 **Example when default value is not provided**: Suppose "make_community_owned" is an optional argument which should not take any default value if no value for that arg is provided in the request/payload. In that case, the schema for "make_community_owned" should look like:
 ```
 {
-'PUT':{
-                'make_community_owned': {
-                    'type': 'bool',
-                    'default_value': None
-                }
-   }
+    'PUT':{
+        'make_community_owned': {
+            'type': 'bool',
+            'default_value': None
+        }
+    }
 }
 ```
 Pr link for reference: (**Example**)
@@ -174,30 +174,30 @@ For validating domain objects through SVS architecture, the class for that corre
 **Example**: Let "change_list" be a list of dicts where each dict item is a representation of the ExplorationChange domain object in the exp_domain file. The schema for "change_list" should look like:
 ```
 'PUT': {
-                'change_list': {
-                    'type': 'list',
-                    'items': {
-                        'type': 'object_dict',
-                        'object_class': exp_domain.ExplorationChange
-                    }
-                }
-       }
+    'change_list': {
+        'type': 'list',
+        'items': {
+            'type': 'object_dict',
+            'object_class': exp_domain.ExplorationChange
+        }
+    }
+}
 
 ```
 ### Extra validators
 By providing validators, you can increase a schema’s functionality. The `validators` field in the schema contains a list of dicts, where each dict contains a key “id” whose value is the name of the validator. Existing validator methods can be found in _Validator class of  schema utils. You can use the existing validators, or write new ones.  
 **Example**: Let us assume that language_code is a handler arg that needs to be validated in order to check whether it is a supported language code. The validator checking this is already written in schema_utils. So the schema for language code would look like:
 ```
- HANDLER_ARGS_SCHEMAS = {
-            'PUT': {
-                'language_code': {
-                    'type': 'unicode',
-                    'validators': [{
-                        'id': 'is_supported_language_code'
-                    }]
-               }   
-            }
-        }
+HANDLER_ARGS_SCHEMAS = {
+    PUT': {
+        'language_code': {
+            'type': 'unicode',
+            'validators': [{
+                'id': 'is_supported_language_code'
+            }]
+        }   
+    }
+}
 ```
 
 ### Extra arguments
@@ -302,39 +302,39 @@ class ExplorationRightsHandler(EditorHandler):
     """Handles management of exploration editing rights."""
 
     URL_PATH_ARGS_SCHEMAS = {
-            'exploration_id': {
-                'type': 'unicode'
-            }
+        'exploration_id': {
+            'type': 'unicode'
         }
+    }
 
     HANDLER_ARGS_SCHEMAS = {
-            'DELETE': {
-                'username': {
-                        'type': 'unicode'
-                    }
-            },
-            'PUT':{
-                'version': {
-                    'type': 'int'
-                },
-                'make_community_owned': {
-                    'type': 'bool',
-                    'default_value': None
-                },
-                'new_member_username': {
-                    'type': 'unicode',
-                    'default_value': None
-                },
-                'new_member_role': {
-                    'type': 'unicode',
-                    'default_value': None
-                },
-                'viewable_if_private': {
-                    'type': 'bool',
-                    'default_value': None
+        'DELETE': {
+            'username': {
+                    'type': 'unicode'
                 }
+        },
+        'PUT':{
+            'version': {
+                'type': 'int'
+            },
+            'make_community_owned': {
+                'type': 'bool',
+                'default_value': None
+            },
+            'new_member_username': {
+                'type': 'unicode',
+                'default_value': None
+            },
+            'new_member_role': {
+                'type': 'unicode',
+                'default_value': None
+            },
+            'viewable_if_private': {
+                'type': 'bool',
+                'default_value': None
             }
         }
+    }
 
 ```
 7. Remove print statements  
