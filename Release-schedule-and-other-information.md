@@ -84,6 +84,7 @@ We also have a project leads council who will be contacted about project specifi
   * Chris Skalnik (**@U8NWXD**)
   * Kevin Thomas (**@kevintab95**)
   * Vojtěch Jelínek (**@vojtechjelinek**)
+  * Rohit Katlaa (**@rohitkatlaa**)
 
 # Release coordinators and QA coordinators for upcoming releases
 
@@ -97,4 +98,4 @@ We also have a project leads council who will be contacted about project specifi
 | March         | Vojta (**@vojtechjelinek**) | Nithesh (**@nithusha21**)   |                             |
 | April         | Akshay (**@aks681**)        | Chris (**@U8NWXD**)         | Kevin (**@kevintab95**)     |
 | May           | Sandeep (**@DubeySandeep**) | Kevin (**@kevintab95**)     | Vojta (**@vojtechjelinek**) |
-| June          | Nithesh (**@nithusha21**)   | Vojta (**@vojtechjelinek**) | Kevin (**@kevintab95**)     |
+| June          | Nithesh (**@nithusha21**)   | Vojta (**@rohitkatlaa**)    | Kevin (**@kevintab95**)     |
