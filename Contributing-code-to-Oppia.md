@@ -302,6 +302,6 @@ After you've submitted a PR, and are waiting for it to get reviewed, you might w
 We have several mailing lists in the form of Google Groups that you can join:
 
 - [oppia-announce](https://groups.google.com/forum/#!forum/oppia-announce) is for announcements of new releases or blog posts.
-- [oppia-dev](https://groups.google.com/forum/#!forum/oppia-dev) is the main mailing list for communication between developers, and for technical questions.
+- [oppia-dev](https://groups.google.com/forum/#!forum/oppia-dev) is the main mailing list for communication between developers, and for technical questions. You can post to it even if you're not a member of the group.
 
 We also have a developer chat room [here](https://gitter.im/oppia/oppia-chat). Feel free to drop in and say hi!
