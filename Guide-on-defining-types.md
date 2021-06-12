@@ -16,6 +16,7 @@
   * [Discriminated Unions](#discriminated-unions)
   * [Conditional Types](#conditional-types)
   * [Example](#example)
+- [Cases encountered in Codebase:](#cases-encountered-in-oppia-codebase)
 
 ## Why do we need to define types?
 - Earlier detection of errors which in turn speeds development
@@ -345,3 +346,361 @@ export class LearnerActionObjectFactory {
 ```
 
 Passing invalid combinations of `action_type` and `customization_args` to the `createFromBackendDict` function would throw typescript errors, and that's what we want.
+
+
+## Cases Encountered in Oppia Codebase:
+
+The following list illustrates some common TypeScript issues encountered in the Oppia codebase and explains how to update the code in each case, in order to support strict type-checking.
+
+### 1. Variable ‘<variable name>’ implicitly has type ‘any’ in some locations where its type cannot be determined
+#### [TS-1-1]
+
+##### Violation:
+The type of variable is not defined explicitly and hence typescript assigns it an ‘any’ type. This violates the **noImplicitAny** rule of strict mode. 
+
+```typescript
+describe(‘Test winnowing preprocessing functions’, () => {
+    var service; // error
+    beforeEach(() => {
+        service = new WinnowingPreprocessingService();
+    });
+...
+});
+```
+
+
+##### Solution: 
+To solve this, the variable is explicitly assigned the type it belongs to. In some cases in the Oppia codebase, we may need to import the Interface, Class or Type as it is not imported in the file before.
+In this example, the service was of type `WinnowingPreprocessingService`.
+
+```typescript
+describe(‘Test winnowing preprocessing functions’, () => {
+    var service: WinnowingPreprocessingService; 
+    beforeEach(() => {
+        service = new WinnowingPreprocessingService();
+    });
+...
+});
+```
+
+
+#### [TS-1-2]
+##### Violation:
+The following scenario arises when we are dealing with the need to specify the type of a variable of a **constant**.
+
+```typescript
+var errors; // noImplicitAny Violation
+
+errors = ObjectDomainConstants.NUMBER_WITH_UNIT_PARSING_ERRORS;
+
+``` 
+
+
+
+
+##### Solution:
+The way we can specify the type of a constant variable is by using `typeof <constant>`.
+
+```typescript
+var: errors: typeof ObjectDomainConstants.NUMBER_WITH_UNITS_PARSING_ERRORS;
+
+errors = ObjectDomainConstants.NUMBER_WITH_UNITS_PARSING_ERRORS;
+```
+
+
+### 2: Type null is not assignable to type ‘<type name>’
+#### [TS-2-1]:
+##### Violation:
+The **strictNullChecks** rule disallows assigning `null` and `undefined` as a value until the type is explicitly marked. 
+In the following example taken from the codebase, `ruleObjectFactory` is of type `RuleObjectFactory`. Since it was not explicitly assigned the type `null`, the compiler throws an error when we try to assign it the value `null`. 
+
+```typescript
+describe(‘RuleObjectFactory’. () => {
+    let ruleObjectFactory: RuleObjectFactory = null; // error
+...
+})
+```
+
+
+
+##### Solution: 
+In some cases that arise throughout the Oppia codebase as in this example, we can simply remove the `null` value assignment.
+
+```typescript
+describe(‘RuleObjectFactory’. () => {
+    let ruleObjectFactory: RuleObjectFactory;
+...
+})
+```
+
+
+#### [TS-2-2]:
+##### Violation:
+The **strictNullChecks** rule does not pass and the value `null` or `undefined` is being passed to a function. 
+
+```typescript
+…
+private savedMemento: string = null; // error
+setStateNameSavedMemento(stateName: string): void {
+    this.savedMemento = stateName;
+}
+
+```
+
+
+##### Solution:
+The first course of action to be taken is to try and refactor the code in a way that adding `null` or `undefined` may not be needed. 
+We cannot refactor the code since the initial value of `savedMemento` has to be `null`. 
+
+If refactoring may not be an option as in the example above, we can convert the type to a union and add the type `null` explicitly.
+
+```typescript
+…
+private savedMemento: string | null = null;
+setStateNameSavedMemento(stateName: string | null ): void {
+    this.savedMemento = stateName;
+}
+```
+
+
+### 3: In situations where the type can be `undefined` and cannot be refactored. The following errors can occur:
+
+Object is possibly `undefined`.
+
+Argument of type ‘<type1> | undefined’ is not assignable to parameter of type ‘<type1>’.
+#### [TS-3-1]:
+##### Violation:
+We would need to analyze the behavior of the code when `undefined` is actually returned.
+
+Consider the following example:
+
+```typescript
+...
+var height = shadowPreviewCard.height();
+return (height > 630); // error
+```
+
+
+`shadowPreviewCard` is a jQuery selector and `height()` will return the height of an element and `undefined` if the element does not exist.
+##### Solution:
+height() will only return undefined if shadowPreviewCard Selector does not exist. 
+By analyzing the code, we come to know that the css classes do exist in the directives html code and were put there for the exact purpose of checking the height of the card. Hence, the selector will be valid, and the undefined case will never occur in this part of the code.
+
+Hence, to make sure the code behaves the way it is supposed to, we should throw an error if `height()` ever returns `undefined`.
+
+```typescript
+...
+var height = shadowPreviewCard.height();
+if (typeof height === undefined){
+    throw new Error(“Shadow Preview Card Selector does not exist”)’;
+}
+return (height > 630); 
+```
+
+
+#### [TS-3-2]:
+File: https://github.com/oppia/oppia/blob/develop/core/templates/domain/topic/topic-summary.model.ts 
+##### Violation:
+Using ? before assigning values to properties makes them optional, which means that they can have type undefined alongside whichever type they were assigned.
+
+For example, can_edit_topic is implicitly of type boolean | undefined. 
+
+```typescript
+…
+  // These properties are optional because they are only present in the
+  // topic summary dict of topic dashboard page.
+  'can_edit_topic'?: boolean;
+  'is_published'?: boolean;
+  'classroom'?: string;
+...
+   topicSummaryBackendDict.topic_model_last_updated,
+   topicSummaryBackendDict.can_edit_topic, // error
+   topicSummaryBackendDict.is_published, // error
+   topicSummaryBackendDict.classroom, // error
+   topicSummaryBackendDict.thumbnail_filename,
+   topicSummaryBackendDict.thumbnail_bg_color,
+```
+
+
+
+##### Solution:
+If possible, we should try to refactor the code so that `undefined` may not be needed. 
+If not, the fix to this error will be to add ` | undefined` at places where these properties have been used i.e. at the point of declaration and at return types of functions as shown below
+
+```typescript
+…
+  public canEditTopic: boolean | undefined,
+  public isPublished: boolean | undefined,
+  public classroom: string | undefined,
+…
+  getClassroom(): string | undefined {
+    return this.classroom;
+  }
+...
+  isTopicPublished(): boolean | undefined {
+    return this.isPublished;
+  }
+...
+```
+
+
+
+### 4: Element implicitly has an ‘any’ type because expression of type ‘string’ can’t be used to index type ‘{ }’. No index signature with a parameter of type ‘string’ was found on type ‘{ }’.
+#### [TS-4-1]:
+##### Violation:
+This situation or a variant of it arises in a significant number of files in the Oppia codebase when working with dictionaries. The following error arises because there is no explicit type mentioned for the key-value pairs of the dictionary. Hence the type of value returned for the specific key cannot be determined and ends up implicitly with type `any` which is not allowed in typescript strict mode.
+
+In the example, `nodeTitles` had type `{ }` with no explicit mention of the types of key-value pairs and `nodes[ ].getId()` returns a `string`. 
+
+```typescript
+...
+var nodes = this._nodes;
+var nodeTitles = { };
+for (var i = 0; i < nodes.length; i++){
+    ...
+    // nodes[i].getId() -> returns string
+    let title = nodeTitles[nodes[i].getId()]; //error
+    ...
+}
+```
+
+
+##### Solution:
+We need to explicitly mention the type of key-value pair/s present in the dictionary. 
+For simple dictionaries, this can be done by using the utility type `Record<Keys,Type>`. 
+
+**Note: ** An interface should be declared for more complicated dictionaries and anything that is used at more than one place except the following:
+Native types
+Maps
+Utility Types (e.g. Partial<Type>, Pick<Type, Keys>, Record<Keys, Type>) -- see [this guide](https://www.typescriptlang.org/docs/handbook/utility-types.html).
+
+```typescript
+...
+var nodes = this._nodes;
+var nodeTitles: Record<string,string> = { };
+for (var i = 0; i < nodes.length; i++){
+    ...
+    // nodes[i].getId() -> returns string
+    let title = nodeTitles[nodes[i].getId()]; 
+    ...
+}
+```
+
+
+#### [TS-4-2]:
+##### Violation:
+When we use `Object.keys()` it returns type `string[ ]` and not type `<constant key>[ ]` which causes the error above whenever we try to use any of the key values where it expects a value of type `<constant key>` and instead gets type `string`.
+
+```typescript
+var keys = Object.keys(ObjectsDomainConstants.CURRENCY_UNITS);
+for (var i = 0; i < keys.length; i++){
+    let baseUnitValue = (
+        ObjectsDomainConstants.CURRENCY_UNITS[keys[i]].base_unit); // error
+    );
+}
+```
+
+
+##### Solution:
+The potential fix to this error is to explicitly identify the type of key values to be of those properties present in the constant, declare a type for it and then use it as a **type assertion** for the keys.
+
+```typescript
+type CurrencyUnitKeys = (
+    keyof typeof ObjectDomainConstants.CURRENCY_UNITS)[ ];
+var keys = (
+     <CurrencyUnitsKeys> Object.keys(ObjectsDomainConstants.CURRENCY_UNITS)
+   );
+for (var i = 0; i < keys.length; i++){
+    let baseUnitValue = (
+        ObjectsDomainConstants.CURRENCY_UNITS[keys[i]].base_unit); 
+    );
+}
+```
+
+
+**Reference:** [PR-12642](https://github.com/oppia/oppia/pull/12643/files#diff-2d18a828071d16d44dd9131301259bef95d00247ee038b53b51e8f0cb96d77c4R185-R187)
+
+
+### 5: Argument of type 'string[ ]' is not assignable to parameter of type 'number[ ]’
+
+#### [TS-5-1]
+##### Violation:
+This error specifies that a wrong type cannot be assigned to some variable of type string[ ]. 
+Using `Object.keys()` returns some value of type `string[ ]` but usage of variable for assignment at other places asks for it to be a `number[ ]`.
+
+```typescript
+var existingNumSpaces = Object.keys(numSpacesToDesiredIndentLevel);
+```
+
+
+##### Solution:
+The fix to this error will be to check the usage of variable at certain places and `map` it to `number` as shown below.
+
+```typescript
+var existingNumSpaces = Object.keys( 
+          numSpacesToDesiredIndentLevel 
+).map(Number);
+```
+
+
+
+### 6: ‘this’ implicitly has type ‘any’ because it does not have a type annotation.
+#### [TS-6-1]
+##### Violation:
+Considering the following code, it violates `noImplicitThis` rule.
+
+```typescript
+describe('High bounce rate task model', function() {
+    beforeEach(() => {
+        this.config = ( // error
+        new ExplorationImprovementConfig(‘eid’, 1, true, 0.25, 0.20, 100));
+    }
+    ...
+}
+```
+
+
+##### Solution:
+The way to handle this is by initializing the variables and their types and removing `this` before each call to that variable.
+
+```typescript
+describe('High bounce rate task model', function() {
+    let config: ExplorationImprovementsConfig;
+    beforeEach(() => {
+        config = (
+        new ExplorationImprovementConfig(‘eid’, 1, true, 0.25, 0.20, 100));
+    }
+    ...
+}
+```
+
+
+**Reference:** [#12642](https://github.com/oppia/oppia/pull/12643/files#diff-889c624b65e382805c19df5efe460414e323e9793fc5200b79ffeb61ea20e46dR28-R37)
+### 7: Property ‘<PropertyName>’ has no initializer and is definitely not assigned in the constructor
+#### [TS-7-1]
+##### Violation:
+The strictPropertyInitialization rule enforces that the properties are assigned either in the constructor or with a property initializer and due to this, the following situation may occur.
+
+
+```typescript
+@Input() options: CodeMirrorMergeViewOptions; // error
+@ViewChild(CodemirrorComponent) codemirrorComponent: CodemirrorComponent;  //error
+codemirror: CodeMirror.Editor; // error
+
+```
+
+
+
+##### Solution:
+Angular lifecycle hooks are used to populate the values inside the codebase. To solve this case, we will be using the non-null (!) assertion operator which asserts that the object is non-null and non-undefined. Adding ` | undefined` as a type will work for properties used inside components and just `( ! )` operator for properties that involve Component Interactions (like `@Input()` in this case).
+
+```typescript
+@Input() options!: CodeMirrorMergeViewOptions;
+@ViewChild(CodemirrorComponent) codemirrorComponent: CodemirrorComponent | undefined;
+codemirror: CodeMirror.Editor | undefined;
+
+```
+
+
+**Reference:** [#12965](https://github.com/oppia/oppia/pull/12965/files#diff-a6de57afea05cf64679a839bccd46bd637dcd287d134ad3483a3714d033a5f16R23-R29)
+
