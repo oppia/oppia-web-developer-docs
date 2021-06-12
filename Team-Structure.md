@@ -34,7 +34,7 @@ Contributors should notify the Core Maintainers when they see major bugs or secu
 
 ### Release process team
 
-(Currently led by Ankita Saxena.)
+(Currently led by Vojtěch Jelínek and Nithesh Hariharan.)
 
 This team is responsible for ensuring that Oppia releases happen smoothly, correctly, and on time. Long-term projects include:
 - Streamlining the release process, and automating as many parts as possible, in order to reduce the chance of human error.
@@ -55,7 +55,7 @@ This team is responsible for ensuring that the Oppia codebase and releases are b
 
 ### Development workflow team
 
-(Currently led by Kevin Lee.)
+(Currently led by Sandeep Dubey.)
 
 Ensures that the Oppia development process is smooth, stable and enjoyable, by ensuring that the following always hold:
 - There are no issues with codebase setup (especially for new contributors).
