@@ -347,12 +347,19 @@ export class LearnerActionObjectFactory {
 
 Passing invalid combinations of `action_type` and `customization_args` to the `createFromBackendDict` function would throw typescript errors, and that's what we want.
 
+## Why Enable Strict Mode?
+We are working to enable strict mode checks for all TypeScript code in the codebase. This is because code that passes these checks has several benefits:
+
+* The code becomes more self-documenting
+* Edge cases are caught, thus reducing potential runtime errors
+* The written code will be more robust 
 
 ## Cases Encountered in Oppia Codebase:
 
 The following list illustrates some common TypeScript issues encountered in the Oppia codebase and explains how to update the code in each case, in order to support strict type-checking.
 
-### 1. Variable ‘<variable name>’ implicitly has type ‘any’ in some locations where its type cannot be determined
+### [TS-1]:
+ Variable `<variable name>` implicitly has type ‘any’ in some locations where its type cannot be determined
 #### [TS-1-1]
 
 ##### Violation:
@@ -408,7 +415,8 @@ errors = ObjectDomainConstants.NUMBER_WITH_UNITS_PARSING_ERRORS;
 ```
 
 
-### 2: Type null is not assignable to type ‘<type name>’
+### [TS-2]:
+ Type null is not assignable to type `<type name>`
 #### [TS-2-1]:
 ##### Violation:
 The **strictNullChecks** rule disallows assigning `null` and `undefined` as a value until the type is explicitly marked. 
@@ -463,11 +471,12 @@ setStateNameSavedMemento(stateName: string | null ): void {
 ```
 
 
-### 3: In situations where the type can be `undefined` and cannot be refactored. The following errors can occur:
+### [TS-3]:
+ In situations where the type can be `undefined` and cannot be refactored. The following errors can occur:
 
 Object is possibly `undefined`.
 
-Argument of type ‘<type1> | undefined’ is not assignable to parameter of type ‘<type1>’.
+Argument of type `<type1> | undefined` is not assignable to parameter of type `<type1>`.
 #### [TS-3-1]:
 ##### Violation:
 We would need to analyze the behavior of the code when `undefined` is actually returned.
@@ -501,12 +510,12 @@ return (height > 630);
 #### [TS-3-2]:
 File: https://github.com/oppia/oppia/blob/develop/core/templates/domain/topic/topic-summary.model.ts 
 ##### Violation:
-Using ? before assigning values to properties makes them optional, which means that they can have type undefined alongside whichever type they were assigned.
+Using `?` before assigning values to properties makes them optional, which means that they can have type undefined alongside whichever type they were assigned.
 
-For example, can_edit_topic is implicitly of type boolean | undefined. 
+For example, `can_edit_topic` is implicitly of type `boolean | undefined`. 
 
 ```typescript
-…
+...
   // These properties are optional because they are only present in the
   // topic summary dict of topic dashboard page.
   'can_edit_topic'?: boolean;
@@ -528,11 +537,11 @@ If possible, we should try to refactor the code so that `undefined` may not be n
 If not, the fix to this error will be to add ` | undefined` at places where these properties have been used i.e. at the point of declaration and at return types of functions as shown below
 
 ```typescript
-…
+...
   public canEditTopic: boolean | undefined,
   public isPublished: boolean | undefined,
   public classroom: string | undefined,
-…
+...
   getClassroom(): string | undefined {
     return this.classroom;
   }
@@ -545,7 +554,8 @@ If not, the fix to this error will be to add ` | undefined` at places where thes
 
 
 
-### 4: Element implicitly has an ‘any’ type because expression of type ‘string’ can’t be used to index type ‘{ }’. No index signature with a parameter of type ‘string’ was found on type ‘{ }’.
+### [TS-4]:
+ Element implicitly has an ‘any’ type because expression of type ‘string’ can’t be used to index type ‘{ }’. No index signature with a parameter of type ‘string’ was found on type ‘{ }’.
 #### [TS-4-1]:
 ##### Violation:
 This situation or a variant of it arises in a significant number of files in the Oppia codebase when working with dictionaries. The following error arises because there is no explicit type mentioned for the key-value pairs of the dictionary. Hence the type of value returned for the specific key cannot be determined and ends up implicitly with type `any` which is not allowed in typescript strict mode.
@@ -569,10 +579,10 @@ for (var i = 0; i < nodes.length; i++){
 We need to explicitly mention the type of key-value pair/s present in the dictionary. 
 For simple dictionaries, this can be done by using the utility type `Record<Keys,Type>`. 
 
-**Note: ** An interface should be declared for more complicated dictionaries and anything that is used at more than one place except the following:
+**Note:** An interface should be declared for more complicated dictionaries and anything that is used at more than one place except the following:
 Native types
 Maps
-Utility Types (e.g. Partial<Type>, Pick<Type, Keys>, Record<Keys, Type>) -- see [this guide](https://www.typescriptlang.org/docs/handbook/utility-types.html).
+Utility Types (e.g. `Partial<Type>`, `Pick<Type, Keys>, Record<Keys, Type>`) -- see [this guide](https://www.typescriptlang.org/docs/handbook/utility-types.html).
 
 ```typescript
 ...
@@ -621,7 +631,8 @@ for (var i = 0; i < keys.length; i++){
 **Reference:** [PR-12642](https://github.com/oppia/oppia/pull/12643/files#diff-2d18a828071d16d44dd9131301259bef95d00247ee038b53b51e8f0cb96d77c4R185-R187)
 
 
-### 5: Argument of type 'string[ ]' is not assignable to parameter of type 'number[ ]’
+### [TS-5]:
+ Argument of type 'string[ ]' is not assignable to parameter of type 'number[ ]’
 
 #### [TS-5-1]
 ##### Violation:
@@ -644,7 +655,8 @@ var existingNumSpaces = Object.keys(
 
 
 
-### 6: ‘this’ implicitly has type ‘any’ because it does not have a type annotation.
+### [TS-6]:
+ ‘this’ implicitly has type ‘any’ because it does not have a type annotation.
 #### [TS-6-1]
 ##### Violation:
 Considering the following code, it violates `noImplicitThis` rule.
@@ -676,17 +688,19 @@ describe('High bounce rate task model', function() {
 
 
 **Reference:** [#12642](https://github.com/oppia/oppia/pull/12643/files#diff-889c624b65e382805c19df5efe460414e323e9793fc5200b79ffeb61ea20e46dR28-R37)
-### 7: Property ‘<PropertyName>’ has no initializer and is definitely not assigned in the constructor
+### [TS-7]:
+ Property `<PropertyName>` has no initializer and is definitely not assigned in the constructor
 #### [TS-7-1]
 ##### Violation:
 The strictPropertyInitialization rule enforces that the properties are assigned either in the constructor or with a property initializer and due to this, the following situation may occur.
 
 
 ```typescript
+...
 @Input() options: CodeMirrorMergeViewOptions; // error
 @ViewChild(CodemirrorComponent) codemirrorComponent: CodemirrorComponent;  //error
 codemirror: CodeMirror.Editor; // error
-
+...
 ```
 
 
@@ -695,10 +709,11 @@ codemirror: CodeMirror.Editor; // error
 Angular lifecycle hooks are used to populate the values inside the codebase. To solve this case, we will be using the non-null (!) assertion operator which asserts that the object is non-null and non-undefined. Adding ` | undefined` as a type will work for properties used inside components and just `( ! )` operator for properties that involve Component Interactions (like `@Input()` in this case).
 
 ```typescript
+...
 @Input() options!: CodeMirrorMergeViewOptions;
 @ViewChild(CodemirrorComponent) codemirrorComponent: CodemirrorComponent | undefined;
 codemirror: CodeMirror.Editor | undefined;
-
+...
 ```
 
 
