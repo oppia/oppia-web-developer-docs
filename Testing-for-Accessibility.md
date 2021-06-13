@@ -18,6 +18,8 @@ A focus management approach is described well in this article: [http://simplyacc
     * Buttons
     * Icons that are purely decorative
 * **Keep focus styles:** Discussed a bit more below, under [Physical Disabilities](#physical-disabilities), but you should generally leave focus styles alone.
+
+You can learn more in our [accessibility talk slides](https://docs.google.com/presentation/d/1Vf_S4Q78Aj_O4t92viCrgX1rkQ0kbMgw4SWcXrnzjDQ/edit#slide=id.p)
 # Visual Disabilities
 ## Test using WAVE Plugin and/or WorldSpace Plugin
 The WAVE plugin from WebAIM, a leading accessibility organization, allows you to test a document’s structure, media, and colors to ensure, as much as possible, that it will meet web accessibility standards.
