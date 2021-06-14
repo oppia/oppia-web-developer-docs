@@ -63,9 +63,10 @@ Data can be validated using Oppia’s SVS by providing a schema for the data(arg
 If you’re writing a new handler method, you’ll need to add schema validation for the handler args. To do this, follow the steps below:
 1. **List all the arguments passed to each method in the handler**  
 Make a list of all the arguments passed to each method in the handler class. Arguments received by a handler class method can be categorized into 3 types:
-    - **URL path elements** : The data which is present inside the URL are called URL path elements. Example: in ```url/<exploration_id>/```, the exploration_id is a URL path element.
+    - **URL path elements** : The data which is present as a part of the URL are called URL path elements. Example: in ```url/<exploration_id>/```, the exploration_id is a URL path element.
     - **Payload arguments**: The data which comes from payloads are called payload arguments. These data are typically received by PUT and POST methods.
-    - **URL query parameters**: The data which comes to the handlers via the query strings in urls are called URL query parameters. Example: in ```url/<exploration_id>?username=nikhil```, there is a single URL query parameter, with arg name “username” and value “nikhil”. URL query parameters are typically received by GET and DELETE methods.  If you face any difficulty see the [debugging section](#debugging-tricks) or 
+    - **URL query parameters**: Query parameters are a defined set of parameters attached to the end of a url. They are extensions of the URL that are used to help define specific content or actions based on the data being passed. Example: in ```url/<exploration_id>?username=nikhil```, there is a single URL query parameter, with arg name “username” and value “nikhil”. URL query parameters are typically received by GET and DELETE methods.  
+If you face any difficulty see the [debugging section](#debugging-tricks) or 
     reach out to any of the persons mentioned in the [contact section](#contact).
 
 2. **Determine the schema for each argument**  
@@ -73,8 +74,8 @@ For writing schema each argument should be analysed deeply, like the use of argu
 [examples](#example-for-reference).
 
 3. **Define schemas for URL path elements in URL_PATH_ARGS_SCHEMAS**  
-The schemas for URL path elements should be written in URL_PATH_ARGS_SCHEMAS.  
-The keys of URL_PATH_ARGS_SCHEMAS should be the full set of URL path elements and the corresponding values should be the schemas for those args. If there are no URL path elements, then URL_PATH_ARGS_SCHEMAS should be set to {} (an empty dict).  
+    - The schemas for URL path elements should be written in URL_PATH_ARGS_SCHEMAS.  
+    - The keys of URL_PATH_ARGS_SCHEMAS should be the full set of URL path elements and the corresponding values should be the schemas for those args. If there are no URL path elements, then URL_PATH_ARGS_SCHEMAS should be set to {} (an empty dict).  
 Examples:  Let ```exploration_id``` be a data present in the url path. Then, the schema for exploration_id should look like:
 ```python
 URL_PATH_ARGS_SCHEMAS = {
@@ -86,7 +87,7 @@ URL_PATH_ARGS_SCHEMAS = {
 
 4. **Define schemas for payload arguments and URL query parameter in HANDLER_ARGS_SCHEMAS**  
     - The schemas for payload arguments and URL query parameters are written in HANDLER_ARGS_SCHEMAS.
-    - After writing [boilerplate code](#handlers-with-no-arguments) for the HANDLER_ARGS_SCHEMAS, the value corresponding to each request method key (GET/PUT/POST/DELETE) should contain all the payload args and URL query parameters for the corresponding method where each key represents the name of an argument and the corresponding value represents its schema.   Note: While writing boilerplate code, make sure to remove the request keys which do not correspond to any request method in the handler class. 
+    - After writing [boilerplate code](#handlers-with-no-arguments) for the HANDLER_ARGS_SCHEMAS, the value corresponding to each request method key (GET/PUT/POST/DELETE) should contain all the payload args and URL query parameters for the corresponding method where each key represents the name of an argument and the corresponding value represents its schema. **Note**: While writing boilerplate code, make sure to remove the request keys which do not correspond to any request method in the handler class.  
 Examples:  Let ```username``` be an argument passed to the delete request method of a handler class. Then, the schema for the delete request method should look like: 
 ```python
 HANDLER_ARGS_SCHEMAS = {
@@ -100,7 +101,7 @@ HANDLER_ARGS_SCHEMAS = {
 
 ## Important code pointers
 
-When adding schemas for the args of a particular handler class, some analysis is typically needed. The following points discuss the conventions adopted throughout the codebase for adding schemas to handler classes. **Please read these conventions carefully**:  
+When adding schemas for the args of a particular handler class, some analysis is typically needed. The following points discuss the conventions adopted throughout the codebase for adding schemas to handler classes. **Please read these conventions carefully**. 
   
 ### Default & Optional arguments
 
@@ -135,8 +136,8 @@ Pr link for reference: (**Example**)
 
 Objects which are represented by classes written in the domain layer of the codebase are called domain objects. These classes typically include methods to validate their objects.  
 For validating domain objects through SVS architecture, the class for that corresponding domain object should be passed directly to the schema. Schemas for domain objects have two keys:as follows:  
-1. “type”: “object_dict”
-2. “object_class”: the corresponding domain object class  
+1. **type**: “object_dict”
+2. **object_class**: the corresponding domain object class  
 **Example**: Let "change_list" be a list of dicts where each dict item is a representation of the ExplorationChange domain object in the exp_domain file. The schema for "change_list" should look like:
 ```python
 'PUT': {
@@ -208,16 +209,16 @@ Examples of pr for different types is given below:
 
 When writing the schema for a handler class, you will often need to add a couple of print statements to gain information about the arguments coming from payload/request. In this section we will add a schema step by step for ExplorationRightsHandler.  
 **Steps**:
-1. Find the handler class.
+1. **Find the handler class.**  
 ExplorationRightsHandler is present in the editor.py file.
-2. Identify the request methods.
+2. **Identify the request methods.**  
 ExplorationRightsHandler contains PUT and DELETE request methods.
-3. Make a list of all arguments.  
+3. **Make a list of all arguments.**  
     - URL path elements: exploration_id
     - Payload arguments: version, make_community_owned, new_member_username, 
     new_member_role, viewable_if_private.
     - URL query parameters: username
-4. Add print statements  
+4. **Add print statements**  
 Add these print statements in the validate_args_schema() of the base.py. Make sure to add these print statements after their declaration in the code.
 ```python
         print('\n'*3)
@@ -236,7 +237,7 @@ Add these print statements in the validate_args_schema() of the base.py. Make su
         print('------------'*3)
         print('\n'*3)
 ```
-5. Hit the handler through frontend  
+5. **Hit the handler through frontend**  
 Start the server and hit the handlers from the frontend then view terminal. For "ExplorationRightsHandler", the print logs should look like:
 ```
 
@@ -256,10 +257,10 @@ Iterating over arguments...
 
 
 ```
-6. Write schema by following the boilerplate code  
+6. **Write schema by following the boilerplate code**  
 Writing the schema is the most crucial part, and it is important to get this correct. The print logs from the previous step can help you get started, but please be sure to dig into the backend and frontend code, and follow calls to methods/functions to see how the incoming data is used. This will help you avoid making errors. In particular:  
-For the backend: Try to read code as well as docstrings of all the methods which use the arguments from payload/request.  
-For the frontend: Try to read the functions which are associated with an url.  
+**For the backend**: Try to read code as well as docstrings of all the methods which use the arguments from payload/request.  
+**For the frontend**: Try to read the functions which are associated with an url.  
 The eventual schema for ExplorationRightsHandler should look like:
 ```python
 class ExplorationRightsHandler(EditorHandler):
