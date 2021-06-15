@@ -15,6 +15,9 @@ This guide can be used by both new Oppia members and developers who have contrib
   - [Good practices](#good-practices)
   - [How to choose a file to work on](#how-to-choose-a-file-to-work-on)
 - [Guidelines to write robust tests](#guidelines-to-write-robust-tests)
+  - [Naming conventions](#naming-conventions)
+  - []()
+  - []()
 - [General tips](#general-tips)
   - [Debugging with Print Statements](#debugging-with-print-statements)
   - [Spy utilities](#spy-utilities)
@@ -298,6 +301,13 @@ Test descriptions should not "break out of the boundaries". They should be self-
 *   Write the expectations in order, so that each test has a coherent story. That makes the test easier to follow.
 *   Always validate an external side effect.
     *   **Example**: In [this](https://github.com/oppia/oppia/blob/c714eeb320e0ebf9fe400403569428933658d3f1/core/templates/components/button-directives/create-activity-button.component.ts#L49-L56) function, the call to siteAnalyticsService is an external side effect.
+
+### Contacts
+
+If you have any questions about the above, you can contact any of the people below:
+* @aishwary023 - aishwary.saxena.min19@iitbhu.ac.in
+* @gp201 - praneethg2001@gmail.com
+* @Radesh-kumar - imradesh@gmail.com
 
 
 ## General tips
