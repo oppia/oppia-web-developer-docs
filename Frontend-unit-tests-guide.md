@@ -14,6 +14,7 @@ This guide can be used by both new Oppia members and developers who have contrib
   - [Unit test structure](#unit-test-structure)
   - [Good practices](#good-practices)
   - [How to choose a file to work on](#how-to-choose-a-file-to-work-on)
+- [Guidelines to write robust tests](#guidelines-to-write-robust-tests)
 - [General tips](#general-tips)
   - [Debugging with Print Statements](#debugging-with-print-statements)
   - [Spy utilities](#spy-utilities)
@@ -221,6 +222,83 @@ When trying to choose the first files to work on, you might get confused. All th
 |            |      Easy       |     Medium      |        Hard        |
 |------------|:---------------:|:---------------:|:------------------:|
 | Complexity | Up to 100 lines | Up to 250 lines | At least 250 lines |
+
+## Guidelines to write robust tests
+
+### Naming Conventions
+
+
+*   Expected variables must be named so that it's clear it's the expected value. 
+    *   **Example**: ‘expectedAdjacencyList’, ‘expectedNodeData’.
+*   Actual variables must be names that suggest that they have been returned.
+    *   **Example**: ‘returnedNodeData’, ‘returnedGraphHeight’.
+*   For variables that have a unit, mention the unit in the variable name.
+    *   **Example**: ‘graphHeightInPixels’, ‘graphHeightInCm’
+
+
+### Test Descriptions
+
+Test description should clearly/explicitly state what the test is testing. Generally, follow the format - `should do X if Y happens`.
+
+Also, write the test descriptions in a way such that they reflect the user's perspective rather than including implementation details.
+
+
+
+*   **Example**:
+    *   **Good test name** - ‘it should not return indentation level greater than MAX_INDENTATION_LEVEL’
+    *   **Bad test name** - ‘it should return indentation levels’
+
+Test descriptions should not "break out of the boundaries". They should be self-contained with regards to the body of the test (i.e. the test body should obviously be setting up the conditions needed and then executing the test, and it should be easy to tie the test body back to the description).
+
+
+### Behavior and Requirements
+
+*   Before writing a test for a function, think about the behavior and requirements for it. You don't just want the function to return something — you want it to return the correct value. So, write out the exact requirements for this function, and then have tests that cover each requirement.
+    *   **Example**: The [getIndentationLevel()](https://github.com/oppia/oppia/blob/1013c9a33af0179ad394088c08ef18ed2f03bd64/core/templates/components/graph-services/graph-layout.service.ts#L95) function in graph-layout.service.ts has the requirement that the indentation level must not be greater than 2.5. We write the [tests](https://github.com/oppia/oppia/blob/1013c9a33af0179ad394088c08ef18ed2f03bd64/core/templates/components/graph-services/graph-layout.service.spec.ts#L296-L394) keeping this in mind.
+
+*   Do not just ‘get’ something from the function, test that the thing returned is correct. ([example](https://github.com/oppia/oppia/blob/3fa63711440b4320350c48dd63ffd8b163d07143/core/templates/components/graph-services/graph-layout.service.spec.ts#L528))
+
+*   Test the function with enough cases to cover all possible corner cases.
+
+
+### Test the Interface, not the Implementation
+
+*   Test the interface, not the implementation (see [this link](https://eng.libretexts.org/Bookshelves/Computer_Science/Book%3A_Object-Oriented_Reengineering_Patterns_(Demeyer_Ducasse_and_Nierstrasz)/06%3A_Tests__Your_Life_Insurance/6.05%3A_Test_the_Interface_Not_the_Implementation) for a rough outline of the concept). In other words: if the code that’s being tested changes, but the interface remains stable, your tests should still continue to pass (and for this, you must keep in mind the requirements of a function, as mentioned in the first point of [Behaviour and requirements](#behavior-and-requirements).
+
+*   Here, "interface" does not refer to the user interface. It refers to the part of the directive/service/component that can be accessed externally through public functions. So, services have an interface too (i.e. the public functions that they expose to other components/services). You basically want to check whether inputs to those functions result in the correct output.
+*   Where possible, try to check the **initial and final “states”**, rather than just whether a particular method has been called. That's because the latter tends to be directly testing a specific implementation. The exception is when the method being called is a **requirement** of the test, e.g. if we need to verify that a third-party API which we treat as a black box is called — but that's fairly rare.
+    *   **Example**: To test that all the subscriptions in a component have been unsubscribed successfully, you can check the .closed flag which indicates whether the subscription has already been unsubscribed.
+
+```js
+  it('should unsubscribe when component is destroyed', function() {
+    spyOn(ctrl.directiveSubscriptions, 'unsubscribe').and.callThrough();
+
+    expect(ctrl.directiveSubscriptions.closed).toBe(false);
+
+    ctrl.$onDestroy();
+
+    expect(ctrl.directiveSubscriptions.unsubscribe).toHaveBeenCalled();
+    expect(ctrl.directiveSubscriptions.closed).toBe(true);
+  });
+```
+
+### Structure of a Test
+
+
+*   Keep the body of the test clean and clear. Having too many big blocks of data obscures what we are trying to check. In a case where big blocks of data is necessary to test the code, add a verbal or visual explanation (as [here](https://github.com/oppia/oppia/blob/3fa63711440b4320350c48dd63ffd8b163d07143/core/templates/components/graph-services/graph-layout.service.spec.ts#L772-L784)) through comments.
+*   An ideal test should include both pre-checks and post-checks.
+*   Do not include unnecessary data in the test.
+    *   **Example** : if you are testing that the X property of a dict is modified by a function, then only check the X property. Do not include other properties in the expected variable.
+    *   Instead of expectedDict, make an expectedDictXValues list, and check if the values are the same as expected in the returned dict.
+*   Leave comments to explain the steps in the test whenever things get complicated. This helps the reader understand what your test does. Ideally, a reader should be able to understand the tests without reading the code file.
+*   Add visual explanations if possible ([example](https://github.com/oppia/oppia/blob/1013c9a33af0179ad394088c08ef18ed2f03bd64/core/templates/components/graph-services/graph-layout.service.spec.ts#L28-L57)).
+*   For all hardcoded values -- explain how you got that (how it was calculated).
+*   For similar tests, you should have parity in the checks
+    *   **Example**: If in a test you check that a spy was called when a certain condition was satisfied, then also check that the spy was not called when that condition was not satisfied.
+*   Write the expectations in order, so that each test has a coherent story. That makes the test easier to follow.
+*   Always validate an external side effect.
+    *   **Example**: In [this](https://github.com/oppia/oppia/blob/c714eeb320e0ebf9fe400403569428933658d3f1/core/templates/components/button-directives/create-activity-button.component.ts#L49-L56) function, the call to siteAnalyticsService is an external side effect.
+
 
 ## General tips
 
