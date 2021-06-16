@@ -77,6 +77,7 @@ We also have a project leads council who will be contacted about project specifi
   * Akshay Anand (**@aks681**)
   * Vojtěch Jelínek (**@vojtechjelinek**)
   * Kevin Thomas (**@kevintab95**)
+  * Chris Skalnik (**@U8NWXD**)
 
 * QA coordinators team: 
   * Nithesh Hariharan (**@nithusha21**)
@@ -92,12 +93,10 @@ We also have a project leads council who will be contacted about project specifi
 
 | Month         | Release coordinator         | QA coordinator              | Server errors coordinator   |
 | ------------- | --------------------------- | --------------------------- | --------------------------- |
-| December      | Sandeep (**@DubeySandeep**) | Chris (**@U8NWXD**)         |                             |
-| January       | Nithesh (**@nithusha21**)   | Akshay (**@aks681**)        |                             |
-| February      | Kevin (**@kevintab95**)     | Chris (**@U8NWXD**)         |                             |
-| March         | Vojta (**@vojtechjelinek**) | Nithesh (**@nithusha21**)   |                             |
-| April         | Akshay (**@aks681**)        | Chris (**@U8NWXD**)         | Kevin (**@kevintab95**)     |
-| May           | Sandeep (**@DubeySandeep**) | Kevin (**@kevintab95**)     | Vojta (**@vojtechjelinek**) |
 | June          | Nithesh (**@nithusha21**)   | Rohit (**@rohitkatlaa**)    | Kevin (**@kevintab95**)     |
-| June          | Nithesh (**@nithusha21**)   | Rohit (**@rohitkatlaa**)    | Kevin (**@kevintab95**)     |
-| June          | Nithesh (**@nithusha21**)   | Rohit (**@rohitkatlaa**)    | Kevin (**@kevintab95**)     |
+| July          | Sandeep (**@DubeySandeep**) | Rohit (**@rohitkatlaa**)    | Vojta (**@vojtechjelinek**) |
+| August        | Kevin (**@kevintab95**)     | Chris (**@U8NWXD**)         | Kevin (**@kevintab95**)     |
+| September     | Nithesh (**@nithusha21**)   | Akshay (**@aks681**)        | Kevin (**@kevintab95**)     |
+| October       | Vojta (**@vojtechjelinek**) | Kevin (**@kevintab95**)     | Vojta (**@vojtechjelinek**) |
+| November      | Chris (**@U8NWXD**)         | Vojta (**@vojtechjelinek**) | Kevin (**@kevintab95**)     |
+| December      | Akshay (**@aks681**)        | Nithesh (**@nithusha21**)   | Kevin (**@kevintab95**)     |
