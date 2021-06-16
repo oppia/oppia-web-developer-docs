@@ -99,3 +99,5 @@ We also have a project leads council who will be contacted about project specifi
 | April         | Akshay (**@aks681**)        | Chris (**@U8NWXD**)         | Kevin (**@kevintab95**)     |
 | May           | Sandeep (**@DubeySandeep**) | Kevin (**@kevintab95**)     | Vojta (**@vojtechjelinek**) |
 | June          | Nithesh (**@nithusha21**)   | Rohit (**@rohitkatlaa**)    | Kevin (**@kevintab95**)     |
+| June          | Nithesh (**@nithusha21**)   | Rohit (**@rohitkatlaa**)    | Kevin (**@kevintab95**)     |
+| June          | Nithesh (**@nithusha21**)   | Rohit (**@rohitkatlaa**)    | Kevin (**@kevintab95**)     |
