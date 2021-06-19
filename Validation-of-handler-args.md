@@ -47,7 +47,7 @@ Data can be validated using Oppia’s SVS by providing a schema for the data(arg
        - The object_dict type refers to dicts which correspond to domain object classes which already have a validate() method. The schema type ‘object_dict’ accepts any one of the following keys.
             - object_class
             - validate_method  
-For more understanding [see here](#domain-object-arguments).
+For more understanding [see here](#domain-objects-arguments).
 - **choices** (optional): A list of possible values for the given type. The value entered must be equal to one of the elements in the list.
 - **validators** (optional): A list of validators to apply to the return value, in order. ([See here](#extra-validators))
 - **default_value** (optional): Either None (which indicates that the corresponding field is optional), or a value that conforms to the rest of the schema and is used to replace the object if it is missing or None. ([See here](#default--optional-arguments))
@@ -58,8 +58,8 @@ For more understanding [see here](#domain-object-arguments).
     - **schema**: The schema for the value corresponding to this field.
 - [for type=dict] **description** (optional): A human-readable description of the field.
 - [for type=custom] **obj_type**: The name of the class of the object, defined in objects.py.
-- [for type=object_dict] **object_class** (optional): The class of the domain object whose dictionary form this object represents. ([See here]())
-- [for type=object_dict] **validate_method** (optional): Name of the method written in domain_objects_validator file, which directly calls the validate method for the domain objects. ([See here]())
+- [for type=object_dict] **object_class** (optional): The class of the domain object whose dictionary form this object represents. ([See here](#case1))
+- [for type=object_dict] **validate_method** (optional): Name of the method written in domain_objects_validator file, which directly calls the validate method for the domain objects. ([See here](#case2))
 
 ## How to write validation schema for handlers
 
