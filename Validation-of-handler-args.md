@@ -11,7 +11,7 @@
     * [Extra arguments](#extra-arguments)
     * [Non-args-receiving handlers](#handlers-with-no-arguments)
 * [Common Error faced](#common-error-faced)
-* [Example references](#example-for-references)
+* [Example references](#example-for-reference)
 * [Debugging tricks](#debugging-tricks)
 * [Contact](#contact)
 
