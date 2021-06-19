@@ -46,7 +46,7 @@ Data can be validated using Oppia’s SVS by providing a schema for the data(arg
        - The custom type refers to data with a defined object class in objects.py. The object class needs to be mentioned in the obj_type field of the schema.
        - The object_dict type refers to dicts which correspond to domain object classes which already have a validate() method. The schema type ‘object_dict’ accepts any one of the following keys.
             - object_class
-            - validate_method  
+            - validation_method  
 For more understanding [see here](#domain-objects-arguments).
 - **choices** (optional): A list of possible values for the given type. The value entered must be equal to one of the elements in the list.
 - **validators** (optional): A list of validators to apply to the return value, in order. ([See here](#extra-validators))
@@ -59,7 +59,7 @@ For more understanding [see here](#domain-objects-arguments).
 - [for type=dict] **description** (optional): A human-readable description of the field.
 - [for type=custom] **obj_type**: The name of the class of the object, defined in objects.py.
 - [for type=object_dict] **object_class** (optional): The class of the domain object whose dictionary form this object represents. ([See here](#case-1))
-- [for type=object_dict] **validate_method** (optional): Name of the method written in domain_objects_validator file, which directly calls the validate method for the domain objects. ([See here](#case-2))
+- [for type=object_dict] **validation_method** (optional): Name of the method written in domain_objects_validator file, which directly calls the validate method for the domain objects. ([See here](#case-2))
 
 ## How to write validation schema for handlers
 
@@ -165,9 +165,9 @@ HANDLER_ARGS_SCHEMAS = {
 #### Case 2:
 
 The cases for which validate method is written in domain class but they are designed differently like in some domain class, validate_dict() method is present which validates the dictionary form of the data directly and in some cases validate method needs some extra arguments like a flag for strict validation. Since there is no general way to handle these cases, a separate method should be written for each such argument in the domain_objects_validator file which calls each validate method uniquely.  
-The newly written method of the domain_objects_validator file should be directly passed into the schema with a schema key named ‘validate_method’. Schema for these cases should have the two keys as follows: 
+The newly written method of the domain_objects_validator file should be directly passed into the schema with a schema key named ‘validation_method’. Schema for these cases should have the two keys as follows: 
 1. **type**: 'object_dict'
-2. **validate_method**: method written in domain_objects_validator for calling validate method from domain class directly.
+2. **validation_method**: method written in domain_objects_validator for calling validate method from domain class directly.
 
 **Example**:  Let change_list be a list of dicts where each dict item is a representation of the ExplorationChange domain object in the exp_domain file. The schema for change_list should look like:
 ```python
