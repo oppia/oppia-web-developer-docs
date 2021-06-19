@@ -177,7 +177,7 @@ HANDLER_ARGS_SCHEMAS = {
             'type': 'list',
             'items': {
                 'type': 'object_dict',
-                'validate_method': (
+                'validation_method': (
                     domain_objects_validator.validate_exploration_change)
             }
         }
