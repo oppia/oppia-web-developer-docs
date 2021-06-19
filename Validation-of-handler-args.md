@@ -77,9 +77,10 @@ For writing schema each argument should be analysed deeply, like the use of argu
 [examples](#example-for-reference).
 
 3. **Define schemas for URL path elements in URL_PATH_ARGS_SCHEMAS**  
-    - The schemas for URL path elements should be written in URL_PATH_ARGS_SCHEMAS.  
+    - The schemas for URL path elements should be written in URL_PATH_ARGS_SCHEMAS in the handler class.  
     - The keys of URL_PATH_ARGS_SCHEMAS should be the full set of URL path elements and the corresponding values should be the schemas for those args. If there are no URL path elements, then URL_PATH_ARGS_SCHEMAS should be set to {} (an empty dict).  
 Examples:  Let ```exploration_id``` be a data present in the url path. Then, the schema for exploration_id should look like:
+
 ```python
 URL_PATH_ARGS_SCHEMAS = {
     'exploration_id': {
@@ -89,7 +90,7 @@ URL_PATH_ARGS_SCHEMAS = {
 ```
 
 4. **Define schemas for payload arguments and URL query parameter in HANDLER_ARGS_SCHEMAS**  
-    - The schemas for payload arguments and URL query parameters are written in HANDLER_ARGS_SCHEMAS.
+    - The schemas for payload arguments and URL query parameters are written in HANDLER_ARGS_SCHEMAS in the hnadler class.
     - After writing [boilerplate code](#handlers-with-no-arguments) for the HANDLER_ARGS_SCHEMAS, the value corresponding to each request method key (GET/PUT/POST/DELETE) should contain all the payload args and URL query parameters for the corresponding method where each key represents the name of an argument and the corresponding value represents its schema. **Note**: While writing boilerplate code, make sure to remove the request keys which do not correspond to any request method in the handler class.  
 Examples:  Let ```username``` be an argument passed to the delete request method of a handler class. Then, the schema for the delete request method should look like: 
 ```python
