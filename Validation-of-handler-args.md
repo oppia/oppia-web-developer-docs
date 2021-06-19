@@ -26,9 +26,9 @@ The following key methods are used in the validation of handler args through the
 This method is defined in the BaseHandler class of base.py.  
 The validate_args_schema method is responsible for raising all kinds of errors in the context of validation of handler args, like - 
 **InvalidInputException** and **NotImplemented** error. (See [this section](#common-error-faced) for a list of common errors that may arise.)
-- **validate(handler_args, handler_args_schema)** in payload_validator.py  
+- **validate(handler_args, handler_args_schemas)** in payload_validator.py  
 **handler_args**: The arguments from payload/ request.  
-**handler_args_schema**: Schema from the handler class.(See [this link](#how-to-write-validation-schema-for-handlers) for more information on how to write a schema).  
+**handler_args_schemas**: Schema from the handler class.(See [this link](#how-to-write-validation-schema-for-handlers) for more information on how to write a schema).  
  This method is the core method for SVS functionality. It collects all the AssertionErrors raised from schema_utils.
 - **normalize_against_schema(obj, schema)** in schema_utils.py  
 **obj**: The object which needs to be normalized.  
@@ -44,7 +44,10 @@ Data can be validated using Oppia’s SVS by providing a schema for the data(arg
        - The list type has additional fields len, items in its schema.
        - The dict type has additional field properties in its schema.
        - The custom type refers to data with a defined object class in objects.py. The object class needs to be mentioned in the obj_type field of the schema.
-       - The object_dict type refers to dicts which correspond to domain object classes which already have a validate() method. The class should be passed with the object_class field of the schema.
+       - The object_dict type refers to dicts which correspond to domain object classes which already have a validate() method. The schema type ‘object_dict’ accepts any one of the following keys.
+            - object_class
+            - validate_method  
+For more understanding [see here](#domain-object-arguments).
 - **choices** (optional): A list of possible values for the given type. The value entered must be equal to one of the elements in the list.
 - **validators** (optional): A list of validators to apply to the return value, in order. ([See here](#extra-validators))
 - **default_value** (optional): Either None (which indicates that the corresponding field is optional), or a value that conforms to the rest of the schema and is used to replace the object if it is missing or None. ([See here](#default--optional-arguments))
@@ -55,8 +58,8 @@ Data can be validated using Oppia’s SVS by providing a schema for the data(arg
     - **schema**: The schema for the value corresponding to this field.
 - [for type=dict] **description** (optional): A human-readable description of the field.
 - [for type=custom] **obj_type**: The name of the class of the object, defined in objects.py.
-- [for type=object_dict] **object_class**: The class of the domain object whose dictionary form this object represents. 
-([See here](#domain-objects-arguments))
+- [for type=object_dict] **object_class** (optional): The class of the domain object whose dictionary form this object represents. ([See here]())
+- [for type=object_dict] **validate_method** (optional): Name of the method written in domain_objects_validator file, which directly calls the validate method for the domain objects. ([See here]())
 
 ## How to write validation schema for handlers
 
@@ -134,23 +137,53 @@ Pr link for reference: (**Example**)
 
 ### Domain objects arguments
 
-Objects which are represented by classes written in the domain layer of the codebase are called domain objects. These classes typically include methods to validate their objects.  
-For validating domain objects through SVS architecture, the class for that corresponding domain object should be passed directly to the schema. Schemas for domain objects have two keys:as follows:  
-1. **type**: “object_dict”
-2. **object_class**: the corresponding domain object class  
-**Example**: Let "change_list" be a list of dicts where each dict item is a representation of the ExplorationChange domain object in the exp_domain file. The schema for "change_list" should look like:
+Objects which are represented by classes written in the domain layer of the codebase are called domain objects. These classes typically include methods to validate their objects.
+For validating domain objects through SVS architecture, there are two preferred solutions, each for their unique cases.
+
+#### Case 1: 
+
+The data coming from the frontend is in the dict format and many of the domain objects do not get initialized with the dictionary form of the data so they must be initialized by using the from_dict() method of the same domain class. In this case class is directly passed into the schema with a schema key named ‘object_class’. Schema for these cases should have the two keys as follows: 
+1. **type**: 'object_dict'
+2. **object_class**: class written in the domain layer of the codebase for the corresponding argument.
+
+**Example**: Let new_rules is the list of dicts where each dict item is a representation of the PlatformParameterRule domain object in the platform_parameter_domain file. The schema for new_rules should look like:
 ```python
-'PUT': {
-    'change_list': {
-        'type': 'list',
-        'items': {
-            'type': 'object_dict',
-            'object_class': exp_domain.ExplorationChange
+HANDLER_ARGS_SCHEMAS = {
+    'POST': {
+        'new_rules': {
+            'type': 'list',
+            'items': {
+                'type': 'object_dict',
+                'object_class': (
+                    platform_parameter_domain.PlatformParameterRule)
+            }
         }
     }
 }
-
 ```
+#### Case 2:
+
+The cases for which validate method is written in domain class but they are designed differently like in some domain class, validate_dict() method is present which validates the dictionary form of the data directly and in some cases validate method needs some extra arguments like a flag for strict validation. Since there is no general way to handle these cases, a separate method should be written for each such argument in the domain_objects_validator file which calls each validate method uniquely.  
+The newly written method of the domain_objects_validator file should be directly passed into the schema with a schema key named ‘validate_method’. Schema for these cases should have the two keys as follows: 
+1. **type**: 'object_dict'
+2. **validate_method**: method written in domain_objects_validator for calling validate method from domain class directly.
+
+**Example**:  Let change_list be a list of dicts where each dict item is a representation of the ExplorationChange domain object in the exp_domain file. The schema for change_list should look like:
+```python
+HANDLER_ARGS_SCHEMAS = {
+    'PUT': {
+        'change_list': {
+            'type': 'list',
+            'items': {
+                'type': 'object_dict',
+                'validate_method': (
+                    domain_objects_validator.validate_exploration_change)
+            }
+        }
+    }
+}
+```
+Here validate_exploration_change is a method and it should be defined in domain_objects_validator file. For more understanding [refer to examples](#example-references).
 ### Extra validators
 
 By providing validators, you can increase a schema’s functionality. The `validators` field in the schema contains a list of dicts, where each dict contains a key “id” whose value is the name of the validator. Existing validator methods can be found in _Validator class of  schema utils. You can use the existing validators, or write new ones.  
@@ -234,6 +267,7 @@ Add these print statements in the validate_args_schema() of the base.py. Make su
         print('Request method = ',request_method)
         print('HANDLER_ARGS_SCHEMAS =  ', self.HANDLER_ARGS_SCHEMAS)
         print('URL_PATH_ARGS_SCHEMAS = , ', self.URL_PATH_ARGS_SCHEMAS)
+        print('GET_HANDLER_ERROR_RETURN_TYPE', self.GET_HANDLER_ERROR_RETURN_TYPE)
         print('------------'*3)
         print('\n'*3)
 ```
