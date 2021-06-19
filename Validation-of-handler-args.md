@@ -58,8 +58,8 @@ For more understanding [see here](#domain-objects-arguments).
     - **schema**: The schema for the value corresponding to this field.
 - [for type=dict] **description** (optional): A human-readable description of the field.
 - [for type=custom] **obj_type**: The name of the class of the object, defined in objects.py.
-- [for type=object_dict] **object_class** (optional): The class of the domain object whose dictionary form this object represents. ([See here](#case1))
-- [for type=object_dict] **validate_method** (optional): Name of the method written in domain_objects_validator file, which directly calls the validate method for the domain objects. ([See here](#case2))
+- [for type=object_dict] **object_class** (optional): The class of the domain object whose dictionary form this object represents. ([See here](#case-1))
+- [for type=object_dict] **validate_method** (optional): Name of the method written in domain_objects_validator file, which directly calls the validate method for the domain objects. ([See here](#case-2))
 
 ## How to write validation schema for handlers
 
