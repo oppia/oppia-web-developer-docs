@@ -27,10 +27,10 @@ Apache Beam Job Architecture
 ============================
 
 Jobs are composed of the following components:
--   `Pipeline`s
--   `PValue`s
--   `PTransform`s
--   `Runner`s
+-   [`Pipeline`s](#pipelines)
+-   [`PValue`s](#pvalues)
+-   [`PTransform`s](#ptransforms)
+-   [`Runner`s](#runners)
 
 ## `Pipeline`s
 
@@ -187,7 +187,7 @@ error_pcoll = (
 )
 ```
 
-## Runners
+## `Runner`s
 
 `Runner`s provide the run() method used to visit every node (`PValue`) in the
 pipeline's DAG by executing the edges (`PTransform`s) to compute their values.
