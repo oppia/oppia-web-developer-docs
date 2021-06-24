@@ -1,5 +1,5 @@
 [Apache Beam](https://beam.apache.org/) is used by Oppia to perform large-scale
-operations on the datastore. There are two types of operations:
+operations on its datastore. There are two types of operations:
 -   **Batch**: Operations that are designed to be executed _once_ on the
     "current state" of the datastore.
 
