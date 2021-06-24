@@ -21,8 +21,8 @@
   * [[Git cheat sheet|Git-cheat-sheet]]
   * [[Codebase Overview|Overview-of-the-Oppia-codebase]]
     * [[Glossary of terms|Glossary-of-terms]]
-    * [[Tips for analyzing the codebase|Analyzing-the-codebase]]
     * [[Apache Beam Jobs|Apache-beam-jobs]]
+    * [[Tips for analyzing the codebase|Analyzing-the-codebase]]
     * [[Tour of Oppia webpages|How-to-access-Oppia-webpages]]
     * [User documentation](https://oppia.github.io/)
   * [[List of current projects|https://github.com/oppia/oppia/projects]]
