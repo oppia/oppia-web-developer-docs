@@ -9,7 +9,7 @@ operations on its datastore. There are two types of operations:
     -   Validate the relationships between models
 
 -   **Continuous**: Operations that are designed to run _indefinitely_ by
-    reacting to updates in the datastore.
+    "reacting to updates" in the datastore.
 
     Examples:
     -   Updating the top `N` answers to a lesson
