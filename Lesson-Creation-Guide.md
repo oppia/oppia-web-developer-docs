@@ -136,7 +136,7 @@ In this stage, the creator is advised to breakdown the topic into as many concre
 </ul>
 <b>Samples</b>
 <ul>
-<li><a href="https://docs.google.com/document/d/1P_Qx0O3Hq1kUoJ3-hgvL5Ntgy-B2FuwaG_fVBeoZQc8/edit?usp=sharing">Ratio lesson 1</a></li>
+<li><a href="https://docs.google.com/document/d/1NbVO8Dv9V81eNGGjIOVakDD02E6uFX-Sp4NuLkCJaWU/edit">Ratio lesson 1</a></li>
 </ul>
 
 <h2 id="Graphics">Graphics And Implementation</h2>
