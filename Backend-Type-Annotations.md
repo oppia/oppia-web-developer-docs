@@ -3,9 +3,9 @@ Type Annotations are a new feature added in [PEP 484](https://www.python.org/dev
 
 ## Where to add type annotations
 1. If a new file is added, it must have type annotations.
-2. If a file is updated:
-   - The file already has type annotations, then the updated code must also have type annotations.
-   - The file has no type annotations, then the updated code may or may not have type annotations.
+2. If a file is updated, then:
+   - If the file already has type annotations, then the updated code must also have type annotations.
+   - If the file has no type annotations, then the updated code may or may not have type annotations.
 
 ## Requirements for adding type annotations
 1. Install [python3](https://www.python.org/downloads/release/python-377/).
