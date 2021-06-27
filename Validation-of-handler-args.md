@@ -10,6 +10,7 @@
     * [Extra validators](#extra-validators)
     * [Extra arguments](#extra-arguments)
     * [Non-args-receiving handlers](#handlers-with-no-arguments)
+    * [Post schema operations](#post-schema-operations)
 * [Common Error faced](#common-error-faced)
 * [Example references](#example-for-reference)
 * [Debugging tricks](#debugging-tricks)
@@ -40,7 +41,7 @@ represented as InvalidInputException to the users.
 
 Data can be validated using Oppia’s SVS by providing a schema for the data(args). A schema takes the form of a dictionary with the following fields:
 - **type**: The type of the data.
-    - Possible values: bool, int, float, unicode, list, dict, html, custom, object_dict.
+    - Possible values: bool, int, float, string, unicode, list, dict, html, custom, object_dict.
        - The list type has additional fields len, items in its schema.
        - The dict type has additional field properties in its schema.
        - The custom type refers to data with a defined object class in objects.py. The object class needs to be mentioned in the obj_type field of the schema.
@@ -134,7 +135,7 @@ To provide default args for a handler, include a key with the name ```default_va
     }
 }
 ```
-Pr link for reference: (**Example**)
+For more understanding [refer to examples](#example-for-reference).
 
 ### Domain objects arguments
 
@@ -143,7 +144,7 @@ For validating domain objects through SVS architecture, there are two preferred 
 
 #### Case 1: 
 
-The data coming from the frontend is in the dict format and many of the domain objects do not get initialized with the dictionary form of the data so they must be initialized by using the from_dict() method of the same domain class. In this case class is directly passed into the schema with a schema key named ‘object_class’. Schema for these cases should have the two keys as follows: 
+The data coming from the payloads/requests is in the dict format and many of the domain objects do not get initialized with the dictionary form of the data so they must be initialized by using the from_dict() method of the same domain class. In this case class is directly passed into the schema with a schema key named ‘object_class’. Schema for these cases should have the two keys as follows: 
 1. **type**: 'object_dict'
 2. **object_class**: class written in the domain layer of the codebase for the corresponding argument.
 
@@ -162,9 +163,10 @@ HANDLER_ARGS_SCHEMAS = {
     }
 }
 ```
+
 #### Case 2:
 
-The cases for which validate method is written in domain class but they are designed differently like in some domain class, validate_dict() method is present which validates the dictionary form of the data directly and in some cases validate method needs some extra arguments like a flag for strict validation. Since there is no general way to handle these cases, a separate method should be written for each such argument in the domain_objects_validator file which calls each validate method uniquely.  
+The cases for which validate method is written in domain classes but they are designed differently like in some domain class, validate_dict() method is present which validates the dictionary form of the data directly and in some cases validate method needs some extra arguments like a flag for strict validation. Since there is no general way to handle these cases, a separate method should be written for each such argument in the domain_objects_validator file which calls each validate method uniquely.  
 The newly written method of the domain_objects_validator file should be directly passed into the schema with a schema key named ‘validation_method’. Schema for these cases should have the two keys as follows: 
 1. **type**: 'object_dict'
 2. **validation_method**: method written in domain_objects_validator for calling validate method from domain class directly.
@@ -184,7 +186,9 @@ HANDLER_ARGS_SCHEMAS = {
     }
 }
 ```
-Here validate_exploration_change is a method and it should be defined in domain_objects_validator file. For more understanding [refer to examples](#example-references).
+Here validate_exploration_change is a method and it should be defined in domain_objects_validator file.  
+For more understanding [refer to examples](##example-for-reference).
+
 ### Extra validators
 
 By providing validators, you can increase a schema’s functionality. The `validators` field in the schema contains a list of dicts, where each dict contains a key “id” whose value is the name of the validator. Existing validator methods can be found in _Validator class of  schema utils. You can use the existing validators, or write new ones.  
@@ -220,6 +224,15 @@ In this case, the schema should look like the following (note that the keys for 
         }
 ```
 
+### Post schema operations
+
+After writing schemas for a handler class, make sure to update the request methods for using the normalized value after schema validation, also remove the checks which are already performed during the schema validation process.  
+**Example**: Replace the ```request``` keyword in the backend with ```normalized_request``` keyword, so that the normalized value obtained after schema validation can be used in the backend.
+```python
+self.request.get(‘version’) ----> self.normalized_request.get(‘version’)
+```
+
+
 ## Common Error faced
 
 When writing handler args, you may encounter NotImplementedErrors or InvalidInputException. Here is how to handle these:
@@ -233,12 +246,9 @@ When writing handler args, you may encounter NotImplementedErrors or InvalidInpu
 ## Example for reference
 
 Examples of pr for different types is given below:
-- Pr link for type dict
-- Pr link for type list
-- Pr link for type object_dict
-- Pr link for type bool
-- Pr link for type int
-
+- [Sample pr 1](https://github.com/oppia/oppia/pull/13223)
+- [Sample pr 2](https://github.com/oppia/oppia/pull/13224)
+- [Sample pr 3](https://github.com/oppia/oppia/pull/13225)
 ## Debugging tricks
 
 When writing the schema for a handler class, you will often need to add a couple of print statements to gain information about the arguments coming from payload/request. In this section we will add a schema step by step for ExplorationRightsHandler.  
