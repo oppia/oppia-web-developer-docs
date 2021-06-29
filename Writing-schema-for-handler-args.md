@@ -227,9 +227,10 @@ In this case, the schema should look like the following (note that the keys for 
 ### Post schema operations
 
 After writing schemas for a handler class, make sure to update the request methods for using the normalized value after schema validation, also remove the checks which are already performed during the schema validation process.  
-**Example**: Replace the ```request``` keyword in the backend with ```normalized_request``` keyword, so that the normalized value obtained after schema validation can be used in the backend.
+**Example**: Replace the ```request``` keyword in the backend with ```normalized_request``` keyword and ```payload``` keyword with ```normalized_paylaod``` keyword, so that the normalized value obtained after schema validation can be used in the backend.
 ```python
 self.request.get(‘version’) ----> self.normalized_request.get(‘version’)
+self.payload.get(‘username’) ----> self.normalized_payload.get(‘username’)
 ```
 
 
