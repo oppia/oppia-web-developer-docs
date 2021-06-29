@@ -41,7 +41,7 @@ represented as InvalidInputException to the users.
 
 Data can be validated using Oppia’s SVS by providing a schema for the data(args). A schema takes the form of a dictionary with the following fields:
 - **type**: The type of the data.
-    - Possible values: bool, int, float, string, unicode, list, dict, html, custom, object_dict.
+    - Possible values: bool, int, float, basestring, unicode, list, dict, html, custom, object_dict.
        - The list type has additional fields len, items in its schema.
        - The dict type has additional field properties in its schema.
        - The custom type refers to data with a defined object class in objects.py. The object class needs to be mentioned in the obj_type field of the schema.
