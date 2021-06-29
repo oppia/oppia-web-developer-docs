@@ -23,9 +23,9 @@ All arguments passed to the GET/POST/PUT/DELETE methods of the handler classes i
 ## Directory Structure
 
 The following key methods are used in the validation of handler args through the SVS architecture:
-- **validate_args_schema()** in base.py  
+- **vaidate_and_normalize_args()** in base.py  
 This method is defined in the BaseHandler class of base.py.  
-The validate_args_schema method is responsible for raising all kinds of errors in the context of validation of handler args, like - 
+The vaidate_and_normalize_args method is responsible for raising all kinds of errors in the context of validation of handler args, like - 
 **InvalidInputException** and **NotImplemented** error. (See [this section](#common-error-faced) for a list of common errors that may arise.)
 - **validate(handler_args, handler_args_schemas)** in payload_validator.py  
 **handler_args**: The arguments from payload/ request.  
@@ -110,7 +110,7 @@ When adding schemas for the args of a particular handler class, some analysis is
   
 ### Default & Optional arguments
 
-If an argument is not present in a payload/request, and the schema for that argument is defined in the handler, then that argument is treated as “missing”. For missing args, schema utils will raise AssertionError which is represented as InvalidInputException by validate_args_schema() method.  
+If an argument is not present in a payload/request, and the schema for that argument is defined in the handler, then that argument is treated as “missing”. For missing args, schema utils will raise AssertionError which is represented as InvalidInputException by vaidate_and_normalize_args() method.  
 To provide default args for a handler, include a key with the name ```default_value``` in the schema. The value for this key is the default value with which the arg will be updated if no value for that arg is provided in the request. If an argument is optional and it is not supposed to be updated with any default value, then the “default_value” key should contain None. 
  
 **Example when default value is provided**: Let ```apply_draft``` be an optional argument which should take the default value False if no value for that arg is provided in the request/payload. In that case, the schema for "apply_draft" should look like:
@@ -241,7 +241,7 @@ When writing handler args, you may encounter NotImplementedErrors or InvalidInpu
     - **How to resolve**: This error message is raised with the name of the handler which is missing a schema definition. So, by reading the error message, you can know which handler class needs schemas to be added.
 2. **InvalidInputException**
     - **Description**: This error will be raised if schema validation failed for any argument. It may be due to extra args, missing args or any type mismatch.
-    - **How to resolve**: This error message is raised by the validate_args_schema() method with the name of the argument for which schema validation failed. So by looking at error messages and stack traces, you can find which argument is failing the schema validation test.
+    - **How to resolve**: This error message is raised by the vaidate_and_normalize_args() method with the name of the argument for which schema validation failed. So by looking at error messages and stack traces, you can find which argument is failing the schema validation test.
 
 ## Example for reference
 
@@ -263,7 +263,7 @@ ExplorationRightsHandler contains PUT and DELETE request methods.
     new_member_role, viewable_if_private.
     - URL query parameters: username
 4. **Add print statements**  
-Add these print statements in the validate_args_schema() of the base.py. Make sure to add these print statements after their declaration in the code.
+Add these print statements in the vaidate_and_normalize_args() of the base.py. Make sure to add these print statements after their declaration in the code.
 ```python
         print('\n'*3)
         print('------------'*3)
