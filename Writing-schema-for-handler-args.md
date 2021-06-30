@@ -85,7 +85,7 @@ Examples:  Let ```exploration_id``` be a data present in the url path. Then, the
 ```python
 URL_PATH_ARGS_SCHEMAS = {
     'exploration_id': {
-        'type': 'unicode'
+        'type': 'basestring'
     }
 }
 ```
@@ -98,7 +98,7 @@ Examples:  Let ```username``` be an argument passed to the delete request method
 HANDLER_ARGS_SCHEMAS = {
     'DELETE': {
         'username': {
-            'type': 'unicode'
+            'type': 'basestring'
         }
     }
 }
@@ -197,7 +197,7 @@ By providing validators, you can increase a schema’s functionality. The `valid
 HANDLER_ARGS_SCHEMAS = {
     'PUT': {
         'language_code': {
-            'type': 'unicode',
+            'type': 'basestring',
             'validators': [{
                 'id': 'is_supported_language_code'
             }]
@@ -297,8 +297,8 @@ Iterating over arguments...
 ('source', u'http://localhost:8181/create/QuWbhgRTovXr#/settings')
 (u'URL path elements = ', {u'exploration_id': 'QuWbhgRTovXr'})
 (u'Request method = ', 'PUT')
-(u'HANDLER_ARGS_SCHEMAS =  ', {u'DELETE': {u'username': {u'type': u'unicode'}}, u'PUT': {u'make_community_owned': {u'default_value': None, u'type': u'bool'}, u'new_member_role': {u'default_value': None, u'type': u'unicode'}, u'new_member_username': {u'default_value': None, u'type': u'unicode'}, u'viewable_if_private': {u'default_value': None, u'type': u'bool'}, u'version': {u'type': u'int'}}})
-(u'URL_PATH_ARGS_SCHEMAS = , ', {u'exploration_id': {u'type': u'unicode'}})
+(u'HANDLER_ARGS_SCHEMAS =  ', {u'DELETE': {u'username': {u'type': u'basestring'}}, u'PUT': {u'make_community_owned': {u'default_value': None, u'type': u'bool'}, u'new_member_role': {u'default_value': None, u'type': u'basestring'}, u'new_member_username': {u'default_value': None, u'type': u'basestring'}, u'viewable_if_private': {u'default_value': None, u'type': u'bool'}, u'version': {u'type': u'int'}}})
+(u'URL_PATH_ARGS_SCHEMAS = , ', {u'exploration_id': {u'type': u'basestring'}})
 ------------------------------------
 
 
@@ -314,14 +314,14 @@ class ExplorationRightsHandler(EditorHandler):
 
     URL_PATH_ARGS_SCHEMAS = {
         'exploration_id': {
-            'type': 'unicode'
+            'type': 'basestring'
         }
     }
 
     HANDLER_ARGS_SCHEMAS = {
         'DELETE': {
             'username': {
-                    'type': 'unicode'
+                    'type': 'basestring'
                 }
         },
         'PUT':{
@@ -333,11 +333,11 @@ class ExplorationRightsHandler(EditorHandler):
                 'default_value': None
             },
             'new_member_username': {
-                'type': 'unicode',
+                'type': 'basestring',
                 'default_value': None
             },
             'new_member_role': {
-                'type': 'unicode',
+                'type': 'basestring',
                 'default_value': None
             },
             'viewable_if_private': {
