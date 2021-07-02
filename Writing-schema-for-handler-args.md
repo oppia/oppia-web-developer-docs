@@ -85,7 +85,9 @@ Examples:  Let ```exploration_id``` be a data present in the url path. Then, the
 ```python
 URL_PATH_ARGS_SCHEMAS = {
     'exploration_id': {
-        'type': 'basestring'
+        'schema': {
+            'type': 'basestring'   
+        }
     }
 }
 ```
@@ -97,8 +99,8 @@ Examples:  Let ```username``` be an argument passed to the delete request method
 ```python
 HANDLER_ARGS_SCHEMAS = {
     'DELETE': {
-        'username': {
-            'type': 'basestring'
+        'schema': {
+            'type': 'basestring'   
         }
     }
 }
@@ -118,7 +120,9 @@ To provide default args for a handler, include a key with the name ```default_va
 {
     'GET': {
         'apply_draft': {
-            'type': 'bool',
+            'schema': {
+                'type': 'bool'   
+             },
             'default_value': False
         }
     }
@@ -129,7 +133,9 @@ To provide default args for a handler, include a key with the name ```default_va
 {
     'PUT':{
         'make_community_owned': {
-            'type': 'bool',
+            'schema': {
+                'type': 'bool'   
+             },
             'default_value': None
         }
     }
@@ -153,13 +159,14 @@ The data coming from the payloads/requests is in the dict format and many of the
 HANDLER_ARGS_SCHEMAS = {
     'POST': {
         'new_rules': {
+        'schema'; {
             'type': 'list',
             'items': {
                 'type': 'object_dict',
                 'object_class': (
                     platform_parameter_domain.PlatformParameterRule)
-            }
-        }
+            }   
+       }
     }
 }
 ```
@@ -176,11 +183,13 @@ The newly written method of the domain_objects_validator file should be directly
 HANDLER_ARGS_SCHEMAS = {
     'PUT': {
         'change_list': {
-            'type': 'list',
-            'items': {
-                'type': 'object_dict',
-                'validation_method': (
-                    domain_objects_validator.validate_exploration_change)
+            'schema': {
+                'type': 'list',
+                'items': {
+                    'type': 'object_dict',
+                    'validation_method': (
+                        domain_objects_validator.validate_exploration_change)
+                }   
             }
         }
     }
@@ -197,10 +206,12 @@ By providing validators, you can increase a schema’s functionality. The `valid
 HANDLER_ARGS_SCHEMAS = {
     'PUT': {
         'language_code': {
-            'type': 'basestring',
-            'validators': [{
-                'id': 'is_supported_language_code'
-            }]
+            'schema': {
+                'type': 'basestring',
+                'validators': [{
+                    'id': 'is_supported_language_code'
+                }]   
+            }
         }   
     }
 }
@@ -314,34 +325,48 @@ class ExplorationRightsHandler(EditorHandler):
 
     URL_PATH_ARGS_SCHEMAS = {
         'exploration_id': {
-            'type': 'basestring'
+            'schema': {
+                'type': 'basestring'   
+            }
         }
     }
 
     HANDLER_ARGS_SCHEMAS = {
         'DELETE': {
             'username': {
-                    'type': 'basestring'
-                }
+                'schema': {
+                        'type': 'basestring'   
+                 }
+             }
         },
         'PUT':{
             'version': {
-                'type': 'int'
+                'schema': {
+                    'type': 'int'   
+                }
             },
             'make_community_owned': {
-                'type': 'bool',
+                'schema': {
+                    'type': 'bool'   
+                },
                 'default_value': None
             },
             'new_member_username': {
-                'type': 'basestring',
+                'schema': {
+                    'type': 'basestring'   
+                },
                 'default_value': None
             },
             'new_member_role': {
-                'type': 'basestring',
+                'schema': {
+                    'type': 'basestring'   
+                },
                 'default_value': None
             },
             'viewable_if_private': {
-                'type': 'bool',
+                'schema': {
+                    'type': 'bool'   
+                },
                 'default_value': None
             }
         }
