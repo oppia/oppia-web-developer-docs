@@ -60,10 +60,10 @@ The method to write type annotations is to figure out types of the variables and
 		```
 
 
-5. To understand what different error codes mean take a look at different Error Codes in MyPy docs.  
+5. To understand what different error codes mean take a look at different [Error Codes](https://mypy.readthedocs.io/en/latest/error_code_list.html) in MyPy docs.  
    - First try to find the reason behind that error. If that error can be resolved by some improvements in the codebase, then make the necessary changes. 
    - If there are no options left to resolve that error, then only go for ignoring the error. Let’s say code in a line throws [no-return-any] error and you have no other way than to suppress it, add a comment `# type: ignore[no-return-any]` to that line. 
-   - Some ignored errors can be fixed in future, so make a TODO issue for them like this and write a todo in the file with the issue number of the issue created.
+   - Some ignored errors can be fixed in future, so make a TODO issue for them like [this](https://github.com/oppia/oppia/issues/13059) and write a todo in the file with the issue number of the issue created.
 
     **Note**: While adding `# type: ignore[code]` statements, the line length can increase beyond 80(this is our max line length limit) and this will throw lint errors. So try to split the code in multiple lines so that we don't cross the limit. If it is not possible, ignore the line-too-long error by using the pylint pragma after the type annotation like`# type: ignore[code] # pylint: disable=line-too-long`.
 
@@ -269,5 +269,5 @@ Reason: Returning a variable which mypy assumes to be of type ‘Any’ is not a
 Solution: We will need to ignore these errors by writing `# type: ignore[no-return-any]` at every place this error is thrown.
 
 We are in the process of python3 migration, and after it is complete, we won’t be using our old python2 third party libraries and with this, some of the ignores will be useless while some may still be required. Some would still be required because we won’t be having stubs for every third party library from the start. To identify type ignores that can be removed, we can leverage one peculiar functionality of  mypy - it throws errors when an ignore statement is not used and this will help us in removing extra ignore statements after python3 migration. 
-Note: During the python3 migration phase, if we start seeing unused ignore errors then they would either have to be all fixed or they can be suppressed setting warn_unused_ignores as False in the mypy.ini file if needed.
+Note: During the python3 migration phase, if we start seeing unused ignore errors then they would either have to be all fixed or they can be suppressed setting [warn_unused_ignores](https://mypy.readthedocs.io/en/stable/command_line.html#cmdoption-mypy-warn-unused-ignores) as False in the mypy.ini file if needed.
 
