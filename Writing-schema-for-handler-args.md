@@ -93,14 +93,16 @@ URL_PATH_ARGS_SCHEMAS = {
 ```
 
 4. **Define schemas for payload arguments and URL query parameter in HANDLER_ARGS_SCHEMAS**  
-    - The schemas for payload arguments and URL query parameters are written in HANDLER_ARGS_SCHEMAS in the hnadler class.
+    - The schemas for payload arguments and URL query parameters are written in HANDLER_ARGS_SCHEMAS in the handler class.
     - After writing [boilerplate code](#handlers-with-no-arguments) for the HANDLER_ARGS_SCHEMAS, the value corresponding to each request method key (GET/PUT/POST/DELETE) should contain all the payload args and URL query parameters for the corresponding method where each key represents the name of an argument and the corresponding value represents its schema. **Note**: While writing boilerplate code, make sure to remove the request keys which do not correspond to any request method in the handler class.  
 Examples:  Let ```username``` be an argument passed to the delete request method of a handler class. Then, the schema for the delete request method should look like: 
 ```python
 HANDLER_ARGS_SCHEMAS = {
     'DELETE': {
-        'schema': {
-            'type': 'basestring'   
+        'username': {
+            'schema': {
+                'type': 'basestring'   
+            }   
         }
     }
 }
