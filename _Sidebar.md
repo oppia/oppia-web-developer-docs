@@ -46,6 +46,7 @@
     * [[Oppia's code owners and checks to be carried out by developers|Oppia's-code-owners-and-checks-to-be-carried-out-by-developers]]
     * [[Privacy aware programming|Privacy-aware-programming]]
     * [[Debugging Docs|Debugging-Docs]]
+    * [[Backend Type Annotations|Backend-Type-Annotations]]
     * [[Guidelines for Developers with Write Access to oppia/oppia|Guidelines-for-Developers-with-Write-Access-to-oppia-oppia]]
   * Testing Guidelines
     * [[Running tests|Running-Tests]]
