@@ -161,7 +161,7 @@ The data coming from the payloads/requests is in the dict format and many of the
 HANDLER_ARGS_SCHEMAS = {
     'POST': {
         'new_rules': {
-            'schema'; {
+            'schema': {
                 'type': 'list',
                 'items': {
                     'type': 'object_dict',
