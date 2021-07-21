@@ -4,8 +4,8 @@
   * [Frontend changes part 1](#frontend-changes-part-1)
   * [Backend changes part 1](#backend-changes-part-1)
 * [Support viewing user experience](#support-viewing-user-experience)
-  * [Backend changes part 2](backend-changes-part-2)
-  * [Frontend changes part 2](frontend-changes-part-2)
+  * [Backend changes part 2](#backend-changes-part-2)
+  * [Frontend changes part 2](#frontend-changes-part-2)
 
 To better understand how Oppia works, let's work through a simple full-stack change--adding a field to a user's preferences. We'll discuss how to update the frontend code to display the new field and how to make the backend store this new field in the database.
 
