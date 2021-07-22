@@ -23,6 +23,8 @@
 
    You may conclude that no mitigation is worth implementing, for example if the mitigations would introduce too much friction into the PR approval process. However, you should document your thought process in the issue in case someone has an idea for a mitigation you didn't consider.
 
+6. Unless you can implement the mitigations immediately, you should open an issue for them. You should assign the issue to whoever is going to be in charge of implementation (often the dev workflow team lead).
+
 ## How to identify the bad commit
 
 To systematically locate a bad commit, you can use the git-bisect tool. It internally uses a binary search algorithm to find the offending commit from the project history. To use this tool:
