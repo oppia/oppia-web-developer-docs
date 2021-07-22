@@ -1,14 +1,27 @@
 
-## What should I do if I find a regression?
+## How to handle regressions
 
-1.  File a detailed issue on the Github [tracker](https://github.com/oppia/oppia/issues/).
-2.  Do one of the following:
-    - If you have identified the PR that caused the regression, mention it in the issue thread and @-mention the author of the PR so that they are aware of the problem. The problematic PR may be reverted if it matches the criteria mentioned in the [”When to revert a PR?” section](#when-to-revert-a-pr).
-    - If you can’t find the PR / commit that caused the regression, make sure to mention this in the issue thread.
+1. File a detailed issue on the Github [tracker](https://github.com/oppia/oppia/issues/).
 
-3.  If the regression introduced causes a functionality to be broken or unusable on production, send an email to the release coordinator (see [assignments](https://github.com/oppia/oppia/wiki/Release-Schedule#release-coordinators-and-qa-coordinators-for-upcoming-releases)) of the previous release so that they can do a hotfix to fix the bug on the production server. Also, cc the original PR author (or notify them in some other way) so that they’re aware.
-    
+2. If the regression introduced causes a functionality to be broken or unusable on production, send an email to the release coordinator (see [assignments](https://github.com/oppia/oppia/wiki/Release-Schedule#release-coordinators-and-qa-coordinators-for-upcoming-releases)) of the previous release so that they can do a hotfix to fix the bug on the production server. Also, cc the original PR author (or notify them in some other way) so that they’re aware.
 
+3. If the regression causes problems for developers (e.g. failing tests), send an email to oppia-dev to let developers know. The email should include a link to the issue you opened so that developers can follow along as we fix the regression.
+
+3. Investigate to find the cause of the regression. Ideally, we want to find the PR that introduced the regression, but failing that, we want to understand what problem in the code is causing the regression.
+
+   * If you identify the PR that caused the regression, mention it in the issue thread and @-mention the author of the PR so that they are aware of the problem. The problematic PR may be reverted if it matches the criteria mentioned in the [”When to revert a PR?” section](#when-to-revert-a-pr).
+   * If you can’t find the PR / commit that caused the regression, make sure to mention this in the issue thread. Instead of reverting the PR, you should open a PR to fix the problem.
+
+4. Consider what mitigation steps we could take to prevent similar regressions in the future. Here are some potential mitigations to consider:
+
+   * New tests, for example if a breakage occurred in a bit of code that wasn't thoroughly tested.
+   * Adding lint checks, for example if the regression was caused by a coding pattern we should avoid.
+   * Changes to how we review PRs, for example if the regression was a UI bug that would have been caught had the PR description included screenshots.
+     * Consider how much your mitigation will slow down the review process. Some mitigations, like adding screenshots, might not be a problem. Others, like requiring many more reviewers, might be more trouble than they're worth.
+   * Emailing oppia-dev, for example to warn developers to avoid the coding pattern that caused the regression.
+     * While we want to notify the developer community of how they can avoid regressions, we don't want to spam them with so many emails that they stop reading oppia-dev. Emailing oppia-dev is often the easiest mitigation, but it is not always the most effective.
+
+   You may conclude that no mitigation is worth implementing, for example if the mitigations would introduce too much friction into the PR approval process. However, you should document your thought process in the issue in case someone has an idea for a mitigation you didn't consider.
 
 ## How to identify the bad commit
 
@@ -28,7 +41,7 @@ To systematically locate a bad commit, you can use the git-bisect tool. It inter
     
     Repeat this step until the tool reports the offending commit.
 
-## When to revert a PR?
+## When to revert a PR
 
 If the PR exhibits either of the following two cases:
 
@@ -48,22 +61,13 @@ Then, follow these steps:
 4.  If the functionality is broken on the production server and needs to be fixed, inform the [release coordinator](https://github.com/oppia/oppia/wiki/Release-Schedule#release-coordinators-and-qa-coordinators-for-upcoming-releases) for the previous release so that a hotfix can be done.
     
 5.  Add "PR: require post-merge sync to HEAD" label to the revert or fix PR if developers need to update their branches once the fix/revert PR has been merged into develop. Oppiabot will comment on open PRs to merge from develop once the reverted PR has been merged.
-    
-
-  
 
 ## How to revert a PR?
-
-  
 
 In the PR page, you will find a “revert” button at the point where the PR was merged.  
 ![](https://lh5.googleusercontent.com/dGgjIANi9zathEV_g9e5FKjpWTSn2tUSIUCdwalzUN6w1ocR1j5cuMoxq6tPOMYtk-1xsMPxj7tdkkK9jbOJP8f399DE1AAKmmCIcBMyYmd0MGJ3j3tO6P1R3b4frVMZy72UnAW_)
 
-  
-
 Clicking on this button will create a new PR with the reverted changes. Feel free to add a detailed comment in the PR description explaining why the PR needs to be reverted and tag the author of the original PR.
-
-  
 
 If you see this:
 
@@ -71,15 +75,9 @@ If you see this:
   
 You will need to make the code changes on your local machine and create a PR by hand.
 
-  
-
 ## What do I do if I caused a regression?
 
-  
-
 If the PR that introduced the regression hasn't been reverted, please follow the steps above to revert. Once your PR is reverted, follow these steps:
-
-  
 
 1.  Ensure you can repro the issue fully. If you can't, talk to the original author to better understand how to repro the issue.
     
