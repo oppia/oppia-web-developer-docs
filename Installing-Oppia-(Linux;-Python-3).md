@@ -1,6 +1,6 @@
 **Note:** If you just want to create and share explorations, you may be able to use the hosted server at https://www.oppia.org (in which case you don't need to install anything).
 
-*These installation instructions were last tested on 24 July 2021. For more information on issues that may occasionally arise with the installation process, please see the [Troubleshooting](https://github.com/oppia/oppia/wiki/Troubleshooting) page.*
+*These installation instructions were last tested on 24 July 2021. For more information on issues that may occasionally arise with the installation process, please contact _vojtech.jelinek@hey.com_ or see the [Troubleshooting](https://github.com/oppia/oppia/wiki/Troubleshooting) page (but that page is not yet updated for Python 3).*
 
 ## Downloading Oppia ##
 
@@ -8,7 +8,9 @@
 
 1. Navigate to it (`cd oppia`), then [fork and clone](https://help.github.com/articles/fork-a-repo/) ([why?](https://github.com/oppia/oppia/wiki/Why-fork-and-clone-Oppia%3F)) the Oppia repo so that it gets downloaded into `oppia/oppia`. 
 
-1. Navigate to this folder (`cd oppia`) and run `git remote add upstream https://github.com/oppia/oppia.git` (or, if you're using SSH, use `git@github.com:oppia/oppia.git`) to add an `upstream` remote that's linked to Oppia's main repository. (This will be necessary when submitting PRs later.) 
+1. Navigate to this folder (`cd oppia`) and run `git remote add upstream https://github.com/oppia/oppia.git` (or, if you're using SSH, use `git@github.com:oppia/oppia.git`) to add an `upstream` remote that's linked to Oppia's main repository. (This will be necessary when submitting PRs later.)
+
+1. **Run `git pull https://github.com/brianrodri/oppia.git py3-migration` to pull the changes from the Python 3 PR.**
 
 
 ## Prerequisites ##
