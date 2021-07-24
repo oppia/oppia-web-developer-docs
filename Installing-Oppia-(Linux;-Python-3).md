@@ -38,7 +38,7 @@ bash scripts/install_prerequisites.sh
     3. Install pyenv by using [this guide](https://github.com/pyenv/pyenv-installer#install).
     4. Install Python 3.7.10 by running `pyenv install 3.7.10`.
     5. Run this command to download .direnvrc `curl https://gist.githubusercontent.com/vojtechjelinek/104017176ecf2507f7e0e303b09e00d4/raw/841ff41a12791fa1a1d8621a4639bd3c9931404b/.direnvrc > ~/.direnvrc`.
-    6. In oppia folder (NOT oppia/oppia) add a file named .envrc and add this line into it `use python 3.7.10`.
+    6. In `oppia/` folder (NOT `oppia/oppia`) add a file named .envrc and add this line into it `use python 3.7.10`.
     7. Run `direnv allow`.
     8. Now you should have a virtual environment that will be enabled when you enter the oppia folder.
 
