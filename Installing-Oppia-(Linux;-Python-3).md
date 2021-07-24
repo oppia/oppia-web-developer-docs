@@ -4,7 +4,7 @@
 
 ## Downloading Oppia ##
 
-1. Create a new, empty folder called `oppia/` in your computer's home folder. 
+1. Create a new, empty folder called `oppia/` in your computer's home folder. If you already use `oppia/` for Python 2 Oppia feel free to use some different folder name. 
 
 1. Navigate to it (`cd oppia`), then [fork and clone](https://help.github.com/articles/fork-a-repo/) ([why?](https://github.com/oppia/oppia/wiki/Why-fork-and-clone-Oppia%3F)) the Oppia repo so that it gets downloaded into `oppia/oppia`. 
 
