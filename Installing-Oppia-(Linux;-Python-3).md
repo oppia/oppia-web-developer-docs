@@ -19,7 +19,18 @@ _The following instructions will install Oppia on your local machine._
 
 Oppia relies on a number of programs and third-party libraries. Many of these libraries are downloaded automatically for you when you first run the `start.py` script provided with Oppia (see step 1 in the next section). However, there are some things that you will need to do beforehand:
 
-1. Make sure you have curl (used to download third-party libraries), setuptools (needed for installing coverage, which checks test coverage for the Python code), git (which allows you to store the source in version control), python-dev (which is used for the numpy installation), python-pip (which is also used for the numpy installation) and pyyaml (which is used to parse YAML files):
+1. We heavily recommend usage of virtual environment for working with Oppia. Here is a short guide for using [direnv](https://direnv.net/):
+    
+    1. Install direnv for you OS using this [installation guide](https://direnv.net/docs/installation.html).
+    2. Hook direnv into your shell using this [setup guide](https://direnv.net/docs/hook.html).
+    3. Install pyenv by using [this guide](https://github.com/pyenv/pyenv-installer#install).
+    4. Install Python 3.7.10 by running `pyenv install 3.7.10`.
+    5. Run this command to download .direnvrc `curl https://gist.githubusercontent.com/vojtechjelinek/104017176ecf2507f7e0e303b09e00d4/raw/841ff41a12791fa1a1d8621a4639bd3c9931404b/.direnvrc > ~/.direnvrc`.
+    6. In `oppia/` folder (NOT `oppia/oppia`) add a file named .envrc and add this line into it `use python 3.7.10`.
+    7. Run `direnv allow`.
+    8. Now you should have a virtual environment that will be enabled when you enter the oppia folder.
+
+2. Make sure you have curl (used to download third-party libraries), setuptools (needed for installing coverage, which checks test coverage for the Python code), git (which allows you to store the source in version control), python-dev (which is used for the numpy installation), python-pip (which is also used for the numpy installation) and pyyaml (which is used to parse YAML files):
 
   ```
     sudo apt-get install curl openjdk-8-jre python3-setuptools git python3-dev python3-pip python3-yaml unzip python-matplotlib python3-matplotlib
@@ -31,16 +42,6 @@ Alternatively, if you are on Debian/Ubuntu, you can use the `install_prerequisit
 bash scripts/install_prerequisites.sh
 ```
 
-2. We heavily recommend usage of virtual environment for working with Oppia. Here is a short guide for using [direnv](https://direnv.net/):
-    
-    1. Install direnv for you OS using this [installation guide](https://direnv.net/docs/installation.html).
-    2. Hook direnv into your shell using this [setup guide](https://direnv.net/docs/hook.html).
-    3. Install pyenv by using [this guide](https://github.com/pyenv/pyenv-installer#install).
-    4. Install Python 3.7.10 by running `pyenv install 3.7.10`.
-    5. Run this command to download .direnvrc `curl https://gist.githubusercontent.com/vojtechjelinek/104017176ecf2507f7e0e303b09e00d4/raw/841ff41a12791fa1a1d8621a4639bd3c9931404b/.direnvrc > ~/.direnvrc`.
-    6. In `oppia/` folder (NOT `oppia/oppia`) add a file named .envrc and add this line into it `use python 3.7.10`.
-    7. Run `direnv allow`.
-    8. Now you should have a virtual environment that will be enabled when you enter the oppia folder.
 
 3. If you want to run backend tests and check coverage, please install these 2 pip libraries globally (or in your venv).
 ```
