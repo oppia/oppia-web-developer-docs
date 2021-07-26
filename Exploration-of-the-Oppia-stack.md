@@ -1,21 +1,21 @@
 ## Table of Contents
 
-* [Support changing user experience](#support-changing-user-experience)
-  * [Frontend changes part 1](#frontend-changes-part-1)
-  * [Backend changes part 1](#backend-changes-part-1)
-* [Support viewing user experience](#support-viewing-user-experience)
-  * [Backend changes part 2](#backend-changes-part-2)
-  * [Frontend changes part 2](#frontend-changes-part-2)
+* [Support editing](#support-editing)
+  * [Frontend changes to support editing](#frontend-changes-to-support-editing)
+  * [Backend changes to support editing](#backend-changes-to-support-editing)
+* [Support viewing](#support-viewing)
+  * [Backend changes to support viewing](#backend-changes-to-support-viewing)
+  * [Frontend changes to support viewing](#frontend-changes-to-support-viewing)
 
 To better understand how Oppia works, let's work through a simple full-stack change--adding a field to a user's preferences. We'll discuss how to update the frontend code to display the new field and how to make the backend store this new field in the database.
 
 Before working through this tutorial, you should read through the [[Overview of Oppia's codebase|Overview-of-the-Oppia-codebase]].
 
-**This tutorial is designed to help you understand how Oppia works, but it is not a template for how to make a change.** For example, we won't be writing any tests or design docs.
+**This tutorial is designed to help you understand how Oppia works, but it is not a template for how you should actually make a code change.** For example, we won't be writing any tests or design docs, which are essential parts of any real full-stack change.
 
-## Support changing user experience
+## Support editing
 
-### Frontend changes part 1
+### Frontend changes to support editing
 
 In this tutorial, we'll work from the more user-facing code all the way back to the database. This will let us see the results of our changes in a local development server at each step.
 
@@ -160,7 +160,7 @@ We want to add a new field under the user bio to store a favorite color. Let's b
    }
    ```
 
-### Backend changes part 1
+### Backend changes to support editing
 
 1. We see that `updateUserPreferencesDataAsync` issues a PUT request against `PREFERENCES_DATA_URL`, which is `/preferenceshandler/data`. This path is assigned to the `PREFERENCES_DATA_URL` constant in `feconf.py`, and if you search for that constant in `main.py`, you'll see it mapped to the `profile.PreferencesHandler` controller, which is you can find in `core/controllers/profile.py`. In that controller, add code to handle the `user_experience` update type:
 
@@ -330,9 +330,9 @@ We want to add a new field under the user bio to store a favorite color. Let's b
 
    Now if you restart the development server and log in, you should not see any errors.
 
-## Support viewing user experience
+## Support viewing
 
-### Backend changes part 2
+### Backend changes to support viewing
 
 Now that we have the user experience field added to all the models, we can update the backend code to serve that field when loading a user's preferences.
 
@@ -390,7 +390,7 @@ Now that we have the user experience field added to all the models, we can updat
 
    To clean up the output, you should also remove the print statements we put in `core/domain/user_services.py`. Now, restart the development server and load the preferences page. In your terminal, you should see a dictionary printed with `'user_experience'` mapped to `''`. Next, add some text to the experience field and reload the page. In the terminal, you should now see that the dictionary maps `'user_experience'` to the text you submitted.
 
-### Frontend changes part 2
+### Frontend changes to support viewing
 
 Now the backend is providing us with the updated user experience text, but we need to tell the frontend how to display it.
 
