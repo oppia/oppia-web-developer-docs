@@ -11,9 +11,10 @@ Type Annotations are a new feature added in [PEP 484](https://www.python.org/dev
 1. Install [python3](https://www.python.org/downloads/release/python-377/).
 2. Run `python -m scripts.run_mypy_checks`. This will install all the dependencies and will type check the annotated files.
 
+**Note**: Please move environment directories out of the oppia root folder as mypy with throw errors for environment directory files too.
 ## Running MyPy check script
 Mypy checks script (`scripts/run_mypy_checks.py`) is the script used to run our mypy type checks.\
-**Note**: This requires you to have `python3` and `mypy(v0.902)` installed on your local system.
+**Note**: This requires you to have `python3` installed on your local system.
 It has two modes of running:
 1. `python -m scripts.run_mypy_checks`\
 This runs the type checks on all the type annotated files in the codebase.
