@@ -1,28 +1,55 @@
-_These instructions are for developers who'd like to contribute code to improve the Oppia platform. If you'd prefer to help out with other things, please see our [general contribution guidelines](https://github.com/oppia/oppia/wiki)._
+_These instructions are for developers who'd like to contribute code to improve the Oppia platform. If you'd prefer to help out with other things, please see our [[general contribution guidelines|Home]]._
 
-Thanks for your interest in improving the Oppia platform! This page explains how to get set up, how to find something to work on, and how to make a code change.
+Thanks for your interest in improving the Oppia platform! This page explains how you can get involved.
 
-If you run into any problems along the way, please file an issue on our [issue tracker](https://github.com/oppia/oppia/issues), or get help by posting to the [developers' mailing list](https://groups.google.com/forum/#!forum/oppia-dev). There are also lots of helpful resources in the sidebar, check that out too! Also, if you'd like to get familiar with Oppia from a user's point of view, you can take a look at the [user documentation](http://oppia.github.io/).
+If you run into any problems along the way, we're here to help! Check out our [[wiki page on getting help|Get-help]] for the communication channels you can use. If you find any bugs, you can also file an issue on our [issue tracker](https://github.com/oppia/oppia/issues). There are also lots of helpful resources in the sidebar, check that out too! Also, if you'd like to get familiar with Oppia from a user's point of view, you can take a look at the [user documentation](http://oppia.github.io/).
 
-**Important! Please read this page in its entirety before making any code changes.** It contains lots of really important information, particularly the section near the end on [how to make a code change](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#instructions-for-making-a-code-change). If, after reading this page, you still have questions, feel free to ask us on [Gitter](https://gitter.im/oppia/oppia-chat)!
+**Important! Please read this page in its entirety before making any code changes.** It contains lots of really important information. You should also read through our [[guide to making pull requests|Make-a-pull-request]]
+
+## Table of Contents
+
+* [Setting things up](#setting-things-up)
+* [Developing your skills](#developing-your-skills)
+* [Finding something to do](#finding-something-to-do)
+  * [Starter projects for new contributors](#starter-projects-for-new-contributors)
+    * [Backend](#backend)
+    * [Frontend](#frontend)
+  * [Contributor Roles](#contributor-roles)
+  * [Tasks for Existing Contributors](#tasks-for-existing-contributors)
+* [Tips for Success](#tips-for-success)
+* [Notes](#notes)
 
 ## Setting things up
 
-1. Please sign the CLA so that we can accept your contributions. If you're contributing as an individual, use the [individual CLA](https://goo.gl/forms/AttNH80OV0). If your company owns the copyright to your contributions, a company representative should sign the [corporate CLA](https://goo.gl/forms/xDq9gK3Zcv).
-1. Fill in the [Oppia contributor survey](https://goo.gl/forms/otv30JV3Ihv0dT3C3) to let us know what your interests are. (You can always change your responses later.)
-1. Install Oppia, following the appropriate installation instructions for your OS -- [Linux](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Linux%29), [Mac OS](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Mac-OS%29), [Windows](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Windows%29). If you run into any issues, please check out the [troubleshooting instructions](https://github.com/oppia/oppia/wiki/Troubleshooting).
-1. Update your GitHub settings:
-   - [Set up 2FA](https://help.github.com/articles/securing-your-account-with-two-factor-authentication-2fa/) on your GitHub account. **This is important to prevent people from impersonating you.**
-     - You might need to create a [personal access token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) so that you can log in from the command line.
-   - Set your GitHub notification preferences [here](https://github.com/oppia/oppia/subscription). The important thing is to make sure you notice when someone replies to a conversation you're part of -- many people choose "Not watching" so that they do not get overwhelmed. Selecting "Watching" will notify you about everything that happens on the Oppia repository (which is a lot!), and notifications specifically addressed to you might end up getting lost in the noise.
-    - (Optional) Consider setting up [automatic auth](https://help.github.com/articles/caching-your-github-password-in-git/) so you don't have to type in a username and password each time you commit a change.
-1. If you use [Sublime Text](http://www.sublimetext.com/), consider installing the SublimeLinter, [SublimeLinter-eslint](https://github.com/SublimeLinter/SublimeLinter-eslint), [SublimeLinter-pylint](https://github.com/SublimeLinter/SublimeLinter-pylint) and 
-[TypeScript](https://packagecontrol.io/packages/TypeScript) plugins, following the instructions on their respective pages.
-1. On your browser, consider [pinning](https://support.mozilla.org/en-US/kb/pinned-tabs-keep-favorite-websites-open) both this wiki page (for easy reference later) and the [Gitter tab](https://gitter.im/oppia/oppia-chat) (so that you can keep abreast of new activity). To pin a tab, just right-click the tab you want to pin, and select "Pin Tab".
-1. Familiarize yourself with the resources linked to from the sidebar of this page, especially the [overview of the codebase](https://github.com/oppia/oppia/wiki/Overview-of-the-Oppia-codebase), the [coding style guide](https://github.com/oppia/oppia/wiki/Coding-style-guide), the [Frequently Asked Questions](https://github.com/oppia/oppia/wiki/Frequently-Asked-Questions), and our guide on [How to Ask Questions](https://github.com/oppia/oppia/wiki/Guide-on-How-to-Ask-Questions). You don't have to read all the other stuff right now, but it's a good idea to be aware of what's available, so that you can refer to it later if needed.
-1. Say hi on the [gitter](https://gitter.im/oppia/oppia-chat) chat channel!
-1. Join [our discord](https://discord.com/invite/dCJwEAgk3D) for fun activities!
-1. Take up your first starter project! You can find more details in the next section.
+1. Please sign the CLA so that we can accept your contributions. If you're contributing as an individual, use the [individual CLA](https://goo.gl/forms/AttNH80OV0). If your company owns the copyright to your contributions, a company representative should sign the [corporate CLA](https://goo.gl/forms/xDq9gK3Zcv).  **If you do not sign the CLA, any PRs you open will be closed.**
+
+2. Fill in the [Oppia contributor survey](https://goo.gl/forms/otv30JV3Ihv0dT3C3) to let us know what your interests are. (You can always change your responses later.) Filling out the survey will also get you assigned to a mentor at Oppia who will reach out to you over email to help you get started.
+
+3. Install Oppia following the [[installation instructions|Installing-Oppia]].  If you run into any issues, please check out the [[troubleshooting instructions|Troubleshooting]].
+
+<!--
+TODO(#4): Add link to IDE tutorial.
+-->
+
+4. Update your GitHub settings:
+
+   * [Set up 2FA]( https://help.github.com/articles/securing-your-account-with-two-factor-authentication-2fa/) on your GitHub account. **This is important to prevent people from impersonating you.**
+
+     When using 2FA, you might need to create a [personal access token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) so that you can log in from the command line. Alternatively, you can [log in using SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh).
+
+   * Set your GitHub notification preferences [here](https://github.com/oppia/oppia/subscription). The important thing is to make sure you notice when someone replies to a conversation you're part of -- many people choose "Not watching" so that they do not get overwhelmed. Selecting "Watching" will notify you about everything that happens on the Oppia repository (which is a lot!), and notifications specifically addressed to you might end up getting lost in the noise.
+
+   * (Optional) Consider setting up [automatic auth](https://help.github.com/articles/caching-your-github-password-in-git/) so you don't have to type in a username and password each time you push a change. Note that this isn't an issue if you use SSH.
+
+5. On your browser, consider bookmarking both this wiki page (for easy reference later) and the [Gitter tab](https://gitter.im/oppia/oppia-chat) (so that you can keep abreast of new activity).
+
+6. Familiarize yourself with the resources linked to from the sidebar of this page, especially the [[overview of the codebase|Overview-of-the-Oppia-codebase]] the [[coding style guide|Coding-style-guide]], and the [[Frequently Asked Questions|Frequently-Asked-Questions]]. You don't have to read all the other stuff right now, but it's a good idea to be aware of what's available, so that you can refer to it later if needed.
+
+7. Say hi on the [gitter](https://gitter.im/oppia/oppia-chat) chat channel!
+
+8. Join [our discord](https://discord.com/invite/dCJwEAgk3D) for fun activities!
+
+9. Take up your first starter project! You can find more details below.
 
 ## Developing your skills
 
@@ -30,196 +57,153 @@ In general, it's easier to contribute to the Oppia codebase if you have some kno
 
 That said, we strongly recommend that you be open to learning new things. If you need to brush up on some of the technologies used in Oppia, here are some resources that may help:
 
-- Git and Github are used to make changes to the repository. So, it's good to know how to use them to do basic stuff like branching, merging, pull/push etc. [Here](https://github.com/oppia/oppia/wiki/Learning-Resources) is a page we've compiled that contains some links to useful learning materials.
-- AngularJS (v1) and Angular 2+ are used for Oppia's frontend; we are currently in the process of migrating from the former to the latter. Most of our open issues are in the frontend and require at least some knowledge of HTML, AngularJS/Angular and CSS, so knowledge of frontend coding will serve you well if you'd like to contribute to Oppia over the longer term.
-  - A nice YouTube video tutorial for AngularJS can be found [here](https://www.youtube.com/watch?v=nO1ROKMjPqI&list=PLvZkOAgBYrsS_ugyamsNpCgLSmtIXZGiz) and you can check the official [tutorial](https://docs.angularjs.org/tutorial/index)/[guide](https://docs.angularjs.org/guide). For an outline of AngularJS, you can also take a look at this [short overview](https://egghead.io/articles/new-to-angularjs-start-learning-here) with pointers to other resources.
-  - For Angular 2+, consider checking out the official documentation [here](https://angular.io/docs), which also includes a [tutorial](https://angular.io/tutorial).
-- If you are new to HTML, some tutorials include [Mozilla's guide](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML) (which includes some practice assessments), as well as [this tutorial for beginners](http://htmldog.com/guides/html/beginner/).
-- We also have some backend (Python) projects available, but not as many, so we'd strongly recommend learning AngularJS if you have the opportunity and inclination -- otherwise, the range of projects you can take up will be more limited. That said, let us know at welcome@oppia.org if you'd like suggestions for non-frontend projects, and we'll do our best to help.
+* Git and Github are used to make changes to the repository. So, it's good to know how to use them to do basic stuff like branching, merging, pull/push etc.  [Here](https://github.com/oppia/oppia/wiki/Learning-Resources) is a page we've compiled that contains some links to useful learning materials.
 
-## Finding something to do...
+* AngularJS (v1) and Angular 2+ are used for Oppia's frontend; we are currently in the process of migrating from the former to the latter.  Most of our open issues are in the frontend and require at least some knowledge of HTML, AngularJS/Angular and CSS, so knowledge of frontend coding will serve you well if you'd like to contribute to Oppia over the longer term.
 
-### ... as a new contributor
+  * A nice YouTube video tutorial for AngularJS can be found [here](https://www.youtube.com/watch?v=nO1ROKMjPqI&list=PLvZkOAgBYrsS_ugyamsNpCgLSmtIXZGiz) and you can check the official [tutorial](https://docs.angularjs.org/tutorial/index) and [guide](https://docs.angularjs.org/guide). For an outline of AngularJS, you can also take a look at this [short overview](https://egghead.io/articles/new-to-angularjs-start-learning-here) with pointers to other resources.
 
-Welcome! Please make sure to follow the [setup instructions](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up) above if you haven't already. After that, we'd **strongly recommend** tackling some part of one of the following starter issues:
+  * For Angular 2+, consider checking out the official documentation [here](https://angular.io/docs), which also includes a [tutorial](https://angular.io/tutorial).
 
-#### Backend:
-- [#11496](https://github.com/oppia/oppia/issues/11496) (Write lint checks for the end-to-end tests)
+* If you are new to HTML, some tutorials include [Mozilla's guide](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML) (which includes some practice assessments), as well as [this tutorial for beginners](http://htmldog.com/guides/html/beginner/).
 
-#### Frontend:
-- [#10700](https://github.com/oppia/oppia/issues/10700) (Refactor all migrated object factories to model.ts files in angular)
-- [#9749](https://github.com/oppia/oppia/issues/9749) (Migrate directives/controllers to Angular components)
-- [#8472](https://github.com/oppia/oppia/issues/8472) (Migrating AngularJS files to Angular 2+)
-- [#10798](https://github.com/oppia/oppia/issues/10798) (Fixing end-to-end tests, which are written with protractor)
-- [#4057](https://github.com/oppia/oppia/issues/4057) (frontend; Karma tests)
-- [#8668](https://github.com/oppia/oppia/issues/8668) (frontend; documenting the services)
-- [#8015](https://github.com/oppia/oppia/issues/8015) (Refactoring frontend - Services should return domain objects instead of dicts)
-- [#8016](https://github.com/oppia/oppia/issues/8016) (Refactoring frontend - The backend api calls in the frontend should only happen through services)
-- [#8038](https://github.com/oppia/oppia/issues/8038) (Refactoring frontend services - The backend api calls in the frontend should only happen through services)
-- [#10474](https://github.com/oppia/oppia/issues/10474) (Make typescript checks strict)
-- [#10306](https://github.com/oppia/oppia/issues/10306) (Refactoring frontend - Add "async" keyword to asynchronous functions that return a promise)
-- [#10616](https://github.com/oppia/oppia/issues/10616) (Introduce new @typesctript-eslint rules n the codebase)
+* We also have some backend (Python) projects available, but not as many, so we'd strongly recommend learning AngularJS if you have the opportunity and inclination -- otherwise, the range of projects you can take up will be more limited. That said, let us know at welcome@oppia.org if you'd like suggestions for non-frontend projects, and we'll do our best to help.
+
+## Finding something to do
+
+### Starter projects for new contributors
+
+Welcome! Please make sure to follow the instructions above if you haven't already. After that, we'd **strongly recommend** tackling some part of one of the following starter issues:
+
+#### Backend
+
+* [#11496](https://github.com/oppia/oppia/issues/11496) (Write lint checks for the end-to-end tests)
+
+#### Frontend
+
+* [#10700](https://github.com/oppia/oppia/issues/10700) (Refactor all migrated object factories to model.ts files in angular)
+
+* [#9749](https://github.com/oppia/oppia/issues/9749) (Migrate directives/controllers to Angular components)
+
+* [#8472](https://github.com/oppia/oppia/issues/8472) (Migrating AngularJS files to Angular 2+)
+
+* [#10798](https://github.com/oppia/oppia/issues/10798) (Fixing end-to-end tests, which are written with protractor)
+
+* [#8668](https://github.com/oppia/oppia/issues/8668) (frontend; documenting the services)
+
+* [#8015](https://github.com/oppia/oppia/issues/8015) (Refactoring frontend - Services should return domain objects instead of dicts)
+
+* [#8016](https://github.com/oppia/oppia/issues/8016) (Refactoring frontend - The backend api calls in the frontend should only happen through services)
+
+* [#8038](https://github.com/oppia/oppia/issues/8038) (Refactoring frontend services - The backend api calls in the frontend should only happen through services)
+
+* [#10474](https://github.com/oppia/oppia/issues/10474) (Make typescript checks strict)
+
+* [#10306](https://github.com/oppia/oppia/issues/10306) (Refactoring frontend - Add "async" keyword to asynchronous functions that return a promise)
+
+* [#10616](https://github.com/oppia/oppia/issues/10616) (Introduce new @typescript-eslint rules n the codebase)
+
+These issues are hand-picked to ensure that you don't run into unexpected roadblocks while working on them. For other issues, you may need to be more independent because often times, we don’t know how to solve them either.
+
+If you decide to pick one of these, please go ahead and leave a comment saying which part of the issue you're taking, and submit a follow-up PR by following the instructions to [[make a PR|Make-a-pull-request]]. You don't need to wait for approval to get started!
+
+If you need some help from someone with a more prominent UI/UX or design perspective, tag **@mschanteltc** and expect a response within 2-3 days, if not, ping in the Oppia Gitter channel.
+
+**Important Note**: Please make sure to read and follow the [[PR instructions|Make-a-pull-request]] carefully, otherwise your PR review may be delayed or your PR may be closed.
 
 
-since these issues are hand-picked and ensure that you don't run into unexpected roadblocks while working on them. For other issues, you may need to be more independent because often times, we don’t know how to solve them either.
-If you decide to pick one of these, please go ahead and leave a comment saying which part of the issue you're taking, and submit a follow-up PR by following the [instructions below](Contributing-code-to-Oppia#instructions-for-making-a-code-change). You don't need to wait for approval to get started!
+### Contributor Roles
 
-If you need some help from someone with a more prominent UI/UX or design perspective, tag @rachelwchen and expect a response within 2-3 days, if not, ping in the Oppia Gitter channel.
+If you want to play a more integral role in sustaining Oppia, you can look forward to being able to take on more responsibilities as you continue to make quality contributions to the project. Here is a rough outline of the roles developers play at Oppia:
 
-**Important Note**: Please make sure to read and follow the [PR instructions](Contributing-code-to-Oppia#instructions-for-making-a-code-change) carefully, otherwise your PR review may be delayed.
+```text
+        Everyone (read access)
+            |
+            |
+            v
+     New Contributors (read access)
+            |
+            | Get 2 PRs Merged
+            v
+      Collaborators (triage access)
+            |
+            | Make Sustained Quality Contributions
+            v
+         Members (write access)
+            |
+            |
+            v
+      Project Leads
+           and
+     Core Maintainers
+```
 
-### ... after completing two starter projects
+As a new contributor, you won't have any permissions on the repository except to read the code, so you'll need to ask other developers (or Oppiabot) to assign reviewers to your PR or add labels to your issue.
 
 After you've completed parts of at least two different non-trivial starter projects and successfully submitted PRs for them into develop, we'll mail you a collaborator invite link for the Oppia repository. This is a manual process and may take up to 48 hours. Please visit [this link](https://github.com/oppia/oppia/invitations) to accept the invitation to collaborate. We'll also get in touch to suggest suitable longer-term projects based on your interests, but please feel free to email us at admin@oppia.org if you don't receive the email!
 
-### ... as an existing contributor
+Then you'll be a collaborator with triage access, which lets you assign reviewers and labels. No more asking for reviewers to be assigned! If you continue to make quality contributions, you may be added as a member of the Oppia organization, which grants you write access. Then you'll be able to restart tests, serve as a [code owner](https://docs.github.com/en/articles/about-code-owners), and review pull requests.
+
+Finally, after you've been contributing to the project for a while, you may become a project lead and/or core maintainer. In those roles, you'll help plan and lead Oppia's development.
+
+If you ever wonder why you don't have permission to perform some action on the Oppia repository, it might be because of your role. GitHub details each role's privileges in more detail in [their documentation](https://docs.github.com/en/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization).
+
+### Tasks for Existing Contributors
 
 There are lots of options!
 
-- **Want easy projects?** Check out our [list of "good first issues"](https://github.com/oppia/oppia/labels/good%20first%20issue).
-- **Want projects that matter?** Check out our [list of high-priority issues](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3Aimportant).
-- **Want to practice debugging?** Check out our [list of issues needing debugging help](https://github.com/oppia/oppia/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20label%3A%22needs%20debugging%22%20).
-- **Want to practice writing a design doc?** Check out the [list of issues requiring a design doc](https://github.com/oppia/oppia/labels/needs%20design%20doc). This is useful for learning how to write good "technical implementation" proposals.
-- **Want to join a team working on a larger effort?** See our [list of projects](https://github.com/oppia/oppia/projects).
-- **Want to lead a project?** Let us know by emailing admin@oppia.org. We may offer you the opportunity to do this once you've sent in several good PRs.
-- **Want help figuring out what to do?** Just ask us on [Gitter](https://gitter.im/oppia/oppia-chat), or send an email to admin@oppia.org. We'll try to help!
+* **Want easy projects?** Check out our [list of "good first issues"](https://github.com/oppia/oppia/labels/good%20first%20issue).
 
-If an issue hasn't got someone assigned to it, and there's no existing PR for the issue (you can check this by scanning the list of [existing PRs](https://github.com/oppia/oppia/pulls)), feel free to take it up by assigning yourself to it. You don't need to ask permission to do so. Also, if you need help or advice on an issue, you can contact the corresponding team lead, whose GitHub username you can find in the issue's grey label. You can also find a list of all Oppia teams on the [Projects page](https://github.com/oppia/oppia/projects), together with their respective team leads.
+* **Want projects that matter?** Check out our [list of high-priority issues](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3Aimportant).
 
-## Instructions for making a code change
+* **Want to practice debugging?** Check out our [list of issues needing debugging help](https://github.com/oppia/oppia/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20label%3A%22needs%20debugging%22%20).
 
-**Working on your first Pull Request?** _You can learn how from this free series: [How to Contribute to an Open Source Project on GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github)._
+* **Want to practice writing a design doc?** Check out the [list of issues requiring a design doc](https://github.com/oppia/oppia/labels/needs%20design%20doc). This is useful for learning how to write good "technical implementation" proposals.
 
-**Note:** If your change involves more than around 500 lines of code, we recommend first creating a short [design doc](https://github.com/oppia/oppia/wiki/Writing-design-docs) and sending it to the oppia-dev@googlegroups.com for feedback before writing any code. This helps avoid duplication of effort, and allows us to offer advice and suggestions on the implementation approach.
+* **Want to join a team working on a larger effort?** See our [list of projects](https://github.com/oppia/oppia/projects).
 
-To make code changes, please follow the following instructions carefully! Otherwise, your code review may be delayed.
+* **Want to lead a project?** Let us know by emailing admin@oppia.org.  We may offer you the opportunity to do this once you've sent in several good PRs.
 
-1. **Before coding anything, choose a descriptive branch name** that is lowercase and hyphen-separated, e.g. `fuzzy-rules`, and create a new branch with this name, from 'develop' branch. Make sure that your branch name doesn't start with `develop`, `release` or `test`.
+* **Want help figuring out what to do?** Just ask us on [Gitter](https://gitter.im/oppia/oppia-chat), or send an email to admin@oppia.org. We'll try to help!
 
-   You can do all this by running:
+If an issue hasn't got someone assigned to it, and there's no existing PR for the issue (you can check this by scanning the list of [existing PRs](https://github.com/oppia/oppia/pulls)), feel free to take it up by assigning yourself to it. You don't need to ask permission to do so. Also, if you need help or advice on an issue, you can contact the corresponding team lead, whose GitHub username you can find in the description of the project the issue is assigned to.  You can also find a list of all Oppia teams on the [Projects page](https://github.com/oppia/oppia/projects).
 
-   ```
-     git fetch upstream
-     git checkout develop
-     git merge upstream/develop
-     git checkout -b your-branch-name
-   ```
+## Tips for Success
 
-2. **Make commit(s) locally to your feature branch.** Each commit should be self-contained and have a descriptive commit message that helps other developers understand why the changes were made. However, **do not write "Fix #ISSUE_NUMBER"** (e.g. Fix #99999) in your commit messages, as this will cause Github to close the original issue automatically. You can rename your commit messages using `git commit --amend`.
+1. Make dependent (“stacked”) PRs to ensure smaller time between reviews and subsequent PRs. A large PR results in difficulty to review for the reviewer as well as difficulty in making changes according to a review for an author. So, it is better to create smaller PRs which deliver a single small goal. If you have code changes dependent on a PR, it is better to create a separate PR for those changes.
 
-   - Before making the commit, do some sanity-checks:
+2. Try and follow test-driven development. This is the easiest way to make sure the code you wrote is working fine. The basic idea is to first write tests for the expected behaviour and then write code that will pass those tests. Refer to our guides for writing good tests:
 
-     - Ensure that your code follows [the style rules](https://github.com/oppia/oppia/wiki/Coding-style-guide).
-     - Start up a local instance of Oppia and do some manual testing in order to check that you haven't broken anything!
+   * [[Backend Tests|Writing-backend-tests]]
+   * [[Frontend Tests|Frontend-unit-tests-guide]]
+   * [[End to end tests|End-to-End-Tests]]
+   * [Tests for pylint extensions|Writing-Tests-For-Pylint]]
 
-   - To actually make the commit, run:
+3. If you're stuck on something, ask for help instead of letting it block all your work. It can be difficult to know when to ask for help, so one rule of thumb is to ask whenever you've been unable to make progress for an hour.
 
-     ```
-       git commit -a -m "{{YOUR COMMIT MESSAGE HERE}}"
-     ```
-     For eg. `git commit -a -m "address nit changes"`.
+4. When asking questions, follow our guide to [[getting help|Get-help]] to make sure your question gets to the right people and has the information they need to help you.
 
-   - **Note**: There is no maximum/minimum number of commits required in a PR. Just follow the instructions of the reviewer. Since we make a squash merge, there is no restriction on the number of commits you make but make sure that your commits are meaningful.
+5. Remember that you're working with volunteers, nearly all of whom spend most of their time at school or a job. Don't be surprised if it takes a few hours for someone to get back to you (they might be in a different time zone!).
 
-3. **Push changes to your GitHub fork.**
+6. Do a self-review to find your own mistakes. Reviews by other developers take time, so any mistakes you can catch by yourself will speed things up.
 
-   - **Before pushing**, make sure to check the following things, otherwise you will incur delays with the review process or the automated checks:
+7. Take the time to understand what the code you are changing is doing.  Sometimes we see PRs for changes that don't do anything useful or that don't make sense given the context of the code. These won't get merged.
 
-     - Do some manual testing on your local instance of Oppia to check that you haven't broken anything. You can do this by running `python -m scripts.start`. **This is important, in order to avoid breakages. Don't rely on the automated tests alone.**
+8. If you are making a contribution which involves changing some user interface or introducing a new feature, it is good to start with a design doc to avoid wasting efforts later. Follow our [[guide for writing design docs|Writing-design-docs]].
 
-     - Use a tool like `git diff` or `meld` to check that the changes you've made are exactly what you want them to be, and that you haven't left in anything spurious.
+## Notes
 
-     - Ensure that your code is fully covered by automated tests. (For more info, see the wiki pages on writing tests in the sidebar menu.)
+* Our central development branch is `develop`, which should be clean and ready for release at any time. All changes should be done in feature branches based off of `develop`.
 
-   - When you're ready to push, run:
+* Sometimes, GitHub comments in the main conversation thread don't have a reply box. This seems to be a quirk with GitHub: apparently the reply box doesn't show up on outdated threads if you're currently in the middle of a review (or a reply to someone else's review) that you haven't submitted. After you submit the review, the reply field should show up again.
 
-     ```
-       git push origin {{YOUR BRANCH NAME}}
-     ```
+* If you want to do a codebase change that is large and somewhat repetitive, do a small trial PR first for a limited subset of the change, and check with reviewers whether the approach makes sense. Only after getting that trial PR merged (or at least approved by all reviewers) should you do the full change.
 
-     **Make sure to do this from the command line** (and not GitHub's Desktop client), since this also runs some important presubmit checks before your code gets uploaded to GitHub. If any of these checks fail, read the failure messages and fix the issues by making a new commit (see step 3), then **repeat the previous instructions** to retry the push. **Do not bypass these checks, since doing so will lead to delays in the review process.**
+  This helps because, if you just did the full PR at the outset instead, then if a reviewer requests changes to the approach, you'd need to go back and modify all the files. On the other hand, with a trial PR, addressing an initial round of changes is less work, and by the time you get to the full PR, you'd already know what you need to do!
 
-4. **When your feature is ready to merge, create a pull request.**
+* To find the author of a particular change in a file, run this command:
 
-   - Go to your fork on GitHub, select your branch from the dropdown menu, and click "pull request". Ensure that the 'base' repository is the main oppia repo and that the 'base' branch is 'develop'.
-   - Following the guidance in the PR checklist, add a descriptive title explaining the purpose of the PR (e.g. "Fix issue #bugnum: add a warning when the user leaves a page in the middle of an exploration.").
-   - Fill out the rest of the PR checklist.
-   - Click "Create pull request", then **immediately** check the "Files changed" tab on your PR on GitHub and read it carefully to make sure that the changes are correct (e.g., no missing newlines at the ends of files; no files left out by mistake). This is a good way to catch obvious errors that would otherwise lead to delays in the review process. If you find an error, you can either make additional commits to the same PR to fix it, or close the PR and submit a new one.
-   - Request a review from the issue's "owner" (which can be found in a label on the issue) **and** also set them as the PR assignee. Make sure to assign a reviewer explicitly in both the Reviewers and Assignees fields. Also, leave a top-level comment on your PR saying "@{{reviewer}} PTAL", where {{reviewer}} is the GitHub username of your reviewer. ("PTAL" means "Please take a look".)
-   - After a while, check your PR to see whether the Travis checks have passed. If not, follow the instructions at "[If your build fails...](https://github.com/oppia/oppia/wiki/If-your-build-fails)".
-   - Then, wait for your code to get reviewed!
-     - While you're waiting, it's totally fine to start work on a new PR if you like. Just make sure to **checkout the develop branch** and sync to HEAD before you check out a new branch, so that each of your feature branches is based off the main trunk.
-
-5. #### **Test your PR to confirm that the changes you have made are working properly**
-   - Test all the places where the changes are made, including buttons, tabs, lists etc. Make a screen recording of these changes and add it to your PR
-
-6. #### **Address review comments until all reviewers give LGTM ('looks good to me').**
-
-   - When your reviewer has completed their review, they will reassign the PR back to you, at which point you should push updates, respond to **all** comments, and reassign it back to them. This continues until the reviewer gives LGTM, after which the PR is merged. Here is the procedure for responding to a review:
-
-     - Merge develop into your branch. If you run into conflicts, run the following commands to resolve them (**note:** replace new-branch-name with the name of your branch):
-
-       ```
-       git checkout new-branch-name
-       git fetch upstream
-       git merge upstream/develop
-       ...[fix the conflicts -- see https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line]...
-       ...[make sure the tests pass before committing]...
-       git commit -a
-       git push origin new-branch-name
-       ```
-
-       **Note:** Do not squash commits when you merge develop into your branch! This often happens when you are using an graphical interface instead of the command line. Squashing commits can confuse GitHub and cause the changes you merge in from develop to be treated as changes you made. This makes PRs really hard to review!
-
-     - Make a new commit addressing the comments you agree with, and push it to the same branch. (Continue to use descriptive commit messages, or something like "Address review comments" if you're addressing many disparate review comments in the same commit.) **You do not need to close your PR and create a new one -- it's fine to push new commits to the existing PR.**
-       - **Always make commits locally, and then push to GitHub.** Don't make changes using the online GitHub editor -- this bypasses lint/presubmit checks, and will cause the code on GitHub to diverge from the code on your machine.
-       - **Never force-push changes to GitHub once reviews have started.** This will delay your review because it overwrites history on GitHub and makes the incremental changes harder to review. It may also lead to the PR being closed.
-      - As you are making changes, track them by replying to each comment via the Files Changed tab, **choosing the "Start a review" option** for the first comment. Each reply should be either "Done" or a response explaining why the corresponding suggestion wasn't implemented. Also, please **do not** mark the comment as resolved, since this just makes it harder to actually read the comment thread. When you've
-responded to all comments, submit the review to add all your messages to the main thread.
-       - **Tip:** If a reviewer asks questions about the "why" behind something, consider proactively adding a clear comment above the relevant line in your code, since the fact that the reviewer had to ask suggests that at least one developer doesn't understand what is going on from the code alone. Otherwise, you'll probably get a follow-up review comment asking you to leave a code comment anyway :)
-       - **Note:** If any comments require follow-up PRs, please file an issue to track the necessary changes, and mention the issue number in the relevant review comment thread. (You should do this automatically for any deferred changes; reviewers may defer approval until you do.)
-
-   - Once you've addressed everything, and would like the reviewer(s) to take another look:
-     - Follow the instructions in Step 3 to test your changes locally before pushing.
-     - Make the push, and then immediately check that the changes in the "Files Changed" tab are what you intend them to be.
-     - **Important:** Make sure you've posted responses to **all** the review comments from the reviewer(s).
-     - **Important:** In the conversation thread, **write a top-level comment** explicitly asking the reviewer(s) to take another look ("@XXX PTAL"), and assign them to the PR. If however, you forget to assign the reviewer(s), Oppiabot will assign them for you.
-
-7. **Make sure all CI checks pass.** While waiting to get LGTM from reviewers, make sure that all the CI checks (Travis, CircleCI, etc.) pass, since otherwise you won't be able to merge your PR. (See "[If your build fails...](https://github.com/oppia/oppia/wiki/If-your-build-fails)" for some suggestions on what to do if you run into issues.)
-
-   - If all reviewers have given LGTM but you're still waiting for the CI checks to pass, make sure you're assigned to the PR, so that you can merge it once the CI checks are complete.
-
-8. **Tidy up!** After the PR status has changed to "Merged", delete the feature branch from both your local clone and the GitHub repository:
-
-   ```
-     git branch -D new-branch-name
-     git push origin --delete new-branch-name
-   ```
-
-9. **Celebrate.** Congratulations, you have contributed to Oppia!
-
-## Tips for making a good code change
-
-1. Make dependent (“stacked”) PRs to ensure smaller time between reviews and subsequent PRs. A large PR results in difficulty to review for the reviewer as well as difficulty in making changes according to a review for an author. So, it is better to create smaller PRs which deliver a single small goal. If you have any other code change dependent on a PR, it is better to stack it on the that PR and create a new PR instead of merging it in one PR.
-
-2. Try and follow test-driven development. This is the easiest way to make sure the code you wrote is working fine. Writing tests for the expected behaviour, and then writing code that will pass the tests is the basic idea. Refer our guides for writing good tests: [Backend Tests](https://github.com/oppia/oppia/wiki/Writing-backend-tests), [Frontend Tests](https://github.com/oppia/oppia/wiki/Frontend-unit-tests-guide), [End to end tests](https://github.com/oppia/oppia/wiki/End-to-End-Tests), [Tests for pylint extensions](https://github.com/oppia/oppia/wiki/Writing-Tests-For-Pylint).
-
-3. If you are making a contribution which involves change in some user interface or introduces a new feature, it is good to start with a design doc to avoid wasting efforts later. Follow our [guide](https://github.com/oppia/oppia/wiki/Writing-design-docs) for writing design docs.
-
-### Notes
-
-- Our central development branch is `develop`, which should be clean and ready for release at any time. All changes should be done in feature branches based off of `develop`.
-
-- If you face any issues while setting things up, or your PR build fails unexpectedly (please go through the logs of the PR build and try debugging the problem on your own first!), feel free to ping **@oppia/core-maintainers** for help.
-
-- Sometimes, GitHub comments in the main conversation thread don't have a reply box. This seems to be a quirk with GitHub: apparently the reply box doesn't show up on outdated threads if you're currently in the middle of a review (or a reply to someone else's review) that you haven't submitted. After you submit the review, the reply field should show up again.
-
-- If you want to do a codebase change that is large and somewhat repetitive, do a small trial PR first for a limited subset of the change, and check with reviewers whether the approach makes sense. Then, only do the full change after getting that trial PR merged (or at least approved by all reviewers).
-   - This helps because, if you just did the full PR at the outset instead, then if a reviewer requests changes to the approach, you'd need to go back and modify all the files. On the other hand, with a trial PR, addressing an initial round of changes is less work, and by the time you get to the full PR, you'd already know what you need to do!
-
-- To find the author of a particular change in a file, run this command:
-
-  ```
+  ```console
   git blame file-name
   ```
 
@@ -227,80 +211,14 @@ responded to all comments, submit the review to add all your messages to the mai
 
   To confine the search of an author between particular lines in a file, you can use:
 
-  ```
+  ```console
   git blame -L 40,60 file-name
   ```
 
   The output will then show lines 40 to 60 of the particular file.
 
-  For more `git blame` options, you can visit the [git blame documentation](https://git-scm.com/docs/git-blame).
+  For more `git blame` options, you can visit the [git blame documentation](https://git-scm.com/docs/git-blame). You can also view this information on GitHub. Just navigate to the file you are interested and click the "Blame" button:
 
-- If your PR includes changing the location of the file, if you simply move the file by cut and paste method, then the git will track it as a new file. So to prevent this, use:
+  ![Screenshot showing the blame button on GitHub](images/githubBlame.png)
 
-  ```
-  git mv old_file_path new_file_path
-  ```
-
-  By using this command git will detect the file as a renamed file.
-
-- **Important** PRs marked with the “critical” label need to be tested in the backup server before being merged. For this, one of the release coordinators (with access to deploy) should checkout a new branch from develop, merge the branch from the PR into the new branch, and initiate deployment to the backup server from this branch. The PR author should give specific testing instructions for the changes (like which job to run, what the expected output is, etc) and the coordinator should verify the same. Once successfully tested, the PR should be merged into develop. This is to prevent cases like exploration migrations which can result in data corruption (as it will auto-migrate) if the migration isn’t safe. The "critical" label needs to be applied on PRs that change data validation checks, and other possibly critical changes which could affect production data.
-
-## WIP / Draft Pull Requests
-
-While making a contribution, you may discover that your change is not complete and needs some more work. You may want to make a work in progress (WIP) or a draft pull request so that the reviewers can begin reviewing your changes, however, draft pull requests consumes resources like the Circle CI builds and Travis CI builds and this is not always what you want since the pull request is still a work in progress.
-
-Hence, we advice that you prefix the commit messages with **[skip ci]** or **[ci skip]** request if it is a work in progress to prevent CI checks from running.
-
-Learn more about skipping a [Travis CI build](https://docs.travis-ci.com/user/customizing-the-build/#skipping-a-build) and skipping a [Circle CI build](https://circleci.com/docs/2.0/skip-build/#skipping-a-build).
-
-
-## Labeling issues and pull requests
-
-While contributing to Oppia, you will need to add different labels to issues or pull requests which you are working on.
-
-However, not all labels are allowed on issues and pull requests.
-
-Below are labels which can be applied to pull requests:
-
-1. Dependencies: Should be added to pull requests that updates one or more dependencies.
-2. Critical: Should be added to pull requests that change storage models.
-3. Stale: Should only be added by oppiabot on pull requests that have not been active over a period of time.
-4. Changelog (labels containing _PR CHANGELOG_): Should be used on pull requests for respective projects. For example, a pull requests which upgrades a service from angularjs to angular 2+, should apply the angular migration changelog label **PR CHANGELOG: Angular Migration -- @bansalnitish**.
-5. Labels starting with **PR** like _PR: LGTM, PR: don’t merge - needs CLA_: These labels are used to denote the status of a pull request. For example, the **PR: LGTM** shows that the PR has been approved and is probably waiting for CI checks to be completed.
-6. **PR: require post-merge sync to HEAD**: Should only be applied to pull requests which when merged will require all other open pull requests to be updated with the develop branch.
-
-All other labels are to be used on issues.
-
-A complete list of labels can be found [here](https://github.com/oppia/oppia/labels). Note that the **good first issue** label should only be added by members of the onboarding team which is led by [@DubeySandeep](https://github.com/DubeySandeep).
-
-
-## Writing design docs
-
-Sometimes, it might not be entirely clear how to implement something. In such cases, we recommend creating a short document which states the problem clearly and provides a comparative analysis of the different approaches that you can think of to tackle the issue.
-
-This will enable you to get reviews from your mentors and other Oppia contributors easily without needing to schedule a meeting, and make it easier to add additional reviewers later if needed. You can find more information on [this wiki page](https://github.com/oppia/oppia/wiki/Writing-design-docs) about how to write these docs, as well as best practices for responding to doc reviews.
-
-## Juggling multiple pull requests
-
-After you've submitted a PR, and are waiting for it to get reviewed, you might want to start working on a new issue in the meantime. Git allows you to do this seamlessly! Here are some tips that might be helpful:
-
-- Always prioritize following up on your existing PRs and getting them ready for the next round of review. In particular, only start working on new issues/PRs after **all** the other PRs you're working on are in the "waiting for review" stage. This helps avoids creating a logjam in the build queues.
-
-- When starting work on a new issue, make sure you're on the `develop` branch first (and not a branch associated with any of your existing PRs) before checking out a new branch. In other words, run:
-
-   git checkout develop
-   git checkout -b {{NEW_BRANCH_NAME}}
-
-  You can then subsequently switch between branches by typing `git checkout {{BRANCH_NAME}}`, where `{{BRANCH_NAME}}` is the branch you want to switch to.
-
-
-## Communication channels
-
-### Mailing lists
-
-We have several mailing lists in the form of Google Groups that you can join:
-
-- [oppia-announce](https://groups.google.com/forum/#!forum/oppia-announce) is for announcements of new releases or blog posts.
-- [oppia-dev](https://groups.google.com/forum/#!forum/oppia-dev) is the main mailing list for communication between developers, and for technical questions. You can post to it even if you're not a member of the group.
-
-We also have a developer chat room [here](https://gitter.im/oppia/oppia-chat). Feel free to drop in and say hi!
+* **Important** PRs marked with the “critical” label need to be tested in the backup server before being merged. For this, one of the release coordinators (with access to deploy) should checkout a new branch from develop, merge the branch from the PR into the new branch, and initiate deployment to the backup server from this branch. The PR author should give specific testing instructions for the changes (like which job to run, what the expected output is, etc) and the coordinator should verify the same. Once successfully tested, the PR should be merged into develop. This is to prevent cases like exploration migrations which can result in data corruption (as it will auto-migrate) if the migration isn’t safe. The "critical" label needs to be applied on PRs that change data validation checks, and other possibly critical changes which could affect production data.
