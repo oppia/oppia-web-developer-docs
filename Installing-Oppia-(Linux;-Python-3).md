@@ -24,6 +24,7 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
     1. Install direnv for you OS using this [installation guide](https://direnv.net/docs/installation.html).
     2. Hook direnv into your shell using this [setup guide](https://direnv.net/docs/hook.html).
     3. Install pyenv by using [this guide](https://github.com/pyenv/pyenv-installer#install).
+        - **Do not install pyenv using snap as it can lead to problems.**
     4. Install Python 3.7.10 by running `pyenv install 3.7.10`.
         - In some cases there might be some problems installing the versions and you might need to run ` sudo apt-get install libffi-dev sqlite3 libsqlite3-dev` and try the installation again.
     5. Verify that Python 3.7.10 was installed by running `pyenv versions`, the 3.7.10 should be listed there.
