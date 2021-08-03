@@ -7,11 +7,11 @@
   * [Backend changes to support viewing](#backend-changes-to-support-viewing)
   * [Frontend changes to support viewing](#frontend-changes-to-support-viewing)
 
-To better understand how Oppia works, let's work through a simple full-stack change--adding a field to a user's preferences. We'll discuss how to update the frontend code to display the new field and how to make the backend store this new field in the database.
+When you work on the Oppia codebase, you'll often need to figure out what file contains the code driving some feature. This tutorial will show you how to identify these files by working through an example. Suppose we are trying to cultivate a learning community among Oppia learners. To help with that, we want to add a field to user profiles where users can describe what concepts they have experience with. This will help other learners figure out who they can ask for help.
 
 Before working through this tutorial, you should read through the [[Overview of Oppia's codebase|Overview-of-the-Oppia-codebase]].
 
-**This tutorial is designed to help you understand how Oppia works, but it is not a template for how you should actually make a code change.** For example, we won't be writing any tests or design docs, which are essential parts of any real full-stack change.
+**Warning: This is NOT a tutorial on how to make a code change to Oppia.** We will be writing code to support editing and viewing the new user experience field, but our changes will only be enough to confirm that we have identified all the relevant files. Our code will not be ready for production. Instead, working through the steps here will give you the understanding you need to write a design doc.
 
 ## Support editing
 
@@ -29,9 +29,14 @@ A development server will open at http://localhost:8181. Create a new account an
 
 ![The un-modified preferences page](images/fullStackChange/unmodifiedPreferences.png)
 
-We want to add a new field under the user bio to store a favorite color. Let's begin by adding the appropriate HTML to `core/templates/pages/preferences-page/preferences-page.component.html`.
+We want to add a new field under the user bio to store the user's experience. First, we need to find the HTML file that provides the user's bio. Here are two approaches:
 
-1. Find the code for the bio field. You can find this block by searching for `I18N_PREFERENCES_BIO`. You should find a section of code that looks like this:
+* Use your browser's developer tools to inspect the page's HTML. Find an HTML class you think will be unique, for example `protractor-test-user-bio`. Then search the codebase for that string.
+* Rely on your knowledge of how the code files in Oppia are organized. We know that the HTML files for each component are under `core/templates/pages`. In that folder, we see a `preferences-page` directory, which looks promising since we are trying to edit the preferences page. Inside that folder, we see the `preferences-page.component.html` file.
+
+Either approach should lead you to `core/templates/pages/preferences-page/preferences-page.component.html`.
+
+1. Find the code for the bio field. You can find this block by noticing from your browser's development tools that the `protractor-test-user-bio` class is associated with the bio field. If you search for that string, you should find a section of code that looks like this:
 
    ```html
      <div class="form-group row">
@@ -55,7 +60,7 @@ We want to add a new field under the user bio to store a favorite color. Let's b
 
    Pay close attention to the indentation! The last `</div>` doesn't close the `div` tag at the top, it closes a `div` from earlier in the code. Therefore, we want to add the experience field where the comment (which I added) is.
 
-2. Add the following lines just below the block of code that adds the bio field.
+2. To confirm that we've found the right spot, add the following lines just below the block of code that adds the bio field.
 
    ```html
    <div class="form-group row">
@@ -75,7 +80,7 @@ We want to add a new field under the user bio to store a favorite color. Let's b
 
    ![Preferences page. "I18N_PREFERENCES_EXPERIENCE" is shown next to the new field we added.](images/fullStackChange/preferencesWithoutTranslation.png)
 
-   Oops! That `I18N_PREFERENCES_EXPERIENCE` text should instead say something like `Preferences`. We need to add a translation in `assets/i18n/en.json`:
+   Oops! That `I18N_PREFERENCES_EXPERIENCE` text should instead say something like `Preferences`. Translations are stored in `assets/i18n`, so We need to add a translation in the English file, `assets/i18n/en.json`:
 
    ```diff
      "I18N_PREFERENCES_BIO": "Bio",
@@ -87,7 +92,9 @@ We want to add a new field under the user bio to store a favorite color. Let's b
 
    ![Preferences page with experience field correctly labeled.](images/fullStackChange/preferencesTranslated.png).
 
-4. Next we need to update the component's `*.ts` file to add some logic to our field. In the `core/templates/pages/preferences-page/preferences-page.component.ts`, you'll find a `PreferencesPageComponent` class. Add to that class an instance variable for the user experience with a default value so we can see that it works:
+   The presence of the user experience field confirms that we edited the right file.
+
+4. Next we need to update the component's `*.ts` file to add some logic to our field. This file will have the same path as the HTML file we just edited, except it will end in `.ts` instead of `.html`. The file is `core/templates/pages/preferences-page/preferences-page.component.ts`, and there you'll find a `PreferencesPageComponent` class. Add to that class an instance variable for the user experience with a default value so we can see that it works:
 
    ```diff
      userBio: string;
@@ -125,7 +132,7 @@ We want to add a new field under the user bio to store a favorite color. Let's b
 
    If you change the text in the experience field, say to `I have learned a lot! Yay!`, and then click away, you should see the console message from our `console.log` statement: `DEBUG: Saved user experience: I have learned a lot! Yay!`.
 
-6. Congratulations! You've finished the user-facing changes. Next, let's tell the component to send updates to the experience field to the backend by changing the `saveUserExperience` method:
+6. Next, let's tell the component to send updates to the experience field to the backend by changing the `saveUserExperience` method that we referenced in our HTML code above.
 
    ```diff
      saveUserExperience(userExperience: string): void {
@@ -146,7 +153,7 @@ We want to add a new field under the user bio to store a favorite color. Let's b
    InvalidInputException: Invalid update type: user_experience
    ```
 
-   This is because the backend isn't set up to handle updates to our new field. Note that we skipped the user backend API service since we don't have to make any changes to it. You should take a look at `core/templates/services/user-backend-api.service.ts` though to understand how it works. In particular, we care about the `updateUserPreferencesDataAsync` method:
+   This is because the backend isn't set up to handle updates to our new field. Note that we skipped the user backend API service. Since we are seeing an error in the terminal, we know our update to the user experience field is getting to the backend code, so the frontend's backend API service doesn't need to be changed. You should take a look at `core/templates/services/user-backend-api.service.ts` though to understand how it works. In particular, we care about the `updateUserPreferencesDataAsync` method:
 
    ```ts
    async updatePreferencesDataAsync(
@@ -161,6 +168,8 @@ We want to add a new field under the user bio to store a favorite color. Let's b
    ```
 
 ### Backend changes to support editing
+
+Next let's identify the backend files involved in handling updates to the user's profile.
 
 1. We see that `updateUserPreferencesDataAsync` issues a PUT request against `PREFERENCES_DATA_URL`, which is `/preferenceshandler/data`. This path is assigned to the `PREFERENCES_DATA_URL` constant in `feconf.py`, and if you search for that constant in `main.py`, you'll see it mapped to the `profile.PreferencesHandler` controller, which is you can find in `core/controllers/profile.py`. In that controller, add code to handle the `user_experience` update type:
 
@@ -191,7 +200,7 @@ We want to add a new field under the user bio to store a favorite color. Let's b
    DEBUG Controller received update: I have learned a lot! Yay!
    ```
 
-2. Next, lets add a service to the `core/domain/user_services.py` to handle updating the user experience field:
+2. Next, lets add a service to the `core/domain/user_services.py` to handle updating the user experience field. This will ensure our code follows the pattern used for updating the user bio, which we saw from the controller calls a `user_services.update_user_bio` function. Here's the code for our service:
 
    ```python
    def update_user_experience(user_id, user_experience):
@@ -320,7 +329,7 @@ We want to add a new field under the user bio to store a favorite color. Let's b
 
    This happens because we haven't updated the storage model yet, so there is no `user_experience` field to put into the domain model. Let's fix that next.
 
-4. The user storage model is defined in `core/storage/user/gae_models.py`. Add an instance field to the `UserSettingsModel` class:
+4. The user storage model is defined in `core/storage/user/gae_models.py`. We can find this file this because all storage models are defined in `gae_models.py` files. Add an instance field to the `UserSettingsModel` class:
 
    ```python
    # User specified experience description.
@@ -332,11 +341,13 @@ We want to add a new field under the user bio to store a favorite color. Let's b
 
 ## Support viewing
 
+Now we can supposedly change the user's experience field and save it to the datastore, but we need to confirm that this is actually happening. Let's add support for viewing the updated field to make sure everything's working.
+
 ### Backend changes to support viewing
 
 Now that we have the user experience field added to all the models, we can update the backend code to serve that field when loading a user's preferences.
 
-1. The backend storage models and domain models know about the user experience field, but we need to tell the user services to include the field when converting a storage model to a domain model. We can do so by adding code to the `_get_user_settings_from_model` function in `core/domain/user_services.py`:
+1. The backend storage models and domain models know about the user experience field, but we need to tell the user services to include the field when converting a storage model to a domain model. If you trace through how user models are retrieved through the user services, you'll find that the `_get_user_settings_from_model` function in `core/domain/user_services.py` extracts the instance fields from the storage model. Let's add code to that function:
 
    ```diff
      user_bio=user_settings_model.user_bio,
@@ -344,7 +355,7 @@ Now that we have the user experience field added to all the models, we can updat
      subject_interests=user_settings_model.subject_interests,
    ```
 
-   Now add a print statement to `get_user_settings` in `core/domain/user_services.py`:
+   Now let's check our work by adding a print statement to `get_user_settings` in `core/domain/user_services.py`:
 
    ```diff
      user_settings = get_users_settings([user_id])[0]
@@ -428,4 +439,13 @@ Now the backend is providing us with the updated user experience text, but we ne
 
    Now you should be able to log in, set the user experience, and reload the page to see your submitted text preserved in the experience field.
 
-Congratulations, you've made a full-stack change! Hopefully working through this exercise has helped you understand how all the parts of Oppia fit together. You can find a copy of the completed code [on GitHub](https://github.com/U8NWXD/oppia/tree/full-stack-change).
+Congratulations, you've found all the files needed to make a full-stack change! Hopefully working through this exercise has helped you understand how all the parts of Oppia fit together. Now you can take what you've learned about finding code in Oppia to do something similar for your own change. Doing so will prepare you to write a design doc.
+
+**This tutorial gets you ready to write a design doc; there's a lot more to a full-stack change!** For example:
+
+* Considering data privacy and ethics in your design doc.
+* Creating stacked pull requests to make reviews easier.
+* Writing tests and documentation.
+* Considering how to design the appearance of your frontend changes.
+
+You can find a copy of the completed code [on GitHub](https://github.com/U8NWXD/oppia/tree/full-stack-change).
