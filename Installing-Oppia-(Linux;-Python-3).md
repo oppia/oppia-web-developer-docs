@@ -27,7 +27,7 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
         - **Do not install pyenv using snap as it can lead to problems.**
     4. Install Python 3.7.10 by running `pyenv install 3.7.10`.
         - In some cases there might be some problems installing the versions and you might need to run ` sudo apt-get install libffi-dev sqlite3 libsqlite3-dev` and try the installation again.
-        - **Make sure that "BUILD FAILED" is not in the output of `pyenv install 3.7.10`. If it is look at other errors in the output and consult [pyenv wiki](https://github.com/pyenv/pyenv/wiki/Common-build-problems).
+        - **Make sure that "BUILD FAILED" is not in the output of `pyenv install 3.7.10`. If it is look at other errors in the output and consult [pyenv wiki](https://github.com/pyenv/pyenv/wiki/Common-build-problems).**
     5. Verify that Python 3.7.10 was installed by running `pyenv versions`, the 3.7.10 should be listed there.
     5. Run this command to download .direnvrc `curl https://gist.githubusercontent.com/vojtechjelinek/104017176ecf2507f7e0e303b09e00d4/raw/841ff41a12791fa1a1d8621a4639bd3c9931404b/.direnvrc > ~/.direnvrc`.
     6. In `oppia/` folder (NOT `oppia/oppia`) add a file named .envrc and add this line into it `use python 3.7.10`.
