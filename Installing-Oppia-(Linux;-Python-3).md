@@ -10,8 +10,6 @@
 
 1. Navigate to this folder (`cd oppia`) and run `git remote add upstream https://github.com/oppia/oppia.git` (or, if you're using SSH, use `git@github.com:oppia/oppia.git`) to add an `upstream` remote that's linked to Oppia's main repository. (This will be necessary when submitting PRs later.)
 
-1. **Run `git pull https://github.com/brianrodri/oppia.git py3-migration` to pull the changes from the Python 3 PR.**
-
 
 ## Prerequisites ##
 
