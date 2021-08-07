@@ -1,6 +1,6 @@
 **Note:** If you just want to create and share explorations, you may be able to use the hosted server at https://www.oppia.org (in which case you don't need to install anything).
  
-*These installation instructions were last tested on 3 Dec 2018. For more information on issues that may occasionally arise with the installation process, please see the [Troubleshooting](https://github.com/oppia/oppia/wiki/Troubleshooting) page. Thanks to Varun Tandon for updating these instructions!*
+*These installation instructions were last tested on 3 Dec 2018. For more information on issues that may occasionally arise with the installation process, please see the [Troubleshooting](https://github.com/oppia/oppia/wiki/Troubleshooting) page. Thanks to Varun Tandon for updating these instructions!* **These instructions are not up-to-date with Python 3 that Oppia now uses. Please consult the [Linux](https://github.com/oppia/oppia/wiki/Installing-Oppia-(Linux;-Python-3)) instructions and try to modify them for Mac.**
  
 **Note:** Be careful about trying to install Oppia if you have the Python [Anaconda platform](https://www.anaconda.com/) installed. We've received a bunch of reports that installation is tricky in that environment (there are lots of small things that get in the way), and that the solution is to use the standard python installation (via e.g. homebrew) instead.
 
