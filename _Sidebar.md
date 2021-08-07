@@ -47,6 +47,7 @@
     * [[Privacy aware programming|Privacy-aware-programming]]
     * [[Debugging Docs|Debugging-Docs]]
     * [[Backend Type Annotations|Backend-Type-Annotations]]
+    * [[Bytes and string handling in Python 3|Bytes-and-string-handling-in-Python-3]]
     * [[Guidelines for Developers with Write Access to oppia/oppia|Guidelines-for-Developers-with-Write-Access-to-oppia-oppia]]
   * Testing Guidelines
     * [[Running tests|Running-Tests]]
