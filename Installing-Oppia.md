@@ -5,7 +5,7 @@ Following is the list of installation instructions for various platforms:
 2. Navigate to the folder (`cd opensource/`) then [fork and clone](https://github.com/oppia/oppia/wiki/Fork-and-Clone-Oppia) ([why?](https://github.com/oppia/oppia/wiki/Why-fork-and-clone-Oppia%3F)) the Oppia repo so that it gets downloaded into opensource/oppia.
 3. Follow the instructions for your platform:
    * [Linux](https://github.com/oppia/oppia/wiki/Installing-Oppia-(Linux;-Python-3))
-   * [Mac OS](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Mac-OS%29)
+   * [Mac OS](https://github.com/oppia/oppia/wiki/Installing-Oppia-(Mac-OS;-Python-3))
    * [Windows](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Windows%29) (might be a bit complicated, we recommend to use Linux or Mac if you can)
 4. You might need to install an older version of Oppia that uses Python 2 (only do this when you need to get some older code working or you need to make some changes to a release that is not in Python 3 yet), follow these instructions for your platform:
    * [Linux](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Linux%29)
