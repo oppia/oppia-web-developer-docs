@@ -7,7 +7,7 @@ Following is the list for installation instructions for various platforms:
    * [Linux](https://github.com/oppia/oppia/wiki/Installing-Oppia-(Linux;-Python-3))
    * [Mac OS](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Mac-OS%29)
    * [Windows](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Windows%29) (might be a bit complicated, we recommend to use Linux or Mac if you can)
-4. You might need to install older version of Oppia, follow these instructions for your platform:
+4. You might need to install an older version of Oppia that uses Python 2 (only do this when you need to get some older code working or you need to make some changes to a release that is not in Python 3 yet), follow these instructions for your platform:
    * [Linux](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Linux%29)
    * [Mac OS](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Mac-OS%29)
    * [Windows](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Windows%29) (might be a bit complicated, we recommend to use Linux or Mac if you can)
