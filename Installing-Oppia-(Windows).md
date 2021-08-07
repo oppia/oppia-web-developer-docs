@@ -2,7 +2,7 @@
 ***
 **Note:** If you just want to create and share explorations, you may be able to use the hosted server at https://www.oppia.org (in which case you don't need to install anything).
 
-**Note:** Installing Oppia on Windows is ever so slightly more **complicated** when compared to Linux/ Mac. We recommend installing on [Linux](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Linux%29) or [Mac OS](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Mac-OS%29) instead if you are facing a lot of issues in Windows.
+**Note:** Installing Oppia on Windows is ever so slightly more **complicated** when compared to Linux/ Mac. We recommend installing on [LLinux or Mac OS](https://github.com/oppia/oppia/wiki/Installing-Oppia) instead if you are facing a lot of issues in Windows.
 
 **Note:** These instructions are tested to work on Windows 10. If you have some other version of windows, we strongly recommend using Linux or Mac OS, if possible.
 
@@ -310,6 +310,8 @@ You're done! Now return to the [code contribution instructions](https://github.c
        ```
 
 # Installation using the Ubuntu terminal on Windows 10
+
+**These instructions are not u-to-date with Python 3 yet, the should be changed soon.**
 
 _These notes were kindly contributed by **@varun-tandon** on 18 Feb 2019. They were last tested successfully by **@BenHenning** on Sep 2019. They get Oppia working in a virtual environment on Windows, but with the caveat that the backend tests do not run in the virtual environment. We are still looking for a fix for this._
 
