@@ -9,7 +9,7 @@ If you are running into a lack of response and this is blocking work, please fee
 
 ### How do I install Oppia?
 
-Oppia can be installed on your machine running [Linux](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Linux%29), [Mac OS](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Mac-OS%29) or [Windows](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Windows%29).
+Oppia can be installed on your machine running Linux, Mac OS, or Windows. Instructions for all systems are on [Installing Oppia](https://github.com/oppia/oppia/wiki/Installing-Oppia) page.
 
 If you just want to create and share explorations, you may be able to use the hosted server at https://www.oppia.org (in which case you don't need to install anything).
 
