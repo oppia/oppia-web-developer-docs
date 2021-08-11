@@ -122,6 +122,14 @@ If you see `Failed to start server on port XXXX, exiting ...` here are some poss
 
 ## Linux
 
+### Python 2 is not available
+
+If you get error like this when running `python -m scripts.start`:
+```
+ERROR: (dev_appserver) python2: command not found
+```
+you will need to install Python 2 on your platform, even though Oppia doesn't use Python 2 anymore some parts of the App Engine dev server still need it. If you are on Ubuntu, you should be able to fix this using `sudo apt install python2`. 
+
 ### Pip: Cannot Import Name Main
 
 If you get an error while running install_third_party.py which ends with:
