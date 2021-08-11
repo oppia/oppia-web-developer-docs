@@ -1,4 +1,4 @@
-__[If you are looking for more elaborate instructions on how to get started with Oppia, go to [setting things up](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up)]__
+__If you are looking for more elaborate instructions on how to get started with Oppia, go to [setting things up](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up).__
 
 Following is the list of installation instructions for various platforms:
 1. Create a new, empty folder called `opensource/`. If you're transferring to Python 3 version and still want to keep the older Python 2 version of Oppia please create some other folder with a different name.
