@@ -4,10 +4,10 @@
 
 *For information on issues that may occasionally arise with the installation process, please see the [Troubleshooting](https://github.com/oppia/oppia/wiki/Troubleshooting) page.*
 
-There follow instructions for 4 different ways to install Oppia on Windows: using WSL2, using VirtualBox, and using WSL1. You only need to follow one of the four. 
+There follow instructions for 3 different ways to install Oppia on Windows: using WSL2, using VirtualBox, and using WSL1. You only need to follow one of the four. 
 **The first approach (Installing Oppia in Windows and WSL2) is recommended.**
 
-Note: If you already use VirtualBox, it will stop working after installing WSL2 because the hypervisor resource gets locked by WSL2, and can't be used by VirtualBox. If you already use VirtualBox, try following [these instructions](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Windows%29#installation-in-virtualbox-on-windows-10). WSL2 is much faster, but make sure to copy over all your data from the VM before proceeding with the installation of WSL2.
+Note: If you already use VirtualBox, it will stop working after installing WSL2 because the hypervisor resource gets locked by WSL2, and can't be used by VirtualBox. WSL2 is much faster, but make sure to copy over all your data from the VM before proceeding with the installation of WSL2.
 
 # Installing Oppia in Windows and WSL2
 
