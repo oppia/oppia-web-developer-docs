@@ -1,6 +1,6 @@
 ## General
 
-Here are some general troubleshooting tips for Oppia. The platform specific tips are [[Linux|Troubleshooting#linux]], [[windows|Troubleshooting#windows]], [[Mac OS|Troubleshooting#mac-os]].
+Here are some general troubleshooting tips for Oppia. The platform specific tips are [[Linux|Troubleshooting#linux]], [[Windows|Troubleshooting#windows]], and [[Mac OS|Troubleshooting#mac-os]].
 
 ### `No module named builtins`
 
