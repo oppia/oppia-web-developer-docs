@@ -1,6 +1,6 @@
 **Note:** If you just want to create and share explorations, you may be able to use the hosted server at https://www.oppia.org (in which case you don't need to install anything).
  
-*These installation instructions were last tested on 3 Dec 2018. For more information on issues that may occasionally arise with the installation process, please see the [Troubleshooting](https://github.com/oppia/oppia/wiki/Troubleshooting) page. Thanks to Varun Tandon for updating these instructions!* **These instructions are not up-to-date with Python 3 that Oppia now uses. Please consult the [Linux](https://github.com/oppia/oppia/wiki/Installing-Oppia-(Linux;-Python-3)) instructions and try to modify them for Mac.**
+*These installation instructions were last tested on 24 July 2021. For more information on issues that may occasionally arise with the installation process, please see the [Troubleshooting](https://github.com/oppia/oppia/wiki/Troubleshooting) page.*
  
 **Note:** Be careful about trying to install Oppia if you have the Python [Anaconda platform](https://www.anaconda.com/) installed. We've received a bunch of reports that installation is tricky in that environment (there are lots of small things that get in the way), and that the solution is to use the standard python installation (via e.g. homebrew) instead.
 
@@ -22,38 +22,25 @@
  
 ## Prerequisites ##
  
-*The following instructions will install Oppia on your local machine.*
- 
 Oppia relies on a number of programs and third-party libraries. Many of these libraries are downloaded automatically for you when you first run the `start.py` script provided with Oppia. However, there are some things that you will need to do beforehand:
  
 1. Ensure that you have [Python 3.7](https://www.python.org/downloads/release/python-3711/) installed (Note: you can check this by running `python --version`). If Python 3.7 is not installed, download and run the latest Python 3.7 installer from https://www.python.org/downloads/mac-osx/.
  
-2. Install setuptools (which is needed to install coverage, which checks test coverage for the Python code) and pyyaml (which is needed to parse YAML files). To do this, open the terminal and run:
+2. Download [git](http://git-scm.com/download/mac), then run the package and follow instructions. This allows you to store the source in version control.
  
-    ```
-    sudo easy_install setuptools
-    sudo easy_install pyyaml
-    ```
- 
-3. Download [git](http://git-scm.com/download/mac), then run the package and follow instructions. This allows you to store the source in version control.
- 
-4. Set up a virtual environment (virtualenv) for your Oppia dependencies. This ensures that conflicting versions of Python, pip, or any Python modules on your machine do not result in installation issues.
-
-    In the `opensource/` folder (**note**: this is the **parent directory** of oppia/) run:
-
-    ```
-    pip2 install virtualenv
-    python2 -m virtualenv env
-    ```
-    This creates a Python 2 virtual environment named "env" in your `opensource/` directory. Now, anytime you need to work with the Oppia code base, you should activate the virtualenv in `opensource/` by running
+3. We heavily recommend usage of virtual environment for working with Oppia. Here is a short guide for using [direnv](https://direnv.net/):
     
-    ```
-    source env/bin/activate
-    ```
-    
-    If this is successful, the usual `YOURMACBOOK-NAME:directory$` at the start of the terminal line will be replaced with `(env) YOURMACBOOK-NAME:directory$`
-    
-    The following steps of installation and running the development server should all be done within this virtual environment to ensure compatibility.
+    1. Install direnv for you OS using this [installation guide](https://direnv.net/docs/installation.html).
+    2. Hook direnv into your shell using this [setup guide](https://direnv.net/docs/hook.html).
+    3. Install pyenv by using [this guide](https://github.com/pyenv/pyenv-installer#install).
+    4. Install Python 3.7.10 by running `pyenv install 3.7.10`.
+        - In some cases there might be some problems installing the versions and you might need to prepare your guild environment first, to do so follow this [guide from pyenv](https://github.com/pyenv/pyenv/wiki#suggested-build-environment).
+        - **Make sure that "BUILD FAILED" is not in the output of `pyenv install 3.7.10`. If it is look at other errors in the output and consult [pyenv wiki](https://github.com/pyenv/pyenv/wiki/Common-build-problems).**
+    5. Verify that Python 3.7.10 was installed by running `pyenv versions`, the 3.7.10 should be listed there.
+    5. Run this command to download .direnvrc `curl https://gist.githubusercontent.com/vojtechjelinek/104017176ecf2507f7e0e303b09e00d4/raw/841ff41a12791fa1a1d8621a4639bd3c9931404b/.direnvrc > ~/.direnvrc`.
+    6. In `oppia/` folder (NOT `oppia/oppia`) add a file named .envrc and add this line into it `use python 3.7.10`.
+    7. Run `direnv allow`.
+    8. Now you should have a virtual environment that will be enabled when you enter the oppia folder.
 
 
 ## Running Oppia on a development server ##
