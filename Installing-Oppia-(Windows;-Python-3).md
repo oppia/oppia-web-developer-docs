@@ -1,19 +1,15 @@
-
-***
 **Note:** If you just want to create and share explorations, you may be able to use the hosted server at https://www.oppia.org (in which case you don't need to install anything).
 
-**Note:** Installing Oppia on Windows is ever so slightly more **complicated** when compared to Linux/ Mac. We recommend installing on [LLinux or Mac OS](https://github.com/oppia/oppia/wiki/Installing-Oppia) instead if you are facing a lot of issues in Windows.
-
-**Note:** These instructions are tested to work on Windows 10. If you have some other version of windows, we strongly recommend using Linux or Mac OS, if possible.
+**Note:** These instructions are tested to work on Windows 10. If you have some other version of Windows, we strongly recommend using Linux or Mac OS, if possible.
 
 *For information on issues that may occasionally arise with the installation process, please see the [Troubleshooting](https://github.com/oppia/oppia/wiki/Troubleshooting) page.*
 
-There follow instructions for 4 different ways to install Oppia on Windows: using WSL2, using VirtualBox, using Docker, and using the Ubuntu terminal (WSL-1 or just WSL). You only need to follow one of the four. 
+There follow instructions for 4 different ways to install Oppia on Windows: using WSL2, using VirtualBox, and using WSL1. You only need to follow one of the four. 
 **The first approach (Installing Oppia in Windows and WSL2) is recommended.**
 
-- Note: If you already use VirtualBox, it will stop working after installing WSL2 because the hypervisor resource gets locked by WSL2, and can't be used by VirtualBox. If you already use VirtualBox, try following [these instructions](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Windows%29#installation-in-virtualbox-on-windows-10). WSL2 is much faster, but make sure to copy over all your data from the VM before proceeding with the installation of WSL2.
+Note: If you already use VirtualBox, it will stop working after installing WSL2 because the hypervisor resource gets locked by WSL2, and can't be used by VirtualBox. If you already use VirtualBox, try following [these instructions](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Windows%29#installation-in-virtualbox-on-windows-10). WSL2 is much faster, but make sure to copy over all your data from the VM before proceeding with the installation of WSL2.
 
-# Installing Oppia in Windows and WSL2:
+# Installing Oppia in Windows and WSL2
 
 ## Step 1: Check if your Windows is up to date.
 To do so press "windows-key + r" and type `winver`.
@@ -27,6 +23,7 @@ This will open up a window. Note down your windows version number and build numb
 - For ARM64 systems: Version 2004 or higher, with Build 19041 or higher.
 - Builds lower than 18362 do not support WSL 2. Use the Windows Update Assistant to update your version of Windows.
 
+
 ## Step 2: Install WSL2
 You can install WSL2 by following steps here:
 https://docs.microsoft.com/en-us/windows/wsl/install-win10
@@ -35,7 +32,7 @@ https://docs.microsoft.com/en-us/windows/wsl/install-win10
 
 
 ## Step 3: Installing the ubuntu app from the Microsoft Store.
-Install Ubuntu 18.04 LTS from the Microsoft Store. **NOTE:** Using “Ubuntu” or "or Ubuntu 20.04" will NOT work. Only use Ubuntu 18.04.
+Install Ubuntu 18.04 LTS from the Microsoft Store.
 
 Once it is installed, run the app from the startup menu. After initializing your environment, it will ask you to create a user. Provide a username and password.
 
@@ -46,20 +43,13 @@ Once it is installed, run the app from the startup menu. After initializing your
 
 **Note: You can go for Ubuntu 20.04 or "Ubuntu" as well but it comes as a barebones config. It means that you will have to install all the libs yourself, i.e, gcc, make, etc to run oppia. If you are familiar with these processes then you can use these as well.**
 
+
 ## Step 4: Clone your fork and setup:
-Run the following commands:
-```
-sudo apt update && sudo apt -y upgrade  
-sudo apt install python-minimal
-sudo apt install python-pip
-mkdir opensource
-cd opensource
-git clone https://github.com/your_username/oppia.git
-cd oppia
-python -m scripts.install_third_party_libs
-python -m scripts.start --no_browser
-```
+
+Follow the steps for [[Linux|Installing-Oppia-(Linux;-Python-3)]].
+
 If you are facing problems with pushing the code to your fork check this link: [WSL_GIT](https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-git).
+
 
 ## Step 5: Download and install google-chrome (in the Ubuntu Environment):
 
@@ -71,6 +61,7 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo apt install ./google-chrome-stable_current_amd64.deb
 ```
 **Note: make sure to download this outside the oppia folder so that you don't have to worry about pushing the file to your repo by mistake.**
+
 
 ## Step 6: Adding a lightweight desktop environment
 ```
@@ -107,6 +98,7 @@ You can read more about RDP, XFCE, XRDP in the [Appendix](https://github.com/opp
 ## Step 7: Start the rdp server:
 `sudo /etc/init.d/xrdp start`
 
+
 ## Step 8: Connect to the server using the Windows RDP client:
 Name of the app is "Remote Desktop Connection". It is already installed in the windows system by default. No need to use any third-party app.
 
@@ -122,6 +114,7 @@ You will be asked about the setup for the panel. Just click on default config.
 
 ![image](https://user-images.githubusercontent.com/23002114/94156539-d24fff00-fe9d-11ea-8f7a-039db7a7ce51.png)
 
+
 ## Running the e2e test:
 - Open the terminal (in the ubuntu-desktop env/ the RDP client) and run `google-chrome`
 - Open a new terminal tab and run your e2e tests 🙂. To check you can run `python -m scripts.run_e2e_tests --suite="users"` 
@@ -133,20 +126,18 @@ The Oppia setup is done. Got to https://github.com/oppia/oppia/wiki/Contributing
 - The WSL environment does not support audio, but it can be enabled by installing the [PulseAudio](https://wiki.ubuntu.com/PulseAudio) server on Windows following [this guide](https://token2shell.com/howto/x410/enabling-sound-in-wsl-ubuntu-let-it-sing/). With the latest [wslu package](https://launchpad.net/ubuntu/+source/wslu) installed the starting Ubuntu app detects the running [PulseAudio](https://wiki.ubuntu.com/PulseAudio) server and enables audio.
 - VSCode comes with an extension called remote-wsl, that makes it very easy to code when the code exists in your Ubuntu folder.
 - Per [this AskUbuntu question](https://askubuntu.com/questions/1115564/wsl-ubuntu-distro-how-to-solve-operation-not-permitted-on-cloning-repository), Git clone doesn’t work on mounted drives within WSL so be sure not to use it.
-- When in the ubuntu file system, you can type `explorer.exe .`  (don't forget the extra dot at the end) to open that folder in your windows file explorer.
-- Default terminal apps in windows don't have many features. Windows Terminal is an app by Microsoft. It enables multiple tabs (quickly switch between multiple Linux command lines, Windows Command Prompt, PowerShell, Azure CLI, etc), create custom key bindings (shortcut keys for opening or closing tabs, copy+paste, etc.), use the search feature, and custom themes (color schemes, font styles and sizes, background image/blur/transparency). [Learn More](https://docs.microsoft.com/en-us/windows/terminal).
+- When in the Ubuntu file system, you can type `explorer.exe .`  (don't forget the extra dot at the end) to open that folder in your Windows file explorer.
+- Default terminal apps in Windows don't have many features. Windows Terminal is an app by Microsoft. It enables multiple tabs (quickly switch between multiple Linux command lines, Windows Command Prompt, PowerShell, Azure CLI, etc), create custom key bindings (shortcut keys for opening or closing tabs, copy+paste, etc.), use the search feature, and custom themes (color schemes, font styles and sizes, background image/blur/transparency). [Learn More](https://docs.microsoft.com/en-us/windows/terminal).
 [Link to Install Windows Terminal](https://docs.microsoft.com/en-us/windows/terminal/get-started).
 
-- If you want to run backend tests and check coverage, please install these 2 pip libraries globally (or in your venv).
-```
-pip install coverage configparser
-```
+
+
 
 # Installation in VirtualBox on Windows 10
 
 _Last tested by **@aks681** on Windows 10 in July of 2020. E2e, frontend and backend tests worked at that point._
 
-_For this method, a machine with at least 8 GB RAM (prefereably 16 GB) and at least a dual core processor (preferably quad core) is recommended._
+_For this method, a machine with at least 8 GB RAM (preferably 16 GB) and at least a dual-core processor (preferably quad-core) is recommended._
 
 With VirtualBox, we run an Ubuntu 18.04 VM, with some minor changes to the VM config. With this installation, the terminal and editor for the codebase will be in VM, while the development site itself can be accessed on the Windows host. This is done so that at least some memory usage can be reduced on VM for better performance.
 
@@ -164,7 +155,7 @@ With VirtualBox, we run an Ubuntu 18.04 VM, with some minor changes to the VM co
 ## Install Ubuntu 18 ISO
 
 1. Download the Ubuntu 18.04 64bit ISO from [here](https://releases.ubuntu.com/18.04/).
-2. Select the newly created VM in virtual box and click Start.
+2. Select the newly created VM in the virtual box and click Start.
 3. Here, a window pops up where you have to link the downloaded ISO file. Click the folder icon and select the ISO from your machine.
 4. Now, go through the normal Ubuntu installation steps, you can do the following the specific steps:
  * Select "Minimal Installation", and check both checkboxes below it.
@@ -172,27 +163,34 @@ With VirtualBox, we run an Ubuntu 18.04 VM, with some minor changes to the VM co
 5. Once, Ubuntu is running and everything is done installing, exit from VM.
 
 ## Setup VirtualBox config (optional, but recommended)
-_The following has to be done after exiting from VM. Also, the following need only be done if you want the browser on host to have access to the server running in VM. If you allocated enough RAM to handle the browser instance as well in VirtualBox, then you are done and can use the VM as a complete dev environment!_
+_The following has to be done after exiting from VM. Also, the following only needs to be done if you want the browser on the host to have access to the server running in VM. If you allocated enough RAM to handle the browser instance as well in VirtualBox, then you are done and can use the VM as a complete dev environment!_
 
 1. Select the newly created VM in VirtualBox and click Settings.
-2. Go to 'System'. Here, you can change the amount of RAM allocated to the VM, and in the 'Processor' tab, you can change the amount of cores as well. At least 2 cores are recommended, it is verified to work smoothly at 4 cores.
-2. Go to 'Network' tab. Here, Adapter 1 should be 'NAT', change it to 'Bridged Adapter'.
+2. Go to 'System'. Here, you can change the amount of RAM allocated to the VM, and in the 'Processor' tab, you can change the number of cores as well. At least 2 cores are recommended, it is verified to work smoothly at 4 cores.
+2. Go to the 'Network' tab. Here, Adapter 1 should be 'NAT', change it to 'Bridged Adapter'.
 3. Change the name field to whatever is the network adapter that you are using now (like Wi-Fi or ethernet).
 
 It should look something like this: [Screenshot](https://drive.google.com/file/d/1dt9qippO7lq6CClywPA0ymhcTSGumSrj/view?usp=sharing)
 
-Now, you can open the VM. After that, clone and install the Oppia repository from GitHub following the [Ubuntu installation instructions](https://github.com/oppia/oppia/wiki/Installing-Oppia-(Linux)#downloading-oppia) in order to setup Oppia in the VM. 
+Now, you can open the VM. After that, clone and install the Oppia repository from GitHub following the [[Linux installation instructions|Installing-Oppia-(Linux;-Python-3)]] in order to set up Oppia in the VM. 
 
 If you have done the optional steps, then when running the dev server in the VM, use the command `python -m scripts.start --disable_host_checking` so that the host can access the server started in the VM. This has to be done whenever you start a server in the VM, if you require the host to access the page.
 
 Once, this is done, whenever you run the dev server in the VM, you can go to your browser on the Windows host and go to:
-http://<your_vm's_local_ip>:8181 to access the dev server. You can find your VM's local IP address by running `ifconfig`in a terminal in the VM. It should be the `inet` address of the second adapter shown there (usually starts with 192.168 or 10.0).
+http://<your_vm's_local_ip>:8181 to access the dev server. You can find your VM's local IP address by running `ifconfig` in a terminal in the VM. It should be the `inet` address of the second adapter shown there (usually starts with 192.168 or 10.0).
+
+
+
 
 # Installation using Docker on Windows 10
 
-_These notes were kindly contributed by **@ezl-13** on 13 Aug 2019. **Note, though, that this installation method has problems**: getting the frontend (Karma) tests running may not work in a foolproof way, and we haven't figured out how to get the e2e tests running yet. This is being worked on in issues [#7355](https://github.com/oppia/oppia/issues/7355) and [#7345](https://github.com/oppia/oppia/issues/7345)._
+**THESE INSTRUCTIONS ARE CURRENTLY NOT WORKING**
+
+_These notes were kindly contributed by **@ezl-13** on 13 Aug 2019. **Note, though, that this installation method has problems**: getting the frontend (Karma) tests running may not work in a foolproof way, and we haven't figured out how to get the e2e tests running yet.
 
 Docker allows for an easy installation of Oppia for Windows users and a more reliable testing environment for running test scripts. The following instructions describe how to install Oppia using Docker. (If you need help with troubleshooting, please see [this section](https://github.com/oppia/oppia/wiki/Installing-Oppia-(Windows)#troubleshooting).)
+
+
 
 ## Prerequisites & Getting Docker Container Set Up (you should only need to follow these steps once)
 
@@ -203,6 +201,7 @@ Docker allows for an easy installation of Oppia for Windows users and a more rel
     - Windows 10 Home: https://docs.docker.com/toolbox/toolbox_install_windows/
 
 2. Start Docker by clicking on the Docker application (a Docker icon should appear in your taskbar tray).
+
 
 ### Build the Docker Image
 
@@ -222,6 +221,7 @@ Docker allows for an easy installation of Oppia for Windows users and a more rel
 
       ![Screenshot showing terminal output for a successful Docker installation.](images/dockerSuccess.png)
 
+
 ### Build a Docker container based on image
 
 4. Now that the Docker image is built, create a Docker container using that image by running:
@@ -230,9 +230,11 @@ Docker allows for an easy installation of Oppia for Windows users and a more rel
      docker run -u 0 -it -p 8181:8181 --name {container_name} -v {path_to_oppia_parent_dir}:/home {image_name}:latest bash
    ```
 
-   where you should replace `{container_name}` with whatever you want to call your Docker container (say `oppia_container`), `{path_to_oppia_parent_dir}` with the **absolute path** to your oppia folder's parent directory (which might be `C:\Users\name\Desktop\opensource`), and `{image_name}` with the name of your Docker image (see above).
+where you should replace `{container_name}` with whatever you want to call your Docker container (say `oppia_container`), `{path_to_oppia_parent_dir}` with the **absolute path** to your oppia folder's parent directory (which might be `C:\Users\name\Desktop\opensource`), and `{image_name}` with the name of your Docker image (see above).
 
 5. At this point, a container is built with your current oppia directory. Now you should have a new terminal prompt `root@...`. This is a Linux-based terminal. Everything is now set up to run scripts like start.py and run_backend_tests.py. You can type `exit` to return to your Command Prompt.
+
+
 
 ## Running Oppia on a development server
 
@@ -245,6 +247,7 @@ Docker allows for an easy installation of Oppia for Windows users and a more rel
 2. Run `docker ps -a`
     - If this outputs names of containers, find the NAME of the most recent container and run: `docker start {container_name}`
     - If this does not output names of containers, run: `docker images` to get the name of a previously built image and follow step 4 from the prerequisite instructions. Then return to step 1 to ensure that the container is running.
+
 
 ### Start bash and run the start script
 
@@ -309,26 +312,14 @@ You're done! Now return to the [code contribution instructions](https://github.c
          ./node_modules/karma/bin/karma start ./core/tests/karma.conf.ts
        ```
 
-# Installation using the Ubuntu terminal on Windows 10
 
-**These instructions are not u-to-date with Python 3 yet, the should be changed soon.**
+# Installing Oppia in Windows and WSL2
 
 _These notes were kindly contributed by **@varun-tandon** on 18 Feb 2019. They were last tested successfully by **@BenHenning** on Sep 2019. They get Oppia working in a virtual environment on Windows, but with the caveat that the backend tests do not run in the virtual environment. We are still looking for a fix for this._
 
-First, start by [installing the Ubuntu terminal](https://tutorials.ubuntu.com/tutorial/tutorial-ubuntu-on-windows#0). Then, follow [the Ubuntu installation instructions](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Linux%29), **but with the following changes**:
+First, start by [installing the Ubuntu terminal](https://tutorials.ubuntu.com/tutorial/tutorial-ubuntu-on-windows#0). Then, follow [[the Linux installation instructions|Installing-Oppia-(Linux;-Python-3)]], **but with the following changes**:
 
 ### After the prerequisites, but before running start.py:
-
-3. Set up a virtual environment (virtualenv) for your Oppia dependencies. This ensures that conflicting versions of Python, pip, or any Python modules on your machine do not result in installation issues. In `opensource/` run:
-   ```
-   pip2 install virtualenv
-   python2 -m virtualenv env
-   ```
-   This creates a Python 2 virtual environment named "env" in your `opensource/` directory. Now, anytime you need to work with the Oppia code base, you should activate the virtualenv in `opensource/` by running
-   ```
-   source env/bin/activate
-   ```
-   If this is successful, the start of the terminal line will now have `(env)` at the beginning of it. The remaining steps of installation and running the development server should all be done within this virtual environment to ensure compatibility.
 
 ### When running start.py:
 
@@ -336,10 +327,8 @@ Please note that the installation process can have some strange hiccups on the W
 
 If you get an error that indicates that a server is already running, this is a good sign! Navigate to [https://localhost:8181](https://localhost:8181). If the Oppia homepage loads, you have successfully completed the installation!
 
-## Troubleshooting
 
-- If you run into `distutilsOptionError`:
-  - Then: Make sure you have set up the virtualenv. See [this comment](https://github.com/oppia/oppia/issues/7613#issuecomment-531429687).
+
 
 # Appendix:
 
