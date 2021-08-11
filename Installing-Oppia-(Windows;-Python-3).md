@@ -184,7 +184,7 @@ http://<your_vm's_local_ip>:8181 to access the dev server. You can find your VM'
 
 # Installation using Docker on Windows 10
 
-**THESE INSTRUCTIONS ARE CURRENTLY NOT WORKING**
+**THESE INSTRUCTIONS ARE CURRENTLY NOT WORKING, IF YOU HAVE EXPERIENCE WITH DOCKER WE ARE LOOKING FOR SOMEONE THAT CAN HELP US CREATE A DOCKER FOR OPPIA**
 
 _These notes were kindly contributed by **@ezl-13** on 13 Aug 2019. **Note, though, that this installation method has problems**: getting the frontend (Karma) tests running may not work in a foolproof way, and we haven't figured out how to get the e2e tests running yet.
 
