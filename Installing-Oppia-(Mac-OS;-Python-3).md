@@ -26,7 +26,7 @@
  
 Oppia relies on a number of programs and third-party libraries. Many of these libraries are downloaded automatically for you when you first run the `start.py` script provided with Oppia. However, there are some things that you will need to do beforehand:
  
-1. Ensure that you have [Python 2.7](http://www.python.org/download/releases/2.7/) installed (Note: you can check this by running `python --version`). If Python 2.7 is not installed, download and run the latest Python 2.7 installer from https://www.python.org/downloads/mac-osx/. Make sure you download an installer for Python 2 and not Python 3!
+1. Ensure that you have [Python 3.7](https://www.python.org/downloads/release/python-3711/) installed (Note: you can check this by running `python --version`). If Python 3.7 is not installed, download and run the latest Python 3.7 installer from https://www.python.org/downloads/mac-osx/.
  
 2. Install setuptools (which is needed to install coverage, which checks test coverage for the Python code) and pyyaml (which is needed to parse YAML files). To do this, open the terminal and run:
  
@@ -55,13 +55,6 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
     
     The following steps of installation and running the development server should all be done within this virtual environment to ensure compatibility.
 
-    **Troubleshooting**: If, after running the `pip2 install virtualenv` command, you encounter a **'pip2 not found error'**, then do the following ([reference](https://pip.pypa.io/en/stable/installing/)):
-      - Run the following command in the terminal: `curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py`. This command downloads the get-pip.py file. 
-      - In the same folder where you ran the above command, run: `python get-pip.py`.
-      - If, after running the above command you get a warning about the directory not being added to PATH, you can add the suggested directory to the PATH by running: `sudo nano /etc/paths` and adding the suggested path at the bottom of the /etc/paths file (e.g. /Users/{{SYSTEM USERNAME}}/Library/Python/2.7/bin).
-
-    **Note**: If you get errors while setting up virtual environment and running a development server works fine without a virtual environment (there are no conflicts with versions of python, pip or other python modules), you can safely skip the virtual environment setup.
-       
 
 ## Running Oppia on a development server ##
  
@@ -73,7 +66,7 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
  
   The first time you run this script, it will take a while (about 5 - 10 minutes when we last tested it in Dec 2018, though this depends on your Internet connection). Subsequent runs should be much faster. The `start.py` script downloads and installs the required dependencies (such as Google App Engine) if they are not already present, and sets up a development server for you to play with. The development server logs are then output to this terminal, so you will not be able to enter further commands in it until you disconnect the server.
 
-  **Note**: **Please don't use `sudo` while installing.** It's not required, and using it may cause problems later. If you face permissions issues, ensure that you have the necessary permissions for the directory in which you're trying to set up Oppia. If you run into any other installation problems, please read [these notes](https://github.com/oppia/oppia/wiki/Issues-with-installation%3F).
+  **Note**: **Please don't use `sudo` while installing.** It's not required, and using it may cause problems later. If you face permissions issues, ensure that you have the necessary permissions for the directory in which you're trying to set up Oppia.
 
   **Note**: The script will create two folders that are siblings of the `oppia/` root directory: `oppia_tools` and `node_modules`. This is done so that these two folders will not be uploaded to App Engine when the application is deployed to the web.
  
@@ -83,8 +76,6 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
     ../oppia_tools/
     node_modules/
     third_party/
-    core/templates/prod/
-    local_compiled_js/
   ```
  
   and running `start.py` again.
@@ -114,6 +105,8 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
 ```
 pip install coverage configparser
 ```
+
+
 ## Tips and tricks
  
   * To preserve the contents of the local datastore between consecutive runs, use the `--save_datastore` argument when starting up the dev server:
