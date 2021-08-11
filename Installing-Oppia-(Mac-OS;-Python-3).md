@@ -4,7 +4,7 @@
  
 **Note:** Be careful about trying to install Oppia if you have the Python [Anaconda platform](https://www.anaconda.com/) installed. We've received a bunch of reports that installation is tricky in that environment (there are lots of small things that get in the way), and that the solution is to use the standard python installation (via e.g. homebrew) instead.
 
-## Note: Mac with M1 chips ##
+## Mac with M1 chips ##
 
 1. [Install](https://stackoverflow.com/a/64883440) Rosetta 2
 2. Inside Rosetta perform the Downloading and prerequisites steps
