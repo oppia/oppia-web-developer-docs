@@ -1,6 +1,6 @@
 ## General
 
-Here are some general troubleshooting tips for Oppia. The platform specific tips are [[Linux|Troubleshooting#linux]], [[windows|Troubleshooting#windows]], [[Mac OS|Troubleshooting#mac-os]] and [[Vagrant|Troubleshooting#vagrant]].
+Here are some general troubleshooting tips for Oppia. The platform specific tips are [[Linux|Troubleshooting#linux]], [[Windows|Troubleshooting#windows]], and [[Mac OS|Troubleshooting#mac-os]].
 
 ### `No module named builtins`
 
@@ -26,7 +26,7 @@ If running `which java` on the terminal does not return any output, you do not h
 
 ### Frontend Tests Stuck
 
-If you're unable to run front-end tests while pushing your changes due to the script getting stuck, please go to "node_modules" directory (located at the same level as that of the root directory) and delete the "protractor" directory present inside that folder.
+If you're unable to run frontend tests while pushing your changes due to the script getting stuck, please go to "node_modules" directory (located at the same level as that of the root directory) and delete the "protractor" directory present inside that folder.
 
 ### Selenium Server Not Killed by Ctrl-C
 
@@ -40,45 +40,13 @@ If the selenium server is not killed on pressing Ctrl-C and you get an error som
 You can kill the process manually by `sudo lsof -t -i:45691` or `sudo kill $(sudo lsof -t -i:45691)`.
 These commands can be used anywhere to kill a running process on any port by using the appropriate port number.
 
-### Invalid Certificate
-
-If you get an error that ends with:
-
-```
-  fancy_urllib.InvalidCertificateException?: Host appengine.google.com returned
-  an invalid certificate (ssl.c:507: error:14090086:SSL
-  routines:SSL3_GET_SERVER_CERTIFICATE:certificate verify failed):
-```
-
-try removing the `cacerts.txt` and `urlfetch_cacerts.txt` files as described [here](http://stackoverflow.com/questions/13899530/gae-sdk-1-7-4-and-invalidcertificateexception) and [here](http://stackoverflow.com/questions/17777994/why-cant-i-launch-my-app-from-the-shell).
-
-### SSL Handshake Failure
-
-If you get an error that ends with:
-
-```
-  File "/usr/lib/python2.7/ssl.py", line 405, in do_handshake
-self._sslobj.do_handshake()
-  IOError: [Errno socket error] [Errno 1] _ssl.c:510: error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure
-```
-
-try upgrading your python, follow these steps:
-- `sudo apt-get update`
-- `sudo apt-get install --only-upgrade python2.7`
-
-**Note:** This issue will only raise if your python version is < 2.7.9.
-
 ### 403 Error
 
-If you get 403 error while serving oppia locally, this can be because you are working behind a proxy.
+If you get 403 error while serving Oppia locally, this can be because you are working behind a proxy.
 
-go to `oppia_tools/google_app_engine_1.9.XX/google_appengine/google/appengine/tools` and open the `appengine_rpc.py` file. Comment the following line in it. `opener.add_handler(fancy_urllib.FancyProxyHandler())` . Run the server again.
+go to `oppia_tools/google-cloud-sdk-XXX.X.X/google-cloud-sdk/platform/google_appengine/google/appengine/tools/` and open the `appengine_rpc.py` file. Comment the following line in it. `opener.add_handler(ProxyHandler())`. Run the server again.
 
-[Resource](https://stackoverflow.com/questions/16698621/google-app-engine-error-httperror/17522082)
-
-### TLS Protocol Version Socket Error
-
-If you see an error that contains `OError: [Errno socket error] [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version` when trying to run scripts.start, try installing LibreSSL, uninstall Python, then reinstall Python. [Source](https://github.com/espressif/arduino-esp32/issues/1143)
+[Resource for outdated version of the App Engine.](https://stackoverflow.com/questions/16698621/google-app-engine-error-httperror/17522082)
 
 ### MERGE_MSG Newer than Swap File
 
@@ -90,11 +58,7 @@ If you’re seeing issues when trying to merge from upstream/develop that say so
 
 ### No Such File or Directory: Google Cloud SDK
 
-If you see an error that says something along the lines of `OSError: [Errno 2] No such file or directory: '/.../opensource/oppia_tools/google-cloud-sdk-304.0.0/google-cloud-sdk/platform/google_appengine/google/appengine'` while running `scripts.start` - then try deleting the `../oppia_tools` directory and then running `scripts.start` again.
-
-### Python 3 Error
-
-If you see any error that contains `/usr/bin/python3:...` that means you’re trying to run something using Python 3, which we do not support. Be sure that you have installed and are using Python 2 instead.
+If you see an error that says something along the lines of `OSError: [Errno 2] No such file or directory: '/.../opensource/oppia_tools/google-cloud-sdk-XXX.X.X/google-cloud-sdk/platform/google_appengine/google/appengine'` while running `scripts.start` - then try deleting the `../oppia_tools` directory and then running `scripts.start` again.
 
 ### Problems Cloning from GitHub
 
@@ -112,15 +76,11 @@ If you see an error that says something like, `IOError: [Errno socket error] [SS
 
 If you see an error that contains `No module named scripts` when trying to run any of our scripts, then make sure that you’re currently in the correct folder (i.e. the directory called `oppia` that directly contains the `scripts` directory). Note that, in general, all scripts should be run from oppia/ (and not from scripts/ or other directories). You can find more information about how to navigate folders using the command line [here](https://www.macworld.com/article/2042378/master-the-command-line-navigating-files-and-folders.html).
 
-### With IDE: `'_FailedTest' has no attribute`
-
-   * If you’re using PyCharm or another IDE to run your tests and you see an error that contains `AttributeError: type object '_FailedTest' has no attribute '...'`, double check that your IDE is pointing to a virtual environment with Python 2. You can learn how to edit the configuration of your runner in Pycharm [here](https://www.jetbrains.com/help/pycharm/creating-and-editing-run-debug-configurations.html#createExplicitly).
-
 ### Invalid Syntax
 
 If you repeatedly get errors with `SyntaxError: invalid syntax` for a module or class that you didn’t edit and/or is part of a third party library, then try doing either of the following…
 
-* Be sure that libraries were installed using Python 2. If not, uninstall all Python 3 environments and reinstall everything in Python 2.
+* Be sure that libraries were installed using Python 3. If not, uninstall all Python 2 environments and reinstall everything in Python 3.
 * Delete the `oppia_tools` directory and rerun the script
 
 ### Java Read Past EOF
@@ -142,13 +102,13 @@ For possible workarounds, see [[Failed to Start Server on Port XXXX|Troubleshoot
 If you see `Failed to start server on port XXXX, exiting ...` here are some possible solutions:
 
 * Sometimes this happens because the service is taking a long time to start running on that port. If the service takes longer than our timeout, you'll see this message. To fix this, you can increase the timeout in `scripts/common.py` by increasing the value of `MAX_WAIT_TIME_FOR_PORT_TO_OPEN_SECS`. This can also happen when your machine is running more slowly than usual. Quitting resource-intensive applications or rebooting may help.
-* Sometimes this happens because the server earlier failed to shutdown correctly. You may need to kill remaining processes. You can search for processes containing `oppia`, and `elasticsearch` like this: `ps -ax | grep <search term>`. This will show the process ID numbers, which you can pass to `kill` to kill the process like this: `kill <process ID`.
+* Sometimes this happens because the server earlier failed to shutdown correctly. You may need to kill remaining processes. You can search for processes containing `oppia`, and `elasticsearch` like this: `ps -ax | grep <search term>`. This will show the process ID numbers, which you can pass to `kill` to kill the process like this: `kill <process ID>`.
 * Some developers have found that they have to run some services manually to get Oppia to work. This is an unsupported workaround, but you may find it useful:
   * Redis (port 6379) on M1 macs:
     1. Install Rosetta 2 try [this](https://www.google.com/url?q=https://stackoverflow.com/questions/64882584/how-to-run-the-homebrew-installer-under-rosetta-2-on-m1-macbook%23:~:text%3DYou%2520can%2520run%2520Terminal%2520with,%2522Open%2520using%2520Rosetta%2522%2520option&sa=D&source=hangouts&ust=1611504651223000&usg=AFQjCNFhJysGCAFdzLswFuK5JVoxjs6CwQ)
     2. Inside Rosetta perform all the installations/prerequisites.
-       Note: If `sudo easy_install pyyaml` does not work try using `pip3 install pyyaml`.
-    3. Open the rosetta terminal and download redis server using `pip3 install redis`.
+       Note: If `sudo easy_install pyyaml` does not work try using `pip install pyyaml`.
+    3. Open the Rosetta terminal and download redis server using `pip install redis`.
     4. Run redis-server with the following cmd: `redis-server` (**Don't stop the redis server**)
     5. Open another rosetta terminal and run `python -m scripts.start`
   * Elasticsearch (port 9200):
@@ -158,104 +118,17 @@ If you see `Failed to start server on port XXXX, exiting ...` here are some poss
     ```
     For some version number `<version>`.
 
+
+
 ## Linux
 
-### No Attribute PROTOCOL_SSLv3
+### Python 2 is not available
 
-If you get an error that ends with:
-
+If you get error like this when running `python -m scripts.start`:
 ```
-ssl.PROTOCOL_SSLv3: OpenSSL.SSL.SSLv3_METHOD,
-AttributeError: 'module' object has no attribute 'PROTOCOL_SSLv3'
+ERROR: (dev_appserver) python2: command not found
 ```
-
-try commenting out the line
-
-```
-  '../oppia_tools/google_appengine_1.9.19/google_appengine/lib/requests/requests/packages/urllib3/contrib/pyopenssl.py:70': (ssl.PROTOCOL_SSLv3: OpenSSL.SSL.SSLv3_METHOD,)
-```
-as described [here](https://code.google.com/p/googleappengine/issues/detail?id=11539#c2).
-
-### build/py3k/numpy Not a Directory
-
-If you get an error that ends with:
-
-```
-  File "numpy/setup.py", line 5, in configuration
-    config = Configuration('numpy',parent_package,top_path)
-  File "/tmp/pip-build-4rsvws0b/numpy/build/py3k/numpy/distutils/misc_util.py", line 743, in __init__
-    raise ValueError("%r is not a directory" % (package_path,))
-ValueError: 'build/py3k/numpy' is not a directory
-Converting to Python3 via 2to3...
-```
-make sure that your default `pip` is using Python 2, not Python 3. See [#1742](https://github.com/oppia/oppia/issues/1742).
-
-### Unicode Decode Error
-
-If you get an error that looks something like this:
-
-```
-error: can't combine user with prefix, exec_prefix/home, or install_(plat)base
-
-----------------------------------------
-Cleaning up...
-Command /usr/bin/python -c "import setuptools, tokenize;__file__='/tmp/pip-build-xiOWdq/numpy/setup.py';exec(compile(getattr(tokenize, 'open', open)(__file__).read().replace('\r\n', '\n'), __file__, 'exec'))" install --record /tmp/pip-t7c_y1-record/install-record.txt --single-version-externally-managed --compile --user --home=/tmp/tmpP9jGIf failed with error code 1 in /tmp/pip-build-xiOWdq/numpy
-Traceback (most recent call last):
-  File "/usr/bin/pip", line 9, in <module>
-    load_entry_point('pip==1.5.6', 'console_scripts', 'pip')()
-  File "/usr/lib/python2.7/dist-packages/pip/__init__.py", line 248, in main
-    return command.main(cmd_args)
-  File "/usr/lib/python2.7/dist-packages/pip/basecommand.py", line 161, in main
-    text = '\n'.join(complete_log)
-UnicodeDecodeError: 'ascii' codec can't decode byte 0xe2 in position 72: ordinal not in range(128)
-```
-try either (a) updating the version of pip to v8.1.2 (as described in [this comment](https://github.com/oppia/oppia/issues/1580#issuecomment-218423065)), or (b) going into scripts/install_third_party.py and (temporarily) adding a `--system` flag to all the invocations of pip before re-running the startup script. (See `pip install -h` for the meaning of the flags; [this page](https://docs.python.org/3/install/index.html#alternate-installation) might also be useful.)
-
-### Distutils Option Error or No Module `_ctypes`
-
-If you get an error that ends with either:
-
-```
-File "/usr/local/Cellar/python/2.7.11/Frameworks/Python.framework/Versions/2.7/lib/python2.7/distutils/command/install.py", line 264, in finalize_options
-"must supply either home or prefix/exec-prefix -- not both"
-DistutilsOptionError: must supply either home or prefix/exec-prefix -- not both
-```
-
-or
-
-```
-ImportError: No module named _ctypes
-```
-
-please ensure that you are using Python 2. Also, if your system already has numpy installed, please ensure that its version is 1.6.1 (since that is the only one compatible with Google App Engine). For more details, see [this issue](https://github.com/oppia/oppia/issues/1545).
-
-### Distutils Option Error Combination
-
-If error looks like this:
-```
-Exception:
-Traceback (most recent call last):
-  File "/usr/lib/python2.7/dist-packages/pip/basecommand.py", line 215, in main
-    status = self.run(options, args)
-  File "/usr/lib/python2.7/dist-packages/pip/commands/install.py", line 360, in run
-    prefix=options.prefix_path,
-  File "/usr/lib/python2.7/dist-packages/pip/req/req_set.py", line 784, in install
-    **kwargs
-  File "/usr/lib/python2.7/dist-packages/pip/req/req_install.py", line 851, in install
-    self.move_wheel_files(self.source_dir, root=root, prefix=prefix)
-  File "/usr/lib/python2.7/dist-packages/pip/req/req_install.py", line 1064, in move_wheel_files
-    isolated=self.isolated,
-  File "/usr/lib/python2.7/dist-packages/pip/wheel.py", line 247, in move_wheel_files
-    prefix=prefix,
-  File "/usr/lib/python2.7/dist-packages/pip/locations.py", line 153, in distutils_scheme
-    i.finalize_options()
-  File "/usr/share/python-wheels/setuptools-39.0.1-py2.py3-none-any.whl/setuptools/command/install.py", line 38, in finalize_options
-    orig.install.finalize_options(self)
-  File "/usr/lib/python2.7/distutils/command/install.py", line 289, in finalize_options
-    raise DistutilsOptionError("can't combine user with prefix, "
-DistutilsOptionError: can't combine user with prefix, exec_prefix/home, or install_(plat)base
-```
-add ` --user --prefix= --system` after every pip command with `--target` in [install_third_party.py](https://github.com/oppia/oppia/blob/develop/scripts/install_third_party.py)
+you will need to install Python 2 on your platform, even though Oppia doesn't use Python 2 anymore some parts of the App Engine dev server still need it. If you are on Ubuntu, you should be able to fix this using `sudo apt install python2`. 
 
 ### Pip: Cannot Import Name Main
 
@@ -268,25 +141,6 @@ ImportError: cannot import name main
 ```
 Try running `$ python -m pip uninstall pip` followed by running `$ python -m scripts.install_third_party` (source: [SO thread](https://stackoverflow.com/questions/49964093/file-usr-bin-pip-line-9-in-module-from-pip-import-main-importerror-canno)).
 
-### Cannot Import RAND_egd
-
-If you get an error that ends with:
-
-```
-File "/oppia_tools/google_appengine_1.9.50/google_appengine/google/appengine/dist27/socket.py", line 73, in
-from _ssl import RAND_add, RAND_egd, RAND_status, SSL_ERROR_ZERO_RETURN, SSL_ERROR_WANT_READ, SSL_ERROR_WANT_WRITE, SSL_ERROR_WANT_X509_LOOKUP, SSL_ERROR_SYSCALL, SSL_ERROR_SSL, SSL_ERROR_WANT_CONNECT, SSL_ERROR_EOF, SSL_ERROR_INVALID_ERROR_CODE
-ImportError: cannot import name RAND_egd
-```
-go to `oppia_tools/google_appengine_1.9.50/google_appengine/google/appengine/dist27` and open the `socket.py` file. In this file go to the line 73 (or, alternatively, search for ‘RAND_egd’) and remove import of ‘RAND_egd’ from that line.
-
-### Not a Gzip File
-
-If you get an error that ends with something like this:
-
-```
-tarfile.ReadError: not a gzip file
-```
-use `urllib2.request` for downloading the third party libraries instead of `urllib.urlretrieve` in "scripts/install_third_party.py".
 
 ### System Limit for Number of File Watchers Reached
 
@@ -303,6 +157,7 @@ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo s
 ```
 Use the same command in the cases where the changes made by you to files are not being detected by the server.
 
+
 ### No Module functools_lru_cache
 
 If you get an error of the format:
@@ -317,8 +172,9 @@ python -m scripts.start
 
 If the directory is not empty and you still get the same error, try installing matplotlib by running the following command:
 ```
-sudo apt-get install python-matplotlib
+sudo apt-get install python3-matplotlib
 ```
+
 
 ### No Module appengine.api
 
@@ -329,9 +185,11 @@ No module named appengine.api
 If you're not using a virtual environment, make sure that the path to the appengine lib is locatable. Also, make sure that there are no other versions of google libraries installed globally which may cause path conflict issues. Refer to [this blog](https://medium.com/@maanavshah/fixing-python-import-error-no-module-named-appengine-ebcb540e7f18) for more reference.
 If this error occurs within a virtual environment, try reinstalling the libs by running clean.py followed by start.py.
 
+
+
 ## Mac OS
 
-### Cannot IMport Name `_imaging`
+### Cannot Import Name `_imaging`
 
 After running `python -m scripts.start`, if you get an error around the following lines:
 
@@ -340,7 +198,7 @@ After running `python -m scripts.start`, if you get an error around the followin
          from core.platform.image import gae_image_services
      File "/opensource/oppia/core/platform/image/gae_image_services.py", line 20, in <module>
          from PIL import Image
-     File "/opensource/oppia_tools/Pillow-6.0.0/PIL/Image.py", line 93, in <module>
+     File "/opensource/oppia_tools/Pillow-6.2.2/PIL/Image.py", line 93, in <module>
          from . import _imaging as core
    ImportError: cannot import name _imaging
 ```
@@ -360,6 +218,7 @@ Then, uninstall and reinstall Pillow
 
 Finally, try running the `python -m scripts.start` script again.
 
+
 ### Command cc failed with exit status 1
 
 If, on MacOS Mojave V10.14.x, you get an issue arises while installing PIL library that has a lot of gibberish and that includes stuff like:
@@ -374,37 +233,24 @@ then try running this command on terminal ([reference](https://github.com/python
   sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /
 ```
 
-### Clag Invalid Argument `-faltivec`
-
-If you get an error that includes:
-
-```
-clang: error: invalid argument '-faltivec' only allowed with 'ppc/ppc64/ppc64le'
-clang: error: invalid argument '-faltivec' only allowed with 'ppc/ppc64/ppc64le'
-clang: error: invalid argument '-faltivec' only allowed with 'ppc/ppc64/ppc64le'
-clang: error: invalid argument '-faltivec' only allowed with 'ppc/ppc64/ppc64le'
-error: Command "gcc -fno-strict-aliasing -fno-common -dynamic -arch x86_64 -arch i386 -g -Os -pipe -fno-common -fno-strict-aliasing -fwrapv -DENABLE_DTRACE -DMACOSX -DNDEBUG -Wall -Wstrict-prototypes -Wshorten-64-to-32 -DNDEBUG -g -fwrapv -Os -Wall -Wstrict-prototypes -DENABLE_DTRACE -arch x86_64 -arch i386 -pipe -DNO_ATLAS_INFO=3 -Inumpy/core/blasdot -Inumpy/core/include -Ibuild/src.macosx-10.10-intel-2.7/numpy/core/include/numpy -Inumpy/core/src/private -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/include -I/System/Library/Frameworks/Python.framework/Versions/2.7/include/python2.7 -Ibuild/src.macosx-10.10-intel-2.7/numpy/core/src/multiarray -Ibuild/src.macosx-10.10-intel-2.7/numpy/core/src/umath -c numpy/core/blasdot/_dotblas.c -o build/temp.macosx-10.10-intel-2.7/numpy/core/blasdot/_dotblas.o -faltivec -I/System/Library/Frameworks/vecLib.framework/Headers" failed with exit status 1
-```
-
-please see the instructions in [issue #1179](https://github.com/oppia/oppia/issues/1179) for a fix.
 
 ### GitPython Not Installed
 
 If you get an error that includes:
 
 ```
-itPython is not installed for Python 2.x
-he 'dist' command will not work without it. Get it using pip or easy_install
+GitPython is not installed for Python 3.x the 'dist' command will not work without it. Get it using pip or easy_install
 ```
 
 please install [GitPython](http://gitpython.readthedocs.io/en/stable/intro.html#installing-gitpython) before proceeding further.
+
 
 ### Install Imaging
 
 If you get an error that includes:
 
 ```
-Command "/usr/local/opt/python@2/bin/python2.7 -u -c "import setuptools, tokenize;__file__='/private/tmp/pip-req-build-TGvu2M/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" install --record /private/tmp/pip-record-6nuoQh/install-record.txt --single-version-externally-managed --compile --home=/private/tmp/pip-target-CMgDrw" failed with error code 1 in /private/tmp/pip-req-build-TGvu2M/
+Command "/usr/local/opt/python@3/bin/python3.7 -u -c "import setuptools, tokenize;__file__='/private/tmp/pip-req-build-TGvu2M/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" install --record /private/tmp/pip-record-6nuoQh/install-record.txt --single-version-externally-managed --compile --home=/private/tmp/pip-target-CMgDrw" failed with error code 1 in /private/tmp/pip-req-build-TGvu2M/
 ```
 
 please run the following comands:-
@@ -417,6 +263,7 @@ pip install http://effbot.org/downloads/Imaging-1.1.7.tar.gz
 
 For more details look up the following [link](https://answers.ros.org/question/145856/having-trouble-installing-pil-in-mac-osx/?answer=146471#post-id-146471)
 
+
 ### No Java Runtime Present
 
 If you get an error that includes:
@@ -427,105 +274,45 @@ closure-compiler failed.
 ```
 please download [Java](https://support.apple.com/kb/DL1572?locale=en_US) and install it.
 
-### No Skulpt
-
-if you get an error that includes:
-
-```
-Checking whether Skulpt is installed in third_party
-cp: /Users/sdawson/opensource/oppia_tools/skulpt-0.10.0/skulpt/dist/*: No such file or directory
-```
-please remove the below mentioned directories and try running `python -m scripts.start` again:
-```
-../oppia_tools/
-../node_modules/
-third_party/
-core/templates/prod/
-```
-
-### Numpy Installation Distutils Option Error
-
-if you run into issues while installing numpy, and the error message looks something like this:
-
-```
-Collecting numpy==1.6.1
-Downloading numpy-1.6.1-cp27-none-macosx_10_6_intel.macosx_10_9_intel.macosx_10_9_x86_64.whl (11.6MB)
-    100% |████████████████████████████████| 11.6MB 104kB/s
-Installing collected packages: numpy
-Exception:
-Traceback (most recent call last):
-  File "/usr/local/lib/python2.7/site-packages/pip/basecommand.py", line 215, in main
-    status = self.run(options, args)
-  File "/usr/local/lib/python2.7/site-packages/pip/commands/install.py", line 317, in run
-    prefix=options.prefix_path,
-  File "/usr/local/lib/python2.7/site-packages/pip/req/req_set.py", line 742, in install
-    **kwargs
-  File "/usr/local/lib/python2.7/site-packages/pip/req/req_install.py", line 831, in install
-    self.move_wheel_files(self.source_dir, root=root, prefix=prefix)
-  File "/usr/local/lib/python2.7/site-packages/pip/req/req_install.py", line 1032, in move_wheel_files
-    isolated=self.isolated,
-  File "/usr/local/lib/python2.7/site-packages/pip/wheel.py", line 247, in move_wheel_files
-    prefix=prefix,
-  File "/usr/local/lib/python2.7/site-packages/pip/locations.py", line 153, in distutils_scheme
-    i.finalize_options()
-  File "/usr/local/Cellar/python/2.7.11/Frameworks/Python.framework/Versions/2.7/lib/python2.7/distutils/command/install.py", line 264, in finalize_options
-    "must supply either home or prefix/exec-prefix -- not both"
-DistutilsOptionError: must supply either home or prefix/exec-prefix -- not both
-```
-
-this StackOverflow [answer](http://stackoverflow.com/a/24357384) provides a possible fix.
 
 ### 503 Error when Starting Appengine
 
 if you run into an error that looks like this when starting App Engine:
 
 ```
-File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/urllib2.py", line 558, in http_error_default
+File "/System/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/urllib2.py", line 558, in http_error_default
     raise HTTPError(req.get_full_url(), code, msg, hdrs, fp)
 HTTPError: HTTP Error 503: Service Unavailable
 ```
 
 please take a look at this StackOverflow [answer](https://stackoverflow.com/a/19460147) and see if it helps.
 
+
 ### SSL Wrong Version Number
 
 If you get an error with `IOError: [Errno socket error] [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:727)` at the bottom, one contributor found that the error occurred intermitently. If you rerun your command, you should get further down the list of files to download. Keep rerunning until all the downloads succeed.
+
 
 ### SSL Verification Issues
 
 If all else fails, and you run into SSL related issues while installing third party libs, [here](https://stackoverflow.com/a/40857561) is what worked for one contributor. **WARNING This disables all SSL verification, so use at your own risk!**
 
+
 ## Windows
 
 ### Windows Firewall
 
-It's possible that windows firewall might be preventing localhost:8181 to launch. In such a case, you should re-config the firewall by adding new inbound rule so that ports 8181 and 8000 are allowed. (Instruction about how to add inbound rules can be found [here](https://msdn.microsoft.com/en-us/library/hh168549(v=nav.90).aspx))
+It's possible that Windows firewall might be preventing localhost:8181 to launch. In such a case, you should re-config the firewall by adding new inbound rule so that ports 8181 and 8000 are allowed. (Instruction about how to add inbound rules can be found [here](https://msdn.microsoft.com/en-us/library/hh168549(v=nav.90).aspx))
+
 
 ### No Such File or Directory /dev/disk/by-id
 
-One contributor found that when installing on Windows with WSL2, they got this error:
+If you get this error
 ```
 [OSError: [Errno 2] No such file or directory: `/dev/disk/by-id/`
 ```
-To fix this, try adding the `--no_browser` argument to your command, e.g. `python -m scripts.start --no_browser`.
+try fixing it by adding the `--no_browser` argument to your command, e.g. `python -m scripts.start --no_browser`.
 
-## Vagrant
-
-### Committing from Host
-
-If you run `git commit` from the host machine, you will likely have your commit rejected because you have not installed the pre-commit hooks. The hooks only install after you have run Oppia for the first time on a machine. Since you are actually installing and running Oppia on a VM, those hooks do not exist on the host. There are several ways to overcome this:
-
-* (Recommended) Do `git commit` and `git push` from the guest. This is actually not as difficult or burdensome as it may sound: All directories are mapped into the Vagrant VM, including `.git`, so configurations such as your username and e-mail will carry over as well.
-* Try to build Oppia natively on Windows (this is difficult, and is neither recommended nor supported).
-* Note that doing a `git push` using SSH will not work, since the guest machine cannot see your host's private key. If you want to use SSH, you can add the Vagrant VM's public key to your account, but *this is NOT RECOMMENDED*! Vagrant uses the same SSH key for all machines, so anyone could write to any of your repos.
-
-### \r Not Found
-
-If Vagrant prints an error involving `\r not found`, the recommended fix is to ensure you have the [appropriate line endings set up](#prerequisites) and then clone your repo down again after copying out or saving any work.
-
-### Service Starts but Terminates
-
-If the service reports that it starts, but then terminates and your vagrant install doesn't respond to port 8181 or 8000. Then try to delete the oppia_tools directory and re-run the `python -m scripts.start` to reinstall.
 
 
 ## If the above doesn't work

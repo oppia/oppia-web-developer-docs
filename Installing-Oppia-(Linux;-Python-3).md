@@ -1,6 +1,6 @@
 **Note:** If you just want to create and share explorations, you may be able to use the hosted server at https://www.oppia.org (in which case you don't need to install anything).
 
-*These installation instructions were last tested on 24 July 2021. For more information on issues that may occasionally arise with the installation process, please contact _vojtech.jelinek@hey.com_ or see the [Troubleshooting](https://github.com/oppia/oppia/wiki/Troubleshooting) page (but that page is not yet updated for Python 3).*
+*These installation instructions were last tested on 24 July 2021. For more information on issues that may occasionally arise with the installation process, please contact _vojtech.jelinek@hey.com_ or see the [Troubleshooting](https://github.com/oppia/oppia/wiki/Troubleshooting) page.*
 
 ## Downloading Oppia ##
 
@@ -13,8 +13,6 @@
 
 ## Prerequisites ##
 
-_The following instructions will install Oppia on your local machine._
-
 Oppia relies on a number of programs and third-party libraries. Many of these libraries are downloaded automatically for you when you first run the `start.py` script provided with Oppia (see step 1 in the next section). However, there are some things that you will need to do beforehand:
 
 1. We heavily recommend usage of virtual environment for working with Oppia. Here is a short guide for using [direnv](https://direnv.net/):
@@ -24,7 +22,7 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
     3. Install pyenv by using [this guide](https://github.com/pyenv/pyenv-installer#install).
         - **Do not install pyenv using snap as it can lead to problems.**
     4. Install Python 3.7.10 by running `pyenv install 3.7.10`.
-        - In some cases there might be some problems installing the versions and you might need to run ` sudo apt-get install libffi-dev sqlite3 libsqlite3-dev` and try the installation again.
+        - In some cases there might be some problems installing the versions and you might need to prepare your guild environment first, to do so follow this [guide from pyenv](https://github.com/pyenv/pyenv/wiki#suggested-build-environment).
         - **Make sure that "BUILD FAILED" is not in the output of `pyenv install 3.7.10`. If it is look at other errors in the output and consult [pyenv wiki](https://github.com/pyenv/pyenv/wiki/Common-build-problems).**
     5. Verify that Python 3.7.10 was installed by running `pyenv versions`, the 3.7.10 should be listed there.
     5. Run this command to download .direnvrc `curl https://gist.githubusercontent.com/vojtechjelinek/104017176ecf2507f7e0e303b09e00d4/raw/841ff41a12791fa1a1d8621a4639bd3c9931404b/.direnvrc > ~/.direnvrc`.
