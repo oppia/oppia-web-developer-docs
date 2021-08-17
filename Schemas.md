@@ -513,4 +513,9 @@ When writing the schema for a handler class, you will often need to add a couple
 Remove all the print statements and verify schema validation by again hitting the handler from the frontend.
 
 #### Contact
+
 For any discussion please contact Rohit(@rohitkatlaa) or Vojtech(@vojtechjelinek) or Nikhil(@Nik-09).
+
+### Configuration values
+
+The admin page exposes many configuration options, and we define what kinds of values we expect using schemas. In [`core/domain/config_domain.py`](https://github.com/oppia/oppia/blob/develop/core/domain/config_domain.py), we define schemas for each configuration option. Then we can automatically generate the forms in the admin page for changing these values based on their schemas.
