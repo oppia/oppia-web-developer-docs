@@ -51,7 +51,7 @@ The properties of components are specified in `/assets/rich_text_components_defi
 * `customization_arg_specs`: Each dictionary defines a customizable option of that component. For example, the `Math` component has the sole customizable option `raw_latex` for the latex to be rendered. Each dictionary in the list has the form:
     * `name`: the name of the option
     * `description`: a string describing the option, which will be displayed when the component is being edited/inserted
-    * `schema`: a [schema](https://github.com/oppia/oppia/wiki/Schema-Based-Forms) specifies type, and optionally other things such as validators for the data
+    * `schema`: a [[schema|Schemas]] specifies type, and optionally other things such as validators for the data
     * `default_value`: initial value for the option
 
 # Code
