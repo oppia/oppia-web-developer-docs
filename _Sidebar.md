@@ -73,7 +73,7 @@
     * [[Angular Migration | Angular-Migration]]
     * [UX guidelines](https://github.com/oppia/oppia/wiki/Oppia-UX-guidelines-&-rationales)
     * [[Writing style guide|Writing-style-guide]]
-    * [[Schema-based forms|Schema-based-Forms]]
+    * [[Schemas|Schemas]]
     * [[Editor pages|Editor-pages]]
     * [[Rich Text Editor (RTE)|Rich-Text-Editor-(RTE)-Overview]]
   * Backend
