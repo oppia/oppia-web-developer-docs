@@ -130,6 +130,29 @@ ERROR: (dev_appserver) python2: command not found
 ```
 you will need to install Python 2 on your platform, even though Oppia doesn't use Python 2 anymore some parts of the App Engine dev server still need it. If you are on Ubuntu, you should be able to fix this using `sudo apt install python2`. 
 
+
+### OSError: [Errno 2] No such file or directory
+
+If you get an error like this
+```
+  File "/home/…/oppia/oppia_tools/google-cloud-sdk-335.0.0/google-cloud-sdk/platform/google_appengine/google/appengine/tools/devappserver2/module.py", line 231, in _create_instance_factory
+    module_configuration=module_configuration)
+  File "/home/…/oppia/oppia_tools/google-cloud-sdk-335.0.0/google-cloud-sdk/platform/google_appengine/google/appengine/tools/devappserver2/python/instance_factory.py", line 148, in __init__
+    self._SetupVirtualenvFromConfiguration()
+  File "/home/…/oppia/oppia_tools/google-cloud-sdk-335.0.0/google-cloud-sdk/platform/google_appengine/google/appengine/tools/devappserver2/python/instance_factory.py", line 193, in _SetupVirtualenvFromConfiguration
+    self._venv_dir, requirements_file.name)
+  File "/home/…/oppia/oppia_tools/google-cloud-sdk-335.0.0/google-cloud-sdk/platform/google_appengine/google/appengine/tools/devappserver2/python/instance_factory.py", line 278, in _SetupVirtualenv
+    cls._RunPipInstall(venv_dir, requirements_file_name)
+  File "/home/…/oppia/oppia_tools/google-cloud-sdk-335.0.0/google-cloud-sdk/platform/google_appengine/google/appengine/tools/devappserver2/python/instance_factory.py", line 262, in _RunPipInstall
+    pip_proc = subprocess.Popen(pip_cmd, stdout=pip_out)
+  File "/usr/lib/python2.7/subprocess.py", line 394, in __init__
+    errread, errwrite)
+  File "/usr/lib/python2.7/subprocess.py", line 1047, in _execute_child
+    raise child_exception
+OSError: [Errno 2] No such file or directory
+```
+please follow the instructions mentioned in [#13672](https://github.com/oppia/oppia/issues/13672) to fix it.
+
 ### Pip: Cannot Import Name Main
 
 If you get an error while running install_third_party.py which ends with:
