@@ -25,12 +25,12 @@
 
 ## Introduction
 
-At Oppia, we often want to describe the possible structure of some data. This data could be as simple as the boolean value of a checkbox in a user's preferences, or it could be more complex like the valid arguments to one of our backend API controllers. We use describe these data using _schemas_.
+At Oppia, we often want to describe the possible structure of some data. This data could be as simple as the boolean value of a checkbox in a user's preferences, or it could be more complex like the valid arguments to one of our backend API controllers. We describe these data using _schemas_.
 
-Schemas describe the structure of data in a machine-readable format so that generic utility functions can operate on arbitrary data so long as the data comes with a schema. For example, schemas let us:
+A schema describes the structure of data in a machine-readable format so that generic utility functions can operate on arbitrary data so long as the data comes with a schema. For example, schemas let us:
 
 * Validate provided data to make sure it conforms to the expected schema.
-* Automatically generate forms that let a user provided data in a form specified by a schema.
+* Automatically generate forms that let a user provide data in a form specified by a schema.
 
 ## Write a schema
 
@@ -55,7 +55,7 @@ A schema is just a dictionary that takes the form described below:
 * Optional keys:
 
   * `choices`: A list of possible values. The data must exactly match one of the choices.
-  * `validators`: A list of dictionaries, each of which has a sole key `id` that maps to the name of a validation function. The validation functions are defined as static methods of `schema_utils._Validators`. To conform to the schema, data must pass all validators.
+  * `validators`: A list of dictionaries, each of which has a sole key `id` that maps to the name of a validation function. The validation functions are defined as static methods of `schema_utils._Validators`. To conform to the schema, data must pass all validators provided in the schema.
   * `ui_config`: A dictionary of configuration parameters for how the data should be displayed. Note that this key only applies when the schema data is being displayed as a form. The dictionary may contain any of the following keys:
 
     * `rows`: Only allowed for type `unicode`. If specified, the value must be a positive integer. If this value is omitted, the unicode field is displayed as a regular `<input>` field. Otherwise, it is displayed as a textarea with the given number of rows.
@@ -152,10 +152,10 @@ The following key methods are used in the validation of handler args through the
 * `vaidate_and_normalize_args()` in `base.py`: This method is defined in the BaseHandler class of base.py. The `vaidate_and_normalize_args` method is responsible for validating and normalizing handler args. It also raises exceptions when those validation and normalization fail, for example `InvalidInputException` and `NotImplemented` errors. (See [this section](#common-errors-faced) for a list of common errors that may arise.)
 
 * `validate(handler_args, handler_args_schemas)` in `payload_validator.py`: This method is the core method of the SVS. It collects all the AssertionErrors raised from schema_utils.
-  * `handler_args`: The arguments from payload/ request.
+  * `handler_args`: The arguments from the HTTP request.
   * `handler_args_schemas`: Schema from the handler class.(See [this link](#how-to-write-validation-schema-for-handlers) for more information on how to write a schema).
 
-* `normalize_against_schema(obj, schema)` in `schema_utils.py`: This method normalizes the obj against its schema and raises `AssertionError` if any of the validation checks fail. This `AssertionError` is represented as `InvalidInputException` to users.
+* `normalize_against_schema(obj, schema)` in `schema_utils.py`: This method normalizes the given `obj` against its schema and raises `AssertionError` if any of the validation checks fail. This `AssertionError` is represented as `InvalidInputException` to users.
   * `obj`: The object which needs to be normalized.
   * `schema`: The schema for the object.
 
@@ -170,7 +170,7 @@ If you’re writing a new handler method, you’ll need to add schema validation
    * **Payload arguments**: The data which come from payloads are called payload arguments. These data are typically received by PUT and POST methods.
    * **URL query parameters**: Query parameters are included at the end of a URL. Example: in `url/<exploration_id>?username=nikhil`, there is a single URL query parameter with name “username” and value “nikhil”. URL query parameters are typically received by GET and DELETE methods.
 
-   If you face any difficulty see the [debugging section](#debugging-tricks) or reach out to anyone mentioned in the [contact section](#contact).
+   If you face any difficulty with this step see the [debugging section](#debugging-tricks) or reach out to anyone mentioned in the [contact section](#contact).
 
 2. **Determine the schema for each argument**
    First, you should be familiar with [how to write a schema](#write-a-schema). Then, you can write a schema for each argument, beginning with [some boilerplate code](#handlers-with-no-arguments). For more information, see the sections on [important code pointers](#important-code-pointers) and [examples](#examples-for-reference).
@@ -217,7 +217,7 @@ The following points discuss the conventions adopted throughout the codebase for
 
 ##### Default and optional arguments
 
-If an argument is not present in a payload/request, and the schema for that argument is defined in the handler, then that argument is treated as “missing”. For missing args, `schema_utils` will raise an `AssertionError` which will be represented as an `InvalidInputException` by the `vaidate_and_normalize_args()` method.
+If an argument is not present in a request, and the schema for that argument is defined in the handler, then that argument is treated as “missing”. For missing args, `schema_utils` will raise an `AssertionError` which will be represented as an `InvalidInputException` by the `vaidate_and_normalize_args()` method.
 
 To provide a default value for an argument, include a key with the name `default_value` along with the schema. The value for this key is the default value, which will be used if the argument is not present. If an argument is optional and it is not supposed to be updated with any default value, then the `default_value` key should map to `None`.
 
