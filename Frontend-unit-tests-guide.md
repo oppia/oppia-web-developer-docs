@@ -11,12 +11,12 @@
     * [Ensuring that coverage is maintained](#ensuring-that-coverage-is-maintained)
 * [Write frontend tests](#write-frontend-tests)
   * [Unit test structure](#unit-test-structure)
-    * [describe](#describe)
-    * [beforeEach](#beforeeach)
-    * [it](#it)
-    * [afterEach](#aftereach)
-    * [afterAll](#afterall)
-    * [expect](#expect)
+    * [`describe`](#describe)
+    * [`beforeEach`](#beforeeach)
+    * [`it`](#it)
+    * [`afterEach`](#aftereach)
+    * [`afterAll`](#afterall)
+    * [`expect`](#expect)
   * [Good practices](#good-practices)
     * [Do not test private methods/properties](#do-not-test-private-methodsproperties)
     * [Worry about behavior and not about coverage](#worry-about-behavior-and-not-about-coverage)
@@ -31,7 +31,7 @@
   * [Debugging with print statements](#debugging-with-print-statements)
   * [Spy utilities](#spy-utilities)
     * [Spying on third-party libraries](#spying-on-third-party-libraries)
-    * [Spying on the same method/property more than one time in same context](#spying-on-the-same-methodproperty-more-than-one-time-in-same-context)
+    * [Spying on the same method/property more than one time in the same scope](#spying-on-the-same-methodproperty-more-than-one-time-in-the-same-scope)
     * [Spies that change global values](#spies-that-change-global-values)
     * [Handling window events and reloads](#handling-window-events-and-reloads)
       * [When window calls reload](#when-window-calls-reload)
@@ -46,7 +46,7 @@
     * [Handling `$timeout` correctly](#handling-timeout-correctly)
     * [Mocking with `$q` API in AngularJS](#mocking-with-q-api-in-angularjs)
   * [When upgraded services should be imported in the test file](#when-upgraded-services-should-be-imported-in-the-test-file)
-  * [beforeEach calls in AngularJS](#beforeeach-calls-in-angularjs)
+  * [`beforeEach` calls in AngularJS](#beforeeach-calls-in-angularjs)
   * [How to handle common errors](#how-to-handle-common-errors)
 * [Testing services](#testing-services)
   * [Testing AngularJS services](#testing-angularjs-services)
@@ -91,7 +91,7 @@ Now consider the following sets of test cases:
 * `absoluteValue(0)` and `absoluteValue(1)`: These test cases are not comprehensive because they do not test negative numbers, and it's important for an absolute value function to correctly handle negative inputs. However, the code coverage is 100% because both blocks of the `if` statement are executed.
 * `absoluteValue(-1)`, `absoluteValue(0)`, and `absoluteValue(1)`: These test cases are comprehensive, and code coverage is 100%. Note that even though line 1 doesn't execute, coverage is 100% because line 1 is not executable.
 
-This example illustrates something very important about code coverage: **Code coverage less than 100% implies that the tests are not comprehensive, but code coverage of 100% does not imply that tests are comprehensive.** Therefore, while code coverage is a useful tool, you should primarily think about whether your tests cover all the possible behaviors of the code being tested--you should have a behavior-first perspective. Don't just think about which lines are covered.
+This example illustrates something very important about code coverage: **Code coverage less than 100% implies that the tests are not comprehensive, but code coverage of 100% does not imply that tests are comprehensive.** Therefore, while code coverage is a useful tool, you should primarily think about whether your tests cover all the possible behaviors of the code being tested. In other words, you should have a behavior-first perspective. Don't just think about which lines are covered.
 
 When we achieve our goal, then for every frontend code file, executing only its associated test file should result in 100% coverage of the code file. Note that to execute only a single test file, you can change `describe`s in that file to `fdescribe`s.
 
@@ -147,11 +147,11 @@ If you pass the `--check_coverage` flag when running the tests, then the tests w
 
 A unit test is made of functions that configure the test environment, make assertions, and separate the different contexts of each situation. There are some test functions that are used across the codebase:
 
-#### describe
+#### `describe`
 
-The describe function has a string parameter which should contain the name of the component being tested or (when nested within another describe function) should describe the conditions imposed on the specific context pertaining to the tests in that “describe” block. Here are some examples:
+The `describe` function has a string parameter which should contain the name of the component being tested or (when nested within another `describe` function) should describe the conditions imposed on the specific context pertaining to the tests in that `describe` block. Here are some examples:
 
-* An ouer describe function:
+* An outer `describe` function:
 
   ```js
   describe('Component Name', function() {
@@ -159,7 +159,7 @@ The describe function has a string parameter which should contain the name of th
   });
   ```
 
-* Two describe functions nested inside another describe function:
+* Two `describe` functions nested inside another `describe` function:
 
   ```js
   describe('Component Name', function() {
@@ -170,17 +170,17 @@ The describe function has a string parameter which should contain the name of th
 
   ```
 
-Check out [a real example](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/creator-dashboard-page/suggestion-modal-for-creator-view/suggestion-modal-for-creator-view.controller.spec.ts#L24-L310) in the codebase to see how to use describe properly.
+Check out [a real example](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/creator-dashboard-page/suggestion-modal-for-creator-view/suggestion-modal-for-creator-view.controller.spec.ts#L24-L310) in the codebase to see how to use `describe` properly.
 
-The describe function also has some variants to help you. Use these variants only on your local machine for testing.
+The `describe` function also has some variants to help you. Use these variants only on your local machine for testing.
 
 * **fdescribe**: This is used when you want to run only the test suite marked as `fdescribe`.
 
 * **xdescribe**: This is used when you want to run all test suites except the one marked with `xdescribe`.
 
-#### beforeEach
+#### `beforeEach`
 
-The beforeEach function is used to set up essential configurations and variables before each test runs. This function is mostly used for three things:
+The `beforeEach` function is used to set up essential configurations and variables before each test runs. This function is mostly used for three things:
 
 * Injecting the modules to be tested or to be used as helpers inside the test file. [Here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/splash-page/splash-page.controller.spec.ts#L37-L49) is an example.
 
@@ -211,25 +211,25 @@ The beforeEach function is used to set up essential configurations and variables
   }));
   ```
 
-#### it
+#### `it`
 
-The it function is where the test happens. Like the describe function, its first parameter is a string which should determine the action to be tested and the expected outcome of the tests. The string should have a clear description of what is going to be tested. Also, **the string must start with "should"**.
+The `it` function is where the test happens. Like the `describe` function, its first parameter is a string which should determine the action to be tested and the expected outcome of the tests. The string should have a clear description of what is going to be tested. Also, **the string must start with "should"**.
 
 All possible code paths in the function should be tested. See this [example in codebase](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/services/search.service.spec.ts#L82-L451) and notice how the test names give you an idea of what is expected.
 
-Like describe, the it function has the variants `fit` and `xit` and they can be used in the same way as `fdescribe` and `xdescribe`.
+Like `describe`, the `it` function has the variants `fit` and `xit` and they can be used in the same way as `fdescribe` and `xdescribe`.
 
-#### afterEach
+#### `afterEach`
 
-The afterEach function runs after each test, and it is not used often. It’s mostly used when we are handling async features such as HTTP and timeout calls (both in AngularJS and Angular 2+). [Here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/domain/exploration/read-only-exploration-backend-api.service.spec.ts#L100-L103)'s an example to handle HTTP mocks in AngularJS and [here](https://github.com/oppia/oppia/blob/ae649aa08f/core/templates/domain/classroom/classroom-backend-api.service.spec.ts#L72-L74)'s an example of doing the same in Angular 2+.
+The `afterEach` function runs after each test, and it is not used often. It’s mostly used when we are handling async features such as HTTP and timeout calls (both in AngularJS and Angular 2+). [Here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/domain/exploration/read-only-exploration-backend-api.service.spec.ts#L100-L103)'s an example to handle HTTP mocks in AngularJS and [here](https://github.com/oppia/oppia/blob/ae649aa08f/core/templates/domain/classroom/classroom-backend-api.service.spec.ts#L72-L74)'s an example of doing the same in Angular 2+.
 
-#### afterAll
+#### `afterAll`
 
-The afterAll function runs after all the tests have finished, but it is almost never used in the codebase. There is a specific case which it might be very helpful: when a global variable needs to be reassigned during the tests, you need to reset it to the default value after all the assertions are finished. Check an example of this case [here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/services/site-analytics.service.spec.ts#L40-L42).
+The `afterAll` function runs after all the tests have finished, but it is almost never used in the codebase. There is a specific case which it might be very helpful: when a global variable needs to be reassigned during the tests, you need to reset it to the default value after all the assertions are finished. Check an example of this case [here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/services/site-analytics.service.spec.ts#L40-L42).
 
-#### expect
+#### `expect`
 
-The expect function is used to assert a condition in the test. You can check all its methods in the [Jasmine documentation](https://jasmine.github.io/api/edge/matchers.html). [Here's](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/exploration-editor-page/services/graph-data.service.spec.ts#L92-L112) a good example of how to use it correctly.
+The `expect` function is used to assert a condition in the test. You can check all its methods in the [Jasmine documentation](https://jasmine.github.io/api/edge/matchers.html). [Here's](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/exploration-editor-page/services/graph-data.service.spec.ts#L92-L112) a good example of how to use it correctly.
 
 ### Good practices
 
@@ -348,17 +348,17 @@ For example, if in a test you check that a spy was called when a certain conditi
 An external side-effect is an effect that we expect from running the function but that isn't part of the outputs. For example, consider this pseudocode:
 
 ```text
-function logIn(username, password) {
+function login(username, password) {
   valid = whether the username and password are valid
   if valid {
-    setLogInCookie(username)
+    setLoginCookie(username)
     return True
   }
   return False
 }
 ```
 
-Here, the call to `setSessionCookie()` is an external side-effect. In our unit tests, it's not enough to check that the function's return value is correct; we also need to check that `setLogInCookie()` is called (and not called) correctly.
+Here, the call to `setLoginCookie()` is an external side-effect. In our unit tests, it's not enough to check that the function's return value is correct; we also need to check that `setLoginCookie()` is called (and not called) correctly.
 
 ## General tips
 
@@ -382,9 +382,9 @@ One of the main features of Jasmine is allowing you to spy on a method or proper
 
 Also, the spy can be used when mocking third-party libraries, like JQuery, mostly when doing ajax calls. [Here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/services/assets-backend-api.service.spec.ts#L274-L292)'s a good example when mocking JQuery ajax calls.
 
-#### Spying on the same method/property more than one time in same context
+#### Spying on the same method/property more than one time in the same scope
 
-It is impossible to spy twice on the same method or property in the same context (block). For instance, the code below would throw an error:
+It is impossible to spy twice on the same method or property in the same [scope](https://developer.mozilla.org/en-US/docs/Glossary/Scope). For instance, the code below would throw an error:
 
 ```js
 spyOn('should throw an error when spying twice', function() {
@@ -437,7 +437,7 @@ All HTTP calls must be mocked since the frontend tests actually run without a ba
 
 ##### Setting up CsrfToken
 
-In order to make HTTP calls in a secure way, it's common that applications have tokens to authenticate the user while they are using the platform. In the codebase, there is a specific service to handle the token, called CsrfTokenService. When mocking HTTP calls, you must mock this service in the test file so the tests won't fail due to lacking a token. Then, you should just copy and paste this piece of code inside a beforeEach block (the CsrfService will be a variable with the return of `$injector.get('CsrfTokenService')` -- in AngularJS -- or `TestBed.get(CsrfTokenService)` -- in Angular 2+):
+In order to make HTTP calls in a secure way, it's common that applications have tokens to authenticate the user while they are using the platform. In the codebase, there is a specific service to handle the token, called CsrfTokenService. When mocking HTTP calls, you must mock this service in the test file so the tests won't fail due to lacking a token. Then, you should just copy and paste this piece of code inside a `beforeEach` block (the CsrfService will be a variable with the return of `$injector.get('CsrfTokenService')` -- in AngularJS -- or `TestBed.get(CsrfTokenService)` -- in Angular 2+):
 
 ```js
 spyOn(CsrfService, 'getTokenAsync').and.callFake(function() {
@@ -503,7 +503,7 @@ When mocking a promise in AngularJS, you might use the `$q` API. In these cases,
 
 ### When upgraded services should be imported in the test file
 
-One of the active projects in Oppia is the Angular2+ migration. When testing AngularJS files which rely on an Angular2+ dependency, you must use a beforeEach call below to import the service. For example, assume that the test requires MyExampleService which is an Angular2+ service.
+One of the active projects in Oppia is the Angular2+ migration. When testing AngularJS files which rely on an Angular2+ dependency, you must use a `beforeEach` call below to import the service. For example, assume that the test requires MyExampleService which is an Angular2+ service.
 
 ```js
 import { TestBed } from '@angular/core/testing';
@@ -520,13 +520,13 @@ beforeEach(angular.mock.module('oppia', function($provide) {
 }));
 ```
 
-If the file you’re testing doesn’t use any upgraded files, you don’t need to use this beforeEach call.
+If the file you’re testing doesn’t use any upgraded files, you don’t need to use this `beforeEach` call.
 
-### beforeEach calls in AngularJS
+### `beforeEach` calls in AngularJS
 
-If you’re testing an AngularJS file that uses an upgraded service, you’ll need to include a beforeEach block which mocks all the upgraded services. [Here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/exploration-editor-page/editor-tab/training-panel/training-modal.controller.spec.ts#L35-L48) is an example.
+If you’re testing an AngularJS file that uses an upgraded service, you’ll need to include a `beforeEach` block which mocks all the upgraded services. [Here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/exploration-editor-page/editor-tab/training-panel/training-modal.controller.spec.ts#L35-L48) is an example.
 
-However, you might face the following situation: you need to mock an Angular2+ service by using `$provide.value`. Here’s the problem: if you use `$provide.value` before calling the updated services, your mock will be overwritten by the original code of the service. So, you need to change the order of beforeEach calls, as you can see in [this test](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/exploration-editor-page/improvements-tab/services/improvement-suggestion-thread-modal.controller.spec.ts#L36-L51).
+However, you might face the following situation: you need to mock an Angular2+ service by using `$provide.value`. Here’s the problem: if you use `$provide.value` before calling the updated services, your mock will be overwritten by the original code of the service. So, you need to change the order of `beforeEach` calls, as you can see in [this test](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/exploration-editor-page/improvements-tab/services/improvement-suggestion-thread-modal.controller.spec.ts#L36-L51).
 
 ### How to handle common errors
 
@@ -564,7 +564,7 @@ As a good first issue, all the services that need to be tested are listed in [is
 
 ### Testing AngularJS services
 
-Use these files that are correctly following the testing patterns as reference:
+Use these files that are correctly following the testing patterns for reference:
 
 * [current-interaction.service.spec.ts](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/exploration-player-page/services/current-interaction.service.spec.ts#L39)
 * [editable-exploration-backend-api.service.spec.ts](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/domain/exploration/editable-exploration-backend-api.service.spec.ts#L30)
@@ -572,7 +572,7 @@ Use these files that are correctly following the testing patterns as reference:
 
 ### Testing Angular 2+ services
 
-Use these files that are correctly following the testing patterns as reference:
+Use these files that are correctly following the testing patterns for reference:
 
 * [exploration-features-backend-api.service.spec.ts](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/services/exploration-features-backend-api.service.spec.ts#L26)
 * [editability.service.spec.ts](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/services/editability.service.spec.ts#L21)
@@ -580,7 +580,7 @@ Use these files that are correctly following the testing patterns as reference:
 
 ## Testing controllers
 
-Controllers are used often for AngularJS UI Bootstrap library's modals. Here are some files that are correctly being tested and follow the testing patterns as reference:
+Controllers are used often for AngularJS UI Bootstrap library's modals. Here are some files that are correctly being tested and follow the testing patterns for reference:
 
 * [welcome-modal.controller.spec.ts](https://github.com/oppia/oppia/blob/aa288fd246dec2f8a30a1e9f72a77bd97952c132/core/templates/pages/exploration-editor-page/modal-templates/welcome-modal.controller.spec.ts)
 * [merge-skill-modal.controller.spec.ts](https://github.com/oppia/oppia/blob/3642a4c21e387493f85c7bb72fe1789d214ffffb/core/templates/components/skill-selector/merge-skill-modal.controller.spec.ts)
@@ -600,13 +600,13 @@ Also, there are controllers that are not linked to modals. Here is an example:
 
 **Note** If you're creating a new AngularJS directive, please make sure the value of the restrict `property` is not `E`. If it's an `E`, change the directive to an AngularJS component. You can check out [this PR](https://github.com/oppia/oppia/pull/9850) to learn how to properly make the changes.
 
-Use these AngularJS component files that are correctly following the testing patterns as reference:
+Use these AngularJS component files that are correctly following the testing patterns for reference:
 
 * [search-bar.component.spec.ts](https://github.com/oppia/oppia/blob/a9bece78fd45344f5e0e741ab21f8ea0c289a923/core/templates/pages/library-page/search-bar/search-bar.component.spec.ts)
 * [preferences-page.component.spec.ts](https://github.com/oppia/oppia/blob/3642a4c21e387493f85c7bb72fe1789d214ffffb/core/templates/pages/preferences-page/preferences-page.component.spec.ts)
 * [practice-tab.component.spec.ts](https://github.com/oppia/oppia/blob/fcb44f8cc6e0e00aaa082045cf8b363daa510479/core/templates/pages/topic-viewer-page/practice-tab/practice-tab.component.spec.ts)
 
-Use these AngularJS directive files that are correctly following the testing patterns as reference:
+Use these AngularJS directive files that are correctly following the testing patterns for reference:
 
 * [value-generator-editor.directive.spec.ts](https://github.com/oppia/oppia/blob/7aa80c49f81270c886818e3dce587715dcebac68/core/templates/pages/exploration-editor-page/param-changes-editor/value-generator-editor.directive.spec.ts)
 * [audio-translation-bar.directive.spec.ts](https://github.com/oppia/oppia/blob/4ec7b9cc70e2a255653952450fe44932607755af/core/templates/pages/exploration-editor-page/translation-tab/audio-translation-bar/audio-translation-bar.directive.spec.ts)
@@ -647,7 +647,7 @@ Once this is done, you have the class instance in the variable called `component
 
 At the moment, we don't enforce [DOM testing](https://angular.io/guide/testing-components-basics#component-dom-testing). However, as the docs say, the component is not fully tested until we test the DOM too. Eventually we hope to add DOM tests for all our components, however, for now if you are making a PR fixing a bug caused due to incorrect DOM bindings, then add DOM tests for that component. Our coverage checks do not require DOM tests.
 
-Use these Angular2+ component files that are correctly following the testing patterns as reference:
+Use these Angular2+ component files that are correctly following the testing patterns for reference:
 
 * [donate-page.component.spec.ts](https://github.com/oppia/oppia/blob/327df0c22ec839d4ad4232492749c78443b15fb0/core/templates/pages/donate-page/donate-page.component.spec.ts)
 * [teach-page.component.spec.ts](https://github.com/oppia/oppia/blob/13b1da20ee6c0e4eabc9720a3d1ca3d87c62fe8c/core/templates/pages/teach-page/teach-page.component.spec.ts)
