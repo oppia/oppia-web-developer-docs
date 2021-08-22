@@ -15,6 +15,7 @@
 **Developing Oppia**
   * [[FAQs|Frequently-Asked-Questions]]
   * [[Installing Oppia|https://github.com/oppia/oppia/wiki/Installing-Oppia]]
+  * [[Tips for common IDEs|Tips-for-common-IDEs]]
   * [[Firebase authentication|Firebase-authentication]]
     * [[Creating an Administrator account|https://github.com/oppia/oppia/wiki/Firebase-authentication#creating-an-administrator-account]]
   * [[Pull requests at Oppia|Pull-requests-at-Oppia]]
