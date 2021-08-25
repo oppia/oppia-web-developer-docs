@@ -76,7 +76,6 @@
     * [[Writing style guide|Writing-style-guide]]
     * [[Schema-based forms|Schema-based-Forms]]
     * [[Editor pages|Editor-pages]]
-    * [[Rich Text Editor (RTE)|Rich-Text-Editor-(RTE)-Overview]]
   * Backend
     * [[Writing state migrations | Writing-state-migrations]]
     * [[Writing audit jobs|Writing-audit-jobs]]
@@ -94,6 +93,7 @@
     * [[How to develop for i18n|How-to-develop-for-i18n]]
   * [[Webpack|Webpack]]
   * [[Extension frameworks|Extensions-Overview]]
+    * [[Rich Text Components|Rich-Text-Editor-(RTE)-Overview]]
     * [[Interactions|Creating-Interactions]]
     * [[Rules|Creating-Rules]]
     * [[Objects|Creating-Objects]]
