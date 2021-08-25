@@ -70,7 +70,7 @@ A schema is just a dictionary that takes the form described below:
 
     * `object_class`: If this key is provided, the value should be the domain object class. During normalization, the data will be passed to the class's `from_dict` method to construct the object, and then the object's `validate()` method will be called.
 
-    * `validation_method`: If this key is provided, its value should be a function that can validate the provided dictionary. During normalization, the function will be called with the data as its sole argument, and then the data will be returned. Note that any return value from the validation function will be ignored, and the validation function should raise an exception if it finds invalid data.
+    * `validation_method`: If this key is provided, its value should be a function that can validate the provided dictionary. During normalization, the function will be called with the data as its sole argument, and then the data will be returned. Note that the validation function should not return anything and should raise an exception if it finds invalid data.
 
   * If the type is `list`, the following keys apply:
 
