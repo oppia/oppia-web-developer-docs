@@ -4,6 +4,7 @@
 * [Introduction](#introduction)
 * [Write a schema](#write-a-schema)
 * [Uses for schemas in Oppia](#uses-for-schemas-in-oppia)
+  * [Configuration values](#configuration-values)
   * [Schema-based forms](#schema-based-forms)
   * [Validating controller arguments](#validating-controller-arguments)
     * [Schema validation system code](#schema-validation-system-code)
@@ -21,7 +22,6 @@
     * [Examples for reference](#examples-for-reference)
     * [Debugging tricks](#debugging-tricks)
     * [Contact](#contact)
-  * [Configuration values](#configuration-values)
 
 ## Introduction
 
@@ -107,6 +107,10 @@ A schema is just a dictionary that takes the form described below:
 The code that handles schemas is in [`schema_utils.py`](https://github.com/oppia/oppia/blob/develop/schema_utils.py).
 
 ## Uses for schemas in Oppia
+
+### Configuration values
+
+The admin page exposes many configuration options, and we define what kinds of values we expect using schemas. In [`core/domain/config_domain.py`](https://github.com/oppia/oppia/blob/develop/core/domain/config_domain.py), we define schemas for each configuration option. Then we can automatically generate the forms in the admin page for changing these values based on their schemas.
 
 ### Schema-based forms
 
@@ -522,7 +526,3 @@ If you have any questions, please contact one of:
 * Rohit (@rohitkatlaa)
 * Vojtech (@vojtechjelinek)
 * Nikhil (@Nik-09)
-
-### Configuration values
-
-The admin page exposes many configuration options, and we define what kinds of values we expect using schemas. In [`core/domain/config_domain.py`](https://github.com/oppia/oppia/blob/develop/core/domain/config_domain.py), we define schemas for each configuration option. Then we can automatically generate the forms in the admin page for changing these values based on their schemas.
