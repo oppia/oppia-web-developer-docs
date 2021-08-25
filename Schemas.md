@@ -68,9 +68,9 @@ A schema is just a dictionary that takes the form described below:
 
   * If the type is `object_dict`, the schema must also include exactly one of the following keys:
 
-    * `object_class`: If this key is provided, the value should be the domain object class. During normalization, the data will be passed to the class's `from_dict` method to construct the object, and then the object's `validate()` class will be called.
+    * `object_class`: If this key is provided, the value should be the domain object class. During normalization, the data will be passed to the class's `from_dict` method to construct the object, and then the object's `validate()` method will be called.
 
-    * `validation_method`: If this key is provided, its value should be a function that can validate the provided dictionary. During normalization, the function will be called on the data, and then the data will be returned. Note that any return value from the validation function will be ignored.
+    * `validation_method`: If this key is provided, its value should be a function that can validate the provided dictionary. During normalization, the function will be called with the data as its sole argument, and then the data will be returned. Note that any return value from the validation function will be ignored, and the validtion function should raise an exception if it finds invalid data.
 
   * If the type is `list`, the following keys apply:
 
@@ -149,11 +149,11 @@ All arguments passed to the GET/POST/PUT/DELETE methods of the handler classes i
 
 The following key methods are used in the validation of handler args through the SVS:
 
-* `vaidate_and_normalize_args()` in `base.py`: This method is defined in the BaseHandler class of base.py. The `vaidate_and_normalize_args` method is responsible for validating and normalizing handler args. It also raises exceptions when those validation and normalization fail, for example `InvalidInputException` and `NotImplemented` errors. (See [this section](#common-errors-faced) for a list of common errors that may arise.)
+* `validate_and_normalize_args()` in `base.py`: This method is defined in the BaseHandler class of base.py. The `validate_and_normalize_args` method is responsible for validating and normalizing handler args. It also raises exceptions when those validation and normalization fail, for example `InvalidInputException` and `NotImplemented` errors. (See [this section](#common-errors-faced) for a list of common errors that may arise.)
 
 * `validate(handler_args, handler_args_schemas)` in `payload_validator.py`: This method is the core method of the SVS. It collects all the AssertionErrors raised from schema_utils.
   * `handler_args`: The arguments from the HTTP request.
-  * `handler_args_schemas`: Schema from the handler class.(See [this link](#how-to-write-validation-schema-for-handlers) for more information on how to write a schema).
+  * `handler_args_schemas`: Schemas from the handler class as they are defined in the class's `URL_PATH_ARGS_SCHEMAS` or `HANDLER_ARGS_SCHEMAS` class variables. See [this link](#how-to-write-validation-schema-for-handlers) for more information on how to write a schema and how to define these class variables.
 
 * `normalize_against_schema(obj, schema)` in `schema_utils.py`: This method normalizes the given `obj` against its schema and raises `AssertionError` if any of the validation checks fail. This `AssertionError` is represented as `InvalidInputException` to users.
   * `obj`: The object which needs to be normalized.
@@ -170,7 +170,7 @@ If you’re writing a new handler method, you’ll need to add schema validation
    * **Payload arguments**: The data which come from payloads are called payload arguments. These data are typically received by PUT and POST methods.
    * **URL query parameters**: Query parameters are included at the end of a URL. Example: in `url/<exploration_id>?username=nikhil`, there is a single URL query parameter with name “username” and value “nikhil”. URL query parameters are typically received by GET and DELETE methods.
 
-   If you face any difficulty with this step see the [debugging section](#debugging-tricks) or reach out to anyone mentioned in the [contact section](#contact).
+   If you face any difficulty with this step, see the [debugging section](#debugging-tricks) or reach out to anyone mentioned in the [contact section](#contact).
 
 2. **Determine the schema for each argument**
    First, you should be familiar with [how to write a schema](#write-a-schema). Then, you can write a schema for each argument, beginning with [some boilerplate code](#handlers-with-no-arguments). For more information, see the sections on [important code pointers](#important-code-pointers) and [examples](#examples-for-reference).
@@ -217,7 +217,7 @@ The following points discuss the conventions adopted throughout the codebase for
 
 ##### Default and optional arguments
 
-If an argument is not present in a request, and the schema for that argument is defined in the handler, then that argument is treated as “missing”. For missing args, `schema_utils` will raise an `AssertionError` which will be represented as an `InvalidInputException` by the `vaidate_and_normalize_args()` method.
+If an argument is not present in a request, and the schema for that argument is defined in the handler, then that argument is treated as “missing”. For missing args, `schema_utils` will raise an `AssertionError` which will be represented as an `InvalidInputException` by the `validate_and_normalize_args()` method.
 
 To provide a default value for an argument, include a key with the name `default_value` along with the schema. The value for this key is the default value, which will be used if the argument is not present. If an argument is optional and it is not supposed to be updated with any default value, then the `default_value` key should map to `None`.
 
@@ -236,7 +236,7 @@ To provide a default value for an argument, include a key with the name `default
 }
 ```
 
-**Example when default value is not provided**: Suppose `make_community_owned` is an optional argument which should not take any default value if no value for that argument is provided with the request. In that case, the schema for `make_community_owned` should look like:
+**Example when no default value is provided**: Suppose `make_community_owned` is an optional argument which should not take any default value if no value for that argument is provided with the request. In that case, the schema for `make_community_owned` should look like:
 
 ```python
 {
@@ -291,10 +291,10 @@ HANDLER_ARGS_SCHEMAS = {
 
 Sometimes, a domain object has a `validate_dict()` method that should be used for validation. These methods sometimes need extra arguments, for example to enforce strict validation. Since these cases cannot be handled generally, you'll need to write a function that accepts the dictionary from the request and passes it to the domain object's `validate_dict()` method, specifying other parameters as needed. Your function should be in the `domain_objects_validator.py` file.
 
-The newly written function of the `domain_objects_validator.py` file should be directly passed into the schema with a schema key named `validation_method`. Schemas for these cases should have the two keys as follows:
+The newly written function of the `domain_objects_validator.py` file should be directly passed into the schema with a schema key named `validation_method`. Schemas for these cases should have the following two keys:
 
 1. **type**: 'object_dict'
-2. **validation_method**: method written in domain_objects_validator for calling validate method from domain class directly.
+2. **validation_method**: method written in domain_objects_validator for calling the validate method from the domain class.
 
 **Example**:  Let `change_list` be a list of dicts where each dict item is a representation of the `ExplorationChange` domain object in the `exp_domain.py` file. The schema for change_list should look like:
 
@@ -321,7 +321,7 @@ For more information [refer to our examples](#examples-for-reference).
 
 ##### Extra validators
 
-By providing validators, you can increase a schema’s functionality. The `validators` field in the schema contains a list of dicts, where each dict contains a key `id` whose value is the name of the validator. Existing validator methods can be found in the `_Validator` class of  `schema_utils.py`. You can use the existing validators and write new ones.
+By providing validators, you can increase a schema’s functionality. The `validators` field in the schema contains a list of dicts, where each dict contains a key `id` whose value is the name of the validator. Existing validator methods can be found in the `_Validator` class of  `schema_utils.py`. You can use the existing validators or write new ones.
 
 **Example**: Let us assume that `language_code` is a handler arg that needs to be validated in order to check whether it is a supported language code. The validator checking this is already written in `schema_utils.py`, so the schema for `language_code` would look like:
 
@@ -381,15 +381,15 @@ When writing handler args, you may encounter `NotImplementedError`s or `InvalidI
 2. **InvalidInputException**
 
    * **Description**: This error will be raised if schema validation failed for any argument. It may be due to extra arguments, missing arguments or any type mismatch.
-   * **How to resolve**: This error message is raised by the `vaidate_and_normalize_args()` method with the name of the argument for which schema validation failed. By looking at error messages and stack traces, you can find which argument is failing the schema validation test and debug.
+   * **How to resolve**: This error message is raised by the `validate_and_normalize_args()` method with the name of the argument for which schema validation failed. By looking at error messages and stack traces, you can find which argument is failing the schema validation test and debug.
 
 #### Examples for reference
 
 Examples of PRs for different types is given below:
 
-* [Sample pr 1](https://github.com/oppia/oppia/pull/13223)
-* [Sample pr 2](https://github.com/oppia/oppia/pull/13224)
-* [Sample pr 3](https://github.com/oppia/oppia/pull/13225)
+* [Sample PR 1](https://github.com/oppia/oppia/pull/13223)
+* [Sample PR 2](https://github.com/oppia/oppia/pull/13224)
+* [Sample PR 3](https://github.com/oppia/oppia/pull/13225)
 
 #### Debugging tricks
 
@@ -408,7 +408,7 @@ When writing the schema for a handler class, you will often need to add a couple
    * URL query parameters: `username`
 
 4. **Add print statements**
-   Add these print statements in the `vaidate_and_normalize_args()` function of `base.py`. Make sure to add these print statements after the printed variables have been declared.
+   Add these print statements in the `validate_and_normalize_args()` function of `base.py`. Make sure to add these print statements after the printed variables have been declared.
 
    ```python
    print('\n'*3)
@@ -448,10 +448,10 @@ When writing the schema for a handler class, you will often need to add a couple
    ------------------------------------
    ```
 
-6. **Write schema by following the boilerplate code**
+6. **Write the schema by following the boilerplate code**
    Writing the schema is the most crucial part, and it is important to get this correct. The print logs from the previous step can help you get started, but please be sure to dig into the backend and frontend code, and follow calls to methods/functions to see how the incoming data is used. This will help you avoid making errors. In particular:
 
-   * **For the backend**: Try to read code as well as docstrings of all the methods which use the arguments from request.
+   * **For the backend**: Try to read code as well as docstrings of all the methods which use the arguments from the request.
    * **For the frontend**: Try to read the functions which are associated with the request URL.
 
    The eventual schema for ExplorationRightsHandler should look like:
@@ -519,9 +519,9 @@ Remove all the print statements and verify schema validation by again hitting th
 
 For any discussion please contact one of:
 
-* Rohit(@rohitkatlaa)
-* Vojtech(@vojtechjelinek)
-* Nikhil(@Nik-09).
+* Rohit (@rohitkatlaa)
+* Vojtech (@vojtechjelinek)
+* Nikhil (@Nik-09).
 
 ### Configuration values
 
