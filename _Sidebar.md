@@ -74,7 +74,7 @@
     * [[Angular Migration | Angular-Migration]]
     * [UX guidelines](https://github.com/oppia/oppia/wiki/Oppia-UX-guidelines-&-rationales)
     * [[Writing style guide|Writing-style-guide]]
-    * [[Schema-based forms|Schema-based-Forms]]
+    * [[Schemas|Schemas]]
     * [[Editor pages|Editor-pages]]
   * Backend
     * [[Writing state migrations | Writing-state-migrations]]
