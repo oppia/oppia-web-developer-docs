@@ -28,11 +28,10 @@ Developer Environment
 ---------------------
 ![screencast of running jobs](https://user-images.githubusercontent.com/5094060/128743997-70cca5f9-0b76-4294-806e-f65f5df5be95.gif)
 1. Sign in as an administrator ([instructions][3])
-2. Navigate to the Roles Tab of the Admin Page
-3. Enter the username of your administrator account and click the edit button
-4. Add a new role: "Release Coordinator"
-5. Navigate to the Release Coordinator Page (http://localhost:8181/release-coordinator)
-6. Search for your job and then click the "play" button
+2. Navigate to **Admin Page > Roles Tab**
+3. Add the "Release Coordinator" role to the username you are signed in with
+4. Navigate to http://localhost:8181/release-coordinator, then to the **Beam Jobs tab**
+5. Search for your job and then click the **Play button**
 
 Apache Beam Job Architecture
 ============================
