@@ -19,10 +19,10 @@
 
 Oppia relies on a number of programs and third-party libraries. Many of these libraries are downloaded automatically for you when you first run the `start.py` script provided with Oppia (see step 1 in the next section). However, there are some things that you will need to do beforehand:
 
-1. Make sure you have curl (used to download third-party libraries), setuptools (needed for installing coverage, which checks test coverage for the Python code), git (which allows you to store the source in version control), python-dev (which is used for the numpy installation), python-pip (which is also used for the numpy installation) and pyyaml (which is used to parse YAML files):
+1. Make sure you have curl (used to download third-party libraries), setuptools (needed for installing coverage, which checks test coverage for the Python code), git (which allows you to store the source in version control), python-dev (which is used for the numpy installation), python-pip (which is also used for the numpy installation) and pyyaml (which is used to parse YAML files), libbz2-dev (used by Apache Beam):
 
 ```
-sudo apt-get install curl openjdk-8-jre python3-setuptools git python3-dev python3-pip python3-yaml unzip python-matplotlib python3-matplotlib
+sudo apt-get install curl openjdk-8-jre python3-setuptools git python3-dev python3-pip python3-yaml unzip python-matplotlib python3-matplotlib libbz2-dev
 ```
 
 Alternatively, if you are on Debian/Ubuntu, you can use the `install_prerequisites.sh` script to install these. From the oppia directory:
