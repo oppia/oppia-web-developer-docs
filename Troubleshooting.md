@@ -210,6 +210,12 @@ If this error occurs within a virtual environment, try reinstalling the libs by 
 
 
 
+### ModuleNotFoundError: No module named _bz2
+1. Install bz2 headers. Use the command `sudo apt-get install libbz2-dev` on Ubuntu.
+2. Install Python 3 again so that the bz2 library gets included in `~/.pyenv/versions/3.7.10/lib/python3.7/`. Use the command `pyenv install 3.7.10`.
+
+
+
 ## Mac OS
 
 ### Cannot Import Name `_imaging`
