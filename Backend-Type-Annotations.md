@@ -84,6 +84,11 @@ Once you've figured whether or not to add type annotations to a file, follow the
 
 For more information on adding types, refer to [Mypy Cheat Sheet(Python 3)](https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html).
 
+## Special Cases
+1. Description: Code using `inspect.getargspec` method is throwing an error `ValueError: Function has keyword-only parameters or annotations, use getfullargspec() API which can support them` after adding type annotation.
+    - Explanation: `getargspec` has been [deprecated](https://docs.python.org/3/library/inspect.html#inspect.getargspec) and does not support parsing annotations
+    - Solution: Use the updated version of the method - `getfullagrspec` - this supports parsing of type annotations. [Example](https://github.com/oppia/oppia/blob/b0c6ffb917663fb6482022d0f607377f7e1ee3d0/schema_utils_test.py#L280).
+
 ## Other Important points
 - Use `str` instead of Text wherever applicable. (Text was used in the Python2 version of codebase. We also have a lint check now to prevent usage of Text in type annotations)
 - For external libraries we obtain the type information from the type stubs defined in the [typeshed](https://github.com/python/typeshed) package (which come bundled with mypy for it's current version `0.812` that we use).
