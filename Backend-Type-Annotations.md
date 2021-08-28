@@ -90,11 +90,11 @@ For more information on adding types, refer to [Mypy Cheat Sheet(Python 3)](http
     - Solution: Use the updated version of the method - `getfullagrspec` - this supports parsing of type annotations. [Example](https://github.com/oppia/oppia/blob/b0c6ffb917663fb6482022d0f607377f7e1ee3d0/schema_utils_test.py#L280).
 
 ## Other Important points
-- Use `str` instead of Text wherever applicable. (Text was used in the Python2 version of codebase. We also have a lint check now to prevent usage of Text in type annotations)
-- For external libraries we obtain the type information from the type stubs defined in the [typeshed](https://github.com/python/typeshed) package (which come bundled with mypy for it's current version `0.812` that we use).
+1. Use `str` instead of Text wherever applicable. (Text was used in the Python2 version of codebase. We also have a lint check now to prevent usage of Text in type annotations)
+2. For external libraries we obtain the type information from the type stubs defined in the [typeshed](https://github.com/python/typeshed) package (which come bundled with mypy for it's current version `0.812` that we use).
     - In case of **missing stubs** (when typeshed doesn't support a library yet), mypy will throw errors and ask you to use type `Any` or type ignores to silence those errors, but this can lead to loose and inconsistent typing for imports from those packages, so we avoid that practice. 
     - Instead, to overcome that, we follow the practice of **defining the stubs ourselves** only for the part of the library we are using, and place those stubs inside the `stubs/` folder. You can look at the existing stubs as an example to understand how this works.
-- Types (like Dict, Any, Union etc) from the typing module can be imported in the same line. Do not use `isort:ignore`. If the import exceeds line length limit, use parenthesis to span across multiple lines. See the following cases to understand.
+3. Types (like Dict, Any, Union etc) from the typing module can be imported in the same line. Do not use `isort:ignore`. If the import exceeds line length limit, use parenthesis to span across multiple lines. See the following cases to understand.
 ```python
 # Wrong usage
 from typing Any
@@ -110,6 +110,6 @@ from typing import (
 ```
 
 ## Troubleshooting
-- If you are seeing type errors for unchanged files, especially which are not part of the Oppia codebase, a possible reason could be that you have the virtual environment directory inside the Oppia root folder. Moving the environment folder out of the Oppia root directory resolves this error.
+1. If you are seeing type errors for unchanged files, especially which are not part of the Oppia codebase, a possible reason could be that you have the virtual environment directory inside the Oppia root folder. Moving the environment folder out of the Oppia root directory resolves this error.
  
 
