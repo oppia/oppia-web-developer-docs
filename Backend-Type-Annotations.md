@@ -40,12 +40,12 @@ Once you've figured whether or not to add type annotations to a file, follow the
 3.  Let’s say a function is not type annotated, you should first look at the function arguments and the return value. Try to get information of the types from the function docstring, test file, function code and function usage. Let’s say in the example given below, where we have a function to take two integers and convert them to string and return the concatenated string, you can figure out from the function code that the return type will be a string. The type of the arguments can be figured out by taking a look at the docstring, tests and usage of the functions.
  
     - The original example code:
-     ```
+     ```python
      def concat(x, y):
          return str(x) + str(y)
      ```
     - After adding type annotation:
-     ```
+     ```python
      def concat(x: int, y: int) -> str:
          return str(x) + str(y)
      ```
@@ -54,7 +54,7 @@ Once you've figured whether or not to add type annotations to a file, follow the
 4.  You may get errors when **Mypy is not able to infer the type of a variable**, then you must specify the type of the variable as demonstrated below.
  
     - The original code example:
-     ```
+     ```python
      d = {
        ‘a’: 1,
        ‘b’: 2,
@@ -62,7 +62,7 @@ Once you've figured whether or not to add type annotations to a file, follow the
      }
      ```
     - After adding type annotation:
-     ```
+     ```python
      d: Dict[str, int] = {
        ‘a’: 1,
        ‘b’: 2,
@@ -94,6 +94,20 @@ For more information on adding types, refer to [Mypy Cheat Sheet(Python 3)](http
 - For external libraries we obtain the type information from the type stubs defined in the [typeshed](https://github.com/python/typeshed) package (which come bundled with mypy for it's current version `0.812` that we use).
     - In case of **missing stubs** (when typeshed doesn't support a library yet), mypy will throw errors and ask you to use type `Any` or type ignores to silence those errors, but this can lead to loose and inconsistent typing for imports from those packages, so we avoid that practice. 
     - Instead, to overcome that, we follow the practice of **defining the stubs ourselves** only for the part of the library we are using, and place those stubs inside the `stubs/` folder. You can look at the existing stubs as an example to understand how this works.
+- Types (like Dict, Any, Union etc) from the typing module can be imported in the same line. Do not use `isort:ignore`. If the import exceeds line length limit, use parenthesis to span across multiple lines. See the following cases to understand.
+```python
+# Wrong usage
+from typing Any
+from typing import Dict
+
+# Correct usage (1)
+from typing import Any, Dict
+# Correct Usage (2)
+from typing import (
+    Any, Callable, Dict, Iterable, Iterator, List, Optional, Sequence,
+    Type, TypeVar, Tuple, Union)
+
+```
 
 ## Troubleshooting
 - If you are seeing type errors for unchanged files, especially which are not part of the Oppia codebase, a possible reason could be that you have the virtual environment directory inside the Oppia root folder. Moving the environment folder out of the Oppia root directory resolves this error.
