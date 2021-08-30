@@ -60,13 +60,13 @@ If you’re seeing issues when trying to merge from upstream/develop that say so
 
 If you see an error that says something along the lines of `OSError: [Errno 2] No such file or directory: '/.../opensource/oppia_tools/google-cloud-sdk-XXX.X.X/google-cloud-sdk/platform/google_appengine/google/appengine'` while running `scripts.start` - then try deleting the `../oppia_tools` directory and then running `scripts.start` again.
 
-### No module named '_sqlite3': Sqlite3
+### No module named '_sqlite3'
 
 If you see an error that says something along the lines of `ERROR: gcloud failed to load: No module named _sqlite3` while running `scripts.start` - then follow the steps below:
 
 1. Uninstall Python 3.7.10 from pyenv with the command: `pyenv uninstall 3.7.10`
 2. Install the packages as per the [wiki](https://github.com/pyenv/pyenv/wiki#suggested-build-environment) to have the suggested build environment.
-3. Install Python 3.7.10 from pyenv with the command: `pyenv install 3.7.10`
+3. Install Python 3.7.10 from pyenv with the command: `pyenv install 3.7.10` and make sure that there are no warnings or errors in the output of the command.
 
 ### Problems Cloning from GitHub
 
