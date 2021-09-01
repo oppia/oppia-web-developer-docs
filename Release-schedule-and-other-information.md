@@ -71,13 +71,17 @@ We also have a project leads council who will be contacted about project specifi
 
 
 # Team members
-* Release coordination team: 
+* Release team: 
   * Sandeep Dubey (**@DubeySandeep**)
   * Nithesh Hariharan (**@nithusha21**)
   * Akshay Anand (**@aks681**)
   * Vojtěch Jelínek (**@vojtechjelinek**)
   * Kevin Thomas (**@kevintab95**)
   * Chris Skalnik (**@U8NWXD**)
+
+* Release Coordination team:
+  * Nithesh Hariharan (**@nithusha21**)
+  * Vojtěch Jelínek (**@vojtechjelinek**)
 
 * QA coordinators team: 
   * Nithesh Hariharan (**@nithusha21**)
@@ -91,7 +95,7 @@ We also have a project leads council who will be contacted about project specifi
 
 **Note:** If you can't make it to a shift mentioned in the below rota, please make sure to swap with someone else in advance! 
 
-| Month         | Release coordinator         | QA coordinator              | Server errors coordinator   |
+| Month         | Release team member         | QA coordinator              | Server errors coordinator   |
 | ------------- | --------------------------- | --------------------------- | --------------------------- |
 | June          | Nithesh (**@nithusha21**)   | Rohit (**@rohitkatlaa**)    | Kevin (**@kevintab95**)     |
 | July          | Sandeep (**@DubeySandeep**) | Rohit (**@rohitkatlaa**)    | Vojta (**@vojtechjelinek**) |
