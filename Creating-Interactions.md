@@ -66,7 +66,7 @@ To add a new interaction to Oppia, here is what you need to do:
    * The `_customization_arg_specs` field should be an array specifying the options that the exploration creator can set. For each option, a dict with the following keys should be provided:
      * `name`: the name of the customization option. This name should also be used by the component.
      * `description`: the description shown to an exploration creator in the interaction editor.
-     * `schema`: a [[schema|Schema-Based-Forms]] that defines the customization option's type, as well as appropriate validators and UI configuration options.
+     * `schema`: a [[schema|Schemas]] that defines the customization option's type, as well as appropriate validators and UI configuration options.
      * `default_value`: a default initial/fallback value for the customization option.
 
    * `answer_type` is the type of object that the learner's answer should be represented as. This should be the name of one of the classes in `extensions/objects/models/objects`. When the learner submits an answer, the answer will be passed to the server and then through the object's `normalize` function. You may need to [[write new objects|Creating-Objects]] to support your interaction. This object also determines which [[rules|Creating-Rules]] are available to classify answers submitted using this interaction. For example, if you specify a type of `Boolean`, then an `IsInclusivelyBetween` rule makes no sense.
