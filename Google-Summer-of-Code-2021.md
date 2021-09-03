@@ -1,5 +1,6 @@
 ## Table of Contents
 
+-   [Completed Projects](#completed-projects)
 -   [Getting started](#getting-started)
 -   [FAQs](#faqs)
 -   [GSoC Proposal Template](#gsoc-proposal-template)
@@ -32,23 +33,141 @@ Also, please note that acceptance into GSoC isn't a prerequisite for becoming an
 ## Completed Projects:
 The following projects were fully completed during GSoC 2021:
 * [Abhay Garg's proposal](pdfs/GSoC2021AbhayGarg.pdf) and [final blog post](https://medium.com/@prayutsu/google-summer-of-code-2021-oppia-7cb7588667ec): Introduce support for displaying copyright licenses in the app. Mentor: Rajat Talesra
+   * **Milestone 1:** Introduce a script for generating a list of dependencies using a reverse-deps lookup of Oppia Android's //third_party Maven dependencies. Introduce a script for converting the dependency list to actual license content files.
+   * **Milestone 2:** Introduce & hook-up a UI to properly display all of the licenses included in the app. Introduce a GitHub Actions check to verify that the list of dependencies is kept up-to-date over time. Introduce extra checks to ensure that generations of the license files can't be accidentally checked into the repository.
+
+
 * [Aditya Dubey's proposal](pdfs/GSoC2021AdityaDubey.pdf) and [final blog post](https://docs.google.com/document/d/1SK-n2Av8yb6rPPZh5XkyLarV-3GLNpr0JaH6rLTGat4/edit?usp=sharing): Move custom JS\TS lint checks to eslint. Mentor: Anshul Hudda
+   * **Milestone 1:** Migrate all JS/TS lint checks to custom Eslint checks (#10816). Implement 3 E2E lint checks from #8423.
+   * **Milestone 2:** Implement remaining 1 E2E lint check from #8423 and move all BAD_PATTERNS_JS_AND_TS_REGEXP from general_purpose_linter.py to custom eslint checks.
+
 * [Aishwary Saxena's proposal](pdfs/GSoC2021AishwarySaxena.pdf) and [final blog post](https://aishwary023.github.io/gsoc-2021-oppia/): Write frontend tests. Mentor: Kevin Thomas
+  * **Milestone 1:** Fully cover half of the assigned code.
+  * **Milestone 2:** Fully cover all of the assigned code.
+  * List of Files for Aishwary: [Link](https://docs.google.com/spreadsheets/d/1tky4jE7uxLQTp0MWE3L9USnPvy3PbtGYpMgP7b0bicw/edit#gid=2101159169)
+
 * [Apoorv Srivastava's proposal](pdfs/GSoC2021ApoorvSrivastava.pdf) and [final blog post](https://medium.com/@MaskedCarrot/google-summer-of-code-2021-oppia-d2e346508bb9): Implement lightweight checkpointing. Mentor: Pulkit Aggarwal
+  * **Milestone 1:** Implement domain layer changes for creating, checking and restoring checkpoints. Checkpoints should also be automatically expired on a least-recently-used policy basis if more than 2MB of space are consumed by checkpoints (per profile). 
+  * **Milestone 2:** Implement the UI changes needed to represent checkpoints that are in progress, changes to existing notices, and proper UI/domain layer support for automatically expiring checkpoints when the user has been away from the app for too long or if the app has decided to automatically expire a checkpoint to save space.
+
+
 * [Arjun Gupta's proposal](pdfs/GSoC2021ArjunGupta.pdf) and [final blog post](https://medium.com/@arjupta/google-summer-of-code-2021-with-oppia-23758362d710): Implement feature flags & platform parameters. Mentor: Vinita Murthi
+  * **Milestone 1:** Introduce platform parameter system that has support for compile-time definitions (i.e. using Dagger modules and dagger constants). The resulting platform parameter support should be built such that we can easily combine the compile-time gating with runtime parameters. Introduce an integration test that verifies the compile-time feature.
+  * **Milestone 2:** Introduce runtime parameter support by hooking up to Oppia backend's platform parameter API & connecting these flags back to the predefined compile-time parameters. The lifecycle of these parameters need to be carefully managed: they should not be applied until the app restarts. This part of the project will include caching results from the server, and introducing a lightweight synchronization mechanism so that the app periodically verifies that its copies of the parameters are up-to-date. When the device is offline or the flag fetching fails, the flags should have appropriate defaults for the runtime parameters. Enhance the previous integration test in M1, to demonstrate the usage of runtime flags.
+
+
 * [Aryaman Gupta's proposal](pdfs/GSoC2021AryamanGupta.pdf) and [final blog post](https://atpug22.medium.com/google-summer-of-code-2021-with-oppia-d61fb8c848ca): Improve Exploration save flow: Syncing edits in the background. Mentor: Kevin Thomas
+  * **Milestone 1:** Introduce functionality such that edits made to an exploration by a user are propagated to all clients. More specifically, an editor’s changes should be applied to the saved exploration if their changes are unrelated to existing edits that had been committed since their last draft was started. Otherwise, the user should be informed of the merge conflict and be given a suitable way to handle it.
+  * **Milestone 2:** Enable exploration editing to work offline in case of connectivity issues.
+
 * [Ashutosh Chauhan's proposal](pdfs/GSoC2021AshutoshChauhan.pdf) and [final blog post](https://gist.github.com/ashutoshc8101/4fa89e4f437c97df21ac91ddd0736440#file-gsoc-md): Angular migration. Mentor: Srijan Reddy Vasa
+  * **Milestone 1:** Migrate the following files (and their corresponding test + HTML files, if already present) to use angular: 
+      * admin-page.directive.ts
+      * admin-roles-tab.directive.ts
+      * admin-misc-tab.directive.ts
+      * admin-config-tab.directive.ts
+      * classroom-page.component.ts
+      * search-bar.component.ts
+      * OppiaFooter.ts
+      * i18nFooter.ts
+      * topic-summary-tile.directive.ts
+      * base-content.directive.ts
+      * preferences-page.component.ts
+      * edit-profile-picture-modal.controller.ts
+      * profile-page.component.ts
+      * topic-editor-state.service.ts
+      * topic-editor-routing.service.ts
+      * subtopic-validation.service.ts
+      * topic-editor-navbar-breadcrumb.directive.ts
+      * question-difficulty-selector.directive.ts
+      * subtopic-preview-tab.component.ts
+      * topic-preview-tab.component.ts
+      * preview-thumbnail.component.ts
+  * **Milestone 2:** Introduce angular router (including route guards) and migrate all pages to it. (Note: "frontend routing services" part  -- i.e. the sub-tabs in pages like the admin page and the topic, skill, exploration editors -- is not a requirement for this milestone.)
+
 * [Eesha Arif's proposal](pdfs/GSoC2021EeshaArif.pdf) and [final blog post](https://gist.github.com/EeshaArif/53016604eae2abb89355b8725f914c0a): Improve frontend type system. Mentor: Vojtěch Jelínek
+  * **Milestone 1:**
+      * Introduce strict typing into 108 files (spec files count as normal files) that contain at least one strict typing error.
+      * Files that do not contain strict typing errors need to be added to the tsconfig-strict.ts too.
+  * **Milestone 2:** 
+      * Introduce strict typing into 132 files (spec files count as normal files) that contain at least one strict typing error.
+      * Files that do not contain strict typing errors need to be added to the tsconfig-strict.ts too.
+  * List of files for Eesha: [Link](https://docs.google.com/spreadsheets/d/1LqifUvMfLvx7IlGnwPwAXb6GTVi-gA6mz701qFFtolk/edit?ts=60a2b76c#gid=0)
+
 * [Farees Hussain Syed's proposal](pdfs/GSoC2021FareesHussain.pdf) and [final blog post](https://farees-hussain.medium.com/google-summer-of-code-2021-oppia-b3776dbdd5ec): End-to-End testing support. Mentor: Akshay Nandwana
+  * **Milestone 1:** Remodularize the necessary parts of the app to support connecting to a developer instance of the Oppia backend for both lesson and image data. Create a new test exploration for the Oppia backend (via YAML) and dummy topic data (via AssetDevHandler) that covers all existing interactions supported by the Android app and use that in the test.
+    * Note that the test data does not need to actually make sense, it just needs to be able to ensure key test scenarios can be tested in the app
+    * The exploration should contain at least one image in some interaction
+  * **Milestone 2:** Set up infrastructure for end-to-end testing using UiAutomator & Bazel. Write an end-to-end test for downloading & playing through one exploration.
+
+
 * [Gangavarapu Praneeth's proposal](pdfs/GSoC2021GangavarapuPraneeth.pdf) and [final blog post](https://medium.com/@praneethg/google-summer-of-code-2021-at-oppia-foundation-a1f7542eaa2a): Write frontend tests. Mentor: Nithesh Hariharan
+  * **Milestone 1:** Fully cover half of the assigned code.
+  * **Milestone 2:** Fully cover all of the assigned code.
+  * List of Files for Praneeth: [Link](https://docs.google.com/spreadsheets/d/1tky4jE7uxLQTp0MWE3L9USnPvy3PbtGYpMgP7b0bicw/edit#gid=633157043)
+
 * [Hardik Katehara's proposal](pdfs/GSoC2021HardikKatehara.pdf) and [final blog post](https://hardikkatehara.medium.com/google-summer-of-code21-with-oppia-88076053621c): Make backend code typed. Mentor: Sajal Asati
+  * **Milestone 1:**  Implement pre-push and CI checks for Python type-checking. Add support for typing assets/constants.ts using protobuf. Add documentation for how to run type checks and how to add type annotations. Cover all Python files (including test files) in the root folder with annotations and create an issue covering type annotation for the other files.
+  * **Milestone 2:** Cover all Python files (including test files) in core/storage and core/platform with type annotations.
+
 * [Krishita Jain's proposal](pdfs/GSoC2021KrishitaJain.pdf) and [final blog post](https://medium.com/@jainkrishita15/google-summer-of-code-2021-with-oppia-2ef3bf652883): Redesigning and updating the learner dashboard. Mentor: Akshay Anand
+  * **Milestone 1:** Add Goals and Community Lessons tabs to the learner dashboard page. The Goals tab will be hidden behind a flag and the existing functionality on the learner dashboard will go into the new Community Lessons and Feedback Updates tabs. All backend and frontend work for these three tabs should be completed.
+  * **Milestone 2:** Add Home and Progress tabs to the learner dashboard page. All backend and frontend work for these two tabs should be completed. The Goals tab from Milestone 1 should be made fully available to users.
+
 * [Mridul Setia's proposal](pdfs/GSoC2021MridulSetia.pdf) and [final blog post](https://gist.github.com/mridul-netizen/e732dfeae3b1201cdbbb23377467a6bd): Improve frontend type system. Mentor: Srijan Reddy Vasa
+  * **Milestone 1:**
+      * Introduce strict typing into 120 files (spec files count as normal files) that contain at least one strict typing error.
+      * Files that do not contain strict typing errors need to be added to the tsconfig-strict.ts too.
+  * **Milestone 2:** 
+      * Introduce strict typing into 120 files (spec files count as normal files) that contain at least one strict typing error.
+      * Files that do not contain strict typing errors need to be added to the tsconfig-strict.ts too.
+  * List of files for Mridul: [Link](https://docs.google.com/spreadsheets/d/1LqifUvMfLvx7IlGnwPwAXb6GTVi-gA6mz701qFFtolk/edit?ts=60a2b76c#gid=0)
+
 * [Nikhil Agarwal's proposal](pdfs/GSoC2021NikhilAgarwal.pdf) and [final blog post](https://docs.google.com/document/d/1GDfd8QUuXq2Kub_grZ3o7s9PmtZEQ0LveC3f4J5as5Y/edit): Implement schema validators for the handler params. Mentor: Rohit Katlaa
+   * **Milestone 1:** Implement a framework for schema validation for handlers, add lint checks for new handlers, and add documentation about schema validators. Create starter issues for new contributors for remaining handlers. Implement schema validators for all handlers in
+      * admin.py
+      * classifier.py
+      * classroom.py
+      * collection_editor.py
+      * collection_viewer.py
+      * concept_card_viewer.py
+      * contributor_dashboard.py
+      * cron.py
+   * **Milestone 2:** Implement schema validators for all handlers in
+      * creator_dashboard.py
+      * custom_landing_pages.py
+      * editor.py
+      * email_dashboard.py
+      * features.py
+      * feedback.py
+      * improvements.py
+      * incoming_emails.py
+      * learner_dashboard.py
+      * learner_playlist.py
+      * library.py
+      * moderator.py
+      * pages.py
+      * platform_feature.py
+      * practice_sessions.py
+
 * [Radesh Kumar's proposal](pdfs/GSoC2021RadeshKumar.pdf) and [final blog post](https://medium.com/@imradesh/migrating-angularjs-components-and-writing-frontend-tests-gsoc-2020-oppia-16e8209778c): Write frontend tests. Mentor: Nithesh Hariharan
+  * **Milestone 1:** Fully cover half of the assigned code.
+  * **Milestone 2:** Fully cover all of the assigned code.
+  * List of Files for Radesh: [Link](https://docs.google.com/spreadsheets/d/1tky4jE7uxLQTp0MWE3L9USnPvy3PbtGYpMgP7b0bicw/edit#gid=44144901)
+
 * [Rijuta Singh's proposal](pdfs/GSoC2021RijutaSingh.pdf) and [final blog post](https://medium.com/@rijuta_s/google-summer-of-code-2021-with-oppia-43e7a90c907b): Integrating the Oppia blog with Oppia.org. Mentor: Prayush Dawda
+  * **Milestone 1:** Complete the backend functionality for blog posts (for editors and viewers). This includes storage models (BlogPostModel, BlogPostSummaryModel, BlogPostRightsModel) and all services/controllers pertaining to the blog dashboard and blog homepage (including ‘Save Draft’ and ‘Publish’ functionalities for editors). Add new ‘Blog Editor’ and ‘Blog Admin’ roles, where Blog Admins can manage the list of Blog Editors as well as the list of custom tags for blog posts.
+  * **Milestone 2:** Complete the ‘blog dashboard’ frontend, which includes the ‘blog-editor’ interface and blog post card preview functionality. Tags assigned to a blog post should also be used as meta tags, and the RTE in the blog post editor will support adding headers. Write end-to-end tests for the blog dashboard. Fully migrate at least 2 Medium blog posts to the new Oppia blog.
+
 * [Sparsh Agrawal's proposal](pdfs/GSoC2021SparshAgrawal.pdf) and [final blog post](https://medium.com/@sparshagrawal1212/google-summer-of-code-2021-oppia-8a7011828f26): Static analysis checks + Improvements. Mentor: Ben Henning
+  * **Milestone 1:** Introduce check to validate KDoc is present for all non-private components of a Kotlin file (classes, constructors, fields, methods, functions, and constants) with the exception of the default class constructor and companion objects. Introduce check to verify all layout files are syntactically valid XML. Introduce support for custom RegExp checks for file names & contents with an initial check that verifies activities are defined with accessibility labels. All of these checks should run in GitHub Actions.
+  * **Milestone 2:** Add a GitHub Actions check to verify that production files have corresponding test files. Introduce TODO verification as a check which should be run in GitHub Actions and triggered both for PRs and for issue changes where failures in the latter should automatically reopen the issue.
+
+
 * [Yash Raj's proposal](pdfs/GSoC2021YashRaj.pdf) and [final blog post](https://medium.com/@yashrajprime/google-summer-of-code-2021-oppia-599e915c2755): Developer options menu. Mentor: Sarthak Agarwal
+  * **Milestone 1:** Introduce the initial UI & an option to crash the app as a proof-of-concept. This menu should be disabled by default in non-developer builds of the app. This should use a compile-time solution (like Dagger or Bazel build targets) rather than a runtime solution (like an if-check). Add the following two features: marking specific topics/stories/chapters completed, and viewing event logs.
+  * **Milestone 2:** Add support for the following two features: forcing connectivity type, and forcing hints/solutions to automatically show. The functionality used elsewhere in the app to support this should be built in such a way where it's not included in production builds of the app, and in a way that doesn't "punch holes" in the app. 
+
 
 
 # Students
