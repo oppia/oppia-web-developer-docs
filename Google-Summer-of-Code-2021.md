@@ -29,26 +29,26 @@ You might be interested in our GSoC info pages from previous years: [2020](https
 
 Also, please note that acceptance into GSoC isn't a prerequisite for becoming an Oppia contributor. The Oppia project is run by the community for the community, and we warmly welcome anyone who'd like to help out! You can get started by following the instructions [here](https://github.com/oppia/oppia/wiki).
 
-## Accepted Proposals:
-The project's we've accepted are:
-* [Abhay Garg's proposal](pdfs/GSoC2021AbhayGarg.pdf): Introduce support for displaying copyright licenses in the app. Mentor: Rajat Talesra
-* [Aditya Dubey's proposal](pdfs/GSoC2021AdityaDubey.pdf): Move custom JS\TS lint checks to eslint. Mentor: Anshul Hudda
-* [Aishwary Saxena's proposal](pdfs/GSoC2021AishwarySaxena.pdf): Write frontend tests. Mentor: Kevin Thomas
-* [Apoorv Srivastava's proposal](pdfs/GSoC2021ApoorvSrivastava.pdf): Implement lightweight checkpointing. Mentor: Pulkit Aggarwal
-* [Arjun Gupta's proposal](pdfs/GSoC2021ArjunGupta.pdf): Implement feature flags & platform parameters. Mentor: Vinita Murthi
-* [Aryaman Gupta's proposal](pdfs/GSoC2021AryamanGupta.pdf): Improve Exploration save flow: Syncing edits in the background. Mentor: Kevin Thomas
-* [Ashutosh Chauhan's proposal](pdfs/GSoC2021AshutoshChauhan.pdf): Angular migration. Mentor: Srijan Reddy Vasa
-* [Eesha Arif's proposal](pdfs/GSoC2021EeshaArif.pdf): Improve frontend type system. Mentor: Vojtěch Jelínek
-* [Farees Hussain Syed's proposal](pdfs/GSoC2021FareesHussain.pdf): End-to-End testing support. Mentor: Akshay Nandwana
-* [Gangavarapu Praneeth's proposal](pdfs/GSoC2021GangavarapuPraneeth.pdf): Write frontend tests. Mentor: Nithesh Hariharan
-* [Hardik Katehara's proposal](pdfs/GSoC2021HardikKatehara.pdf): Make backend code typed. Mentor: Sajal Asati
-* [Krishita Jain's proposal](pdfs/GSoC2021KrishitaJain.pdf): Redesigning and updating the learner dashboard. Mentor: Akshay Anand
-* [Mridul Setia's proposal](pdfs/GSoC2021MridulSetia.pdf): Improve frontend type system. Mentor: Srijan Reddy Vasa
-* [Nikhil Agarwal's proposal](pdfs/GSoC2021NikhilAgarwal.pdf): Implement schema validators for the handler params. Mentor: Rohit Katlaa
-* [Radesh Kumar's proposal](pdfs/GSoC2021RadeshKumar.pdf): Write frontend tests. Mentor: Nithesh Hariharan
-* [Rijuta Singh's proposal](pdfs/GSoC2021RijutaSingh.pdf): Integrating the Oppia blog with Oppia.org. Mentor: Prayush Dawda
-* [Sparsh Agrawal's proposal](pdfs/GSoC2021SparshAgrawal.pdf): Static analysis checks + Improvements. Mentor: Ben Henning
-* [Yash Raj's proposal](pdfs/GSoC2021YashRaj.pdf): Developer options menu. Mentor: Sarthak Agarwal
+## Completed Projects:
+The following projects were fully completed during GSoC 2021:
+* [Abhay Garg's proposal](pdfs/GSoC2021AbhayGarg.pdf) and [final blog post](https://medium.com/@prayutsu/google-summer-of-code-2021-oppia-7cb7588667ec): Introduce support for displaying copyright licenses in the app. Mentor: Rajat Talesra
+* [Aditya Dubey's proposal](pdfs/GSoC2021AdityaDubey.pdf) and [final blog post](https://docs.google.com/document/d/1SK-n2Av8yb6rPPZh5XkyLarV-3GLNpr0JaH6rLTGat4/edit?usp=sharing): Move custom JS\TS lint checks to eslint. Mentor: Anshul Hudda
+* [Aishwary Saxena's proposal](pdfs/GSoC2021AishwarySaxena.pdf) and [final blog post](https://aishwary023.github.io/gsoc-2021-oppia/): Write frontend tests. Mentor: Kevin Thomas
+* [Apoorv Srivastava's proposal](pdfs/GSoC2021ApoorvSrivastava.pdf) and [final blog post](https://medium.com/@MaskedCarrot/google-summer-of-code-2021-oppia-d2e346508bb9): Implement lightweight checkpointing. Mentor: Pulkit Aggarwal
+* [Arjun Gupta's proposal](pdfs/GSoC2021ArjunGupta.pdf) and [final blog post](https://medium.com/@arjupta/google-summer-of-code-2021-with-oppia-23758362d710): Implement feature flags & platform parameters. Mentor: Vinita Murthi
+* [Aryaman Gupta's proposal](pdfs/GSoC2021AryamanGupta.pdf) and [final blog post](https://atpug22.medium.com/google-summer-of-code-2021-with-oppia-d61fb8c848ca): Improve Exploration save flow: Syncing edits in the background. Mentor: Kevin Thomas
+* [Ashutosh Chauhan's proposal](pdfs/GSoC2021AshutoshChauhan.pdf) and [final blog post](https://gist.github.com/ashutoshc8101/4fa89e4f437c97df21ac91ddd0736440#file-gsoc-md): Angular migration. Mentor: Srijan Reddy Vasa
+* [Eesha Arif's proposal](pdfs/GSoC2021EeshaArif.pdf) and [final blog post](https://gist.github.com/EeshaArif/53016604eae2abb89355b8725f914c0a): Improve frontend type system. Mentor: Vojtěch Jelínek
+* [Farees Hussain Syed's proposal](pdfs/GSoC2021FareesHussain.pdf) and [final blog post](https://farees-hussain.medium.com/google-summer-of-code-2021-oppia-b3776dbdd5ec): End-to-End testing support. Mentor: Akshay Nandwana
+* [Gangavarapu Praneeth's proposal](pdfs/GSoC2021GangavarapuPraneeth.pdf) and [final blog post](https://medium.com/@praneethg/google-summer-of-code-2021-at-oppia-foundation-a1f7542eaa2a): Write frontend tests. Mentor: Nithesh Hariharan
+* [Hardik Katehara's proposal](pdfs/GSoC2021HardikKatehara.pdf) and [final blog post](https://hardikkatehara.medium.com/google-summer-of-code21-with-oppia-88076053621c): Make backend code typed. Mentor: Sajal Asati
+* [Krishita Jain's proposal](pdfs/GSoC2021KrishitaJain.pdf) and [final blog post](https://medium.com/@jainkrishita15/google-summer-of-code-2021-with-oppia-2ef3bf652883): Redesigning and updating the learner dashboard. Mentor: Akshay Anand
+* [Mridul Setia's proposal](pdfs/GSoC2021MridulSetia.pdf) and [final blog post](https://gist.github.com/mridul-netizen/e732dfeae3b1201cdbbb23377467a6bd): Improve frontend type system. Mentor: Srijan Reddy Vasa
+* [Nikhil Agarwal's proposal](pdfs/GSoC2021NikhilAgarwal.pdf) and [final blog post](https://docs.google.com/document/d/1GDfd8QUuXq2Kub_grZ3o7s9PmtZEQ0LveC3f4J5as5Y/edit): Implement schema validators for the handler params. Mentor: Rohit Katlaa
+* [Radesh Kumar's proposal](pdfs/GSoC2021RadeshKumar.pdf) and [final blog post](https://medium.com/@imradesh/migrating-angularjs-components-and-writing-frontend-tests-gsoc-2020-oppia-16e8209778c): Write frontend tests. Mentor: Nithesh Hariharan
+* [Rijuta Singh's proposal](pdfs/GSoC2021RijutaSingh.pdf) and [final blog post](https://medium.com/@rijuta_s/google-summer-of-code-2021-with-oppia-43e7a90c907b): Integrating the Oppia blog with Oppia.org. Mentor: Prayush Dawda
+* [Sparsh Agrawal's proposal](pdfs/GSoC2021SparshAgrawal.pdf) and [final blog post](https://medium.com/@sparshagrawal1212/google-summer-of-code-2021-oppia-8a7011828f26): Static analysis checks + Improvements. Mentor: Ben Henning
+* [Yash Raj's proposal](pdfs/GSoC2021YashRaj.pdf) and [final blog post](https://medium.com/@yashrajprime/google-summer-of-code-2021-oppia-599e915c2755): Developer options menu. Mentor: Sarthak Agarwal
 
 
 # Students
