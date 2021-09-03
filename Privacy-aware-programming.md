@@ -10,7 +10,7 @@ Privacy-aware programming is an approach to coding that always makes sure that a
 
 ### User data
 
-User data refers to any data produced by the user that we collect, such as their username, email, IP address, or profile picture. Some of this data can be **sensitive** — this is usually defined as data about the users racial or ethnic origin, political opinions, religious beliefs, or data related to physical or mental health. Currently, we do not collect any sensitive data at Oppia, if you have even a slight suspicion that the data you plan to collect is sensitive ask the data owners for a confirmation. The data owners are Sean Lip ([sean@seanlip.org](mailto:sean@seanlip.org)) and Ben Henning ([henning.benmax@gmail.com](mailto:henning.benmax@gmail.com)).
+User data refers to any data produced by the user that we collect, such as their username, email, IP address, or profile picture. Some of this data can be **sensitive** — this is usually defined as data about the users racial or ethnic origin, political opinions, religious beliefs, or data related to physical or mental health. Currently, we do not collect any sensitive data at Oppia, if you have even a slight suspicion that the data you plan to collect is sensitive ask the data owners for a confirmation. The data owners are Sean Lip ([sean@seanlip.org](mailto:sean@seanlip.org)) and Ben Henning ([ben@oppia.org](mailto:ben@oppia.org)).
 
 
 # Design stage
