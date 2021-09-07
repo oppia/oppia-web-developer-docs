@@ -126,7 +126,9 @@ If you see `Failed to start server on port XXXX, exiting ...` here are some poss
     ```
     For some version number `<version>`.
 
+### `./portserver.socket is not listed in the .github/CODEOWNERS file`
 
+Just delete the `./portserver.socket` file. It's generated automatically by the end-to-end tests and is supposed to be cleaned up automatically. However, if your tests don't exit cleanly, the file can get left behind, which causes lint failures. The file is just a socket for communication between processes, so it's safe to delete once the tests exit.
 
 ## Linux
 
