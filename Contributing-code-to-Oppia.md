@@ -174,7 +174,7 @@ If an issue hasn't got someone assigned to it, and there's no existing PR for th
 
 2. Try and follow test-driven development. This is the easiest way to make sure the code you wrote is working fine. The basic idea is to first write tests for the expected behaviour and then write code that will pass those tests. Refer to our guides for writing good tests:
 
-   * [[Backend Tests|Writing-backend-tests]]
+   * [[Backend Tests|Backend-tests]]
    * [[Frontend Tests|Frontend-unit-tests-guide]]
    * [[End to end tests|End-to-End-Tests]]
    * [[Tests for pylint extensions|Writing-Tests-For-Pylint]]

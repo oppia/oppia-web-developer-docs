@@ -3,7 +3,7 @@
 - There's a merge conflict (in which case, the CI tests won't actually run).
 - Your code is wrong.
 - Actions or CircleCI is being flaky (e.g. network issues).
-- Your code has insufficient test coverage (see [this link](https://github.com/oppia/oppia/wiki/Frontend-unit-tests-guide#generating-coverage-reports) for frontend tests and [this link](https://github.com/oppia/oppia/wiki/Writing-backend-tests#generating-coverage-reports) for backend tests).
+- Your code has insufficient test coverage (see [this link](https://github.com/oppia/oppia/wiki/Frontend-unit-tests-guide#generating-coverage-reports) for frontend tests and [this link](https://github.com/oppia/oppia/wiki/Backend-tests#generating-coverage-reports) for backend tests).
 
 To figure out which it is, check the bottom of the GitHub PR thread. If there's a merge conflict, it will show up there. You'll need to fix the conflict by following the [instructions for making a code change](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#instructions-for-making-a-code-change) and pushing a new commit to the branch before the CI can run.
 
@@ -22,7 +22,7 @@ Otherwise, if the CI explicitly shows a failure, click on the individual failed 
   - **Note:** A list of known flakiness issues, for which restarting is the only option, can be found at the bottom of this wiki page. You can also check the [oppia-dev@ mailing list](https://groups.google.com/forum/#!forum/oppia-dev) for announcements of known issues.
   -  Each end-to-end test run begins by merging your feature branch (the HEAD branch) into the destination branch (the base branch). This means that when you rerun the test, any flakiness fixes that have been added to the base branch (typically `develop`) will be automatically included.
 
-Following these instructions should result in PRs that are green and ready to merge by the time a reviewer looks at them, thus shortening the review cycle! If you are still unable to resolve the issues yourself, please follow our template on [How to Ask Questions](https://github.com/oppia/oppia/wiki/Guide-on-How-to-Ask-Questions) to raise a question with necessary information. 
+Following these instructions should result in PRs that are green and ready to merge by the time a reviewer looks at them, thus shortening the review cycle! If you are still unable to resolve the issues yourself, please follow our template on [How to Ask Questions](https://github.com/oppia/oppia/wiki/Guide-on-How-to-Ask-Questions) to raise a question with necessary information.
 
 
 ## Common flakiness issues

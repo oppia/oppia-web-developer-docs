@@ -51,14 +51,13 @@
     * [[Backend Type Annotations|Backend-Type-Annotations]]
     * [[Bytes and string handling in Python 3|Bytes-and-string-handling-in-Python-3]]
     * [[Guidelines for Developers with Write Access to oppia/oppia|Guidelines-for-Developers-with-Write-Access-to-oppia-oppia]]
-  * Testing Guidelines
+  * Testing
     * [[Running tests|Running-Tests]]
-    * Writing Tests
-      * [[Writing backend tests]]
-      * [[Writing frontend unit tests|Frontend-unit-tests-guide]]
-      * [[Writing tests for custom Pylint Checkers|Writing-Tests-For-Pylint]]
-      * [[End-to-end tests|End-to-End-Tests]]
-      * [[Lighthouse Tests|Lighthouse-Tests]]
+    * [[Backend tests|Backend-tests]]
+    * [[Frontend tests|Frontend-unit-tests-guide]]
+    * [[Writing tests for custom Pylint Checkers|Writing-Tests-For-Pylint]]
+    * [[End-to-end tests|End-to-End-Tests]]
+    * [[Lighthouse Tests|Lighthouse-Tests]]
     * [[Testing for Accessibility|Testing-for-Accessibility]]
     * [[Release accessibility checklist|Release-accessibility-checklist]]
   * Release Process

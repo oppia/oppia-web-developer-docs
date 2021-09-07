@@ -4,47 +4,7 @@ Before checking in any commits to the Oppia repository, please ensure that every
 
 ## Server-side tests ##
 
-You can run server-side tests using
-```
-    python -m scripts.run_backend_tests
-```
-
-Alternatively, to run just a single test module, you can type, e.g.:
-```
-    python -m scripts.run_backend_tests --test_target=core.controllers.editor_test
-```
-
-You can also run a class/group of tests or a single test with ```--test_target```:
-* Class of tests: ```--test_target=core.controllers.editor_test.BaseEditorControllerTests```
-* Single test: ```--test_target=core.controllers.editor_test.BaseEditorControllerTests.test_editor_page```
-
-
-If you also want to see print and error logs in the terminal, use `--verbose`. E.g.:
-
-```
-    python -m scripts.run_backend_tests --test_target=core.controllers.editor_test --verbose
-```
-
-For more information about `--test_target` and other flags, please see the documentation at the top of the [run_backend_tests.py](https://github.com/oppia/oppia/blob/develop/scripts/run_backend_tests.py) script.
-
-(Note: While the tests are running, you may see the word `ERROR` show up in the test logs. This does not necessarily mean that an error has occurred; it happens because some tests explicitly expect an error to be raised under particular circumstances.)
-
-**How do you know whether the tests have passed?**
-
-The tests pass if, at the end of the test output, you see the message:
-```
-    All tests pass.
-```
-and every line representing a test class starts with `SUCCESS`.
-
-However, if you get something like this instead:
-
-```
-    Ran 326 tests in 47 test classes.
-    (1 ERRORS, 0 FAILURES)
-```
-
-then this means that a test has failed, and the change cannot be checked in as-is -- you'll need to resolve the test failures first. You can find more information about the exact errors by scrolling up and looking through the error log. Pay particular attention to the parts marked `FAILED` and `ERROR`.
+See [[the backend tests wiki page|Backend-tests]].
 
 ## Client-side tests ##
 
@@ -83,7 +43,7 @@ The end-to-end tests are run on Chrome browser. The chromedriver version to be u
 
 ```
     python -m scripts.run_e2e_tests --chrome_driver_version <version>
-``` 
+```
 
 If you see a failure due to the webdriver, please double check that the chromedriver version provided is in sync with the Chrome browser version installed on the machine. To determine which version of chromedriver to use, please follow these steps:
 
@@ -176,7 +136,7 @@ If you get an error similar to this:
  nc: connect to localhost port 4444 (tcp) failed: Connection refused
  nc: connect to localhost port 4444 (tcp) failed: Connection refused
 ```
-while running e2e tests, download and install [Java SE Development Kit 7u79](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html). 
+while running e2e tests, download and install [Java SE Development Kit 7u79](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html).
 If the problem still persists, try installing/updating Java Runtime Environment. This should resolve the issue -- see discussion in [#1824](https://github.com/oppia/oppia/issues/1824#issuecomment-219192563)
 
 ## Typescript tests ##
