@@ -69,7 +69,7 @@ Once all the cards are green, you will have completed the lesson!
 
 * You will probably find it easier to record an entire card at a time (all the content, feedback, hints, etc. for it), and then edit that all at once. That might be faster than doing each voiceover one by one.
 
-* **Important note:** We recommend creating the voiceover files outside the app, and then use the Upload option to upload them to the website. We've seen cases before where recording directly through the editor page results in the voiceover being faint or having "buzziness", due to the browser being laggy.
+**Important note:** We recommend creating the voiceover files outside the app, and then use the Upload option to upload them to the website. We've seen cases before where recording directly through the editor page results in the voiceover being faint or having "buzziness", due to the browser being laggy.
 
 
 ## Known issues
