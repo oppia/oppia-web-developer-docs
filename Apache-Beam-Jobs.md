@@ -1,55 +1,85 @@
-[Apache Beam](https://beam.apache.org/) is used by Oppia to perform large-scale
-datastore operations. There are two types of operations:
--   **Batch**: Operations that are designed to be executed _once_ on the
-    "current state" of the datastore.
+## Table of contents
 
-    Examples:
-    -   Count the # of models in the datastore
-    -   Update the StringProperty values of all models with a specific kind
-    -   Validate the relationships between models
+* [Introduction](#introduction)
+* [Running Apache Beam Jobs](#running-apache-beam-jobs)
+* [Apache Beam Job Architecture](#apache-beam-job-architecture)
+  * [`Pipeline`s](#pipelines)
+  * [`PValue`s](#pvalues)
+  * [`PTransform`s](#ptransforms)
+    * [`ParDo` and `DoFn`](#pardo-and-dofn)
+    * [`Map` and `FlatMap`](#map-and-flatmap)
+    * [`Filter`](#filter)
+    * [`GroupByKey`](#groupbykey)
+    * [Example of using `GroupByKey`,`Filter`, and `FlatMap`](#example-of-using-groupbykeyfilter-and-flatmap)
+  * [`Runner`s](#runners)
+  * [High-level Guidelines](#high-level-guidelines)
+* [Case studies](#case-studies)
+  * [Case study: `CountAllModelsJob`](#case-study-countallmodelsjob)
+  * [Case Study: `SchemaMigrationJob`](#case-study-schemamigrationjob)
 
--   **Continuous**: Operations that are designed to run _indefinitely_ by
-    "reacting to updates" in the datastore.
+## Introduction
 
-    Examples:
-    -   Updating the top `N` answers to a lesson
-    -   Generating notifications for the events that users have subscribed to
+[Apache Beam](https://beam.apache.org/) is used by Oppia to perform large-scale datastore operations. There are two types of operations:
 
-If you're already familiar with Apache Beam, or are eager to start writing a new
-job, then follow the [Quick Start](#quick-start).
+* **Batch**: Operations that are designed to be executed _once_ on the current state of the datastore. Here are some examples:
 
-Otherwise, if you're looking for supplemental material, you can read the entire
-guide and fallback to the [Apache Beam Programming Guide][1] for more details.
+  * Count the number of models in the datastore.
+  * Update the StringProperty values of all models with a specific kind.
+  * Validate the relationships between models.
 
-Running Apache Beam Jobs
-========================
+* **Continuous**: Operations that are designed to run _indefinitely_ by reacting to updates to the datastore. Here are some examples:
 
-Developer Environment
----------------------
-![screencast of running jobs](https://user-images.githubusercontent.com/5094060/128743997-70cca5f9-0b76-4294-806e-f65f5df5be95.gif)
-1. Sign in as an administrator ([instructions][3])
-2. Navigate to **Admin Page > Roles Tab**
-3. Add the "Release Coordinator" role to the username you are signed in with
-4. Navigate to http://localhost:8181/release-coordinator, then to the **Beam Jobs tab**
-5. Search for your job and then click the **Play button**
+  * Updating the top 10 answers to a lesson every time a new answer is submitted.
+  * Generating notifications for the events that users have subscribed to whenever those events change.
 
-Apache Beam Job Architecture
-============================
+If you're already familiar with Apache Beam, or are eager to start writing a new job, then jump to the [Quick Start](#quick-start). Otherwise, you can read the whole page. If you still have questions after reading, take a look at the [Apache Beam Programming Guide][1] for more details.
 
-Jobs are composed of the following components:
--   [`Pipeline`s](#pipelines)
--   [`PValue`s](#pvalues)
--   [`PTransform`s](#ptransforms)
--   [`Runner`s](#runners)
+## Running Apache Beam Jobs
 
-## `Pipeline`s
+These instructions assume you are running a local development server. If you are a release coordinator running these jobs on the production or testing servers, you should already have been granted the "Release Coordinator" role, so you can skip steps 1-3.
 
-`Pipeline`s manage a "DAG"
-([directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph))
-of `PValue`s and the `PTransform`s that compute them. Conceptually, `PValue`s
-are the DAG's nodes and `PTransform`s are the edges.
+1. Sign in as an administrator ([instructions][3]).
+2. Navigate to **Admin Page > Roles Tab**.
+3. Add the "Release Coordinator" role to the username you are signed in with.
+4. Navigate to http://localhost:8181/release-coordinator, then to the **Beam Jobs tab**.
+5. Search for your job and then click the **Play button**.
+6. Click "Start new job".
 
-For example:
+![Screen recording showing how to run jobs](https://user-images.githubusercontent.com/5094060/128743997-70cca5f9-0b76-4294-806e-f65f5df5be95.gif)
+
+## Apache Beam Job Architecture
+
+Conceptually, an Apache Beam job is just a bunch of steps, each of which transforms some input data into some output data. For example, if you wanted to count the number of interactions are in all of Oppia's explorations, you could break that task down into a series of transformations:
+
+```text
++--------------+ Count interactions +-----------------------------+ Sum +-------+
+| Explorations | -----------------> | (exploration, count) Tuples | --> | Count |
++--------------+                    +-----------------------------+     +-------+
+```
+
+For more complicated tasks, Apache Beam supports tasks whose transformations form a [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph), or "DAG." These are just graphs with no cycles. For example, if you wanted to find the ratio of interactions to cards, you could use this DAG:
+
+```text
++--------------+ Count interactions +-----------------------------+ Sum +------------------+
+| Explorations | -----------------> | (exploration, count) Tuples | --> | Num Interactions |
++--------------+                    +-----------------------------+     +------------------+
+       |                                                                  |
+       | Count cards +-----------------------------+ Sum +-----------+    | Divide +-----------------------+
+       +-----------> | (exploration, count) Tuples | --> | Num Cards |----+------> | Interactions per card |
+                     +-----------------------------+     +-----------+             +-----------------------+
+```
+
+Note that the first example we saw, while linear, is still a DAG!
+
+In Apache Beam, all jobs are represented as these DAGs. The nodes are represented as [`PValue`](#pvalues) objects and the edges are represented as [`PTransform`](#ptransforms) objects. [`Pipeline`](#pipelines) objects hold the DAGs, and [`Runner`](#runners) objects actually execute the jobs.
+
+Next, we'll look at each of these components in more detail.
+
+### `Pipeline`s
+
+`Pipeline`s manage the "DAG" of `PValue`s and the `PTransform`s that compute them.
+
+For example, here's a schematic representation of a `Pipeline` that counts the number of occurrences of every word in an input file and writes those counts to an output file:
 
     .------------. io.ReadFromText(fname) .-------. FlatMap(str.split)
     | Input File | ---------------------> | Lines | -----------------.
@@ -67,7 +97,7 @@ For example:
                              | Output File | <----------------------'
                              '-------------'
 
-Or, the equivalent Oppia code:
+Here's the code for this job:
 
 ```python
 class WordCountJob(base_jobs.JobBase):
@@ -83,35 +113,32 @@ class WordCountJob(base_jobs.JobBase):
         )
 ```
 
-## `PValue`s
+You might be wondering what's going on with the `|` and `>>` operators. In Python, objects can change how operators apply to them. Apache Beam has changed what the `|` and `>>` operators do, so `|` doesn't perform an OR operation anymore. Instead, `|` is a synonym for calling a `PCollection`'s `.apply()` method with a `PTransform` to create a new `PCollection`. `>>` lets you name a `PTransform` step, which helps document your job. Note that at the very beginning, we also use `|` between the pipeline object and a `PTransform` to start building the job.
 
-`PCollection`s are the primary input and output `PValue`s used by `PTransform`s.
-They are a kind of `PValue` that represent a dataset of (virtually) any size,
-including unbounded/continuous datasets.
+### `PValue`s
 
-`PBegin` and `PEnd` are "terminal" values that signal that an operation cannot
-produce it or act upon it, respectively.
+`PCollection`s are the primary input and output `PValue`s used by `PTransform`s. They are a kind of `PValue` that represent a dataset of (virtually) any size, including unbounded and continuous datasets.
 
-A `Pipeline` object is the best example of a `PBegin`, and the output of a write
-operation is the best example of a `PEnd`.
+`PBegin` and `PEnd` are "terminal" `PValue`s that signal that the value cannot be produced by an operation (`PBegin`) or that no operation can act on the value (`PEnd`). For example, a `Pipeline` object is a `PBegin`, and the output of a write operation is a `PEnd`.
 
-## `PTransform`s
+### `PTransform`s
 
-### `ParDo` and `DoFn`
-`DoFn`s are the most-basic unit, and are invoked on elements of a `PCollection`
-using `beam.ParDo`. It is analogous to the following code:
+Recall that `PTransform`s represent the "edges" of the DAG and convert `PValue`s into other `PValue`s.
+
+#### `ParDo` and `DoFn`
+
+`DoFn`s are the most-basic kind of `PTransform`s, and they are invoked on elements of a `PCollection` using `beam.ParDo`. Calling `ParDo` is analogous to the following code:
 
 ```python
 do_fn = DoFn()
 for value in pcoll:
-    # NOTE: We don't use the return values directly. However, it's possible for
-    # the DoFn to hold onto state in more advanced implementations.
     do_fn(value)
 ```
+Notice that the return value from the `DoFn` is not used. However, it's possible for the DoFn to hold onto state in more advanced implementations.
 
-### `Map` and `FlatMap`
-`beam.Map` is an operation that transforms each item in a `PCollection` into a
-new value using a plain-old function. It is analogous to the following code:
+#### `Map` and `FlatMap`
+
+`beam.Map` is an operation that transforms each item in a `PCollection` into a new value using a plain-old function. It is analogous to the following code (where `fn` is the transformation function):
 
 ```python
 new_pcoll = []
@@ -120,9 +147,7 @@ for value in pcoll:
 return new_pcoll
 ```
 
-`beam.FlatMap` is a similar transformation, but it _flattens_ the output
-`PCollection` into a single output `PCollection`. It is analogous to the
-following code:
+`beam.FlatMap` is a similar transformation, but it _flattens_ the output `PCollection` into a single output `PCollection`. It is analogous to the following code (where `fn` is the transformation function):
 
 ```python
 new_pcoll = []
@@ -132,9 +157,9 @@ for value in pcoll:
 return new_pcoll
 ```
 
-### `Filter`
-`beam.Filter` reduces the elements of a `PCollection` into elements that have
-returned True from a specified function. It is analogous to the following code:
+#### `Filter`
+
+`beam.Filter` returns a new `PCollection` with all the elements of an input `PCollection`, so long as calling a specified filtering function on the element returned True. It is analogous to the following code (for filtering function `fn`):
 
 ```python
 new_pcoll = []
@@ -144,20 +169,22 @@ for value in pcoll:
 return new_pcoll
 ```
 
-### `GroupByKey`
-`beam.GroupByKey` is useful when you need to perform an operation on elements
-that share a common property. It is analogous to the following code:
+#### `GroupByKey`
+
+`beam.GroupByKey` is useful when you need to perform an operation on elements that share a common property. It takes an input `PCollection` of `(key, value)` elements and returns a mapping from each `key` to all the `values` that were associated with that `key`. It is analogous to the following code:
 
 ```python
 groups = collections.defaultdict(lambda: collections.defaultdict(list))
 for i, pcoll in enumerate(pcolls_to_group):
     # NOTE: Each PCollection must have (key, value) pairs as elements.
     for key, value in pcoll:
-        # Items from each PCollection are grouped under the same key, and
+        # Items from each PCollection are grouped under the same key and
         # bucketed into their corresponding index.
         groups[key][i].append(value)
 return groups
 ```
+
+#### Example of using `GroupByKey`,`Filter`, and `FlatMap`
 
 For example, in our validation jobs we compute two `PCollection`s:
 
@@ -169,11 +196,9 @@ existing_models_pcoll = ...
 errors_if_missing_pcoll = ...
 ```
 
-To generate a report, we use `GroupByKey` to pair the messages to the existing
-models.
+To generate a report, we use `GroupByKey` to pair the messages to the existing models.
 
-After this step, we can filter out the pairs where a model existed and report
-the errors that are left over.
+After this step, we can filter out the pairs where a model existed and report the errors that are left over.
 
 ```python
 error_pcoll = (
@@ -197,76 +222,58 @@ error_pcoll = (
 )
 ```
 
-## `Runner`s
+### `Runner`s
 
-`Runner`s provide the run() method used to visit every node (`PValue`) in the
-pipeline's DAG by executing the edges (`PTransform`s) to compute their values.
-At Oppia, we use `DataflowRunner` to have our `Pipeline`s run on the Google
-Cloud Dataflow service: https://cloud.google.com/dataflow.
+`Runner`s provide the run() method used to visit every node (`PValue`) in the pipeline's DAG by executing the edges (`PTransform`s) to compute their values.  At Oppia, we use `DataflowRunner` to have our `Pipeline`s run on the [Google Cloud Dataflow service](https://cloud.google.com/dataflow).
 
-High-level Guidelines
----------------------
+### High-level Guidelines
 
--   **TL;DR**: Inherit from `base_jobs.JobBase` and override the `run()` method.
+**TL;DR**: Inherit from `base_jobs.JobBase` and override the `run()` method.
 
--   The `run()` method must return a `PCollection` of `JobRunResult` instances.
-    -   In English, this means that **the job _must_ report _something_ about
-        what was done during its execution.** This can be the errors it
-        discovered, or the number of successful operations it was able to
-        perform.
-    -   Regardless of your needs, **jobs _must_ report _something_; empty
-        results are forbidden!**
-        -   If you don't think your job has any results worth reporting, then
-            just print a "Success" metric with the number of models it
-            processed.
-    -   `JobRunResult` outputs should answer the following questions:
-        -   Did the job run without any problems? How and why do I know?
-        -   How much work did the job manage to do?
-        -   If the job encountered a problem, what caused it?
+* The `run()` method must return a `PCollection` of `JobRunResult` instances.
 
--   When writing new jobs, prefer splitting boilerplate into new, small, and
-    simple `PTransform` subclasses. Then, after unit testing them, combine them
-    liberally in your job's `run()` method.
-    -   Keep the job class and the `PTransform`s it uses in the same file,
-        unless you plan on reusing them in future jobs. If you _do_ plan on
-        reusing the job, then ask your reviewer for guidance on how to organize
-        it.
+  * In English, this means that **the job _must_ report _something_ about what was done during its execution.** This can be the errors it discovered, or the number of successful operations it was able to perform. **Empty results are forbidden!**
 
--   Never modify input values. If you need to make changes to an input value,
-    then [clone it first][2].
+    If you don't think your job has any results worth reporting, then just print a "Success" metric with the number of models it processed.
 
-Quick Start
-===========
+  * `JobRunResult` outputs should answer the following questions:
 
-The quick start is split into case studies of increasing complexity. Study the
-one that best suits your needs.
+    * Did the job run without any problems? How and why do I know?
+    * How much work did the job manage to do?
+    * If the job encountered a problem, what caused it?
 
-If none of them help you implement your job, you may request a new one by adding
-a comment to [#13190](https://github.com/oppia/oppia/issues/13190) with answers
-to the following questions:
--   Why do I want a new case study?
--   Why are the current case studies insufficient?
--   What answers would the "perfect" case study provide?
+* When writing new jobs, prefer splitting boilerplate into new, small, and simple `PTransform` subclasses. Then, after unit testing them, combine them liberally in your job's `run()` method.
 
-Then we'll start write a new Case Study to help you, and future contributors,
-as soon as we can (brianrodri@ will always notify you of how long it'll take).
+  * Keep the job class and the `PTransform`s it uses in the same file, unless you plan on reusing them in future jobs. If you _do_ plan on reusing the job, then ask your reviewer for guidance on how to organize it.
 
-Case study: `CountAllModelsJob`
--------------------------------
+* Never modify input values. If you need to make changes to an input value, then [clone it first][2].
+
+## Case studies
+
+The case studies are sorted in order of increasing complexity. Study the one that best suits your needs.
+
+If none of them help you implement your job, you may request a new one by adding a comment to [#13190](https://github.com/oppia/oppia/issues/13190) with answers to the following questions:
+
+* Why do I want a new case study?
+* Why are the current case studies insufficient?
+* What answers would the "perfect" case study provide?
+
+Then we'll start write a new Case Study to help you, and future contributors, as soon as we can (@brianrodri will always notify you of how long it'll take).
+
+### Case study: `CountAllModelsJob`
 
 **Difficulty:** Trivial
 
 **Key Concepts:**
--   Fetching NDB models
--   Counting elements in a `PCollection`
--   Creating `JobRunResult` values
--   Job registration
+
+* Fetching NDB models
+* Counting elements in a `PCollection`
+* Creating `JobRunResult` values
+* Job registration
 
 ---
 
-We'll start by writing a boilerplate `PTransform` which accepts models as input,
-and returns `(kind, #)` tuples (where `kind` is the name of the model's class,
-as a string).
+We'll start by writing a boilerplate `PTransform` which accepts models as input, and returns `(kind, #)` tuples (where `kind` is the name of the model's class, as a string).
 
 ```python
 from jobs import job_utils
@@ -306,9 +313,7 @@ class CountModels(beam.PTransform):
         )
 ```
 
-Next, we'll write the job which applies the `PTransform` to every model in the
-datastore. We can keep both of their implementations in the same file, since
-they are so tightly coupled. Unit tests can focus on one or the other.
+Next, we'll write the job which applies the `PTransform` to every model in the datastore. We can keep both the `PTransform` and the job in the same file, since they are so tightly coupled. Unit tests can focus on one or the other.
 
 ```python
 from core.platform import models
@@ -344,43 +349,31 @@ the file was `jobs/count_all_models_jobs.py`.
 + from jobs import count_all_models_jobs
 ```
 
-Case Study: `SchemaMigrationJob`
-------------------------------
+### Case Study: `SchemaMigrationJob`
 
 **Difficulty:** Medium
 
 **Key Concepts:**
--   Getting and Putting NDB models
--   Partitioning one `PCollection` into many `PCollection`s.
--   Returning variable outputs from a `DoFn`
+
+* Getting and Putting NDB models
+* Partitioning one `PCollection` into many `PCollection`s.
+* Returning variable outputs from a `DoFn`
 
 ---
 
 Let's start by listing the specification of a schema migration job:
 
--   The schema version of a model is in the closed range `[1, N]`, where `N` is
-    the latest version.
--   All migration functions are implemented in terms of taking `n` to `n + 1`.
--   Models should only be put into storage after successfully migrating to v`N`.
--   Models that were already at v`N` should be reported separately.
+* We can assume:
 
-A recursive function seems like an intuitive fit for this type of operation, so
-let's workout what a diagram would look like in terms of
-`migrate_to_next_version`.
+  * The schema version of a model is in the closed range `[1, N]`, where `N` is the latest version.
+  * All migration functions are implemented in terms of taking `n` to `n + 1`.
 
-> NOTE: In practice, an iterative approach would be more efficient. However,
-> this code is concerned with teaching you how to use advanced Apache Beam
-> constructs, so we'll go with the more-complicated approach against better
-> judgment.
->
-> In practice, finding the best patterns on your own will become easier as you
-> gain experience writing jobs and working with "Functional Programming" in
-> general.
+* Our job should conform to the following requirements:
 
-> TIP: Often, when jobs are relatively complicated, it's helpful to begin by
-> sketching a diagram of what you want the job to do. I recommend using pen and
-> paper or a whiteboard, but in this Wiki Page we use ASCII art to keep the
-> document self-contained.
+  * Models should only be put into storage after successfully migrating to v`N`.
+  * Models that were already at v`N` should be reported separately.
+
+Often, when jobs are relatively complicated, it's helpful to begin by sketching a diagram of what you want the job to do. We recommend using pen and paper or a whiteboard, but in this wiki page we use ASCII art to keep the document self-contained. For example, here's a diagram for this job:
 
     .--------------. Partition(lambda model: model.schema_version)
     | Input Models | ---------------------------------------------.
@@ -406,15 +399,9 @@ let's workout what a diagram would look like in terms of
                      | Datastore | <-------------------'
                      '-----------'
 
-> TIP: You don't need to know what the names of the `PTransform`s (edges) used
-> in a diagram are. It's easy to look up the "perfect match" after drawing it.
->
-> In this example, we could have easily replaced the edges with "plain-text"
-> sentences without losing any generality.
+> TIP: You don't need to know what the names of the `PTransform`s (edges) used in a diagram are. It's easy to look up the appropriate `PTransform` after drawing the diagram.
 
-There's a lot of complication in the outset, so let's make sure we use plenty of
-`PTransform`s to write them. We'll start with the most interesting one: the loop
-to migrate models to the next version.
+There's a lot of complexity here, so we'll need many `PTransform`s to write our job. We'll focus on the most interesting one: the loop to migrate models to the next version.
 
 ```python
 class MigrateToNextVersion(beam.DoFn):
@@ -468,11 +455,9 @@ class MigrateToLatestVersion(beam.PTransform):
             )
             results.append(models_to_migrate | beam.FlatMap(do_fn))
 ```
-> NOTE: This implementation won't work as-is, it's merely a scaffold of the key
-> components we need to use to build out our diagram.
 
-
+Note that this implementation won't work as-is since we focused on the step where we upgrade the models. To get this fully working, we'd need to write a `Pipeline` that handles loading in the models and writing the upgraded models back to the datastore.
 
 [1]: https://beam.apache.org/documentation/programming-guide/
 [2]: https://github.com/oppia/oppia/blob/4d2f639869e57fbeaada414d923cae83eb0e082e/jobs/job_utils.py#L37-L63
-[3]: https://github.com/oppia/oppia/wiki/Firebase-authentication#creating-an-administrator-account
+[3]: https://github.com/oppia/oppia/wiki/How-to-access-Oppia-webpages#log-in-as-a-super-administrator
