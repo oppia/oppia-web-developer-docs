@@ -24,7 +24,7 @@
 * **Batch**: Operations that are designed to be executed _once_ on the current state of the datastore. Here are some examples:
 
   * Count the number of models in the datastore.
-  * Update the StringProperty values of all models with a specific kind.
+  * Update a property across all models.
   * Validate the relationships between models.
 
 * **Continuous**: Operations that are designed to run _indefinitely_ by reacting to updates to the datastore. Here are some examples:
@@ -32,7 +32,7 @@
   * Updating the top 10 answers to a lesson every time a new answer is submitted.
   * Generating notifications for the events that users have subscribed to whenever those events change.
 
-If you're already familiar with Apache Beam, or are eager to start writing a new job, then jump to the [Quick Start](#quick-start). Otherwise, you can read the whole page. If you still have questions after reading, take a look at the [Apache Beam Programming Guide][1] for more details.
+If you're already familiar with Apache Beam or are eager to start writing a new job, jump to the [case studies](#case-studies). Otherwise, you can read the whole page. If you still have questions after reading, take a look at the [Apache Beam Programming Guide][1] for more details.
 
 ## Running Apache Beam Jobs
 
@@ -49,7 +49,7 @@ These instructions assume you are running a local development server. If you are
 
 ## Apache Beam Job Architecture
 
-Conceptually, an Apache Beam job is just a bunch of steps, each of which transforms some input data into some output data. For example, if you wanted to count the number of interactions are in all of Oppia's explorations, you could break that task down into a series of transformations:
+Conceptually, an Apache Beam job is just a bunch of steps, each of which transforms some input data into some output data. For example, if you wanted to count how many interactions are in all of Oppia's explorations, you could break that task down into a series of transformations:
 
 ```text
 +--------------+ Count interactions +-----------------------------+ Sum +-------+
@@ -71,7 +71,7 @@ For more complicated tasks, Apache Beam supports tasks whose transformations for
 
 Note that the first example we saw, while linear, is still a DAG!
 
-In Apache Beam, all jobs are represented as these DAGs. The nodes are represented as [`PValue`](#pvalues) objects and the edges are represented as [`PTransform`](#ptransforms) objects. [`Pipeline`](#pipelines) objects hold the DAGs, and [`Runner`](#runners) objects actually execute the jobs.
+In Apache Beam, all jobs are represented as these DAGs. The nodes are represented as [`PValue`](#pvalues) objects, and the edges are represented as [`PTransform`](#ptransforms) objects. [`Pipeline`](#pipelines) objects hold the DAGs, and [`Runner`](#runners) objects actually execute the jobs.
 
 Next, we'll look at each of these components in more detail.
 
@@ -224,7 +224,7 @@ error_pcoll = (
 
 ### `Runner`s
 
-`Runner`s provide the run() method used to visit every node (`PValue`) in the pipeline's DAG by executing the edges (`PTransform`s) to compute their values.  At Oppia, we use `DataflowRunner` to have our `Pipeline`s run on the [Google Cloud Dataflow service](https://cloud.google.com/dataflow).
+`Runner`s provide the `run()` method used to visit every node (`PValue`) in the pipeline's DAG by executing the edges (`PTransform`s) to compute their values.  At Oppia, we use `DataflowRunner` to have our `Pipeline`s run on the [Google Cloud Dataflow service](https://cloud.google.com/dataflow).
 
 ### High-level Guidelines
 
@@ -232,7 +232,7 @@ error_pcoll = (
 
 * The `run()` method must return a `PCollection` of `JobRunResult` instances.
 
-  * In English, this means that **the job _must_ report _something_ about what was done during its execution.** This can be the errors it discovered, or the number of successful operations it was able to perform. **Empty results are forbidden!**
+  * In English, this means that **the job _must_ report _something_ about what was done during its execution.** For example, this can be the errors it discovered or the number of successful operations it was able to perform. **Empty results are forbidden!**
 
     If you don't think your job has any results worth reporting, then just print a "Success" metric with the number of models it processed.
 
