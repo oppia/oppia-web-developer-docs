@@ -11,11 +11,13 @@
 
 *These installation instructions were last tested on 15 Aug 2021. For more information on issues that may occasionally arise with the installation process, please see the [[Troubleshooting|Troubleshooting]] page. Thanks to Varun Tandon for updating these instructions!*
 
-**These instructions are for Python 2, but Oppia now uses Python 3. Unless you need to work with the old Python 2 code, you should follow the [[Python 3 instructions|Installling-Oppia-(Mac-OS;-Python-3)]] instead.**
+**These instructions are for Python 2, but Oppia now uses Python 3. Unless you need to work with the old Python 2 code, you should follow the [[Python 3 instructions|Installing-Oppia-(Mac-OS;-Python-3)]] instead.**
 
 **Note:** Be careful about trying to install Oppia if you have the Python [Anaconda platform](https://www.anaconda.com/) installed. We've received a bunch of reports that installation is tricky in that environment (there are lots of small things that get in the way), and that the solution is to use the standard python installation (via e.g. homebrew) instead.
 
 ## Note: Mac with M1 chips
+
+To check whether your Mac has an M1 chip, navigate to the Apple menu and select "About This Mac." In the window that opens, check for a "Chip" section. If it says "Apple M1" then you have an M1 chip. Otherwise, you should see an Intel processor listed in the "Processor" section. [This article](https://www.howtogeek.com/706226/how-to-check-if-your-mac-is-using-an-intel-or-apple-silicon-processor/) explains in more detail with screenshots if you have trouble.
 
 1. [Install](https://stackoverflow.com/a/64883440) Rosetta 2
 
