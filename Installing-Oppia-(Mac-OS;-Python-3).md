@@ -15,6 +15,8 @@
 
 ## Macs with M1 chips
 
+To check whether your Mac has an M1 chip, navigate to the Apple menu and select "About This Mac." In the window that opens, check for a "Chip" section. If it says "Apple M1" then you have an M1 chip. Otherwise, you should see an Intel processor listed in the "Processor" section. [This article](https://www.howtogeek.com/706226/how-to-check-if-your-mac-is-using-an-intel-or-apple-silicon-processor/) explains in more detail with screenshots if you have trouble.
+
 1. [Install](https://stackoverflow.com/a/64883440) Rosetta 2
 
 2. Inside Rosetta perform the Downloading and prerequisites steps (**Note:** If `sudo easy_install pyyaml` does not work try using `pip3 install pyyaml`).
