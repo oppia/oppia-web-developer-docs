@@ -30,11 +30,6 @@
   * [Checking for flakiness](#checking-for-flakiness)
   * [Codeowner Checks](#codeowner-checks)
   * [Important Tips](#important-tips)
-* [Debugging E2E tests](#debugging-e2e-tests)
-  * [Using the debugger](#using-the-debugger)
-  * [Rerunning with SSH](#rerunning-with-ssh)
-  * [Downloading screenshots](#downloading-screenshots)
-  * [Downloading screen recordings](#downloading-screen-recordings)
 * [Metrics](#metrics)
 * [Reference](#reference)
   * [Forms and objects](#forms-and-objects)
@@ -123,7 +118,7 @@ The challenge in writing robust E2E tests is making sure to always include a wai
 
 First, check that your changes couldn't be responsible. For example, if your PR updates the README, then there's no way it caused an E2E test to fail.
 
-If your changes could be responsible for the failure, you'll need to investigate more. Try running the test locally on your computer. If it fails there too, you can [use your browser's debugger to investigate](#using-the-debugger). Even if you can only reproduce the flake on CI, there are lots of other ways you can [debug E2E tests](#debug-e2e-tests).
+If your changes could be responsible for the failure, you'll need to investigate more. Try running the test locally on your computer. If it fails there too, you can debug locally. Even if you can only reproduce the flake on CI, there are lots of other ways you can debug. See our [[guide to debugging E2E tests|Debug-end-to-end-tests]].
 
 If you are _absolutely certain_ that the failure was not caused by your changes, then you can restart the test. Remember that restarting tests can let new flakes into our code, so please be careful.
 
@@ -153,7 +148,7 @@ This directory contains all test suites which are exclusive to mobile interfaces
 
 #### `core/tests/protractor_utils`
 
-This directory contains utilities for performing actions using elements from the core components of oppia (those found in `core/templates`).
+This directory contains utilities for performing actions using elements from the core components of Oppia (those found in `core/templates`).
 
 The core protractor utilities consist of the following files:
 
@@ -223,15 +218,15 @@ If you need to, you can add a new test suite to [`core/tests/protractor_desktop`
 
 3. Write the tests! Each test should step through one of your user journeys, asserting that the page is in the expected state along the way.
 
-For information on writing tests with protractor, see the [protractor documentation](https://www.protractortest.org/#/).
+For information on writing tests with protractor, see the [protractor documentation](https://www.protractortest.org/#/). If you need to work out why your tests aren't working, check out our [[debugging guide for E2E tests|Debug-end-to-end-tests]].
 
 ### Writing utilities
 
 #### Selecting elements
 
-Much of the difficulty of writing protractor code lies in specifying the element with which you wish to interact. It is important to do so in a way that is as insensitive as possible to superficial DOM features such as text and styling, so as to reduce the likelihood that the test will break when the production html is changed. Here are some ways to specify an element, in order of decreasing preference:
+Much of the difficulty of writing protractor code lies in specifying the element with which you wish to interact. It is important to do so in a way that is as insensitive as possible to superficial DOM features such as text and styling, so as to reduce the likelihood that the test will break when the production HTML is changed. Here are some ways to specify an element, in order of decreasing preference:
 
-1. Adding a `protractor-test-some-name` class to the element in question, and then referencing it by `by.css('.protractor-test-some-name')`. We do not use `by.id` for this purpose because Oppia frequently displays multiple copies of a DOM element on the same page, and if an `id` is repeated then references to it will not work properly. This is the preferred method, since it makes clear to those editing production code exactly what the dependence on protractor is, thus minimising the likelihood of confusing errors when they make changes. Sometimes this may not work, though (e.g. for embedded pages, third-party libraries and generated HTML), in which case you may instead need to use one of the options below.
+1. Adding a `protractor-test-some-name` class to the element in question, and then referencing it by `by.css('.protractor-test-some-name')`. We do not use `by.id` for this purpose because Oppia frequently displays multiple copies of a DOM element on the same page, and if an `id` is repeated then references to it will not work properly. This is the preferred method, since it makes clear to those editing production code exactly what the dependence on protractor is, thus minimizing the likelihood of confusing errors when they make changes. Sometimes this may not work, though (e.g. for embedded pages, third-party libraries and generated HTML), in which case you may instead need to use one of the options below.
 
 2. Using existing element ids. We avoid using existing classes for this purpose as they are generally style specifications such as `big-button` that may be changed in the future.
 
@@ -364,111 +359,6 @@ When the Automated QA Team does a codeowner review on your PR that changes the e
 
 * Check your assumptions! For example, if you are assuming that only one exploration on the server will have a particular title, use an `expect` call to check.
 
-## Debugging E2E tests
-
-Whenever you're debugging tests, you should create a debugging doc to document your work. This helps future contributors if they run into a similar bug in the future. If other people come in later to help you, they can also use the debugging doc to get up to speed on what you've already figured out. You can make a copy of [this template debugging doc](https://docs.google.com/document/d/1qRbvKjJ0A7NPVK8g6XJNISMx_6BuepoCL7F2eIfrGqM/edit?usp=sharing) to get started. Also check out the [[debugging docs wiki page|debugging-docs]].
-
-There are many ways to go about debugging an E2E test, but here's one approach:
-
-1. Create a [[debugging doc|debugging-docs]].
-2. Look through the logs from the failed test to try and understand what went wrong. In particular:
-
-   * Look for a line that says just `Killed`. This line indicates that some process was killed by the operating system for consuming too much memory. It's fairly safe to assume that the test failure was because of that process being killed.
-   * Look for the stack trace and error message of the _first_ error. The trace might point you to where the error was thrown in the test code, and the message may help explain what went wrong.
-
-3. If you don't understand what the error message means, search for it online. Also look through the test code and `core/test/protractor_utils/action.js` to see if the error message (or something like it) is in our test code.
-
-4. Enable [video recordings](#downloading-screen-recordings) and rerun the test until you reproduce the error. Then watch the video recordings and follow along in the test code. Try and understand why the error was thrown.
-
-5. Try and reproduce the error locally. If you succeed, you can use your [local debugger](#using-the-debugger) to investigate.
-
-### Using the debugger
-
-1. Add a break-point in the code you want the control to stop at by adding the line `debugger;`. For example:
-
-   ```js
-   ...
-   await adminPage.get();
-   await adminPage.updateRole('moderator1', 'moderator');
-   debugger;
-   await adminPage.viewRolesbyUsername('moderator1');
-   ...
-   ```
-
-2. Run the e2e script with the flag `--debug_mode`. For example,
-
-   ```console
-   python -m scripts.run_e2e_tests --debug_mode --suite="topicAndStoryEditor"
-   ```
-
-3. Wait for the script to show the following log:
-
-   ```text
-   Debugger listening on ws://127.0.0.1:9229/e4779cc6-72e9-4d8d-889e-1fb3b2628781
-   For help, see: https://nodejs.org/en/docs/inspector
-   ```
-
-4. At this point, go to `chrome://inspect/#devices` on your Chrome browser.
-
-5. Click on "inspect" under Remote Target (see screenshot below).
-
-   ![Inspect Page](https://user-images.githubusercontent.com/11008603/88563290-714bac80-d04f-11ea-8b36-fc43c66d6e3d.png)
-
-6. A Chrome dev tools instance will open up and the e2e test should start executing in a new window.
-
-7. The control will stop at the point where the debugger statement was added. You can now choose to inspect elements, log variables in the test, or add more break-points.
-
-### Rerunning with SSH
-
-CircleCI allows debugging using SSH. For details, please read [this](https://circleci.com/docs/2.0/ssh-access-jobs/#steps). Debugging with SSH only reruns that particular job, so it is a great way to rerun a passing test to see if it flakes without rerunning all the tests.
-
-### Downloading screenshots
-
-We capture screenshots of failing tests. On CircleCI, these are available under the `Artifacts` tab of the failure log page. You may also want to reference the [CircleCI artifacts documentation](https://circleci.com/docs/2.0/artifacts/). On GitHub Actions, look for an `Artifacts` link in the upper right where you can download a zip file of the screenshots.
-
-Here's an example of what artifacts on CircleCI look like:
-
-![CircleCI artifacts page with hyperlinks to screenshots and reports](https://user-images.githubusercontent.com/19878639/111242142-f1ba2000-85d4-11eb-8bf1-66cfbbf71975.png)
-
-There are two kinds of artifacts:
-
-* Reports, which have the filename `report.html`
-* Screenshots, which have a filename that follows the name of the test from which the screenshot was captured. For example, `Topic editor functionality should publish and unpublish a story correctly.png`.
-
-Artifacts are grouped into folders based on attempt number. For example, the report at `protractor-screenshots/6b0d444200b12988799019647e6ed7a9/report.html` is in the folder `6b0d444200b12988799019647e6ed7a9`, which holds all the artifacts from one attempt (we attempt the tests multiple times to handle flakiness). You can use the reports to figure out which attempt goes with which folder. For example, if attempt number 2 has an error message
-
-```text
-Failed: Story could not be saved.
-Wait timed out after 10003ms
-```
-
-then you can look for the report that includes this message. Times like `10003ms` will be particularly useful for this since they're usually unique. Say you find this error message in `protractor-screenshots/6b0d444200b12988799019647e6ed7a9/report.html`. Now you know that the screenshots from the attempt are all under `protractor-screenshots/6b0d444200b12988799019647e6ed7a9`!
-
-Sometimes you'll get screenshots that just aren't very helpful. For example, a lot of screenshots show the login page for some reason. You can check other examples of a flake though. One of the others might have a useful screenshot.
-
-### Downloading screen recordings
-
-When screen recordings are enabled, we capture video of the test running on GitHub Actions. This helps developers solve problems in E2E tests that only occur on CI or are difficult to replicate locally.
-
-To enable screen recordings, you need to set the `VIDEO_RECORDING_IS_ENABLED` environment variable to `1` in your GitHub Actions workflow file. Note that screen recordings are still not saved under the following circumstances:
-
-* The test is running on CircleCI. CircleCI runners have too little memory to support video recording.
-* The test passed. Videos of tests that pass are deleted before being made available for download. You can change this behavior by setting `ALL_VIDEOS` to `true` in `protractor.conf.js`.
-
-Each individual test within each suite gets its own video. The video of each test gets a randomly assigned name, and this gets printed out above the suite, like this:
-
-![Name of video for test gets printed out above test](https://user-images.githubusercontent.com/52176783/118647333-486cf180-b7f2-11eb-999b-9edbbb89b5a7.png)
-
-To download a zip file of the videos, look for the `Artifacts` link in the top-right of your test run.
-
-![Artifacts Tab at the top-right](https://user-images.githubusercontent.com/52176783/118647397-5a4e9480-b7f2-11eb-868a-ea5b0058f378.png)
-
-If you don’t see the `Artifacts` link, go to the summary of the failing workflow, you will see the artifacts at the bottom of that page too.
-
-![Artifacts section in summary of e2e run](https://user-images.githubusercontent.com/52176783/118647358-502c9600-b7f2-11eb-9e41-a6f5f962ddfb.png)
-
-Note for macOS: Quicktime doesn’t seem to like the videos we generate, so you might need to use VLC media player to view the videos.
-
 ## Metrics
 
 We track passes, known flakes, and failures that aren't known to be flakes (called "failures") using a logging server. You can view these metrics at https://oppia-e2e-test-results-logger.herokuapp.com.
@@ -479,7 +369,7 @@ We track passes, known flakes, and failures that aren't known to be flakes (call
 
 There are certain types of input that are used so commonly throughout Oppia that they are defined in `core/templates/forms/` and reused across many pages. There are corresponding protractor functions to manipulate the forms, and these functions are located in `core/tests/protractor_utils/forms.js`.
 
-There are more specialised input types in `extensions/objects` which you can also make use of (generally in interactions).
+There are more specialized input types in `extensions/objects` which you can also make use of (generally in interactions).
 
 To get a form or object editor, you can use the `getEditor` function in `forms.js`. It accepts the name of the form or object as an argument, and it searches first in `forms.js` and then in `extensions/objects/protractor.js` for a function of the same name. For example, suppose we want to set the value of a real number field. We can use `getEditor` like this:
 
@@ -522,7 +412,7 @@ this.setContent = async function(instructions) {
 }
 ```
 
-Later on you will probably want to check that your content is being displayed correctly, for example using a page utility function `expectContentToMatch`. To this you should send a function which will then be supplied with a `richTextChecker` which exposes analagous functions. For example you might send:
+Later on you will probably want to check that your content is being displayed correctly, for example using a page utility function `expectContentToMatch`. To this you should send a function which will then be supplied with a `richTextChecker` which exposes analogous functions. For example you might send:
 
 ```js
 var instructions = async function(richTextChecker) {
@@ -686,7 +576,7 @@ This works for both editors and checkers.
 
 #### Anti-Patterns
 
-* `forEach` does not work for async-await. Use a `for ... of` loop instead if you want to operate in sequence, or use `map()` to operate in parallel. See [this stackoverflow post](https://stackoverflow.com/a/37576787) for examples.
+* `forEach` does not work for async-await. Use a `for ... of` loop instead if you want to operate in sequence, or use `map()` to operate in parallel. See [this Stack Overflow post](https://stackoverflow.com/a/37576787) for examples.
 * `filter` can be problematic. Consider re-writing as a `for` loop instead.
 * `.then()` functions
   ```js
@@ -699,7 +589,7 @@ This works for both editors and checkers.
   var output = await someAsynchronousFunction();
   await // do something with "output"
   ```
-* `browser.switchTo().activeElement()` can cause problems when combined with our `action` functions. One such problem is a `Cannot read property 'bind' of undefined` error. Instead, use the normal `element(...)` element selectors to get the element you want to interact with. You can use a `debugger` statement (see the debugging section below) right before `browser.switchTo().activeElement()` to find what active is element there.
+* `browser.switchTo().activeElement()` can cause problems when combined with our `action` functions. One such problem is a `Cannot read property 'bind' of undefined` error. Instead, use the normal `element(...)` element selectors to get the element you want to interact with. You can use a `debugger` statement (see the [[debugging guide|Debug-end-to-end-tests]]) right before `browser.switchTo().activeElement()` to find what active is element there.
 
 ### Known kinds of flakes
 
