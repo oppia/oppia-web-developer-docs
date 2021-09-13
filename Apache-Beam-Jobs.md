@@ -51,27 +51,29 @@ These instructions assume you are running a local development server. If you are
 
 Conceptually, an Apache Beam job is just a bunch of steps, each of which transforms some input data into some output data. For example, if you wanted to count how many interactions are in all of Oppia's explorations, you could break that task down into a series of transformations:
 
-```text
-+--------------+ Count interactions +-----------------------------+ Sum +-------+
-| Explorations | -----------------> | (exploration, count) Tuples | --> | Count |
-+--------------+                    +-----------------------------+     +-------+
-```
+    .--------------. Count interactions .--------. Sum .-------.
+    | Explorations | -----------------> | Counts | --> | Total |
+    '--------------'                    '--------'     '-------'
 
 For more complicated tasks, Apache Beam supports tasks whose transformations form a [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph), or "DAG." These are just graphs with no cycles. For example, if you wanted to find the ratio of interactions to cards, you could use this DAG:
 
-```text
-+--------------+ Count interactions +-----------------------------+ Sum +------------------+
-| Explorations | -----------------> | (exploration, count) Tuples | --> | Num Interactions |
-+--------------+                    +-----------------------------+     +------------------+
-       |                                                                  |
-       | Count cards +-----------------------------+ Sum +-----------+    | Divide +-----------------------+
-       +-----------> | (exploration, count) Tuples | --> | Num Cards |----+------> | Interactions per card |
-                     +-----------------------------+     +-----------+             +-----------------------+
-```
+    .--------------. Count interactions .-------. Sum .------------------.
+    | Explorations | -----------------> | Count | --> | Num Interactions |
+    '--------------'                    '-------'     '------------------'
+           |                                                    |
+           |                                                    |
+           |                                                    |
+           | Count cards .-------. Sum .-----------.            |
+           '-----------> | Count | --> | Num Cards |------------+
+                         '-------'     '-----------'            |
+                                                                |
+                                .----------------------. Divide |
+                                | Interactions / Cards | <------'
+                                '----------------------'
 
 Note that the first example we saw, while linear, is still a DAG!
 
-In Apache Beam, all jobs are represented as these DAGs. The nodes are represented as [`PValue`](#pvalues) objects, and the edges are represented as [`PTransform`](#ptransforms) objects. [`Pipeline`](#pipelines) objects hold the DAGs, and [`Runner`](#runners) objects actually execute the jobs.
+In Apache Beam, all jobs are represented as these DAGs. The nodes are represented as [`PValue`](#pvalues) objects, and the edges are represented as [`PTransform`](#ptransforms) objects. [`Pipeline`](#pipelines) objects manage the DAGs, and [`Runner`](#runners) objects actually execute the jobs.
 
 Next, we'll look at each of these components in more detail.
 
@@ -127,7 +129,7 @@ Recall that `PTransform`s represent the "edges" of the DAG and convert `PValue`s
 
 #### `ParDo` and `DoFn`
 
-`DoFn`s are the most-basic kind of `PTransform`s, and they are invoked on elements of a `PCollection` using `beam.ParDo`. Calling `ParDo` is analogous to the following code:
+`ParDo` is the most flexible `PTransform`. It accepts `DoFn`s, which are simple functions, as arguments and applies them to all elements of the input `PCollection` in parallel. It also accepts functions and lambda functions as arguments. It is analogous to the following code:
 
 ```python
 do_fn = DoFn()
