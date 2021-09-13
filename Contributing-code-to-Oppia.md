@@ -53,21 +53,7 @@ TODO(#4): Add link to IDE tutorial.
 
 ## Developing your skills
 
-In general, it's easier to contribute to the Oppia codebase if you have some knowledge of git, as well as at least one of Python or AngularJS/Angular. You don't need to know all of this before you start, though! Many of our contributors have picked these skills up concurrently while tackling their first issues.
-
-That said, we strongly recommend that you be open to learning new things. If you need to brush up on some of the technologies used in Oppia, here are some resources that may help:
-
-* Git and Github are used to make changes to the repository. So, it's good to know how to use them to do basic stuff like branching, merging, pull/push etc.  [Here](https://github.com/oppia/oppia/wiki/Learning-Resources) is a page we've compiled that contains some links to useful learning materials.
-
-* AngularJS (v1) and Angular 2+ are used for Oppia's frontend; we are currently in the process of migrating from the former to the latter.  Most of our open issues are in the frontend and require at least some knowledge of HTML, AngularJS/Angular and CSS, so knowledge of frontend coding will serve you well if you'd like to contribute to Oppia over the longer term.
-
-  * A nice YouTube video tutorial for AngularJS can be found [here](https://www.youtube.com/watch?v=nO1ROKMjPqI&list=PLvZkOAgBYrsS_ugyamsNpCgLSmtIXZGiz) and you can check the official [tutorial](https://docs.angularjs.org/tutorial/index) and [guide](https://docs.angularjs.org/guide). For an outline of AngularJS, you can also take a look at this [short overview](https://egghead.io/articles/new-to-angularjs-start-learning-here) with pointers to other resources.
-
-  * For Angular 2+, consider checking out the official documentation [here](https://angular.io/docs), which also includes a [tutorial](https://angular.io/tutorial).
-
-* If you are new to HTML, some tutorials include [Mozilla's guide](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML) (which includes some practice assessments), as well as [this tutorial for beginners](http://htmldog.com/guides/html/beginner/).
-
-* We also have some backend (Python) projects available, but not as many, so we'd strongly recommend learning AngularJS if you have the opportunity and inclination -- otherwise, the range of projects you can take up will be more limited. That said, let us know at welcome@oppia.org if you'd like suggestions for non-frontend projects, and we'll do our best to help.
+See our [[page of learning resources|Learning-Resources]] for suggestions on how you can improve your development skills. When you take up an issue that requires programming languages or tools you are unfamiliar with, check out that page for resources that other developers have found useful when learning.
 
 ## Finding something to do
 
@@ -177,7 +163,7 @@ If an issue hasn't got someone assigned to it, and there's no existing PR for th
    * [[Backend Tests|Backend-tests]]
    * [[Frontend Tests|Frontend-unit-tests-guide]]
    * [[End to end tests|End-to-End-Tests]]
-   * [[Tests for pylint extensions|Writing-Tests-For-Pylint]]
+   * [[Tests for Pylint extensions|Writing-Tests-For-Pylint]]
 
 3. If you're stuck on something, ask for help instead of letting it block all your work. It can be difficult to know when to ask for help, so one rule of thumb is to ask whenever you've been unable to make progress for an hour.
 

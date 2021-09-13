@@ -20,6 +20,7 @@
     * [[Creating an Administrator account|https://github.com/oppia/oppia/wiki/Firebase-authentication#creating-an-administrator-account]]
   * [[Pull requests at Oppia|Pull-requests-at-Oppia]]
   * [[How to get help|Get-help]]
+  * [[Learning resources for developers|Learning-Resources]]
   * [[Git cheat sheet|Git-cheat-sheet]]
   * [[Codebase Overview|Overview-of-the-Oppia-codebase]]
     * [[Glossary of terms|Glossary-of-terms]]
