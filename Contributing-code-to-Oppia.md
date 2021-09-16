@@ -165,7 +165,6 @@ If an issue hasn't got someone assigned to it, and there's no existing PR for th
    * [[Backend Tests|Backend-tests]]
    * [[Frontend Tests|Frontend-unit-tests-guide]]
    * [[End to end tests|End-to-End-Tests]]
-   * [[Tests for Pylint extensions|Writing-Tests-For-Pylint]]
 
 3. If you're stuck on something, ask for help instead of letting it block all your work. It can be difficult to know when to ask for help, so one rule of thumb is to ask whenever you've been unable to make progress for an hour.
 
