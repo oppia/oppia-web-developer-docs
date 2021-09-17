@@ -228,6 +228,10 @@ If this error occurs within a virtual environment, try reinstalling the libs by 
 
 ## Mac OS
 
+### No module named '_ctypes' on M1 Macs
+
+When one contributor got a `ModuleNotFoundError: No module named '_ctypes'` error when installing on an M1 Mac with Rosetta, they found that using Python 3.9 worked.
+
 ### Cannot Import Name `_imaging`
 
 After running `python -m scripts.start`, if you get an error around the following lines:
