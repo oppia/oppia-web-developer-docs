@@ -1,14 +1,22 @@
+## Tableof contents
+
+* [Introduction](#introduction)
+* [Support for protocol buffers](#support-for-protocol-buffers)
+  * [Install proto files](#install-proto-files)
+  * [Generate code from proto files](#generate-code-from-proto-files)
+* [Adding your own proto files](#adding-your-own-proto-files)
+* [Examples](#examples)
+  * [Oppia ML](#oppia-ml)
+
 ## Introduction
 
 At Oppia, we need to be able to store and transfer data in a language-agnostic way, for example between our frontend and backend code. We mostly use JSON, but we sometimes use [protocol buffers](https://developers.google.com/protocol-buffers/) instead. To quote from its documentation:
 
 > Protocol buffers are a language-neutral, platform-neutral extensible mechanism for serializing structured data.
 
-Practically speaking, this means you can define a data structure in a `*.proto` file (called a proto file). Then, you can run a command to generate code for reading and writing that data structure. The magic comes from the fact that the generated code can be in many different languages. This lets you define a data structure once and use it in both Python and JavaScript, for example.
+Practically speaking, this means you can define a data structure in a `*.proto` file (called a proto file). Then, you can run a command to generate code for reading and writing that data structure. The magic comes from the fact that the generated code can be in many different languages. This lets you define a data structure once and use it in both Python and JavaScript, for example. We use [buf](https://docs.buf.build) to perform this code generation.
 
-To do this compilation, we use [buf](https://docs.buf.build).
-
-Below, we'll discuss how Oppia supports protocol buffers and an example of where we use it.
+Below, we'll discuss how we use protocol buffers at Oppia.
 
 ## Support for protocol buffers
 
@@ -64,16 +72,17 @@ Assuming that we use the above configurations, let's see what code would be gene
 * `src/javascript/a.js`
 * `src/javascript/b.js`
 
-Note that for Python code, protobuf [replaces `.proto` with `_pb2.py`](https://developers.google.com/protocol-buffers/docs/reference/python-generated#invocation) to distinguish these files from those generated with protobuf version 1. For more information about how the file names of generated code are constructed, [see the protobuf documentation](https://developers.google.com/protocol-buffers/docs/reference/overview) for the programming languages you use.
+Note that for Python code, protobuf [replaces `.proto` with `_pb2.py`](https://developers.google.com/protocol-buffers/docs/reference/python-generated#invocation) to distinguish these files from those generated with protobuf version 1. For more information about how the file names of generated code are constructed, see [the protobuf documentation](https://developers.google.com/protocol-buffers/docs/reference/overview) for the programming languages you use.
 
 ## Adding your own proto files
 
 To take advantage of Oppia's support for protocol buffers, you should follow these steps:
 
-1. Create and publish (or find) your proto files in a dedicated repository. This doesn't necessarily have to be on GitHub, for example if you want to use someone else's proto files.
+1. Create and publish (or find) your proto files in a dedicated repository. This doesn't necessarily have to be on GitHub, for example if you want to use someone else's proto files. See [the protobuf docs](https://developers.google.com/protocol-buffers/docs/proto3) for details on proto file syntax.
 2. Add an object under the `proto` key in `manifest.json` describing how to download your proto files. For details on the syntax used by `manifest.json`, check the code in `scripts/install_third_party.py`, which parses the manifest.
 3. Add the path to where your proto files will be downloaded to `buf.yaml` under the `roots` key.
-4. You're done! Now you can import classes representing your data structures the from the code that buf generates!
+4. If you need more languages than are currently in `buf.gen.yaml`, update `buf.gen.yaml` to add your languages.
+5. You're done! Now you can import classes representing your data structures the from the code that buf generates.
 
 ## Examples
 
@@ -97,6 +106,8 @@ plugins:
     out: extensions/classifiers/proto
 ```
 
+Otherwise, the files are as in the examples above.
+
 Then we import from this generated code like this:
 
 * TypeScript and JavaScript:
@@ -110,3 +121,5 @@ Then we import from this generated code like this:
   ```python
   from proto_files import text_classifier_pb2
   ```
+
+To learn how to use the generated code, check out [the protobuf tutorial for your language](https://developers.google.com/protocol-buffers/docs/tutorials).
