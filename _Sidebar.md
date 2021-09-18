@@ -89,6 +89,7 @@
     * [[Adding static assets|Adding-static-assets]]
     * [[Wipeout Implementation|Wipeout-Implementation]]
     * [[Notes on NDB Datastore transactions|Notes-on-NDB-Datastore-Transactions]]
+    * [[Protocol buffers|Protocol-buffers]]
   * Translations
     * [[Adding new translations|Adding-new-translations-for-i18n]]
     * [[How to develop for i18n|How-to-develop-for-i18n]]
