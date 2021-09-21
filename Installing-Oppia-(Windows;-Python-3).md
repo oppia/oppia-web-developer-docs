@@ -80,7 +80,7 @@ Once it is installed, run the app from the startup menu. After initializing your
 
 ## Step 4: Clone your fork and setup
 
-Follow the steps for [[Linux|Installing-Oppia-(Linux;-Python-3)]].
+Inside your Ubuntu environment, follow the steps for [[Linux|Installing-Oppia-(Linux;-Python-3)]].
 
 If you are facing problems with pushing the code to your fork check this link: [WSL_GIT](https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-git).
 
@@ -219,7 +219,7 @@ It should look something like this:
 
 [Screenshot](https://drive.google.com/file/d/1dt9qippO7lq6CClywPA0ymhcTSGumSrj/view?usp=sharing)
 
-Now, you can open the VM. After that, clone and install the Oppia repository from GitHub following the [[Linux installation instructions|Installing-Oppia-(Linux;-Python-3)]] in order to set up Oppia in the VM.
+Now, you can open the VM. Inside the VM, clone and install the Oppia repository from GitHub following the [[Linux installation instructions|Installing-Oppia-(Linux;-Python-3)]] in order to set up Oppia in the VM.
 
 If you have done the optional steps, then when running the dev server in the VM, use the command `python -m scripts.start --disable_host_checking` so that the host can access the server started in the VM. This has to be done whenever you start a server in the VM, if you require the host to access the page.
 
