@@ -1,4 +1,4 @@
-## Tableof contents
+## Table of contents
 
 * [Introduction](#introduction)
 * [Support for protocol buffers](#support-for-protocol-buffers)
@@ -22,7 +22,7 @@ Below, we'll discuss how we use protocol buffers at Oppia.
 
 ### Install proto files
 
-We expect proto files to be defined in their own repositories, which we download and install as dependencies. In [`manifest.json`](), the `proto` section describes how to download proto files:
+We expect proto files to be defined in their own repositories, which we download and install as dependencies. In [`manifest.json`](https://github.com/oppia/oppia/blob/develop/manifest.json), the `proto` section describes how to download proto files:
 
 ```json
 "proto": {
@@ -82,7 +82,7 @@ To take advantage of Oppia's support for protocol buffers, you should follow the
 2. Add an object under the `proto` key in `manifest.json` describing how to download your proto files. For details on the syntax used by `manifest.json`, check the code in `scripts/install_third_party.py`, which parses the manifest.
 3. Add the path to where your proto files will be downloaded to `buf.yaml` under the `roots` key.
 4. If you need more languages than are currently in `buf.gen.yaml`, update `buf.gen.yaml` to add your languages.
-5. You're done! Now you can import classes representing your data structures the from the code that buf generates.
+5. You're done! Now you can import classes representing your data structures from the code that buf generates.
 
 ## Examples
 
