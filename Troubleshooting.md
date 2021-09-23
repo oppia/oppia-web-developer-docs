@@ -155,6 +155,13 @@ upstream   https://github.com/oppia/oppia.git (fetch)
 upstream   https://github.com/oppia/oppia.git (push)
 ```
 
+If you see SSH URLs, fix them like this:
+
+```console
+$ git remote set-url origin https://github.com/{{GITHUB USERNAME}}/oppia.git
+$ git remote set-url upstream https://github.com/oppia/oppia.git
+```
+
 Once you've fixed this, you should see this at the end of your output from `git push`:
 
 ```text
