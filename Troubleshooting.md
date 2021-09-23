@@ -130,6 +130,53 @@ If you see `Failed to start server on port XXXX, exiting ...` here are some poss
 
 Just delete the `./portserver.socket` file. It's generated automatically by the end-to-end tests and is supposed to be cleaned up automatically. However, if your tests don't exit cleanly, the file can get left behind, which causes lint failures. The file is just a socket for communication between processes, so it's safe to delete once the tests exit.
 
+### Push fails due to connection timeout
+
+If you use SSH for your GitHub remote URL, you may find that when you run `git push` and the tests pass, your commits don't show up on GitHub. When this happens, the end of the terminal output after `git push` will look like this:
+
+```text
+...
+Done!
+------------------------------------
+All Frontend Coverage Checks Passed.
+------------------------------------
+Already on ...
+```
+
+Notice that there is no output showing that commits were pushed. To fix this, use an HTTPS remote URL for GitHub as specified in our [[installation instructions|Installing-Oppia]].
+
+You can check your remote URLs like this:
+
+```console
+$ git remote -v
+origin     https://github.com/{{GITHUB USERNAME}}/oppia.git (fetch)
+origin     https://github.com/{{GITHUB USERNAME}}/oppia.git (push)
+upstream   https://github.com/oppia/oppia.git (fetch)
+upstream   https://github.com/oppia/oppia.git (push)
+```
+
+Once you've fixed this, you should see this at the end of your output from `git push`:
+
+```text
+...
+Done!
+------------------------------------
+All Frontend Coverage Checks Passed.
+------------------------------------
+Already on ...
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 986 bytes | 986.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To github.com:{{GITHUB USERNAME}}/oppia.git
+   cfb1f9e..e3f8d66  cleanup -> cleanup
+```
+
+Note that the output above will look somewhat different for you since it's specific to what data you're pushing.
+
 ## Linux
 
 ### Python 2 is not available
