@@ -18,6 +18,7 @@
     * [`afterAll`](#afterall)
     * [`expect`](#expect)
   * [Good practices](#good-practices)
+    * [Tests should work in any order](#tests-should-work-in-any-order)
     * [Do not test private methods/properties](#do-not-test-private-methodsproperties)
     * [Worry about behavior and not about coverage](#worry-about-behavior-and-not-about-coverage)
     * [Name variables clearly](#name-variables-clearly)
@@ -28,7 +29,7 @@
     * [Similar tests should have similar checks](#similar-tests-should-have-similar-checks)
     * [Validate external side-effects](#validate-external-side-effects)
 * [General tips](#general-tips)
-  * [Debugging with print statements](#debugging-with-print-statements)
+  * [Debugging](#debugging)
   * [Spy utilities](#spy-utilities)
     * [Spying on third-party libraries](#spying-on-third-party-libraries)
     * [Spying on the same method/property more than one time in the same scope](#spying-on-the-same-methodproperty-more-than-one-time-in-the-same-scope)
@@ -233,6 +234,26 @@ The `expect` function is used to assert a condition in the test. You can check a
 
 ### Good practices
 
+#### Tests should work in any order
+
+It is possible to write frontend tests that only pass when run in a particular order. Here's an example:
+
+```js
+describe('oppia', () => {
+  var test = 2;
+
+  it('should do something', () => {
+    test = 3;
+  });
+
+  it('should do something else', () => {
+    expect(test).toBe(2);
+  });
+});
+```
+
+This test will pass when `should do something else` runs before `should do something`, but not when the tests run in the opposite order. This is bad! Since Karma runs tests in a non-deterministic order, you should never assume that tests will run in a particular order.
+
 #### Do not test private methods/properties
 
 Private methods/properties should only be accessed just by the class or function where they are defined. Their names start with `_`. It's not a good practice to test private methods/properties because they should not be accessed from the outside. Instead, you should only test public methods and their output. For example:
@@ -362,9 +383,9 @@ Here, the call to `setLoginCookie()` is an external side-effect. In our unit tes
 
 ## General tips
 
-### Debugging with print statements
+### Debugging
 
-If you are used to using `console.log(...)` to debug tests, remember to pass `--verbose` when executing `run_frontend_tests.py`. Otherwise, your print statements will be suppressed. You should use `fdescribe` or `fit` to limit how many tests run; otherwise you will have to comb through a lot of console messages to find your debugging information.
+See our [[guide to debugging frontend tests|Debug-frontend-tests]] for debugging tips.
 
 ### Spy utilities
 
