@@ -109,6 +109,7 @@
   * [[Mobile development|Mobile-development]]
   * [[Mobile device testing|Mobile-device-testing]]
   * [[Performance testing|Performance-Testing]]
+  * [[Build process|Build-process]]
   * [[Team structure|Team-Structure]]
   * Playbooks
     * [[Instructions for making PR passes|Instructions-for-making-PR-passes]]
