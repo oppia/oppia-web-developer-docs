@@ -49,7 +49,8 @@ TODO(#4): Add link to IDE tutorial.
 
 8. Join [our discord](https://discord.com/invite/dCJwEAgk3D) for fun activities!
 
-9. Take up your first starter project! You can find more details below.
+9. Take up your first starter project! You can find more details below. We recommend reading and following the [[PR instructions|Make-a-pull-request]] closely so that your PR review proceeds smoothly.
+
 
 ## Developing your skills
 
