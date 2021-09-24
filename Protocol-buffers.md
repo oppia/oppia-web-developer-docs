@@ -40,7 +40,7 @@ In this case `oppiaMlProto` says to download the version 0.0.0 archive of the `o
 
 ### Generate code from proto files
 
-Later in the process of installing Oppia's dependencies, [`install_third_party_libs`](https://github.com/oppia/oppia/blob/develop/scripts/install_third_party_libs.py) calls `buf generate` to generate Python and JavaScript code from the proto files. The `buf` command reads from two configuration files:
+Later in the process of installing Oppia's dependencies, [`install_third_party_libs`](https://github.com/oppia/oppia/blob/develop/scripts/install_third_party_libs.py) calls `buf generate` to generate Python and JavaScript code from the proto files in the directories listed in the `PROTO_FILES_PATHS` constant in `install_third_party_libs.py`. The `buf` command reads from two configuration files:
 
 * [`buf.yaml`](https://github.com/oppia/oppia/blob/develop/buf.yaml) tells `buf` where to find proto files. For our example above, it would list `third_party/oppia-ml-proto-0.0.0` since that folder contains proto files. The config file would look like this:
 
@@ -81,6 +81,7 @@ To take advantage of Oppia's support for protocol buffers, you should follow the
 1. Create and publish (or find) your proto files in a dedicated repository. This doesn't necessarily have to be on GitHub, for example if you want to use someone else's proto files. See [the protobuf docs](https://developers.google.com/protocol-buffers/docs/proto3) for details on proto file syntax.
 2. Add an object under the `proto` key in `manifest.json` describing how to download your proto files. For details on the syntax used by `manifest.json`, check the code in `scripts/install_third_party.py`, which parses the manifest.
 3. Add the path to where your proto files will be downloaded to `buf.yaml` under the `roots` key.
+4. Also add the path to your proto files to the `PROTO_FILES_PATHS` constant in `scripts/install_third_party_libs`.
 4. If you need more languages than are currently in `buf.gen.yaml`, update `buf.gen.yaml` to add your languages.
 5. You're done! Now you can import classes representing your data structures from the code that buf generates.
 
