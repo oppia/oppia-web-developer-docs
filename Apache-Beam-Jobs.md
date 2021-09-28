@@ -232,9 +232,10 @@ error_pcoll = (
 
 Subclass the `base_jobs.JobBase` class and override the `run()` method.
 
-The name of your job class is presented to release coordinators, so make sure it is clear and concise.
+The name of your job class is presented to release coordinators, so make sure it is clear and concise:
+![Screenshot from 2021-09-28 09-05-10](https://user-images.githubusercontent.com/5094060/135092574-0bff536e-1b58-4b38-9358-c26f9096c8a3.png)
 
-**Job names should follow the convention: `<Verb><UnambiguousEntityName>Job`.**
+**Job names should follow the convention: `<Verb><Noun>Job`.**
 
 For example:
 
@@ -285,13 +286,15 @@ The `run()` method must return a `PCollection[JobRunResult]`.
   * How much work did the job manage to do?
   * If the job encountered a problem, what caused it?
 
-When implementing the `run()` method, make liberal usage of small and simple `PTransform`s and `DoFn`s. You must also be careful to only use legal constructs:
+When implementing the `run()` method, make liberal usage of small and simple `PTransform`s and `DoFn`s. You must also be careful to only use the following legal constructs:
 
 | Operation       | Do use                                 | Do not use                     |
 | --------------- | -------------------------------------- | ------------------------------ |
 | Getting models  | ndb_io.GetModels(ModelName.query(...)) | ModelName.get_multi()          |
 | Putting models  | model_pcoll \| ndb_io.PutMulti()       | ModelName.put_multi(models)    |
 | Deleting models | model_pcoll \| ndb_io.DeleteMulti()    | ModelName.delete_multi(models) |
+
+If you think you need to use something else -- e.g. files/etc. -- please talk to @brianrodri/@vojtechjelinek first. Some of these -- typically operations defined by datastore_services -- don't work on Apache Beam in production, while they might work locally.
 
 ---
 
