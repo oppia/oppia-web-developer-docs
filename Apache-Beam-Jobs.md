@@ -12,7 +12,6 @@
     * [`GroupByKey`](#groupbykey)
     * [Example of using `GroupByKey`,`Filter`, and `FlatMap`](#example-of-using-groupbykeyfilter-and-flatmap)
   * [`Runner`s](#runners)
-* [Writing Apache Beam Jobs](#writing-apache-beam-jobs)
 * [Case studies](#case-studies)
   * [Case study: `CountAllModelsJob`](#case-study-countallmodelsjob)
   * [Case Study: `SchemaMigrationJob`](#case-study-schemamigrationjob)
@@ -227,82 +226,6 @@ error_pcoll = (
 ### `Runner`s
 
 `Runner`s provide the `run()` method used to visit every node (`PValue`) in the pipeline's DAG by executing the edges (`PTransform`s) to compute their values.  At Oppia, we use `DataflowRunner` to have our `Pipeline`s run on the [Google Cloud Dataflow service](https://cloud.google.com/dataflow).
-
-## Writing Apache Beam Jobs
-
-Subclass the `base_jobs.JobBase` class and override the `run()` method.
-
-The name of your job class is presented to release coordinators, so make sure it is clear and concise:
-![Screenshot from 2021-09-28 09-05-10](https://user-images.githubusercontent.com/5094060/135092574-0bff536e-1b58-4b38-9358-c26f9096c8a3.png)
-
-**Job names should follow the convention: `<Verb><Noun>Job`.**
-
-For example:
-
-```python
-class WeeklyDashboardStatsComputationJob(base_jobs.JobBase):
-    """BAD: Name does not begin with a verb."""
-
-    def run(self):
-        ...
-
-
-class ComputeStatsJob(base_jobs.JobBase):
-    """BAD: Unclear what kind of stats are being computed."""
-
-    def run(self):
-        ...
-
-
-class CountExplorationInteractionsJob(base_jobs.JobBase):
-    """GOOD: Name starts with a verb and "exploration interactions" is unambiguous."""
-
-    def run(self):
-        ...
-```
-
-**Module names should follow the convention: `<entity>_<operation>_jobs.py`.**
-
-For example:
-* `blog_validation_jobs.py`
-* `dashboard_stats_computation_jobs.py`
-* `exploration_indexing_jobs.py`
-* `exploration_stats_regeneration_jobs.py`
-* `model_validation_jobs.py`
-
-**New modules must be imported in the `jobs/registry.py` file.**
-
----
-
-The `run()` method must return a `PCollection[JobRunResult]`.
-
-* In English, this means that **the job _must_ report _something_ about what occurred during its execution.** For example, this can be the errors it discovered or the number of successful operations it was able to perform. **Empty results are forbidden!**
-
-  * If you don't think your job has any results worth reporting, then just print a "success" metric with the number of models it processed.
-
-* `JobRunResult` outputs should answer the following questions:
-
-  * Did the job run without any problems? How and why do I know?
-  * How much work did the job manage to do?
-  * If the job encountered a problem, what caused it?
-
-When implementing the `run()` method, make liberal usage of small and simple `PTransform`s and `DoFn`s. You must also be careful to only use the following legal constructs:
-
-| Operation       | Do use                                 | Do not use                     |
-| --------------- | -------------------------------------- | ------------------------------ |
-| Getting models  | ndb_io.GetModels(ModelName.query(...)) | ModelName.get_multi()          |
-| Putting models  | model_pcoll \| ndb_io.PutMulti()       | ModelName.put_multi(models)    |
-| Deleting models | model_pcoll \| ndb_io.DeleteMulti()    | ModelName.delete_multi(models) |
-
-If you think you need to use something else -- e.g. files/etc. -- please talk to @brianrodri/@vojtechjelinek first. Some of these -- typically operations defined by datastore_services -- don't work on Apache Beam in production, while they might work locally.
-
----
-
-When testing jobs, always inherit from `JobTestBase` and override the class constant `JOB_CLASS`. You can then run `self.assert_job_output_is(...)` or `self.assert_job_output_is_empty()` to verify behavior.
-
-When testing `PTransform`s and `DoFn`s, always inherit from `PipelinedTestBase`.  You can use `self.assert_pcoll_is(...)` or `self.assert_pcoll_is_empty(...)` to verify behavior.
-
-* **IMPORTANT:** Only one `assert_(job|pcoll)_is` assertion can be performed in a test body. Multiple calls will result in an exception instructing you to split the test apart.
 
 ## Case studies
 
