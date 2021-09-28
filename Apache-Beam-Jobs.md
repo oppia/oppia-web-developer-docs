@@ -232,7 +232,7 @@ error_pcoll = (
 
 Subclass the `base_jobs.JobBase` class and override the `run()` method.
 
-The name of your job class is presented to release coordinators, so make sure that it's clear and concise.
+The name of your job class is presented to release coordinators, so make sure it is clear and concise.
 
 **Job names should follow the convention: `<Verb><UnambiguousEntityName>Job`.**
 
@@ -294,8 +294,8 @@ When implementing the `run()` method, make sure you are using legal constructs:
 | Operation       | Do use                                 | Do not use                     |
 | --------------- | -------------------------------------- | ------------------------------ |
 | Getting models  | ndb_io.GetModels(ModelName.query(...)) | ModelName.get_multi()          |
-| Putting models  | model_pcoll | ndb_io.PutMulti()        | ModelName.put_multi(models)    |
-| Deleting models | model_pcoll | ndb_io.DeleteMulti()     | ModelName.delete_multi(models) |
+| Putting models  | model_pcoll \| ndb_io.PutMulti()       | ModelName.put_multi(models)    |
+| Deleting models | model_pcoll \| ndb_io.DeleteMulti()    | ModelName.delete_multi(models) |
 
 ---
 
