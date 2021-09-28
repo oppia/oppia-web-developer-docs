@@ -285,11 +285,7 @@ The `run()` method must return a `PCollection[JobRunResult]`.
   * How much work did the job manage to do?
   * If the job encountered a problem, what caused it?
 
-When implementing the `run()` method, make liberal usage of small and simple `PTransform`s and `DoFn`s.
-
----
-
-When implementing the `run()` method, make sure you are using legal constructs:
+When implementing the `run()` method, make liberal usage of small and simple `PTransform`s and `DoFn`s. You must also be careful to only use legal constructs:
 
 | Operation       | Do use                                 | Do not use                     |
 | --------------- | -------------------------------------- | ------------------------------ |
