@@ -74,6 +74,8 @@ Welcome! Please make sure to follow the instructions above if you haven't alread
 
 * [#9749](https://github.com/oppia/oppia/issues/9749) (Migrate directives/controllers to Angular components)
 
+* [#13764](https://github.com/oppia/oppia/issues/13764) (Maintaining Oppia's Core Data with Frontend Validation Checks)
+
 * [#10798](https://github.com/oppia/oppia/issues/10798) (Fixing end-to-end tests, which are written with protractor)
 
 * [#8668](https://github.com/oppia/oppia/issues/8668) (frontend; documenting the services)
