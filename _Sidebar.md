@@ -10,6 +10,7 @@
     * [[Designers and artists|Contributing-to-Oppia's-design]]
   * **[[Google Summer of Code 2021|Google-Summer-of-Code-2021]]**
   * **[[Season of Docs 2021|Season-of-Docs-2021]]**
+  * **[[Hacktoberfest 2021|Hacktoberfest-2021]]**
 
 ---
 **Developing Oppia**
