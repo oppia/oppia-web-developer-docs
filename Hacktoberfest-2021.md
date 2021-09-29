@@ -10,7 +10,7 @@ Please follow these steps to get started:
 * [Setup what you need](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up) to contribute to Oppia
 * Find a "good first issue" to work on (see [here](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#finding-something-to-do) and [here](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3AHacktoberfest+no%3Aassignee))
 * Fix the issue by creating some changes and sending a pull request for review
-* Go through the code review process until you receive approval, then submit it!
+* Go through the code review process until you receive approval and the PR gets merged
 * To earn a t-shirt: repeat until you've submitted 4 pull requests
 
 ## FAQ
