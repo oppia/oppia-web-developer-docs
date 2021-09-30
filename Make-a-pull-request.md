@@ -109,7 +109,7 @@ Once your feature is ready, you can open a pull request (PR)!
 
   If you need to assign someone else but aren't a collaborator yet, leave a comment of the form `@{{reviewer username}} PTAL`, which will tell Oppiabot to assign that person for you. ("PTAL" means "Please take a look".)
 
-* After a while, check your pull request to see whether the CI checks have passed. If not, follow the instructions at [[If your build fails|If-your-build-fails]].
+* After a while, check your pull request to see whether the CI checks have passed. If not, follow our instructions to [[diagnose PR failures|If-CI-checks-fail-on-your-PR]].
 
 * Then, wait for your code to get reviewed! While you're waiting, it's totally fine to start work on a new PR if you like. Just follow these instructions again from the beginning.
 
@@ -161,7 +161,7 @@ While waiting to get approval from reviewers, make sure that all the continuous 
 
 ![CI results at the bottom of a PR](images/prCiResults.png)
 
-(See [[If your build fails|If-your-build-fails]] for some suggestions on what to do if you run into issues.)
+(See [[If CI checks fail on your PR|If-CI-checks-fail-on-your-PR]] for some suggestions on what to do if you run into issues.)
 
 If all reviewers have approved but you're still waiting for the CI checks to pass, make sure you're assigned to the PR, so that you can merge it once the CI checks are complete.
 

@@ -39,15 +39,15 @@
     * [[How to write type definitions|Guide-on-defining-types]]
     * [[How to write design docs|Writing-design-docs]]
     * [[Revert and Regression Policy|Revert-and-Regression-Policy]]
-    * [[If your build fails...|If-Your-Build-Fails]]
+    * Debugging
       * [[If your presubmit checks fail|If-your-presubmit-check-fails]]
+      * [[If CI checks fail on your PR|If-CI-checks-fail-on-your-PR.md]]
       * [[Interpreting CircleCI Results | Interpreting CircleCI Results]]
-      * Debugging
-        * [[Debugging Docs|Debugging-Docs]]
-        * [[Debugging end-to-end tests|Debug-end-to-end-tests]]
-        * [[Debugging backend tests|Debug-backend-tests]]
-        * [[Debugging frontend tests|Debug-frontend-tests]]
-        * [[Debugging Stories|Debugging-Stories]]
+      * [[Debugging Docs|Debugging-Docs]]
+      * [[Debugging end-to-end tests|Debug-end-to-end-tests]]
+      * [[Debugging backend tests|Debug-backend-tests]]
+      * [[Debugging frontend tests|Debug-frontend-tests]]
+      * [[Debugging Stories|Debugging-Stories]]
     * **[[Guidelines for launching new features|Launching-new-features]]**
     * [[Feature Gating|Developing-new-features-with-feature-gating]]
     * [[Lint Checks|Lint-Checks]]
