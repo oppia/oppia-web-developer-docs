@@ -233,18 +233,23 @@ error_pcoll = (
 
 For this section, we'll walk through the steps of implementing a job by writing one: `CountExplorationStatesJob`.
 
-Here's the DAG we'll try to implement:
+It's helpful to begin by sketching a diagram of what you want the job to do. We recommend using pen and paper or a whiteboard, but in this wiki page we'll use ASCII art to keep the document self-contained.
+
+Here's a diagram for the `CountExplorationStatesJob`:
 
     .--------------. Count states .--------. Sum .-------.
     | Explorations | -----------> | Counts | --> | Total |
     '--------------'              '--------'     '-------'
 
+> TIP: As illustrated, you don't need to know what the names of the `PTransform`s (edges) used in a diagram are. It's easy to look up the appropriate `PTransform` after drawing the diagram.
+
+Now that we have our bearings, let's get started on implementing the job.
+
 ### 1. Subclass the `base_jobs.JobBase` class and override the `run()` method
 
 Make sure your job class name is clear and concise, because the name is presented to release coordinators:
 
-<!-- TODO(#11475): Replace this screenshot with one that has job names which follow our naming convention. -->
-![Screenshot of the Release Coordinator Page with the list of jobs visible](https://user-images.githubusercontent.com/5094060/135092574-0bff536e-1b58-4b38-9358-c26f9096c8a3.png)
+![image](https://user-images.githubusercontent.com/5094060/135734501-eb9c0370-e98d-4271-b41a-0bf11c25503c.png)
 
 Job names should follow the convention: `<Verb><Noun>Job`.
 
@@ -287,7 +292,11 @@ For this example, we will write our job in the module: `core/jobs/batch_jobs/exp
 
 ### 2. Override the `run()` method to operate on `self.pipeline`
 
-As illustrated in the Architecture section, jobs are organized by `Pipeline`s, `PTransform`s, and `PCollection`s. Thus, when writing your job, **you must build _off_ of your pipeline** in order to construct the DAG. We can represent this by adding a special `Pipeline` node signifying the _true_ beginning of the DAG:
+As illustrated in the Architecture section, jobs are organized by `Pipeline`s, `PTransform`s, and `PCollection`s. Jobs that inherit from `JobBase` are constructed with a `Pipeline` object already accessible via `self.pipeline`. When we write our jobs, we will build them off of `self.pipeline`.
+
+`Pipeline`s are special `PValue`s that represent the entrypoint of a job. `PTransform`s that operate on `Pipeline` are generally "producers"; that is to say, operations that produce intial `PCollection`s to work off of.
+
+We can represent this in our DAG by adding a special `Pipeline` node.
 
       ____________
      /           /\
@@ -300,7 +309,9 @@ As illustrated in the Architecture section, jobs are organized by `Pipeline`s, `
     | Explorations | -----------> | Counts | --> | Total |
     '--------------'              '--------'     '-------'
 
-Let's see how this would translate into code, starting with the Explorations.
+Note that, since pipelines are a part of every job, it's fine to leave it out of a DAG to save on complexity.
+
+Now, let's see how this would translate into code, starting with the Explorations.
 
 ```python
 from core.jobs import base_jobs
@@ -321,11 +332,8 @@ class CountExplorationStatesJob(base_jobs.JobBase):
 ```
 
 Observe that:
-1. We're using `self.pipeline` as if it were a `PValue`
-2. We're using `ndb_io.GetModels` rather than `get_multi`
-3. We're passing a Query to `ndb_io.GetModels`
-
-It just so happens that `Pipeline` does indeed count as a `PValue`, with the special interface "`PBegin`". `PBegin` values signify that the value is never the output of a `PTransform`. Operations can branch off of `PBegin` values, like `ndb_io.GetModels()` does, to begin execution on a pipeline.
+1. We're using `ndb_io.GetModels` rather than `get_multi`
+2. We're passing a Query to `ndb_io.GetModels`
 
 We use `ndb_io.GetModels()` because we want to work on `PCollection`s of models, not a list of models. In fact, all operations that can be taken on models (`get`, `put`, `delete`) have analogous `PTransform` interfaces defined in `ndb_io`. They are:
 
@@ -358,7 +366,9 @@ def run(self):
     )
 ```
 
-Note that we chose to use `beam.Map` here instead of `beam.ParDo`. This is mostly a stylistic choice, as `beam.Map` is just a specialized version of `ParDo`, in that `Map` simply takes each input element and "maps" them to a single output element. In our case, each `ExplorationModel` will map to a single `int`, the number of states.
+Note that we chose to use `beam.Map` here instead of `beam.ParDo`. This is mostly a stylistic choice, as `beam.Map` is just a specialized version of `ParDo`, in that `Map` simply takes each input element and "maps" it to a single output element. In our case, each `ExplorationModel` will map to a single `int`, the number of states.
+
+Here is the implementation of `get_number_of_states`. This function transforms the model into a domain object, and then counts the number of states in the corresponding `dict`.
 
 ```python
 def get_number_of_states(self, exp_model: ExplorationModel) -> int:
@@ -366,9 +376,7 @@ def get_number_of_states(self, exp_model: ExplorationModel) -> int:
     return len(exp.states)
 ```
 
-Our implementation is simple, we transform the model into a domain object and measure the length of its `states` dictionary.
-
-Finally, we need to sum all the counts together. Fortunately, Apache Beam already has a `PTransform` that does exactly this:
+Finally, we need to sum all the counts together. We'll use `beam.CombineGlobally` to accomplish this, which uses an input function to combine values of a `PCollection`. It returns a `PCollection` with a single element: the result of the combination.
 
 ```python
 def run(self):
@@ -389,7 +397,7 @@ def run(self):
     )
 ```
 
-`CombineGlobally` uses the input function to combine the values in a `PCollection`. It returns a single-element `PCollection`, one which holds the result of the combination.
+
 
 With this, our objective is complete. However, there's still more code to write!
 
@@ -405,7 +413,7 @@ With this, our objective is complete. However, there's still more code to write!
   * How much work did the job manage to do?
   * If the job encountered a problem, what caused it?
 
-Our job is trying to report the total number of states across all explorations, so we need to create `JobRunResult` that holds that information. For this, we can simply use the `as_stdout` helper method:
+Our job is trying to report the total number of states across all explorations, so we need to create a `JobRunResult` that holds that information. For this, we can simply use the `as_stdout` helper method:
 
 ```python
 def run(self):
@@ -448,6 +456,11 @@ class CountExplorationStatesJobTests(test_jobs.JobTestBase):
 
 ### 2. Run assertions using a `assert_job_output_is_*` method
 
+When testing a job, we should aim to cover behavior and common edge cases. For this job, we'll have 3 main tests:
+1. When there are no Explorations in the datastore.
+2. When there is exactly 1 Exploration in the datastore.
+3. When there are many Explorations in the datastore.
+
 ```python
 def test_empty_datastore(self):
     # Don't add any explorations to the datastore.
@@ -476,7 +489,7 @@ def test_many_explorations(self):
     ])
 ```
 
-Note that `self.assert_job_output_is(...)` and `self.assert_job_output_is_empty()` do as advertised, it runs the job to completion and verifies the result.
+Note that `self.assert_job_output_is(...)` and `self.assert_job_output_is_empty()` do as advertised -- they run the job to completion and verify the result.
 
 -   **IMPORTANT:** Only one `assert_job_output_is` assertion can be performed in a test body. Multiple calls will result in an exception instructing you to split the test apart.
 
@@ -605,8 +618,6 @@ Let's start by listing the specification of a schema migration job:
   * Models should only be put into storage after successfully migrating to v`N`.
   * Models that were already at v`N` should be reported separately.
 
-Often, when jobs are relatively complicated, it's helpful to begin by sketching a diagram of what you want the job to do. We recommend using pen and paper or a whiteboard, but in this wiki page we use ASCII art to keep the document self-contained. For example, here's a diagram for this job:
-
     .--------------. Partition(lambda model: model.schema_version)
     | Input Models | ---------------------------------------------.
     '--------------'                                              |
@@ -630,8 +641,6 @@ Often, when jobs are relatively complicated, it's helpful to begin by sketching 
                      .-----------.  ndb_io.PutModels() |
                      | Datastore | <-------------------'
                      '-----------'
-
-> TIP: You don't need to know what the names of the `PTransform`s (edges) used in a diagram are. It's easy to look up the appropriate `PTransform` after drawing the diagram.
 
 There's a lot of complexity here, so we'll need many `PTransform`s to write our job. We'll focus on the most interesting one: the loop to migrate models to the next version.
 
