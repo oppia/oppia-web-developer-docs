@@ -13,6 +13,7 @@
     * [Example of using `GroupByKey`,`Filter`, and `FlatMap`](#example-of-using-groupbykeyfilter-and-flatmap)
   * [`Runner`s](#runners)
 * [Writing Apache Beam Jobs](#writing-apache-beam-jobs)
+* [Testing Apache Beam Jobs](#testing-apache-beam-jobs)
 * [Case studies](#case-studies)
   * [Case study: `CountAllModelsJob`](#case-study-countallmodelsjob)
   * [Case Study: `SchemaMigrationJob`](#case-study-schemamigrationjob)
@@ -230,51 +231,169 @@ error_pcoll = (
 
 ## Writing Apache Beam Jobs
 
-Subclass the `base_jobs.JobBase` class and override the `run()` method.
+For this section, we'll walk through the steps of implementing a job by writing one: `CountExplorationStatesJob`.
 
-The name of your job class is presented to release coordinators, so make sure it is clear and concise:
-![Screenshot from 2021-09-28 09-05-10](https://user-images.githubusercontent.com/5094060/135092574-0bff536e-1b58-4b38-9358-c26f9096c8a3.png)
+Here's the DAG we'll try to implement:
 
-**Job names should follow the convention: `<Verb><Noun>Job`.**
+    .--------------. Count states .--------. Sum .-------.
+    | Explorations | -----------> | Counts | --> | Total |
+    '--------------'              '--------'     '-------'
 
-For example:
+### 1. Subclass the `base_jobs.JobBase` class and override the `run()` method
+
+Make sure your job class name is clear and concise, because the name is presented to release coordinators:
+
+<!-- TODO(#11475): Replace this screenshot with one that has job names which follow our naming convention. -->
+![Screenshot of the Release Coordinator Page with the list of jobs visible](https://user-images.githubusercontent.com/5094060/135092574-0bff536e-1b58-4b38-9358-c26f9096c8a3.png)
+
+Job names should follow the convention: `<Verb><Noun>Job`.
+
+-   For example:
+
+    ```python
+    class WeeklyDashboardStatsComputationJob(base_jobs.JobBase):
+        """BAD: Name does not begin with a verb."""
+
+        def run(self):
+            ...
+
+
+    class ComputeStatsJob(base_jobs.JobBase):
+        """BAD: Unclear what kind of stats are being computed."""
+
+        def run(self):
+            ...
+
+
+    class CountExplorationStatesJob(base_jobs.JobBase):
+        """GOOD: Name starts with a verb and "exploration states" is unambiguous."""
+
+        def run(self):
+            ...
+    ```
+
+Module names should follow the convention: `<noun>_<operation>_jobs.py`.
+
+-   For example:
+    * `blog_validation_jobs.py`
+    * `dashboard_stats_computation_jobs.py`
+    * `exploration_indexing_jobs.py`
+    * `exploration_stats_regeneration_jobs.py`
+    * `model_validation_jobs.py`
+
+    However, you should always prefer placing jobs in pre-existing modules if an appropriate one already exists.
+
+For this example, we will write our job in the module: `core/jobs/batch_jobs/exploration_inspection_jobs.py`.
+
+### 2. Override the `run()` method to operate on `self.pipeline`
+
+As illustrated in the Architecture section, jobs are organized by `Pipeline`s, `PTransform`s, and `PCollection`s. Thus, when writing your job, **you must build _off_ of your pipeline** in order to construct the DAG. We can represent this by adding a special `Pipeline` node signifying the _true_ beginning of the DAG:
+
+      ____________
+     /           /\
+    |  Pipeline |  |
+     \___________\/
+            |
+            | GetModels()
+            v
+    .--------------. Count states .--------. Sum .-------.
+    | Explorations | -----------> | Counts | --> | Total |
+    '--------------'              '--------'     '-------'
+
+Let's see how this would translate into code, starting with the Explorations.
 
 ```python
-class WeeklyDashboardStatsComputationJob(base_jobs.JobBase):
-    """BAD: Name does not begin with a verb."""
+from core.jobs import base_jobs
+from core.jobs.io import ndb_io
+from core.platform import models
+
+(exp_models,) = models.Registry.import_models([models.NAMES.exploration])
+
+
+class CountExplorationStatesJob(base_jobs.JobBase):
 
     def run(self):
-        ...
-
-
-class ComputeStatsJob(base_jobs.JobBase):
-    """BAD: Unclear what kind of stats are being computed."""
-
-    def run(self):
-        ...
-
-
-class CountExplorationInteractionsJob(base_jobs.JobBase):
-    """GOOD: Name starts with a verb and "exploration interactions" is unambiguous."""
-
-    def run(self):
-        ...
+        exp_model_pcoll = (
+            self.pipeline
+            | 'Get all ExplorationModels' >> ndb_io.GetModels(
+                exp_models.ExplorationModel.get_all(deleted=False))
+        )
 ```
 
-**Module names should follow the convention: `<entity>_<operation>_jobs.py`.**
+Observe that:
+1. We're using `self.pipeline` as if it were a `PValue`
+2. We're using `ndb_io.GetModels` rather than `get_multi`
+3. We're passing a Query to `ndb_io.GetModels`
 
-For example:
-* `blog_validation_jobs.py`
-* `dashboard_stats_computation_jobs.py`
-* `exploration_indexing_jobs.py`
-* `exploration_stats_regeneration_jobs.py`
-* `model_validation_jobs.py`
+It just so happens that `Pipeline` does indeed count as a `PValue`, with the special interface "`PBegin`". `PBegin` values signify that the value is never the output of a `PTransform`. Operations can branch off of `PBegin` values, like `ndb_io.GetModels()` does, to begin execution on a pipeline.
 
-**New modules must be imported in the `jobs/registry.py` file.**
+We use `ndb_io.GetModels()` because we want to work on `PCollection`s of models, not a list of models. In fact, all operations that can be taken on models (`get`, `put`, `delete`) have analogous `PTransform` interfaces defined in `ndb_io`. They are:
 
----
+| NDB function           | `PTransform` analogue                        |
+| ---------------------- | -------------------------------------------- |
+| `models = get_multi()` | `model_pcoll = ndb_io.GetModels(Query(...))` |
+| `put_multi(models)`    | `model_pcoll \| ndb_io.PutMulti()`           |
+| `delete_multi(keys)`   | `key_pcoll \| ndb_io.DeleteMulti()`          |
 
-The `run()` method must return a `PCollection[JobRunResult]`.
+Note that `get_multi` has the biggest change in interface, in that it takes a `Query` argument. You can get a query for any model by using the class method `get_all`.
+-   **IMPORTANT:** Never use `datastore_services.query_everything()`!! Due to a limitation in Apache Beam, this operation is incredibly slow and inefficient! **You are almost certainly doing something wrong if you need this function.** Ask @brianrodri/@vojtechjelinek for help if you believe you need to use it regardless.
+
+Why should we use these `PTransform` over the simpler `get`/`put`/`delete` functions? **Performance**. The `get`/`put`/`delete` function calls are all *synchronous*, so your job's performance will suffer greatly by waiting for the operations to complete.
+
+`PTransform`s, on the other hand, are specially crafted to take advantage of the Apache Beam framework and guarantee better performance. In general, **you should always prefer `ndb_io` over any of the `get`/`put`/`delete` functions!** If you think you have a valid need for avoiding `ndb_io`, then speak with @brianrodri/@vojtechjelinek first.
+
+Let's get back to implementing the job.
+
+```python
+def run(self):
+    exp_model_pcoll = (
+        self.pipeline
+        | 'Get all ExplorationModels' >> ndb_io.GetModels(
+            exp_models.ExplorationModel.get_all(deleted=False))
+    )
+
+    state_count_pcoll = (
+        exp_model_pcoll
+        | 'Count states' >> beam.Map(self.get_number_of_states)
+    )
+```
+
+Note that we chose to use `beam.Map` here instead of `beam.ParDo`. This is mostly a stylistic choice, as `beam.Map` is just a specialized version of `ParDo`, in that `Map` simply takes each input element and "maps" them to a single output element. In our case, each `ExplorationModel` will map to a single `int`, the number of states.
+
+```python
+def get_number_of_states(self, exp_model: ExplorationModel) -> int:
+    exp = exp_fetchers.get_exploration_from_model(exp_model)
+    return len(exp.states)
+```
+
+Our implementation is simple, we transform the model into a domain object and measure the length of its `states` dictionary.
+
+Finally, we need to sum all the counts together. Fortunately, Apache Beam already has a `PTransform` that does exactly this:
+
+```python
+def run(self):
+    exp_model_pcoll = (
+        self.pipeline
+        | 'Get all ExplorationModels' >> ndb_io.GetModels(
+            exp_models.ExplorationModel.get_all(deleted=False))
+    )
+
+    state_count_pcoll = (
+        exp_model_pcoll
+        | 'Count states' >> beam.Map(self.get_number_of_states)
+    )
+
+    state_count_sum_pcoll = (
+        state_count_pcoll
+        | 'Sum values' >> beam.CombineGlobally(sum)
+    )
+```
+
+`CombineGlobally` uses the input function to combine the values in a `PCollection`. It returns a single-element `PCollection`, one which holds the result of the combination.
+
+With this, our objective is complete. However, there's still more code to write!
+
+### 3. Have the `run()` method return a `PCollection` of `JobRunResult`s
 
 * In English, this means that **the job _must_ report _something_ about what occurred during its execution.** For example, this can be the errors it discovered or the number of successful operations it was able to perform. **Empty results are forbidden!**
 
@@ -286,23 +405,80 @@ The `run()` method must return a `PCollection[JobRunResult]`.
   * How much work did the job manage to do?
   * If the job encountered a problem, what caused it?
 
-When implementing the `run()` method, make liberal usage of small and simple `PTransform`s and `DoFn`s. You must also be careful to only use the following legal constructs:
+Our job is trying to report the total number of states across all explorations, so we need to create `JobRunResult` that holds that information. For this, we can simply use the `as_stdout` helper method:
 
-| Operation       | Do use                                 | Do not use                     |
-| --------------- | -------------------------------------- | ------------------------------ |
-| Getting models  | ndb_io.GetModels(ModelName.query(...)) | ModelName.get_multi()          |
-| Putting models  | model_pcoll \| ndb_io.PutMulti()       | ModelName.put_multi(models)    |
-| Deleting models | model_pcoll \| ndb_io.DeleteMulti()    | ModelName.delete_multi(models) |
+```python
+def run(self):
+    exp_model_pcoll = (
+        self.pipeline
+        | 'Get all ExplorationModels' >> ndb_io.GetModels(
+            exp_models.ExplorationModel.get_all(deleted=False))
+    )
 
-If you think you need to use something else -- e.g. files/etc. -- please talk to @brianrodri/@vojtechjelinek first. Some of these -- typically operations defined by datastore_services -- don't work on Apache Beam in production, while they might work locally.
+    state_count_pcoll = (
+        exp_model_pcoll
+        | 'Count states' >> beam.Map(self.get_number_of_states)
+    )
 
----
+    state_count_sum_pcoll = (
+        state_count_pcoll
+        | 'Sum values' >> beam.CombineGlobally(sum)
+    )
 
-When testing jobs, always inherit from `JobTestBase` and override the class constant `JOB_CLASS`. You can then run `self.assert_job_output_is(...)` or `self.assert_job_output_is_empty()` to verify behavior.
+    return state_count_sum_pcoll | beam.Map(job_run_result.JobRunResult.as_stdout)
+```
 
-When testing `PTransform`s and `DoFn`s, always inherit from `PipelinedTestBase`.  You can use `self.assert_pcoll_is(...)` or `self.assert_pcoll_is_empty(...)` to verify behavior.
+The method maps every element in a `PCollection` into a `JobRunResult` with the stringified-value as its `stdout`.
 
-* **IMPORTANT:** Only one `assert_(job|pcoll)_is` assertion can be performed in a test body. Multiple calls will result in an exception instructing you to split the test apart.
+With this, our job is fully written! Move on to the next section for instructions on _testing_ your new job.
+
+## Testing Apache Beam Jobs
+
+We'll assume that we've written a fully operational `CountExplorationStatesJob`, and go over the steps in ensuring the job works as intended.
+
+### 1. Inherit from `JobTestBase` and override the class constant `JOB_CLASS`
+
+The current convention is to name your test cases `<JobName>Tests`, but you can create better names if you want to break tests up into groups of specialized focus. For our example, we'll keep things simple.
+
+```python
+class CountExplorationStatesJobTests(test_jobs.JobTestBase):
+
+    JOB_CLASS = CountExplorationStatesJob
+```
+
+### 2. Run assertions using a `assert_job_output_is_*` method
+
+```python
+def test_empty_datastore(self):
+    # Don't add any explorations to the datastore.
+    self.assert_job_output_is_empty()
+
+def test_single_exploration(self):
+    self.save_new_linear_exp_with_state_names_and_interactions(
+        'e1', 'o1', ['A', 'B', 'C'], ['TextInput'])
+
+    self.assert_job_output_is([
+        job_run_result.JobRunResult(stdout='3'),
+    ])
+
+def test_many_explorations(self):
+    self.save_new_linear_exp_with_state_names_and_interactions(
+        'e1', 'o1', ['A', 'B', 'C'], ['TextInput'])
+    self.save_new_linear_exp_with_state_names_and_interactions(
+        'e1', 'o1', ['D', 'E', 'F', 'G', 'H'], ['TextInput'])
+    self.save_new_linear_exp_with_state_names_and_interactions(
+        'e1', 'o1', ['I', 'J'], ['TextInput'])
+    self.save_new_linear_exp_with_state_names_and_interactions(
+        'e1', 'o1', ['K', 'L', 'M', 'N'], ['TextInput'])
+
+    self.assert_job_output_is([
+        job_run_result.JobRunResult(stdout='14'),
+    ])
+```
+
+Note that `self.assert_job_output_is(...)` and `self.assert_job_output_is_empty()` do as advertised, it runs the job to completion and verifies the result.
+
+-   **IMPORTANT:** Only one `assert_job_output_is` assertion can be performed in a test body. Multiple calls will result in an exception instructing you to split the test apart.
 
 ## Case studies
 
