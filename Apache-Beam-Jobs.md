@@ -1,7 +1,6 @@
 ## Table of contents
 
 * [Introduction](#introduction)
-* [Running Apache Beam Jobs](#running-apache-beam-jobs)
 * [Apache Beam Job Architecture](#apache-beam-job-architecture)
   * [`Pipeline`s](#pipelines)
   * [`PValue`s](#pvalues)
@@ -14,8 +13,8 @@
   * [`Runner`s](#runners)
 * [Writing Apache Beam Jobs](#writing-apache-beam-jobs)
 * [Testing Apache Beam Jobs](#testing-apache-beam-jobs)
+* [Running Apache Beam Jobs](#running-apache-beam-jobs)
 * [Case studies](#case-studies)
-  * [Case study: `CountAllModelsJob`](#case-study-countallmodelsjob)
   * [Case Study: `SchemaMigrationJob`](#case-study-schemamigrationjob)
 
 ## Introduction
@@ -34,19 +33,6 @@
   * Generating notifications for the events that users have subscribed to whenever those events change.
 
 If you're already familiar with Apache Beam or are eager to start writing a new job, jump to the [case studies](#case-studies). Otherwise, you can read the whole page. If you still have questions after reading, take a look at the [Apache Beam Programming Guide][1] for more details.
-
-## Running Apache Beam Jobs
-
-These instructions assume you are running a local development server. If you are a release coordinator running these jobs on the production or testing servers, you should already have been granted the "Release Coordinator" role, so you can skip steps 1-3.
-
-1. Sign in as an administrator ([instructions][3]).
-2. Navigate to **Admin Page > Roles Tab**.
-3. Add the "Release Coordinator" role to the username you are signed in with.
-4. Navigate to http://localhost:8181/release-coordinator, then to the **Beam Jobs tab**.
-5. Search for your job and then click the **Play button**.
-6. Click "Start new job".
-
-![Screen recording showing how to run jobs](https://user-images.githubusercontent.com/5094060/128743997-70cca5f9-0b76-4294-806e-f65f5df5be95.gif)
 
 ## Apache Beam Job Architecture
 
@@ -137,7 +123,7 @@ do_fn = DoFn()
 for value in pcoll:
     do_fn(value)
 ```
-Notice that the return value from the `DoFn` is not used. However, it's possible for the DoFn to hold onto state in more advanced implementations.
+Notice that the return value from the `DoFn` is not used. However, it's possible for the `DoFn` to hold onto state in more advanced implementations.
 
 #### `Map` and `FlatMap`
 
@@ -241,7 +227,7 @@ Here's a diagram for the `CountExplorationStatesJob`:
     | Explorations | -----------> | Counts | --> | Total |
     '--------------'              '--------'     '-------'
 
-> TIP: As illustrated, you don't need to know what the names of the `PTransform`s (edges) used in a diagram are. It's easy to look up the appropriate `PTransform` after drawing the diagram.
+> **TIP**: As illustrated, you don't need to know what the names of the `PTransform`s (edges) used in a diagram are. It's easy to look up the appropriate `PTransform` after drawing the diagram.
 
 Now that we have our bearings, let's get started on implementing the job.
 
@@ -286,7 +272,7 @@ Module names should follow the convention: `<noun>_<operation>_jobs.py`.
     * `exploration_stats_regeneration_jobs.py`
     * `model_validation_jobs.py`
 
-    However, you should always prefer placing jobs in pre-existing modules if an appropriate one already exists.
+    However, you should always prefer placing jobs in preexisting modules if an appropriate one already exists.
 
 For this example, we will write our job in the module: `core/jobs/batch_jobs/exploration_inspection_jobs.py`.
 
@@ -294,7 +280,7 @@ For this example, we will write our job in the module: `core/jobs/batch_jobs/exp
 
 As illustrated in the Architecture section, jobs are organized by `Pipeline`s, `PTransform`s, and `PCollection`s. Jobs that inherit from `JobBase` are constructed with a `Pipeline` object already accessible via `self.pipeline`. When we write our jobs, we will build them off of `self.pipeline`.
 
-`Pipeline`s are special `PValue`s that represent the entrypoint of a job. `PTransform`s that operate on `Pipeline` are generally "producers"; that is to say, operations that produce intial `PCollection`s to work off of.
+`Pipeline`s are special `PValue`s that represent the entry-point of a job. `PTransform`s that operate on `Pipeline` are generally "producers"; that is to say, operations that produce initial `PCollection`s to work off of.
 
 We can represent this in our DAG by adding a special `Pipeline` node.
 
@@ -309,7 +295,7 @@ We can represent this in our DAG by adding a special `Pipeline` node.
     | Explorations | -----------> | Counts | --> | Total |
     '--------------'              '--------'     '-------'
 
-Note that, since pipelines are a part of every job, it's fine to leave it out of a DAG to save on complexity.
+> **NOTE**: since pipelines are a part of every job, it's fine to leave it out of a DAG to save on complexity.
 
 Now, let's see how this would translate into code, starting with the Explorations.
 
@@ -333,7 +319,7 @@ class CountExplorationStatesJob(base_jobs.JobBase):
 
 Observe that:
 1. We're using `ndb_io.GetModels` rather than `get_multi`
-2. We're passing a Query to `ndb_io.GetModels`
+2. We're passing a `Query` to `ndb_io.GetModels`
 
 We use `ndb_io.GetModels()` because we want to work on `PCollection`s of models, not a list of models. In fact, all operations that can be taken on models (`get`, `put`, `delete`) have analogous `PTransform` interfaces defined in `ndb_io`. They are:
 
@@ -344,7 +330,7 @@ We use `ndb_io.GetModels()` because we want to work on `PCollection`s of models,
 | `delete_multi(keys)`   | `key_pcoll \| ndb_io.DeleteMulti()`          |
 
 Note that `get_multi` has the biggest change in interface, in that it takes a `Query` argument. You can get a query for any model by using the class method `get_all`.
--   **IMPORTANT:** Never use `datastore_services.query_everything()`!! Due to a limitation in Apache Beam, this operation is incredibly slow and inefficient! **You are almost certainly doing something wrong if you need this function.** Ask @brianrodri/@vojtechjelinek for help if you believe you need to use it regardless.
+> **IMPORTANT:** Never use `datastore_services.query_everything()`!! Due to a limitation in Apache Beam, this operation is incredibly slow and inefficient! **You are almost certainly doing something wrong if you need this function.** Ask @brianrodri/@vojtechjelinek for help if you believe you need to use it regardless.
 
 Why should we use these `PTransform` over the simpler `get`/`put`/`delete` functions? **Performance**. The `get`/`put`/`delete` function calls are all *synchronous*, so your job's performance will suffer greatly by waiting for the operations to complete.
 
@@ -413,7 +399,7 @@ With this, our objective is complete. However, there's still more code to write!
   * How much work did the job manage to do?
   * If the job encountered a problem, what caused it?
 
-Our job is trying to report the total number of states across all explorations, so we need to create a `JobRunResult` that holds that information. For this, we can simply use the `as_stdout` helper method:
+Our job is trying to report the total number of states across all explorations, so we need to create a `JobRunResult` that holds that information. For this, we can use the `as_stdout` helper method:
 
 ```python
 def run(self):
@@ -436,7 +422,7 @@ def run(self):
     return state_count_sum_pcoll | beam.Map(job_run_result.JobRunResult.as_stdout)
 ```
 
-The method maps every element in a `PCollection` into a `JobRunResult` with the stringified-value as its `stdout`.
+The method maps every element in a `PCollection` to a `JobRunResult` with their stringified-values as `stdout`.
 
 -----
 
@@ -508,11 +494,11 @@ def test_many_explorations(self):
     self.save_new_linear_exp_with_state_names_and_interactions(
         'e1', 'o1', ['A', 'B', 'C'], ['TextInput'])
     self.save_new_linear_exp_with_state_names_and_interactions(
-        'e1', 'o1', ['D', 'E', 'F', 'G', 'H'], ['TextInput'])
+        'e2', 'o1', ['D', 'E', 'F', 'G', 'H'], ['TextInput'])
     self.save_new_linear_exp_with_state_names_and_interactions(
-        'e1', 'o1', ['I', 'J'], ['TextInput'])
+        'e3', 'o1', ['I', 'J'], ['TextInput'])
     self.save_new_linear_exp_with_state_names_and_interactions(
-        'e1', 'o1', ['K', 'L', 'M', 'N'], ['TextInput'])
+        'e4', 'o1', ['K', 'L', 'M', 'N'], ['TextInput'])
 
     self.assert_job_output_is([
         job_run_result.JobRunResult(stdout='14'),
@@ -521,11 +507,24 @@ def test_many_explorations(self):
 
 Note that `self.assert_job_output_is(...)` and `self.assert_job_output_is_empty()` do as advertised -- they run the job to completion and verify the result.
 
--   **IMPORTANT:** Only one `assert_job_output_is` assertion can be performed in a test body. Multiple calls will result in an exception instructing you to split the test apart.
+> **IMPORTANT:** Only one `assert_job_output_is` assertion can be performed in a test body. Multiple calls will result in an exception instructing you to split the test apart.
 
--   **NOTE:** Just because a job passes in unit tests does not guarantee it will pass in production. This is because workers, which execute the pipeline code, are run in a special environment where the codebase is configured differently. While the Apache Beam jobs team works to cut down on the differences, be careful about using complex and/or confusing objects. The simpler your job, the greater chance it'll work in production!
+Just because a job passes in unit tests does not guarantee it will pass in production. This is because workers, which execute the pipeline code, are run in a special environment where the code base is configured differently. While the Apache Beam jobs team works to cut down on the differences, be careful about using complex and/or confusing objects. The simpler your job, the greater chance it'll work in production!
 
-## Case studies
+## Running Apache Beam Jobs
+
+These instructions assume you are running a local development server. If you are a release coordinator running these jobs on the production or testing servers, you should already have been granted the "Release Coordinator" role, so you can skip steps 1-3.
+
+1. Sign in as an administrator ([instructions][3]).
+2. Navigate to **Admin Page > Roles Tab**.
+3. Add the "Release Coordinator" role to the username you are signed in with.
+4. Navigate to http://localhost:8181/release-coordinator, then to the **Beam Jobs tab**.
+5. Search for your job and then click the **Play button**.
+6. Click "Start new job".
+
+![Screen recording showing how to run jobs](https://user-images.githubusercontent.com/5094060/128743997-70cca5f9-0b76-4294-806e-f65f5df5be95.gif)
+
+## Case Studies
 
 The case studies are sorted in order of increasing complexity. Study the one that best suits your needs.
 
@@ -536,95 +535,6 @@ If none of them help you implement your job, you may request a new one by adding
 * What answers would the "perfect" case study provide?
 
 Then we'll start write a new Case Study to help you, and future contributors, as soon as we can (@brianrodri will always notify you of how long it'll take).
-
-### Case study: `CountAllModelsJob`
-
-**Difficulty:** Trivial
-
-**Key Concepts:**
-
-* Fetching NDB models
-* Counting elements in a `PCollection`
-* Creating `JobRunResult` values
-* Job registration
-
----
-
-We'll start by writing a boilerplate `PTransform` which accepts models as input, and returns `(kind, #)` tuples (where `kind` is the name of the model's class, as a string).
-
-```python
-from jobs import job_utils
-from jobs.types import job_run_result
-
-import apache_beam as beam
-
-
-class CountModels(beam.PTransform):
-    """Returns the number of models after grouping them by their "kind".
-
-    Kind is a unique identifier given to all models. In practice, the following
-    always holds:
-
-        job_utils.get_model_kind(FooModel) == 'FooModel'
-    """
-
-    def expand(self, model_pcoll):
-        """Method PTransform subclasses must implement.
-
-        Args:
-            model_pcoll: PCollection[base_models.BaseModel]. The collection of
-                models to count.
-
-        Returns:
-            PCollection[Tuple[str, int]]. The (kind, count) tuples corresponding
-            to the input PCollection.
-        """
-        return (
-            model_pcoll
-            # "Map" every model to its kind. Analogous to the code:
-            # [job_utils.get_model_kind(model) for model in model_pcoll]
-            | beam.Map(job_utils.get_model_kind)
-            # Built-in PTransform that reduces a collection of values into
-            # (value, # discovered) tuples.
-            | beam.combiners.Count.PerElement()
-        )
-```
-
-Next, we'll write the job which applies the `PTransform` to every model in the datastore. We can keep both the `PTransform` and the job in the same file, since they are so tightly coupled. Unit tests can focus on one or the other.
-
-```python
-from core.platform import models
-from jobs import base_jobs
-from jobs.io import ndb_io
-
-datastore_services = models.Registry.import_datastore_services()
-
-
-class CountAllModelsJob(base_jobs.JobBase):
-    """Counts every model in the datastore."""
-
-    def run(self):
-        query_everything = datastore_services.query_everything()
-        all_models = self.pipeline | ndb_io.GetModels(query_everything)
-        return (
-            all_models
-            | CountModels()
-            # We'll convert the tuples into `JobRunResult` instances, where the
-            # stdout field is used to store the tuple's value.
-            | beam.Map(job_run_result.JobRunResult.as_stdout)
-        )
-```
-
-Finally, we'll import this job into the registry file. Let's assume the name of
-the file was `jobs/count_all_models_jobs.py`.
-
-```diff
-  # file: jobs/registry.py
-
-  from jobs import base_jobs
-  from jobs import base_validation_jobs
-+ from jobs import count_all_models_jobs
-```
 
 ### Case Study: `SchemaMigrationJob`
 
