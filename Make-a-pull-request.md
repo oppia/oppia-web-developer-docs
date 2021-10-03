@@ -93,7 +93,7 @@ Once your feature is ready, you can open a pull request (PR)!
 
 * Click "Create pull request".
 
-* Following the guidance in the PR checklist, add a descriptive title explaining the purpose of the PR (e.g. "Fix issue #bugnum: add a warning when the user leaves a page in the middle of an exploration.").
+* Following the guidance in the PR checklist, add a descriptive title explaining the purpose of the PR (e.g. "Fix issue #bugnum: add a warning when the user leaves a page in the middle of an exploration."). If your PR only fixes part of the issue, start the title with "Fix part of issue #bugnum:" instead.
 
 * Fill out the rest of the PR checklist.
 
