@@ -419,14 +419,24 @@ def run(self):
         | 'Sum values' >> beam.CombineGlobally(sum)
     )
 
-    return state_count_sum_pcoll | beam.Map(job_run_result.JobRunResult.as_stdout)
+    return (
+        state_count_sum_pcoll
+        | 'Map as stdout' >> beam.Map(job_run_result.JobRunResult.as_stdout)
+    )
 ```
 
 The method maps every element in a `PCollection` to a `JobRunResult` with their stringified-values as `stdout`.
 
------
+### 4. Add the job module to `core/jobs/registry.py`
 
-With this, our job is fully written! Here is a more compact version of our code for the sake of completeness:
+To have your job registered and acknowledged by the front-end, make sure to import the module in the corresponding section of `core/jobs/registry.py`:
+https://github.com/oppia/oppia/blob/973f777a6c5a8c3442846bda839e63856dfddf72/core/jobs/registry.py#L33-L50
+
+---
+
+With this, our job is finally completed!
+
+Here is the cleaned-up implementation of our job:
 
 ```python
 from core.domain import exp_fetchers
@@ -448,7 +458,7 @@ class CountExplorationStatesJob(base_jobs.JobBase):
                 exp_models.ExplorationModel.get_all(deleted=False))
             | 'Count states' >> beam.Map(self.get_number_of_states)
             | 'Sum values' >> beam.CombineGlobally(sum)
-            | beam.Map(job_run_result.JobRunResult.as_stdout)
+            | 'Map as stdout' >> beam.Map(job_run_result.JobRunResult.as_stdout)
         )
 
     def get_number_of_states(self, model: exp_models.ExplorationModel) -> int:
