@@ -560,29 +560,29 @@ Let's start by listing the specification of a schema migration job:
   * Models should only be put into storage after successfully migrating to v`N`.
   * Models that were already at v`N` should be reported separately.
 
-    .--------------. Partition(lambda model: model.schema_version)
-    | Input Models | ---------------------------------------------.
-    '--------------'                                              |
-                                                 .-----------.    |
-                        .----------------------- | Model @v1 | <--|
-                        |                        '-----------'    |
-                        |                                         |
-                        | ParDo(MigrateToNextVersion())           |
-                         >-----------------------------.          |
-                        |                              |          |
-                        |                              v          |
-                        |                        .-----------.    |
-                        '----------------------- | Model ... | <--'
-                                                 '-----------'
-                                                       |
-                                                       v
-                                                 .-----------.
-                                                 | Model @vN |
-                                                 '-----------'
-                                                       |
-                     .-----------.  ndb_io.PutModels() |
-                     | Datastore | <-------------------'
-                     '-----------'
+        .--------------. Partition(lambda model: model.schema_version)
+        | Input Models | ---------------------------------------------.
+        '--------------'                                              |
+                                                     .-----------.    |
+                            .----------------------- | Model @v1 | <--|
+                            |                        '-----------'    |
+                            |                                         |
+                            | ParDo(MigrateToNextVersion())           |
+                             >-----------------------------.          |
+                            |                              |          |
+                            |                              v          |
+                            |                        .-----------.    |
+                            '----------------------- | Model ... | <--'
+                                                     '-----------'
+                                                           |
+                                                           v
+                                                     .-----------.
+                                                     | Model @vN |
+                                                     '-----------'
+                                                           |
+                         .-----------.  ndb_io.PutModels() |
+                         | Datastore | <-------------------'
+                         '-----------'
 
 There's a lot of complexity here, so we'll need many `PTransform`s to write our job. We'll focus on the most interesting one: the loop to migrate models to the next version.
 
