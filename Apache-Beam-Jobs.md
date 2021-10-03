@@ -313,7 +313,7 @@ class CountExplorationStatesJob(base_jobs.JobBase):
         exp_model_pcoll = (
             self.pipeline
             | 'Get all ExplorationModels' >> ndb_io.GetModels(
-                exp_models.ExplorationModel.get_all(deleted=False))
+                exp_models.ExplorationModel.get_all())
         )
 ```
 
@@ -343,7 +343,7 @@ def run(self):
     exp_model_pcoll = (
         self.pipeline
         | 'Get all ExplorationModels' >> ndb_io.GetModels(
-            exp_models.ExplorationModel.get_all(deleted=False))
+            exp_models.ExplorationModel.get_all())
     )
 
     state_count_pcoll = (
@@ -369,7 +369,7 @@ def run(self):
     exp_model_pcoll = (
         self.pipeline
         | 'Get all ExplorationModels' >> ndb_io.GetModels(
-            exp_models.ExplorationModel.get_all(deleted=False))
+            exp_models.ExplorationModel.get_all())
     )
 
     state_count_pcoll = (
@@ -406,7 +406,7 @@ def run(self):
     exp_model_pcoll = (
         self.pipeline
         | 'Get all ExplorationModels' >> ndb_io.GetModels(
-            exp_models.ExplorationModel.get_all(deleted=False))
+            exp_models.ExplorationModel.get_all())
     )
 
     state_count_pcoll = (
@@ -455,7 +455,7 @@ class CountExplorationStatesJob(base_jobs.JobBase):
         return (
             self.pipeline
             | 'Get all ExplorationModels' >> ndb_io.GetModels(
-                exp_models.ExplorationModel.get_all(deleted=False))
+                exp_models.ExplorationModel.get_all())
             | 'Count states' >> beam.Map(self.get_number_of_states)
             | 'Sum values' >> beam.CombineGlobally(sum)
             | 'Map as stdout' >> beam.Map(job_run_result.JobRunResult.as_stdout)
