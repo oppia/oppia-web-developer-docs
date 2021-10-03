@@ -1,36 +1,36 @@
 ## Table of contents
 
-* [Introduction](#introduction)
-* [Apache Beam Job Architecture](#apache-beam-job-architecture)
-  * [`Pipeline`s](#pipelines)
-  * [`PValue`s](#pvalues)
-  * [`PTransform`s](#ptransforms)
-    * [`ParDo` and `DoFn`](#pardo-and-dofn)
-    * [`Map` and `FlatMap`](#map-and-flatmap)
-    * [`Filter`](#filter)
-    * [`GroupByKey`](#groupbykey)
-    * [Example of using `GroupByKey`,`Filter`, and `FlatMap`](#example-of-using-groupbykeyfilter-and-flatmap)
-  * [`Runner`s](#runners)
-* [Writing Apache Beam Jobs](#writing-apache-beam-jobs)
-* [Testing Apache Beam Jobs](#testing-apache-beam-jobs)
-* [Running Apache Beam Jobs](#running-apache-beam-jobs)
-* [Case studies](#case-studies)
-  * [Case Study: `SchemaMigrationJob`](#case-study-schemamigrationjob)
+-   [Introduction](#introduction)
+-   [Apache Beam Job Architecture](#apache-beam-job-architecture)
+    -   [`Pipeline`s](#pipelines)
+    -   [`PValue`s](#pvalues)
+    -   [`PTransform`s](#ptransforms)
+        -   [`ParDo` and `DoFn`](#pardo-and-dofn)
+        -   [`Map` and `FlatMap`](#map-and-flatmap)
+        -   [`Filter`](#filter)
+        -   [`GroupByKey`](#groupbykey)
+            -   [Example of using `GroupByKey`,`Filter`, and `FlatMap`](#example-of-using-groupbykeyfilter-and-flatmap)
+    -   [`Runner`s](#runners)
+-   [Writing Apache Beam Jobs](#writing-apache-beam-jobs)
+-   [Testing Apache Beam Jobs](#testing-apache-beam-jobs)
+-   [Running Apache Beam Jobs](#running-apache-beam-jobs)
+-   [Case studies](#case-studies)
+    -   [Case Study: `SchemaMigrationJob`](#case-study-schemamigrationjob)
 
 ## Introduction
 
 [Apache Beam](https://beam.apache.org/) is used by Oppia to perform large-scale datastore operations. There are two types of operations:
 
-* **Batch**: Operations that are designed to be executed _once_ on the current state of the datastore. Here are some examples:
+-   **Batch**: Operations that are designed to be executed _once_ on the current state of the datastore. Here are some examples:
 
-  * Count the number of models in the datastore.
-  * Update a property across all models.
-  * Validate the relationships between models.
+    -   Count the number of models in the datastore.
+    -   Update a property across all models.
+    -   Validate the relationships between models.
 
-* **Continuous**: Operations that are designed to run _indefinitely_ by reacting to updates to the datastore. Here are some examples:
+-   **Continuous**: Operations that are designed to run _indefinitely_ by reacting to updates to the datastore. Here are some examples:
 
-  * Updating the top 10 answers to a lesson every time a new answer is submitted.
-  * Generating notifications for the events that users have subscribed to whenever those events change.
+    -   Updating the top 10 answers to a lesson every time a new answer is submitted.
+    -   Generating notifications for the events that users have subscribed to whenever those events change.
 
 If you're already familiar with Apache Beam or are eager to start writing a new job, jump to the [case studies](#case-studies). Otherwise, you can read the whole page. If you still have questions after reading, take a look at the [Apache Beam Programming Guide][1] for more details.
 
@@ -266,11 +266,11 @@ Job names should follow the convention: `<Verb><Noun>Job`.
 Module names should follow the convention: `<noun>_<operation>_jobs.py`.
 
 -   For example:
-    * `blog_validation_jobs.py`
-    * `dashboard_stats_computation_jobs.py`
-    * `exploration_indexing_jobs.py`
-    * `exploration_stats_regeneration_jobs.py`
-    * `model_validation_jobs.py`
+    -   `blog_validation_jobs.py`
+    -   `dashboard_stats_computation_jobs.py`
+    -   `exploration_indexing_jobs.py`
+    -   `exploration_stats_regeneration_jobs.py`
+    -   `model_validation_jobs.py`
 
     However, you should always prefer placing jobs in preexisting modules if an appropriate one already exists.
 
@@ -389,15 +389,17 @@ With this, our objective is complete. However, there's still more code to write!
 
 ### 3. Have the `run()` method return a `PCollection` of `JobRunResult`s
 
-* In English, this means that **the job _must_ report _something_ about what occurred during its execution.** For example, this can be the errors it discovered or the number of successful operations it was able to perform. **Empty results are forbidden!**
+-   In English, this means that **the job _must_ report _something_ about what occurred during its execution.** For example, this can be the errors it discovered or the number of successful operations it was able to perform. **Empty results are forbidden!**
 
-  * If you don't think your job has any results worth reporting, then just print a "success" metric with the number of models it processed.
+    -   If you don't think your job has any results worth reporting, then just print a "success" metric with the number of models it processed.
 
-* `JobRunResult` outputs should answer the following questions:
+-   `JobRunResult` has two fields: `stdout` and `stderr`. They are analogous to a program's output, and should be used in a similar capacity for jobs -- put problems encountered by the job in `stderr` and informational outputs in `stdout`.
 
-  * Did the job run without any problems? How and why do I know?
-  * How much work did the job manage to do?
-  * If the job encountered a problem, what caused it?
+-   `JobRunResult` outputs should answer the following questions:
+
+    -   Did the job run without any problems? How and why do I know?
+    -   How much work did the job manage to do?
+    -   If the job encountered a problem, what caused it?
 
 Our job is trying to report the total number of states across all explorations, so we need to create a `JobRunResult` that holds that information. For this, we can use the `as_stdout` helper method:
 
@@ -425,7 +427,7 @@ def run(self):
     )
 ```
 
-The method maps every element in a `PCollection` to a `JobRunResult` with their stringified-values as `stdout`.
+The method maps every element in a `PCollection` to a `JobRunResult` with their stringified-values as its `stdout`.
 
 ### 4. Add the job module to `core/jobs/registry.py`
 
@@ -519,7 +521,7 @@ Note that `self.assert_job_output_is(...)` and `self.assert_job_output_is_empty(
 
 > **IMPORTANT:** Only one `assert_job_output_is` assertion can be performed in a test body. Multiple calls will result in an exception instructing you to split the test apart.
 
-Just because a job passes in unit tests does not guarantee it will pass in production. This is because workers, which execute the pipeline code, are run in a special environment where the code base is configured differently. While the Apache Beam jobs team works to cut down on the differences, be careful about using complex and/or confusing objects. The simpler your job, the greater chance it'll work in production!
+Just because a job passes in unit tests does not guarantee it will pass in production. This is because workers, which execute the pipeline code, are run in a special environment where the code base is configured differently. While Oppia's jobs team works to resolve the differences, be careful about using complex and/or confusing objects. The simpler your job, the greater chance it'll work in production!
 
 ## Running Apache Beam Jobs
 
@@ -540,9 +542,9 @@ The case studies are sorted in order of increasing complexity. Study the one tha
 
 If none of them help you implement your job, you may request a new one by adding a comment to [#13190](https://github.com/oppia/oppia/issues/13190) with answers to the following questions:
 
-* Why do I want a new case study?
-* Why are the current case studies insufficient?
-* What answers would the "perfect" case study provide?
+-   Why do I want a new case study?
+-   Why are the current case studies insufficient?
+-   What answers would the "perfect" case study provide?
 
 Then we'll start write a new Case Study to help you, and future contributors, as soon as we can (@brianrodri will always notify you of how long it'll take).
 
@@ -552,23 +554,23 @@ Then we'll start write a new Case Study to help you, and future contributors, as
 
 **Key Concepts:**
 
-* Getting and Putting NDB models
-* Partitioning one `PCollection` into many `PCollection`s.
-* Returning variable outputs from a `DoFn`
+-   Getting and Putting NDB models
+-   Partitioning one `PCollection` into many `PCollection`s.
+-   Returning variable outputs from a `DoFn`
 
 ---
 
 Let's start by listing the specification of a schema migration job:
 
-* We can assume:
+-   We can assume:
 
-  * The schema version of a model is in the closed range `[1, N]`, where `N` is the latest version.
-  * All migration functions are implemented in terms of taking `n` to `n + 1`.
+    -   The schema version of a model is in the closed range `[1, N]`, where `N` is the latest version.
+    -   All migration functions are implemented in terms of taking `n` to `n + 1`.
 
-* Our job should conform to the following requirements:
+- Our job should conform to the following requirements:
 
-  * Models should only be put into storage after successfully migrating to v`N`.
-  * Models that were already at v`N` should be reported separately.
+    -   Models should only be put into storage after successfully migrating to v`N`.
+    -   Models that were already at v`N` should be reported separately.
 
         .--------------. Partition(lambda model: model.schema_version)
         | Input Models | ---------------------------------------------.
