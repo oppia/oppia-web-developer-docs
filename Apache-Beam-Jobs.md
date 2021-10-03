@@ -383,7 +383,7 @@ def run(self):
     )
 ```
 
-
+> **IMPORTANT**: We take special care to pass very simple objects (like ints and models) in between `PTransform`s. This is intentional, complex objects cannot be serialized without special care (TL;DR: objects must be [picklable]()). When passing objects between `PTransform`s in your jobs, use simple data structures and simple types as much as possible.
 
 With this, our objective is complete. However, there's still more code to write!
 
