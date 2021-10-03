@@ -371,8 +371,8 @@ Note that we chose to use `beam.Map` here instead of `beam.ParDo`. This is mostl
 Here is the implementation of `get_number_of_states`. This function transforms the model into a domain object, and then counts the number of states in the corresponding `dict`.
 
 ```python
-def get_number_of_states(self, exp_model: ExplorationModel) -> int:
-    exploration = exp_fetchers.get_exploration_from_model(exp_model)
+def get_number_of_states(self, model: ExplorationModel) -> int:
+    exploration = exp_fetchers.get_exploration_from_model(model)
     return len(exploration.states)
 ```
 
