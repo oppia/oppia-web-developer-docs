@@ -372,8 +372,8 @@ Here is the implementation of `get_number_of_states`. This function transforms t
 
 ```python
 def get_number_of_states(self, exp_model: ExplorationModel) -> int:
-    exp = exp_fetchers.get_exploration_from_model(exp_model)
-    return len(exp.states)
+    exploration = exp_fetchers.get_exploration_from_model(exp_model)
+    return len(exploration.states)
 ```
 
 Finally, we need to sum all the counts together. We'll use `beam.CombineGlobally` to accomplish this, which uses an input function to combine values of a `PCollection`. It returns a `PCollection` with a single element: the result of the combination.
@@ -438,7 +438,37 @@ def run(self):
 
 The method maps every element in a `PCollection` into a `JobRunResult` with the stringified-value as its `stdout`.
 
-With this, our job is fully written! Move on to the next section for instructions on _testing_ your new job.
+-----
+
+With this, our job is fully written! Here is a more compact version of our code for the sake of completeness:
+
+```python
+from core.domain import exp_fetchers
+from core.jobs import base_jobs
+from core.jobs.io import ndb_io
+from core.platform import models
+
+import apache_beam as beam
+
+(exp_models,) = models.Registry.import_models([models.NAMES.exploration])
+
+
+class CountExplorationStatesJob(base_jobs.JobBase):
+
+    def run(self) -> beam.PCollection[job_run_result.JobRunResult]:
+        return (
+            self.pipeline
+            | 'Get all ExplorationModels' >> ndb_io.GetModels(
+                exp_models.ExplorationModel.get_all(deleted=False))
+            | 'Count states' >> beam.Map(self.get_number_of_states)
+            | 'Sum values' >> beam.CombineGlobally(sum)
+            | beam.Map(job_run_result.JobRunResult.as_stdout)
+        )
+
+    def get_number_of_states(self, model: exp_models.ExplorationModel) -> int:
+        exploration = exp_fetchers.get_exploration_from_model(model)
+        return len(exploration.states)
+```
 
 ## Testing Apache Beam Jobs
 
@@ -492,6 +522,8 @@ def test_many_explorations(self):
 Note that `self.assert_job_output_is(...)` and `self.assert_job_output_is_empty()` do as advertised -- they run the job to completion and verify the result.
 
 -   **IMPORTANT:** Only one `assert_job_output_is` assertion can be performed in a test body. Multiple calls will result in an exception instructing you to split the test apart.
+
+-   **NOTE:** Just because a job passes in unit tests does not guarantee it will pass in production. This is because workers, which execute the pipeline code, are run in a special environment where the codebase is configured differently. While the Apache Beam jobs team works to cut down on the differences, be careful about using complex and/or confusing objects. The simpler your job, the greater chance it'll work in production!
 
 ## Case studies
 
