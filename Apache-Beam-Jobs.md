@@ -9,7 +9,7 @@
     * [`Map` and `FlatMap`](#map-and-flatmap)
     * [`Filter`](#filter)
     * [`GroupByKey`](#groupbykey)
-      * [Example of using `GroupByKey`,`Filter`, and `FlatMap`](#example-of-using-groupbykeyfilter-and-flatmap)
+    * [Example of using `GroupByKey`,`Filter`, and `FlatMap`](#example-of-using-groupbykeyfilter-and-flatmap)
   * [`Runner`s](#runners)
 * [Writing Apache Beam Jobs](#writing-apache-beam-jobs)
   * [1. Subclass the `base_jobs.JobBase` class and override the `run()` method](#1-subclass-the-base_jobsjobbase-class-and-override-the-run-method)
