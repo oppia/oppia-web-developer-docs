@@ -1,36 +1,44 @@
 ## Table of contents
 
--   [Introduction](#introduction)
--   [Apache Beam Job Architecture](#apache-beam-job-architecture)
-    -   [`Pipeline`s](#pipelines)
-    -   [`PValue`s](#pvalues)
-    -   [`PTransform`s](#ptransforms)
-        -   [`ParDo` and `DoFn`](#pardo-and-dofn)
-        -   [`Map` and `FlatMap`](#map-and-flatmap)
-        -   [`Filter`](#filter)
-        -   [`GroupByKey`](#groupbykey)
-            -   [Example of using `GroupByKey`,`Filter`, and `FlatMap`](#example-of-using-groupbykeyfilter-and-flatmap)
-    -   [`Runner`s](#runners)
--   [Writing Apache Beam Jobs](#writing-apache-beam-jobs)
--   [Testing Apache Beam Jobs](#testing-apache-beam-jobs)
--   [Running Apache Beam Jobs](#running-apache-beam-jobs)
--   [Case studies](#case-studies)
-    -   [Case Study: `SchemaMigrationJob`](#case-study-schemamigrationjob)
+* [Introduction](#introduction)
+* [Apache Beam Job Architecture](#apache-beam-job-architecture)
+  * [`Pipeline`s](#pipelines)
+  * [`PValue`s](#pvalues)
+  * [`PTransform`s](#ptransforms)
+    * [`ParDo` and `DoFn`](#pardo-and-dofn)
+    * [`Map` and `FlatMap`](#map-and-flatmap)
+    * [`Filter`](#filter)
+    * [`GroupByKey`](#groupbykey)
+        * [Example of using `GroupByKey`,`Filter`, and `FlatMap`](#example-of-using-groupbykeyfilter-and-flatmap)
+  * [`Runner`s](#runners)
+* [Writing Apache Beam Jobs](#writing-apache-beam-jobs)
+  * [1. Subclass the `base_jobs.JobBase` class and override the `run()` method](#1-subclass-the-base_jobsjobbase-class-and-override-the-run-method)
+  * [2. Override the `run()` method to operate on `self.pipeline`](#2-override-the-run-method-to-operate-on-selfpipeline)
+  * [3. Have the `run()` method return a `PCollection` of `JobRunResult`s](#3-have-the-run-method-return-a-pcollection-of-jobrunresults)
+  * [4. Add the job module to `core/jobs/registry.py`](#4-add-the-job-module-to-corejobsregistrypy)
+* [Testing Apache Beam Jobs](#testing-apache-beam-jobs)
+  * [1. Inherit from `JobTestBase` and override the class constant `JOB_CLASS`](#1-inherit-from-jobtestbase-and-override-the-class-constant-job_class)
+  * [2. Run assertions using a `assert_job_output_is_*` method](#2-run-assertions-using-a-assert_job_output_is_-method)
+* [Running Apache Beam Jobs](#running-apache-beam-jobs)
+  * [Local Development Server](#local-development-server)
+  * [Production Server](#production-server)
+* [Case studies](#case-studies)
+  * [Case Study: `SchemaMigrationJob`](#case-study-schemamigrationjob)
 
 ## Introduction
 
 [Apache Beam](https://beam.apache.org/) is used by Oppia to perform large-scale datastore operations. There are two types of operations:
 
--   **Batch**: Operations that are designed to be executed _once_ on the current state of the datastore. Here are some examples:
+* **Batch**: Operations that are designed to be executed _once_ on the current state of the datastore. Here are some examples:
 
-    -   Count the number of models in the datastore.
-    -   Update a property across all models.
-    -   Validate the relationships between models.
+  * Count the number of models in the datastore.
+  * Update a property across all models.
+  * Validate the relationships between models.
 
--   **Continuous**: Operations that are designed to run _indefinitely_ by reacting to updates to the datastore. Here are some examples:
+* **Continuous**: Operations that are designed to run _indefinitely_ by reacting to updates to the datastore. Here are some examples:
 
-    -   Updating the top 10 answers to a lesson every time a new answer is submitted.
-    -   Generating notifications for the events that users have subscribed to whenever those events change.
+  * Updating the top 10 answers to a lesson every time a new answer is submitted.
+  * Generating notifications for the events that users have subscribed to whenever those events change.
 
 If you're already familiar with Apache Beam or are eager to start writing a new job, jump to the [case studies](#case-studies). Otherwise, you can read the whole page. If you still have questions after reading, take a look at the [Apache Beam Programming Guide][1] for more details.
 
@@ -235,11 +243,11 @@ Now that we have our bearings, let's get started on implementing the job.
 
 Make sure your job class name is clear and concise, because the name is presented to release coordinators:
 
-![image](https://user-images.githubusercontent.com/5094060/135734501-eb9c0370-e98d-4271-b41a-0bf11c25503c.png)
+![Screenshot of the Release Coordinator page with a list of job names visible](https://user-images.githubusercontent.com/5094060/135734501-eb9c0370-e98d-4271-b41a-0bf11c25503c.png)
 
 Job names should follow the convention: `<Verb><Noun>Job`.
 
--   For example:
+* For example:
 
     ```python
     class WeeklyDashboardStatsComputationJob(base_jobs.JobBase):
@@ -265,12 +273,12 @@ Job names should follow the convention: `<Verb><Noun>Job`.
 
 Module names should follow the convention: `<noun>_<operation>_jobs.py`.
 
--   For example:
-    -   `blog_validation_jobs.py`
-    -   `dashboard_stats_computation_jobs.py`
-    -   `exploration_indexing_jobs.py`
-    -   `exploration_stats_regeneration_jobs.py`
-    -   `model_validation_jobs.py`
+* For example:
+  * `blog_validation_jobs.py`
+  * `dashboard_stats_computation_jobs.py`
+  * `exploration_indexing_jobs.py`
+  * `exploration_stats_regeneration_jobs.py`
+  * `model_validation_jobs.py`
 
     However, you should always prefer placing jobs in preexisting modules if an appropriate one already exists.
 
@@ -389,17 +397,17 @@ With this, our objective is complete. However, there's still more code to write!
 
 ### 3. Have the `run()` method return a `PCollection` of `JobRunResult`s
 
--   In English, this means that **the job _must_ report _something_ about what occurred during its execution.** For example, this can be the errors it discovered or the number of successful operations it was able to perform. **Empty results are forbidden!**
+* In English, this means that **the job _must_ report _something_ about what occurred during its execution.** For example, this can be the errors it discovered or the number of successful operations it was able to perform. **Empty results are forbidden!**
 
-    -   If you don't think your job has any results worth reporting, then just print a "success" metric with the number of models it processed.
+  * If you don't think your job has any results worth reporting, then just print a "success" metric with the number of models it processed.
 
--   `JobRunResult` has two fields: `stdout` and `stderr`. They are analogous to a program's output, and should be used in a similar capacity for jobs -- put problems encountered by the job in `stderr` and informational outputs in `stdout`.
+* `JobRunResult` has two fields: `stdout` and `stderr`. They are analogous to a program's output, and should be used in a similar capacity for jobs -- put problems encountered by the job in `stderr` and informational outputs in `stdout`.
 
--   `JobRunResult` outputs should answer the following questions:
+* `JobRunResult` outputs should answer the following questions:
 
-    -   Did the job run without any problems? How and why do I know?
-    -   How much work did the job manage to do?
-    -   If the job encountered a problem, what caused it?
+  * Did the job run without any problems? How and why do I know?
+  * How much work did the job manage to do?
+  * If the job encountered a problem, what caused it?
 
 Our job is trying to report the total number of states across all explorations, so we need to create a `JobRunResult` that holds that information. For this, we can use the `as_stdout` helper method:
 
@@ -525,6 +533,8 @@ Just because a job passes in unit tests does not guarantee it will pass in produ
 
 ## Running Apache Beam Jobs
 
+### Local Development Server
+
 These instructions assume you are running a local development server. If you are a release coordinator running these jobs on the production or testing servers, you should already have been granted the "Release Coordinator" role, so you can skip steps 1-3.
 
 1. Sign in as an administrator ([instructions][3]).
@@ -536,15 +546,31 @@ These instructions assume you are running a local development server. If you are
 
 ![Screen recording showing how to run jobs](https://user-images.githubusercontent.com/5094060/128743997-70cca5f9-0b76-4294-806e-f65f5df5be95.gif)
 
+### Production Server
+
+Before a job or feature that cannot be fully tested locally can be run and deployed in production, it must first be tested on the Oppia backup server. Examples of features that require backup server testing are features that add or modify code that requires some third-party API, like Cloud Tasks, Cloud Storage, or Cloud Translate.
+
+If your job or feature is not essential for the release and has not been fully tested by the release cut, then it is not going into the release. "Fully tested" means:
+- The job or feature should run without failures on the Oppia backup server.
+- The job or feature produces the expected output.
+- The job or feature has the expected outcome (this must be verified by e.g. user-facing changes, or introspection of the datastore, or a validation job, or an output check, etc.).
+- The job or feature should be explicitly approved by server jobs admin (currently @seanlip and @vojtechjelinek).
+
+Also, in case your job is a new migration job (not any already existing migrations), there has to be an audit job accompanying it to verify that the data that you are migrating is valid in the server. **The audit job will have to be "Fully tested" before testing on the migration job can start.**
+
+In case there is invalid data observed, either your migration job should fix it programmatically, or the corresponding data has to be manually fixed before the migration job can be run. This is valid for both testing in the backup server and running in production.
+
+For a full overview of the process to get your job tested on the Oppia backup server, refer to the corresponding [wiki page](https://github.com/oppia/oppia/wiki/Testing-jobs-and-other-features-on-production).
+
 ## Case Studies
 
 The case studies are sorted in order of increasing complexity. Study the one that best suits your needs.
 
 If none of them help you implement your job, you may request a new one by adding a comment to [#13190](https://github.com/oppia/oppia/issues/13190) with answers to the following questions:
 
--   Why do I want a new case study?
--   Why are the current case studies insufficient?
--   What answers would the "perfect" case study provide?
+* Why do I want a new case study?
+* Why are the current case studies insufficient?
+* What answers would the "perfect" case study provide?
 
 Then we'll start write a new Case Study to help you, and future contributors, as soon as we can (@brianrodri will always notify you of how long it'll take).
 
@@ -554,23 +580,23 @@ Then we'll start write a new Case Study to help you, and future contributors, as
 
 **Key Concepts:**
 
--   Getting and Putting NDB models
--   Partitioning one `PCollection` into many `PCollection`s.
--   Returning variable outputs from a `DoFn`
+* Getting and Putting NDB models
+* Partitioning one `PCollection` into many `PCollection`s.
+* Returning variable outputs from a `DoFn`
 
 ---
 
 Let's start by listing the specification of a schema migration job:
 
--   We can assume:
+* We can assume:
 
-    -   The schema version of a model is in the closed range `[1, N]`, where `N` is the latest version.
-    -   All migration functions are implemented in terms of taking `n` to `n + 1`.
+  * The schema version of a model is in the closed range `[1, N]`, where `N` is the latest version.
+  * All migration functions are implemented in terms of taking `n` to `n + 1`.
 
 - Our job should conform to the following requirements:
 
-    -   Models should only be put into storage after successfully migrating to v`N`.
-    -   Models that were already at v`N` should be reported separately.
+  * Models should only be put into storage after successfully migrating to v`N`.
+  * Models that were already at v`N` should be reported separately.
 
         .--------------. Partition(lambda model: model.schema_version)
         | Input Models | ---------------------------------------------.
