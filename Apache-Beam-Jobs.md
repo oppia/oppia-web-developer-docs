@@ -1,7 +1,6 @@
 ## Table of contents
 
 * [Introduction](#introduction)
-* [Running Apache Beam Jobs](#running-apache-beam-jobs)
 * [Apache Beam Job Architecture](#apache-beam-job-architecture)
   * [`Pipeline`s](#pipelines)
   * [`PValue`s](#pvalues)
@@ -12,8 +11,18 @@
     * [`GroupByKey`](#groupbykey)
     * [Example of using `GroupByKey`,`Filter`, and `FlatMap`](#example-of-using-groupbykeyfilter-and-flatmap)
   * [`Runner`s](#runners)
+* [Writing Apache Beam Jobs](#writing-apache-beam-jobs)
+  * [1. Subclass the `base_jobs.JobBase` class and override the `run()` method](#1-subclass-the-base_jobsjobbase-class-and-override-the-run-method)
+  * [2. Override the `run()` method to operate on `self.pipeline`](#2-override-the-run-method-to-operate-on-selfpipeline)
+  * [3. Have the `run()` method return a `PCollection` of `JobRunResult`s](#3-have-the-run-method-return-a-pcollection-of-jobrunresults)
+  * [4. Add the job module to `core/jobs/registry.py`](#4-add-the-job-module-to-corejobsregistrypy)
+* [Testing Apache Beam Jobs](#testing-apache-beam-jobs)
+  * [1. Inherit from `JobTestBase` and override the class constant `JOB_CLASS`](#1-inherit-from-jobtestbase-and-override-the-class-constant-job_class)
+  * [2. Run assertions using a `assert_job_output_is_*` method](#2-run-assertions-using-a-assert_job_output_is_-method)
+* [Running Apache Beam Jobs](#running-apache-beam-jobs)
+  * [Local Development Server](#local-development-server)
+  * [Production Server](#production-server)
 * [Case studies](#case-studies)
-  * [Case study: `CountAllModelsJob`](#case-study-countallmodelsjob)
   * [Case Study: `SchemaMigrationJob`](#case-study-schemamigrationjob)
 
 ## Introduction
@@ -32,19 +41,6 @@
   * Generating notifications for the events that users have subscribed to whenever those events change.
 
 If you're already familiar with Apache Beam or are eager to start writing a new job, jump to the [case studies](#case-studies). Otherwise, you can read the whole page. If you still have questions after reading, take a look at the [Apache Beam Programming Guide][1] for more details.
-
-## Running Apache Beam Jobs
-
-These instructions assume you are running a local development server. If you are a release coordinator running these jobs on the production or testing servers, you should already have been granted the "Release Coordinator" role, so you can skip steps 1-3.
-
-1. Sign in as an administrator ([instructions][3]).
-2. Navigate to **Admin Page > Roles Tab**.
-3. Add the "Release Coordinator" role to the username you are signed in with.
-4. Navigate to http://localhost:8181/release-coordinator, then to the **Beam Jobs tab**.
-5. Search for your job and then click the **Play button**.
-6. Click "Start new job".
-
-![Screen recording showing how to run jobs](https://user-images.githubusercontent.com/5094060/128743997-70cca5f9-0b76-4294-806e-f65f5df5be95.gif)
 
 ## Apache Beam Job Architecture
 
@@ -135,7 +131,7 @@ do_fn = DoFn()
 for value in pcoll:
     do_fn(value)
 ```
-Notice that the return value from the `DoFn` is not used. However, it's possible for the DoFn to hold onto state in more advanced implementations.
+Notice that the return value from the `DoFn` is not used. However, it's possible for the `DoFn` to hold onto state in more advanced implementations.
 
 #### `Map` and `FlatMap`
 
@@ -227,7 +223,380 @@ error_pcoll = (
 
 `Runner`s provide the `run()` method used to visit every node (`PValue`) in the pipeline's DAG by executing the edges (`PTransform`s) to compute their values.  At Oppia, we use `DataflowRunner` to have our `Pipeline`s run on the [Google Cloud Dataflow service](https://cloud.google.com/dataflow).
 
-## Case studies
+## Writing Apache Beam Jobs
+
+For this section, we'll walk through the steps of implementing a job by writing one: `CountExplorationStatesJob`.
+
+It's helpful to begin by sketching a diagram of what you want the job to do. We recommend using pen and paper or a whiteboard, but in this wiki page we'll use ASCII art to keep the document self-contained.
+
+Here's a diagram for the `CountExplorationStatesJob`:
+
+    .--------------. Count states .--------. Sum .-------.
+    | Explorations | -----------> | Counts | --> | Total |
+    '--------------'              '--------'     '-------'
+
+> **TIP**: As illustrated, you don't need to know what the names of the `PTransform`s (edges) used in a diagram are. It's easy to look up the appropriate `PTransform` after drawing the diagram.
+
+Now that we have our bearings, let's get started on implementing the job.
+
+### 1. Subclass the `base_jobs.JobBase` class and override the `run()` method
+
+Make sure your job class name is clear and concise, because the name is presented to release coordinators:
+
+![Screenshot of the Release Coordinator page with a list of job names visible](https://user-images.githubusercontent.com/5094060/135734501-eb9c0370-e98d-4271-b41a-0bf11c25503c.png)
+
+Job names should follow the convention: `<Verb><Noun>Job`.
+
+* For example:
+
+    ```python
+    class WeeklyDashboardStatsComputationJob(base_jobs.JobBase):
+        """BAD: Name does not begin with a verb."""
+
+        def run(self):
+            ...
+
+
+    class ComputeStatsJob(base_jobs.JobBase):
+        """BAD: Unclear what kind of stats are being computed."""
+
+        def run(self):
+            ...
+
+
+    class CountExplorationStatesJob(base_jobs.JobBase):
+        """GOOD: Name starts with a verb and "exploration states" is unambiguous."""
+
+        def run(self):
+            ...
+    ```
+
+Module names should follow the convention: `<noun>_<operation>_jobs.py`.
+
+* For example:
+  * `blog_validation_jobs.py`
+  * `dashboard_stats_computation_jobs.py`
+  * `exploration_indexing_jobs.py`
+  * `exploration_stats_regeneration_jobs.py`
+  * `model_validation_jobs.py`
+
+    However, you should always prefer placing jobs in preexisting modules if an appropriate one already exists.
+
+For this example, we will write our job in the module: `core/jobs/batch_jobs/exploration_inspection_jobs.py`.
+
+### 2. Override the `run()` method to operate on `self.pipeline`
+
+As illustrated in the Architecture section, jobs are organized by `Pipeline`s, `PTransform`s, and `PCollection`s. Jobs that inherit from `JobBase` are constructed with a `Pipeline` object already accessible via `self.pipeline`. When we write our jobs, we will build them off of `self.pipeline`.
+
+`Pipeline`s are special `PValue`s that represent the entry-point of a job. `PTransform`s that operate on `Pipeline` are generally "producers"; that is to say, operations that produce initial `PCollection`s to work off of.
+
+We can represent this in our DAG by adding a special `Pipeline` node.
+
+      ____________
+     /           /\
+    |  Pipeline |  |
+     \___________\/
+            |
+            | GetModels()
+            v
+    .--------------. Count states .--------. Sum .-------.
+    | Explorations | -----------> | Counts | --> | Total |
+    '--------------'              '--------'     '-------'
+
+> **NOTE**: since pipelines are a part of every job, it's fine to leave it out of a DAG to save on complexity.
+
+Now, let's see how this would translate into code, starting with the Explorations.
+
+```python
+from core.jobs import base_jobs
+from core.jobs.io import ndb_io
+from core.platform import models
+
+(exp_models,) = models.Registry.import_models([models.NAMES.exploration])
+
+
+class CountExplorationStatesJob(base_jobs.JobBase):
+
+    def run(self):
+        exp_model_pcoll = (
+            self.pipeline
+            | 'Get all ExplorationModels' >> ndb_io.GetModels(
+                exp_models.ExplorationModel.get_all())
+        )
+```
+
+Observe that:
+1. We're using `ndb_io.GetModels` rather than `get_multi`
+2. We're passing a `Query` to `ndb_io.GetModels`
+
+We use `ndb_io.GetModels()` because we want to work on `PCollection`s of models, not a list of models. In fact, all operations that can be taken on models (`get`, `put`, `delete`) have analogous `PTransform` interfaces defined in `ndb_io`. They are:
+
+| NDB function           | `PTransform` analogue                        |
+| ---------------------- | -------------------------------------------- |
+| `models = get_multi()` | `model_pcoll = ndb_io.GetModels(Query(...))` |
+| `put_multi(models)`    | `model_pcoll \| ndb_io.PutMulti()`           |
+| `delete_multi(keys)`   | `key_pcoll \| ndb_io.DeleteMulti()`          |
+
+Note that `get_multi` has the biggest change in interface, in that it takes a `Query` argument. You can get a query for any model by using the class method `get_all`.
+> **IMPORTANT:** Never use `datastore_services.query_everything()`!! Due to a limitation in Apache Beam, this operation is incredibly slow and inefficient! **You are almost certainly doing something wrong if you need this function.** Ask @brianrodri/@vojtechjelinek for help if you believe you need to use it regardless.
+
+Why should we use these `PTransform` over the simpler `get`/`put`/`delete` functions? **Performance**. The `get`/`put`/`delete` function calls are all *synchronous*, so your job's performance will suffer greatly by waiting for the operations to complete.
+
+`PTransform`s, on the other hand, are specially crafted to take advantage of the Apache Beam framework and guarantee better performance. In general, **you should always prefer `ndb_io` over any of the `get`/`put`/`delete` functions!** If you think you have a valid need for avoiding `ndb_io`, then speak with @brianrodri/@vojtechjelinek first.
+
+Let's get back to implementing the job.
+
+```python
+def run(self):
+    exp_model_pcoll = (
+        self.pipeline
+        | 'Get all ExplorationModels' >> ndb_io.GetModels(
+            exp_models.ExplorationModel.get_all())
+    )
+
+    state_count_pcoll = (
+        exp_model_pcoll
+        | 'Count states' >> beam.Map(self.get_number_of_states)
+    )
+```
+
+Note that we chose to use `beam.Map` here instead of `beam.ParDo`. This is mostly a stylistic choice, as `beam.Map` is just a specialized version of `ParDo`, in that `Map` simply takes each input element and "maps" it to a single output element. In our case, each `ExplorationModel` will map to a single `int`, the number of states.
+
+Here is the implementation of `get_number_of_states`. This function transforms the model into a domain object, and then counts the number of states in the corresponding `dict`.
+
+```python
+def get_number_of_states(self, model: ExplorationModel) -> int:
+    exploration = exp_fetchers.get_exploration_from_model(model)
+    return len(exploration.states)
+```
+
+Finally, we need to sum all the counts together. We'll use `beam.CombineGlobally` to accomplish this, which uses an input function to combine values of a `PCollection`. It returns a `PCollection` with a single element: the result of the combination.
+
+```python
+def run(self):
+    exp_model_pcoll = (
+        self.pipeline
+        | 'Get all ExplorationModels' >> ndb_io.GetModels(
+            exp_models.ExplorationModel.get_all())
+    )
+
+    state_count_pcoll = (
+        exp_model_pcoll
+        | 'Count states' >> beam.Map(self.get_number_of_states)
+    )
+
+    state_count_sum_pcoll = (
+        state_count_pcoll
+        | 'Sum values' >> beam.CombineGlobally(sum)
+    )
+```
+
+> **IMPORTANT**: We take special care to pass very simple objects (like ints and models) in between `PTransform`s. This is intentional, complex objects cannot be serialized without special care (TL;DR: objects must be [picklable](https://docs.python.org/3/library/pickle.html#what-can-be-pickled-and-unpickled)). When passing objects between `PTransform`s in your jobs, use simple data structures and simple types as much as possible.
+
+With this, our objective is complete. However, there's still more code to write!
+
+### 3. Have the `run()` method return a `PCollection` of `JobRunResult`s
+
+* In English, this means that **the job _must_ report _something_ about what occurred during its execution.** For example, this can be the errors it discovered or the number of successful operations it was able to perform. **Empty results are forbidden!**
+
+  * If you don't think your job has any results worth reporting, then just print a "success" metric with the number of models it processed.
+
+* `JobRunResult` has two fields: `stdout` and `stderr`. They are analogous to a program's output, and should be used in a similar capacity for jobs -- put problems encountered by the job in `stderr` and informational outputs in `stdout`.
+
+* `JobRunResult` outputs should answer the following questions:
+
+  * Did the job run without any problems? How and why do I know?
+  * How much work did the job manage to do?
+  * If the job encountered a problem, what caused it?
+
+Our job is trying to report the total number of states across all explorations, so we need to create a `JobRunResult` that holds that information. For this, we can use the `as_stdout` helper method:
+
+```python
+def run(self):
+    exp_model_pcoll = (
+        self.pipeline
+        | 'Get all ExplorationModels' >> ndb_io.GetModels(
+            exp_models.ExplorationModel.get_all())
+    )
+
+    state_count_pcoll = (
+        exp_model_pcoll
+        | 'Count states' >> beam.Map(self.get_number_of_states)
+    )
+
+    state_count_sum_pcoll = (
+        state_count_pcoll
+        | 'Sum values' >> beam.CombineGlobally(sum)
+    )
+
+    return (
+        state_count_sum_pcoll
+        | 'Map as stdout' >> beam.Map(job_run_result.JobRunResult.as_stdout)
+    )
+```
+
+The method maps every element in a `PCollection` to a `JobRunResult` with their stringified-values as its `stdout`.
+
+### 4. Add the job module to `core/jobs/registry.py`
+
+To have your job registered and acknowledged by the front-end, make sure to import the module in the corresponding section of `core/jobs/registry.py`:
+https://github.com/oppia/oppia/blob/973f777a6c5a8c3442846bda839e63856dfddf72/core/jobs/registry.py#L33-L50
+
+---
+
+With this, our job is finally completed!
+
+Here is the cleaned-up implementation of our job:
+
+```python
+from core.domain import exp_fetchers
+from core.jobs import base_jobs
+from core.jobs.io import ndb_io
+from core.platform import models
+
+import apache_beam as beam
+
+(exp_models,) = models.Registry.import_models([models.NAMES.exploration])
+
+
+class CountExplorationStatesJob(base_jobs.JobBase):
+
+    def run(self) -> beam.PCollection[job_run_result.JobRunResult]:
+        return (
+            self.pipeline
+            | 'Get all ExplorationModels' >> ndb_io.GetModels(
+                exp_models.ExplorationModel.get_all())
+            | 'Count states' >> beam.Map(self.get_number_of_states)
+            | 'Sum values' >> beam.CombineGlobally(sum)
+            | 'Map as stdout' >> beam.Map(job_run_result.JobRunResult.as_stdout)
+        )
+
+    def get_number_of_states(self, model: exp_models.ExplorationModel) -> int:
+        exploration = exp_fetchers.get_exploration_from_model(model)
+        return len(exploration.states)
+```
+
+## Testing Apache Beam Jobs
+
+First and foremost, you should follow our guidelines for [writing backend tests](https://github.com/oppia/oppia/wiki/Backend-tests#write-backend-tests). This includes naming your test cases (`test_{{action}}_with_{{with_condition}}_{{has_expected_outcome}}`) and our general test case structure ("Setup", "Baseline verification", "Action", "Endline verification").
+
+There are two base classes dedicated to testing our Apache Beam jobs: `PipelinedTestBase` and `JobTestBase`.
+
+`PipelinedTestBase` (and its subclass, `JobTestBase`) exposes two special assertion methods: `assert_pcoll_equal` and `assert_pcoll_empty`.
+
+The class operates by first, in `setUp()`, entering the context of a `Pipeline` object (accessible via `self.pipeline`). Upon exiting the context, the `Pipeline` will execute any operations attached to it. Running the `assert_pcoll_*` methods will add a "verification" `PTransform` to the input `PCollection`, and then close the context (thus running it immediately). For this reason, **only _one_ `assert_pcoll_*` method may be called in a test case!** If you want to run multiple assertions on a `PCollection`, then create a separate test case for that purpose.
+
+> **NOTE**: The verification `PTransform` will also run type checks on all inputs/outputs generated by the `PTransform`s under test!
+
+Here's an example:
+```python
+def test_validate_model_id_with_invalid_model_id_reports_an_error(self):
+    # Setup.
+    invalid_id_model = base_models.BaseModel(
+        id='123@?!*',
+        created_on=self.YEAR_AGO,
+        last_updated=self.NOW)
+
+    # Action.
+    output = (
+        self.pipeline
+        | beam.Create([invalid_id_model])
+        | beam.ParDo(base_validation.ValidateBaseModelId())
+    )
+
+    # Endline verification.
+    self.assert_pcoll_equal(output, [
+        base_validation_errors.ModelIdRegexError(
+            invalid_id_model,
+            base_validation.BASE_MODEL_ID_PATTERN),
+    ])
+```
+
+For testing _jobs_, you should follow the following steps (we'll use `CountExplorationStatesJob` as an example):
+
+### 1. Inherit from `JobTestBase` and override the class constant `JOB_CLASS`
+
+The current convention is to name your test cases `<JobName>Tests`, but you can create better names if you want to break tests up. For our example, we'll keep things simple.
+
+```python
+class CountExplorationStatesJobTests(test_jobs.JobTestBase):
+
+    JOB_CLASS = CountExplorationStatesJob
+```
+
+### 2. Run assertions using a `assert_job_output_is_*` method
+
+When testing a job, we should aim to cover behavior and common edge cases. For this job, we'll have 3 main tests:
+1. When there are no Explorations in the datastore.
+2. When there is exactly 1 Exploration in the datastore.
+3. When there are many Explorations in the datastore.
+
+```python
+def test_empty_datastore(self):
+    # Don't add any explorations to the datastore.
+    self.assert_job_output_is_empty()
+
+def test_single_exploration(self):
+    self.save_new_linear_exp_with_state_names_and_interactions(
+        'e1', 'o1', ['A', 'B', 'C'], ['TextInput'])
+
+    self.assert_job_output_is([
+        job_run_result.JobRunResult(stdout='3'),
+    ])
+
+def test_many_explorations(self):
+    self.save_new_linear_exp_with_state_names_and_interactions(
+        'e1', 'o1', ['A', 'B', 'C'], ['TextInput'])
+    self.save_new_linear_exp_with_state_names_and_interactions(
+        'e2', 'o1', ['D', 'E', 'F', 'G', 'H'], ['TextInput'])
+    self.save_new_linear_exp_with_state_names_and_interactions(
+        'e3', 'o1', ['I', 'J'], ['TextInput'])
+    self.save_new_linear_exp_with_state_names_and_interactions(
+        'e4', 'o1', ['K', 'L', 'M', 'N'], ['TextInput'])
+
+    self.assert_job_output_is([
+        job_run_result.JobRunResult(stdout='14'),
+    ])
+```
+
+Note that `self.assert_job_output_is(...)` and `self.assert_job_output_is_empty()` do as advertised -- they run the job to completion and verify the result.
+
+> **IMPORTANT:** Only one `assert_job_output_is` assertion can be performed in a test body. Multiple calls will result in an exception instructing you to split the test apart.
+
+Just because a job passes in unit tests does not guarantee it will pass in production. This is because workers, which execute the pipeline code, are run in a special environment where the code base is configured differently. While Oppia's jobs team works to resolve the differences, be careful about using complex and/or confusing objects. The simpler your job, the greater chance it'll work in production!
+
+## Running Apache Beam Jobs
+
+### Local Development Server
+
+These instructions assume you are running a local development server. If you are a release coordinator running these jobs on the production or testing servers, you should already have been granted the "Release Coordinator" role, so you can skip steps 1-3.
+
+1. Sign in as an administrator ([instructions][3]).
+2. Navigate to **Admin Page > Roles Tab**.
+3. Add the "Release Coordinator" role to the username you are signed in with.
+4. Navigate to http://localhost:8181/release-coordinator, then to the **Beam Jobs tab**.
+5. Search for your job and then click the **Play button**.
+6. Click "Start new job".
+
+![Screen recording showing how to run jobs](https://user-images.githubusercontent.com/5094060/128743997-70cca5f9-0b76-4294-806e-f65f5df5be95.gif)
+
+### Production Server
+
+Before a job or feature that cannot be fully tested locally can be run and deployed in production, it must first be tested on the Oppia backup server. Examples of features that require backup server testing are features that add or modify code that requires some third-party API, like Cloud Tasks, Cloud Storage, or Cloud Translate.
+
+If your job or feature is not essential for the release and has not been fully tested by the release cut, then it is not going into the release. "Fully tested" means:
+- The job or feature should run without failures on the Oppia backup server.
+- The job or feature produces the expected output.
+- The job or feature has the expected outcome (this must be verified by e.g. user-facing changes, or a validation job, or an output check, etc.).
+- The job or feature should be explicitly approved by server jobs admin (currently @seanlip and @vojtechjelinek).
+
+Also, in case your job changes data in the datastore, there has to be a validation job accompanying it to verify that the data that you are changing is valid in the server. **The validation job will have to be "Fully tested" before testing on the migration job can start.**
+
+In case there is invalid data observed, either your migration job should fix it programmatically, or the corresponding data has to be manually fixed before the migration job can be run. This is valid for both testing in the backup server and running in production.
+
+For a full overview of the process to get your job tested on the Oppia backup server, refer to the corresponding [wiki page](https://github.com/oppia/oppia/wiki/Testing-jobs-and-other-features-on-production).
+
+## Case Studies
 
 The case studies are sorted in order of increasing complexity. Study the one that best suits your needs.
 
@@ -238,95 +607,6 @@ If none of them help you implement your job, you may request a new one by adding
 * What answers would the "perfect" case study provide?
 
 Then we'll start write a new Case Study to help you, and future contributors, as soon as we can (@brianrodri will always notify you of how long it'll take).
-
-### Case study: `CountAllModelsJob`
-
-**Difficulty:** Trivial
-
-**Key Concepts:**
-
-* Fetching NDB models
-* Counting elements in a `PCollection`
-* Creating `JobRunResult` values
-* Job registration
-
----
-
-We'll start by writing a boilerplate `PTransform` which accepts models as input, and returns `(kind, #)` tuples (where `kind` is the name of the model's class, as a string).
-
-```python
-from jobs import job_utils
-from jobs.types import job_run_result
-
-import apache_beam as beam
-
-
-class CountModels(beam.PTransform):
-    """Returns the number of models after grouping them by their "kind".
-
-    Kind is a unique identifier given to all models. In practice, the following
-    always holds:
-
-        job_utils.get_model_kind(FooModel) == 'FooModel'
-    """
-
-    def expand(self, model_pcoll):
-        """Method PTransform subclasses must implement.
-
-        Args:
-            model_pcoll: PCollection[base_models.BaseModel]. The collection of
-                models to count.
-
-        Returns:
-            PCollection[Tuple[str, int]]. The (kind, count) tuples corresponding
-            to the input PCollection.
-        """
-        return (
-            model_pcoll
-            # "Map" every model to its kind. Analogous to the code:
-            # [job_utils.get_model_kind(model) for model in model_pcoll]
-            | beam.Map(job_utils.get_model_kind)
-            # Built-in PTransform that reduces a collection of values into
-            # (value, # discovered) tuples.
-            | beam.combiners.Count.PerElement()
-        )
-```
-
-Next, we'll write the job which applies the `PTransform` to every model in the datastore. We can keep both the `PTransform` and the job in the same file, since they are so tightly coupled. Unit tests can focus on one or the other.
-
-```python
-from core.platform import models
-from jobs import base_jobs
-from jobs.io import ndb_io
-
-datastore_services = models.Registry.import_datastore_services()
-
-
-class CountAllModelsJob(base_jobs.JobBase):
-    """Counts every model in the datastore."""
-
-    def run(self):
-        query_everything = datastore_services.query_everything()
-        all_models = self.pipeline | ndb_io.GetModels(query_everything)
-        return (
-            all_models
-            | CountModels()
-            # We'll convert the tuples into `JobRunResult` instances, where the
-            # stdout field is used to store the tuple's value.
-            | beam.Map(job_run_result.JobRunResult.as_stdout)
-        )
-```
-
-Finally, we'll import this job into the registry file. Let's assume the name of
-the file was `jobs/count_all_models_jobs.py`.
-
-```diff
-  # file: jobs/registry.py
-
-  from jobs import base_jobs
-  from jobs import base_validation_jobs
-+ from jobs import count_all_models_jobs
-```
 
 ### Case Study: `SchemaMigrationJob`
 
@@ -347,38 +627,34 @@ Let's start by listing the specification of a schema migration job:
   * The schema version of a model is in the closed range `[1, N]`, where `N` is the latest version.
   * All migration functions are implemented in terms of taking `n` to `n + 1`.
 
-* Our job should conform to the following requirements:
+- Our job should conform to the following requirements:
 
   * Models should only be put into storage after successfully migrating to v`N`.
   * Models that were already at v`N` should be reported separately.
 
-Often, when jobs are relatively complicated, it's helpful to begin by sketching a diagram of what you want the job to do. We recommend using pen and paper or a whiteboard, but in this wiki page we use ASCII art to keep the document self-contained. For example, here's a diagram for this job:
-
-    .--------------. Partition(lambda model: model.schema_version)
-    | Input Models | ---------------------------------------------.
-    '--------------'                                              |
-                                                 .-----------.    |
-                        .----------------------- | Model @v1 | <--|
-                        |                        '-----------'    |
-                        |                                         |
-                        | ParDo(MigrateToNextVersion())           |
-                         >-----------------------------.          |
-                        |                              |          |
-                        |                              v          |
-                        |                        .-----------.    |
-                        '----------------------- | Model ... | <--'
-                                                 '-----------'
-                                                       |
-                                                       v
-                                                 .-----------.
-                                                 | Model @vN |
-                                                 '-----------'
-                                                       |
-                     .-----------.  ndb_io.PutModels() |
-                     | Datastore | <-------------------'
-                     '-----------'
-
-> TIP: You don't need to know what the names of the `PTransform`s (edges) used in a diagram are. It's easy to look up the appropriate `PTransform` after drawing the diagram.
+        .--------------. Partition(lambda model: model.schema_version)
+        | Input Models | ---------------------------------------------.
+        '--------------'                                              |
+                                                     .-----------.    |
+                            .----------------------- | Model @v1 | <--|
+                            |                        '-----------'    |
+                            |                                         |
+                            | ParDo(MigrateToNextVersion())           |
+                             >-----------------------------.          |
+                            |                              |          |
+                            |                              v          |
+                            |                        .-----------.    |
+                            '----------------------- | Model ... | <--'
+                                                     '-----------'
+                                                           |
+                                                           v
+                                                     .-----------.
+                                                     | Model @vN |
+                                                     '-----------'
+                                                           |
+                         .-----------.  ndb_io.PutModels() |
+                         | Datastore | <-------------------'
+                         '-----------'
 
 There's a lot of complexity here, so we'll need many `PTransform`s to write our job. We'll focus on the most interesting one: the loop to migrate models to the next version.
 
