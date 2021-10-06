@@ -6,10 +6,8 @@
 * [Running Oppia on a development server](#running-oppia-on-a-development-server)
 * [Tips and tricks](#tips-and-tricks)
 * [Notes on installation on Arch Linux systems](#notes-on-installation-on-arch-linux-systems)
-  * [Installation prerequisites](#installation-prerequisites)
-  * [Install 3rd party libraries](#install-3rd-party-libraries)
-  * [Fixing Python](#fixing-python)
-  * [Fix Google App Engine](#fix-google-app-engine)
+  * [Changes to installation prerequisites](#changes-to-installation-prerequisites)
+  * [Changes to the virtual environment setup](#changes-to-the-virtual-environment-setup)
 
 **Note:** If you just want to create and share explorations, you may be able to use the hosted server at https://www.oppia.org (in which case you don't need to install anything).
 
@@ -274,56 +272,123 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
 
 ## Notes on installation on Arch Linux systems
 
-**THIS PART IS NOT UPDATED FOR PYTHON 3!**
+_The following notes are thanks to @ashish-patwal. They come with no guarantees, and may change some settings on your local machine, so please make sure you fully understand their ramifications before following them!_
 
-_The following notes are thanks to Prasanna Patil (@prasanna08). They come with no guarantees, and may change some settings on your local machine, so please make sure you fully understand their ramifications before following them!_
+### Changes to installation prerequisites
 
-### Installation prerequisites
+Arch uses pacman as its package manager, so the `install_prerequisites.sh` script is not going to work. Instead, all of the prerequisites have to be installed manually using pacman. Just type the following command in the shell (notation: `#` denotes sudo access while `$` denotes normal user access):
 
-Arch uses pacman as package manager, so the install_prerequisites.sh script is not going to work and all of the prerequisites have to be installed manually using pacman. Just type the following command in the shell (notation: # denotes sudo access while $ denotes normal user access):
-
-```
-   # pacman -Sy python2 python2-pip python2-setuptools curl jre7-openjdk unzip git python2-yaml
+```console
+# pacman -Sy curl jre8-openjdk python-setuptools git python-pip python-yaml unzip python-matplotlib
 ```
 
-Also, note that pacman doesn't support google chrome in the default package manager (which is needed to run frontend and e2e tests). However, you can use the chromium package instead; this is an open-source fork of google chrome. Here's how to do it -- install the chromium browser, and then create a soft link from the google-chrome command to chromium:
+Also, note that pacman doesn't support Google Chrome (which is needed to run frontend and end-to-end tests) in the default package manager. However, you can use the chromium package instead; chromium is the open-source core of Google Chrome. Install the chromium browser and then create a soft link from the google-chrome command to chromium:
 
-```
-   # pacman -Sy chromium
-   # cd /usr/bin
-   # ln -sf chromium google-chrome
-```
-
-If you do want to use google chrome instead, you could also use the third-party repository AUR (with the help of yaourt).
-
-### Install 3rd party libraries
-
-Arch uses the pip command for pip 3 (which installs libraries for python 3) and pip2 command for python 2, so we have to install all necessary (python’s) 3rd party libraries manually. For this go to the ‘oppia_tools’ directory and open a terminal and type following commands (note: make sure that you are in oppia_tools folder).
-
-```
-  $ pip2 install pylint==1.7.1 --target="./pylint-1.7.1"
-  $ pip2 install numpy==1.6.1 --target="./numpy-1.6.1"
-  $ pip2 install browsermob-proxy==0.7.1 --target="./browsermob-proxy-0.7.1"
-  $ pip2 install selenium==2.53.2 --target="./selenium-2.53.2"
-  $ curl -o webtest-download.zip -L https://github.com/Pylons/webtest/archive/1.4.2.zip
-  $ unzip webtest-download.zip -d .
-  $ rm webtest-download.zip
-  $ touch ./pylint-1.7.1/backports/__init__.py
+```console
+# pacman -Sy chromium
+# cd /usr/bin
+# ln -sf chromium google-chrome
 ```
 
-Once this step is done, run `python -m scripts.start` to install other necessary files such as node modules and static js libraries and google app engine. Even after downloading everything server will fail to start and show errors. If you don’t see any errors then you have successfully setup Oppia in Arch and don’t have to execute following steps but it is highly likely that server won’t work.
+### Changes to the virtual environment setup
 
-### Fixing Python
+On Arch Linux, you should follow these instructions to set up your virtual environment:
 
-In Arch, the `python` command refers to python 3 (in contrast to Ubuntu, where `python` refers to python 2). This has to be fixed. There are two ways to do so. One is to modify the python files and other is to modify system links.
-1. Modify python (.py) files: two files have to be modified slightly here. First is dev_appserver.py file of the google app engine. Go to ‘oppia_tools/google_appengine_1.9.50/google_appengine’ and open ‘dev_appserver.py’ file. On the first line replace ‘python’ with ‘python2’. Secondly go to the ‘oppia/.git/hooks/prepush.py’ file and open it. On the very first line replace ‘python’ with ‘python2’.
-2. Modify system links: go to the /usr/bin and type following command.
-```
-	# ln -sf python2 python
-```
+1. **Make sure you install the Python build dependencies for your operating system. These are specified [here](https://github.com/pyenv/pyenv/wiki#suggested-build-environment). If you don't do this it might lead to problems further on.**
 
-### Fix Google App Engine
+2. Install pyenv (notation: `#` denotes sudo access while `$` denotes normal user access):
 
-Note: make sure you have already executed ‘python -m scripts.start’ before doing this step and all the necessary files were downloaded by the script. Basically at this point your Oppia server should start showing logs (error logs) in the terminal but you won’t be able to access Oppia in browser.
+   ```console
+   # pacman -S pyenv
+   ```
 
-One of the highlights of Arch is that it is always up to date from linux to all packages. That is also the case with python2. Arch uses latest version of the python 2 which is 2.7.14. This version is incompatible with Google App Engine v1.9.50, currently used by Oppia. To fix this go to ‘oppia_tools/google_appengine_1.9.50/google_appengine/google/appengine/dist27’ and open ‘socket.py’ file. In this file go to the line 73 (or, alternatively, search for ‘RAND_egd’) and remove import of ‘RAND_egd’ from that line.
+   Install pyenv-virtualenv either with `yay` or `pacaur`:
+
+   ```console
+   $ yay -S pyenv-virtualenv
+   ```
+
+   ```
+   $ pacaur -S pyenv-virtualenv
+   ```
+
+   **Bash / Zsh**
+
+   Add the following lines to your `~/.bashrc` or `.zshrc`
+
+   ```bash
+   export PYENV_ROOT="$HOME/.pyenv"
+   export PATH="$PYENV_ROOT/bin:$PATH"
+   eval "$(pyenv init --path)"
+
+   eval "$(pyenv init -)"
+   eval "$(pyenv virtualenv-init -)"
+   ```
+
+   **Fish**
+
+   Execute this interactively :
+
+   ```bash
+   set -Ux PYENV_ROOT $HOME/.pyenv
+   set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
+   ```
+
+   And add this to `~/.config/fish/config.fish`
+
+   ```bash
+   status is-interactive; and pyenv init --path | source
+   pyenv init - | source
+   eval "$(pyenv virtualenv-init -)"
+   ```
+
+3. Reload your shell or open a new terminal window to load your updated `.bashrc`, `.zshrc`, or `config.fish`
+
+4. Now you can install Python 3.7.10 and the associated pip like this:
+
+   ```console
+   $ pyenv install 3.7.10
+   Downloading Python-3.7.10.tar.xz...
+   -> https://www.python.org/ftp/python/3.7.10/Python-3.7.10.tar.xz
+   Installing Python-3.7.10...
+   Installed Python-3.7.10 to /home/user/.pyenv/versions/3.7.10
+   ```
+
+5. Create a virtual environment for oppia:
+
+   ```console
+   $ pyenv virtualenv 3.7.10 oppia
+   ...
+   $ pyenv versions
+   ...
+   oppia
+   ...
+   ```
+
+   In the cloned `oppia` folder, run
+
+   ```console
+   pyenv local oppia
+   ```
+
+   Now whenever you are within the `oppia` folder, the virtual environment will be active.
+
+6. Install the Python dependencies:
+
+   ```console
+   $ pip install pyyaml setuptools
+   Requirement already satisfied: setuptools in /home/user/.pyenv/versions/2.7.18/envs/oppia-tmp/lib/python2.7/site-packages (44.1.1)
+   Collecting pyyaml
+     Downloading PyYAML-5.4.1-cp27-cp27mu-manylinux1_x86_64.whl (574 kB)
+        |████████████████████████████████| 574 kB 2.3 MB/s
+   Installing collected packages: pyyaml
+   Successfully installed pyyaml-5.4.1
+   ```
+
+   **Note that you don't need to install pyyaml if you were able to install python-yaml with your package manager earlier.**
+
+7. If you want to run backend tests and check coverage, please install these 2 pip libraries:
+
+   ```console
+   pip install coverage configparser
+   ```
