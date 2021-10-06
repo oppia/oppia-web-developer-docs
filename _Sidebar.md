@@ -98,6 +98,7 @@
     * [[Adding new translations|Adding-new-translations-for-i18n]]
     * [[How to develop for i18n|How-to-develop-for-i18n]]
   * [[Webpack|Webpack]]
+  * [[Third-party libraries|Third-party-libraries]]
   * [[Extension frameworks|Extensions-Overview]]
     * [[Rich Text Components|Rich-Text-Editor-(RTE)-Overview]]
     * [[Interactions|Creating-Interactions]]
