@@ -22,6 +22,8 @@
 * [Running Apache Beam Jobs](#running-apache-beam-jobs)
   * [Local Development Server](#local-development-server)
   * [Production Server](#production-server)
+* [Common Beam errors](#common-beam-errors)
+  * [`'_UnwindowedValues' object is not subscriptable` error](#_unwindowedvalues-object-is-not-subscriptable-error)
 * [Case studies](#case-studies)
   * [Case Study: `SchemaMigrationJob`](#case-study-schemamigrationjob)
 
@@ -595,6 +597,39 @@ Also, in case your job changes data in the datastore, there has to be a validati
 In case there is invalid data observed, either your migration job should fix it programmatically, or the corresponding data has to be manually fixed before the migration job can be run. This is valid for both testing in the backup server and running in production.
 
 For a full overview of the process to get your job tested on the Oppia backup server, refer to the corresponding [wiki page](https://github.com/oppia/oppia/wiki/Testing-jobs-and-other-features-on-production).
+
+
+## Common Beam errors
+
+### `'_UnwindowedValues' object is not subscriptable` error
+
+This error usually happens when you attempt to access an element in what you expect is a list, but Beam actually didn't convert it to a list. The solution usually is to transform the element to list explicitly using `list()`. **Some comments on the internet might suggest a usage of `SessionWindow` or similar stuff, but since all our jobs are batch jobs that process some final list of elements this solution won't work.**
+
+#### Example
+
+```python
+new_user_stats_models = (
+    {
+        'suggestion': suggestions_grouped_by_target,
+        'opportunity': exp_opportunities
+    }
+    | 'Merge models' >> beam.CoGroupByKey()
+    | 'Get rid of key' >> beam.Values()  # pylint: disable=no-value-for-parameter
+    | 'Generate stats' >> beam.ParDo(
+        lambda x: self._generate_stats(
+            x['suggestion'][0] if len(x['suggestion']) else [],
+            x['opportunity'][0][0] if len(x['opportunity']) else None
+        ))
+)
+```
+The code above throws this error `'_UnwindowedValues' object is not subscriptable [while running 'Generate stats']`, we know that the issue is in the last part of the code ('Generate stats' part). After some debugging, we discover that the code needs to be changed to.
+```python
+| 'Generate stats' >> beam.ParDo(
+    lambda x: self._generate_stats(
+        x['suggestion'][0] if len(x['suggestion']) else [],
+        list(x['opportunity'][0])[0] if len(x['opportunity']) else None
+    ))
+```
 
 ## Case Studies
 
