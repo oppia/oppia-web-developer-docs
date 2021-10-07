@@ -47,6 +47,8 @@
       * [[Debugging end-to-end tests|Debug-end-to-end-tests]]
       * [[Debugging backend tests|Debug-backend-tests]]
       * [[Debugging frontend tests|Debug-frontend-tests]]
+      * [[Debugging custom ESLint check tests|Debug-custom-ESLint-check-tests]]
+      * [[Debugging custom Pylint check tests|Debug-custom-Pylint-check-tests]]
       * [[Debugging Stories|Debugging-Stories]]
     * **[[Guidelines for launching new features|Launching-new-features]]**
     * [[Feature Gating|Developing-new-features-with-feature-gating]]
