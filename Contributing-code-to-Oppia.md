@@ -64,9 +64,9 @@ Welcome! Please make sure to follow the instructions above if you haven't alread
 
 #### Backend
 
-* [#11496](https://github.com/oppia/oppia/issues/11496) (Write lint checks for the end-to-end tests)
-
 * [#13162](https://github.com/oppia/oppia/issues/13162) (Write schemas for handler class arguments)
+
+* [#14033](https://github.com/oppia/oppia/issues/14033) (Adding MyPy type annotations to domain files)
 
 #### Frontend
 
