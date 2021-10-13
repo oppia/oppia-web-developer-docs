@@ -11,6 +11,7 @@
   * **[[Google Summer of Code 2021|Google-Summer-of-Code-2021]]**
   * **[[Season of Docs 2021|Season-of-Docs-2021]]**
   * **[[Hacktoberfest 2021|Hacktoberfest-2021]]**
+  * **[[Outreachy Dec 2021 to Mar 2022|Outreachy-Dec-2021-to-Mar-2022]]**
 
 ---
 **Developing Oppia**
