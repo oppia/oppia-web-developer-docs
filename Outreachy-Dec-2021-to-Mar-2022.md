@@ -2,7 +2,7 @@ Oppia is excited to be participating in [Outreachy](https://www.outreachy.org/)'
 
 Thank you for your interest in contributing to our project! Here you can find initial guidance on how to get started with the required tasks listed on the project [Scale Community Outreach and Conduct Research on Oppia's Lessons](https://www.outreachy.org/outreachy-december-2021-internship-round/communities/oppia/#scale-community-outreach-and-conduct-research-on-o).
 
-If you have any questions, feel free to send them to outreachy-questions@oppia.org or send them **directly to mentors by email**.
+If you have any questions, feel free to send them to outreachy-questions@oppia.org or send them **directly to mentors by email**. You can find mentors' contact information on the Outreachy portal within the [Oppia project](https://www.outreachy.org/outreachy-december-2021-internship-round/communities/oppia/#scale-community-outreach-and-conduct-research-on-o).
 
 ## Getting Started
 
@@ -36,4 +36,14 @@ A: After finishing the required tasks, add a contribution URL to your Outreachy 
 
 **Q: How can I translate a lesson?**
 
-A: To translate a lesson, **first** fill out this [contributor agreement](https://forms.gle/4bHhrZ211R6LMg93A) to confirm that you’re happy to submit contributions under the Creative Commons license. **Second,** read through [this document](https://docs.google.com/document/d/17jMFtfHVWtJYrzyGQUKdsRXgky7lWv76sGYLOxSbA5w/edit?usp=sharing) with information on how the translation process works. After you've filled out the form and read the documentation, please contact the mentors by email for further guidance. You can find mentors' contact information on Outreachy portal, within the [Oppia project](https://www.outreachy.org/outreachy-december-2021-internship-round/communities/oppia/#scale-community-outreach-and-conduct-research-on-o).
+A: To translate a lesson, **first** fill out this [contributor agreement](https://forms.gle/4bHhrZ211R6LMg93A) to confirm that you’re happy to submit contributions under the Creative Commons license. **Second,** read through [this document](https://docs.google.com/document/d/17jMFtfHVWtJYrzyGQUKdsRXgky7lWv76sGYLOxSbA5w/edit?usp=sharing) with information on how the translation process works. After you've filled out the form and read the documentation, please contact the mentors by email for further guidance.
+
+**Q: Who are the students I should work with?**
+
+A: Oppia's mission is to empower learners across the globe by providing equitable access to high-quality, engaging education. As our lessons are specially designed to meet the unique needs of under-resourced learners around the world, our target audience is underserved students who lack access to high-quality basic education. For this project, including the user studies, you should be working with these underserved students during the contribution period and the internship. 
+
+*Please keep in mind that **your internship will be contingent** on you being able to contact and work with the required students and NGOs.*
+
+**Q: How can I keep my mentors updated about my work?**
+
+A: The best way to report your progress and clarify questions with the project mentors is starting an email thread, with both mentors as recipients. You should always reply to this same thread when giving updates and reporting the relevant information about your work. This ensures that both mentors have visibility and are synchronized about all your contributions, making the selection process easier and more organized.
