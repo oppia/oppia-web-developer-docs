@@ -3,7 +3,7 @@
 * [Introduction](#introduction)
 * [Merge conflicts](#merge-conflicts)
 * [Network problems](#network-problems)
-* [Failing tests](#failing-tests)
+* [Failing tests and lint checks](#failing-tests-and-lint-checks)
 
 ## Introduction
 
@@ -17,7 +17,7 @@ The failure may be due to one of the following things:
 * If your issue is not a merge conflict, then click on the "Details" link next to any failing builds and inspect the logs.
 
   * If you see an error when installing third-party libraries, then there was probably a network issue. See the [network problems](#network-problems) section below.
-  * If you see from the logs that a test is failing, see the [failing tests section](#failing-tests) below.
+  * If you see from the logs that a test or lint check is failing, see the [failing tests and lint checks section](#failing-tests-and-lint-checks) below.
 
 ## Merge conflicts
 
@@ -57,9 +57,9 @@ Exited with code exit status 1
 
 If you see a different error while installing third-party libraries, please file an issue and mention @automated-qa-reviewers to notify the Automated QA team.
 
-## Failing tests
+## Failing tests and lint checks
 
-If you see that a test is failing, there are two possibilities: your code could be wrong, or the test could be flaky. There is no easy way to tell whether a particular failure is a flake, but here are some guidelines:
+If you see that a test or lint check is failing, there are two possibilities: your code could be wrong, or the test/check could be flaky. There is no easy way to tell whether a particular failure is a flake, but here are some guidelines:
 
 * Flakes mostly occur in the end-to-end (E2E) tests. Sometimes we see flakes in the lighthouse or frontend tests, but the backend tests and linters almost never flake.
 * Consider whether your changes could have plausibly caused the failure. For example, if you just updated the README, then there's no way that you could have broken an E2E test. However, be careful to consider that changes in one part of the code can have unintended effects in apparently unrelated code. For example, if you add an E2E test that creates an exploration with the same name as an exploration created by another E2E test, you could break that other E2E test, even if it's testing completely unrelated code.
@@ -71,16 +71,15 @@ If you see that a test is failing, there are two possibilities: your code could 
 
   This message is based on a list of known flakes maintained by the Automated QA team. Note however that this list may be incomplete, so a test could be flaking even if this message says `false`.
 
-If your code is wrong, then you'll need to fix it just as you would [respond to reviewer comments](https://github.com/oppia/oppia/wiki/Make-a-pull-request#step-5-address-review-comments-until-all-reviewers-approve). You may also want to review the documentation on our various CI checks to help you debug:
+If your code is wrong, then you'll need to fix it just as you would [respond to reviewer comments](https://github.com/oppia/oppia/wiki/Make-a-pull-request#step-5-address-review-comments-until-all-reviewers-approve). You may also want to review the documentation on our various tests and lint checks to help you debug:
 
-* [[Lint Checks|Lint-Checks]]
-* [[Backend tests|Backend-tests]]
-* [[Frontend tests|Frontend-unit-tests-guide]]
-* [[End-to-end tests|End-to-End-Tests]]
-* [[Lighthouse Tests|Lighthouse-Tests]]
+* If a lint check is failing, see [[Lint Checks|Lint-Checks]].
+* If a test is failing, see [[Tests|Tests]].
+
+We also have [[debugging guides|Debugging]] that you may find useful.
 
 Note that all our CI checks except for the backend tests merge from the upstream `develop` branch before running, so you may need to merge from `develop` locally to reproduce the failure.
 
-If the test is flaky, ask one of your reviewers to restart the test for you.
+If the test/check is flaky, ask one of your reviewers to restart the test for you.
 
 Following these instructions should result in PRs that are green and ready to merge by the time a reviewer looks at them, thus shortening the review cycle! If you are still unable to resolve the issues yourself, please follow our instructions to [[get help|Get-help]] from other developers.

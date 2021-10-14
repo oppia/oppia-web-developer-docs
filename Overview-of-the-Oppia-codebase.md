@@ -160,7 +160,7 @@ For example, we use different underlying file storage platforms in dev mode (whe
 
 ### Backend tests
 
-The backend codebase is heavily tested. Tests are contained in `*_test.py` files next to the Python module they test. This naming convention allows them to be automatically detected and compiled into a test suite by Python's `unittest` module. For more information, see [[Running Tests|Running-Tests]].
+The backend codebase is heavily tested. Tests are contained in `*_test.py` files next to the Python module they test. This naming convention allows them to be automatically detected and compiled into a test suite by Python's `unittest` module. For more information, see [[Backend tests|Backend-tests]].
 
 ## Frontend
 

@@ -25,11 +25,7 @@ If you run into any problems along the way, we're here to help! Check out our [[
 
 2. Fill in the [Oppia contributor survey](https://goo.gl/forms/otv30JV3Ihv0dT3C3) to let us know what your interests are. (You can always change your responses later.) Filling out the survey will also get you assigned to a mentor at Oppia who will reach out to you over email to help you get started.
 
-3. Install Oppia following the [[installation instructions|Installing-Oppia]].  If you run into any issues, please check out the [[troubleshooting instructions|Troubleshooting]].
-
-<!--
-TODO(#4): Add link to IDE tutorial.
--->
+3. Install Oppia following the [[installation instructions|Installing-Oppia]].  If you run into any issues, please check out the [[troubleshooting instructions|Troubleshooting]]. If you want help setting up a code editor, also check out our [[guide to common IDEs|Tips-for-common-IDEs]].
 
 4. Update your GitHub settings:
 
@@ -159,11 +155,7 @@ If an issue hasn't got someone assigned to it, and there's no existing PR for th
 
 1. Make dependent (“stacked”) PRs to ensure smaller time between reviews and subsequent PRs. A large PR results in difficulty to review for the reviewer as well as difficulty in making changes according to a review for an author. So, it is better to create smaller PRs which deliver a single small goal. If you have code changes dependent on a PR, it is better to create a separate PR for those changes.
 
-2. Try and follow test-driven development. This is the easiest way to make sure the code you wrote is working fine. The basic idea is to first write tests for the expected behaviour and then write code that will pass those tests. Refer to our guides for writing good tests:
-
-   * [[Backend Tests|Backend-tests]]
-   * [[Frontend Tests|Frontend-unit-tests-guide]]
-   * [[End to end tests|End-to-End-Tests]]
+2. Try and follow test-driven development. This is the easiest way to make sure the code you wrote is working fine. The basic idea is to first write tests for the expected behaviour and then write code that will pass those tests. Refer to our [[guides for writing good tests|Tests]].
 
 3. If you're stuck on something, ask for help instead of letting it block all your work. It can be difficult to know when to ask for help, so one rule of thumb is to ask whenever you've been unable to make progress for an hour.
 
@@ -176,6 +168,8 @@ If an issue hasn't got someone assigned to it, and there's no existing PR for th
 7. Take the time to understand what the code you are changing is doing.  Sometimes we see PRs for changes that don't do anything useful or that don't make sense given the context of the code. These won't get merged.
 
 8. If you are making a contribution which involves changing some user interface or introducing a new feature, it is good to start with a design doc to avoid wasting efforts later. Follow our [[guide for writing design docs|Writing-design-docs]].
+
+9. You will almost certainly run into bugs where you aren't sure what the cause is. This is normal! Our [[debugging guides|Debugging]] will help you investigate the problem.
 
 ## Notes
 

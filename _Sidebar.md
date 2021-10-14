@@ -21,7 +21,7 @@
   * [[Firebase authentication|Firebase-authentication]]
     * [[Creating an Administrator account|https://github.com/oppia/oppia/wiki/Firebase-authentication#creating-an-administrator-account]]
   * [[Make a pull request|Make-a-pull-request]]
-  * [[Pull requests at Oppia|Pull-requests-at-Oppia]]
+  * [[Common pull request workflows|Common-pull-request-workflows]]
   * [[How to get help|Get-help]]
   * [[Learning resources for developers|Learning-Resources]]
   * [[Git cheat sheet|Git-cheat-sheet]]
@@ -40,7 +40,7 @@
     * [[How to write type definitions|Guide-on-defining-types]]
     * [[How to write design docs|Writing-design-docs]]
     * [[Revert and Regression Policy|Revert-and-Regression-Policy]]
-    * Debugging
+    * [[Debugging|Debugging]]
       * [[If your presubmit checks fail|If-your-presubmit-check-fails]]
       * [[If CI checks fail on your PR|If-CI-checks-fail-on-your-PR.md]]
       * [[Interpreting CircleCI Results | Interpreting CircleCI Results]]
@@ -62,14 +62,15 @@
     * [[Bytes and string handling in Python 3|Bytes-and-string-handling-in-Python-3]]
     * [[Guidelines for Developers with Write Access to oppia/oppia|Guidelines-for-Developers-with-Write-Access-to-oppia-oppia]]
   * Testing
-    * [[Running tests|Running-Tests]]
-    * Writing Tests
+    * [[Automated tests|Tests]]
+      * [[TypeScript tests|TypeScript-tests]]
       * [[Backend tests|Backend-tests]]
       * [[Frontend tests|Frontend-unit-tests-guide]]
       * [[End-to-end tests|End-to-End-Tests]]
       * [[Lighthouse Tests|Lighthouse-Tests]]
-    * [[Testing for Accessibility|Testing-for-Accessibility]]
-    * [[Release accessibility checklist|Release-accessibility-checklist]]
+    * Manual tests
+      * [[Testing for Accessibility|Testing-for-Accessibility]]
+      * [[Release accessibility checklist|Release-accessibility-checklist]]
   * Release Process
     * [[Release schedule|Release-schedule-and-other-information]]
     * [[Testing jobs and other features on production|Testing-jobs-and-other-features-on-production]]

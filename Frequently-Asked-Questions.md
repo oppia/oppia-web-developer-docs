@@ -56,7 +56,7 @@ Here are some materials which will help you get familiarised with Git:
 
 ### How do I run tests?
 
-For information on running tests, please refer to the [Running Tests](https://github.com/oppia/oppia/wiki/Running-Tests) wiki page. Note that there are 3 types of tests: server-side (Python), client-side (Karma) and end-to-end (Protractor). These tests help to ensure that the code is in a working state. Before checking in any commits to the Oppia repository, please ensure that every single test passes.
+For information on running tests, please refer to the [[tests wiki page|Tests]]. Before checking in any commits to the Oppia repository, please ensure that every single test passes.
 
 ### Setup issues
 
