@@ -91,7 +91,7 @@
     * [[Writing audit jobs|Writing-audit-jobs]]
     * [[Writing new one-off MapReduce jobs|Writing-new-one-off-jobs-using-map-reduce]]
     * [[Calculating statistics|Calculating-statistics]]
-    * [[Creating and modifying storage models | Creating-and-modifying-storage-models]]
+    * [[Storage models|Storage-models]]
     * [[Writing validators for storage models | Writing-Validators-for-storage-models]]
     * [[Coding for speed in GAE | Coding-for-speed-in-GAE]]
     * [[Adding static assets|Adding-static-assets]]
