@@ -168,7 +168,7 @@ Open the terminal (in the ubuntu-desktop env/ the RDP client) and run `google-ch
 
 ## Run Oppia locally
 
-To run the Oppia application locally, run `python -m scripts.start --no-browser` in the Ubuntu environment. Then you can access Oppia at http://localhost:8181.
+To run the Oppia application locally, run `python -m scripts.start --no_browser` in the Ubuntu environment. Then you can access Oppia at http://localhost:8181.
 
 ## Miscellaneous
 
