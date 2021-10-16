@@ -598,6 +598,14 @@ In case there is invalid data observed, either your migration job should fix it 
 
 For a full overview of the process to get your job tested on the Oppia backup server, refer to the corresponding [wiki page](https://github.com/oppia/oppia/wiki/Testing-jobs-and-other-features-on-production).
 
+#### Instruction for job testers
+
+There are two ways to perform the testing of the Beam jobs:
+
+1. Deploy the branch with the Beam job on the backup server and run the job from the backup server.
+
+2. Run the Beam job on the backup server from the local dev server.
+
 
 ## Common Beam errors
 
