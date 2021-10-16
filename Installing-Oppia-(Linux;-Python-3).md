@@ -29,7 +29,9 @@ Alternatively, if you are on Debian/Ubuntu, you can use the `install_prerequisit
 bash scripts/install_prerequisites.sh
 ```
 
-2. Install Chrome from [Google's website](https://www.google.com/chrome). You'll need this to run tests.
+2. Make sure that you have **Python 2** installed, it is needed for the dev server to run. On Ubuntu 20 you can install it using `sudo apt install python2`.
+
+3. Install Chrome from [Google's website](https://www.google.com/chrome). You'll need this to run tests.
 
 ## Clone Oppia
 
@@ -85,7 +87,25 @@ bash scripts/install_prerequisites.sh
 
 For your virtual environment, we recommend you use [pyenv](https://github.com/pyenv/pyenv). Here are some instructions for doing so, but you can use another virtual environment tool if you wish:
 
-1. **Make sure you install the Python build dependencies for your operating system. These are specified [here](https://github.com/pyenv/pyenv/wiki#suggested-build-environment). If you don't do this it might lead to problems further on.**
+1. **Make sure you install the Python build dependencies for your operating system. These are specified [here](https://github.com/pyenv/pyenv/wiki#suggested-build-environment). If you don't do this it might lead to problems further on.** The build dependencies for Ubuntu/Debian are
+    ```sh
+    sudo apt-get install make
+    sudo apt-get install build-essential
+    sudo apt-get install libssl-dev
+    sudo apt-get install lib1g-dev
+    sudo apt-get install libbz2-dev
+    sudo apt-get install libreadline-dev
+    sudo apt-get install libsqlite3-dev
+    sudo apt-get install wget
+    sudo apt-get install llvm
+    sudo apt-get install libncursesw5-dev
+    sudo apt-get install xz-utils
+    sudo apt-get install tk-dev
+    sudo apt-get install libxml2-dev
+    sudo apt-get install libxmlsec1-dev
+    sudo apt-get install libffi-dev
+    sudo apt-get install liblzma-dev
+    ```
 
 2. Install pyenv:
 
