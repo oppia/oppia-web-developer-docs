@@ -242,6 +242,8 @@ On CI, we run all the E2E tests in production mode to more closely mimic how the
 
 ## Write E2E tests
 
+We expect E2E tests to be written for any new feature that is released to the public.
+
 ### Where to add the tests
 
 #### Interactions
