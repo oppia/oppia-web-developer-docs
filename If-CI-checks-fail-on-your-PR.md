@@ -80,6 +80,16 @@ We also have [[debugging guides|Debugging]] that you may find useful.
 
 Note that all our CI checks except for the backend tests merge from the upstream `develop` branch before running, so you may need to merge from `develop` locally to reproduce the failure.
 
-If the test/check is flaky, ask one of your reviewers to restart the test for you.
+If the test/check is flaky, you can restart the test as follows:
+
+1. Click the "Details" link next to the test you want to restart.
+
+   ![Screenshot of PR CI results with details link](images/prCiResults.png)
+
+2. Click on the "Re-run all jobs" button in the upper-right.
+
+   ![Screenshot of CI result page with link to rerun jobs](images/rerunCI.png)
+
+   If you don't see the button or cannot click it, you might not have the necessary permissions. In that case, ask one of your reviewers to restart the test for you.
 
 Following these instructions should result in PRs that are green and ready to merge by the time a reviewer looks at them, thus shortening the review cycle! If you are still unable to resolve the issues yourself, please follow our instructions to [[get help|Get-help]] from other developers.
