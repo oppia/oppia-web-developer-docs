@@ -317,7 +317,7 @@ Models are defined in `core/templates/domain/`.
 
 ### Frontend tests
 
-The frontend isn't quite as heavily tested as the backend yet, but we're working on that! Any new code you write should be fully tested. For information on how, check out our [[guide to frontend testing|Frontend-unit-tests-guide]].
+The frontend isn't quite as heavily tested as the backend yet, but we're working on that! Any new code you write should be fully tested. For information on how, check out our [[guide to frontend testing|Frontend-tests]].
 
 Our frontend tests live in `*.spec.ts` files that accompany each frontend code file. For example, `topic-editor-page.ts` will be in the same directory as its test file, `topic-editor-page.spec.ts`.
 

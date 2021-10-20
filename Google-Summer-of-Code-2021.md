@@ -47,7 +47,7 @@ The following projects were fully completed during GSoC 2021:
   * List of Files for Aishwary: [Link](https://docs.google.com/spreadsheets/d/1tky4jE7uxLQTp0MWE3L9USnPvy3PbtGYpMgP7b0bicw/edit#gid=2101159169)
 
 * [Apoorv Srivastava's proposal](pdfs/GSoC2021ApoorvSrivastava.pdf) and [final blog post](https://medium.com/@MaskedCarrot/google-summer-of-code-2021-oppia-d2e346508bb9): Implement lightweight checkpointing. Mentor: Pulkit Aggarwal
-  * **Milestone 1:** Implement domain layer changes for creating, checking and restoring checkpoints. Checkpoints should also be automatically expired on a least-recently-used policy basis if more than 2MB of space are consumed by checkpoints (per profile). 
+  * **Milestone 1:** Implement domain layer changes for creating, checking and restoring checkpoints. Checkpoints should also be automatically expired on a least-recently-used policy basis if more than 2MB of space are consumed by checkpoints (per profile).
   * **Milestone 2:** Implement the UI changes needed to represent checkpoints that are in progress, changes to existing notices, and proper UI/domain layer support for automatically expiring checkpoints when the user has been away from the app for too long or if the app has decided to automatically expire a checkpoint to save space.
 
 
@@ -61,7 +61,7 @@ The following projects were fully completed during GSoC 2021:
   * **Milestone 2:** Enable exploration editing to work offline in case of connectivity issues.
 
 * [Ashutosh Chauhan's proposal](pdfs/GSoC2021AshutoshChauhan.pdf) and [final blog post](https://gist.github.com/ashutoshc8101/4fa89e4f437c97df21ac91ddd0736440#file-gsoc-md): Angular migration. Mentor: Srijan Reddy Vasa
-  * **Milestone 1:** Migrate the following files (and their corresponding test + HTML files, if already present) to use angular: 
+  * **Milestone 1:** Migrate the following files (and their corresponding test + HTML files, if already present) to use angular:
       * admin-page.directive.ts
       * admin-roles-tab.directive.ts
       * admin-misc-tab.directive.ts
@@ -89,7 +89,7 @@ The following projects were fully completed during GSoC 2021:
   * **Milestone 1:**
       * Introduce strict typing into 108 files (spec files count as normal files) that contain at least one strict typing error.
       * Files that do not contain strict typing errors need to be added to the tsconfig-strict.ts too.
-  * **Milestone 2:** 
+  * **Milestone 2:**
       * Introduce strict typing into 132 files (spec files count as normal files) that contain at least one strict typing error.
       * Files that do not contain strict typing errors need to be added to the tsconfig-strict.ts too.
   * List of files for Eesha: [Link](https://docs.google.com/spreadsheets/d/1LqifUvMfLvx7IlGnwPwAXb6GTVi-gA6mz701qFFtolk/edit?ts=60a2b76c#gid=0)
@@ -118,7 +118,7 @@ The following projects were fully completed during GSoC 2021:
   * **Milestone 1:**
       * Introduce strict typing into 120 files (spec files count as normal files) that contain at least one strict typing error.
       * Files that do not contain strict typing errors need to be added to the tsconfig-strict.ts too.
-  * **Milestone 2:** 
+  * **Milestone 2:**
       * Introduce strict typing into 120 files (spec files count as normal files) that contain at least one strict typing error.
       * Files that do not contain strict typing errors need to be added to the tsconfig-strict.ts too.
   * List of files for Mridul: [Link](https://docs.google.com/spreadsheets/d/1LqifUvMfLvx7IlGnwPwAXb6GTVi-gA6mz701qFFtolk/edit?ts=60a2b76c#gid=0)
@@ -166,7 +166,7 @@ The following projects were fully completed during GSoC 2021:
 
 * [Yash Raj's proposal](pdfs/GSoC2021YashRaj.pdf) and [final blog post](https://medium.com/@yashrajprime/google-summer-of-code-2021-oppia-599e915c2755): Developer options menu. Mentor: Sarthak Agarwal
   * **Milestone 1:** Introduce the initial UI & an option to crash the app as a proof-of-concept. This menu should be disabled by default in non-developer builds of the app. This should use a compile-time solution (like Dagger or Bazel build targets) rather than a runtime solution (like an if-check). Add the following two features: marking specific topics/stories/chapters completed, and viewing event logs.
-  * **Milestone 2:** Add support for the following two features: forcing connectivity type, and forcing hints/solutions to automatically show. The functionality used elsewhere in the app to support this should be built in such a way where it's not included in production builds of the app, and in a way that doesn't "punch holes" in the app. 
+  * **Milestone 2:** Add support for the following two features: forcing connectivity type, and forcing hints/solutions to automatically show. The functionality used elsewhere in the app to support this should be built in such a way where it's not included in production builds of the app, and in a way that doesn't "punch holes" in the app.
 
 
 
@@ -556,7 +556,7 @@ Our frontend codebase is fully typed, but our typing doesn’t pass strict TypeS
 
 ### Write Frontend Tests
 
-This project aims to write frontend tests to fully cover each service, directive, and component. When you begin, some files may have tests that incompletely cover the code, while others may have no tests at all. Many of the files you write tests for will contain directives, which you will need to convert to components first. Much of the past work writing frontend tests has been tracked by [oppia/oppia#4057](https://github.com/oppia/oppia/issues/4057). You should also look at the [blog post](https://mari-zangue.medium.com/my-journey-through-gsoc20-with-oppia-9eb6b27e7a02) by a GSoC student last year who worked on a similar project. This is a good reference, as is our [wiki page](https://github.com/oppia/oppia/wiki/Frontend-unit-tests-guide). It outlines best practices and standard guidelines you should follow.
+This project aims to write frontend tests to fully cover each service, directive, and component. When you begin, some files may have tests that incompletely cover the code, while others may have no tests at all. Many of the files you write tests for will contain directives, which you will need to convert to components first. Much of the past work writing frontend tests has been tracked by [oppia/oppia#4057](https://github.com/oppia/oppia/issues/4057). You should also look at the [blog post](https://mari-zangue.medium.com/my-journey-through-gsoc20-with-oppia-9eb6b27e7a02) by a GSoC student last year who worked on a similar project. This is a good reference, as is our [wiki page](https://github.com/oppia/oppia/wiki/Frontend-tests). It outlines best practices and standard guidelines you should follow.
 
 The project will involve writing a lot of tests. The proposals must contain a concrete plan for how you will cover all of your assigned code in the allotted time. For your reference, here are the line counts as of March 8, 2020:
 
@@ -825,7 +825,7 @@ In this project, you will be given design mocks for which to implement a respons
 
 #### Contributor Dashboard Resources
 * See the [creator documentation](https://oppia-lesson-creator-documentation.readthedocs.io/en/latest/contributor/contribute.html) for a tutorial on contributing translations and practice questions via the contributor dashboard.
-* See the [Admin Playbook](https://docs.google.com/document/d/1VqNiJttq85YyR6cQkd8M9lGGkOP8OlUlkI37Xw6SovM/edit?usp=sharing) for instructions on enabling the contributor dashboard on a local dev server. 
+* See the [Admin Playbook](https://docs.google.com/document/d/1VqNiJttq85YyR6cQkd8M9lGGkOP8OlUlkI37Xw6SovM/edit?usp=sharing) for instructions on enabling the contributor dashboard on a local dev server.
 * See [this](https://docs.google.com/document/d/1JYX4nvTcblaVVYAlTi7rApE0lWSBx0v_ZCCr_8WW4Wc/edit?usp=sharing) doc for instructions on populating sample data on a local dev server.
 
 The UI elements that need to be updated are as follows.
@@ -864,7 +864,7 @@ The UI elements that need to be updated are as follows.
 - A short summary of the proposed changes for each frontend component. Most of the changes will likely be static style changes, but if say you need to introduce new Angular components or files, then outline these changes with justifications for why they are needed.
 - Some consideration on testing—is there a way to automate testing of the responsive design?
 - The milestones broken down into clear tasks with PR open/merge time estimates.
-- Clear, concise, organized writing. See https://developers.google.com/tech-writing/overview for technical writing tips. 
+- Clear, concise, organized writing. See https://developers.google.com/tech-writing/overview for technical writing tips.
 
 **Dependency on Release Schedule:** Yes. Mobile UI changes will need to be pushed to test or production servers to be tested more widely in order to catch edge cases in user journeys.
 

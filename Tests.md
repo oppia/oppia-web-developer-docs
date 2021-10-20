@@ -1,7 +1,7 @@
 Oppia has tests! These tests help ensure that our code is always correct. Here are links to more detailed pages for each of our kinds of tests:
 
 * [[Backend tests|Backend-tests]]
-* [[Frontend tests|Frontend-unit-tests-guide]]
+* [[Frontend tests|Frontend-tests]]
 * [[End-to-end tests|End-to-End-Tests]]
 * [[TypeScript tests|TypeScript-tests]]
 * [[Lighthouse Tests|Lighthouse-Tests]]

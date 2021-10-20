@@ -28,7 +28,7 @@
 
 All code in Oppia's backend must be thoroughly tested because tests help catch bugs, help new contributors understand our backend code, and ensure that our code doesn't get broken by other developers in the future.
 
-This guide covers Oppia’s backend tests. We also have separate pages for [[frontend tests|Frontend-unit-tests-guide]] and [[end-to-end tests|End-to-End-Tests]].
+This guide covers Oppia’s backend tests. We also have separate pages for [[frontend tests|Frontend-tests]] and [[end-to-end tests|End-to-End-Tests]].
 
 ## Testing philosophy
 

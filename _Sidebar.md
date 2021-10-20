@@ -18,8 +18,6 @@
   * [[FAQs|Frequently-Asked-Questions]]
   * [[Installing Oppia|https://github.com/oppia/oppia/wiki/Installing-Oppia]]
   * [[Tips for common IDEs|Tips-for-common-IDEs]]
-  * [[Firebase authentication|Firebase-authentication]]
-    * [[Creating an Administrator account|https://github.com/oppia/oppia/wiki/Firebase-authentication#creating-an-administrator-account]]
   * [[Make a pull request|Make-a-pull-request]]
   * [[Common pull request workflows|Common-pull-request-workflows]]
   * [[How to get help|Get-help]]
@@ -30,6 +28,7 @@
     * [[Apache Beam Jobs|Apache-beam-jobs]]
     * [[Tips for analyzing the codebase|Analyzing-the-codebase]]
     * [[Tour of Oppia webpages|How-to-access-Oppia-webpages]]
+    * [[How to find the right code to change|Find-the-right-code-to-change]]
     * [User documentation](https://oppia.github.io/)
   * [[List of current projects|https://github.com/oppia/oppia/projects]]
   * **[[Good first issues|https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22]]**
@@ -66,7 +65,7 @@
     * [[Automated tests|Tests]]
       * [[TypeScript tests|TypeScript-tests]]
       * [[Backend tests|Backend-tests]]
-      * [[Frontend tests|Frontend-unit-tests-guide]]
+      * [[Frontend tests|Frontend-tests]]
       * [[End-to-end tests|End-to-End-Tests]]
       * [[Lighthouse Tests|Lighthouse-Tests]]
     * Manual tests
@@ -98,6 +97,8 @@
     * [[Adding static assets|Adding-static-assets]]
     * [[Wipeout Implementation|Wipeout-Implementation]]
     * [[Notes on NDB Datastore transactions|Notes-on-NDB-Datastore-Transactions]]
+    * [[How to handle merging of change lists for exploration properties|Guide-to-handle-merging-of-change-lists-for-exploration-properties]]
+    * [[Instructions for editing roles or actions|Instructions-for-editing-roles-or-actions]]
     * [[Protocol buffers|Protocol-buffers]]
   * Translations
     * [[Adding new translations|Adding-new-translations-for-i18n]]
