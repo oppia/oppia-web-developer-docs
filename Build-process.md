@@ -12,7 +12,6 @@
     * [Deploy mode](#deploy-mode)
 * [Considering build modes when debugging](#considering-build-modes-when-debugging)
 * [Source maps](#source-maps)
-  * [Using source maps](#using-source-maps)
 
 ## Introduction
 
@@ -125,14 +124,4 @@ python -m scripts.start --source_maps
 python -m scripts.run_e2e_tests --prod_env --source_maps
 ```
 
-With these flags, the `webpack.*.sourcemap.config.ts` configuration files are used to enable source mapping.
-
-### Using source maps
-
-When generated, source maps will automatically be available through the Chrome debugger. You can view the Oppia code under `webpack://` in the sidebar of the sources tab. Without source maps the code looks like this:
-
-![Chrome debugger sources without source maps](images/sourceMaps/withoutSourceMaps.png)
-
-With source maps enabled, the code is easier to read:
-
-![Chrome debugger sources with source maps](images/sourceMaps/withSourceMaps.png)
+With these flags, the `webpack.*.sourcemap.config.ts` configuration files are used to enable source mapping. For information about using source maps, see our [[guide to debugging frontend code|Debug-frontend-code]]
