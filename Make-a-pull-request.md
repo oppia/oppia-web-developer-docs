@@ -115,6 +115,15 @@ Once your feature is ready, you can open a pull request (PR)!
 
 * Then, wait for your code to get reviewed! While you're waiting, it's totally fine to start work on a new PR if you like. Just follow these instructions again from the beginning.
 
+Here's a video showing one example of the PR creation process:
+
+[![First frame of a screen recording showing how to open a new PR](images/demoOpenPR.png)](https://user-images.githubusercontent.com/19878639/137946692-7c5f72e3-c6ce-4157-b8fa-b1e82bcc7642.mov)
+
+Notice that in this example:
+
+* No proof of correctness was needed, but this might not be the case for your PR.
+* The CI checks were failing as soon as the PR was opened. If you see this, you should investigate.
+
 ## Step 5: Address review comments until all reviewers approve
 
 Note that reviewers will often say "LGTM," which means "looks good to me".
