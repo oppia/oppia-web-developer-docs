@@ -357,7 +357,7 @@ URL_PATH_ARGS_SCHEMAS = {}
 HANDLER_ARGS_SCHEMAS = {
     'PUT': {},
     'GET': {},
-    'PUT': {},
+    'DELETE': {},
     'POST': {}
 }
 ```
