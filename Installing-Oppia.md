@@ -12,7 +12,7 @@ You might need to install an older version of Oppia that uses Python 2. Only do 
 * [[Mac OS|Installing-Oppia-(Mac-OS)]]
 * [[Windows|Installing-Oppia-(Windows)]] (might be a bit complicated, we recommend to use Linux or Mac if you can)
 
-If you run into any problems during installation, please read [[these notes|Issues-with-installation?]] and the [[troubleshooting|Troubleshooting page]].
+If you run into any problems during installation, please read [[these notes|Issues-with-installation?]] and the [[Troubleshooting page|Troubleshooting]].
 
 Take a look at our [[guide for getting started with some common code editors|Tips-for-common-IDEs]].
 
