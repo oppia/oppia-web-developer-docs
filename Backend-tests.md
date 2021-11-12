@@ -199,6 +199,8 @@ Ran 326 tests in 47 test classes.
 
 You can find more information about the exact errors by scrolling up and looking through the error log for tests marked `FAILED` (indicating that an assertion in the test failed) and `ERROR` (indicating that an exception was raised by the test).
 
+Note that you might see a bunch of lines that just contain `[datastore]`. While annoying, this is normal. We just haven't figured out how to get rid of them yet. You can follow [#14239](https://github.com/oppia/oppia/issues/14239) to track our progress in fixing this.
+
 ### Coverage reports
 
 We use a simple tool, called *code coverage*, to check that all of Oppia’s backend code is fully covered by at least one test. Coverage reports specify which lines of each file have not been used in any test, and they report what percentage of each file is covered by the tests. Currently, Oppia has achieved **100% backend coverage**. We require that all changes maintain this full coverage.
