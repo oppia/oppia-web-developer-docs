@@ -150,7 +150,7 @@ When your reviewer has completed their review, they will reassign the pull reque
 
 * **Never force-push changes to GitHub.** This will lead to the PR being closed.
 
-* As you are making changes, track them by replying to each comment via the Files Changed tab. Each reply should be either "Done" or a response explaining why the corresponding suggestion wasn't implemented. Also, please **do not** mark the comment as resolved, since this just makes it harder to actually read the comment thread.
+* As you are making changes, track them by replying to each comment via the Files Changed tab. Each reply should be either "Done" or a response explaining why the corresponding suggestion wasn't implemented. Also, please **do not** mark the comment as resolved, since this just makes it harder to actually read the comment thread. Also, please **use the 'Start a review' button** (rather than the 'Add single comment' button) to write draft comments, so that you don't publish them before the code is ready.
 
   **Tip:** If a reviewer asks questions about the "why" behind something, consider proactively adding a clear comment above the relevant line in your code, since the fact that the reviewer had to ask suggests that at least one developer doesn't understand what is going on from the code alone. Otherwise, you'll probably get a follow-up review comment asking you to leave a code comment anyway :)
 
