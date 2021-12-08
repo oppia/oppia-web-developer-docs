@@ -120,7 +120,7 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
    ...
    ```
 
-   If you see the warning at the end, add the following lines to your `.bashrc` ([this StackExchange link](https://askubuntu.com/a/127059) explains where to find this file):
+   If you see the warning at the end, add the following lines to your `.bashrc` (see [here](https://askubuntu.com/a/127059) for where to find this file):
 
    ```bash
    export PYENV_ROOT="$HOME/.pyenv"
