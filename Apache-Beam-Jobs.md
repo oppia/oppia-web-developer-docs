@@ -588,13 +588,13 @@ These instructions assume you are running a local development server. If you are
 
 ### Production Server
 
-Before a job or feature that cannot be fully tested locally can be run and deployed in production, it must first be tested on the Oppia backup server. Examples of features that require backup server testing are features that add or modify code that requires some third-party API, like Cloud Tasks, Cloud Storage, or Cloud Translate.
+Before a job can be run and deployed in production, it must first be tested on the Oppia backup server.
 
-If your job or feature is not essential for the release and has not been fully tested by the release cut, then it is not going into the release. "Fully tested" means:
-- The job or feature should run without failures on the Oppia backup server.
-- The job or feature produces the expected output.
-- The job or feature has the expected outcome (this must be verified by e.g. user-facing changes, or a validation job, or an output check, etc.).
-- The job or feature should be explicitly approved by server jobs admin (currently @seanlip and @vojtechjelinek).
+If your job is not essential for the release and has not been fully tested by the release cut, then it is not going into the release. "Fully tested" means:
+- The job should run without failures on the Oppia backup server.
+- The job produces the expected output.
+- The job has the expected outcome (this must be verified by e.g. user-facing changes, or a validation job, or an output check, etc.).
+- The job should be explicitly approved by the server jobs admin (currently @seanlip and @vojtechjelinek).
 
 Also, in case your job changes data in the datastore, there has to be a validation job accompanying it to verify that the data that you are changing is valid in the server. **The validation job will have to be "Fully tested" before testing on the migration job can start.**
 
@@ -604,11 +604,32 @@ For a full overview of the process to get your job tested on the Oppia backup se
 
 #### Instruction for job testers
 
-There are two ways to perform the testing of the Beam jobs:
+There are two ways to perform the testing of the Beam jobs, both of these need to be done by a person that has deploy access to the backup server.
 
-1. Deploy the branch with the Beam job on the backup server and run the job from the backup server.
+##### Deploy to backup server
 
-2. Run the Beam job on the backup server from the local dev server.
+This way provides full testing of the job.
+
+1. Deploy branch containing the job to the backup server
+2. Run the job through the [release coordinator page](https://oppiaserver-backup-migration.appspot.com/release-coordinator)
+3. If the job fails you can check the details of the error on the Google Cloud Console in the Dataflow section
+
+
+##### Run the job on backup server through the local dev server
+
+The downside of this approach is that you cannot get the job output, you can only verify that it works.
+
+In order to run jobs through the local dev server you need to have JSON key that will provide access to the backup server. The key can be generated according to step 4 and step 5 of the [Quickstart for Python](https://cloud.google.com/dataflow/docs/quickstarts/quickstart-python).
+
+1. Have the JSON key ready
+2. Add `GOOGLE_APPLICATION_CREDENTIALS: "<absolute path to JSON key>"` to `env_variables` in _app_dev.yaml_
+3. In _core/domain/beam_job_services.py_ change value of `run_synchronously` to `False`
+4. In _core/feconf.py_
+  1. Change the value of `OPPIA_PROJECT_ID` to `'oppiaserver-backup-migration'`
+  1. Change the value of `DATAFLOW_TEMP_LOCATION` to `'gs://oppiaserver-backup-migration-beam-jobs-temp/'`
+  1. Change the value of `DATAFLOW_STAGING_LOCATION` to `'gs://oppiaserver-backup-migration-beam-jobs-staging/'`
+5. Start the dev server and run the job through the release coordinator page
+6. If the job fails you can check the details of the error on the Google Cloud Console in the Dataflow section
 
 
 ## Common Beam errors
