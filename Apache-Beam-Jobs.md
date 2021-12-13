@@ -35,12 +35,16 @@
 
   * Count the number of models in the datastore.
   * Update a property across all models.
-  * Validate the relationships between models.
+  * Delete all models that are no longer needed.
+  * Delete all models that belong to one user.
+  * Create stats models from other models.
 
 * **Continuous**: Operations that are designed to run _indefinitely_ by reacting to updates to the datastore. Here are some examples:
 
   * Updating the top 10 answers to a lesson every time a new answer is submitted.
   * Generating notifications for the events that users have subscribed to whenever those events change.
+
+Jobs can be triggered manually or automatically. Manually this can be done through the release coordinator page. Automatically jobs can be run through code, this is used together with CRON to schedule jobs to be run at a specific date and time.
 
 If you're already familiar with Apache Beam or are eager to start writing a new job, jump to the [case studies](#case-studies). Otherwise, you can read the whole page. If you still have questions after reading, take a look at the [Apache Beam Programming Guide][1] for more details.
 
