@@ -64,6 +64,8 @@ Welcome! Please make sure to follow the instructions above if you haven't alread
 
 * [#14033](https://github.com/oppia/oppia/issues/14033) (Adding MyPy type annotations to domain files)
 
+* [#14219](https://github.com/oppia/oppia/issues/14219) (Writing backend tests)
+
 #### Frontend
 
 * [#10700](https://github.com/oppia/oppia/issues/10700) (Refactor all migrated object factories to model.ts files in angular)
