@@ -100,7 +100,7 @@ We also have a project leads council who will be contacted about project specifi
 | December      | Akshay (**@aks681**)        | Nithesh (**@nithusha21**)   | Kevin (**@kevintab95**)     |
 | January       | Sandeep (**@DubeySandeep**) | Kevin (**@kevintab95**)     | Vojta (**@vojtechjelinek**) |
 | February      | Vojta (**@vojtechjelinek**) | Chris (**@U8NWXD**)         | Kevin (**@kevintab95**)     |
-| March         | Kevin (**@kevintab95**)     | Rohit (**@rohitkatlaa**)    | Vojta (**@vojtechjelinek**) |
-| April         | Akshay (**@aks681**)        | Vojta (**@vojtechjelinek**) | Kevin (**@kevintab95**)     |
+| March         | Kevin (**@kevintab95**)     | Vojta (**@vojtechjelinek**) | Kevin (**@kevintab95**)     |
+| April         | Akshay (**@aks681**)        | Rohit (**@rohitkatlaa**)    | Vojta (**@vojtechjelinek**) |
 | May           | Chris (**@U8NWXD**)         | Nithesh (**@nithusha21**)   | Kevin (**@kevintab95**)     |
 | June          | Nithesh (**@nithusha21**)   | Akshay (**@aks681**)        | Kevin (**@kevintab95**)     |
