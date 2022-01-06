@@ -29,20 +29,13 @@
 
 ## Introduction
 
-[Apache Beam](https://beam.apache.org/) is used by Oppia to perform large-scale datastore operations. There are two types of operations:
-
-* **Batch**: Operations that are designed to be executed _once_ on the current state of the datastore. Here are some examples:
+[Apache Beam](https://beam.apache.org/) is used by Oppia to perform large-scale datastore operations. We use Apache Beam jobs mostly as batch operation jobs, examples can be:
 
   * Count the number of models in the datastore.
   * Update a property across all models.
   * Delete all models that are no longer needed.
   * Delete all models that belong to one user.
   * Create stats models from other models.
-
-* **Continuous**: Operations that are designed to run _indefinitely_ by reacting to updates to the datastore. Here are some examples:
-
-  * Updating the top 10 answers to a lesson every time a new answer is submitted.
-  * Generating notifications for the events that users have subscribed to whenever those events change.
 
 Jobs can be triggered manually or automatically. Manually this can be done through the release coordinator page. Automatically jobs can be run through code, this is used together with CRON to schedule jobs to be run at a specific date and time.
 
