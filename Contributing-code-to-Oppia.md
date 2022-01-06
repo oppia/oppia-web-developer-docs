@@ -84,6 +84,8 @@ Welcome! Please make sure to follow the instructions above if you haven't alread
 
 * [#10616](https://github.com/oppia/oppia/issues/10616) (Introduce new @typescript-eslint rules n the codebase)
 
+* [#12912](https://github.com/oppia/oppia/issues/12912) (Fix pylint problems)
+
 These issues are hand-picked to ensure that you don't run into unexpected roadblocks while working on them. For other issues, you may need to be more independent because often times, we don’t know how to solve them either.
 
 If you decide to pick one of these, please go ahead and leave a comment saying which part of the issue you're taking, and submit a follow-up PR by following the instructions to [[make a PR|Make-a-pull-request]]. You don't need to wait for approval to get started!
