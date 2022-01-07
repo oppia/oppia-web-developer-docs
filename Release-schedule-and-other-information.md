@@ -78,6 +78,7 @@ We also have a project leads council who will be contacted about project specifi
   * Vojtěch Jelínek (**@vojtechjelinek**)
   * Kevin Thomas (**@kevintab95**)
   * Chris Skalnik (**@U8NWXD**)
+  * Ankita Saxena (**@ankita240796**)
 
 * Release Coordination team:
   * Nithesh Hariharan (**@nithusha21**)
@@ -98,8 +99,8 @@ We also have a project leads council who will be contacted about project specifi
 | Month         | Release team member         | QA coordinator              | Server errors coordinator   |
 | ------------- | --------------------------- | --------------------------- | --------------------------- |
 | December      | Akshay (**@aks681**)        | Nithesh (**@nithusha21**)   | Kevin (**@kevintab95**)     |
-| January       | Sandeep (**@DubeySandeep**) | Kevin (**@kevintab95**)     | Vojta (**@vojtechjelinek**) |
-| February      | Vojta (**@vojtechjelinek**) | Chris (**@U8NWXD**)         | Kevin (**@kevintab95**)     |
+| January       | Ankita (**@ankita240796**)  | Kevin (**@kevintab95**)     | Vojta (**@vojtechjelinek**) |
+| February      | Sandeep (**@DubeySandeep**) | Chris (**@U8NWXD**)         | Kevin (**@kevintab95**)     |
 | March         | Kevin (**@kevintab95**)     | Vojta (**@vojtechjelinek**) | Kevin (**@kevintab95**)     |
 | April         | Akshay (**@aks681**)        | Rohit (**@rohitkatlaa**)    | Vojta (**@vojtechjelinek**) |
 | May           | Chris (**@U8NWXD**)         | Nithesh (**@nithusha21**)   | Kevin (**@kevintab95**)     |
