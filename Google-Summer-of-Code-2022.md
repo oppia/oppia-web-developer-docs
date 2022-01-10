@@ -91,7 +91,7 @@ A: This depends on your project. Focus on the project's goals.
 
 **Q: [GSoC FAQ](https://developers.google.com/open-source/gsoc/faq#can_someone_already_participating_in_open_source_be_a_gsoc_contributor) mentions that it is only for new contributors, I already contribute to Oppia for half a year and I have write access, can I still participate?**
 
-A: Yes, you can participate, this rule applies only to contributors that are members of the Core Maintainers team at Oppia. 
+A: TODO
 
 <!---
 ## GSoC Proposal Template
