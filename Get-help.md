@@ -5,6 +5,7 @@
   * [Gitter](#gitter)
   * [Google Chat or Hangouts](#google-chat-or-hangouts)
   * [GitHub](#github)
+  * [GitHub Discussions](#github-discussions)
 * [How to Ask Good Questions](#how-to-ask-good-questions)
   * [Setup-related questions](#setup-related-questions)
     * [Before you ask a setup question](#before-you-ask-a-setup-question)
@@ -31,7 +32,7 @@ You can also email your mentor with any questions. If you don't have a mentor, c
 
 ### Gitter
 
-We have a developer chat room [here](https://gitter.im/oppia/oppia-chat). Feel free to drop in and say hi! Oppia's Welfare team monitors this chat to help out new contributors, so it's the best place to ask questions about setting up Oppia or getting started.
+We have a developer chat room [here](https://gitter.im/oppia/oppia-chat). Feel free to drop in and say hi! Oppia's Welfare team monitors this chat to help out new contributors, so it's the best place to ask questions about Oppia or getting started. For questions about setting up Oppia or regarding the codebase or tests you can create a [GitHub Discussion](https://github.com/oppia/oppia/discussions) where Oppia's Welfare team and other developers will assist you in resolving the issue.
 
 You can also directly message developers over Gitter. However, some developers don't monitor their Gitter messages regularly, so you might not get a response very quickly (or at all).
 
@@ -44,6 +45,16 @@ Most Oppia developers and teams use Google Chat or Google Hangouts as their prim
 If you have a question about a pull request or issue, you can also reach out to developers by at-mentioning them (e.g. `@developer-username`) in a comment and assigning them to the issue. Be sure you both at-mention and assign them! Some developers only look at their GitHub notifications (which at-mentions trigger), while others only look at what they're assigned to.
 
 You can even mention whole teams of people! For example, if you find an issue that is destabilizing the project, you could notify all the core maintainers by including `@oppia/core-maintainers` in your issue. The teams are all listed [here](https://github.com/orgs/oppia/teams).
+
+### GitHub Discussions
+If you have questions regarding Oppia you can create a discussion here where Oppia's Welfare team and other developers will assist you in resolving the issue. You can create a discussion in any of the following categories based on the question:
+
+* Developer announcements: All announcements that affect developers for the Oppia repository will be announced here.
+* Setup Issues: Any issues that developers are facing with setting up or starting the server.
+* Q&A: Any questions that developers have.
+* Ideas: Any developer can place an idea here and it can be discussed here.
+
+You can refer to [this guide](https://docs.github.com/en/discussions/quickstart#creating-a-new-discussion) on how to create a new discussion. You can also ping the welfare team by at-mentioning the welfare team: @oppia/web-welfare-team
 
 ## How to Ask Good Questions
 
@@ -59,13 +70,13 @@ At Oppia we don’t care how silly your question is! Just ensure your question i
 
 3. In case of any unexpected behavior/errors at any step, make sure you check out our wiki on [how to troubleshoot when you are facing installation errors](https://github.com/oppia/oppia/wiki/Issues-with-installation%3F#when-you-encounter-an-installation-error).
 
-If you are still not able to fix your error, start following the section below to raise your question on [Gitter](https://gitter.im/oppia/oppia-chat#).
+If you are still not able to fix your error, start following the section below to raise your question on [GitHub Discussions](https://github.com/oppia/oppia/discussions/categories/setup-issues).
 
 #### How to ask a setup question
 
 **Note**: If you are stuck at Step X, we will assume all previous steps through X-1 were successful for you. In case there were any previously failed steps, kindly mention those too with their error logs.
 
-Please follow the template given below (mark x inside checkboxes to tick them) for sending your question to Gitter.
+Please follow the template given below (mark x inside checkboxes to tick them) for creating a GitHub Discussions.
 
 ```md
 **Checklist**
