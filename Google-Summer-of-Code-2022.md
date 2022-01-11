@@ -92,7 +92,7 @@ A: This probably depends on the project(s) you wish to apply for. However, note 
 
 **Q: The [Google GSoC FAQ](https://developers.google.com/open-source/gsoc/faq#can_someone_already_participating_in_open_source_be_a_gsoc_contributor) mentions that it is only for new contributors. I have already contributed to Oppia and I have write access, can I still participate?**
 
-A: The GSoC program is open to new and beginner contributors to open source. Some of our contributors with write access are still beginner contributors, whereas some of our other contributors with write access will not qualify because they are experienced contributors. If you only recently received write access, or have been contributing to Oppia for less than a year, you are probably still a beginner contributor. If the previous sentence does not apply to you, and you want to know which group you fall into, please contact the Oppia GSoC admins directly (**TODO: add contact points**) for a decision.
+A: The GSoC program is open to new and beginner contributors to open source. Some of our contributors with write access are still beginner contributors, whereas some of our other contributors with write access will not qualify because they are experienced contributors. If you only recently received write access, or have been contributing to Oppia for less than a year, you are probably still a beginner contributor. If the previous sentence does not apply to you, and you want to know which group you fall into, please contact **@vojtechjelinek** or **@seanlip** for a decision.
 
 <!---
 ## GSoC Proposal Template
@@ -147,7 +147,7 @@ In order to ensure a well-rounded engineering experience, contributors will do s
 -   Create UI mocks (if doing frontend development)
 -   Write design documents (if implementing large features or introducing new systems)
 
-We asked our previous GSoC contributors what they learned during previous GSoC. Here are the collated answers:
+We've also asked our previous GSoC contributors what they learned during previous GSoCs. Here are the collated answers:
 
 -   Technical ability
     -   Writing clean code, while keeping in mind the requirement for the code to run in production.
