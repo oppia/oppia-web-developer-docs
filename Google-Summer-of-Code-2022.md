@@ -56,7 +56,7 @@ A: Writing a good project proposal, engaging with the community, helping other c
 
 **Q: Can you be flexible around my other commitments in the summer?**
 
-A: Yes (within reason)! This year, GSoC is going to be slightly different from previous years. The program has been restructured in a way that allows contributors to take some time off for any other commitments (such as exams etc.) [(View the timeline here)](https://developers.google.com/open-source/gsoc/timeline). Oppia will respect the same timelines as given by GSoC -- the main concern is whether you can still get the project done on time. Be upfront about your other commitments and make sure you schedule your time accordingly when creating your proposal. Other commitments you should list include time when you'll be in school and will commit less time to GSoC, time when you'll be travelling and away from GSoC work, any summer jobs you need to commit to, etc. We will try to be flexible around other time commitments, as long as your proposal convinces us that you will have enough time to complete the project by the end of the GSoC coding period. On the other hand, if you do not disclose other commitments, and it turns out that you are unable to commit to what you wrote on your proposal, this is grounds for failing the program.
+A: Yes (within reason)! This year, GSoC is going to be slightly different from previous years. The program has been restructured in a way that allows contributors to take some time off for any other commitments (such as exams etc.) [(View the timeline here)](https://developers.google.com/open-source/gsoc/timeline). Oppia will respect the same timelines as given by GSoC — the main concern is whether you can still get the project done on time. Be upfront about your other commitments and make sure you schedule your time accordingly when creating your proposal. Other commitments you should list include time when you'll be in school and will commit less time to GSoC, time when you'll be travelling and away from GSoC work, any summer jobs you need to commit to, etc. We will try to be flexible around other time commitments, as long as your proposal convinces us that you will have enough time to complete the project by the end of the GSoC coding period. On the other hand, if you do not disclose other commitments, and it turns out that you are unable to commit to what you wrote on your proposal, this is grounds for failing the program.
 
 **Q: Which projects are most important for Oppia?**
 
@@ -108,7 +108,7 @@ You are welcome to ask mentors for reviews during the proposal preparation phase
 Here's some advice about proposals and milestone timeline planning that we collated from previous contributors and mentors:
 
 -   Choose a project you're interested in! If you have a strong interest in your project, this will help you pick up necessary skills and tackle any unforeseen difficulties that arise during GSoC.
--   Familiarize yourself with the relevant part of the codebase for your project, especially if you haven't touched it before. It's important to think about how to integrate your project with the current Oppia structure -- don't design in a vacuum.
+-   Familiarize yourself with the relevant part of the codebase for your project, especially if you haven't touched it before. It's important to think about how to integrate your project with the current Oppia structure — don't design in a vacuum.
 -   Define milestones with enough detail to get a proper ETA for each milestone (so, don't just say "write e2e tests"), otherwise you run the risk of significantly underestimating the timeline.
 -   Clear written communication and presentation is crucial in preparing your proposal. The proposal should show that you have a clear understanding of the codebase and the final goal of the project. Eg. In a user-facing proposal, writing about just the files that have to be changed is not enough, detailed mocks and userflows (in the form of diagrams or points) are also essential.
 -   Limit proposal length. Remember a lengthy proposal is not equivalent to an excellent proposal.
@@ -117,14 +117,14 @@ Here's some advice about proposals and milestone timeline planning that we colla
 
 ### What should applicants expect from mentors in a proposal review?
 
--   Please write your proposal on the assumption that you "own" your chosen project. From your perspective, the submitted proposal should be in as good a condition as possible before you ask for a review. Make sure you have a sufficiently good understanding of the codebase/project to find flaws in the design; don't assume that reviewers are responsible for doing this for you. Note that your proposal doesn't need to be flawless -- we expect that you might make mistakes, and reviewers will be happy to guide you on how to improve. Instead, by "as good a condition as possible", we mean that your proposal should demonstrate:
+-   Please write your proposal on the assumption that you "own" your chosen project. From your perspective, the submitted proposal should be in as good a condition as possible before you ask for a review. Make sure you have a sufficiently good understanding of the codebase/project to find flaws in the design; don't assume that reviewers are responsible for doing this for you. Note that your proposal doesn't need to be flawless — we expect that you might make mistakes, and reviewers will be happy to guide you on how to improve. Instead, by "as good a condition as possible", we mean that your proposal should demonstrate:
     -   Your ownership of the project
     -   The research you have put into writing it
     -   Your analytical skills
     -   Your independence in making complex decisions
 -   Make sure to present solutions and ask for feedback, rather than just asking for solutions. You can do this by presenting the various solutions you came up with in your proposal, and doing an analysis of their advantages & disadvantages from the end-user perspective. Finally, choose the best solution you have and explain your reasoning behind your choice. Note that this doesn't mean that you must always have multiple ideas to solve a problem, but you should instead always explain how you reached a solution, and why is it the best one from the end-user's perspective.
--   Mentor's suggestions are "suggestions", not orders (often, reviewers may not be certain whether their suggestion is correct), so, as the proposal owner, you are welcome to decide whether to accept/reject it. In either case, when you are accepting/rejecting a suggestion provided by a reviewer, explain your reasoning and the research that led to your decision. Don't use an "appeal to authority" (e.g. "I am doing it this way because XXX said so") -- the rational analysis that underlies the decision is what's important.
--   We do not expect you to always agree with your reviewers. If you think that the suggestion doesn't suit your project, it is totally fine to explain your decision and provide reasons for it. It is always a good idea to have discussions when you have confusions, rather than simply agreeing. Note that this does not mean that we encourage you to disagree with your reviewers on everything -- this is just a suggestion to bear in mind if you get confused.
+-   Mentor's suggestions are "suggestions", not orders (often, reviewers may not be certain whether their suggestion is correct), so, as the proposal owner, you are welcome to decide whether to accept/reject it. In either case, when you are accepting/rejecting a suggestion provided by a reviewer, explain your reasoning and the research that led to your decision. Don't use an "appeal to authority" (e.g. "I am doing it this way because XXX said so") — the rational analysis that underlies the decision is what's important.
+-   We do not expect you to always agree with your reviewers. If you think that the suggestion doesn't suit your project, it is totally fine to explain your decision and provide reasons for it. It is always a good idea to have discussions when you have confusions, rather than simply agreeing. Note that this does not mean that we encourage you to disagree with your reviewers on everything — this is just a suggestion to bear in mind if you get confused.
 -   Please note that your reviewer may or may not be involved in the final selection process. It is also **not** the case that you need to implement all your reviewers' suggestions/requests in order to be selected. As mentioned above, it is important that you actively take help and work together with your proposal reviewers in order to prepare a strong proposal that meets the guidelines for your chosen project.
 
 ### Sample proposals from past years
@@ -147,28 +147,29 @@ In order to ensure a well-rounded engineering experience, contributors will do s
 -   Create UI mocks (if doing frontend development)
 -   Write design documents (if implementing large features or introducing new systems)
 
-We asked our previous GSoC contributors what they learned during GSoC 2020. Here are the collated answers:
+We asked our previous GSoC contributors what they learned during previous GSoC. Here are the collated answers:
 
 -   Technical ability
     -   Writing clean code, while keeping in mind the requirement for the code to run in production.
     -   Working on a large codebase.
-    -   Reading and understanding code from other open source organizations.
-    -   Automated testing
+    -   Building an entire new feature in a scalable way.
+    -   Reading and understanding code from other open-source organizations.
+    -   Writing robust tests.
 -   Technical domain knowledge
-    -   I feel more confident on working with Angular. Oppia was the first time I worked with unit, e2e tests. I feel a lot more confident in writing code now whether be it making my own projects or contributing to other open source projects.
+    -   I feel more confident on working with Angular. Oppia was the first time I worked with unit, e2e tests. I feel a lot more confident in writing code now whether be it making my own projects or contributing to other open-source projects.
     -   I learned lots of things about typescript and webpack.
-    -   I understood how E2E tests and angular migrations worked in Oppia -- this felt very rewarding.
+    -   I understood how E2E tests and angular migrations worked in Oppia — this felt very rewarding.
     -   I enjoyed finding and fixing accessibility issues.
 -   Technical leadership skills
-    -   How to improve in planning.
-    -   Reviewing others' code
-    -   Technical design skills (and validation of technical ideas)
-    -   Organizing work flow, meetings management
+    -   Apart from the project, I learnt how to manage my time well, how to achieve deadlines especially when I got evaluations from external evaluators.
+    -   Reviewing others' code.
+    -   Technical design skills (and validation of technical ideas).
+    -   Learning how to give, respond to and understand reviews is something that I believe has improved a lot during the GSoC tenure.
 -   Communication
     -   Putting forward my thoughts more systematically and deeply so that everyone can understand me well.
     -   Better communication skills.
     -   How to write a good proposal.
--   I've become more independent and confident over the course of this project. This is not just due to my improvement in the technical aspect, but more importantly, I now know how to start, work through and successfully finish a large scale project. I feel like I can independently and confidently work on more big projects in the future and the fear of "being lost" that I had, has now significantly been reduced.
+    -   Learning how to work with a large community like this which is spread over different time zones.
 
 ## Selection Criteria
 
@@ -200,7 +201,7 @@ The following is a list of Oppia's 2022 GSoC project ideas. (Please note that al
 
 You are welcome to choose among these ideas, or propose your own! However, if you're planning to propose something original, it's essential to engage with the Oppia community in order to get feedback and guidance to improve the proposal. We also recommend taking a look at [Oppia's mission](https://github.com/oppia/oppia/wiki/Oppia's-Mission) and seeing if there is a natural way to tie your idea to the Oppia project's goals, otherwise it might not be a good fit at this time.
 
-The list of project ideas is not fixed and more projects can be added. Also, please note that **the project descriptions are not final yet** -- we are still working them out, and some of them may change a bit.
+The list of project ideas is not fixed and more projects can be added. Also, please note that **the project descriptions are not final yet** — we are still working them out, and some of them may change a bit.
 
 
 # Other useful information
