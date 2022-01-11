@@ -43,11 +43,12 @@ If you're interested in applying to work with Oppia for GSoC, please follow thes
 <!--- 6. Now, you can select one or more GSoC projects that you're most interested in, and write your project proposal! We strongly encourage you to discuss your project ideas and share your proposal with the community, so that you can get feedback and ensure that what you're writing makes sense to others. The best way to do this is to put your proposal into a collaborative editing tool like Google Docs, allow others to comment on it, and share a link to it on the [GSoC discussion mailing list](mailto:oppia-gsoc-discuss@googlegroups.com). You can also email this mailing list if you have any questions about a project, or would like to discuss your approach with the Oppia community and get feedback. Please be specific when asking questions, since this makes it easier for us to help you.
     - **Important note:** Please read [this oppia-gsoc-discuss@ thread](https://groups.google.com/forum/#!topic/oppia-gsoc-discuss/S6Ge3vQ3cuc) carefully for details about the recommended review process. Note that you do not need to write the entire proposal before getting your first review — see the instructions in that thread for more details. Thanks!
 --->
+
 ## FAQs
 
 **Q: What technical skills do I need to work on Oppia?**
 
-A: Familiarity with AngularJS (v1), Angular 2+, Python 3.7 and Google App Engine is useful and recommended for most Oppia work. In addition, UI design skills are useful for frontend, user-facing work. Please see the individual project ideas to determine whether these skills are recommended for the project in question.
+A: For Oppia Web, familiarity with AngularJS (v1), Angular 2+, Python 3.7 and Google App Engine is useful and recommended for most Oppia work; in addition, UI design skills are useful for frontend, user-facing work. For Oppia Android, you'll want to be familiar with Android development in Kotlin. Please see the individual project ideas to determine whether these skills are recommended for the project in question.
 
 **Q: How can I increase my chances of getting selected?**
 
@@ -55,7 +56,7 @@ A: Writing a good project proposal, engaging with the community, helping other c
 
 **Q: Can you be flexible around my other commitments in the summer?**
 
-A: This year, GSoC is going to be slightly different. The program has been restructured in way that allow contributors to take some time off for any other commitments (such as exams etc.) [(View the timeline here)](https://developers.google.com/open-source/gsoc/timeline). Oppia will respect the same timelines as given by GSoC, the main concern is whether you can still get the project done on time. Be upfront about your other commitments and make sure you schedule your time accordingly when creating your proposal. Other commitments you should list include time when you'll be in school and will commit less time to GSoC, time when you'll be travelling and away from GSoC work, any summer jobs you need to commit to, etc. We will try to be flexible around other time commitments, as long as your proposal convinces us that you will have enough time to complete the project by the end of the summer. On the other hand, if you do not disclose other commitments, and it turns out that you are unable to commit to what you wrote on your proposal, this is grounds for failing the program.
+A: Yes (within reason)! This year, GSoC is going to be slightly different from previous years. The program has been restructured in a way that allows contributors to take some time off for any other commitments (such as exams etc.) [(View the timeline here)](https://developers.google.com/open-source/gsoc/timeline). Oppia will respect the same timelines as given by GSoC -- the main concern is whether you can still get the project done on time. Be upfront about your other commitments and make sure you schedule your time accordingly when creating your proposal. Other commitments you should list include time when you'll be in school and will commit less time to GSoC, time when you'll be travelling and away from GSoC work, any summer jobs you need to commit to, etc. We will try to be flexible around other time commitments, as long as your proposal convinces us that you will have enough time to complete the project by the end of the GSoC coding period. On the other hand, if you do not disclose other commitments, and it turns out that you are unable to commit to what you wrote on your proposal, this is grounds for failing the program.
 
 **Q: Which projects are most important for Oppia?**
 
@@ -67,36 +68,36 @@ A: Yes you can. However, we strongly recommend picking one project and writing a
 
 **Q: How early should I start working on the proposal?**
 
-A: As early as possible. Make sure to get feedback from mentors before finally submitting the proposal. This will help you to write a better proposal as you can refine the details based on the feedback you receive. The mentors would need some time to review, and hence it is a good idea to begin as early as possible.
+A: As early as possible. Make sure to get feedback from mentors before finally submitting the proposal. This will help you to write a better proposal as you can refine the details based on the feedback you receive. The mentors would need some time to review your proposal, and hence it is a good idea to begin as early as possible.
 
-**Q: I only discovered this project recently. Does this mean that, during selection, my application would automatically be ranked lower than those by other applicants who have a longer tenure with Oppia?**
+**Q: I only discovered Oppia recently. Does this mean that, during selection, my application would automatically be ranked lower than those by other applicants who have a longer tenure with Oppia?**
 
-A: Definitely not! Here are the [selection criteria](#selection-criteria) we use when selecting contributors for GSoC; note that tenure is not part of these criteria. Also, our philosophy is to consider each application based on its own merits, not relative to other applications, and we try to accept every contributor whose application "meets the bar". The only cases in which we'd need to compare applications against each other are when a project idea receives multiple applications, or we receive fewer "slots" to host contributors than we originally applied for.
+A: Definitely not! Here are the [selection criteria](#selection-criteria) we use when selecting contributors for GSoC; note that tenure is not part of these criteria. Also, our philosophy is to consider each application based on its own merits, not relative to other applications, and we try to accept every contributor whose application "meets the bar". The only cases in which we'd need to compare applications against each other are when a project idea receives multiple applications, we receive fewer "slots" to host contributors than we originally applied for, or we don't have enough mentors to host all the projects we want to support.
 
 **Q: What are the minimum number of PRs that one should have?**
 
-A: There is no specific minimum number. Remember that quality is more important than quantity. It is better to submit a nontrivial PRs rather than a simple bug fix. Start with starter issues, then prioritize ones that are related to your project.
+A: There is no specific minimum number. Remember that quality is more important than quantity. It is better to submit a nontrivial PR rather than a simple bug fix. Start with starter issues, then prioritize ones that touch the area(s) of the codebase which are related to your project.
 
 **Q: What is the total number of contributors that will be accepted?**
 
 A: As many as we think will succeed, though GSoC admins may impose quotas.
 
-**Q: I do not have any experience in some XYZ skill. Is some certification required?**
+**Q: I do not have any experience in skill XYZ. Is some certification required?**
 
-A: Try to work on good first issues and take courses online. You develop experience & expertise once you start working. We do not need any certification.
+A: Try to work on good first issues and take courses online. In the field of software development, it is common to develop experience and expertise as you take up and complete projects successfully. We do not require any formal certification of particular skills.
 
 **Q: Is it okay to focus only on the frontend or backend?**
 
-A: This depends on your project. Focus on the project's goals.
+A: This probably depends on the project(s) you wish to apply for. However, note that the ability to be effective in both the frontend and backend will open up more opportunities for you, since projects often touch multiple layers of the stack.
 
-**Q: [GSoC FAQ](https://developers.google.com/open-source/gsoc/faq#can_someone_already_participating_in_open_source_be_a_gsoc_contributor) mentions that it is only for new contributors, I already contribute to Oppia for half a year and I have write access, can I still participate?**
+**Q: [GSoC FAQ](https://developers.google.com/open-source/gsoc/faq#can_someone_already_participating_in_open_source_be_a_gsoc_contributor) mentions that it is only for new contributors. I have already contributed to Oppia and I have write access, can I still participate?**
 
-A: TODO
+A: The GSoC program is open to new and beginner contributors to open source. Some of our contributors with write access are still beginner contributors, whereas some of our other contributors with write access will not qualify because they are experienced contributors. If you only recently received write access, or have been contributing to Oppia for less than a year, you are probably still a beginner contributor. If the previous sentence does not apply to you, and you want to know which group you fall into, please contact the Oppia GSoC admins directly (**TODO: add contact points**) for a decision.
 
 <!---
 ## GSoC Proposal Template
 
-When submitting a proposal, please use the provided [GSoC proposal template](https://docs.google.com/document/d/1fZ8yJG70zoANYGJgOv5wsIzz3arOX4Up4EJqfUU6nis/edit). We will only consider proposals submitted using this template.
+When submitting a proposal, please use the provided (**TODO: fix link and update subsequent paragraphs**)[GSoC proposal template](https://docs.google.com/document/d/1fZ8yJG70zoANYGJgOv5wsIzz3arOX4Up4EJqfUU6nis/edit). We will only consider proposals submitted using this template.
 
 You are welcome to ask mentors for reviews during the proposal preparation phase. Mentors will review proposals incrementally. That is, they will work through the Mocks section, and, only after they are satisfied with it, they will review the Technical Design section, and, similarly, only after that section looks good, they will review the Milestones section. This is meant to help ensure that later sections of the proposal are building on a solid baseline.
 
@@ -128,7 +129,7 @@ Here's some advice about proposals and milestone timeline planning that we colla
 
 ### Sample proposals from past years
 
-If you'd like to get a sense of what a proposal might contain, please see our [GSoC 2020 page](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2020) for examples of proposals that we accepted in 2020. Note that the [GSoC Proposal Template](https://docs.google.com/document/d/1fZ8yJG70zoANYGJgOv5wsIzz3arOX4Up4EJqfUU6nis/edit) was edited for 2021, so please be sure to follow the 2021 template.
+If you'd like to get a sense of what a proposal might contain, please see our [GSoC 2021 page](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2020) for examples of proposals that we accepted in 2021. However, please note that the [GSoC Proposal Template](https://docs.google.com/document/d/1fZ8yJG70zoANYGJgOv5wsIzz3arOX4Up4EJqfUU6nis/edit) has been completely revamped for 2022, so please be sure to follow the 2022 template.
 
 _**Note:** although some of the previous years proposals are a bit on the long side, there's **no** formal length requirement for your proposal. In general, the quality of what you write is much more important than the amount of text you write, and we encourage you to write shorter proposals that still convey the main aim of the project. For the actual requirements, please see the [GSoC Proposal Template](#gsoc-proposal-template) section above._
 
