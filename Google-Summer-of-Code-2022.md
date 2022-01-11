@@ -193,7 +193,7 @@ For the proposal, we generally look for a clear indication that the contributor 
 
 _**Note:** If you're coming to this section from an external link, please make sure to scroll up and read this entire wiki page carefully, not just this section. There's a lot of useful information on the rest of the page, including a FAQ and a section describing selection criteria. Thanks!_
 
-We will publish the projects ideas list around the start of February. We will annouce this on our [Oppia GSoC Announce mailing list](https://groups.google.com/g/oppia-gsoc-announce).
+We will publish the projects ideas list around the start of February. We will announce this on our [Oppia GSoC Announce mailing list](https://groups.google.com/g/oppia-gsoc-announce).
 
 <!---
 
