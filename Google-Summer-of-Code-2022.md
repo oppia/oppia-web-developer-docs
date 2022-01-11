@@ -7,7 +7,7 @@
 
 Oppia is planning to participate in [Google Summer of Code 2022](https://summerofcode.withgoogle.com/)! GSoC is a global program which offers an opportunity to discover and work with open source organizations to any non-experienced contributors and especially to post-secondary students. The contributions are supported by a stipend. Contributors work closely with one or more mentors from an open source organization in order to implement either a project idea by the organization, or a proposal of their own.
 
-In order to receive updates about GSoC at Oppia please subscribe to [Oppia GSoC Announce](https://groups.google.com/g/oppia-gsoc-announce).
+In order to receive updates about GSoC at Oppia, please subscribe to the [Oppia GSoC Announce](https://groups.google.com/g/oppia-gsoc-announce) mailing list.
 
 You might be interested in our GSoC info pages from previous years: [2021](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2021), [2020](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2020), [2019](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2019), [2018](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2018), [2017](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2017), [2016](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2016).
 
