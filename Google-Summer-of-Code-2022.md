@@ -80,17 +80,17 @@ A: There is no specific minimum number. Remember that quality is more important 
 
 **Q: What is the total number of contributors that will be accepted?**
 
-A: As many as we think will succeed, though GSoC admins may impose quotas.
+A: As many as we think will succeed, though the Google GSoC admins may impose quotas.
 
 **Q: I do not have any experience in skill XYZ. Is some certification required?**
 
 A: Try to work on good first issues and take courses online. In the field of software development, it is common to develop experience and expertise as you take up and complete projects successfully. We do not require any formal certification of particular skills.
 
-**Q: Is it okay to focus only on the frontend or backend?**
+**Q: Is it okay if I only focus on the frontend or backend?**
 
 A: This probably depends on the project(s) you wish to apply for. However, note that the ability to be effective in both the frontend and backend will open up more opportunities for you, since projects often touch multiple layers of the stack.
 
-**Q: [GSoC FAQ](https://developers.google.com/open-source/gsoc/faq#can_someone_already_participating_in_open_source_be_a_gsoc_contributor) mentions that it is only for new contributors. I have already contributed to Oppia and I have write access, can I still participate?**
+**Q: The [Google GSoC FAQ](https://developers.google.com/open-source/gsoc/faq#can_someone_already_participating_in_open_source_be_a_gsoc_contributor) mentions that it is only for new contributors. I have already contributed to Oppia and I have write access, can I still participate?**
 
 A: The GSoC program is open to new and beginner contributors to open source. Some of our contributors with write access are still beginner contributors, whereas some of our other contributors with write access will not qualify because they are experienced contributors. If you only recently received write access, or have been contributing to Oppia for less than a year, you are probably still a beginner contributor. If the previous sentence does not apply to you, and you want to know which group you fall into, please contact the Oppia GSoC admins directly (**TODO: add contact points**) for a decision.
 
