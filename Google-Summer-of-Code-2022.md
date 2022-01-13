@@ -30,7 +30,7 @@ If you're interested in applying to work with Oppia for GSoC, please follow thes
 
 2. Get a better understanding of what Oppia is all about by taking a look at our [user documentation](http://oppia.github.io/#/) — this will help you become familiar with important concepts like explorations and interactions. We also recommend having a go at playing lessons on [Oppia.org](https://www.oppia.org/splash), which hosts a live instance of Oppia.
 
-3. Read and follow the instructions in the [contributors' guide](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up) carefully.
+3. Read and follow the instructions in the contributors' guide carefully ([Web](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up, [Android](https://github.com/oppia/oppia-android/wiki/Contributing-to-Oppia-android)).
 
 4. Consider taking up one or more starter projects in order to become familiar with the contribution process. This will help us get an idea of what it's like to work with you — e.g. how independent, resourceful, responsive, etc. you are. It will also help you get a better understanding of the codebase, so that you can write a good and detailed project proposal.
 
