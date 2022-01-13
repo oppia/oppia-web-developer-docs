@@ -1,12 +1,11 @@
 ## Instructions
-When writing design docs at Oppia, please use this [design doc template](https://docs.google.com/document/d/1eMivKj5uWkOkj4AB684JVJslAe49gSskZ-VsyUjgPN4/edit). This will ensure that all the necessary information for the project is documented in a central location, and enable project reviews to be done effectively.
+When writing design docs at Oppia, please use this [design doc template](https://docs.google.com/document/d/1mnz8f708DZIa6BpUyRmbb0gCT6EKO3wIvWa_3rOEOYs/edit#). This will ensure that all the necessary information for the project is documented in a central location, and enable project reviews to be done effectively.
 
 More specifically, here’s how to get started:
 
-1. Make a copy of [this document](https://docs.google.com/document/d/1eMivKj5uWkOkj4AB684JVJslAe49gSskZ-VsyUjgPN4/edit).
-2. Delete the top "instructions" box.
-3. Fill in all the sections with details pertaining to your feature/project (you can remove the existing text, which is just meant to help you get started). For sections that are not required for the particular project you’re working on, write a short explanation of why they’re not required, rather than deleting them altogether.
-4. Make sure to proofread your design doc before asking reviewers to look at it.
+1. Make a copy of [this document](https://docs.google.com/document/d/1mnz8f708DZIa6BpUyRmbb0gCT6EKO3wIvWa_3rOEOYs/edit#).
+2. Fill in all the sections with details pertaining to your feature/project.
+3. Make sure to proofread your design doc before asking reviewers to look at it.
 
 ## How to respond to doc reviews
 
@@ -30,17 +29,7 @@ Design documents provide team members with the opportunity to review the future 
 
 ## Tips when writing design documents
 
-- Make sure that you understand the high-level goals of the project, then add increasingly more detail once that's established. Consider using the following strategy:
-  1. Start with the overview & goals of the project
-  2. Make sure that other team members are in agreement
-  1. Fill in the product design section of the document (mocks are really helpful)
-  1. Make sure that other team members are in agreement with the product design
-  3. Then, go into detail on the technical & architectural approach
-  4. Make sure other team members are in agreement with the architectural changes
-  5. Go into specifics of how the project will be implemented
-  6. Make sure other team members are in agreement with the specifics of the implementation
-  7. Fill in the milestones, PRs, time estimates, and other sections
-  8. Make sure other team members are in final agreement with the approach before beginning implementation
+- Make sure that you understand the high-level goals of the project before going into increasingly lower-level details.
 - Use dependency graphs, flow diagrams, and bullet lists when communicating the high-level architectural changes of the project.
 - When considering additional options that go beyond the initial goals of the project, consider whether these are essential. If they aren't, add them to a "future work" section that could be worked on alongside or after the project (but not as part of the project itself). If it is essential, make sure you factor that into the implementation plan.
 - When breaking down a project, determine all of the tasks that need to be completed for the project. A task is either performing a migration, adding/updating documentation, or creating a PR (each PR should correspond to a single task).
@@ -59,7 +48,7 @@ The following tips correspond to projects that span 3+ months:
   ii. Milestone 2: Implement the frontend/user-facing portion of the feature
   iii. Milestone 3: Performing any necessary migrations in production
 - When estimating a milestone, first estimate how much time each task takes and then fit as many tasks as you can within a milestone. Don't change your time estimates based on the milestone (just because something is expected to get done within a certain timeframe doesn't mean it can). If the milestones don't provide enough time to finish the project, that may indicate that the project needs to be rescoped.
-- If the project has multiple developers, ensure tasks and milestones have clear owners assigned to them
+- If the project has multiple developers, ensure tasks and milestones have clear owners assigned to them.
 
 ## Generating Sequence Diagrams using Text
 
