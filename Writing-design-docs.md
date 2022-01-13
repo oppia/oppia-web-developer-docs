@@ -4,8 +4,8 @@ When writing design docs at Oppia, please use this [design doc template](https:/
 More specifically, here’s how to get started:
 
 1. Make a copy of [this document](https://docs.google.com/document/d/1mnz8f708DZIa6BpUyRmbb0gCT6EKO3wIvWa_3rOEOYs/edit#).
-2. Fill in all the sections with details pertaining to your feature/project.
-3. Make sure to proofread your design doc before asking reviewers to look at it.
+2. Fill in the sections with details pertaining to your feature/project, following the instructions in the document template.
+3. Proofread what you've written before asking reviewers to take a look.
 
 ## How to respond to doc reviews
 
