@@ -86,7 +86,6 @@
     * [[Editor pages|Editor-pages]]
   * Backend
     * [[Writing state migrations | Writing-state-migrations]]
-    * [[Writing audit jobs|Writing-audit-jobs]]
     * [[Calculating statistics|Calculating-statistics]]
     * [[Storage models|Storage-models]]
     * [[Writing validators for storage models | Writing-Validators-for-storage-models]]
