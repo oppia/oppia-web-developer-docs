@@ -87,7 +87,6 @@
   * Backend
     * [[Writing state migrations | Writing-state-migrations]]
     * [[Writing audit jobs|Writing-audit-jobs]]
-    * [[Writing new one-off MapReduce jobs|Writing-new-one-off-jobs-using-map-reduce]]
     * [[Calculating statistics|Calculating-statistics]]
     * [[Storage models|Storage-models]]
     * [[Writing validators for storage models | Writing-Validators-for-storage-models]]
