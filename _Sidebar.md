@@ -39,7 +39,7 @@
     * [[Revert and Regression Policy|Revert-and-Regression-Policy]]
     * [[Debugging|Debugging]]
       * [[If your presubmit checks fail|If-your-presubmit-check-fails]]
-      * [[If CI checks fail on your PR|If-CI-checks-fail-on-your-PR.md]]
+      * [[If CI checks fail on your PR|If-CI-checks-fail-on-your-PR]]
       * [[Interpreting CircleCI Results|Interpreting CircleCI Results]]
       * [[Debugging datastore locally|Debugging-datastore-locally]]
       * [[Debugging Docs|Debugging-Docs]]
