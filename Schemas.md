@@ -51,6 +51,7 @@ A schema is just a dictionary that takes the form described below:
     * `custom`: A custom object type defined in `extensions/objects/models/objects.py`.
     * `object_dict`: A dictionary that corresponds to a domain object (an object whose class is defined in the domain layer).
     * `unicode_or_none`: Accepts data of type `unicode` or `None`. If the data is not `None`, it is normalized as if it were of type `unicode`.
+    * `variable_keys_dict`: A dictionary with a variable number of keys and values.
 
 * Optional keys:
 
@@ -76,6 +77,29 @@ A schema is just a dictionary that takes the form described below:
 
     * `len` (optional): The required length of the list. Normalization will fail if the list length differs from the value of this key.
     * `items` (required): A schema that describes each object in the list. Normalization will recursively normalize each of the list elements according to this schema.
+
+  * If the type is `variable_keys_dict`, the following keys apply:
+
+    * `keys` (required): A schema that defines the type of keys present in the dictionary.
+    * `values` (required): A schema that defines the type of values present in the dictionary.
+
+    For example, if there is a dictionary with variable no of keys and values of the same type. We require the following schema:
+
+      ```json
+      {
+          "type": "variable_keys_dict",
+          "keys": {
+              "schema": {
+                  "type": "basestring"
+              }
+          },
+          "values": {
+              "schema": {
+                  "type": "float"
+              }
+          }
+      }
+      ```
 
   * If the type is `dict`, the following keys apply:
 
