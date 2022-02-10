@@ -1,5 +1,9 @@
 If you need to debug the data in Google Cloud Datastore Emulator when running the devserver on localhost (e.g. you want to look what models are in the datastore emulator or you want to add or modify them) you cannot use the admin environment provided by the devserver as it cannot access the datastore emulator anymore (since Python 3 introduction). You need to use some custom GUI for the emulator, [DSAdmin](https://github.com/remko/dsadmin) is probably one of the best ones.
 
+## How to clear local datastore data
+
+In some cases it is possible that the local datastore data are not deleted when the server is rerun, you can delete the data by running `curl -X POST http://localhost:8089/reset` when the devserver is running.
+
 ## How start DSAdmin
 
 1. Download an archive for your platform and processor from the [DSAdmin releases GitHub page](https://github.com/remko/dsadmin/releases)
