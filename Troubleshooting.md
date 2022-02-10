@@ -2,6 +2,10 @@
 
 Here are some general troubleshooting tips for Oppia. The platform specific tips are [[Linux|Troubleshooting#linux]], [[Windows|Troubleshooting#windows]], and [[Mac OS|Troubleshooting#mac-os]].
 
+### Local datastore data are not being deleted
+
+In some cases it is possible that the local datastore data are not deleted when the server is rerun, you can delete the data by running `curl -X POST http://localhost:8089/reset` when the devserver is running.
+
 ### `No module named builtins`
 
 If after running `python -m scripts.start` you get the following lines:
