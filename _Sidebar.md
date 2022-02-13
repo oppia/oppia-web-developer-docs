@@ -34,7 +34,7 @@
     * [[Coding style guide|Coding-style-guide]]
     * [[Guidelines for creating new files|The-File-Naming-Convention-and-Directory-Structure]]
     * [[How to add a new page|Adding-new-page]]
-    * [[How to write type definitions|Guide-on-defining-types]]
+    * [[How to write frontend type definitions|Guide-on-defining-types]]
     * [[How to write design docs|Writing-design-docs]]
     * [[Revert and Regression Policy|Revert-and-Regression-Policy]]
     * [[Debugging|Debugging]]
