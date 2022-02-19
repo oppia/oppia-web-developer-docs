@@ -193,15 +193,764 @@ For the proposal, we generally look for a clear indication that the contributor 
 
 _**Note:** If you're coming to this section from an external link, please make sure to scroll up and read this entire wiki page carefully, not just this section. There's a lot of useful information on the rest of the page, including a FAQ and a section describing selection criteria. Thanks!_
 
-We will publish the projects ideas list around the start of February. We will announce this on our [Oppia GSoC Announce mailing list](https://groups.google.com/g/oppia-gsoc-announce).
-
-<!---
-
 The following is a list of Oppia's 2022 GSoC project ideas. (Please note that all mentor assignments listed below are provisional, and may change depending on which proposals are eventually accepted.)
 
 You are welcome to choose among these ideas, or propose your own! However, if you're planning to propose something original, it's essential to engage with the Oppia community in order to get feedback and guidance to improve the proposal. We also recommend taking a look at [Oppia's mission](https://github.com/oppia/oppia/wiki/Oppia's-Mission) and seeing if there is a natural way to tie your idea to the Oppia project's goals, otherwise it might not be a good fit at this time.
 
-The list of project ideas is not fixed and more projects can be added. Also, please note that **the project descriptions are not final yet** — we are still working them out, and some of them may change a bit.
+The list of project ideas is not fixed and more projects can be added.
+
+## LaCE
+
+### Learner Diagnostic Tests
+
+**Project Description:**
+
+We have heard that, when visiting the Oppia Classroom, learners are sometimes not sure which lesson(s) to start with. The aim of this project is to streamline the “getting started” experience for learners, as well as provide a way for them to test themselves and get personalized recommendations for what lesson(s) to work on next.
+
+Specifically, learners should see an option in the Math Classroom page to take a diagnostic test. This test should be a set of questions covering multiple topics. Ideally, it would be adaptive in nature, and have no more than 10-15 questions (possibly ending earlier if the student’s topic can be determined with fewer questions). When a recommendation is made, the learner should understand the rationale for the recommendation.
+
+Curriculum admins should be able to “program” this test. They would specify the key skills for each topic that it should use and how these map to the decision of which topic to recommend. A simple way to model this is for the curriculum admin to provide up to 3 key skills for each topic, in the order that these appear in each topic, as well as some representation of the dependencies between topics. The diagnostic test should “binary search” using this data to find the “earliest” topic that the learner would benefit from learning. (This is a high-level sketch and more detail should be supplied within the proposal.)
+
+**Size of this project:** large (~350 hours)
+
+**Potential Mentors:** @aks681, @krishita30j
+
+**Knowledge/Skills Recommended:** 
+
+* Knowledge and understanding of Python
+* Knowledge and understanding of TypeScript, Angular, HTML, and CSS
+* Some knowledge about designing UI might be useful
+
+**Suggested Milestones:**
+
+* **Milestone 1:** Curriculum admins should have a classroom-specific page where they can enter details for the diagnostic test and the inter-topic dependencies. There should at least be a comprehensive suite of backend integration tests that convincingly shows that the recommendation system works correctly (although the learner UI does not have to exist at this point).
+* **Milestone 2:** The full learner UI for diagnostic tests should be built.
+
+**Dependency on Release Schedule:** None.
+
+**Proposal notes:**
+
+
+
+* The proposal should include mocks for the learner and creator (i.e. curriculum admin) experiences.
+* The proposal should explain how to handle the case where a learner makes an error in the diagnostic tests that is not due to a misunderstanding of the topic, but more due to a typo or computation error. Do we give them another chance to submit the right answer, or do we give them a second question on that skill, or something else?
+* In the future, we would like to reuse this infrastructure for topic-level diagnostic tests that would help the learner figure out which lesson in a topic they should start from. Implementing these topic-level tests is not part of this GSoC project. However, when designing the infrastructure, please consider this use case as one that this project should be easily extendable to in the future.
+* From a product perspective, the learner feedback team will be a stakeholder for this project since they would use it to help students figure out which topic they’d like to learn at the start of a learner feedback session. 
+
+
+### Implementing the “card-level improvements” section of the lesson analytics dashboard
+
+**Project Description:**
+
+Oppia has, for each exploration, an “improvements tab” that shows common wrong answers to a question, so that the lessons can be improved. (For example, if a particular answer isn’t addressed well by the existing feedback, and is occurring regularly, then we can detect this and update the lesson.) This is important for ensuring that learners don’t get stuck.
+
+The existing stats dashboard is somewhat unwieldy and not well-suited for easily taking action to update lessons. A new improvements tab that is more editor-friendly has already been (mostly) designed. This improvements tab shows improvements that can be made to the exploration, categorized by bounce rate, incomplete learning, and specific wrong answers for cards.
+
+The aim of this project is to implement the part of the improvements tab that covers “Card-Level Improvements”. (The other two parts are out of scope for this project, and so is the call to action on the bottom right of each card – the main aim for this GSoC project is to show the necessary data correctly in a way that allows the creator to act on it.)
+
+The main challenge for this project is surfacing the necessary data correctly and quickly. In order to do this, the data needs to be grouped and arranged properly in the backend for easy retrieval. This data should be kept up-to-date using cron jobs, but since there is a lot of data, there should be some aggregation and archival strategy so that the cron jobs do not need to perform computations on the full historical dataset each time. The aim of this project is thus to build out this data pipeline and ensure that it is robust, and display its output in the frontend in the editor improvements tab.
+
+**Size of this project:** large (~350 hours)
+
+**Potential Mentors:** @seanlip, @vojtechjelinek
+
+**Knowledge/Skills Recommended:** 
+
+
+
+* Knowledge and understanding of Python
+* Knowledge and understanding of TypeScript, Angular, HTML, and CSS
+* Ability to write Beam jobs
+
+**Suggested Milestones:**
+
+
+
+* **Milestone 1:** Implement the data pipeline for answer statistics. This should include (a) one-off generation of archival models for historical data that are fast to query, (b) creating “realtime” models for each exploration/state that store the most recent set of answer data, (c) adding a trigger to update the archival model via a deferred job once the realtime model exceeds a certain number of distinct answers or storage size, (d) implementing the necessary queries and controllers to provide the “top wrong answers” data to the frontend. These jobs should work correctly in production.
+* **Milestone 2:** Implement the UI for “Card-Level Improvements” section of the improvements tab, excluding the “Address answers” and “Edit Feedback” calls-to-action. The tab should correctly display the answers for the different types of interactions.
+
+**Dependency on Release Schedule:** Since this project involves a step to generate archival models, the timeline should be arranged so that this step can be run and verified during the appropriate release cycle. 
+
+**Proposal notes:**
+
+
+
+* Functionality already exists in the Oppia codebase for storing submitted answers in the backend. The proposal should examine the existing stats pipeline and evaluate whether the current models used are fit for purpose, and suggest modifications to these if appropriate (rather than building a new “realtime model” from scratch).
+* One thing to consider when designing the data structure is versioning, and how to tell whether a set of answers is “still useful” for a given exploration version. A simple rule of thumb that could be used is whether the card still uses the same interaction. Additionally, each wrong answer surfaced could include the date when it was last seen, and this can be used to filter obsolete wrong answers.
+* It is important to go into detail on how the statistics will actually be computed and surfaced. An existing infrastructure for this relied on continuous computations, which were deprecated some time ago, and our other MapReduce jobs became obsolete after the Python 3 migration. Additionally, the previous infrastructure didn’t really handle versioning correctly. Thus, it will likely be necessary to revisit the infrastructure from scratch (don’t assume that what exists is already optimal), and see what can and cannot be reused.
+
+**Useful resources:**
+
+
+
+* (Somewhat outdated) design doc (not implemented) that overlaps with this project: [link](https://docs.google.com/document/d/1qQbW9Z_cgJ1mwU0hzBpPVS_4WLT_l_08ZixLR1G2bvQ/edit#heading=h.ylvrrqipsjif)
+* UI mocks: [link](https://drive.google.com/file/d/1GOrwZhVKCunSmOgbvMDaGFU2LSjT_MOf/view?usp=sharing) 
+
+### Learner Group MVP 
+
+**Project Description:**
+
+We would like to make it possible for teachers, tutors, and parents to support students learning on Oppia. We are therefore planning to introduce Learner Groups, where a facilitator can provide recommendations and goals to help guide learners, and learners can optionally share their progress so that facilitators can provide them with additional support.
+
+The aim of this project is to add functionality for learning facilitators to guide and monitor a group of learners directly in the Oppia platform. Specifically, facilitators should be able to create learner groups and invite learners to join them, and learners should be able to sign up for these groups. Facilitators should be able to monitor the progress of learners in their learning group and identify opportunities to help them.
+
+This project should cover the following:
+
+
+* Allow facilitators to create, access, and manage their learning groups in a separate “Teacher Dashboard” that any user can access, but that users can specifically select as their home page in their account Preferences page. 
+    * As part of this project, applicants should propose the design for this new dashboard.
+* Allow facilitators to create a learning group and its associated syllabus, and see the details of their learning group (as well as the list of individual learners and their progress).
+* Allow facilitators to invite learners to their learning group (via username), and these learners to join the learning group and set their sharing preferences. (For now, they’ll need to remember the URL or store it somewhere – adding a “learner groups” page to the learner dashboard is out of scope for this project.)
+* Allow learners to see their learning group homepage, which includes progress, preferences, and buttons to start practice question sessions and lessons (as recommended by the learning group facilitator through the syllabus).
+
+**Size of this project:** large (~350 hours)
+
+**Potential Mentors:** @aks681
+
+**Knowledge/Skills Recommended:** 
+
+
+
+* Knowledge and understanding of Python
+* Knowledge and understanding of TypeScript, Angular, HTML, and CSS
+* Attention to detail (in terms of UI)
+
+**Suggested Milestones:**
+
+
+
+* **Milestone 1:** Facilitators can create a learning group and its syllabus, and view its homepage (which contains the details of the learning group, its syllabus, and the list of learners and their progress). For this milestone, learners should not be able to join a learning group directly, but you can add a button to the admin dashboard to simulate a student joining the group and making some progress in development mode.
+* **Milestone 2:** Facilitators should be able to invite learners to join the group via username. Learners should be able to join the group, set their preferences (or edit them later), and see the group homepage (which contains their progress, as well as triggers for starting recommended activities from the syllabus).
+
+**Dependency on Release Schedule:** No dependencies on release schedule
+
+**Proposal notes:**
+
+
+
+* As part of this project, applicants should propose the design for the new Teacher dashboard
+
+**Useful resources:**
+
+
+
+* [Full PRD](https://docs.google.com/document/u/1/d/1GMkU_Vxi7Y69ZI4gRfxLaDpX-sWfaMZsGQdXasdeELQ/edit). Note that this GSoC project only covers **part of** the scope of this PRD – in particular, the following requirements are not in scope for this GSoC project:
+    * Allow learners to see the learning groups they are a part of in their learner dashboard. (would access directly via link for now)
+    * Allow learners to join by an “open link”.
+    * Allow facilitators to see statistical information about the group’s progress.
+    * Allow learners to block/report spammy facilitator invitations.
+
+
+
+### Blog integration
+
+**Project Description:**
+
+Last year, we built the editor interface for a blog so that blog editors can create and publish blog posts directly within the Oppia site. The aim of this GSoC project is to complete the learner interface for the blog and migrate all the posts from Oppia’s Medium blog page to it, so that we can use the blog on the site going forward.
+
+Specifically, this project entails creating a blog page at oppia.org/blog that displays published blog posts. Users should be able to:
+
+
+
+* Quickly and easily view previews of all of our previous blog posts in chronological order by original publish date
+* Click on a blog post preview to view a full version of the blog post
+* Filter blog posts based on tags associated with each post, or keywords in blog post titles
+
+The project also involves moving all existing blog posts from Medium to this new blog page. This can be done using any reasonable approach, as long as the blog posts are successfully migrated and look good on the new page.
+
+**Size of this project:** medium (~175 hours)
+
+**Potential Mentors:** @aks681, @iamprayush
+
+**Knowledge/Skills Recommended:** 
+
+
+
+* Knowledge and understanding of Python
+* Knowledge and understanding of TypeScript, Angular, HTML, and CSS
+* Attention to detail (in terms of UI)
+
+**Suggested Milestones:**
+
+
+
+* **Milestone 1:** Create the blog home page and individual blog post pages (but hide them behind a flag for now). It should be possible to create a new blog post (using the existing blog post creation infrastructure) and have it appear on the new blog page.
+* **Milestone 2:** Migrate all blog posts from Medium to the blog page on Oppia.org.
+
+**Dependency on Release Schedule:** Since migration of the blog posts needs to be done on the production server, the timeline for this project should be planned carefully so that the necessary functionality is deployed by the time the blog posts need to be migrated.
+
+
+---
+
+
+## Angular
+
+
+### Migrate exploration editor page and move to the angular cli with AOT compilation
+
+**Project Description:**
+
+Currently webpack is used to bundle all the frontend code, this does provide more flexibility over ng cli but devoids our project of features like AOT compilation.
+
+Introducing angular cli will provide more developer friendly experience as it is easier to use and configure.
+
+AOT the loading time by not shipping the angular compiler and compiling ahead of time and not in the browser.
+
+The project also aims to finish the migration of the exploration editor page and move all pages to angular router.
+
+Success criteria: 
+
+
+
+1. ng-build and ng-build --prod are used for all files.
+
+**Size of this project:** large (~350 hours)
+
+**Potential Mentors:** @srijanreddy98, @ashutoshc8101
+
+**Knowledge/Skills Recommended:** 
+
+
+
+* Having a good understanding of the Angular router
+* Having an in-depth understanding of Angular CLI and the Angular build system
+* PRs related to Angular migration that demonstrates your ability to migrate from AngularJS to Angular 2+
+
+**Suggested Milestones:**
+
+
+
+* **Milestone 1:** Remove AngularJS from the exploration editor page.
+* **Milestone 2:** Move all pages to use Angular router and use AOT with Angular CLI
+
+**Dependency on Release Schedule:** None
+
+**Proposal notes:**
+
+
+
+* The proposal should specify proposed `angular.json` configuration and expected reduction in build times.
+
+**Useful resources:**
+
+
+
+* **[CLI Overview and Command Reference](https://angular.io/cli)**
+* **[Angular Migration Wiki Page](https://github.com/oppia/oppia/wiki/Angular-Migration)**
+
+
+---
+
+
+## Backend
+
+### Make backend code typed
+
+Last year, we introduced MyPy (Python typing) into the codebase. This year, we want to fully type all remaining parts of the backend codebase. Also, as part of this, we would like to remove the existing docstring typeinfo annotations (and update the docstring lint checks accordingly) so that there is no duplicate type information.
+
+After this project is finished, all Python files in the Oppia codebase should be typed, and there should be no typeinfo in the docstrings.
+
+**Size of this project:** large (~350 hours)
+
+**Potential Mentors:** @vojtechjelinek
+
+**Knowledge/Skills Recommended:** 
+
+
+
+* Knowledge and understanding of MyPy, preferably not only basic typing structures but also more advanced concepts like literals, generics and overloads.
+* Knowledge of Python and also our backend tests, since refactors may be needed in some places.
+
+**Suggested Milestones:**
+
+
+
+* **Milestone 1:** Fully type core/domain and core/jobs.
+* **Milestone 2:** Fully type core/controllers and other remaining files.
+
+**Dependency on Release Schedule:** No
+
+**Proposal notes:** 
+
+Your proposal needs to explain the order in which you want to handle the typing of files and an explanation why you picked that order. Also, you need to explain how you plan to handle the removal of typing info from docstrings.
+
+You don’t need to include these sections in your proposal:
+
+
+
+* Additions/Changes to Web Server Endpoint Contracts
+* Calls to Web Server Endpoints
+* UI Screens/Components
+* Data Handling and Privacy
+* [Web only] Storage Model Layer Changes
+* [Web only] Web frontend changes
+
+**Useful resources:**
+
+
+
+* [Backend Type Annotations wiki](https://github.com/oppia/oppia/wiki/Backend-Type-Annotations) 
+* [MyPy documentation](https://mypy.readthedocs.io/en/stable/) 
+
+
+### Improve frontend type system
+
+Our frontend codebase is fully typed, but our typing doesn’t yet pass strict TypeScript checks. In this project you should firstly change the strict TypeScript config file so that all newly-added files need to be strictly typed, and then introduce strict typing for around 280 twins of files and tests for those files (so 560 files altogether).
+
+**Size of this project:** large (~350 hours)
+
+**Potential Mentors:** @vojtechjelinek
+
+**Suggested Milestones:**
+
+
+
+* **Milestone 1:** Change the TypeScript config file so that all newly-added files need to be strictly typed. Introduce typing for 140 twins of files and tests for those files (so, 280 files altogether).
+* **Milestone 2:** Introduce typing for 140 twins of files and tests for those files (280 files altogether).
+
+**Knowledge/Skills Recommended:** 
+
+
+
+* Knowledge and understanding of TypeScript typing, preferably not only basic typing structures but also more advanced concepts like literals, generics or overloads.
+* Knowledge of frontend tests, since in some places refactors to tests might be needed.
+
+**Dependency on Release Schedule:** No
+
+**Proposal notes:** 
+
+In your proposal you need to explain how you plan to introduce the TS config change so that all newly added files need to be strictly typed. Also, you should explain in what order you plan to type the files and an explanation why you picked that order.
+
+You don’t need to include these sections in your proposal:
+
+
+
+* Additions/Changes to Web Server Endpoint Contracts
+* Calls to Web Server Endpoints
+* UI Screens/Components
+* Data Handling and Privacy
+* [Web only] Storage Model Layer Changes
+* [Web only] Web frontend changes
+
+**Useful resources:**
+
+
+
+* [Guide on defining frontend types](https://github.com/oppia/oppia/wiki/Guide-on-defining-types)
+* [TypeScript documentation](https://www.typescriptlang.org/docs/handbook/) 
+* [Frontend tests wiki](https://github.com/oppia/oppia/wiki/Frontend-tests)
+
+
+### Fix validation errors
+
+We are currently in the process of introducing Beam jobs for validating datastore models. These will enable us to validate various attributes of our models and fix any consistency errors that are detected. 
+
+We also already know about some existing issues with our data that can be fixed as part of this project. These include:
+
+
+
+* Removing traces of ‘cloned from’ from old versions of some explorations ([#10828](https://github.com/oppia/oppia/issues/10828))
+* Handling deprecated commands ([#10807](https://github.com/oppia/oppia/issues/10807), [#10820](https://github.com/oppia/oppia/issues/10820))
+* Fixing `GeneralFeedbackThreadModel` entities with missing related `GeneralSuggestionModel` entities ([#11736](https://github.com/oppia/oppia/issues/11736)) 
+* Fixing datetime fields in `LearnerPlaylistModel`, `CompletedActivitiesModel`, `UserSubscriptionsModel`,  and `UserSettingsModel`  ([#11616](https://github.com/oppia/oppia/issues/11616), [#12120](https://github.com/oppia/oppia/issues/12120))
+* Adding more validation checks for datetimes ([#12121](https://github.com/oppia/oppia/issues/12121))
+* Implementing a process to ensure that external storage models linked to a storage model are updated in case of storage model deletion ([#10809](https://github.com/oppia/oppia/issues/10809))
+* Fixing `UnsentFeedbackEmailModel` entities with missing `GeneralFeedbackThreadModel`s and `GeneralFeedbackMessageModel`s ([#14966](https://github.com/oppia/oppia/issues/14966))
+* Fixing `GeneralSuggestionModel` that is marked as rejected but is missing final reviewer ID ([#14967](https://github.com/oppia/oppia/issues/14967))
+* Fixing `CompletedActivitiesModel` and `IncompleteActivitiesModel` to only reference existing and public explorations ([#14968](https://github.com/oppia/oppia/issues/14968))
+* Fixing `UserSubscriptionsModel` ([#14969](https://github.com/oppia/oppia/issues/14969))
+* Fixing `GeneralFeedbackMessageModel.feedback_thread_ids` to only reference existing `GeneralFeedbackThreadModel` ([#14971](https://github.com/oppia/oppia/issues/14971))
+* Fixing `ExpUserLastPlaythroughModel` has a few valdiation issues ([#14972](https://github.com/oppia/oppia/issues/14972))
+
+Other issues will arise after we run some of the validation jobs that we are currently working on.
+
+For clarity, this project **will not** entail writing any validation jobs from scratch, though in some cases it might require small modifications to the existing validation jobs (e.g. we might discover that, in some model property, we want to allow more values, and thus we need to modify the validation to allow more values). However, it does require writing jobs to fix the production data (based on known validation issues), running those jobs on a test instance, and then running those jobs in production.
+
+**Size of this project:** medium (~175 hours) or large (~350 hours). 
+
+<span style="text-decoration:underline;">Note</span>: We would recommend taking up this project as a longer-term one (e.g. until November) with fewer hours per week, since it can take time to verify the validations on a server with production data.
+
+**Potential Mentors:** @vojtechjelinek
+
+**Suggested Milestones:**
+
+
+
+* **Medium project:**
+    * **Milestone 1: **Fix 3 tasks from the list above.
+    * **Milestone 2: **Fix 3 tasks from the list above.
+* **Large project:**
+    * **Milestone 1: **Fix 6 tasks from the list above.
+    * **Milestone 2: **Fix 6 tasks from the list above.
+
+**Knowledge/Skills Recommended:** 
+
+
+
+* Good knowledge of Apache Beam
+* Ability to write Beam jobs
+* Understanding of the storage layer of our codebase 
+
+**Dependency on Release Schedule:** There is some dependency on the [release schedule](https://github.com/oppia/oppia/wiki/Release-schedule-and-other-information), as Beam jobs are a critical part of this project and these are run on the prod server only once a month. Although we can run these jobs at any time on a test server, they will ultimately need to be run in production, so we suggest organizing your milestones and timelines around which jobs you would like to complete by each of the release dates.
+
+**Proposal notes:** 
+
+
+
+* In your proposal, please explain how you plan to tackle the tasks from the list above. There are usually two parts to this: (a) making sure that we fix the current issues in our datastore, and (b) ensuring that those issues don’t reoccur in the future.
+* When designing the Beam jobs to fix existing issues in our datastore, make sure that those jobs only make modifications that are strictly necessary. Be especially careful with updates or deletions, since it is important to avoid any data loss or corruption. Specify how you would manually verify (on a test server) that the job has done the right thing after it is run, and what the rollback procedure for the job is (if something goes wrong while running it). 
+* Also, note that, in general, the jobs should be designed to be **idempotent**. That is, running them twice should result in the same outcome as running them once (since this allows us to just rerun them if an error happens with the Beam framework).
+
+You don’t need to include these sections in your proposal:
+
+
+
+* Additions/Changes to Web Server Endpoint Contracts
+* Calls to Web Server Endpoints
+* UI Screens/Components
+* [Web only] Web frontend changes
+
+**Useful resources:**
+
+
+
+* [Testing jobs and other features on production wiki](https://github.com/oppia/oppia/wiki/Testing-jobs-and-other-features-on-production) 
+* [Release schedule and other information wiki](https://github.com/oppia/oppia/wiki/Release-schedule-and-other-information) 
+* [Apache Beam Jobs wiki](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs) 
+
+
+### Move and fix data in Google Cloud Storage
+
+This project aims to make sure that our images and sound files in the GCS (Google Cloud Storage) have the correct MIME types, and also aims to migrate the profile images from UserSettingsModel to GCS.
+
+This project has three main parts:
+
+
+
+* Introduce GCS IO for Beam jobs, which will allow Beam jobs to work with files in GCS. (This is a prerequisite for the other parts of the project.)
+* Validate that existing files in GCS have the correct MIME types ([#13480](https://github.com/oppia/oppia/issues/13480)), and fix those types if needed
+* Migrate profile images from UserSettingsModel to GCS and start using WebP for profile images ([Move user profile images to GCS](https://docs.google.com/document/d/1PXg3MJOnjmdIc3gN0faiii6Lzrecc-rGOVY9sL-wOWs/edit))
+
+The GCS IO should offer these interactions with GCS:
+
+
+
+* Reading from files
+* Writing into files
+* Allow modifying file metadata
+* Deleting files
+* Getting list of files in a folder
+
+**Size of this project:** medium (~175 hours)
+
+**Potential Mentors:** @vojtechjelinek
+
+**Knowledge/Skills Recommended:** 
+
+
+
+* Good knowledge of Apache Beam
+* Ability to write Beam jobs
+* Knowledge of both Python and TypeScript, as this project has a full-stack component.
+
+**Suggested Milestones:**
+
+
+
+* **Milestone 1:** Introduce GCS IO for Beam jobs. Validate and fix MIME types in our GCS files.
+* **Milestone 2:** Migrate profile images from UserSettingsModel to GCS and start using WebP for profile images
+
+**Dependency on Release Schedule:** There is some dependency on the [release schedule](https://github.com/oppia/oppia/wiki/Release-schedule-and-other-information), as Beam jobs are a critical part of this project and these are run on the prod server only once a month. Although we can run these jobs at any time on a test server, they will ultimately need to be run in production, so we suggest organizing your milestones and timelines around which jobs you would like to complete by each of the release dates.
+
+**Proposal notes:** 
+
+
+
+* When designing the Beam jobs to fix existing issues in our datastore, make sure that those jobs only make modifications that are strictly necessary. Be especially careful with updates or deletions, since it is important to avoid any data loss or corruption. Specify how you would manually verify (on a test server) that the job has done the right thing after it is run, and what the rollback procedure for the job is (if something goes wrong while running it). 
+* Also, note that, in general, the jobs should be designed to be **idempotent**. That is, running them twice should result in the same outcome as running them once (since this allows us to just rerun them if an error happens with the Beam framework).
+
+**Useful resources:**
+
+
+
+* [Testing jobs and other features on production wiki](https://github.com/oppia/oppia/wiki/Testing-jobs-and-other-features-on-production) 
+* [Release schedule and other information wiki](https://github.com/oppia/oppia/wiki/Release-schedule-and-other-information) 
+* [Apache Beam Jobs wiki](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs) 
+* [Apache Beam GCS IO](https://beam.apache.org/releases/pydoc/2.36.0/apache_beam.io.gcp.gcsio.html) 
+
+
+---
+
+
+## Dev workflow
+
+
+### Achieve 100% Per-File Branch and Line Coverage for the Frontend and the Backend
+
+**Project Description:**
+
+Good test coverage is important for helping prevent regressions in the codebase. Currently, we have ~96% frontend line coverage, ~80% frontend branch coverage, ~99% backend branch coverage, and 100% backend line coverage. 
+
+We want to achieve 100% per-file branch and line coverage for both the frontend and the backend. “Per-file” means that a given non-test file is fully covered by its associated test file. The goal of this project would be to (1) achieve 100% per-file branch and line coverage and (2) implement the testing infrastructure to ensure that this coverage is maintained.
+
+**Size of this project:** @U8NWXD, @SAEb-ai, @gp201
+
+**Knowledge/Skills Recommended:** 
+
+
+
+* Experience using Karma to write frontend tests for Oppia
+* Experience using unittest to write backend tests for Oppia
+
+**Suggested Milestones:**
+
+
+
+* **Milestone 1:** Implement testing infrastructure and add 45% of the required tests.
+* **Milestone 2:** Add the remaining 55% of required tests.
+
+**Dependency on Release Schedule:** None.
+
+**Proposal Notes:**
+
+
+
+* In the “Testing Plan” section, you should describe how you will confirm that the testing infrastructure that you set up works correctly. However, you don’t need to describe specific user journeys or end-to-end tests there.
+
+**Useful resources:**
+
+
+
+* Karma’s coverage preprocessor has an option to apply coverage checks on a per-file basis ([docs](https://github.com/karma-runner/karma-coverage/blob/master/docs/configuration.md#check)), but we’ll probably need to stop combining tests into a single spec “file” at runtime for this option to work.
+* We use coverage to calculate backend test coverage, and this tool has an option to check branch coverage ([docs](https://coverage.readthedocs.io/en/latest/branch.html)).
+
+
+### Migrate away from Protractor
+
+**Project Description:**
+
+The Angular team plans to [end development of Protractor at the end of 2022](https://github.com/angular/protractor/issues/5502). We need to move towards a new E2E testing framework. Ideally, we want a framework that:
+
+
+
+1. Supports all existing Oppia functionality (e.g. some tools don't support opening new tabs)
+2. Supports taking screenshots and videos. This doesn’t have to be supported natively (e.g. with protractor we use ffmpeg for screen recordings), but it should be possible to do.
+3. Supports simulating mobile devices, slow connections, and offline mode.
+4. Is easy to write tests for.
+5. Is easy for us to migrate to.
+6. Is fast and has low memory usage.
+
+Most likely, no tool will excel in all of these areas, so we’ll need to find a tool that balances these goals. The aim of this project is to complete the migration of the existing e2e tests to this new tool.
+
+**Size of this project:** large (~350 hours)
+
+**Potential Mentors:** @U8NWXD, @SAEb-ai
+
+**Knowledge/Skills Recommended:** 
+
+
+
+* Familiar with protractor and whatever end-to-end testing tool you propose.
+
+**Suggested Milestones:**
+
+
+
+* **Milestone 1:** Set up the new tool with Github Actions, and migrate half of the existing e2e test suites. At this stage, we will probably have two scripts for running the e2e tests: one for Protractor suites and another for the migrated suites. On GitHub Actions, we will need to run both.
+* **Milestone 2:** Migrate the other half of the suites, and remove all references to Protractor from the codebase. Document how we use the new tool.
+
+**Dependency on Release Schedule:** None.
+
+**Proposal Notes:**
+
+
+
+* The Google team suggested six alternatives to Protractor that were **Cypress, Playwright, Puppeteer,  Selenium-webdriver, Testcafe and WebdriverIO**. As Cypress has limited support for iframes and no support for new tabs creation, and as Puppeteer does not have a proper migration guide, we ultimately came to four frameworks which best suit Oppia: **Playwright, Selenium-webdriver, Testcafe and WebdriverIO. **Even without having a proper migration guide, we choose **Selenium-webdriver** because it’s very similar to protractor in terms of APIs. Also, Protractor uses Selenium-Webdriver under its hood.** **You are recommended to propose a e2e testing framework out of the given four frameworks, but if you know of some other frameworks which best suit Oppia you are welcome to propose that and support your choice by showing why it’s the best way to meet Oppia’s needs (see the criteria above). One way to do this would be to show a comparison table of available testing frameworks against the different criteria.
+* In the “Testing Plan” section, you should describe how you will confirm that the testing infrastructure that you set up works correctly. However, you don’t need to describe specific user journeys or end-to-end tests there.
+* Your proposal should include a plan for how to seamlessly transition to the new end-to-end testing tool. For example, you might describe how, while you are doing the migration, we will run both Protractor and the new framework.
+
+**Useful resources:**
+
+
+
+* [Migrating from Protractor to Playwright - Official documentation](https://playwright.dev/docs/protractor). 
+* [Migrating from Protractor to WebdriverIO - Official documentation. ](https://webdriver.io/docs/protractor-migration/)
+* [Migrating from Protractor to TestCafe - Official documentation.](https://testcafe.io/documentation/403554/recipes/migration/migrate-tests-from-protractor-to-testcafe)
+* [Future of Angular E2E & Plans for Protractor - Google's official issue announcing deprecation](https://github.com/angular/protractor/issues/5502): This includes some suggested alternatives from the Protractor team
+
+
+---
+
+
+## Contributor Dashboard
+
+
+### Contributor Recognition Infrastructure
+
+**Project Description:**
+
+The Oppia Contributor Dashboard (oppia.org/contributor-dashboard) allows users to submit suggestions for translations and practice questions, which are then reviewed and accepted/rejected. These contributions are important for making Oppia’s lessons accessible and useful for learners around the world, and we would like to recognize and credit users who have made significant contributions in this area. 
+
+One idea we are interested in pursuing is to build a system that shows users their “impact”, modeled using points for completing tasks that ultimately provide value to learners (such as successfully submitting practice questions/translations and reviewing user-generated suggestions). We would like to use this system for the following use cases:
+
+
+
+1. **Celebrating user milestones in their profile page.** This can be simply a list of “achievements/badges”, e.g. “Submitted 1/3/5/10/etc. translations!”, “Reviewed X translations (Y words total)!” accompanied by icons. This would be a nice way to thank users for their many contributions. We will probably also want some mechanism for notifying a user by email each time they achieve a milestone. 
+2. **Allowing users to generate a “badge”/”certificate” from their main Contributor Dashboard page.** Frequently, student volunteers need to show proof of their contributions with data such as translated word counts. We would like to enable contributors to generate a record of their submission stats, along with their name and contribution dates. This can simply be shown as a table or image which the contributor can then screenshot (and share on social media, if they wish). Alternatively, a button could be shown that, when clicked, will result in a “certificate” file being downloaded to the user’s computer.
+
+For this GSoC project, you should implement this system and surface it to users for the above 2 cases.
+
+**Size of this project:** large (~350 hours)
+
+**Potential Mentors:** @sagangwee, @bhavukJain
+
+**Knowledge/Skills Recommended:** 
+
+
+
+* Knowledge and understanding of Python
+* Knowledge and understanding of TypeScript, Angular, HTML, and CSS
+* Some knowledge about game design might be useful
+
+**Suggested Milestones:**
+
+
+
+* **Milestone 1:** Complete the backend infrastructure. This includes adding data models (or updating existing ones) and writing methods to update them when a submission/acceptance/rejection action takes place, as well as writing one-off Beam jobs to initialize these scores/counters based on previous contributor actions (if possible). Additionally, the URL endpoints for surfacing data for the 2 use cases above should be added in the controller layer.
+* **Milestone 2:** Implement the necessary frontend services to retrieve the impact scores, and update the relevant UIs to display contribution milestones and generate contributor stats for the 2 use cases above.
+
+**Dependency on Release Schedule:** None.
+
+**Proposal notes:** 
+
+
+
+* Your proposal should clearly outline the scoring algorithm and different scoring “buckets” you plan to use, and the reasons supporting it. (Note that additionally maintaining separate fields with the raw data makes it possible to change how we display the summary data to users in the future.) You are welcome use the following ideas as a baseline (but make sure to think through corner cases, e.g. what should we do in principle if the original content gets deleted/modified after a translation suggestion has been made):  
+    * For translation submissions: points should probably correlate in some way to the length/difficulty of the translation. One idea is to add (M * translation word count) to a user’s “translation submission in language L” score if the submission is accepted (where M is a multiplier to be determined), and subtract a small constant amount if a submission is rejected. This score change is only applied when the submission is accepted, not at the time of submission (to avoid the user seeing their score go up and then down) – though it might be interesting to show users their “potential score increase if accepted” for translations that are still awaiting review.
+        * An alternative approach could be to maintain separate counters for “number of translations submitted/accepted”, “word count of submitted/accepted translations”, etc.
+        * If you decide to go with an approach like the above, please describe how you would handle the calculation of the “translation word count” for cases where the translation includes images, alt text, or math formulae.
+    * For practice question submissions: similar to above, but probably adding a constant value for each practice question instead.
+    * For translation reviews: 
+        * If the reviewer accepts a submission as-is, add 1 to their “number of accepted translations in language L” score. 
+        * If the reviewer edits the submission and then accepts it, add 1 to their “number of fixed-and-submitted translations in language L” score.
+        * If the reviewer rejects a submission, add 1 to their “number of rejected translations in language L” score.
+        * If the reviewer accepts/rejects a submission, additionally add the number of words in the submission to their “number of words reviewed” score.
+    * For practice question reviews: similar to above.
+* Your proposal should provide a clear explanation of how these scores and relevant contribution metadata (e.g. milestones reached) will be represented, stored and updated, so that they can be retrieved **quickly** when the user loads the relevant page in the frontend. (You might want to consider the pros/cons of storing milestone completions explicitly, vs. computing them on the fly.) 
+
+**Useful resources:**
+
+
+
+* [User documentation for contributor dashboard](https://oppia-lesson-creator-documentation.readthedocs.io/en/latest/contributor/contribute.html)
+* [Contributor Dashboard Design Overview](https://docs.google.com/document/d/1wM9cQzq1-3nbEhZliRlpnGDXbM_HspNkY16CYnA6lWg/edit)
+* [Populating test data in the contributor dashboard](https://docs.google.com/document/d/1JYX4nvTcblaVVYAlTi7rApE0lWSBx0v_ZCCr_8WW4Wc/edit?usp=sharing)
+* [https://github.com/oppia/oppia/wiki/Storage-models](https://github.com/oppia/oppia/wiki/Storage-models) 
+
+
+### Making the Contributor Dashboard UI Responsive
+
+**Project Description:**
+
+The Oppia Contributor Dashboard (oppia.org/contributor-dashboard) allows users to submit suggestions for translations and practice questions, which are then reviewed and accepted/rejected. Unfortunately, the existing contributor dashboard has only been developed with a focus on desktop/laptop users. Many of our contributors don’t necessarily have easy access to desktops/laptops, and we would also like users of mobile devices to have a seamless experience when submitting translations and practice questions.
+
+The aim of this project is therefore to implement a responsive UI for the contributor dashboard page and related user flows, based on these [mid-fidelity](https://www.figma.com/file/FNA3qSJP2dLmQMMnjgMLQI/Contributor-Dashboard-(final-draft)?node-id=0%3A1) and [high-fidelity mocks](https://xd.adobe.com/view/8eeae0ca-4aaa-4b6e-84e2-a80796089530-dbb9/?fullscreen). (Please use these mocks as a reference – you shouldn’t be creating your own mocks from scratch for this project!)
+
+**Size of this project:** medium (~175 hours) 
+
+**Potential Mentors:** @sagangwee, @bhavukJain
+
+**Knowledge/Skills Recommended:** 
+
+
+
+* Knowledge and understanding of TypeScript, Angular, HTML, and CSS
+* Responsive design
+* Attention to detail (in terms of UI)
+
+**Suggested Milestones:**
+
+
+
+* **Milestone 1:** Implement the mobile UI for the contributor dashboard landing page (this includes the overall navigation, as well as the user’s review/submission history).
+* **Milestone 2:** Implement the mobile UI for the translation and question submission pages (this includes both the list of opportunities and the submission workflow)
+
+**Dependency on Release Schedule:** None.
+
+**Proposal notes:** 
+
+
+
+* We encourage you to explore ways to make the user experience on mobile devices as intuitive as possible. If you see any improvements you can make to the flow, please feel free to suggest them. (Optionally, if you like, you can also register to help translate lessons through the [volunteer interest form](https://docs.google.com/forms/d/e/1FAIpQLSc5_rwUjugT_Jt_EB49_zAKWVY68I3fTXF5w9b5faIk7rL6yg/viewform) – this may help you get a sense of the workflow, but please only sign up if you are proficient in the language in question and are actually interested in helping out in this way.)
+* When writing your proposal, please explain how you plan to keep the responsive CSS easy to maintain. We recommend that you follow an approach that is consistent with other parts of the codebase, rather than inventing something brand-new just for the Contributor Dashboard. 
+
+**Useful resources:**
+
+
+
+* [User documentation for contributor dashboard](https://docs.google.com/document/d/17jMFtfHVWtJYrzyGQUKdsRXgky7lWv76sGYLOxSbA5w/edit)
+* [Contributor Dashboard Design Overview](https://docs.google.com/document/d/1wM9cQzq1-3nbEhZliRlpnGDXbM_HspNkY16CYnA6lWg/edit)
+* [Populating test data in the contributor dashboard](https://docs.google.com/document/d/1JYX4nvTcblaVVYAlTi7rApE0lWSBx0v_ZCCr_8WW4Wc/edit?usp=sharing)
+
+
+### Adding a Contributor Dashboard Stats page
+
+**Project Description:**
+
+Oppia has a contributor dashboard that allows contributors to submit translations for lessons (i.e., explorations), as well as practice questions for skills. However, it is currently not straightforward for translation and practice question coordinators to see the status of translation and practice question completions. We would like to create a public page, located at the URL /contributor-dashboard-stats, to display the translation/practice-question progress for each topic/skill for everyone to see.
+
+This page should be designed to serve the following use cases (these are described for translators only, but similar use cases should also be handled for practice question coordinators, though with skills instead of lessons):
+
+
+
+* Make it easy for translation coordinators to see which languages are nearly completed, so that they can (a) make plans for filling up the gaps, and (b) let the relevant country teams know when the lessons will be ready.
+* Make it easy for translation coordinators to see the recent rate of progress in a particular language, so that they can bring on more translators for languages which need attention.
+* Make it easy for translation coordinators (and anyone else who’s interested) to understand the overall status of translations for a particular language, so that they can project when Oppia’s lessons will be fully available in their language. 
+* Make it easy for practice question coordinators to do the analogous things represented by the 3 bullet points above. 
+
+Note that translation and practice question coordinators will typically be interested in whether all lessons for a particular topic have been translated into a particular language, and whether all skills in a particular topic have sufficient practice questions, respectively. Although the completion of translations for a particular lesson (or questions for a particular skill) is important, that is only a secondary metric since, e.g., we cannot launch a topic in a particular language if only half the lessons are translated.  
+
+**Size of this project:** medium (~175 hours) 
+
+**Potential Mentors:** @sagangwee, @bhavukJain
+
+**Knowledge/Skills Recommended:** 
+
+
+
+* Knowledge and understanding of Python
+* Knowledge and understanding of TypeScript, Angular, HTML, and CSS
+* Responsive design
+
+**Suggested Milestones:**
+
+
+
+* **Milestone 1:** _Backend_: Write jobs to compute and aggregate the necessary data. Create the necessary API endpoint controller methods to surface this data to frontend clients.
+* **Milestone 2:** _Frontend_: Implement the frontend services and UI for the /_contributor-dashboard-stats_ page. Add any necessary affordances to ensure that translation and practice question coordinators can easily answer their questions. Demo this dashboard to the PM and translation coordinator teams, and get explicit confirmation that it fully meets their needs.
+
+**Dependency on Release Schedule:** _None._
+
+**Proposal notes:** 
+
+
+
+* It is important that this page loads fast. Thus, unless you can find an easy way to generate all these statistics on-the-fly, you might want to consider performing the stats computation in a daily Apache Beam batch job, and storing the results for quick retrieval. This [wiki page](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs) has more details on how to write batch jobs.
+
+**Useful resources:**
+
+
+
+* [User documentation for contributor dashboard](https://docs.google.com/document/d/17jMFtfHVWtJYrzyGQUKdsRXgky7lWv76sGYLOxSbA5w/edit)
+* [Contributor Dashboard Design Overview](https://docs.google.com/document/d/1wM9cQzq1-3nbEhZliRlpnGDXbM_HspNkY16CYnA6lWg/edit)
+* [Populating test data in the contributor dashboard](https://docs.google.com/document/d/1JYX4nvTcblaVVYAlTi7rApE0lWSBx0v_ZCCr_8WW4Wc/edit?usp=sharing)
+* [Writing Apache Beam jobs](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs)
+* [Contributor Stats Design Doc](https://docs.google.com/document/d/1JEDiy-f1vnBLwibu8hsfuo3JObBWiaFvDTTU9L18zpY/edit#heading=h.xktwhwyu0mji)
+
+
+<!---
+
+
 
 
 # Other useful information
