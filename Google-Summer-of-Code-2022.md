@@ -339,7 +339,50 @@ The main challenge for this project is surfacing the necessary data for this vie
  
 ### 1.3. Helping students when they get stuck
 TBD
- 
+
+### 1.4. Celebrating students’ accomplishments
+
+**Project Description:**
+
+We want students to have an enjoyable experience when playing Oppia’s explorations, and to receive positive reinforcement whenever they reach an appropriate milestone. This project therefore involves:
+
+
+
+* Celebrating the student’s completion of a lesson very overtly. This should happen when the student reaches an “EndExploration” card. Specifically, we should make sure to recognize what the student has learned, celebrate their accomplishment, and make it clear what the next recommendation for them would be (e.g. practice the skills they learned in a practice session or start learning the next lesson).
+* Celebrating the student’s achievement (perhaps a bit less overtly) when they finish a streak of questions within a lesson. For simplicity, this can be considered to be just before they reach a new checkpoint. 
+
+**Size of this project:** medium (~175 hours)
+
+**Potential Mentors:** @kevintab95, @iamprayush, @EricZLou
+
+**Knowledge/Skills Recommended:** 
+
+
+
+* Frontend development: Angular, TypeScript, HTML/CSS
+* Animations in Angular
+* Graphic design
+* Game design
+* Teaching experience (not strictly needed, but likely to be useful for coming up with a proposal)
+
+**Suggested Milestones:**
+
+
+
+* **Milestone 1:** Celebrate lesson completion in a meaningful, actionable, and rewarding way for the student.  
+* **Milestone 2:** Celebrate checkpoint/milestone completion in a meaningful, rewarding way for the student that encourages them to continue progressing.
+
+**Dependency on Release Schedule:** None.
+
+**Proposal notes:**
+
+
+
+* This is a fairly open-ended project, and a lot of its difficulty is in the design. Although the coding is likely to be relatively straightforward, the crux is whether the resulting implementation achieves the goal of motivating students to continue learning.
+* The proposal should therefore include designs for how these experiences should look, and explain, as objectively as possible, why these will serve the desired purpose. You may wish to refer to game design techniques and design frameworks in your justification.
+* From a technical perspective, you may need to explain how you will vary the feedback so that it remains meaningful and doesn’t become stale. Can you find a way to relate it more directly to what the student has just accomplished? This might involve building some creator-facing components. 
+* It is worth paying attention to providing _meaningful_ recognition that is rooted in good pedagogy and that helps students develop a growth mindset. Ideally, students will become more confident in their skills to tackle challenges, rather than viewing their abilities as fixed and beyond their control. Proposals which demonstrate an understanding of this, and address it in a holistic way, will be viewed more favourably.
+
 
 ### 1.5. Learner Group MVP 
 
