@@ -131,9 +131,9 @@ Here's some advice about proposals and milestone timeline planning that we colla
 
 ### Sample proposals from past years
 
-If you'd like to get a sense of what a proposal might contain, please see our [GSoC 2021 page](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2021) for examples of proposals that we accepted in 2021. However, please note that the [GSoC Proposal Template](https://docs.google.com/document/d/1fZ8yJG70zoANYGJgOv5wsIzz3arOX4Up4EJqfUU6nis/edit) has been completely revamped for 2022, so please be sure to follow the 2022 template.
+If you'd like to get a sense of what a proposal might contain, please see our [GSoC 2021 page](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2021) for examples of proposals that we accepted in 2021. However, please note that the [GSoC Proposal Template](https://docs.google.com/document/d/1yYefLkT7dJJa86MyrdWpbZtzeaWAKCi1eXZZDGUrasM/edit) has been completely revamped for 2022, so please be sure to follow the 2022 template.
 
-_**Note:** although some of the previous years proposals are a bit on the long side, there's **no** formal length requirement for your proposal. In general, the quality of what you write is much more important than the amount of text you write, and we encourage you to write shorter proposals that still convey the main aim of the project. For the actual requirements, please see the [GSoC Proposal Template](#gsoc-proposal-template) section above._
+_**Note:** although some of the previous years' proposals are a bit on the long side, there's **no** formal length requirement for your proposal. In general, the quality of what you write is much more important than the amount of text you write, and we encourage you to write shorter proposals that still convey the main aim of the project. For the actual requirements, please see the [GSoC Proposal Template](#gsoc-proposal-template) section above._
 
 --->
 
@@ -195,17 +195,70 @@ For the proposal, we generally look for a clear indication that the contributor 
 
 _**Note:** If you're coming to this section from an external link, please make sure to scroll up and read this entire wiki page carefully, not just this section. There's a lot of useful information on the rest of the page, including a FAQ and a section describing selection criteria. Thanks!_
 
-**IMPORTANT:** We are still working on finalizing this list. Please don't act on it yet, since it is still changing. We'll send a link to oppia-gsoc-announce@ and remove this message once it's ready.
+**IMPORTANT:** We are still working on finalizing this list. Please don't act on it yet, since it is still changing. We'll send a note to oppia-gsoc-announce@ and remove this message once this section is ready.
 
 The following is a list of Oppia's 2022 GSoC project ideas. (Please note that all mentor assignments listed below are provisional, and may change depending on which proposals are eventually accepted.)
 
 You are welcome to choose among these ideas, or propose your own! However, if you're planning to propose something original, it's essential to engage with the Oppia community in order to get feedback and guidance to improve the proposal. We also recommend taking a look at [Oppia's mission](https://github.com/oppia/oppia/wiki/Oppia's-Mission) and seeing if there is a natural way to tie your idea to the Oppia project's goals, otherwise it might not be a good fit at this time.
 
-The list of project ideas is not fixed and more projects can be added.
+Finally, please note that this list of project ideas is not fixed, and more projects may be added later.
 
-## LaCE
+### Learner and Creator Experience (LaCE) team
 
-### Learner Diagnostic Tests
+1.1. Learner Diagnostic Tests
+
+1.2. Implementing the “needs guiding responses” section of the lesson analytics dashboard
+
+1.3. Helping students when they get stuck
+
+1.4. Celebrating students’ accomplishments
+
+1.5. Learner Group MVP
+
+1.6. Number Line and Percentage interactions
+
+1.7. Blog integration
+
+1.8. Improving the lesson creation experience
+
+1.9. Onboarding Improvements
+
+### Contributor Dashboard team
+
+2.1. Contributor Recognition Infrastructure
+
+2.2. Making the Contributor Dashboard UI Responsive
+
+2.3. Adding a Contributor Dashboard Stats page
+
+### Angular team
+
+TBD
+
+### Backend team
+
+4.1. Make backend code typed
+
+4.2. Improve the frontend type system
+
+4.3. Fix validation errors
+
+4.4. Move and fix data in Google Cloud Storage
+
+### Developer workflow team
+
+5.1. Achieve 100% Per-File Branch and Line Coverage for the Frontend and the Backend
+
+5.2. Migrate away from Protractor
+
+### Android team
+
+TBD
+
+
+## Learner and Creator Experience (LaCE) team
+
+### 1.1. Learner Diagnostic Tests
 
 **Project Description:**
 
@@ -242,7 +295,7 @@ Curriculum admins should be able to “program” this test. They would specify 
 * From a product perspective, the learner feedback team will be a stakeholder for this project since they would use it to help students figure out which topic they’d like to learn at the start of a learner feedback session. 
 
 
-### Implementing the “card-level improvements” section of the lesson analytics dashboard
+### 1.2. Implementing the “card-level improvements” section of the lesson analytics dashboard
 
 **Project Description:**
 
@@ -290,7 +343,7 @@ The main challenge for this project is surfacing the necessary data correctly an
 * (Somewhat outdated) design doc (not implemented) that overlaps with this project: [link](https://docs.google.com/document/d/1qQbW9Z_cgJ1mwU0hzBpPVS_4WLT_l_08ZixLR1G2bvQ/edit#heading=h.ylvrrqipsjif)
 * UI mocks: [link](https://drive.google.com/file/d/1GOrwZhVKCunSmOgbvMDaGFU2LSjT_MOf/view?usp=sharing) 
 
-### Learner Group MVP 
+### 1.5. Learner Group MVP 
 
 **Project Description:**
 
@@ -346,7 +399,7 @@ This project should cover the following:
 
 
 
-### Blog integration
+### 1.7. Blog integration
 
 **Project Description:**
 
@@ -387,10 +440,179 @@ The project also involves moving all existing blog posts from Medium to this new
 ---
 
 
+## Contributor Dashboard
+
+
+### 2.1. Contributor Recognition Infrastructure
+
+**Project Description:**
+
+The Oppia Contributor Dashboard (oppia.org/contributor-dashboard) allows users to submit suggestions for translations and practice questions, which are then reviewed and accepted/rejected. These contributions are important for making Oppia’s lessons accessible and useful for learners around the world, and we would like to recognize and credit users who have made significant contributions in this area. 
+
+One idea we are interested in pursuing is to build a system that shows users their “impact”, modeled using points for completing tasks that ultimately provide value to learners (such as successfully submitting practice questions/translations and reviewing user-generated suggestions). We would like to use this system for the following use cases:
+
+
+
+1. **Celebrating user milestones in their profile page.** This can be simply a list of “achievements/badges”, e.g. “Submitted 1/3/5/10/etc. translations!”, “Reviewed X translations (Y words total)!” accompanied by icons. This would be a nice way to thank users for their many contributions. We will probably also want some mechanism for notifying a user by email each time they achieve a milestone. 
+2. **Allowing users to generate a “badge”/”certificate” from their main Contributor Dashboard page.** Frequently, student volunteers need to show proof of their contributions with data such as translated word counts. We would like to enable contributors to generate a record of their submission stats, along with their name and contribution dates. This can simply be shown as a table or image which the contributor can then screenshot (and share on social media, if they wish). Alternatively, a button could be shown that, when clicked, will result in a “certificate” file being downloaded to the user’s computer.
+
+For this GSoC project, you should implement this system and surface it to users for the above 2 cases.
+
+**Size of this project:** large (~350 hours)
+
+**Potential Mentors:** @sagangwee, @bhavukJain
+
+**Knowledge/Skills Recommended:** 
+
+
+
+* Knowledge and understanding of Python
+* Knowledge and understanding of TypeScript, Angular, HTML, and CSS
+* Some knowledge about game design might be useful
+
+**Suggested Milestones:**
+
+
+
+* **Milestone 1:** Complete the backend infrastructure. This includes adding data models (or updating existing ones) and writing methods to update them when a submission/acceptance/rejection action takes place, as well as writing one-off Beam jobs to initialize these scores/counters based on previous contributor actions (if possible). Additionally, the URL endpoints for surfacing data for the 2 use cases above should be added in the controller layer.
+* **Milestone 2:** Implement the necessary frontend services to retrieve the impact scores, and update the relevant UIs to display contribution milestones and generate contributor stats for the 2 use cases above.
+
+**Dependency on Release Schedule:** None.
+
+**Proposal notes:** 
+
+
+
+* Your proposal should clearly outline the scoring algorithm and different scoring “buckets” you plan to use, and the reasons supporting it. (Note that additionally maintaining separate fields with the raw data makes it possible to change how we display the summary data to users in the future.) You are welcome use the following ideas as a baseline (but make sure to think through corner cases, e.g. what should we do in principle if the original content gets deleted/modified after a translation suggestion has been made):  
+    * For translation submissions: points should probably correlate in some way to the length/difficulty of the translation. One idea is to add (M * translation word count) to a user’s “translation submission in language L” score if the submission is accepted (where M is a multiplier to be determined), and subtract a small constant amount if a submission is rejected. This score change is only applied when the submission is accepted, not at the time of submission (to avoid the user seeing their score go up and then down) – though it might be interesting to show users their “potential score increase if accepted” for translations that are still awaiting review.
+        * An alternative approach could be to maintain separate counters for “number of translations submitted/accepted”, “word count of submitted/accepted translations”, etc.
+        * If you decide to go with an approach like the above, please describe how you would handle the calculation of the “translation word count” for cases where the translation includes images, alt text, or math formulae.
+    * For practice question submissions: similar to above, but probably adding a constant value for each practice question instead.
+    * For translation reviews: 
+        * If the reviewer accepts a submission as-is, add 1 to their “number of accepted translations in language L” score. 
+        * If the reviewer edits the submission and then accepts it, add 1 to their “number of fixed-and-submitted translations in language L” score.
+        * If the reviewer rejects a submission, add 1 to their “number of rejected translations in language L” score.
+        * If the reviewer accepts/rejects a submission, additionally add the number of words in the submission to their “number of words reviewed” score.
+    * For practice question reviews: similar to above.
+* Your proposal should provide a clear explanation of how these scores and relevant contribution metadata (e.g. milestones reached) will be represented, stored and updated, so that they can be retrieved **quickly** when the user loads the relevant page in the frontend. (You might want to consider the pros/cons of storing milestone completions explicitly, vs. computing them on the fly.) 
+
+**Useful resources:**
+
+
+
+* [User documentation for contributor dashboard](https://oppia-lesson-creator-documentation.readthedocs.io/en/latest/contributor/contribute.html)
+* [Contributor Dashboard Design Overview](https://docs.google.com/document/d/1wM9cQzq1-3nbEhZliRlpnGDXbM_HspNkY16CYnA6lWg/edit)
+* [Populating test data in the contributor dashboard](https://docs.google.com/document/d/1JYX4nvTcblaVVYAlTi7rApE0lWSBx0v_ZCCr_8WW4Wc/edit?usp=sharing)
+* [https://github.com/oppia/oppia/wiki/Storage-models](https://github.com/oppia/oppia/wiki/Storage-models) 
+
+
+### 2.2. Making the Contributor Dashboard UI Responsive
+
+**Project Description:**
+
+The Oppia Contributor Dashboard (oppia.org/contributor-dashboard) allows users to submit suggestions for translations and practice questions, which are then reviewed and accepted/rejected. Unfortunately, the existing contributor dashboard has only been developed with a focus on desktop/laptop users. Many of our contributors don’t necessarily have easy access to desktops/laptops, and we would also like users of mobile devices to have a seamless experience when submitting translations and practice questions.
+
+The aim of this project is therefore to implement a responsive UI for the contributor dashboard page and related user flows, based on these [mid-fidelity](https://www.figma.com/file/FNA3qSJP2dLmQMMnjgMLQI/Contributor-Dashboard-(final-draft)?node-id=0%3A1) and [high-fidelity mocks](https://xd.adobe.com/view/8eeae0ca-4aaa-4b6e-84e2-a80796089530-dbb9/?fullscreen). (Please use these mocks as a reference – you shouldn’t be creating your own mocks from scratch for this project!)
+
+**Size of this project:** medium (~175 hours) 
+
+**Potential Mentors:** @sagangwee, @bhavukJain
+
+**Knowledge/Skills Recommended:** 
+
+
+
+* Knowledge and understanding of TypeScript, Angular, HTML, and CSS
+* Responsive design
+* Attention to detail (in terms of UI)
+
+**Suggested Milestones:**
+
+
+
+* **Milestone 1:** Implement the mobile UI for the contributor dashboard landing page (this includes the overall navigation, as well as the user’s review/submission history).
+* **Milestone 2:** Implement the mobile UI for the translation and question submission pages (this includes both the list of opportunities and the submission workflow)
+
+**Dependency on Release Schedule:** None.
+
+**Proposal notes:** 
+
+
+
+* We encourage you to explore ways to make the user experience on mobile devices as intuitive as possible. If you see any improvements you can make to the flow, please feel free to suggest them. (Optionally, if you like, you can also register to help translate lessons through the [volunteer interest form](https://docs.google.com/forms/d/e/1FAIpQLSc5_rwUjugT_Jt_EB49_zAKWVY68I3fTXF5w9b5faIk7rL6yg/viewform) – this may help you get a sense of the workflow, but please only sign up if you are proficient in the language in question and are actually interested in helping out in this way.)
+* When writing your proposal, please explain how you plan to keep the responsive CSS easy to maintain. We recommend that you follow an approach that is consistent with other parts of the codebase, rather than inventing something brand-new just for the Contributor Dashboard. 
+
+**Useful resources:**
+
+
+
+* [User documentation for contributor dashboard](https://docs.google.com/document/d/17jMFtfHVWtJYrzyGQUKdsRXgky7lWv76sGYLOxSbA5w/edit)
+* [Contributor Dashboard Design Overview](https://docs.google.com/document/d/1wM9cQzq1-3nbEhZliRlpnGDXbM_HspNkY16CYnA6lWg/edit)
+* [Populating test data in the contributor dashboard](https://docs.google.com/document/d/1JYX4nvTcblaVVYAlTi7rApE0lWSBx0v_ZCCr_8WW4Wc/edit?usp=sharing)
+
+
+### 2.3. Adding a Contributor Dashboard Stats page
+
+**Project Description:**
+
+Oppia has a contributor dashboard that allows contributors to submit translations for lessons (i.e., explorations), as well as practice questions for skills. However, it is currently not straightforward for translation and practice question coordinators to see the status of translation and practice question completions. We would like to create a public page, located at the URL /contributor-dashboard-stats, to display the translation/practice-question progress for each topic/skill for everyone to see.
+
+This page should be designed to serve the following use cases (these are described for translators only, but similar use cases should also be handled for practice question coordinators, though with skills instead of lessons):
+
+
+
+* Make it easy for translation coordinators to see which languages are nearly completed, so that they can (a) make plans for filling up the gaps, and (b) let the relevant country teams know when the lessons will be ready.
+* Make it easy for translation coordinators to see the recent rate of progress in a particular language, so that they can bring on more translators for languages which need attention.
+* Make it easy for translation coordinators (and anyone else who’s interested) to understand the overall status of translations for a particular language, so that they can project when Oppia’s lessons will be fully available in their language. 
+* Make it easy for practice question coordinators to do the analogous things represented by the 3 bullet points above. 
+
+Note that translation and practice question coordinators will typically be interested in whether all lessons for a particular topic have been translated into a particular language, and whether all skills in a particular topic have sufficient practice questions, respectively. Although the completion of translations for a particular lesson (or questions for a particular skill) is important, that is only a secondary metric since, e.g., we cannot launch a topic in a particular language if only half the lessons are translated.  
+
+**Size of this project:** medium (~175 hours) 
+
+**Potential Mentors:** @sagangwee, @bhavukJain
+
+**Knowledge/Skills Recommended:** 
+
+
+
+* Knowledge and understanding of Python
+* Knowledge and understanding of TypeScript, Angular, HTML, and CSS
+* Responsive design
+
+**Suggested Milestones:**
+
+
+
+* **Milestone 1:** _Backend_: Write jobs to compute and aggregate the necessary data. Create the necessary API endpoint controller methods to surface this data to frontend clients.
+* **Milestone 2:** _Frontend_: Implement the frontend services and UI for the /_contributor-dashboard-stats_ page. Add any necessary affordances to ensure that translation and practice question coordinators can easily answer their questions. Demo this dashboard to the PM and translation coordinator teams, and get explicit confirmation that it fully meets their needs.
+
+**Dependency on Release Schedule:** _None._
+
+**Proposal notes:** 
+
+
+
+* It is important that this page loads fast. Thus, unless you can find an easy way to generate all these statistics on-the-fly, you might want to consider performing the stats computation in a daily Apache Beam batch job, and storing the results for quick retrieval. This [wiki page](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs) has more details on how to write batch jobs.
+
+**Useful resources:**
+
+
+
+* [User documentation for contributor dashboard](https://docs.google.com/document/d/17jMFtfHVWtJYrzyGQUKdsRXgky7lWv76sGYLOxSbA5w/edit)
+* [Contributor Dashboard Design Overview](https://docs.google.com/document/d/1wM9cQzq1-3nbEhZliRlpnGDXbM_HspNkY16CYnA6lWg/edit)
+* [Populating test data in the contributor dashboard](https://docs.google.com/document/d/1JYX4nvTcblaVVYAlTi7rApE0lWSBx0v_ZCCr_8WW4Wc/edit?usp=sharing)
+* [Writing Apache Beam jobs](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs)
+* [Contributor Stats Design Doc](https://docs.google.com/document/d/1JEDiy-f1vnBLwibu8hsfuo3JObBWiaFvDTTU9L18zpY/edit#heading=h.xktwhwyu0mji)
+
+
+---
+
+
 ## Angular
 
 
-### Migrate exploration editor page and move to the angular cli with AOT compilation
+### 3.1. Migrate exploration editor page and move to the angular cli with AOT compilation
 
 **Project Description:**
 
@@ -448,7 +670,7 @@ Success criteria:
 
 ## Backend
 
-### Make backend code typed
+### 4.1. Make backend code typed
 
 Last year, we introduced MyPy (Python typing) into the codebase. This year, we want to fully type all remaining parts of the backend codebase. Also, as part of this, we would like to remove the existing docstring typeinfo annotations (and update the docstring lint checks accordingly) so that there is no duplicate type information.
 
@@ -497,7 +719,7 @@ You don’t need to include these sections in your proposal:
 * [MyPy documentation](https://mypy.readthedocs.io/en/stable/) 
 
 
-### Improve frontend type system
+### 4.2. Improve frontend type system
 
 Our frontend codebase is fully typed, but our typing doesn’t yet pass strict TypeScript checks. In this project you should firstly change the strict TypeScript config file so that all newly-added files need to be strictly typed, and then introduce strict typing for around 280 twins of files and tests for those files (so 560 files altogether).
 
@@ -545,7 +767,7 @@ You don’t need to include these sections in your proposal:
 * [Frontend tests wiki](https://github.com/oppia/oppia/wiki/Frontend-tests)
 
 
-### Fix validation errors
+### 4.3. Fix validation errors
 
 We are currently in the process of introducing Beam jobs for validating datastore models. These will enable us to validate various attributes of our models and fix any consistency errors that are detected. 
 
@@ -623,7 +845,7 @@ You don’t need to include these sections in your proposal:
 * [Apache Beam Jobs wiki](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs) 
 
 
-### Move and fix data in Google Cloud Storage
+### 4.4. Move and fix data in Google Cloud Storage
 
 This project aims to make sure that our images and sound files in the GCS (Google Cloud Storage) have the correct MIME types, and also aims to migrate the profile images from UserSettingsModel to GCS.
 
@@ -689,7 +911,7 @@ The GCS IO should offer these interactions with GCS:
 ## Dev workflow
 
 
-### Achieve 100% Per-File Branch and Line Coverage for the Frontend and the Backend
+### 5.1. Achieve 100% Per-File Branch and Line Coverage for the Frontend and the Backend
 
 **Project Description:**
 
@@ -729,7 +951,7 @@ We want to achieve 100% per-file branch and line coverage for both the frontend 
 * We use coverage to calculate backend test coverage, and this tool has an option to check branch coverage ([docs](https://coverage.readthedocs.io/en/latest/branch.html)).
 
 
-### Migrate away from Protractor
+### 5.2. Migrate away from Protractor
 
 **Project Description:**
 
@@ -781,175 +1003,6 @@ Most likely, no tool will excel in all of these areas, so we’ll need to find a
 * [Migrating from Protractor to WebdriverIO - Official documentation. ](https://webdriver.io/docs/protractor-migration/)
 * [Migrating from Protractor to TestCafe - Official documentation.](https://testcafe.io/documentation/403554/recipes/migration/migrate-tests-from-protractor-to-testcafe)
 * [Future of Angular E2E & Plans for Protractor - Google's official issue announcing deprecation](https://github.com/angular/protractor/issues/5502): This includes some suggested alternatives from the Protractor team
-
-
----
-
-
-## Contributor Dashboard
-
-
-### Contributor Recognition Infrastructure
-
-**Project Description:**
-
-The Oppia Contributor Dashboard (oppia.org/contributor-dashboard) allows users to submit suggestions for translations and practice questions, which are then reviewed and accepted/rejected. These contributions are important for making Oppia’s lessons accessible and useful for learners around the world, and we would like to recognize and credit users who have made significant contributions in this area. 
-
-One idea we are interested in pursuing is to build a system that shows users their “impact”, modeled using points for completing tasks that ultimately provide value to learners (such as successfully submitting practice questions/translations and reviewing user-generated suggestions). We would like to use this system for the following use cases:
-
-
-
-1. **Celebrating user milestones in their profile page.** This can be simply a list of “achievements/badges”, e.g. “Submitted 1/3/5/10/etc. translations!”, “Reviewed X translations (Y words total)!” accompanied by icons. This would be a nice way to thank users for their many contributions. We will probably also want some mechanism for notifying a user by email each time they achieve a milestone. 
-2. **Allowing users to generate a “badge”/”certificate” from their main Contributor Dashboard page.** Frequently, student volunteers need to show proof of their contributions with data such as translated word counts. We would like to enable contributors to generate a record of their submission stats, along with their name and contribution dates. This can simply be shown as a table or image which the contributor can then screenshot (and share on social media, if they wish). Alternatively, a button could be shown that, when clicked, will result in a “certificate” file being downloaded to the user’s computer.
-
-For this GSoC project, you should implement this system and surface it to users for the above 2 cases.
-
-**Size of this project:** large (~350 hours)
-
-**Potential Mentors:** @sagangwee, @bhavukJain
-
-**Knowledge/Skills Recommended:** 
-
-
-
-* Knowledge and understanding of Python
-* Knowledge and understanding of TypeScript, Angular, HTML, and CSS
-* Some knowledge about game design might be useful
-
-**Suggested Milestones:**
-
-
-
-* **Milestone 1:** Complete the backend infrastructure. This includes adding data models (or updating existing ones) and writing methods to update them when a submission/acceptance/rejection action takes place, as well as writing one-off Beam jobs to initialize these scores/counters based on previous contributor actions (if possible). Additionally, the URL endpoints for surfacing data for the 2 use cases above should be added in the controller layer.
-* **Milestone 2:** Implement the necessary frontend services to retrieve the impact scores, and update the relevant UIs to display contribution milestones and generate contributor stats for the 2 use cases above.
-
-**Dependency on Release Schedule:** None.
-
-**Proposal notes:** 
-
-
-
-* Your proposal should clearly outline the scoring algorithm and different scoring “buckets” you plan to use, and the reasons supporting it. (Note that additionally maintaining separate fields with the raw data makes it possible to change how we display the summary data to users in the future.) You are welcome use the following ideas as a baseline (but make sure to think through corner cases, e.g. what should we do in principle if the original content gets deleted/modified after a translation suggestion has been made):  
-    * For translation submissions: points should probably correlate in some way to the length/difficulty of the translation. One idea is to add (M * translation word count) to a user’s “translation submission in language L” score if the submission is accepted (where M is a multiplier to be determined), and subtract a small constant amount if a submission is rejected. This score change is only applied when the submission is accepted, not at the time of submission (to avoid the user seeing their score go up and then down) – though it might be interesting to show users their “potential score increase if accepted” for translations that are still awaiting review.
-        * An alternative approach could be to maintain separate counters for “number of translations submitted/accepted”, “word count of submitted/accepted translations”, etc.
-        * If you decide to go with an approach like the above, please describe how you would handle the calculation of the “translation word count” for cases where the translation includes images, alt text, or math formulae.
-    * For practice question submissions: similar to above, but probably adding a constant value for each practice question instead.
-    * For translation reviews: 
-        * If the reviewer accepts a submission as-is, add 1 to their “number of accepted translations in language L” score. 
-        * If the reviewer edits the submission and then accepts it, add 1 to their “number of fixed-and-submitted translations in language L” score.
-        * If the reviewer rejects a submission, add 1 to their “number of rejected translations in language L” score.
-        * If the reviewer accepts/rejects a submission, additionally add the number of words in the submission to their “number of words reviewed” score.
-    * For practice question reviews: similar to above.
-* Your proposal should provide a clear explanation of how these scores and relevant contribution metadata (e.g. milestones reached) will be represented, stored and updated, so that they can be retrieved **quickly** when the user loads the relevant page in the frontend. (You might want to consider the pros/cons of storing milestone completions explicitly, vs. computing them on the fly.) 
-
-**Useful resources:**
-
-
-
-* [User documentation for contributor dashboard](https://oppia-lesson-creator-documentation.readthedocs.io/en/latest/contributor/contribute.html)
-* [Contributor Dashboard Design Overview](https://docs.google.com/document/d/1wM9cQzq1-3nbEhZliRlpnGDXbM_HspNkY16CYnA6lWg/edit)
-* [Populating test data in the contributor dashboard](https://docs.google.com/document/d/1JYX4nvTcblaVVYAlTi7rApE0lWSBx0v_ZCCr_8WW4Wc/edit?usp=sharing)
-* [https://github.com/oppia/oppia/wiki/Storage-models](https://github.com/oppia/oppia/wiki/Storage-models) 
-
-
-### Making the Contributor Dashboard UI Responsive
-
-**Project Description:**
-
-The Oppia Contributor Dashboard (oppia.org/contributor-dashboard) allows users to submit suggestions for translations and practice questions, which are then reviewed and accepted/rejected. Unfortunately, the existing contributor dashboard has only been developed with a focus on desktop/laptop users. Many of our contributors don’t necessarily have easy access to desktops/laptops, and we would also like users of mobile devices to have a seamless experience when submitting translations and practice questions.
-
-The aim of this project is therefore to implement a responsive UI for the contributor dashboard page and related user flows, based on these [mid-fidelity](https://www.figma.com/file/FNA3qSJP2dLmQMMnjgMLQI/Contributor-Dashboard-(final-draft)?node-id=0%3A1) and [high-fidelity mocks](https://xd.adobe.com/view/8eeae0ca-4aaa-4b6e-84e2-a80796089530-dbb9/?fullscreen). (Please use these mocks as a reference – you shouldn’t be creating your own mocks from scratch for this project!)
-
-**Size of this project:** medium (~175 hours) 
-
-**Potential Mentors:** @sagangwee, @bhavukJain
-
-**Knowledge/Skills Recommended:** 
-
-
-
-* Knowledge and understanding of TypeScript, Angular, HTML, and CSS
-* Responsive design
-* Attention to detail (in terms of UI)
-
-**Suggested Milestones:**
-
-
-
-* **Milestone 1:** Implement the mobile UI for the contributor dashboard landing page (this includes the overall navigation, as well as the user’s review/submission history).
-* **Milestone 2:** Implement the mobile UI for the translation and question submission pages (this includes both the list of opportunities and the submission workflow)
-
-**Dependency on Release Schedule:** None.
-
-**Proposal notes:** 
-
-
-
-* We encourage you to explore ways to make the user experience on mobile devices as intuitive as possible. If you see any improvements you can make to the flow, please feel free to suggest them. (Optionally, if you like, you can also register to help translate lessons through the [volunteer interest form](https://docs.google.com/forms/d/e/1FAIpQLSc5_rwUjugT_Jt_EB49_zAKWVY68I3fTXF5w9b5faIk7rL6yg/viewform) – this may help you get a sense of the workflow, but please only sign up if you are proficient in the language in question and are actually interested in helping out in this way.)
-* When writing your proposal, please explain how you plan to keep the responsive CSS easy to maintain. We recommend that you follow an approach that is consistent with other parts of the codebase, rather than inventing something brand-new just for the Contributor Dashboard. 
-
-**Useful resources:**
-
-
-
-* [User documentation for contributor dashboard](https://docs.google.com/document/d/17jMFtfHVWtJYrzyGQUKdsRXgky7lWv76sGYLOxSbA5w/edit)
-* [Contributor Dashboard Design Overview](https://docs.google.com/document/d/1wM9cQzq1-3nbEhZliRlpnGDXbM_HspNkY16CYnA6lWg/edit)
-* [Populating test data in the contributor dashboard](https://docs.google.com/document/d/1JYX4nvTcblaVVYAlTi7rApE0lWSBx0v_ZCCr_8WW4Wc/edit?usp=sharing)
-
-
-### Adding a Contributor Dashboard Stats page
-
-**Project Description:**
-
-Oppia has a contributor dashboard that allows contributors to submit translations for lessons (i.e., explorations), as well as practice questions for skills. However, it is currently not straightforward for translation and practice question coordinators to see the status of translation and practice question completions. We would like to create a public page, located at the URL /contributor-dashboard-stats, to display the translation/practice-question progress for each topic/skill for everyone to see.
-
-This page should be designed to serve the following use cases (these are described for translators only, but similar use cases should also be handled for practice question coordinators, though with skills instead of lessons):
-
-
-
-* Make it easy for translation coordinators to see which languages are nearly completed, so that they can (a) make plans for filling up the gaps, and (b) let the relevant country teams know when the lessons will be ready.
-* Make it easy for translation coordinators to see the recent rate of progress in a particular language, so that they can bring on more translators for languages which need attention.
-* Make it easy for translation coordinators (and anyone else who’s interested) to understand the overall status of translations for a particular language, so that they can project when Oppia’s lessons will be fully available in their language. 
-* Make it easy for practice question coordinators to do the analogous things represented by the 3 bullet points above. 
-
-Note that translation and practice question coordinators will typically be interested in whether all lessons for a particular topic have been translated into a particular language, and whether all skills in a particular topic have sufficient practice questions, respectively. Although the completion of translations for a particular lesson (or questions for a particular skill) is important, that is only a secondary metric since, e.g., we cannot launch a topic in a particular language if only half the lessons are translated.  
-
-**Size of this project:** medium (~175 hours) 
-
-**Potential Mentors:** @sagangwee, @bhavukJain
-
-**Knowledge/Skills Recommended:** 
-
-
-
-* Knowledge and understanding of Python
-* Knowledge and understanding of TypeScript, Angular, HTML, and CSS
-* Responsive design
-
-**Suggested Milestones:**
-
-
-
-* **Milestone 1:** _Backend_: Write jobs to compute and aggregate the necessary data. Create the necessary API endpoint controller methods to surface this data to frontend clients.
-* **Milestone 2:** _Frontend_: Implement the frontend services and UI for the /_contributor-dashboard-stats_ page. Add any necessary affordances to ensure that translation and practice question coordinators can easily answer their questions. Demo this dashboard to the PM and translation coordinator teams, and get explicit confirmation that it fully meets their needs.
-
-**Dependency on Release Schedule:** _None._
-
-**Proposal notes:** 
-
-
-
-* It is important that this page loads fast. Thus, unless you can find an easy way to generate all these statistics on-the-fly, you might want to consider performing the stats computation in a daily Apache Beam batch job, and storing the results for quick retrieval. This [wiki page](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs) has more details on how to write batch jobs.
-
-**Useful resources:**
-
-
-
-* [User documentation for contributor dashboard](https://docs.google.com/document/d/17jMFtfHVWtJYrzyGQUKdsRXgky7lWv76sGYLOxSbA5w/edit)
-* [Contributor Dashboard Design Overview](https://docs.google.com/document/d/1wM9cQzq1-3nbEhZliRlpnGDXbM_HspNkY16CYnA6lWg/edit)
-* [Populating test data in the contributor dashboard](https://docs.google.com/document/d/1JYX4nvTcblaVVYAlTi7rApE0lWSBx0v_ZCCr_8WW4Wc/edit?usp=sharing)
-* [Writing Apache Beam jobs](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs)
-* [Contributor Stats Design Doc](https://docs.google.com/document/d/1JEDiy-f1vnBLwibu8hsfuo3JObBWiaFvDTTU9L18zpY/edit#heading=h.xktwhwyu0mji)
 
 
 <!---
