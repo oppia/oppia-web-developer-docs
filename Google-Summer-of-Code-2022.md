@@ -94,12 +94,11 @@ A: This probably depends on the project(s) you wish to apply for. However, note 
 
 A: The GSoC program is open to new and beginner contributors to open source. Some of our contributors with write access are still beginner contributors, whereas some of our other contributors with write access will not qualify because they are experienced contributors. If you only recently received write access, or have been contributing to Oppia for less than a year, you are probably still a beginner contributor. If the previous sentence does not apply to you, and you want to know which group you fall into, please contact **@vojtechjelinek** or **@seanlip** for a decision.
 
-<!---
 ## GSoC Proposal Template
 
-When submitting a proposal, please use the provided [GSoC proposal template](https://docs.google.com/document/d/1yYefLkT7dJJa86MyrdWpbZtzeaWAKCi1eXZZDGUrasM/edit#). We will only consider proposals submitted using this template.
+When submitting a proposal, please use the provided [GSoC proposal template](https://docs.google.com/document/d/1yYefLkT7dJJa86MyrdWpbZtzeaWAKCi1eXZZDGUrasM). We will only consider proposals submitted using this template.
 
-You are welcome to ask mentors for reviews during the proposal preparation phase. We recommend getting the WHAT section reviewed before doing substantial work on the HOW section, and getting the first part of the HOW section reviewed before doing work on the second part. This is meant to help ensure that later sections of the proposal  build on a solid baseline, and reduce the amount of wasted work.
+You are welcome to ask mentors for reviews during the proposal preparation phase. We recommend getting the WHAT section reviewed before doing substantial work on the HOW section, and getting the first part of the HOW section reviewed before doing work on the second part. This is meant to help ensure that later sections of the proposal build on a solid baseline, and reduce the amount of wasted work.
 
 **Important:** Your proposal should be shared as "anyone with the link can leave comments" and sent to oppia-gsoc-discuss@. Do not send proposals directly to individual GSoC mentors.
 
@@ -109,7 +108,7 @@ You are welcome to ask mentors for reviews during the proposal preparation phase
 
 Here's some advice about proposals and milestone timeline planning that we collated from previous contributors and mentors:
 
--   Choose a project you're interested in! If you have a strong interest in your project, this will help you pick up necessary skills and tackle unforeseen difficulties that may arise during GSoC.
+-   Choose a project you're interested in! If you have a strong interest in your project, this will help you pick up the necessary skills and tackle unforeseen difficulties that may arise during GSoC.
 -   Familiarize yourself with the relevant part of the codebase for your project, especially if you haven't touched it before. It's important to think about how to integrate your project with the current Oppia structure — don't design in a vacuum.
 -   Define milestones with enough detail to get a proper ETA for each milestone (so, don't just say "write e2e tests"), otherwise you run the risk of significantly underestimating the timeline.
 -   Clear written communication and presentation is crucial in preparing your proposal. The proposal should show that you have a clear understanding of the codebase and the final goal of the project. Eg. In a user-facing proposal, writing about just the files that have to be changed is not enough, detailed mocks and user flows (in the form of diagrams) are also essential.
@@ -124,18 +123,16 @@ Here's some advice about proposals and milestone timeline planning that we colla
     -   The research you have put into writing it
     -   Your analytical skills
     -   Your independence in making complex decisions
--   Make sure to present solutions and ask for feedback, rather than just asking for solutions. You can do this by presenting the various solutions you came up with in your proposal, and doing an analysis of their advantages & disadvantages from the end-user perspective. Finally, choose the best solution you have and explain your reasoning behind your choice. Note that this doesn't mean that you must always have multiple ideas to solve a problem, but you should instead always explain how you reached a solution, and why is it the best one from the end-user's perspective.
+-   Make sure to present solutions and ask for feedback, rather than just asking for solutions. You can do this by presenting the various solutions you came up with within your proposal, and doing an analysis of their advantages & disadvantages from the end-user perspective. Finally, choose the best solution you have and explain your reasoning behind your choice. Note that this doesn't mean that you must always have multiple ideas to solve a problem, but you should instead always explain how you reached a solution, and why is it the best one from the end-user's perspective.
 -   Mentors' suggestions are "suggestions", not mandates (often, reviewers may not be certain whether their suggestion is correct). This means that, as the proposal owner, you are welcome to decide whether to accept/reject such suggestions. In either case, when you are accepting/rejecting a suggestion provided by a reviewer, explain your reasoning and the research that led to your decision. Don't use an "appeal to authority" (e.g. "I am doing it this way because XXX said so") — the rational analysis that underlies the decision is what's important.
 -   We do not expect you to always agree with your reviewers. If you think that the suggestion doesn't suit your project, it is totally fine to explain your decision and provide reasons for it. It is always a good idea to have discussions when you're confused about something, rather than simply agreeing to whatever is proposed. Note that this does not mean that we encourage you to disagree with your reviewers on everything — this is just a suggestion to bear in mind if you get confused.
 -   Please note that your reviewer may or may not be involved in the final selection process. It is also **not** the case that you need to implement all your reviewers' suggestions/requests in order to be selected. As mentioned above, it is important that you actively take help and work together with your proposal reviewers in order to prepare a strong proposal that meets the guidelines for your chosen project.
 
 ### Sample proposals from past years
 
-If you'd like to get a sense of what a proposal might contain, please see our [GSoC 2021 page](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2021) for examples of proposals that we accepted in 2021. However, please note that the [GSoC Proposal Template](https://docs.google.com/document/d/1yYefLkT7dJJa86MyrdWpbZtzeaWAKCi1eXZZDGUrasM/edit) has been completely revamped for 2022, so please be sure to follow the 2022 template.
+If you'd like to get a sense of what a proposal might contain, please see our [GSoC 2021 page](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2021) for examples of proposals that we accepted in 2021. However, please note that the [GSoC Proposal Template](https://docs.google.com/document/d/1yYefLkT7dJJa86MyrdWpbZtzeaWAKCi1eXZZDGUrasM) has been completely revamped for 2022, so please be sure to follow the 2022 template.
 
-_**Note:** although some of the previous years' proposals are a bit on the long side, there's **no** formal length requirement for your proposal. In general, the quality of what you write is much more important than the amount of text you write, and we encourage you to write shorter proposals that still convey the main aim of the project. For the actual requirements, please see the [GSoC Proposal Template](#gsoc-proposal-template) section above._
-
---->
+_**Note:** although some of the previous years' proposals are a bit on the long side, there's **no** formal length requirement for your proposal. In general, the quality of what you write is much more important than the amount of text you write, and we encourage you to write shorter proposals that still convey the main aim of the project. For the actual requirements, please see the [GSoC Proposal Template](#gsoc-proposal-template) section above._Ba
 
 ## Types of work related to Oppia projects
 
@@ -443,7 +440,6 @@ The project also involves moving all existing blog posts from Medium to this new
 
 ## Contributor Dashboard
 
-
 ### 2.1. Contributor Recognition Infrastructure
 
 **Project Description:**
@@ -671,6 +667,7 @@ Success criteria:
 
 ## Backend
 
+
 ### 4.1. Make backend code typed
 
 Last year, we introduced MyPy (Python typing) into the codebase. This year, we want to fully type all remaining parts of the backend codebase. Also, as part of this, we would like to remove the existing docstring typeinfo annotations (and update the docstring lint checks accordingly) so that there is no duplicate type information.
@@ -699,30 +696,28 @@ After this project is finished, all Python files in the Oppia codebase should be
 
 **Proposal notes:** 
 
-Your proposal needs to explain the order in which you want to handle the typing of files and an explanation why you picked that order. Also, you need to explain how you plan to handle the removal of typing info from docstrings.
-
-You don’t need to include these sections in your proposal:
 
 
-
-* Additions/Changes to Web Server Endpoint Contracts
-* Calls to Web Server Endpoints
-* UI Screens/Components
-* Data Handling and Privacy
-* [Web only] Storage Model Layer Changes
-* [Web only] Web frontend changes
+* Your proposal should include details of the order in which you want to handle the typing of files, and an explanation of why you picked that order. Also, please explain how you plan to handle the removal of typing info from docstrings.
+* You may omit the following sections from your proposal:
+    * Additions/Changes to Web Server Endpoint Contracts
+    * Calls to Web Server Endpoints
+    * UI Screens/Components
+    * Data Handling and Privacy
+    * [Web only] Storage Model Layer Changes
+    * [Web only] Web frontend changes
 
 **Useful resources:**
 
 
 
-* [Backend Type Annotations wiki](https://github.com/oppia/oppia/wiki/Backend-Type-Annotations) 
+* [Backend Type Annotations wiki page](https://github.com/oppia/oppia/wiki/Backend-Type-Annotations) 
 * [MyPy documentation](https://mypy.readthedocs.io/en/stable/) 
 
 
-### 4.2. Improve frontend type system
+### 4.2. Improve the frontend type system
 
-Our frontend codebase is fully typed, but our typing doesn’t yet pass strict TypeScript checks. In this project you should firstly change the strict TypeScript config file so that all newly-added files need to be strictly typed, and then introduce strict typing for around 280 twins of files and tests for those files (so 560 files altogether).
+Our frontend codebase is fully typed, but our typing doesn’t yet pass strict TypeScript checks. In this project, you should firstly change the strict TypeScript config file so that all newly-added files need to be strictly typed, and then introduce strict typing for around 280 twins of files and tests for those files (so 560 files altogether).
 
 **Size of this project:** large (~350 hours)
 
@@ -746,18 +741,16 @@ Our frontend codebase is fully typed, but our typing doesn’t yet pass strict T
 
 **Proposal notes:** 
 
-In your proposal you need to explain how you plan to introduce the TS config change so that all newly added files need to be strictly typed. Also, you should explain in what order you plan to type the files and an explanation why you picked that order.
-
-You don’t need to include these sections in your proposal:
 
 
-
-* Additions/Changes to Web Server Endpoint Contracts
-* Calls to Web Server Endpoints
-* UI Screens/Components
-* Data Handling and Privacy
-* [Web only] Storage Model Layer Changes
-* [Web only] Web frontend changes
+* Your proposal should include an explanation of how you plan to introduce the TS config change so that all newly-added files by other developers are forced to be strictly typed before they can be merged into develop. Also, you should explain in what order you plan to type the files, and an explanation of why you picked that order.
+* You may omit the following sections from your proposal:
+    * Additions/Changes to Web Server Endpoint Contracts
+    * Calls to Web Server Endpoints
+    * UI Screens/Components
+    * Data Handling and Privacy
+    * [Web only] Storage Model Layer Changes
+    * [Web only] Web frontend changes
 
 **Useful resources:**
 
@@ -765,14 +758,14 @@ You don’t need to include these sections in your proposal:
 
 * [Guide on defining frontend types](https://github.com/oppia/oppia/wiki/Guide-on-defining-types)
 * [TypeScript documentation](https://www.typescriptlang.org/docs/handbook/) 
-* [Frontend tests wiki](https://github.com/oppia/oppia/wiki/Frontend-tests)
+* [Frontend tests wiki page](https://github.com/oppia/oppia/wiki/Frontend-tests)
 
 
 ### 4.3. Fix validation errors
 
 We are currently in the process of introducing Beam jobs for validating datastore models. These will enable us to validate various attributes of our models and fix any consistency errors that are detected. 
 
-We also already know about some existing issues with our data that can be fixed as part of this project. These include:
+We are already aware of some existing issues with our data that can be fixed as part of this project. These include:
 
 
 
@@ -783,19 +776,15 @@ We also already know about some existing issues with our data that can be fixed 
 * Adding more validation checks for datetimes ([#12121](https://github.com/oppia/oppia/issues/12121))
 * Implementing a process to ensure that external storage models linked to a storage model are updated in case of storage model deletion ([#10809](https://github.com/oppia/oppia/issues/10809))
 * Fixing `UnsentFeedbackEmailModel` entities with missing `GeneralFeedbackThreadModel`s and `GeneralFeedbackMessageModel`s ([#14966](https://github.com/oppia/oppia/issues/14966))
-* Fixing `GeneralSuggestionModel` that is marked as rejected but is missing final reviewer ID ([#14967](https://github.com/oppia/oppia/issues/14967))
+* Fixing `GeneralSuggestionModel` entities that are marked as rejected but are missing their final reviewer ID ([#14967](https://github.com/oppia/oppia/issues/14967))
 * Fixing `CompletedActivitiesModel` and `IncompleteActivitiesModel` to only reference existing and public explorations ([#14968](https://github.com/oppia/oppia/issues/14968))
 * Fixing `UserSubscriptionsModel` ([#14969](https://github.com/oppia/oppia/issues/14969))
 * Fixing `GeneralFeedbackMessageModel.feedback_thread_ids` to only reference existing `GeneralFeedbackThreadModel` ([#14971](https://github.com/oppia/oppia/issues/14971))
 * Fixing `ExpUserLastPlaythroughModel` has a few valdiation issues ([#14972](https://github.com/oppia/oppia/issues/14972))
 
-Other issues will arise after we run some of the validation jobs that we are currently working on.
+Note that this project **will not** entail writing new validation jobs from scratch, though in some cases it might require small modifications to the existing validation jobs. (For example, we might decide that, in some model property, we want to allow more values, and thus need to modify the validation job to account for that.) However, it does require writing jobs to fix production data (based on known validation issues), running those jobs on a test instance, and then running those jobs in production.
 
-For clarity, this project **will not** entail writing any validation jobs from scratch, though in some cases it might require small modifications to the existing validation jobs (e.g. we might discover that, in some model property, we want to allow more values, and thus we need to modify the validation to allow more values). However, it does require writing jobs to fix the production data (based on known validation issues), running those jobs on a test instance, and then running those jobs in production.
-
-**Size of this project:** medium (~175 hours) or large (~350 hours). 
-
-<span style="text-decoration:underline;">Note</span>: We would recommend taking up this project as a longer-term one (e.g. until November) with fewer hours per week, since it can take time to verify the validations on a server with production data.
+**Size of this project:** medium (~175 hours) or large (~350 hours). <span style="text-decoration:underline;">Note</span>: We would recommend taking up this project as a longer-term one (e.g. until November) with fewer hours per week, since it can take time to verify the validations on a server with production data.
 
 **Potential Mentors:** @vojtechjelinek
 
@@ -804,11 +793,11 @@ For clarity, this project **will not** entail writing any validation jobs from s
 
 
 * **Medium project:**
-    * **Milestone 1: **Fix 3 tasks from the list above.
-    * **Milestone 2: **Fix 3 tasks from the list above.
+    * **Milestone 1:** Fix 3 tasks from the list above.
+    * **Milestone 2:** Fix 3 tasks from the list above.
 * **Large project:**
-    * **Milestone 1: **Fix 6 tasks from the list above.
-    * **Milestone 2: **Fix 6 tasks from the list above.
+    * **Milestone 1:** Fix 6 tasks from the list above.
+    * **Milestone 2:** Fix 6 tasks from the list above.
 
 **Knowledge/Skills Recommended:** 
 
@@ -816,49 +805,45 @@ For clarity, this project **will not** entail writing any validation jobs from s
 
 * Good knowledge of Apache Beam
 * Ability to write Beam jobs
-* Understanding of the storage layer of our codebase 
+* A good understanding of the storage layer of the Oppia codebase 
 
-**Dependency on Release Schedule:** There is some dependency on the [release schedule](https://github.com/oppia/oppia/wiki/Release-schedule-and-other-information), as Beam jobs are a critical part of this project and these are run on the prod server only once a month. Although we can run these jobs at any time on a test server, they will ultimately need to be run in production, so we suggest organizing your milestones and timelines around which jobs you would like to complete by each of the release dates.
+**Dependency on Release Schedule:** There is some dependency on the [release schedule](https://github.com/oppia/oppia/wiki/Release-schedule-and-other-information), as Beam jobs are a critical part of this project and these are run on the prod server only once a month. Although we can run these jobs at any time on a test server, they will ultimately need to be run in production, so we suggest organizing your milestones and timelines around which jobs you would like to finalize by each of the release dates.
 
 **Proposal notes:** 
 
 
 
-* In your proposal, please explain how you plan to tackle the tasks from the list above. There are usually two parts to this: (a) making sure that we fix the current issues in our datastore, and (b) ensuring that those issues don’t reoccur in the future.
-* When designing the Beam jobs to fix existing issues in our datastore, make sure that those jobs only make modifications that are strictly necessary. Be especially careful with updates or deletions, since it is important to avoid any data loss or corruption. Specify how you would manually verify (on a test server) that the job has done the right thing after it is run, and what the rollback procedure for the job is (if something goes wrong while running it). 
-* Also, note that, in general, the jobs should be designed to be **idempotent**. That is, running them twice should result in the same outcome as running them once (since this allows us to just rerun them if an error happens with the Beam framework).
-
-You don’t need to include these sections in your proposal:
-
-
-
-* Additions/Changes to Web Server Endpoint Contracts
-* Calls to Web Server Endpoints
-* UI Screens/Components
-* [Web only] Web frontend changes
+* In your proposal, please explain how you plan to tackle the tasks from the list above. There are usually two parts to this: (a) making sure that we fix the current issues in our datastore, and (b) ensuring that those issues don’t reoccur in the future (which often requires doing a careful audit to prove that all possible “loopholes” that would allow them to occur have been plugged).
+* When designing the Beam jobs to fix existing issues in our datastore, make sure that those jobs only make modifications that are strictly necessary. Be especially careful with updates or deletions, since it is important to avoid any data loss or corruption. For each task, you should specify how you would manually verify (on a test server) that the job has done the right thing after it is run, and what the rollback procedure for the job is (if something goes wrong while running it). 
+* Also, note that, in general, the jobs you write should be designed to be **idempotent**. That is, running them twice should result in the same outcome as running them once (since this allows us to just rerun them if an error happens within the Beam framework).
+* You can omit the following sections from your proposal:
+    * Additions/Changes to Web Server Endpoint Contracts
+    * Calls to Web Server Endpoints
+    * UI Screens/Components
+    * [Web only] Web frontend changes
 
 **Useful resources:**
 
 
 
-* [Testing jobs and other features on production wiki](https://github.com/oppia/oppia/wiki/Testing-jobs-and-other-features-on-production) 
-* [Release schedule and other information wiki](https://github.com/oppia/oppia/wiki/Release-schedule-and-other-information) 
-* [Apache Beam Jobs wiki](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs) 
+* [Testing jobs and other features on production wiki page](https://github.com/oppia/oppia/wiki/Testing-jobs-and-other-features-on-production) 
+* [Release schedule and other information wiki page](https://github.com/oppia/oppia/wiki/Release-schedule-and-other-information) 
+* [Apache Beam Jobs wiki page](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs) 
 
 
 ### 4.4. Move and fix data in Google Cloud Storage
 
-This project aims to make sure that our images and sound files in the GCS (Google Cloud Storage) have the correct MIME types, and also aims to migrate the profile images from UserSettingsModel to GCS.
+This project aims to make sure that our image and audio files in GCS (Google Cloud Storage) have the correct MIME types, and also aims to migrate the profile images from UserSettingsModel to GCS.
 
-This project has three main parts:
+The project has three main parts:
 
 
 
-* Introduce GCS IO for Beam jobs, which will allow Beam jobs to work with files in GCS. (This is a prerequisite for the other parts of the project.)
-* Validate that existing files in GCS have the correct MIME types ([#13480](https://github.com/oppia/oppia/issues/13480)), and fix those types if needed
-* Migrate profile images from UserSettingsModel to GCS and start using WebP for profile images ([Move user profile images to GCS](https://docs.google.com/document/d/1PXg3MJOnjmdIc3gN0faiii6Lzrecc-rGOVY9sL-wOWs/edit))
+* Introduce GCS IO for Beam jobs (should be placed in _core/jobs/io_), which will allow Beam jobs to work with files in GCS. (This is a prerequisite for the other parts of the project.)
+* Validate that existing files in GCS have the correct MIME types ([#13480](https://github.com/oppia/oppia/issues/13480)), and fix those types if needed.
+* Migrate profile images from UserSettingsModel to GCS and start using WebP for profile images ([Move user profile images to GCS](https://docs.google.com/document/d/1PXg3MJOnjmdIc3gN0faiii6Lzrecc-rGOVY9sL-wOWs/edit#heading=h.yq3m92owb3zz))
 
-The GCS IO should offer these interactions with GCS:
+The GCS IO mentioned in the first part should offer the following interactions with GCS:
 
 
 
@@ -866,7 +851,7 @@ The GCS IO should offer these interactions with GCS:
 * Writing into files
 * Allow modifying file metadata
 * Deleting files
-* Getting list of files in a folder
+* Getting the list of files in a folder
 
 **Size of this project:** medium (~175 hours)
 
@@ -884,7 +869,7 @@ The GCS IO should offer these interactions with GCS:
 
 
 
-* **Milestone 1:** Introduce GCS IO for Beam jobs. Validate and fix MIME types in our GCS files.
+* **Milestone 1:** Introduce a new GCS IO for Beam jobs. Validate and fix MIME types in our GCS files.
 * **Milestone 2:** Migrate profile images from UserSettingsModel to GCS and start using WebP for profile images
 
 **Dependency on Release Schedule:** There is some dependency on the [release schedule](https://github.com/oppia/oppia/wiki/Release-schedule-and-other-information), as Beam jobs are a critical part of this project and these are run on the prod server only once a month. Although we can run these jobs at any time on a test server, they will ultimately need to be run in production, so we suggest organizing your milestones and timelines around which jobs you would like to complete by each of the release dates.
@@ -894,16 +879,16 @@ The GCS IO should offer these interactions with GCS:
 
 
 * When designing the Beam jobs to fix existing issues in our datastore, make sure that those jobs only make modifications that are strictly necessary. Be especially careful with updates or deletions, since it is important to avoid any data loss or corruption. Specify how you would manually verify (on a test server) that the job has done the right thing after it is run, and what the rollback procedure for the job is (if something goes wrong while running it). 
-* Also, note that, in general, the jobs should be designed to be **idempotent**. That is, running them twice should result in the same outcome as running them once (since this allows us to just rerun them if an error happens with the Beam framework).
+* Also, note that, in general, the jobs you write should be designed to be **idempotent**. That is, running them twice should result in the same outcome as running them once (since this allows us to just rerun them if an error happens with the Beam framework).
 
 **Useful resources:**
 
 
 
-* [Testing jobs and other features on production wiki](https://github.com/oppia/oppia/wiki/Testing-jobs-and-other-features-on-production) 
-* [Release schedule and other information wiki](https://github.com/oppia/oppia/wiki/Release-schedule-and-other-information) 
-* [Apache Beam Jobs wiki](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs) 
-* [Apache Beam GCS IO](https://beam.apache.org/releases/pydoc/2.36.0/apache_beam.io.gcp.gcsio.html) 
+* [Testing jobs and other features on production wiki page](https://github.com/oppia/oppia/wiki/Testing-jobs-and-other-features-on-production) 
+* [Release schedule and other information wiki page](https://github.com/oppia/oppia/wiki/Release-schedule-and-other-information) 
+* [Apache Beam Jobs wiki page](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs) 
+* [Apache Beam GCS IO](https://beam.apache.org/releases/pydoc/2.36.0/apache_beam.io.gcp.gcsio.html)
 
 
 ---
