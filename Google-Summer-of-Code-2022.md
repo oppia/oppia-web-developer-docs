@@ -448,6 +448,55 @@ The project also involves moving all existing blog posts from Medium to this new
 * Mocks for the blog-related pages: [link](https://xd.adobe.com/view/9bb82409-cdca-432a-b11c-88324643e2c0-ceeb/grid). (You might also wish to see pages 6 and 11+ of [Rijuta’s GSoC proposal](https://github.com/oppia/oppia/wiki/pdfs/GSoC2021RijutaSingh.pdf) from 2021, which describe the intended product designs for these pages.)
 
 
+### 1.8. Improving the lesson creation experience
+
+**Project Description:**
+
+The aim of this project is to provide three enhancements to the exploration editor page for lesson creators: (a) showing the history of metadata changes to an exploration; (b) showing the history of changes to a specific card and allowing that history to be browsed through; (c) allowing creators to see which languages a particular part of a lesson has been translated into when editing it, and to update those translations if appropriate.
+
+(**Note**: If desired, you may submit a proposal for a <span style="text-decoration:underline;">half-size project</span> covering EITHER both options (a) and (b), OR option (c). If you do this, please label your proposal accordingly with “parts (a) + (b)” or “part (c)” in the title.)
+
+For (a): The current exploration history tab allows comparison between each “state card”, but doesn’t include details of the exploration metadata. An additional box containing these details should be added to the comparison graph.
+
+For (b): In the state editor, it should be possible to see a “Last edited by XXX at version YYY” annotation (excluding translation commits) at the bottom right. Clicking this should open a pop-up modal that shows the difference between the versions for this card, and a further link at the bottom right saying “Previously edited by XXX at version YYY” which, when clicked, advances the modal to the previous change, and so on. (This is intended to function a little bit like “git blame” in the GitHub UI.)
+
+For (c): In the state editor, when a change is made to a part of a card and this results in a “should translations be updated?” pop-up modal, the modal should also include a list of the existing languages for which that content has been translated, and the currently-saved translations for those languages. The lesson creator should be asked to update these translations if the changes are trivial to do (e.g. the content is just numbers), and otherwise leave them alone by default. This will help to save some re-translation work for the community. **Note**: these translation changes should not be applied immediately – if the lesson creator subsequently discards their change before committing it to the backend, then those translation changes should also be discarded.
+
+**Size of this project:** large (~350 hours); can be reduced to medium if desired (see description)
+
+**Potential Mentors:** @kevintab95
+
+**Knowledge/Skills Recommended:** 
+
+
+
+* Knowledge and understanding of Python
+* Knowledge and understanding of TypeScript, Angular, HTML, and CSS
+* Ability to write Beam jobs
+* Technical design skills
+* (Ideally) Some UI/UX design skills
+
+**Suggested Milestones:**
+
+
+
+* **Milestone 1:** Creators should be able to see changes to an exploration’s metadata in the comparison view in the history tab. They should also be able to navigate through all the historical changes to a particular state (excluding changes that solely affect translations). 
+* **Milestone 2:** Creators should be able to see a list of existing translations through the modal that pops up when they make changes to a published exploration, and should be able to edit those if the edits are easy to make.
+
+**Dependency on Release Schedule:** Some sections of this proposal may entail writing Beam jobs to update existing server data. The timeline should be arranged so that such jobs can be run and verified during the appropriate release cycle.
+
+**Proposal notes:**
+
+
+
+* The main thing that is important to demonstrate in the proposal for this project is good technical design skills. Strong proposals would first show a good understanding of the current system, and correctly describe the parts of it that are relevant to the relevant subproject, before suggesting the minimal changes that would be needed in order to achieve the desired functionality. 
+
+**Useful resources: **
+
+
+
+* How to write Apache Beam jobs: [wiki page](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs).
+
 ---
 
 
