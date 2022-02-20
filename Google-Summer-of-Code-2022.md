@@ -205,23 +205,23 @@ Finally, please note that this list of project ideas is not fixed, and more proj
 
 ### Learner and Creator Experience (LaCE) team
 
-1.1. Learner Diagnostic Tests
+1.1. [Learner Diagnostic Tests](#11-learner-diagnostic-tests)
 
-1.2. Implementing the “needs guiding responses” section of the lesson analytics dashboard
+1.2. [Implementing the “needs guiding responses” section of the lesson analytics dashboard](#12-implementing-the-needs-guiding-responses-section-of-the-lesson-analytics-dashboard)
 
-1.3. Helping students when they get stuck
+1.3. [Helping students when they get stuck](#13-helping-students-when-they-get-stuck)
 
-1.4. Celebrating students’ accomplishments
+1.4. [Celebrating students’ accomplishments](#14-celebrating-students-accomplishments)
 
-1.5. Learner Group MVP
+1.5. [Learner Group MVP](#15-learner-group-mvp)
 
-1.6. Number Line and Percentage interactions
+1.6. [Number Line and Percentage interactions](#16-number-line-and-percentage-interactions)
 
-1.7. Blog integration
+1.7. [Blog integration](#17-blog-integration)
 
-1.8. Improving the lesson creation experience
+1.8. [Improving the lesson creation experience](#18-improving-the-lesson-creation-experience)
 
-1.9. Onboarding Improvements
+1.9. [Onboarding Improvements](#19-onboarding-improvements)
 
 ### Contributor Dashboard team
 
