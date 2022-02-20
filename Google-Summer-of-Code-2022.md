@@ -219,7 +219,7 @@ Finally, please note that this list of project ideas is not fixed, and more proj
 
 1.7. [Blog integration](#17-blog-integration) (medium)
 
-1.8. [Improving the lesson creation experience](#18-improving-the-lesson-creation-experience) (large or medium)
+1.8. [Improving the lesson creation experience](#18-improving-the-lesson-creation-experience) (large; can be split into 2 medium projects)
 
 1.9. [Onboarding Improvements](#19-onboarding-improvements) (medium)
 
@@ -241,7 +241,7 @@ TBD
 
 4.2. [Improve the frontend type system](#42-improve-the-frontend-type-system) (large)
 
-4.3. [Fix validation errors](#43-fix-validation-errors) (large or medium)
+4.3. [Fix validation errors](#43-fix-validation-errors) (large; can be split into 2 medium projects)
 
 4.4. [Move and fix data in Google Cloud Storage](#44-move-and-fix-data-in-google-cloud-storage) (medium)
 
@@ -264,9 +264,9 @@ TBD
 
 We have heard that, when visiting the Oppia Classroom, learners are sometimes not sure which lesson(s) to start with. The aim of this project is to streamline the “getting started” experience for learners, as well as provide a way for them to test themselves and get personalized recommendations for what lesson(s) to work on next.
 
-Specifically, learners should see an option in the Math Classroom page to take a diagnostic test. This test should be a set of questions covering multiple topics. Ideally, it would be adaptive in nature, and have no more than 10-15 questions (possibly ending earlier if the student’s topic can be determined with fewer questions). When a recommendation is made, the learner should understand the rationale for the recommendation.
+Specifically, learners should see an option in the Math Classroom page (/learn/math) to take a diagnostic test. This test should be a set of questions covering multiple topics. Ideally, it would be adaptive in nature, and have no more than 10-15 questions (possibly ending earlier if the student’s topic can be determined with fewer questions). When a recommendation is made, the learner should understand the rationale for the recommendation. It is fine to make 0, 1 or 2 recommendations (with 0 being the case if they seem to have understood everything).
 
-Curriculum admins should be able to “program” this test. They would specify the key skills for each topic that it should use and how these map to the decision of which topic to recommend. A simple way to model this is for the curriculum admin to provide up to 3 key skills for each topic, in the order that these appear in each topic, as well as some representation of the dependencies between topics. The diagnostic test should “binary search” using this data to find the “earliest” topic that the learner would benefit from learning. (This is a high-level sketch and more detail should be supplied within the proposal.)
+Curriculum admins should be able to “program” this test. They would specify the key skills for each topic that would be tested, and how the learner’s performance on the tested skills maps to the decision of which topic to recommend. A simple way to model this is for the curriculum admin to provide up to 3 key skills for each topic (in the order that these are taught within that topic), as well as some representation of the dependencies between topics. The diagnostic test should “binary search” using this data to find the “earliest” topic that the learner would benefit from learning. (This is a high-level sketch, and more detail should be supplied within the proposal.)
 
 **Size of this project:** large (~350 hours)
 
@@ -276,36 +276,37 @@ Curriculum admins should be able to “program” this test. They would specify 
 
 * Knowledge and understanding of Python
 * Knowledge and understanding of TypeScript, Angular, HTML, and CSS
-* Some knowledge about designing UI might be useful
+* Some understanding of UI/UX design
+* Good technical design skills
 
 **Suggested Milestones:**
 
-* **Milestone 1:** Curriculum admins should have a classroom-specific page where they can enter details for the diagnostic test and the inter-topic dependencies. There should at least be a comprehensive suite of backend integration tests that convincingly shows that the recommendation system works correctly (although the learner UI does not have to exist at this point).
-* **Milestone 2:** The full learner UI for diagnostic tests should be built.
+* **Milestone 1:** Create a “classroom administration” page for curriculum admins. Move the "classroom details" config property from the "Admin > Config" page to this new page. Additionally, on this page, add a section which allows curriculum admins to enter details for the diagnostic test and the inter-topic dependencies for each classroom page. The learner UI doesn’t need to exist at this point, but there should at least be a comprehensive suite of backend integration test cases that convincingly shows that the recommendation system entered by the curriculum admin works correctly.
+* **Milestone 2:** The full learner UI for diagnostic tests should be built. New learners should be able to visit the Math Classroom page and take an adaptive diagnostic test that would then surface 0, 1 or 2 topic recommendations for them to pursue. 
 
 **Dependency on Release Schedule:** None.
 
 **Proposal notes:**
 
-
-
-* The proposal should include mocks for the learner and creator (i.e. curriculum admin) experiences.
+* This project will require some UI/UX design skills. The proposal should include mocks for the learner and creator (i.e. curriculum admin) experiences.
 * The proposal should explain how to handle the case where a learner makes an error in the diagnostic tests that is not due to a misunderstanding of the topic, but more due to a typo or computation error. Do we give them another chance to submit the right answer, or do we give them a second question on that skill, or something else?
-* In the future, we would like to reuse this infrastructure for topic-level diagnostic tests that would help the learner figure out which lesson in a topic they should start from. Implementing these topic-level tests is not part of this GSoC project. However, when designing the infrastructure, please consider this use case as one that this project should be easily extendable to in the future.
-* From a product perspective, the learner feedback team will be a stakeholder for this project since they would use it to help students figure out which topic they’d like to learn at the start of a learner feedback session. 
+* In the future, we’d like to reuse this infrastructure for topic-level diagnostic tests that would help the learner figure out which lesson in a topic they should start from. Implementing these topic-level tests is out of scope for this GSoC project. However, when designing the infrastructure, please keep this use case in mind, since we would like to extend the project to support it in the future.
+* You may be able to reuse large parts of the existing practice question player infrastructure in the learner view of the diagnostic test. If you do, please explain in the proposal which specific top-level component(s) you will be reusing, and what (if any) modifications need to be made to it to support both the existing and new use cases. Try to keep these modifications minimal.
+* (For information only) Oppia has a learner feedback team which uses the Oppia lessons to conduct sessions with students. They will be one of the stakeholders for this project, since they would use it to help students figure out which topic they’d like to learn at the start of a learner feedback session. During the GSoC project, you will have the opportunity to get feedback from them on what you’re building!
 
 
-### 1.2. Implementing the “card-level improvements” section of the lesson analytics dashboard
+
+### 1.2. Implementing the “needs guiding responses” section of the lesson analytics dashboard
 
 **Project Description:**
 
-Oppia has, for each exploration, an “improvements tab” that shows common wrong answers to a question, so that the lessons can be improved. (For example, if a particular answer isn’t addressed well by the existing feedback, and is occurring regularly, then we can detect this and update the lesson.) This is important for ensuring that learners don’t get stuck.
+Oppia has, for each exploration, an “improvements tab” that shows common wrong answers to a question. This allows lesson creators to subsequently improve the lessons. (For example, if a particular wrong answer isn’t addressed well by the existing feedback, and is being submitted regularly, then we can detect this and update the lesson.) This is important for ensuring that learners don’t get stuck.
 
-The existing stats dashboard is somewhat unwieldy and not well-suited for easily taking action to update lessons. A new improvements tab that is more editor-friendly has already been (mostly) designed. This improvements tab shows improvements that can be made to the exploration, categorized by bounce rate, incomplete learning, and specific wrong answers for cards.
+Unfortunately, the existing stats dashboard is somewhat unwieldy and not well-suited for easily taking action to update lessons. A new [improvements tab](https://drive.google.com/file/d/1GOrwZhVKCunSmOgbvMDaGFU2LSjT_MOf/view) that is more editor-friendly has already been (mostly) designed. This improvements tab shows improvements that can be made to the exploration, categorized by bounce rate, incomplete learning, and specific wrong answers for cards.
 
-The aim of this project is to implement the part of the improvements tab that covers “Card-Level Improvements”. (The other two parts are out of scope for this project, and so is the call to action on the bottom right of each card – the main aim for this GSoC project is to show the necessary data correctly in a way that allows the creator to act on it.)
+The aim of this project is to implement the part of the improvements tab that covers “Card-Level Improvements > Needs Guiding Responses”. (The other parts are out of scope for this project.) 
 
-The main challenge for this project is surfacing the necessary data correctly and quickly. In order to do this, the data needs to be grouped and arranged properly in the backend for easy retrieval. This data should be kept up-to-date using cron jobs, but since there is a lot of data, there should be some aggregation and archival strategy so that the cron jobs do not need to perform computations on the full historical dataset each time. The aim of this project is thus to build out this data pipeline and ensure that it is robust, and display its output in the frontend in the editor improvements tab.
+The main challenge for this project is surfacing the necessary data for this view correctly and quickly. In order to do this, the data needs to be grouped and arranged properly in the backend for easy retrieval. This data should be kept up-to-date using Apache Beam jobs that are regularly run using a cron scheduler, but since there is a lot of data, there should be some aggregation and archival strategy so that the cron jobs do not need to perform computations on the full historical dataset each time. The aim of this project is thus to build out this data pipeline and ensure that it is robust, and display its output in an easy-to-understand way in the exploration editor improvements tab.
 
 **Size of this project:** large (~350 hours)
 
@@ -313,35 +314,32 @@ The main challenge for this project is surfacing the necessary data correctly an
 
 **Knowledge/Skills Recommended:** 
 
-
-
 * Knowledge and understanding of Python
-* Knowledge and understanding of TypeScript, Angular, HTML, and CSS
 * Ability to write Beam jobs
+* Knowledge and understanding of TypeScript, Angular, HTML, and CSS
+* Strong technical design skills
 
 **Suggested Milestones:**
 
+* **Milestone 1:** Implement the data pipeline for answer statistics. This should include (a) generating one-off archival models for historical data that can be queried quickly, (b) creating “realtime” models for each exploration/state that store the most recent set of answer data, (c) adding a trigger to update the archival model via a deferred job once the realtime model exceeds a certain number of distinct answers or storage size, (d) implementing the necessary queries and controllers to provide the “top wrong answers” data to the frontend. These jobs should work correctly in production.
 
+* **Milestone 2:** Implement the UI for the “Card-Level Improvements > Needs Guiding Responses” section of the improvements tab. This section should correctly display answers for the various different types of interactions (note that the mock in the “Useful Resources” section only shows one such type, which is TextInput answers). It should also display an “Address Answers” call-to-action which, when clicked, brings the user to the relevant part of the main exploration editor tab, which would also open the “Add Response” dialog box with a reminder of the wrong answers they still need to address, so that they can add new answer groups and feedback for them (see more details [here](https://docs.google.com/document/d/1qQbW9Z_cgJ1mwU0hzBpPVS_4WLT_l_08ZixLR1G2bvQ/edit#heading=h.c63b1rerczu8)).
 
-* **Milestone 1:** Implement the data pipeline for answer statistics. This should include (a) one-off generation of archival models for historical data that are fast to query, (b) creating “realtime” models for each exploration/state that store the most recent set of answer data, (c) adding a trigger to update the archival model via a deferred job once the realtime model exceeds a certain number of distinct answers or storage size, (d) implementing the necessary queries and controllers to provide the “top wrong answers” data to the frontend. These jobs should work correctly in production.
-* **Milestone 2:** Implement the UI for “Card-Level Improvements” section of the improvements tab, excluding the “Address answers” and “Edit Feedback” calls-to-action. The tab should correctly display the answers for the different types of interactions.
-
-**Dependency on Release Schedule:** Since this project involves a step to generate archival models, the timeline should be arranged so that this step can be run and verified during the appropriate release cycle. 
+**Dependency on Release Schedule:**  Since this project involves a step to generate archival models, the timeline should be arranged so that this step can be run and verified during the appropriate release cycle. 
 
 **Proposal notes:**
 
+* One thing to consider when designing the data structure is versioning, and how to tell whether a set of answers is “still useful” for a given exploration version. A simple rule of thumb that could be used is whether the card still uses the same interaction type. Additionally (or alternatively), each wrong answer surfaced could include the date when it was last seen, and this can be used to filter wrong answers that have become obsolete. (Note that these are just ideas for you to consider, and it is fine if you decide not to go with these or have alternative suggestions. You may want to compare and contrast different approaches.)
+* We recommend taking a look at the existing codebase. Some good places to start are event_services.py, StateAnswersModel, and the stats_domain.py and stats_services.py files. Although these models and functionality may not be optimally implemented, they should be useful for getting a sense of what exists today.
+* Note that an existing infrastructure for stats computations relied on a “continuous-computation” infrastructure in our codebase, which was deprecated some time ago (though you can see it in older versions of the codebase, in jobs.py). This infrastructure also relied on MapReduce jobs, which became obsolete after the recent migration to Python 3. Additionally, the previous infrastructure didn’t really handle versioning correctly. Thus, we would advise revisiting the infrastructure questions afresh and coming up with a clear technical design (that doesn’t assume that what exists in the codebase is already optimal).
+* In general, we recommend that the proposal should examine the existing stats pipeline, describe how it works, and identify problems with it. It should then propose a technical design that would satisfy the criteria mentioned in this project (and explain in detail how statistics should be computed, archived, and surfaced), and describe how we would move from the existing pipeline to this new design. It is important to compare multiple alternative approaches to doing this (for example, there may be pros/cons associated with building an independent “realtime model” from scratch, vs making light modifications to the existing models).
 
-
-* Functionality already exists in the Oppia codebase for storing submitted answers in the backend. The proposal should examine the existing stats pipeline and evaluate whether the current models used are fit for purpose, and suggest modifications to these if appropriate (rather than building a new “realtime model” from scratch).
-* One thing to consider when designing the data structure is versioning, and how to tell whether a set of answers is “still useful” for a given exploration version. A simple rule of thumb that could be used is whether the card still uses the same interaction. Additionally, each wrong answer surfaced could include the date when it was last seen, and this can be used to filter obsolete wrong answers.
-* It is important to go into detail on how the statistics will actually be computed and surfaced. An existing infrastructure for this relied on continuous computations, which were deprecated some time ago, and our other MapReduce jobs became obsolete after the Python 3 migration. Additionally, the previous infrastructure didn’t really handle versioning correctly. Thus, it will likely be necessary to revisit the infrastructure from scratch (don’t assume that what exists is already optimal), and see what can and cannot be reused.
 
 **Useful resources:**
-
-
-
-* (Somewhat outdated) design doc (not implemented) that overlaps with this project: [link](https://docs.google.com/document/d/1qQbW9Z_cgJ1mwU0hzBpPVS_4WLT_l_08ZixLR1G2bvQ/edit#heading=h.ylvrrqipsjif)
-* UI mocks: [link](https://drive.google.com/file/d/1GOrwZhVKCunSmOgbvMDaGFU2LSjT_MOf/view?usp=sharing) 
+* UI mocks: [link](https://drive.google.com/file/d/1GOrwZhVKCunSmOgbvMDaGFU2LSjT_MOf/view?usp=sharing)
+* How to write Apache Beam jobs: [wiki page](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs) 
+* Here is a somewhat outdated and incomplete [design doc](https://docs.google.com/document/d/1qQbW9Z_cgJ1mwU0hzBpPVS_4WLT_l_08ZixLR1G2bvQ/edit#heading=h.ylvrrqipsjif) that overlaps a bit with this project. Most of the doc is out of scope for the project, but you might find it interesting reading for context. The most relevant section is [this one](https://docs.google.com/document/d/1qQbW9Z_cgJ1mwU0hzBpPVS_4WLT_l_08ZixLR1G2bvQ/edit#bookmark=id.3fmayg4aifoi) in the "product design" part of the doc. Note that you do not need to follow the approach in the technical design section of that document (since, on reflection, it looks like the storage and display approach for NGR tasks would likely need to be handled differently from other tasks in the dashboard).
+ 
 
 ### 1.5. Learner Group MVP 
 
