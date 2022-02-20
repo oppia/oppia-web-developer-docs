@@ -5,7 +5,7 @@
 -   [Types of work related to Oppia projects](#types-of-work-related-to-oppia-projects)
 -   [Selection Criteria](#selection-criteria)
 
-Oppia is planning to participate in [Google Summer of Code 2022](https://summerofcode.withgoogle.com/)! GSoC is a global program which offers an opportunity to discover and work with open source organizations to any non-experienced contributors and especially to post-secondary students. The contributions are supported by a stipend. Contributors work closely with one or more mentors from an open source organization in order to implement either a project idea by the organization, or a proposal of their own.
+Oppia has applied to participate in [Google Summer of Code 2022](https://summerofcode.withgoogle.com/)! GSoC is a global program which offers the opportunity to discover and work with open-source organizations to non-experienced contributors and especially to post-secondary students. The contributions are supported by a stipend. Contributors work closely with one or more mentors from an open-source organization to implement either a project idea by the organization, or a proposal of their own.
 
 In order to receive updates about GSoC at Oppia, please subscribe to the [Oppia GSoC Announce](https://groups.google.com/g/oppia-gsoc-announce) mailing list.
 
@@ -38,9 +38,9 @@ If you're interested in applying to work with Oppia for GSoC, please follow thes
 
 5. Once you've merged at least 2 pull requests, you will get an invitation to become a collaborator to the Oppia or Oppia-Android repository and be officially onboarded! **This step is a prerequisite to applying for GSoC.**
 
-6. Now, you can select one or more GSoC projects that you're most interested in, and write your project proposal! This point will be elaborated more after Oppia is officialy accepted into GSoC.
+6. Now, you can select one or more GSoC projects that you're most interested in, and write your project proposal! _This point will be elaborated more if Oppia is officially accepted into GSoC._
 
-<!--- 6. Now, you can select one or more GSoC projects that you're most interested in, and write your project proposal! We strongly encourage you to discuss your project ideas and share your proposal with the community, so that you can get feedback and ensure that what you're writing makes sense to others. The best way to do this is to put your proposal into a collaborative editing tool like Google Docs, allow others to comment on it, and share a link to it on the [GSoC discussion mailing list](mailto:oppia-gsoc-discuss@googlegroups.com). You can also email this mailing list if you have any questions about a project, or would like to discuss your approach with the Oppia community and get feedback. Please be specific when asking questions, since this makes it easier for us to help you.
+<!--- 6. We strongly encourage you to discuss your project ideas and share your proposal with the community, so that you can get feedback and ensure that what you're writing makes sense to others. The best way to do this is to put your proposal into a collaborative editing tool like Google Docs, allow others to comment on it, and share a link to it on the [GSoC discussion mailing list](mailto:oppia-gsoc-discuss@googlegroups.com). You can also email this mailing list if you have any questions about a project, or would like to discuss your approach with the Oppia community and get feedback. Please be specific when asking questions, since this makes it easier for us to help you.
     - **Important note:** Please read [this oppia-gsoc-discuss@ thread](https://groups.google.com/forum/#!topic/oppia-gsoc-discuss/S6Ge3vQ3cuc) carefully for details about the recommended review process. Note that you do not need to write the entire proposal before getting your first review — see the instructions in that thread for more details. Thanks!
 --->
 
@@ -64,15 +64,15 @@ A: All the projects we've listed here are important, and we'd be very happy to s
 
 **Q: Can I submit more than one proposal to Oppia?**
 
-A: Yes you can. However, we strongly recommend picking one project and writing a solid proposal for it. Splitting attention across multiple projects might not be a great idea.
+A: Yes you can. However, we strongly recommend picking one project and writing a solid proposal for it. Splitting attention across multiple projects might not be a great idea. (One exception, new for 2022, is if you are interested in doing either the 'full version' or the 'half version' of a project idea that can support both modes. In such a case, you would be welcome to submit both the 'full version' and the 'half version' as separate applications, but before doing so, please make sure that you would be happy with either outcome.) 
 
 **Q: How early should I start working on the proposal?**
 
-A: As early as possible. Make sure to get feedback from mentors before finally submitting the proposal. This will help you to write a better proposal as you can refine the details based on the feedback you receive. The mentors would need some time to review your proposal, and hence it is a good idea to begin as early as possible.
+A: As early as possible. Make sure to get feedback from mentors before finally submitting the proposal. This will help you to write a better proposal as you can refine the details based on the feedback you receive. The mentors would need some time to review your proposal, and hence it is a good idea to begin as early as possible. Make sure to follow all instructions in the proposal template (especially around sharing) to reduce delays in reviewing your proposal.
 
 **Q: I only discovered Oppia recently. Does this mean that, during selection, my application would automatically be ranked lower than those by other applicants who have a longer tenure with Oppia?**
 
-A: Definitely not! Here are the [selection criteria](#selection-criteria) we use when selecting contributors for GSoC; note that tenure is not part of these criteria. Also, our philosophy is to consider each application based on its own merits, not relative to other applications, and we try to accept every contributor whose application "meets the bar". The only cases in which we'd need to compare applications against each other are when a project idea receives multiple applications, we receive fewer "slots" to host contributors than we originally applied for, or we don't have enough mentors to host all the projects we want to support.
+A: Definitely not! Here are the [selection criteria](#selection-criteria) we use when selecting contributors for GSoC. Note that tenure is explicitly not part of these criteria.
 
 **Q: What are the minimum number of PRs that one should have?**
 
@@ -97,9 +97,11 @@ A: The GSoC program is open to new and beginner contributors to open source. Som
 <!---
 ## GSoC Proposal Template
 
-When submitting a proposal, please use the provided (**TODO: fix link and update subsequent paragraphs**)[GSoC proposal template](https://docs.google.com/document/d/1fZ8yJG70zoANYGJgOv5wsIzz3arOX4Up4EJqfUU6nis/edit). We will only consider proposals submitted using this template.
+When submitting a proposal, please use the provided [GSoC proposal template](https://docs.google.com/document/d/1yYefLkT7dJJa86MyrdWpbZtzeaWAKCi1eXZZDGUrasM/edit#). We will only consider proposals submitted using this template.
 
-You are welcome to ask mentors for reviews during the proposal preparation phase. Mentors will review proposals incrementally. That is, they will work through the Mocks section, and, only after they are satisfied with it, they will review the Technical Design section, and, similarly, only after that section looks good, they will review the Milestones section. This is meant to help ensure that later sections of the proposal are building on a solid baseline.
+You are welcome to ask mentors for reviews during the proposal preparation phase. We recommend getting the WHAT section reviewed before doing substantial work on the HOW section, and getting the first part of the HOW section reviewed before doing work on the second part. This is meant to help ensure that later sections of the proposal  build on a solid baseline, and reduce the amount of wasted work.
+
+**Important:** Your proposal should be shared as "anyone with the link can leave comments" and sent to oppia-gsoc-discuss@. Do not send proposals directly to individual GSoC mentors.
 
 **Important:** Please make sure that your final proposal is self-contained. In particular, to be fair to all applicants, key components of the proposal should not be editable after the deadline, and you shouldn't assume that reviewers will follow external links.
 
@@ -107,12 +109,12 @@ You are welcome to ask mentors for reviews during the proposal preparation phase
 
 Here's some advice about proposals and milestone timeline planning that we collated from previous contributors and mentors:
 
--   Choose a project you're interested in! If you have a strong interest in your project, this will help you pick up necessary skills and tackle any unforeseen difficulties that arise during GSoC.
+-   Choose a project you're interested in! If you have a strong interest in your project, this will help you pick up necessary skills and tackle unforeseen difficulties that may arise during GSoC.
 -   Familiarize yourself with the relevant part of the codebase for your project, especially if you haven't touched it before. It's important to think about how to integrate your project with the current Oppia structure — don't design in a vacuum.
 -   Define milestones with enough detail to get a proper ETA for each milestone (so, don't just say "write e2e tests"), otherwise you run the risk of significantly underestimating the timeline.
--   Clear written communication and presentation is crucial in preparing your proposal. The proposal should show that you have a clear understanding of the codebase and the final goal of the project. Eg. In a user-facing proposal, writing about just the files that have to be changed is not enough, detailed mocks and userflows (in the form of diagrams or points) are also essential.
--   Limit proposal length. Remember a lengthy proposal is not equivalent to an excellent proposal.
--   Ensure that the problem statement is within your limits to tackle. You should make sure that what you are proposing is within your capabilities. What we have in the [project ideas section](#oppias-project-ideas-list) are suggested milestones; it is up to you to come up with a complete plan that is within your ability. i.e., contributors can propose whatever they want; it’s up to us to subsequently figure out (during selection) whether we’re happy about what’s being proposed.
+-   Clear written communication and presentation is crucial in preparing your proposal. The proposal should show that you have a clear understanding of the codebase and the final goal of the project. Eg. In a user-facing proposal, writing about just the files that have to be changed is not enough, detailed mocks and user flows (in the form of diagrams) are also essential.
+-   Limit proposal length. Remember, a lengthy proposal is not equivalent to an excellent proposal.
+-   Ensure that the problem statement is within your limits to tackle. You should make sure that what you are proposing is within your capabilities. What we have in the [project ideas section](#oppias-project-ideas-list) are suggested milestones; it is up to you to come up with a complete plan that is within your ability. In other words, contributors can propose whatever they want; it’s up to the Oppia team to subsequently figure out (during selection) whether we’re happy about what’s being proposed.
 -   Contributors who make the last milestone bulky normally run into issues. So, make sure that you distribute work evenly.
 
 ### What should applicants expect from mentors in a proposal review?
@@ -123,13 +125,13 @@ Here's some advice about proposals and milestone timeline planning that we colla
     -   Your analytical skills
     -   Your independence in making complex decisions
 -   Make sure to present solutions and ask for feedback, rather than just asking for solutions. You can do this by presenting the various solutions you came up with in your proposal, and doing an analysis of their advantages & disadvantages from the end-user perspective. Finally, choose the best solution you have and explain your reasoning behind your choice. Note that this doesn't mean that you must always have multiple ideas to solve a problem, but you should instead always explain how you reached a solution, and why is it the best one from the end-user's perspective.
--   Mentor's suggestions are "suggestions", not orders (often, reviewers may not be certain whether their suggestion is correct), so, as the proposal owner, you are welcome to decide whether to accept/reject it. In either case, when you are accepting/rejecting a suggestion provided by a reviewer, explain your reasoning and the research that led to your decision. Don't use an "appeal to authority" (e.g. "I am doing it this way because XXX said so") — the rational analysis that underlies the decision is what's important.
--   We do not expect you to always agree with your reviewers. If you think that the suggestion doesn't suit your project, it is totally fine to explain your decision and provide reasons for it. It is always a good idea to have discussions when you have confusions, rather than simply agreeing. Note that this does not mean that we encourage you to disagree with your reviewers on everything — this is just a suggestion to bear in mind if you get confused.
+-   Mentors' suggestions are "suggestions", not mandates (often, reviewers may not be certain whether their suggestion is correct). This means that, as the proposal owner, you are welcome to decide whether to accept/reject such suggestions. In either case, when you are accepting/rejecting a suggestion provided by a reviewer, explain your reasoning and the research that led to your decision. Don't use an "appeal to authority" (e.g. "I am doing it this way because XXX said so") — the rational analysis that underlies the decision is what's important.
+-   We do not expect you to always agree with your reviewers. If you think that the suggestion doesn't suit your project, it is totally fine to explain your decision and provide reasons for it. It is always a good idea to have discussions when you're confused about something, rather than simply agreeing to whatever is proposed. Note that this does not mean that we encourage you to disagree with your reviewers on everything — this is just a suggestion to bear in mind if you get confused.
 -   Please note that your reviewer may or may not be involved in the final selection process. It is also **not** the case that you need to implement all your reviewers' suggestions/requests in order to be selected. As mentioned above, it is important that you actively take help and work together with your proposal reviewers in order to prepare a strong proposal that meets the guidelines for your chosen project.
 
 ### Sample proposals from past years
 
-If you'd like to get a sense of what a proposal might contain, please see our [GSoC 2021 page](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2020) for examples of proposals that we accepted in 2021. However, please note that the [GSoC Proposal Template](https://docs.google.com/document/d/1fZ8yJG70zoANYGJgOv5wsIzz3arOX4Up4EJqfUU6nis/edit) has been completely revamped for 2022, so please be sure to follow the 2022 template.
+If you'd like to get a sense of what a proposal might contain, please see our [GSoC 2021 page](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2021) for examples of proposals that we accepted in 2021. However, please note that the [GSoC Proposal Template](https://docs.google.com/document/d/1fZ8yJG70zoANYGJgOv5wsIzz3arOX4Up4EJqfUU6nis/edit) has been completely revamped for 2022, so please be sure to follow the 2022 template.
 
 _**Note:** although some of the previous years proposals are a bit on the long side, there's **no** formal length requirement for your proposal. In general, the quality of what you write is much more important than the amount of text you write, and we encourage you to write shorter proposals that still convey the main aim of the project. For the actual requirements, please see the [GSoC Proposal Template](#gsoc-proposal-template) section above._
 
