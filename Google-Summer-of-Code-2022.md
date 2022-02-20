@@ -205,31 +205,31 @@ Finally, please note that this list of project ideas is not fixed, and more proj
 
 ### Learner and Creator Experience (LaCE) team
 
-1.1. [Learner Diagnostic Tests](#11-learner-diagnostic-tests)
+1.1. [Learner Diagnostic Tests](#11-learner-diagnostic-tests) (large)
 
-1.2. [Implementing the “needs guiding responses” section of the lesson analytics dashboard](#12-implementing-the-needs-guiding-responses-section-of-the-lesson-analytics-dashboard)
+1.2. [Implementing the “needs guiding responses” section of the lesson analytics dashboard](#12-implementing-the-needs-guiding-responses-section-of-the-lesson-analytics-dashboard) (large)
 
-1.3. [Helping students when they get stuck](#13-helping-students-when-they-get-stuck)
+1.3. [Helping students when they get stuck](#13-helping-students-when-they-get-stuck) (medium)
 
-1.4. [Celebrating students’ accomplishments](#14-celebrating-students-accomplishments)
+1.4. [Celebrating students’ accomplishments](#14-celebrating-students-accomplishments) (medium)
 
-1.5. [Learner Group MVP](#15-learner-group-mvp)
+1.5. [Learner Group MVP](#15-learner-group-mvp) (large)
 
-1.6. [Number Line and Percentage interactions](#16-number-line-and-percentage-interactions)
+1.6. [Number Line and Percentage interactions](#16-number-line-and-percentage-interactions) (medium)
 
-1.7. [Blog integration](#17-blog-integration)
+1.7. [Blog integration](#17-blog-integration) (medium)
 
-1.8. [Improving the lesson creation experience](#18-improving-the-lesson-creation-experience)
+1.8. [Improving the lesson creation experience](#18-improving-the-lesson-creation-experience) (large or medium)
 
-1.9. [Onboarding Improvements](#19-onboarding-improvements)
+1.9. [Onboarding Improvements](#19-onboarding-improvements) (medium)
 
 ### Contributor Dashboard team
 
-2.1. Contributor Recognition Infrastructure
+2.1. [Contributor Recognition Infrastructure](#21-contributor-recognition-infrastructure) (large)
 
-2.2. Making the Contributor Dashboard UI Responsive
+2.2. [Making the Contributor Dashboard UI Responsive](#22-making-the-contributor-dashboard-ui-responsive) (medium)
 
-2.3. Adding a Contributor Dashboard Stats page
+2.3. [Adding a Contributor Dashboard Stats page](#23-adding-a-contributor-dashboard-stats-page) (medium)
 
 ### Angular team
 
@@ -237,19 +237,19 @@ TBD
 
 ### Backend team
 
-4.1. Make backend code typed
+4.1. [Make backend code typed](#41-make-backend-code-typed) (large)
 
-4.2. Improve the frontend type system
+4.2. [Improve the frontend type system](#42-improve-the-frontend-type-system) (large)
 
-4.3. Fix validation errors
+4.3. [Fix validation errors](#43-fix-validation-errors) (large or medium)
 
-4.4. Move and fix data in Google Cloud Storage
+4.4. [Move and fix data in Google Cloud Storage](#44-move-and-fix-data-in-google-cloud-storage) (medium)
 
 ### Developer workflow team
 
-5.1. Achieve 100% Per-File Branch and Line Coverage for the Frontend and the Backend
+5.1. [Achieve 100% Per-File Branch and Line Coverage for the Frontend and the Backend](#51-achieve-100-per-file-branch-and-line-coverage-for-the-frontend-and-the-backend) (medium)
 
-5.2. Migrate away from Protractor
+5.2. [Migrate away from Protractor](#52-migrate-away-from-protractor) (large)
 
 ### Android team
 
