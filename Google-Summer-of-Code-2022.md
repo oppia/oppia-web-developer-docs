@@ -450,7 +450,7 @@ For the viewer interface, the project entails creating a blog page at oppia.org/
 
 * Quickly and easily view previews of all of our previous blog posts in chronological order, based on their original publication date
 * Click on a blog post preview to view a full version of the blog post
-* Filter blog posts based on tags associated with each post, or keywords in blog post titles
+* Filter/Search blog posts based on tags associated with each post, or keywords in blog post titles
 
 The project also involves moving all existing blog posts from Medium to this new blog page. This can be done using any reasonable approach, as long as the blog posts are successfully migrated and look good on the new page. Once all blog posts are successfully migrated, a link to the blog page should be made accessible in the Oppia website’s navbar and footer. 
 
