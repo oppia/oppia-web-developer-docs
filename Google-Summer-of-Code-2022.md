@@ -497,7 +497,7 @@ For (c): In the state editor, when a change is made to a part of a card and this
 
 **Size of this project:** large (~350 hours); can be reduced to medium if desired (see description)
 
-**Potential Mentors:** @kevintab95
+**Potential Mentors:** @kevintab95, @nithusha21
 
 **Knowledge/Skills Recommended:** 
 
@@ -762,7 +762,7 @@ After this project is finished, all Python files in the Oppia codebase should be
 
 **Size of this project:** large (~350 hours)
 
-**Potential Mentors:** @vojtechjelinek
+**Potential Mentors:** @vojtechjelinek, @nithusha21
 
 **Knowledge/Skills Recommended:** 
 
@@ -807,7 +807,7 @@ Our frontend codebase is fully typed, but our typing doesn’t yet pass strict T
 
 **Size of this project:** large (~350 hours)
 
-**Potential Mentors:** @vojtechjelinek
+**Potential Mentors:** @vojtechjelinek, @nithusha21
 
 **Suggested Milestones:**
 
