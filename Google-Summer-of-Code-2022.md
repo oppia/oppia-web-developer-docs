@@ -230,7 +230,7 @@ Finally, please note that this list of project ideas is not fixed, and more proj
 
 ### Angular team
 
-TBD
+3.1. [Migrate the exploration editor page to Angular, and move the entire frontend to the Angular CLI](#41-migrate-the-exploration-editor-page-to-angular-and-move-the-entire-frontend-to-the-angular-cli) (large)
 
 ### Backend team
 
@@ -704,23 +704,13 @@ Note that translation and practice question coordinators will typically be inter
 ## Angular
 
 
-### 3.1. Migrate exploration editor page and move to the angular cli with AOT compilation
+### 3.1. Migrate the exploration editor page to Angular, and move the entire frontend to the Angular CLI
 
 **Project Description:**
 
-Currently webpack is used to bundle all the frontend code, this does provide more flexibility over ng cli but devoids our project of features like AOT compilation.
+The Oppia team has been working on a migration of the entire codebase from AngularJS – which is now deprecated – to Angular. This project aims to do two things: (a) migrate the exploration editor page (one of the last pages to be migrated) and all its subcomponents to AngularJS, and (b) move all the pages in Oppia from the current Webpack build system to the Angular CLI with ahead-of-time (AOT) compilation, so that all pages are precompiled and load faster when requested by users. (This would also mean that we don’t need to serve the Angular compiler to users, thus reducing bandwidth requirements as well.) 
 
-Introducing angular cli will provide more developer friendly experience as it is easier to use and configure.
-
-AOT the loading time by not shipping the angular compiler and compiling ahead of time and not in the browser.
-
-The project also aims to finish the migration of the exploration editor page and move all pages to angular router.
-
-Success criteria: 
-
-
-
-1. ng-build and ng-build --prod are used for all files.
+Please note that moving all the pages to the Angular router is a prerequisite for moving to the Angular CLI.  (However, this should be straightforward, and in fact has already been done for most pages.) Additionally, this project also entails removing Webpack as a separate standalone dependency after the migration of the build system to Angular CLI is complete.
 
 **Size of this project:** large (~350 hours)
 
@@ -732,22 +722,23 @@ Success criteria:
 
 * Having a good understanding of the Angular router
 * Having an in-depth understanding of Angular CLI and the Angular build system
-* PRs related to Angular migration that demonstrates your ability to migrate from AngularJS to Angular 2+
+* PRs related to the Angular migration project that demonstrates your ability to migrate from AngularJS to Angular 2+
 
 **Suggested Milestones:**
 
 
 
 * **Milestone 1:** Remove AngularJS from the exploration editor page.
-* **Milestone 2:** Move all pages to use Angular router and use AOT with Angular CLI
+* **Milestone 2:** Move all pages to use the Angular router and use ahead-of-time compilation with Angular CLI. Remove Webpack completely from the codebase.
 
-**Dependency on Release Schedule:** None
+**Dependency on Release Schedule:** None, though this project would also require some test runs on the prod server to make sure the new build system works well.
 
 **Proposal notes:**
 
 
 
-* The proposal should specify proposed `angular.json` configuration and expected reduction in build times.
+* The proposal should include a breakdown of the exploration editor migration project into conceptual sub-parts, with a description of any potential blockers and how you plan to overcome them. You don’t need to go into detail about how you would migrate specific files beyond the above; it is sufficient to include links to existing Angular migration PRs you’ve made in order to demonstrate familiarity with the domain.
+* The proposal should show that the new angular config works well with dev builds (preserving auto-rebuild when files change), production builds, e2e test runs and unit test runs.
 
 **Useful resources:**
 
