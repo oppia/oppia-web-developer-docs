@@ -444,11 +444,9 @@ This project should cover the following:
 
 **Project Description:**
 
-Last year, we built a [blog editor interface](https://medium.com/@rijuta_s/google-summer-of-code-2021-with-oppia-43e7a90c907b) in order to allow blog post editors to create and publish blog posts directly within the Oppia site. The aim of this GSoC project is to complete the learner interface for the blog, and migrate all the posts from Oppia’s Medium blog page to it, so that we can use the new blog on the Oppia website going forward.
+Last year, we built a [blog editor interface](https://medium.com/@rijuta_s/google-summer-of-code-2021-with-oppia-43e7a90c907b) in order to allow blog post editors to create and publish blog posts directly within the Oppia site. The aim of this GSoC project is to complete the viewer interface for the blog, and migrate all the posts from Oppia’s Medium blog page to it, so that we can use the new blog on the Oppia website going forward. We would also like to complete the statistics functionality in the blog editor page that would allow blog editors to see the number of views/impressions their blog posts receive, as well as any other features that may be useful.
 
-Specifically, this project entails creating a blog page at oppia.org/blog that displays published blog posts. Users should be able to:
-
-
+For the viewer interface, the project entails creating a blog page at oppia.org/blog that displays published blog posts. Users should be able to:
 
 * Quickly and easily view previews of all of our previous blog posts in chronological order, based on their original publication date
 * Click on a blog post preview to view a full version of the blog post
@@ -462,31 +460,23 @@ The project also involves moving all existing blog posts from Medium to this new
 
 **Knowledge/Skills Recommended:** 
 
-
-
 * Knowledge and understanding of Python
 * Knowledge and understanding of TypeScript, Angular, HTML, and CSS
 * Attention to detail (in terms of UI)
 
 **Suggested Milestones:**
 
-
-
-* **Milestone 1:** Create the blog homepage and individual blog post pages (but hide them behind a  \
-“development mode” flag for now). Blog editors should be able to create a new blog post (using the existing blog post creation infrastructure) and have it appear on the new blog page.
-* **Milestone 2:** Migrate all blog posts from Medium to the blog page on Oppia.org, and ensure that all the blog posts look nice and display correctly for readers. Add a link to the Oppia navigation bar and footer that points to the new blog.
+* **Milestone 1:** Create the blog homepage and individual blog post pages (but hide them behind a “development mode” flag for now). Blog editors should be able to create a new blog post (using the existing blog post creation infrastructure) and have it appear on the new blog page.
+* **Milestone 2:** Migrate all blog posts from Medium to the blog page on Oppia.org, and ensure that all the blog posts look nice and display correctly for readers. Add a link to the Oppia navigation bar and footer that points to the new blog. Implement a page (or pages) that surface blog statistics showing the total number of views and reads for each post, author, and the overall blog.
 
 **Dependency on Release Schedule:** Since migration of the blog posts needs to be done on the production server, the timeline for this project should be planned carefully so that the necessary functionality is deployed by the time the blog posts need to be migrated.
 
 **Proposal notes:**
 
-
-
 * Care should be taken to ensure that the blog page is accessible, and displays well in both desktop and mobile views. 
+* You are welcome to suggest additional features in your proposal which would be useful for the blog, but if you do so, please justify why these are worth implementing from the user's perspective.
 
 **Useful resources:**
-
-
 
 * Mocks for the blog-related pages: [link](https://xd.adobe.com/view/9bb82409-cdca-432a-b11c-88324643e2c0-ceeb/grid). (You might also wish to see pages 6 and 11+ of [Rijuta’s GSoC proposal](https://github.com/oppia/oppia/wiki/pdfs/GSoC2021RijutaSingh.pdf) from 2021, which describe the intended product designs for these pages.)
 
