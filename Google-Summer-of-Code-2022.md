@@ -1065,14 +1065,12 @@ Most likely, no tool will excel in all of these areas, so we’ll need to find a
 
 
 
-* The Google team suggested six alternatives to Protractor: **Cypress, Playwright, Puppeteer,  Selenium-webdriver, Testcafe and WebdriverIO**. As Cypress has limited support for iframes and no support for new tab creation, and as Puppeteer does not have a proper migration guide, we have narrowed this list down to four frameworks which best suit Oppia: **Playwright, Selenium-webdriver, Testcafe and WebdriverIO. **(Even though a proper migration guide doesn’t exist for **Selenium-webdriver**, we’ve included it because it’s very similar to protractor in terms of APIs. Also, Protractor uses Selenium-Webdriver under the hood.)** **
+* The Google team suggested six alternatives to Protractor: **Cypress, Playwright, Puppeteer,  Selenium-webdriver, Testcafe and WebdriverIO**. As Cypress has limited support for iframes and no support for new tab creation, and as Puppeteer does not have a proper migration guide, we have narrowed this list down to four frameworks which best suit Oppia: **Playwright, Selenium-webdriver, Testcafe and WebdriverIO. (Even though a proper migration guide doesn’t exist for **Selenium-webdriver**, we’ve included it because it’s very similar to protractor in terms of APIs. Also, Protractor uses Selenium-Webdriver under the hood.)
 * We recommend that you propose a e2e testing framework from one of the above four frameworks. However, if you know of some other framework which would suit Oppia better, you are welcome to propose that and support your choice by showing why it’s the best way to meet Oppia’s needs. In either case, we recommend showing a comparison table of available testing frameworks against the different criteria listed above.
 * In the “Testing Plan” section of your proposal, you should describe how you will confirm that the testing infrastructure you set up works correctly. However, you don’t need to describe specific user journeys or end-to-end tests there.
 * Your proposal should include a plan for how to seamlessly transition to the new end-to-end testing tool. For example, you might describe how we will run both Protractor and the new framework while the migration is in progress.
 
 **Useful resources:**
-
-
 
 * [Migrating from Protractor to Playwright - Official documentation](https://playwright.dev/docs/protractor). 
 * [Migrating from Protractor to WebdriverIO - Official documentation. ](https://webdriver.io/docs/protractor-migration/)
