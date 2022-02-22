@@ -132,7 +132,7 @@ Here's some advice about proposals and milestone timeline planning that we colla
 
 If you'd like to get a sense of what a proposal might contain, please see our [GSoC 2021 page](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2021) for examples of proposals that we accepted in 2021. However, please note that the [GSoC Proposal Template](https://docs.google.com/document/d/1yYefLkT7dJJa86MyrdWpbZtzeaWAKCi1eXZZDGUrasM) has been completely revamped for 2022, so please be sure to follow the 2022 template.
 
-_**Note:** although some of the previous years' proposals are a bit on the long side, there's **no** formal length requirement for your proposal. In general, the quality of what you write is much more important than the amount of text you write, and we encourage you to write shorter proposals that still convey the main aim of the project. For the actual requirements, please see the [GSoC Proposal Template](#gsoc-proposal-template) section above._Ba
+**Note:** although some of the previous years' proposals are a bit on the long side, there's **no** formal length requirement for your proposal. In general, the quality of what you write is much more important than the amount of text you write, and we encourage you to write shorter proposals that still convey the main aim of the project. For the actual requirements, please see the [GSoC Proposal Template](#gsoc-proposal-template) section above._Ba
 
 ## Types of work related to Oppia projects
 
@@ -190,7 +190,7 @@ For the proposal, we generally look for a clear indication that the contributor 
 
 ## Oppia's Project Ideas List
 
-_**Note:** If you're coming to this section from an external link, please make sure to scroll up and read this entire wiki page carefully, not just this section. There's a lot of useful information on the rest of the page, including a FAQ and a section describing selection criteria. Thanks!_
+**Note:** If you're coming to this section from an external link, please make sure to scroll up and read this entire wiki page carefully, not just this section. There's a lot of useful information on the rest of the page, including a FAQ and a section describing selection criteria. Thanks!_
 
 **IMPORTANT:** We are still working on finalizing this list. Please don't act on it yet, since it is still changing. We'll send a note to oppia-gsoc-announce@ and remove this message once this section is ready.
 
