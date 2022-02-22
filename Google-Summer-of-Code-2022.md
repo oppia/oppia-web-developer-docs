@@ -206,9 +206,9 @@ Finally, please note that this list of project ideas is not fixed, and more proj
 
 1.2. [Implementing the “needs guiding responses” section of the lesson analytics dashboard](#12-implementing-the-needs-guiding-responses-section-of-the-lesson-analytics-dashboard) (large)
 
-1.3. [Helping students when they get stuck](#13-helping-students-when-they-get-stuck) (medium)
+1.3. [Helping learners when they get stuck](#13-helping-learners-when-they-get-stuck) (medium)
 
-1.4. [Celebrating students’ accomplishments](#14-celebrating-students-accomplishments) (medium)
+1.4. [Celebrating learners' accomplishments](#14-celebrating-learners-accomplishments) (medium)
 
 1.5. [Learner Group MVP](#15-learner-group-mvp) (large)
 
@@ -261,7 +261,7 @@ TBD
 
 We have heard that, when visiting the Oppia Classroom, learners are sometimes not sure which lesson(s) to start with. The aim of this project is to streamline the “getting started” experience for learners, as well as provide a way for them to test themselves and get personalized recommendations for what lesson(s) to work on next.
 
-Specifically, learners should see an option in the Math Classroom page (/learn/math) to take a diagnostic test. This test should be a set of questions covering multiple topics. Ideally, it would be adaptive in nature, and have no more than 10-15 questions (possibly ending earlier if the student’s topic can be determined with fewer questions). When a recommendation is made, the learner should understand the rationale for the recommendation. It is fine to make 0, 1 or 2 recommendations (with 0 being the case if they seem to have understood everything).
+Specifically, learners should see an option in the Math Classroom page (/learn/math) to take a diagnostic test. This test should be a set of questions covering multiple topics. Ideally, it would be adaptive in nature, and have no more than 10-15 questions (possibly ending earlier if the learner's topic can be determined with fewer questions). When a recommendation is made, the learner should understand the rationale for the recommendation. It is fine to make 0, 1 or 2 recommendations (with 0 being the case if they seem to have understood everything).
 
 Curriculum admins should be able to “program” this test. They would specify the key skills for each topic that would be tested, and how the learner’s performance on the tested skills maps to the decision of which topic to recommend. A simple way to model this is for the curriculum admin to provide up to 3 key skills for each topic (in the order that these are taught within that topic), as well as some representation of the dependencies between topics. The diagnostic test should “binary search” using this data to find the “earliest” topic that the learner would benefit from learning. (This is a high-level sketch, and more detail should be supplied within the proposal.)
 
@@ -289,7 +289,7 @@ Curriculum admins should be able to “program” this test. They would specify 
 * The proposal should explain how to handle the case where a learner makes an error in the diagnostic tests that is not due to a misunderstanding of the topic, but more due to a typo or computation error. Do we give them another chance to submit the right answer, or do we give them a second question on that skill, or something else?
 * In the future, we’d like to reuse this infrastructure for topic-level diagnostic tests that would help the learner figure out which lesson in a topic they should start from. Implementing these topic-level tests is out of scope for this GSoC project. However, when designing the infrastructure, please keep this use case in mind, since we would like to extend the project to support it in the future.
 * You may be able to reuse large parts of the existing practice question player infrastructure in the learner view of the diagnostic test. If you do, please explain in the proposal which specific top-level component(s) you will be reusing, and what (if any) modifications need to be made to it to support both the existing and new use cases. Try to keep these modifications minimal.
-* (For information only) Oppia has a learner feedback team which uses the Oppia lessons to conduct sessions with students. They will be one of the stakeholders for this project, since they would use it to help students figure out which topic they’d like to learn at the start of a learner feedback session. During the GSoC project, you will have the opportunity to get feedback from them on what you’re building!
+* (For information only) Oppia has a learner feedback team which uses the Oppia lessons to conduct sessions with learners. They will be one of the stakeholders for this project, since they would use it to help learners figure out which topic they’d like to learn at the start of a learner feedback session. During the GSoC project, you will have the opportunity to get feedback from them on what you’re building!
 
 
 
@@ -337,19 +337,19 @@ The main challenge for this project is surfacing the necessary data for this vie
 * How to write Apache Beam jobs: [wiki page](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs) 
 * Here is a somewhat outdated and incomplete [design doc](https://docs.google.com/document/d/1qQbW9Z_cgJ1mwU0hzBpPVS_4WLT_l_08ZixLR1G2bvQ/edit#heading=h.ylvrrqipsjif) that overlaps a bit with this project. Most of the doc is out of scope for the project, but you might find it interesting reading for context. The most relevant section is [this one](https://docs.google.com/document/d/1qQbW9Z_cgJ1mwU0hzBpPVS_4WLT_l_08ZixLR1G2bvQ/edit#bookmark=id.3fmayg4aifoi) in the "product design" part of the doc. Note that you do not need to follow the approach in the technical design section of that document (since, on reflection, it looks like the storage and display approach for NGR tasks would likely need to be handled differently from other tasks in the dashboard).
  
-### 1.3. Helping students when they get stuck
+### 1.3. Helping learners when they get stuck
 TBD
 
-### 1.4. Celebrating students’ accomplishments
+### 1.4. Celebrating learners' accomplishments
 
 **Project Description:**
 
-We want students to have an enjoyable experience when playing Oppia’s explorations, and to receive positive reinforcement whenever they reach an appropriate milestone. This project therefore involves:
+We want learners to have an enjoyable experience when playing Oppia’s explorations, and to receive positive reinforcement whenever they reach an appropriate milestone. This project therefore involves:
 
 
 
-* Celebrating the student’s completion of a lesson very overtly. This should happen when the student reaches an “EndExploration” card. Specifically, we should make sure to recognize what the student has learned, celebrate their accomplishment, and make it clear what the next recommendation for them would be (e.g. practice the skills they learned in a practice session or start learning the next lesson).
-* Celebrating the student’s achievement (perhaps a bit less overtly) when they finish a streak of questions within a lesson. For simplicity, this can be considered to be just before they reach a new checkpoint. 
+* Celebrating the learner's completion of a lesson very overtly. This should happen when the learner reaches an “EndExploration” card. Specifically, we should make sure to recognize what the learner has learned, celebrate their accomplishment, and make it clear what the next recommendation for them would be (e.g. practice the skills they learned in a practice session or start learning the next lesson).
+* Celebrating the learner's achievement (perhaps a bit less overtly) when they finish a streak of questions within a lesson. For simplicity, this can be considered to be just before they reach a new checkpoint. 
 
 **Size of this project:** medium (~175 hours)
 
@@ -369,8 +369,8 @@ We want students to have an enjoyable experience when playing Oppia’s explorat
 
 
 
-* **Milestone 1:** Celebrate lesson completion in a meaningful, actionable, and rewarding way for the student.  
-* **Milestone 2:** Celebrate checkpoint/milestone completion in a meaningful, rewarding way for the student that encourages them to continue progressing.
+* **Milestone 1:** Celebrate lesson completion in a meaningful, actionable, and rewarding way for the learner.  
+* **Milestone 2:** Celebrate checkpoint/milestone completion in a meaningful, rewarding way for the learner that encourages them to continue progressing.
 
 **Dependency on Release Schedule:** None.
 
@@ -378,17 +378,17 @@ We want students to have an enjoyable experience when playing Oppia’s explorat
 
 
 
-* This is a fairly open-ended project, and a lot of its difficulty is in the design. Although the coding is likely to be relatively straightforward, the crux is whether the resulting implementation achieves the goal of motivating students to continue learning.
+* This is a fairly open-ended project, and a lot of its difficulty is in the design. Although the coding is likely to be relatively straightforward, the crux is whether the resulting implementation achieves the goal of motivating learners to continue learning.
 * The proposal should therefore include designs for how these experiences should look, and explain, as objectively as possible, why these will serve the desired purpose. You may wish to refer to game design techniques and design frameworks in your justification.
-* From a technical perspective, you may need to explain how you will vary the feedback so that it remains meaningful and doesn’t become stale. Can you find a way to relate it more directly to what the student has just accomplished? This might involve building some creator-facing components. 
-* It is worth paying attention to providing _meaningful_ recognition that is rooted in good pedagogy and that helps students develop a growth mindset. Ideally, students will become more confident in their skills to tackle challenges, rather than viewing their abilities as fixed and beyond their control. Proposals which demonstrate an understanding of this, and address it in a holistic way, will be viewed more favourably.
+* From a technical perspective, you may need to explain how you will vary the feedback so that it remains meaningful and doesn’t become stale. Can you find a way to relate it more directly to what the learner has just accomplished? This might involve building some creator-facing components. 
+* It is worth paying attention to providing _meaningful_ recognition that is rooted in good pedagogy and that helps learners develop a growth mindset. Ideally, learners will become more confident in their skills to tackle challenges, rather than viewing their abilities as fixed and beyond their control. Proposals which demonstrate an understanding of this, and address it in a holistic way, will be viewed more favourably.
 
 
 ### 1.5. Learner Group MVP 
 
 **Project Description:**
 
-We would like to make it possible for teachers, tutors, and parents to support students learning on Oppia. We are therefore planning to introduce Learner Groups, where a facilitator can provide recommendations and goals to help guide learners, and learners can optionally share their progress so that facilitators can provide them with additional support.
+We would like to make it possible for teachers, tutors, and parents to support students who are using Oppia to learn. We are therefore planning to introduce Learner Groups, where a facilitator can provide recommendations and goals to help guide learners, and learners can optionally share their progress so that facilitators can provide them with additional support.
 
 The aim of this project is to add functionality for learning facilitators to guide and monitor a group of learners directly in the Oppia platform. Specifically, facilitators should be able to create learner groups and invite learners to join them, and learners should be able to sign up for these groups. Facilitators should be able to monitor the progress of learners in their learning group and identify opportunities to help them.
 
@@ -417,7 +417,7 @@ This project should cover the following:
 
 
 
-* **Milestone 1:** Facilitators can create a learning group and its syllabus, and view its homepage (which contains the details of the learning group, its syllabus, and the list of learners and their progress). For this milestone, learners should not be able to join a learning group directly, but you can add a button to the admin dashboard to simulate a student joining the group and making some progress in development mode.
+* **Milestone 1:** Facilitators can create a learning group and its syllabus, and view its homepage (which contains the details of the learning group, its syllabus, and the list of learners and their progress). For this milestone, learners should not be able to join a learning group directly, but you can add a button to the admin dashboard to simulate a learner joining the group and making some progress in development mode.
 * **Milestone 2:** Facilitators should be able to invite learners to join the group via username. Learners should be able to join the group, set their preferences (or edit them later), and see the group homepage (which contains their progress, as well as triggers for starting recommended activities from the syllabus).
 
 **Dependency on Release Schedule:** No dependencies on release schedule
