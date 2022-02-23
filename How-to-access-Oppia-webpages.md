@@ -1,6 +1,6 @@
 ## Table of Contents
 
-* [Overview](#overview)
+* [Overview of entities](#overview-of-entities)
 * [User account pages](#user-account-pages)
   * [Log in or create account](#log-in-or-create-account)
   * [Log in as a super-administrator](#log-in-as-a-super-administrator)
@@ -42,7 +42,7 @@
 
 Oppia has many webpages and this is a comprehensive guide on how to access all those pages. Before a contributor makes a PR, we expect that the contributor has thoroughly tested the changes made in the PR for functional correctness. Part of this process is manually testing any pages that are affected by their code.
 
-## Overview of Entities
+## Overview of entities
 
 This diagram outlines the various entities in Oppia and how they relate
 to each other:
@@ -51,7 +51,7 @@ to each other:
 
 As you go through https://www.oppia.org/, you will find these entities.
 
-### Key Terms
+### Key terms
 
 1. **Topic**: A topic is a broad term that refers to the subject content being taught (e.g. Addition/Subtraction). For example, https://www.oppia.org/learn/math displays a list of math topics. A single topic can be described through multiple stories.
 2. **Story**: Stories are situations/scenarios that are meant to help users understand the topic. For example, if the topic is addition, then one of the stories could be about where a kid goes to a shop and buys 3 pens and 4 pencils. The lesson could then explain explain the concept of addition while discussing the total number of items bought. As another example, https://www.oppia.org/learn/math/place-values/story talks about Jaime’s adventures for learning about place values. A single story can be referenced in multiple chapters and is essentially a collection of chapters.
@@ -64,7 +64,7 @@ As you go through https://www.oppia.org/, you will find these entities.
 
    For example, [this card](https://www.oppia.org/explore/K645IfRNzpKy?story_url_fragment=jaimes-adventures-in-arcade&topic_url_fragment=place-values&classroom_url_fragment=math&node_id=node_1) shows a card in one of the place values chapters.
 
-### Other Terms
+### Other terms
 
 1. **Collection**: A group of explorations.
 2. **Community**: Anyone who teaches, learns, and contributes to any content on Oppia.
