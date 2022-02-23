@@ -1,5 +1,6 @@
 ## Table of Contents
 
+* [Overview](#overview)
 * [User account pages](#user-account-pages)
   * [Log in or create account](#log-in-or-create-account)
   * [Log in as a super-administrator](#log-in-as-a-super-administrator)
@@ -40,6 +41,38 @@
   * [Contributor dashboard admin page](#contributor-dashboard-admin-page)
 
 Oppia has many webpages and this is a comprehensive guide on how to access all those pages. Before a contributor makes a PR, we expect that the contributor has thoroughly tested the changes made in the PR for functional correctness. Part of this process is manually testing any pages that are affected by their code.
+
+## Overview of Entities
+
+This diagram outlines the various entities in Oppia and how they relate
+to each other:
+
+![Flowchart of Oppia entities](images/Webpage-Guide/entitiesHierarchy.png)
+
+As you go through https://www.oppia.org/, you will find these entities.
+
+### Key Terms
+
+1. **Topic**: A topic is a broad term that refers to the subject content being taught (e.g. Addition/Subtraction). For example, https://www.oppia.org/learn/math displays a list of math topics. A single topic can be described through multiple stories.
+2. **Story**: Stories are situations/scenarios that are meant to help users understand the topic. For example, if the topic is addition, then one of the stories could be about where a kid goes to a shop and buys 3 pens and 4 pencils. The lesson could then explain explain the concept of addition while discussing the total number of items bought. As another example, https://www.oppia.org/learn/math/place-values/story talks about Jaime’s adventures for learning about place values. A single story can be referenced in multiple chapters and is essentially a collection of chapters.
+3. **Chapter**: A chapter corresponds to different lessons through which we aim to teach the topic to the users. Each chapter has an associated exploration, and this exploration may have several cards. For example, https://www.oppia.org/learn/math/place-values/story shows a bunch of chapters to learn the place values topic.
+4. **Card**: A card is the primary component of an exploration where each card consists of:
+
+   * **Content**: This refers to the tutor’s question to the learner.
+   * **Interaction**: Interactions refer to the type of question the users are shown (e.g. multiple-choice, image selection, fraction input, etc.)
+   * **Response**: Feedback from Oppia to the learner based on the learner's answer to the interaction.
+
+   For example, [this card](https://www.oppia.org/explore/K645IfRNzpKy?story_url_fragment=jaimes-adventures-in-arcade&topic_url_fragment=place-values&classroom_url_fragment=math&node_id=node_1) shows a card in one of the place values chapters.
+
+### Other Terms
+
+1. **Collection**: A group of explorations.
+2. **Community**: Anyone who teaches, learns, and contributes to any content on Oppia.
+3. **Opportunity**: An opportunity is specific to an exploration, and it refers to a way any contributor can contribute content to Oppia.
+4. **Suggestion**: Any time any user contributes to Oppia, their contribution is added as a request which is known as a suggestion. There are two types of suggestions:
+
+   * **Translation suggestion**: A suggested translation of content into another language.
+   * **Question suggestion**: A suggested question for a skill.
 
 ## User account pages
 
