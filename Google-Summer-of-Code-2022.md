@@ -364,7 +364,7 @@ One core principle of Oppia lessons is that we never want the learner to get stu
 
 **Suggested Milestones:**
 * **Milestone 1:** Allow creators to provide a destination state for the case where a learner is really stuck. Prohibit lesson creators from sending the learner more than 2-3 cards back in the lesson.
-* ** Milestone 2:** Detect when a learner is stuck and provide appropriate real-time assistance based on redirection to concept cards, the alternative destination state mentioned above, or proactive hinting.  
+* **Milestone 2:** Detect when a learner is stuck and provide appropriate real-time assistance based on redirection to concept cards, the alternative destination state mentioned above, or proactive hinting.  
 
 **Dependency on Release Schedule:** None.
 
