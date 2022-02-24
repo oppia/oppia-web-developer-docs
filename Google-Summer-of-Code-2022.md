@@ -338,7 +338,42 @@ The main challenge for this project is surfacing the necessary data for this vie
 * Here is a somewhat outdated and incomplete [design doc](https://docs.google.com/document/d/1qQbW9Z_cgJ1mwU0hzBpPVS_4WLT_l_08ZixLR1G2bvQ/edit#heading=h.ylvrrqipsjif) that overlaps a bit with this project. Most of the doc is out of scope for the project, but you might find it interesting reading for context. The most relevant section is [this one](https://docs.google.com/document/d/1qQbW9Z_cgJ1mwU0hzBpPVS_4WLT_l_08ZixLR1G2bvQ/edit#bookmark=id.3fmayg4aifoi) in the "product design" part of the doc. Note that you do not need to follow the approach in the technical design section of that document (since, on reflection, it looks like the storage and display approach for NGR tasks would likely need to be handled differently from other tasks in the dashboard).
  
 ### 1.3. Helping learners when they get stuck
-TBD
+**Project Description:**
+
+One core principle of Oppia lessons is that we never want the learner to get stuck, even if they’re working through the lessons on their own – i.e. without the assistance of a teacher, tutor, or parent. The aim of this project is to implement several improvements to the core learner experience to support this. Specifically, this entails:
+- Adding a “dest_if_really_stuck” field to the Outcome structure in an answer group, and a way for creators to specify it (if they want to). This allows a creator to specify a separate state to go to if the learner is really stuck. Having this field would allow creators to provide a light hint in the feedback, and then provide a more dedicated step-by-step learning path if the learner subsequently needs further help.
+- Detecting when a learner is stuck because the initial feedback they received isn’t clear/helpful enough for them (e.g. submitting too many wrong answers, or submitting the same or similar answers repeatedly), and then helping them using some combination of the following:
+  - Providing the concept card pertaining to the linked skill ID, and recommending that they read it for a refresher and/or examples.
+  - Taking them to the dest_if_really_stuck state, or proactively offering a hint, if either of those exists.
+  - If the learner repeatedly submits the same wrong answer: saying something like “no, sorry, that’s really not the answer. Why don’t you try reading this and seeing if it helps?”, and pointing them to the linked concept card for the state so that they can learn more.
+- Prohibiting lesson creators from sending the learner more than 2-3 cards back in the lesson due to a wrong answer, since this is discouraging for the learner. Lesson creators should instead be encouraged to refer the learner to a concept card, or implement a separate “revision pathway” using the “dest_if_really_stuck” field. Long “send-back paths” should result in a validation error in the exploration editor that should be fixed before the exploration can be saved.
+
+**Size of this project:** medium (~175 hours)
+
+**Potential Mentors:** @kevintab95, @aks681, @iamprayush, @EricZLou, @krishita30j
+
+**Knowledge/Skills Recommended:** 
+
+* Full-stack development: Python, Angular, TypeScript, HTML/CSS
+* Learning design
+* UX design
+
+**Suggested Milestones:**
+* **Milestone 1:** Allow creators to provide a destination state for the case where a learner is really stuck. Prohibit lesson creators from sending the learner more than 2-3 cards back in the lesson.
+* ** Milestone 2:** Detect when a learner is stuck and provide appropriate real-time assistance based on redirection to concept cards, the alternative destination state mentioned above, or proactive hinting.  
+
+**Dependency on Release Schedule:** None.
+
+**Proposal notes:**
+
+* You can assume that learners will not get stuck on multiple-choice questions (mainly because there are a very limited number of possible answers).
+* Your proposal should be clear about what triggers you are using to detect “stuck”-ness, and why. For example, you might write something like:
+    * If the learner makes 3 incorrect responses, or has been on the question for 2.5 minutes, whichever is earlier: then, nudge them to look at the concept card.
+    * Once the learner has actually looked at the concept card: if they then make 3 more incorrect responses that are _different_ from each other, or have been on the question for 2.5 more minutes, whichever is earlier: then, take them to the dest_if_really_stuck state if it exists, otherwise proactively offer the next hint if it exists, otherwise do nothing.
+   (The above is just an example, but illustrates the specificity that would be needed. Additionally, you should justify the decision you make about how this system should ideally behave.)
+* In your technical design, we would advise making the constants – such as 3 and 2.5 – easily parameterizable, so that they can be tweaked in the future.
+* You may have other ideas about how to improve the core learning experience on Oppia. These are welcome – feel free to include these in your proposal when fleshing out the product design section! In particular, there may be some potential in this project to teach learners metacognitive skills for how to deal with “being stuck”. There is a lot of research on this topic that can be found on the Internet. Proposals which demonstrate an understanding of this, and address this in a holistic way, will be viewed more favourably.
+
 
 ### 1.4. Celebrating learners' accomplishments
 
@@ -388,26 +423,22 @@ We want learners to have an enjoyable experience when playing Oppia’s explorat
 
 **Project Description:**
 
-We would like to make it possible for teachers, tutors, and parents to support students who are using Oppia to learn. We are therefore planning to introduce Learner Groups, where a facilitator can provide recommendations and goals to help guide learners, and learners can optionally share their progress so that facilitators can provide them with additional support.
+We would like to make it possible for teachers, tutors, and parents to support students who are using Oppia to learn. We are therefore planning to introduce Learner Groups, a feature which allows facilitators to provide recommendations and goals to help guide learners, and which allows learners to optionally share their progress so that facilitators can provide them with additional support.
 
 The aim of this project is to add functionality for learning facilitators to guide and monitor a group of learners directly in the Oppia platform. Specifically, facilitators should be able to create learner groups and invite learners to join them, and learners should be able to sign up for these groups. Facilitators should be able to monitor the progress of learners in their learning group and identify opportunities to help them.
 
 This project should cover the following:
 
-
-* Allow facilitators to create, access, and manage their learning groups in a separate “Teacher Dashboard” that any user can access, but that users can specifically select as their home page in their account Preferences page. 
-    * As part of this project, applicants should propose the design for this new dashboard.
+* Allow facilitators to create, access, and manage their learning groups in a new “Teacher Dashboard” that any user can access, but that users can specifically select as their home page in their account Preferences page. 
 * Allow facilitators to create a learning group and its associated syllabus, and see the details of their learning group (as well as the list of individual learners and their progress).
-* Allow facilitators to invite learners to their learning group (via username), and these learners to join the learning group and set their sharing preferences. (For now, they’ll need to remember the URL or store it somewhere – adding a “learner groups” page to the learner dashboard is out of scope for this project.)
-* Allow learners to see their learning group homepage, which includes progress, preferences, and buttons to start practice question sessions and lessons (as recommended by the learning group facilitator through the syllabus).
+* Allow facilitators to invite learners to their learning group (via username), and enable those learners to join the learning group and set their sharing preferences. (For now, learners would need to remember the URL or store it somewhere – adding a “learner groups” page to the learner dashboard is out of scope for this project.)
+* Allow learners to see the homepage(s) for the learning group(s) they’ve joined, which includes progress, preferences, and buttons to start practice question sessions and lessons (as recommended by the facilitator through the learning group’s syllabus).
 
 **Size of this project:** large (~350 hours)
 
-**Potential Mentors:** @aks681
+**Potential Mentors:** @aks681, @kevintab95, @krishita30j
 
 **Knowledge/Skills Recommended:** 
-
-
 
 * Knowledge and understanding of Python
 * Knowledge and understanding of TypeScript, Angular, HTML, and CSS
@@ -415,29 +446,73 @@ This project should cover the following:
 
 **Suggested Milestones:**
 
+* **Milestone 1:** Facilitators can, from a teacher dashboard page, create a learning group and its syllabus, and view its homepage (which contains the details of the learning group, its syllabus, and the list of learners and their progress). 
 
-
-* **Milestone 1:** Facilitators can create a learning group and its syllabus, and view its homepage (which contains the details of the learning group, its syllabus, and the list of learners and their progress). For this milestone, learners should not be able to join a learning group directly, but you can add a button to the admin dashboard to simulate a learner joining the group and making some progress in development mode.
 * **Milestone 2:** Facilitators should be able to invite learners to join the group via username. Learners should be able to join the group, set their preferences (or edit them later), and see the group homepage (which contains their progress, as well as triggers for starting recommended activities from the syllabus).
 
-**Dependency on Release Schedule:** No dependencies on release schedule
+**Dependency on Release Schedule:** None.
 
 **Proposal notes:**
+* As part of this project, applicants should propose the design for the new Teacher dashboard.
+* The technical design should allow for the possibility of learning groups having more than one facilitator in the future (though you don’t need to implement this functionality as part of the current project).
+* Milestone 1 involves the facilitator being able to see the list of learners and their progress in a learner group. However, since the functionality for joining a learner group will only be implemented in milestone 2, you will need an alternative way to simulate this scenario in milestone 1 so that the facilitator view can be validated. One way to do this is to temporarily add a button (perhaps with an input field for an existing username) to the admin dashboard that simulates a learner joining the group and making some progress; this button should only be visible in the Activities tab and should only be usable in development mode. You can subsequently remove this button once the necessary functionality has been implemented in Milestone 2. 
 
-
-
-* As part of this project, applicants should propose the design for the new Teacher dashboard
 
 **Useful resources:**
 
+* Here is a link to [some mocks](https://www.figma.com/file/lSYstyhrwf9whM29mFxc8E/Learner-Group?node-id=2%3A9680) for the learner group functionality: 
+
+* This is the [full PRD](https://docs.google.com/document/u/1/d/1GMkU_Vxi7Y69ZI4gRfxLaDpX-sWfaMZsGQdXasdeELQ/edit) for learner groups. Note that this GSoC project only covers **part of** the scope of this PRD – in particular, the following requirements are not in scope for this GSoC project:
+Allow learners to see the learning groups they are a part of in their learner dashboard. (would access directly via link for now)
+Allow learners to join by an “open link”.
+Allow facilitators to see statistical information about the group’s progress.
+Allow learners to block/report spammy facilitator invitations.
 
 
-* [Full PRD](https://docs.google.com/document/u/1/d/1GMkU_Vxi7Y69ZI4gRfxLaDpX-sWfaMZsGQdXasdeELQ/edit). Note that this GSoC project only covers **part of** the scope of this PRD – in particular, the following requirements are not in scope for this GSoC project:
-    * Allow learners to see the learning groups they are a part of in their learner dashboard. (would access directly via link for now)
-    * Allow learners to join by an “open link”.
-    * Allow facilitators to see statistical information about the group’s progress.
-    * Allow learners to block/report spammy facilitator invitations.
 
+### 1.6. Number Line and Percentage Interactions
+
+**Project Description:**
+
+The aim of this project is to add two new interactions: one that allows learners to submit an answer using a number line, and one that allows learners to submit an answer in the form of a percentage. These interactions are needed because (a) creators currently implement number lines using the ImageClickInput interaction, which results in a lot of fiddly work on the part of the creator and occasional bugs when a learner clicks between the regions defined by the creator; (b) creators are currently forced to use TextInput fields in order for learners to submit an answer in the form of a percentage, but this makes it hard to do “greater than / less than” answer validations.
+
+For the number line interaction:
+
+* Lesson creators should be able to input the start and ending integers of the number line, as well as the desired interval length. The generated number line should then equally space out the marks along the number line between the starting and ending numbers. The creator should not be able to select an option where there are more than 10 or fewer than 3 points along the number line.
+* Creators should then be able to specify the feedback the learner receives based on how they answer along different points in the number line. Care should be taken to correctly handle the case when the number line parameters subsequently change – a warning should be displayed to the creator if the corresponding rule becomes invalid.
+* On seeing this interaction, learners should be able to select and drag their answer along the number line, with the cursor automatically “snapping” to the demarcated lines along the number line. Once they are satisfied with the location on the number line, the learner should be able to confirm their selection and receive feedback.
+
+For the percentage interaction:
+
+* There are two choices for implementing this functionality. One approach is to have it be a customization to the existing NumericInput interaction. The other is to implement a brand-new PercentageInput interaction. The proposal should compare both these options, and explain which one to go with and why (using a comparison table).
+
+**Size of this project:** medium (~175 hours)
+
+**Potential Mentors:** @aks681, @DubeySandeep, @iamprayush, @nithusha21
+
+**Knowledge/Skills Recommended:** 
+
+* Knowledge and understanding of Python
+* Knowledge and understanding of TypeScript, Angular, HTML, and CSS
+* Attention to detail (in terms of UI, including writing good UI documentation and error messages)
+
+**Suggested Milestones:**
+
+* **Milestone 1:** Implement the Number Line interaction (creator and learner views).
+
+* **Milestone 2:** Implement the Percentages interaction (creator and learner views).
+
+**Dependency on Release Schedule:** None.
+
+**Proposal notes:**
+* It is important that the Number Line interaction works on all types of devices (mobile, desktop, tablet). The proposal should explain how the learner view will be made responsive to these different views. If the entire interaction can’t fit within the viewport, the proposal should explain how the user will still be able to easily drag or scroll to their desired answer along the number line.
+
+
+**Useful resources:**
+
+* [Extension overview](https://github.com/oppia/oppia/wiki/Extensions-Overview) wiki page
+* [Creating new interactions](https://github.com/oppia/oppia/wiki/Creating-Interactions) wiki page
+* While not necessarily directly useful for this project, you might find these blog posts from previous GSoC learners interesting reading: [Prayush’s math expression interactions](https://medium.com/@ThePegasus/google-summer-of-code-2020-with-oppia-7542804bb9e9); [Pulkit’s interaction implementations on Android](https://gist.github.com/aggarwalpulkit596/84c23a09cd4244624092f2967b0eae38).
 
 
 ### 1.7. Blog integration
@@ -501,8 +576,6 @@ For (c): In the state editor, when a change is made to a part of a card and this
 
 **Knowledge/Skills Recommended:** 
 
-
-
 * Knowledge and understanding of Python
 * Knowledge and understanding of TypeScript, Angular, HTML, and CSS
 * Ability to write Beam jobs
@@ -511,8 +584,6 @@ For (c): In the state editor, when a change is made to a part of a card and this
 
 **Suggested Milestones:**
 
-
-
 * **Milestone 1:** Creators should be able to see changes to an exploration’s metadata in the comparison view in the history tab. They should also be able to navigate through all the historical changes to a particular state (excluding changes that solely affect translations). 
 * **Milestone 2:** Creators should be able to see a list of existing translations through the modal that pops up when they make changes to a published exploration, and should be able to edit those if the edits are easy to make.
 
@@ -520,15 +591,63 @@ For (c): In the state editor, when a change is made to a part of a card and this
 
 **Proposal notes:**
 
-
-
 * The main thing that is important to demonstrate in the proposal for this project is good technical design skills. Strong proposals would first show a good understanding of the current system, and correctly describe the parts of it that are relevant to the relevant subproject, before suggesting the minimal changes that would be needed in order to achieve the desired functionality. 
 
 **Useful resources: **
 
-
-
 * How to write Apache Beam jobs: [wiki page](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs).
+
+
+### 1.9. Onboarding improvements
+
+**Project Description:**
+
+Oppia’s mission is to provide learners with an engaging and effective learning experience. However, today, when someone enters the site for the first time, they’re given little to no information about what Oppia is and how it works. This makes it difficult for learners, especially those who are new to using technology and the internet, to effectively use Oppia as a learning resource.
+
+The aim for this project is to ensure that any learner, regardless of their previous familiarity (or lack thereof) with online learning platforms, is able to quickly and easily become familiar with Oppia and the lesson player.
+
+This project will involve two major parts:
+* Update the sign-in and preferences pages to allow users to self-identify as a learner, teacher, and/or contributor. (See [mocks](https://www.figma.com/file/rmE2w7UzcICchhX4RBAnYY/Nav-%26-Library-(Copy)?node-id=201%3A578_).) After a user logs in, they should be shown the relevant dashboard based on the homepage they chose in the signup process.
+  * New users should default to only being learners, though they can change this in the sign-in page (and subsequently in their preferences page). Existing users should be migrated as follows:
+    * If they have their default_dashboard set to “creator”, tick the creator checkbox
+    * If they have their default_dashboard set to “learner”, tick the learner checkbox
+    * If they’ve made any translation or practice question contributions, tick the contributor checkbox
+ * After a new user signs up and creates a profile: if the user self-identifies as a learner, present a screen (or screens) explaining how they can use Oppia to learn effectively (specifically: learn new topics in the Classroom, practice the skills they learn with practice sessions, and refer to previously-learned skills using revision cards).
+    * Note: The applicant is responsible for proposing mocks for this.
+  * In the release in which this feature is launched, show a one-time dismissable notification to existing users (when they log in) saying that they can change their self-identification settings and providing them with an easy link to do so.
+
+* Adding various prompts throughout the onboarding experience. **Note:** Each of these applies both to logged-in and logged-out users. For logged-in users, all of these should trigger at the account level (when the logged-in user visits the page for the first time). For logged-out users, all of these should trigger at the device level (when the user of the device visits the page for the first time).
+  * When any user first enters the site, present them with a prompt to let them know that they can adjust the site language using the language picker in the top navigation bar. (Learners who are unfamiliar with similar practices on other websites often miss this, and we want to ensure that language is not a barrier for learners.)
+  * On entering the Classroom page for the first time, after a short period of time to allow them to explore the page, present the learner with a prompt to let them know that they can begin learning or reviewing any topic by clicking on one of the cards.
+  * When a learner enters a lesson for the first time, show them a very brief walkthrough of the main lesson player features – namely, the lesson card, audio player, and (when such a button is available and they haven’t clicked on it with 20 seconds) the “CONTINUE” (or similar) button. In the case where the first card’s interaction type isn’t a Continue button, the walkthrough should only include the lesson card and audio player; then, once the button to move to the next card appears, Oppia should show a helper tooltip if the learner hasn’t clicked that button within 10 seconds.
+
+**Size of this project:** medium (~175 hours)
+
+**Potential Mentors:** @kevintab95, @aks681, @iamprayush
+
+**Knowledge/Skills Recommended:** 
+
+* Knowledge and understanding of Python
+* Knowledge and understanding of TypeScript, Angular, HTML, and CSS
+* Ability to write Beam jobs
+* UI/UX design skills
+
+**Suggested Milestones:**
+
+* **Milestone 1:** Make it possible for new and existing users to change their self-identification, and migrate existing users so that their self-identification fields are populated. Explain to new learners how they can use Oppia to learn effectively.
+* **Milestone 2:** Add prompts throughout the onboarding experience so that learners can discover the language picker, classroom cards, and lesson player features.
+
+**Dependency on Release Schedule:** A Beam job will need to be run in order to populate the self-identification information for existing users. The timeline should be arranged so that this job can be run and verified during the appropriate release cycle.
+
+**Proposal notes:**
+
+* The proposal should propose mocks for how each of these requirements should look (unless mocks have already been provided). When proposing these mocks, please take care to ensure that the wording used is simple and easily understandable by a new visitor to the site, and doesn’t use terminology or jargon that won’t be clear.
+  * It’s probably a good idea to get feedback from others on your proposed mocks, especially from people who aren’t familiar with Oppia, so that you can improve them. You will probably want to repeat this process until you’re certain that your proposed onboarding flow achieves the aims that you want it to.
+
+
+**Useful resources: **
+
+* [Onboarding mocks](https://www.figma.com/file/rmE2w7UzcICchhX4RBAnYY/Nav-%26-Library-(Copy)?node-id=201%3A578) (for self-identification)
 
 ---
 
