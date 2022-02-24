@@ -250,7 +250,11 @@ Finally, please note that this list of project ideas is not fixed, and more proj
 
 ### Android team
 
-TBD
+6.1. [Android release automation](#61-android-release-automation) (large)
+
+6.2. [Interactive onboarding flow](#62-interactive-onboarding-flow) (large)
+
+6.3. TBA (medium)
 
 
 ## Learner and Creator Experience (LaCE) team
@@ -1195,6 +1199,75 @@ Most likely, no tool will excel in all of these areas, so we’ll need to find a
 * [Migrating from Protractor to WebdriverIO - Official documentation. ](https://webdriver.io/docs/protractor-migration/)
 * [Migrating from Protractor to TestCafe - Official documentation.](https://testcafe.io/documentation/403554/recipes/migration/migrate-tests-from-protractor-to-testcafe)
 * [Future of Angular E2E & Plans for Protractor - Google's official issue announcing deprecation](https://github.com/angular/protractor/issues/5502): This includes some suggested alternatives from the Protractor team
+
+---
+
+## Android
+
+### 6.1. Android release automation
+
+**Project Description:**
+
+As the Oppia team prepares to establish regular releases of the Android app, having release automation is essential to ensure releases consistently launch without avoidable delays. This project introduces fundamental automation tools in order to support rapid and nearly fully automatic releases of the app.
+
+The app release process this automation will support is as follows:
+
+- Introduce scripts necessary to eliminate the major manual steps that occur during the production build process:
+  - Incrementing the app versions such that version code, minor version, and major version are correctly updateable on the Oppia Android repository (since these need to be centralized to [one file](https://github.com/oppia/oppia-android/blob/develop/version.bzl)).
+  - Cutting a new release branch and ensuring that it has the correct versions (and that the develop branch subsequently has the correct versions to avoid version reuse).
+  - Verifying that a particular release is ready to be cut based on the following criteria:
+    - Alpha: select test suites are passing on develop.
+    - Beta: all tests are passing for the branch (including end-to-end tests which don't currently run in CI), and the release has been approved for beta by a TL via a message on a pinned issue corresponding to that release.
+  - Patching the release for production use.
+  - Replacing the third-party licenses by leveraging the third-party license extraction script.
+  - Replacing the app assets with production assets for embedding using an asset downloader script (for security reasons, this script would need to be pulled from a private repository which we will provide).
+  - Securely signing the app with the team's production key (this must be done in a way where the key cannot be leaked and will likely require proxying through a private GitHub repository).
+  - Automatically uploading releases to the Play Store and launching them to a specific track.
+
+- Once per day
+  - Cut a new release per the criteria mentioned above
+  - Automatically upload the alpha flavor of the release to the 'feature testing' internal testing release track of the app
+  - Automatically upload the production (release) flavor of the app to the 'alpha' closed testing release track of the app
+
+- Once per week
+  - Try to create a new beta release:
+    - Check the latest alpha release against the beta criteria mentioned above, and if they succeed then push the release flavor of the app to the 'QA' internal testing track
+  - Try to promote the latest beta release:
+    - Check that the latest beta channel has an approved beta confirmation from a TL per its stickied issue (based on app version) and, if it does, push the beta flavor of the app to the 'beta' open testing release track of the app
+
+- Built releases will need to be outputted in a way that makes them easy to archive and upload to GitHub for when the specific version is released publicly.
+
+Note that most of the development of this project will need to be on a separate repository with a separate Play Store app since the Oppia Android app would require production access. Team members with this access will help verify each individual milestone with the real app repository and Play Store project.
+
+**Size of this project:** large (~350 hours)
+
+**Potential Mentors:** @ankita240796
+
+**Knowledge/Skills Recommended:** 
+
+* Familiarity with Bazel and Oppia Android scripts is highly recommended as many of the same patterns will be leveraged here (these scripts must be written in Kotlin with full automated testing).
+* Familiarity with GitHub Actions or other CI frameworks will likely be extremely beneficial as the entirety of this project will be demonstrated via CI automation.
+* Familiarity with build or release processes would help, but isn't necessarily a prerequisite.
+
+
+**Suggested Milestones:**
+
+* **Milestone 1:** Scripts exist to automate all manual parts of the release process as enumerated in the project description.
+* **Milestone 2:** Releases are automatically cut and promoted based on the schedule described in the project description.
+
+**Dependency on Release Schedule:** None.
+
+**Proposal Notes:**
+
+* The proposal's 'end-to-end' testing section should include details on how you will verify the new scripts and actions correctness manually (we don't write automated end-to-end tests for scripts). Note that we still expect thorough automated unit tests to be written for all scripts and their constituent components.
+* Note that we're specifically looking for a proposal that demonstrates a well-explained design and implementation plan to fully automate Oppia Android's releases for alpha and beta.
+
+**Useful resources:**
+
+* [Android documentation](https://developer.android.com/studio/publish). 
+* [Oppia Android Release Process](https://docs.google.com/document/d/1XAoXnQkn2oIAFkd6vY90tn_SSW3J9Eia0_4RhXhJSxQ/edit?usp=sharing)
+* The [Bazel rule](https://github.com/oppia/oppia-android/blob/develop/oppia_android_application.bzl#L288) used to build deployable AABs
+
 
 
 <!---
