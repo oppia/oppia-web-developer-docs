@@ -73,7 +73,7 @@ A: Yes (within reason)! This year, GSoC is going to be slightly different from p
 
 **Q: Which projects are most important for Oppia?**
 
-A: All the projects we've listed here are important, and we'd be very happy to see good progress made on any of them! Projects are treated as equally important during selection. Note that the relative importance of a project to Oppia is not part of the [selection criteria](#selection-criteria). We would encourage you to pick a project that you would enjoy doing over the summer.
+A: All the projects we've listed here are important, and we'd be very happy to see good progress made on any of them! Projects are treated as equally important during selection. Note that the relative importance of a project to Oppia is not part of the [selection criteria](#selection-criteria). We would encourage you to pick a project that you would enjoy doing over the summer!
 
 **Q: Can I submit more than one proposal to Oppia?**
 
@@ -95,6 +95,14 @@ A: There is no specific minimum number. Remember that quality is more important 
 
 A: As many as we think will succeed, though the Google GSoC admins may impose quotas.
 
+**Q: May I use parts of another applicant's proposal?**
+
+A: Your proposal should be original (see section 2.4 of the [Contributor Participation Agreement](https://summerofcode.withgoogle.com/terms/contributor)). During the selection process, we automatically disqualify plagiarized proposals before sending the rest to reviewers. 
+
+**Q: Can I use text from the Internet or other sources in my proposal?**
+
+A: Brief quotes from other sources are fine, as long as, every time you quote a source, you make it clear that you are doing so, and provide a link or reference back to the source.
+
 **Q: I do not have any experience in skill XYZ. Is some certification required?**
 
 A: Try to work on good first issues and take courses online. In the field of software development, it is common to develop experience and expertise as you take up and complete projects successfully. We do not require any formal certification of particular skills.
@@ -113,7 +121,7 @@ When submitting a proposal, please use the provided [GSoC proposal template](htt
 
 You are welcome to ask mentors for reviews during the proposal preparation phase. We recommend getting the WHAT section reviewed before doing substantial work on the HOW section, and getting the first part of the HOW section reviewed before doing work on the second part. This is meant to help ensure that later sections of the proposal build on a solid baseline, and reduce the amount of wasted work.
 
-**Important:** Your proposal should be shared as "anyone with the link can leave comments" and sent to oppia-gsoc-discuss@. Do not send proposals directly to individual GSoC mentors.
+**Important:** Your proposal should be shared as "anyone with the link can leave comments" and sent to oppia-gsoc-discuss@. Do not send proposals directly to individual GSoC mentors. Mentors have been instructed not to respond to proposals that are not shared publicly, and we take a negative view on restricting access to proposals after feedback is provided. This is because, in the spirit of open-source, we would  like to keep the discussions open, so it is intentional that everyone (including non-mentors) should be able to see your proposal and leave comments and suggestions on it.
 
 **Important:** Please make sure that your final proposal is self-contained. In particular, to be fair to all applicants, key components of the proposal should not be editable after the deadline, and you shouldn't assume that reviewers will follow external links.
 
