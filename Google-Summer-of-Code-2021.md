@@ -342,7 +342,6 @@ The following is a list of Oppia's 2021 GSoC project ideas. (Please note that al
 
 You are welcome to choose among these ideas, or propose your own! However, if you're planning to propose something original, it's essential to engage with the Oppia community in order to get feedback and guidance to improve the proposal. We also recommend taking a look at [Oppia's mission](https://github.com/oppia/oppia/wiki/Oppia's-Mission) and seeing if there is a natural way to tie your idea to the Oppia project's goals, otherwise it might not be a good fit at this time.
 
-The list of project ideas is not fixed and more projects can be added. Also, please note that **the project descriptions are not final yet** -- we are still working them out, and some of them may change a bit.
 
 ## Developer Experience
 
