@@ -320,7 +320,7 @@ Curriculum admins should be able to “program” this test. They would specify 
 
 **Size of this project:** large (~350 hours)
 
-**Potential Mentors:** @aks681, @krishita30j
+**Potential Mentors:** @krishita30j, @aks681
 
 **Knowledge/Skills Recommended:** 
 
@@ -403,7 +403,7 @@ One core principle of Oppia lessons is that we never want the learner to get stu
 
 **Size of this project:** medium (~175 hours)
 
-**Potential Mentors:** @kevintab95, @aks681, @iamprayush, @EricZLou, @krishita30j
+**Potential Mentors:** @kevintab95, @EricZLou
 
 **Knowledge/Skills Recommended:** 
 
@@ -441,7 +441,7 @@ We want learners to have an enjoyable experience when playing Oppia’s explorat
 
 **Size of this project:** medium (~175 hours)
 
-**Potential Mentors:** @kevintab95, @iamprayush, @EricZLou
+**Potential Mentors:** @kevintab95, @iamprayush
 
 **Knowledge/Skills Recommended:** 
 
@@ -489,7 +489,7 @@ This project should cover the following:
 
 **Size of this project:** large (~350 hours)
 
-**Potential Mentors:** @aks681, @kevintab95, @krishita30j
+**Potential Mentors:** @aks681, @krishita30j
 
 **Knowledge/Skills Recommended:** 
 
@@ -541,7 +541,7 @@ For the percentage interaction:
 
 **Size of this project:** medium (~175 hours)
 
-**Potential Mentors:** @aks681, @DubeySandeep, @iamprayush, @nithusha21
+**Potential Mentors:** @iamprayush, @nithusha21
 
 **Knowledge/Skills Recommended:** 
 
@@ -584,7 +584,7 @@ The project also involves moving all existing blog posts from Medium to this new
 
 **Size of this project:** medium (~175 hours)
 
-**Potential Mentors:** @aks681, @gp201
+**Potential Mentors:** @gp201, @DubeySandeep
 
 **Knowledge/Skills Recommended:** 
 
@@ -625,7 +625,7 @@ For (c): In the state editor, when a change is made to a part of a card and this
 
 **Size of this project:** large (~350 hours); can be reduced to medium (~175 hours) if desired (see description)
 
-**Potential Mentors:** @kevintab95, @nithusha21
+**Potential Mentors:** @nithusha21, @kevintab95
 
 **Knowledge/Skills Recommended:** 
 
@@ -676,7 +676,7 @@ This project will involve two major parts:
 
 **Size of this project:** medium (~175 hours)
 
-**Potential Mentors:** @kevintab95, @aks681, @iamprayush
+**Potential Mentors:** @krishita30j, @seanlip
 
 **Knowledge/Skills Recommended:** 
 
@@ -780,7 +780,7 @@ The aim of this project is therefore to implement a responsive UI for the contri
 
 **Size of this project:** medium (~175 hours) 
 
-**Potential Mentors:** @sagangwee, @bhavukJain
+**Potential Mentors:** @DubeySandeep, @sagangwee
 
 **Knowledge/Skills Recommended:** 
 
@@ -834,7 +834,7 @@ Note that translation and practice question coordinators will typically be inter
 
 **Size of this project:** medium (~175 hours) 
 
-**Potential Mentors:** @sagangwee, @bhavukJain
+**Potential Mentors:** @bhavukJain, @DubeySandeep
 
 **Knowledge/Skills Recommended:** 
 
@@ -886,7 +886,7 @@ Please note that moving all the pages to the Angular router is a prerequisite fo
 
 **Size of this project:** large (~350 hours)
 
-**Potential Mentors:** @srijanreddy98, @ashutoshc8101
+**Potential Mentors:** @ashutoshc8101, @srijanreddy98
 
 **Knowledge/Skills Recommended:** 
 
@@ -934,7 +934,7 @@ After this project is finished, all Python files in the Oppia codebase should be
 
 **Size of this project:** large (~350 hours)
 
-**Potential Mentors:** @vojtechjelinek, @nithusha21
+**Potential Mentors:** @aasiffaizal, @vojtechjelinek
 
 **Knowledge/Skills Recommended:** 
 
@@ -979,7 +979,7 @@ Our frontend codebase is fully typed, but our typing doesn’t yet pass strict T
 
 **Size of this project:** large (~350 hours)
 
-**Potential Mentors:** @vojtechjelinek, @nithusha21
+**Potential Mentors:** @mridul-netizen, @srijanreddy98
 
 **Suggested Milestones:**
 
@@ -1044,7 +1044,7 @@ Note that this project **will not** entail writing new validation jobs from scra
 
 **Size of this project:** medium (~175 hours) or large (~350 hours). <span style="text-decoration:underline;">Note</span>: We would recommend taking up this project as a longer-term one (e.g. until November) with fewer hours per week, since it can take time to verify the validations on a server with production data.
 
-**Potential Mentors:** @vojtechjelinek
+**Potential Mentors:** @EricZLou, @ankita240796
 
 **Suggested Milestones:**
 
@@ -1113,7 +1113,7 @@ The GCS IO mentioned in the first part should offer the following interactions w
 
 **Size of this project:** medium (~175 hours)
 
-**Potential Mentors:** @vojtechjelinek
+**Potential Mentors:** @vojtechjelinek, @aasiffaizal
 
 **Knowledge/Skills Recommended:** 
 
@@ -1165,7 +1165,7 @@ We want to achieve 100% per-file branch and line coverage for both the frontend 
 
 **Size of this project:** medium (~175 hours)
 
-**Potential mentors**: @U8NWXD, @SAEb-ai, @gp201
+**Potential mentors**: @U8NWXD, @gp201
 
 **Knowledge/Skills Recommended:** 
 
@@ -1216,7 +1216,7 @@ Most likely, no tool will excel in all of these areas, so we’ll need to find a
 
 **Size of this project:** large (~350 hours)
 
-**Potential Mentors:** @U8NWXD, @SAEb-ai
+**Potential Mentors:** @SAEb-ai, @U8NWXD
 
 **Knowledge/Skills Recommended:** 
 
@@ -1290,7 +1290,7 @@ Note that most of the development of this project will need to be on a separate 
 
 **Size of this project:** large (~350 hours)
 
-**Potential Mentors:** @ankita240796
+**Potential Mentors:** @ankita240796, @BenHenning
 
 **Knowledge/Skills Recommended:** 
 
@@ -1348,7 +1348,7 @@ Note that each of these experiences may lead to multiple parts of the UI being h
 
 **Size of this project:** large (~350 hours)
 
-**Potential Mentors:** @BenHenning
+**Potential Mentors:** @BenHenning, @rt4914
 
 **Knowledge/Skills Recommended:** 
 
@@ -1402,7 +1402,7 @@ Specifically, this project entails the following parts:
 
 **Size of this project:** medium (~175 hours)
 
-**Potential Mentors:** @BenHenning
+**Potential Mentors:** @rt4914, @BenHenning
 
 **Knowledge/Skills Recommended:** 
 
