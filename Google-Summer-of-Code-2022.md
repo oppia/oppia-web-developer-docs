@@ -1,9 +1,22 @@
 ## Table of Contents
 
--   [Getting started](#getting-started)
--   [FAQs](#faqs)
--   [Types of work related to Oppia projects](#types-of-work-related-to-oppia-projects)
--   [Selection Criteria](#selection-criteria)
+- [Getting started](#getting-started)
+- [FAQs](#faqs)
+- [GSoC proposal template](#gsoc-proposal-template)
+  - [Tips for writing a good project plan](#tips-for-writing-a-good-project-plan)
+  - [What should applicants expect from mentors in a proposal review?](#what-should-applicants-expect-from-mentors-in-a-proposal-review)
+  - [Sample proposals from past years](#sample-proposals-from-past-years)
+- [Types of work related to Oppia projects](#types-of-work-related-to-oppia-projects)
+- [Selection Criteria](#selection-criteria)
+- [Dates and Deadlines](#dates-and-deadlines)
+- [Communication](#communication)
+- [Oppia's Project Ideas List]
+  - [Learner and Creator Experience (LaCE) team](#learner-and-creator-experience-lace-team-1)
+  - [Contributor Dashboard team](#contributor-dashboard-team-1)
+  - [Angular team](#angular-team-1)
+  - [Backend team](#backend-team-1)
+  - [Dev workflow team](#dev-workflow-team-1)
+  - [Android team](#android-team-1)
 
 Oppia has applied to participate in [Google Summer of Code 2022](https://summerofcode.withgoogle.com/)! GSoC is a global program which offers the opportunity to discover and work with open-source organizations to non-experienced contributors and especially to post-secondary students. The contributions are supported by a stipend. Contributors work closely with one or more mentors from an open-source organization to implement either a project idea by the organization, or a proposal of their own.
 
@@ -188,17 +201,38 @@ For the proposal, we generally look for a clear indication that the contributor 
 -   A description, if applicable, of how the applicant plans to mitigate risks that could potentially derail the project.
 -   Clear, unambiguous communication. (This is important; your proposal will be read by many mentors!)
 
+## Dates and Deadlines
+
+Noteworthy dates for 2022 ([Full Timeline](https://developers.google.com/open-source/gsoc/timeline)):
+
+TODO
+
+
+## Communication
+
+**Chat**
+
+Oppia doesn't have an official IRC channel, but we do have a real-time chat channel on [Gitter](https://gitter.im/oppia/oppia-chat)! You can log in using your GitHub account (Gitter will ask to be associated with your GitHub account for authentication) and you will then be able to talk in it. Please feel free to use Gitter if you just want to say hi to the community or if you have any questions related to getting started. For project-specific questions, please direct your queries to the [GSoC discussion mailing list](mailto:oppia-gsoc-discuss@googlegroups.com).
+
+**Email**
+
+In order to receive updates about GSoC at Oppia please subscribe to [Oppia GSoC Announce](https://groups.google.com/g/oppia-gsoc-announce).
+
+If you have questions pertaining to "how-to-get-started", please ask them on [Gitter](https://gitter.im/oppia/oppia-chat), or the oppia-dev@ mailing list. Please be specific when asking questions; this makes it easier for us to help you. Also, please make sure to read our ["getting started" wiki page](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up) before sending an email, since the answer to your question might already be contained there!
+
+To discuss your project ideas, or share your proposal for feedback from the community, please email the [GSoC discussion mailing list](mailto:oppia-gsoc-discuss@googlegroups.com). You can also use this list for specific questions about GSoC.
+
+
+
 ## Oppia's Project Ideas List
 
-**Note:** If you're coming to this section from an external link, please make sure to scroll up and read this entire wiki page carefully, not just this section. There's a lot of useful information on the rest of the page, including a FAQ and a section describing selection criteria. Thanks!_
-
-**IMPORTANT:** We are still working on finalizing this list. Please don't act on it yet, since it is still changing. We'll send a note to oppia-gsoc-announce@ and remove this message once this section is ready.
+**Note:** If you're coming to this section from an external link, please make sure to scroll up and read this entire wiki page carefully, not just this section. There's a lot of useful information on the rest of the page, including a FAQ and a section describing selection criteria. Thanks!
 
 The following is a list of Oppia's 2022 GSoC project ideas. (Please note that all mentor assignments listed below are provisional, and may change depending on which proposals are eventually accepted.)
 
 You are welcome to choose among these ideas, or propose your own! However, if you're planning to propose something original, it's essential to engage with the Oppia community in order to get feedback and guidance to improve the proposal. We also recommend taking a look at [Oppia's mission](https://github.com/oppia/oppia/wiki/Oppia's-Mission) and seeing if there is a natural way to tie your idea to the Oppia project's goals, otherwise it might not be a good fit at this time.
 
-Finally, please note that this list of project ideas is not fixed, and more projects may be added later.
+The list of project ideas is not fixed and more projects may be added later. Also, please note that the **project descriptions are not final yet** -- we are still working them out, and some of them may change a bit.
 
 ### Learner and Creator Experience (LaCE) team
 
@@ -230,7 +264,7 @@ Finally, please note that this list of project ideas is not fixed, and more proj
 
 ### Angular team
 
-3.1. [Migrate the exploration editor page to Angular, and move the entire frontend to the Angular CLI](#41-migrate-the-exploration-editor-page-to-angular-and-move-the-entire-frontend-to-the-angular-cli) (large)
+3.1. [Migrate the exploration editor page to Angular, and move the entire frontend to the Angular CLI](#31-migrate-the-exploration-editor-page-to-angular-and-move-the-entire-frontend-to-the-angular-cli) (large)
 
 ### Backend team
 
@@ -656,7 +690,7 @@ This project will involve two major parts:
 ---
 
 
-## Contributor Dashboard
+## Contributor Dashboard Team
 
 ### 2.1. Contributor Recognition Infrastructure
 
@@ -824,7 +858,7 @@ Note that translation and practice question coordinators will typically be inter
 ---
 
 
-## Angular
+## Angular team
 
 
 ### 3.1. Migrate the exploration editor page to Angular, and move the entire frontend to the Angular CLI
@@ -874,7 +908,7 @@ Please note that moving all the pages to the Angular router is a prerequisite fo
 ---
 
 
-## Backend
+## Backend team
 
 
 ### 4.1. Make backend code typed
@@ -1103,7 +1137,7 @@ The GCS IO mentioned in the first part should offer the following interactions w
 ---
 
 
-## Dev workflow
+## Dev workflow team
 
 
 ### 5.1. Achieve 100% Per-File Branch and Line Coverage for the Frontend and the Backend
@@ -1202,7 +1236,7 @@ Most likely, no tool will excel in all of these areas, so we’ll need to find a
 
 ---
 
-## Android
+## Android team
 
 ### 6.1. Android release automation
 
@@ -1276,30 +1310,6 @@ Note that most of the development of this project will need to be on a separate 
 
 
 # Other useful information
-
-## Dates and Deadlines
-
-Noteworthy dates for 2022 ([Full Timeline](https://developers.google.com/open-source/gsoc/timeline)):
-
-TODO
-
-## List of Mentors
-
-TODO
-
-## Communication
-
-**Chat**
-
-Oppia doesn't have an official IRC channel, but we do have a real-time chat channel on [Gitter](https://gitter.im/oppia/oppia-chat)! You can log in using your GitHub account (Gitter will ask to be associated with your GitHub account for authentication) and you will then be able to talk in it. Please feel free to use Gitter if you just want to say hi to the community or if you have any questions related to getting started. For project-specific questions, please direct your queries to the [GSoC discussion mailing list](mailto:oppia-gsoc-discuss@googlegroups.com).
-
-**Email**
-
-In order to receive updates about GSoC at Oppia please subscribe to [Oppia GSoC Announce](https://groups.google.com/g/oppia-gsoc-announce).
-
-If you have questions pertaining to "how-to-get-started", please ask them on [Gitter](https://gitter.im/oppia/oppia-chat), or the oppia-dev@ mailing list. Please be specific when asking questions; this makes it easier for us to help you. Also, please make sure to read our ["getting started" wiki page](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up) before sending an email, since the answer to your question might already be contained there!
-
-To discuss your project ideas, or share your proposal for feedback from the community, please email the [GSoC discussion mailing list](mailto:oppia-gsoc-discuss@googlegroups.com). You can also use this list for specific questions about GSoC.
 
 ---
 
