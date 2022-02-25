@@ -574,7 +574,7 @@ For (b): In the state editor, it should be possible to see a “Last edited by X
 
 For (c): In the state editor, when a change is made to a part of a card and this results in a “should translations be updated?” pop-up modal, the modal should also include a list of the existing languages for which that content has been translated, and the currently-saved translations for those languages. The lesson creator should be asked to update these translations if the changes are trivial to do (e.g. the content is just numbers), and otherwise leave them alone by default. This will help to save some re-translation work for the community. **Note**: these translation changes should not be applied immediately – if the lesson creator subsequently discards their change before committing it to the backend, then those translation changes should also be discarded.
 
-**Size of this project:** large (~350 hours); can be reduced to medium if desired (see description)
+**Size of this project:** large (~350 hours); can be reduced to medium (~175 hours) if desired (see description)
 
 **Potential Mentors:** @kevintab95, @nithusha21
 
