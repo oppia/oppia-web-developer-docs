@@ -243,59 +243,59 @@ The list of project ideas is not fixed and more projects may be added later. Als
 
 ### Learner and Creator Experience (LaCE) team
 
-1.1. [Learner Diagnostic Tests](#11-learner-diagnostic-tests) (large)
+1.1. [Learner Diagnostic Tests](#11-learner-diagnostic-tests)
 
-1.2. [Implementing the “needs guiding responses” section of the lesson analytics dashboard](#12-implementing-the-needs-guiding-responses-section-of-the-lesson-analytics-dashboard) (large)
+1.2. [Implementing the “needs guiding responses” section of the lesson analytics dashboard](#12-implementing-the-needs-guiding-responses-section-of-the-lesson-analytics-dashboard)
 
-1.3. [Helping learners when they get stuck](#13-helping-learners-when-they-get-stuck) (medium)
+1.3. [Helping learners when they get stuck](#13-helping-learners-when-they-get-stuck)
 
-1.4. [Celebrating learners' accomplishments](#14-celebrating-learners-accomplishments) (medium)
+1.4. [Celebrating learners' accomplishments](#14-celebrating-learners-accomplishments)
 
-1.5. [Learner Group MVP](#15-learner-group-mvp) (large)
+1.5. [Learner Group MVP](#15-learner-group-mvp)
 
-1.6. [Number Line and Percentage interactions](#16-number-line-and-percentage-interactions) (medium)
+1.6. [Number Line and Percentage interactions](#16-number-line-and-percentage-interactions)
 
-1.7. [Blog integration](#17-blog-integration) (medium)
+1.7. [Blog integration](#17-blog-integration)
 
-1.8. [Improving the lesson creation experience](#18-improving-the-lesson-creation-experience) (large; can be split into 2 medium projects)
+1.8. [Improving the lesson creation experience](#18-improving-the-lesson-creation-experience)
 
-1.9. [Onboarding Improvements](#19-onboarding-improvements) (medium)
+1.9. [Onboarding Improvements](#19-onboarding-improvements)
 
 ### Contributor Dashboard team
 
-2.1. [Contributor Recognition Infrastructure](#21-contributor-recognition-infrastructure) (large)
+2.1. [Contributor Recognition Infrastructure](#21-contributor-recognition-infrastructure)
 
-2.2. [Making the Contributor Dashboard UI Responsive](#22-making-the-contributor-dashboard-ui-responsive) (medium)
+2.2. [Making the Contributor Dashboard UI Responsive](#22-making-the-contributor-dashboard-ui-responsive)
 
-2.3. [Adding a Contributor Dashboard Stats page](#23-adding-a-contributor-dashboard-stats-page) (medium)
+2.3. [Adding a Contributor Dashboard Stats page](#23-adding-a-contributor-dashboard-stats-page)
 
 ### Angular team
 
-3.1. [Migrate the exploration editor page to Angular, and move the entire frontend to the Angular CLI](#31-migrate-the-exploration-editor-page-to-angular-and-move-the-entire-frontend-to-the-angular-cli) (large)
+3.1. [Migrate the exploration editor page to Angular, and move the entire frontend to the Angular CLI](#31-migrate-the-exploration-editor-page-to-angular-and-move-the-entire-frontend-to-the-angular-cli)
 
 ### Backend team
 
-4.1. [Make backend code typed](#41-make-backend-code-typed) (large)
+4.1. [Make backend code typed](#41-make-backend-code-typed)
 
-4.2. [Improve the frontend type system](#42-improve-the-frontend-type-system) (large)
+4.2. [Improve the frontend type system](#42-improve-the-frontend-type-system)
 
-4.3. [Fix validation errors](#43-fix-validation-errors) (large; can be split into 2 medium projects)
+4.3. [Fix validation errors](#43-fix-validation-errors)
 
-4.4. [Move and fix data in Google Cloud Storage](#44-move-and-fix-data-in-google-cloud-storage) (medium)
+4.4. [Move and fix data in Google Cloud Storage](#44-move-and-fix-data-in-google-cloud-storage)
 
 ### Developer workflow team
 
-5.1. [Achieve 100% Per-File Branch and Line Coverage for the Frontend and the Backend](#51-achieve-100-per-file-branch-and-line-coverage-for-the-frontend-and-the-backend) (medium)
+5.1. [Achieve 100% Per-File Branch and Line Coverage for the Frontend and the Backend](#51-achieve-100-per-file-branch-and-line-coverage-for-the-frontend-and-the-backend)
 
-5.2. [Migrate away from Protractor](#52-migrate-away-from-protractor) (large)
+5.2. [Migrate away from Protractor](#52-migrate-away-from-protractor)
 
 ### Android team
 
-6.1. [Android release automation](#61-android-release-automation) (large)
+6.1. [Android release automation](#61-android-release-automation)
 
-6.2. [Interactive onboarding flow](#62-interactive-onboarding-flow) (large)
+6.2. [Interactive onboarding flow](#62-interactive-onboarding-flow)
 
-6.3. TBA (medium)
+6.3. [Accessibility improvements](#63-accessibility-improvements)
 
 
 ## Learner and Creator Experience (LaCE) team
@@ -1309,15 +1309,110 @@ Note that most of the development of this project will need to be on a separate 
 * [Oppia Android Release Process](https://docs.google.com/document/d/1XAoXnQkn2oIAFkd6vY90tn_SSW3J9Eia0_4RhXhJSxQ/edit?usp=sharing)
 * The [Bazel rule](https://github.com/oppia/oppia-android/blob/develop/oppia_android_application.bzl#L288) used to build deployable AABs
 
+### 6.2. Interactive onboarding flow
+
+**Project Description:**
+
+The team has received user feedback that the app's current onboarding flow isn't clearly explaining how to use the app. This project fixes these gaps by introducing a more interactive onboarding experience to help users build intuitive context as they navigate throughout the app, and understand more precisely how to actually use it ([PRD](https://docs.google.com/document/d/1o9yiFhNmPTF1Hl1zJxXp8Mv4Q1hoc5Os_SrvE4sUpQg/edit)).
+
+This project will introduce an in-the-moment “spotlight” for key interactive components of the app. A **spotlight** is a visual highlighting of a particular element on the screen, with text explaining what it is or how to use it. These spotlights should be implemented using [this](https://github.com/TakuSemba/Spotlight) or a comparable library. They should highlight the following key app functionality:
+
+- Onboarding screen
+  - In the first slide of the initial onboarding presentation seen by new users, show how to navigate to the next slide
+- Profile page screen
+  - An overview of the profile selection screen
+  - Creating a profile (both admin and user profiles)
+  - Setting a PIN
+- Home screen
+  - An overview of the home screen
+  - Selecting a topic from the home screen
+- Topic screen
+  - The different icons of the topic screen
+  - Selecting a lesson to play it from the lessons tab of the topic screen
+- Exploration screen
+  - An overview of the lesson screen, including lesson content and how to submit an answer
+  - Playing/pausing audio
+  - Changing the audio voiceover's language
+  - Showing a hint to explain hints and solutions (note that this will likely require forcing a "dummy" hint to be shown since there may not be a guarantee that an actual valid hint can be shown in-context)
+  - Explaining that the user can always quit via the back button and that their progress will be saved so that they can take a break and resume later
+
+Note that each of these experiences may lead to multiple parts of the UI being highlighted, and should follow a predefined linear flow (i.e., for a particular screen, we would show the highlights in a specific order in the initial “walkthrough”). There should be an option to cancel out of the flow, and the app should not show it again if the flow is either canceled or completed. The app should show the onboarding flow the first time the user experiences whichever screen contains the interactive elements that should be explained. 
+
+**Size of this project:** large (~350 hours)
+
+**Potential Mentors:** @BenHenning
+
+**Knowledge/Skills Recommended:** 
+
+* Familiarity with Android UI development and automated testing, particularly in Oppia Android, will be a major help in writing a clear proposal. Understanding how persistence works in Oppia Android will also be important for writing the proposal.
+* The applicant should also build familiarity with the linked [Spotlight](https://github.com/TakuSemba/Spotlight) library (or any reasonable alternative library that can meet the project requirements) and include clear details in the project proposal for how the chosen library will be integrated.
 
 
-<!---
+**Suggested Milestones:**
+
+* **Milestone 1:** 
+  * A platform parameter feature flag should be introduced to gate all user-facing functionality for this project (everything should be locked behind this flag).
+  * The necessary domain components to represent the full, per-screen tutorial state with persistence should be implemented, with thorough testing.
+  * The onboarding screen and profile page screens should be fully implemented and thoroughly tested, with a particular emphasis placed on demonstrating that profiles who've already seen the tutorials don't see them again, and that partial completion of a single segment of the tutorial re-prompts the full part of that tutorial upon reentry into the activity.
+
+* **Milestone 2:**
+  * The tutorials for the home, topic, and exploration screens are fully implemented and thoroughly tested.
+  * A new end-to-end test suite, that mimics the journey that a new user would take, should be written to go through the entire tutorial flow.
+
+
+**Dependency on Release Schedule:** None.
+
+**Proposal Notes:**
+
+* Note that we're specifically looking for a detailed explanation of the planned UI changes in your proposal. In particular, you should include visual mocks and diagrams to demonstrate the user experience in detail.
+* We're also especially looking for a well-thought out technical design from the domain layer to the UI as this project will affect the full app stack.
+
+**Useful resources:**
+
+* See this PRD for a more detailed description: [PRD](https://docs.google.com/document/d/1o9yiFhNmPTF1Hl1zJxXp8Mv4Q1hoc5Os_SrvE4sUpQg/edit). 
+* Last year's [Lightweight Checkpointing proposal](https://docs.google.com/document/d/1YI4DtA5vbdJaoiL4tIBErgOvRm9fiIxfyDB6vr7zdQA/edit) is a good reference since it was also a full-app user-facing project and was well-organized.
 
 
 
+### 6.3. Accessibility Improvements
 
-# Other useful information
+_**Note:** This is a sketch description. A more elaborated description will be available by Tuesday Mar 1._
 
----
+**Project Description:**
 
---->
+We would like to ensure that the Oppia Android app is fully accessible to screen readers, and have identified a number of areas in which the experience could be improved. The aim of this project is to fix these issues so that the overall experience of using the app for such users is as smooth and intuitive as possible.
+
+Specifically, this project entails the following parts:
+
+- Ensuring that screens with similar UI components have a consistent UX throughout, for both sighted and non-sighted users. Here, “consistent” means two things: (a) sighted and non-sighted users have the same experience, (b) a user’s experience across different screens is the same (in cases where the screens use the same or similar components).
+  - An example of (a): The flow for screen-reader users should be consistent with that of sighted users. For example, sighted users for left-to-right languages normally read a screen from the top-left and then start moving towards the right and then to the bottom. Similarly, the screen-reader should also start from the top-left and move to the next item in the same way. The experience should be adjusted appropriately for right-to-left languages such as Arabic.
+  - An example of (b): Common components such as EditTexts and buttons should work the same way across all screens; all back-button icons on the top left should have the same  labels and content descriptions; etc. 
+- Ensuring that the app is fully accessible for any combination of settings in the Android OS (such as magnified screens, large text, bed-time mode, night-light mode, lack of visible screen (with Talkback), etc.) and with different accessibility services. For all these combinations of settings, the app should pass the [Accessibility Scanner](https://support.google.com/accessibility/android/answer/6376570?hl=en) checks. (Note that “dark mode” support is being tackled as a separate effort and isn’t included in this GSoC project.)
+- Ensuring that data persists when transitioning from portrait to landscape mode, and vice-versa. Basically – suppose the normal flow for a user is to do action X and action Y in sequence. Then, if a screen rotation happens after action X, the only action needed after that screen rotation should be action Y (without doing action X again). Some examples:
+  - If any text is typed in an EditText and the screen is then rotated, the string should still be available.
+  - If the user has selected a couple of options in an ItemSelectionInteraction, then, on rotation, those selections should persist.
+
+**Size of this project:** medium (~175 hours)
+
+**Potential Mentors:** @BenHenning
+
+**Knowledge/Skills Recommended:** 
+
+* Familiarity with accessibility programming techniques in Android.
+* Familiarity with Android UI development and automated testing, particularly in Oppia Android, will be a major help in writing a clear proposal. Understanding how persistence works in Oppia Android will also be important for writing the proposal.
+
+**Suggested Milestones:**
+
+* **Milestone 1:** Ensure that screens with similar UI components have a consistent UX throughout, for both sighted and non-sighted users. Ensure that the app is fully accessible for any combination of settings in the Android OS.
+
+* **Milestone 2:** Ensure that data always persists on screen rotations.
+
+**Dependency on Release Schedule:** None.
+
+**Proposal Notes:**
+
+_These will be available once the full description of the project is updated, which will happen by **Tue 1 Mar**._
+
+**Useful resources:**
+
+* Oppia Android accessibility guide: [wiki page](https://github.com/oppia/oppia-android/wiki/Accessibility-(A11y)-Guide)
