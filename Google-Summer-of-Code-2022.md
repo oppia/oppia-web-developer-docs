@@ -10,12 +10,12 @@
 - [Selection Criteria](#selection-criteria)
 - [Dates and Deadlines](#dates-and-deadlines)
 - [Communication](#communication)
-- [Oppia's Project Ideas List]
+- [Oppia's Project Ideas List](#oppias-project-ideas-list)
   - [Learner and Creator Experience (LaCE) team](#learner-and-creator-experience-lace-team-1)
   - [Contributor Dashboard team](#contributor-dashboard-team-1)
   - [Angular team](#angular-team-1)
   - [Backend team](#backend-team-1)
-  - [Dev workflow team](#dev-workflow-team-1)
+  - [Developer workflow team](#developer-workflow-team-1)
   - [Android team](#android-team-1)
 
 Oppia has applied to participate in [Google Summer of Code 2022](https://summerofcode.withgoogle.com/)! GSoC is a global program which offers the opportunity to discover and work with open-source organizations to non-experienced contributors and especially to post-secondary students. The contributions are supported by a stipend. Contributors work closely with one or more mentors from an open-source organization to implement either a project idea by the organization, or a proposal of their own.
@@ -1137,7 +1137,7 @@ The GCS IO mentioned in the first part should offer the following interactions w
 ---
 
 
-## Dev workflow team
+## Developer workflow team
 
 
 ### 5.1. Achieve 100% Per-File Branch and Line Coverage for the Frontend and the Backend
