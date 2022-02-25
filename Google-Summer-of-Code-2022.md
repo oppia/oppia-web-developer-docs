@@ -743,7 +743,7 @@ For this GSoC project, you should implement this system and surface it to users 
 
 
 
-* Your proposal should clearly outline the scoring algorithm and different scoring “buckets” you plan to use, and the reasons supporting it. (Note that additionally maintaining separate fields with the raw data makes it possible to change how we display the summary data to users in the future.) You are welcome use the following ideas as a baseline (but make sure to think through corner cases, e.g. what should we do in principle if the original content gets deleted/modified after a translation suggestion has been made):  
+* Your proposal should clearly outline the scoring algorithm and different scoring “buckets” you plan to use, and the reasons supporting it. (Note that additionally maintaining separate fields with the raw data makes it possible to change how we display the summary data to users in the future.) You are welcome to use the following ideas as a baseline (but make sure to think through the various corner cases, e.g. what should we do, in principle, if the original content gets deleted/modified after a translation suggestion has been made):  
     * For translation submissions: points should probably correlate in some way to the length/difficulty of the translation. One idea is to add (M * translation word count) to a user’s “translation submission in language L” score if the submission is accepted (where M is a multiplier to be determined), and subtract a small constant amount if a submission is rejected. This score change is only applied when the submission is accepted, not at the time of submission (to avoid the user seeing their score go up and then down) – though it might be interesting to show users their “potential score increase if accepted” for translations that are still awaiting review.
         * An alternative approach could be to maintain separate counters for “number of translations submitted/accepted”, “word count of submitted/accepted translations”, etc.
         * If you decide to go with an approach like the above, please describe how you would handle the calculation of the “translation word count” for cases where the translation includes images, alt text, or math formulae.
@@ -788,8 +788,6 @@ The aim of this project is therefore to implement a responsive UI for the contri
 
 **Suggested Milestones:**
 
-
-
 * **Milestone 1:** Implement the mobile UI for the contributor dashboard landing page (this includes the overall navigation, as well as the user’s review/submission history).
 * **Milestone 2:** Implement the mobile UI for the translation and question submission pages (this includes both the list of opportunities and the submission workflow)
 
@@ -797,14 +795,10 @@ The aim of this project is therefore to implement a responsive UI for the contri
 
 **Proposal notes:** 
 
-
-
 * We encourage you to explore ways to make the user experience on mobile devices as intuitive as possible. If you see any improvements you can make to the flow, please feel free to suggest them. (Optionally, if you like, you can also register to help translate lessons through the [volunteer interest form](https://docs.google.com/forms/d/e/1FAIpQLSc5_rwUjugT_Jt_EB49_zAKWVY68I3fTXF5w9b5faIk7rL6yg/viewform) – this may help you get a sense of the workflow, but please only sign up if you are proficient in the language in question and are actually interested in helping out in this way.)
 * When writing your proposal, please explain how you plan to keep the responsive CSS easy to maintain. We recommend that you follow an approach that is consistent with other parts of the codebase, rather than inventing something brand-new just for the Contributor Dashboard. 
 
 **Useful resources:**
-
-
 
 * [User documentation for contributor dashboard](https://docs.google.com/document/d/17jMFtfHVWtJYrzyGQUKdsRXgky7lWv76sGYLOxSbA5w/edit)
 * [Contributor Dashboard Design Overview](https://docs.google.com/document/d/1wM9cQzq1-3nbEhZliRlpnGDXbM_HspNkY16CYnA6lWg/edit)
@@ -847,7 +841,7 @@ Note that translation and practice question coordinators will typically be inter
 * **Milestone 1:** _Backend_: Write jobs to compute and aggregate the necessary data. Create the necessary API endpoint controller methods to surface this data to frontend clients.
 * **Milestone 2:** _Frontend_: Implement the frontend services and UI for the /_contributor-dashboard-stats_ page. Add any necessary affordances to ensure that translation and practice question coordinators can easily answer their questions. Demo this dashboard to the PM and translation coordinator teams, and get explicit confirmation that it fully meets their needs.
 
-**Dependency on Release Schedule:** _None._
+**Dependency on Release Schedule:** None.
 
 **Proposal notes:** 
 
@@ -910,11 +904,9 @@ Please note that moving all the pages to the Angular router is a prerequisite fo
 
 **Useful resources:**
 
-
-
-* **[CLI Overview and Command Reference](https://angular.io/cli)**
-* **[Angular Migration Wiki Page](https://github.com/oppia/oppia/wiki/Angular-Migration)**
-
+* [CLI Overview and Command Reference](https://angular.io/cli)
+* [Angular Migration Wiki Page](https://github.com/oppia/oppia/wiki/Angular-Migration)
+* [How to test features on production](https://github.com/oppia/oppia/wiki/Testing-jobs-and-other-features-on-production)
 
 ---
 
@@ -946,7 +938,7 @@ After this project is finished, all Python files in the Oppia codebase should be
 * **Milestone 1:** Fully type core/domain and core/jobs.
 * **Milestone 2:** Fully type core/controllers and other remaining files.
 
-**Dependency on Release Schedule:** No
+**Dependency on Release Schedule:** None
 
 **Proposal notes:** 
 
@@ -991,7 +983,7 @@ Our frontend codebase is fully typed, but our typing doesn’t yet pass strict T
 * Knowledge and understanding of TypeScript typing, preferably not only basic typing structures but also more advanced concepts like literals, generics or overloads.
 * Knowledge of frontend tests, since in some places refactors to tests might be needed.
 
-**Dependency on Release Schedule:** No
+**Dependency on Release Schedule:** None
 
 **Proposal notes:** 
 
@@ -1048,14 +1040,12 @@ Note that this project **will not** entail writing new validation jobs from scra
 
 * **Medium project:**
     * **Milestone 1:** Fix 3 tasks from the list above.
-    * **Milestone 2:** Fix 3 tasks from the list above.
+    * **Milestone 2:** Fix 3 more tasks from the list above.
 * **Large project:**
     * **Milestone 1:** Fix 6 tasks from the list above.
-    * **Milestone 2:** Fix 6 tasks from the list above.
+    * **Milestone 2:** Fix 6 more tasks from the list above.
 
 **Knowledge/Skills Recommended:** 
-
-
 
 * Good knowledge of Apache Beam
 * Ability to write Beam jobs
@@ -1064,8 +1054,6 @@ Note that this project **will not** entail writing new validation jobs from scra
 **Dependency on Release Schedule:** There is some dependency on the [release schedule](https://github.com/oppia/oppia/wiki/Release-schedule-and-other-information), as Beam jobs are a critical part of this project and these are run on the prod server only once a month. Although we can run these jobs at any time on a test server, they will ultimately need to be run in production, so we suggest organizing your milestones and timelines around which jobs you would like to finalize by each of the release dates.
 
 **Proposal notes:** 
-
-
 
 * In your proposal, please explain how you plan to tackle the tasks from the list above. There are usually two parts to this: (a) making sure that we fix the current issues in our datastore, and (b) ensuring that those issues don’t reoccur in the future (which often requires doing a careful audit to prove that all possible “loopholes” that would allow them to occur have been plugged).
 * When designing the Beam jobs to fix existing issues in our datastore, make sure that those jobs only make modifications that are strictly necessary. Be especially careful with updates or deletions, since it is important to avoid any data loss or corruption. For each task, you should specify how you would manually verify (on a test server) that the job has done the right thing after it is run, and what the rollback procedure for the job is (if something goes wrong while running it). 
@@ -1078,10 +1066,8 @@ Note that this project **will not** entail writing new validation jobs from scra
 
 **Useful resources:**
 
-
-
-* [Testing jobs and other features on production wiki page](https://github.com/oppia/oppia/wiki/Testing-jobs-and-other-features-on-production) 
-* [Release schedule and other information wiki page](https://github.com/oppia/oppia/wiki/Release-schedule-and-other-information) 
+* ["Testing jobs and other features on production" wiki page](https://github.com/oppia/oppia/wiki/Testing-jobs-and-other-features-on-production) 
+* ["Release schedule and other information" wiki page](https://github.com/oppia/oppia/wiki/Release-schedule-and-other-information) 
 * [Apache Beam Jobs wiki page](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs) 
 
 
@@ -1139,8 +1125,8 @@ The GCS IO mentioned in the first part should offer the following interactions w
 
 
 
-* [Testing jobs and other features on production wiki page](https://github.com/oppia/oppia/wiki/Testing-jobs-and-other-features-on-production) 
-* [Release schedule and other information wiki page](https://github.com/oppia/oppia/wiki/Release-schedule-and-other-information) 
+* ["Testing jobs and other features on production" wiki page](https://github.com/oppia/oppia/wiki/Testing-jobs-and-other-features-on-production) 
+* ["Release schedule and other information" wiki page](https://github.com/oppia/oppia/wiki/Release-schedule-and-other-information) 
 * [Apache Beam Jobs wiki page](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs) 
 * [Apache Beam GCS IO](https://beam.apache.org/releases/pydoc/2.36.0/apache_beam.io.gcp.gcsio.html)
 
@@ -1165,10 +1151,8 @@ We want to achieve 100% per-file branch and line coverage for both the frontend 
 
 **Knowledge/Skills Recommended:** 
 
-
-
-* Experience using Karma to write frontend tests for Oppia
-* Experience using unittest to write backend tests for Oppia
+* Experience using Karma to write frontend tests 
+* Experience using unittest to write backend tests
 
 **Suggested Milestones:**
 
@@ -1197,9 +1181,7 @@ We want to achieve 100% per-file branch and line coverage for both the frontend 
 
 **Project Description:**
 
-The Angular team plans to [end development of Protractor at the end of 2022](https://github.com/angular/protractor/issues/5502). We need to move towards a new E2E testing framework. Ideally, we want a framework that:
-
-
+The Angular team plans to [halt Protractor development at the end of 2022](https://github.com/angular/protractor/issues/5502). We need to move towards a new E2E testing framework. Ideally, we want a framework that:
 
 1. Supports all existing Oppia functionality (e.g. some tools don't support opening new tabs)
 2. Supports taking screenshots and videos. This doesn’t have to be supported natively (e.g. with protractor we use ffmpeg for screen recordings), but it should be possible to do.
@@ -1233,7 +1215,7 @@ Most likely, no tool will excel in all of these areas, so we’ll need to find a
 
 
 
-* The Google team suggested six alternatives to Protractor: **Cypress, Playwright, Puppeteer,  Selenium-webdriver, Testcafe and WebdriverIO**. As Cypress has limited support for iframes and no support for new tab creation, and as Puppeteer does not have a proper migration guide, we have narrowed this list down to four frameworks which best suit Oppia: **Playwright, Selenium-webdriver, Testcafe and WebdriverIO. (Even though a proper migration guide doesn’t exist for **Selenium-webdriver**, we’ve included it because it’s very similar to protractor in terms of APIs. Also, Protractor uses Selenium-Webdriver under the hood.)
+* The Google team suggested six alternatives to Protractor: Cypress, Playwright, Puppeteer,  Selenium-webdriver, Testcafe and WebdriverIO. As Cypress has limited support for iframes and no support for new tab creation, and as Puppeteer does not have a proper migration guide, we have narrowed this list down to four frameworks which best suit Oppia: **Playwright**, **Selenium-webdriver**, **Testcafe** and **WebdriverIO**. (Even though a proper migration guide doesn’t exist for Selenium-webdriver, we’ve included it because it’s very similar to protractor in terms of APIs. Also, Protractor uses Selenium-Webdriver under the hood.)
 * We recommend that you propose a e2e testing framework from one of the above four frameworks. However, if you know of some other framework which would suit Oppia better, you are welcome to propose that and support your choice by showing why it’s the best way to meet Oppia’s needs. In either case, we recommend showing a comparison table of available testing frameworks against the different criteria listed above.
 * In the “Testing Plan” section of your proposal, you should describe how you will confirm that the testing infrastructure you set up works correctly. However, you don’t need to describe specific user journeys or end-to-end tests there.
 * Your proposal should include a plan for how to seamlessly transition to the new end-to-end testing tool. For example, you might describe how we will run both Protractor and the new framework while the migration is in progress.
@@ -1373,8 +1355,8 @@ Note that each of these experiences may lead to multiple parts of the UI being h
 
 **Useful resources:**
 
-* See this PRD for a more detailed description: [PRD](https://docs.google.com/document/d/1o9yiFhNmPTF1Hl1zJxXp8Mv4Q1hoc5Os_SrvE4sUpQg/edit). 
-* Last year's [Lightweight Checkpointing proposal](https://docs.google.com/document/d/1YI4DtA5vbdJaoiL4tIBErgOvRm9fiIxfyDB6vr7zdQA/edit) is a good reference since it was also a full-app user-facing project and was well-organized.
+* See [this PRD](https://docs.google.com/document/d/1o9yiFhNmPTF1Hl1zJxXp8Mv4Q1hoc5Os_SrvE4sUpQg/edit) for a more detailed description of the planned functionality.
+* You might find it useful to look at the [Lightweight Checkpointing proposal](https://docs.google.com/document/d/1YI4DtA5vbdJaoiL4tIBErgOvRm9fiIxfyDB6vr7zdQA/edit) from GSoC 2021, since it was also a full-app user-facing project and was well-organized.
 
 
 
