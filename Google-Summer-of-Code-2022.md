@@ -18,11 +18,9 @@
   - [Developer workflow team](#developer-workflow-team-1)
   - [Android team](#android-team-1)
 
-Oppia has applied to participate in [Google Summer of Code 2022](https://summerofcode.withgoogle.com/)! GSoC is a global program which offers the opportunity to discover and work with open-source organizations to non-experienced contributors and especially to post-secondary students. The contributions are supported by a stipend. Contributors work closely with one or more mentors from an open-source organization to implement either a project idea by the organization, or a proposal of their own.
+Oppia has applied to participate in [Google Summer of Code 2022](https://summerofcode.withgoogle.com/)! GSoC is a global program which offers non-experienced contributors (and, historically, post-secondary students) the opportunity to discover and work with open-source organizations. The contributions are supported by a stipend. Contributors work closely with one or more mentors from an open-source organization to implement either a project idea by the organization, or a proposal of their own. You might be interested in our GSoC info pages from previous years: [2021](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2021), [2020](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2020), [2019](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2019), [2018](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2018), [2017](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2017), [2016](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2016).
 
 In order to receive updates about GSoC at Oppia, please subscribe to the [Oppia GSoC Announce](https://groups.google.com/g/oppia-gsoc-announce) mailing list.
-
-You might be interested in our GSoC info pages from previous years: [2021](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2021), [2020](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2020), [2019](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2019), [2018](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2018), [2017](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2017), [2016](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2016).
 
 Also, please note that acceptance into GSoC isn't a prerequisite for becoming an Oppia contributor. The Oppia project is run by the community for the community, and we warmly welcome anyone who'd like to help out! You can get started by following the instructions [here](https://github.com/oppia/oppia/wiki).
 
@@ -51,7 +49,7 @@ If you're interested in applying to work with Oppia for GSoC, please follow thes
 
 5. Once you've merged at least 2 pull requests, you will get an invitation to become a collaborator to the Oppia or Oppia-Android repository and be officially onboarded! **This step is a prerequisite to applying for GSoC.**
 
-6. Now, you can select one or more GSoC projects that you're most interested in, and write your project proposal! _This point will be elaborated more if Oppia is officially accepted into GSoC._
+6. Now, you can select one or more GSoC projects that you're most interested in, and write your project proposal! _We'll add more details to this point if Oppia is officially accepted into GSoC._
 
 <!--- 6. We strongly encourage you to discuss your project ideas and share your proposal with the community, so that you can get feedback and ensure that what you're writing makes sense to others. The best way to do this is to put your proposal into a collaborative editing tool like Google Docs, allow others to comment on it, and share a link to it on the [GSoC discussion mailing list](mailto:oppia-gsoc-discuss@googlegroups.com). You can also email this mailing list if you have any questions about a project, or would like to discuss your approach with the Oppia community and get feedback. Please be specific when asking questions, since this makes it easier for us to help you.
     - **Important note:** Please read [this oppia-gsoc-discuss@ thread](https://groups.google.com/forum/#!topic/oppia-gsoc-discuss/S6Ge3vQ3cuc) carefully for details about the recommended review process. Note that you do not need to write the entire proposal before getting your first review — see the instructions in that thread for more details. Thanks!
@@ -69,19 +67,19 @@ A: Writing a good project proposal, engaging with the community, helping other c
 
 **Q: Can you be flexible around my other commitments in the summer?**
 
-A: Yes (within reason)! This year, GSoC is going to be slightly different from previous years. The program has been restructured in a way that allows contributors to take some time off for any other commitments (such as exams etc.) [(View the timeline here)](https://developers.google.com/open-source/gsoc/timeline). Oppia will respect the same timelines as given by GSoC — the main concern is whether you can still get the project done on time. Be upfront about your other commitments and make sure you schedule your time accordingly when creating your proposal. Other commitments you should list include time when you'll be in school and will commit less time to GSoC, time when you'll be travelling and away from GSoC work, any summer jobs you need to commit to, etc. We will try to be flexible around other time commitments, as long as your proposal convinces us that you will have enough time to complete the project by the end of the GSoC coding period. On the other hand, if you do not disclose other commitments, and it turns out that you are unable to commit to what you wrote on your proposal, this is grounds for failing the program.
+A: Yes (within reason)! This year, GSoC is going to be a bit different from previous years. The program has been restructured in a way that allows contributors to take some time off for any other commitments such as exams. ([View the timeline here.](https://developers.google.com/open-source/gsoc/timeline)) Oppia will respect the same timelines that are given by GSoC; the main concern is whether you can still get the project done on time. Be upfront about your other commitments and make sure you schedule your time accordingly when creating your proposal. Other commitments you should list include time when you'll be in school and will commit less time to GSoC, time when you'll be travelling and away from GSoC work, any summer jobs you need to commit to, etc. We will try to be flexible around other time commitments, as long as your proposal convinces us that you will have enough time to complete the project by the end of the GSoC coding period. On the other hand, if you do not disclose other commitments, and it turns out that you are unable to commit to what you wrote on your proposal, this is grounds for failing the program.
 
 **Q: Which projects are most important for Oppia?**
 
-A: All the projects we've listed here are important, and we'd be very happy to see good progress made on any of them! Projects are treated as equally important during selection. Note that the relative importance of a project to Oppia is not part of the [selection criteria](#selection-criteria). We would encourage you to pick a project that you would enjoy doing over the summer!
+A: All the projects we've listed in the [Ideas List](#oppias-project-ideas-list) are important, and we'd be very happy to see good progress made on any of them! Projects are treated as equally important during selection; note that the relative importance of a project to Oppia is not part of the [selection criteria](#selection-criteria). We strongly encourage you to pick a project that you'd enjoy doing over the summer!
 
 **Q: Can I submit more than one proposal to Oppia?**
 
-A: Yes you can. However, we strongly recommend picking one project and writing a solid proposal for it. Splitting attention across multiple projects might not be a great idea. (One exception, new for 2022, is if you are interested in doing either the 'full version' or the 'half version' of a project idea that can support both modes. In such a case, you would be welcome to submit both the 'full version' and the 'half version' as separate applications, but before doing so, please make sure that you would be happy with either outcome.) 
+A: Yes, you can. However, we strongly recommend picking one project and writing a solid proposal for it. Splitting attention across multiple projects might not be a great idea. (That said, since this is the first year GSoC is offering full-length and half-length projects, one exception might be if you're interested in doing either the 'full version' or the 'half version' of a project idea that can support both modes. In such a case, you would be welcome to submit both the 'full version' and the 'half version' as separate applications, but, before doing so, please make sure that you'd be happy with either outcome if you are selected.) 
 
 **Q: How early should I start working on the proposal?**
 
-A: As early as possible. Make sure to get feedback from mentors before finally submitting the proposal. This will help you to write a better proposal as you can refine the details based on the feedback you receive. The mentors would need some time to review your proposal, and hence it is a good idea to begin as early as possible. Make sure to follow all instructions in the proposal template (especially around sharing) to reduce delays in reviewing your proposal.
+A: As early as possible. Make sure to get feedback from mentors before finally submitting the proposal. This will help you to write a better proposal, as you can refine the details based on the feedback you receive. Mentors will need some time to review your proposal, so it's a good idea to begin as early as possible. Make sure to follow all instructions in the [proposal template](https://docs.google.com/document/d/1yYefLkT7dJJa86MyrdWpbZtzeaWAKCi1eXZZDGUrasM/edit) (especially around sharing and access) to reduce delays in reviewing your proposal.
 
 **Q: I only discovered Oppia recently. Does this mean that, during selection, my application would automatically be ranked lower than those by other applicants who have a longer tenure with Oppia?**
 
@@ -89,19 +87,11 @@ A: Definitely not! Here are the [selection criteria](#selection-criteria) we use
 
 **Q: What are the minimum number of PRs that one should have?**
 
-A: There is no specific minimum number. Remember that quality is more important than quantity. It is better to submit a nontrivial PR rather than a simple bug fix. Start with starter issues, then prioritize ones that touch the area(s) of the codebase which are related to your project.
+A: There is no specific minimum number. Remember that quality is more important than quantity. It is better to submit a non-trivial PR rather than a one-line wording change. Start with starter issues, then prioritize ones that touch the area(s) of the codebase which are related to your project.
 
 **Q: What is the total number of contributors that will be accepted?**
 
-A: As many as we think will succeed, though the Google GSoC admins may impose quotas.
-
-**Q: May I use parts of another applicant's proposal?**
-
-A: Your proposal should be original (see section 2.4 of the [Contributor Participation Agreement](https://summerofcode.withgoogle.com/terms/contributor)). During the selection process, we automatically disqualify plagiarized proposals before sending the rest to reviewers. 
-
-**Q: Can I use text from the Internet or other sources in my proposal?**
-
-A: Brief quotes from other sources are fine, as long as, every time you quote a source, you make it clear that you are doing so, and provide a link or reference back to the source.
+A: As many as we think will succeed, though the Google GSoC admins may impose limits based on how they decide to distribute contributor slots among the different open-source organizations.
 
 **Q: I do not have any experience in skill XYZ. Is some certification required?**
 
@@ -111,9 +101,17 @@ A: Try to work on good first issues and take courses online. In the field of sof
 
 A: This probably depends on the project(s) you wish to apply for. However, note that the ability to be effective in both the frontend and backend will open up more opportunities for you, since projects often touch multiple layers of the stack.
 
-**Q: The [Google GSoC FAQ](https://developers.google.com/open-source/gsoc/faq#can_someone_already_participating_in_open_source_be_a_gsoc_contributor) mentions that it is only for new contributors. I have already contributed to Oppia and I have write access, can I still participate?**
+**Q: May I use parts of another applicant's proposal?**
 
-A: The GSoC program is open to new and beginner contributors to open source. Some of our contributors with write access are still beginner contributors, whereas some of our other contributors with write access will not qualify because they are experienced contributors. If you only recently received write access, or have been contributing to Oppia for less than a year, you are probably still a beginner contributor. If the previous sentence does not apply to you, and you want to know which group you fall into, please contact **@vojtechjelinek** or **@seanlip** for a decision.
+A: Your proposal must be original (see section 2.4 of the [Contributor Participation Agreement](https://summerofcode.withgoogle.com/terms/contributor)). During the selection process, proposals that are found to have plagiarized others' work will automatically be disqualified.
+
+**Q: Can I use text from the Internet or other sources in my proposal?**
+
+A: Brief quotes from other sources are fine, as long as, every time you quote a source, you make it clear that you are doing so, and provide a link or reference back to the source.
+
+**Q: The [Google GSoC FAQ](https://developers.google.com/open-source/gsoc/faq#can_someone_already_participating_in_open_source_be_a_gsoc_contributor) mentions that the program is only for new contributors. I have already contributed to Oppia and I have write access. Can I still participate?**
+
+A: The GSoC program is open to new and beginner contributors to open source. Some of our contributors with write access are still beginner contributors, whereas some of our other contributors with write access will not qualify because they are experienced contributors. If you have only recently received write access, or have been contributing to Oppia for less than a year, you are probably still a beginner contributor. If the previous sentence does not apply to you, and you want to know which group you fall into, please contact **@vojtechjelinek** or **@seanlip** for a decision.
 
 ## GSoC Proposal Template
 
