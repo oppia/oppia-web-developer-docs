@@ -2,13 +2,13 @@
 
 - [Getting started](#getting-started)
 - [FAQs](#faqs)
+- [Dates and Deadlines](#dates-and-deadlines)
+- [Types of work related to Oppia projects](#types-of-work-related-to-oppia-projects)
 - [GSoC proposal template](#gsoc-proposal-template)
   - [Tips for writing a good project plan](#tips-for-writing-a-good-project-plan)
   - [What should applicants expect from mentors in a proposal review?](#what-should-applicants-expect-from-mentors-in-a-proposal-review)
   - [Sample proposals from past years](#sample-proposals-from-past-years)
-- [Types of work related to Oppia projects](#types-of-work-related-to-oppia-projects)
 - [Selection Criteria](#selection-criteria)
-- [Dates and Deadlines](#dates-and-deadlines)
 - [Communication](#communication)
 - [Oppia's Project Ideas List](#oppias-project-ideas-list)
   - [Learner and Creator Experience (LaCE) team](#learner-and-creator-experience-lace-team-1)
@@ -105,6 +105,61 @@ A: This probably depends on the project(s) you wish to apply for. However, note 
 
 A: The GSoC program is open to new and beginner contributors to open source. Some of our contributors with write access are still beginner contributors, whereas some of our other contributors with write access will not qualify because they are experienced contributors. If you have only recently received write access, or have been contributing to Oppia for less than a year, you are probably still a beginner contributor. If the previous sentence does not apply to you, and you want to know which group you fall into, please contact **@vojtechjelinek** or **@seanlip** for a decision.
 
+## Dates and Deadlines
+
+Noteworthy dates for 2022 ([Full Timeline](https://developers.google.com/open-source/gsoc/timeline)):
+
+- **Feb 7 - Feb 21**: Mentoring organizations apply
+- **Mar 7**: Mentoring organizations are announced
+- **Apr 4 - Apr 19**: GSoC contributor application period
+- **May 20**: Accepted GSoC contributors are announced
+- **May 20 - Jun 12**: Community bonding period
+- **Jun 13 - Sep 12**: GSoC contributors enjoy the summer by contributing code to their projects
+- **Sep 12 - Nov 21**: Extension period for GSoC coding (for projects with extended deadlines)
+
+## Types of work related to Oppia projects
+
+The Oppia team is committed to making GSoC an enriching educational experience for contributors. In order to ensure a well-rounded engineering experience, GSoC contributors will have the opportunity to do some or all of the following, depending on their project:
+
+-   Meet with their mentors regularly
+-   Meet with other contributors related to their project area
+-   Read and understand parts of the codebase related to their project
+-   Receive code reviews for all code they write for their project
+-   Write automated tests for their projects
+-   Create UI mocks (if doing frontend development)
+-   Give presentations and demos of their projects
+-   Contribute to community initiatives, such as release testing and documentation
+-   Write design documents (if implementing large features or introducing new systems)
+
+We've also asked our previous GSoC contributors what they learned during previous GSoCs. Here are their collated answers:
+
+-   Technical ability
+    -   Writing clean code, while keeping in mind the requirement for the code to run in production.
+    -   The quality of code that I write now is much improved. Also, I got the experience of working with a team.
+    -   Building an entirely new feature in a scalable way.
+    -   Writing robust tests.
+    -   Working on a large codebase.
+    -   Reading and understanding code from other open-source organizations.
+    -   I am now more confident in my skills as a developer.
+-   Technical domain knowledge
+    -   I feel more confident on working with Angular. Oppia was the first time I worked with unit and e2e tests. 
+    -   I feel a lot more confident in writing code now, whether it be making my own projects or contributing to other open-source projects.
+    -   I learned lots of things about typescript and webpack.
+    -   I understood how E2E tests and angular migrations worked in Oppia — this felt very rewarding.
+    -   I enjoyed finding and fixing accessibility issues.
+    -   I learned the importance of testing and also following a clean architecture.
+-   Technical leadership skills
+    -   How to manage my time well, how to achieve deadlines especially when I got evaluations from external evaluators.
+    -   How to properly plan a project before implementing it.
+    -   Technical design skills (and validation of technical ideas).
+    -   How to give, respond to and understand reviews.
+-   Communication and personal development
+    -   Putting forward my thoughts more systematically and deeply so that everyone can understand me well.
+    -   Better communication skills.
+    -   How to write a good proposal.
+    -   How to work with a large community like this which is spread over different time zones.
+    -   How to reach out to people, work with them, and solve each other's problems.
+
 ## GSoC Proposal Template
 
 When submitting a proposal, please use the provided [GSoC proposal template](https://docs.google.com/document/d/1yYefLkT7dJJa86MyrdWpbZtzeaWAKCi1eXZZDGUrasM). We will only consider proposals submitted using this template.
@@ -139,51 +194,15 @@ Here's some advice about proposals and milestone timeline planning that we colla
     -   Your analytical skills
     -   Your independence in making complex decisions
 -   Make sure to present solutions and ask for feedback, rather than just asking for solutions. You can do this by presenting the various solutions you came up with within your proposal, and doing an analysis of their advantages & disadvantages from the end-user perspective using a comparison table. Finally, choose the best solution you have, and explain the reasoning for how you arrived at your choice. Note that this doesn't mean that you must always have multiple ideas to solve a problem, but you should instead always explain how you reached a solution, and why is it the best one from the end-user's perspective. Think about how you might gather some data to validate your conclusions (e.g. by finding support in the peer-reviewed literature, or by showing your ideas to potential users in the target audience and asking for feedback, etc.).
--   Mentors' suggestions are "suggestions", not mandates (often, reviewers may not be certain whether their suggestion is correct). This means that, as the proposal owner, you are welcome to decide whether to accept/reject such suggestions. In either case, when you are accepting/rejecting a suggestion provided by a reviewer, explain your reasoning and the research that led to your decision. Don't use an "appeal to authority" (e.g. "I am doing it this way because XXX said so") — the rational analysis that underlies the decision is what's important.
--   We do not expect you to always agree with your reviewers. If you think that the suggestion doesn't suit your project, it is totally fine to explain your decision and provide reasons for it. It is always a good idea to have discussions when you're confused about something, rather than simply agreeing to whatever is proposed. Note that this does not mean that we encourage you to disagree with your reviewers on everything — this is just a suggestion to bear in mind if you get confused.
--   Please note that your reviewer may or may not be involved in the final selection process. It is also **not** the case that you need to implement all your reviewers' suggestions/requests in order to be selected. As mentioned above, it is important that you actively take help and work together with your proposal reviewers in order to prepare a strong proposal that meets the guidelines for your chosen project.
+-   Mentors' suggestions are _suggestions_, not mandates (often, reviewers may not be certain whether their suggestion is correct). We do not expect you to always agree with your reviewers! This means that, as the proposal owner, you are always welcome to decide whether to accept/reject such suggestions. In either case, when you are accepting/rejecting a suggestion provided by a reviewer, try to explain your reasoning and the research that led to your decision.
+-   If you're confused about something, try to identify the point of confusion and ask have specific discussions about it, rather than simply agreeing to whatever is proposed. Don't rely on an "appeal to authority" (e.g. "I am doing it this way because reviewer XXX said so") — the rational analysis and thought that underlie the decision are what's important, so make sure that you understand and clearly communicate the reasons behind the decisions you make.
+-   Note that the process Oppia uses to select GSoC contributors typically includes multiple independent mentors, most of whom will not have looked at the earlier versions of your submitted proposal. Your reviewer may or may not be involved in the final selection process, and it is definitely **not** the case that you need to implement all your reviewer's suggestions/requests in order to be selected. We recommend considering your reviewer as a friendly advisor who is available to help you and provide guidance, rather than the main future evaluator of your proposal.
 
 ### Sample proposals from past years
 
-If you'd like to get a sense of what a proposal might contain, please see our [GSoC 2021 page](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2021) for examples of proposals that we accepted in 2021. However, please note that the [GSoC Proposal Template](https://docs.google.com/document/d/1yYefLkT7dJJa86MyrdWpbZtzeaWAKCi1eXZZDGUrasM) has been completely revamped for 2022, so please be sure to follow the 2022 template.
+If you'd like to get a sense of what a proposal might contain, please see our [GSoC 2021 page](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2021) for examples of proposals that we accepted in 2021. However, please note that the [GSoC Proposal Template](#gsoc-proposal-template) has been completely revamped for 2022, so please be sure to follow the 2022 template.
 
-**Note:** although some of the previous years' proposals are a bit on the long side, there's **no** formal length requirement for your proposal. In general, the quality of what you write is much more important than the amount of text you write, and we encourage you to write shorter proposals that still convey the main aim of the project. For the actual requirements, please see the [GSoC Proposal Template](#gsoc-proposal-template) section above._Ba
-
-## Types of work related to Oppia projects
-
-In order to ensure a well-rounded engineering experience, contributors will do some or all of the following depending on their project:
-
--   Meet with their mentors regularly
--   Meet with other contributors related to their project area
--   Read and understand parts of the codebase related to their project
--   Receive code reviews for all code they write for their project
--   Write automated tests for their projects
--   Create UI mocks (if doing frontend development)
--   Write design documents (if implementing large features or introducing new systems)
-
-We've also asked our previous GSoC contributors what they learned during previous GSoCs. Here are the collated answers:
-
--   Technical ability
-    -   Writing clean code, while keeping in mind the requirement for the code to run in production.
-    -   Working on a large codebase.
-    -   Building an entire new feature in a scalable way.
-    -   Reading and understanding code from other open-source organizations.
-    -   Writing robust tests.
--   Technical domain knowledge
-    -   I feel more confident on working with Angular. Oppia was the first time I worked with unit, e2e tests. I feel a lot more confident in writing code now whether be it making my own projects or contributing to other open-source projects.
-    -   I learned lots of things about typescript and webpack.
-    -   I understood how E2E tests and angular migrations worked in Oppia — this felt very rewarding.
-    -   I enjoyed finding and fixing accessibility issues.
--   Technical leadership skills
-    -   Apart from the project, I learnt how to manage my time well, how to achieve deadlines especially when I got evaluations from external evaluators.
-    -   Reviewing others' code.
-    -   Technical design skills (and validation of technical ideas).
-    -   Learning how to give, respond to and understand reviews is something that I believe has improved a lot during the GSoC tenure.
--   Communication
-    -   Putting forward my thoughts more systematically and deeply so that everyone can understand me well.
-    -   Better communication skills.
-    -   How to write a good proposal.
-    -   Learning how to work with a large community like this which is spread over different time zones.
+**Note:** although some of the previous years' proposals are a bit on the long side, there's **no** formal length requirement for your proposal. The quality of what you write is much more important than the amount of text you write, and we encourage you to write shorter proposals that still convey the main aim of the project.
 
 ## Selection Criteria
 
@@ -195,47 +214,28 @@ In order to select contributors for GSoC, we will mainly be looking at three thi
 
 We believe that strong performance in these dimensions is likely to correlate well with the contributor having an enjoyable, fulfilling and productive experience over the summer, and successfully completing the GSoC program.
 
-For the proposal, we generally look for a clear indication that the contributor has a good, deep understanding of the project, and has broken it down sufficiently well, in a way that makes it very likely to succeed. Some indicators that could help with this include:
+For the proposal, we generally look for a clear indication that the contributor has a good, clear understanding of the project, and has broken it down sufficiently well, in a way that makes it very likely to succeed. Some indicators that could help with this include:
 
--   A clear analysis of (and good design decisions that build on top of) the original project idea, with a strong focus on creating a simple, intuitive experience for end users.
--   A concrete, specific breakdown of the work to be done for each milestone. Here's an [example](https://docs.google.com/document/d/1vuwXvHOYXqfM2S2B2KIWhZrAa1PL59wJRUYsqJEd67E/edit) from a previous design doc. (Note that, in the implementation plan, the author has carefully considered and listed which tests need to be written alongside the code; this is a positive indicator.)
--   Sufficient concreteness (e.g. references to particular files and methods) to demonstrate that the applicant is familiar with both the scope of the problem and the existing codebase.
--   A description, if applicable, of how the applicant plans to mitigate risks that could potentially derail the project.
 -   Clear, unambiguous communication. (This is important; your proposal will be read by many mentors!)
-
-## Dates and Deadlines
-
-Noteworthy dates for 2022 ([Full Timeline](https://developers.google.com/open-source/gsoc/timeline)):
-
-- **Feb 7 - Feb 21**: Mentoring organizations apply
-- **Mar 7**: Mentoring organizations are announced
-- **Apr 4 - Apr 19**: GSoC contributor application period
-- **May 20**: Accepted GSoC contributors are announced
-- **May 20 - Jun 12**: Community bonding period
-- **Jun 13 - Sep 12**: GSoC contributors enjoy the summer by contributing code to their projects
-- **Sep 12 - Nov 21**: Extension period for GSoC coding (for projects with extended deadlines)
+-   A clear analysis of (and good design decisions that build on top of) the original project idea, with a strong focus on creating a simple, intuitive experience for end users.
+-   A proposed solution approach which is sufficiently concrete and which demonstrates that the applicant has a good understanding of both the scope of the problem and the existing codebase.
+-   A description, if applicable, of how the applicant plans to mitigate risks that could potentially derail the project.
+-   A concrete, specific breakdown of the work to be done for each milestone.
 
 
 ## Communication
 
-**Chat**
+If you have questions pertaining to "how to get started with Oppia", please ask them on **GitHub Discussions** ([Web](https://github.com/oppia/oppia/discussions), [Android](https://github.com/oppia/oppia-android/discussions)). Please be specific when asking questions; this makes it easier for us to help you. Also, please make sure to read the relevant "getting started" wiki page ([Web](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up), [Android](https://github.com/oppia/oppia-android/wiki/Contributing-to-Oppia-android)) first, since the answer to your question might already exist there!
 
-If you have questions pertaining to "how to get started with Oppia", please ask them on GitHub Discussions ([Web](https://github.com/oppia/oppia/discussions), [Android](https://github.com/oppia/oppia-android/discussions)). Please be specific when asking questions; this makes it easier for us to help you. Also, please make sure to read our ["getting started" wiki page](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up) before sending an email, since the answer to your question might already be contained there!
+For GSoC-project-specific questions, please direct your queries to the **[GSoC discussion mailing list](mailto:oppia-gsoc-discuss@googlegroups.com)**. You can also use this mailing list to discuss your project ideas, ask specific questions about GSoC, or share your proposal for feedback from the community. All of this year's GSoC mentors are already members of that mailing list.
 
-Also, Oppia has a real-time chat channel at [Gitter](https://gitter.im/oppia/oppia-chat)! You can log in using your GitHub account (Gitter will ask to be associated with your GitHub account for authentication) and you will then be able to talk in it. Please feel free to use Gitter if you just want to say hi to the community or if you have any general questions (though, for the latter, GitHub Discussions is probably better). 
+To receive important announcements and updates about GSoC at Oppia, please subscribe to the **[Oppia GSoC Announce](https://groups.google.com/g/oppia-gsoc-announce)** mailing list.
 
-For GSoC-project-specific questions, please direct your queries to the [GSoC discussion mailing list](mailto:oppia-gsoc-discuss@googlegroups.com). (See below.)
-
-**Email**
-
-In order to receive updates about GSoC at Oppia please subscribe to [Oppia GSoC Announce](https://groups.google.com/g/oppia-gsoc-announce).
-
-To discuss your project ideas, or share your proposal for feedback from the community, please email the [GSoC discussion mailing list](mailto:oppia-gsoc-discuss@googlegroups.com). You can also use this list for specific questions about GSoC.
-
+Finally, Oppia has a real-time chat channel at [Gitter](https://gitter.im/oppia/oppia-chat)! You can log in using your GitHub account (Gitter will ask to be associated with your GitHub account for authentication) and you will then be able to talk in it. Please feel free to use Gitter if you just want to say hi to the community or if you have any general questions (though, for the latter, GitHub Discussions is probably better).
 
 ## Oppia's Project Ideas List
 
-**Note:** If you're coming to this section from an external link, please make sure to scroll up and read this entire wiki page carefully, not just this section. There's a lot of useful information on the rest of the page, including a FAQ and a section describing selection criteria. Thanks!
+_**Note:** If you're coming to this section from an external link, please make sure to scroll up and read this entire wiki page carefully, not just this section. There's a lot of useful information on the rest of the page, including a FAQ and a section describing selection criteria. Thanks!_
 
 The following is a list of Oppia's 2022 GSoC project ideas. (Please note that all mentor assignments listed below are provisional, and may change depending on which proposals are eventually accepted.)
 
