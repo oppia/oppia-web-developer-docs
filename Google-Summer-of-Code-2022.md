@@ -237,23 +237,21 @@ Finally, Oppia has a real-time chat channel at [Gitter](https://gitter.im/oppia/
 
 _**Note:** If you're coming to this section from an external link, please make sure to scroll up and read this entire wiki page carefully, not just this section. There's a lot of useful information on the rest of the page, including a FAQ and a section describing selection criteria. Thanks!_
 
-The following is a list of Oppia's 2022 GSoC project ideas. (Please note that all mentor assignments listed below are provisional, and may change depending on which proposals are eventually accepted.)
+The following is a list of Oppia's 2022 GSoC project ideas. You are welcome to choose among these ideas, or propose your own! However, if you're planning to propose something original, it's essential to engage with the Oppia community beforehand in order to get feedback and guidance to improve the proposal. We'd also recommend taking a look at [Oppia's mission](https://github.com/oppia/oppia/wiki/Oppia's-Mission) and seeing if there is a natural way to tie your idea to the Oppia project's goals, otherwise it might not be a good fit at this time.
 
-You are welcome to choose among these ideas, or propose your own! However, if you're planning to propose something original, it's essential to engage with the Oppia community in order to get feedback and guidance to improve the proposal. We also recommend taking a look at [Oppia's mission](https://github.com/oppia/oppia/wiki/Oppia's-Mission) and seeing if there is a natural way to tie your idea to the Oppia project's goals, otherwise it might not be a good fit at this time.
-
-The list of project ideas is not fixed and more projects may be added later. Also, please note that the **project descriptions are not final yet** -- we are still working them out, and some of them may change a bit.
+Please note that the list of project ideas below is not set in stone: more projects may be added later, and some project descriptions may also change a bit, so check back regularly. In addition, the mentor assignments listed below are provisional, and may change depending on which proposals are eventually accepted.
 
 ### Learner and Creator Experience (LaCE) team
 
-1.1. [Learner Diagnostic Tests](#11-learner-diagnostic-tests)
+1.1. [Learner diagnostic tests](#11-learner-diagnostic-tests)
 
-1.2. [Implementing the “needs guiding responses” section of the lesson analytics dashboard](#12-implementing-the-needs-guiding-responses-section-of-the-lesson-analytics-dashboard)
+1.2. [Implementing the “Needs Guiding Responses” section of the lesson analytics dashboard](#12-implementing-the-needs-guiding-responses-section-of-the-lesson-analytics-dashboard)
 
 1.3. [Helping learners when they get stuck](#13-helping-learners-when-they-get-stuck)
 
 1.4. [Celebrating learners' accomplishments](#14-celebrating-learners-accomplishments)
 
-1.5. [Learner Group MVP](#15-learner-group-mvp)
+1.5. [Learner Groups MVP](#15-learner-groups-mvp)
 
 1.6. [Number Line and Percentage interactions](#16-number-line-and-percentage-interactions)
 
@@ -261,13 +259,13 @@ The list of project ideas is not fixed and more projects may be added later. Als
 
 1.8. [Improving the lesson creation experience](#18-improving-the-lesson-creation-experience)
 
-1.9. [Onboarding Improvements](#19-onboarding-improvements)
+1.9. [Onboarding improvements](#19-onboarding-improvements)
 
 ### Contributor Dashboard team
 
-2.1. [Contributor Recognition Infrastructure](#21-contributor-recognition-infrastructure)
+2.1. [Contributor recognition infrastructure](#21-contributor-recognition-infrastructure)
 
-2.2. [Making the Contributor Dashboard UI Responsive](#22-making-the-contributor-dashboard-ui-responsive)
+2.2. [Making the Contributor Dashboard UI responsive](#22-making-the-contributor-dashboard-ui-responsive)
 
 2.3. [Adding a Contributor Dashboard Stats page](#23-adding-a-contributor-dashboard-stats-page)
 
@@ -308,7 +306,7 @@ The list of project ideas is not fixed and more projects may be added later. Als
 
 We have heard that, when visiting the Oppia Classroom, learners are sometimes not sure which lesson(s) to start with. The aim of this project is to streamline the “getting started” experience for learners, as well as provide a way for them to test themselves and get personalized recommendations for what lesson(s) to work on next.
 
-Specifically, learners should see an option in the Math Classroom page (/learn/math) to take a diagnostic test. This test should be a set of questions covering multiple topics. Ideally, it would be adaptive in nature, and have no more than 10-15 questions (possibly ending earlier if the learner's topic can be determined with fewer questions). When a recommendation is made, the learner should understand the rationale for the recommendation. It is fine to make 0, 1 or 2 recommendations (with 0 being the case if they seem to have understood everything).
+Specifically, learners should see an option in the Math Classroom page (located at /learn/math) to take a diagnostic test. This test should be a set of questions covering multiple topics. Ideally, it would be adaptive in nature, and have no more than 10-15 questions (possibly ending earlier if the learner's topic can be determined with fewer questions). When a recommendation is made, the learner should understand the rationale for the recommendation. It is fine to make 0, 1 or 2 recommendations (with 0 being the case if they seem to have understood everything).
 
 Curriculum admins should be able to “program” this test. They would specify the key skills for each topic that would be tested, and how the learner’s performance on the tested skills maps to the decision of which topic to recommend. A simple way to model this is for the curriculum admin to provide up to 3 key skills for each topic (in the order that these are taught within that topic), as well as some representation of the dependencies between topics. The diagnostic test should “binary search” using this data to find the “earliest” topic that the learner would benefit from learning. (This is a high-level sketch, and more detail should be supplied within the proposal.)
 
@@ -334,8 +332,8 @@ Curriculum admins should be able to “program” this test. They would specify 
 
 * This project will require some UI/UX design skills. The proposal should include mocks for the learner and creator (i.e. curriculum admin) experiences.
 * The proposal should explain how to handle the case where a learner makes an error in the diagnostic tests that is not due to a misunderstanding of the topic, but more due to a typo or computation error. Do we give them another chance to submit the right answer, or do we give them a second question on that skill, or something else?
-* In the future, we’d like to reuse this infrastructure for topic-level diagnostic tests that would help the learner figure out which lesson in a topic they should start from. Implementing these topic-level tests is out of scope for this GSoC project. However, when designing the infrastructure, please keep this use case in mind, since we would like to extend the project to support it in the future.
 * You may be able to reuse large parts of the existing practice question player infrastructure in the learner view of the diagnostic test. If you do, please explain in the proposal which specific top-level component(s) you will be reusing, and what (if any) modifications need to be made to it to support both the existing and new use cases. Try to keep these modifications minimal.
+* In the future, we’d like to reuse this infrastructure for topic-level diagnostic tests that would help the learner figure out which lesson in a topic they should start from. Implementing these topic-level tests is out of scope for this GSoC project. However, when designing the infrastructure, please keep this use case in mind, since we would like to extend the project to support it in the future.
 * (For information only) Oppia has a learner feedback team which uses the Oppia lessons to conduct sessions with learners. They will be one of the stakeholders for this project, since they would use it to help learners figure out which topic they’d like to learn at the start of a learner feedback session. During the GSoC project, you will have the opportunity to get feedback from them on what you’re building!
 
 
@@ -383,17 +381,18 @@ The main challenge for this project is surfacing the necessary data for this vie
 * UI mocks: [link](https://drive.google.com/file/d/1GOrwZhVKCunSmOgbvMDaGFU2LSjT_MOf/view?usp=sharing)
 * How to write Apache Beam jobs: [wiki page](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs) 
 * Here is a somewhat outdated and incomplete [design doc](https://docs.google.com/document/d/1qQbW9Z_cgJ1mwU0hzBpPVS_4WLT_l_08ZixLR1G2bvQ/edit#heading=h.ylvrrqipsjif) that overlaps a bit with this project. Most of the doc is out of scope for the project, but you might find it interesting reading for context. The most relevant section is [this one](https://docs.google.com/document/d/1qQbW9Z_cgJ1mwU0hzBpPVS_4WLT_l_08ZixLR1G2bvQ/edit#bookmark=id.3fmayg4aifoi) in the "product design" part of the doc. Note that you do not need to follow the approach in the technical design section of that document (since, on reflection, it looks like the storage and display approach for NGR tasks would likely need to be handled differently from other tasks in the dashboard).
- 
+* Release schedule: [wiki page](https://github.com/oppia/oppia/wiki/Release-schedule-and-other-information) 
+
 ### 1.3. Helping learners when they get stuck
 **Project Description:**
 
 One core principle of Oppia lessons is that we never want the learner to get stuck, even if they’re working through the lessons on their own – i.e. without the assistance of a teacher, tutor, or parent. The aim of this project is to implement several improvements to the core learner experience to support this. Specifically, this entails:
-- Adding a “dest_if_really_stuck” field to the Outcome structure in an answer group, and a way for creators to specify it (if they want to). This allows a creator to specify a separate state to go to if the learner is really stuck. Having this field would allow creators to provide a light hint in the feedback, and then provide a more dedicated step-by-step learning path if the learner subsequently needs further help.
+- Adding a `dest_if_really_stuck` field to the Outcome structure in an answer group, and a way for creators to specify it (if they want to). This allows a creator to specify a separate state to go to if the learner is really stuck. Having this field would allow creators to provide a light hint in the feedback, and then provide a more dedicated step-by-step learning path if the learner subsequently needs further help.
 - Detecting when a learner is stuck because the initial feedback they received isn’t clear/helpful enough for them (e.g. submitting too many wrong answers, or submitting the same or similar answers repeatedly), and then helping them using some combination of the following:
   - Providing the concept card pertaining to the linked skill ID, and recommending that they read it for a refresher and/or examples.
-  - Taking them to the dest_if_really_stuck state, or proactively offering a hint, if either of those exists.
+  - Taking them to the `dest_if_really_stuck` state, or proactively offering a hint, if either of those exists.
   - If the learner repeatedly submits the same wrong answer: saying something like “no, sorry, that’s really not the answer. Why don’t you try reading this and seeing if it helps?”, and pointing them to the linked concept card for the state so that they can learn more.
-- Prohibiting lesson creators from sending the learner more than 2-3 cards back in the lesson due to a wrong answer, since this is discouraging for the learner. Lesson creators should instead be encouraged to refer the learner to a concept card, or implement a separate “revision pathway” using the “dest_if_really_stuck” field. Long “send-back paths” should result in a validation error in the exploration editor that should be fixed before the exploration can be saved.
+- Prohibiting lesson creators from sending the learner more than 2-3 cards back in the lesson due to a wrong answer, since this is discouraging for the learner. Lesson creators should instead be encouraged to refer the learner to a concept card, or implement a separate “revision pathway” using the `dest_if_really_stuck` field. Long “send-back paths” should result in a validation error in the exploration editor that should be fixed before the exploration can be saved.
 
 **Size of this project:** medium (~175 hours)
 
@@ -413,10 +412,10 @@ One core principle of Oppia lessons is that we never want the learner to get stu
 
 **Proposal notes:**
 
-* You can assume that learners will not get stuck on multiple-choice questions (mainly because there are a very limited number of possible answers).
+* You can assume that learners won't get stuck on multiple-choice questions (mainly because there are a very limited number of possible answers).
 * Your proposal should be clear about what triggers you are using to detect “stuck”-ness, and why. For example, you might write something like:
     * If the learner makes 3 incorrect responses, or has been on the question for 2.5 minutes, whichever is earlier: then, nudge them to look at the concept card.
-    * Once the learner has actually looked at the concept card: if they then make 3 more incorrect responses that are _different_ from each other, or have been on the question for 2.5 more minutes, whichever is earlier: then, take them to the dest_if_really_stuck state if it exists, otherwise proactively offer the next hint if it exists, otherwise do nothing.
+    * Once the learner has actually looked at the concept card: if they then make 3 more incorrect responses that are _different_ from each other, or have been on the question for 2.5 more minutes, whichever is earlier: then, take them to the `dest_if_really_stuck` state if it exists, otherwise proactively offer the next hint if it exists, otherwise do nothing.
    (The above is just an example, but illustrates the specificity that would be needed. Additionally, you should justify the decision you make about how this system should ideally behave.)
 * In your technical design, we would advise making the constants – such as 3 and 2.5 – easily parameterizable, so that they can be tweaked in the future.
 * You may have other ideas about how to improve the core learning experience on Oppia. These are welcome – feel free to include these in your proposal when fleshing out the product design section! In particular, there may be some potential in this project to teach learners metacognitive skills for how to deal with “being stuck”. There is a lot of research on this topic that can be found on the Internet. Proposals which demonstrate an understanding of this, and address this in a holistic way, will be viewed more favourably.
@@ -466,7 +465,7 @@ We want learners to have an enjoyable experience when playing Oppia’s explorat
 * It is worth paying attention to providing _meaningful_ recognition that is rooted in good pedagogy and that helps learners develop a growth mindset. Ideally, learners will become more confident in their skills to tackle challenges, rather than viewing their abilities as fixed and beyond their control. Proposals which demonstrate an understanding of this, and address it in a holistic way, will be viewed more favourably.
 
 
-### 1.5. Learner Group MVP 
+### 1.5. Learner Groups MVP 
 
 **Project Description:**
 
@@ -509,7 +508,7 @@ This project should cover the following:
 
 * Here is a link to [some mocks](https://www.figma.com/file/lSYstyhrwf9whM29mFxc8E/Learner-Group?node-id=2%3A9680) for the learner group functionality: 
 
-* This is the [full PRD](https://docs.google.com/document/u/1/d/1GMkU_Vxi7Y69ZI4gRfxLaDpX-sWfaMZsGQdXasdeELQ/edit) for learner groups. Note that this GSoC project only covers **part of** the scope of this PRD – in particular, the following requirements are not in scope for this GSoC project:
+* Here is the [full PRD](https://docs.google.com/document/u/1/d/1GMkU_Vxi7Y69ZI4gRfxLaDpX-sWfaMZsGQdXasdeELQ/edit) for learner groups. Note that this GSoC project only covers **part of** the scope of this PRD – in particular, the following requirements are not in scope for this GSoC project:
 Allow learners to see the learning groups they are a part of in their learner dashboard. (would access directly via link for now)
 Allow learners to join by an “open link”.
 Allow facilitators to see statistical information about the group’s progress.
@@ -601,6 +600,7 @@ The project also involves moving all existing blog posts from Medium to this new
 **Useful resources:**
 
 * Mocks for the blog-related pages: [link](https://xd.adobe.com/view/9bb82409-cdca-432a-b11c-88324643e2c0-ceeb/grid). (You might also wish to see pages 6 and 11+ of [Rijuta’s GSoC proposal](https://github.com/oppia/oppia/wiki/pdfs/GSoC2021RijutaSingh.pdf) from 2021, which describe the intended product designs for these pages.)
+* Release schedule: [wiki page](https://github.com/oppia/oppia/wiki/Release-schedule-and-other-information) 
 
 
 ### 1.8. Improving the lesson creation experience
@@ -640,9 +640,10 @@ For (c): In the state editor, when a change is made to a part of a card and this
 
 * The main thing that is important to demonstrate in the proposal for this project is good technical design skills. Strong proposals would first show a good understanding of the current system, and correctly describe the parts of it that are relevant to the relevant subproject, before suggesting the minimal changes that would be needed in order to achieve the desired functionality. 
 
-**Useful resources: **
+**Useful resources:**
 
-* How to write Apache Beam jobs: [wiki page](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs).
+* How to write Apache Beam jobs: [wiki page](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs)
+* Release schedule: [wiki page](https://github.com/oppia/oppia/wiki/Release-schedule-and-other-information) 
 
 
 ### 1.9. Onboarding improvements
@@ -659,7 +660,7 @@ This project will involve two major parts:
     * If they have their default_dashboard set to “creator”, tick the creator checkbox
     * If they have their default_dashboard set to “learner”, tick the learner checkbox
     * If they’ve made any translation or practice question contributions, tick the contributor checkbox
- * After a new user signs up and creates a profile: if the user self-identifies as a learner, present a screen (or screens) explaining how they can use Oppia to learn effectively (specifically: learn new topics in the Classroom, practice the skills they learn with practice sessions, and refer to previously-learned skills using revision cards).
+  * After a new user signs up and creates a profile: if the user self-identifies as a learner, present a screen (or screens) explaining how they can use Oppia to learn effectively (specifically: learn new topics in the Classroom, practice the skills they learn with practice sessions, and refer to previously-learned skills using revision cards).
     * Note: The applicant is responsible for proposing mocks for this.
   * In the release in which this feature is launched, show a one-time dismissable notification to existing users (when they log in) saying that they can change their self-identification settings and providing them with an easy link to do so.
 
@@ -692,9 +693,10 @@ This project will involve two major parts:
   * It’s probably a good idea to get feedback from others on your proposed mocks, especially from people who aren’t familiar with Oppia, so that you can improve them. You will probably want to repeat this process until you’re certain that your proposed onboarding flow achieves the aims that you want it to.
 
 
-**Useful resources: **
+**Useful resources:**
 
 * [Onboarding mocks](https://www.figma.com/file/rmE2w7UzcICchhX4RBAnYY/Nav-%26-Library-(Copy)?node-id=201%3A578) (for self-identification)
+* Release schedule: [wiki page](https://github.com/oppia/oppia/wiki/Release-schedule-and-other-information) 
 
 ---
 
