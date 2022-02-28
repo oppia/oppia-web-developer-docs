@@ -918,6 +918,8 @@ Please note that moving all the pages to the Angular router is a prerequisite fo
 
 Last year, we introduced MyPy (Python typing) into the codebase. This year, we want to fully type all remaining parts of the backend codebase. Also, as part of this, we would like to remove the existing docstring typeinfo annotations (and update the docstring lint checks accordingly) so that there is no duplicate type information.
 
+Please make sure that when typing the files in _core/controllers_ all the handlers in the file have schema validation enabled, if not then also add a schema validation.
+
 After this project is finished, all Python files in the Oppia codebase should be typed, and there should be no typeinfo in the docstrings.
 
 **Size of this project:** large (~350 hours)
