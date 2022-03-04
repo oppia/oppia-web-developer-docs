@@ -162,9 +162,9 @@ When your reviewer has completed their review, they will reassign the pull reque
 
   * Make the push, and then immediately check that the changes in the "Files Changed" tab are what you intend them to be.
 
-    **Important:** Make sure you've posted responses to **all** the review comments from the reviewer(s). (If you see "Pending" labels next to your comments, that means it hasn't been submitted yet and others cannot see it. To fix this, make sure you've actually clicked through the green "Review changes > Submit review" button in the top right of the Files Changed tab.)
+  * Verify that you've posted responses to **all** the review comments from the reviewer(s). (If you see "Pending" labels next to your comments, that means it hasn't been submitted yet and others cannot see it. To fix this, make sure you've actually clicked through the green "Review changes > Submit review" button in the top right of the Files Changed tab.)
 
-    **Important:** In the conversation thread, **write a top-level comment** explicitly asking the reviewer(s) to take another look ("@XXX PTAL"), and assign them to the PR. If however, you forget to assign the reviewer(s), Oppiabot will assign them for you.
+  * In the conversation thread, **write a top-level comment** explicitly asking the reviewer(s) to take another look ("@XXX PTAL"), and assign them to the PR. Be sure to use the **"Assignees"** rather than the "Reviewers" section of the PR, since the latter field is not tracked by reviewers.
 
 ## Step 6: Make sure all continuous integration checks pass
 
