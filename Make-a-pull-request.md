@@ -164,7 +164,7 @@ When your reviewer has completed their review, they will reassign the pull reque
 
   * Verify that you've posted responses to **all** the review comments from the reviewer(s). (If you see "Pending" labels next to your comments, that means it hasn't been submitted yet and others cannot see it. To fix this, make sure you've actually clicked through the green "Review changes > Submit review" button in the top right of the Files Changed tab.)
 
-  * In the conversation thread, **write a top-level comment** explicitly asking the reviewer(s) to take another look ("@XXX PTAL"), and assign them to the PR. Be sure to use the **"Assignees"** rather than the "Reviewers" section of the PR, since the latter field is not tracked by reviewers.
+  * In the conversation thread, **write a top-level comment** explicitly asking the reviewer(s) to take another look ("@XXX PTAL"), and assign them to the PR. Be sure to use the **"Assignees"** rather than the "Reviewers" section of the PR, since the latter field is auto-populated by GitHub and reviewers typically don't track it.
 
 ## Step 6: Make sure all continuous integration checks pass
 
