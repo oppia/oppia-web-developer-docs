@@ -393,6 +393,7 @@ One core principle of Oppia lessons is that we never want the learner to get stu
   - Taking them to the `dest_if_really_stuck` state, or proactively offering a hint, if either of those exists.
   - If the learner repeatedly submits the same wrong answer: saying something like “no, sorry, that’s really not the answer. Why don’t you try reading this and seeing if it helps?”, and pointing them to the linked concept card for the state so that they can learn more.
 - Prohibiting lesson creators from sending the learner more than 2-3 cards back in the lesson due to a wrong answer, since this is discouraging for the learner. Lesson creators should instead be encouraged to refer the learner to a concept card, or implement a separate “revision pathway” using the `dest_if_really_stuck` field. Long “send-back paths” should result in a validation error in the exploration editor that should be fixed before the exploration can be saved.
+- For TextInput interactions, if the learner's answer has an [edit distance](https://en.wikipedia.org/wiki/Edit_distance) of 1 from an answer that is marked correct, say something along the lines of: "you're very close, you understand the concept, just check the spelling of word XXX", rather than telling them "wrong answer" or redirecting them elsewhere.
 
 **Size of this project:** medium (~175 hours)
 
@@ -406,7 +407,7 @@ One core principle of Oppia lessons is that we never want the learner to get stu
 
 **Suggested Milestones:**
 * **Milestone 1:** Allow creators to provide a destination state for the case where a learner is really stuck. Prohibit lesson creators from sending the learner more than 2-3 cards back in the lesson.
-* **Milestone 2:** Detect when a learner is stuck and provide appropriate real-time assistance based on redirection to concept cards, the alternative destination state mentioned above, or proactive hinting.  
+* **Milestone 2:** Detect when a learner is stuck and provide appropriate real-time assistance based on redirection to concept cards, the alternative destination state mentioned above, or proactive hinting. Detect small misspellings and provide the learner with appropriate help.
 
 **Dependency on Release Schedule:** None.
 
@@ -418,6 +419,8 @@ One core principle of Oppia lessons is that we never want the learner to get stu
     * Once the learner has actually looked at the concept card: if they then make 3 more incorrect responses that are _different_ from each other, or have been on the question for 2.5 more minutes, whichever is earlier: then, take them to the `dest_if_really_stuck` state if it exists, otherwise proactively offer the next hint if it exists, otherwise do nothing.
    (The above is just an example, but illustrates the specificity that would be needed. Additionally, you should justify the decision you make about how this system should ideally behave.)
 * In your technical design, we would advise making the constants – such as 3 and 2.5 – easily parameterizable, so that they can be tweaked in the future.
+* For the "catch misspellings" functionality, try to support multiple options for the text of this feedback so that it doesn't feel robotic. We would also need a way to translate this into different languages, in a similar way to how we do this for the rest of the site.
+* Creators might need to be able to turn off the "catch misspellings" functionality on a card-based level, since some language-learning explorations may explicitly want to test/teach spelling.
 * You may have other ideas about how to improve the core learning experience on Oppia. These are welcome – feel free to include these in your proposal when fleshing out the product design section! In particular, there may be some potential in this project to teach learners metacognitive skills for how to deal with “being stuck”. There is a lot of research on this topic that can be found on the Internet. Proposals which demonstrate an understanding of this, and address this in a holistic way, will be viewed more favourably.
 
 
