@@ -644,6 +644,8 @@ For (c): In the state editor, when a change is made to a part of a card and this
 **Proposal notes:**
 
 * The main thing that is important to demonstrate in the proposal for this project is good technical design skills. Strong proposals would first show a good understanding of the current system, and correctly describe the parts of it that are relevant to the relevant subproject, before suggesting the minimal changes that would be needed in order to achieve the desired functionality. 
+* For (b), some precomputation may be needed in order to retrieve the version of the "previous change" quickly.
+* For (b), it would be useful to generalize the system so that one can go forward/back from any given state. This would allow additional useful functionality like clicking on a state in a particular version when it's shown in the history tab, and moving forward/back through its history. Be sure to handle state additions, deletions and renames correctly!
 
 **Useful resources:**
 
