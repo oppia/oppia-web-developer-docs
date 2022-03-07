@@ -521,6 +521,8 @@ Allow learners to block/report spammy facilitator invitations.
 
 ### 1.6. Number Line and Percentage Interactions
 
+**NOTE: This project is still being drafted.**
+
 **Project Description:**
 
 The aim of this project is to add two new interactions: one that allows learners to submit an answer using a number line, and one that allows learners to submit an answer in the form of a percentage. These interactions are needed because (a) creators currently implement number lines using the ImageClickInput interaction, which results in a lot of fiddly work on the part of the creator and occasional bugs when a learner clicks between the regions defined by the creator; (b) creators are currently forced to use TextInput fields in order for learners to submit an answer in the form of a percentage, but this makes it hard to do “greater than / less than” answer validations.
