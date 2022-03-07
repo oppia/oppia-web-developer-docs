@@ -464,7 +464,7 @@ We want learners to have an enjoyable experience when playing Oppia’s explorat
 
 * This is a fairly open-ended project, and a lot of its difficulty is in the design. Although the coding is likely to be relatively straightforward, the crux is whether the resulting implementation achieves the goal of motivating learners to continue learning.
 * The proposal should therefore include designs for how these experiences should look, and explain, as objectively as possible, why these will serve the desired purpose. You may wish to refer to game design techniques and design frameworks in your justification.
-* From a technical perspective, you may need to explain how you will vary the feedback so that it remains meaningful and doesn’t become stale. Can you find a way to relate it more directly to what the learner has just accomplished? This might involve building some creator-facing components. 
+* From a technical perspective, you may need to explain how you will vary the feedback so that it remains meaningful and doesn’t become stale (or justify why the repetition is a good idea). Can you find a way to relate it more directly to what the learner has just accomplished? This might involve building some creator-facing components. 
 * It is worth paying attention to providing _meaningful_ recognition that is rooted in good pedagogy and that helps learners develop a growth mindset. Ideally, learners will become more confident in their skills to tackle challenges, rather than viewing their abilities as fixed and beyond their control. Proposals which demonstrate an understanding of this, and address it in a holistic way, will be viewed more favourably.
 
 
