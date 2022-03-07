@@ -468,6 +468,11 @@ We want learners to have an enjoyable experience when playing Oppia’s explorat
 * It is worth paying attention to providing _meaningful_ recognition that is rooted in good pedagogy and that helps learners develop a growth mindset. Ideally, learners will become more confident in their skills to tackle challenges, rather than viewing their abilities as fixed and beyond their control. Proposals which demonstrate an understanding of this, and address it in a holistic way, will be viewed more favourably.
 
 
+**Useful resources:**
+
+* Here is a link to a [design doc](https://docs.google.com/document/d/1eWHs46cOHcm7NuQl8pM9Dada9nTgg3GoCQLgQJSNmIY/edit) for the checkpoints functionality mentioned in Milestone 2.
+
+
 ### 1.5. Learner Groups MVP 
 
 **Project Description:**
@@ -654,6 +659,8 @@ For (c): In the state editor, when a change is made to a part of a card and this
 
 
 ### 1.9. Onboarding improvements
+
+**NOTE: This project is still being drafted.**
 
 **Project Description:**
 
