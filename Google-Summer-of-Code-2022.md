@@ -253,7 +253,7 @@ Please note that the list of project ideas below is not set in stone: more proje
 
 1.5. [Learner Groups MVP](#15-learner-groups-mvp)
 
-1.6. [Number Line and Percentage interactions](#16-number-line-and-percentage-interactions)
+1.6. [Math interactions](#16-math-interactions)
 
 1.7. [Blog integration](#17-blog-integration)
 
@@ -525,23 +525,20 @@ Allow learners to block/report spammy facilitator invitations.
 
 
 
-### 1.6. Number Line and Percentage Interactions
-
-**NOTE: This project is still being drafted.**
+### 1.6. Improving some math interactions
 
 **Project Description:**
 
-The aim of this project is to add two new interactions: one that allows learners to submit an answer using a number line, and one that allows learners to submit an answer in the form of a percentage. These interactions are needed because (a) creators currently implement number lines using the ImageClickInput interaction, which results in a lot of fiddly work on the part of the creator and occasional bugs when a learner clicks between the regions defined by the creator; (b) creators are currently forced to use TextInput fields in order for learners to submit an answer in the form of a percentage, but this makes it hard to do “greater than / less than” answer validations.
+The aim of this project is to update the existing interactions to support three use cases: (a) allowing learners to submit an answer using a number line, (b) allowing learners to submit an answer in the form of a percentage, and (c) for math interactions where learners enter input through a keyboard, making it easier for learners who are new to keyboards/computers to easily input characters which use the Shift key (such as +, %) or which are hard to find on a regular keyboard (such as ×, ÷).
 
-For the number line interaction:
+This support is needed because (a) creators currently implement number lines using the ImageClickInput interaction, which results in a lot of fiddly work on the part of the creator and occasional bugs when a learner clicks between the regions defined by the creator; (b) creators are currently forced to use TextInput fields in order for learners to submit an answer in the form of a percentage, but this makes it hard to do “greater than / less than” answer validations; (c) learners who are new to using a keyboard sometimes get stuck when they need to type an expression like "6 + 4" because they don't know how to type a "+" character.
+
+More details for the number line interaction:
 
 * Lesson creators should be able to input the start and ending integers of the number line, as well as the desired interval length. The generated number line should then equally space out the marks along the number line between the starting and ending numbers. The creator should not be able to select an option where there are more than 10 or fewer than 3 points along the number line.
 * Creators should then be able to specify the feedback the learner receives based on how they answer along different points in the number line. Care should be taken to correctly handle the case when the number line parameters subsequently change – a warning should be displayed to the creator if the corresponding rule becomes invalid.
 * On seeing this interaction, learners should be able to select and drag their answer along the number line, with the cursor automatically “snapping” to the demarcated lines along the number line. Once they are satisfied with the location on the number line, the learner should be able to confirm their selection and receive feedback.
 
-For the percentage interaction:
-
-* There are two choices for implementing this functionality. One approach is to have it be a customization to the existing NumericInput interaction. The other is to implement a brand-new PercentageInput interaction. The proposal should compare both these options, and explain which one to go with and why (using a comparison table).
 
 **Size of this project:** medium (~175 hours)
 
@@ -557,13 +554,14 @@ For the percentage interaction:
 
 * **Milestone 1:** Implement the Number Line interaction (creator and learner views).
 
-* **Milestone 2:** Implement the Percentages interaction (creator and learner views).
+* **Milestone 2:** Implement a way to input percentages (creator and learner views). Also, make it really easy for learners to type symbols in the existing numeric/algebraic expression input interactions on both desktop and mobile.
 
 **Dependency on Release Schedule:** None.
 
 **Proposal notes:**
 * It is important that the Number Line interaction works on all types of devices (mobile, desktop, tablet). The proposal should explain how the learner view will be made responsive to these different views. If the entire interaction can’t fit within the viewport, the proposal should explain how the user will still be able to easily drag or scroll to their desired answer along the number line.
-
+* For the percentage interaction, there are two choices for implementation. One approach is to have it be a customization to the existing NumericInput interaction. The other is to implement a brand-new PercentageInput interaction. The proposal should compare both these options, and explain which one to go with and why (using a comparison table).
+* For math symbol input, probably the simplest way to handle this (at least on desktop) would be to add buttons with individual type-able symbols below the input field. The proposal should clearly describe which math symbols will be shown in which circumstances. (You might want to take a look at the individual lessons on www.oppia.org/learn/math to get a sense of how the question-answering experience works for the current mathematics lessons, so that you can get a better sense for what needs to be improved on both mobile and desktop.)
 
 **Useful resources:**
 
@@ -661,8 +659,6 @@ For (c): In the state editor, when a change is made to a part of a card and this
 
 ### 1.9. Onboarding improvements
 
-**NOTE: This project is still being drafted.**
-
 **Project Description:**
 
 Oppia’s mission is to provide learners with an engaging and effective learning experience. However, today, when someone enters the site for the first time, they’re given little to no information about what Oppia is and how it works. This makes it difficult for learners, especially those who are new to using technology and the internet, to effectively use Oppia as a learning resource.
@@ -684,6 +680,8 @@ This project will involve two major parts:
   * On entering the Classroom page for the first time, after a short period of time to allow them to explore the page, present the learner with a prompt to let them know that they can begin learning or reviewing any topic by clicking on one of the cards.
   * When a learner enters a lesson for the first time, show them a very brief walkthrough of the main lesson player features – namely, the lesson card, audio player, and (when such a button is available and they haven’t clicked on it with 20 seconds) the “CONTINUE” (or similar) button. In the case where the first card’s interaction type isn’t a Continue button, the walkthrough should only include the lesson card and audio player; then, once the button to move to the next card appears, Oppia should show a helper tooltip if the learner hasn’t clicked that button within 10 seconds.
 
+* Adding similar prompts as described above to onboard learners to the Learner Dashboard (which is their home page when they log in).
+
 **Size of this project:** medium (~175 hours)
 
 **Potential Mentors:** @krishita30j, @seanlip
@@ -698,7 +696,7 @@ This project will involve two major parts:
 **Suggested Milestones:**
 
 * **Milestone 1:** Make it possible for new and existing users to change their self-identification, and migrate existing users so that their self-identification fields are populated. Explain to new learners how they can use Oppia to learn effectively.
-* **Milestone 2:** Add prompts throughout the onboarding experience so that learners can discover the language picker, classroom cards, and lesson player features.
+* **Milestone 2:** Add prompts throughout the onboarding experience so that learners can discover the language picker, classroom cards, and lesson player features. Add support for onboarding new users to the learner dashboard.
 
 **Dependency on Release Schedule:** A Beam job will need to be run in order to populate the self-identification information for existing users. The timeline should be arranged so that this job can be run and verified during the appropriate release cycle.
 
@@ -706,6 +704,7 @@ This project will involve two major parts:
 
 * The proposal should propose mocks for how each of these requirements should look (unless mocks have already been provided). When proposing these mocks, please take care to ensure that the wording used is simple and easily understandable by a new visitor to the site, and doesn’t use terminology or jargon that won’t be clear.
   * It’s probably a good idea to get feedback from others on your proposed mocks, especially from people who aren’t familiar with Oppia, so that you can improve them. You will probably want to repeat this process until you’re certain that your proposed onboarding flow achieves the aims that you want it to.
+* For the learner dashboard onboarding flow, it is up to you to propose what you want the onboarding experience to look like. You can use ideas similar to the ones for general onboarding, or come up with others, as long as what you propose is intuitive for new users.
 
 
 **Useful resources:**
