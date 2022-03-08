@@ -253,7 +253,7 @@ Please note that the list of project ideas below is not set in stone: more proje
 
 1.5. [Learner Groups MVP](#15-learner-groups-mvp)
 
-1.6. [Math interactions](#16-math-interactions)
+1.6. [Math interactions](#16-improving-some-math-interactions)
 
 1.7. [Blog integration](#17-blog-integration)
 
