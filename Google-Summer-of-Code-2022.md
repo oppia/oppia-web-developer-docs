@@ -49,11 +49,7 @@ If you're interested in applying to work with Oppia for GSoC, please follow thes
 
 5. Once you've merged at least 2 pull requests, you will get an invitation to become a collaborator to the Oppia or Oppia-Android repository and be officially onboarded! **This step is a prerequisite to applying for GSoC.**
 
-6. Now, you can select one or more GSoC projects that you're most interested in, and write your project proposal! _We'll add more details to this point if Oppia is officially accepted into GSoC._
-
-<!--- 6. We strongly encourage you to discuss your project ideas and share your proposal with the community, so that you can get feedback and ensure that what you're writing makes sense to others. The best way to do this is to put your proposal into a collaborative editing tool like Google Docs, allow others to comment on it, and share a link to it on the [GSoC discussion mailing list](mailto:oppia-gsoc-discuss@googlegroups.com). You can also email this mailing list if you have any questions about a project, or would like to discuss your approach with the Oppia community and get feedback. Please be specific when asking questions, since this makes it easier for us to help you.
-    - **Important note:** Please read [this oppia-gsoc-discuss@ thread](https://groups.google.com/forum/#!topic/oppia-gsoc-discuss/S6Ge3vQ3cuc) carefully for details about the recommended review process. Note that you do not need to write the entire proposal before getting your first review — see the instructions in that thread for more details. Thanks!
---->
+6. Now, you can select one or more GSoC projects that you're most interested in, and write your project proposal! We strongly encourage you to discuss your project ideas and share your proposal with the community, so that you can get feedback and ensure that what you're writing makes sense to others. Please follow the instructions in the [GSoC proposal template](#gsoc-proposal-template) section to do this. You can also email the [oppia-gsoc-discuss@](https://groups.google.com/g/oppia-gsoc-discuss) mailing list if you have any questions about a project, or would like to discuss your approach with the Oppia community and get feedback. Please be specific when asking questions, since this makes it easier for us to help you.
 
 ## FAQs
 
