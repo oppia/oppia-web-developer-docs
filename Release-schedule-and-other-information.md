@@ -96,12 +96,14 @@ We also have a project leads council who will be contacted about project specifi
 
 **Note:** If you can't make it to a shift mentioned in the below rota, please make sure to swap with someone else in advance! 
 
-| Month         | Release team member         | QA coordinator              | Server errors coordinator   |
-| ------------- | --------------------------- | --------------------------- | --------------------------- |
-| December      | Akshay (**@aks681**)        | Nithesh (**@nithusha21**)   | Kevin (**@kevintab95**)     |
-| January       | Ankita (**@ankita240796**)  | Kevin (**@kevintab95**)     | Vojta (**@vojtechjelinek**) |
-| February      | Sandeep (**@DubeySandeep**) | Chris (**@U8NWXD**)         | Kevin (**@kevintab95**)     |
-| March         | Kevin (**@kevintab95**)     | Vojta (**@vojtechjelinek**) | Kevin (**@kevintab95**)     |
-| April         | Akshay (**@aks681**)        | Rohit (**@rohitkatlaa**)    | Vojta (**@vojtechjelinek**) |
-| May           | Chris (**@U8NWXD**)         | Nithesh (**@nithusha21**)   | Kevin (**@kevintab95**)     |
-| June          | Nithesh (**@nithusha21**)   | Akshay (**@aks681**)        | Kevin (**@kevintab95**)     |
+**Note:** The release cut happens in between the two release cut dates I mentioned below. 
+
+| Month         | Release cut dates  | Release team member         | QA coordinator              | Server errors coordinator   |
+| ------------- | ------------------ | --------------------------- | --------------------------- | --------------------------- |
+| December      |                    | Akshay (**@aks681**)        | Nithesh (**@nithusha21**)   | Kevin (**@kevintab95**)     |
+| January       |                    | Ankita (**@ankita240796**)  | Kevin (**@kevintab95**)     | Vojta (**@vojtechjelinek**) |
+| February      |                    | Sandeep (**@DubeySandeep**) | Chris (**@U8NWXD**)         | Kevin (**@kevintab95**)     |
+| March         | 4th to 11th March  | Kevin (**@kevintab95**)     | Vojta (**@vojtechjelinek**) | Kevin (**@kevintab95**)     |
+| April         | 1st to 8th April   | Akshay (**@aks681**)        | Rohit (**@rohitkatlaa**)    | Vojta (**@vojtechjelinek**) |
+| May           | 6th to 13th May    | Chris (**@U8NWXD**)         | Nithesh (**@nithusha21**)   | Kevin (**@kevintab95**)     |
+| June          | 3rd to 10th June   | Nithesh (**@nithusha21**)   | Akshay (**@aks681**)        | Kevin (**@kevintab95**)     |
