@@ -605,6 +605,7 @@ The project also involves moving all existing blog posts from Medium to this new
 **Useful resources:**
 
 * Mocks for the blog-related pages: [link](https://xd.adobe.com/view/9bb82409-cdca-432a-b11c-88324643e2c0-ceeb/grid). (You might also wish to see pages 6 and 11+ of [Rijuta’s GSoC proposal](https://github.com/oppia/oppia/wiki/pdfs/GSoC2021RijutaSingh.pdf) from 2021, which describe the intended product designs for these pages.)
+* Mobile mocks for the blog: [link](https://www.figma.com/file/k960aiD0UXm3vajxm4M0kr/Blog-Integration?node-id=224%3A0)
 * Release schedule: [wiki page](https://github.com/oppia/oppia/wiki/Release-schedule-and-other-information) 
 
 
