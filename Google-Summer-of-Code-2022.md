@@ -978,7 +978,7 @@ After this project is finished, all Python files in the Oppia codebase should be
 
 Our frontend codebase is fully typed, but our typing doesn’t yet pass strict TypeScript checks. In this project, you should firstly change the strict TypeScript config file so that all newly-added files need to be strictly typed, and then introduce strict typing for around 280 twins of files and tests for those files (so 560 files altogether). 
 
-In your work, you should make sure that no more `unknown` type is used and also remove all the usage of `unknown` type from the newly strictly typed files.
+In your work, you should make sure that no more `unknown` type is used and also remove all the usage of `unknown` type from the newly strictly typed files. There can be rare exceptions where `unknown` is needed (like in error handling), there it should be properly commented.
 
 **Size of this project:** large (~350 hours)
 
