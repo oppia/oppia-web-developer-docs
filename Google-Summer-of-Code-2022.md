@@ -976,7 +976,9 @@ After this project is finished, all Python files in the Oppia codebase should be
 
 ### 4.2. Improve the frontend type system
 
-Our frontend codebase is fully typed, but our typing doesn’t yet pass strict TypeScript checks. In this project, you should firstly change the strict TypeScript config file so that all newly-added files need to be strictly typed, and then introduce strict typing for around 280 twins of files and tests for those files (so 560 files altogether).
+Our frontend codebase is fully typed, but our typing doesn’t yet pass strict TypeScript checks. In this project, you should firstly change the strict TypeScript config file so that all newly-added files need to be strictly typed, and then introduce strict typing for around 280 twins of files and tests for those files (so 560 files altogether). 
+
+In your work, you should make sure that no more `unknown` type is used and also remove all the usage of `unknown` type from the newly strictly typed files.
 
 **Size of this project:** large (~350 hours)
 
@@ -999,8 +1001,6 @@ Our frontend codebase is fully typed, but our typing doesn’t yet pass strict T
 **Dependency on Release Schedule:** None
 
 **Proposal notes:** 
-
-
 
 * Your proposal should include an explanation of how you plan to introduce the TS config change so that all newly-added files by other developers are forced to be strictly typed before they can be merged into develop. Also, you should explain in what order you plan to type the files, and an explanation of why you picked that order.
 * You may omit the following sections from your proposal:
@@ -1027,19 +1027,20 @@ We are currently in the process of introducing Beam jobs for validating datastor
 We are already aware of some existing issues with our data that can be fixed as part of this project. These include:
 
 
-
-* Removing traces of ‘cloned from’ from old versions of some explorations ([#10828](https://github.com/oppia/oppia/issues/10828))
-* Handling deprecated commands ([#10807](https://github.com/oppia/oppia/issues/10807), [#10820](https://github.com/oppia/oppia/issues/10820))
-* Fixing `GeneralFeedbackThreadModel` entities with missing related `GeneralSuggestionModel` entities ([#11736](https://github.com/oppia/oppia/issues/11736)) 
-* Fixing datetime fields in `LearnerPlaylistModel`, `CompletedActivitiesModel`, `UserSubscriptionsModel`,  and `UserSettingsModel`  ([#11616](https://github.com/oppia/oppia/issues/11616), [#12120](https://github.com/oppia/oppia/issues/12120))
-* Adding more validation checks for datetimes ([#12121](https://github.com/oppia/oppia/issues/12121))
-* Implementing a process to ensure that external storage models linked to a storage model are updated in case of storage model deletion ([#10809](https://github.com/oppia/oppia/issues/10809))
-* Fixing `UnsentFeedbackEmailModel` entities with missing `GeneralFeedbackThreadModel`s and `GeneralFeedbackMessageModel`s ([#14966](https://github.com/oppia/oppia/issues/14966))
-* Fixing `GeneralSuggestionModel` entities that are marked as rejected but are missing their final reviewer ID ([#14967](https://github.com/oppia/oppia/issues/14967))
-* Fixing `CompletedActivitiesModel` and `IncompleteActivitiesModel` to only reference existing and public explorations ([#14968](https://github.com/oppia/oppia/issues/14968))
-* Fixing `UserSubscriptionsModel` ([#14969](https://github.com/oppia/oppia/issues/14969))
-* Fixing `GeneralFeedbackMessageModel.feedback_thread_ids` to only reference existing `GeneralFeedbackThreadModel` ([#14971](https://github.com/oppia/oppia/issues/14971))
-* Fixing `ExpUserLastPlaythroughModel` has a few valdiation issues ([#14972](https://github.com/oppia/oppia/issues/14972))
+* Task set 1
+  * Removing traces of ‘cloned from’ from old versions of some explorations ([#10828](https://github.com/oppia/oppia/issues/10828))
+  * Fixing datetime fields in `LearnerPlaylistModel`, `CompletedActivitiesModel`, `UserSubscriptionsModel`,  and `UserSettingsModel`  ([#11616](https://github.com/oppia/oppia/issues/11616), [#12120](https://github.com/oppia/oppia/issues/12120))
+  * Adding more validation checks for datetimes ([#12121](https://github.com/oppia/oppia/issues/12121))
+  * Implementing a process to ensure that external storage models linked to a storage model are updated in case of storage model deletion ([#10809](https://github.com/oppia/oppia/issues/10809))
+  * Fixing `CompletedActivitiesModel` and `IncompleteActivitiesModel` to only reference existing and public explorations ([#14968](https://github.com/oppia/oppia/issues/14968))
+  * Fixing `GeneralFeedbackThreadModel` entities with missing related `GeneralSuggestionModel` entities ([#11736](https://github.com/oppia/oppia/issues/11736)) 
+* Task set 2
+  * Handling deprecated commands ([#10807](https://github.com/oppia/oppia/issues/10807), [#10820](https://github.com/oppia/oppia/issues/10820))
+  * Fixing `UnsentFeedbackEmailModel` entities with missing `GeneralFeedbackThreadModel`s and `GeneralFeedbackMessageModel`s ([#14966](https://github.com/oppia/oppia/issues/14966))
+  * Fixing `GeneralSuggestionModel` entities that are marked as rejected but are missing their final reviewer ID ([#14967](https://github.com/oppia/oppia/issues/14967))
+  * Fixing `ExpUserLastPlaythroughModel` has a few validation issues ([#14972](https://github.com/oppia/oppia/issues/14972))
+  * Fixing `GeneralFeedbackMessageModel.feedback_thread_ids` to only reference existing `GeneralFeedbackThreadModel` ([#14971](https://github.com/oppia/oppia/issues/14971))
+  * Fixing `UserSubscriptionsModel` ([#14969](https://github.com/oppia/oppia/issues/14969))
 
 Note that this project **will not** entail writing new validation jobs from scratch, though in some cases it might require small modifications to the existing validation jobs. (For example, we might decide that, in some model property, we want to allow more values, and thus need to modify the validation job to account for that.) However, it does require writing jobs to fix production data (based on known validation issues), running those jobs on a test instance, and then running those jobs in production.
 
@@ -1052,11 +1053,11 @@ Note that this project **will not** entail writing new validation jobs from scra
 
 
 * **Medium project:**
-    * **Milestone 1:** Fix 3 tasks from the list above.
-    * **Milestone 2:** Fix 3 more tasks from the list above.
+    * **Milestone 1:** Fix 3 tasks from _Task set 1_ or _Task set 2_.
+    * **Milestone 2:** Fix the 3 remaining tasks from the set you picked in _Milestone 1_.
 * **Large project:**
-    * **Milestone 1:** Fix 6 tasks from the list above.
-    * **Milestone 2:** Fix 6 more tasks from the list above.
+    * **Milestone 1:** Fix 6 tasks from _Task set 1_.
+    * **Milestone 2:** Fix 6 tasks from _Task set 2_.
 
 **Knowledge/Skills Recommended:** 
 
@@ -1068,9 +1069,11 @@ Note that this project **will not** entail writing new validation jobs from scra
 
 **Proposal notes:** 
 
+* Make sure to provide example code for at least two Beam jobs that you will use for fixing some of the aforementioned tasks.
 * In your proposal, please explain how you plan to tackle the tasks from the list above. There are usually two parts to this: (a) making sure that we fix the current issues in our datastore, and (b) ensuring that those issues don’t reoccur in the future (which often requires doing a careful audit to prove that all possible “loopholes” that would allow them to occur have been plugged).
 * When designing the Beam jobs to fix existing issues in our datastore, make sure that those jobs only make modifications that are strictly necessary. Be especially careful with updates or deletions, since it is important to avoid any data loss or corruption. For each task, you should specify how you would manually verify (on a test server) that the job has done the right thing after it is run, and what the rollback procedure for the job is (if something goes wrong while running it). 
 * Also, note that, in general, the jobs you write should be designed to be **idempotent**. That is, running them twice should result in the same outcome as running them once (since this allows us to just rerun them if an error happens within the Beam framework).
+* Make sure that you account for possible delays in the job testing procedure (when you submit job for testing on the backup server it might take up to 48 hours before it is tested.
 * You can omit the following sections from your proposal:
     * Additions/Changes to Web Server Endpoint Contracts
     * Calls to Web Server Endpoints
