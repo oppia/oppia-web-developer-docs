@@ -167,7 +167,7 @@ You are welcome to ask mentors for reviews during the proposal preparation phase
 
 2. Your final proposal should be self-contained. In particular, to be fair to all applicants, key components of the proposal should not be editable after the deadline. Don't assume that reviewers will follow external links.
 
-3. Your proposal must be **original** (see section 2.4 of the [Contributor Participation Agreement](https://summerofcode.withgoogle.com/terms/contributor)). During the selection process, proposals that are found to have passed off others' work as their own will automatically be disqualified. If you include any text in your proposal that is copied from the Internet or other sources, you should make it clear that you are doing so, and **provide a link or reference back to the source, with appropriate credit**.
+3. Your proposal must be **original** (see section 2.4 of the [Contributor Participation Agreement](https://summerofcode.withgoogle.com/terms/contributor)). During the selection process, proposals that are found to have passed off others' work as their own will automatically be disqualified. If you include any text in your proposal that is copied from the Internet or other sources, you should make it clear that you are doing so, and **provide a link or reference back to the source, with appropriate credit**. In cases of doubt, we would encourage you to err on the side of giving credit (since not doing so may be construed as plagiarism).
 
 
 ### Tips for writing a good project plan
