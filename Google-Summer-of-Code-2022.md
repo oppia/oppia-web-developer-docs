@@ -35,21 +35,23 @@ GSoC is an excellent opportunity for new contributors to get paid to work on an 
 
 ## Getting started
 
-If you're interested in applying to work with Oppia for GSoC, please follow these steps:
+Welcome! If you're interested in applying to work with Oppia for GSoC, please follow these steps:
 
 1. Sign up to the [oppia-gsoc-announce@](https://groups.google.com/forum/#!forum/oppia-gsoc-announce) mailing list in order to receive important notifications about Oppia's participation in GSoC. If you like, you can also sign up to the [oppia-gsoc-discuss@](https://groups.google.com/forum/#!forum/oppia-gsoc-discuss) mailing list to participate in general discussion related to Oppia's involvement in GSoC. Make sure to set your preferences correctly so that you actually get the emails!
 
-2. Get a better understanding of what Oppia is all about by taking a look at our [user documentation](http://oppia.github.io/#/) — this will help you become familiar with important concepts like explorations and interactions. We also recommend having a go at playing lessons on [Oppia.org](https://www.oppia.org/splash), which hosts a live instance of Oppia.
+2. Get a better understanding of what Oppia is about by taking a look at our [user documentation](http://oppia.github.io/#/) — this will help you become familiar with important concepts like explorations and interactions. We also recommend having a go at playing lessons on [Oppia.org](https://www.oppia.org/learn/math), which hosts a live instance of Oppia.
 
 3. Read and follow the instructions in the contributors' guide carefully ([Oppia Web](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up), [Oppia Android](https://github.com/oppia/oppia-android/wiki/Contributing-to-Oppia-android)).
 
-4. Consider taking up one or more starter projects in order to become familiar with the contribution process. This will help us get an idea of what it's like to work with you — e.g. how independent, resourceful, responsive, etc. you are. It will also help you get a better understanding of the codebase, so that you can write a good and detailed project proposal.
+4. Try doing one or more starter projects in order to become familiar with the contribution process. This will help us get an idea of what it's like to work with you — e.g. how independent, resourceful, responsive, etc. you are. It will also help you get a better understanding of the codebase, so that you can write a good and detailed project proposal.
 
     - **Pro-tip!** Quality is more important than quantity; we want to see examples of your best work. So, please make sure to follow the [tips for success](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#tips-for-success) carefully, manually test your code before submitting (to ensure it does what you want it to and doesn't break anything else), ensure that your code conforms to the [style rules](https://github.com/oppia/oppia/wiki/Coding-style-guide), and pay attention to small details. These are good skills to learn when developing software in general, and they will also help you build credibility as a responsible developer who can be trusted to be a good steward of the Oppia codebase.
 
-5. Once you've merged at least 2 pull requests, you will get an invitation to become a collaborator to the Oppia or Oppia-Android repository and be officially onboarded! **This step is a prerequisite to applying for GSoC.**
+5. Once you've merged at least 2 pull requests, you will get an invitation to become a collaborator to the Oppia or Oppia-Android repository and be officially onboarded! **This step is a prerequisite for GSoC, but the pull requests don't need to be large.**
 
-6. Now, you can select one or more GSoC projects that you're most interested in, and write your project proposal! We strongly encourage you to discuss your project ideas and share your proposal with the community, so that you can get feedback and ensure that what you're writing makes sense to others. Please follow the instructions in the [GSoC proposal template](#gsoc-proposal-template) section to do this. You can also email the [oppia-gsoc-discuss@](https://groups.google.com/g/oppia-gsoc-discuss) mailing list if you have any questions about a project, or would like to discuss your approach with the Oppia community and get feedback. Please be specific when asking questions, since this makes it easier for us to help you.
+6. Now, you can select one or more GSoC projects that you're most interested in, and write your project proposal! We strongly encourage you to discuss your project ideas and share your proposal with the community, so that you can get feedback and ensure that what you're writing makes sense to others. Please follow the instructions in the [GSoC proposal template](#gsoc-proposal-template) section to do this. 
+
+    If you have any questions about a project, or would like to discuss your approach with the Oppia community and get feedback, you can also email the [oppia-gsoc-discuss@](https://groups.google.com/g/oppia-gsoc-discuss) mailing list. Please be specific when asking questions, since this makes it easier for us to help you.
 
 ## FAQs
 
