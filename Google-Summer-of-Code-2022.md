@@ -1422,7 +1422,7 @@ Specifically, this project entails the following parts:
 * Oppia Android accessibility guide: [wiki page](https://github.com/oppia/oppia-android/wiki/Accessibility-(A11y)-Guide)
 * List of accessibility tests we need to pass (note that this GSoC project is basically helping to audit and fix some of these): [spreadsheet](https://docs.google.com/spreadsheets/d/1lFQo2XE0dSGZcMvr7paxdL3zXB3FVcRnZOqD70DT3a4/edit#gid=0)
 * Similar issues (to give some ideas of the types of challenges we face with accessibility): https://github.com/oppia/oppia-android/projects/13#column-15114947
-* Other related issues:
+* Some issues related to the "configuration changes" part of the project:
   * https://github.com/oppia/oppia-android/issues/1592
   * https://github.com/oppia/oppia-android/issues/1737
   * https://github.com/oppia/oppia-android/issues/1468
