@@ -101,9 +101,9 @@ We also have a project leads council who will be contacted about project specifi
 | March         | 4th March        | Kevin (**@kevintab95**)     | Vojta (**@vojtechjelinek**) | Kevin (**@kevintab95**)     |
 | April         | 1st April        | Akshay (**@aks681**)        | Rohit (**@rohitkatlaa**)    | Kevin (**@vojtechjelinek**) |
 | May           | 6th May          | Chris (**@U8NWXD**)         | Nithesh (**@nithusha21**)   | Kevin (**@kevintab95**)     |
-| June          | 3rd June         | Nithesh (**@nithusha21**)   | Kevin (**@kevintab95**)     | Vojta (**@vojtechjelinek**) |
+| June          | 3rd June         | Nithesh (**@nithusha21**)   | Akshay (**@aks681**)        | Vojta (**@vojtechjelinek**) |
 | July          | 1st July         | Ankita (**@ankita240796**)  | Nithesh (**@nithusha21**)   | Kevin (**@kevintab95**)     |
-| August        | 5th August       | Vojta (**@vojtechjelinek**) | Akshay (**@aks681**)        | Kevin (**@kevintab95**)     |
+| August        | 5th August       | Vojta (**@vojtechjelinek**) | Kevin (**@kevintab95**)     | Kevin (**@kevintab95**)     |
 | September     | 2nd September    | Sandeep (**@DubeySandeep**) | Rohit (**@rohitkatlaa**)    | Kevin (**@kevintab95**)     |
 | October       | 7th October      | Kevin (**@kevintab95**)     | Nithesh (**@nithusha21**)   | Vojta (**@vojtechjelinek**) |
 | November      | 4th November     | Akshay (**@aks681**)        | Vojta (**@vojtechjelinek**) | Kevin (**@kevintab95**)     |
