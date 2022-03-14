@@ -1382,8 +1382,6 @@ Note that each of these experiences may lead to multiple parts of the UI being h
 
 ### 6.3. Accessibility Improvements
 
-_**Note:** This is a sketch description. A more elaborated description will be available by Tuesday Mar 1._
-
 **Project Description:**
 
 We would like to ensure that the Oppia Android app is fully accessible to screen readers, and have identified a number of areas in which the experience could be improved. The aim of this project is to fix these issues so that the overall experience of using the app for such users is as smooth and intuitive as possible.
@@ -1417,8 +1415,14 @@ Specifically, this project entails the following parts:
 
 **Proposal Notes:**
 
-_These will be available once the full description of the project is updated, which will happen by **Tue 1 Mar**._
+* Strong proposals would include specific documentation of user flows (specifically, pictures and an explanation of the flows) from an accessibility perspective (i.e. swipe navigation & textual, rather than visual, read-out) as part of the audit to clearly define both what the current user experience is, as well as what we want it to be, for all key flows in the app. This should demonstrate a consistent and cohesive accessibility flow, per the project description.
 
 **Useful resources:**
 
 * Oppia Android accessibility guide: [wiki page](https://github.com/oppia/oppia-android/wiki/Accessibility-(A11y)-Guide)
+* List of accessibility tests we need to pass (note that this GSoC project is basically helping to audit and fix some of these): https://docs.google.com/spreadsheets/d/1lFQo2XE0dSGZcMvr7paxdL3zXB3FVcRnZOqD70DT3a4/edit#gid=0
+* Similar issues (to give some ideas of the types of challenges we face with accessibility): https://github.com/oppia/oppia-android/projects/13#column-15114947
+* Other related issues:
+  * https://github.com/oppia/oppia-android/issues/1592
+  * https://github.com/oppia/oppia-android/issues/1737
+  * https://github.com/oppia/oppia-android/issues/1468
