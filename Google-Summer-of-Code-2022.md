@@ -426,7 +426,7 @@ One core principle of Oppia lessons is that we never want the learner to get stu
 
 **Useful resources:**
 
-* PRD for this feature: [link](https://docs.google.com/document/d/1TErYOB7aTg1cpalRhruH5L_TZCrvhUjbqlwHB5hReyA/edit#heading=h.hwzzxomqxwzm). Note that this PRD might have some omissions, or be incomplete. If you see gaps, feel free to fill them in! You can also leave comments directly on the PRD if you have questions about what is written there.
+* PRD for this feature: [link](https://docs.google.com/document/d/1TErYOB7aTg1cpalRhruH5L_TZCrvhUjbqlwHB5hReyA/edit). Note that this PRD might have some omissions, or be incomplete. If you see gaps, feel free to fill them in! You can also leave comments directly on the PRD if you have questions about what is written there.
 
 
 ### 1.4. Celebrating learners' accomplishments
@@ -572,6 +572,7 @@ More details for the number line interaction:
 * [Extension overview](https://github.com/oppia/oppia/wiki/Extensions-Overview) wiki page
 * [Creating new interactions](https://github.com/oppia/oppia/wiki/Creating-Interactions) wiki page
 * While not necessarily directly useful for this project, you might find these blog posts from previous GSoC learners interesting reading: [Prayush’s math expression interactions](https://medium.com/@ThePegasus/google-summer-of-code-2020-with-oppia-7542804bb9e9); [Pulkit’s interaction implementations on Android](https://gist.github.com/aggarwalpulkit596/84c23a09cd4244624092f2967b0eae38).
+* PRD for this feature: [link](https://docs.google.com/document/d/1cha8e5H4Dfb7t8cLL2VZYi02Ysk2YEdyyalY1dDqPXE/edit). Note that this PRD might have some omissions, or be incomplete. If you see gaps, feel free to fill them in! You can also leave comments directly on the PRD if you have questions about what is written there.
 
 
 ### 1.7. Blog integration
