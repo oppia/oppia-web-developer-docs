@@ -426,7 +426,7 @@ One core principle of Oppia lessons is that we never want the learner to get stu
 
 **Useful resources:**
 
-* PRD for this feature: [link](https://docs.google.com/document/d/1TErYOB7aTg1cpalRhruH5L_TZCrvhUjbqlwHB5hReyA/edit#heading=h.hwzzxomqxwzm).
+* PRD for this feature: [link](https://docs.google.com/document/d/1TErYOB7aTg1cpalRhruH5L_TZCrvhUjbqlwHB5hReyA/edit#heading=h.hwzzxomqxwzm). Note that this PRD might have some omissions, or be incomplete. If you see gaps, feel free to fill them in! You can also leave comments directly on the PRD if you have questions about what is written there.
 
 
 ### 1.4. Celebrating learners' accomplishments
