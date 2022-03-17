@@ -424,6 +424,10 @@ One core principle of Oppia lessons is that we never want the learner to get stu
 * Creators might need to be able to turn off the "catch misspellings" functionality on a card-based level, since some language-learning explorations may explicitly want to test/teach spelling.
 * You may have other ideas about how to improve the core learning experience on Oppia. These are welcome – feel free to include these in your proposal when fleshing out the product design section! In particular, there may be some potential in this project to teach learners metacognitive skills for how to deal with “being stuck”. There is a lot of research on this topic that can be found on the Internet. Proposals which demonstrate an understanding of this, and address this in a holistic way, will be viewed more favourably.
 
+**Useful resources:**
+
+* PRD for this feature: [link](https://docs.google.com/document/d/1TErYOB7aTg1cpalRhruH5L_TZCrvhUjbqlwHB5hReyA/edit#heading=h.hwzzxomqxwzm).
+
 
 ### 1.4. Celebrating learners' accomplishments
 
