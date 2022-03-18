@@ -1193,6 +1193,7 @@ We want to achieve 100% per-file branch and line coverage for both the frontend 
 
 
 * In the “Testing Plan” section of the proposal, you should describe how you will confirm that the testing infrastructure that you set up works correctly. However, you don’t need to describe specific user journeys or end-to-end tests there.
+* There may be some other contributors currently assigned to achieve 100% test coverage on some files, but please don't count on those files being finished before GSoC starts.
 
 **Useful resources:**
 
