@@ -19,6 +19,8 @@ The failure may be due to one of the following things:
   * If you see an error when installing third-party libraries, then there was probably a network issue. See the [network problems](#network-problems) section below.
   * If you see from the logs that a test or lint check is failing, see the [failing tests and lint checks section](#failing-tests-and-lint-checks) below.
 
+If many of the CI checks are failing at once, your PR has probably resulted in a breakage. To debug and fix this, try [running the local development server](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Mac-OS%3B-Python-3%29#running-oppia-on-a-development-server) and checking that the website behaves normally, with no errors in the developer console. Often, you will probably get errors in the backend server logs or the developer console which will help you figure out what is going wrong. The CI logs should also contain useful information that can help with debugging. 
+
 ## Merge conflicts
 
 You can fix merge conflicts by following the "merge from develop" instructions in  [step 5 of our instructions for making a pull request](https://github.com/oppia/oppia/wiki/Make-a-pull-request#step-5-address-review-comments-until-all-reviewers-approve). Then when you push the merge commit to your feature branch on GitHub, the merge conflict message will disappear.
