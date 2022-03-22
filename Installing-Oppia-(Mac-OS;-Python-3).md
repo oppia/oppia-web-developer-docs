@@ -89,7 +89,7 @@ For your vitual environment, we recommend you use [pyenv](https://github.com/pye
 
 1. **Make sure you install the Python build dependencies for your operating system. These are specified [here](https://github.com/pyenv/pyenv/wiki#suggested-build-environment). If you don't do this it might lead to problems further on.**
 
-2. Install pyenv:
+2. Install pyenv. Note that if you use zsh as your shell (check by running `echo $SHELL`) you should replace `bash` with `zsh` below:
 
    ```console
    $ curl pyenv.run | bash
@@ -102,7 +102,7 @@ For your vitual environment, we recommend you use [pyenv](https://github.com/pye
    ...
    ```
 
-   If you see the warning at the end, add the following lines to your `.bash_profile`:
+   If you see the warning at the end, add the following lines to your `.bash_profile` (or `~/.zshrc` if you use zsh):
 
    ```bash
    export PYENV_ROOT="$HOME/.pyenv"
@@ -113,7 +113,7 @@ For your vitual environment, we recommend you use [pyenv](https://github.com/pye
    eval "$(pyenv virtualenv-init -)"
    ```
 
-2. Reload your shell or open a new terminal window to load your updated `~/.bash_profile`.
+2. Reload your shell or open a new terminal window to load your updated `~/.bash_profile` or `~/.zshrc`.
 
 3. Now you can install Python 3.7.10 and the associated pip like this:
 
