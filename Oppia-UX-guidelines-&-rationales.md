@@ -1,3 +1,8 @@
+### Oppia's Design Guide
+
+You can find all of Oppia's design guidelines [here](https://xd.adobe.com/view/e54eaf14-243c-4cf4-8b9e-d8ff8c6933cc-b01d/grid/). Note that this is a living document, so it will be updated over time and some sections may be incomplete right now (as of 24 Mar 2022).
+
+
 ### Guidelines for Modals
 #### Throughout Oppia we follow three patterns for modal closing:
 1. Modal with form(s) inside it.
