@@ -292,6 +292,43 @@ ERROR: (dev_appserver) python2: command not found
 
 you will need to install Python 2 on your platform, even though Oppia doesn't use Python 2 anymore some parts of the App Engine dev server still need it. If you have MacOS >= 12.3, please follow the steps listed [here](https://github.com/oppia/oppia/wiki/Installing-Oppia-(Mac-OS;-Python-3)#install-prerequisites) to install Python 2 on your system. 
 
+### Error: alert_on_exit() -> Iterator[None]
+
+If after running python -m scripts.start, you get an error similar to this below:
+
+```
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/runpy.py", line 163, in _run_module_as_main
+    mod_name, _Error)
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/runpy.py", line 119, in _get_module_details
+    code = loader.get_code(mod_name)
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/pkgutil.py", line 281, in get_code
+    self.code = compile(source, self.filename, 'exec')
+  File "/Users/Desktop/opensource-oppia/oppia/scripts/start.py", line 85
+    def alert_on_exit() -> Iterator[None]:
+``` 
+
+Then, 
+1. Open your `.bash_profile` file, and check if there are two versions of Python listed inside of it, one for Python 2.7 and other for Python 3.7. Simply remove the entry for Python 2.7. Finally, this is how your file should look like: 
+
+```
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+# Setting PATH for Python 3.10
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.10/bin:${PATH}"
+export PATH
+```
+
+2. Reload the .bash_profile by doing “source .bash_profile”, and now start your Oppia server `python -m scripts.start`. 
+
+**Note:** Even if the bash_profile file doesn’t contain two entries for Python version per #1, please do #2 in order to make sure that the new version of Python is set for the virtual environment.
+
 
 ### Local datastore data are not being deleted
 
