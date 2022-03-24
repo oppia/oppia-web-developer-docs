@@ -29,7 +29,31 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
 
 1. Ensure that you have [Python 3.7](https://www.python.org/downloads/release/python-3711/) installed (Note: you can check this by running `python --version`). If Python 3.7 is not installed, download and run the latest Python 3.7 installer from https://www.python.org/downloads/mac-osx/.
 
-2. Download [git](http://git-scm.com/download/mac), then run the package and follow instructions. This allows you to store the source in version control.
+2. [If you have Mac OS >= 12.3] Ensure that you have Python 2.7 also available on your system. If Python 2.7 is not installed, please follow the following steps: 
+
+* Download MacOS [Python 2.7 installer](https://www.python.org/downloads/release/python-2716/) (depending on whether your system is 32bit/64bit). Once you have downloaded it, please install Python 2.7 using the installer.
+* Add pip for Python 2.7
+
+   ```console
+   $ curl https://bootstrap.pypa.io/pip/2.7/get-pip.py -o get-pip2.py
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 1863k  100 1863k    0     0  16.7M      0 --:--:-- --:--:-- --:--:-- 18.1M
+   ```
+
+* Add the following to your $PATH variable on your Mac: "/Library/Frameworks/Python.framework/Versions/2.7/bin"
+* Download plistlib.py
+
+   ```console
+    $ curl https://raw.githubusercontent.com/python/cpython/2.7/Lib/plistlib.py -o 
+   /Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plistlib.py
+   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+   100 15185  100 15185    0     0  44274      0 --:--:-- --:--:-- --:--:-- 45193
+   ```
+* Now try doing “python --version” on your command-line, and you should see version 2.7.6 printed.
+
+3. Download [git](http://git-scm.com/download/mac), then run the package and follow instructions. This allows you to store the source in version control.
 
 ## Clone Oppia
 
