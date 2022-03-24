@@ -40,7 +40,7 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
      100 1863k  100 1863k    0     0  16.7M      0 --:--:-- --:--:-- --:--:-- 18.1M
     ```
 
-    * Add the following to your $PATH variable on your Mac: `/Library/Frameworks/Python.framework/Versions/2.7/bin`
+    * Add the following to the `$PATH` variable on your Mac: `/Library/Frameworks/Python.framework/Versions/2.7/bin`
 
     * Download `plistlib.py`
 
