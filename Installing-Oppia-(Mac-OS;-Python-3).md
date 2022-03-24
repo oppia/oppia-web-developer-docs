@@ -143,7 +143,10 @@ For your vitual environment, we recommend you use [pyenv](https://github.com/pye
 
 2. Reload your shell or open a new terminal window to load your updated `~/.bash_profile` or `~/.zshrc`.
 
-3. Now you can install Python 3.7.10 and the associated pip like this:
+3. If you have MacOS >= 12.3, install Python 3.7.13 (`pyenv install 3.7.13`), otherwise install Python 3.7.10 and the associated pip using the command below: 
+    `pyenv install <version>` where version could be `3.7.13` (MacOS >= 12.3) or `3.7.10` (otherwise).
+ 
+This is how it looks like:  
 
    ```console
    $ pyenv install 3.7.10
@@ -153,7 +156,7 @@ For your vitual environment, we recommend you use [pyenv](https://github.com/pye
    Installed Python-3.7.10 to /home/user/.pyenv/versions/3.7.10
    ```
 
-4. Create a virtual environment for oppia:
+4. Create a virtual environment for oppia depending on the python version installed. If you have MacOS >= 12.3, 
 
    ```console
    $ pyenv virtualenv 3.7.10 oppia
