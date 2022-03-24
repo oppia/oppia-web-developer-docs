@@ -29,7 +29,7 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
 
 1. Ensure that you have [Python 3.7](https://www.python.org/downloads/release/python-3711/) installed (Note: you can check this by running `python --version`). If Python 3.7 is not installed, download and run the latest Python 3.7 installer from https://www.python.org/downloads/mac-osx/.
 
-2. [If you have Mac OS >= 12.3] Ensure that you have Python 2.7 also available on your system. If Python 2.7 is not installed, please follow the following steps: 
+2. [**If you have Mac OS >= 12.3**] Ensure that you have Python 2.7 also available on your system. If Python 2.7 is not installed, please follow the following steps: 
 
     * Download MacOS [Python 2.7 installer](https://www.python.org/downloads/release/python-2716/) (depending on whether your system is 32bit/64bit). Once you have downloaded it, please install Python 2.7 using the installer.
 
