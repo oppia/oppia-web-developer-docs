@@ -143,10 +143,11 @@ For your vitual environment, we recommend you use [pyenv](https://github.com/pye
 
 2. Reload your shell or open a new terminal window to load your updated `~/.bash_profile` or `~/.zshrc`.
 
-3. If you have MacOS >= 12.3, install Python 3.7.13 (`pyenv install 3.7.13`), otherwise install Python 3.7.10 and the associated pip using the command below: 
-    `pyenv install <version>` where version could be `3.7.13` (MacOS >= 12.3) or `3.7.10` (otherwise).
+3. If you have MacOS >= 12.3, install Python 3.7.13, otherwise install Python 3.7.10 and the associated pip using the command below: 
+
+    `pyenv install <version>`, where version could be `3.7.13` (MacOS >= 12.3) or `3.7.10` (otherwise).
  
-This is how it looks like:  
+    This is how it looks like:  
 
    ```console
    $ pyenv install 3.7.10
