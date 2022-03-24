@@ -145,7 +145,7 @@ For your vitual environment, we recommend you use [pyenv](https://github.com/pye
 
 3. If you have MacOS >= 12.3, install Python 3.7.13, otherwise install Python 3.7.10 and the associated pip using the command below: 
 
-    `pyenv install <version>`, where version could be `3.7.13` (MacOS >= 12.3) or `3.7.10` (otherwise).
+    `pyenv install <version>`, where `version` could be `3.7.13` (MacOS >= 12.3) or `3.7.10` (otherwise).
  
     This is how it looks like:  
 
@@ -157,7 +157,11 @@ For your vitual environment, we recommend you use [pyenv](https://github.com/pye
    Installed Python-3.7.10 to /home/user/.pyenv/versions/3.7.10
    ```
 
-4. Create a virtual environment for oppia depending on the python version installed. If you have MacOS >= 12.3, 
+4. Create a virtual environment for oppia depending on the python version installed using the command below: 
+
+    `pyenv virtualenv <python-version> oppia`, where `python-version` could be `3.7.13` or `3.7.10`
+
+     This is how it looks like: 
 
    ```console
    $ pyenv virtualenv 3.7.10 oppia
