@@ -57,7 +57,7 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
 
 3. Download [git](http://git-scm.com/download/mac), then run the package and follow instructions. This allows you to store the source in version control.
 
-**Note:** While Step-1 above is only for those having MacOS >= 12.3, Step-2 and Step-3 should be done by everyone using a Mac for setting up Oppia. 
+**Note:** While #1 above is only for those having MacOS >= 12.3, #2 and #3 should be done by everyone using a Mac for setting up Oppia. 
 
 ## Clone Oppia
 
