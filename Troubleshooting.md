@@ -286,7 +286,9 @@ If this error occurs within a virtual environment, try reinstalling the libs by 
 
 If you get error like this when running `python -m scripts.start`:
 
-```ERROR: (dev_appserver) python2: command not found```
+```
+ERROR: (dev_appserver) python2: command not found
+```
 
 you will need to install Python 2 on your platform, even though Oppia doesn't use Python 2 anymore some parts of the App Engine dev server still need it. If you have MacOS >= 12.3, please follow the steps listed [here](https://github.com/oppia/oppia/wiki/Installing-Oppia-(Mac-OS;-Python-3)#install-prerequisites) to install Python 2 on your system. 
 
