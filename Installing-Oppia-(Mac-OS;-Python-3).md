@@ -53,7 +53,7 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
                                  Dload  Upload   Total   Spent    Left  Speed
    100 15185  100 15185    0     0  44274      0 --:--:-- --:--:-- --:--:-- 45193
    ```
-    * Now try doing `python --version` on your command-line, and you should see version `2.7.6` printed.
+    * Now try doing `python --version` on your command-line, and you should see version `2.7` printed.
 
 3. Download [git](http://git-scm.com/download/mac), then run the package and follow instructions. This allows you to store the source in version control.
 
