@@ -282,6 +282,15 @@ If this error occurs within a virtual environment, try reinstalling the libs by 
 
 ## Mac OS
 
+### Python 2 is not available 
+
+If you get error like this when running `python -m scripts.start`:
+
+```ERROR: (dev_appserver) python2: command not found```
+
+you will need to install Python 2 on your platform, even though Oppia doesn't use Python 2 anymore some parts of the App Engine dev server still need it. If you have MacOS >= 12.3, please follow the steps listed [here](https://github.com/oppia/oppia/wiki/Installing-Oppia-(Mac-OS;-Python-3)#install-prerequisites) to install Python 2 on your system. 
+
+
 ### Local datastore data are not being deleted
 
 In some cases it is possible that the local datastore data are not deleted when the server is rerun, you can delete the data by running `curl -X POST http://localhost:8089/reset` when the devserver is running.
