@@ -27,9 +27,7 @@ To check whether your Mac has an M1 chip, navigate to the Apple menu and select 
 
 Oppia relies on a number of programs and third-party libraries. Many of these libraries are downloaded automatically for you when you first run the `start.py` script provided with Oppia. However, there are some things that you will need to do beforehand:
 
-1. Ensure that you have [Python 3.7](https://www.python.org/downloads/release/python-3711/) installed (Note: you can check this by running `python --version`). If Python 3.7 is not installed, download and run the latest Python 3.7 installer from https://www.python.org/downloads/mac-osx/.
-
-2. [**If you have Mac OS >= 12.3**] Ensure that you have Python 2.7 also available on your system. If Python 2.7 is not installed, please follow the following steps: 
+1. [**If you have Mac OS >= 12.3**] Ensure that you have Python 2.7 available on your system. If Python 2.7 is not installed, please follow the following steps: 
 
     * Download MacOS [Python 2.7 installer](https://www.python.org/downloads/release/python-2716/) (depending on whether your system is 32bit/64bit). Once you have downloaded it, please install Python 2.7 using the installer.
 
@@ -55,7 +53,11 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
    ```
     * Now try doing `python --version` on your command-line, and you should see version `2.7` printed.
 
+2. Ensure that you have [Python 3.7](https://www.python.org/downloads/release/python-3711/) installed (Note: you can check this by running `python --version`). If Python 3.7 is not installed, download and run the latest Python 3.7 installer from https://www.python.org/downloads/mac-osx/.
+
 3. Download [git](http://git-scm.com/download/mac), then run the package and follow instructions. This allows you to store the source in version control.
+
+**Note:** While Step-1 above is only for those having MacOS >= 12.3, Step-2 and Step-3 should be done by everyone using a Mac for setting up Oppia. 
 
 ## Clone Oppia
 
