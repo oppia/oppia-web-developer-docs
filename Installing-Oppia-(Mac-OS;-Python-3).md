@@ -31,18 +31,18 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
 
 2. [If you have Mac OS >= 12.3] Ensure that you have Python 2.7 also available on your system. If Python 2.7 is not installed, please follow the following steps: 
 
-* Download MacOS [Python 2.7 installer](https://www.python.org/downloads/release/python-2716/) (depending on whether your system is 32bit/64bit). Once you have downloaded it, please install Python 2.7 using the installer.
-* Add pip for Python 2.7
+    * Download MacOS [Python 2.7 installer](https://www.python.org/downloads/release/python-2716/) (depending on whether your system is 32bit/64bit). Once you have downloaded it, please install Python 2.7 using the installer.
+    * Add pip for Python 2.7
 
    ```console
    $ curl https://bootstrap.pypa.io/pip/2.7/get-pip.py -o get-pip2.py
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-100 1863k  100 1863k    0     0  16.7M      0 --:--:-- --:--:-- --:--:-- 18.1M
+    100 1863k  100 1863k    0     0  16.7M      0 --:--:-- --:--:-- --:--:-- 18.1M
    ```
 
-* Add the following to your $PATH variable on your Mac: "/Library/Frameworks/Python.framework/Versions/2.7/bin"
-* Download plistlib.py
+    * Add the following to your $PATH variable on your Mac: "/Library/Frameworks/Python.framework/Versions/2.7/bin"
+    * Download plistlib.py
 
    ```console
     $ curl https://raw.githubusercontent.com/python/cpython/2.7/Lib/plistlib.py -o 
