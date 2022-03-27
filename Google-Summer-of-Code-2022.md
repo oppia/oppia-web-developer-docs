@@ -1078,7 +1078,7 @@ Note that this project **will not** entail writing new validation jobs from scra
 
 **Proposal notes:** 
 
-* Make sure to provide example code for at least two Beam jobs that you will use for fixing some of the aforementioned tasks.
+* Make sure to provide example code for a Beam job that you will use to fix one of the issues. We will not judge you on its correctness. We just want to make sure that you've read the Beam job documentation and generally understand how to write Beam jobs.
 * In your proposal, please explain how you plan to tackle the tasks from the list above. There are usually two parts to this: (a) making sure that we fix the current issues in our datastore, and (b) ensuring that those issues don’t reoccur in the future (which often requires doing a careful audit to prove that all possible “loopholes” that would allow them to occur have been plugged).
 * When designing the Beam jobs to fix existing issues in our datastore, make sure that those jobs only make modifications that are strictly necessary. Be especially careful with updates or deletions, since it is important to avoid any data loss or corruption. For each task, you should specify how you would manually verify (on a test server) that the job has done the right thing after it is run, and what the rollback procedure for the job is (if something goes wrong while running it). 
 * Also, note that, in general, the jobs you write should be designed to be **idempotent**. That is, running them twice should result in the same outcome as running them once (since this allows us to just rerun them if an error happens within the Beam framework).
