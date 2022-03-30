@@ -336,6 +336,8 @@ Curriculum admins should be able to “program” this test. They would specify 
 * In the future, we’d like to reuse this infrastructure for topic-level diagnostic tests that would help the learner figure out which lesson in a topic they should start from. Implementing these topic-level tests is out of scope for this GSoC project. However, when designing the infrastructure, please keep this use case in mind, since we would like to extend the project to support it in the future.
 * (For information only) Oppia has a learner feedback team which uses the Oppia lessons to conduct sessions with learners. They will be one of the stakeholders for this project, since they would use it to help learners figure out which topic they’d like to learn at the start of a learner feedback session. During the GSoC project, you will have the opportunity to get feedback from them on what you’re building!
 
+**Useful resources:**
+* [PRD for this feature](https://docs.google.com/document/d/1GrVORe_oMrFOt6SN_JyfIr06f_TlwfwvOVMYfqT4gZY/edit). Note that this PRD might have some omissions, or be incomplete. If you see gaps, feel free to fill them in! You can also leave comments directly on the PRD if you have questions about what is written there.
 
 
 ### 1.2. Implementing the “needs guiding responses” section of the lesson analytics dashboard
