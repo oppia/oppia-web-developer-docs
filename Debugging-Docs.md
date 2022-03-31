@@ -1,5 +1,7 @@
 Whenever you are debugging a problem, you may find it useful to keep a record of your debugging process. We often do this already in issues. Issues usually begin with a detailed description of the problem, which is followed by discussion, reports of attempted debugging steps, and what root cause was identified. However, issues' linear comment structure makes them more amenable to communication among team members than organizing your thoughts. Debugging docs, on the other hand, serve primarily to organize your thoughts.
 
+In general, we **strongly recommend** writing and sharing a debugging doc if you can't figure out a solution to a problem within the **first 2 hours** of working on it. 
+
 ## Benefits
 
 Primarily, debugging docs help keep your thoughts organized. When you have written down the steps you've already tried and the results of your investigations, you don't have to worry about forgetting your earlier work. Further, when you document your work, you force yourself to reflect on what you've already tried. On the Automated QA team, we've found that this reflection often helps us see new debugging approaches.
