@@ -22,6 +22,7 @@
 * [Running Apache Beam Jobs](#running-apache-beam-jobs)
   * [Local Development Server](#local-development-server)
   * [Production Server](#production-server)
+* [Beam guidelines](#beam-guidelines)
 * [Common Beam errors](#common-beam-errors)
   * [`'_UnwindowedValues' object is not subscriptable` error](#_unwindowedvalues-object-is-not-subscriptable-error)
 * [Case studies](#case-studies)
@@ -624,6 +625,17 @@ In order to run jobs through the local dev server you need to have JSON key that
 5. Start the dev server and run the job through the release coordinator page
 6. If the job fails you can check the details of the error on the Google Cloud Console in the Dataflow section
 
+## Beam guidelines
+
+### Do not use NDB put/get/delete directly
+
+Even though it is possible to use NDB functions directly, they should not be used because they are slow and we have Beam compliant alternatives from them. All these alternatives are located in _core/jobs/io/ndb_io.py_.
+
+- Instead of using `get`, `get_multi`, `get_by_id`, etc. you should use `GetModels`, and you should pass a query to it, `GetModels` will execute the query and return a `PCollection` of the models that were returned by the query. 
+- Instead of using `put`, `put_multi`, etc. you should use `PutModels`, and you just pipe a `PCollection` of models to it and they will be put into the datastore.
+- Instead of using `delete`, `delete_multi`, etc. you should use `DeleteModels`, and you just pipe a `PCollection` of models to it and they will be deleted from the datastore.
+
+All of the aforementioned classes are already used in the codebase so you can look for examples.
 
 ## Common Beam errors
 
