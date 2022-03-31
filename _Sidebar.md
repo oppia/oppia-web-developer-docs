@@ -71,7 +71,7 @@
       * [[Testing for Accessibility|Testing-for-Accessibility]]
       * [[Release accessibility checklist|Release-accessibility-checklist]]
   * Release Process
-    * [[Release schedule|Release-schedule-and-other-information]]
+    * [[Release schedule and other information|Release-schedule-and-other-information]]
     * [[Testing jobs and other features on production|Testing-jobs-and-other-features-on-production]]
     * [[Release testing quickstart guide|Release-testing-quickstart-guide]]
 
