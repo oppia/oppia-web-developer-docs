@@ -45,6 +45,11 @@ If the blocking bug arises from a job that cannot be run, the decision whether t
 1. Apply the label [PR: for current release](https://github.com/oppia/oppia/labels/PR%3A%20for%20current%20release) to PRs containing bugfixes that need to go into the current release.
 1.  (**This should only be done by the release coordinator.**) When the PR has been cherry-picked onto the release branch, apply the label [PR: released](https://github.com/oppia/oppia/labels/PR%3A%20released) to the PR.
 
+# Instructions for hotfixes
+If a PR needs to be hotfixed for the release, please do the following:
+- Add the label: `PR: Needs to be hotfixed` to the PR. Oppiabot will automatically ping the release team once this label is added.
+- Email the [release co-ordinator for the month](https://github.com/oppia/oppia/wiki/Release-schedule-and-other-information#release-coordinators-and-qa-coordinators-for-upcoming-releases) with the PR link and why it needs to be hotfixed.
+
 # Responsibilities of the release coordinator
 - Ensuring that the release (and all related processes) for the month happen on schedule and are performed correctly.
 - Handling all deployments to the test server and the production server.
