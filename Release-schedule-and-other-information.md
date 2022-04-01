@@ -104,7 +104,7 @@ We also have a project leads council who will be contacted about project specifi
 | Month         | Release cut date | Release team member         | QA coordinator              | Server errors coordinator   |
 | ------------- | ---------------- | --------------------------- | --------------------------- | --------------------------- |
 | March         | 4th March        | Kevin (**@kevintab95**)     | Vojta (**@vojtechjelinek**) | Kevin (**@kevintab95**)     |
-| April         | 1st April        | Akshay (**@aks681**)        | Rohit (**@rohitkatlaa**)    | Kevin (**@vojtechjelinek**) |
+| April         | 1st April        | Akshay (**@aks681**)        | Chris (**@U8NWXD**)         | Kevin (**@vojtechjelinek**) |
 | May           | 6th May          | Chris (**@U8NWXD**)         | Nithesh (**@nithusha21**)   | Kevin (**@kevintab95**)     |
 | June          | 3rd June         | Nithesh (**@nithusha21**)   | Akshay (**@aks681**)        | Vojta (**@vojtechjelinek**) |
 | July          | 1st July         | Ankita (**@ankita240796**)  | Nithesh (**@nithusha21**)   | Kevin (**@kevintab95**)     |
