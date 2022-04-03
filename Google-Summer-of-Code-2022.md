@@ -1352,7 +1352,7 @@ This project will introduce an in-the-moment “spotlight” for key interactive
 
 Note that each of these experiences may lead to multiple parts of the UI being highlighted, and should follow a predefined linear flow (i.e., for a particular screen, we would show the highlights in a specific order in the initial “walkthrough”). There should be an option to cancel out of the flow, and the app should not show it again if the flow is either canceled or completed. The app should show the onboarding flow the first time the user experiences whichever screen contains the interactive elements that should be explained. 
 
-Also, please note that the 'exploration' walkthrough will require introducing a small 'demo' exploration in order to ensure that all of the necessary elements are present in the UI in order to highlight. Furthermore, users need to have an option in their profiles to reset their tutorial progress in case they want to revisit any tutorial instructions. The project also needs to include analytics (per the PRD) to ensure the feature is being used as expected once it's launched.
+Also, please note that, users need to have an option in their profiles to reset their tutorial progress in case they want to revisit any tutorial instructions. The project also needs to include analytics (per the PRD) to ensure the feature is being used as expected once it's launched. Furthermore, all highlighted features should only be highlighted the first time the user encounters them (this is a reactive walkthrough experience), including those that are part of the exploration flow.
 
 **Size of this project:** large (~350 hours)
 
