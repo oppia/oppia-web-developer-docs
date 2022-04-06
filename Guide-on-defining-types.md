@@ -706,16 +706,13 @@ codemirror: CodeMirror.Editor; // error
 
 
 ##### Solution:
-Angular lifecycle hooks are used to populate the values inside the codebase. To solve this case, we will be using the non-null (!) assertion operator which asserts that the object is non-null and non-undefined. Adding ` | undefined` as a type will work for properties used inside components and just `( ! )` operator for properties that involve Component Interactions (like `@Input()` in this case).
+Angular lifecycle hooks are used to populate the values inside the codebase. To solve this case, we will be using the non-null (!) assertion operator which asserts that the object is non-null and non-undefined. Always make sure to only assert variables that we know are initialized at the creation of the class, for example in the constructor or in `ngOnInit`.
 
 ```typescript
 ...
 @Input() options!: CodeMirrorMergeViewOptions;
-@ViewChild(CodemirrorComponent) codemirrorComponent: CodemirrorComponent | undefined;
-codemirror: CodeMirror.Editor | undefined;
+@ViewChild(CodemirrorComponent) codemirrorComponent!: CodemirrorComponent;
+codemirror!: CodeMirror.Editor;
 ...
 ```
-
-
-**Reference:** [#12965](https://github.com/oppia/oppia/pull/12965/files#diff-a6de57afea05cf64679a839bccd46bd637dcd287d134ad3483a3714d033a5f16R23-R29)
 
