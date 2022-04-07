@@ -27,7 +27,7 @@ To check whether your Mac has an M1 chip, navigate to the Apple menu and select 
 
 Oppia relies on a number of programs and third-party libraries. Many of these libraries are downloaded automatically for you when you first run the `start.py` script provided with Oppia. However, there are some things that you will need to do beforehand:
 
-1. [**If you have Mac OS >= 12.3**] Ensure that you have Python 2.7 available on your system. If Python 2.7 is not installed, please follow the following steps: 
+1. [**If you have Mac OS >= 12.3**] Ensure that you have Python 2.7 available on your system. (This is needed because App Engine's `dev_appserver.py` [requires Python 2.7 to be installed](https://cloud.google.com/appengine/docs/standard/python3/tools/local-devserver-command).) If Python 2.7 is not installed, please follow the following steps: 
 
     * Download MacOS [Python 2.7 installer](https://www.python.org/downloads/release/python-2716/) (depending on whether your system is 32bit/64bit). Once you have downloaded it, please install Python 2.7 using the installer.
 
