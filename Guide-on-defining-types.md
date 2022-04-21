@@ -359,19 +359,19 @@ We are working to enable strict mode checks for all TypeScript code in the codeb
 The following list illustrates some common TypeScript issues encountered in the Oppia codebase and explains how to update the code in each case, in order to support strict type-checking.
 
 ### [TS-1]:
- Variable `<variable name>` implicitly has type ‘any’ in some locations where its type cannot be determined
+ Variable `<variable name>` implicitly has type 'any' in some locations where its type cannot be determined
 #### [TS-1-1]
 
 ##### Violation:
 The type of variable is not defined explicitly and hence typescript assigns it an ‘any’ type. This violates the **noImplicitAny** rule of strict mode. 
 
 ```typescript
-describe(‘Test winnowing preprocessing functions’, () => {
-    var service; // error
-    beforeEach(() => {
-        service = new WinnowingPreprocessingService();
-    });
-...
+describe('Test winnowing preprocessing functions', () => {
+  var service; // error
+  beforeEach(() => {
+    service = new WinnowingPreprocessingService();
+  });
+  ...
 });
 ```
 
@@ -381,12 +381,12 @@ To solve this, the variable is explicitly assigned the type it belongs to. In so
 In this example, the service was of type `WinnowingPreprocessingService`.
 
 ```typescript
-describe(‘Test winnowing preprocessing functions’, () => {
-    var service: WinnowingPreprocessingService; 
-    beforeEach(() => {
-        service = new WinnowingPreprocessingService();
-    });
-...
+describe('Test winnowing preprocessing functions', () => {
+  var service: WinnowingPreprocessingService; 
+  beforeEach(() => {
+    service = new WinnowingPreprocessingService();
+  });
+  ...
 });
 ```
 
@@ -399,7 +399,6 @@ The following scenario arises when we are dealing with the need to specify the t
 var errors; // noImplicitAny Violation
 
 errors = ObjectDomainConstants.NUMBER_WITH_UNIT_PARSING_ERRORS;
-
 ``` 
 
 
@@ -423,9 +422,9 @@ The **strictNullChecks** rule disallows assigning `null` and `undefined` as a va
 In the following example taken from the codebase, `ruleObjectFactory` is of type `RuleObjectFactory`. Since it was not explicitly assigned the type `null`, the compiler throws an error when we try to assign it the value `null`. 
 
 ```typescript
-describe(‘RuleObjectFactory’. () => {
-    let ruleObjectFactory: RuleObjectFactory = null; // error
-...
+describe('RuleObjectFactory', () => {
+  let ruleObjectFactory: RuleObjectFactory = null; // error
+  ...
 })
 ```
 
@@ -435,9 +434,9 @@ describe(‘RuleObjectFactory’. () => {
 In some cases that arise throughout the Oppia codebase as in this example, we can simply remove the `null` value assignment.
 
 ```typescript
-describe(‘RuleObjectFactory’. () => {
-    let ruleObjectFactory: RuleObjectFactory;
-...
+describe('RuleObjectFactory', () => {
+  let ruleObjectFactory: RuleObjectFactory;
+  ...
 })
 ```
 
@@ -450,7 +449,7 @@ The **strictNullChecks** rule does not pass and the value `null` or `undefined` 
 …
 private savedMemento: string = null; // error
 setStateNameSavedMemento(stateName: string): void {
-    this.savedMemento = stateName;
+  this.savedMemento = stateName;
 }
 
 ```
@@ -466,7 +465,7 @@ If refactoring may not be an option as in the example above, we can convert the 
 …
 private savedMemento: string | null = null;
 setStateNameSavedMemento(stateName: string | null ): void {
-    this.savedMemento = stateName;
+  this.savedMemento = stateName;
 }
 ```
 
@@ -500,8 +499,8 @@ Hence, to make sure the code behaves the way it is supposed to, we should throw 
 ```typescript
 ...
 var height = shadowPreviewCard.height();
-if (typeof height === undefined){
-    throw new Error(“Shadow Preview Card Selector does not exist”)’;
+if (typeof height === undefined) {
+  throw new Error("Shadow Preview Card Selector does not exist");
 }
 return (height > 630); 
 ```
@@ -515,19 +514,19 @@ Using `?` before assigning values to properties makes them optional, which means
 For example, `can_edit_topic` is implicitly of type `boolean | undefined`. 
 
 ```typescript
-...
+  ...
   // These properties are optional because they are only present in the
   // topic summary dict of topic dashboard page.
   'can_edit_topic'?: boolean;
   'is_published'?: boolean;
   'classroom'?: string;
-...
-   topicSummaryBackendDict.topic_model_last_updated,
-   topicSummaryBackendDict.can_edit_topic, // error
-   topicSummaryBackendDict.is_published, // error
-   topicSummaryBackendDict.classroom, // error
-   topicSummaryBackendDict.thumbnail_filename,
-   topicSummaryBackendDict.thumbnail_bg_color,
+  ...
+  topicSummaryBackendDict.topic_model_last_updated,
+  topicSummaryBackendDict. can_edit_topic, // error
+  topicSummaryBackendDict.is_published, // error
+  topicSummaryBackendDict.classroom, // error
+  topicSummaryBackendDict.thumbnail_filename,
+  topicSummaryBackendDict.thumbnail_bg_color,
 ```
 
 
@@ -541,15 +540,15 @@ If not, the fix to this error will be to add ` | undefined` at places where thes
   public canEditTopic: boolean | undefined,
   public isPublished: boolean | undefined,
   public classroom: string | undefined,
-...
+  ...
   getClassroom(): string | undefined {
     return this.classroom;
   }
-...
+  ...
   isTopicPublished(): boolean | undefined {
     return this.isPublished;
   }
-...
+  ...
 ```
 
 
@@ -560,24 +559,24 @@ If not, the fix to this error will be to add ` | undefined` at places where thes
 ##### Violation:
 This situation or a variant of it arises in a significant number of files in the Oppia codebase when working with dictionaries. The following error arises because there is no explicit type mentioned for the key-value pairs of the dictionary. Hence the type of value returned for the specific key cannot be determined and ends up implicitly with type `any` which is not allowed in typescript strict mode.
 
-In the example, `nodeTitles` had type `{ }` with no explicit mention of the types of key-value pairs and `nodes[ ].getId()` returns a `string`. 
+In the example, `nodeTitles` had type `{}` with no explicit mention of the types of key-value pairs and `nodes[ ].getId()` returns a `string`. 
 
 ```typescript
 ...
 var nodes = this._nodes;
-var nodeTitles = { };
+var nodeTitles = {};
 for (var i = 0; i < nodes.length; i++){
-    ...
-    // nodes[i].getId() -> returns string
-    let title = nodeTitles[nodes[i].getId()]; //error
-    ...
+  ...
+  // nodes[i].getId() -> returns string
+  let title = nodeTitles[nodes[i].getId()]; //error
+  ...
 }
 ```
 
 
 ##### Solution:
 We need to explicitly mention the type of key-value pair/s present in the dictionary. 
-For simple dictionaries, this can be done by using the utility type `Record<Keys,Type>`. 
+For simple dictionaries, this can be done by using the utility type `Record<Keys, Type>`. 
 
 **Note:** An interface should be declared for more complicated dictionaries and anything that is used at more than one place except the following:
 Native types
@@ -587,12 +586,12 @@ Utility Types (e.g. `Partial<Type>`, `Pick<Type, Keys>, Record<Keys, Type>`) -- 
 ```typescript
 ...
 var nodes = this._nodes;
-var nodeTitles: Record<string,string> = { };
+var nodeTitles: Record<string,string> = {};
 for (var i = 0; i < nodes.length; i++){
-    ...
-    // nodes[i].getId() -> returns string
-    let title = nodeTitles[nodes[i].getId()]; 
-    ...
+  ...
+  // nodes[i].getId() -> returns string
+  let title = nodeTitles[nodes[i].getId()]; 
+  ...
 }
 ```
 
@@ -604,9 +603,9 @@ When we use `Object.keys()` it returns type `string[ ]` and not type `<constant 
 ```typescript
 var keys = Object.keys(ObjectsDomainConstants.CURRENCY_UNITS);
 for (var i = 0; i < keys.length; i++){
-    let baseUnitValue = (
-        ObjectsDomainConstants.CURRENCY_UNITS[keys[i]].base_unit); // error
-    );
+  let baseUnitValue = (
+    ObjectsDomainConstants.CURRENCY_UNITS[keys[i]].base_unit); // error
+  );
 }
 ```
 
@@ -616,14 +615,14 @@ The potential fix to this error is to explicitly identify the type of key values
 
 ```typescript
 type CurrencyUnitKeys = (
-    keyof typeof ObjectDomainConstants.CURRENCY_UNITS)[ ];
+  keyof typeof ObjectDomainConstants.CURRENCY_UNITS)[];
 var keys = (
-     <CurrencyUnitsKeys> Object.keys(ObjectsDomainConstants.CURRENCY_UNITS)
-   );
+  <CurrencyUnitsKeys> Object.keys(ObjectsDomainConstants.CURRENCY_UNITS)
+);
 for (var i = 0; i < keys.length; i++){
-    let baseUnitValue = (
-        ObjectsDomainConstants.CURRENCY_UNITS[keys[i]].base_unit); 
-    );
+  let baseUnitValue = (
+    ObjectsDomainConstants.CURRENCY_UNITS[keys[i]].base_unit); 
+  );
 }
 ```
 
@@ -632,12 +631,12 @@ for (var i = 0; i < keys.length; i++){
 
 
 ### [TS-5]:
- Argument of type 'string[ ]' is not assignable to parameter of type 'number[ ]’
+ Argument of type 'string[]' is not assignable to parameter of type 'number[]'
 
 #### [TS-5-1]
 ##### Violation:
-This error specifies that a wrong type cannot be assigned to some variable of type string[ ]. 
-Using `Object.keys()` returns some value of type `string[ ]` but usage of variable for assignment at other places asks for it to be a `number[ ]`.
+This error specifies that a wrong type cannot be assigned to some variable of type string[]. 
+Using `Object.keys()` returns some value of type `string[]` but usage of variable for assignment at other places asks for it to be a `number[]`.
 
 ```typescript
 var existingNumSpaces = Object.keys(numSpacesToDesiredIndentLevel);
@@ -700,6 +699,7 @@ The strictPropertyInitialization rule enforces that the properties are assigned 
 @Input() options: CodeMirrorMergeViewOptions; // error
 @ViewChild(CodemirrorComponent) codemirrorComponent: CodemirrorComponent;  //error
 codemirror: CodeMirror.Editor; // error
+
 ...
 ```
 
@@ -707,6 +707,8 @@ codemirror: CodeMirror.Editor; // error
 
 ##### Solution:
 Angular lifecycle hooks are used to populate the values inside the codebase. To solve this case, we will be using the non-null (!) assertion operator which asserts that the object is non-null and non-undefined. Always make sure to only assert variables that we know are initialized at the creation of the class, for example in the constructor or in `ngOnInit`.
+
+In some cases it is fine to use `null`, but only if it logically makes sense and when the `null` represents some logical value.
 
 ```typescript
 ...
