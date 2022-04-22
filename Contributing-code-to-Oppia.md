@@ -62,25 +62,25 @@ Welcome! Please make sure to follow the instructions above if you haven't alread
 
 * [#13162](https://github.com/oppia/oppia/issues/13162) (Write schemas for handler class arguments)
 
+* [#12912](https://github.com/oppia/oppia/issues/12912) (Fix pylint problems)
+
 * [#14033](https://github.com/oppia/oppia/issues/14033) (Adding MyPy type annotations to domain files)
 
 * [#14219](https://github.com/oppia/oppia/issues/14219) (Writing backend tests)
 
-* [#12912](https://github.com/oppia/oppia/issues/12912) (Fix pylint problems)
-
 #### Frontend
-
-* [#10700](https://github.com/oppia/oppia/issues/10700) (Refactor all migrated object factories to model.ts files in angular)
-
-* [#9749](https://github.com/oppia/oppia/issues/9749) (Migrate directives/controllers to Angular components)
-
-* [#8668](https://github.com/oppia/oppia/issues/8668) (frontend; documenting the services)
 
 * [#8015](https://github.com/oppia/oppia/issues/8015) (Refactoring frontend - Services should return domain objects instead of dicts)
 
 * [#8016](https://github.com/oppia/oppia/issues/8016) (Refactoring frontend - The backend api calls in the frontend should only happen through services)
 
 * [#8038](https://github.com/oppia/oppia/issues/8038) (Refactoring frontend services - The backend api calls in the frontend should only happen through services)
+
+* [#10700](https://github.com/oppia/oppia/issues/10700) (Refactor all migrated object factories to model.ts files in angular)
+
+* [#9749](https://github.com/oppia/oppia/issues/9749) (Migrate directives/controllers to Angular components)
+
+* [#8668](https://github.com/oppia/oppia/issues/8668) (frontend; documenting the services)
 
 * [#10474](https://github.com/oppia/oppia/issues/10474) (Make typescript checks strict)
 
