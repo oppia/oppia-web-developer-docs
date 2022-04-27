@@ -52,6 +52,8 @@ If a PR needs to be hotfixed for the release, please do the following:
 
 # Responsibilities of the release coordinator
 - Ensuring that the release (and all related processes) for the month happen on schedule and are performed correctly.
+    - If you are unable to conduct a release due to any reason, please inform the release team lead at least a month before and try to find a backup to replace you as the release coordinator.
+    - If the release does not follow the usual process or is delayed, a 1:1 will be scheduled with the release team lead to find the issues and work on mitigations to avoid them in the future.
 - Handling all deployments to the test server and the production server.
 - Running any one-off jobs for the release.
 
