@@ -1,8 +1,8 @@
 # Schedule
-**The Friday before the first Saturday of each month**: Release branch gets created. Push the release branch onto a test server.
+**The Wednesday before the first Saturday of each month**: Release branch gets created. Push the release branch onto a test server.
 Features merged into `develop` after this date will only go out in the following release. 
 
-The Friday before the first Saturday of each month is the soft deadline for the start of the release. The release cut should be made on the soft deadline if there is no PR that needs to get into the release. If there is some PR that needs to get into the release, the release cut can be delayed. The maximum delay for the release cut is one week, so the Friday before the second Saturday of each month is the hard deadline for the release cut. In between the soft and the hard deadline the release coordinator is the person that decides when the release should happen exactly.
+The Wednesday before the first Saturday of each month is the soft deadline for the start of the release. The release cut should be made on the soft deadline if there is no PR that needs to get into the release. If there is some PR that needs to get into the release, the release cut can be delayed. The maximum delay for the release cut is one week, so the Wednesday before the second Saturday of each month is the hard deadline for the release cut. In between the soft and the hard deadline the release coordinator is the person that decides when the release should happen exactly.
 
 **First weekend of each month**: The release team will focus on testing. Typically the testing deadline is chosen to be the Monday after the weekend. The testing should be completed by the deadline. All bugs caught should be filed as blocking bugs on Github, and should be assigned to a bugfixer ASAP.
 
@@ -108,10 +108,10 @@ We also have a project leads council who will be contacted about project specifi
 | March         | 4th March        | Kevin (**@kevintab95**)     | Vojta (**@vojtechjelinek**) | Kevin (**@kevintab95**)     |
 | April         | 1st April        | Akshay (**@aks681**)        | Chris (**@U8NWXD**)         | Kevin (**@vojtechjelinek**) |
 | May           | 6th May          | Chris (**@U8NWXD**)         | Nithesh (**@nithusha21**)   | Kevin (**@kevintab95**)     |
-| June          | 3rd June         | Nithesh (**@nithusha21**)   | Akshay (**@aks681**)        | Vojta (**@vojtechjelinek**) |
-| July          | 1st July         | Ankita (**@ankita240796**)  | Nithesh (**@nithusha21**)   | Kevin (**@kevintab95**)     |
-| August        | 5th August       | Vojta (**@vojtechjelinek**) | Kevin (**@kevintab95**)     | Kevin (**@kevintab95**)     |
-| September     | 2nd September    | Sandeep (**@DubeySandeep**) | Rohit (**@rohitkatlaa**)    | Kevin (**@kevintab95**)     |
-| October       | 7th October      | Kevin (**@kevintab95**)     | Nithesh (**@nithusha21**)   | Vojta (**@vojtechjelinek**) |
-| November      | 4th November     | Akshay (**@aks681**)        | Vojta (**@vojtechjelinek**) | Kevin (**@kevintab95**)     |
-| December      | 2nd December     | Chris (**@U8NWXD**)         | Rohit (**@rohitkatlaa**)    | Kevin (**@kevintab95**)     |
+| June          | 1st June         | Nithesh (**@nithusha21**)   | Akshay (**@aks681**)        | Vojta (**@vojtechjelinek**) |
+| July          | 29th June        | Ankita (**@ankita240796**)  | Nithesh (**@nithusha21**)   | Kevin (**@kevintab95**)     |
+| August        | 3rd August       | Vojta (**@vojtechjelinek**) | Kevin (**@kevintab95**)     | Kevin (**@kevintab95**)     |
+| September     | 31st August      | Sandeep (**@DubeySandeep**) | Rohit (**@rohitkatlaa**)    | Kevin (**@kevintab95**)     |
+| October       | 5th October      | Kevin (**@kevintab95**)     | Nithesh (**@nithusha21**)   | Vojta (**@vojtechjelinek**) |
+| November      | 2nd November     | Akshay (**@aks681**)        | Vojta (**@vojtechjelinek**) | Kevin (**@kevintab95**)     |
+| December      | 30th November    | Chris (**@U8NWXD**)         | Rohit (**@rohitkatlaa**)    | Kevin (**@kevintab95**)     |
