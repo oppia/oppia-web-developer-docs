@@ -64,10 +64,6 @@ Welcome! Please make sure to follow the instructions above if you haven't alread
 
 * [#12912](https://github.com/oppia/oppia/issues/12912) (Fix pylint problems)
 
-* [#14033](https://github.com/oppia/oppia/issues/14033) (Adding MyPy type annotations to domain files)
-
-* [#14219](https://github.com/oppia/oppia/issues/14219) (Writing backend tests)
-
 #### Frontend
 
 * [#8015](https://github.com/oppia/oppia/issues/8015) (Refactoring frontend - Services should return domain objects instead of dicts)
