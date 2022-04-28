@@ -51,6 +51,7 @@ If a PR needs to be hotfixed for the release, please do the following:
 - Email the [release co-ordinator for the month](https://github.com/oppia/oppia/wiki/Release-schedule-and-other-information#release-coordinators-and-qa-coordinators-for-upcoming-releases) with the PR link and why it needs to be hotfixed.
 
 # Responsibilities of the release coordinator
+- It is mandatory for the release coordinator to communicate clearly during the release process, especially in the group chat to share updates as the release steps are completed as well as keep the team updated if there are any delays from their end.
 - Ensuring that the release (and all related processes) for the month happen on schedule and are performed correctly.
     - If you are unable to conduct a release due to any reason, please inform the release team lead at least a month before and try to find a backup to replace you as the release coordinator.
     - If the release does not follow the usual process or is delayed, a 1:1 will be scheduled with the release team lead to find the issues and work on mitigations to avoid them in the future.
