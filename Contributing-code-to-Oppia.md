@@ -74,9 +74,7 @@ Welcome! Please make sure to follow the instructions above if you haven't alread
 
 * [#10700](https://github.com/oppia/oppia/issues/10700) (Refactor all migrated object factories to model.ts files in angular)
 
-* [#9749](https://github.com/oppia/oppia/issues/9749) (Migrate directives/controllers to Angular components)
-
-* [#8668](https://github.com/oppia/oppia/issues/8668) (frontend; documenting the services)
+* [#8668](https://github.com/oppia/oppia/issues/8668) (Documenting the services)
 
 * [#10474](https://github.com/oppia/oppia/issues/10474) (Make typescript checks strict)
 
