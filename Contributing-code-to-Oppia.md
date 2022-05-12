@@ -78,7 +78,7 @@ Welcome! Please make sure to follow the instructions above if you haven't alread
 
 * [#10474](https://github.com/oppia/oppia/issues/10474) (Make typescript checks strict)
 
-* [#10616](https://github.com/oppia/oppia/issues/10616) (Introduce new @typescript-eslint rules n the codebase)
+* [#10616](https://github.com/oppia/oppia/issues/10616) (Introduce new @typescript-eslint rules in the codebase)
 
 These issues are hand-picked to ensure that you don't run into unexpected roadblocks while working on them. For other issues, you may need to be more independent because often times, we don’t know how to solve them either.
 
