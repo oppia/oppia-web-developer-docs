@@ -15,11 +15,11 @@ OBS is a reliable streaming software that can be used for streaming and recordin
 1.  Install the latest OBS software from [here](https://obsproject.com/).
 
 2.  Open the OBS software and add the following sources by clicking on the "+" icon in the "sources" section in the bottom left part of the screen.
-
-    ![Screenshot showing where sources can be added](images/OBSAddSources.png)
     - Audio output capture, to capture speaker audio.
     - Audio input capture, to capture mic audio of organizer.
     - Window capture of the presented slides.
+
+      ![Screenshot showing where sources can be added](images/OBSAddSources.png)
 3. After adding sources, it should look like this.
   ![Screenshot showing the sources section after it is setup correctly](images/OBSSourcesSectionAfterSetup.png)
 
