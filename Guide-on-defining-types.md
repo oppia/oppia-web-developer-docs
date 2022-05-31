@@ -718,36 +718,3 @@ codemirror!: CodeMirror.Editor;
 ...
 ```
 
-### [TS-8]:
- Type 'key' cannot be used as an index type.
-#### [TS-8-1]:
-##### Violation:
-This error occurs when a value that is possibly undefined/unknown/any is used to index an object or array. To solve the error, use the correct typing to make sure the value is known before indexing the object or array. Using a wrong type for indexing would also lead to this error.
-
-In the example, property `hashIndex` had a type `unknown`.
-
-```typescript
-
-getFingerprintFromHashes(
-  kGramHashes: number[], T: number, K: number): number[][] {
-  var fingerprint: number[][] = [];
-  var fingerprintHashesIndex = [1, 2, 3, 4];
-  ...
-  fingerprintHashesIndex.forEach((hashIndex: unknown) => {
-      fingerprint.push([kGramHashes[hashIndex], hashIndex]); // error
-  });
-  ...
-}
-```
-
-
-##### Solution:
-The potential fix to this error is to remove the use of `unknown` and correctly mention the type of `hashIndex`.
-
-```typescript
-fingerprintHashesIndex.forEach((hashIndex: number) => {
-      fingerprint.push([kGramHashes[hashIndex], hashIndex]);
-});
-```
-
-
