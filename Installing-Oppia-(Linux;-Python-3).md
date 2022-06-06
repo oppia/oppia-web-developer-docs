@@ -131,9 +131,9 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
    eval "$(pyenv virtualenv-init -)"
    ```
 
-2. Reload your shell or open a new terminal window to load your updated `~/.bashrc`.
+3. Reload your shell or open a new terminal window to load your updated `~/.bashrc`.
 
-3. Now you can install Python 3.7.10 and the associated pip like this:
+4. Now you can install Python 3.7.10 and the associated pip like this:
 
    ```console
    $ pyenv install 3.7.10
@@ -143,26 +143,32 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
    Installed Python-3.7.10 to /home/user/.pyenv/versions/3.7.10
    ```
 
-4. Create a virtual environment for oppia:
+5. Install direnv
 
-   ```console
-   $ pyenv virtualenv 3.7.10 oppia
-   ...
-   $ pyenv versions
-   ...
-   oppia
-   ...
+   ```sh
+   $ sudo apt install direnv
+   ```
+   
+6. Setup direnv into your shell. Add following lines to the end of `.bashrc` (see [here](https://askubuntu.com/a/127059) for where to find this file):
+   ```bash
+   eval "$(direnv hook bash)"
    ```
 
-   In the cloned `oppia` folder, run
+7. Create a virtual environment for oppia. Add file named `.envrc` into the parent folder of the oppia repository with this content:
 
    ```console
-   pyenv local oppia
+   use python 3.7.10
+   ```
+
+   Then ran this command in the same folder:
+
+   ```sh
+   $ direnv allow
    ```
 
    Now whenever you are within the `oppia` folder, the virtual environment will be active.
 
-5. Install the Python dependencies:
+8. Install the Python dependencies:
 
    ```console
    $ pip install pyyaml setuptools
@@ -176,7 +182,7 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
 
    Note that you don't need to install pyyaml if you were able to install python-yaml with your package manager earlier.
 
-6. If you want to run backend tests and check coverage, please install these 2 pip libraries:
+9. If you want to run backend tests and check coverage, please install these 2 pip libraries:
 
    ```console
    pip install coverage configparser
