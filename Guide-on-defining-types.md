@@ -754,7 +754,7 @@ fingerprintHashesIndex.forEach((hashIndex: number) => {
  The operand of a 'delete' operator must be optional.
 #### [TS-9-1]:
 ##### Violation:
-This error occurs when using the delete operator in strictNullChecks. Because the property is no longer implemented after deletion, set its type to undefined. As a result, the property must be undefined; otherwise, the delete operator leads to an error.
+This error occurs when using the `delete` operator with strictNullChecks. Since a property cannot be implemented after deletion, its type is set to undefined. So, the property must contain undefined as a type, otherwise the delete operator leads to an error.
 
 ```typescript
 export class OutcomeDestinationEditorComponent implements OnInit {
@@ -770,9 +770,9 @@ export class OutcomeDestinationEditorComponent implements OnInit {
 
 
 ##### Solution:
-One of the potential fix to this error is to assign `undefined` but generally we try to avoid unnecessary use of `undefined`. Because usage of `undefined` does not represent or give proper information about the actual situation.
+One of the potential fixes to this error is to assign `undefined` as a type but we generally try to avoid it's usage because it does not represent or give proper information about the actual situation.
 
-As a result, in this case, we choose to use `null` rather than `undefined`. Because the delete operator makes a property unusable, `null` is a better representation of emptiness, unusable or property is now no longer implemented.
+So, in this case, we choose to use `null` rather than `undefined`. Since the delete operator makes a property unusable, `null` is a better representation of emptiness or unusability and property is now no longer implemented.
 
 ```typescript
 export class OutcomeDestinationEditorComponent implements OnInit {
