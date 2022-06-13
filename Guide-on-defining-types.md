@@ -749,3 +749,39 @@ fingerprintHashesIndex.forEach((hashIndex: number) => {
       fingerprint.push([kGramHashes[hashIndex], hashIndex]);
 });
 ```
+
+### [TS-9]:
+ The operand of a 'delete' operator must be optional.
+#### [TS-9-1]:
+##### Violation:
+This error occurs when using the `delete` operator with strictNullChecks. Since a property cannot be implemented after deletion, its type is set to undefined. So, the property must contain undefined as a type, otherwise the delete operator leads to an error.
+
+```typescript
+export class OutcomeDestinationEditorComponent implements OnInit {
+  ...
+  outcomeNewStateName: string;
+  ...
+  ngOnInit(): void {
+  ...
+  delete this.outcomeNewStateName; // error
+  ...
+}
+```
+
+
+##### Solution:
+One of the potential fixes to this error is to assign `undefined` as a type but we generally try to avoid it's usage because it does not represent or give proper information about the actual situation.
+
+So, in this case, we choose to use `null` rather than `undefined`. Since the delete operator makes a property unusable, `null` is a better representation of emptiness or unusability and property is now no longer implemented.
+
+```typescript
+export class OutcomeDestinationEditorComponent implements OnInit {
+  ...
+  outcomeNewStateName: string | null;
+  ...
+  ngOnInit(): void {
+  ...
+  this.outcomeNewStateName = null;
+  ...
+}
+```
