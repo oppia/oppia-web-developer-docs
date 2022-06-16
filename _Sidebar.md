@@ -43,7 +43,7 @@
       * [[Interpreting CircleCI Results|Interpreting CircleCI Results]]
       * [[Debugging datastore locally|Debugging-datastore-locally]]
       * [[Debugging Docs|Debugging-Docs]]
-      * Debugging end-to-end tests
+      * [[Debugging end-to-end tests|Debug-end-to-end-tests]]
         * [[Protractor|Debug-end-to-end-tests-protractor]]
         * [[WebdriverIO|Debug-end-to-end-tests-webdriverio]]
       * [[Debugging backend tests|Debug-backend-tests]]
