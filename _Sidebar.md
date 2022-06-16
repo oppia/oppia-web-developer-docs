@@ -67,7 +67,7 @@
       * [[TypeScript tests|TypeScript-tests]]
       * [[Backend tests|Backend-tests]]
       * [[Frontend tests|Frontend-tests]]
-      * End-to-end tests
+      * [[End-to-end tests|End-to-End-tests]]
          * [[Protractor|Protractor]]
          * [[WebdriverIO|WebdriverIO]]
          * Migration
