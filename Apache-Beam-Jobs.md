@@ -24,7 +24,6 @@
   * [Production Server](#production-server)
 * [Beam guidelines](#beam-guidelines)
   * [Do not use NDB put/get/delete directly](#do-not-use-ndb-putgetdelete-directly)
-  * [When writing jobs make sure they are thorough](#when-writing-jobs-make-sure-they-are-thorough)
 * [Common Beam errors](#common-beam-errors)
   * [`'_UnwindowedValues' object is not subscriptable` error](#_unwindowedvalues-object-is-not-subscriptable-error)
 * [Case studies](#case-studies)
@@ -638,14 +637,6 @@ Even though it is possible to use NDB functions directly, they should not be use
 - Instead of using `delete`, `delete_multi`, etc. you should use `DeleteModels`, and you just pipe a `PCollection` of models to it and they will be deleted from the datastore.
 
 All of the aforementioned classes are already used in the codebase so you can look for examples.
-
-### When writing jobs make sure they are thorough
-
-Make sure to account for all possible instances/occurrences of the thing that you're trying to do. 
-
-For example when writing an audit job make sure to include all models that should be validated. In these models make sure to validate all relevant fields and check for all possible values.
-
-For more complicated jobs (more than one model class or more than three fields) make sure to provide written proof or explanation of the “thoroughness” of the job in the docstring of the job. 
 
 ## Common Beam errors
 
