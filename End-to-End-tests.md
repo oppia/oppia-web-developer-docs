@@ -6,6 +6,11 @@
   * [Why flakes are problematic](#why-flakes-are-problematic)
   * [Preventing flakes](#preventing-flakes)
   * [If the end-to-end tests are failing on your PR](#if-the-end-to-end-tests-are-failing-on-your-pr)
+* [Run E2E tests](#run-e2e-tests)
+  * [Set chromedriver version](#set-chromedriver-version)
+  * [Configure test sharding](#configure-test-sharding)
+  * [Run a single end-to-end test](#run-a-single-end-to-end-test)
+  * [Run end-to-end tests in production mode](#run-end-to-end-tests-in-production-mode)
 * [Versions of end-to-end tests](#versions-of-end-to-end-tests)
 
 ## Introduction
@@ -87,6 +92,76 @@ First, check that your changes couldn't be responsible. For example, if your PR 
 If your changes could be responsible for the failure, you'll need to investigate more. Try running the test locally on your computer. If it fails there too, you can debug locally. Even if you can only reproduce the flake on CI, there are lots of other ways you can debug. See our [[guide to debugging E2E tests|Debug-end-to-end-tests]].
 
 If you are _absolutely certain_ that the failure was not caused by your changes, then you can restart the test. Remember that restarting tests can let new flakes into our code, so please be careful.
+
+## Run E2E tests
+
+If you don't know the name of the suite you want to run, you can find it in `core/tests/wdio.conf.js` or `core/tests/protractor.conf.js`. Then you can run your test like this:
+
+```console
+python -m scripts.run_e2e_tests --suite="suiteName"
+```
+
+Chrome will open and start running your tests.
+
+### Set chromedriver version
+
+The end-to-end tests are run on the Chrome browser and depend on chromedriver. The chromedriver version to be used depends on the Chrome browser version installed on the machine. We try to determine this version automatically, but if our automatic determination fails, you'll see an error with this advice:
+
+```text
+Please set the chromedriver version manually using the --chrome_driver_version flag.
+```
+
+You may also want to set the chromedriver version manually if you want to test a particular version.
+
+To manually set the chromedriver version, use the `--chrome_driver_version` argument:
+
+```console
+python -m scripts.run_e2e_tests --chrome_driver_version <version>
+```
+
+To determine which version of chromedriver to use, please follow these steps:
+
+1. Find the Chrome browser version installed on your machine by going to `chrome://version/`. For example, in the screenshot below, the version number is `83.0.4103.61`.
+
+   ![Screenshot of Chrome version page.](https://user-images.githubusercontent.com/11008603/87473539-3c972880-c63f-11ea-9455-04edb0196731.png)
+
+2. Remove the last part of the version number from step 1 and append the result to URL `https://chromedriver.storage.googleapis.com/LATEST_RELEASE_`. For example, if your version number is `83.0.4103.61`, the URL will look like "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_83.0.4103".
+
+3. Go to the URL from step 2 and copy the version number on the screen.
+
+4. The version number obtained in step 3 is the chromedriver version to be passed along to the script.
+
+If you see a failure due to the webdriver, please follow the instructions above to double check that the chromedriver version provided is in sync with the Chrome browser version installed on the machine.
+
+### Configure test sharding
+
+If you run all the E2E tests at once (i.e. if you don't specify a suite), the tests will be sharded across multiple Chrome browser instances. By default, the tests will use 3 shards (i.e. 3 browsers). If you do this, you should close background processes to maximize the compute resources available to the tests. You can configure the number of shards like this:
+
+```console
+python -m scripts.run_e2e_tests --sharding-instances=<number of shards>
+```
+
+You can disable sharding like this:
+
+```console
+python -m scripts.run_e2e_tests --sharding=false
+```
+
+Note that when we run tests on CI, we run one suite at a time, so there is no sharding.
+
+### Run a single end-to-end test
+
+To run just one test, change the "it" to "fit" for that test. Then when you run the tests, specify the suite containing your test.
+
+### Run end-to-end tests in production mode
+
+To run the end-to-end tests in production mode, use the `--prod_env` flag:
+
+```console
+python -m scripts.run_e2e_tests --prod_env
+```
+
+On CI, we run all the E2E tests in production mode to more closely mimic how the Oppia application behaves in production.
 
 ## Versions of end-to-end tests
 

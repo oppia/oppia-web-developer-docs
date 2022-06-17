@@ -15,7 +15,7 @@ There are many ways to go about debugging an E2E test, but here is one approach:
    * Look for a line that says just `Killed`. This line indicates that some process was killed by the operating system for consuming too much memory. It's fairly safe to assume that the test failure was because of that process being killed.
    * Look for the stack trace and error message of the _first_ error. The trace might point you to where the error was thrown in the test code, and the message may help explain what went wrong.
 
-3. If you don't understand what the error message means, search for it online. Also look through the test code and `core/test/webdriverior_utils/action.js` to see if the error message (or something like it) is in our test code.
+3. If you don't understand what the error message means, search for it online. Also look through the test code and `core/test/protractor_utils/action.js` to see if the error message (or something like it) is in our test code.
 
 4. Enable video recordings and rerun the test until you reproduce the error. Then watch the video recordings and follow along in the test code. Try and understand why the error was thrown.
 
@@ -23,7 +23,7 @@ There are many ways to go about debugging an E2E test, but here is one approach:
 
 ## How to know the version of failing test suite
 
-Currently, we have two versions of E2E test suites present: Protractor and WebDriverIO. So It's important to first find out which version of test suite is failing on your PR. The following [webdriverio migration tracker](https://docs.google.com/spreadsheets/d/1Mj-llYXMURtis54vpL2VL7BwgRiFIZ1nIFtK3fY3Se4/edit?usp=sharing) contains the information about which suite is present in which version (see Suites migrated to WebdriverIO, Suites still in Protractor)
+Currently, we have two versions of E2E test suites present, Protractor and WebDriverIO, so it's important to first find out which framework the failing test suite is written in. The [webdriverio migration tracker](https://docs.google.com/spreadsheets/d/1Mj-llYXMURtis54vpL2VL7BwgRiFIZ1nIFtK3fY3Se4/edit?usp=sharing) contains the information about which suite is present in which framework (see "Suites migrated to WebdriverIO" and "Suites still in Protractor").
 
 * [Debug E2E test protractor](Debug-end-to-end-tests-protractor.md#table-of-contents)
 

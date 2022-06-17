@@ -1,22 +1,30 @@
+## Table of contents
+
+* [Overview](#overview)
+* [Selectors](#selectors)
+* [Events on selected elements](#events-on-selected-elements)
+* [Points to note while migrating](#points-to-note-while-migrating)
+* [Example migration](#example-migration)
+
 ## Overview
 
-Currently, Oppia E2E tests are in a hybrid state where we have both WebdriverIO and Protractor test suites. The GSoC project **Migrate away from Protractor** aims to migrate all the existing E2E tests to WebdriverIO.
+Currently, Oppia End-to-End tests are in a hybrid state where we have both WebdriverIO and Protractor test suites. The GSoC project **Migrate away from Protractor** aims to migrate all the existing End-to-End tests to WebdriverIO.
 
 This guide is to help contributors in migrating end-to-end tests from Protractor to WebdriverIO during the hybrid state.
 
 ## Selectors
 
-A Selector is used to query an element. The WebDriver Protocol provides several selector strategies to query an element. WebdriverIO simplifies them to keep selecting elements simple
+A selector is used to query an element. The WebDriver Protocol provides several selector strategies to query an element. WebdriverIO simplifies them to keep selecting elements simple
 
 The `$` command is a short way to call the findElement command in order to fetch a single element on the page
 
 | Goal                                     | Protractor                               |WebdriverIO           |
 | -----------------------------------------| -----------------------------------------|----------------------|
-| Select element by class name             |`element(by.css('.some-css-class'))`           |`$('..some-css-class')`     |
+| Select element by class name             |`element(by.css('.some-css-class'))`           |`$('.some-css-class')`     |
 | Select element containing certain string Text |`element(by.cssContainingText(tag, text))`|`$('tag=text')`       |
 | Selecting Multiple Elements              |`element.all(by.css('.some-css-class'))`       |`$$('..some-css-class')`    |
 | Select element by ID                     |`element(by.css('#some-css-id'))`              |`$('#some-css-id')`        |
-| Select element inside a element with some class name |`element(by.css('some-css')).element(by.css('tag-within-css'))`  | `$('some-css').$('tag-within-css’)`      |
+| Select element inside a element with some class name |`element(by.css('some-css-class')).element(by.css('tag-within-css'))`  | `$('some-css-class').$('tag-within-css’)`      |
 | Selecting element one by one in loop     |`element.get(i)`                          |`$$(selector)[i]`     |
 
 There is no proper substitute available for the command `element.getWebElement()` in webdriverIO, but we can use `browser.findElement()` as a substitute for this.
@@ -25,15 +33,15 @@ For example, take look at the following code of protractor:
 
 ```js
  await browser.executeScript(
-      'arguments[0].click()', await clickableElement.getWebElement());
+    'arguments[0].click()', await clickableElement.getWebElement());
 ```
 
 WebdriverIO version will be like this:
 
 ```js
  await browser.execute(
-      'arguments[0].click()',
-      await browser.findElement('css selector', clickableElement));
+    'arguments[0].click()',
+    await browser.findElement('css selector', clickableElement));
 ```
 
 ## Events on selected elements
@@ -51,151 +59,75 @@ WebdriverIO version will be like this:
 |Get the value of a `<textarea>`, `<select>` or `<input>` found by given selector|`element.getText()` |`$(selector).getValue()`|
 |Clear a `<textarea>` or `<input>` element’s value   |`element.clear()` |   `$(selector).clearValue()`  |
 
-For more details please visit [ webdriverio ](https://webdriver.io/docs/gettingstarted) official documentation page.
+For more details please visit [webdriverio's official documentation](https://webdriver.io/docs/gettingstarted).
 
-## Points to note while migration
+## Points to note while migrating
 
-1. The basic utility files i.e. forms.js, waitFor.js, action. zjs, general.js, user.js will already be migrated for the ease of contributors.
+1. The basic utility files i.e. forms.js, waitFor.js, action.js, general.js, user.js will already be migrated for the ease of contributors.
+
+   | Files                                      | Expected Migration Date            |
+   | -------------------------------------------|  ----------------------------------|
+   |  waitFor.js, action.js, general.js, user.js|   2 July 2022                      |
+   | forms.js                                   |   20 July 2022                     |
 
 2. For more information on how to add new tests or modify the existing tests please refer to [Write E2E tests](WebdriverIO.md#run-e2e-tests) section.
 
-## Some example cases
+## Example migration
 
-1. Protractor
+**Protractor**
 
   ```js
-  var clear = async function(inputName, inputElement) {
-    await click(inputName, inputElement);
-    await inputElement.clear();
-  };
+  var until = protractor.ExpectedConditions;
 
-  var click = async function(elementName, clickableElement, elementIsMasked) {
-    await waitFor.visibilityOf(
-      clickableElement, `${elementName} is not visible.`);
-    await waitFor.elementToBeClickable(
-      clickableElement, `${elementName} is not clickable.`);
-    if (elementIsMasked) {
-      await browser.executeScript(
-        'arguments[0].click()', await clickableElement.getWebElement());
-    } else {
-      await clickableElement.click();
-    }
-  };
+  this.editUserRole = async function(username) {
+    await browser.get('/admin');
+  
+    var adminRolesTab = element(by.css('.protractor-test-admin-roles-tab'));
+    await adminRolesTab.click();
+
+    await expect(await adminRolesTab.getAttribute('class')).toMatch('active');
+
+    var adminRolesTabContainer = element(by.cssContainingText('h1', 'Role Conainer'));
+    await browser.wait(
+      await until.visibilityOf(element),
+      10000, 'Element not visible');
+
+    var usernameInputFieldForRolesEditing = element.all(by.css(
+      '.protractor-test-username-for-role-editor'));
+    await usernameInputFieldForRolesEditing.first().sendKeys(username);
+
+    var editUserRoleButton = await $('#protractor-test-button');
+    await buttonText = editUserRoleButton.getText();
+    expect(buttonText).toBe('Button Text');
   ```
 
-* WebdriverIO
+**WebdriverIO**
 
   ```js
-  var clear = async function(inputName, inputElement) {
-    await click(inputName, inputElement);
-    await inputElement.clearValue();
-  };
-  
-  var click = async function(elementName, clickableElement, elementIsMasked) {
-    await waitFor.visibilityOf(
-      clickableElement, `${elementName} is not visible.`);
-    await waitFor.elementToBeClickable(
-      clickableElement, `${elementName} is not clickable.`);
-    if (elementIsMasked) {
-      await browser.execute(
-        'arguments[0].click()',
-        await browser.findElement('css selector', clickableElement));
-    } else {
-      await clickableElement.click();
-    }
-  };
-  ```
+  var until = require('wdio-wait-for');
 
-2. Protractor
+  this.editUserRole = async function(username) {
+    await browser.url('/admin');
 
-  ```js
-  var clear = async function(inputName, inputElement) {
-    await click(inputName, inputElement);
-    await inputElement.clear();
-  };
-  
-  var click = async function(elementName, clickableElement, elementIsMasked) {
-    await waitFor.visibilityOf(
-      clickableElement, `${elementName} is not visible.`);
-    await waitFor.elementToBeClickable(
-      clickableElement, `${elementName} is not clickable.`);
-    if (elementIsMasked) {
-      await browser.executeScript(
-        'arguments[0].click()', await clickableElement.getWebElement());
-    } else {
-      await clickableElement.click();
-    }
-  };
-  ```
+    var adminRolesTab = await $('.webdriverio-test-admin-roles-tab');
+    await adminRolesTab.click();
 
-* WebdriverIO
+    await expect(await adminRolesTab.getAttribute('class')).toMatch('active');
 
-  ```js
-  var getText = async function(elementName, element) {
-    await waitFor.visibilityOf(
-      element, `${elementName} is not visible for getText()`);
-    return await element.getText();
-  };
-  
-  var getAttribute = async function(elementName, element, attribute) {
-    await waitFor.presenceOf(
-      element, `${elementName} is not present for getAttribute(${attribute})`);
-    return await element.getAttribute(attribute);
-  };
-  ```
+    var adminRolesTabContainer = await $('h1=Role Conainer');
+    await browser.waitUntil(
+      await until.visibilityOf(adminRolesTabContainer),
+      {
+        timeout: 10000,
+        timeoutMsg: 'Element not visible'
+      });
 
-3. Protractor
+    var usernameInputFieldForRolesEditing = (
+      await $$('.webdriverio-test-username-for-role-editor'));
+    await usernameInputFieldForRolesEditing[0].setValue(username);
 
-  ```js
-  var matSelect = async function(selectorName, selectorElement, optionToSelect) {
-    await click(selectorName, selectorElement);
-    var optionElement = element(
-      by.cssContainingText('.mat-option-text', optionToSelect));
-    await click(`${optionToSelect} in ${selectorName}`, optionElement);
-  };
-  
-  var select2 = async function(selectorName, selectorElement, optionToSelect) {
-    await click(selectorName, selectorElement);
-    var select2Results = element(by.css('.select2-results'));
-    await waitFor.visibilityOf(
-      select2Results, `${selectorName} options are not visible.`);
-    var option = select2Results.element(
-      by.cssContainingText('li', optionToSelect));
-    await click(`${optionToSelect} in ${selectorName}`, option);
-  };
-  
-  var sendKeys = async function(
-      inputName, inputElement, keys, clickInputElement = true) {
-    if (clickInputElement) {
-      await click(inputName, inputElement);
-    }
-    await inputElement.sendKeys(keys);
-  };
-  ```
-
-* WebdriverIO
-
-  ```js
-  var matSelect = async function(selectorName, selectorElement, optionToSelect) {
-    await click(selectorName, selectorElement);
-    var optionElement = await $(`.mat-option-text=${optionToSelect}`);
-    await click(`${optionToSelect} in ${selectorName}`, optionElement);
-  };
-  
-  var select2 = async function(selectorName, selectorElement, optionToSelect) {
-    await click(selectorName, selectorElement);
-    var select2Results = await $('.select2-results');
-    await waitFor.visibilityOf(
-      select2Results, `${selectorName} options are not visible.`);
-    var option = await $(`li=${optionToSelect}`);
-    await click(`${optionToSelect} in ${selectorName}`, option);
-  };
-  
-  var sendKeys = async function(
-      inputName, inputElement, keys, clickInputElement = true) {
-    if (clickInputElement) {
-      await click(inputName, inputElement);
-    }
-    await inputElement.setValue(keys);
+    var editUserRoleButton = await $('#webdriverio-test-button');
+    await buttonText = editUserRoleButton.getText();
+    expect(buttonText).toBe('Button Text');
   };
   ```

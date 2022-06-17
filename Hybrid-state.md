@@ -1,3 +1,14 @@
+## Table of contents
+
+* [Overview](#overview)
+* [E2E Migration tracker](#e2e-migration-tracker)
+* [Add or Modify E2E tests](#e2e-migration-tracker)
+  * [If contributor wants to add a new suite](#if-contributor-wants-to-add-a-new-suite)
+  * [If contributor wants to modify a suite](#if-contributor-wants-to-modify-a-suite)
+  * [If contributor wants to make some changes in the common files](#if-contributor-wants-to-make-some-changes-in-the-common-files)
+  * [Current approach to migrate the dependencies](#current-approach-to-migrate-the-dependencies)
+* [Contact](#contact)
+
 ## Overview
 
 Oppia currently uses **Protractor** for end-to-end testing, but as the Angular team plans to end the development of Protractor at the end of 2022, we are planning to migrate all these tests to **WebdriverIO**.
@@ -6,7 +17,7 @@ As long as the migration is going on, the tests will be present in the **Hybrid 
 
 There are a few important points about the hybrid state:
 
-* We will have two tools to run the E2E tests: protractor and webdriverIO
+* We will have two tools to run the E2E tests: protractor and webdriverIO.
 
 * Each test suite will be either present in webdriverIO or protractor, never in both.
 
@@ -16,7 +27,7 @@ There are a few important points about the hybrid state:
 
 * Protractor suite can only work on protractor utils and vice versa for webdriverIO.
 
-## E2E Migration tracker
+## End-to-End migration tracker
 
 The [webdriverIO migration tracker](https://docs.google.com/spreadsheets/d/1Mj-llYXMURtis54vpL2VL7BwgRiFIZ1nIFtK3fY3Se4/edit?usp=sharing) contains the following details:
 
@@ -32,29 +43,29 @@ The [webdriverIO migration tracker](https://docs.google.com/spreadsheets/d/1Mj-l
 
 * List of common dependencies which are present in both protractor and webdriverIO.
 
-Contributors can use this to get the idea about when a test suite is going to be migrated and hence plan their PR accordingly in order to avoid clashes which have been discussed in Add/Modify E2E tests section (See the edge case in point 2 for more information in next section).
+Contributors can use this to get the idea about when a test suite is going to be migrated and hence plan their PR accordingly in order to avoid clashes which have been discussed in [Add or Modify E2E](#add-or-modify-e2e-tests) tests section (See the [edge case in point 2](#if-contributor-wants-to-modify-a-suite) for more information in next section).
 
-## Add or Modify E2E tests
+## Add or modify E2E tests
 
-1. **If contributor wants to add a new suite:**
+#### If contributor wants to add a new suite
 
-  * Add the new e2e test suite in webdriverIO.
+  Add the new e2e test suite in webdriverIO.
 
-    **Note**: As the first new suite will be added in late August, we will have most of the files already migrated to WebdriverIO like action.js, forms.js, user.js, general.js waitFor.js which are mostly needed for writing a new test.
+  **Note**: As the first new suite will be added in late August, we will have most of the files already migrated to WebdriverIO like action.js, forms.js, user.js, general.js waitFor.js which are mostly needed for writing a new test.
 
-2. **If contributor wants to modify a suite** 
+#### If contributor wants to modify a suite
 
-  * If the suite is migrated to webdriverIO then make the changes in webdriverIO.
+* If the suite is migrated to webdriverIO then make the changes in webdriverIO.
   
-  * If the suite is still in protractor then make the changes in protractor.
+* If the suite is still in protractor then make the changes in protractor.
 
-    **Edge Case**: If we already have a migration PR open for a particular suite and at the same time any other contributor also made a PR adding the tests in the same suite then, if migration's PR will be merged first, the contributor needs to write the tests in webdriverIO (contributor can take help from [Shivam Jha](#contact)).  Otherwise, migration PR needs to be updated with the changes.
+  **Edge Case**: If we have a migration PR open for a particular suite say _Suite A_ and at the same time any other contributor also made a PR with some changes in _Suite A_ then, we need to sync up the changes of both the PR. So, if migration's PR will be merged first, the contributor needs to make changes in his PR and write the tests in webdriverIO (contributor can take help from [Shivam Jha](#contact)). Otherwise, migration PR needs to be updated with the changes.
 
-    Also, if migration PR will get merged first then everyone will be notified about it accordingly as migration PR will have the **PR: that requires post-merge sync to the HEAD label.**
+  Also, if migration PR will get merged first then everyone will be notified about it accordingly as migration PR will have the **PR: that requires post-merge sync to the HEAD label.**
 
-3. **If contributor is planning to make some changes in the common files**
+#### If contributor wants to make some changes in the common files
 
-   The tests might break if the changes are only applied in one version of the common file. So we need to make sure to keep the two versions of the common file in sync. We will not merge the PR of the contributor if it's not synced. Contributor can take help from [Shivam Jha](#contact) or the migration guide in order to make the necessary changes for the other version.
+   The tests might break if the changes are only applied in one version of the common file. So we need to make sure to keep the two versions of the common file in sync. We will not merge the PR of the contributor if it's not synced. Contributor can take help from [Shivam Jha](#contact) or  [Guide to migrate e2e tests](Guide-to-migrate-e2e-tests.md) in order to make the necessary changes for the other version.
   
 #### Current approach to migrate the dependencies
 
@@ -69,11 +80,11 @@ We have two test files:
 |AdditonalPlayer     |ExplorationEditorPage, ExplorationPlayerPage, LibraryPage|
 |AdditonalEditorFeaturesModals| ExplorationEditorPage |
 
-**Common Files** : ExplorationEditorPage
+* First we will migrate **AdditionalPlayer** and its dependencies **ExplorationPlayerPage**, **LibraryPage**, and **ExplorationEditorPage**. As **ExplorationPlayerPage** and **LibraryPage** doesn't have any suite left  that are dependent on them, we will delete their protractor version. But for **ExplorationEditorPage**  we still have one dependent suite i.e. **AdditonalEditorFeatures**, so we cannot delete the protractor version (as a protractor suite cannot work on webdriverIO util files).
 
-* While migrating **AdditionalPlayer** we will migrate its dependencies, there will be no issue with **ExplorationPlayerPage**, **LibraryPage** as they do not have any other suites dependent on them, we will just migrate them and delete their protractor version. But for **ExplorationEditorPage** we still have one dependent suite i.e. **AdditonalEditorFeatures**, so we need to migrate it to successfully migrate **AdditionalPlayer** suite, but we cannot delete the protractor version (as a protractor suite cannot work on webdriverIO util files).
+* Now we will migrate **AdditonalPlayer** suite and after its migration we can delete the protractor version of **ExplorationEditorPage**.
 
-* So now the **ExplorationEditorPage** file will be a common file that presents in both webdriverIO and protractor version. To reduce code duplicity to some extent I will migrate only that portion of ExplorationEditorPage that will be used in the **AdditonalPlayer** suite, rest can be migrated when we will migrate **AdditonalEditorFeaturesModals**.
+ **Note**: **ExplorationEditorPage** file will be a common file during the migration phase (presents in both webdriverIO and protractor version). To reduce code duplication to some extent we will only migrate the portion of ExplorationEditorPage that is be used in the **AdditonalPlayer** suite, rest portion can be migrated when we will migrate **AdditonalEditorFeaturesModals**.
 
 ## Contact
 

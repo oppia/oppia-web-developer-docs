@@ -8,11 +8,6 @@
   * [Utilities](#utilities)
     * [`core/tests/webdriverio_utils`](#coretestswebdriverio_utils)
     * [`extensions/**/webdriverio.js`](#extensionswebdriverios)
-* [Run E2E tests](#run-e2e-tests)
-  * [Set chromedriver version](#set-chromedriver-version)
-  * [Configure test sharding](#configure-test-sharding)
-  * [Run a single end-to-end test](#run-a-single-end-to-end-test)
-  * [Run end-to-end tests in production mode](#run-end-to-end-tests-in-production-mode)
 * [Write E2E tests](#write-e2e-tests)
   * [Where to add the tests](#where-to-add-the-tests)
     * [Interactions](#interactions)
@@ -28,7 +23,6 @@
   * [Checking for flakiness](#checking-for-flakiness)
   * [Codeowner Checks](#codeowner-checks)
   * [Important Tips](#important-tips)
-* [Metrics](#metrics)
 * [Reference](#reference)
   * [Forms and objects](#forms-and-objects)
     * [Rich Text](#rich-text)
@@ -80,76 +74,6 @@ The webdriverio tests use the above functions to simulate a user interacting wit
 
 Extensions provide `webdriverio.js` files to make them easier to test. The E2E test files call the utilities provided by these files to interact with an extension. For example, interactions include a `webdriverio.js` file that provides functions for customizing an interaction and checking that the created interaction matches expected criteria.
 
-## Run E2E tests
-
-If you don't know the name of the suite you want to run, you can find it in `core/tests/wdio.conf.js`. Then you can run your test like this:
-
-```console
-$ python -m scripts.run_e2e_tests --suite="suiteName"
-```
-
-Chrome will open and start running your tests.
-
-### Set chromedriver version
-
-The end-to-end tests are run on the Chrome browser and depend on chromedriver. The chromedriver version to be used depends on the Chrome browser version installed on the machine. We try to determine this version automatically, but if our automatic determination fails, you'll see an error with this advice:
-
-```text
-Please set the chromedriver version manually using the --chrome_driver_version flag.
-```
-
-You may also want to set the chromedriver version manually if you want to test a particular version.
-
-To manually set the chromedriver version, use the `--chrome_driver_version` argument:
-
-```console
-python -m scripts.run_e2e_tests --chrome_driver_version <version>
-```
-
-To determine which version of chromedriver to use, please follow these steps:
-
-1. Find the Chrome browser version installed on your machine by going to `chrome://version/`. For example, in the screenshot below, the version number is `83.0.4103.61`.
-
-   ![Screenshot of Chrome version page.](https://user-images.githubusercontent.com/11008603/87473539-3c972880-c63f-11ea-9455-04edb0196731.png)
-
-2. Remove the last part of the version number from step 1 and append the result to URL `https://chromedriver.storage.googleapis.com/LATEST_RELEASE_`. For example, if your version number is `83.0.4103.61`, the URL will look like "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_83.0.4103".
-
-3. Go to the URL from step 2 and copy the version number on the screen.
-
-4. The version number obtained in step 3 is the chromedriver version to be passed along to the script.
-
-If you see a failure due to the webdriver, please follow the instructions above to double check that the chromedriver version provided is in sync with the Chrome browser version installed on the machine.
-
-### Configure test sharding
-
-If you run all the E2E tests at once (i.e. if you don't specify a suite), the tests will be sharded across multiple Chrome browser instances. By default, the tests will use 3 shards (i.e. 3 browsers). If you do this, you should close background processes to maximize the compute resources available to the tests. You can configure the number of shards like this:
-
-```console
-python -m scripts.run_e2e_tests --sharding-instances=<number of shards>
-```
-
-You can disable sharding like this:
-
-```console
-python -m scripts.run_e2e_tests --sharding=false
-```
-
-Note that when we run tests on CI, we run one suite at a time, so there is no sharding.
-
-### Run a single end-to-end test
-
-To run just one test, change the "it" to "fit" for that test. Then when you run the tests, specify the suite containing your test.
-
-### Run end-to-end tests in production mode
-
-To run the end-to-end tests in production mode, use the `--prod_env` flag:
-
-```console
-python -m scripts.run_e2e_tests --prod_env
-```
-
-On CI, we run all the E2E tests in production mode to more closely mimic how the Oppia application behaves in production.
-
 ## Write E2E tests
 
 We expect E2E tests to be written for any new feature that is released to the public.
@@ -160,18 +84,18 @@ We expect E2E tests to be written for any new feature that is released to the pu
 
 If you are just creating a new interaction and want to add end-to-end tests for it then you can follow the guidance given at [[Creating Interactions|Creating-Interactions]], though the [forms and objects](#forms-and-objects) section of this page may also be helpful.
 
-If you are adding functionality to an existing interaction, you can probably just add test cases to its `protractor.js` file. For example, the `AlgebraicExpressionInput` interaction's file is at [`oppia/extensions/interactions/AlgebraicExpressionInput/webdriverio.js`](https://github.com/oppia/oppia/blob/develop/extensions/interactions/AlgebraicExpressionInput/webdriverio.js).
+If you are adding functionality to an existing interaction, you can probably just add test cases to its `webdriverio.js` file. For example, the `AlgebraicExpressionInput` interaction's file is at `oppia/extensions/interactions/AlgebraicExpressionInput/webdriverio.js`.
 
 #### Existing suite
 
-First, take a look at the existing test suites in [`core/tests/webdriverio`](https://github.com/oppia/oppia/tree/develop/core/tests/webdriverio) and [`core/tests/webdriverio_desktop`](https://github.com/oppia/oppia/tree/develop/core/tests/webdriverio_desktop). If your test fits well into any of those suites, you should add it there.
+First, take a look at the existing test suites in `core/tests/webdriverio` and `core/tests/webdriverio_desktop`. If your test fits well into any of those suites, you should add it there.
 
 #### New suite
 
-If you need to, you can add a new test suite to [`core/tests/webdriverio_desktop`](https://github.com/oppia/oppia/tree/develop/core/tests/webdriverio_desktop) like this:
+If you need to, you can add a new test suite to `core/tests/webdriverio_desktop` like this:
 
 1. Create the new suite file under `core/tests/webdriverio_desktop`.
-2. Add the suite to [`core/tests/wdio.conf.js`](https://github.com/oppia/oppia/blob/develop/core/tests/wdio.conf.js).
+2. Add the suite to `core/tests/wdio.conf.js`.
 3. Add your new suite to GitHub Actions, whose workflow files are in [`.github/workflows`](https://github.com/oppia/oppia/tree/develop/.github/workflows). If there is an existing workflow that your suite would fit well with, add your suite there. Otherwise, create a new workflow. Note that we want all CI workflows to finish in less than 30 minutes, so check the workflow runtimes after your change!
 
 ### Writing the tests
@@ -194,7 +118,7 @@ If you need to, you can add a new test suite to [`core/tests/webdriverio_desktop
 
 3. Write the tests! Each test should step through one of your user journeys, asserting that the page is in the expected state along the way.
 
-For information on writing tests with protractor, see the [webdriverio documentation](https://webdriver.io/docs/gettingstarted). If you need to work out why your tests aren't working, check out our [[debugging guide for E2E tests|Debug-end-to-end-tests-webdriverio]].
+For information on writing tests with webdriverio, see the [webdriverio's documentation](https://webdriver.io/docs/gettingstarted). If you need to work out why your tests aren't working, check out our [[debugging guide for E2E tests|Debug-end-to-end-tests-webdriverio]].
 
 ### Writing utilities
 
@@ -202,7 +126,7 @@ For information on writing tests with protractor, see the [webdriverio documenta
 
 Much of the difficulty of writing webdriverio code lies in specifying the element with which you wish to interact. It is important to do so in a way that is as insensitive as possible to superficial DOM features such as text and styling, so as to reduce the likelihood that the test will break when the production HTML is changed. Here are some ways to specify an element, in order of decreasing preference:
 
-1. Adding a `webdriverio-test-some-name` class to the element in question, and then referencing it by `$('.webdriverio-test-some-name')`. We do not use `$('#id')` for this purpose because Oppia frequently displays multiple copies of a DOM element on the same page, and if an `id` is repeated then references to it will not work properly. This is the preferred method, since it makes clear to those editing production code exactly what the dependence on protractor is, thus minimizing the likelihood of confusing errors when they make changes. Sometimes this may not work, though (e.g. for embedded pages, third-party libraries and generated HTML), in which case you may instead need to use one of the options below.
+1. Adding a `webdriverio-test-some-name` class to the element in question, and then referencing it by `$('.webdriverio-test-some-name')`. We do not use `$('#id')` for this purpose because Oppia frequently displays multiple copies of a DOM element on the same page, and if an `id` is repeated then references to it will not work properly. This is the preferred method, since it makes clear to those editing production code exactly what the dependence on webdriverio is, thus minimizing the likelihood of confusing errors when they make changes. Sometimes this may not work, though (e.g. for embedded pages, third-party libraries and generated HTML), in which case you may instead need to use one of the options below.
 
 2. Using existing element ids. We avoid using existing classes for this purpose as they are generally style specifications such as `big-button` that may be changed in the future.
 
@@ -262,10 +186,6 @@ It might be tempting to use the `buttons[0]`, `buttons[last]`, and `buttons[n]` 
 
 Except for cases where an element selector is crafted dynamically, all element selectors should be at the top of a utility file. There should be no element selectors in suite files.
 
-#### Non-Angular pages
-
-All the protractor code assumes you are working in an Angular webpage. If you need to move to non-Angular context (for example in an iframe) then look at the login function of `users.js` or the `embedding.js` test for examples of how to proceed.
-
 ### Writing robust tests
 
 #### Flakiness
@@ -294,7 +214,7 @@ The tests may be run either sequentially or in isolation, and they need to be wr
 
 * Ensure that usernames and emails used in each test are unique by giving them a distinctive form; in e.g. the editorAndPlayer page usernames should look like `user1EditorAndPlayer` and emails like `user1@editorAndPlayer.com`. Use this pattern for other names in the tests, for example topic and skill names, for example `skill1EditorAndPlayer`. Some structures have character limits that may disallow this convention. In that case, feel free to shorten the name, e.g. with an abbreviation. You may want to use a constant though if the name gets too unreadable.
 
-* Avoid accessing items by index. For example, to select an exploration from a list, search for the name of the exploration instead of assuming the exploration will be at some index. Take a look at the `_getExplorationElements` function in [`core/tests/webdriverio_utils/LibraryPage.js`](https://github.com/oppia/oppia/blob/develop/core/tests/webdriverio_utils/LibraryPage.js) for an example.
+* Avoid accessing items by index. For example, to select an exploration from a list, search for the name of the exploration instead of assuming the exploration will be at some index. Take a look at the `_getExplorationElements` function in `core/tests/webdriverio_utils/LibraryPage.js` for an example.
 
 ### Checking for flakiness
 
@@ -319,12 +239,12 @@ When the Automated QA Team does a codeowner review on your PR that changes the e
 * [ ] All element selectors, e.g. `$('.webdriverio-test-my-element')`, need to be at the top of the file. There are a few exceptions:
     * Keeping selectors with the code that uses them is okay in some utility files where the utilities do not generally share selectors.
     * When you are chaining selectors, only the root selector (first in the chain) needs to be at the top of the file.
-* [ ] Any time you create something in Oppia that needs a globally unique name to be identified by the tests (e.g. explorations, topics, skills, and users), make sure to follow the naming guidance in the [Independence](https://github.com/oppia/oppia/wiki/WebdriverIO#independence) section above.
+* [ ] Any time you create something in Oppia that needs a globally unique name to be identified by the tests (e.g. explorations, topics, skills, and users), make sure to follow the naming guidance in the [Independence](#independence) section above.
 * [ ] Each `it` block in the test must be able to be run independently of the others. Imagine running any number of your `it` blocks in any order. Regardless of which you choose and in what order you run them, they should work correctly.
-* [ ] Before you interact with _any_ element on the page, you must wait for it to be present, visible, or clickable (depending on how you interact with it) using the [`waitFor`](https://github.com/oppia/oppia/blob/develop/core/tests/webdriverio_utils/waitFor.js) functions. The [`actions`](https://github.com/oppia/oppia/blob/develop/core/tests/webdriverio_utils/action.js) functions handle this for you.
+* [ ] Before you interact with _any_ element on the page, you must wait for it to be present, visible, or clickable (depending on how you interact with it) using the [`waitFor`] functions. The [`actions`] functions handle this for you.
 * [ ] If you repeat some code a lot, make it a function! This also makes it a lot easier to review your code.
 * [ ] If you make a generally useful function, add it to the relevant utilities file so that other people can benefit from it too.
-* [ ] You will need to provide screenshots showing that the tests aren't flaky after your changes. The requirements are detailed above in the [Temporary Flakiness Mitigation Measures](https://github.com/oppia/oppia/wiki/WebdriverIOs#temporary-flakiness-mitigation-measures) section.
+* [ ] You will need to provide screenshots showing that the tests aren't flaky after your changes.
 * [ ] Variables should be named as nouns, and functions should be named as verbs. In particular, make sure your page element variable names are nouns. For example, use `itemSelectButton` instead of `itemSelect`.
 * [ ] All HTML classes you reference in root selectors in the tests should begin with `webdriverio-test-`. If you can't change the classes on an element you need to select, find a parent element you can change and then chain the selectors like this: `$('.webdriverio-test-parent-element').$('.class-of-element-you-cannot-change')` or like this: `$('.webdriverio-test-parent-element .class-of-element-you-cannot-change')`.
 
@@ -333,10 +253,6 @@ When the Automated QA Team does a codeowner review on your PR that changes the e
 * All test blocks should have an `afterEach` that runs `general.checkForConsoleErrors` to verify no unexpected console errors appeared while the test was running.
 
 * Check your assumptions! For example, if you are assuming that only one exploration on the server will have a particular title, use an `expect` call to check.
-
-## Metrics
-
-We track passes, known flakes, and failures that aren't known to be flakes (called "failures") using a logging server. You can view these metrics at https://oppia-e2e-test-results-logger.herokuapp.com.
 
 ## Reference
 
@@ -377,7 +293,7 @@ await explorationEditorMainTab.setContent(instructions);
 Then inside `setContent`, you instructions function will be called:
 
 ```js
-var editorElement = $('.protractor-test-editor');
+var editorElement = $('.webdriverio-test-editor');
 ...
 this.setContent = async function(instructions) {
   ...
@@ -399,7 +315,7 @@ var instructions = async function(richTextChecker) {
 Then inside the `expectContentToMatch` function, we can pass your instructions to the `forms.expectRichText` function:
 
 ```js
-var richTextDisplay = $('.protractor-test-rich-text');
+var richTextDisplay = $('.webdriverio-test-rich-text');
 ...
 this.expectContentToMatch = async function(instructions) {
   await forms.expectRichText(richTextDisplay).toMatch(instructions);
@@ -479,7 +395,7 @@ This works for both editors and checkers.
   ```
   Here's a common example of when we need these nested `await`s:
   ```js
-  await (await browser.switchTo().activeElement()).keys(explanation);
+  await (await browser.getActiveElement()).keys(explanation);
   ```
 * Rejection callbacks
   ```js
@@ -496,7 +412,7 @@ This works for both editors and checkers.
       // visibilty will only resolve once and timeout the other times.
       // This is just an empty error function to catch the timeouts that
       // happen when the the welcome modal has been dismissed once. If
-      // this is not present then protractor uses the default error
+      // this is not present then webdriverio uses the default error
       // function which is not appropriate in this case as this is not an
       // error.
     }
@@ -519,7 +435,7 @@ This works for both editors and checkers.
     // visibilty will only resolve once and timeout the other times.
     // This is just an empty error function to catch the timeouts that
     // happen when the the welcome modal has been dismissed once. If
-    // this is not present then protractor uses the default error
+    // this is not present then webdriverio uses the default error
     // function which is not appropriate in this case as this is not an
     // error.
   }
@@ -558,4 +474,4 @@ This works for both editors and checkers.
   var output = await someAsynchronousFunction();
   await // do something with "output"
   ```
-* `browser.switchTo().activeElement()` can cause problems when combined with our `action` functions. One such problem is a `Cannot read property 'bind' of undefined` error. Instead, use the normal `element(...)` element selectors to get the element you want to interact with. You can use a `await browser.debug()` statement right before `browser.switchTo().activeElement()` to find what active is element there.
+* `browser.getActiveElement()` can cause problems when combined with our `action` functions. One such problem is a `Cannot read property 'bind' of undefined` error. Instead, use the normal `$(..)` element selectors to get the element you want to interact with. You can use a `await browser.debug()` statement right before `browser.getActiveElement()` to find what active is element there.
