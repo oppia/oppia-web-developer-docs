@@ -5,7 +5,7 @@
 * [Add or Modify E2E tests](#e2e-migration-tracker)
   * [If contributor wants to add a new suite](#if-contributor-wants-to-add-a-new-suite)
   * [If contributor wants to modify a suite](#if-contributor-wants-to-modify-a-suite)
-  * [If contributor wants to make some changes in the common files](#if-contributor-wants-to-make-some-changes-in-the-common-files)
+  * [If contributor wants to make some changes to the common files](#if-contributor-wants-to-make-some-changes-to-the-common-files)
   * [Current approach to migrate the dependencies](#current-approach-to-migrate-the-dependencies)
 * [Contact](#contact)
 
@@ -63,7 +63,7 @@ Contributors can use this to get the idea about when a test suite is going to be
 
   Also, if migration PR will get merged first then everyone will be notified about it accordingly as migration PR will have the **PR: that requires post-merge sync to the HEAD label.**
 
-#### If contributor wants to make some changes in the common files
+#### If contributor wants to make some changes to the common files
 
    The tests might break if the changes are only applied in one version of the common file. So we need to make sure to keep the two versions of the common file in sync. We will not merge the PR of the contributor if it's not synced. The contributor can take help from [Shivam Jha](#contact) or  [Guide to migrate e2e tests](Guide-to-migrate-e2e-tests.md) in order to make the necessary changes for the other version.
   
