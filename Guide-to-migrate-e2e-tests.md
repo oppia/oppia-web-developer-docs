@@ -85,7 +85,7 @@ For more details please visit [webdriverio's official documentation](https://web
     var adminRolesTab = element(by.css('.protractor-test-admin-roles-tab'));
     await adminRolesTab.click();
 
-    await expect(await adminRolesTab.getAttribute('class')).toMatch('active');
+    expect(await adminRolesTab.getAttribute('class')).toMatch('active');
 
     var adminRolesTabContainer = element(by.cssContainingText('h1', 'Role Conainer'));
     await browser.wait(
@@ -96,7 +96,7 @@ For more details please visit [webdriverio's official documentation](https://web
       '.protractor-test-username-for-role-editor'));
     await usernameInputFieldForRolesEditing.first().sendKeys(username);
 
-    var editUserRoleButton = await $('#protractor-test-button');
+    var editUserRoleButton = element(by.id('protractor-test-button');
     await buttonText = editUserRoleButton.getText();
     expect(buttonText).toBe('Button Text');
   ```
@@ -109,12 +109,12 @@ For more details please visit [webdriverio's official documentation](https://web
   this.editUserRole = async function(username) {
     await browser.url('/admin');
 
-    var adminRolesTab = await $('.webdriverio-test-admin-roles-tab');
+    var adminRolesTab = $('.webdriverio-test-admin-roles-tab');
     await adminRolesTab.click();
 
-    await expect(await adminRolesTab.getAttribute('class')).toMatch('active');
+    expect(await adminRolesTab.getAttribute('class')).toMatch('active');
 
-    var adminRolesTabContainer = await $('h1=Role Conainer');
+    var adminRolesTabContainer = $('h1=Role Conainer');
     await browser.waitUntil(
       await until.visibilityOf(adminRolesTabContainer),
       {
@@ -123,10 +123,10 @@ For more details please visit [webdriverio's official documentation](https://web
       });
 
     var usernameInputFieldForRolesEditing = (
-      await $$('.webdriverio-test-username-for-role-editor'));
+      $$('.webdriverio-test-username-for-role-editor'));
     await usernameInputFieldForRolesEditing[0].setValue(username);
 
-    var editUserRoleButton = await $('#webdriverio-test-button');
+    var editUserRoleButton = $('#webdriverio-test-button');
     await buttonText = editUserRoleButton.getText();
     expect(buttonText).toBe('Button Text');
   };
