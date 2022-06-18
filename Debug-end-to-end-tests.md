@@ -1,7 +1,7 @@
 ## Table of contents
 
 * [Introduction](#introduction)
-* [How to know the version of failing test suite](#how-to-know-the-version-of-failing-test-suite)
+* [Find the version of the failing test suite to debug](#find-the-version-of-the-failing-test-suite-to-debug)
 
 ## Introduction
 
@@ -21,7 +21,7 @@ There are many ways to go about debugging an E2E test, but here is one approach:
 
 5. Try and reproduce the error locally. If you succeed, you can use your local debugger to investigate.
 
-## How to know the version of failing test suite
+## Find the version of the failing test suite to debug
 
 Currently, we have two versions of E2E test suites present, Protractor and WebDriverIO, so it's important to first find out which framework the failing test suite is written in. The [webdriverio migration tracker](https://docs.google.com/spreadsheets/d/1Mj-llYXMURtis54vpL2VL7BwgRiFIZ1nIFtK3fY3Se4/edit?usp=sharing) contains the information about which suite is present in which framework (see "Suites migrated to WebdriverIO" and "Suites still in Protractor").
 

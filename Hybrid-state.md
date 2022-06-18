@@ -51,7 +51,7 @@ Contributors can use this to get the idea about when a test suite is going to be
 
   Add the new e2e test suite in webdriverIO.
 
-  **Note**: As the first new suite will be added in late August, we will have most of the files already migrated to WebdriverIO like action.js, forms.js, user.js, general.js waitFor.js which are mostly needed for writing a new test.
+  **Note**: As the first new suite will be added in late August, we will have most of the files already migrated to WebdriverIO like action.js, forms.js, user.js, general.js, and waitFor.js which are mostly needed for writing a new test.
 
 #### If contributor wants to modify a suite
 
@@ -65,11 +65,11 @@ Contributors can use this to get the idea about when a test suite is going to be
 
 #### If contributor wants to make some changes in the common files
 
-   The tests might break if the changes are only applied in one version of the common file. So we need to make sure to keep the two versions of the common file in sync. We will not merge the PR of the contributor if it's not synced. Contributor can take help from [Shivam Jha](#contact) or  [Guide to migrate e2e tests](Guide-to-migrate-e2e-tests.md) in order to make the necessary changes for the other version.
+   The tests might break if the changes are only applied in one version of the common file. So we need to make sure to keep the two versions of the common file in sync. We will not merge the PR of the contributor if it's not synced. The contributor can take help from [Shivam Jha](#contact) or  [Guide to migrate e2e tests](Guide-to-migrate-e2e-tests.md) in order to make the necessary changes for the other version.
   
 #### Current approach to migrate the dependencies
 
-To reduce the duplicate code in the codebase we are going to migrate only those portions of the dependencies which are used in the suite that we are migrating. The remaining portions will be migrated when a suite which depends upon them is being migrated.
+To reduce the duplicate code in the codebase we are going to migrate only those portions of the dependencies which are used in the suite that we are migrating. The remaining portions will be migrated when a suite that depends upon them is being migrated.
 
 Let's understand this situation with a simple test case.
 
@@ -80,11 +80,11 @@ We have two test files:
 |AdditonalPlayer     |ExplorationEditorPage, ExplorationPlayerPage, LibraryPage|
 |AdditonalEditorFeaturesModals| ExplorationEditorPage |
 
-* First we will migrate **AdditionalPlayer** and its dependencies **ExplorationPlayerPage**, **LibraryPage**, and **ExplorationEditorPage**. As **ExplorationPlayerPage** and **LibraryPage** doesn't have any suite left  that are dependent on them, we will delete their protractor version. But for **ExplorationEditorPage**  we still have one dependent suite i.e. **AdditonalEditorFeatures**, so we cannot delete the protractor version (as a protractor suite cannot work on webdriverIO util files).
+* First we will migrate **AdditionalPlayer** and its dependencies **ExplorationPlayerPage**, **LibraryPage**, and **ExplorationEditorPage**. As **ExplorationPlayerPage** and **LibraryPage** doesn't have any suite left that are dependent on them, we will delete their protractor version. But for **ExplorationEditorPage**  we still have one dependent suite i.e. **AdditonalEditorFeatures**, so we cannot delete the protractor version (as a protractor suite cannot work on webdriverIO util files).
 
-* Now we will migrate **AdditonalPlayer** suite and after its migration we can delete the protractor version of **ExplorationEditorPage**.
+* Now we will migrate the **AdditonalPlayer** suite and after its migration, we can delete the protractor version of **ExplorationEditorPage**.
 
- **Note**: **ExplorationEditorPage** file will be a common file during the migration phase (presents in both webdriverIO and protractor version). To reduce code duplication to some extent we will only migrate the portion of ExplorationEditorPage that is be used in the **AdditonalPlayer** suite, rest portion can be migrated when we will migrate **AdditonalEditorFeaturesModals**.
+ **Note**: **ExplorationEditorPage** file will be a common file during the migration phase (presented in both webdriverIO and protractor version). To reduce code duplication to some extent we will only migrate the portion of ExplorationEditorPage that is being used in the **AdditonalPlayer** suite, rest portion can be migrated when we will migrate **AdditonalEditorFeaturesModals**.
 
 ## Contact
 
