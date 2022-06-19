@@ -70,7 +70,7 @@ For more details please visit [webdriverio's official documentation](https://web
    |  waitFor.js, action.js, general.js, user.js|   2 July 2022                      |
    | forms.js                                   |   20 July 2022                     |
 
-2. For more information on how to add new tests or modify the existing tests please refer to [Write E2E tests](WebdriverIO.md#run-e2e-tests) section.
+2. For more information on how to add new tests or modify the existing tests please refer to [Write E2E tests in WebdriverIO](WebdriverIO.md#run-e2e-tests) section.
 
 ## Example migration
 
@@ -99,6 +99,7 @@ For more details please visit [webdriverio's official documentation](https://web
     var editUserRoleButton = element(by.id('protractor-test-button');
     await buttonText = editUserRoleButton.getText();
     expect(buttonText).toBe('Button Text');
+  }
   ```
 
 **WebdriverIO**
