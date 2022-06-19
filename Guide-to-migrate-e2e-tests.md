@@ -63,7 +63,9 @@ For more details please visit [webdriverio's official documentation](https://web
 
 ## Points to note while migrating
 
-1. The basic utility files i.e. forms.js, waitFor.js, action.js, general.js, user.js will already be migrated for the ease of contributors.
+1. Currently, we are having two versions of the end-to-end test present in the codebase, so before moving forward with migration please refer to [Hybrid state doc](Hybrid-state.md) for a better understanding of this state.
+
+2. The basic utility files i.e. forms.js, waitFor.js, action.js, general.js, user.js will already be migrated for the ease of contributors.
 
    | Files                                      | Expected Migration Date            |
    | -------------------------------------------|  ----------------------------------|

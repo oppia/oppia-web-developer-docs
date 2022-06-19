@@ -7,7 +7,6 @@
   * [If contributor wants to modify a suite](#if-contributor-wants-to-modify-a-suite)
   * [If contributor wants to make some changes to the common files](#if-contributor-wants-to-make-some-changes-to-the-common-files)
   * [Current approach to migrate the dependencies](#current-approach-to-migrate-the-dependencies)
-  * [Current approach to migrate the suites](#current-approach-to-migrate-the-suites)
 * [Contact](#contact)
 
 ## Overview
@@ -86,12 +85,6 @@ We have two test files:
 * Now we will migrate the **AdditonalPlayer** suite and after its migration, we can delete the protractor version of **ExplorationEditorPage**.
 
  **Note**: **ExplorationEditorPage** file will be a common file during the migration phase (presented in both webdriverIO and protractor version). To reduce code duplication to some extent we will only migrate the portion of ExplorationEditorPage that is being used in the **AdditonalPlayer** suite, rest portion can be migrated when we will migrate **AdditonalEditorFeaturesModals**.
-
-#### Current approach to migrate the suites
-
-We have created a [priority order](https://docs.google.com/spreadsheets/d/1Mj-llYXMURtis54vpL2VL7BwgRiFIZ1nIFtK3fY3Se4/edit#gid=0) which needs to be followed while migrating the test suites. The order minimize the number of files that are in a hybrid state (i.e. present in both protractor + webdriverIO versions).
-
-Once a test suite is successfully migrated to webdriverio, we will simply delete its protractor version.
 
 ## Contact
 
