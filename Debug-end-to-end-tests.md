@@ -15,7 +15,7 @@ There are many ways to go about debugging an E2E test, but here is one approach:
    * Look for a line that says just `Killed`. This line indicates that some process was killed by the operating system for consuming too much memory. It's fairly safe to assume that the test failure was because of that process being killed.
    * Look for the stack trace and error message of the _first_ error. The trace might point you to where the error was thrown in the test code, and the message may help explain what went wrong.
 
-3. If you don't understand what the error message means, search for it online. Also look through the test code and `core/test/protractor_utils/action.js` to see if the error message (or something like it) is in our test code.
+3. If you don't understand what the error message means, search for it online. Also look through the test code, `core/test/protractor_utils/action.js`, and `core/test/webdriverio_utils/action.js` to see if the error message (or something like it) is in our test code.
 
 4. Enable video recordings and rerun the test until you reproduce the error. Then watch the video recordings and follow along in the test code. Try and understand why the error was thrown.
 

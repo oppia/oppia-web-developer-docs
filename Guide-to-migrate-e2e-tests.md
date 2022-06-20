@@ -14,7 +14,7 @@ This guide is to help contributors in migrating end-to-end tests from Protractor
 
 ## Selectors
 
-A selector is used to query an element. The WebDriver Protocol provides several selector strategies to query an element. WebdriverIO simplifies them to keep selecting elements simple
+A selector is used to query an element. The WebDriver Protocol provides several selector strategies to query an element. WebdriverIO simplifies them to keep selecting elements simple.
 
 The `$` command is a short way to call the findElement command in order to fetch a single element on the page
 
@@ -32,16 +32,16 @@ There is no proper substitute available for the command `element.getWebElement()
 For example, take look at the following code of protractor:
 
 ```js
- await browser.executeScript(
-    'arguments[0].click()', await clickableElement.getWebElement());
+await browser.executeScript(
+  'arguments[0].click()', await clickableElement.getWebElement());
 ```
 
 WebdriverIO version will be like this:
 
 ```js
  await browser.execute(
-    'arguments[0].click()',
-    await browser.findElement('css selector', clickableElement));
+  'arguments[0].click()',
+  await browser.findElement('css selector', clickableElement));
 ```
 
 ## Events on selected elements
@@ -72,65 +72,65 @@ For more details please visit [webdriverio's official documentation](https://web
    |  waitFor.js, action.js, general.js, user.js|   2 July 2022                      |
    | forms.js                                   |   20 July 2022                     |
 
-2. For more information on how to add new tests or modify the existing tests please refer to [Write E2E tests in WebdriverIO](WebdriverIO.md#run-e2e-tests) section.
+3. For more information on how to add new tests or modify the existing tests please refer to [Write E2E tests in WebdriverIO](WebdriverIO.md#run-e2e-tests) section.
 
 ## Example migration
 
 **Protractor**
 
   ```js
-  var until = protractor.ExpectedConditions;
+var until = protractor.ExpectedConditions;
 
-  this.editUserRole = async function(username) {
-    await browser.get('/admin');
+this.editUserRole = async function(username) {
+  await browser.get('/admin');
   
-    var adminRolesTab = element(by.css('.protractor-test-admin-roles-tab'));
-    await adminRolesTab.click();
+  var adminRolesTab = element(by.css('.protractor-test-admin-roles-tab'));
+  await adminRolesTab.click();
 
-    expect(await adminRolesTab.getAttribute('class')).toMatch('active');
+  expect(await adminRolesTab.getAttribute('class')).toMatch('active');
 
-    var adminRolesTabContainer = element(by.cssContainingText('h1', 'Role Conainer'));
-    await browser.wait(
-      await until.visibilityOf(element),
-      10000, 'Element not visible');
+  var adminRolesTabContainer = element(by.cssContainingText('h1', 'Role Conainer'));
+  await browser.wait(
+    await until.visibilityOf(element),
+    10000, 'Element not visible');
 
-    var usernameInputFieldForRolesEditing = element.all(by.css(
-      '.protractor-test-username-for-role-editor'));
-    await usernameInputFieldForRolesEditing.first().sendKeys(username);
+  var usernameInputFieldForRolesEditing = element.all(by.css(
+    '.protractor-test-username-for-role-editor'));
+  await usernameInputFieldForRolesEditing.first().sendKeys(username);
 
-    var editUserRoleButton = element(by.id('protractor-test-button');
-    await buttonText = editUserRoleButton.getText();
-    expect(buttonText).toBe('Button Text');
-  }
-  ```
+  var editUserRoleButton = element(by.id('protractor-test-button');
+  await buttonText = editUserRoleButton.getText();
+  expect(buttonText).toBe('Button Text');
+};
+```
 
 **WebdriverIO**
 
   ```js
-  var until = require('wdio-wait-for');
+var until = require('wdio-wait-for');
 
-  this.editUserRole = async function(username) {
-    await browser.url('/admin');
+this.editUserRole = async function(username) {
+  await browser.url('/admin');
 
-    var adminRolesTab = $('.webdriverio-test-admin-roles-tab');
-    await adminRolesTab.click();
+  var adminRolesTab = $('.webdriverio-test-admin-roles-tab');
+  await adminRolesTab.click();
 
-    expect(await adminRolesTab.getAttribute('class')).toMatch('active');
+  expect(await adminRolesTab.getAttribute('class')).toMatch('active');
 
-    var adminRolesTabContainer = $('h1=Role Conainer');
-    await browser.waitUntil(
-      await until.visibilityOf(adminRolesTabContainer),
-      {
-        timeout: 10000,
-        timeoutMsg: 'Element not visible'
-      });
+  var adminRolesTabContainer = $('h1=Role Conainer');
+  await browser.waitUntil(
+    await until.visibilityOf(adminRolesTabContainer),
+    {
+      timeout: 10000,
+      timeoutMsg: 'Element not visible'
+    });
 
-    var usernameInputFieldForRolesEditing = (
-      $$('.webdriverio-test-username-for-role-editor'));
-    await usernameInputFieldForRolesEditing[0].setValue(username);
+  var usernameInputFieldForRolesEditing = (
+    $$('.webdriverio-test-username-for-role-editor'));
+  await usernameInputFieldForRolesEditing[0].setValue(username);
 
-    var editUserRoleButton = $('#webdriverio-test-button');
-    await buttonText = editUserRoleButton.getText();
-    expect(buttonText).toBe('Button Text');
-  };
-  ```
+  var editUserRoleButton = $('#webdriverio-test-button');
+  await buttonText = editUserRoleButton.getText();
+  expect(buttonText).toBe('Button Text');
+};
+```
