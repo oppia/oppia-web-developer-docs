@@ -78,7 +78,7 @@ For more details please visit [webdriverio's official documentation](https://web
 
 **Protractor**
 
-  ```js
+```js
 var until = protractor.ExpectedConditions;
 
 this.editUserRole = async function(username) {
@@ -106,7 +106,7 @@ this.editUserRole = async function(username) {
 
 **WebdriverIO**
 
-  ```js
+```js
 var until = require('wdio-wait-for');
 
 this.editUserRole = async function(username) {
