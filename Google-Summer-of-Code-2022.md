@@ -1279,12 +1279,12 @@ The app release process this automation will support is as follows:
   - Securely signing the app with the team's production key (this must be done in a way where the key cannot be leaked and will likely require proxying through a private GitHub repository).
   - Automatically uploading releases to the Play Store and launching them to a specific track.
 
-- Once per day
+- Once per fortnight
   - Cut a new release per the criteria mentioned above
   - Automatically upload the alpha flavor of the release to the 'feature testing' internal testing release track of the app
   - Automatically upload the production (release) flavor of the app to the 'alpha' closed testing release track of the app
 
-- Once per week
+- Once per month
   - Try to create a new beta release:
     - Check the latest alpha release against the beta criteria mentioned above, and if they succeed then push the release flavor of the app to the 'QA' internal testing track
   - Try to promote the latest beta release:
