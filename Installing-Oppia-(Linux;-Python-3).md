@@ -154,39 +154,54 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
    eval "$(direnv hook bash)"
    ```
 
-7. Create a virtual environment for oppia. Add file named `.envrc` into the parent folder of the oppia repository with this content:
-
-   ```console
-   use python 3.7.10
+7. Add new file called `.direnvrc` into your home (`~`) folder with this content:
+   ```bash
+   use_python() {
+     local python_root=$(pyenv root)/versions/$1
+     load_prefix "$python_root"
+     if [[ -x "$python_root/bin/python" ]]; then
+       layout python "$python_root/bin/python"
+     else
+       echo "Error: $python_root/bin/python can't be executed."
+       exit
+     fi
+   }
    ```
 
-   Then ran this command in the same folder:
+8. Create a virtual environment for oppia by adding file named `.envrc` into the parent folder of the oppia repository 
+   with this content:
 
-   ```sh
-   $ direnv allow
-   ```
+    ```console
+    use python 3.7.10
+    ```
 
-   Now whenever you are within the `oppia` folder, the virtual environment will be active.
+    Then run this command in the same folder:
 
-8. Install the Python dependencies:
+    ```sh
+    $ direnv allow
+    ```
 
-   ```console
-   $ pip install pyyaml setuptools
-   Requirement already satisfied: setuptools in /home/user/.pyenv/versions/2.7.18/envs/oppia-tmp/lib/python2.7/site-packages (44.1.1)
-   Collecting pyyaml
-     Downloading PyYAML-5.4.1-cp27-cp27mu-manylinux1_x86_64.whl (574 kB)
-        |████████████████████████████████| 574 kB 2.3 MB/s
-   Installing collected packages: pyyaml
-   Successfully installed pyyaml-5.4.1
-   ```
+    Now whenever you are within the `oppia` folder, the virtual environment will be active.
 
-   Note that you don't need to install pyyaml if you were able to install python-yaml with your package manager earlier.
+9. Install the Python dependencies:
 
-9. If you want to run backend tests and check coverage, please install these 2 pip libraries:
+    ```console
+    $ pip install pyyaml setuptools
+    Requirement already satisfied: setuptools in /home/user/.pyenv/versions/2.7.18/envs/oppia-tmp/lib/python2.7/site-packages (44.1.1)
+    Collecting pyyaml
+      Downloading PyYAML-5.4.1-cp27-cp27mu-manylinux1_x86_64.whl (574 kB)
+         |████████████████████████████████| 574 kB 2.3 MB/s
+    Installing collected packages: pyyaml
+    Successfully installed pyyaml-5.4.1
+    ```
 
-   ```console
-   pip install coverage configparser
-   ```
+    Note that you don't need to install pyyaml if you were able to install python-yaml with your package manager earlier.
+
+10. If you want to run backend tests and check coverage, please install these 2 pip libraries:
+
+    ```console
+    pip install coverage configparser
+    ```
 
 ## Running Oppia on a development server
 
