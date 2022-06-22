@@ -22,6 +22,13 @@ A lot of developers have faced an issue "Request Host not whitelisted". To worka
 1. Once the simulator app icon appears in the dock, you can either pin it in the dock, or move/copy the app to a more convenient location for future access. This allows you to open the simulator without having to first open Xcode.
 1. Open Safari, then navigate to a locally-hosted developer instance to test Oppia on iOS.
 
+#### Directly run the simulator via command line
+
+1. See a list of available simulators using `xcrun simctl list`.
+Example output: `iPhone 11 (17DDCE3C-1V29-4251-BC19-21168CA1B259) (Shutdown)`
+The string of alphanumerics within the `()` is the UDID.
+1. Run a particular device using its UDID `open -a Simulator --args -CurrentDeviceUDID <device UDID>`.
+
 ## Installing Android Emulator
 
 1. Follow the directions for installing the [Android SDK Tools](https://developer.android.com/sdk/installing/index.html?pkg=tools).
