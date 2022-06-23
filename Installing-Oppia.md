@@ -6,7 +6,7 @@ Note that throughout our wiki, we use the following notations:
 * `#` represents a root command prompt. For example, `# apt-get install python` means to run `apt-get install python` as root (e.g. using `sudo`).
 * `...` indicates where we've omitted content for the sake of brevity.
 
-To install the Python 3 version of Oppia, follow these instructions:
+To install Oppia, follow these instructions:
 
 * [[Linux|Installing-Oppia-(Linux;-Python-3)]]
 * [[Mac OS|Installing-Oppia-(Mac-OS;-Python-3)]]
