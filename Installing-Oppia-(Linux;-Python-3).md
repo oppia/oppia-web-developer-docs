@@ -131,9 +131,9 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
    eval "$(pyenv virtualenv-init -)"
    ```
 
-2. Reload your shell or open a new terminal window to load your updated `~/.bashrc`.
+3. Reload your shell or open a new terminal window to load your updated `~/.bashrc`.
 
-3. Now you can install Python 3.7.10 and the associated pip like this:
+4. Now you can install Python 3.7.10 and the associated pip like this:
 
    ```console
    $ pyenv install 3.7.10
@@ -143,44 +143,65 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
    Installed Python-3.7.10 to /home/user/.pyenv/versions/3.7.10
    ```
 
-4. Create a virtual environment for oppia:
+5. Install direnv
 
-   ```console
-   $ pyenv virtualenv 3.7.10 oppia
-   ...
-   $ pyenv versions
-   ...
-   oppia
-   ...
+   ```sh
+   $ sudo apt install direnv
+   ```
+   
+6. Setup direnv into your shell. Add following lines to the end of `.bashrc` (see [here](https://askubuntu.com/a/127059) for where to find this file):
+   ```bash
+   eval "$(direnv hook bash)"
    ```
 
-   In the cloned `oppia` folder, run
-
-   ```console
-   pyenv local oppia
+7. Add new file called `.direnvrc` into your home (`~`) folder with this content:
+   ```bash
+   use_python() {
+     local python_root=$(pyenv root)/versions/$1
+     load_prefix "$python_root"
+     if [[ -x "$python_root/bin/python" ]]; then
+       layout python "$python_root/bin/python"
+     else
+       echo "Error: $python_root/bin/python can't be executed."
+       exit
+     fi
+   }
    ```
 
-   Now whenever you are within the `oppia` folder, the virtual environment will be active.
+8. Create a virtual environment for oppia by adding file named `.envrc` into the parent folder of the oppia repository 
+   with this content:
 
-5. Install the Python dependencies:
+    ```console
+    use python 3.7.10
+    ```
 
-   ```console
-   $ pip install pyyaml setuptools
-   Requirement already satisfied: setuptools in /home/user/.pyenv/versions/2.7.18/envs/oppia-tmp/lib/python2.7/site-packages (44.1.1)
-   Collecting pyyaml
-     Downloading PyYAML-5.4.1-cp27-cp27mu-manylinux1_x86_64.whl (574 kB)
-        |████████████████████████████████| 574 kB 2.3 MB/s
-   Installing collected packages: pyyaml
-   Successfully installed pyyaml-5.4.1
-   ```
+    Then run this command in the same folder:
 
-   Note that you don't need to install pyyaml if you were able to install python-yaml with your package manager earlier.
+    ```sh
+    $ direnv allow
+    ```
 
-6. If you want to run backend tests and check coverage, please install these 2 pip libraries:
+    Now whenever you are within the `oppia` folder, the virtual environment will be active.
 
-   ```console
-   pip install coverage configparser
-   ```
+9. Install the Python dependencies:
+
+    ```console
+    $ pip install pyyaml setuptools
+    Requirement already satisfied: setuptools in /home/user/.pyenv/versions/2.7.18/envs/oppia-tmp/lib/python2.7/site-packages (44.1.1)
+    Collecting pyyaml
+      Downloading PyYAML-5.4.1-cp27-cp27mu-manylinux1_x86_64.whl (574 kB)
+         |████████████████████████████████| 574 kB 2.3 MB/s
+    Installing collected packages: pyyaml
+    Successfully installed pyyaml-5.4.1
+    ```
+
+    Note that you don't need to install pyyaml if you were able to install python-yaml with your package manager earlier.
+
+10. If you want to run backend tests and check coverage, please install these 2 pip libraries:
+
+    ```console
+    pip install coverage configparser
+    ```
 
 ## Running Oppia on a development server
 
