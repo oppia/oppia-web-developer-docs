@@ -24,10 +24,16 @@ A lot of developers have faced an issue "Request Host not whitelisted". To worka
 
 #### Directly run the simulator via command line
 
-1. See a list of available simulators using `xcrun simctl list`.
-Example output: `iPhone 11 (17DDCE3C-1V29-4251-BC19-21168CA1B259) (Shutdown)`
+1. See a list of available simulators.
+```
+$ xcrun simctl list
+iPhone 11 (17DDCE3C-1V29-4251-BC19-21168CA1B259) (Shutdown)
+```
 The string of alphanumerics within the `()` is the UDID.
-1. Run a particular device using its UDID `open -a Simulator --args -CurrentDeviceUDID <device UDID>`.
+1. Run a particular device using its UDID.
+```
+open -a Simulator --args -CurrentDeviceUDID <device UDID>
+```
 
 ## Installing Android Emulator
 
