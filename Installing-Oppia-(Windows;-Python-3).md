@@ -235,7 +235,7 @@ Once, this is done, whenever you run the dev server in the VM, you can go to you
 
 _These notes were kindly contributed by **@ezl-13** on 13 Aug 2019. **Note, though, that this installation method has problems**: getting the frontend (Karma) tests running may not work in a foolproof way, and we haven't figured out how to get the e2e tests running yet._
 
-Docker allows for an easy installation of Oppia for Windows users and a more reliable testing environment for running test scripts. The following instructions describe how to install Oppia using Docker. (If you need help with troubleshooting, please see [this section](https://github.com/oppia/oppia/wiki/Installing-Oppia-(Windows)#troubleshooting).)
+Docker allows for an easy installation of Oppia for Windows users and a more reliable testing environment for running test scripts. The following instructions describe how to install Oppia using Docker. (If you need help with troubleshooting, please see [this section](https://github.com/oppia/oppia/wiki/Installing-Oppia-(Windows;-Python-3)#troubleshooting).)
 
 ## Prerequisites and Getting Docker Container Set Up
 
@@ -319,7 +319,7 @@ The estimated runtime for this script is about 10-20 minutes. It will open a ser
        node .\node_modules\typescript\bin\tsc --project .
        node .\node_modules\karma\bin\karma start .\core\tests\karma.conf.ts
      ```
-   If this outputs an error, please see [this section](https://github.com/oppia/oppia/wiki/Installing-Oppia-(Windows)#troubleshooting) for alternative commands.
+   If this outputs an error, please see [this section](https://github.com/oppia/oppia/wiki/Installing-Oppia-(Windows;-Python-3)#troubleshooting) for alternative commands.
 
 You're done! Now return to the [code contribution instructions](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia), skipping the step about cloning the Oppia repository with `git`.
 

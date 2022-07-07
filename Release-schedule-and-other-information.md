@@ -109,7 +109,7 @@ We also have a project leads council who will be contacted about project specifi
 | March         | 4th March        | Kevin (**@kevintab95**)     | Vojta (**@vojtechjelinek**) | Kevin (**@kevintab95**)     |
 | April         | 1st April        | Akshay (**@aks681**)        | Chris (**@U8NWXD**)         | Kevin (**@vojtechjelinek**) |
 | May           | 6th May          | Chris (**@U8NWXD**)         | Nithesh (**@nithusha21**)   | Kevin (**@kevintab95**)     |
-| June          | 1st June         | Nithesh (**@nithusha21**)   | Akshay (**@aks681**)        | Vojta (**@vojtechjelinek**) |
+| June          | 1st June         | Vojta (**@vojtechjelinek**) | Akshay (**@aks681**)        | Vojta (**@vojtechjelinek**) |
 | July          | 29th June        | Kevin (**@kevintab95**)     | Nithesh (**@nithusha21**)   | Vojta (**@vojtechjelinek**) |
 | August        | 3rd August       | Vojta (**@vojtechjelinek**) | Kevin (**@kevintab95**)     | Kevin (**@kevintab95**)     |
 | September     | 31st August      | Sandeep (**@DubeySandeep**) | Rohit (**@rohitkatlaa**)    | Kevin (**@kevintab95**)     |
