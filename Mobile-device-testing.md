@@ -18,9 +18,9 @@ A lot of developers have faced an issue "Request Host not whitelisted". To worka
 ## Installing iOS Simulator (for OS X)
 
 1. Install Xcode via the [Mac App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12).
-1. Right click on the Xcode icon in the dock, then select `Open Developer Tools > Simulator`.
-1. Once the simulator app icon appears in the dock, you can either pin it in the dock, or move/copy the app to a more convenient location for future access. This allows you to open the simulator without having to first open Xcode.
-1. Open Safari, then navigate to a locally-hosted developer instance to test Oppia on iOS.
+2. Right click on the Xcode icon in the dock, then select `Open Developer Tools > Simulator`.
+3. Once the simulator app icon appears in the dock, you can either pin it in the dock, or move/copy the app to a more convenient location for future access. This allows you to open the simulator without having to first open Xcode.
+4. Open Safari, then navigate to a locally-hosted developer instance to test Oppia on iOS.
 
 #### Directly run the simulator via command line
 
@@ -30,7 +30,7 @@ $ xcrun simctl list
 iPhone 11 (17DDCE3C-1V29-4251-BC19-21168CA1B259) (Shutdown)
 ```
 The string of alphanumerics within the `()` is the UDID.
-1. Run a particular device using its UDID.
+2. Run a particular device using its UDID.
 ```
 open -a Simulator --args -CurrentDeviceUDID <device UDID>
 ```
@@ -38,16 +38,16 @@ open -a Simulator --args -CurrentDeviceUDID <device UDID>
 ## Installing Android Emulator
 
 1. Follow the directions for installing the [Android SDK Tools](https://developer.android.com/sdk/installing/index.html?pkg=tools).
-1. Run the SDK manager:
+2. Run the SDK manager:
   * Windows: Double-click the `SDK Manager.exe` file at the root of the Android SDK directory.
   * OS X/Linux: Open a terminal and navigate to the `tools/` directory in the location where the Android SDK was installed. Then, execute `android sdk`.
-1. Download all packages under a given Android API directory (e.g. Android 6.0), as well as all packages under the Tools directory.
-1. Using the command line, navigate to your SDK’s `tools/` directory and execute `android avd`.
-1. With Android Virtual Device selected, click the `Create` button.
-1. Create a name for the AVD Name field.
-1. Select an available device for the Device field.
-1. Select an available target API for the Target field.
-1. Select an available CPU for the CPU field.
-1. Select a skin for the Skin field.
-1. Click OK to create an AVD.
-1. In AVD Manager, select your AVD, and click Start to boot your virtual device.
+3. Download all packages under a given Android API directory (e.g. Android 6.0), as well as all packages under the Tools directory.
+4. Using the command line, navigate to your SDK’s `tools/` directory and execute `android avd`.
+5. With Android Virtual Device selected, click the `Create` button.
+6. Create a name for the AVD Name field.
+7. Select an available device for the Device field.
+8. Select an available target API for the Target field.
+9. Select an available CPU for the CPU field.
+10. Select a skin for the Skin field.
+11. Click OK to create an AVD.
+12. In AVD Manager, select your AVD, and click Start to boot your virtual device.
