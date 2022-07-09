@@ -1,10 +1,11 @@
 ## Table of contents
 
-* [Overview](#overview)
-* [Selectors](#selectors)
-* [Events on selected elements](#events-on-selected-elements)
-* [Points to note while migrating](#points-to-note-while-migrating)
-* [Example migration](#example-migration)
+- [Table of contents](#table-of-contents)
+- [Overview](#overview)
+- [Selectors](#selectors)
+- [Events on selected elements](#events-on-selected-elements)
+- [Points to note while migrating](#points-to-note-while-migrating)
+- [Example migration](#example-migration)
 
 ## Overview
 
@@ -84,7 +85,7 @@ var until = protractor.ExpectedConditions;
 this.editUserRole = async function(username) {
   await browser.get('/admin');
   
-  var adminRolesTab = element(by.css('.protractor-test-admin-roles-tab'));
+  var adminRolesTab = element(by.css('.e2e-test-admin-roles-tab'));
   await adminRolesTab.click();
 
   expect(await adminRolesTab.getAttribute('class')).toMatch('active');
@@ -95,10 +96,10 @@ this.editUserRole = async function(username) {
     10000, 'Element not visible');
 
   var usernameInputFieldForRolesEditing = element.all(by.css(
-    '.protractor-test-username-for-role-editor'));
+    '.e2e-test-username-for-role-editor'));
   await usernameInputFieldForRolesEditing.first().sendKeys(username);
 
-  var editUserRoleButton = element(by.id('protractor-test-button');
+  var editUserRoleButton = element(by.id('e2e-test-button');
   await buttonText = editUserRoleButton.getText();
   expect(buttonText).toBe('Button Text');
 };
@@ -112,7 +113,7 @@ var until = require('wdio-wait-for');
 this.editUserRole = async function(username) {
   await browser.url('/admin');
 
-  var adminRolesTab = $('.webdriverio-test-admin-roles-tab');
+  var adminRolesTab = $('.e2e-test-admin-roles-tab');
   await adminRolesTab.click();
 
   expect(await adminRolesTab.getAttribute('class')).toMatch('active');
@@ -126,10 +127,10 @@ this.editUserRole = async function(username) {
     });
 
   var usernameInputFieldForRolesEditing = (
-    $$('.webdriverio-test-username-for-role-editor'));
+    $$('.e2e-test-username-for-role-editor'));
   await usernameInputFieldForRolesEditing[0].setValue(username);
 
-  var editUserRoleButton = $('#webdriverio-test-button');
+  var editUserRoleButton = $('#e2e-test-button');
   await buttonText = editUserRoleButton.getText();
   expect(buttonText).toBe('Button Text');
 };

@@ -1,37 +1,38 @@
 ## Table of contents
 
-* [Layout of the E2E test files](#layout-of-the-e2e-test-files)
-  * [Suite files](#suite-files)
-    * [`core/tests/protractor`](#coretestsprotractor)
-    * [`core/tests/protractor_desktop`](#coretestsprotractor_desktop)
-    * [`core/tests/protractor_mobile`](#coretestsprotractor_mobile)
-  * [Utilities](#utilities)
-    * [`core/tests/protractor_utils`](#coretestsprotractor_utils)
-    * [`extensions/**/protractor.js`](#extensionsprotractorjs)
-* [Write E2E tests](#write-e2e-tests)
-  * [Where to add the tests](#where-to-add-the-tests)
-    * [Interactions](#interactions)
-    * [Existing suite](#existing-suite)
-    * [New suite](#new-suite)
-  * [Writing the tests](#writing-the-tests)
-  * [Writing utilities](#writing-utilities)
-    * [Selecting elements](#selecting-elements)
-    * [Non-Angular pages](#non-angular-pages)
-  * [Writing robust tests](#writing-robust-tests)
-    * [Flakiness](#flakiness)
-    * [Independence](#independence)
-  * [Checking for flakiness](#checking-for-flakiness)
-  * [Codeowner Checks](#codeowner-checks)
-  * [Important Tips](#important-tips)
-* [Metrics](#metrics)
-* [Reference](#reference)
-  * [Forms and objects](#forms-and-objects)
-    * [Rich Text](#rich-text)
-  * [Async-Await Tips](#async-await-tips)
-    * [Good Patterns](#good-patterns)
-    * [Anti-Patterns](#anti-patterns)
-  * [Known kinds of flakes](#known-kinds-of-flakes)
-    * [document unloaded while waiting for result](#document-unloaded-while-waiting-for-result)
+- [Table of contents](#table-of-contents)
+- [Layout of the E2E test files](#layout-of-the-e2e-test-files)
+  - [Suite files](#suite-files)
+    - [`core/tests/protractor`](#coretestsprotractor)
+    - [`core/tests/protractor_desktop`](#coretestsprotractor_desktop)
+    - [`core/tests/protractor_mobile`](#coretestsprotractor_mobile)
+  - [Utilities](#utilities)
+    - [`core/tests/protractor_utils`](#coretestsprotractor_utils)
+    - [`extensions/**/protractor.js`](#extensionsprotractorjs)
+- [Write E2E tests](#write-e2e-tests)
+  - [Where to add the tests](#where-to-add-the-tests)
+    - [Interactions](#interactions)
+    - [Existing suite](#existing-suite)
+    - [New suite](#new-suite)
+  - [Writing the tests](#writing-the-tests)
+  - [Writing utilities](#writing-utilities)
+    - [Selecting elements](#selecting-elements)
+    - [Non-Angular pages](#non-angular-pages)
+  - [Writing robust tests](#writing-robust-tests)
+    - [Flakiness](#flakiness)
+    - [Independence](#independence)
+  - [Checking for flakiness](#checking-for-flakiness)
+  - [Codeowner Checks](#codeowner-checks)
+  - [Important Tips](#important-tips)
+- [Metrics](#metrics)
+- [Reference](#reference)
+  - [Forms and objects](#forms-and-objects)
+    - [Rich Text](#rich-text)
+  - [Async-Await Tips](#async-await-tips)
+    - [Good Patterns](#good-patterns)
+    - [Anti-Patterns](#anti-patterns)
+  - [Known kinds of flakes](#known-kinds-of-flakes)
+    - [document unloaded while waiting for result](#document-unloaded-while-waiting-for-result)
 
 ## Layout of the E2E test files
 
@@ -129,7 +130,7 @@ For information on writing tests with protractor, see the [protractor documentat
 
 Much of the difficulty of writing protractor code lies in specifying the element with which you wish to interact. It is important to do so in a way that is as insensitive as possible to superficial DOM features such as text and styling, so as to reduce the likelihood that the test will break when the production HTML is changed. Here are some ways to specify an element, in order of decreasing preference:
 
-1. Adding a `protractor-test-some-name` class to the element in question, and then referencing it by `by.css('.protractor-test-some-name')`. We do not use `by.id` for this purpose because Oppia frequently displays multiple copies of a DOM element on the same page, and if an `id` is repeated then references to it will not work properly. This is the preferred method, since it makes clear to those editing production code exactly what the dependence on protractor is, thus minimizing the likelihood of confusing errors when they make changes. Sometimes this may not work, though (e.g. for embedded pages, third-party libraries and generated HTML), in which case you may instead need to use one of the options below.
+1. Adding a `e2e-test-some-name` class to the element in question, and then referencing it by `by.css('.e2e-test-some-name')`. We do not use `by.id` for this purpose because Oppia frequently displays multiple copies of a DOM element on the same page, and if an `id` is repeated then references to it will not work properly. This is the preferred method, since it makes clear to those editing production code exactly what the dependence on protractor is, thus minimizing the likelihood of confusing errors when they make changes. Sometimes this may not work, though (e.g. for embedded pages, third-party libraries and generated HTML), in which case you may instead need to use one of the options below.
 
 2. Using existing element ids. We avoid using existing classes for this purpose as they are generally style specifications such as `big-button` that may be changed in the future.
 
@@ -157,7 +158,7 @@ If you use one of options 2-4, you should create a chain of element selectors wh
 Then you can select Element B with this selector chain:
 
 ```js
-var elemB = element(by.css('.protractor-test-elem-a')).element(by.id('elem-b'));
+var elemB = element(by.css('.e2e-test-elem-a')).element(by.id('elem-b'));
 ```
 
 Notice that the top of the chain, where we select Element A, uses method 1.
@@ -165,7 +166,7 @@ Notice that the top of the chain, where we select Element A, uses method 1.
 Sometimes you need to distinguish between several different elements which all look the same to element selectors. You can iterate over all the elements to find the right one. For example, suppose we want to click on the button to open a topic, where the button text is the topic name. We could find the right button like this:
 
 ```js
-var buttons = element.all(by.css('.protractor-test-button'));
+var buttons = element.all(by.css('.e2e-test-button'));
 ...
 var openTopic = async function(topicName) {
   await waitFor.elementToBeClickable(

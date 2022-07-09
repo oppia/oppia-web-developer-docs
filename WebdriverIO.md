@@ -1,34 +1,34 @@
 ## Table of contents
 
-* [Layout of the E2E test files](#layout-of-the-e2e-test-files)
-  * [Suite files](#suite-files)
-    * [`core/tests/webdriverio`](#coretestswebdriverio)
-    * [`core/tests/webdriverio_desktop`](#coretestswebdriverio_desktop)
-    * [`core/tests/webdriverio_mobile`](#coretestswebdriverio_mobile)
-  * [Utilities](#utilities)
-    * [`core/tests/webdriverio_utils`](#coretestswebdriverio_utils)
-    * [`extensions/**/webdriverio.js`](#extensionswebdriverios)
-* [Write E2E tests](#write-e2e-tests)
-  * [Where to add the tests](#where-to-add-the-tests)
-    * [Interactions](#interactions)
-    * [Existing suite](#existing-suite)
-    * [New suite](#new-suite)
-  * [Writing the tests](#writing-the-tests)
-  * [Writing utilities](#writing-utilities)
-    * [Selecting elements](#selecting-elements)
-    * [Non-Angular pages](#non-angular-pages)
-  * [Writing robust tests](#writing-robust-tests)
-    * [Flakiness](#flakiness)
-    * [Independence](#independence)
-  * [Checking for flakiness](#checking-for-flakiness)
-  * [Codeowner Checks](#codeowner-checks)
-  * [Important Tips](#important-tips)
-* [Reference](#reference)
-  * [Forms and objects](#forms-and-objects)
-    * [Rich Text](#rich-text)
-  * [Async-Await Tips](#async-await-tips)
-    * [Good Patterns](#good-patterns)
-    * [Anti-Patterns](#anti-patterns)
+- [Table of contents](#table-of-contents)
+- [Layout of the E2E test files](#layout-of-the-e2e-test-files)
+  - [Suite files](#suite-files)
+    - [`core/tests/webdriverio`](#coretestswebdriverio)
+    - [`core/tests/webdriverio_desktop`](#coretestswebdriverio_desktop)
+    - [`core/tests/webdriverio_mobile`](#coretestswebdriverio_mobile)
+  - [Utilities](#utilities)
+    - [`core/tests/webdriverio_utils`](#coretestswebdriverio_utils)
+    - [`extensions/**/webdriverio.js`](#extensionswebdriveriojs)
+- [Write E2E tests](#write-e2e-tests)
+  - [Where to add the tests](#where-to-add-the-tests)
+    - [Interactions](#interactions)
+    - [Existing suite](#existing-suite)
+    - [New suite](#new-suite)
+  - [Writing the tests](#writing-the-tests)
+  - [Writing utilities](#writing-utilities)
+    - [Selecting elements](#selecting-elements)
+  - [Writing robust tests](#writing-robust-tests)
+    - [Flakiness](#flakiness)
+    - [Independence](#independence)
+  - [Checking for flakiness](#checking-for-flakiness)
+  - [Codeowner Checks](#codeowner-checks)
+  - [Important Tips](#important-tips)
+- [Reference](#reference)
+  - [Forms and objects](#forms-and-objects)
+    - [Rich Text](#rich-text)
+  - [Async-Await Tips](#async-await-tips)
+    - [Good Patterns](#good-patterns)
+    - [Anti-Patterns](#anti-patterns)
 
 ## Layout of the E2E test files
 
@@ -84,18 +84,18 @@ We expect E2E tests to be written for any new feature that is released to the pu
 
 If you are just creating a new interaction and want to add end-to-end tests for it then you can follow the guidance given at [[Creating Interactions|Creating-Interactions]], though the [forms and objects](#forms-and-objects) section of this page may also be helpful.
 
-If you are adding functionality to an existing interaction, you can probably just add test cases to its `webdriverio.js` file. For example, the `AlgebraicExpressionInput` interaction's file is at `oppia/extensions/interactions/AlgebraicExpressionInput/webdriverio.js`.
+If you are adding functionality to an existing interaction, you can probably just add test cases to its `webdriverio.js` file. For example, the `AlgebraicExpressionInput` interaction's file is at [`oppia/extensions/interactions/AlgebraicExpressionInput/webdriverio.js`](https://github.com/oppia/oppia/blob/develop/extensions/interactions/AlgebraicExpressionInput/webdriverio.js).
 
 #### Existing suite
 
-First, take a look at the existing test suites in `core/tests/webdriverio` and `core/tests/webdriverio_desktop`. If your test fits well into any of those suites, you should add it there.
+First, take a look at the existing test suites in [`core/tests/webdriverio`](https://github.com/oppia/oppia/tree/develop/core/tests/webdriverio) and [`core/tests/webdriverio_desktop`](https://github.com/oppia/oppia/tree/develop/core/tests/webdriverio_desktop). If your test fits well into any of those suites, you should add it there.
 
 #### New suite
 
-If you need to, you can add a new test suite to `core/tests/webdriverio_desktop` like this:
+If you need to, you can add a new test suite to [`core/tests/webdriverio_desktop`](https://github.com/oppia/oppia/tree/develop/core/tests/webdriverio_desktop) like this:
 
 1. Create the new suite file under `core/tests/webdriverio_desktop`.
-2. Add the suite to `core/tests/wdio.conf.js`.
+2. Add the suite to [`core/tests/wdio.conf.js`](https://github.com/oppia/oppia/blob/develop/core/tests/wdio.conf.js).
 3. Add your new suite to GitHub Actions, whose workflow files are in [`.github/workflows`](https://github.com/oppia/oppia/tree/develop/.github/workflows). If there is an existing workflow that your suite would fit well with, add your suite there. Otherwise, create a new workflow. Note that we want all CI workflows to finish in less than 30 minutes, so check the workflow runtimes after your change!
 
 ### Writing the tests
@@ -126,7 +126,7 @@ For information on writing tests with webdriverio, see the [webdriverio's docume
 
 Much of the difficulty of writing webdriverio code lies in specifying the element with which you wish to interact. It is important to do so in a way that is as insensitive as possible to superficial DOM features such as text and styling, so as to reduce the likelihood that the test will break when the production HTML is changed. Here are some ways to specify an element, in order of decreasing preference:
 
-1. Adding a `webdriverio-test-some-name` class to the element in question, and then referencing it by `$('.webdriverio-test-some-name')`. We do not use `$('#id')` for this purpose because Oppia frequently displays multiple copies of a DOM element on the same page, and if an `id` is repeated then references to it will not work properly. This is the preferred method, since it makes clear to those editing production code exactly what the dependence on webdriverio is, thus minimizing the likelihood of confusing errors when they make changes. Sometimes this may not work, though (e.g. for embedded pages, third-party libraries and generated HTML), in which case you may instead need to use one of the options below.
+1. Adding a `e2e-test-some-name` class to the element in question, and then referencing it by `$('.e2e-test-some-name')`. We do not use `$('#id')` for this purpose because Oppia frequently displays multiple copies of a DOM element on the same page, and if an `id` is repeated then references to it will not work properly. This is the preferred method, since it makes clear to those editing production code exactly what the dependence on webdriverio is, thus minimizing the likelihood of confusing errors when they make changes. Sometimes this may not work, though (e.g. for embedded pages, third-party libraries and generated HTML), in which case you may instead need to use one of the options below.
 
 2. Using existing element ids. We avoid using existing classes for this purpose as they are generally style specifications such as `big-button` that may be changed in the future.
 
@@ -154,7 +154,7 @@ If you use one of options 2-4, you should create a chain of element selectors wh
 Then you can select Element B with this selector chain:
 
 ```js
-var elemB = $('.webdriverio-test-elem-a').$('#elem-b');
+var elemB = $('.e2e-test-elem-a').$('#elem-b');
 ```
 
 Notice that the top of the chain, where we select Element A, uses method 1.
@@ -162,9 +162,12 @@ Notice that the top of the chain, where we select Element A, uses method 1.
 Sometimes you need to distinguish between several different elements which all look the same to element selectors. You can iterate over all the elements to find the right one. For example, suppose we want to click on the button to open a topic, where the button text is the topic name. We could find the right button like this:
 
 ```js
-var buttons = $$('.webdriverio-test-button');
+var buttonsSelector = function() {
+  return $$('.e2e-test-button');
+}
 ...
 var openTopic = async function(topicName) {
+  var buttons = await buttonsSelector();
   await waitFor.elementToBeClickable(
     buttons[0],
     'Topic buttons taking too long to become clickable.'
@@ -185,6 +188,8 @@ var openTopic = async function(topicName) {
 It might be tempting to use the `buttons[0]`, `buttons[last]`, and `buttons[n]` directly when you know what order the elements will come in. However, this makes the tests fragile to changes in the page, and it makes the code hard to read. You should also avoid accessing page elements by index because that's not how most users will find elements. They will be relying on the text identifying those elements, and your test should too.
 
 Except for cases where an element selector is crafted dynamically, all element selectors should be at the top of a utility file. There should be no element selectors in suite files.
+
+Note: We need to use `await` prefix while using `$$` selector in order to avoid flakiness of tests.
 
 ### Writing robust tests
 
@@ -208,13 +213,15 @@ It is easy to accidentally write _flaky_ end-to-end tests, which means that the 
 
 * In page objects, each function should use `waitFor.js` to wait for the elements it acts on to appear or be clickable. Alternatively, you can use a function from `action.js` that has the waitFor calls built-in. If the function effects a change, it should also wait for the change to complete (e.g. the next page to finish loading if the function clicks a link).
 
+* Always use `await` prefix with `$$` selectors to avoid flakiness of tests.
+
 #### Independence
 
 The tests may be run either sequentially or in isolation, and they need to be written to function correctly in both cases. Further, we may rearrange which tests are run together to optimize performance. This means that each `describe(...` block of tests should work regardless of what tests are run before (or after) it. Here are some tips for writing independent tests:
 
 * Ensure that usernames and emails used in each test are unique by giving them a distinctive form; in e.g. the editorAndPlayer page usernames should look like `user1EditorAndPlayer` and emails like `user1@editorAndPlayer.com`. Use this pattern for other names in the tests, for example topic and skill names, for example `skill1EditorAndPlayer`. Some structures have character limits that may disallow this convention. In that case, feel free to shorten the name, e.g. with an abbreviation. You may want to use a constant though if the name gets too unreadable.
 
-* Avoid accessing items by index. For example, to select an exploration from a list, search for the name of the exploration instead of assuming the exploration will be at some index. Take a look at the `_getExplorationElements` function in `core/tests/webdriverio_utils/LibraryPage.js` for an example.
+* Avoid accessing items by index. For example, to select an exploration from a list, search for the name of the exploration instead of assuming the exploration will be at some index. Take a look at the `_getExplorationElements` function in[`core/tests/webdriverio_utils/LibraryPage.js`](https://github.com/oppia/oppia/blob/develop/core/tests/webdriverio_utils/LibraryPage.js) for an example.
 
 ### Checking for flakiness
 
@@ -236,17 +243,17 @@ Please re-run your tests on CI, not locally on your machine, because flakes ofte
 When the Automated QA Team does a codeowner review on your PR that changes the e2e tests, they will be looking to make sure that you follow all the guidance in this wiki page. In the checklist below, we list some of the most common problems we see. To get your PR merged faster, please check that your PR satisfies each item:
 
 * [ ] All constants should be in all-caps. (This isn't really an e2e test issue, but we see it a lot.)
-* [ ] All element selectors, e.g. `$('.webdriverio-test-my-element')`, need to be at the top of the file. There are a few exceptions:
+* [ ] All element selectors, e.g. `$('.e2e-test-my-element')`, need to be at the top of the file. There are a few exceptions:
     * Keeping selectors with the code that uses them is okay in some utility files where the utilities do not generally share selectors.
     * When you are chaining selectors, only the root selector (first in the chain) needs to be at the top of the file.
 * [ ] Any time you create something in Oppia that needs a globally unique name to be identified by the tests (e.g. explorations, topics, skills, and users), make sure to follow the naming guidance in the [Independence](#independence) section above.
 * [ ] Each `it` block in the test must be able to be run independently of the others. Imagine running any number of your `it` blocks in any order. Regardless of which you choose and in what order you run them, they should work correctly.
-* [ ] Before you interact with _any_ element on the page, you must wait for it to be present, visible, or clickable (depending on how you interact with it) using the [`waitFor`] functions. The [`actions`] functions handle this for you.
+* [ ] Before you interact with _any_ element on the page, you must wait for it to be present, visible, or clickable (depending on how you interact with it) using the [`waitFor`](https://github.com/oppia/oppia/blob/develop/core/tests/webdriverio_utils/waitFor.js) functions. The [`actions`](https://github.com/oppia/oppia/blob/develop/core/tests/webdriverio_utils/action.js) functions handle this for you.
 * [ ] If you repeat some code a lot, make it a function! This also makes it a lot easier to review your code.
 * [ ] If you make a generally useful function, add it to the relevant utilities file so that other people can benefit from it too.
 * [ ] You will need to provide screenshots showing that the tests aren't flaky after your changes.
 * [ ] Variables should be named as nouns, and functions should be named as verbs. In particular, make sure your page element variable names are nouns. For example, use `itemSelectButton` instead of `itemSelect`.
-* [ ] All HTML classes you reference in root selectors in the tests should begin with `webdriverio-test-`. If you can't change the classes on an element you need to select, find a parent element you can change and then chain the selectors like this: `$('.webdriverio-test-parent-element').$('.class-of-element-you-cannot-change')` or like this: `$('.webdriverio-test-parent-element .class-of-element-you-cannot-change')`.
+* [ ] All HTML classes you reference in root selectors in the tests should begin with `e2e-test-`. If you can't change the classes on an element you need to select, find a parent element you can change and then chain the selectors like this: `$('.e2e-test-parent-element').$('.class-of-element-you-cannot-change')` or like this: `$('.e2e-test-parent-element .class-of-element-you-cannot-change')`.
 
 ### Important Tips
 
@@ -265,7 +272,7 @@ There are more specialized input types in `extensions/objects` which you can als
 To get a form or object editor, you can use the `getEditor` function in `forms.js`. It accepts the name of the form or object as an argument, and it searches first in `forms.js` and then in `extensions/objects/webdriverio.js` for a function of the same name. For example, suppose we want to set the value of a real number field. We can use `getEditor` like this:
 
 ```js
-var realNumberFieldElement = $('.webdriverio-test-real-number');
+var realNumberFieldElement = $('.e2e-test-real-number');
 ...
 var realEditor = getEditor('RealEditor')(realNumberFieldElement);
 await realEditor.setValue(3.14);
@@ -293,7 +300,7 @@ await explorationEditorMainTab.setContent(instructions);
 Then inside `setContent`, you instructions function will be called:
 
 ```js
-var editorElement = $('.webdriverio-test-editor');
+var editorElement = $('.e2e-test-editor');
 ...
 this.setContent = async function(instructions) {
   ...
@@ -368,7 +375,7 @@ This works for both editors and checkers.
   * If you are mapping over an `$$` selector, we've encountered cases where ```$$(selector).map(function)``` does not properly await for async functions. Instead of this:
 
     ```js
-    let mappedElements = $$(selector)
+    let mappedElements = await $$(selector)
     await Promise.all(await mappedElements.map(async(x) => {
         return await functionThatIsAsync(x);
     }));
@@ -377,7 +384,7 @@ This works for both editors and checkers.
     Try:
 
     ```js
-    let mappedElements = $$(selector)
+    let mappedElements = await $$(selector)
     for (let x of (await mappedElements)) {
       await functionThatIsAsync(x);
     }
@@ -395,7 +402,7 @@ This works for both editors and checkers.
   ```
   Here's a common example of when we need these nested `await`s:
   ```js
-  await (await browser.getActiveElement()).keys(explanation);
+  await (await browser.getActiveElement()).setValue(explanation);
   ```
 * Rejection callbacks
   ```js
