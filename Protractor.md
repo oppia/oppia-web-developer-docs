@@ -244,7 +244,7 @@ Please re-run your tests on CI, not locally on your machine, because flakes ofte
 When the Automated QA Team does a codeowner review on your PR that changes the e2e tests, they will be looking to make sure that you follow all the guidance in this wiki page. In the checklist below, we list some of the most common problems we see. To get your PR merged faster, please check that your PR satisfies each item:
 
 * [ ] All constants should be in all-caps. (This isn't really an e2e test issue, but we see it a lot.)
-* [ ] All element selectors, e.g. `element(by.css('.protractor-test-my-element'))`, need to be at the top of the file. There are a few exceptions:
+* [ ] All element selectors, e.g. `element(by.css('.e2e-test-my-element'))`, need to be at the top of the file. There are a few exceptions:
     * Keeping selectors with the code that uses them is okay in some utility files where the utilities do not generally share selectors.
     * When you are chaining selectors, only the root selector (first in the chain) needs to be at the top of the file.
 * [ ] Any time you create something in Oppia that needs a globally unique name to be identified by the tests (e.g. explorations, topics, skills, and users), make sure to follow the naming guidance in the [Independence](https://github.com/oppia/oppia/wiki/End-to-End-Tests#independence) section above.
@@ -255,7 +255,7 @@ When the Automated QA Team does a codeowner review on your PR that changes the e
 * [ ] If you make a generally useful function, add it to the relevant utilities file so that other people can benefit from it too.
 * [ ] You will need to provide screenshots showing that the tests aren't flaky after your changes. The requirements are detailed above in the [Temporary Flakiness Mitigation Measures](https://github.com/oppia/oppia/wiki/End-to-End-Tests#temporary-flakiness-mitigation-measures) section.
 * [ ] Variables should be named as nouns, and functions should be named as verbs. In particular, make sure your page element variable names are nouns. For example, use `itemSelectButton` instead of `itemSelect`.
-* [ ] All HTML classes you reference in root selectors in the tests should begin with `protractor-test-`. If you can't change the classes on an element you need to select, find a parent element you can change and then chain the selectors like this: `element(by.css('.protractor-test-parent-element')).element(by.css('.class-of-element-you-cannot-change'))` or like this: `element(by.css('.protractor-test-parent-element .class-of-element-you-cannot-change'))`.
+* [ ] All HTML classes you reference in root selectors in the tests should begin with `e2e-test-`. If you can't change the classes on an element you need to select, find a parent element you can change and then chain the selectors like this: `element(by.css('.protractor-test-parent-element')).element(by.css('.class-of-element-you-cannot-change'))` or like this: `element(by.css('.e2e-test-parent-element .class-of-element-you-cannot-change'))`.
 
 ### Important Tips
 
@@ -278,7 +278,7 @@ There are more specialized input types in `extensions/objects` which you can als
 To get a form or object editor, you can use the `getEditor` function in `forms.js`. It accepts the name of the form or object as an argument, and it searches first in `forms.js` and then in `extensions/objects/protractor.js` for a function of the same name. For example, suppose we want to set the value of a real number field. We can use `getEditor` like this:
 
 ```js
-var realNumberFieldElement = element(by.css('protractor-test-real-number'));
+var realNumberFieldElement = element(by.css('e2e-test-real-number'));
 ...
 var realEditor = getEditor('RealEditor')(realNumberFieldElement);
 await realEditor.setValue(3.14);
@@ -328,7 +328,7 @@ var instructions = async function(richTextChecker) {
 Then inside the `expectContentToMatch` function, we can pass your instructions to the `forms.expectRichText` function:
 
 ```js
-var richTextDisplay = element(by.css('.protractor-test-rich-text'));
+var richTextDisplay = element(by.css('.e2e-test-rich-text'));
 ...
 this.expectContentToMatch = async function(instructions) {
   await forms.expectRichText(richTextDisplay).toMatch(instructions);
