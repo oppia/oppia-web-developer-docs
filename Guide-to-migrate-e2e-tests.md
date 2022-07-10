@@ -1,11 +1,10 @@
 ## Table of contents
 
-- [Table of contents](#table-of-contents)
-- [Overview](#overview)
-- [Selectors](#selectors)
-- [Events on selected elements](#events-on-selected-elements)
-- [Points to note while migrating](#points-to-note-while-migrating)
-- [Example migration](#example-migration)
+* [Overview](#overview)
+* [Selectors](#selectors)
+* [Events on selected elements](#events-on-selected-elements)
+* [Points to note while migrating](#points-to-note-while-migrating)
+* [Example migration](#example-migration)
 
 ## Overview
 
