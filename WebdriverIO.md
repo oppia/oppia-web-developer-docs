@@ -185,11 +185,26 @@ var openTopic = async function(topicName) {
 }
 ```
 
+As you may have noted above that `$$` selectors are used in a function instead of getting directly decalred as variable like `$`, the reason is we cannot use `$$` without `await` prefix as this leads to flakiness in test because it returns an unresolved promise, and we can use `await` only inside async function. So as we need to place the selectors at top we are creating a function instead and using `await` prefix wherever we are calling the function.
+
 It might be tempting to use the `buttons[0]`, `buttons[last]`, and `buttons[n]` directly when you know what order the elements will come in. However, this makes the tests fragile to changes in the page, and it makes the code hard to read. You should also avoid accessing page elements by index because that's not how most users will find elements. They will be relying on the text identifying those elements, and your test should too.
 
 Except for cases where an element selector is crafted dynamically, all element selectors should be at the top of a utility file. There should be no element selectors in suite files.
 
-Note: We need to use `await` prefix while using `$$` selector in order to avoid flakiness of tests.
+Note: We need to use `await` prefix while using `$$` selector in order to avoid flakiness of tests. For some cases where after selecting all the elements we iterates over each single element, there we do not need to use `await` with `$$` as we will be using `await` while iterating over each element. See the below example:
+
+```
+var allExplorationCards = $$('.e2e-test-exploration-dashboard-card');
+await allExplorationCards.filter(async function(tile) {
+  var text = await tile.getText();
+  // Tile text contains title, possibly followed by newline and text.
+  return (
+    text.startsWith(explorationTitle + '\n') ||
+    text === explorationTitle
+  );
+});
+```
+
 
 ### Writing robust tests
 
