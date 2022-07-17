@@ -129,7 +129,7 @@ For information on writing tests with protractor, see the [protractor documentat
 
 Much of the difficulty of writing protractor code lies in specifying the element with which you wish to interact. It is important to do so in a way that is as insensitive as possible to superficial DOM features such as text and styling, so as to reduce the likelihood that the test will break when the production HTML is changed. Here are some ways to specify an element, in order of decreasing preference:
 
-1. Adding a `protractor-test-some-name` class to the element in question, and then referencing it by `by.css('.protractor-test-some-name')`. We do not use `by.id` for this purpose because Oppia frequently displays multiple copies of a DOM element on the same page, and if an `id` is repeated then references to it will not work properly. This is the preferred method, since it makes clear to those editing production code exactly what the dependence on protractor is, thus minimizing the likelihood of confusing errors when they make changes. Sometimes this may not work, though (e.g. for embedded pages, third-party libraries and generated HTML), in which case you may instead need to use one of the options below.
+1. Adding a `e2e-test-some-name` class to the element in question, and then referencing it by `by.css('.e2e-test-some-name')`. We do not use `by.id` for this purpose because Oppia frequently displays multiple copies of a DOM element on the same page, and if an `id` is repeated then references to it will not work properly. This is the preferred method, since it makes clear to those editing production code exactly what the dependence on protractor is, thus minimizing the likelihood of confusing errors when they make changes. Sometimes this may not work, though (e.g. for embedded pages, third-party libraries and generated HTML), in which case you may instead need to use one of the options below.
 
 2. Using existing element ids. We avoid using existing classes for this purpose as they are generally style specifications such as `big-button` that may be changed in the future.
 
@@ -157,7 +157,7 @@ If you use one of options 2-4, you should create a chain of element selectors wh
 Then you can select Element B with this selector chain:
 
 ```js
-var elemB = element(by.css('.protractor-test-elem-a')).element(by.id('elem-b'));
+var elemB = element(by.css('.e2e-test-elem-a')).element(by.id('elem-b'));
 ```
 
 Notice that the top of the chain, where we select Element A, uses method 1.
@@ -165,7 +165,7 @@ Notice that the top of the chain, where we select Element A, uses method 1.
 Sometimes you need to distinguish between several different elements which all look the same to element selectors. You can iterate over all the elements to find the right one. For example, suppose we want to click on the button to open a topic, where the button text is the topic name. We could find the right button like this:
 
 ```js
-var buttons = element.all(by.css('.protractor-test-button'));
+var buttons = element.all(by.css('.e2e-test-button'));
 ...
 var openTopic = async function(topicName) {
   await waitFor.elementToBeClickable(
@@ -243,7 +243,7 @@ Please re-run your tests on CI, not locally on your machine, because flakes ofte
 When the Automated QA Team does a codeowner review on your PR that changes the e2e tests, they will be looking to make sure that you follow all the guidance in this wiki page. In the checklist below, we list some of the most common problems we see. To get your PR merged faster, please check that your PR satisfies each item:
 
 * [ ] All constants should be in all-caps. (This isn't really an e2e test issue, but we see it a lot.)
-* [ ] All element selectors, e.g. `element(by.css('.protractor-test-my-element'))`, need to be at the top of the file. There are a few exceptions:
+* [ ] All element selectors, e.g. `element(by.css('.e2e-test-my-element'))`, need to be at the top of the file. There are a few exceptions:
     * Keeping selectors with the code that uses them is okay in some utility files where the utilities do not generally share selectors.
     * When you are chaining selectors, only the root selector (first in the chain) needs to be at the top of the file.
 * [ ] Any time you create something in Oppia that needs a globally unique name to be identified by the tests (e.g. explorations, topics, skills, and users), make sure to follow the naming guidance in the [Independence](https://github.com/oppia/oppia/wiki/End-to-End-Tests#independence) section above.
@@ -254,7 +254,7 @@ When the Automated QA Team does a codeowner review on your PR that changes the e
 * [ ] If you make a generally useful function, add it to the relevant utilities file so that other people can benefit from it too.
 * [ ] You will need to provide screenshots showing that the tests aren't flaky after your changes. The requirements are detailed above in the [Temporary Flakiness Mitigation Measures](https://github.com/oppia/oppia/wiki/End-to-End-Tests#temporary-flakiness-mitigation-measures) section.
 * [ ] Variables should be named as nouns, and functions should be named as verbs. In particular, make sure your page element variable names are nouns. For example, use `itemSelectButton` instead of `itemSelect`.
-* [ ] All HTML classes you reference in root selectors in the tests should begin with `protractor-test-`. If you can't change the classes on an element you need to select, find a parent element you can change and then chain the selectors like this: `element(by.css('.protractor-test-parent-element')).element(by.css('.class-of-element-you-cannot-change'))` or like this: `element(by.css('.protractor-test-parent-element .class-of-element-you-cannot-change'))`.
+* [ ] All HTML classes you reference in root selectors in the tests should begin with `e2e-test-`. If you can't change the classes on an element you need to select, find a parent element you can change and then chain the selectors like this: `element(by.css('.protractor-test-parent-element')).element(by.css('.class-of-element-you-cannot-change'))` or like this: `element(by.css('.e2e-test-parent-element .class-of-element-you-cannot-change'))`.
 
 ### Important Tips
 
@@ -277,7 +277,7 @@ There are more specialized input types in `extensions/objects` which you can als
 To get a form or object editor, you can use the `getEditor` function in `forms.js`. It accepts the name of the form or object as an argument, and it searches first in `forms.js` and then in `extensions/objects/protractor.js` for a function of the same name. For example, suppose we want to set the value of a real number field. We can use `getEditor` like this:
 
 ```js
-var realNumberFieldElement = element(by.css('protractor-test-real-number'));
+var realNumberFieldElement = element(by.css('e2e-test-real-number'));
 ...
 var realEditor = getEditor('RealEditor')(realNumberFieldElement);
 await realEditor.setValue(3.14);
@@ -327,7 +327,7 @@ var instructions = async function(richTextChecker) {
 Then inside the `expectContentToMatch` function, we can pass your instructions to the `forms.expectRichText` function:
 
 ```js
-var richTextDisplay = element(by.css('.protractor-test-rich-text'));
+var richTextDisplay = element(by.css('.e2e-test-rich-text'));
 ...
 this.expectContentToMatch = async function(instructions) {
   await forms.expectRichText(richTextDisplay).toMatch(instructions);
