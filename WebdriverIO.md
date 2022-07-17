@@ -185,13 +185,13 @@ var openTopic = async function(topicName) {
 }
 ```
 
-As you may have noted above that `$$` selector is used by calling a function beacause we need to use `await` prefix with `$$` selector and we cannot place `await $$` directly at top as it will try to find the element as soon as the test will run, and this will cause the test to fail.
+As you may have noted above that `$$` selector is used by calling a function beacause we need to use `await` prefix with `$$` selector and we cannot place `await $$` directly at top as `await` can only be used inside `async` function and if we will convert the function to `async` we cannot use it as a constructor for defining page objects.
 
 It might be tempting to use the `buttons[0]`, `buttons[last]`, and `buttons[n]` directly when you know what order the elements will come in. However, this makes the tests fragile to changes in the page, and it makes the code hard to read. You should also avoid accessing page elements by index because that's not how most users will find elements. They will be relying on the text identifying those elements, and your test should too.
 
 Except for cases where an element selector is crafted dynamically, all element selectors should be at the top of a utility file. There should be no element selectors in suite files.
 
-Note: We need to use `await` prefix while using `$$` selector in order to avoid flakiness of tests. For some cases where after selecting all the elements we iterates over each single element, there we do not need to use `await` with `$$` as we will be using `await` while iterating over each element. See the below example:
+Note: We need to use `await` prefix while using `$$` selector in order to avoid flakiness of tests as `$$` return promises which needs to be resolved first using `await`. For some cases where after selecting all the elements we iterates over each single element, there we do not need to use `await` with `$$` as we will be using `await` while iterating over each element. See the below example:
 
 ```
 var allExplorationCards = $$('.e2e-test-exploration-dashboard-card');
