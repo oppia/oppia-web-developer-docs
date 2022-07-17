@@ -185,7 +185,7 @@ var openTopic = async function(topicName) {
 }
 ```
 
-As you may have noted above that `$$` selector is used by calling a function beacause we need to use `await` prefix with `$$` selector and we cannot place `await $$` directly at top as `await` can only be used inside `async` function and if we will convert the function to `async` we cannot use it as a constructor for defining page objects.
+As you may have noted above that `$$` selector is used by calling a function beacause we need to use `await` prefix with `$$` selector and we cannot place `await $$` directly at top as `await` can only be used inside `async` function and if we convert the function to `async` we cannot use it because of [this](https://stackoverflow.com/questions/51694221/not-a-constructor-with-async-function#:~:text=When%20you%20use%20the%20async,can't%20be%20a%20constructor) error.
 
 It might be tempting to use the `buttons[0]`, `buttons[last]`, and `buttons[n]` directly when you know what order the elements will come in. However, this makes the tests fragile to changes in the page, and it makes the code hard to read. You should also avoid accessing page elements by index because that's not how most users will find elements. They will be relying on the text identifying those elements, and your test should too.
 
