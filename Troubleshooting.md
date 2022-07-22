@@ -461,7 +461,7 @@ info If you think this is a bug, please open a bug report with the information p
 info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this command. 
 ```
 
-Try running `yarn install --network-timeout 100000`. If that doesn’t work, try increasing the network timeout value and run the command again until it succeeds. Then try running `python -m scripts.start` again. Note: You only need to run `yarn install` to see if the error persists. You don’t need to run `python -m scripts.start` everytime.
+Try running `yarn install --network-timeout 100000`, where the timeout value is in milliseconds. If that doesn’t work, try running the command with a larger network timeout value and keep increasing the timeout(eg. adding a zero at the end of the value) until it succeeds. Then try running `python -m scripts.start` again. Note: To see if you've raised the timeout enough, you only need to run `yarn install`. You don’t need to run `python -m scripts.start` every time.
 
 
 ## Windows
