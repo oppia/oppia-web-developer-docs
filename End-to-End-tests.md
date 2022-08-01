@@ -167,6 +167,6 @@ On CI, we run all the E2E tests in production mode to more closely mimic how the
 
 Currently, we have two versions of E2E test suites present: Protractor and WebDriverIO. The following [webdriverio migration tracker](https://docs.google.com/spreadsheets/d/1Mj-llYXMURtis54vpL2VL7BwgRiFIZ1nIFtK3fY3Se4/edit?usp=sharing) contains the information about which suite is present in which version (see Suites migrated to WebdriverIO, Suites still in Protractor)
 
-* [E2E test Protractor](Protractor.md#table-of-contents)
+* [[E2E test Protractor|Protractor]]
 
-* [E2E test WebdriverIO](WebdriverIO.md#table-of-contents)
+* [[E2E test WebdriverIO|WebdriverIO]]

@@ -25,6 +25,6 @@ There are many ways to go about debugging an E2E test, but here is one approach:
 
 Currently, we have two versions of E2E test suites present, Protractor and WebDriverIO, so it's important to first find out which framework the failing test suite is written in. The [webdriverio migration tracker](https://docs.google.com/spreadsheets/d/1Mj-llYXMURtis54vpL2VL7BwgRiFIZ1nIFtK3fY3Se4/edit?usp=sharing) contains the information about which suite is present in which framework (see "Suites migrated to WebdriverIO" and "Suites still in Protractor").
 
-* [Debug E2E test protractor](Debug-end-to-end-tests-protractor.md#table-of-contents)
+* [[Debug E2E test protractor|Debug-end-to-end-tests-protractor]]
 
-* [Debug E2E test webdriverio](Debug-end-to-end-tests-webdriverio.md#table-of-contents)
+* [[Debug E2E test webdriverio|Debug-end-to-end-tests-webdriverio]]
