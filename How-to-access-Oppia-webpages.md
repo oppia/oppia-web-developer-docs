@@ -31,11 +31,11 @@
   * [Exploration editor page](#exploration-editor-page)
   * [Exploration player page](#exploration-player-page)
 * [Topics and skills pages](#topics-and-skills-pages)
+  * [Topics and skills dashboard page](#topics-and-skills-dashboard-page)
+  * [Topic editor (including preview tab)](#topic-editor-including-preview-tab)
   * [Skill editor page](#skill-editor-page)
   * [Story editor page](#story-editor-page)
   * [Story player page](#story-player-page)
-  * [Topic editor (including preview tab)](#topic-editor-including-preview-tab)
-  * [Topics and skills dashboard page](#topics-and-skills-dashboard-page)
 * [Contributor pages](#contributor-pages)
   * [Contributor dashboard page](#contributor-dashboard-page)
   * [Contributor dashboard admin page](#contributor-dashboard-admin-page)
@@ -356,6 +356,7 @@ The skill editor allows the creation of skills in Oppia. You can access the skil
 2. Go to http://localhost:8181/topics-and-skills-dashboard and switch to the SKILLS tab.
 
 3. Click on the "Create New Skill" button.
+
    ![Create new skill button](images/Webpage-Guide/createNewSkill.png)
 
 4. Enter the skill description, save it and wait for the skill editor tab to open.
