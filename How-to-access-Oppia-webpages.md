@@ -309,79 +309,87 @@ The exploration will launch in a new tab, where you will see the first card. As 
 
 ## Topics and skills pages
 
+### Topics and skills dashboard page
+
+The topics and skills dashboard page allows users to view their created topics and skills, and to create new ones.
+
+1. To access this page, log in as a super-admin and assign yourself the "Curriculum admin" role from the admin page.
+
+2. Go to http://localhost:8181/topics-and-skills-dashboard or click the topic and skills dashboard link on the profile menu.
+
+   ![Topics and skills dashboard link](images/Webpage-Guide/topicAndSkillDashboardLink.png)
+
+### Topic editor (including preview tab)
+
+To access the topic editor/to create new topics, go to the TOPICS tab of topics-and-skills-dashboard page, and click on the "Create New Topic" button.
+
+1. Log in as a super-admin and assign yourself the "Curriculum admin" role.
+
+2. Go to the TOPICS tab of the topics-and-skills-dashboard (http://localhost:8181/topics-and-skills-dashboard) and click on the "Create New Topic" button.
+
+   ![Create button](images/Webpage-Guide/createNewTopic.png)
+
+   The following modal should appear:
+
+   ![Create topic modal](images/Webpage-Guide/createTopicModal.png)
+
+3. After creating a topic, create some skills and assign them to the topic (Note: This step is not necessary for the topic to be published).
+
+4. Edit and publish the topic after adding subtopics (add some content for these), and a story with few chapters.
+
+5. Use the preview button on the navbar at the top to navigate to the topic player.
+
+6. To view this topic on the math classroom page, first publish it using the "Publish topic" button on the top-right of the topic editor page. Then head to the admin page, and switch to the config tab. Under the **\[topic_ids\]** section of the "The details for each classroom page." property, add the topic id of the topic you just created.
+
+   ![Add topic to classroom](images/Webpage-Guide/addTopicToClassroom.png)
+
+7. Scroll down to the bottom of the page and click on the "Save" button.
+
+8. Go to the math classroom page (http://localhost:8181/learn/math) to find your newly created topic.
+
 ### Skill editor page
 
-The skill editor allows the creation of skills in Oppia.
+The skill editor allows the creation of skills in Oppia. You can access the skill editor under the SKILLS tab of the topics-and-skills-dashboard page.
 
-1. Log in as a super-admin and assign yourself the "Topic manager" role.
+1. Log in as a super-admin and assign yourself the "Curriculum admin" role.
 
-2. Go to http://localhost:8181/topics-and-skills-dashboard and create a topic.
+2. Go to http://localhost:8181/topics-and-skills-dashboard and switch to the SKILLS tab.
 
-   ![createtopic](images/Webpage-Guide/createTopicModal.png)
+3. Click on the "Create New Skill" button.
+   ![Create new skill button](images/Webpage-Guide/createNewSkill.png)
 
-3. Go to the topic editor and scroll down to the "Create Skill" button.
+4. Enter the skill description, save it and wait for the skill editor tab to open.
 
-4. Create a skill, and wait for the skill editor tab to open.
+5. After creating a skill, you can find it in the list of skills under the SKILLS tab. From here, you can also assign it to a topic.
 
 ### Story editor page
 
-The story editor page allows users to create stories in Oppia.
+The story editor page allows users to create stories in Oppia. 
 
-1. Log in as a super-admin and assign yourself the "Topic manager" role.
+1. Log in as a super-admin and assign yourself the "Curriculum admin" role.
 
 2. Go to http://localhost:8181/topics-and-skills-dashboard and create a topic.
 
-   ![createtopic](images/Webpage-Guide/createTopicModal.png)
+   ![Create topic modal](images/Webpage-Guide/createTopicModal.png)
 
 3. Go to the topic editor and click on the Add Story button.
 
-   ![createtopic](images/Webpage-Guide/addStoryButton.png)
+   ![Add story button](images/Webpage-Guide/addStoryButton.png)
 
 4. Complete create story modal, and wait for the story editor page to load.
 
-   ![createtopic](images/Webpage-Guide/addStoryModal.png)
+   ![Add story modal](images/Webpage-Guide/addStoryModal.png)
 
 ### Story player page
 
 The story player allows people to play stories. To access it:
 
-1. Follow steps to access the story editor page.
+1. Follow the steps to access the story editor page as described above.
 
-2. Add a chapter to the story.
+2. Add an exploration as a chapter to the story using the add chapter button.
+   ![Add chapter button](images/Webpage-Guide/addChapterButton.png)
 
-3. Create an exploration and link it to the story.
-
-4. Go to the Preview tab of the Story player.
-
-### Topic editor (including preview tab)
-
-The topic editor page allows users to create topics in Oppia.
-
-1. Log in as a super-admin and assign yourself the "Topic manager" role.
-
-2. Go to http://localhost:8181/topics-and-skills-dashboard and create a topic.
-
-   ![Create Button](https://user-images.githubusercontent.com/30312043/78745178-06cc0f00-7981-11ea-9eca-f4495e05b0e4.png)
-
-   The following modal should appear:
-
-   ![createtopic](images/Webpage-Guide/createTopicModal.png)
-
-3. Create some skills and a topic and assign these skills to the topic.
-
-4. Edit and publish the topic after adding subtopics (add some content for these), and a story with few chapters.
-
-5. Use the preview button to navigate to the topic player.
-
-### Topics and skills dashboard page
-
-The topics and skills dashboard page allows users to view their created topics and skills.
-
-1. Log in as a super-admin and assign yourself the "Topic manager" role.
-
-2. Go to http://localhost:8181/topics-and-skills-dashboard or click the topic and skills dashboard link.
-
-   ![Create Topic Button](images/Webpage-Guide/topicAndSkillDashboardLink.png)
+3. Go to the Preview tab of the Story player.
 
 ## Contributor pages
 
