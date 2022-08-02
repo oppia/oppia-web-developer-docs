@@ -335,11 +335,11 @@ To access the topic editor/to create new topics, go to the TOPICS tab of topics-
 
 3. After creating a topic, create some skills and assign them to the topic (Note: This step is not necessary for the topic to be published).
 
-4. Edit and publish the topic after adding subtopics (add some content for these), and a story with few chapters.
+4. Edit the topic as required (add subtopics, add a story with a few chapters, etc.) and save the draft when you're satisfied. This will then enable the "Publish topic" button, which you can then use to publish your topic!
 
-5. Use the preview button on the navbar at the top to navigate to the topic player.
+5. To preview your topic before publishing, use the preview button on the navbar at the top.
 
-6. To view this topic on the math classroom page, first publish it using the "Publish topic" button on the top-right of the topic editor page. Then head to the admin page, and switch to the config tab. Under the **\[topic_ids\]** section of the "The details for each classroom page." property, add the topic id of the topic you just created.
+6. To view your published topic on the math classroom page, head to the admin page, and switch to the config tab. Under the **\[topic_ids\]** section of the "The details for each classroom page." property, add the topic id of the topic you just published.
 
    ![Add topic to classroom](images/Webpage-Guide/addTopicToClassroom.png)
 
@@ -377,7 +377,7 @@ The story editor page allows users to create stories in Oppia.
 
    ![Add story button](images/Webpage-Guide/addStoryButton.png)
 
-4. Complete create story modal, and wait for the story editor page to load.
+4. Complete the "New story" modal, and wait for the story editor page to load.
 
    ![Add story modal](images/Webpage-Guide/addStoryModal.png)
 
@@ -390,7 +390,7 @@ The story player allows people to play stories. To access it:
 2. Add an exploration as a chapter to the story using the add chapter button.
    ![Add chapter button](images/Webpage-Guide/addChapterButton.png)
 
-3. Go to the Preview tab of the Story player.
+3. Go to the Preview tab of the Story player using the preview button at the top.
 
 ## Contributor pages
 
