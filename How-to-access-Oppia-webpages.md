@@ -335,7 +335,7 @@ To access the topic editor/to create new topics, go to the TOPICS tab of topics-
 
 3. After creating a topic, create some skills and assign them to the topic (Note: This step is not necessary for the topic to be published).
 
-4. Edit the topic as required (add subtopics, add a story with a few chapters, etc.) and save the draft when you're satisfied. This will then enable the "Publish topic" button, which you can then use to publish your topic!
+4. Edit the topic as required (add subtopics, add a story with a few chapters, etc.) and save the draft when you're satisfied. This will enable the "Publish topic" button, which you can then use to publish your topic!
 
 5. To preview your topic before publishing, use the preview button on the navbar at the top.
 
