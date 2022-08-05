@@ -109,5 +109,23 @@ from typing import (
 
 ```
 
+4. While narrowing down the `Optional[...]` types (eg. Optional[str]) always keep assert at your last option, because if assert is not used properly it can create abmbiguity among other developers. For proper usage of assert, you can refer following points:
+    - One of the use case of assert is that assert can be used for conditions that have been already validated within the same function. Example:
+    ```python
+    def func(x: Optional[str]) -> str:
+        if x not in ['a', 'b', 'c']:    # Here, we are validating x variable. If x is None then an exception is raised because None is not mentioned in the list.
+            raise Exception(
+                'value not found.'
+            )
+        y = x    # Here, x has Optional[str] type and we know that x cannot be None here, so to narrow down it's we used assertion here with comment.
+        # Ruling out the possibility of None for mypy type checking, because x is
+        # already validated above. 
+        assert x is not None
+        return y
+    ```
+    - Please do not use assert if you are not sure that value is going to be None or not, instead try to debug and find the answer for `why it is None here?` or `Is that value have already been validated in caller functions?`. If value have already been validated in caller functions then raise an proper exception in called function so that in future if exception is raised then we know that value cannot be None here.
+
+
+
 ## Troubleshooting
 1. If you are seeing type errors for unchanged files, especially which are not part of the Oppia codebase, a possible reason could be that you have the virtual environment directory inside the Oppia root folder. Moving the environment folder out of the Oppia root directory resolves this error.
