@@ -446,6 +446,23 @@ If you get an error with `IOError: [Errno socket error] [SSL: WRONG_VERSION_NUMB
 
 If all else fails, and you run into SSL related issues while installing third party libs, [here](https://stackoverflow.com/a/40857561) is what worked for one contributor. **WARNING This disables all SSL verification, so use at your own risk!**
 
+### Yarn: ESOCKETTIMEDOUT
+
+If you get an error like this when running `python -m scripts.start`:
+
+```
+info There appears to be trouble with your network connection. Retrying... 
+info There appears to be trouble with your network connection. Retrying... 
+info There appears to be trouble with your network connection. Retrying... 
+info There appears to be trouble with your network connection. Retrying... 
+info There appears to be trouble with your network connection. Retrying... 
+error An unexpected error occurred: "https://registry.yarnpkg.com/mathjs/-/mathjs-9.5.2.tgz: ESOCKETTIMEDOUT". 
+info If you think this is a bug, please open a bug report with the information provided in /opensource/oppia/yarn-error.log". 
+info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this command. 
+```
+
+Try running `yarn install --network-timeout 100000`, where the timeout value is in milliseconds. If that doesn’t work, try running the command with a larger network timeout value and keep increasing the timeout (e.g. adding a zero at the end of the value) until it succeeds. Then try running `python -m scripts.start` again. Note: To see if you've raised the timeout enough, you only need to run `yarn install`. You don’t need to run `python -m scripts.start` every time.
+
 
 ## Windows
 

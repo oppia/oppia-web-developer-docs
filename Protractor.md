@@ -1,11 +1,5 @@
 ## Table of contents
 
-* [Introduction](#introduction)
-* [Flaky tests](#flaky-tests)
-  * [What is a flake](#what-is-a-flake)
-  * [Why flakes are problematic](#why-flakes-are-problematic)
-  * [Preventing flakes](#preventing-flakes)
-  * [If the end-to-end tests are failing on your PR](#if-the-end-to-end-tests-are-failing-on-your-pr)
 * [Layout of the E2E test files](#layout-of-the-e2e-test-files)
   * [Suite files](#suite-files)
     * [`core/tests/protractor`](#coretestsprotractor)
@@ -14,11 +8,6 @@
   * [Utilities](#utilities)
     * [`core/tests/protractor_utils`](#coretestsprotractor_utils)
     * [`extensions/**/protractor.js`](#extensionsprotractorjs)
-* [Run E2E tests](#run-e2e-tests)
-  * [Set chromedriver version](#set-chromedriver-version)
-  * [Configure test sharding](#configure-test-sharding)
-  * [Run a single end-to-end test](#run-a-single-end-to-end-test)
-  * [Run end-to-end tests in production mode](#run-end-to-end-tests-in-production-mode)
 * [Write E2E tests](#write-e2e-tests)
   * [Where to add the tests](#where-to-add-the-tests)
     * [Interactions](#interactions)
@@ -43,88 +32,6 @@
     * [Anti-Patterns](#anti-patterns)
   * [Known kinds of flakes](#known-kinds-of-flakes)
     * [document unloaded while waiting for result](#document-unloaded-while-waiting-for-result)
-
-## Introduction
-
-At Oppia, we highly regard the end user, so we have end-to-end (E2E) tests to test our features from the user's perspective. These tests interact with pages just like a user would, for example by clicking buttons and typing into text boxes, and they check that pages respond appropriately from the user's perspective, for example by checking that the correct text appears in response to the user's actions.
-
-## Flaky tests
-
-### What is a flake
-
-Unfortunately, E2E tests are much less deterministic than our other tests. The tests operate on a web browser that accesses a local Oppia server, so the non-determinism of web browsers makes the tests less deterministic as well. For example, suppose that you write a test that clicks a button to open a modal and then clicks a button inside the modal to close it. Sometimes, the modal will open before the test tries to click the close button, so the test will pass. Other times, the test will try to click before the modal has opened, and the test will fail. We can see this schematically:
-
-```text
-               <---A--->
-
-                        +-------+
-                        | Modal |
-+----------+   +---//---+ opens +-----------+
-| Click to |   |        +-------+           |
-| open     +---+                            +---->
-| modal    |   |        +-------------+     |
-+----------+   +---//---+ Click to    +-----+
-                        | close modal |
-                        +-------------+
-
-               <---B--->
-
-
---------------------- time ---------------------->
-```
-
-The durations of steps `A` and `B` are non-deterministic because `A` depends on how quickly the browser executes the frontend code to open the modal, and `B` depends on how fast the test code runs. Since these operations are happening on separate processes, the operating system makes no guarantees about which will complete first. In other words, we have a race condition.
-
-This race condition means that the test can fail randomly even when there's nothing wrong with the code of the Oppia application (excluding tests). These failures are called _flakes_.
-
-### Why flakes are problematic
-
-Flakes are annoying because they cause failures on PRs even when the code changes in those PRs are fine. This forces developers to rerun the failing tests, which slows development.
-
-Further, flakes are especially problematic to certain groups of developers:
-
-* **New contributors**, who are often brand-new to open source software development, can be discouraged by flakes. When they see a failing E2E test on their PR, they may think that they made a mistake and become frustrated when they can't find anything wrong with their code.
-
-* **Developers without write access to the repository** cannot rerun tests, so they have to ask another developer to restart their tests for them. Waiting for someone to restart their tests can really slow down their work.
-
-Finally, flakes mean that developers rerun failing tests more readily. We even introduced code to automatically rerun tests under certain conditions. These reruns make it easier for new flakes to slip through because if a new flake causes a test to fail, we might just rerun the test until it passes.
-
-### Preventing flakes
-
-Conceptually, preventing flakes is easy. We can use `waitFor` statements to make the tests deterministic despite testing a non-deterministic system. For example, suppose we have a function `waitForModal()` that waits for a modal to appear. Then we could write our test like this:
-
-```text
-               <---A--->
-
-                        +-------+
-                        | Modal |
-+----------+   +---//---+ opens +---------------------------------+
-| Click to |   |        +-------+                                 |
-| open     +---+                                                  +---->
-| modal    |   |        +----------------+    +-------------+     |
-+----------+   +---//---+ waitForModal() +-//-+ Click to    +-----+
-                        +----------------+    | close modal |
-                                              +-------------+
-
-               <---B---><-------C-------->
-
-
---------------------- time -------------------------------------------->
-```
-
-Now, we know that the test code won't move past `waitForModal()` until after the modal opens. In other words, we know that `B + C > A`. This assures us that the test won't try to close the modal until after the modal has opened.
-
-The challenge in writing robust E2E tests is making sure to always include a waitFor statement like `waitForModal()`. It's common for people to write E2E tests and forget to include a waitFor somewhere, but when they run the tests, they pass. Their tests might even pass consistently if their race condition only causes the test to fail very rarely. However, months later, an apparently unrelated change might change the runtimes enough that one of the test starts flaking frequently.
-
-[Below](#writing-e2e-tests), we'll discuss specific techniques you should use to prevent flakes in new tests that you write.
-
-### If the end-to-end tests are failing on your PR
-
-First, check that your changes couldn't be responsible. For example, if your PR updates the README, then there's no way it caused an E2E test to fail.
-
-If your changes could be responsible for the failure, you'll need to investigate more. Try running the test locally on your computer. If it fails there too, you can debug locally. Even if you can only reproduce the flake on CI, there are lots of other ways you can debug. See our [[guide to debugging E2E tests|Debug-end-to-end-tests]].
-
-If you are _absolutely certain_ that the failure was not caused by your changes, then you can restart the test. Remember that restarting tests can let new flakes into our code, so please be careful.
 
 ## Layout of the E2E test files
 
@@ -169,76 +76,6 @@ The protractor tests use the above functions to simulate a user interacting with
 #### `extensions/**/protractor.js`
 
 Extensions provide `protractor.js` files to make them easier to test. The E2E test files call the utilities provided by these files to interact with an extension. For example, interactions include a `protractor.js` file that provides functions for customizing an interaction and checking that the created interaction matches expected criteria.
-
-## Run E2E tests
-
-If you don't know the name of the suite you want to run, you can find it in `core/tests/protractor.conf.js`. Then you can run your test like this:
-
-```console
-$ python -m scripts.run_e2e_tests --suite="suiteName"
-```
-
-Chrome will open and start running your tests.
-
-### Set chromedriver version
-
-The end-to-end tests are run on the Chrome browser and depend on chromedriver. The chromedriver version to be used depends on the Chrome browser version installed on the machine. We try to determine this version automatically, but if our automatic determination fails, you'll see an error with this advice:
-
-```text
-Please set the chromedriver version manually using the --chrome_driver_version flag.
-```
-
-You may also want to set the chromedriver version manually if you want to test a particular version.
-
-To manually set the chromedriver version, use the `--chrome_driver_version` argument:
-
-```console
-python -m scripts.run_e2e_tests --chrome_driver_version <version>
-```
-
-To determine which version of chromedriver to use, please follow these steps:
-
-1. Find the Chrome browser version installed on your machine by going to `chrome://version/`. For example, in the screenshot below, the version number is `83.0.4103.61`.
-
-   ![Screenshot of Chrome version page.](https://user-images.githubusercontent.com/11008603/87473539-3c972880-c63f-11ea-9455-04edb0196731.png)
-
-2. Remove the last part of the version number from step 1 and append the result to URL `https://chromedriver.storage.googleapis.com/LATEST_RELEASE_`. For example, if your version number is `83.0.4103.61`, the URL will look like "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_83.0.4103".
-
-3. Go to the URL from step 2 and copy the version number on the screen.
-
-4. The version number obtained in step 3 is the chromedriver version to be passed along to the script.
-
-If you see a failure due to the webdriver, please follow the instructions above to double check that the chromedriver version provided is in sync with the Chrome browser version installed on the machine.
-
-### Configure test sharding
-
-If you run all the E2E tests at once (i.e. if you don't specify a suite), the tests will be sharded across multiple Chrome browser instances. By default, the tests will use 3 shards (i.e. 3 browsers). If you do this, you should close background processes to maximize the compute resources available to the tests. You can configure the number of shards like this:
-
-```console
-python -m scripts.run_e2e_tests --sharding-instances=<number of shards>
-```
-
-You can disable sharding like this:
-
-```console
-python -m scripts.run_e2e_tests --sharding=false
-```
-
-Note that when we run tests on CI, we run one suite at a time, so there is no sharding.
-
-### Run a single end-to-end test
-
-To run just one test, change the "it" to "fit" for that test. Then when you run the tests, specify the suite containing your test.
-
-### Run end-to-end tests in production mode
-
-To run the end-to-end tests in production mode, use the `--prod_env` flag:
-
-```console
-python -m scripts.run_e2e_tests --prod_env
-```
-
-On CI, we run all the E2E tests in production mode to more closely mimic how the Oppia application behaves in production.
 
 ## Write E2E tests
 
@@ -292,7 +129,7 @@ For information on writing tests with protractor, see the [protractor documentat
 
 Much of the difficulty of writing protractor code lies in specifying the element with which you wish to interact. It is important to do so in a way that is as insensitive as possible to superficial DOM features such as text and styling, so as to reduce the likelihood that the test will break when the production HTML is changed. Here are some ways to specify an element, in order of decreasing preference:
 
-1. Adding a `protractor-test-some-name` class to the element in question, and then referencing it by `by.css('.protractor-test-some-name')`. We do not use `by.id` for this purpose because Oppia frequently displays multiple copies of a DOM element on the same page, and if an `id` is repeated then references to it will not work properly. This is the preferred method, since it makes clear to those editing production code exactly what the dependence on protractor is, thus minimizing the likelihood of confusing errors when they make changes. Sometimes this may not work, though (e.g. for embedded pages, third-party libraries and generated HTML), in which case you may instead need to use one of the options below.
+1. Adding a `e2e-test-some-name` class to the element in question, and then referencing it by `by.css('.e2e-test-some-name')`. We do not use `by.id` for this purpose because Oppia frequently displays multiple copies of a DOM element on the same page, and if an `id` is repeated then references to it will not work properly. This is the preferred method, since it makes clear to those editing production code exactly what the dependence on protractor is, thus minimizing the likelihood of confusing errors when they make changes. Sometimes this may not work, though (e.g. for embedded pages, third-party libraries and generated HTML), in which case you may instead need to use one of the options below.
 
 2. Using existing element ids. We avoid using existing classes for this purpose as they are generally style specifications such as `big-button` that may be changed in the future.
 
@@ -320,7 +157,7 @@ If you use one of options 2-4, you should create a chain of element selectors wh
 Then you can select Element B with this selector chain:
 
 ```js
-var elemB = element(by.css('.protractor-test-elem-a')).element(by.id('elem-b'));
+var elemB = element(by.css('.e2e-test-elem-a')).element(by.id('elem-b'));
 ```
 
 Notice that the top of the chain, where we select Element A, uses method 1.
@@ -328,7 +165,7 @@ Notice that the top of the chain, where we select Element A, uses method 1.
 Sometimes you need to distinguish between several different elements which all look the same to element selectors. You can iterate over all the elements to find the right one. For example, suppose we want to click on the button to open a topic, where the button text is the topic name. We could find the right button like this:
 
 ```js
-var buttons = element.all(by.css('.protractor-test-button'));
+var buttons = element.all(by.css('.e2e-test-button'));
 ...
 var openTopic = async function(topicName) {
   await waitFor.elementToBeClickable(
@@ -406,7 +243,7 @@ Please re-run your tests on CI, not locally on your machine, because flakes ofte
 When the Automated QA Team does a codeowner review on your PR that changes the e2e tests, they will be looking to make sure that you follow all the guidance in this wiki page. In the checklist below, we list some of the most common problems we see. To get your PR merged faster, please check that your PR satisfies each item:
 
 * [ ] All constants should be in all-caps. (This isn't really an e2e test issue, but we see it a lot.)
-* [ ] All element selectors, e.g. `element(by.css('.protractor-test-my-element'))`, need to be at the top of the file. There are a few exceptions:
+* [ ] All element selectors, e.g. `element(by.css('.e2e-test-my-element'))`, need to be at the top of the file. There are a few exceptions:
     * Keeping selectors with the code that uses them is okay in some utility files where the utilities do not generally share selectors.
     * When you are chaining selectors, only the root selector (first in the chain) needs to be at the top of the file.
 * [ ] Any time you create something in Oppia that needs a globally unique name to be identified by the tests (e.g. explorations, topics, skills, and users), make sure to follow the naming guidance in the [Independence](https://github.com/oppia/oppia/wiki/End-to-End-Tests#independence) section above.
@@ -417,7 +254,7 @@ When the Automated QA Team does a codeowner review on your PR that changes the e
 * [ ] If you make a generally useful function, add it to the relevant utilities file so that other people can benefit from it too.
 * [ ] You will need to provide screenshots showing that the tests aren't flaky after your changes. The requirements are detailed above in the [Temporary Flakiness Mitigation Measures](https://github.com/oppia/oppia/wiki/End-to-End-Tests#temporary-flakiness-mitigation-measures) section.
 * [ ] Variables should be named as nouns, and functions should be named as verbs. In particular, make sure your page element variable names are nouns. For example, use `itemSelectButton` instead of `itemSelect`.
-* [ ] All HTML classes you reference in root selectors in the tests should begin with `protractor-test-`. If you can't change the classes on an element you need to select, find a parent element you can change and then chain the selectors like this: `element(by.css('.protractor-test-parent-element')).element(by.css('.class-of-element-you-cannot-change'))` or like this: `element(by.css('.protractor-test-parent-element .class-of-element-you-cannot-change'))`.
+* [ ] All HTML classes you reference in root selectors in the tests should begin with `e2e-test-`. If you can't change the classes on an element you need to select, find a parent element you can change and then chain the selectors like this: `element(by.css('.protractor-test-parent-element')).element(by.css('.class-of-element-you-cannot-change'))` or like this: `element(by.css('.e2e-test-parent-element .class-of-element-you-cannot-change'))`.
 
 ### Important Tips
 
@@ -440,7 +277,7 @@ There are more specialized input types in `extensions/objects` which you can als
 To get a form or object editor, you can use the `getEditor` function in `forms.js`. It accepts the name of the form or object as an argument, and it searches first in `forms.js` and then in `extensions/objects/protractor.js` for a function of the same name. For example, suppose we want to set the value of a real number field. We can use `getEditor` like this:
 
 ```js
-var realNumberFieldElement = element(by.css('protractor-test-real-number'));
+var realNumberFieldElement = element(by.css('e2e-test-real-number'));
 ...
 var realEditor = getEditor('RealEditor')(realNumberFieldElement);
 await realEditor.setValue(3.14);
@@ -490,7 +327,7 @@ var instructions = async function(richTextChecker) {
 Then inside the `expectContentToMatch` function, we can pass your instructions to the `forms.expectRichText` function:
 
 ```js
-var richTextDisplay = element(by.css('.protractor-test-rich-text'));
+var richTextDisplay = element(by.css('.e2e-test-rich-text'));
 ...
 this.expectContentToMatch = async function(instructions) {
   await forms.expectRichText(richTextDisplay).toMatch(instructions);
