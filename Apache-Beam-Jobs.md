@@ -26,6 +26,7 @@
   * [Do not use NDB put/get/delete directly](#do-not-use-ndb-putgetdelete-directly)
 * [Common Beam errors](#common-beam-errors)
   * [`'_UnwindowedValues' object is not subscriptable` error](#_unwindowedvalues-object-is-not-subscriptable-error)
+  * [`_namedptransform is not iterable` error](#_namedptransform-is-not-iterable-error)
 * [Case studies](#case-studies)
   * [Case Study: `SchemaMigrationJob`](#case-study-schemamigrationjob)
 
@@ -668,6 +669,28 @@ The code above throws this error `'_UnwindowedValues' object is not subscriptabl
         x['suggestion'][0] if len(x['suggestion']) else [],
         list(x['opportunity'][0])[0] if len(x['opportunity']) else None
     ))
+```
+
+### `_namedptransform is not iterable` error
+
+This error sometimes happens when you forget to add a label for some operation
+(the strings of code before `>>`).  The solution is to add a label for all operations. 
+
+#### Example
+
+```python
+some_values = (
+    some_models
+    | beam.Values()
+)
+```
+The code above might return `'_namedptransform is not iterable` in the job output.
+We can fix this by adding an appropriate label.
+```python
+some_values = (
+    some_models
+    | 'Get values' >> beam.Values()
+)
 ```
 
 ## Case Studies
