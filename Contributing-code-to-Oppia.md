@@ -43,10 +43,11 @@ If you run into any problems along the way, we're here to help! Check out our [[
 
 7. Say hi on the [gitter](https://gitter.im/oppia/oppia-chat) chat channel!
 
-8. Join [our discord](https://discord.com/invite/dCJwEAgk3D) for fun activities!
+8. Join our [gaming event server on discord](https://discord.com/invite/dCJwEAgk3D) for fun activities!
 
 9. Take up your first starter project! You can find more details below. (Make sure to read and follow the [[PR instructions|Make-a-pull-request]] closely so that your PR review proceeds smoothly.)
 
+10. Facing any issues? Please feel free to create a [GitHub Discussion](https://github.com/oppia/oppia/discussions) and get help from the Oppia community.
 
 ## Developing your skills
 
@@ -93,26 +94,9 @@ If you need some help from someone with a more prominent UI/UX or design perspec
 
 If you want to play a more integral role in sustaining Oppia, you can look forward to being able to take on more responsibilities as you continue to make quality contributions to the project. Here is a rough outline of the roles developers play at Oppia:
 
-```text
-        Everyone (read access)
-            |
-            |
-            v
-     New Contributors (read access)
-            |
-            | Get 2 PRs Merged
-            v
-      Collaborators (triage access)
-            |
-            | Make Sustained Quality Contributions
-            v
-         Members (write access)
-            |
-            |
-            v
-      Project Leads
-           and
-     Core Maintainers
+```mermaid
+graph TD;
+    Everyone("Everyone (read access)") --> Contributors("New Contributors (read access)") --Get 2 PRs Merged--> Collaborators("Collaborators (triage access)") --Make Sustained Quality Contributions--> Members("Members (write access)") --> Lead(Project Leads<br /> and<br /> Core Maintainers);
 ```
 
 As a new contributor, you won't have any permissions on the repository except to read the code, so you'll need to ask other developers (or Oppiabot) to assign reviewers to your PR or add labels to your issue.
