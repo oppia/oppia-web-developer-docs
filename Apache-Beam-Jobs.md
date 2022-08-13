@@ -673,8 +673,7 @@ The code above throws this error `'_UnwindowedValues' object is not subscriptabl
 
 ### `_namedptransform is not iterable` error
 
-This error sometimes happens when you forget to add a label for some operation
-(the strings of code before `>>`).  The solution is to add a label for all operations. 
+This error sometimes happens when you forget to add a label for some operation (the strings of code before `>>`). The solution is to add a label for all operations. 
 
 #### Example
 
@@ -684,8 +683,7 @@ some_values = (
     | beam.Values()
 )
 ```
-The code above might return `'_namedptransform is not iterable` in the job output.
-We can fix this by adding an appropriate label.
+The code above might return `'_namedptransform is not iterable` in the job output. We can fix this by adding an appropriate label.
 ```python
 some_values = (
     some_models
