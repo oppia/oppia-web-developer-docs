@@ -25,6 +25,69 @@ In order to receive updates about GSoC at Oppia, please subscribe to the [Oppia 
 Also, please note that acceptance into GSoC isn't a prerequisite for becoming an Oppia contributor. The Oppia project is run by the community for the community, and we warmly welcome anyone who'd like to help out! You can get started by following the instructions [here](https://github.com/oppia/oppia/wiki).
 
 
+## Accepted Proposals:
+- The projects we've accepted are:
+  * [Anshuman Maurya's proposal](../pdfs/GSoC2022AnshumanMaurya.pdf): Achieve 100% Per-File Branch and Line Coverage for the Frontend and the Backend. Mentor: Chris Skalnik
+    * **Milestone 1:** Ensure that all backend files (except for test data files) have an associated test file. Ensure that every backend file has an associated test file so that coverage checks are guaranteed to be triggered for all files. Calculate backend branch coverage on CI and use a temporary denylist to ensure that the backend branch coverage does not regress. Achieve 100% line coverage for all backend files.
+    * **Milestone 2:** Achieve 100% line coverage of all frontend files (except for test files and unit-test-utils.ts and schema-based-list-viewer.directive.ts, since those will be removed by the Angular Migration). Achieve 100% backend branch coverage and 100% per-file backend line coverage except for the files in core/domain/. Remove the temporary denylist for backend branch coverage.
+  * [Ch Vishnu Nithin Reddy's proposal](../pdfs/GSoC2022ChVishnuNithinReddy.pdf): Celebrating learners' accomplishments. Mentor: Kevin Thomas
+    * **Milestone 1:** Celebrate lesson completion in a meaningful, actionable, and rewarding way for the learner.
+    * **Milestone 2:** Celebrate checkpoint completion in a meaningful, rewarding way for the learner that encourages them to continue progressing.
+  * [Harshvardhan Singh's proposal](../pdfs/GSoC2022HarshvardhanSingh.pdf): Making the Contributor Dashboard UI responsive. Mentor: Vojtěch Jelínek
+    * **Milestone 1:** Implement a fully-responsive UI for the contributor dashboard landing page (this includes the overall navigation, the review workflow, and the views of the user’s review/submission history).
+    * **Milestone 2:** Implement a fully-responsive UI for the translation and question submission pages (this includes both the list of opportunities and the submission workflow).
+  * [Hasitha Kaushan's proposal](../pdfs/GSoC2022HasithaKaushan.pdf): Contributor recognition infrastructure. Mentor: Sagang Wee
+    * **Milestone 1:** All backend infrastructure for the project is completed, up to and including the HTTP request endpoints.
+    * **Milestone 2:** Contributors can see their stats and badges in a new stats tab on their logged-in Contributor Dashboard (on both desktop and mobile devices). This also includes contributor certificate generation.
+  * Hitesh Tomar's proposal (to be added): Fix validation errors. Mentor: Eric Lou
+  * [Jeevesh Garg's proposal](../pdfs/GSoC2022JeeveshGarg.pdf): Improve Frontend Type System. Mentor: Mridul Setia
+    * **Milestone 1:** Change the TypeScript config file so that all newly-added files need to be strictly typed. Introduce strict typing for 280 frontend files (this number also can include test files).
+    * **Milestone 2:** Introduce strict typing for 280 additional frontend files in the codebase that were not covered in Milestone 1 (again, this number also can include test files).
+Remove the "unknown" type from all frontend files in the codebase, and add a lint check to prevent usage of "unknown" in the future.
+  * [Jishnu Goyal's proposal](../pdfs/GSoC2022JishnuGoyal.pdf): Interactive Onboarding Flow. Mentor: Ben Henning
+    * **Milestone 1:** Make fixes to address the most pressing user onboarding issues (listed below), and manually verify all the new onboarding fixes to ensure that UI elements are functioning as expected. Also, introduce the necessary domain functionality for introducing spotlights in M2.
+      * Change the icon for initiating voiceovers to a headphones icon
+      * Add an animation to the continue button on the lessons page during the initial user experience, so that they are less likely to get stuck because of not knowing where to click next.
+      * Hide the info tab and make the lessons tab the default topic landing tab.
+      * Make the home screen have a clearer CTA (achieved by hiding the promoted story list for the first time a user enters the app – this section is made visible when the user enters everytime after).
+      * Redesign the topic lessons tab to have a clearer CTA, and expand the lessons list of the first story by default.
+      * Add appropriate placeholder texts for all text based interactions in the app.
+      * In the revision screen, change the toolbars to have an orange color. Also, at the end of the revision cards, add "next" and "previous" chapter image views to navigate between cards.
+    * **Milestone 2:** 
+      * Add spotlights for the audio voiceover play and language buttons; the exploration exit button; the Lessons and Revision tabs; the first chapter of a story; the home-screen promoted stories; and the onboarding screen's 'next' button. Add RTL functionality to spotlights. Manually test all the spotlight flows to ensure that they are behaving as expected. Write wiki documentation for how to add a new spotlight for features in the future.
+      * For Talkback users: suspend the spotlight; add content descriptions to Lesson Tab, Revision Tab and Exit buttons on the exploration screen; reword the content descriptions for the Voiceover icon and voiceover language option; and add a forced announcement for the hint bar (when it gets visible).
+  * [Manan Rathi's proposal](../pdfs/GSoC2022MananRathi.pdf): Helping learners when they get stuck. Mentor: Prayush Dawda
+    * **Milestone 1:** Allow creators to provide a destination state for the case where a learner is really stuck. Prohibit lesson creators from sending the learner more than 2-3 cards back in the lesson.
+    * **Milestone 2:** Detect when a learner is stuck and provide appropriate real-time assistance based on (a) proactively showing concept cards or hints, (b) redirection to the alternative destination state, and (c) providing the solution as the last resort (the solution will be made mandatory for each state). Detect small misspellings and provide the learner with appropriate help.
+  * [Nikhil Agarwal's proposal](../pdfs/GSoC2022NikhilAgarwal.pdf): Learner diagnostic tests. Mentor: Sean Lip
+    * **Milestone 1:** Curriculum admins should be able to use a “classroom administration” page to configure details of each classroom, enter the dependencies between topics in that classroom, and enter details for the diagnostic test. A comprehensive suite of backend integration test cases that convincingly should demonstrate that the recommendation system entered by the curriculum admin works correctly.
+    * **Milestone 2:** Learners should be able to visit the Math Classroom page and take an adaptive diagnostic test that surfaces 0, 1 or 2 topic recommendations for them to pursue.
+  * [Pankaj Prajapati's proposal](../pdfs/GSoC2022PankajPrajapati.pdf): Learner groups MVP. Mentor: Akshay Anand
+    * **Milestone 1:** Facilitators can, from a teacher dashboard page, create a
+learning group and its syllabus and see all learner groups created by them. They should also be able to view the learner group’s homepage (which
+contains the details of the learning group, its syllabus and the list of
+learners and their progress).
+    * **Milestone 2:** Facilitators should be able to invite learners to join the group via username. Learners should be able to join the group, set their preferences (or edit them later), and see the group homepage (which contains their progress, as well as triggers for starting recommended activities from the syllabus).
+  * [Rijuta Singh's proposal](../pdfs/GSoC2022RijutaSingh.pdf): Blog integration. Mentor: Praneeth Gangavarapu
+    * **Milestone 1:** Create the blog homepage and individual blog post pages (but hide them behind a feature flag for now). Blog editors should be able to create a new blog post (using the existing blog post creation infrastructure) and have it appear on the new blog page.
+    * **Milestone 2:** All blog posts from Medium should be moved to the Oppia.org blog page, and should look nice and display correctly for readers. The Oppia navbar and footer should have links that point to the new blog. Implement a blog statistics page that shows the total number of views and reads for each post, author, and the overall blog.
+  * [Sahil Jhangar's proposal](../pdfs/GSoC2022SahilJhangar.pdf): Make backend code typed. Mentor: Aasif Faizal
+    * **Milestone 1:** Fully type core/domain, core/tests, and core/jobs. Put measures in place to ensure that the files in these folders have full backend typing in perpetuity, to Oppia’s standards (i.e. not using "Any", casts, and objects, and only using a narrow, fully-documented subset of type-ignore pragmas).
+    * **Milestone 2:** Fully type the entire backend codebase, including schema validation for all handlers. Drop typeinfo from all docstrings and add new docstring lint checks to ensure that docstrings adhere to the new format in perpetuity. Also, ensure that measures are in place to prevent backend typing coverage from regressing in the codebase.
+  * [Shivam Chaudhary's proposal](../pdfs/GSoC2022ShivamChaudhary.pdf): Angular migration. Mentor: Ashutosh Chauhan
+    * **Milestone 1:** Fully migrate the following directives/pages from AngularJS to Angular 11: state-editor, state-directives, question-directives, version-diff-visualization, contributor-dashboard-page.
+    * **Milestone 2:** Fully migrate the exploration-editor page, the review test page, the practice session page, from AngularJS to Angular 11. Migrate the relevant files in the codebase to use AngularCDK DragAndDrop instead of uiSortable, and ngxJoyride instead of ngJoyride. Remove uiSortable and ngJoyride completely from the codebase.
+  * [Shivam Jha's proposal](../pdfs/GSoC2022ShivamJha.pdf): Migrate Away From Protractor. Mentor: Md Shahbaz Alam
+    * **Milestone 1:** Set up WebdriverIO with Github Actions. Document how we use it, including adding a step-by-step guide to the developer wiki on “how to debug e2e tests” (which should be kept up-to-date and address any issues that devs face). Add eslint rules to ensure the code quality. Add a lint check to ensure that the union of suites present in both versions of the e2e tests is the complete list of e2e suites. Fully migrate 20 test suites to WebdriverIO.
+    * **Milestone 2:** Fully migrate all remaining e2e test suites to WebdriverIO, and remove all references to Protractor from the codebase and the developer wiki.
+  * [Soumyajyoti Dey's proposal](../pdfs/GSoC2022SoumyajyotiDey.pdf): Improving the lesson creation experience. Mentor: Kevin Thomas
+    * **Milestone 1:** Enable creators to see changes in the exploration metadata by clicking a button in the history tab. Make all the necessary backend changes (up to and including the controller layer) for users to be able to navigate through the version history of a state (and the exploration metadata) in an exploration. Also, create the backend api service in the frontend for fetching the version history data.
+    * **Milestone 2:** Make all the other required frontend changes so that users can navigate through the version history of a state and the exploration metadata.
+  * [Vraj Desai's proposal](../pdfs/GSoC2022VrajDesai.pdf): Accessibility Improvements. Mentor: Rajat Talesra
+    * **Milestone 1:** All screens in the Android app can be fully used by screenreader users (using e.g. Talkback), with the exclusion of (a) Exploration player, (b) Question Player, (c) dark mode and (d) focus shifting to the start of the screen if an item changes (for screens with recyclerviews). Users should also be able to use the ImageClickInput regions interaction easily using screen-readers.
+    * **Milestone 2:** All screens in the Android app can be fully used by screenreader users (using e.g. Talkback), with the exclusion of (a) dark mode and (b) focus shifting to the start of the screen if an item changes (for screens with recyclerviews).
+  
+
 # Contributors
 
 GSoC is an excellent opportunity for new contributors to get paid to work on an open source project. If you're interested in applying as a contributor, you should definitely read the following resources:
@@ -32,6 +95,7 @@ GSoC is an excellent opportunity for new contributors to get paid to work on an 
 -   [Google Summer of Code contributor guide](https://google.github.io/gsocguides/student/)
 -   [Google's list of resources](https://developers.google.com/open-source/gsoc/resources/)
 -   [GSoC FAQ](https://developers.google.com/open-source/gsoc/faq)
+
 
 ## Getting started
 
