@@ -97,6 +97,15 @@ Note that depending on your situation, `console.log()` or `console.error()` migh
 * `console.log()` statements will cause the linter to fail, so they are a great choice for local debugging. Then if you forget to remove them before pushing your changes, the linter will remind you.
 * `console.error()` statements do not cause a lint failure, so they work well when you are pushing your code with debugging code to a PR to let the tests run in the CI environment.
 
+## Downloading the combined-tests.spec.js file
+
+By default, the combined-tests.spec.js file is deleted after running the frontend tests. This is because it is a large file that is a combination of all the frontend test files. Currently, the stack traces for frontend test failures mention the line numbers with respect to the combined-tests.spec.js file. To allow you to easily find the line in the combined-tests.spec.js file, you can download the file and view it in a text editor using the `--download_combined_frontend_spec_file` flag:
+
+```console
+python -m scripts.run_frontend_tests --download_combined_frontend_spec_file
+```
+
+The combined-tests.spec.js file will be downloaded to the karma_coverage_reports directory.
 ## Find stack elements
 
 While you can't use the line numbers in a stack trace to find the associated code, you can sometimes use the function or class names. For example, in the example above we could try searching the codebase for functions named as `_maybeConvertBody`. The success of this technique depends on how frequently we define functions with the name you search for. For example, we define lots of `constructor()` functions, so if you search for `constructor()`, you'll have a hard time figuring out which function is the one appearing in the stack trace. You will have better luck searching for a function whose name is less common.
