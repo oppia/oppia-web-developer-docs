@@ -184,6 +184,27 @@ To github.com:{{GITHUB USERNAME}}/oppia.git
 
 Note that the output above will look somewhat different for you since it's specific to what data you're pushing.
 
+### Exception: Error compiling proto files
+
+If you are getting something like this in M1 macbooks when running `python -m scripts.start`:
+
+```
+b'protoc-gen-js: program not found or is not executable\Please specify a program using absolute path or make sure the program is available in your PATH system variable\n--js_out: protoc-gen-js: Plugin failed with status code 1. Inplugin js: exit status 1\n
+Traceback (most recent call last) :
+   File "/Users/hasitha/.pyenv/versions/3.7.10/lib/python3.7/runpy.py", line 193, in _run_module_as_main
+      "main" mod_spec)
+   File "/Users/hasitha/.pyenv/versions/3.7.10/lib/python3.7/runpy.py", line 85, in run_code
+      exec (code, run globals)
+   File "/Users/hasitha/Documents/opensource/oppia/scripts/start.py", line 32, in <module>
+      install_third_party_libs.main()
+   File "/Users/hasitha/Documents/opensource/oppia/scripts/install_ third party_libs.py", line 226, in main
+      compile_protobuf_files (PROTO FILES PATHS)
+   File "/Users/hasitha/Documents/opensource/oppia/scripts/install_thirdparty_libs.py",line145,in_compile_protobuf_files
+      raise Exception ('Error compiling proto files at %s' % path)
+   Exception: Error compiling proto files at /Users/hasitha/Documents/opensource/oppia/third_party/oppia-ml-proto-0.0.0
+```
+Try searching where protoc is installed(probably in `/opt/homebrew/bin/protoc`) and remove it and then re-run the command
+
 ## Linux
 
 ### Python 2 is not available
