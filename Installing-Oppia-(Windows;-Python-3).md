@@ -160,15 +160,15 @@ You will be asked about the setup for the panel. Just click on default config.
 
 ![image](https://user-images.githubusercontent.com/23002114/94156539-d24fff00-fe9d-11ea-8f7a-039db7a7ce51.png)
 
-## Run the E2E tests
+## Step 9: Run Oppia locally
+
+To run the Oppia application locally, run `python -m scripts.start --no_browser` in the Ubuntu environment. Then you can access Oppia at http://localhost:8181.
+
+## How to run the E2E tests?
 
 Open the terminal (in the ubuntu-desktop env/ the RDP client) and run `google-chrome`. Then Open a new terminal tab and run your e2e tests 🙂. To check you can run `python -m scripts.run_e2e_tests --suite="users"`.
 
 **Note: You only need to use the RDP client to run e2e tests. You don't have to start the X server for developing and pushing code.**
-
-## Run Oppia locally
-
-To run the Oppia application locally, run `python -m scripts.start --no_browser` in the Ubuntu environment. Then you can access Oppia at http://localhost:8181.
 
 ## Miscellaneous
 
