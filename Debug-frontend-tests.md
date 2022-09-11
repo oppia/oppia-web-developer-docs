@@ -4,6 +4,8 @@
 * [Find tests](#find-tests)
 * [Isolate tests](#isolate-tests)
 * [Verbose mode](#verbose-mode)
+* [Downloading the combined-tests.spec.js file](#downloading-the-combined-tests.spec.js-file)
+* [Reproduce test execution order](#reproduce-test-execution-order)
 * [Find stack elements](#find-stack-elements)
 * [Run tests repeatedly on CI](#run-tests-repeatedly-on-ci)
 
