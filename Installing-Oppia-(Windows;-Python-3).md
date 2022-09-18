@@ -10,6 +10,7 @@
     * [Edit desktop environment config](#edit-desktop-environment-config)
   * [Step 7: Start the rdp server](#step-7-start-the-rdp-server)
   * [Step 8: Connect to the server using the Windows RDP client](#step-8-connect-to-the-server-using-the-windows-rdp-client)
+  * [Step 9: Run Oppia locally](#step-9-run-oppia-locally)
   * [Run the e2e tests](#run-the-e2e-tests)
   * [Miscellaneous](#miscellaneous)
 * [Installation in VirtualBox on Windows 10](#installation-in-virtualbox-on-windows-10)
