@@ -4,6 +4,8 @@
 * [Find tests](#find-tests)
 * [Isolate tests](#isolate-tests)
 * [Verbose mode](#verbose-mode)
+* [Downloading the combined-tests.spec.js file](#downloading-the-combined-testsspecjs-file)
+* [Reproduce test execution order](#reproduce-test-execution-order)
 * [Find stack elements](#find-stack-elements)
 * [Run tests repeatedly on CI](#run-tests-repeatedly-on-ci)
 
@@ -106,6 +108,20 @@ python -m scripts.run_frontend_tests --download_combined_frontend_spec_file
 ```
 
 The combined-tests.spec.js file will be downloaded to the karma_coverage_reports directory.
+
+## Reproduce test execution order
+
+Frontend tests are executed in a random order. This is done to ensure that the tests are not dependent on each other. However, this can make it difficult to reproduce the test execution order. To reproduce a test execution order, you can use the seed value that is printed when the tests are run. For example, the following is a sample output from the frontend tests:
+
+```console
+Running test in production environment
+Building third party libs at third_party/generated/
+Minifying and creating sourcemap for third_party/generated/js/third_party.js
+Seed for Frontend Test Execution Order 640
+```
+
+In this case, the seed value is 640. To run the tests in the same order as above, you can change the value of the [`jasmineSeed` in the `karma.conf.ts` file](https://github.com/oppia/oppia/blob/develop/core/tests/karma.conf.ts#L14) to 640 and then run the frontend tests.
+
 ## Find stack elements
 
 While you can't use the line numbers in a stack trace to find the associated code, you can sometimes use the function or class names. For example, in the example above we could try searching the codebase for functions named as `_maybeConvertBody`. The success of this technique depends on how frequently we define functions with the name you search for. For example, we define lots of `constructor()` functions, so if you search for `constructor()`, you'll have a hard time figuring out which function is the one appearing in the stack trace. You will have better luck searching for a function whose name is less common.
