@@ -19,9 +19,9 @@ To check whether your Mac has an M1 chip, navigate to the Apple menu and select 
 
 If your Mac has an M1 chip, follow these instructions instead:
 
-1. [Install](https://stackoverflow.com/a/64883440) Rosetta 2
+1. [Install](https://stackoverflow.com/a/64883440) Rosetta 2 and [create](Creating-rosetta-terminal.md) a Rosetta 2 terminal.
 
-2. Inside Rosetta perform the Downloading and prerequisites steps (**Note:** If `sudo easy_install pyyaml` does not work try using `pip3 install pyyaml`).
+2. Inside the Rosetta terminal perform the Downloading and prerequisites steps (**Note:** If `sudo easy_install pyyaml` does not work try using `pip3 install pyyaml`).
 
 3. Open the rosetta terminal and run `python -m scripts.start`
 
