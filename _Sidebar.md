@@ -8,7 +8,6 @@
     * [[UX researchers|Conducting-research-with-students]]
     * [[Voice artists | Instructions-for-voice-artists]]
     * [[Designers and artists|Contributing-to-Oppia's-design]]
-  * **[[Outreachy Dec 2021 to Mar 2022|Outreachy-Dec-2021-to-Mar-2022]]**
   * **[[Google Summer of Code 2022|Google-Summer-of-Code-2022]]**
 
 ---
@@ -136,6 +135,7 @@
     * GHC Open Source Day: [[2019|GHC-Open-Source-Day-2019]], [[2018|GHC-Open-Source-Day]]
     * Season of Docs: [[2019|Season-of-Docs-2019]]
     * DSC-SLoP (Semester Long Project): [[2020|SLoP-2020]]
+    * Outreachy: [[Dec 2021 to Mar 2022|Outreachy-Dec-2021-to-Mar-2022]]
 ---
 **Fun**
 * [Events Team](https://github.com/oppia/oppia/wiki/Events-Team)
