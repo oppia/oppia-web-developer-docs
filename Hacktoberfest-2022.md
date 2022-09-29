@@ -8,18 +8,18 @@ If you’d like to see what Oppia does, download our [Android app](https://play.
 
 Please follow these steps to get started:
 
-1. [Sign up](https://hacktoberfest.com/register/) to register for Hacktoberfest
-2. [Set up your local environment](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up) to contribute to Oppia
+1. [Sign up](https://hacktoberfest.com/register/) to register for Hacktoberfest.
+2. [Set up your local environment](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up) to contribute to Oppia.
 3. Find a "good first issue" to work on (see [here](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#finding-something-to-do) and [here](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3AHacktoberfest+no%3Aassignee)).
-4. Fix the issue by creating some changes and sending a pull request for review, following our [PR instructions](https://github.com/oppia/oppia/wiki/Make-a-pull-request)
-5. Go through the code review process until you receive approval and the PR gets merged
+4. Fix the issue by creating some changes and sending a pull request for review, following our [PR instructions](https://github.com/oppia/oppia/wiki/Make-a-pull-request).
+5. Go through the code review process until you receive approval and the PR gets merged.
 6. To earn a t-shirt: repeat until you've submitted at least 4 pull requests!
 
 ## For non-code contributors
 
 If you’re not a coder, don’t worry! This year, Hacktoberfest is introducing a [low/non-code contribution option](https://hacktoberfest.com/about/#low-or-non-code), so you can still participate, and there are lots of opportunities to do so :)
 
-We have a lot of non-code-contribution opportunities available, including giving talks, organizing case studies, translating, illustrations, graphic design and creating practice questions. To learn more about these opportunities, please check out our hacktoberfest-2022-non-code-contributions GitHub repo and its issue tracker!
+We have a lot of non-code-contribution opportunities available, including giving talks, organizing case studies, translating, illustrations, graphic design and creating practice questions. To learn more about these opportunities, please check out our [hacktoberfest-2022-non-code-contributions GitHub repo](https://github.com/oppia/hacktoberfest-2022-non-code-contributions) and its [issue tracker](https://github.com/oppia/hacktoberfest-2022-non-code-contributions/issues)!
 
 ## Donations
 
