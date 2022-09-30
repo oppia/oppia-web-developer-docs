@@ -29,6 +29,8 @@ $ direnv allow
 ```
 
 ### Step 2. Setting up virtualenv
+*Note : Only follow this and the next step if you are not using direnv for automatic virtualenv activation*
+
 In this step, we will be setting up a new virtual enviornment for our new python interpreter to specifically work with Oppia.
 ```
 ❯ pyenv virtualenv 3.8.12 Oppia
