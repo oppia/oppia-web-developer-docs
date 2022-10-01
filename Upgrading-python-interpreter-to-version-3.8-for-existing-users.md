@@ -21,7 +21,7 @@ Installed Python-3.8.12 to /home/user/.pyenv/versions/3.8.12
 ```
 
 ### Step 2 (a). Setting up virtualenv for Direnv Users
-*`Note` : Follow this step if you are using direnv for automatic switching of interpreter versions on entering oppia directory. Also skip all the below steps if you are following this step.*
+*`Note` : Follow this step if you are using direnv for automatic switching of interpreter versions on entering oppia directory.*
 
 `Important` Inorder to know whether you are using direnv or not please carry out the following instructions.
 
@@ -42,9 +42,9 @@ $ direnv reload
 ```
 
 ### Step 2 (b). Setting up virtualenv for pyenv users
-*`Note` : Only follow this and the next step if you are not using direnv for automatic virtualenv activation*
+*`Note` : Only follow this if you are not using direnv for automatic virtualenv activation*
 
-`Important` Inorder to know whether you are using pyenv or not please carry out the following instructions.
+`Important` Inorder to know whether you are using pyenv or not for virtualenv activation please carry out the following instructions.
 
 * Go to the directory where you have installed Oppia and check if you have `.python-version` file in that directory. If the `.python-version` file is present, that means you are using pyenv for virtualenv activation.
 
@@ -67,7 +67,7 @@ $ direnv reload
 
   The `*` depicts the currently activated virtual enviornment.
 
-* In the case you are using `pyenv` __please follow the below steps to setup virtualenv activation with pyenv. Else if you are not a pyenv user you can follow instructions from [Step 2 (a)](#step-2-(a).-setting-up-virtualenv-for-direnv-users).__
+* In the case you are using `pyenv` for virtualenv activation __please follow the below steps to setup virtualenv activation with pyenv. Else if you are not a pyenv user you can follow instructions from [Step 2 (a)](#step-2-(a).-setting-up-virtualenv-for-direnv-users).__
 
 #### Steps :
 
