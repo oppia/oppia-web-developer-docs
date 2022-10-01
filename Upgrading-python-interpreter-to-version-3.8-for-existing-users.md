@@ -106,4 +106,4 @@ To verify that you have right working installation, follow the steps mentioned b
 
 1. Verify you are using `python 3.8.12` on entering Oppia directory by running `python --version` in your Oppia directory.
 
-2. Spool up a development server to test the new setup through `python -m scripts.start`
+2. Spin up a development server to test the new setup through `python -m scripts.start`
