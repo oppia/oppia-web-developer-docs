@@ -1,7 +1,7 @@
 
 ## When adding a new learner-facing page…
 
-1.  Get an approval from Diana ([diana@oppia.org](mailto:diana@oppia.org)) and Sean ([sean@oppia.org](mailto:sean@seanlip.org)) regarding the Page Title and the Page Meta tag content that will be used by the new page before creating a PR.
+1.  Get approval from Diana ([diana@oppia.org](mailto:diana@oppia.org)) and Sean ([sean@oppia.org](mailto:sean@seanlip.org)) regarding the Page Title and the Page Meta tag content that will be used by the new page before creating a PR.
     
 2.  In the PR that introduces the new page, make sure that it handles the page title and meta tag changes. If it is a public user-facing page, the sitemap should also be updated.
     
@@ -28,13 +28,13 @@
 4.  In the PR description, explain the following in detail:
     
 
-    - Is the page learner facing and public?
+    - Is the page learner-facing and public?
     
     - How can it be accessed i.e. the user journey to get to the new page?
     
     - A clear description of the contents of the page.
     
-    - What is the page title and meta tag content that will be used in the new page?
+    - What are the page title and meta tag content that will be used in the new page?
     
     - Does the sitemap.xml need to be updated?
     
@@ -50,17 +50,17 @@
 * _generic-page.module.ts_ — Angular module definition 
 
 ### Webpack
-When you're adding new HTML page (not directive HTML) that uses TypeScript you also need to add it to `webpack.common.config.ts`:
+When you're adding a new HTML page (not directive HTML) that uses TypeScript you also need to add it to `webpack.common.config.ts`:
 
 1. You need to define the TypeScript entry point for the page into `module.exports.entries`.
 2. You need to add `new HtmlWebpackPlugin({…})` into `module.exports.plugins`.
 
-For example when adding **pages/generic-page/generic-page.mainpage.html** with asocciated TypeScript file **pages/generic-page/generic-page.scripts.ts**, you will need to add `page: commonPrefix + '/pages/generic-page/generic-page.scripts.ts'` to `module.exports.entries` and
+For example, when adding **pages/generic-page/generic-page.mainpage.html** with associated TypeScript file **pages/generic-page/generic-page.scripts.ts**, you will need to add `page: commonPrefix + '/pages/generic-page/generic-page.scripts.ts'` to `module.exports.entries` and
 
 ```javascript
 new HtmlWebpackPlugin({
   chunks: ['page'],
-  meta: { // if default meta is used this can be ommited
+  meta: { // if default meta is used this can be omitted
     name: 'name',
     description: 'description'
   },
