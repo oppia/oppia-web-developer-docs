@@ -5,7 +5,7 @@ Currently, in Oppia we are utilizing python interpreter version 3.7.10. We are n
 ## Prerequisite
 Please make sure your local as well as remote fork is up-to-date with the develop. 
 
-### Step 1. Installing python 3.8.12 through pyenv
+## Step 1. Installing python 3.8.12 through pyenv
 Our first step is to install the new interpreter version `3.8.12` through pyenv by issuing the following command through a terminal
 ```
 pyenv install 3.8.12
@@ -20,7 +20,7 @@ patching file configure.ac
 Installed Python-3.8.12 to /home/user/.pyenv/versions/3.8.12
 ```
 
-### Step 2 (a). Setting up virtualenv for Direnv Users
+## Step 2 (a). Setting up virtualenv for Direnv Users
 *`Note` : Follow this step if you are using direnv for automatic switching of interpreter versions on entering oppia directory.*
 
 `Important` Inorder to know whether you are using direnv or not please carry out the following instructions.
@@ -41,7 +41,7 @@ use python 3.8.12
 $ direnv reload
 ```
 
-### Step 2 (b). Setting up virtualenv for pyenv users
+## Step 2 (b). Setting up virtualenv for pyenv users
 *`Note` : Only follow this if you are not using direnv for automatic virtualenv activation*
 
 `Important` Inorder to know whether you are using pyenv or not for virtualenv activation please carry out the following instructions.
@@ -99,7 +99,7 @@ $ direnv reload
     pyenv local {unique-virtualenv-name}
     ```
 
-### Step 3. Verify you have a working installation
+## Step 3. Verify you have a working installation
 To verify that you have right working installation, follow the steps mentioned below :
 
 #### Steps :
