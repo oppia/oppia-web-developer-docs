@@ -7,17 +7,17 @@
 
 ## Introduction
 
-As a user plays through an exploration, we want to track their progress to identify any problems. If we do find problems with the exploration, we can raise those to the exploration creator. For example, if a user gets stuck in a cycle of cards or submits many incorrect answers to an interaction, the exploration could probably be improved.
+As a user plays through exploration, we want to track their progress to identify any problems. If we do find problems with the exploration, we can raise those to the exploration creator. For example, if a user gets stuck in a cycle of cards or submits many incorrect answers to an interaction, the exploration could probably be improved.
 
-We store the steps a user takes through an exploration as _actions_, and we create _issues_ to keep track of the problems that these actions indicate. Both actions and issues are defined as [[schemas|Schemas]].
+We store the steps a user takes through exploration as _actions_, and we create _issues_ to keep track of the problems that these actions indicate. Both actions and issues are defined as [[schemas|Schemas]].
 
 ## Actions
 
-There are three actions defined at [`extensions/actions/`](https://github.com/oppia/oppia/tree/develop/extensions/actions):
+There are three actions defined as [`extensions/actions/`](https://github.com/oppia/oppia/tree/develop/extensions/actions):
 
 * `ExplorationStart`: This action is recorded when a learner starts an exploration. It stores the name of the state (i.e. card) they start at.
 
-* `AnswerSubmit`: This action is recorded when a learner submits a response to an interaction. It stores the ID of the interaction, the name of the state with the interaction, the answer that the learner submitted, the exploration's feedback for that answer, the next state they transition to, and how long the learner spent in the state. Note that the interaction ID is just its name, for example `ItemSelectionInput`.
+* `AnswerSubmit`: This action is recorded when a learner submits a response to an interaction. It stores the ID of the interaction, the name of the state with the interaction, the answer that the learner submitted, the exploration's feedback for that answer, the next state they transition to, and how long the learner spent in the state. Note that the interaction ID is just its name, for example, `ItemSelectionInput`.
 
 * `ExplorationQuit`: This action is recorded when a learner leaves an exploration. It stores the name of the state at which the learner quit and how long the user spent in the last state they visited.
 
