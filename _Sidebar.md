@@ -9,6 +9,7 @@
     * [[Voice artists | Instructions-for-voice-artists]]
     * [[Designers and artists|Contributing-to-Oppia's-design]]
   * **[[Hacktoberfest 2022|Hacktoberfest-2022]]**
+  * **[[SLoP 2022|SLoP-2022]]**
   * **[[Google Summer of Code 2022|Google-Summer-of-Code-2022]]**
 ---
 **Developing Oppia**
