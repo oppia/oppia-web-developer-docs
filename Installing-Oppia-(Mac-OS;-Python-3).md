@@ -55,7 +55,7 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
    ```
     * Now try doing `python --version` on your command-line, and you should see version `2.7` printed.
 
-2. Ensure that you have [Python 3.7](https://www.python.org/downloads/release/python-3711/) installed (Note: you can check this by running `python3 --version`). If Python 3.7 is not installed, download and run the latest Python 3.7 installer from https://www.python.org/downloads/mac-osx/.
+2. Ensure that you have [Python 3.8](https://www.python.org/downloads/release/python-3812/) installed (Note: you can check this by running `python3 --version`). If Python 3.8 is not installed, download and run the latest Python 3.8 installer from https://www.python.org/downloads/mac-osx/.
 
 3. Download [git](http://git-scm.com/download/mac), then run the package and follow instructions. This allows you to store the source in version control.
 
@@ -145,28 +145,38 @@ For your vitual environment, we recommend you use [pyenv](https://github.com/pye
 
 2. Reload your shell or open a new terminal window to load your updated `~/.bash_profile` or `~/.zshrc`.
 
-3. If you have MacOS >= 12.3, install Python 3.7.13, otherwise install Python 3.7.10 and the associated pip using the command below: 
+3. Install Python 3.8.12 and the associated pip using the command below: 
 
-    `pyenv install <version>`, where `version` could be `3.7.13` (MacOS >= 12.3) or `3.7.10` (otherwise).
+    `pyenv install 3.8.12`.
  
     This is how it looks like:  
 
    ```console
-   $ pyenv install 3.7.10
-   Downloading Python-3.7.10.tar.xz...
-   -> https://www.python.org/ftp/python/3.7.10/Python-3.7.10.tar.xz
-   Installing Python-3.7.10...
-   Installed Python-3.7.10 to /home/user/.pyenv/versions/3.7.10
+   $ pyenv install 3.8.12
+   Installing openssl-1.1.1k.. 
+   Installed openssl-1.1.1k to /Users/user/.pyenv/versions/3.8.12
+
+   Installing readline-8.1... 
+   Installed readline-8.1 to /Users/user/.pyenv/versions/3.8.12
+
+   Downloading Python-3.8.12.tar.xz... 
+   -> https://www.python.org/ftp/python/3.8.12/Python-3.8.12.tar.xz 
+   Installing Python-3.8.12... 
+   patching file Misc/NEWS.d/next/Build/2021-10-11-16-27–38.bpo-45405.iSfdw5.rst 
+   patching file configure 
+   patching file configure.ac 
+   python-build: use zlib from xcode sdk 
+   Installed Python-3.8.12 to /Users/user/.pyenv/versions/3.8.12
    ```
 
-4. Create a virtual environment for oppia depending on the python version installed using the command below: 
+4. Create a virtual environment for oppia using the command below: 
 
-    `pyenv virtualenv <python-version> oppia`, where `python-version` could be `3.7.13` or `3.7.10`
+    `pyenv virtualenv 3.8.12 oppia`
 
      This is how it looks like: 
 
    ```console
-   $ pyenv virtualenv 3.7.10 oppia
+   $ pyenv virtualenv 3.8.12 oppia
    ...
    $ pyenv versions
    ...
@@ -275,9 +285,9 @@ For your vitual environment, we recommend you use [pyenv](https://github.com/pye
 
 
    Traceback (most recent call last):
-     File "/Users/user/.pyenv/versions/3.7.10/lib/python3.7/runpy.py", line 174, in _run_module_as_main
+     File "/Users/user/.pyenv/versions/3.8.12/lib/python3.8/runpy.py", line 174, in _run_module_as_main
        "__main__", fname, loader, pkg_name)
-     File "/Users/user/.pyenv/versions/3.7.10/lib/python3.7/runpy.py", line 72, in _run_code
+     File "/Users/user/.pyenv/versions/3.8.12/lib/python3.8/runpy.py", line 72, in _run_code
        exec code in run_globals
      File "/opensource/oppia/scripts/start.py", line 205, in <module>
        main()
