@@ -167,7 +167,7 @@ Extensions provide `webdriverio.js` files to make them easier to test. The E2E t
 
 ## Run E2E tests
 
-If you don't know the name of the suite you want to run, you can find it in `core/tests/wdio.conf.js` or `core/tests/protractor.conf.js`. Then you can run your test like this:
+If you don't know the name of the suite you want to run, you can find it in `core/tests/wdio.conf.js`. Then you can run your test like this:
 
 ```console
 python -m scripts.run_e2e_tests --suite="suiteName"

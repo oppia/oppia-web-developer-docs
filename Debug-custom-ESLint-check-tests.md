@@ -12,7 +12,7 @@ When you write tests for a custom ESLint rule, you may sometimes have trouble un
 
 Printing out the values of variables in your lint rule is one of the most useful debugging strategies because it lets you check whether the variables in your rule have the values you expect. For ESLint rules, you can add `console.log()`, `console.error()`, or `console.info()` statements to your custom ESLint rule code. The output will appear along with the test status output.
 
-For example, suppose we have a lint rule that raises an error every time `.click()` or `.sendKeys()` is called on an object instead of `action.click()` or `action.sendKeys()`, which we would like people to use instead. If we add `console.log()` statement to print `DEBUGGING found lint error` whenever our lint rule raises an error, we see this output when running the tests:
+For example, suppose we have a lint rule that raises an error every time `.click()` or `.setValue()` is called on an object instead of `action.click()` or `action.setValue()`, which we would like people to use instead. If we add `console.log()` statement to print `DEBUGGING found lint error` whenever our lint rule raises an error, we see this output when running the tests:
 
 ```text
   e2e-action
@@ -21,13 +21,13 @@ For example, suppose we have a lint rule that raises an error every time `.click
         action.click("Element", elem);
       });
       ✓ it('should test a feature', function() {
-        action.sendKeys("Element", elem, "keys");
+        action.setValue("Element", elem, "keys");
       });
       ✓ it('should test a feature', function() {
         console.log(elem.click);
       });
       ✓ it('should test a feature', function() {
-        console.log(elem.sendKeys);
+        console.log(elem.setValue);
       });
     invalid
 DEBUGGING found lint error
@@ -36,15 +36,15 @@ DEBUGGING found lint error
       });
 DEBUGGING found lint error
       ✓ it('should test a feature', function() {
-        elem.sendKeys("keys");
+        elem.setValue("keys");
       });
 DEBUGGING found lint error
 DEBUGGING found lint error
       ✓ it('should test a feature', function() {
-        element(by.css('.protractor-test')).click();
+        $('.webdriverio-test')).click();
       });
       ✓ it('should test a feature', function() {
-        element(by.css('.protractor-test')).sendKeys("keys");
+        $('.webdriverio-test')).setValue("keys");
       });
 ```
 

@@ -57,7 +57,7 @@ The code for defining each rich text component is housed in [`extensions/rich_te
 
 * `{{rich text component name}}.png` is an icon representing the component, used in the RTE toolbar button.
 
-* `protractor.js` exports two functions that are used by the end-to-end tests: `customizeComponent` configures a new instance of the component (e.g. sets the destination of a newly added Link component), and `expectComponentDetailsToMatch` checks that a component has the expected properties.
+* `webdriverio.js` exports two functions that are used by the end-to-end tests: `customizeComponent` configures a new instance of the component (e.g. sets the destination of a newly added Link component), and `expectComponentDetailsToMatch` checks that a component has the expected properties.
 
 To add a new rich text component, create a new folder under `extensions/rich_text_components`. The folder name should match the name of your new component, and the folder should contain each of the files described above.
 

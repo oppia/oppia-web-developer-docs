@@ -143,11 +143,11 @@ To add a new interaction to Oppia, here is what you need to do:
 
 ### Testing
 
-We have an [[end-to-end testing framework|End-to-End-Tests]] using Protractor.js that you you are encouraged to use for your interaction. The tests mimic a user by interacting with the web-page, for example by clicking and typing, and then checking that the interaction behaves in the expected way.
+We have an [[end-to-end testing framework|End-to-End-Tests]] using Webdriverio.js that you you are encouraged to use for your interaction. The tests mimic a user by interacting with the web-page, for example by clicking and typing, and then checking that the interaction behaves in the expected way.
 
 To do so will require the following:
 
-1. Create a `protractor.js` file in your interaction's directory and implement the following:
+1. Create a `webdriverio.js` file in your interaction's directory and implement the following:
 
    * `customizeInteraction`: a function that when sent relevant arguments will choose parameters for your interaction.
    * `expectInteractionDetailsToMatch`: a function that in the player verifies the interaction is displayed correctly, including those customizations specified in the editor.
@@ -155,10 +155,10 @@ To do so will require the following:
    * `answerObjectType`: The type of the returned object of the interaction; this should match the `obj_type` of the submission handler specified in the interaction's python file.
    * `testSuite`: An array of dictionaries, each of which describes a scenario in which the interaction is used and specifies how it should behave. Each entry specifies customizations for the interaction and selects and parameterizes one of the rules associated with it. The test will then move to the player, check that the interaction is displayed correctly, submit a series of correct and wrong answers, and verify that these are handled correctly.
 
-2. Add your `protractor.js` file to the dictionary of interactions in `extensions/interactions/protractor.js`.
+2. Add your `webdriverio.js` file to the dictionary of interactions in `extensions/interactions/webdriverio.js`.
 
-3. Any new [[objects|Creating-Objects]] you create must have handlers for them added to `extensions/objects/protractor.js`. You can then use these handlers when writing your `customizeInteraction` and `submitAnswer` functions. Objects that are used as rule parameters must implement a `setValue()` function that fully specifies them, and this will be used automatically when a rule is being selected. Don't forget to add the new objects both to the list of object editors and to the exports.
+3. Any new [[objects|Creating-Objects]] you create must have handlers for them added to `extensions/objects/webdriverio.js`. You can then use these handlers when writing your `customizeInteraction` and `submitAnswer` functions. Objects that are used as rule parameters must implement a `setValue()` function that fully specifies them, and this will be used automatically when a rule is being selected. Don't forget to add the new objects both to the list of object editors and to the exports.
 
-4. Any new [[rules|Creating-Rules]] must be included in `extensions/rules/protractor.js` within the entry for the type of returned object the rule applies to. You just need to specify the `description` from the rule's python file.
+4. Any new [[rules|Creating-Rules]] must be included in `extensions/rules/webdriverio.js` within the entry for the type of returned object the rule applies to. You just need to specify the `description` from the rule's python file.
 
-When running the tests you may want to change `describe` to `ddescribe` in the "Interactions" test class of `core/tests/protractor/editorAndPlayer.js` which will cause just the interaction-specific tests to be run. Be sure to change it back before committing!
+When running the tests you may want to change `describe` to `ddescribe` in the "Interactions" test class of `core/tests/webdriverio/editorAndPlayer.js` which will cause just the interaction-specific tests to be run. Be sure to change it back before committing!
