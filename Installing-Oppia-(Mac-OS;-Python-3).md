@@ -19,11 +19,17 @@ To check whether your Mac has an M1 chip, navigate to the Apple menu and select 
 
 If your Mac has an M1 chip, follow these instructions instead:
 
-1. [Install](https://stackoverflow.com/a/64883440) Rosetta 2 and [create](Creating-rosetta-terminal.md) a Rosetta 2 terminal.
+1. If not yet installed, install Rosetta 2 with the following command:  `softwareupdate --install-rosetta`. Rosetta 2 translates Intel-based apps to run on Apple silicon Macs.
 
-2. Inside the Rosetta terminal perform the Downloading and prerequisites steps (**Note:** If `sudo easy_install pyyaml` does not work try using `pip3 install pyyaml`).
+2. Next, we'll create two aliases to make ite more convenient to switch between Mac M1s' *ARM* architecture and the emulated *Intel* architecture. To do so, run the following in the terminal (change "zsh" to "bash" if you're using a bash terminal):
+    ```shell
+    $ alias arm="env /usr/bin/arch -arm64 /bin/zsh --login"
+    $ alias intel="env /usr/bin/arch -x86_64 /bin/zsh --login"
+    ``` 
+    Now, run `intel` in the terminal followed by `arch`. You should see `i386` being printed. This is the architecture we'll use for this installation process. (**Note:** To change back to ARM64, run "arm" or simply open a new terminal).
+3. Inside the Rosetta terminal (i386) perform the Downloading and prerequisites steps (**Note:** If `sudo easy_install pyyaml` does not work try using `pip3 install pyyaml`).
 
-3. Open the rosetta terminal and run `python -m scripts.start`
+4. Open the rosetta terminal (from step 2) and run `python -m scripts.start`
 
 ## Install prerequisites
 
