@@ -41,10 +41,10 @@ DEBUGGING found lint error
 DEBUGGING found lint error
 DEBUGGING found lint error
       ✓ it('should test a feature', function() {
-        $('.webdriverio-test')).click();
+        $('.e2e-test')).click();
       });
       ✓ it('should test a feature', function() {
-        $('.webdriverio-test')).setValue("keys");
+        $('.e2e-test')).setValue("keys");
       });
 ```
 
