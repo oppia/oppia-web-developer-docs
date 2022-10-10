@@ -453,17 +453,17 @@ The buttons on the various navigation bars should ideally not change, changes to
 </ul>
 
 <p>
-For protractor_utils:
+For webdriverio_utils:
 <ul>
 
 <li>Make sure style guidelines and naming guidelines are followed.
 
-<li>All protractor classes must start with protractor-test-.
+<li>All webdriverio classes must start with e2e-test-.
 
 </ul>
 
 <p>
-For protractor_mobile, the tests should run successfully on Browserstack.
+For webdriverio_mobile, the tests should run successfully on Browserstack.
 
 <p>
 

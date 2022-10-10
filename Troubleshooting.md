@@ -26,7 +26,7 @@ If running `which java` on the terminal does not return any output, you do not h
 
 ### Frontend Tests Stuck
 
-If you're unable to run frontend tests while pushing your changes due to the script getting stuck, please go to "node_modules" directory (located at the same level as that of the root directory) and delete the "protractor" directory present inside that folder.
+If you're unable to run frontend tests while pushing your changes due to the script getting stuck, please go to "node_modules" directory (located at the same level as that of the root directory) and delete the "webdriverio" directory present inside that folder.
 
 ### Selenium Server Not Killed by Ctrl-C
 
