@@ -176,11 +176,11 @@ For your vitual environment, we recommend you use [pyenv](https://github.com/pye
      This is how it looks like: 
 
    ```console
-   $ pyenv virtualenv 3.8.12 oppia
+   $ pyenv virtualenv 3.8.12 Oppia
    ...
    $ pyenv versions
    ...
-   oppia
+   Oppia
    ...
    ```
 
