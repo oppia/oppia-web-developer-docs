@@ -75,7 +75,7 @@ For a more complete tutorial, refer to the [angular translate guide](http://angu
 
 ## Testing
 
-In e2e tests, to check that a page has no untranslated keys: call the helper function  `ensurePageHasNoTranslationIds`, which is located in [protractor_utils/general.js](https://github.com/oppia/oppia/blob/develop/core/tests/protractor_utils/general.js).
+In e2e tests, to check that a page has no untranslated keys: call the helper function  `ensurePageHasNoTranslationIds`, which is located in [webdriverio_utils/general.js](https://github.com/oppia/oppia/blob/develop/core/tests/webdriverio_utils/general.js).
 
 Also, Karma tests may generate 404 warnings, as the required locale files aren't available in the Karma test environment. To overcome this, add the following line in the first part of your Karma test:
 

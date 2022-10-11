@@ -9,6 +9,7 @@
     * [[Voice artists | Instructions-for-voice-artists]]
     * [[Designers and artists|Contributing-to-Oppia's-design]]
   * **[[Hacktoberfest 2022|Hacktoberfest-2022]]**
+  * **[[SLoP 2022|SLoP-2022]]**
   * **[[Google Summer of Code 2022|Google-Summer-of-Code-2022]]**
 ---
 **Developing Oppia**
@@ -43,8 +44,6 @@
       * [[Debugging datastore locally|Debugging-datastore-locally]]
       * [[Debugging Docs|Debugging-Docs]]
       * [[Debugging end-to-end tests|Debug-end-to-end-tests]]
-        * [[Protractor|Debug-end-to-end-tests-protractor]]
-        * [[WebdriverIO|Debug-end-to-end-tests-webdriverio]]
       * [[Debugging backend tests|Debug-backend-tests]]
       * [[Debugging frontend tests|Debug-frontend-tests]]
       * [[Debug frontend code|Debug-frontend-code]]
@@ -66,12 +65,7 @@
       * [[TypeScript tests|TypeScript-tests]]
       * [[Backend tests|Backend-tests]]
       * [[Frontend tests|Frontend-tests]]
-      * [[End-to-end tests|End-to-End-tests]]
-         * [[Protractor|Protractor]]
-         * [[WebdriverIO|WebdriverIO]]
-         * Migration
-           * [[Hybrid state|Hybrid-state]]
-           * [[Guide to migrate e2e tests|Guide-to-migrate-e2e-tests]]
+      * [[End-to-end tests|End-to-End-Tests]]
       * [[Lighthouse Tests|Lighthouse-Tests]]
     * Manual tests
       * [[Testing for Accessibility|Testing-for-Accessibility]]

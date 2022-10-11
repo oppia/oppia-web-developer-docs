@@ -31,19 +31,19 @@ A development server will open at http://localhost:8181. Create a new account an
 
 We want to add a new field under the user bio to store the user's experience. First, we need to find the HTML file that provides the user's bio. Here are two approaches:
 
-* Use your browser's developer tools to inspect the page's HTML. Find an HTML class you think will be unique, for example `protractor-test-user-bio`. Then search the codebase for that string.
+* Use your browser's developer tools to inspect the page's HTML. Find an HTML class you think will be unique, for example `e2e-test-user-bio`. Then search the codebase for that string.
 * Rely on your knowledge of how the code files in Oppia are organized. We know that the HTML files for each component are under `core/templates/pages`. In that folder, we see a `preferences-page` directory, which looks promising since we are trying to edit the preferences page. Inside that folder, we see the `preferences-page.component.html` file.
 
 Either approach should lead you to `core/templates/pages/preferences-page/preferences-page.component.html`.
 
-1. Find the code for the bio field. You can find this block by noticing from your browser's development tools that the `protractor-test-user-bio` class is associated with the bio field. If you search for that string, you should find a section of code that looks like this:
+1. Find the code for the bio field. You can find this block by noticing from your browser's development tools that the `e2e-test-user-bio` class is associated with the bio field. If you search for that string, you should find a section of code that looks like this:
 
    ```html
      <div class="form-group row">
        <label for="label-target-user-bio" class="col-lg-4 col-md-4 col-sm-4">{{ 'I18N_PREFERENCES_BIO' | translate }}</label>
        <div class="col-lg-8 col-md-8 col-sm-8">
          <textarea id="label-target-user-bio"
-                   class="oppia-bio-border protractor-test-user-bio oppia-autofocus"
+                   class="oppia-bio-border e2e-test-user-bio oppia-autofocus"
                    [(ngModel)]="userBio"
                    [attr.value]="userBio"
                    (blur)="saveUserBio(userBio)"
