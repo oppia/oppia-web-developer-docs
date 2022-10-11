@@ -15,7 +15,7 @@
 **Developing Oppia**
   * [[FAQs|Frequently-Asked-Questions]]
   * [[Installing Oppia|https://github.com/oppia/oppia/wiki/Installing-Oppia]]
-  * [[Upgrading python interpreter to 3.8.12 for existing users|https://github.com/oppia/oppia/wiki/Upgrading-python-interpreter-to-version-3.8-for-existing-users]]
+  * [[Upgrading python interpreter to 3.8.12 for existing users|Upgrading-python-interpreter-to-version-3.8-for-existing-users]]
   * [[Tips for common IDEs|Tips-for-common-IDEs]]
   * [[Make a pull request|Make-a-pull-request]]
   * [[Common pull request workflows|Common-pull-request-workflows]]
