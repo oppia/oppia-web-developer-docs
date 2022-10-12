@@ -21,7 +21,7 @@ If your Mac has an M1 chip, follow these instructions instead:
 
 1. If not yet installed, install Rosetta 2 with the following command:  `softwareupdate --install-rosetta`. Rosetta 2 translates Intel-based apps to run on Apple silicon Macs.
 
-2. Next, we'll create two aliases to make ite more convenient to switch between Mac M1s' *ARM* architecture and the emulated *Intel* architecture. To do so, run the following in the terminal (change "zsh" to "bash" if you're using a bash terminal):
+2. Next, we'll create two aliases to make it more convenient to switch between Mac M1s' *ARM* architecture and the emulated *Intel* architecture. To do so, run the following in the terminal (change "zsh" to "bash" if you're using a bash terminal):
     ```shell
     $ alias arm="env /usr/bin/arch -arm64 /bin/zsh --login"
     $ alias intel="env /usr/bin/arch -x86_64 /bin/zsh --login"
