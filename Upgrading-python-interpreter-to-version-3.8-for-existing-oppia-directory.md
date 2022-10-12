@@ -1,10 +1,14 @@
 # Upgrading python interpreter version from 3.7.10 to 3.8.12
 
-Oppia has updated it's python interpreter version 3.7.10 in a phase of switching to a more updated interpreter version 3.8.12. For effective and effortless switching to the newer version, this guide will provide a brief and detailed instruction on how to achieve just that. Please follow the below mentioned instructions carefully.
+Oppia changed the Python version it uses from 3.7.10 to 3.8.12 in Oct 2022. This page is aimed at developers who are currently using Python 3.7.10 and need to upgrade to 3.8.12. 
+
+For effective and effortless switching to the newer version, this guide will provide a brief and detailed instruction on how to achieve just that. Please follow the below mentioned instructions carefully.
 
 ## Prerequisite
-- This page is dedicated to people who want to upgrade their python interpreter in the existing Oppia directory instead of maintaing a new local repo copy of oppia.
-- Please make sure your local repo as well as remote fork is up-to-date with the develop. 
+
+This page is aimed at developers who want to upgrade their Python interpreter in their existing Oppia directory, instead of creating a separate copy of Oppia with the new interpreter.
+
+Before starting, please make sure that your local repo, as well as your remote fork on GitHub, are both up-to-date with the `develop` branch.
 
 ## Step 1. Installing python 3.8.12 through pyenv
 Our first step is to install the new interpreter version `3.8.12` through pyenv by issuing the following command through a terminal :
