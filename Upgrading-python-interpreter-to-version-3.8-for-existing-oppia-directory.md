@@ -38,7 +38,8 @@ This step will guide you through determining which one you are using currently, 
 * In case you don't have a `.envrc` file, check if you have `.python-version` file in that directory. If the `.python-version` file is present, that means you are using `pyenv` for virtualenv activation. `pyenv` users should follow the instructions in [Step 3 (b)](#step-3-(b).-setting-up-virtualenv-for-pyenv-users).
 
 ## Step 3 (a). Setting up virtualenv for Direnv Users
-*`Note` : Follow this step if you are using direnv  as your virtualenv manager.*
+> **Note**
+> Follow this step if you are using direnv as your virtualenv manager.
 
 
 #### Do the following :
