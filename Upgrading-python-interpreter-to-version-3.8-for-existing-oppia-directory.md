@@ -34,9 +34,9 @@ This step will guide you through determining which one you are using currently, 
 
 #### Do the following :
 
-* Go to the directory where you have installed Oppia and check if you have `.envrc` file in that directory. If the `.envrc` file is present, that means you are using direnv for virtualenv activation. `direnv` users should follow the instructions in [Step 3 (a)](#step-3-(a).-setting-up-virtualenv-for-direnv-users).
+* Go to the directory where you have installed Oppia and check if you have ***.envrc*** file in that directory. If the ***.envrc*** file is present, that means you are using direnv for virtualenv activation. direnv users should follow the instructions in [Step 3 (a)](#step-3-(a).-setting-up-virtualenv-for-direnv-users).
 
-* In case you don't have a `.envrc` file, check if you have `.python-version` file in that directory. If the `.python-version` file is present, that means you are using `pyenv` for virtualenv activation. `pyenv` users should follow the instructions in [Step 3 (b)](#step-3-(b).-setting-up-virtualenv-for-pyenv-users).
+* In case you don't have a ***.envrc***. file, check if you have ***.python-version*** file in that directory. If the ***.python-version*** file is present, that means you are using pyenv for virtualenv activation. pyenv users should follow the instructions in [Step 3 (b)](#step-3-(b).-setting-up-virtualenv-for-pyenv-users).
 
 ## Step 3 (a). Setting up virtualenv for Direnv Users
 > **Note**
@@ -45,7 +45,7 @@ This step will guide you through determining which one you are using currently, 
 
 #### Do the following :
 
-1. Edit the `.envrc` file in your oppia folder to this :
+1. Edit the ***.envrc*** file in your oppia folder to this :
 ```
 use python 3.8.12
 ```
