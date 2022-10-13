@@ -55,7 +55,8 @@ $ direnv reload
 ```
 
 ## Step 3 (b). Setting up virtualenv for pyenv users
-*`Note` : Follow this step if you are using pyenv as your virtualenv manager.*
+> **Note**
+> Follow this step if you are using pyenv as your virtualenv manager.
 
 #### Do the following :
 
