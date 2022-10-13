@@ -59,7 +59,7 @@ $ direnv reload
 > **Note**
 > Follow this step if you are using pyenv as your virtualenv manager.
 
-#### Do the following :
+#### Do the following:
 
 1. In this step, we will set up a new virtual enviornment for our new python interpreter to specifically work with Oppia.
 
