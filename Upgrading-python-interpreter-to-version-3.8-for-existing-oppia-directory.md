@@ -15,7 +15,8 @@ Our first step is to install the new interpreter version `3.8.12` through pyenv 
 ```
 pyenv install 3.8.12
 ```
-After you execute the above command you can expect some output as depicted below :
+
+After you execute the above command you can expect some output as depicted below:
 ```
 ❯ pyenv install 3.8.12
 Installing Python-3.8.12...
