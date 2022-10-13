@@ -68,7 +68,7 @@ $ direnv reload
     ```
     pyenv virtualenv 3.8.12 {unique-virtualenv-name}
     ```
-    The above command will produce output as depicted below :
+    The above command will produce output as depicted below:
 
     ```
     ❯ pyenv virtualenv 3.8.12 Oppia
