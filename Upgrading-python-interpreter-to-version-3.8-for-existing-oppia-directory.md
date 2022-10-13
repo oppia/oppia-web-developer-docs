@@ -11,7 +11,7 @@ This page is aimed at developers who want to upgrade their Python interpreter in
 Before starting, please make sure that your local repo, as well as your remote fork on GitHub, are both up-to-date with the `develop` branch.
 
 ## Step 1. Installing python 3.8.12 through pyenv
-Our first step is to install the new interpreter version `3.8.12` through pyenv by issuing the following command through a terminal :
+Our first step is to install the new interpreter version `3.8.12` through pyenv by issuing the following command through a terminal:
 ```
 pyenv install 3.8.12
 ```
