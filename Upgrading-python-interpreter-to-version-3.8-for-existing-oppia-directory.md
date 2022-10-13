@@ -50,7 +50,7 @@ This step will guide you through determining which one you are using currently, 
 use python 3.8.12
 ```
 
-2. Run this command in the same directory to complete the setup :
+2. Run this command in the same directory to complete the setup:
 ```
 $ direnv reload
 ```
