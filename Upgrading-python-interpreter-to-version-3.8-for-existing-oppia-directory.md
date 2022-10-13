@@ -39,10 +39,7 @@ This step will guide you through determining which one you are using currently, 
 > **Note**
 > Follow this step if you are using direnv as your virtualenv manager.
 
-
-#### Do the following :
-
-1. Edit the `.envrc` file in your oppia folder to this :
+1. Edit the `.envrc` file in your oppia folder to this:
 ```
 use python 3.8.12
 ```
