@@ -90,9 +90,9 @@ $ direnv reload
     ```
 
 ## Step 4. Verify you have a working installation
-To verify that you have a working installation, do the following :
+To verify that you have a working installation, do the following:
 
-1. Verify you are using `python 3.8.12` on entering Oppia directory by running `python --version` in your Oppia directory. You should see the following output :
+1. Verify you are using `python 3.8.12` on entering Oppia directory by running `python --version` in your Oppia directory. You should see the following output:
 ```
 python --version
 Python 3.8.12
