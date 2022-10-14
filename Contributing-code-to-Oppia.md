@@ -53,6 +53,8 @@ If you run into any problems along the way, we're here to help! Check out our [[
 
 See our [[page of learning resources|Learning-Resources]] for suggestions on how you can improve your development skills. When you take up an issue that requires programming languages or tools you are unfamiliar with, check out that page for resources that other developers have found useful when learning.
 
+We also **strongly recommend** taking a look through the resources under "Developing Oppia" in the wiki sidebar. Good places to start include the [[Overview of the Oppia codebase|Overview-of-the-Oppia-codebase]] and the [[tips on how to find the right code to change|Find-the-right-code-to-change]].
+
 ## Finding something to do
 
 ### Starter projects for new contributors

@@ -23,11 +23,11 @@
   * [[Git cheat sheet|Git-cheat-sheet]]
   * [[Codebase Overview|Overview-of-the-Oppia-codebase]]
     * [[Glossary of terms|Glossary-of-terms]]
-    * [[Apache Beam Jobs|Apache-beam-jobs]]
+    * [[Tips for finding the right code to change|Find-the-right-code-to-change]]
     * [[Tips for analyzing the codebase|Analyzing-the-codebase]]
     * [[Tour of Oppia webpages|How-to-access-Oppia-webpages]]
-    * [[How to find the right code to change|Find-the-right-code-to-change]]
     * [User documentation](https://oppia.github.io/)
+    * [[Apache Beam Jobs|Apache-beam-jobs]]
   * [[List of current projects|https://github.com/oppia/oppia/projects]]
   * **[[Good first issues|https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22]]**
   * Coding Guidelines
