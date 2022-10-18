@@ -133,14 +133,15 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
 
 3. Reload your shell or open a new terminal window to load your updated `~/.bashrc`.
 
-4. Now you can install Python 3.7.10 and the associated pip like this:
+4. Now you can install Python 3.8.12 and the associated pip like this:
 
    ```console
-   $ pyenv install 3.7.10
-   Downloading Python-3.7.10.tar.xz...
-   -> https://www.python.org/ftp/python/3.7.10/Python-3.7.10.tar.xz
-   Installing Python-3.7.10...
-   Installed Python-3.7.10 to /home/user/.pyenv/versions/3.7.10
+   $ pyenv install 3.8.12
+   installing python-3.8.12...
+   patching file misc/news.d/next/build/2021-10-11-16-27-38.bpo-45405.isfdw5.rst
+   patching file configure
+   patching file configure.ac
+   installed python-3.8.12 to /home/user/.pyenv/versions/3.8.12
    ```
 
 5. Install direnv
@@ -172,7 +173,7 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
    with this content:
 
     ```console
-    use python 3.7.10
+    use python 3.8.12
     ```
 
     Then run this command in the same folder:
@@ -388,17 +389,18 @@ On Arch Linux, you should follow these instructions to set up your virtual envir
 4. Now you can install Python 3.7.10 and the associated pip like this:
 
    ```console
-   $ pyenv install 3.7.10
-   Downloading Python-3.7.10.tar.xz...
-   -> https://www.python.org/ftp/python/3.7.10/Python-3.7.10.tar.xz
-   Installing Python-3.7.10...
-   Installed Python-3.7.10 to /home/user/.pyenv/versions/3.7.10
+   $ pyenv install 3.8.12
+   installing python-3.8.12...
+   patching file misc/news.d/next/build/2021-10-11-16-27-38.bpo-45405.isfdw5.rst
+   patching file configure
+   patching file configure.ac
+   installed python-3.8.12 to /home/user/.pyenv/versions/3.8.12
    ```
 
 5. Create a virtual environment for oppia:
 
    ```console
-   $ pyenv virtualenv 3.7.10 oppia
+   $ pyenv virtualenv 3.8.12 oppia
    ...
    $ pyenv versions
    ...
