@@ -8,7 +8,7 @@ If your job or feature is not essential for the release and has not been fully t
 - The job or feature has the expected outcome (this must be verified by e.g. user-facing changes, or introspection of the datastore, or a validation job, or an output check, etc.).
 - The job or feature should be explicitly approved by server jobs admin (currently @seanlip,  @vojtechjelinek, @kevintab95 and @DubeySandeep).
 
-Also, in case your job is a new migration job (not any already existing migrations), there has to be an audit job accompanying it to verify that the data that you are migrating are valid in the server. **The audit job will have to be "Fully tested" before testing on the migration job can start.** 
+Also, in case your job is a new migration job (not an already existing migrations), there has to be an audit job accompanying it to verify that the data that you are migrating is valid in the server. **The audit job will have to be "Fully tested" before testing on the migration job can start.** 
 
 In case there is invalid data observed, either your migration job should fix it programmatically, or the corresponding data has to be manually fixed before the migration job can be run. This is valid for both testing in the backup server and running in production.
 
@@ -32,7 +32,7 @@ All jobs must adhere to the following requirements before they can be run on the
 > **Note**
 > Please submit just a single request if multiple jobs need to be run in succession. 
 
-The form responses go to the server jobs admins and the admins should respond to the contributor within 24 hours. The server jobs admin should send updates after running the job(s) to the job author and [oppia release team](oppia-release-team@googlegroups.com). If the job(s) runs successfully, the admin should approve the job(s)  in the corresponding [spreadsheet row](https://docs.google.com/spreadsheets/d/1Wegd0rZhVOm3Q3VCIw0xMbLC7IWtRyrEahiPn61Fhoo/edit#gid=948463314&range=S:S) as well as merge the PR which introduces the job. 
+The form responses go to the server jobs admins and the admins should respond to the contributor within 24 hours. The server jobs admin will send updates after running the job(s) to the job author and [oppia release team](oppia-release-team@googlegroups.com). If the job(s) runs successfully, the admin will approve the job(s) in the corresponding [spreadsheet row](https://docs.google.com/spreadsheets/d/1Wegd0rZhVOm3Q3VCIw0xMbLC7IWtRyrEahiPn61Fhoo/edit#gid=948463314&range=S:S) as well as merge the PR which introduces the job. 
 
 > **Warning**
 > Before submitting a testing request, please ensure that the job has already been tested manually on your local machine, and that all CI checks are passing in your PR on GitHub. For an existing job, make sure that you test the job locally and specify clearly, in the form, why you want to run the job.
