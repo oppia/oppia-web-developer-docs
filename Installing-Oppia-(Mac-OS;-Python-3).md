@@ -21,12 +21,11 @@ If your Mac has an M1 chip, follow these instructions instead:
 
 1. If not yet installed, install Rosetta 2 with the following command:  `softwareupdate --install-rosetta`. Rosetta 2 translates Intel-based apps to run on Apple silicon Macs.
 
-2. Next, we'll create two aliases to make it more convenient to switch between Mac M1s' *ARM* architecture and the emulated *Intel* architecture. To do so, run the following in the terminal (change "zsh" to "bash" if you're using a bash terminal):
+2. Next, we will create a Rosetta terminal that emulate the *Intel* architecture. To do so, open a new terminal and run the following command (change "bash" to "zsh" if you're using a zsh terminal):
     ```shell
-    $ alias arm="env /usr/bin/arch -arm64 /bin/zsh --login"
-    $ alias intel="env /usr/bin/arch -x86_64 /bin/zsh --login"
+    $ env /usr/bin/arch -x86_64 /bin/bash --login
     ``` 
-    Now, run `intel` in the terminal followed by `arch`. You should see `i386` being printed. This is the architecture we'll use for this installation process. (**Note:** To change back to ARM64, run "arm" or simply open a new terminal).
+    This switches the architecture from Mac M1's *ARM* architecture to the emulated *Intel* architecture for the current session. To verify this, run `arch` in the terminal and you should see `i386` being printed. Proceed with step `3` and `4` using this terminal.
 3. Inside the Rosetta terminal (i386) perform the Downloading and prerequisites steps (**Note:** If `sudo easy_install pyyaml` does not work try using `pip3 install pyyaml`).
 
 4. Open the rosetta terminal (from step 2) and run `python -m scripts.start`
