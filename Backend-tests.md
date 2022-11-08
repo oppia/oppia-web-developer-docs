@@ -205,7 +205,7 @@ Note that you might see a bunch of lines that just contain `[datastore]`. While 
 
 #### Overall coverage
 
-We use a simple tool, called *code coverage*, to check that all of Oppia’s backend code is fully covered by at least one test. Coverage reports specify which lines of each file have not been used in any test, and they report what percentage of each file is covered by the tests. Currently, Oppia has achieved **100% backend line coverage**. We require that all changes maintain this full coverage.
+We use a simple tool called *code coverage* to check that all of Oppia’s backend code is fully covered by at least one test. Coverage reports specify which lines of each file have not been executed in any test, and they report what percentage of each file (branches and lines) is covered by the tests. Currently, Oppia has achieved **100% backend line coverage**. We require that all changes maintain this full coverage.
 
 When writing a test for a function or class, you can generate a coverage report to verify that all the lines of the function/class have been included in the tests. To do this, simply add the `--generate_coverage_report` flag to the `run_backend_tests` command:
 
@@ -223,7 +223,7 @@ core/constants.py                                                               
 core/controllers/access_validators.py                                               80      0     10      0   100%
 ```
 
-Notice that `constants.py` has only 94% code coverage because line 3 and the branch `5->4` were not covered. This means that none of the tests executed line 3. It also means that there is a branch in the code that causes execution to jump from line 5 to line 4, and none of the tests executed this branch. Here's an example of such a branch:
+Notice that `constants.py` has only 94% code coverage because line 3 and the branch `5->4` were not covered. This means that none of the tests executed line 3. It also means that a branch in the code causes execution to jump from line 5 to line 4, and none of the tests executed this branch. Here's an example of such a branch:
 
 ```text
 1 for elem in lst:
@@ -263,7 +263,7 @@ We require that every backend file have an associated test file. For example, if
 
 #### Per-file coverage
 
-Above, we discussed overall coverage, which measures to how much of our code runs when all the tests run. Per-file coverage is similar, but it measures only how much of a file runs when that file's associated test file runs. We are working to achieve full per-file coverage, but since that work is incomplete, we currently allow files in the exclusion list `scripts/backend_tests_incomplete_coverage.txt` to have incomplete per-file line and branch coverage (though they must still have 100% overall line coverage).
+Above, we discussed overall coverage, which measures how much of our code runs when all the tests run. Per-file coverage is similar, but it measures only how much of a file runs when that file's associated test file runs. We are working to achieve full per-file coverage, but since that work is incomplete, we currently allow files in the exclusion list `scripts/backend_tests_incomplete_coverage.txt` to have incomplete per-file line and branch coverage (though they must still have 100% overall line coverage).
 
 If your changes result in incomplete per-file coverage of a file not in the exclusion list, you'll see an error like this:
 
