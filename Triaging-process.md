@@ -19,7 +19,7 @@ Team leads should do an audit every week to categorise new issues in their GitHu
     - The issue should be consistently reproducible on either develop or the test/backup server.
     - If that isn’t the case, ask the issue author for clarity.
 4. Once the issue has been confirmed, the team lead should add the  appropriate ‘Impact’ label (asking the PM or tech lead for help if they’re not sure), as well as the appropriate ‘Work’ label to the issue.
-    - ‘Impact’ defines how much the issue affects the functionality of the user-facing features. There are 3 associated labels: **Impact: High**, **Impact: Medium** and **Impact: Low**. For eg., the issue is considered to have a high impact if it breaks a critical feature or blocks a release. General bugs (non-blocking) and improvements can be considered to be of medium impact while issues that occur in a few edge cases or affect a small number of users are issues with a low impact.
+    - ‘Impact’ defines how much the issue affects the functionality of the user-facing features. There are 3 associated labels: **Impact: High**, **Impact: Medium** and **Impact: Low**. For example, the issue is considered to have a high impact if it breaks a critical feature or blocks a release. General bugs (non-blocking) and improvements can be considered to be of medium impact while issues that occur in a few edge cases or affect a small number of users are issues with a low impact.
 
     ||||||
     |--- |--- |--- |--- |--- |
