@@ -14,22 +14,21 @@ Team leads should do an audit every week to categorise new issues in their GitHu
 1. Verify that the issue lies within the scope of the team (see definitions below).
     - If not, assign the issue to the appropriate project/team.
 2. Determine whether the issue is a bug or a enhancement
-    - If the issue is a feature request (enhancement), contact the relevant PM (product manager) for the team and ask them to take a look and decide whether it needs to be worked upon. (See the list of PMs [below](##pm-contacts-for-each-team).)
+    - If the issue is a feature request (enhancement), contact the relevant PM (product manager) for the team and ask them to take a look and decide whether it needs to be worked upon. (See the list of PMs [below](#pm-contacts-for-each-team).)
 3. (For simple UI issues) Make sure the bug is reproducible
     - The issue should be consistently reproducible on either develop or the test/backup server.
     - If that isn’t the case, ask the issue author for clarity.
 4. Once the issue has been confirmed, the team lead should add the  appropriate ‘Impact’ label (asking the PM or tech lead for help if they’re not sure), as well as the appropriate ‘Work’ label to the issue.
     - ‘Impact’ defines how much the issue affects the functionality of the user-facing features. There are 3 associated labels: **Impact: High**, **Impact: Medium** and **Impact: Low**. For example, the issue is considered to have a high impact if it breaks a critical feature or blocks a release. General bugs (non-blocking) and improvements can be considered to be of medium impact while issues that occur in a few edge cases or affect a small number of users are issues with a low impact.
 
-    ||||||
-    |--- |--- |--- |--- |--- |
-    ||Severity|Severe (blocks or represents a primary user journey – e.g. end user playing a lesson, developer installing Oppia)|Moderate severity (blocks or represents a secondary user journey – e.g. end user changing a profile picture, developer easily seeing the output of frontend tests at the bottom of the CI log)|Minor (neither of the others, relates to “polish”)|
-    |Users Affected|||||
-    |(roughly) 60+%||High|Medium|Low|
-    |(roughly) 5-60%||High|Low|Low|
-    |(roughly) < 5%||Medium|Low|Low|
+    || Severity  | Severe (blocks or represents a primary user journey – e.g. end user playing a lesson, developer installing Oppia) | Moderate severity (blocks or represents a secondary user journey – e.g. end user changing a profile picture, developer easily seeing the output of frontend tests at the bottom of the CI log) | Moderate severity (blocks or represents a secondary user journey – e.g. end user changing a profile picture, developer easily seeing the output of frontend tests at the bottom of the CI log) |
+    | -------------------  | ------------------- | --------------------- | ------------------| ---------- |
+    | **# users affected**|        |        |     |
+    | (roughly) 60+%      || High   | Medium | Low |
+    | (roughly) 5-60%     || High   | Low    | Low |
+    | (roughly) < 5%      || Medium | Low    | Low |
 
-    <p style="text-align:center; font-size:12px"> Table: How “impact” is determined </p>
+    <p align="center> Table: How “impact” is determined </p>
 
     - ‘Work’ defines how hard it would be to solve/resolve a particular issue. This is generally correlated with the amount of ambiguity in the task. We use the following rough system for assigning this label:
         - Solution is clear and broken into good-first-issue-sized chunks – assign **Work: Low**
@@ -50,8 +49,13 @@ Team leads should do an audit every week to categorise new issues in their GitHu
 
 
 ## PM contacts for each team
-- **LaCE Quality**: @dchen97 (learners), @seanlip (creators)
-- **Contributor dashboard**: @dchen97
-- **Dev workflow**: @U8NWXD
-- **Android**: @seanlip
+- **LaCE Quality**:
+    - Learners: Diana (@dchen97)
+    - Creators: Sean (@seanlip)
+- **Contributor dashboard**:
+    - Diana (@dchen97)
+- **Dev workflow**:
+    - Chris (@U8NWXD)
+- **Android**:
+    - Sean (@seanlip)
 
