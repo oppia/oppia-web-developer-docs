@@ -21,14 +21,14 @@ Team leads should do an audit every week to categorise new issues in their GitHu
 4. Once the issue has been confirmed, the team lead should add the  appropriate ‘Impact’ label (asking the PM or tech lead for help if they’re not sure), as well as the appropriate ‘Work’ label to the issue.
     - ‘Impact’ defines how much the issue affects the functionality of the user-facing features. There are 3 associated labels: **Impact: High**, **Impact: Medium** and **Impact: Low**. For example, the issue is considered to have a high impact if it breaks a critical feature or blocks a release. General bugs (non-blocking) and improvements can be considered to be of medium impact while issues that occur in a few edge cases or affect a small number of users are issues with a low impact.
 
-    || Severity  | Severe (blocks or represents a primary user journey – e.g. end user playing a lesson, developer installing Oppia) | Moderate severity (blocks or represents a secondary user journey – e.g. end user changing a profile picture, developer easily seeing the output of frontend tests at the bottom of the CI log) | Moderate severity (blocks or represents a secondary user journey – e.g. end user changing a profile picture, developer easily seeing the output of frontend tests at the bottom of the CI log) |
-    | -------------------  | ------------------- | --------------------- | ------------------| ---------- |
-    | **# users affected**|        |        |     |
-    | (roughly) 60+%      || High   | Medium | Low |
-    | (roughly) 5-60%     || High   | Low    | Low |
-    | (roughly) < 5%      || Medium | Low    | Low |
+        || Severity  | Severe (blocks or represents a primary user journey – e.g. end user playing a lesson, developer installing Oppia) | Moderate severity (blocks or represents a secondary user journey – e.g. end user changing a profile picture, developer easily seeing the output of frontend tests at the bottom of the CI log) | Moderate severity (blocks or represents a secondary user journey – e.g. end user changing a profile picture, developer easily seeing the output of frontend tests at the bottom of the CI log) |
+        | -------------------  | ------------------- | --------------------- | ------------------| ---------- |
+        | **# users affected**|        |        |     |
+        | (roughly) 60+%      || High   | Medium | Low |
+        | (roughly) 5-60%     || High   | Low    | Low |
+        | (roughly) < 5%      || Medium | Low    | Low |
 
-    <p align="center> Table: How “impact” is determined </p>
+    <p align="center">Table: How “impact” is determined</p>
 
     - ‘Work’ defines how hard it would be to solve/resolve a particular issue. This is generally correlated with the amount of ambiguity in the task. We use the following rough system for assigning this label:
         - Solution is clear and broken into good-first-issue-sized chunks – assign **Work: Low**
