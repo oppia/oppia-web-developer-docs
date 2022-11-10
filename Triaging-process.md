@@ -38,9 +38,11 @@ Team leads should do an audit every week to categorise new issues in their GitHu
 
 5. Once the appropriate ‘Impact’ and ‘Work Required’ labels has been added, determine its severity and assign the fitting priority label based on its impact (and possibly the work required label)
     - If the issue is a high-impact bug, put it in the high-priority bucket and prioritise it within the team.
-    - For the priority bucket, team leads should include “important” issues – typically, a selection of high-impact enhancements and low-work medium-impact bugs – while keeping the size of that bucket about 2-3 times the projected stable number of team members. (Note: This exercise might also help with determining how large the team itself needs to be.)
+    - For the priority bucket, team leads should include “important” issues – typically, a selection of high-impact enhancements and low-work medium-impact bugs – while keeping the size of that bucket about 2-3 times the projected stable number of team members.
+    > **Note**
+    > This exercise might also help with determining how large the team itself needs to be.
     - Other issues go in the ‘backlog’ bucket.
-    - Any issue with an external dependency that the team cannot resolve by itself (eg. missing mocks) goes in the ‘blocked’ bucket, and the reason should be specified on the ‘Issue specific status’ field (using free-text). Team leads should make sure an issue spends as little time here as possible.
+    - Any issue with an external dependency that the team cannot resolve by itself (example: missing mocks) goes in the ‘blocked’ bucket, and the reason should be specified in the ‘Issue specific status’ field (using free-text). Team leads should ensure an issue spends as little time here as possible.
 
 6. Determine if the issue is potentially a good first issue
     - If the issue seems like something a new contributor to Oppia can take up, make sure to add enough information in the issue description for a new contributor to start work on that issue then ask Sandeep or Vojta to add the Good First Issue label. (Note: typically these are “Work: Low” issues.)
