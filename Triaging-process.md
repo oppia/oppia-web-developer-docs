@@ -6,7 +6,7 @@ The Dev Workflow team lead (currently Chris) should do the following every week 
 
 - Check that the issue is written clearly enough. Request clarification if needed.
 - Assign the issue to the appropriate task force, if applicable. Otherwise, assign it to the relevant team (LaCE, CD, Dev Workflow) based on which type of user it affects.
-- If you’re not sure how to categorise an issue, feel free to ping Sean for help!
+- If you’re not sure how to categorise an issue, feel free to ping Sean (@seanlip) for help!
 
 ### Steps to triage incoming issues for each team (second-stage triage):
 Team leads should do an audit every week to categorise new issues in their GitHub Projects board, following these steps:
