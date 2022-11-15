@@ -48,8 +48,9 @@ Team leads should do an audit every week to categorise new issues in their GitHu
 5. Once the appropriate ‘Impact’ and ‘Work Required’ labels has been added, determine its severity and assign the fitting priority label based on its impact (and possibly the work required label)
     - If the issue is a high-impact bug, put it in the high-priority bucket and prioritise it within the team.
     - For the priority bucket, team leads should include “important” issues – typically, a selection of high-impact enhancements and low-work medium-impact bugs – while keeping the size of that bucket about 2-3 times the projected stable number of team members.
-    > **Note**
-    > This exercise might also help with determining how large the team itself needs to be.
+      > **Note**
+      > This exercise might also help determine how large the team needs to be.
+
     - Other issues go in the ‘backlog’ bucket.
     - Any issue with an external dependency that the team cannot resolve by itself (example: missing mocks) goes in the ‘blocked’ bucket, and the reason should be specified in the ‘Issue specific status’ field (using free-text). Team leads should ensure an issue spends as little time here as possible.
 
