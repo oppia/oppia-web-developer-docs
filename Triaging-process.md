@@ -26,19 +26,7 @@ Team leads should do an audit every week to categorise new issues in their GitHu
             - **Moderate**: blocks or represents a secondary user journey – e.g. end user changing a profile picture, developer easily seeing the output of frontend tests at the bottom of the CI log.
             - **Minor**: Neither of the others, relates to “polish”.
 
-        <br />
-
-        
-        |     | Severity       | Severe | Moderate | Minor |
-        | --- | -------------- | ------ | -------- | ----- |
-        | **# users affected** |        |          |       |
-        | (roughly) 60+%      || High   | Medium   | Low   |
-        | (roughly) 5-60%     || High   | Low      | Low   |
-        | (roughly) < 5%      || Medium | Low      | Low   |
-
-        Table: How “impact” is determined.
-
-        <br />
+        ![image](https://user-images.githubusercontent.com/73544247/202834180-e26198bb-bc54-4fc9-9471-9348b439e5a2.png)
 
     - ‘Work’ defines how hard it would be to solve/resolve a particular issue. This is generally correlated with the amount of ambiguity in the task. We use the following rough system for assigning this label:
         - Solution is clear and broken into good-first-issue-sized chunks – assign **Work: Low**
