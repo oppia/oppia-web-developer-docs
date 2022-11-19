@@ -1,14 +1,14 @@
 ## General
 This wiki outlines the steps to triage new and existing issues. This ensures that all issues are being effectively tracked and prioritized.
 
-### Steps to triage incoming issues coming into Oppia as a whole (first-stage triage):
+###  First-stage triage - Steps to triage incoming issues coming into Oppia as a whole:
 The Dev Workflow team lead (currently Chris) should do the following every week for any [filed issues that aren’t assigned to a project](https://github.com/oppia/oppia/issues?q=is%3Aissue+is%3Aopen+no%3Aproject):
 
 - Check that the issue is written clearly enough. Request clarification if needed.
 - Assign the issue to the appropriate task force, if applicable. Otherwise, assign it to the relevant team (LaCE, CD, Dev Workflow) based on which type of user it affects.
 - If you’re not sure how to categorise an issue, feel free to ping Sean (@seanlip) for help!
 
-### Steps to triage incoming issues for each team (second-stage triage):
+### Second-stage triage - Steps to triage incoming issues for each team:
 Team leads should do an audit every week to categorise new issues in their GitHub Projects board, following these steps:
 
 1. Verify that the issue lies within the scope of the team (see definitions below).
@@ -29,9 +29,9 @@ Team leads should do an audit every week to categorise new issues in their GitHu
         ![image](https://user-images.githubusercontent.com/73544247/202834180-e26198bb-bc54-4fc9-9471-9348b439e5a2.png)
 
     - ‘Work’ defines how hard it would be to solve/resolve a particular issue. This is generally correlated with the amount of ambiguity in the task. We use the following rough system for assigning this label:
-        - Solution is clear and broken into good-first-issue-sized chunks – assign **Work: Low**
-        - Otherwise, if the means to find the solution is clear – assign **Work: Medium**
-        - Everything else – assign **Work: High**
+        - **Work: Low**: Solution is clear and broken into good-first-issue-sized chunks.
+        - **Work: Medium**: Otherwise, if the means to find the solution is clear.
+        - **Work: High**: Everything else.
 
 5. Once the appropriate ‘Impact’ and ‘Work Required’ labels has been added, determine its severity and assign the fitting priority label based on its impact (and possibly the work required label)
     - If the issue is a high-impact bug, put it in the high-priority bucket and prioritise it within the team.
