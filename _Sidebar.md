@@ -117,6 +117,7 @@
   * [[Performance testing|Performance-Testing]]
   * [[Build process|Build-process]]
   * [[Team structure|Team-Structure]]
+  * [[Triaging Process|Triaging-process]]
   * Playbooks
     * [[Instructions for making PR passes|Instructions-for-making-PR-passes]]
     * [[Instructions for Reviewers|Instructions-for-Reviewers]]
