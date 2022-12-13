@@ -169,9 +169,5 @@ This project involves organizing the information architecture of the Oppia wiki.
 
 ## Communication
 
-#### Chat
-Oppia has a real-time chat channel on [Gitter](https://gitter.im/oppia/oppia-chat)! You can log in using your GitHub account (Gitter will ask to be associated with your GitHub account for authentication) and you will then be able to talk in it. Please feel free to use Gitter if you just want to say hi to the community or if you have any questions related to getting started.
-
 #### Email
-If you have questions pertaining to "how-to-get-started", please ask them on [Gitter](
-https://gitter.im/oppia/oppia-chat), or the oppia-dev@ mailing list. Please be specific when asking questions; this makes it easier for us to help you.
+If you have questions pertaining to "how-to-get-started", please ask them on the oppia-dev@ mailing list. Please be specific when asking questions; this makes it easier for us to help you.

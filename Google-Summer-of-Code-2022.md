@@ -288,8 +288,6 @@ For GSoC-project-specific questions, please direct your queries to the **[GSoC d
 
 To receive important announcements and updates about GSoC at Oppia, please subscribe to the **[Oppia GSoC Announce](https://groups.google.com/g/oppia-gsoc-announce)** mailing list.
 
-Finally, Oppia has a real-time chat channel at [Gitter](https://gitter.im/oppia/oppia-chat)! You can log in using your GitHub account (Gitter will ask to be associated with your GitHub account for authentication) and you will then be able to talk in it. Please feel free to use Gitter if you just want to say hi to the community or if you have any general questions (though, for the latter, GitHub Discussions is probably better).
-
 ## Oppia's Project Ideas List
 
 _**Note:** If you're coming to this section from an external link, please make sure to scroll up and read this entire wiki page carefully, not just this section. There's a lot of useful information on the rest of the page, including a FAQ and a section describing selection criteria. Thanks!_
