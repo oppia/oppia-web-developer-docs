@@ -11,7 +11,7 @@ If you run into any problems along the way, we're here to help! Check out our [[
 * [Setting things up](#setting-things-up)
 * [Developing your skills](#developing-your-skills)
 * [Finding something to do](#finding-something-to-do)
-  * [Starter projects for new contributors](#starter-projects-for-new-contributors)
+  * [Good first issues for new contributors](#good-first-issues-for-new-contributors)
     * [Backend](#backend)
     * [Frontend](#frontend)
   * [Contributor Roles](#contributor-roles)
@@ -43,13 +43,13 @@ If you run into any problems along the way, we're here to help! Check out our [[
 
 7. Say hi and introduce yourself on [GitHub Discussions](https://github.com/oppia/oppia/discussions/16715)!
 
-8. Take up your first starter project! You can find more details below. (Make sure to read and follow the [[PR instructions|Make-a-pull-request]] closely so that your PR review proceeds smoothly.)
+8. Take up your first Oppia issue (probably from the list of [good first issues](https://github.com/oppia/oppia/labels/good%20first%20issue))! You can find more details below. (Make sure to read and follow the [[PR instructions|Make-a-pull-request]] closely so that your PR review proceeds smoothly.)
 
-    * Facing any issues (including non-coding ones)? Please feel free to create a [GitHub Discussion](https://github.com/oppia/oppia/discussions) and get help from the Oppia community. You can use this avenue for asking anything -- questions about any issue, who to contact for specific things, etc.
+    * Facing any problems (including non-coding ones)? Please feel free to create a [GitHub Discussion](https://github.com/oppia/oppia/discussions) and get help from the Oppia community. You can use this avenue for asking anything -- questions about any issue, who to contact for specific things, etc.
 
     * We also have onboarding mentors who would be more than happy to help you take your first steps in open source. If you like, you can apply for a mentor [here](https://forms.gle/udsRP4WQgLcez9Zm8).
 
-9. When you have merged PRs for two pre-existing GitHub issues, please fill in [this form](https://forms.gle/NxPjimCMqsSTNUgu5) to become an Oppia collaborator! This will grant you access to the repository, and allow you to join a team. (But please don't create your own issues and then make PRs for them -- that won't count.)
+9. When you have merged PRs that correspond to two different pre-existing GitHub issues, please fill in [this form](https://forms.gle/NxPjimCMqsSTNUgu5) to become an Oppia collaborator! This will grant you access to the repository, and allow you to join a team. (But please don't create your own issues and then make PRs for them -- that won't count.)
 
 ## Developing your skills
 
@@ -59,9 +59,9 @@ We also **strongly recommend** looking through the resources under "Developing O
 
 ## Finding something to do
 
-### Starter projects for new contributors
+### Good first issues for new contributors
 
-Welcome! Please make sure to follow the instructions above if you haven't already. After that, we'd **strongly recommend** tackling some part of one of the following starter issues:
+Welcome! Please make sure to follow the instructions above if you haven't already. After that, we'd **strongly recommend** tackling some part of one of the following good first issues:
 
 #### Backend
 
@@ -105,7 +105,7 @@ graph TD;
 
 As a new contributor, you won't have any permissions on the repository except to read the code, so you'll need to ask other developers (or Oppiabot) to assign reviewers to your PR or add labels to your issue.
 
-After you've completed parts of at least two different non-trivial starter projects and successfully submitted PRs for them into develop, you can fill in [this form](https://forms.gle/NxPjimCMqsSTNUgu5) to become an Oppia collaborator! This will grant you access to the repository, and allow you to join a team of your choice. Once you fill out the form, we'll mail you a collaborator invite link for the Oppia repository -- this is a manual process, and may take up to 48 hours. Please visit [this link](https://github.com/oppia/oppia/invitations) to accept the invitation to collaborate. Feel free to email us at admin@oppia.org if you don't receive the email!
+After you've completed parts of at least two different issues and successfully submitted PRs for them into develop, you can fill in [this form](https://forms.gle/NxPjimCMqsSTNUgu5) to become an Oppia collaborator! This will grant you access to the repository, and allow you to join a team of your choice. Once you fill out the form, we'll mail you a collaborator invite link for the Oppia repository -- this is a manual process, and may take up to 48 hours. Please visit [this link](https://github.com/oppia/oppia/invitations) to accept the invitation to collaborate. Feel free to email us at admin@oppia.org if you don't receive the email!
 
 Then you'll be a collaborator with triage access, which lets you assign reviewers and labels. No more asking for reviewers to be assigned! If you continue to make quality contributions, you may be added as a member of the Oppia organization, which grants you write access. Then you'll be able to restart tests, serve as a [code owner](https://docs.github.com/en/articles/about-code-owners), and review pull requests.
 
@@ -117,7 +117,7 @@ If you ever wonder why you don't have permission to perform some action on the O
 
 There are lots of options!
 
-* **Want easy projects?** Check out our [list of "good first issues"](https://github.com/oppia/oppia/labels/good%20first%20issue).
+* **Want easy issues?** Check out our [list of "good first issues"](https://github.com/oppia/oppia/labels/good%20first%20issue).
 
 * **Want to join a team working on a larger effort?** See our [list of projects](https://github.com/oppia/oppia/projects).
 
