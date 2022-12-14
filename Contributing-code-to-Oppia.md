@@ -25,7 +25,7 @@ If you run into any problems along the way, we're here to help! Check out our [[
 
 2. Fill in the [Oppia contributor survey](https://goo.gl/forms/otv30JV3Ihv0dT3C3) to let us know what your interests are. (You can always change your responses later.)
 
-3. Install Oppia following the [[installation instructions|Installing-Oppia]]. If you run into any issues, please check out the [[troubleshooting instructions|Troubleshooting]]. If you want help setting up a code editor, also check out our [[guide to common IDEs|Tips-for-common-IDEs]]. If the above resources don't help and you're still stuck, please open a thread at [GitHub Discussions](https://github.com/oppia/oppia/discussions/categories/q-a-installation) and explain what you've tried and what you're seeing, so that we can try and help you.
+3. Install Oppia following the [[installation instructions|Installing-Oppia]]. If you run into any issues, please check out the [[troubleshooting instructions|Troubleshooting]]. If you want help setting up a code editor, also check out our [[guide to common IDEs|Tips-for-common-IDEs]]. If the above resources don't help and you're still stuck, please check [GitHub Discussions](https://github.com/oppia/oppia/discussions/categories/q-a-installation) to see if any existing threads address the issue. If not, feel free to start a new thread explaining what you've tried and what you're seeing, so that we can try and help you!
 
 4. Update your GitHub settings:
 
@@ -45,7 +45,7 @@ If you run into any problems along the way, we're here to help! Check out our [[
 
 8. Take up your first starter project! You can find more details below. (Make sure to read and follow the [[PR instructions|Make-a-pull-request]] closely so that your PR review proceeds smoothly.)
 
-    * Facing any issues? Please feel free to create a [GitHub Discussion](https://github.com/oppia/oppia/discussions) and get help from the Oppia community.
+    * Facing any issues (including non-coding ones)? Please feel free to create a [GitHub Discussion](https://github.com/oppia/oppia/discussions) and get help from the Oppia community. You can use this avenue for asking anything -- questions about any issue, who to contact for specific things, etc.
 
     * We also have onboarding mentors who would be more than happy to help you take your first steps in open source. If you like, you can apply for a mentor [here](https://forms.gle/udsRP4WQgLcez9Zm8).
 
