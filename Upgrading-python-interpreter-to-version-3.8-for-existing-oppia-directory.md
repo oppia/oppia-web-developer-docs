@@ -1,4 +1,4 @@
-# Upgrading Python interpreter from any version to version 3.8.165
+# Upgrading Python interpreter from any version to version 3.8.16
 
 For effective and effortless switching to the newer version, this guide will provide a brief and detailed instruction on how to achieve just that. Please follow the instructions below carefully.
 
