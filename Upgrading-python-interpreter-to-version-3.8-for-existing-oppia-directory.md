@@ -1,8 +1,6 @@
-# Upgrading python interpreter version from 3.7.10 to 3.8.12
+# Upgrading Python interpreter from any version to version 3.8.165
 
-Oppia changed the Python version it uses from 3.7.10 to 3.8.12 in Oct 2022. This page is aimed at developers who are currently using Python 3.7.10 and need to upgrade to 3.8.12. 
-
-For effective and effortless switching to the newer version, this guide will provide a brief and detailed instruction on how to achieve just that. Please follow the below mentioned instructions carefully.
+For effective and effortless switching to the newer version, this guide will provide a brief and detailed instruction on how to achieve just that. Please follow the instructions below carefully.
 
 ## Prerequisite
 
@@ -10,20 +8,35 @@ This page is aimed at developers who want to upgrade their Python interpreter in
 
 Before starting, please make sure that your local repo, as well as your remote fork on GitHub, are both up-to-date with the `develop` branch.
 
-## Step 1. Installing python 3.8.12 through pyenv
-Our first step is to install the new interpreter version `3.8.12` through pyenv by issuing the following command through a terminal:
+## Step 1. Installing python 3.8.16 through pyenv
+Our first step is to install the new interpreter version `3.8.16` through pyenv by issuing the following command through a terminal:
 ```
-pyenv install 3.8.12
+pyenv install 3.8.16
 ```
 
-After you execute the above command you can expect some output as depicted below:
+The command might fail with output similar to this one:
+
 ```
-❯ pyenv install 3.8.12
-Installing Python-3.8.12...
+python-build: definition not found: 3.8.16
+
+See all available versions with `pyenv install --list'.
+
+If the version you need is missing, try upgrading pyenv:
+
+  cd /xxx/.pyenv/plugins/python-build/../.. && git pull && cd -
+```
+
+If that is the case then copy the command from the last line of the output and 
+execute it to update the available Python versions.
+
+If the command is successful then the output will look like this:
+```
+❯ pyenv install 3.8.16
+Installing Python-3.8.16...
 patching file Misc/NEWS.d/next/Build/2021-10-11-16-27-38.bpo-45405.iSfdW5.rst
 patching file configure
 patching file configure.ac
-Installed Python-3.8.12 to /home/user/.pyenv/versions/3.8.12
+Installed Python-3.8.16 to /home/user/.pyenv/versions/3.8.16
 ```
 
 ## Step 2. Determining your virtualenv manager
@@ -41,7 +54,7 @@ This step will guide you through determining which one you are using currently, 
 
 1. Edit the ***.envrc*** file in your oppia folder to this :
 ```
-use python 3.8.12
+use python 3.8.16
 ```
 
 2. Run this command in the same directory to complete the setup:
@@ -57,18 +70,18 @@ $ direnv reload
 
 1. In this step, we will set up a new virtual enviornment for our new python interpreter to specifically work with Oppia.
 
-    Use the command given below to set up a virtualenv with python `3.8.12`. Be sure to replace the `{unique-virtualenv-name}` with a suitable virtualenv name:
+    Use the command given below to set up a virtualenv with python `3.8.16`. Be sure to replace the `{unique-virtualenv-name}` with a suitable virtualenv name:
 
     ```
-    pyenv virtualenv 3.8.12 {unique-virtualenv-name}
+    pyenv virtualenv 3.8.16 {unique-virtualenv-name}
     ```
     The above command will produce output as depicted below:
 
     ```
-    ❯ pyenv virtualenv 3.8.12 Oppia
+    ❯ pyenv virtualenv 3.8.16 Oppia
     Looking in links: /tmp/tmp8m4yvlfl
-    Requirement already satisfied: setuptools in /home/user/.pyenv/versions/3.8.12/envs/Oppia/lib/python3.8/site-packages (56.0.0)
-    Requirement already satisfied: pip in /home/user/.pyenv/versions/3.8.12/envs/Oppia/lib/python3.8/site-packages (21.1.1)
+    Requirement already satisfied: setuptools in /home/user/.pyenv/versions/3.8.16/envs/Oppia/lib/python3.8/site-packages (56.0.0)
+    Requirement already satisfied: pip in /home/user/.pyenv/versions/3.8.16/envs/Oppia/lib/python3.8/site-packages (21.1.1)
     ```
 
 2. Now, we will be using pyenv to automatically activate the virtualenv as soon as we enter the Oppia directory.
@@ -86,10 +99,10 @@ $ direnv reload
 ## Step 4. Verify you have a working installation
 To verify that you have a working installation, do the following:
 
-1. Verify you are using `python 3.8.12` on entering Oppia directory by running `python --version` in your Oppia directory. You should see the following output:
+1. Verify you are using `python 3.8.16` on entering Oppia directory by running `python --version` in your Oppia directory. You should see the following output:
 ```
 python --version
-Python 3.8.12
+Python 3.8.16
 ```
 
 2. Spin up a development server to test the new setup through `python -m scripts.start`. You should get a working developement server accessible on `localhost:8181`.
