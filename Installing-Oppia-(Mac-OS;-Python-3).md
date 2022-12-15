@@ -150,38 +150,38 @@ For your vitual environment, we recommend you use [pyenv](https://github.com/pye
 
 2. Reload your shell or open a new terminal window to load your updated `~/.bash_profile` or `~/.zshrc`.
 
-3. Install Python 3.8.16 and the associated pip using the command below: 
+3. Install Python 3.8.15 and the associated pip using the command below: 
 
-    `pyenv install 3.8.16`.
+    `pyenv install 3.8.15`.
  
     This is how it looks like:  
 
    ```console
-   $ pyenv install 3.8.16
+   $ pyenv install 3.8.15
    Installing openssl-1.1.1k.. 
-   Installed openssl-1.1.1k to /Users/user/.pyenv/versions/3.8.16
+   Installed openssl-1.1.1k to /Users/user/.pyenv/versions/3.8.15
 
    Installing readline-8.1... 
-   Installed readline-8.1 to /Users/user/.pyenv/versions/3.8.16
+   Installed readline-8.1 to /Users/user/.pyenv/versions/3.8.15
 
-   Downloading Python-3.8.16.tar.xz... 
-   -> https://www.python.org/ftp/python/3.8.16/Python-3.8.16.tar.xz 
-   Installing Python-3.8.16... 
+   Downloading Python-3.8.15.tar.xz... 
+   -> https://www.python.org/ftp/python/3.8.15/Python-3.8.15.tar.xz 
+   Installing Python-3.8.15... 
    patching file Misc/NEWS.d/next/Build/2021-10-11-16-27–38.bpo-45405.iSfdw5.rst 
    patching file configure 
    patching file configure.ac 
    python-build: use zlib from xcode sdk 
-   Installed Python-3.8.16 to /Users/user/.pyenv/versions/3.8.16
+   Installed Python-3.8.15 to /Users/user/.pyenv/versions/3.8.15
    ```
 
 4. Create a virtual environment for oppia using the command below: 
 
-    `pyenv virtualenv 3.8.16 oppia`
+    `pyenv virtualenv 3.8.15 oppia`
 
      This is how it looks like: 
 
    ```console
-   $ pyenv virtualenv 3.8.16 Oppia
+   $ pyenv virtualenv 3.8.15 Oppia
    ...
    $ pyenv versions
    ...
@@ -290,9 +290,9 @@ For your vitual environment, we recommend you use [pyenv](https://github.com/pye
 
 
    Traceback (most recent call last):
-     File "/Users/user/.pyenv/versions/3.8.16/lib/python3.8/runpy.py", line 174, in _run_module_as_main
+     File "/Users/user/.pyenv/versions/3.8.15/lib/python3.8/runpy.py", line 174, in _run_module_as_main
        "__main__", fname, loader, pkg_name)
-     File "/Users/user/.pyenv/versions/3.8.16/lib/python3.8/runpy.py", line 72, in _run_code
+     File "/Users/user/.pyenv/versions/3.8.15/lib/python3.8/runpy.py", line 72, in _run_code
        exec code in run_globals
      File "/opensource/oppia/scripts/start.py", line 205, in <module>
        main()
