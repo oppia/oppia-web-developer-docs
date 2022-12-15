@@ -116,7 +116,7 @@ Welcome! If you're interested in applying to work with Oppia for GSoC, please fo
 
 **Q: What technical skills do I need to work on Oppia?**
 
-A: For Oppia Web, Angular 2+, Python 3.7 and Google App Engine is useful and recommended for most Oppia work; in addition, UI design skills are useful for frontend, user-facing work. For Oppia Android, you'll want to be familiar with Android development in Kotlin. Please see the individual project ideas to determine whether these skills are recommended for the project in question.
+A: For Oppia Web, Angular 2+, Python 3.8 and Google App Engine is useful and recommended for most Oppia work; in addition, UI design skills are useful for frontend, user-facing work. For Oppia Android, you'll want to be familiar with Android development in Kotlin. Please see the individual project ideas to determine whether these skills are recommended for the project in question.
 
 **Q: How can I increase my chances of getting selected?**
 

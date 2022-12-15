@@ -64,9 +64,9 @@ If you see an error that says something along the lines of `OSError: [Errno 2] N
 
 If you see an error that says something along the lines of `ERROR: gcloud failed to load: No module named _sqlite3` while running `scripts.start` - then follow the steps below:
 
-1. Uninstall Python 3.7.10 from pyenv with the command: `pyenv uninstall 3.7.10`
+1. Uninstall Python 3.8.15 from pyenv with the command: `pyenv uninstall 3.8.15`
 2. Install the packages as per the [wiki](https://github.com/pyenv/pyenv/wiki#suggested-build-environment) to have the suggested build environment.
-3. Install Python 3.7.10 from pyenv with the command: `pyenv install 3.7.10` and make sure that there are no warnings or errors in the output of the command.
+3. Install Python 3.8.15 from pyenv with the command: `pyenv install 3.8.15` and make sure that there are no warnings or errors in the output of the command.
 
 ### Problems Cloning from GitHub
 
@@ -191,9 +191,9 @@ If you are getting something like this in M1 macbooks when running `python -m sc
 ```
 b'protoc-gen-js: program not found or is not executable\Please specify a program using absolute path or make sure the program is available in your PATH system variable\n--js_out: protoc-gen-js: Plugin failed with status code 1. Inplugin js: exit status 1\n
 Traceback (most recent call last) :
-   File "/Users/.../.pyenv/versions/3.7.10/lib/python3.7/runpy.py", line 193, in _run_module_as_main
+   File "/Users/.../.pyenv/versions/3.8.15/lib/python3.8/runpy.py", line 193, in _run_module_as_main
       "main" mod_spec)
-   File "/Users/.../.pyenv/versions/3.7.10/lib/python3.7/runpy.py", line 85, in run_code
+   File "/Users/.../.pyenv/versions/3.8.15/lib/python3.8/runpy.py", line 85, in run_code
       exec (code, run globals)
    File "/Users/.../opensource/oppia/scripts/start.py", line 32, in <module>
       install_third_party_libs.main()
@@ -297,7 +297,7 @@ If this error occurs within a virtual environment, try reinstalling the libs by 
 
 ### ModuleNotFoundError: No module named _bz2
 1. Install bz2 headers. Use the command `sudo apt-get install libbz2-dev` on Ubuntu.
-2. Install Python 3 again so that the bz2 library gets included in `~/.pyenv/versions/3.7.10/lib/python3.7/`. Use the command `pyenv install 3.7.10`.
+2. Install Python 3 again so that the bz2 library gets included in `~/.pyenv/versions/3.8.15/lib/python3.8/`. Use the command `pyenv install 3.8.15`.
 
 
 
@@ -330,7 +330,7 @@ Traceback (most recent call last):
 ``` 
 
 Then, 
-1. Open your `.bash_profile` file, and check if there are two versions of Python listed inside of it, one for Python 2.7 and other for Python 3.7. Simply remove the entry for Python 2.7. Finally, this is how your file should look like: 
+1. Open your `.bash_profile` file, and check if there are two versions of Python listed inside of it, one for Python 2.7 and other for Python 3.8. Simply remove the entry for Python 2.7. Finally, this is how your file should look like: 
 
 ```
 export PYENV_ROOT="$HOME/.pyenv"
@@ -420,7 +420,7 @@ please install [GitPython](http://gitpython.readthedocs.io/en/stable/intro.html#
 If you get an error that includes:
 
 ```
-Command "/usr/local/opt/python@3/bin/python3.7 -u -c "import setuptools, tokenize;__file__='/private/tmp/pip-req-build-TGvu2M/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" install --record /private/tmp/pip-record-6nuoQh/install-record.txt --single-version-externally-managed --compile --home=/private/tmp/pip-target-CMgDrw" failed with error code 1 in /private/tmp/pip-req-build-TGvu2M/
+Command "/usr/local/opt/python@3/bin/python3.8 -u -c "import setuptools, tokenize;__file__='/private/tmp/pip-req-build-TGvu2M/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" install --record /private/tmp/pip-record-6nuoQh/install-record.txt --single-version-externally-managed --compile --home=/private/tmp/pip-target-CMgDrw" failed with error code 1 in /private/tmp/pip-req-build-TGvu2M/
 ```
 
 please run the following comands:-
@@ -450,7 +450,7 @@ please download [Java](https://support.apple.com/kb/DL1572?locale=en_US) and ins
 if you run into an error that looks like this when starting App Engine:
 
 ```
-File "/System/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/urllib2.py", line 558, in http_error_default
+File "/System/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib2.py", line 558, in http_error_default
     raise HTTPError(req.get_full_url(), code, msg, hdrs, fp)
 HTTPError: HTTP Error 503: Service Unavailable
 ```

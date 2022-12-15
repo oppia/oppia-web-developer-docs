@@ -201,7 +201,7 @@ For your vitual environment, we recommend you use [pyenv](https://github.com/pye
 
    ```console
    $ pip install pyyaml setuptools
-   Requirement already satisfied: setuptools in /home/user/.pyenv/versions/3.7.18/envs/oppia-tmp/lib/python2.7/site-packages (44.1.1)
+   Requirement already satisfied: setuptools in /home/user/.pyenv/versions/3.8.15/envs/oppia-tmp/lib/python2.7/site-packages (44.1.1)
    Collecting pyyaml
      Downloading PyYAML-5.4.1-cp27-cp27mu-manylinux1_x86_64.whl (574 kB)
         |████████████████████████████████| 574 kB 2.3 MB/s

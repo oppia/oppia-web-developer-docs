@@ -386,7 +386,7 @@ On Arch Linux, you should follow these instructions to set up your virtual envir
 
 3. Reload your shell or open a new terminal window to load your updated `.bashrc`, `.zshrc`, or `config.fish`
 
-4. Now you can install Python 3.7.10 and the associated pip like this:
+4. Now you can install Python 3.8.15 and the associated pip like this:
 
    ```console
    $ pyenv install 3.8.15
