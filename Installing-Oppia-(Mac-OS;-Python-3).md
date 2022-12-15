@@ -62,7 +62,7 @@ If your Mac has an M1 chip, follow these instructions first:
 
 ## Install prerequisites
 
-Oppia relies on a number of programs and third-party libraries. Many of these libraries are downloaded automatically for you when you first run the `start.py` script provided with Oppia. However, there are some things that you will need to do beforehand:
+Oppia relies on a number of programs and third-party libraries. Many of these libraries are downloaded automatically for you when you first run the `start.py` script provided with Oppia. However, you will need to manually install these dependencies first:
 
 1. Install [version 8+ of the Java Runtime Environment (JRE)](https://www.java.com/en/download/).
 
@@ -208,13 +208,13 @@ For your vitual environment, we recommend you use [pyenv](https://github.com/pye
 
    Note that you can use a different version of Python 3 if you prefer--we'll specify Python 3.8.12 as our version for Oppia development later.
 
-5. Create a virtual environment for oppia by making a file `opensource/.envrc` with the following contents:
+5. Create a virtual environment for oppia by making a file `.envrc` in the `opensource/` directory with the following contents:
 
    ```text
    use python 3.8.12
    ```
 
-   Then run `direnv allow` in `opensource/` to allow `direnv` to run there. Whenever you are within the `opensource/` directory (or any of its subdirectories, or any of their subdirectories, etc.) the virtual environment will be active. You can confirm this by running:
+   Then run `direnv allow` in the `opensource/` directory to allow `direnv` to run there. Whenever you are within the `opensource/` directory (or any of its subdirectories, or any of their subdirectories, etc.) the virtual environment will be active. You can confirm this by running:
 
    ```console
    $ which python
