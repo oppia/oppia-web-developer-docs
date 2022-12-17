@@ -83,11 +83,11 @@ A: All the projects we've listed here are important, and we'd be very happy to s
 
 **Q: Can I submit more than one proposal to Oppia?**
 
-A: Yes you can. However, we strongly recommend picking one project and writing a solid proposal for the same. Splitting attention across multiple projects might not be a great idea. 
+A: Yes you can. However, we strongly recommend picking one project and writing a solid proposal for the same. Splitting attention across multiple projects might not be a great idea.
 
 **Q: How early should I start working on the proposal?**
 
-A: As early as possible. Make sure to get feedback from mentors before finally submitting the proposal. This will help you to write a better proposal as you can refine the details based on the feedback you receive. The mentors would need some time to review, and hence it is a good idea to begin as early as possible.  
+A: As early as possible. Make sure to get feedback from mentors before finally submitting the proposal. This will help you to write a better proposal as you can refine the details based on the feedback you receive. The mentors would need some time to review, and hence it is a good idea to begin as early as possible.
 
 
 ## GSoC Proposal Template
@@ -115,7 +115,7 @@ When submitting a proposal, please use the following template:
 
 ### Tips for writing a good project plan
 
-The project plan is the most important section of the proposal, since it outlines what you'll be doing during the summer. We recommend that you follow a structure similar to [Oppia's design doc template](https://docs.google.com/document/d/1eMivKj5uWkOkj4AB684JVJslAe49gSskZ-VsyUjgPN4/edit) -- if any section isn't relevant for the project, please keep the section and explain why it's not relevant. 
+The project plan is the most important section of the proposal, since it outlines what you'll be doing during the summer. We recommend that you follow a structure similar to [Oppia's design doc template](https://docs.google.com/document/d/1eMivKj5uWkOkj4AB684JVJslAe49gSskZ-VsyUjgPN4/edit) -- if any section isn't relevant for the project, please keep the section and explain why it's not relevant.
 
 Here's some guidance on what the mentors and organization admins will be looking for in this section:
 
@@ -138,7 +138,7 @@ Here's some guidance on what the mentors and organization admins will be looking
 
 ### Sample proposals from past years
 
-If you'd like to get a sense of what a proposal might contain, please see our [GSoC 2018 page](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2018) for examples of proposals that we accepted in 2018. 
+If you'd like to get a sense of what a proposal might contain, please see our [GSoC 2018 page](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2018) for examples of proposals that we accepted in 2018.
 
 _**Note:** although some of these proposals are a bit on the long side, there's no formal length requirement for your proposal -- in general, the quality of what you write is much more important than the amount of text you write. For the actual requirements, please see the [GSoC Proposal Template](#gsoc-proposal-template) section above._
 
@@ -250,7 +250,7 @@ This project has two goals. Firstly, we would like to make it possible to have d
 **Difficulty**: Medium
 
 **Knowledge/Skills needed**
-* Good technical design 
+* Good technical design
 * UX design
 * Full stack development (Python + AngularJS)
 
@@ -428,7 +428,7 @@ A user may decide to suggest a few written translations to exploration, they sho
 1. Create a backend structure to provide points to translators/voice-artists based on their work as a translator/voice-artist. Create the backend structure for the “suggestion” workflow (including review system).
 
 2. Create the full UI for the suggestion workflow, including functionality for contributors to see the list of explorations which they can translate/voiceover in the dashboard. Create a backend structure for the “project” workflow.
- 
+
 3. Create the full UI for the project workflow, including allowing users to see reviews of their audio-applications and respond to them.
 
 **Related issues**: #6536
@@ -437,7 +437,7 @@ A user may decide to suggest a few written translations to exploration, they sho
 
 ## Learner View Projects
 ### 2.1. Highlight text in a lesson as audio is played
-We have found that audio voiceovers (especially in native languages) are very helpful for learners for whom English isn't a first language. However, for longer cards, it is difficult for learners to match the audio voiceover to the text on the card. It would be great for learners to be able to track the audio with the text. 
+We have found that audio voiceovers (especially in native languages) are very helpful for learners for whom English isn't a first language. However, for longer cards, it is difficult for learners to match the audio voiceover to the text on the card. It would be great for learners to be able to track the audio with the text.
 
 The aim of this project would be to allow lesson translators and voiceover artists to annotate textual translations and voiceover audio respectively, so that the relevant text can be highlighted in the exploration player while the corresponding audio is playing. A rough requirements doc for this project can be found [here](https://docs.google.com/document/d/1VUaXm4V0YxyPXRBz8W_YMWEC_guzcnccju8d3KWz5jw/edit).
 
@@ -445,7 +445,7 @@ The aim of this project would be to allow lesson translators and voiceover artis
 
 **Difficulty**: Hard
 
-**Knowledge/Skills needed**: 
+**Knowledge/Skills needed**:
 * Full stack development
 * Good UX design
 
@@ -566,7 +566,7 @@ The aim of this project is twofold: (a) to achieve 100% coverage for the fronten
 This project aims to improve backend test coverage to 100%, and then migrate the backend codebase to be simultaneously compatible with both Python 2 and Python 3. The reason these two projects are linked is because one prerequisite for a safe migration is to have full test coverage, so it's important to make sure that the backend coverage is 100% before migrating. We would also like to standardize all scripts in the codebase to be written in Python (currently, there is a mixture of bash and Python being used).
 
 Unfortunately, we cannot do a full migration to Python 3 at this time due to incompatibility issues with Google App Engine (GAE) dependencies. So, the current plan is to have the codebase python3 ready, so that we can easily upgrade to python3 as soon as the GAE issues are resolved.
- 
+
 **Potential mentors**: **@apb7** (primary), **@brianrodri**
 
 **Difficulty**: Medium
@@ -583,14 +583,14 @@ Unfortunately, we cannot do a full migration to Python 3 at this time due to inc
 
 **Related issues**: [#6550](https://github.com/oppia/oppia/issues/6550)
 
-**Notes** 
+**Notes**
 * See https://docs.python.org/3/howto/pyporting.html for migration instructions.
 * Proposals must clearly state a plan for how to achieve the 100% coverage state from our current state.
 
 ***
 
 ### 3.3. Migrate the frontend to Angular 2
-With the announcement that [AngularJS will no longer be maintained or updated](https://blog.angular.io/stable-angularjs-and-long-term-support-7e077635ee9c), we would like to upgrade our frontend to use Angular 2. The migration will need to happen step by step, while maintaining the working state of the codebase. 
+With the announcement that [AngularJS will no longer be maintained or updated](https://blog.angular.io/stable-angularjs-and-long-term-support-7e077635ee9c), we would like to upgrade our frontend to use Angular 2. The migration will need to happen step by step, while maintaining the working state of the codebase.
 
 **Potential mentors**: **@kevinlee12** (primary), **@bansalnitish**
 
@@ -617,7 +617,7 @@ This project will only be offered for GSoC if the pre-work to convert the codeba
 ***
 
 ### 3.4. Upgrade third-party libraries
-Some of the third party libraries that Oppia uses have been updated, and migrating to newer versions of these libraries might help fix some issues on the issue tracker. The aim of this project is to upgrade all third-party libraries (carefully!) to the latest stable version. 
+Some of the third party libraries that Oppia uses have been updated, and migrating to newer versions of these libraries might help fix some issues on the issue tracker. The aim of this project is to upgrade all third-party libraries (carefully!) to the latest stable version.
 
 **Potential mentors**: **@vojtechjelinek** (primary), **@bansalnitish**
 
@@ -666,7 +666,7 @@ Currently, Oppia serves all pages using the Jinja templating engine, which isn't
 **Notes**:
 * The proposal should include a clear analysis of how to get rid of Jinja for all pages.
 * This project may require some changes in the build process, because we currently sometimes use `{% include %}` just to have clearer dev processes. Good proposals will include a coherent analysis of how to deal with this issue, as well as the pros/cons of possible approaches. Some starting-point ideas are provided below, but there may be others:
-    * re-build the finalized templates at release time, then serve them statically from then on (rather than try 
+    * re-build the finalized templates at release time, then serve them statically from then on (rather than try
 to re-construct them at every request). But how would we handle local development, where the changed files must be available immediately?
     * Look into stuff like ngInclude in Angular. But that might lead to too many calls to the server (even if only to retrieve static files). That said, we could cache the templates.
 * This project requires the usage of some kind of module bundling (webpack). We hope to have this completed prior to GSoC -- please talk to **@vojtechjelinek** for more details.
@@ -734,14 +734,8 @@ Noteworthy dates for 2019:
 
 ## Communication
 
-**Chat**
-
-Oppia doesn't have an official IRC channel, but we do have a real-time chat channel on [Gitter](
-https://gitter.im/oppia/oppia-chat)! You can log in using your GitHub account (Gitter will ask to be associated with your GitHub account for authentication) and you will then be able to talk in it. Please feel free to use Gitter if you just want to say hi to the community or if you have any questions related to getting started. For project-specific questions, please direct your queries to the [GSoC discussion mailing list](mailto:oppia-gsoc-discuss@googlegroups.com).
-
 **Email**
 
-If you have questions pertaining to "how-to-get-started", please ask them on [Gitter](
-https://gitter.im/oppia/oppia-chat), or the oppia-dev@ mailing list. Please be specific when asking questions; this makes it easier for us to help you.
+If you have questions pertaining to "how-to-get-started", please ask them on the oppia-dev@ mailing list. Please be specific when asking questions; this makes it easier for us to help you.
 
 To discuss your project ideas or share your proposal for feedback from the community, please email the [GSoC discussion mailing list](mailto:oppia-gsoc-discuss@googlegroups.com).

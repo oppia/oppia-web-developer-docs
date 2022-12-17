@@ -12,8 +12,8 @@
 Welcome to Oppia! This wiki page aims to provide a quick-start guide to Oppia and guide you in making your first changes to Oppia's codebase. For a longer, more comprehensive guide to getting started, please see our [full "Getting Started" page](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up).
 
 Some background info about the project:
-* The Oppia codebase sits in Github at https://github.com/oppia. Some knowledge of Github would be useful to make changes to the repository. Take a look at the [Github guides](https://guides.github.com/activities/hello-world/) for a brief introduction to Github along with some common methods! 
-* AngularJS (v1) is used for Oppia's frontend. A nice youtube video tutorial can be found [here](https://www.youtube.com/watch?v=nO1ROKMjPqI&list=PLvZkOAgBYrsS_ugyamsNpCgLSmtIXZGiz). For an outline of AngularJS, please see this [short overview](https://egghead.io/articles/new-to-angularjs-start-learning-here) with pointers to other resources. 
+* The Oppia codebase sits in Github at https://github.com/oppia. Some knowledge of Github would be useful to make changes to the repository. Take a look at the [Github guides](https://guides.github.com/activities/hello-world/) for a brief introduction to Github along with some common methods!
+* AngularJS (v1) is used for Oppia's frontend. A nice youtube video tutorial can be found [here](https://www.youtube.com/watch?v=nO1ROKMjPqI&list=PLvZkOAgBYrsS_ugyamsNpCgLSmtIXZGiz). For an outline of AngularJS, please see this [short overview](https://egghead.io/articles/new-to-angularjs-start-learning-here) with pointers to other resources.
 * If you are new to HTML, some useful tutorials are [Mozilla's guide](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML) (which includes some practice assessments), as well as [this tutorial for beginners](http://htmldog.com/guides/html/beginner/).
 * Some new features will require backend work. Oppia's backend is written in Python 2.7.
 
@@ -40,12 +40,7 @@ To make code changes, you will require a Github account with 2 factor authentica
 * Create a new, empty folder called `opensource/` in your computer's home folder. Navigate to it (`cd opensource`), then [fork and clone](https://help.github.com/articles/fork-a-repo/) the Oppia repo so that it gets downloaded into `opensource/oppia`.
 * Then follow the appropriate installation instructions -- [Linux](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Linux%29), [Mac OS](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Mac-OS%29), [Windows](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Windows%29). (If you run into any problems during installation, please read [these notes](https://github.com/oppia/oppia/wiki/Issues-with-installation%3F).)
 
-### Join the Gitter channel
-* Join the GHC open source day chatroom at https://gitter.im/oppia/ghc2018 to meet other mentors and participants!
-
 ## Some useful links
-_Gitter_ [GHC chatroom](https://gitter.im/oppia/ghc2018) | [General chatroom](https://gitter.im/oppia/oppia-chat)
-
 _Oppia_ [Wiki Page](https://github.com/oppia/oppia/wiki) | [Documentation](https://oppia.github.io/#/) | [Full "Getting Started" page](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up)
 
 _Github_ [Cheat Sheet](https://education.github.com/git-cheat-sheet-education.pdf) | [Guide](https://guides.github.com/activities/hello-world/)
@@ -57,14 +52,14 @@ _Python 2.7_ [Introduction](https://docs.python.org/2/library/intro.html) | [Tut
 _Bash_ [Introduction](http://cs.lmu.edu/~ray/notes/bash/)
 
 ## Making A Code Change
-Our central development branch is **develop**, which should be clean and ready for release at any time. In general, all changes should be done as feature branches based off of _develop_. For a more detailed explanation on how to make a code change, please take a look at [this wiki page](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#instructions-for-making-a-code-change). 
+Our central development branch is **develop**, which should be clean and ready for release at any time. In general, all changes should be done as feature branches based off of _develop_. For a more detailed explanation on how to make a code change, please take a look at [this wiki page](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#instructions-for-making-a-code-change).
 In order to make a change in the repository, you can follow the steps below:
 
 1. Sync with the _develop_ branch and create a new branch, starting from _develop_ (e.g. _your-branch-name_). The branch name should be descriptive, lowercase, and hyphen-separated. It shouldn’t start with the words _hotfix_ or _release_.
 ```bash
 git fetch upstream
-git checkout develop  
-git merge upstream/develop 
+git checkout develop
+git merge upstream/develop
 git checkout -b your-branch-name
 ```
 
@@ -83,14 +78,11 @@ git checkout -b your-branch-name
 
 6. Celebrate. Congratulations, you have contributed to Oppia!
 
-## What to do when you are stuck
-Oppia has a [Gitter chat room](https://gitter.im/oppia/oppia-chat) where everyone can post their questions and help each other out! The organizers and mentors will also be walking around to help with any questions. We also have a dedicated [GHC Open Source Day chatroom](https://gitter.im/oppia/ghc2018) that you can use too!
-
 ## List of Projects
 
 For Open Source Day, we tried to shortlist projects that are fairly self-contained, and can be completed within 3-4 hours by a group of 2-3 people. We also tried to pick those projects directly from our issue tracker, so that you get an idea of what it’s like to contribute to Oppia on a regular basis.
 
-Each project has a brief explanation, a link to the issue tracker, the skills required, and some deliverables. We encourage you to look at the issue tracker link for the project that interests you. You can comment expressing interest in that project (and mention you will be working on it for OSD). Feel free to ask questions on the issue thread to gain more context, to help get a kickstart for the day! **We recommend working in groups of 2-3 people.** 
+Each project has a brief explanation, a link to the issue tracker, the skills required, and some deliverables. We encourage you to look at the issue tracker link for the project that interests you. You can comment expressing interest in that project (and mention you will be working on it for OSD). Feel free to ask questions on the issue thread to gain more context, to help get a kickstart for the day! **We recommend working in groups of 2-3 people.**
 
 This list is not an exhaustive list of projects. If none of these projects appeal to you, take a look at our [issue tracker](https://github.com/oppia/oppia/issues) and comment on an issue that interests you. (Also, please mention that you will be working on it during the OSD event, so that others are aware. Please also tag us (**@seanlip** and **@vinitamurthi**) in any comment expressing interest in a project so that we get notified about this!)
 
@@ -114,7 +106,6 @@ Easy
     - [Sign the CLA](#sign-the-cla)
     - [Create a GitHub account](#create-a-github-account)
     - [Install Oppia on your machine](#install-oppia-on-your-machine)
-    - [Join the Gitter channel](#join-the-gitter-channel)
   - [Some useful links](#some-useful-links)
   - [Making A Code Change](#making-a-code-change)
   - [What to do when you are stuck](#what-to-do-when-you-are-stuck)
@@ -239,7 +230,7 @@ Hard
 ### Project 5: Allow users to suggest edits to concept cards
 **Context**
 
-We are developing a feature that allows topic managers to add concept cards whenever they create a topic. These concept cards each aim to explain a particular skill, and they get shown on-demand in lessons when Oppia detects that a student is having difficulty with that skill. It would be very useful to have users suggest edits to the concept cards. Edit suggestions could range from grammar issues or typos, semantic improvements, or even adding new content like examples to better explain the concept. The topic manager can review the edit, and either add it (with modifications), or reject it with some explanation. 
+We are developing a feature that allows topic managers to add concept cards whenever they create a topic. These concept cards each aim to explain a particular skill, and they get shown on-demand in lessons when Oppia detects that a student is having difficulty with that skill. It would be very useful to have users suggest edits to the concept cards. Edit suggestions could range from grammar issues or typos, semantic improvements, or even adding new content like examples to better explain the concept. The topic manager can review the edit, and either add it (with modifications), or reject it with some explanation.
 
 _This project is more to create a design rather than a working implementation, as it is quite open-ended and will take time to create a working solution. However, if you plan on taking this up, we encourage you to continue to work with us on this project even after open source day!_
 [[Issue Tracker Link](https://github.com/oppia/oppia/issues/5674)]
@@ -259,7 +250,7 @@ Hard
 ### Project 6: Allow translators to see the changes made in content by editor
 **Context**
 
-All lessons in Oppia aim to have audio subtitles for learners who do not have a good command of English. These audio files are translated to multiple languages by translators. Currently, when a lesson creator marks an audio file as "needing update", the translators get informed about this through a warning icon, but it's not easy for them to figure out what changes the lesson creator has made. We would like to develop this functionality for the translators. For this, we would have to design and implement a UI which helps translators identify where the change was made and what the change was. 
+All lessons in Oppia aim to have audio subtitles for learners who do not have a good command of English. These audio files are translated to multiple languages by translators. Currently, when a lesson creator marks an audio file as "needing update", the translators get informed about this through a warning icon, but it's not easy for them to figure out what changes the lesson creator has made. We would like to develop this functionality for the translators. For this, we would have to design and implement a UI which helps translators identify where the change was made and what the change was.
 [[Issue tracker link](https://github.com/oppia/oppia/issues/5571)]
 
 **Deliverables**
@@ -297,7 +288,7 @@ Easy
 ### Project 8: Improve unit tests
 **Context**
 
-Unit tests are just as important as coding style while maintaining a large codebase with multiple contributors. At Oppia, we try to ensure all code paths are covered by some unit test. This also ensures that changes to the code don’t break our code base. Before pushing code to github, we run all frontend tests and the push is blocked if even one test is broken. Also, code cannot be merged into the main branch unless both frontend and backend tests pass (the backend checks are done through a [Travis](https://travis-ci.com/) continuous integration system). We analyze the code coverage of unit tests to identify which functions still need unit tests. 
+Unit tests are just as important as coding style while maintaining a large codebase with multiple contributors. At Oppia, we try to ensure all code paths are covered by some unit test. This also ensures that changes to the code don’t break our code base. Before pushing code to github, we run all frontend tests and the push is blocked if even one test is broken. Also, code cannot be merged into the main branch unless both frontend and backend tests pass (the backend checks are done through a [Travis](https://travis-ci.com/) continuous integration system). We analyze the code coverage of unit tests to identify which functions still need unit tests.
 
 _These projects are typically the kinds of starter projects we assign to new developers. Consider giving this a shot before moving to a larger project!_
 
@@ -328,7 +319,7 @@ While unit tests cover a lot of cases, end-to-end integration tests are also ext
 
 **Required Skills**
 
-Javascript 
+Javascript
 
 **Difficulty**
 
@@ -391,7 +382,7 @@ Intermediate
 ### Project 13: Find ways to make the audio translation tab interface clearer
 **Context**
 
-The UI for the audio translation isn’t very intuitive. Users have asked questions like - 
+The UI for the audio translation isn’t very intuitive. Users have asked questions like -
 * "I uploaded the voiceover but can't find where I can listen to it?"
 * "Also how do I move to the next section?"
 
@@ -505,7 +496,7 @@ Easy
 ### Project 19: Accessibility Improvements - Fixing Contrast in Image Region Selectors
 **Context**
 
-Our Image region indicators show a red dot when a user clicks on a portion of the image (regardless of the image background at that area). The aim of this issue is to ensure that the indicator contrasts with the background, so that it's clear that it's a touch indicator. 
+Our Image region indicators show a red dot when a user clicks on a portion of the image (regardless of the image background at that area). The aim of this issue is to ensure that the indicator contrasts with the background, so that it's clear that it's a touch indicator.
 [[Issue tracker link](https://github.com/oppia/oppia/issues/4615)]
 
 **Deliverables**

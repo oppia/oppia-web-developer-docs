@@ -29,7 +29,7 @@ If you're specifically interested in applying to work with Oppia in Google Summe
 1. Take a look at the project ideas below, and select a project you're most interested in.
 1. If you're not very familiar with what Oppia is all about (or wish to become familiarized with concepts like explorations and interactions), then our [user documentation](http://oppia.github.io/#/) will be very helpful for you! Read the [developer wiki](https://github.com/oppia/oppia/wiki), and especially [Overview of the Oppia codebase](https://github.com/oppia/oppia/wiki/Overview-of-the-Oppia-codebase) to get familiar with the codebase, and start planning your project proposal.
 1. (Optional) Read the [contributors' guide](https://github.com/oppia/oppia/blob/develop/CONTRIBUTING.md), set up a development instance and work on a [starter project](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22starter+project%22) to get more familiar with the Oppia codebase and the contribution process. This will also help us get to understand your skills, and get an idea of what it's like to work with you. (**Note:** If you can't find a suitable starter project, you can also pick an issue labeled "TODO: needs instructions" -- these issues require a bit more investigation, but some of them are not too difficult.)
-1. Write your project proposal! If you have any questions about your project, feel free to ask on [Gitter chat](https://gitter.im/oppia/oppia-chat), or email the mentors' mailing list at oppia-gsoc-mentors@googlegroups.com. Please be specific when asking questions; this makes it easier for us to help you.
+1. Write your project proposal! If you have any questions about your project, feel free to email the mentors' mailing list at oppia-gsoc-mentors@googlegroups.com. Please be specific when asking questions; this makes it easier for us to help you.
 
 ## FAQs
 **Q: What technical skills do I need to work on Oppia?**
@@ -148,14 +148,6 @@ There are several ways to communicate with us (see sections below). Please feel 
 - Sean Lip sean(at)seanlip(dot)org
 
 It may help to email the Google Summer of Code mailing list, as well, which is oppia-gsoc-mentors@googlegroups.com.
-
-## Joining Oppia's Gitter
-
-We don't have an official IRC channel, but we do have a real-time chat channel through Gitter. Joining our Gitter chat is easily. Simply head to the following link:
-
-https://gitter.im/oppia/oppia-chat#
-
-You can login using your GitHub account (Gitter will ask to be associated with your GitHub account for authentication) and you will then be able to talk in it.
 
 ## Oppia's Developer Mailing List
 
