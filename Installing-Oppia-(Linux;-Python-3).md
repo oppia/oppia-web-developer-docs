@@ -1,13 +1,14 @@
 ## Table of Contents
 
-* [Install prerequisites](#install-prerequisites)
-* [Clone Oppia](#clone-oppia)
-* [Setup a virtual environment](#setup-a-virtual-environment)
-* [Running Oppia on a development server](#running-oppia-on-a-development-server)
-* [Tips and tricks](#tips-and-tricks)
-* [Notes on installation on Arch Linux systems](#notes-on-installation-on-arch-linux-systems)
-  * [Changes to installation prerequisites](#changes-to-installation-prerequisites)
-  * [Changes to the virtual environment setup](#changes-to-the-virtual-environment-setup)
+- [Table of Contents](#table-of-contents)
+- [Install prerequisites](#install-prerequisites)
+- [Clone Oppia](#clone-oppia)
+- [Setup a virtual environment](#setup-a-virtual-environment)
+- [Running Oppia on a development server](#running-oppia-on-a-development-server)
+- [Tips and tricks](#tips-and-tricks)
+- [Notes on installation on Arch Linux systems](#notes-on-installation-on-arch-linux-systems)
+  - [Changes to installation prerequisites](#changes-to-installation-prerequisites)
+  - [Changes to the virtual environment setup](#changes-to-the-virtual-environment-setup)
 
 **Note:** If you just want to create and share explorations, you may be able to use the hosted server at https://www.oppia.org (in which case you don't need to install anything).
 
@@ -17,10 +18,16 @@
 
 Oppia relies on a number of programs and third-party libraries. Many of these libraries are downloaded automatically for you when you first run the `start.py` script provided with Oppia (see step 1 in the next section). However, there are some things that you will need to do beforehand:
 
-1. Make sure you have curl (used to download third-party libraries), setuptools (needed for installing coverage, which checks test coverage for the Python code), git (which allows you to store the source in version control), python-dev (which is used for the numpy installation), python-pip (which is also used for the numpy installation) and pyyaml (which is used to parse YAML files), libbz2-dev (used by Apache Beam):
+1. Update your package list to the latest version by running:
 
 ```
-sudo apt-get install curl openjdk-8-jre python3-setuptools git python3-dev python3-pip python3-yaml unzip python-matplotlib python3-matplotlib libbz2-dev
+sudo apt-get update
+```
+
+2. Make sure you have curl (used to download third-party libraries), setuptools (needed for installing coverage, which checks test coverage for the Python code), git (which allows you to store the source in version control), python-dev (which is used for the numpy installation), python-pip (which is also used for the numpy installation), pyyaml (which is used to parse YAML files) and libbz2-dev (used by Apache Beam):
+
+```
+sudo apt-get install python3-pip python3-setuptools curl openjdk-8-jre git python3-dev python3-yaml python3-matplotlib unzip libbz2-dev
 ```
 
 Alternatively, if you are on Debian/Ubuntu, you can use the `install_prerequisites.sh` script to install these. From the oppia directory:
@@ -29,9 +36,9 @@ Alternatively, if you are on Debian/Ubuntu, you can use the `install_prerequisit
 bash scripts/install_prerequisites.sh
 ```
 
-2. Make sure that you have **Python 2** installed, it is needed for the dev server to run. On Ubuntu 20 you can install it using `sudo apt install python2`.
+3. Make sure that you have **Python 2** installed, it is needed for the dev server to run. On Ubuntu 20 you can install it using `sudo apt install python2`.
 
-3. Install Chrome from [Google's website](https://www.google.com/chrome). You'll need this to run tests.
+4. Install Chrome from [Google's website](https://www.google.com/chrome). You'll need this to run tests.
 
 ## Clone Oppia
 
