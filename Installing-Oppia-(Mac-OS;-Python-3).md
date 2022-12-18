@@ -9,7 +9,7 @@
 
 **Note:** If you just want to create and share explorations, you may be able to use the hosted server at https://www.oppia.org (in which case you don't need to install anything).
 
-*These installation instructions were last tested on 24 July 2021. For more information on issues that may occasionally arise with the installation process, please see the [Troubleshooting](https://github.com/oppia/oppia/wiki/Troubleshooting) page.*
+*These installation instructions were last tested on 11 Dec 2022. For more information on issues that may occasionally arise with the installation process, please see the [Troubleshooting](https://github.com/oppia/oppia/wiki/Troubleshooting) page.*
 
 **Note:** Be careful about trying to install Oppia if you have the Python [Anaconda platform](https://www.anaconda.com/) installed. We've received a bunch of reports that installation is tricky in that environment (there are lots of small things that get in the way), and that the solution is to use the standard python installation (via e.g. homebrew) instead.
 
@@ -17,54 +17,73 @@
 
 To check whether your Mac has an M1 chip, navigate to the Apple menu and select "About This Mac." In the window that opens, check for a "Chip" section. If it says "Apple M1" then you have an M1 chip. Otherwise, you should see an Intel processor listed in the "Processor" section. [This article](https://www.howtogeek.com/706226/how-to-check-if-your-mac-is-using-an-intel-or-apple-silicon-processor/) explains in more detail with screenshots if you have trouble.
 
-If your Mac has an M1 chip, follow these instructions instead:
+If your Mac has an M1 chip, follow these instructions first:
 
-1. If not yet installed, install Rosetta 2 with the following command:  `softwareupdate --install-rosetta`. Rosetta 2 translates Intel-based apps to run on Apple silicon Macs.
+1. If not yet done so, install Rosetta 2 with the following command:  `softwareupdate --install-rosetta`. Rosetta 2 translates Intel-based apps to run on Apple silicon Macs.
+
+   [Rosetta](https://support.apple.com/en-us/HT211861) is Apple's compatibility layer that lets you run apps written for Intel chips on Apple Silicon. You can install Rosetta 2 by running:
+
+   ```console
+   softwareupdate --install-rosetta
+   ```
+
+   A graphical installer will launch and walk you through installing Rosetta 2.
+
+   Now to run a command under Rosetta, prefix it with `arch -x86_64` (`x86_64` is the architecture of Intel chips). For example:
+
+   ```console
+   $ arch -x86_64 echo 'hi'
+   hi
+   ```
+
+   You can also run your whole shell under Rosetta and use `arch` to check what chip architecture you're currently using:
+
+   ```console
+   $ arch
+   arm64
+   $ arch -x86_64 $SHELL --login
+   $ arch
+   i386
+   ```
+
+   The `arm64` indicates Apple Silicon, while the `i386` indicates that we are running under Rosetta.
 
 2. Next, we will create a Rosetta terminal that emulate the *Intel* architecture. To do so, open a new terminal and run the following command (change "bash" to "zsh" if you're using a zsh terminal):
-    ```shell
-    $ env /usr/bin/arch -x86_64 /bin/bash --login
-    ``` 
-    This switches the architecture from Mac M1's *ARM* architecture to the emulated *Intel* architecture for the current session. To verify this, run `arch` in the terminal and you should see `i386` being printed. Proceed with step `3` and `4` using this terminal.
-3. Inside the Rosetta terminal (i386) perform the Downloading and prerequisites steps (**Note:** If `sudo easy_install pyyaml` does not work try using `pip3 install pyyaml`).
 
-4. Open the rosetta terminal (from step 2) and run `python -m scripts.start`
+    ```shell
+    $ /usr/bin/arch -x86_64 $SHELL --login
+    ```
+
+    This switches the architecture from Mac M1's *ARM* architecture to the emulated *Intel* architecture for the current session. To verify this, run `arch` in the terminal and you should see `i386` being printed. You will need to switch the architecture to Intel for all Oppia development.
+
+    If you use Homebrew to install any Python development dependencies for pyenv (discussed below), you will need to install and use Homebrew in this terminal as well. Note that while you can have a Homebrew installation for Apple Silicon and another for Intel architectures installed simultaneously, pyenv is not smart enough to pick the Intel dependencies if both are present, so we recommend using an Intel installation of Homebrew exclusively.
+
+3. Follow the installation instructions below in your Rosetta terminal.
 
 ## Install prerequisites
 
-Oppia relies on a number of programs and third-party libraries. Many of these libraries are downloaded automatically for you when you first run the `start.py` script provided with Oppia. However, there are some things that you will need to do beforehand:
+Oppia relies on a number of programs and third-party libraries. Many of these libraries are downloaded automatically for you when you first run the `start.py` script provided with Oppia. However, you will need to manually install these dependencies first:
 
-1. [**If you have Mac OS >= 12.3**] Ensure that you have Python 2.7 available on your system. (This is needed because App Engine's `dev_appserver.py` [requires Python 2.7 to be installed](https://cloud.google.com/appengine/docs/standard/python3/tools/local-devserver-command).) If Python 2.7 is not installed, please follow the following steps: 
+1. Install [version 8+ of the Java Runtime Environment (JRE)](https://www.java.com/en/download/).
 
-    * Download MacOS [Python 2.7 installer](https://www.python.org/downloads/release/python-2716/) (depending on whether your system is 32bit/64bit). Once you have downloaded it, please install Python 2.7 using the installer.
+2. Install [direnv](https://direnv.net/).
 
-    * Add pip for Python 2.7
+   After finishing with the official installation instructions, you should also create a `~/.direnvrc` file with the following content:
 
-    ```console
-    $ curl https://bootstrap.pypa.io/pip/2.7/get-pip.py -o get-pip2.py
-    % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                   Dload  Upload   Total   Spent    Left  Speed
-     100 1863k  100 1863k    0     0  16.7M      0 --:--:-- --:--:-- --:--:-- 18.1M
-    ```
-
-    * Add the following to the `$PATH` variable on your Mac: `/Library/Frameworks/Python.framework/Versions/2.7/bin`
-
-    * Download `plistlib.py`
-
-   ```console
-   $ curl https://raw.githubusercontent.com/python/cpython/2.7/Lib/plistlib.py -o 
-   /Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plistlib.py
-   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-   100 15185  100 15185    0     0  44274      0 --:--:-- --:--:-- --:--:-- 45193
+   ```bash
+   use_python() {
+     local python_root=$(pyenv root)/versions/$1
+     load_prefix "$python_root"
+     if [[ -x "$python_root/bin/python" ]]; then
+       layout python "$python_root/bin/python"
+     else
+       echo "Error: $python_root/bin/python can't be executed."
+       exit
+     fi
+   }
    ```
-    * Now try doing `python --version` on your command-line, and you should see version `2.7` printed.
 
-2. Ensure that you have [Python 3.8](https://www.python.org/downloads/release/python-3812/) installed (Note: you can check this by running `python3 --version`). If Python 3.8 is not installed, download and run the latest Python 3.8 installer from https://www.python.org/downloads/mac-osx/.
-
-3. Download [git](http://git-scm.com/download/mac), then run the package and follow instructions. This allows you to store the source in version control.
-
-**Note:** While #1 above is only for those having MacOS >= 12.3, #2 and #3 should be done by everyone using a Mac for setting up Oppia. 
+3. Download [git](http://git-scm.com/download/mac), then run the package and follow instructions. This allows you to store the source in version control. Note that you can also install Apple's command line tools to get git instead.
 
 ## Clone Oppia
 
@@ -150,69 +169,56 @@ For your vitual environment, we recommend you use [pyenv](https://github.com/pye
 
 2. Reload your shell or open a new terminal window to load your updated `~/.bash_profile` or `~/.zshrc`.
 
-3. Install Python 3.8.12 and the associated pip using the command below: 
-
-    `pyenv install 3.8.12`.
- 
-    This is how it looks like:  
+3. Install Python 3.8.12:
 
    ```console
    $ pyenv install 3.8.12
-   Installing openssl-1.1.1k.. 
+   Installing openssl-1.1.1k..
    Installed openssl-1.1.1k to /Users/user/.pyenv/versions/3.8.12
 
-   Installing readline-8.1... 
+   Installing readline-8.1...
    Installed readline-8.1 to /Users/user/.pyenv/versions/3.8.12
 
-   Downloading Python-3.8.12.tar.xz... 
-   -> https://www.python.org/ftp/python/3.8.12/Python-3.8.12.tar.xz 
-   Installing Python-3.8.12... 
-   patching file Misc/NEWS.d/next/Build/2021-10-11-16-27–38.bpo-45405.iSfdw5.rst 
-   patching file configure 
-   patching file configure.ac 
-   python-build: use zlib from xcode sdk 
+   Downloading Python-3.8.12.tar.xz...
+   -> https://www.python.org/ftp/python/3.8.12/Python-3.8.12.tar.xz
+   Installing Python-3.8.12...
+   patching file Misc/NEWS.d/next/Build/2021-10-11-16-27–38.bpo-45405.iSfdw5.rst
+   patching file configure
+   patching file configure.ac
+   python-build: use zlib from xcode sdk
    Installed Python-3.8.12 to /Users/user/.pyenv/versions/3.8.12
    ```
 
-4. Create a virtual environment for oppia using the command below: 
+4. Install Python 2.7.18:
 
-    `pyenv virtualenv 3.8.12 oppia`
-
-     This is how it looks like: 
 
    ```console
-   $ pyenv virtualenv 3.8.12 Oppia
+   $ pyenv install 2.7.18
    ...
-   $ pyenv versions
-   ...
-   Oppia
-   ...
+   Installed Python-2.7.18 to ~/.pyenv/versions/2.7.18
    ```
 
-   In the cloned `oppia` folder, run
+   This is needed because App Engine's `dev_appserver.py` [requires Python 2.7 to be installed](https://cloud.google.com/appengine/docs/standard/python3/tools/local-devserver-command).
+
+5. Make both Python 3 and Python 2 available globally on your system:
 
    ```console
-   pyenv local oppia
+   pyenv global 3.8.12 2.7.18
    ```
 
-   Now whenever you are within the `oppia` folder, the virtual environment will be active.
+   Note that you can use a different version of Python 3 if you prefer--we'll specify Python 3.8.12 as our version for Oppia development later.
 
-5. Install the Python dependencies:
+5. Create a virtual environment for oppia by making a file `.envrc` in the `opensource/` directory with the following contents:
 
-   ```console
-   $ pip install pyyaml setuptools
-   Requirement already satisfied: setuptools in /home/user/.pyenv/versions/3.7.18/envs/oppia-tmp/lib/python2.7/site-packages (44.1.1)
-   Collecting pyyaml
-     Downloading PyYAML-5.4.1-cp27-cp27mu-manylinux1_x86_64.whl (574 kB)
-        |████████████████████████████████| 574 kB 2.3 MB/s
-   Installing collected packages: pyyaml
-   Successfully installed pyyaml-5.4.1
+   ```text
+   use python 3.8.12
    ```
 
-6. If you want to run backend tests and check coverage, please install these 2 pip libraries globally (or in your venv).
+   Then run `direnv allow` in the `opensource/` directory to allow `direnv` to run there. Whenever you are within the `opensource/` directory (or any of its subdirectories, or any of their subdirectories, etc.) the virtual environment will be active. You can confirm this by running:
 
    ```console
-   pip install coverage configparser
+   $ which python
+   .../opensource/.direnv/python-3.8.12/bin/python
    ```
 
 ## Running Oppia on a development server
