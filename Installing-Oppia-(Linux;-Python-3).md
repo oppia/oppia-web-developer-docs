@@ -1,6 +1,5 @@
 ## Table of Contents
 
-* [Table of Contents](#table-of-contents)
 * [Install prerequisites](#install-prerequisites)
 * [Clone Oppia](#clone-oppia)
 * [Setup a virtual environment](#setup-a-virtual-environment)
