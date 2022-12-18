@@ -1,14 +1,14 @@
 ## Table of Contents
 
-- [Table of Contents](#table-of-contents)
-- [Install prerequisites](#install-prerequisites)
-- [Clone Oppia](#clone-oppia)
-- [Setup a virtual environment](#setup-a-virtual-environment)
-- [Running Oppia on a development server](#running-oppia-on-a-development-server)
-- [Tips and tricks](#tips-and-tricks)
-- [Notes on installation on Arch Linux systems](#notes-on-installation-on-arch-linux-systems)
-  - [Changes to installation prerequisites](#changes-to-installation-prerequisites)
-  - [Changes to the virtual environment setup](#changes-to-the-virtual-environment-setup)
+* [Table of Contents](#table-of-contents)
+* [Install prerequisites](#install-prerequisites)
+* [Clone Oppia](#clone-oppia)
+* [Setup a virtual environment](#setup-a-virtual-environment)
+* [Running Oppia on a development server](#running-oppia-on-a-development-server)
+* [Tips and tricks](#tips-and-tricks)
+* [Notes on installation on Arch Linux systems](#notes-on-installation-on-arch-linux-systems)
+  * [Changes to installation prerequisites](#changes-to-installation-prerequisites)
+  * [Changes to the virtual environment setup](#changes-to-the-virtual-environment-setup)
 
 **Note:** If you just want to create and share explorations, you may be able to use the hosted server at https://www.oppia.org (in which case you don't need to install anything).
 
