@@ -639,6 +639,10 @@ Even though it is possible to use NDB functions directly, they should not be use
 
 All of the aforementioned classes are already used in the codebase so you can look for examples.
 
+### Use `get_package_file_contents` for accessing files
+
+If you need to access a files in a Beam job, please use `get_package_file_contents` (from _core/constants.py_) instead of `open` or `open_file` (from _core/utils.py_). Also make sure that the file is included in _assets_ folder or is listed in _MANIFEST.in_ explicitly.
+
 ## Common Beam errors
 
 ### `'_UnwindowedValues' object is not subscriptable` error
