@@ -203,15 +203,15 @@ For your vitual environment, we recommend you use [pyenv](https://github.com/pye
 5. Make both Python 3 and Python 2 available globally on your system:
 
    ```console
-   pyenv global 3.8.12 2.7.18
+   pyenv global 3.8.15 2.7.18
    ```
 
-   Note that you can use a different version of Python 3 if you prefer--we'll specify Python 3.8.12 as our version for Oppia development later.
+   Note that you can use a different version of Python 3 if you prefer--we'll specify Python 3.8.15 as our version for Oppia development later.
 
 5. Create a virtual environment for oppia by making a file `.envrc` in the `opensource/` directory with the following contents:
 
    ```text
-   use python 3.8.12
+   use python 3.8.15
    ```
 
    Then run `direnv allow` in the `opensource/` directory to allow `direnv` to run there. Whenever you are within the `opensource/` directory (or any of its subdirectories, or any of their subdirectories, etc.) the virtual environment will be active. You can confirm this by running:
