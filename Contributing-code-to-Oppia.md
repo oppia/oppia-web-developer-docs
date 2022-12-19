@@ -11,7 +11,7 @@ If you run into any problems along the way, we're here to help! Check out our [[
 * [Setting things up](#setting-things-up)
 * [Developing your skills](#developing-your-skills)
 * [Finding something to do](#finding-something-to-do)
-  * [Starter projects for new contributors](#starter-projects-for-new-contributors)
+  * [Good first issues for new contributors](#good-first-issues-for-new-contributors)
     * [Backend](#backend)
     * [Frontend](#frontend)
   * [Contributor Roles](#contributor-roles)
@@ -21,11 +21,11 @@ If you run into any problems along the way, we're here to help! Check out our [[
 
 ## Setting things up
 
-1. Please sign the CLA so that we can accept your contributions. If you're contributing as an individual, use the [individual CLA](https://goo.gl/forms/AttNH80OV0). If your company owns the copyright to your contributions, a company representative should sign the [corporate CLA](https://goo.gl/forms/xDq9gK3Zcv).  **If you do not sign the CLA, any PRs you open will be closed.**
+1. Please sign the CLA so that we can accept your contributions. If you're contributing as an individual, use the [individual CLA](https://goo.gl/forms/AttNH80OV0). If your company owns the copyright to your contributions, a company representative should sign the [corporate CLA](https://goo.gl/forms/xDq9gK3Zcv). **If you do not sign the CLA, any PRs you open will be closed.**
 
-2. Fill in the [Oppia contributor survey](https://goo.gl/forms/otv30JV3Ihv0dT3C3) to let us know what your interests are. (You can always change your responses later.) Filling out the survey will also get you assigned to a mentor at Oppia who will reach out to you over email to help you get started.
+2. Fill in the [Oppia contributor survey](https://goo.gl/forms/otv30JV3Ihv0dT3C3) to let us know what your interests are. (You can always change your responses later.)
 
-3. Install Oppia following the [[installation instructions|Installing-Oppia]].  If you run into any issues, please check out the [[troubleshooting instructions|Troubleshooting]]. If you want help setting up a code editor, also check out our [[guide to common IDEs|Tips-for-common-IDEs]].
+3. Install Oppia following the [[installation instructions|Installing-Oppia]]. If you run into any issues, please check out the [[troubleshooting instructions|Troubleshooting]]. If you want help setting up a code editor, also check out our [[guide to common IDEs|Tips-for-common-IDEs]]. If the above resources don't help and you're still stuck, please check [GitHub Discussions](https://github.com/oppia/oppia/discussions/categories/q-a-installation) to see if any existing threads address the issue. If not, feel free to start a new thread explaining what you've tried and what you're seeing, so that we can try and help you!
 
 4. Update your GitHub settings:
 
@@ -37,17 +37,19 @@ If you run into any problems along the way, we're here to help! Check out our [[
 
    * (Optional) Consider setting up [automatic auth](https://help.github.com/articles/caching-your-github-password-in-git/) so you don't have to type in a username and password each time you push a change. Note that this isn't an issue if you use SSH.
 
-5. On your browser, consider bookmarking both this wiki page (for easy reference later) and the [Gitter tab](https://gitter.im/oppia/oppia-chat) (so that you can keep abreast of new activity).
+5. On your browser, consider bookmarking the [[guide to making pull requests|Make-a-pull-request]] for easy reference later, as well as the ["my issues" page](https://github.com/issues/assigned) (so that you can keep track of the issues assigned to you).
 
-6. Familiarize yourself with the resources linked to from the sidebar of this page, especially the [[overview of the codebase|Overview-of-the-Oppia-codebase]] the [[coding style guide|Coding-style-guide]], and the [[Frequently Asked Questions|Frequently-Asked-Questions]]. You don't have to read all the other stuff right now, but it's a good idea to be aware of what's available, so that you can refer to it later if needed.
+6. Familiarize yourself with the resources linked to from the sidebar of this page, especially the [[overview of the codebase|Overview-of-the-Oppia-codebase]], the [[coding style guide|Coding-style-guide]], and the [[Frequently Asked Questions|Frequently-Asked-Questions]]. You don't have to read all the other stuff right now, but it's a good idea to be aware of what's available, so that you can refer to it later if needed.
 
-7. Say hi on the [gitter](https://gitter.im/oppia/oppia-chat) chat channel!
+7. Say hi and introduce yourself on [GitHub Discussions](https://github.com/oppia/oppia/discussions/16715)!
 
-8. Join our [gaming event server on discord](https://discord.com/invite/dCJwEAgk3D) for fun activities!
+8. Take up your first Oppia issue (probably from the list of [good first issues](https://github.com/oppia/oppia/labels/good%20first%20issue))! You can find more details below. (Make sure to read and follow the [[PR instructions|Make-a-pull-request]] closely so that your PR review proceeds smoothly.)
 
-9. Take up your first starter project! You can find more details below. (Make sure to read and follow the [[PR instructions|Make-a-pull-request]] closely so that your PR review proceeds smoothly.)
+    * Facing any problems (including non-coding ones)? Please feel free to create a [GitHub Discussion](https://github.com/oppia/oppia/discussions) and get help from the Oppia community. You can use this avenue for asking anything -- questions about any issue, who to contact for specific things, etc.
 
-10. Facing any issues? Please feel free to create a [GitHub Discussion](https://github.com/oppia/oppia/discussions) and get help from the Oppia community.
+    * We also have onboarding mentors who would be more than happy to help you take your first steps in open source. If you like, you can apply for a mentor [here](https://forms.gle/udsRP4WQgLcez9Zm8).
+
+9. When you have merged PRs that correspond to two different pre-existing GitHub issues, please fill in [this form](https://forms.gle/NxPjimCMqsSTNUgu5) to become an Oppia collaborator! This will grant you access to the repository, and allow you to join a team. (But please don't create your own issues and then make PRs for them -- that won't count.)
 
 ## Developing your skills
 
@@ -57,9 +59,9 @@ We also **strongly recommend** looking through the resources under "Developing O
 
 ## Finding something to do
 
-### Starter projects for new contributors
+### Good first issues for new contributors
 
-Welcome! Please make sure to follow the instructions above if you haven't already. After that, we'd **strongly recommend** tackling some part of one of the following starter issues:
+Welcome! Please make sure to follow the instructions above if you haven't already. After that, we'd **strongly recommend** tackling some part of one of the following good first issues:
 
 #### Backend
 
@@ -87,9 +89,7 @@ Welcome! Please make sure to follow the instructions above if you haven't alread
 
 These issues are hand-picked to ensure that you don't run into unexpected roadblocks while working on them. For other issues, you may need to be more independent because often times, we don’t know how to solve them either.
 
-If you decide to pick one of these, please go ahead and leave a comment saying which part of the issue you're taking, and submit a follow-up PR by following the instructions to [[make a PR|Make-a-pull-request]]. You don't need to wait for approval to get started!
-
-If you need some help from someone with a more prominent UI/UX or design perspective, tag **@mschanteltc** and expect a response within 2-3 days, if not, ping in the Oppia Gitter channel.
+If you decide to pick one of these, please go ahead and leave a comment that (a) says which part of the issue you're taking, and (b) describes how you would tackle the issue if there aren't instructions provided already (e.g. explain which file(s) you would modify and what changes you would make). Then, @-mention the lead(s) of the corresponding project that the issue falls under ([LaCE](https://github.com/orgs/oppia/projects/3/views/8?pane=info), [Contributor Dashboard](https://github.com/orgs/oppia/projects/18/views/4?pane=info) or [Developer Workflow](https://github.com/orgs/oppia/projects/8?pane=info)), so that you can be assigned to it. Once you've written that message, feel free to go ahead and submit a follow-up PR by following the [[instructions for making a PR|Make-a-pull-request]]. You don't need to wait for approval to get started!
 
 **Important Note**: Please make sure to read and follow the [[PR instructions|Make-a-pull-request]] carefully, otherwise your PR review may be delayed or your PR may be closed.
 
@@ -105,7 +105,7 @@ graph TD;
 
 As a new contributor, you won't have any permissions on the repository except to read the code, so you'll need to ask other developers (or Oppiabot) to assign reviewers to your PR or add labels to your issue.
 
-After you've completed parts of at least two different non-trivial starter projects and successfully submitted PRs for them into develop, we'll mail you a collaborator invite link for the Oppia repository. This is a manual process and may take up to 48 hours. Please visit [this link](https://github.com/oppia/oppia/invitations) to accept the invitation to collaborate. We'll also get in touch to suggest suitable longer-term projects based on your interests, but please feel free to email us at admin@oppia.org if you don't receive the email!
+After you've completed parts of at least two different issues and successfully submitted PRs for them into develop, you can fill in [this form](https://forms.gle/NxPjimCMqsSTNUgu5) to become an Oppia collaborator! This will grant you access to the repository, and allow you to join a team of your choice. Once you fill out the form, we'll mail you a collaborator invite link for the Oppia repository -- this is a manual process, and may take up to 48 hours. Please visit [this link](https://github.com/oppia/oppia/invitations) to accept the invitation to collaborate. Feel free to email us at admin@oppia.org if you don't receive the email!
 
 Then you'll be a collaborator with triage access, which lets you assign reviewers and labels. No more asking for reviewers to be assigned! If you continue to make quality contributions, you may be added as a member of the Oppia organization, which grants you write access. Then you'll be able to restart tests, serve as a [code owner](https://docs.github.com/en/articles/about-code-owners), and review pull requests.
 
@@ -117,21 +117,19 @@ If you ever wonder why you don't have permission to perform some action on the O
 
 There are lots of options!
 
-* **Want easy projects?** Check out our [list of "good first issues"](https://github.com/oppia/oppia/labels/good%20first%20issue).
+* **Want easy issues?** Check out our [list of "good first issues"](https://github.com/oppia/oppia/labels/good%20first%20issue).
 
-* **Want projects that matter?** Check out our [list of high-priority issues](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3Aimportant).
+* **Want to join a team working on a larger effort?** See our [list of projects](https://github.com/oppia/oppia/projects).
 
 * **Want to practice debugging?** Check out our [list of issues needing debugging help](https://github.com/oppia/oppia/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20label%3A%22needs%20debugging%22%20).
 
 * **Want to practice writing a design doc?** Check out the [list of issues requiring a design doc](https://github.com/oppia/oppia/labels/needs%20design%20doc). This is useful for learning how to write good "technical implementation" proposals.
 
-* **Want to join a team working on a larger effort?** See our [list of projects](https://github.com/oppia/oppia/projects).
-
 * **Want to lead a project?** Let us know by emailing admin@oppia.org.  We may offer you the opportunity to do this once you've sent in several good PRs.
 
-* **Want help figuring out what to do?** Just ask us on [Gitter](https://gitter.im/oppia/oppia-chat), or send an email to admin@oppia.org. We'll try to help!
+* **Want help figuring out what to do?** Just ask us on [GitHub Discussions](https://github.com/oppia/oppia/discussions), or send an email to admin@oppia.org. We'll try to help!
 
-If an issue hasn't got someone assigned to it, and there's no existing PR for the issue (you can check this by scanning the list of [existing PRs](https://github.com/oppia/oppia/pulls)), feel free to take it up by assigning yourself to it. You don't need to ask permission to do so. Also, if you need help or advice on an issue, you can contact the corresponding team lead, whose GitHub username you can find in the description of the project the issue is assigned to.  You can also find a list of all Oppia teams on the [Projects page](https://github.com/oppia/oppia/projects).
+If an issue hasn't got someone assigned to it, and there's no existing PR for the issue (you can check this by scanning the list of [existing PRs](https://github.com/oppia/oppia/pulls)), feel free to take it up by assigning yourself to it. You don't need to ask permission to do so. Also, if you need help or advice on an issue, you can contact the corresponding team lead, whose GitHub username you can find in the description of the project the issue is assigned to. You can also find a list of all Oppia teams on the [Projects page](https://github.com/oppia/oppia/projects).
 
 ## Tips for Success
 
