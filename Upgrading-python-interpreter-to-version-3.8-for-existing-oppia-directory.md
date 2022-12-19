@@ -1,6 +1,6 @@
 # Upgrading Python interpreter from any version to version 3.8.15
 
-For effective and effortless switching to the newer version, this guide will provide a brief and detailed instruction on how to achieve just that. Please follow the instructions below carefully.
+This guide will walk you through upgrading Python. Please follow the instructions below carefully.
 
 ## Prerequisite
 
