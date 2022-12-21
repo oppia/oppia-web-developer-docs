@@ -169,24 +169,24 @@ For your vitual environment, we recommend you use [pyenv](https://github.com/pye
 
 2. Reload your shell or open a new terminal window to load your updated `~/.bash_profile` or `~/.zshrc`.
 
-3. Install Python 3.8.12:
+3. Install Python 3.8.15:
 
    ```console
-   $ pyenv install 3.8.12
+   $ pyenv install 3.8.15
    Installing openssl-1.1.1k..
-   Installed openssl-1.1.1k to /Users/user/.pyenv/versions/3.8.12
+   Installed openssl-1.1.1k to /Users/user/.pyenv/versions/3.8.15
 
    Installing readline-8.1...
-   Installed readline-8.1 to /Users/user/.pyenv/versions/3.8.12
+   Installed readline-8.1 to /Users/user/.pyenv/versions/3.8.15
 
-   Downloading Python-3.8.12.tar.xz...
-   -> https://www.python.org/ftp/python/3.8.12/Python-3.8.12.tar.xz
-   Installing Python-3.8.12...
+   Downloading Python-3.8.15.tar.xz...
+   -> https://www.python.org/ftp/python/3.8.15/Python-3.8.15.tar.xz
+   Installing Python-3.8.15...
    patching file Misc/NEWS.d/next/Build/2021-10-11-16-27–38.bpo-45405.iSfdw5.rst
    patching file configure
    patching file configure.ac
    python-build: use zlib from xcode sdk
-   Installed Python-3.8.12 to /Users/user/.pyenv/versions/3.8.12
+   Installed Python-3.8.15 to /Users/user/.pyenv/versions/3.8.15
    ```
 
 4. Install Python 2.7.18:
@@ -203,22 +203,22 @@ For your vitual environment, we recommend you use [pyenv](https://github.com/pye
 5. Make both Python 3 and Python 2 available globally on your system:
 
    ```console
-   pyenv global 3.8.12 2.7.18
+   pyenv global 3.8.15 2.7.18
    ```
 
-   Note that you can use a different version of Python 3 if you prefer--we'll specify Python 3.8.12 as our version for Oppia development later.
+   Note that you can use a different version of Python 3 if you prefer--we'll specify Python 3.8.15 as our version for Oppia development later.
 
 5. Create a virtual environment for oppia by making a file `.envrc` in the `opensource/` directory with the following contents:
 
    ```text
-   use python 3.8.12
+   use python 3.8.15
    ```
 
    Then run `direnv allow` in the `opensource/` directory to allow `direnv` to run there. Whenever you are within the `opensource/` directory (or any of its subdirectories, or any of their subdirectories, etc.) the virtual environment will be active. You can confirm this by running:
 
    ```console
    $ which python
-   .../opensource/.direnv/python-3.8.12/bin/python
+   .../opensource/.direnv/python-3.8.15/bin/python
    ```
 
 ## Running Oppia on a development server
@@ -296,9 +296,9 @@ For your vitual environment, we recommend you use [pyenv](https://github.com/pye
 
 
    Traceback (most recent call last):
-     File "/Users/user/.pyenv/versions/3.8.12/lib/python3.8/runpy.py", line 174, in _run_module_as_main
+     File "/Users/user/.pyenv/versions/3.8.15/lib/python3.8/runpy.py", line 174, in _run_module_as_main
        "__main__", fname, loader, pkg_name)
-     File "/Users/user/.pyenv/versions/3.8.12/lib/python3.8/runpy.py", line 72, in _run_code
+     File "/Users/user/.pyenv/versions/3.8.15/lib/python3.8/runpy.py", line 72, in _run_code
        exec code in run_globals
      File "/opensource/oppia/scripts/start.py", line 205, in <module>
        main()
