@@ -51,7 +51,7 @@ If your PR changes the properties of an exploration or state (or other structure
      - core/templates/services/state-top-answers-stats.service.spec.ts
 
 8. Create a PR. If the tests fail, try resolving the test issues.
-9. Once your PR is finalized, file a one off job request for the ExplorationMigrationAuditJob using this [form](https://docs.google.com/forms/d/e/1FAIpQLSfvYWscAn18ok06An1oQ54h1VmBHfCX8uuuV01kIvY9WX0-Ug/viewform). The job tests a migration by running your conversion function on the dicts of existing exploration models and validating that the migration will be successful. It does this without committing the changes to the datastore.
+9. Once your PR is finalized, file a one off job request for the `AuditExplorationMigrationJob` and `MigrateExplorationJob` using this [form](https://docs.google.com/forms/d/e/1FAIpQLSfvYWscAn18ok06An1oQ54h1VmBHfCX8uuuV01kIvY9WX0-Ug/viewform). The job tests a migration by running your conversion function on the dicts of existing exploration models and validating that the migration will be successful. Make sure to mention to only run `MigrateExplorationJob` when the `AuditExplorationMigrationJob` is successfull. The audit job does not commit changes to the datastore.
 10. Fix any issues or errors from the audit job above.
 11. Get your migration PR merged.
 12. Once your PR is merged, please submit a request using this [form](https://docs.google.com/forms/d/e/1FAIpQLSfvYWscAn18ok06An1oQ54h1VmBHfCX8uuuV01kIvY9WX0-Ug/viewform) to run this migration in production. Before submitting this request, please ensure that the migration has already been tested manually on your local machine, passed code review, and been merged into develop.
@@ -61,14 +61,12 @@ If your PR changes the properties of an exploration or state (or other structure
 If you find new test files where changes needed to be required, try updating the list.
 
 **Links to relevant PRs:**
- - Migration related to changing state schema for all possible states: [#6249](https://github.com/oppia/oppia/pull/6249)
-
- - Migration related to changing specific interaction schema: [#6177](https://github.com/oppia/oppia/pull/6177)
- - One-off job related to migration: [#6249](https://github.com/oppia/oppia/pull/6249)
+ - Deprecate math interactions' unsupported rules and update cust arg name: [#15271](https://github.com/oppia/oppia/pull/15271)
+ - Migration related to changing specific interaction schema: [#6177](https://github.com/oppia/oppia/pull/6177). Please note that this PR does not involve changes of ```question_domain``` and ```draft_upgrade_services```.
 
 ## Important note:
 
-- Make sure to add a thorough test for the migration function covering each possible case. Check the PR [#11466](https://github.com/oppia/oppia/pull/11466/files) for reference.
+- Make sure to add a thorough test for the migration function covering each possible case. Check the PR [#11466](https://github.com/oppia/oppia/pull/11466/files) for reference. Please note that while you are writing tests in the `exp_domain_test.py` file you should use `swap` function to swap the CURRENT_STATE_SCHEMA_VERSION to the schema version you are writing, This way in case you have several tests the next person who will write the schema tests do not have to change `states_schema_version` of every test present. We currently do not have any specefic reference to this change, the above PR does not include this as we recently decided to go ahead with this decission. You can always take reference of `swap` function in the codebase to see the usage.
 
 ## Testing state migration locally:
 
@@ -78,10 +76,11 @@ If you find new test files where changes needed to be required, try updating the
 - Create a new exploration, make some changes and save them.
 - Checkout the feature branch which contains state migration.
 - Go to 0.0.0.0:8000 and flush existing Memcache from the Memcache tab.
-- Go to the Misc tab of admin page and flush cache.
-- Go to the Jobs tab of admin page.
-- Run ExplorationMigrationJobManager and wait for the job to get completed.
+- Go to admin page and assign yourself the role of `release coordinator`.
+- Go to the Misc tab of release-coordinator page and flush cache.
+- Run AuditExplorationMigrationJob and wait for the job to get completed. This job will not make any changes to the exploration as this is simply an audit job. We run this job before the actual migration job so that in case anything fails we do not make changes to the datastore.
+- Run MigrateExplorationJob and wait for the job to get completed. This will make changes to exploration.
 - Check the output of the job and post the screen-shot in your PR.
 - Go to the exploration you have created lately, check whether it's working as expected.
 - Check demo exploration (note demo exploration ids are 0, 1, 2, etc.)
-- Add a report in your migration PR. 
+- Add a report in your migration PR.
