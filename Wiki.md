@@ -42,7 +42,7 @@ For your first contribution, you'll need to set up your repository (you only hav
 3. Add the upstream repository as a remote:
 
    ```console
-   git add remote upstream https://github.com/oppia/oppia-web-developer-docs.git
+   git remote add upstream https://github.com/oppia/oppia-web-developer-docs.git
    ```
 
 Then for every new contribution (including your first), you should follow these steps:
