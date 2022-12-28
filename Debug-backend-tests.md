@@ -92,12 +92,12 @@ python -m scripts.run_backend_tests --test_path jobs
 
 ## Complete coverage
 
-For identifying the missing coverage lines run the below command.
+To identify the missing coverage lines run the below command.
 ```console
 python -m scripts.run_backend_tests --generate_coverage_report
 ```
 
-For more understanding about the backend code coverage kindly refer [here](https://github.com/oppia/oppia/wiki/Backend-tests#coverage-reports).
+For more information about the backend code coverage kindly refer [here](https://github.com/oppia/oppia/wiki/Backend-tests#coverage-reports).
 
 ## Increase verbosity
 
