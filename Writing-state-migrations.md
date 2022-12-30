@@ -2,12 +2,11 @@ If your PR changes the properties of an exploration or state (or other structure
 
 ## Steps to follow while writing state migrations
 1. Make the necessary changes to the State class (or its descendant classes) to reflect the post-migration state structure.
-2. Make the necessary changes to the NEW_STATE_TEMPLATE in the constants.js file to reflect the post-migration state dict structure.
-3. Increment the CURRENT_STATE_SCHEMA_VERSION in the feconf.py file.
-4. Increment the CURRENT_EXP_SCHEMA_VERSION in the exp_domain.py file and similar changes in the question_domain.py file.
-5. Start with writing _convert_states_v(old_state_version)_dict_to_v(old_state_version + 1)_dict method in exp_domain.py files under Exploration class and in question_domain.py under Question class. In exp_domain.py, update the ```Exploration._migrate_to_latest_yaml_version``` method to use your conversion function (not required for question_domain.py, this is done automatically).
-6. Write a conversion function _convert_states_v(old_state_version)_dict_to_v(old_state_version + 1)_dict in draft_upgrade_services.py that makes appropriate upgrades to data that resides in ExplorationChange lists.
-7. Changing existing test files (Note: this list is not exhaustive. These files include tests that utilize a full state dictionary, but there are tests not listed here and tests that use a subset of state- like AnswerGroup, Interaction, etc.- that may have to be updated) :
+2. Increment the CURRENT_STATE_SCHEMA_VERSION in the feconf.py file.
+3. Increment the CURRENT_EXP_SCHEMA_VERSION in the exp_domain.py file and similar changes in the question_domain.py file.
+4. Start with writing _convert_states_v(old_state_version)_dict_to_v(old_state_version + 1)_dict method in exp_domain.py files under Exploration class and in question_domain.py under Question class. In exp_domain.py, update the ```Exploration._migrate_to_latest_yaml_version``` method to use your conversion function (not required for question_domain.py, this is done automatically).
+5. Write a conversion function _convert_states_v(old_state_version)_dict_to_v(old_state_version + 1)_dict in draft_upgrade_services.py that makes appropriate upgrades to data that resides in ExplorationChange lists. Here you have to check if the changes from your conversion function can be made to the draft_change_list available. If the changes can be made make sure to update the drafts otherwise raise `InvalidDraftConversionException` which will drop the changes in the drafts. If no changes needs to be done to the draft you can simply return the draft_change_list. You will be able to see examples for this in the previously mentioned functions.
+6. Changing existing test files (Note: this list is not exhaustive. These files include tests that utilize a full state dictionary, but there are tests not listed here and tests that use a subset of state- like AnswerGroup, Interaction, etc.- that may have to be updated) :
    - Change core/tests/data/oppia-ThetitleforZIPdownloadhandlertest!-v2-gold.zip file with the updated schema.
    - Change the dict and yaml form of state in the following files wherever required:
      - core/controllers/editor_test.py
@@ -50,11 +49,11 @@ If your PR changes the properties of an exploration or state (or other structure
      - core/templates/services/state-interaction-stats.service.spec.ts
      - core/templates/services/state-top-answers-stats.service.spec.ts
 
-8. Create a PR. If the tests fail, try resolving the test issues.
-9. Once your PR is finalized, file a one off job request for the `AuditExplorationMigrationJob` and `MigrateExplorationJob` using this [form](https://docs.google.com/forms/d/e/1FAIpQLSfvYWscAn18ok06An1oQ54h1VmBHfCX8uuuV01kIvY9WX0-Ug/viewform). The job tests a migration by running your conversion function on the dicts of existing exploration models and validating that the migration will be successful. Make sure to mention to only run `MigrateExplorationJob` when the `AuditExplorationMigrationJob` is successfull. The audit job does not commit changes to the datastore.
-10. Fix any issues or errors from the audit job above.
-11. Get your migration PR merged.
-12. Once your PR is merged, please submit a request using this [form](https://docs.google.com/forms/d/e/1FAIpQLSfvYWscAn18ok06An1oQ54h1VmBHfCX8uuuV01kIvY9WX0-Ug/viewform) to run this migration in production. Before submitting this request, please ensure that the migration has already been tested manually on your local machine, passed code review, and been merged into develop.
+7. Create a PR. If the tests fail, try resolving the test issues.
+8. Once your PR is finalized, file a one off job request for the `AuditExplorationMigrationJob` and `MigrateExplorationJob` using this [form](https://docs.google.com/forms/d/e/1FAIpQLSfvYWscAn18ok06An1oQ54h1VmBHfCX8uuuV01kIvY9WX0-Ug/viewform). The job tests a migration by running your conversion function on the dicts of existing exploration models and validating that the migration will be successful. Make sure to mention to only run `MigrateExplorationJob` when the `AuditExplorationMigrationJob` is successfull. The audit job does not commit changes to the datastore.
+9. Fix any issues or errors from the audit job above.
+10. Get your migration PR merged.
+11. Once your PR is merged, please submit a request using this [form](https://docs.google.com/forms/d/e/1FAIpQLSfvYWscAn18ok06An1oQ54h1VmBHfCX8uuuV01kIvY9WX0-Ug/viewform) to run this migration in production. Before submitting this request, please ensure that the migration has already been tested manually on your local machine, passed code review, and been merged into develop.
 
 **Note:** These steps are for the migration where one is changing the schema of all existing states, depending on the changes your migration is going to make the steps will be less as you’ll have to change very fewer test files.
 
@@ -62,7 +61,7 @@ If you find new test files where changes needed to be required, try updating the
 
 **Links to relevant PRs:**
  - Deprecate math interactions' unsupported rules and update cust arg name: [#15271](https://github.com/oppia/oppia/pull/15271)
- - Migration related to changing specific interaction schema: [#6177](https://github.com/oppia/oppia/pull/6177). Please note that this PR does not involve changes of ```question_domain``` and ```draft_upgrade_services```.
+ - Add state migration for new customization_arg catchMisspellings: [#16077](https://github.com/oppia/oppia/pull/16077). Please note that in the PR changes are done in several files and those are done according to the requirements.
 
 ## Important note:
 
