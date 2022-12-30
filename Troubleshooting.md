@@ -2,6 +2,12 @@
 
 Here are some general troubleshooting tips for Oppia. The platform specific tips are [[Linux|Troubleshooting#linux]], [[Windows|Troubleshooting#windows]], and [[Mac OS|Troubleshooting#mac-os]].
 
+# Table of Contents  
+
+- [No module named builtins](#no-module-named-builtins)
+- [No Java](#no-java)
+
+
 ### `No module named builtins`
 
 If after running `python -m scripts.start` you get the following lines:
