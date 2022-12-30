@@ -33,7 +33,23 @@ Here are some general troubleshooting tips for Oppia. The platform specific tips
   - [ModuleNotFoundError: No module named _bz2](#modulenotfounderror-no-module-named-_bz2)
 - [Mac OS](#mac-os)
   - [Python 2 is not available](#python-2-is-not-available-1)
-
+  - [Error: alert_on_exit() -> Iterator[None]](#error-alert_on_exit---iteratornone)
+  - [Local datastore data are not being deleted](#local-datastore-data-are-not-being-deleted)
+  - [No module named '_ctypes' on M1 Macs](#no-module-named-_ctypes-on-m1-macs)
+  - [Cannot Import Name _imaging](#cannot-import-name-_imaging)
+  - [Command cc failed with exit status 1](#command-cc-failed-with-exit-status-1)
+  - [GitPython Not Installed](#gitpython-not-installed)
+  - [Install Imaging](#install-imaging)
+  - [No Java Runtime Present](#no-java-runtime-present)
+  - [503 Error when Starting Appengine](#503-error-when-starting-appengine)
+  - [SSL Wrong Version Number](#ssl-wrong-version-number)
+  - [SSL Verification Issues](#ssl-verification-issues)
+  - [Yarn: ESOCKETTIMEDOUT](#yarn-esockettimedout)
+- [Windows](#windows)
+  - [Windows Firewall](#windows-firewall)
+  - [No Such File or Directory /dev/disk/by-id](#no-such-file-or-directory-devdiskby-id)
+  - [If the above doesn't work](#if-the-above-doesnt-work)
+  
 ### `No module named builtins`
 
 If after running `python -m scripts.start` you get the following lines:
