@@ -1,6 +1,6 @@
 ## General
 
-Here are some general troubleshooting tips for Oppia. The platform specific tips are [[Linux|Troubleshooting#linux]], [[Windows|Troubleshooting#windows]], and [[Mac OS|Troubleshooting#mac-os]].
+Here are some general troubleshooting tips for Oppia. The platform specific tips are [Linux](#linux), [Windows](#windows), and [Mac OS](#mac-os).
 
 # Table of Contents  
 
@@ -49,7 +49,7 @@ Here are some general troubleshooting tips for Oppia. The platform specific tips
   - [Windows Firewall](#windows-firewall)
   - [No Such File or Directory /dev/disk/by-id](#no-such-file-or-directory-devdiskby-id)
   - [If the above doesn't work](#if-the-above-doesnt-work)
-  
+
 ### `No module named builtins`
 
 If after running `python -m scripts.start` you get the following lines:
