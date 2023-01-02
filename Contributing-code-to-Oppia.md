@@ -25,9 +25,11 @@ If you run into any problems along the way, we're here to help! Check out our [[
 
 2. Fill in the [Oppia contributor survey](https://goo.gl/forms/otv30JV3Ihv0dT3C3) to let us know what your interests are. (You can always change your responses later.)
 
-3. Install Oppia following the [[installation instructions|Installing-Oppia]]. If you run into any issues, please check out the [[troubleshooting instructions|Troubleshooting]]. If you want help setting up a code editor, also check out our [[guide to common IDEs|Tips-for-common-IDEs]]. If the above resources don't help and you're still stuck, please check [GitHub Discussions](https://github.com/oppia/oppia/discussions/categories/q-a-installation) to see if any existing threads address the issue. If not, feel free to start a new thread explaining what you've tried and what you're seeing, so that we can try and help you!
+3. Say hi and introduce yourself on [GitHub Discussions](https://github.com/oppia/oppia/discussions/16715)!
 
-4. Update your GitHub settings:
+4. Install Oppia following the [[installation instructions|Installing-Oppia]]. If you run into any issues, please check out the [[troubleshooting instructions|Troubleshooting]]. If you want help setting up a code editor, also check out our [[guide to common IDEs|Tips-for-common-IDEs]]. If the above resources don't help and you're still stuck, please check [GitHub Discussions](https://github.com/oppia/oppia/discussions/categories/q-a-installation) to see if any existing threads address the issue. If not, feel free to start a new thread explaining what you've tried and what you're seeing, so that we can try and help you!
+
+5. Update your GitHub settings:
 
    * [Set up 2FA]( https://help.github.com/articles/securing-your-account-with-two-factor-authentication-2fa/) on your GitHub account. **This is important to prevent people from impersonating you.**
 
@@ -37,19 +39,17 @@ If you run into any problems along the way, we're here to help! Check out our [[
 
    * (Optional) Consider setting up [automatic auth](https://help.github.com/articles/caching-your-github-password-in-git/) so you don't have to type in a username and password each time you push a change. Note that this isn't an issue if you use SSH.
 
-5. On your browser, consider bookmarking the [[guide to making pull requests|Make-a-pull-request]] for easy reference later, as well as the ["my issues" page](https://github.com/issues/assigned) (so that you can keep track of the issues assigned to you).
-
 6. Familiarize yourself with the resources linked to from the sidebar of this page, especially the [[overview of the codebase|Overview-of-the-Oppia-codebase]], the [[coding style guide|Coding-style-guide]], and the [[Frequently Asked Questions|Frequently-Asked-Questions]]. You don't have to read all the other stuff right now, but it's a good idea to be aware of what's available, so that you can refer to it later if needed.
 
-7. Say hi and introduce yourself on [GitHub Discussions](https://github.com/oppia/oppia/discussions/16715)!
+7. Take up your first Oppia starter issue! (See [below](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#finding-something-to-do) on how to do this.) Make sure to read and follow the [[PR instructions|Make-a-pull-request]] closely so that your PR review proceeds smoothly.
 
-8. Take up your first Oppia issue (probably from the list of [good first issues](https://github.com/oppia/oppia/labels/good%20first%20issue))! You can find more details below. (Make sure to read and follow the [[PR instructions|Make-a-pull-request]] closely so that your PR review proceeds smoothly.)
+    * In your browser, consider bookmarking the [[guide to making pull requests|Make-a-pull-request]] for easy reference later, as well as the ["my issues" page](https://github.com/issues/assigned) (so that you can keep track of the issues assigned to you).
 
     * Facing any problems (including non-coding ones)? Please feel free to create a [GitHub Discussion](https://github.com/oppia/oppia/discussions) and get help from the Oppia community. You can use this avenue for asking anything -- questions about any issue, who to contact for specific things, etc.
 
-    * We also have onboarding mentors who would be more than happy to help you take your first steps in open source. If you like, you can apply for a mentor [here](https://forms.gle/udsRP4WQgLcez9Zm8).
+    * We also have onboarding mentors who would be more than happy to help you take your first steps in open source. If you'd like individual support, feel free to request a mentor [using this form](https://forms.gle/udsRP4WQgLcez9Zm8).
 
-9. When you have merged PRs that correspond to two different pre-existing GitHub issues, please fill in [this form](https://forms.gle/NxPjimCMqsSTNUgu5) to become an Oppia collaborator! This will grant you access to the repository, and allow you to join a team. (But please don't create your own issues and then make PRs for them -- that won't count.)
+8. When you have merged PRs that correspond to two different pre-existing GitHub issues, please fill in [this form](https://forms.gle/NxPjimCMqsSTNUgu5) to become an Oppia collaborator! This will grant you access to the repository, and allow you to join a team. (But please don't create your own issues and then make PRs for them -- that won't count.)
 
 ## Developing your skills
 
@@ -61,37 +61,27 @@ We also **strongly recommend** looking through the resources under "Developing O
 
 ### Good first issues for new contributors
 
-Welcome! Please make sure to follow the instructions above if you haven't already. After that, we'd **strongly recommend** tackling some part of one of the following good first issues:
+Welcome! Please make sure to follow the instructions above if you haven't already.
 
-#### Backend
+After that, you can choose a good first issue from the [list of good first issues](https://github.com/oppia/oppia/labels/good%20first%20issue). These issues are hand-picked to ensure that you don't run into unexpected roadblocks while working on them, and each of them should have clear instructions for new contributors. If you see one that doesn't, please let us know via [GitHub Discussions](https://github.com/oppia/oppia/discussions) and we'll fix it. For other issues, you might need to be more independent because we might not know how to solve them either.
 
-* [#13162](https://github.com/oppia/oppia/issues/13162) (Write schemas for handler class arguments)
+You can also browse good first issues for each of the core Oppia Web teams to find something you'd enjoy working on:
 
-* [#12912](https://github.com/oppia/oppia/issues/12912) (Fix pylint problems)
+- Learner and Creator Experience (typically frontend or full-stack): https://github.com/orgs/oppia/projects/3/views/10
+- Contributor Dashboard (typically full-stack): https://github.com/orgs/oppia/projects/18/views/5
+- Developer Workflow (typically backend or frontend): https://github.com/orgs/oppia/projects/8/views/10
 
-* [#14219](https://github.com/oppia/oppia/issues/14219) (Increase per-file backend test coverage)
+### Choosing a good first issue
 
-#### Frontend
+When you've found a good first issue you'd like to tackle, please leave a comment on it that:
 
-* [#8015](https://github.com/oppia/oppia/issues/8015) (Refactoring frontend - Services should return domain objects instead of dicts)
+- (a) @-mentions the lead(s) of the corresponding project that the issue falls under ([LaCE](https://github.com/orgs/oppia/projects/3/views/8?pane=info), [Contributor Dashboard](https://github.com/orgs/oppia/projects/18/views/4?pane=info) or [Developer Workflow](https://github.com/orgs/oppia/projects/8?pane=info)), letting them know you'd like to work on it.
+- (b) says which part of the issue you're taking, if the issue is divided into subparts, and
+- (c) describes in more detail how you'd tackle the issue (e.g. explain which file(s) you would modify and what changes you would make). If your explanation makes sense, we'll likely assign the issue to you.
 
-* [#8016](https://github.com/oppia/oppia/issues/8016) (Refactoring frontend - The backend api calls in the frontend should only happen through services)
+Once you've written that comment, feel free to go ahead and submit a PR for it by following the [[instructions for making a PR|Make-a-pull-request]]. You don't need to wait for approval to get started! If you run into any issues, feel free to create a [GitHub Discussion](https://github.com/oppia/oppia/discussions) and get help from the Oppia community, or [request a mentor](https://forms.gle/udsRP4WQgLcez9Zm8) if you'd like individual support.
 
-* [#8038](https://github.com/oppia/oppia/issues/8038) (Refactoring frontend services - The backend api calls in the frontend should only happen through services)
-
-* [#10700](https://github.com/oppia/oppia/issues/10700) (Refactor all migrated object factories to model.ts files in angular)
-
-* [#8668](https://github.com/oppia/oppia/issues/8668) (Documenting the services)
-
-* [#10474](https://github.com/oppia/oppia/issues/10474) (Make typescript checks strict)
-
-* [#10616](https://github.com/oppia/oppia/issues/10616) (Introduce new @typescript-eslint rules in the codebase)
-
-These issues are hand-picked to ensure that you don't run into unexpected roadblocks while working on them. For other issues, you may need to be more independent because often times, we don’t know how to solve them either.
-
-If you decide to pick one of these, please go ahead and leave a comment that (a) says which part of the issue you're taking, and (b) describes how you would tackle the issue if there aren't instructions provided already (e.g. explain which file(s) you would modify and what changes you would make). Then, @-mention the lead(s) of the corresponding project that the issue falls under ([LaCE](https://github.com/orgs/oppia/projects/3/views/8?pane=info), [Contributor Dashboard](https://github.com/orgs/oppia/projects/18/views/4?pane=info) or [Developer Workflow](https://github.com/orgs/oppia/projects/8?pane=info)), so that you can be assigned to it. Once you've written that message, feel free to go ahead and submit a follow-up PR by following the [[instructions for making a PR|Make-a-pull-request]]. You don't need to wait for approval to get started!
-
-**Important Note**: Please make sure to read and follow the [[PR instructions|Make-a-pull-request]] carefully, otherwise your PR review may be delayed or your PR may be closed.
+**Important Note**: Please follow the [[PR instructions|Make-a-pull-request]] carefully! Otherwise your PR review may be delayed or your PR may be closed.
 
 
 ### Contributor Roles
