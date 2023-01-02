@@ -67,17 +67,17 @@ After that, you can choose a good first issue from the [list of good first issue
 
 You can also browse good first issues for each of the core Oppia Web teams to find something you'd enjoy working on:
 
-- Learner and Creator Experience (typically frontend or full-stack): https://github.com/orgs/oppia/projects/3/views/10
-- Contributor Dashboard (typically full-stack): https://github.com/orgs/oppia/projects/18/views/5
-- Developer Workflow (typically backend or frontend): https://github.com/orgs/oppia/projects/8/views/10
+- Learner and Creator Experience (LaCE): https://github.com/orgs/oppia/projects/3/views/10, typically frontend or full-stack
+- Contributor Dashboard: https://github.com/orgs/oppia/projects/18/views/5, typically full-stack
+- Developer Workflow: https://github.com/orgs/oppia/projects/8/views/10, typically backend or frontend
 
 ### Choosing a good first issue
 
 When you've found a good first issue you'd like to tackle, please leave a comment on it that:
 
-- (a) @-mentions the lead(s) of the corresponding project that the issue falls under ([LaCE](https://github.com/orgs/oppia/projects/3/views/8?pane=info), [Contributor Dashboard](https://github.com/orgs/oppia/projects/18/views/4?pane=info) or [Developer Workflow](https://github.com/orgs/oppia/projects/8?pane=info)), letting them know you'd like to work on it.
-- (b) says which part of the issue you're taking, if the issue is divided into subparts, and
-- (c) describes in more detail how you'd tackle the issue (e.g. explain which file(s) you would modify and what changes you would make). If your explanation makes sense, we'll likely assign the issue to you.
+- @-mentions the lead(s) of the corresponding project that the issue falls under (see details for [LaCE](https://github.com/orgs/oppia/projects/3/views/8?pane=info), [Contributor Dashboard](https://github.com/orgs/oppia/projects/18/views/4?pane=info) or [Developer Workflow](https://github.com/orgs/oppia/projects/8?pane=info)), letting them know you'd like to work on it.
+- says which part of the issue you're taking, if the issue is divided into subparts, and
+- describes in more detail how you'd tackle the issue (e.g. explain which file(s) you would modify and what changes you would make). If your explanation makes sense, we'll assign the issue to you.
 
 Once you've written that comment, feel free to go ahead and submit a PR for it by following the [[instructions for making a PR|Make-a-pull-request]]. You don't need to wait for approval to get started! If you run into any issues, feel free to create a [GitHub Discussion](https://github.com/oppia/oppia/discussions) and get help from the Oppia community, or [request a mentor](https://forms.gle/udsRP4WQgLcez9Zm8) if you'd like individual support.
 
