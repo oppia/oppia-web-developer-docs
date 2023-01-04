@@ -18,3 +18,4 @@ jobs:
             Apache-Beam-Jobs.md
             Coding-style-guide.md
             Contributing-code-to-Oppia.md
+            Developing-new-features-with-feature-gating.md
