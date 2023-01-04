@@ -29,3 +29,4 @@ jobs:
             Get-help.md
             Angular-Migration.md
             Google-Summer-of-Code-2016.md
+            Debug-frontend-tests.md
