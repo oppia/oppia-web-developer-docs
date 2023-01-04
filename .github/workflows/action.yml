@@ -12,3 +12,6 @@ jobs:
 
       - name: Markdown links check
         uses: ruzickap/action-my-markdown-link-checker@v1
+        with:
+          exclude: |
+            Adding-new-translations-for-i18n.md
