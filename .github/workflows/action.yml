@@ -16,3 +16,4 @@ jobs:
           exclude: |
             Adding-new-translations-for-i18n.md
             Apache-Beam-Jobs.md
+            Coding-style-guide.md
