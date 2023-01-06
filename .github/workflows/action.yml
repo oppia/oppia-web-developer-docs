@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Markdown links check
-        uses: ruzickap/action-my-markdown-link-checker@v1
+        uses: ruzickap/action-my-markdown-link-checker@v1.1.0
         with:
           exclude: |
             Adding-new-translations-for-i18n.md
@@ -38,10 +38,6 @@ jobs:
             Hacktoberfest-2017.md
             How-to-access-Oppia-webpages.md
             How-to-develop-for-i18n.md
-            I*
-            L*
-            M*
-            M*
             O*
             P*
             R*
