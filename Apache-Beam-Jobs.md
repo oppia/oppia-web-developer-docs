@@ -24,6 +24,7 @@
   * [Production Server](#production-server)
 * [Beam guidelines](#beam-guidelines)
   * [Do not use NDB put/get/delete directly](#do-not-use-ndb-putgetdelete-directly)
+  * [Use `get_package_file_contents` for accessing files](#use-get_package_file_contents-for-accessing-files)
 * [Common Beam errors](#common-beam-errors)
   * [`'_UnwindowedValues' object is not subscriptable` error](#_unwindowedvalues-object-is-not-subscriptable-error)
   * [`_namedptransform is not iterable` error](#_namedptransform-is-not-iterable-error)
