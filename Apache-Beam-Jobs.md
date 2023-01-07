@@ -644,7 +644,7 @@ All of the aforementioned classes are already used in the codebase so you can lo
 
 If you need to access a file in a Beam job, please use `get_package_file_contents` (from _core/constants.py_) instead of `open` or `open_file` (from _core/utils.py_). Also, make sure that the file is included in the _assets_ folder or is listed in _MANIFEST.in_ explicitly.
 
-### Example
+#### Example
 
 When we have a function that is used in a Beam pipeline, like:
 
