@@ -1,0 +1,8 @@
+  "httpHeaders": [
+    {
+      "urls": ["https://github.com/"],
+      "headers": {
+        "Accept-Encoding": "zstd, br, gzip, deflate"
+      }
+    }
+  ]
