@@ -1,3 +1,9 @@
+{
+  "ignorePatterns": [
+    {
+      "pattern": "http://localhost:8181/*"
+    }
+  ],
   "httpHeaders": [
     {
       "urls": ["https://github.com/"],
@@ -6,3 +12,4 @@
       }
     }
   ]
+}
