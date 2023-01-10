@@ -24,6 +24,7 @@
   * [Production Server](#production-server)
 * [Beam guidelines](#beam-guidelines)
   * [Do not use NDB put/get/delete directly](#do-not-use-ndb-putgetdelete-directly)
+  * [Use `get_package_file_contents` for accessing files](#use-get_package_file_contents-for-accessing-files)
 * [Common Beam errors](#common-beam-errors)
   * [`'_UnwindowedValues' object is not subscriptable` error](#_unwindowedvalues-object-is-not-subscriptable-error)
   * [`_namedptransform is not iterable` error](#_namedptransform-is-not-iterable-error)
@@ -638,6 +639,31 @@ Even though it is possible to use NDB functions directly, they should not be use
 - Instead of using `delete`, `delete_multi`, etc. you should use `DeleteModels`, and you just pipe a `PCollection` of models to it and they will be deleted from the datastore.
 
 All of the aforementioned classes are already used in the codebase so you can look for examples.
+
+### Use `get_package_file_contents` for accessing files
+
+If you need to access a file in a Beam job, please use `get_package_file_contents` (from _core/constants.py_) instead of `open` or `open_file` (from _core/utils.py_). Also, make sure that the file is included in the _assets_ folder or is listed in _MANIFEST.in_ explicitly.
+
+#### Example
+
+When we have a function that is used in a Beam pipeline, like:
+
+```python
+@staticmethod
+def function_used_in_beam_pipeline():
+    file = utils.open_file('assets/images/about/cc.svg', 'rb')
+    return file.read()
+```
+
+it needs to be replaced with something like:
+
+```python
+@staticmethod
+def function_used_in_beam_pipeline():
+    return constants.get_package_file_contents(
+        'assets', 'images/about/cc.svg', binary_mode=True
+    )
+```
 
 ## Common Beam errors
 
