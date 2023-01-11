@@ -232,7 +232,7 @@ Here's some advice about proposals and milestone timeline planning that we colla
 
 ### Sample proposals from past years
 
-If you'd like to get a sense of what a proposal might contain, please see our [GSoC 2022 page](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2022) for examples of proposals that we accepted in 2022. However, please note that the [GSoC Proposal Template](#gsoc-proposal-template) has been completely revamped for 2023, so please be sure to follow the 2023 template.
+If you'd like to get a sense of what a proposal might contain, please see our [GSoC 2022 page](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2022) for examples of proposals that we accepted in 2022. However, please note that the [GSoC Proposal Template](#gsoc-proposal-template) has been slightly updated for 2023, so please be sure to follow the 2023 template.
 
 **Note:** although some of the previous years' proposals are a bit on the long side, there's **no** formal length requirement for your proposal. The quality of what you write is much more important than the amount of text you write, and we encourage you to write shorter proposals that still convey the main aim of the project.
 
