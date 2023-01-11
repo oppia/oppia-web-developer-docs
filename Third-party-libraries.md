@@ -148,7 +148,7 @@ We download and install the Redis CLI and Elasticsearch development server. We p
 
 ### `install_backend_python_libs.py`
 
-This script uses pip to install the Python dependencies we need in production to `third_party/python_libs`. We define these dependencies using `requirements.in`, which lists the libraries we depend on directly. Then `install_backend_python_libs.py` runs `scripts.regenerate_requirements` to generate `requirements.txt`, which lists those direct dependencies, plus all the packages that our direct dependencies need, and so on. Both `requirements.in` and `requirements.txt` specify versions, so `requirements.txt` is analogous to `yarn.lock` in that it pins all the versions of all the Python packages we use in production.
+This script uses pip to install the Python dependencies we need in production to `third_party/python_libs`. We define these dependencies using `requirements.in`, which lists the libraries we depend on directly. Then `install_backend_python_libs.py` generates `requirements.txt`, which lists those direct dependencies, plus all the packages that our direct dependencies need, and so on. Both `requirements.in` and `requirements.txt` specify versions, so `requirements.txt` is analogous to `yarn.lock` in that it pins all the versions of all the Python packages we use in production.
 
 ## Upgrade dependencies
 
