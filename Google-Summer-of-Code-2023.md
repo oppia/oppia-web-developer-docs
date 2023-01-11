@@ -16,7 +16,7 @@ This year, Oppia will be participating in [Google Summer of Code 2023](https://s
 
 In order to receive updates about GSoC at Oppia, please subscribe to the [Oppia GSoC Announce](https://groups.google.com/g/oppia-gsoc-announce) mailing list.
 
-Oppia will be giving an automatic extension to all the projects i.e, all the projects will have 8 weeks for the first milestone and 8 week for the second milestone.
+Oppia will be giving an automatic extension to all the projects i.e, all the projects will have 8 weeks (6 weeks for coding and 2 weeks for revision after evaluation) for both milestones. The coding period dates are strict and intended to balance offering flexibility to contributors with the need on the org admin side to have a streamlined process and a more time-bounded GSoC period.
 Therefore, there will not be any additional extensions. Please refer to the [Dates and Deadlines](#dates-and-deadlines) section below.
 
 Also, please note that acceptance into GSoC isn't a prerequisite for becoming an Oppia contributor. The Oppia project is run by the community for the community, and we warmly welcome anyone who'd like to help out! You can get started by following the instructions [here](https://github.com/oppia/oppia/wiki).
@@ -121,8 +121,15 @@ Noteworthy dates for 2023 ([Full Timeline](https://developers.google.com/open-so
 - **Mar 20 - Apr 4**: GSoC contributor application period
 - **May 4**: Accepted GSoC contributors are announced
 - **May 4 - May 28**: Community bonding period
-- **May 29 - Nov 6**: GSoC contributors enjoy the summer by contributing code to their projects
-- **Nov 13**: GSoC officially ends
+- **May 29 - Jul 14**: Milestone 1 work period for GSoC contributors
+- **Jul 15 - Jul 16**: External evaluation for M1
+- **Jul 17 - Jul 26**: GSoC contributors can revise M1 according based on th evaluation
+- **Jul 31 - Sep 15**: Milestone 2 work period for GSoC contributors
+- **Sep 16 - Sep 17**: External evaluation for M2
+- **Sep 18 - Sep 27**: GSoC contributors can revise M2 according based on th evaluation
+- **Oct 6**: GSoC officially ends
+
+**Note!** The coding period dates are strict and intended to balance offering flexibility to contributors with the need on the org admin side to have a streamlined process and a more time-bounded GSoC period.
 
 ## Types of work related to Oppia projects
 
