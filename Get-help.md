@@ -60,7 +60,7 @@ At Oppia we don’t care how silly your question is! Just ensure your question i
 
 2. Make sure each step succeeds (verify it with the expected behavior if mentioned in the wiki).
 
-3. In case of any unexpected behavior/errors at any step, make sure you check out our wiki on [how to troubleshoot when you are facing installation errors](https://github.com/oppia/oppia/wiki/Issues-with-installation%3F#when-you-encounter-an-installation-error).
+3. In case of any unexpected behavior/errors at any step, make sure you check out our wiki on [how to troubleshoot when you are facing installation errors](https://github.com/oppia/oppia/wiki/Issues-with-installation#when-you-encounter-an-installation-error).
 
 If you are still not able to fix your error, start following the section below to raise your question on [GitHub Discussions](https://github.com/oppia/oppia/discussions/categories/setup-issues).
 
