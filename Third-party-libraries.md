@@ -62,21 +62,21 @@ When you run `python -m scripts.start`, a chain of scripts installs and/or upgra
                |
                | calls install_third_party_libs.main() when start.py is executed or imported
                v
-  +-----------------------------+
-  | install_third_party_libs.py |
-  +-----------------------------+
-               |
+  +-----------------------------+ calls install_python_dev_dependencies.main() when executed or imported
+  | install_third_party_libs.py |     +------------------------------------+
+  +-----------------------------+ --> | install_python_dev_dependencies.py |
+               |                      +------------------------------------+
                | main() calls install_third_party.main()
                v
     +------------------------+
     | install_third_party.py |
     +------------------------+
                |
-               | main() calls install_backend_python_libs.main()
+               | main() calls install_python_prod_dependencies.main()
                v
-+--------------------------------+
-| install_backend_python_libs.py |
-+--------------------------------+
++-------------------------------------+
+| install_python_prod_dependencies.py |
++-------------------------------------+
 ```
 
 We'll look at each of these scripts below.
@@ -89,16 +89,7 @@ When you start a development server, you execute `scripts/start.py`. This file d
 
 #### Python packages
 
-Whenever `install_third_party_libs.py` is executed or imported, it installs some Python packages that are needed early by the installation process. Some are installed to `oppia_tools/`, and other are installed to `third_party/python_libs/`.
-
-When `install_third_party_libs.main()` runs, it installs additional Python packages:
-
-* Packages that need to be available on the system `PATH` are installed "globally" using pip (in practice these are installed into your virtual environment).
-* Other packages are installed to `oppia_tools/`.
-
-All of these Python packages are listed directly in the `install_third_party_libs.py` file.
-
-For all the Python packages installed by this script, the version of the package is pinned (i.e. we always install the same version, even if a newer version is available). However, the dependencies of that package may not have pinned versions. For example, we depend on `pip-tools`, which in turn depends on `pip`. The `setup.py` in `pip-tools` does not specify a particular version of `pip` that it requires, so when we install `pip-tools`, we will install the latest version of `pip`. This can lead to test failures when a breaking change in `pip` is released.
+Whenever `install_third_party_libs.py` is executed or imported, it calls `install_python_dev_dependencies.main()` to install Python development dependencies to the active virtual environment. These dependencies are listed in `requirements_dev.txt`, which `install_python_dev_dependencies.py` asserts matches what would be produced by compiling `requirements_dev.in`. If this assertion fails, the script goes ahead and does the compilation but then fails to make sure you commit the updated `requirements_dev.txt` file.
 
 #### Node modules
 
@@ -175,17 +166,12 @@ Note that we don't have an automatic way to detect outdated backend dependencies
 A production library (these are listed in `requirements.in`) can be upgraded as follows:
 
 1. Update the library's version number in `requirements.in`.
-2. Run `scripts/regenerate_requirements.py` to update `requirements.txt` based on the new `requirements.in`.
+2. Run `scripts/start.py` to update `requirements.txt` based on the new `requirements.in`.
 
 #### Upgrade development, backend libraries
 
-A development library installed using pip can be upgraded by changing the version specified in our `scripts/install_third_party_libs.py` script. Versions are specified in one of the following places:
-
-* The `PREREQUISITES` constant.
-* The `local_pip_dependencies` variable.
-* The `system_pip_dependencies` variable.
-
-Note that for some of these locations, a constant from `scripts/common.py` may be used to specify the version.
+1. Update the library's version number in `requirements_dev.in`.
+2. Run `scripts/start.py` to update `requirements_dev.txt` based on the new `requirements_dev.in`.
 
 Backend libraries that are not installed using pip also have their versions specified in `install_third_party_libs.py`, but they use custom code for each library. You should read the code to find the section for your library.
 
@@ -233,13 +219,12 @@ Note that if a library is needed both for development and in production, then it
 Here's how to add a backend, production library that can be installed from pip:
 
 1. Add the library to `requirements.in` in the form `<package-name>==<version>`.
-2. Generate `requirements.txt` from `requirements.in` by running `scripts/regenerate_requirements.py`.
+2. Generate `requirements.txt` from `requirements.in` by running `scripts/start.py`.
 
 #### Add a backend, development library from pip
 
-To add a backend, development library that can be installed from pip, first figure out whether the library is needed before running or importing any script. The libraries needed this early are usually only those required by the installation scripts. If the answer is yes, add it to the `PREREQUISITES` constant in `scripts/install_third_party_libs.py`. Otherwise, add it to the `local_pip_dependencies` variable in `scripts/install_third_party_libs.py`.
-
-If you aren't sure whether a library is needed before running or importing any script, you can guess that the answer is "no" and follow the above instructions accordingly. Then try running `python -m scripts.start` and see if there are any errors. If there are, then the answer is actually "yes." Otherwise, your guess was correct and the answer is "no."
+1. Add the library to `requirements_dev.in` in the form `<package-name>==<version>`.
+2. Generate `requirements_dev.txt` from `requirements_dev.in` by running `scripts/start.py`.
 
 #### Add a library that cannot be installed from pip
 
