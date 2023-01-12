@@ -16,7 +16,7 @@ This year, Oppia will be participating in [Google Summer of Code 2023](https://s
 
 In order to receive updates about GSoC at Oppia, please subscribe to the [Oppia GSoC Announce](https://groups.google.com/g/oppia-gsoc-announce) mailing list.
 
-Oppia will be giving an automatic extension to all the projects i.e, all the projects will have 8 weeks for each milestone, with an internal evaluation after 6 weeks for both milestones. The coding period dates are strict and intended to balance offering flexibility to contributors with the need on the org admin side to have a streamlined process and a more time-bounded GSoC period. Contributors may opt for a shorter timeline if desired.
+Oppia will be giving an automatic extension to all the projects i.e, all the projects will have 8 weeks for each milestone, with an internal evaluation after 6 weeks. The coding period dates are strict and intended to balance offering flexibility to contributors with the need on the org admin side to have a streamlined process and a more time-bounded GSoC period. Contributors may opt for a shorter timeline if desired.
 Therefore, there will not be any additional extensions. Please refer to the [Dates and Deadlines](#dates-and-deadlines) section below.
 
 Also, please note that acceptance into GSoC isn't a prerequisite for becoming an Oppia contributor. The Oppia project is run by the community for the community, and we warmly welcome anyone who'd like to help out! You can get started by following the instructions [here](https://github.com/oppia/oppia/wiki).
