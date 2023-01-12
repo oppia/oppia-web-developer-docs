@@ -16,7 +16,7 @@ This year, Oppia will be participating in [Google Summer of Code 2023](https://s
 
 In order to receive updates about GSoC at Oppia, please subscribe to the [Oppia GSoC Announce](https://groups.google.com/g/oppia-gsoc-announce) mailing list.
 
-Oppia will be giving an automatic extension to all the projects i.e, all the projects will have 8 weeks (6 weeks for coding and 2 weeks for revision after evaluation) for both milestones. The coding period dates are strict and intended to balance offering flexibility to contributors with the need on the org admin side to have a streamlined process and a more time-bounded GSoC period.
+Oppia will be giving an automatic extension to all the projects i.e, all the projects will have 8 weeks for each milestone, with an internal evaluation after 6 weeks for both milestones. The coding period dates are strict and intended to balance offering flexibility to contributors with the need on the org admin side to have a streamlined process and a more time-bounded GSoC period. Contributors may opt for a shorter timeline if desired.
 Therefore, there will not be any additional extensions. Please refer to the [Dates and Deadlines](#dates-and-deadlines) section below.
 
 Also, please note that acceptance into GSoC isn't a prerequisite for becoming an Oppia contributor. The Oppia project is run by the community for the community, and we warmly welcome anyone who'd like to help out! You can get started by following the instructions [here](https://github.com/oppia/oppia/wiki).
@@ -110,8 +110,16 @@ A: This probably depends on the project(s) you wish to apply for. However, note 
 
 **Q: The [Google GSoC FAQ](https://developers.google.com/open-source/gsoc/faq#can_someone_already_participating_in_open_source_be_a_gsoc_contributor) mentions that the program is only for new contributors. I have already contributed to Oppia and I have write access. Can I still participate?**
 
-A: The GSoC program is open to new and beginner contributors to open source and to students. Some of our contributors with write access are still beginner contributors, whereas some of our other contributors with write access will not qualify because they are experienced contributors. If you have only recently received write access, or have been contributing to Oppia for less than a year, you are probably still a beginner contributor. If the previous sentence does not apply to you, and you want to know which group you fall into, please contact **@srijanreddy98**, @U8NWXD or **@aasiffaizal** for a decision.
+A: The GSoC program is open to new and beginner contributors to open source and to students. Some of our contributors with write access are still beginner contributors, whereas some of our other contributors with write access will not qualify because they are experienced contributors. If you have only recently received write access, or have been contributing to Oppia for less than a year, you are probably still a beginner contributor. If the previous sentence does not apply to you, and you want to know which group you fall into, please contact **@srijanreddy98**, **@U8NWXD** or **@aasiffaizal** for a decision.
 
+**Q: I'd love to contribute to open source, but I'm not sure I have enough time during the summer to do a GSoC project. Can I still help out?**
+
+A: Yes, GSoC might not be the best choice if you don't have enough time during the summer. However, you can start contributing to Oppia by following the instruction in the contributors' guide carefully ([Oppia Web](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up), [Oppia Android](https://github.com/oppia/oppia-android/wiki/Contributing-to-Oppia-android)).
+
+**Q: Why doesn't Oppia provide difficulty levels for projects?**
+
+A: Difficulty can vary from person to person depending on the skills required which is why we list all the prerequisite skills of each project.
+ 
 ## Dates and Deadlines
 
 Noteworthy dates for 2023 ([Full Timeline](https://developers.google.com/open-source/gsoc/timeline)):
@@ -122,12 +130,12 @@ Noteworthy dates for 2023 ([Full Timeline](https://developers.google.com/open-so
 - **May 4**: Accepted GSoC contributors are announced
 - **May 4 - May 28**: Community bonding period
 - **May 29 - Jul 14**: Milestone 1 work period for GSoC contributors
-- **Jul 15 - Jul 16**: External evaluation for M1
-- **Jul 17 - Jul 26**: GSoC contributors can revise M1 according based on th evaluation
+- **Jul 15 - Jul 16**: Internal evaluation for M1
+- **Jul 17 - Jul 26**: Optional buffer period for M1 revisions
 - **Jul 31 - Sep 15**: Milestone 2 work period for GSoC contributors
-- **Sep 16 - Sep 17**: External evaluation for M2
-- **Sep 18 - Sep 27**: GSoC contributors can revise M2 according based on th evaluation
-- **Oct 6**: GSoC officially ends
+- **Sep 16 - Sep 17**: Internal evaluation for M2
+- **Sep 18 - Sep 27**: Optional buffer period for M2 revisions
+- **Oct 6**: GSoC period at Oppia officially ends
 
 **Note!** The coding period dates are strict and intended to balance offering flexibility to contributors with the need on the org admin side to have a streamlined process and a more time-bounded GSoC period.
 
