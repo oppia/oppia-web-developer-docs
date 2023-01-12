@@ -9,7 +9,7 @@ The [contributor dashboard page](https://www.oppia.org/contributor-dashboard) on
 Every list item on the "Translate Text" tab corresponds to a particular lesson and all of its pieces of text content. In the codebase, we refer to each of these list items as _opportunities_. The contributor dashboard automatically shows a translation opportunity for a lesson when the following are true:
 
 1. The lesson (also called an _exploration_) corresponds to a _chapter_ in a _story_ of a published classroom subject, e.g. "Decimals" (also called a _topic_). See the [user docs](https://oppia-user-guide.readthedocs.io/en/latest/keyconcepts.html) for an overview of these terms.
-1. Every piece of text content in the lesson does not yet have an accepted translation.
+1. There is at least one piece of text content in the lesson that does not yet have an accepted translation.
 
 ### Submit question tab
 Every list item on the "Submit Question" tab corresponds to a particular _skill_, e.g. "Adding Decimals", in a topic. The contributor dashboard automatically shows a question opportunity for a skill when the following are true:
@@ -40,5 +40,42 @@ See [this](https://docs.google.com/document/d/1VqNiJttq85YyR6cQkd8M9lGGkOP8OlUlk
 ## Local development
 Some setup is usually required when developing locally for the contributor dashboard since before a user can submit a content suggestion to a lesson, a lesson needs to exist. Additionally, the requirements outlined in [How items for contribution are populated](#how-items-for-contribution-are-populated) must be satisfied. See [this](https://docs.google.com/document/d/1JYX4nvTcblaVVYAlTi7rApE0lWSBx0v_ZCCr_8WW4Wc/edit#) doc for step-by-step instructions on how to populate test data when running a local server.
 
+## Code pointers
+
+### Frontend
+- [core/templates/pages/contributor-dashboard-page/](https://github.com/oppia/oppia/tree/develop/core/templates/pages/contributor-dashboard-page): Main directory of Angular components, frontend services, HTML, CSS.
+
+Highlights:
+- contributions-and-review/: Component for the "My Contributions" tab. Handles viewing and reviewing suggestions.
+- modal-templates/: Templates for pop-up modals, e.g. for submitting/reviewing a question/translation suggestion.
+- question-opportunities/: Component for showing question opportunity list items on the "Submit Question" tab.
+- translation-opportunities/: Component for showing translation opportunity list items on the "Translate Text" tab.
+
+### Backend
+
+#### Controllers
+- [core/controllers/contributor_dashboard.py](https://github.com/oppia/oppia/blob/develop/core/controllers/contributor_dashboard.py): Handles fetching opportunities and contributor dashboard metadata such as eligible translatable text content.
+- [core/controllers/suggestion.py](https://github.com/oppia/oppia/blob/develop/core/controllers/suggestion.py): Handles everything suggestion related, e.g. submitting and reviewing suggestions.
+- [core/controllers/contributor_dashboard_admin.py](https://github.com/oppia/oppia/blob/develop/core/controllers/contributor_dashboard_admin.py): Handles admin actions.
+
+#### Domain services
+- [core/domain/opportunity_services.py](https://github.com/oppia/oppia/blob/develop/core/domain/opportunity_services.py): Backend services for operating over opportunities.
+- [core/domain/suggestion_services.py](https://github.com/oppia/oppia/blob/develop/core/domain/suggestion_services.py): Backend services for operating over suggestions.
+- [core/domain/email_manager.py](https://github.com/oppia/oppia/blob/develop/core/domain/email_manager.py): Contains services for sending contributor dashboard related emails, e.g. for notifying users when they have been added as a reviewer.
+
+#### Domain models
+- [core/domain/opportunity_domain.py](https://github.com/oppia/oppia/blob/develop/core/domain/opportunity_domain.py): Domain models for opportunities.
+- [core/domain/suggestion_registry.py](https://github.com/oppia/oppia/blob/develop/core/domain/suggestion_registry.py): Domain models for suggestions.
+
+#### Storage
+- [core/storage/opportunity/gae_models.py](https://github.com/oppia/oppia/blob/develop/core/storage/opportunity/gae_models.py): Storage models for opportunities.
+- [core/storage/suggestion/gae_models.py](https://github.com/oppia/oppia/blob/develop/core/storage/suggestion/gae_models.py): Storage models for suggestions.
+
+### E2E Tests
+- [core/tests/webdriverio_desktop/contributorDashboard.js](https://github.com/oppia/oppia/blob/develop/core/tests/webdriverio_desktop/contributorDashboard.js): E2E tests for contributor dashboard CUJs.
+- [core/tests/webdriverio_utils/ContributorDashboardAdminPage.js](https://github.com/oppia/oppia/blob/develop/core/tests/webdriverio_utils/ContributorDashboardAdminPage.js): Utilities for navigating/asserting on the admin page.
+- [core/tests/webdriverio_utils/ContributorDashboardPage.js](https://github.com/oppia/oppia/blob/develop/core/tests/webdriverio_utils/ContributorDashboardPage.js): Utilities for navigating/asserting on the contributor dashboard page.
+- [core/tests/webdriverio_utils/ContributorDashboardTranslateTextTab.js](https://github.com/oppia/oppia/blob/develop/core/tests/webdriverio_utils/ContributorDashboardTranslateTextTab.js): Utilities for navigating/asserting on the "Translate Text" tab.
+
 ## Appendix
-1. [Contributor dashboard overview](https://docs.google.com/document/d/1wM9cQzq1-3nbEhZliRlpnGDXbM_HspNkY16CYnA6lWg/edit#): More in-depth developer focused overview of the backend structure of the contributor dashboard.
+1. [Contributor dashboard overview](https://docs.google.com/document/d/1wM9cQzq1-3nbEhZliRlpnGDXbM_HspNkY16CYnA6lWg/edit#): More in-depth developer focused overview of the system design of the contributor dashboard.
