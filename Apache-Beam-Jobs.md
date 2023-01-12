@@ -49,12 +49,25 @@ If you're already familiar with Apache Beam or are eager to start writing a new 
 
 Conceptually, an Apache Beam job is just a bunch of steps, each of which transforms some input data into some output data. For example, if you wanted to count how many interactions are in all of Oppia's explorations, you could break that task down into a series of transformations:
 
+```mermaid
+flowchart LR
+    A(Explorations) -->|Count interactions| B(Counts) -->|Sum| C(Total)
+```
+
+
     .--------------. Count interactions .--------. Sum .-------.
     | Explorations | -----------------> | Counts | --> | Total |
     '--------------'                    '--------'     '-------'
 
 For more complicated tasks, Apache Beam supports tasks whose transformations form a [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph), or "DAG." These are just graphs with no cycles. For example, if you wanted to find the ratio of interactions to cards, you could use this DAG:
-
+```mermaid
+flowchart TD
+E(Explorations) -->|Count interactions| C(Count) -->|Sum| NI(Num Interactions)
+E -->|Count cards| C2(Count) -->|Sum| NC(Num Cards)
+NC --> +(+)
+NI --> +
++ -->|Divide| IC(Interactions / Cards)
+```
     .--------------. Count interactions .-------. Sum .------------------.
     | Explorations | -----------------> | Count | --> | Num Interactions |
     '--------------'                    '-------'     '------------------'
