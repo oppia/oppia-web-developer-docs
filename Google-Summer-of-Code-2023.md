@@ -72,7 +72,7 @@ A: Writing a good project proposal, engaging with the community, helping other c
 
 **Q: Can you be flexible around my other commitments in the summer?**
 
-A: No, Oppia will strictly adhere to GSoC timeline and will not be able to provide any additional extensions. Please refer to 
+A: No, Oppia will strictly adhere to GSoC timeline and will usually not be able to provide any additional extensions. Please refer to 
 the [Dates and Deadlines](#dates-and-deadlines) section below.
 
 **Q: Which projects are most important for Oppia?**
@@ -81,7 +81,7 @@ A: All the projects we've listed in the [Ideas List](#oppias-project-ideas-list)
 
 **Q: Can I submit more than one proposal to Oppia?**
 
-A: Yes, you can. However, we strongly recommend picking one project and writing a solid proposal for it. Splitting attention across multiple projects might not be a great idea. (That said, GSoC is offering full-length and half-length projects, one exception might be if you're interested in doing either the 'full version' or the 'half version' of a project idea that can support both modes. In such a case, you would be welcome to submit both the 'full version' and the 'half version' as separate applications, but, before doing so, please make sure that you'd be happy with either outcome if you are selected.)
+A: Yes, you can. However, we strongly recommend picking one project and writing a solid proposal for it. Splitting attention across multiple projects might not be a great idea. (That said, GSoC is offering full-length and half-length projects, so one exception might be if you're interested in doing either the 'full version' or the 'half version' of a project idea that can support both modes. In such a case, you would be welcome to submit both the 'full version' and the 'half version' as separate applications, but, before doing so, please make sure that you'd be happy with either outcome if you are selected.)
 
 **Q: How early should I start working on the proposal?**
 
@@ -114,11 +114,11 @@ A: The GSoC program is open to new and beginner contributors to open source and 
 
 **Q: I'd love to contribute to open source, but I'm not sure I have enough time during the summer to do a GSoC project. Can I still help out?**
 
-A: Yes, GSoC might not be the best choice if you don't have enough time during the summer. However, you can start contributing to Oppia by following the instruction in the contributors' guide carefully ([Oppia Web](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up), [Oppia Android](https://github.com/oppia/oppia-android/wiki/Contributing-to-Oppia-android)).
+A: Yes, GSoC might not be the best choice if you don't have enough time during the summer. However, you can start contributing to Oppia by following the instructions in the contributors' guide ([Oppia Web](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up), [Oppia Android](https://github.com/oppia/oppia-android/wiki/Contributing-to-Oppia-android)).
 
 **Q: Why doesn't Oppia provide difficulty levels for projects?**
 
-A: Difficulty can vary from person to person depending on the skills required which is why we list all the prerequisite skills of each project.
+A: Difficulty can vary from person to person depending on the skills required which is why we list all the prerequisite skills for each project.
  
 ## Dates and Deadlines
 
