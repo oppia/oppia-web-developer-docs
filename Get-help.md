@@ -66,7 +66,8 @@ If you are still not able to fix your error, start following the section below t
 
 #### How to ask a setup question
 
-**Note**: If you are stuck at Step X, we will assume all previous steps through X-1 were successful for you. In case there were any previously failed steps, kindly mention those too with their error logs.
+> **Note**
+> If you are stuck at Step X, we will assume all previous steps through X-1 were successful for you. In case there were any previously failed steps, kindly mention those too with their error logs.
 
 Please follow the template given below (mark x inside checkboxes to tick them) for creating a GitHub Discussions.
 
