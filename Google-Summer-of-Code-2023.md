@@ -72,8 +72,7 @@ A: Writing a good project proposal, engaging with the community, helping other c
 
 **Q: Can you be flexible around my other commitments in the summer?**
 
-A: No, Oppia will strictly adhere to GSoC timeline and will usually not be able to provide any additional extensions. Please refer to 
-the [Dates and Deadlines](#dates-and-deadlines) section below.
+A: No, Oppia will strictly adhere to GSoC timeline and will usually not be able to provide any additional extensions. Please refer to the [Dates and Deadlines](#dates-and-deadlines) section below.
 
 **Q: Which projects are most important for Oppia?**
 
@@ -129,12 +128,8 @@ Noteworthy dates for 2023 ([Full Timeline](https://developers.google.com/open-so
 - **Mar 20 - Apr 4**: GSoC contributor application period
 - **May 4**: Accepted GSoC contributors are announced
 - **May 4 - May 28**: Community bonding period
-- **May 29 - Jul 14**: Milestone 1 work period for GSoC contributors
-- **Jul 15 - Jul 16**: Internal evaluation for M1
-- **Jul 17 - Jul 26**: Optional buffer period for M1 revisions
-- **Jul 31 - Sep 15**: Milestone 2 work period for GSoC contributors
-- **Sep 16 - Sep 17**: Internal evaluation for M2
-- **Sep 18 - Sep 27**: Optional buffer period for M2 revisions
+- **May 29 - Jul 26**: Standard Milestone 1 work period for GSoC contributors
+- **Jul 31 - Sep 27**: Standard Milestone 2 work period for GSoC contributors
 - **Oct 6**: GSoC period at Oppia officially ends
 
 **Note!** The coding period dates are strict and intended to balance offering flexibility to contributors with the need on the org admin side to have a streamlined process and a more time-bounded GSoC period.
