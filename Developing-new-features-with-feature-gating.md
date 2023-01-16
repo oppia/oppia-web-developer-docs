@@ -9,10 +9,11 @@ If you have any question regarding the feature gating system, feel free to conta
 1. Add a new unique feature flag name in the `PARAM_NAMES` enum class in `core/domain/platform_parameter_list.py`, similar to a key-value pair. Example:
 
 ```python
-PARAM_NAMES = utils.create_enum(
-    # ... existing names
+class ParamNames(enum.Enum):
+    """Enum for parameter names."""
+    // ...
     NEW_FEATURE = 'new_feature',
-)
+
 ```
 
 2. Create and register a feature flag instance in the same file with its name, description and stage (see the [Feature Stage](#feature-stage-explanation) section for more details). Example:
@@ -98,10 +99,10 @@ from core.domain import platform_feature_services
 # ...
 
 if platform_feature_services.is_feature_enabled(
-    	platform_feature_list.PARAM_NAMES.dummy_feature):
+      platform_feature_list.ParamNames.DUMMY_FEATURE.value):
     # Code of the feature
 else:
-    raise Exception("Not implemented.")
+    raise Exception("Feature is not fully implemented yet.")
 ```
 
 ## Gating in Frontend
