@@ -51,6 +51,21 @@ At Oppia, we highly regard the end user, so we have end-to-end (E2E) tests to te
 
 Unfortunately, E2E tests are much less deterministic than our other tests. The tests operate on a web browser that accesses a local Oppia server, so the non-determinism of web browsers makes the tests less deterministic as well. For example, suppose that you write a test that clicks a button to open a modal and then clicks a button inside the modal to close it. Sometimes, the modal will open before the test tries to click the close button, so the test will pass. Other times, the test will try to click before the modal has opened, and the test will fail. We can see this schematically:
 
+```mermaid
+flowchart LR
+a("<--A-->")
+
+A("Click to open modal") ----|"//"| B("Modal open")
+A ---- |"//"| C("Click to close modal")
+B ---- P("+")
+C ---- P
+P -->O
+
+b("<--B-->")
+
+o ----time----- .
+```
+
 ```text
                <---A--->
 
