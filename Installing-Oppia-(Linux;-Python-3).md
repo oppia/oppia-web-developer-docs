@@ -126,16 +126,17 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
    ...
    ```
 
-   If you see the warning at the end, add the following lines to your `.bashrc` (see [here](https://askubuntu.com/a/127059) for where to find this file):
-
+     If you see a warning message, please run the following commands to fix it. These commands will add necessary lines to a file called `.bashrc` which is located in your home directory. (The `.bashrc` file is used to set some environment variable. To know more, please refer to this [link](https://askubuntu.com/a/127059)):
+   
    ```bash
-   export PYENV_ROOT="$HOME/.pyenv"
-   export PATH="$PYENV_ROOT/bin:$PATH"
-   eval "$(pyenv init --path)"
+   echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+   echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+   echo 'eval "$(pyenv init --path)"' >> ~/.bashrc
 
-   eval "$(pyenv init -)"
-   eval "$(pyenv virtualenv-init -)"
+   echo 'eval "$(pyenv init -)"' >> ~/.bashrc
+   echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
    ```
+ This should fix the warning you were seeing.
 
 3. Reload your shell or open a new terminal window to load your updated `~/.bashrc`.
 
