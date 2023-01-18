@@ -12,6 +12,7 @@
     * [Manifest files](#manifest-files)
     * [Redis and Elasticsearch](#redis-and-elasticsearch)
   * [`install_backend_python_libs.py`](#install_backend_python_libspy)
+* [Security](#security)
 * [Upgrade dependencies](#upgrade-dependencies)
   * [Upgrade backend libraries](#upgrade-backend-libraries)
     * [Upgrade production, backend libraries](#upgrade-production-backend-libraries)
@@ -149,6 +150,21 @@ We download and install the Redis CLI and Elasticsearch development server. We p
 ### `install_backend_python_libs.py`
 
 This script uses pip to install the Python dependencies we need in production to `third_party/python_libs`. We define these dependencies using `requirements.in`, which lists the libraries we depend on directly. Then `install_backend_python_libs.py` generates `requirements.txt`, which lists those direct dependencies, plus all the packages that our direct dependencies need, and so on. Both `requirements.in` and `requirements.txt` specify versions, so `requirements.txt` is analogous to `yarn.lock` in that it pins all the versions of all the Python packages we use in production.
+
+## Security
+
+All dependencies we add to our projects introduce risks. These include security risks (an attacker could inject malicious code into Oppia if they control one of our dependencies) and maintainability risks (if a dependency isn't well-maintained, their bugs could break Oppia). To mitigate these risks, we should do the following:
+
+1. **Minimize** the number of dependencies we have and the extent to which we rely on them. Especially for small dependencies, it may be better to implement them ourselves. That said, for security-related operations (especially cryptographic ones), relying on a trusted library may be better than rolling our own and possibly making mistakes.
+2. **Vet** any dependencies we do have. This means checking that the we trust the maintainer to not add malicious code, maintain security measures to stop someone else from adding malicious code, and to maintain the dependency by fixing bugs. For small dependencies, this may mean reviewing their code manually. For larger ones, we may have to rely on reputation.
+3. **Pin** dependencies to a specific, immutable version. Here are some examples for types of dependencies we use often:
+   * PyPI: Use `==` to specify a particular version number, e.g. `my_dependency==1.0.5`. Do *not* use `=>`, which will tell `pip` to automatically install the latest version of a package without our involvement.
+   * NPM: Use `yarn.lock` to pin dependency versions (this happens automatically for all NPM dependencies handled by yarn).
+   * GitHub Actions: Use a commit hash ("SHA value" in the [docs](https://docs.github.com/en/actions/learn-github-actions/finding-and-customizing-actions#using-release-management-for-your-custom-actions)) when specifying a third-party dependency. For example: `- uses: actions/javascript-action@172239021f7ba04fe7327647b213799853a9eb89`.
+4. **Hash** dependencies using a hashing algorithm [approved by NIST](https://csrc.nist.gov/projects/hash-functions) and compare that hash to a list of the values we expect. In most cases, we should take advantage of package managers' built-in functionality to verify checksums. This ensures that even if someone manages to change the code of a supposedly immutable dependency version (for example, there are ways to do this in PyPI where packages can be provided either as source code or as binaries), we won't install the malicious dependency.
+5. **Upgrade** dependencies every month to ensure we benefit from any security fixes.
+
+Ideally we'd also constrain dependencies to limit the damage they can do, but that isn't really supported by any of the dependency ecosystems we use yet. Also note that not all of these measures are in place yet. Work on implementing them is tracked in [oppia/oppia#16991](https://github.com/oppia/oppia/issues/16991).
 
 ## Upgrade dependencies
 
