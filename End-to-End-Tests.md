@@ -55,34 +55,15 @@ Unfortunately, E2E tests are much less deterministic than our other tests. The t
 flowchart LR
 a("<--A-->")
 
-A("Click to open modal") ----|"//"| B("Modal open")
+A("Click to open modal") ----|"//"| B("Modal opens")
 A ---- |"//"| C("Click to close modal")
 B ---- P("+")
 C ---- P
-P -->O
+P --> Q("other operations")
 
 b("<--B-->")
 
-o ----time----- .
-```
-
-```text
-               <---A--->
-
-                        +-------+
-                        | Modal |
-+----------+   +---//---+ opens +-----------+
-| Click to |   |        +-------+           |
-| open     +---+                            +---->
-| modal    |   |        +-------------+     |
-+----------+   +---//---+ Click to    +-----+
-                        | close modal |
-                        +-------------+
-
-               <---B--->
-
-
---------------------- time ---------------------->
+starts ---- time -----> ends
 ```
 
 The durations of steps `A` and `B` are non-deterministic because `A` depends on how quickly the browser executes the frontend code to open the modal, and `B` depends on how fast the test code runs. Since these operations are happening on separate processes, the operating system makes no guarantees about which will complete first. In other words, we have a race condition.
@@ -104,24 +85,16 @@ Finally, flakes mean that developers rerun failing tests more readily. We even i
 ### Preventing flakes
 
 Conceptually, preventing flakes is easy. We can use `waitFor` statements to make the tests deterministic despite testing a non-deterministic system. For example, suppose we have a function `waitForModal()` that waits for a modal to appear. Then we could write our test like this:
-
-```text
-               <---A--->
-
-                        +-------+
-                        | Modal |
-+----------+   +---//---+ opens +---------------------------------+
-| Click to |   |        +-------+                                 |
-| open     +---+                                                  +---->
-| modal    |   |        +----------------+    +-------------+     |
-+----------+   +---//---+ waitForModal() +-//-+ Click to    +-----+
-                        +----------------+    | close modal |
-                                              +-------------+
-
-               <---B---><-------C-------->
-
-
---------------------- time -------------------------------------------->
+```mermaid
+flowchart LR
+a("<--A-->")
+COM("Clickto open modal") ---- |"//"| MO("Modal opens")
+COM ----|"//"| WM("waitForModal") ---- |"//"| CCM("Click to close modal")
+MO ---- P("+")
+CCM ---- P
+P ----> O("Operations continue")
+BC("<--B--><-------C------->")
+starts ----time-----> ends
 ```
 
 Now, we know that the test code won't move past `waitForModal()` until after the modal opens. In other words, we know that `B + C > A`. This assures us that the test won't try to close the modal until after the modal has opened.
@@ -312,19 +285,13 @@ Much of the difficulty of writing webdriverio code lies in specifying the elemen
 
 If you use one of options 2-4, you should create a chain of element selectors where the top of the chain uses option 1. Suppose we have a DOM like this:
 
-```text
-
-       Root
-       /  \
-      /   ...
-     /      \
-   ...   Element A: class="webdriverio-test-elem-a"
-             \
-             ...
-            /  \
-           ...  \
-                 \
-              Element B: id="elem-b"
+```mermaid
+flowchart TD
+R("Root") --> L("...")
+R --> RS("...")
+RS --> E("Element A: class=#quot;webdriverio-test-elem-a#quot;")
+E --> M("...")
+E ----> B("Element B: id=#quot;elem-b#quot;")
 ```
 
 Then you can select Element B with this selector chain:
