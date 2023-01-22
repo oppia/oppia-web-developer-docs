@@ -16,7 +16,8 @@ When a PR is merged that causes a regression in develop, there are two ways to f
 1. Revert the PR. This can be quick if there are no merge conflicts, but with large PRs, reverts can be difficult.
 2. Fix forward by merging another PR without reverting the problematic PR. This can be easy if the bug is small and easily-identifiable, but if the solution is unclear, fixing forward can be hard.
 
-Note that in either case, the PR author is responsible for fixing the bug in their PR, either by re-creating their PR without the bug (if we revert) or by opening a new PR to fix the bug (if we fix forward).
+> **Note**
+> In either case, the PR author is responsible for fixing the bug in their PR, either by re-creating their PR without the bug (if we revert) or by opening a new PR to fix the bug (if we fix forward).
 
 By default, we should take whichever approach will fix develop first, possibly by pursuing both in parallel. The dev workflow leads are responsible for deciding which approach(es) to follow.
 
@@ -93,21 +94,21 @@ To systematically locate a bad commit, you can use the git-bisect tool. It inter
 
 4.  Go to [this](https://github.com/oppia/oppia/commits/develop) page to find an older (“good”) commit where the bug did not exist. Copy the commit id of the commit, and do git checkout on it (git checkout <commit-id>). Start the dev server (by running the start script) and try to figure out whether the error still exists. If so, you will need to find an even older commit than the current one. Kill the server, and repeat this step until you find a “good” commit.
 
-5.  Once you’ve found a “good” commit, run “git bisect good”. The tool will automatically perform a binary search and checkout a commit between the “good” commit and “bad” commit. Start the dev server (by running the start script) and try to reproduce the error. At each step:
-    - If the bug is reproducible, run “git bisect good”.
-    - If not, run “git bisect bad”.
+5.  Once you’ve found a “good” commit, run `git bisect good`. The tool will automatically perform a binary search and checkout a commit between the “good” commit and “bad” commit. Start the dev server (by running the start script) and try to reproduce the error. At each step:
+    - If the bug is reproducible, run `git bisect bad`.
+    - If not, run `git bisect good`.
 
     Repeat this step until the tool reports the offending commit.
 
 ### How to revert a PR
 
 In the PR page, you will find a “revert” button at the point where the PR was merged.
-![](https://lh5.googleusercontent.com/dGgjIANi9zathEV_g9e5FKjpWTSn2tUSIUCdwalzUN6w1ocR1j5cuMoxq6tPOMYtk-1xsMPxj7tdkkK9jbOJP8f399DE1AAKmmCIcBMyYmd0MGJ3j3tO6P1R3b4frVMZy72UnAW_)
+![A "revert" button on a merged PR.](images/revert.png)
 
 Clicking on this button will create a new PR with the reverted changes. Feel free to add a detailed comment in the PR description explaining why the PR needs to be reverted and tag the author of the original PR.
 
 If you see this:
 
-![](https://lh3.googleusercontent.com/4uYWOO2yXW8eBVTG9BH-wYZKRo7rB2WNUBbBudtaprlp4btYJ3avdQP-fRnZSBXGAq1DM05Hc_c9haASvHTFF8gRHgPZNqQ3ZKZc7vkZrPy13rTZ2EwOuQXQM6Sz7j0gVpF-61Z5)
+![Banner saying that automated PR revert failed.](images/revertFailed.png)
 
 You will need to make the code changes on your local machine and create a PR by hand.
