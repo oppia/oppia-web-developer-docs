@@ -1,6 +1,12 @@
 name: Lint Check
 
-on: push
+on: 
+  push:
+    branches:
+      - develop
+  pull_request:
+    branches:
+      - develop
 
 jobs:
   lint:
@@ -11,4 +17,4 @@ jobs:
       - uses: actions/setup-python@v3
       - name: Lint markdown files
         run: |
-          python linter.py
+          python scripts/linter.py
