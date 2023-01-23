@@ -164,7 +164,7 @@ You will be asked about the setup for the panel. Just click on default config.
 ## Step 9: Run Oppia locally
 
 To run the Oppia application locally, run `python -m scripts.start --no_browser` in the Ubuntu environment.
-Navigate to any of the browsers and access Oppia at http://localhost:8181.
+Navigate to any browser and access Oppia at http://localhost:8181.
 
 ## How to run the E2E tests?
 
