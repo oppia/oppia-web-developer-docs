@@ -81,38 +81,34 @@ We also have a project leads council who will be contacted about project specifi
 # Team members
 * Release team: 
   * Sandeep Dubey (**@DubeySandeep**)
-  * Nithesh Hariharan (**@nithusha21**)
   * Akshay Anand (**@aks681**)
   * Vojtěch Jelínek (**@vojtechjelinek**)
   * Kevin Thomas (**@kevintab95**)
   * Chris Skalnik (**@U8NWXD**)
-  * Ankita Saxena (**@ankita240796**)
 
 * Release Coordination team:
-  * Nithesh Hariharan (**@nithusha21**)
   * Vojtěch Jelínek (**@vojtechjelinek**)
 
-* QA coordinators team: 
-  * Nithesh Hariharan (**@nithusha21**)
+* QA coordinators team:
   * Akshay Anand (**@aks681**)
   * Chris Skalnik (**@U8NWXD**)
   * Kevin Thomas (**@kevintab95**)
   * Vojtěch Jelínek (**@vojtechjelinek**)
-  * Rohit Katlaa (**@rohitkatlaa**)
 
 # Release coordinators and QA coordinators for upcoming releases
 
 **Note:** If you can't make it to a shift mentioned in the below rota, please make sure to swap with someone else in advance! 
 
-| Month         | Release cut date | Release team member         | QA coordinator              | Server errors coordinator   |
-| ------------- | ---------------- | --------------------------- | --------------------------- | --------------------------- |
-| March         | 4th March        | Kevin (**@kevintab95**)     | Vojta (**@vojtechjelinek**) | Kevin (**@kevintab95**)     |
-| April         | 1st April        | Akshay (**@aks681**)        | Chris (**@U8NWXD**)         | Kevin (**@vojtechjelinek**) |
-| May           | 6th May          | Chris (**@U8NWXD**)         | Nithesh (**@nithusha21**)   | Kevin (**@kevintab95**)     |
-| June          | 1st June         | Vojta (**@vojtechjelinek**) | Akshay (**@aks681**)        | Vojta (**@vojtechjelinek**) |
-| July          | 29th June        | Kevin (**@kevintab95**)     | Nithesh (**@nithusha21**)   | Vojta (**@vojtechjelinek**) |
-| August        | 3rd August       | Vojta (**@vojtechjelinek**) | Kevin (**@kevintab95**)     | Kevin (**@kevintab95**)     |
-| September     | 31st August      | Sandeep (**@DubeySandeep**) | Rohit (**@rohitkatlaa**)    | Kevin (**@kevintab95**)     |
-| October       | 28th September   | Kevin (**@kevintab95**)     | Nithesh (**@nithusha21**)   | Vojta (**@vojtechjelinek**) |
-| November      | 2nd November     | Akshay (**@aks681**)        | Vojta (**@vojtechjelinek**) | Kevin (**@kevintab95**)     |
-| December      | 30th November    | Chris (**@U8NWXD**)         | Rohit (**@rohitkatlaa**)    | Kevin (**@kevintab95**)     |
+| Month     | Release cut date | Release team member         | QA coordinator              | Server errors coordinator |
+|-----------|------------------|-----------------------------|-----------------------------|---------------------------|
+| February  | 1st February     | Kevin (**@kevintab95**)     | Vojta (**@vojtechjelinek**) | Kevin (**@kevintab95**)   |
+| March     | 1st March        | Chris (**@U8NWXD**)         | Sandeep (**@DubeySandeep**) | Kevin (**@kevintab95**)   |
+| April     | 3rd April        | Akshay (**@aks681**)        | Kevin (**@kevintab95**)     | Kevin (**@kevintab95**)   |
+| May       | 6th May          | Sandeep (**@DubeySandeep**) | Chris (**@U8NWXD**)         | Kevin (**@kevintab95**)   |
+| June      | 31st May         | Kevin (**@kevintab95**)     | Akshay (**@aks681**)        | Kevin (**@kevintab95**)   |
+| July      | 28th June        | Chris (**@U8NWXD**)         | Sandeep (**@DubeySandeep**) | Kevin (**@kevintab95**)   |
+| August    | 2nd August       | Akshay (**@aks681**)        | Kevin (**@kevintab95**)     | Kevin (**@kevintab95**)   |
+| September | 30rd August      | Sandeep (**@DubeySandeep**) | Chris (**@U8NWXD**)         | Kevin (**@kevintab95**)   |
+| October   | 4th October      | Kevin (**@kevintab95**)     | Akshay (**@aks681**)        | Kevin (**@kevintab95**)   |
+| November  | 1st November     | Chris (**@U8NWXD**)         | Sandeep (**@DubeySandeep**) | Kevin (**@kevintab95**)   |
+| December  | 29th November    | Akshay (**@aks681**)        | Kevin (**@kevintab95**)     | Kevin (**@kevintab95**)   |
