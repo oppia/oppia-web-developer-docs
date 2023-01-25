@@ -37,10 +37,10 @@ Simply visit this URL: https://github.com/pulls/assigned. It takes you to a list
 
       > **Note**
       > To checkout branch BRANCH_NAME from committer COMMITTER_USERNAME to your local machine, run:
-      ```
-        git checkout -b {{COMMITTER_NAME}}-{{BRANCH_NAME}} develop
-        git pull https://github.com/{{COMMITTER_NAME}}/oppia.git {{BRANCH_NAME}}
-      ```
+      > ```
+      >   git checkout -b {{COMMITTER_NAME}}-{{BRANCH_NAME}} develop
+      >   git pull https://github.com/{{COMMITTER_NAME}}/oppia.git {{BRANCH_NAME}}
+      > ```
       > See also [Checking out pull requests locally](https://help.github.com/articles/checking-out-pull-requests-locally/).
 
   1. After submitting the review, set the Assignee field to the developer's GitHub username, so that they know it's their turn.
