@@ -241,7 +241,7 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
 
 2. The `start.py` script will start a development server at http://localhost:8181. It should look something like this:
 
-   ![Image showing the default splash page.](https://res.cloudinary.com/dozmja9ir/image/upload/v1538254601/home_page.png)
+   ![Image showing the default splash page.](https://user-images.githubusercontent.com/57531197/213922682-5ce66f8f-6a5d-493f-8f7c-fa1a566bb6f9.png)
 
    You can also view the App Engine admin console at http://localhost:8000.
 
