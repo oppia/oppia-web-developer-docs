@@ -108,7 +108,7 @@ We also have a project leads council who will be contacted about project specifi
 | June      | 31st May         | Kevin (**@kevintab95**)     | Akshay (**@aks681**)        | Kevin (**@kevintab95**)   |
 | July      | 28th June        | Chris (**@U8NWXD**)         | Sandeep (**@DubeySandeep**) | Kevin (**@kevintab95**)   |
 | August    | 2nd August       | Akshay (**@aks681**)        | Kevin (**@kevintab95**)     | Kevin (**@kevintab95**)   |
-| September | 30rd August      | Sandeep (**@DubeySandeep**) | Chris (**@U8NWXD**)         | Kevin (**@kevintab95**)   |
+| September | 30th August      | Sandeep (**@DubeySandeep**) | Chris (**@U8NWXD**)         | Kevin (**@kevintab95**)   |
 | October   | 4th October      | Kevin (**@kevintab95**)     | Akshay (**@aks681**)        | Kevin (**@kevintab95**)   |
 | November  | 1st November     | Chris (**@U8NWXD**)         | Sandeep (**@DubeySandeep**) | Kevin (**@kevintab95**)   |
 | December  | 29th November    | Akshay (**@aks681**)        | Kevin (**@kevintab95**)     | Kevin (**@kevintab95**)   |
