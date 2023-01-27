@@ -161,6 +161,8 @@ Say you are working on a large scale user-facing feature that will take multiple
 
 3. The very last PR you make (to finish up the feature you are working on) must include changes that move the feature flag to the TEST stage. This is to ensure that the feature is available in the test environment, and we can feature-test it before it is made available to the users in the production environment.
 
-4. Once you receive a go ahead from the testers, you must merge another PR, moving the feature flag to the PROD stage, allowing it to be enabled/disabled in production (by the admin(s)).
+4. If the feature testing reveals that the feature is not ready for production, you must work on fixing the highlighted issues before proceeding further.
 
-5. Once the feature is confirmed to be functioning as intended, you must merge one last PR to essentially "un-gate" the feature. Note that the flag itself will remain in the codebase (i.e. in the platform_parameter_list.py file, etc.), it just won't be used anymore (for example, all the `if` blocks and such that were used to gate the feature until this point will must be removed).
+5. Once you receive a go ahead from the testers, you must merge another PR, moving the feature flag to the PROD stage, allowing it to be enabled/disabled in production (by the admin(s)).
+
+6. Once the feature is confirmed to be functioning as intended, you must merge one last PR to essentially "un-gate" the feature. Note that the flag itself will remain in the codebase (i.e. in the platform_parameter_list.py file, etc.), it just won't be used anymore (for example, all the `if` blocks and such that were used to gate the feature until this point must be removed).
