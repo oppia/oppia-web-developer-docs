@@ -65,7 +65,7 @@ Welcome! Please make sure to follow the instructions above if you haven't alread
 
 After that, you can choose a good first issue from the [list of good first issues](https://github.com/oppia/oppia/labels/good%20first%20issue). These issues are hand-picked to ensure that you don't run into unexpected roadblocks while working on them, and each of them should have clear instructions for new contributors. If you see one that doesn't, please let us know via [GitHub Discussions](https://github.com/oppia/oppia/discussions) and we'll fix it. For other issues, you might need to be more independent because we might not know how to solve them either.
 
-You can also browse good first issues for each of the core Oppia Web teams to find something you'd enjoy working on. Please only choose issues that have **not yet** been assigned:
+You can also browse good first issues for each of the core Oppia Web teams to find something you'd enjoy working on. Please only choose issues that have **not yet** been assigned! Here are the project boards for the different teams:
 
 - Learner and Creator Experience (LaCE): https://github.com/orgs/oppia/projects/3/views/10, typically frontend or full-stack
 - Contributor Dashboard: https://github.com/orgs/oppia/projects/18/views/5, typically frontend or full-stack
@@ -77,16 +77,18 @@ When you've found a good first issue you'd like to tackle, please investigate it
 
 - Read the entire discussion thread to understand what has been tried so far.
 - Try to reproduce the issue on your local dev server. (For Contributor Dashboard issues, the [[Contributor Dashboard wiki page|Contributor-dashboard]] has some useful setup information.)
-- Figure out why the problem is happening, and find the relevant code in the Oppia repository to change. (Our [['Finding the right code to change' wiki page|Find-the-right-code-to-change]] might be helpful.)
-- If the issue is easy to fix, try to get a rough fix working on your local machine!
+- Figure out why the problem is happening, and find the relevant code in the Oppia repository to change. (The [['Finding the right code to change' wiki page|Find-the-right-code-to-change]] might be helpful.) If you have trouble with this, feel free to ask on [GitHub Discussion](https://github.com/oppia/oppia/discussions) and explain what you've tried doing so far.
+- If the issue is easy to fix, try to get a rough fix working on your local dev server!
 
 Once you have a good understanding of the issue, you can ask for it to be assigned to you by leaving a comment as follows:
 
 - Explain clearly how you'd tackle the issue (at a minimum, point to which file(s) you'd modify and describe the changes you'd make).
-- Show a screenshot or code snippet demonstrating your proposed fix.
+- If possible, show a screenshot or code snippet demonstrating your proposed fix.
 - @-mention the leads of the corresponding project the issue falls under, letting them know you'd like to work on it. (The leads are: @SanjaySajuJacob and @Priyansh61 for [LaCE](https://github.com/orgs/oppia/projects/3/views/8?pane=info); @sagangwee and @chris7716 for [Contributor Dashboard](https://github.com/orgs/oppia/projects/18/views/4?pane=info); @U8NWXD and @gp201 for [Developer Workflow](https://github.com/orgs/oppia/projects/8?pane=info).)
 
-If your explanation makes sense, we'll assign the issue to you. Once assigned, feel free to submit a PR by following the [[instructions for making a PR|Make-a-pull-request]]. If you run into any problems, feel free to create a [GitHub Discussion](https://github.com/oppia/oppia/discussions) and get help from the Oppia community, or [request a mentor](https://forms.gle/udsRP4WQgLcez9Zm8) if you'd like individual support.
+If your explanation makes sense, we'll assign the issue to you. Once assigned, feel free to submit a PR by following the [[instructions for making a PR|Make-a-pull-request]].
+
+If you run into any problems, feel free to create a [GitHub Discussion](https://github.com/oppia/oppia/discussions) and get help from the Oppia community, or [request a mentor](https://forms.gle/udsRP4WQgLcez9Zm8) if you'd like individual support.
 
 **Important Note**: Please follow the [[PR instructions|Make-a-pull-request]] carefully! Otherwise your PR review may be delayed or your PR may be closed.
 

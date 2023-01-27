@@ -98,7 +98,7 @@ Once your feature is ready, you can open a pull request (PR)!
 
   **WARNING: If your PR only fixes a specific part of the issue, start the title with "Fix part of issue #bugnum:" instead so that the original issue is not auto-closed by GitHub when the PR is merged.**
 
-* Write a clear description of your PR that explains why the change is being made, how the change was made, as well as any identified risks and resulting countermeasures. See [here](https://github.com/oppia/oppia-android/pull/4757#issue-1461272376) for a good example -- your description does not have to be this long, but this gives an idea of what sorts of things to include.
+* Write a clear description of your PR that explains why the change is being made, how the change was made, as well as any identified risks and resulting countermeasures. See [here](https://github.com/oppia/oppia-android/pull/4757#issue-1461272376) for a good example of what sorts of things to include.
 
 * Fill out the rest of the PR checklist.
 

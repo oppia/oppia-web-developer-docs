@@ -35,7 +35,7 @@ GSoC is an excellent opportunity for new contributors to get paid to work on an 
 
 Welcome! If you're interested in applying to work with Oppia for GSoC, please follow these steps:
 
-1. Sign up to the [oppia-gsoc-announce@](https://groups.google.com/forum/#!forum/oppia-gsoc-announce) mailing list in order to receive important notifications about Oppia's participation in GSoC. If you like, you can turn on the notification for github discussions to  participate in general discussion related to Oppia's involvement in GSoC. Make sure to set your preferences correctly so that you actually get the emails!
+1. Sign up to the [oppia-gsoc-announce@](https://groups.google.com/forum/#!forum/oppia-gsoc-announce) mailing list in order to receive important notifications about Oppia's participation in GSoC. If you like, you can also turn on notifications for [Github Discussions](https://github.com/oppia/oppia/discussions) to participate in general discussion related to Oppia's involvement in GSoC. Make sure to set your preferences correctly so that you actually get the emails!
 
 2. Get a better understanding of what Oppia is about:
     - Read the [user documentation](http://oppia.github.io/#/) to become familiar with important concepts like explorations and interactions.
