@@ -48,7 +48,7 @@ export enum FeatureNames {
 
 The following steps ensure existing unit tests account for the newly created feature flag and don't fail.
 
-1. Add the name of the feature flag to the the `EXPECTED_PARAM_NAMES` array in the `ExistingPlatformParameterValidityTests` class. Example:
+1. Add the name of the feature flag to the the `EXPECTED_PARAM_NAMES` array in the `ExistingPlatformParameterValidityTests` class in `core/domain/platform_parameter_list.py`. Example:
 
 ```python
 EXPECTED_PARAM_NAMES = [
@@ -99,7 +99,7 @@ from core.domain import platform_feature_services
 # ...
 
 if platform_feature_services.is_feature_enabled(
-      platform_feature_list.ParamNames.DUMMY_FEATURE.value):
+    platform_feature_list.ParamNames.DUMMY_FEATURE.value):
     # Code of the feature
 else:
     raise Exception("Feature is not fully implemented yet.")
@@ -138,3 +138,29 @@ We use the following principles to determine the value of a feature flags:
 For example, if we want a feature flag to be enabled only in dev environments, we can configure the flag's rules/filters as shown below.
 
 ![Example feature setting](https://i.imgur.com/GnFQ7El.jpg)
+
+## Why do we need feature flags?
+
+Feature flags vastly improve/simplify the development process by allowing developers to safely deploy new features to production. They also allow us to quickly disable features that are causing problems in production.
+
+They allow us to hide features that are still in development/still being tested. This enables a developer to add a feature incrementally to the codebase, and only enable it when it is ready for production. Should the feature break, they also allow us to easily disable it without having to roll back all the changes. This is especially useful when the feature is large and/or complex.
+
+## How do you, as a developer, use feature flags?
+
+### When to use feature flags?
+
+Feature flags should be used when you are working on a feature whose scale makes it hard to implement it all at once and will need to be added incrementally/if the feature is likely to cause breakages. Essentially, feature flags are a must for featues that are not ready for production/fully-tested yet.
+
+### How to use feature flags?
+
+Say you are working on a large scale user-facing feature that will take multiple PRs to be fully implemented. The following is the recommended way to use feature flags in such a scenario (*recommended implies that this is the way we use/have used feature flags in the past in Oppia. We haven't encountered a scenario where we required an alternate workflow. Unless there are compelling reasons, this is the development workflow we expect developers to follow when it comes to employing the use of feature flags*):
+
+1. The very first PR you make must include changes that add a new feature flag to the codebase, meant to be used with this new feature. The feature flag must be placed in the DEV stage. Every single user-facing aspect of the feature -- whether frontend or backend -- must be gated behind the feature flag (both in the first PR, and all the following ones as well). This is to ensure that the feature is not visible to the user until it is fully implemented and ready for production.
+
+2. The first PR must be merged before any following PRs are merged. This is to ensure that the feature flag is available in the codebase for it to be used in the following PRs.
+
+3. The very last PR you make (to finish up the feature you are working on) must include changes that move the feature flag to the TEST stage. This is to ensure that the feature is available in the test environment, and we can feature-test it before it is made available to the users in the production environment.
+
+4. Once you receive a go ahead from the testers, you must merge another PR, moving the feature flag to the PROD stage, allowing it to be enabled/disabled in production (by the admin(s)).
+
+5. Once the feature is confirmed to be functioning as intended, you must merge one last PR to essentially "un-gate" the feature. Note that the flag itself will remain in the codebase (i.e. in the platform_parameter_list.py file, etc.), it just won't be used anymore (for example, all the `if` blocks and such that were used to gate the feature until this point will must be removed).
