@@ -165,4 +165,4 @@ Say you are working on a large scale user-facing feature that will take multiple
 
 5. Once you receive a go-ahead from the feature testers, you must merge another PR -- this PR is meant to do only one thing, i.e. move the feature flag to the PROD stage, allowing it to be enabled/disabled in production (by the admin(s)). **NOTE: When opening this PR, include a link to the testing doc or other proof that the feature has been approved for release.**
 
-6. Once the feature is confirmed to be functioning as intended in production (for at least two weeks), you must merge one last PR to essentially "un-gate" the feature and remove the feature flag from the codebase.
+6. Once the feature is confirmed to be functioning as intended in production (for at least two weeks), you must merge one last PR to essentially "un-gate" the feature and move the feature flag to the deprecated stage (one of the stages listed in `core/domain/platform_parameter_list.py` for flags that are no longer in use).
