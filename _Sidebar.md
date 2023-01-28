@@ -99,6 +99,7 @@
   * Translations
     * [[Adding new translations|Adding-new-translations-for-i18n]]
     * [[How to develop for i18n|How-to-develop-for-i18n]]
+  * [[Contributor dashboard|Contributor-dashboard]]
   * [[Webpack|Webpack]]
   * [[Third-party libraries|Third-party-libraries]]
   * [[Extension frameworks|Extensions-Overview]]
