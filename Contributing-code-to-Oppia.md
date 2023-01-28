@@ -65,7 +65,7 @@ Welcome! Please make sure to follow the instructions above if you haven't alread
 
 After that, you can choose a good first issue from the [list of good first issues](https://github.com/oppia/oppia/labels/good%20first%20issue). These issues are hand-picked to ensure that you don't run into unexpected roadblocks while working on them, and each of them should have clear instructions for new contributors. If you see one that doesn't, please let us know via [GitHub Discussions](https://github.com/oppia/oppia/discussions) and we'll fix it. For other issues, you might need to be more independent because we might not know how to solve them either.
 
-You can also browse good first issues for each of the core Oppia Web teams to find something you'd enjoy working on. Please only choose issues that have **not yet** been assigned! Here are the project boards for the different teams:
+You can also browse good first issues for each of the core Oppia Web teams to find something you'd enjoy working on! Please only choose issues that have **not yet** been assigned, unless the issue is a "checkbox issue" with multiple claimable parts. Here are the project boards for the different teams:
 
 - Learner and Creator Experience (LaCE): https://github.com/orgs/oppia/projects/3/views/10, typically frontend or full-stack
 - Contributor Dashboard: https://github.com/orgs/oppia/projects/18/views/5, typically frontend or full-stack
