@@ -47,7 +47,27 @@ Oppia has many webpages and this is a comprehensive guide on how to access all t
 This diagram outlines the various entities in Oppia and how they relate
 to each other:
 
-![Flowchart of Oppia entities](images/Webpage-Guide/entitiesHierarchy.png)
+```mermaid
+flowchart TD
+T("Topic") --> S1("Story-1")
+T --> S2("Story-2")
+S1 --> C1("Chapter-1/Exploration")
+C1 --> c1("Card-1")
+C1 --> c2("card-2")
+S1 --> C2("chapter-2")
+C2 --> c3("Card-3")
+c3 --> co("Content")
+c3 ----> in("Interaction")
+in --> mc("Multiple-choice")
+in --> is("Image Selection")
+in --> fi("Fraction-input")
+in --> oqt("other question types")
+S2 --> C3("Chapter-3")
+S2 --> C4("Chapter-4")
+C3 --> c4("Card-4")
+C4 --> c5("Card-5")
+C4 --> c6("Card-6")
+```
 
 As you go through https://www.oppia.org/, you will find these entities.
 
