@@ -66,7 +66,7 @@ sequenceDiagram
     client->>web server: HTTP Request
     web server->>controller: handler()
     controller->>service: service_func()
-    service->domain:""
+    service->domain: 
     service->>storage: lookup_by_name(name)
     storage->>datastore: get_all().filter(name)
     datastore->>storage: datastore_model
