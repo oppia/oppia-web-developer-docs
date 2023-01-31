@@ -11,7 +11,7 @@
 
 **Note:** If you just want to create and share explorations, you may be able to use the hosted server at https://www.oppia.org (in which case you don't need to install anything).
 
-*These installation instructions were last tested on 24 July 2021. For more information on issues that may occasionally arise with the installation process, please contact _vojtech.jelinek@hey.com_ or see the [Troubleshooting](https://github.com/oppia/oppia/wiki/Troubleshooting) page.*
+*These installation instructions were last tested on 24 July 2021. For more information on issues that may occasionally arise with the installation process, see the [Troubleshooting](https://github.com/oppia/oppia/wiki/Troubleshooting) page or ask in the GitHub Discussions.*
 
 ## Install prerequisites
 
