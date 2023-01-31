@@ -46,9 +46,11 @@ export enum FeatureNames {
 
 ### Modifying unit tests to account for the creation of the new flag
 
-The following steps ensure existing unit tests account for the newly created feature flag and don't fail.
+The codebase contains two unit tests (one in the backend and one in the frontend) whose success or failure depends on them being aware of all the feature flags that currently exist.
 
-1. Add the name of the feature flag to the the `EXPECTED_PARAM_NAMES` array in the `ExistingPlatformParameterValidityTests` class in `core/domain/platform_parameter_list.py`. Example:
+To make sure those two tests succeed, please follow the steps below (so they account for the newly created feature flag).
+
+1. Add the name of the feature flag to the `EXPECTED_PARAM_NAMES` array in the `ExistingPlatformParameterValidityTests` class in `core/domain/platform_parameter_list.py`. Example:
 
 ```python
 EXPECTED_PARAM_NAMES = [
@@ -60,22 +62,87 @@ EXPECTED_PARAM_NAMES = [
 2. Add the newly created flag as a key-value pair in the `featureStatusSummary` object in the unit-test meant for testing the functioning of the session storage in `core/templates/services/platform-feature.service.spec.ts`, like so:
 
 ```typescript
-    it('should load from sessionStorage if there are valid results.', fakeAsync(
-      () => {
+it('should load from sessionStorage if there are valid results.', fakeAsync(
+  () => {
+    // ...
+    mockSessionStore({
+      SAVED_FEATURE_FLAGS: JSON.stringify({
         // ...
-        mockSessionStore({
-          SAVED_FEATURE_FLAGS: JSON.stringify({
-            // ...
-            featureStatusSummary: {
-                // ...
-              [FeatureNames.NewFeature]: true,
-            }
-          })
-        });
-
-        // ...
+        featureStatusSummary: {
+          // ...
+          [FeatureNames.NewFeature]: true,
+        }
       })
-    );
+    });
+
+    // ...
+  })
+);
+```
+
+### Writing unit tests for gated features
+
+To write unit tests for gated features, follow the steps below:
+
+#### Frontend
+
+1. Import `PlatformFeatureService` in the .spec file.
+
+```typescript
+import { PlatformFeatureService } from 'services/platform-feature.service';
+```
+
+2. Create a mock for the service, consisting of a getter for the status of the feature flag, like so:
+
+```typescript
+class MockPlatformFeatureService {
+  get status(): object {
+    return {
+      NewFeature: {
+        isEnabled: true
+      }
+    };
+  }
+}
+```
+
+3. Add the mock to the `TestBed` configuration, like so:
+
+```typescript
+TestBed.configureTestingModule({
+  imports: [
+    //...
+  ],
+  providers: [
+    // ...
+    {
+      provide: PlatformFeatureService,
+      useClass: MockPlatformFeatureService
+    }
+    // ...
+  ]
+});
+```
+
+4. Inject the service in the beforeEach block, like so:
+
+```typescript
+let platformFeatureService: PlatformFeatureService;
+beforeEach(() => {
+  platformFeatureService = TestBed.get(PlatformFeatureService);
+});
+```
+
+5. Spy on the getter to check the status of the feature flag, like so:
+
+```typescript
+spyOnProperty(platformFeatureService, 'status', 'get').and.returnValue(
+  {
+    NewFeature: {
+      isEnabled: false // or true, depending on the test
+    }
+  }
+);
 ```
 
 ## Feature Stage Explanation
@@ -153,7 +220,7 @@ Feature flags should be used when you are working on a feature whose scale makes
 
 ### How to use feature flags?
 
-Say you are working on a large scale user-facing feature that will take multiple PRs to fully implement. The following is the recommended way to use feature flags in such a scenario (*this is the development workflow we expect developers to follow when it comes to employing the use of feature flags*):
+Say you are working on a large scale user-facing feature that will take multiple PRs to fully implement. In such a case, please use feature flags to gate your feature appropriately by carefully following the steps listed below:
 
 1. The very first PR you make must include changes that add a new feature flag to the codebase, meant to be used with this new feature. The feature flag must be placed in the DEV stage. Every single user-facing aspect of the feature -- whether frontend or backend -- must be gated behind the feature flag (both in the first PR, and all the following ones as well). This is to ensure that the feature is not visible to the user until it is fully implemented and ready for production.
 
@@ -165,4 +232,4 @@ Say you are working on a large scale user-facing feature that will take multiple
 
 5. Once you receive a go-ahead from the feature testers, you must merge another PR -- this PR is meant to do only one thing, i.e. move the feature flag to the PROD stage, allowing it to be enabled/disabled in production (by the admin(s)). **NOTE: When opening this PR, include a link to the testing doc or other proof that the feature has been approved for release.**
 
-6. Once the feature is confirmed to be functioning as intended in production (for at least two weeks), you must merge one last PR to essentially "un-gate" the feature and move the feature flag to the deprecated stage (one of the stages listed in `core/domain/platform_parameter_list.py` for flags that are no longer in use).
+6. Once the feature is confirmed to be functioning as intended in production (for at least two weeks), you must merge one last PR to essentially "un-gate" the feature and move the feature flag to the deprecated stage (one of the stages listed in `core/domain/platform_parameter_list.py` for flags that are no longer in use). Then feel free to remove all references of the feature flag from the codebase (for example, in all the `if` blocks you created to gate the feature).
