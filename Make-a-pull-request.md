@@ -98,6 +98,8 @@ Once your feature is ready, you can open a pull request (PR)!
 
   **WARNING: If your PR only fixes a specific part of the issue, start the title with "Fix part of issue #bugnum:" instead so that the original issue is not auto-closed by GitHub when the PR is merged.**
 
+* Write a clear description of your PR that explains why the change is being made, how the change was made, as well as any identified risks and resulting countermeasures. See [here](https://github.com/oppia/oppia-android/pull/4757#issue-1461272376) for a good example of what sorts of things to include.
+
 * Fill out the rest of the PR checklist.
 
 * Add the screen recording you saved to the description.
@@ -149,7 +151,7 @@ When your reviewer has completed their review, they will reassign the pull reque
 
 * **Always make commits locally, and then push to GitHub.** Don't make changes using the online GitHub editor -- this bypasses lint/presubmit checks, and will cause the code on GitHub to diverge from the code on your machine.
 
-* **Never force-push changes to GitHub.** This will lead to the PR being closed.
+* **Never force-push changes to GitHub, or rebase your PR.** This will lead to the PR being closed.
 
 * As you are making changes, track them by replying to each comment via the Files Changed tab. Each reply should be either "Done" or a response explaining why the corresponding suggestion wasn't implemented. Also, please **do not** mark the comment as resolved, since this just makes it harder to actually read the comment thread. Also, please **use the 'Start a review' button** (rather than the 'Add single comment' button) to write draft comments, so that you don't publish them before the code is ready.
 
