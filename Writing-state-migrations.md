@@ -3,13 +3,15 @@ If your PR changes the properties of an exploration or state (or other structure
 ## Steps to follow while writing state migrations
 1. Make the necessary changes to the State class (or its descendant classes) to reflect the post-migration state structure.
 2. Increment the `CURRENT_STATE_SCHEMA_VERSION` in the _feconf.py_ file.
-3. Increment the `CURRENT_EXP_SCHEMA_VERSION` in the _exp_domain.py_ file and similar changes in the _question_domain.py_ file.
-4. Start with writing `_convert_states_v{old_state_version}_dict_to_v{old_state_version + 1}_dict` method in _exp_domain.py_ files under `Exploration` class and in _question_domain.py_ under `Question` class. In _exp_domain.py_, update the `Exploration._migrate_to_latest_yaml_version` method to use your conversion function (not required for _question_domain.py_, this is done automatically).
-5. Write a conversion function `_convert_states_v{old_state_version}_dict_to_v{old_state_version + 1}_dict` in _draft_upgrade_services.py_ that makes appropriate upgrades to data that resides in `ExplorationChange` lists. Here you have to check if the changes that you do in your conversion function affect the `draft_change_list`, if yes, then make sure to update the drafts or raise `InvalidDraftConversionException` which will drop the changes in the drafts (this needs to be done in cases where changes to drafts would be too complicated). If no changes need to be done to drafts you can simply return the `draft_change_list`.
-6. You would require to make some changes to the existing test files according to the changes you are doing in your conversion function. You have to edit the test functions present for the previous conversion functions in the `exp_domain_test.py` file to update the latest schema version. Also you have to update the schema of core/tests/data/oppia-ThetitleforZIPdownloadhandlertest!-v2-gold.zip file.
-
-7. Create a PR. If the tests fail, try resolving the test issues.
-8. Once your PR is finalized, file a one request for the `AuditExplorationMigrationJob` and `MigrateExplorationJob` using this [form](https://docs.google.com/forms/d/e/1FAIpQLSfvYWscAn18ok06An1oQ54h1VmBHfCX8uuuV01kIvY9WX0-Ug/viewform). The job tests a migration by running your conversion function on the dicts of existing exploration models and validating that the migration will be successful. Make sure to mention to only run `MigrateExplorationJob` when the `AuditExplorationMigrationJob` is successful. The audit job does not commit changes to the datastore. After successful testing you can get you PR merged.
+3. Increment the `CURRENT_EXP_SCHEMA_VERSION` in the _exp_domain.py_ file.
+4. Start with writing `_convert_states_v{old_state_version}_dict_to_v{old_state_version + 1}_dict` method in _exp_domain.py_ under `Exploration` class and in _question_domain.py_ under `Question` class. In _exp_domain.py_, update the `Exploration._migrate_to_latest_yaml_version` method to use your conversion function.
+5. Write a conversion function in _draft_upgrade_services.py_
+    - Write `_convert_states_v{old_state_version}_dict_to_v{old_state_version + 1}_dict` function that makes appropriate upgrades to data that resides in `ExplorationChange` lists.
+    - Here you have to check if the changes that you do in your exploration conversion function affect the `draft_change_list`, if yes, then make sure to update the drafts or raise `InvalidDraftConversionException` which will drop the changes in the drafts (this needs to be done in cases where changes to drafts would be too complicated).
+    - If no changes need to be done to drafts you can simply return the `draft_change_list`.
+6. Edit the tests for the previous conversion functions in the `exp_domain_test.py` to update to the latest schema version. Also, update the schema of core/tests/data/oppia-ThetitleforZIPdownloadhandlertest!-v2-gold.zip file.
+7. Create a PR. If the tests fail resolve them.
+8. Once your PR is finalized, file a one request for the `AuditExplorationMigrationJob` and `MigrateExplorationJob` using this [form](https://docs.google.com/forms/d/e/1FAIpQLSfvYWscAn18ok06An1oQ54h1VmBHfCX8uuuV01kIvY9WX0-Ug/viewform). The job tests a migration by running your conversion function on the dicts of existing exploration models and validating that the migration will be successful. Make sure to mention to only run `MigrateExplorationJob` when the `AuditExplorationMigrationJob` is successful. After successful testing you can get you PR merged.
 
 **Note:** These steps are for the migration where one is changing the schema of all existing states, depending on the changes your migration is going to make the steps will be less as you’ll have to change very fewer test files.
 
@@ -33,7 +35,7 @@ If you find new test files where changes needed to be required, try updating the
 - Go to 0.0.0.0:8000 and flush existing Memcache from the Memcache tab.
 - Go to the admin page and assign yourself the role of "release coordinator".
 - Go to the Misc tab of /release-coordinator page and flush the cache.
-- Run `AuditExplorationMigrationJob` and wait for the job to get completed. This job will not make any changes to the exploration as this is simply an audit job. We run this job before the actual migration job so that in case anything fails we do not make changes to the datastore.
+- Run `AuditExplorationMigrationJob` and wait for the job to get completed. This job will not make any changes to the exploration as this is simply an audit job. We run this job before the actual migration job so that in case anything fails we do not make changes to the datastore. Please make sure the job should be successful without any errors before moving forward.
 - Run `MigrateExplorationJob` and wait for the job to get completed. This will make changes to exploration.
 - Check the output of the job and post the screen-shot in your PR.
 - Go to the exploration you have created lately, check whether it's working as expected.
