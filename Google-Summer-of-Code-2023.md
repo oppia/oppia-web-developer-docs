@@ -273,3 +273,504 @@ The following is a list of Oppia's 2023 GSoC project ideas. You are welcome to c
 Please note that the list of project ideas below is not set in stone: more projects may be added later, and some project descriptions may also change a bit, so check back regularly. In addition, the mentor assignments listed below are provisional, and may change depending on which proposals are eventually accepted.
 
 The list of projects for this year will be added soon.
+
+### Learner and Creator Experience (LaCE) team
+
+1.1. [Implementing the “Needs Guiding Responses” section of the lesson analytics dashboard](#11-implementing-the-needs-guiding-responses-section-of-the-lesson-analytics-dashboard)
+
+1.2. [Improving the lesson creation experience](#12-improving-the-lesson-creation-experience)
+
+1.3. [Serial chapter launch](#13-serial-chapter-launch)
+
+1.4. [User feedback reporting UI on Web](#14-user-feedback-reporting-ui-on-web)
+
+1.5. [Learner dashboard redesign](#15-learner-dashboard-redesign)
+
+1.6. [Improve math interactions](#16-improve-math-interactions)
+
+1.7. [Accessibility improvements](#17-accessibility-improvements)
+
+### Contributor Dashboard team
+
+2.1. [Contributor Dashboard Admin Stats Table](#21-contributor-dashboard-admin-stats-table)
+
+2.2. [Prioritized Translation Languages and Auto-Translations](#23-improvements-for-translation-reviewer-experience)
+
+2.3. [Improvements for translation reviewer experience](#23-improvements-for-translation-reviewer-experience)
+
+### Server data validation team
+
+3.1. [Fix Validation Errors](#31-fix-validation-errors)
+
+### Developer workflow team
+
+4.1. [Dockerize Oppia](#41-dockerize-oppia)
+
+4.2. [Developer Workflow Release Dashboard](#42-developer-workflow-release-dashboard)
+
+4.3. [Developer Workflow Telemetry Dashboard](#43-developer-workflow-telemetry-dashboard)
+
+4.4. [Make CI faster](#44-make-ci-faster)
+
+4.5. [Normalize Usage of Feature Flags](#45-normalize-usage-of-feature-flags)
+
+## Learner and Creator Experience (LaCE) team
+
+### 1.1. Implementing the “needs guiding responses” section of the lesson analytics dashboard
+
+**Project Description:**
+
+Oppia has, for each exploration, an “improvements tab” that shows common wrong answers to a question. This allows lesson creators to subsequently improve the lessons. (For example, if a particular wrong answer isn’t addressed well by the existing feedback, and is being submitted regularly, then we can detect this and update the lesson.) This is important for ensuring that learners don’t get stuck.
+
+Unfortunately, the existing stats dashboard is somewhat unwieldy and not well-suited for easily taking action to update lessons. A new [improvements tab](https://drive.google.com/file/d/1GOrwZhVKCunSmOgbvMDaGFU2LSjT_MOf/view) that is more editor-friendly has already been (mostly) designed. This improvements tab shows improvements that can be made to the exploration, categorized by bounce rate, incomplete learning, and specific wrong answers for cards.
+
+The aim of this project is to implement the part of the improvements tab that covers “Card-Level Improvements > Needs Guiding Responses”. (The other parts are out of scope for this project.)
+
+The main challenge for this project is surfacing the necessary data for this view correctly and quickly. In order to do this, the data needs to be grouped and arranged properly in the backend for easy retrieval. This data should be kept up-to-date using Apache Beam jobs that are regularly run using a cron scheduler, but since there is a lot of data, there should be some aggregation and archival strategy so that the cron jobs do not need to perform computations on the full historical dataset each time. The aim of this project is thus to build out this data pipeline and ensure that it is robust, and display its output in an easy-to-understand way in the exploration editor improvements tab.
+
+**Size of this project:** large (~350 hours)
+
+**Potential Mentors:**
+
+**Knowledge/Skills Recommended:**
+
+* Knowledge and understanding of Python
+* Ability to write Beam jobs
+* Knowledge and understanding of TypeScript, Angular, HTML, and CSS
+* Strong technical design skills
+
+**Suggested Milestones:**
+
+* **Milestone 1:** Implement the data pipeline for answer statistics. This should include (a) generating one-off archival models for historical data that can be queried quickly, (b) creating “realtime” models for each exploration/state that store the most recent set of answer data, (c) adding a trigger to update the archival model via a deferred job once the realtime model exceeds a certain number of distinct answers or storage size, (d) implementing the necessary queries and controllers to provide the “top wrong answers” data to the frontend. These jobs should work correctly in production.
+
+* **Milestone 2:** Implement the UI for the “Card-Level Improvements > Needs Guiding Responses” section of the improvements tab. This section should correctly display answers for the various different types of interactions (note that the mock in the “Useful Resources” section only shows one such type, which is TextInput answers). It should also display an “Address Answers” call-to-action which, when clicked, brings the user to the relevant part of the main exploration editor tab, which would also open the “Add Response” dialog box with a reminder of the wrong answers they still need to address, so that they can add new answer groups and feedback for them (see more details [here](https://docs.google.com/document/d/1qQbW9Z_cgJ1mwU0hzBpPVS_4WLT_l_08ZixLR1G2bvQ/edit#heading=h.c63b1rerczu8)).
+
+**Dependency on Release Schedule:**  Since this project involves a step to generate archival models, the timeline should be arranged so that this step can be run and verified during the appropriate release cycle.
+
+**Proposal notes:**
+
+* One thing to consider when designing the data structure is versioning, and how to tell whether a set of answers is “still useful” for a given exploration version. A simple rule of thumb that could be used is whether the card still uses the same interaction type. Additionally (or alternatively), each wrong answer surfaced could include the date when it was last seen, and this can be used to filter wrong answers that have become obsolete. (Note that these are just ideas for you to consider, and it is fine if you decide not to go with these or have alternative suggestions. You may want to compare and contrast different approaches.)
+* It's also worth thinking about how to handle the fact that answers may be submitted in different languages, now that we have the functionality for lessons to be played entirely in other languages.
+* We recommend taking a look at the existing codebase. Some good places to start are event_services.py, StateAnswersModel, and the stats_domain.py and stats_services.py files. Although these models and functionality may not be optimally implemented, they should be useful for getting a sense of what exists today.
+* Note that an existing infrastructure for stats computations relied on a “continuous-computation” infrastructure in our codebase, which was deprecated some time ago (though you can see it in older versions of the codebase, in jobs.py). This infrastructure also relied on MapReduce jobs, which became obsolete after the recent migration to Python 3. Additionally, the previous infrastructure didn’t really handle versioning correctly. Thus, we would advise revisiting the infrastructure questions afresh and coming up with a clear technical design (that doesn’t assume that what exists in the codebase is already optimal).
+* In general, we recommend that the proposal should examine the existing stats pipeline, describe how it works, and identify problems with it. It should then propose a technical design that would satisfy the criteria mentioned in this project (and explain in detail how statistics should be computed, archived, and surfaced), and describe how we would move from the existing pipeline to this new design. It is important to compare multiple alternative approaches to doing this (for example, there may be pros/cons associated with building an independent “realtime model” from scratch, vs making light modifications to the existing models).
+
+
+**Useful resources:**
+* UI mocks: [link](https://drive.google.com/file/d/1GOrwZhVKCunSmOgbvMDaGFU2LSjT_MOf/view?usp=sharing)
+* How to write Apache Beam jobs: [wiki page](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs)
+* Here is a somewhat outdated and incomplete [design doc](https://docs.google.com/document/d/1qQbW9Z_cgJ1mwU0hzBpPVS_4WLT_l_08ZixLR1G2bvQ/edit#heading=h.ylvrrqipsjif) that overlaps a bit with this project. Most of the doc is out of scope for the project, but you might find it interesting reading for context. The most relevant section is [this one](https://docs.google.com/document/d/1qQbW9Z_cgJ1mwU0hzBpPVS_4WLT_l_08ZixLR1G2bvQ/edit#bookmark=id.3fmayg4aifoi) in the "product design" part of the doc. Note that you do not need to follow the approach in the technical design section of that document (since, on reflection, it looks like the storage and display approach for NGR tasks would likely need to be handled differently from other tasks in the dashboard).
+* Release schedule: [wiki page](https://github.com/oppia/oppia/wiki/Release-schedule-and-other-information)
+
+### 1.2. Improving the lesson creation experience
+
+**Project Description:**
+
+The aim of this project is to provide three enhancements to the exploration editor page for lesson creators: (a) showing the history of metadata changes to an exploration; (b) showing the history of changes to a specific card and allowing that history to be browsed through; (c) allowing creators to see which languages a particular part of a lesson has been translated into when editing it, and to update those translations if appropriate.
+
+(**Note**: If desired, you may submit a proposal for a <span style="text-decoration:underline;">half-size project</span> covering EITHER both options (a) and (b), OR option (c). If you do this, please label your proposal accordingly with “parts (a) + (b)” or “part (c)” in the title.)
+
+For (a): The current exploration history tab allows comparison between each “state card”, but doesn’t include details of the exploration metadata. An additional box containing these details should be added to the comparison graph.
+
+For (b): In the state editor, it should be possible to see a “Last edited by XXX at version YYY” annotation (excluding translation commits) at the bottom right. Clicking this should open a pop-up modal that shows the changes made to the card in that last edit, and a further link at the bottom right saying “Previously edited by XXX at version YYY” which, when clicked, advances the modal to the previous change, and so on. (This is intended to function a little bit like “git blame” in the GitHub UI.)
+
+For (c): In the state editor, when a change is made to a part of a card and this results in a “should translations be updated?” pop-up modal, the modal should also include a list of the existing languages for which that content has been translated, and the currently-saved translations for those languages. The lesson creator should be asked to update these translations if the changes are trivial to do (e.g. the content is just numbers), and otherwise leave them alone by default. This will help to save some re-translation work for the community. **Note**: these translation changes should not be applied immediately – if the lesson creator subsequently discards their change before committing it to the backend, then those translation changes should also be discarded.
+
+**Size of this project:** large (~350 hours); can be reduced to medium (~175 hours) if desired (see description)
+
+**Potential Mentors:**
+
+**Knowledge/Skills Recommended:**
+
+* Knowledge and understanding of Python
+* Knowledge and understanding of TypeScript, Angular, HTML, and CSS
+* Ability to write Beam jobs
+* Technical design skills
+* (Ideally) Some UI/UX design skills
+
+**Suggested Milestones:**
+
+* **Milestone 1:** Creators should be able to see changes to an exploration’s metadata in the comparison view in the history tab. They should also be able to navigate through all the historical changes to a particular state (excluding changes that solely affect translations).
+* **Milestone 2:** Creators should be able to see a list of existing translations through the modal that pops up when they make changes to a published exploration, and should be able to edit those if the edits are easy to make.
+
+**Dependency on Release Schedule:** Some sections of this proposal may entail writing Beam jobs to update existing server data. The timeline should be arranged so that such jobs can be run and verified during the appropriate release cycle.
+
+**Proposal notes:**
+
+* The main thing that is important to demonstrate in the proposal for this project is good technical design skills. Strong proposals would first show a good understanding of the current system, and correctly describe the parts of it that are relevant to the relevant subproject, before suggesting the minimal changes that would be needed in order to achieve the desired functionality.
+* For (b), some precomputation may be needed in order to retrieve the version of the "previous change" quickly.
+* For (b), it would be useful to generalize the system so that one can go forward/back from any given state. This would allow additional useful functionality like clicking on a state in a particular version when it's shown in the history tab, and moving forward/back through its history. Be sure to handle state additions, deletions and renames correctly!
+
+**Useful resources:**
+
+* How to write Apache Beam jobs: [wiki page](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs)
+* Release schedule: [wiki page](https://github.com/oppia/oppia/wiki/Release-schedule-and-other-information)
+
+### 1.3. Serial chapter launch
+
+TBA
+
+### 1.4. User feedback reporting UI on Web
+
+TBA
+
+### 1.5. Learner dashboard redesign
+
+TBA
+
+### 1.6. Improve math interactions
+
+TBA
+
+### 1.7. Accessibility improvements
+
+TBA
+
+## Contributor Dashboard team
+
+### 2.1. Contributor Dashboard Admin Stats Table
+
+**Project Description:**
+
+Contributor dashboard admin page revamp. Table view of contributors with key stats, e.g. number of translations/questions submitted/reviewed. Each row represents a contributor and is actionable, allowing an admin to add or remove contribution rights. 
+
+**Size of this project:** medium (~175 hours)
+
+**Potential Mentors:** 
+
+**Knowledge/Skills Recommended:**
+
+* Knowledge and understanding of Python
+* Knowledge and understanding of TypeScript, Angular, basic HTML, and CSS
+
+**Suggested Milestones:**
+
+* **Milestone 1:** Complete the complete backend changes:
+  - Introduce language coordinator admin role
+  - Modify contributor dashboard admin controller to allow adding or removing language coordinators
+  - Add new endpoint to contributor dashboard admin controller for fetching contributor stats
+
+* **Milestone 2:** Complete the frontend changes:
+  - Display contributor stats table on contributor dashboard admin page
+  - Show different available admin actions depending on user admin role
+  - Add support for sorting by table column (will require some backend query changes)
+  - Implement table pagination
+
+
+**Dependency on Release Schedule:** 
+
+**Proposal notes:**
+
+* For contributor stats, you can query the existing stats models in core/storage/suggestion/gae_models.py, e.g. `TranslationContributionStatsModel`. 
+* To support sorting by table column, we’ll need to add a sort key for each attribute. The sort key will be used in the storage query. See PR [#1653](https://github.com/oppia/oppia/pull/16534) for an example. 
+* Pagination is hard. See PR [#16289](https://github.com/oppia/oppia/pull/16289) to see how pagination was added to the existing contributor stats tables.
+
+
+**Useful resources:**
+
+### 2.2. Prioritized Translation Languages and Auto-Translations
+
+**Project Description:**
+
+Support the marking of languages as “prioritized” for translation. Prioritized languages will have their remaining untranslated lesson text content auto-translated to make the lessons available in the language as quickly as possible. Auto-translated content will appear with a note explaining the auto-translation. Non-prioritized languages will also be auto-translated after a threshold of translation, e.g. 95%. 
+
+Additionally, finish adding [computer-aided translation (CAT)](https://docs.google.com/document/d/1kJd-yLTzB9a2c3Nq7v9pzKfHwKHKGpkWfQ8B0YGf50U/edit#heading=h.24wysknhgyrz) support when submitting translation suggestions. 
+
+**Size of this project:** medium (~175 hours)
+
+**Potential Mentors:** 
+
+**Knowledge/Skills Recommended:**
+
+* Knowledge and understanding of Python
+* Knowledge and understanding of TypeScript, Angular, basic HTML, and CSS
+
+**Suggested Milestones:**
+
+* **Milestone 1:** Complete the backend framework for prioritized languages:
+  - Add notion of prioritized language in backend storage schemas
+  - Store list of prioritized languages
+  - Create beam job to auto-translate remaining text content for a prioritized language
+
+
+* **Milestone 2:** Surface prioritized languages in the UI and add CAT support:
+  - Enable the adding of a prioritized language in the contributor dashboard admin page
+  - Add note to lesson text content that has been auto-translated
+  - Auto-translate non-prioritized language once translation threshold has been achieved (95%)
+  - Add computer-aided translation capability to translation contribution modal
+
+
+
+**Dependency on Release Schedule:** 
+
+**Proposal notes:**
+
+* We’ll likely write a beam job to populate the auto-translations for a language. See the [wiki](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs) for more details. 
+* Maybe ~80% of the CAT work is already done, including all of the backend changes. We just need to hook it up in the frontend, e.g. see working PR: [#12624](https://github.com/oppia/oppia/pull/12604/files) and related issue [#11434](https://github.com/oppia/oppia/issues/11434). 
+  - See Computer Aided Translations (CAT) backend milestone PRs.
+* The CAT backend utilizes the Google Translate API for auto-translations. We can re-use that work here for auto-translations. Alternatively, we can investigate other translate APIs that may offer better translations, e.g. Oppia has done studies in the past that have shown Microsoft to produce preferred translations.
+
+
+**Useful resources:**
+
+### 2.3. Improvements for translation reviewer experience
+
+**Project Description:**
+
+Translation reviewers have given feedback such that the current contributor dashboard reviewer workflow doesn’t match with their most of the needs. This project aims to improve the translation reviewer experience in the contributor dashboard.
+**Size of this project:** large (~350 hours)
+
+**Potential Mentors:** 
+
+**Knowledge/Skills Recommended:**
+
+* Knowledge and understanding of Python
+* Knowledge and understanding of TypeScript, Angular, HTML, and CSS
+
+**Suggested Milestones:**
+
+* **Milestone 1:**
+  - Showing translation cards according to the order of the content flow in the lesson. Exploration editor should also be linked so that the original lesson can be seen.
+  - Showing the size of the translation(short/large)
+  - Pin/unpin specific lessons to translate
+
+
+* **Milestone 2:**
+  - Ability to revert the acceptance or rejection of cards. The exact time limit that we allow to undo the review should be decided.
+  - Showing image alt text below the image
+  - Notifying new submissions through emails
+
+
+**Dependency on Release Schedule:** 
+
+**Proposal notes:**
+
+* To support lesson pinning, we have to make sure the pinned lessons are returned at the top of the list of lessons with translation suggestions in the fetch query [here](https://github.com/oppia/oppia/blob/develop/core/controllers/contributor_dashboard.py#L336).
+* We will likely want to introduce a new storage model to track pinned lessons by language and user.
+
+
+**Useful resources:**
+
+## Server data validation team
+
+### 3.1. Fix Validation Errors
+
+TBA
+
+## Developer workflow team
+
+### 4.1. Dockerize Oppia
+
+**Project Description:**
+
+We want to package Oppia as a Docker container so that new contributors can get started by running docker-compose up -d after cloning the repository to install all the dependencies and start the local development server. This will be much easier than the current installation process, which is often painful to troubleshoot.
+
+Requirements:
+* Setup should be quick and easy. For example, a user might need to:
+  - Install Docker 
+  - Clone oppia/oppia 
+  - Run docker-compose up -d
+* The setup should be independent of the OS or platform it is run on.
+* The setup should not exceed the 8GB RAM requirement for Oppia on any platform for which we have supported installation instructions.
+* It should be easy for a user to update their installation to the current dependency versions.
+* It should be easy to reset the environment, for example if the internet connection fails and so a dependency is only partly installed.
+* Developers should be able to run tests, use git (e.g. switch branches, push changes, and checkout commits), and use all the other development tools we document in the wiki. The interface for doing so should undergo only minimal changes.
+* Maintainers should be able to easily upgrade Oppia’s dependencies (e.g. change requirements.in to specify updated versions) and check that the local server still works. When those updates are merged into develop, all developers should be smoothly upgraded to the new versions.
+* All dependencies must be pinned to a specific version and come from a trustworthy source. We should also verify dependency checksums before installing them.
+* All installations should happen via Docker or bash commands.
+* Should use Docker compose V2 (since compose V1 has been [deprecated](https://www.docker.com/blog/announcing-compose-v2-general-availability/)).
+
+**Size of this project:** large (~350 hours)
+
+**Potential Mentors:** 
+
+**Knowledge/Skills Recommended:**
+
+**Suggested Milestones:**
+
+* **Milestone 1:** The server launch should be successful and all Oppia pages should be functioning correctly.
+
+* **Milestone 2:** All tests should be executed locally and the migration of GitHub actions to utilize docker, including caching of docker images, should be completed.
+
+**Dependency on Release Schedule:** 
+
+**Proposal notes:**
+
+**Useful resources:**
+
+
+### 4.2. Developer Workflow Release Dashboard
+
+**Project Description:**
+
+The aim of this project is to create a dashboard for release testers and team leads on the Oppia developer team. The dashboard should be built as a standard App Engine app that supports login. It should show a list of all commits in develop. For each commit, it should show the status of the release candidate (RC) that was built for that commit:
+* A link to the RC (note: you can find links at the bottom of runs, e.g. https://github.com/oppia/release-scripts/actions/runs/3987166674).
+* Did that RC pass acceptance testing, fail acceptance testing, or get skipped?
+* For all RCs that pass acceptance testing:
+  - **Prod server**. Show a button next to each deployable RC to deploy it to prod. An RC is deployable if it is strictly newer (here “newer” refers to commit order, not the timestamp on the commit) than the currently-deployed RC. Deploying should be restricted to members of the team-leads-and-release-coordinators Google Group or allowlist; when clicked, it should notify that mailing list. The deployed version should be formatted on App Engine as {{tag}}-{{commithash}}, where {{tag}} is the release version (e.g. “3.2.1”).
+  - **Test server**.
+    - If the RC is currently provisioned on a test server, show a link to that test server.
+    - If not, show a button to provision a test server on BrowserStack with this RC. This button should be restricted to members of the release-testers Google Group or allowlist. Once provisioned, it should send an email to the requester and the status in the dashboard should be updated. The deployed version should be formatted as {{tag}}-{{commithash}}, where {{tag}} is the release version (e.g. “3.2.1”).
+
+(Note that the team-leads-and-release-coordinators Google Group will be a member of the release-testers Google Group.)
+
+Pagination should be included to allow paging through multiple pages of commits (50 per page), but it is fine not to go back more than 300 commits or so.
+
+Include full documentation on how to update code, test, and deploy new releases of this app. The app will also need unit tests and linting, and to support easy developer setup.
+
+**Size of this project:** large (~350 hours)
+
+**Potential Mentors:** 
+
+**Knowledge/Skills Recommended:**
+
+**Suggested Milestones:**
+
+* **Milestone 1:** Create a new repo for the release dashboard and include setup, update, test and deployment instructions, as well as CI checks that run all the tests and ensure that all code is 100% tested before an update can be merged to develop. The release dashboard should show a table with a paginated list of commits, their release candidates, and their acceptance test statuses.
+
+* **Milestone 2:** For all release candidates that pass acceptance testing, the release dashboard should have buttons that support deploy-to-prod-server and deploy-to-test-server functionality. These buttons should be correctly access-controlled and should send the appropriate notification emails when clicked.
+
+**Dependency on Release Schedule:** 
+
+**Proposal notes:**
+
+Follow existing Oppia design patterns and app conventions, so that the app is easy for the team to maintain. In particular, for authentication, we suggest using Firebase authentication in a similar way to the main Oppia.org app, rather than rolling out a custom username/password system. You should also take care to avoid any security vulnerabilities (e.g. XSS, CSRF). Following Oppia design patterns and conventions will help here, but whether or not you borrow from Oppia, you should make clear what patterns and conventions you will use, and why they are important.
+
+Your app should be independent of the production Oppia deployment at https://oppia.org. This is because if Oppia is broken, we need to be able to access the release dashboard to fix it.
+
+Most important things for the proposal:
+- Make a table showing types of notification events received, when they’re triggered, where they’re sent from, what their format is and what the app will do with them.
+- Check that you’re able to do the following from an App Engine app, and describe how you would do so in detail. As a bonus, show proof of a working prototype for these that someone can experiment with:
+- Receive a notification from GitHub
+- Send an email to a given address (can follow what Web does with Mailgun)
+- Send a request to trigger a GItHub Action.
+- Send a request to provision BrowserStack.
+- Get current status from BrowserStack.
+
+Note that this dashboard could also optionally link to, or iframe, [the proposed telemetry dashboard](#43-developer-workflow-telemetry-dashboard), so that team leads have a single point of reference.
+
+The dashboard does not need to meet accessibility guidelines.
+
+
+**Useful resources:**
+
+### 4.3. Developer Workflow Telemetry Dashboard
+
+**Project Description:**
+
+The aim of this project is to create a public dashboard that anyone on the Oppia developer team can view. This dashboard should show summaries of the following metrics (these are known as the DORA metrics or “Four Keys”), supplemented by charts. In all cases, the horizontal axis represents time, and the options should support both grouping by day and by week. 
+
+The following graphs should be shown:
+- Failure recovery time (how long it takes us to recover from a failing build in develop – note that this is a bit different from the more standard “how long it takes us to recover from a failing deploy to production”)
+- Deploy frequency (how often we cut and deploy a new release to Oppia.org)
+- Change failure rate (how often we get a defect in develop)
+- Lead time for changes: (how long it takes for a commit to get deployed to Oppia.org)
+
+You can see an example of what this dashboard might look like in the visualization here, but there is no requirement that you use this [library](https://github.com/GoogleCloudPlatform/fourkeys#dashboard).
+
+Also, include full documentation on how to update code, test, and deploy new releases of this app. The app will also need unit tests and linting, and to support easy developer setup.
+
+**Size of this project:** medium (~175 hours)
+
+**Potential Mentors:** 
+
+**Knowledge/Skills Recommended:**
+
+**Suggested Milestones:**
+
+* **Milestone 1:** Create a new repo for the telemetry dashboard and include setup, update, test and deployment instructions, as well as CI checks that run all the tests and ensure that all code is 100% tested before an update can be merged to develop. The telemetry dashboard should show at least one chart and summary statistic (of your choice) of the four that are given.
+
+* **Milestone 2:** The telemetry dashboard should show all four metrics, and be added to the Oppia team’s wiki and broadcast to the dev team.
+
+**Dependency on Release Schedule:** 
+
+**Proposal notes:**
+
+When coding, try to follow existing Oppia design patterns so it’s easy for other folks on the team to maintain the app in the future.
+
+Most important things for the proposal:
+- Would be good to see a comparison of technical options. One of them is [fourkeys](https://github.com/GoogleCloudPlatform/fourkeys) but there may be others (including building from scratch). Note that you can use a library like ApexCharts for the graphs.
+- Make a table showing types of notification events received, when they’re triggered, where they’re sent from, what their format is and what the app will do with them.
+- If you can, try to show proof of a sample prototype set up and working with data from some other repository. This would be helpful since the documentation for how to get these metrics (e.g. in the fourkeys [README](https://github.com/GoogleCloudPlatform/fourkeys/blob/main/README.md)) is already pretty good (though we still ask that you explain your approach clearly so that we can check that you understand what you’re doing).
+
+**Useful resources:**
+
+### 4.4. Make CI faster
+
+**Project Description:**
+
+The broad aim of this project is to get the CI tests to run in under 1 hour so that PRs can be merged into develop quicker. This entails several steps:
+
+- Get the pre-push tests (that run on the developer’s local machine) to run in under 5 minutes:
+  - Audit backend unit tests to see which ones take a long time, and refactor those to avoid network/database/disk-access calls in order to shorten their runtime (while still testing what they need to). 
+  - For long backend unit tests that need to be long because they are creating a lot of data to test scalability, add them to a “scalability” list of tests that doesn’t need to get run during pre-push.
+  - Run only the lint, MyPy, and typescript checks; karma tests; and backend unit tests that were affected by files changed since the last push.
+  - (If possible) On pre-push, shorten the build step or remove it altogether.
+- Get the CI checks to run in under 1 hr wall time (i.e. including parallelization):
+  - Create a single environment at the start that gets used for all other tests. (In particular we currently seem to be running the “install third party deps” step repeatedly, so it might be good to cache folders like oppia_tools.)
+  - Create a build artifact that gets reused in all workflows. (Currently, build artifacts can’t be persisted across workflows, but this GitHub action for uploading to GCS might be helpful.)
+  - Run the full versions of all pre-push tests (mentioned above) first, and block other tests on these. (If any of the pre-push tests fail, then do not run the other CI checks.)
+  - For long-running tests:
+    - If the test is essential, find a way to make it shorter.
+    - If it is not, remove it from CI and put it in an acceptance layer that only runs on some release-candidate builds (see below). 
+- Split off less-important long-running tests into acceptance tests:
+- Create a GitHub Action that, at regular time intervals, takes the latest release-candidate build on develop that passes all CI checks, runs the acceptance tests on them. Builds that pass all acceptance tests should have a public, machine-readable indication that they did, and builds that cause an acceptance test failure should result in an email or chat notification to the CI Stability team.
+
+**Size of this project:** large (~350 hours)
+
+**Potential Mentors:** 
+
+**Knowledge/Skills Recommended:**
+
+**Suggested Milestones:**
+
+* **Milestone 1:** CI checks run in under an hour. Less important tests are split off into an acceptance layer.
+
+* **Milestone 2:** Pre-push checks run in under 5 minutes.
+
+**Dependency on Release Schedule:** 
+
+**Proposal notes:**
+
+**Useful resources:**
+
+### 4.5. Normalize Usage of Feature Flags
+
+**Project Description:**
+
+The aim of this project is to normalize the usage of feature flags (implemented using [platform parameters](https://github.com/oppia/oppia/wiki/Developing-new-features-with-feature-gating)) in Oppia’s deployment process. At the end of the project:
+
+- The feature flags dashboard should be moved from /admin to /release-coordinator, and be made more intuitive. (The current UI is not intuitive at all – it’s quite unclear what to do.) The common case of switching a boolean flag on and off should be easy for developers to do.
+- Feature flags should support rollbacks. There seems to be an [issue](https://github.com/oppia/oppia/issues/16416) with rollbacks not being correctly captured that should be diagnosed and fixed.
+- Extend the current functionality to allowlist specific usernames for external trusted tester programs.
+- Ensure the documentation is sufficiently complete so that developers are used to creating feature flags for new features, and have no questions about how to do so.
+
+**Size of this project:** medium (~175 hours)
+
+**Potential Mentors:** 
+
+**Knowledge/Skills Recommended:** Python and TypeScript
+
+**Suggested Milestones:**
+
+* **Milestone 1:** The feature flags dashboard is moved from /admin to /release-coordinator. It is also made more intuitive; in particular, the common case of switching a boolean flag on and off is easy for developers to do.  Feature flags support rollbacks (see [#16416](https://github.com/oppia/oppia/issues/16416)).
+
+* **Milestone 2:** Feature flags support allowlisting specific user IDs for external trusted tester programs. The documentation for handling feature flags is fully complete and developers use feature flags as a matter-of-course, without any issues.
+
+**Dependency on Release Schedule:** 
+
+**Proposal notes:**
+
+See "launching new features" page on wiki:
+- [Launching new features](https://github.com/oppia/oppia/wiki/Launching-new-features)
+- [Developing new features with feature gating](https://github.com/oppia/oppia/wiki/Developing-new-features-with-feature-gating)
+
+In general, features should start out in the DEV FeatureStage. When the functionality is complete, they should be moved to the TEST FeatureStage (and the test servers, but not oppia.org, should accept features in the TEST FeatureStage). When release testing completes and the feature is cleared for full launch, a single PR should be created to flip the TEST flag to PROD, which will enable it to run on oppia.org in the next prod release of the app.
+
+The feature flags UI is typically used for (a) boolean feature flags on Web, (b) platform parameters needed to give signals to the Android app. It may be worth having different simplified UIs for these two common cases as well as the more generic UI at the very bottom, all of which should work the same way “under the hood”.
+
+Issue #16416 might be due to a caching issue where feature flags aren’t properly cleared from users’ caches when reset.
+
+For supporting specific user IDs for external trusted tester programs, it should be possible to define groups of users (managed by username, but stored in the datastore using user IDs) and then have the flag be something like “if the user is in this group, enable the feature”.
+
+**Useful resources:**
