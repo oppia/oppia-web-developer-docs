@@ -116,13 +116,15 @@ The challenge in writing robust E2E tests is making sure to always include a wai
 ### If the end-to-end tests are failing on your PR
 
 Most E2E flakes are a result of race conditions between the E2E test code, the simulated user, and the server code being tested. The speeds of these three processes, and therefore whether a given race condition causes flakes at an appreciable rate, can vary depending on the execution environment. For example, some race conditions might not yield a flake on faster computers because there the "correct" process always wins the race.
-We focus almost exclusively on fixing flakes that appear on CI, so flakes may appear more often in other execution environments (e.g. on your local machine) that differ substantially from the CI runners. For example, I have a slower computer, and I get tons of flakes when trying to run the E2E tests locally. Because of these problems, we usually debug E2E tests on CI instead so that our debugging environment is as close as possible to the real thing. I would imagine that our CI runners are pretty fast (since they don't have to run a GUI, for example), so I would expect more flakes on slower computers. That's just based on intuition and my own experience though.
+We focus almost exclusively on fixing flakes that appear on CI, so flakes may appear more often in other execution environments (e.g. on your local machine) that differ substantially from the CI runners. We usually debug E2E tests on CI so that our debugging environment is as close as possible to the real thing. We would imagine that our CI runners are pretty fast (since they don't have to run a GUI, for example), so we would expect more flakes on slower computers. That's just based on intuition and my own experience though.
 
 First, check that your changes couldn't be responsible. For example, if your PR updates the README, then there's no way it caused an E2E test to fail.
 
 If your changes could be responsible for the failure, you'll need to investigate more. Try running the test locally on your computer. If it fails there too, you can debug locally. Even if you can only reproduce the flake on CI, there are lots of other ways you can debug. See our [[guide to debugging E2E tests|Debug-end-to-end-tests]].
 
 If you are _absolutely certain_ that the failure was not caused by your changes, then you can restart the test. Remember that restarting tests can let new flakes into our code, so please be careful.
+
+For more info, contact: @U8NWXD
 
 ## Layout of the E2E test files
 
