@@ -171,7 +171,7 @@ Either approach should lead you to `core/templates/pages/preferences-page/prefer
 
 Next let's identify the backend files involved in handling updates to the user's profile.
 
-1. We see that `updateUserPreferencesDataAsync` issues a PUT request against `PREFERENCES_DATA_URL`, which is `/preferenceshandler/data`. This path is assigned to the `PREFERENCES_DATA_URL` constant in `feconf.py`, and if you search for that constant in `main.py`, you'll see it mapped to the `profile.PreferencesHandler` controller, which is you can find in `core/controllers/profile.py`. In that controller, add code to handle the `user_experience` update type:
+1. We see that `updatePreferencesDataAsync` issues a PUT request against `PREFERENCES_DATA_URL`, which is `/preferenceshandler/data`. This path is assigned to the `PREFERENCES_DATA_URL` constant in `feconf.py`, and if you search for that constant in `main.py`, you'll see it mapped to the `profile.PreferencesHandler` controller, which is you can find in `core/controllers/profile.py`. In that controller, add code to handle the `user_experience` update type:
 
    ```diff
      if update_type == 'user_bio':
