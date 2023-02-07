@@ -13,9 +13,9 @@
 
 ## Blame-Free Reverts
 
-In the past, reverts have sometimes been seen as a punitive measure . This is no longer the case at Oppia. Often, PRs need to be reverted despite the PR author doing nothing wrong. For example, sometimes a race condition occurs where 2 PRs are merged in quick succession and conflict. We may have to revert one of the PRs to fix develop even though no PR author did anything wrong.
+Sometimes, PRs need to be reverted despite the PR author doing nothing wrong. For example, sometimes a race condition occurs where 2 PRs are merged in quick succession and conflict. We may have to revert one of the PRs to fix develop even though no PR author did anything wrong.
 
-A key tenet of the dev workflow team is that develop needs to be kept correct at all times. When a regression appears, we need to fix develop as quickly as possible to avoid blocking other developers, and sometimes the quickest way is to revert PRs. Thus, we revert PRs to help developers keep working, not because the PR author did something wrong.
+It is important to note that reverts are not ment to be punitive. A key tenet of the dev workflow team is that develop needs to be kept correct at all times. When a regression appears, we need to fix develop as quickly as possible to avoid blocking other developers, and sometimes the quickest way is to revert PRs. Thus, we revert PRs to help developers keep working, not because the PR author did something wrong.
 
 ## Policy
 
@@ -66,11 +66,11 @@ Once the dev workflow leads decide whether to revert, fix forward, or both, you 
 
 ### Developers with Revert Permissions
 
-Any Oppia developer with permission to open revert PRs on GitHub may decide, following the above policy, whether to revert the PR, fix forward, pursue both in parallel, or make one of the two allowed exceptions. They should document their reasoning and communicate on the tracking issue so the dev workflow leads can understand what happened when they consider mitigations.
+Any Oppia developer with permission to open revert PRs on GitHub may decide, following the above policy, whether to revert the PR, fix forward, pursue both in parallel, or make one of the two allowed exceptions. If you are such a developer, you should document your reasoning and communicate on the tracking issue so the dev workflow leads can understand what happened.
 
 ### Dev Workflow Leads
 
-The dev workflow leads are developers with revert permissions, so the above instructions apply to you too. Further, leads should make sure a tracking issue is created and alert the rest of the dev workflow leads. The dev workflow leads are also responsible for making sure whatever stragety we decide on to fix develop is actually executed.
+As dev workflow leads, you are developers with revert permissions, so the above instructions apply to you too. Further, you should make sure a tracking issue is created and alert the rest of the dev workflow leads. You are also responsible for making sure whatever stragety we decide on to fix develop is actually executed.
 
 You should also notify people as follows:
 
