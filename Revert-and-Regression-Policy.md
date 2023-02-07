@@ -15,7 +15,7 @@
 
 Sometimes, PRs need to be reverted despite the PR author doing nothing wrong. For example, sometimes a race condition occurs where 2 PRs are merged in quick succession and conflict. We may have to revert one of the PRs to fix develop even though no PR author did anything wrong.
 
-It is important to note that reverts are not ment to be punitive. A key tenet of the dev workflow team is that develop needs to be kept correct at all times. When a regression appears, we need to fix develop as quickly as possible to avoid blocking other developers, and sometimes the quickest way is to revert PRs. Thus, we revert PRs to help developers keep working, not because the PR author did something wrong.
+It is important to note that reverts are not meant to be punitive. A key tenet of the dev workflow team is that develop needs to be kept correct at all times. When a regression appears, we need to fix develop as quickly as possible to avoid blocking other developers, and sometimes the quickest way is to revert PRs. Thus, we revert PRs to help developers keep working, not because the PR author did something wrong.
 
 ## Policy
 
