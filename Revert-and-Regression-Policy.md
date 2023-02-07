@@ -1,13 +1,21 @@
 ## Table of Contents
 
+* [Blame-Free Reverts](#blame-free-reverts)
 * [Policy](#policy)
 * [Instructions](#instructions)
   * [Developers Who Notice a Regression](#developers-who-notice-a-regression)
   * [Developers Who Cause a Regression](#developers-who-cause-a-regression)
+  * [Developers with Revert Permissions](#developers-with-revert-permissions)
   * [Dev Workflow Leads](#dev-workflow-leads)
 * [Tips](#tips)
   * [How to identify the bad commit](#how-to-identify-the-bad-commit)
   * [How to revert a PR](#how-to-revert-a-pr)
+
+## Blame-Free Reverts
+
+Sometimes, PRs need to be reverted despite the PR author doing nothing wrong. For example, sometimes a race condition occurs where 2 PRs are merged in quick succession and conflict. We may have to revert one of the PRs to fix develop even though no PR author did anything wrong.
+
+It is important to note that reverts are not meant to be punitive. A key tenet of the dev workflow team is that develop needs to be kept correct at all times. When a regression appears, we need to fix develop as quickly as possible to avoid blocking other developers, and sometimes the quickest way is to revert PRs. Thus, we revert PRs to help developers keep working, not because the PR author did something wrong.
 
 ## Policy
 
@@ -35,6 +43,15 @@ To decide whether an exception is available, first decide whether anyone besides
 | Moderate                         | 1 (if points 1b and 1c are met)    |
 | Minor                            | 1 (if points 1b and 1c are met), 2 |
 
+Severity examples:
+
+* Severe: CI checks are failing so frequently that many PRs need to have their
+  tests rerun.
+* Moderate: CI checks fail sometimes, but infrequently enough that only a few
+  PRs get delayed by them.
+* Minor: CI runs are unaffected, but the developer experience is made slightly
+  less intuitive by needing to add an extra flag when running a script.
+
 ## Instructions
 
 ### Developers Who Notice a Regression
@@ -56,16 +73,19 @@ You should also begin debugging your changes to figure out what caused the regre
 
 Once the dev workflow leads decide whether to revert, fix forward, or both, you should start work on the associated actions (re-creating the PR with the bug fixed, opening a fix-forward PR to fix the bug, or both).
 
+### Developers with Revert Permissions
+
+Any Oppia developer with permission to open revert PRs on GitHub may decide, following the above policy, whether to revert the PR, fix forward, pursue both in parallel, or make one of the two allowed exceptions. If you are such a developer, you should document your reasoning and communicate on the tracking issue so the dev workflow leads can understand what happened.
+
 ### Dev Workflow Leads
 
-Once you are informed of a regression in develop, you should make sure a tracking issue is created and alert the rest of the dev workflow leads. Decide, following the above policy, whether to revert the PR, fix forward, pursue both in parallel, or make one of the two allowed exceptions. Once a decision is made, communicate it in the tracking issue and execute it (i.e. by reverting the PR or making sure the author fixes forward).
+As dev workflow leads, you are developers with revert permissions, so the above instructions apply to you too. Further, you should make sure a tracking issue is created and alert the rest of the dev workflow leads. You are also responsible for making sure whatever stragety we decide on to fix develop is actually executed.
 
 You should also notify people as follows:
 
 * If the regression is user-facing, notify the release coordinator of the previous release so that they can do a hotfix to fix production.
 * Once the PR that caused the regression is identified, you should also comment on the PR to notify the PR author. Make clear that they are expected to help fix the regression.
 * If the regression affects developers, email oppia-dev. Include a link to the tracking issue so developers can track the status of our work to fix it.
-
 
 Finally, consider what mitigation steps we could take to prevent similar regressions in the future. Here are some potential mitigations to consider:
 
