@@ -43,6 +43,15 @@ To decide whether an exception is available, first decide whether anyone besides
 | Moderate                         | 1 (if points 1b and 1c are met)    |
 | Minor                            | 1 (if points 1b and 1c are met), 2 |
 
+Severity examples:
+
+* Severe: CI checks are failing so frequently that many PRs need to have their
+  tests rerun.
+* Moderate: CI checks fail sometimes, but infrequently enough that only a few
+  PRs get delayed by them.
+* Minor: CI runs are unaffected, but the developer experience is made slightly
+  less intuitive by needing to add an extra flag when running a script.
+
 ## Instructions
 
 ### Developers Who Notice a Regression
