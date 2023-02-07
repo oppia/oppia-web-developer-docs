@@ -158,7 +158,11 @@ All dependencies we add to our projects introduce risks. These include security 
 1. **Minimize** the number of dependencies we have and the extent to which we rely on them. Especially for small dependencies, it may be better to implement them ourselves. That said, for security-related operations (especially cryptographic ones), relying on a trusted library may be better than rolling our own and possibly making mistakes.
 2. **Vet** any dependencies we do have. This means checking that we trust the maintainer not to add malicious code, maintain security measures to stop someone else from adding malicious code, and maintain the dependency by fixing bugs. For small dependencies, this may mean reviewing their code manually. For larger ones, we may have to rely on reputation.
 3. **Pin** dependencies to a specific, immutable version. Here are some examples of types of dependencies we use often:
-   * PyPI: Use `==` to specify a particular version number, e.g. `my_dependency==1.0.5`. Do *not* use `=>`, which will tell `pip` to automatically install the latest version of a package without our involvement.
+   * PyPI: Use `==` to specify a particular version number, e.g. `my_dependency==1.0.5`.
+
+     > **Warning**
+     > Do not use `=>`, which will tell `pip` to automatically install the latest version of a package without our involvement.
+
    * NPM: Use `yarn.lock` to pin dependency versions (this happens automatically for all NPM dependencies handled by yarn).
    * GitHub Actions: Use a commit hash ("SHA value" in the [docs](https://docs.github.com/en/actions/learn-github-actions/finding-and-customizing-actions#using-release-management-for-your-custom-actions)) when specifying a third-party dependency. For example: `- uses: actions/javascript-action@172239021f7ba04fe7327647b213799853a9eb89`.
 4. **Hash** dependencies using a hashing algorithm [approved by NIST](https://csrc.nist.gov/projects/hash-functions) and compare that hash to a list of the values we expect. In most cases, we should take advantage of package managers' built-in functionality to verify checksums. This ensures that even if someone manages to change the code of a supposedly immutable dependency version (for example, there are ways to do this in PyPI where packages can be provided either as source code or as binaries), we won't install the malicious dependency.
