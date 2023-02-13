@@ -202,7 +202,7 @@ We use the following principles to determine the value of a feature flags:
 - Each filter describes a scenario. There are multiple types of filters (like `server mode` and `client type`) which can be used in combination with each other to describe various scenarios (like `server mode = dev OR server mode = test`).
 - Each filter can have multiple conditions, and a filter is matched if any of the conditions specified in the rule are matched.
 
-For example, if we want a feature flag to be enabled only in dev environments, we can configure the flag's rules/filters as shown below.
+For example, if we want a feature flag to be enabled only on Chrome + Firefox, we can configure the flag's rules/filters as shown below.
 
 ![Example feature setting](images/adminPageFeatureFlagSettings.png)
 
@@ -212,11 +212,13 @@ Feature flags vastly improve/simplify the development process by allowing develo
 
 They allow us to hide features that are still in development/still being tested. This enables a developer to add a feature incrementally to the codebase, and only enable it when it is ready for production. Should the feature break, they also allow us to easily disable it without having to roll back all the changes. This is especially useful when the feature is large and/or complex.
 
+Additionally, they let us decouple the feature & binary releases. This allows us to release the server with less risk of regressions.
+
 ## How do you, as a developer, use feature flags?
 
 ### When to use feature flags?
 
-Feature flags should be used when you are working on a feature whose scale makes it hard to implement all at once, or for more experimental features that are likely to cause breakages. Essentially, feature flags are a must for features that are not ready for production/fully-tested yet.
+Feature flags should be used when you are working on a feature whose scale makes it hard to implement all at once, or for more experimental features that are likely to cause breakages. Essentially, feature flags are a must for features that are not yet ready for production/fully-tested at the time that they're merged into develop.
 
 ### How to use feature flags?
 
@@ -232,4 +234,8 @@ Say you are working on a large scale user-facing feature that will take multiple
 
 5. Once you receive a go-ahead from the feature testers, you must merge another PR -- this PR is meant to do only one thing, i.e. move the feature flag to the PROD stage, allowing it to be enabled/disabled in production (by the admin(s)). **NOTE: When opening this PR, include a link to the testing doc or other proof that the feature has been approved for release.**
 
-6. Once the feature is confirmed to be functioning as intended in production (for at least two weeks), you must merge one last PR to essentially "un-gate" the feature and move the feature flag to the deprecated stage (one of the stages listed in `core/domain/platform_parameter_list.py` for flags that are no longer in use). Then feel free to remove all references of the feature flag from the codebase (for example, in all the `if` blocks you created to gate the feature).
+6. Once this PR is merged, send a request to the release coordinators to turn on the feature in production by adding a rule in the `/admin` page.
+
+7. Once the feature is confirmed to be functioning as intended in production (for at least two weeks), please do the following, in order:
+    - Make sure that the feature is indeed functioning as intended, and ready to be made permanent. To do this, confirm with the PMs that no users have reported issues with it, and that no regressions have been detected via StackDriver and other usage metrics.
+    - Once you have confirmation that the feature can be made permanent, merge one last PR to "un-gate" the feature and move the feature flag to the deprecated stage (one of the stages listed in `core/domain/platform_parameter_list.py` for flags that are no longer in use). Additionally, in this PR, please remove all remaining references to the feature flag from the codebase (for example, in all the `if` blocks you created to gate the feature).
