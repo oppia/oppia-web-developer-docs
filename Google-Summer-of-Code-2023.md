@@ -272,19 +272,31 @@ The following is a list of Oppia's 2023 GSoC project ideas. You are welcome to c
 
 Please note that the list of project ideas below is not set in stone: more projects may be added later, and some project descriptions may also change a bit, so check back regularly. In addition, the mentor assignments listed below are provisional, and may change depending on which proposals are eventually accepted.
 
-The list of projects for this year will be added soon.
-
 ### Learner and Creator Experience (LaCE) team
 
 1.1. [Implementing the “Needs Guiding Responses” section of the lesson analytics dashboard](#11-implementing-the-needs-guiding-responses-section-of-the-lesson-analytics-dashboard)
 
 1.2. [Improving the lesson creation experience](#12-improving-the-lesson-creation-experience)
 
+1.3 [Serial chapter launch](#13-serial-chapter-launch)
+
+1.4 [Learner dashboard redesign](#14-learner-dashboard-redesign)
+
+1.5 [Improvement to math interactions](#15-improvements-to-math-interactions)
+
+1.6 [Accessibility improvements](#16-improve-accessibility)
+
+1.7 [User feedback reporting UI on Web](#17-user-feedback-reporting-ui-on-web)
+
 ### Contributor Dashboard team
 
 2.1. [Contributor Dashboard Admin Stats Table](#21-contributor-dashboard-admin-stats-table)
 
 2.2. [Prioritized Translation Languages and Auto-Translations](#23-improvements-for-translation-reviewer-experience)
+
+### Data validation team
+
+3.1 [Fix validation errors](#31-fix-validation-errors)
 
 ### Developer workflow team
 
@@ -390,6 +402,213 @@ For (c): In the state editor, when a change is made to a part of a card and this
 * How to write Apache Beam jobs: [wiki page](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs)
 * Release schedule: [wiki page](https://github.com/oppia/oppia/wiki/Release-schedule-and-other-information)
 
+### 1.3. Serial chapter launch
+
+**Project Description:**
+
+Currently, it takes a very long time to publish lessons as it requires the entire topic to be published. Therefore, the broad aim of this project is to create a system that allows for individual lessons to be published as they are created.
+This project involves the following steps:
+1. Allow curriculum admins to create a pipeline/queue of unpublished chapters on the story editor page by assigning each lesson one of three labels: Draft, Ready to Publish and Published.
+2. Allow curriculum admins to set up planned dates for publication for the lessons currently in the queue. These dates should be used to notify the curriculum admins about upcoming or behind schedule launches.
+3. Create a system that sends weekly emails to curriculum admins notifying them about upcoming or missed deadlines.
+4. Notify learners about recently published lessons on the learner dashboard and the classroom page, and about upcoming ones on the chapter end card.
+5. Allow learners to opt to receive email notifications when new lessons are published.
+
+**Link to PRD:** [Serial Chapter Launch](https://docs.google.com/document/d/1Uh_CJRhGE4IM7c0ENdmXkoMD0YtGqFsl1ObR6vvmxdY/edit)
+
+**Size of this project:** medium (~175 hours)
+
+**Potential Mentors:** TBA
+
+**Knowledge/Skills Recommended:**
+
+* Knowledge and understanding of Python
+* Knowledge and understanding of TypeScript, Angular, HTML, and CSS
+
+**Suggested Milestones:**
+
+* **Milestone 1:** Create a system that allows curriculum admins to add lessons to the pipeline and mark them with appropriate labels and deadline dates, which is then used to send appropriate notifications to the admins once a week via email.
+* **Milestone 2:** Implement the learner-facing part of this project that involves pushing notifications to the learner dashboard and the classroom pages when new topics are published. Also notify learners about upcoming topics when they reach the chapter end card. Learners should also be able to sign up to receive email notifications when new lessons are published.
+
+**Proposal notes:**
+
+* Hide this feature behind a feature flag until the entire project is complete.
+
+**Useful resources:**
+
+### 1.4. Learner Dashboard Redesign
+
+**Project Description:**
+
+The Learner Dashboard is the “home page” for signed-in learners. This is the place where they can get a broad understanding of their progress and quickly be able to pick up where they left off or start something new.
+
+In its current state, the architecture of the learner dashboard is inconsistent and unintuitive. Therefore this project aims to fix various issues plaguing the learner dashboard. Broadly, the contributor is expected to the following:
+
+1. Move the “Feedback Updates” tab out of the learner dashboard to the profile pic dropdown. There should also be an indicator that appears when there are updates to show, and the overall feedback-update flow (including sending and receiving messages in feedback threads) should work smoothly.
+2. Update the learner dashboard to have the following architecture:
+   - Home
+     - “Continue where you left off” section
+       1. CTA (call to action) to start any lessons (from Classroom or community library) that are in progress
+       2. CTA to start next suggested lesson for any goals they’ve set (if any)
+       3. CTA to start next suggested lesson to complete for any learner groups they’ve joined (if any)
+     - Learn something new section
+       1. Show topics in classroom and CTA to view the topic pages
+       2. CTA to start any lessons that haven’t been started that are in their Play Later list (if any)
+       3. CTA to go to Math Classroom (“Browse All Math lessons”)
+       4. Lesson search box
+     - Learner Groups section
+       1. Show any invitations that are not yet responded to for learner groups
+       2. Include CTAs to show more info, accept, or decline invitation
+       3. Include a CTA to view any learner groups they’ve already joined (should navigate to the associated learner group page)
+     - Review section
+       1. If they’ve completed any previous topics from the classroom, suggest CTAs for up to 3 relevant review cards
+     - Goals
+       1. CTAs to set or remove any goals (can only have up to 5 goals set at a time)
+       2. Can view current goals and progress towards completing those goals
+       3. Can view previously completed goals
+       4. CTA to start next suggested item to move forward their goal (i.e. next lesson in the topic they need to complete)
+     - Progress
+       1. Can view all lessons (Classroom and Community Library) that are currently in progress
+          - CTA to continue any of these lessons
+       2. Can view all skills they’ve started learning or mastering (i.e. via Practice sessions) and the level of mastery
+          - CTA to start practice session with that skill (will be directed to practice session tab for that topic with that skill pre-selected)
+          - CTA to view relevant review card for that skill
+       3. Can view all completed lessons (Classroom and Community Library)
+3. Make sure the new architecture and UI is responsive and has all the necessary accessibility labels (like aria, tag etc)
+
+
+**Link to PRD:** [Learner Dashboard IA Redesign Project Primer](https://docs.google.com/document/d/1PIs9QaEF_Itbj_H8lLWe-NsP18QSNY0f_JLsZW2e_PQ/edit)
+
+**Size of this project:** medium (~175 hours)
+
+**Potential Mentors:** TBA
+
+**Knowledge/Skills Recommended:**
+
+* Knowledge and understanding of TypeScript, Angular, HTML, and CSS
+
+**Suggested Milestones:**
+
+* **Milestone 1:** Move the feedback tab out of the learner dashboard and add it in the profile pic dropdown menu and add an indicator to notify the user when there updates to show and update the architecture for the home tab. Verify that the feedback flow is working fully end-to-end.
+* **Milestone 2:** Update the architecture for the Goals and Progress tabs.
+
+**Proposal notes:**
+
+**Useful resources:**
+
+### 1.5. Improvements to Math Interactions
+
+**Project Description:**
+
+In the current system,
+- There is no interaction that takes percentages as a response. Currently,  TextInput fields are used to take input in the form of percentages.
+- Learners use their physical keyboards on laptops or desktops to give input to math explorations. This may create confusion and can slow down or hinder learners' progress. For example, users may not identify * as the symbol for multiplication, they may instead provide “x” as the symbol for multiplication in their response, which will be recorded as a wrong answer.
+
+The proposed solution to this problem is to:
+
+1. Introduce clickable keys to solve math interactions.
+   1. For algebraic expression, numeric expression and algebraic equation input, clickable buttons with special characters will show up below the input field on desktop/mobile. Each button contains a single character (like ‘+’, ‘-’, ‘×’, ‘÷’, ‘(‘, ‘)’, ‘=’), and when clicked it will “type” that character in the input field.
+   2. Lesson creators will be able to customize which of these buttons are shown.
+   3. Learners should be able to use both these keys and their standard keyboard when submitting their solution.
+2. Allow learners to submit answers in the form of percentages and allow curriculum admins to convert the responses from text input fields to percentage.
+   1. Introduce a percentage interaction with a ‘%’ button below it.
+   2. Provide a utility, gated behind a feature flag, for curriculum admins to convert existing text input fields to percentage input. Curriculum admins should be able to transform text input to percent input with the click of a button, and the system will accept that change and perform the necessary updates if it is able to validate that the update can be done successfully for that exploration card. The effect of the button should be to perform the standard actions that would be needed to do the update manually, but without losing any of the existing answer groups, translations, and voiceovers.
+
+**Link to PRD:** [Improvements to Math Interactions PRD](https://docs.google.com/document/d/1cha8e5H4Dfb7t8cLL2VZYi02Ysk2YEdyyalY1dDqPXE/edit#heading=h.rpq25vez37fp)
+
+**Size of this project:** medium (~175 hours)
+
+**Potential Mentors:** TBA
+
+**Knowledge/Skills Recommended:**
+
+* Knowledge and understanding of Python
+* Knowledge and understanding of TypeScript, Angular, HTML, and CSS
+
+**Suggested Milestones:**
+
+* **Milestone 1:** Implementation of percentage interaction
+* **Milestone 2:** Implementation of text to percentage conversion utility and virtual math keys
+
+**Proposal notes:**
+
+Math symbol input:
+- In order to allow the lesson creator to customize which buttons are shown, a new customization arg will be needed for the interactions. This entails a change in the schema to the explorations, so an exploration migration will be needed. Sensible default values for this customization arg should be chosen – e.g. all arithmetic operation symbols and parentheses – but the creator should be able to turn these off if needed (e.g. in a lesson about division, many of the other symbols will not be relevant).
+
+
+**Useful resources:**
+
+### 1.6. Improve Accessibility
+
+**Project Description:**
+
+Oppia aims to provide a good and fruitful learning experience to all people. This includes people with certain conditions like poor vision, hearing loss etc. Certain tools like Lighthouse grade pages based on their accessibility and assign a score from 0 to 1 (inclusive). As of now not all pages on Oppia have an accessibility score of 1, which can make it difficult for some learners to use Oppia which is not ideal.
+
+Therefore, the aim of this project is to improve the accessibility of all learner facing pages on Oppia, i.e. getting the Lighthouse scores of all these pages to 1.0. Under this project, the contributor is expected to fix all [the accessibility issues](https://github.com/oppia/oppia/issues?q=is%3Aissue+is%3Aopen+label%3Aa11y+) that have already been filed and run Lighthouse tests on all learner facing pages and bring their scores to 1.0, if that isn’t already the case.
+
+**Link to PRD:** [Improvements to Math Interactions PRD](https://docs.google.com/document/d/1cha8e5H4Dfb7t8cLL2VZYi02Ysk2YEdyyalY1dDqPXE/edit#heading=h.rpq25vez37fp)
+
+**Size of this project:** medium (~175 hours)
+
+**Potential Mentors:** TBA
+
+**Knowledge/Skills Recommended:**
+
+* Knowledge and understanding of TypeScript, Angular, HTML, and CSS
+
+**Suggested Milestones:**
+
+* **Milestone 1:** Fix all the [accessibility issues](https://github.com/oppia/oppia/issues?q=is%3Aissue+is%3Aopen+label%3Aa11y+) already filed on Oppia’s github repository.
+* **Milestone 2:** Bring the Lighthouse Accessibility scores of all learner facing pages to 1.
+
+**Proposal notes:**
+
+Run [Lighthouse tests](https://developer.chrome.com/docs/lighthouse/overview/#devtools) in the browser
+
+### 1.7. User feedback reporting UI on Web
+
+**Project Description:**
+
+Currently, users of the Oppia platform can submit feedback through one of three channels depending on the nature of the issue:
+- Issues related to lessons are reported through the feedback tab present inside the lesson player.
+- Technical issues are generally reported through Github.
+- Additional feedback may be shared through the [site feedback form](https://docs.google.com/forms/d/e/1FAIpQLSceYX653pUB2zalfdFZLybV6x7QI1dTFBrk17SVk5Th68gN-g/viewform) linked in the footer at oppia.org.
+
+Having three different channels for submitting feedback is not ideal because it discourages casual users from reporting issues. Therefore the aim of this project is to introduce a feedback button on every page of Oppia’s web app, clicking on which will open a minimizable modal where users can submit different kinds of feedback. This will make it easier for less technically adept users to submit issues/feedback without having knowledge about the workings of the Oppia platform. The issues/feedback generated will contain metadata (the page the user clicked the feedback button from, current language etc.) which will make it easy to ascertain details about the shared feedback without having the author explicitly mentioning it.
+
+The contributor is expected to create a new feedback modal which is reachable from every page on Oppia, possibly by pressing a button on the navbar (or any other spot which is easily reachable by the users).
+Once on this modal, the users should be able to select the type of feedback (technical, content, platform etc.), add a description, upload an image, add server logs (if applicable) and optionally add their contact information (if they are open to the Oppia team following up).
+
+The feedback should then be listed (as a table)  on the Admin page (/admin). Here the feedback is auto redacted after 30 days by stripping out the text fields (or any other field which might contain sensitive data). This makes sure that user privacy is maintained in case they enter some sensitive information (like phone numbers etc.).
+
+**Link to PRD:** [Web user feedback PRD](https://docs.google.com/document/d/1ZUD7nktZrl5ZyxcXfLAqJqb6wI40U9rdg-2vHHWUZ1g/edit)
+
+**Size of this project:** medium (~175 hours)
+
+**Potential Mentors:** TBA
+
+**Knowledge/Skills Recommended:**
+
+* Knowledge and understanding of Python
+* Knowledge and understanding of TypeScript, Angular, HTML, and CSS
+
+**Suggested Milestones:**
+
+* **Milestone 1:** Create logic for handling the submitted feedback. Make sure the submitted feedback is sanitized, and translated to English (in case it is in some other language). Add necessary metadata to each piece of feedback to add context, after which it is added to a table on the Admin Dashboard.
+* **Milestone 2:** Build the frontend interface to allow users to submit feedback. Make sure this feedback modal is accessible from everywhere on the Oppia platform and supports i18n, is RTL and mobile friendly and has proper aria tags for accessibility.
+
+**Proposal notes:**
+
+The feedback needs to have certain metadata attached to it to provide context to the person triaging the issues later down the line. This metadata should include the current page (where the modal has been opened) and the current site language. The information about the current page may be fetched from the [context service](https://github.com/oppia/oppia/blob/e431106a4e473ff62a4f372b60d74f5d3a425734/core/templates/services/context.service.ts#L1) or the URL can itself be used (in case the context service doesn’t provide enough information about the current page). The site language can be fetched using the [i18n language code service](https://github.com/oppia/oppia/blob/e431106a4e473ff62a4f372b60d74f5d3a425734/core/templates/services/i18n-language-code.service.ts#L1).
+
+Take a look at [app_feedback_report_services/domain/gae_models.py](https://github.com/oppia/oppia/blob/f944c7ca68cfad517542f8542819ff173be01359/core/storage/app_feedback_report/gae_models.py#L1), which is the current system for handling feedback. Make sure the submitted feedback is redacted after a period of 30 days. Make sure this happens to the feedback submitted from Android as well. In your proposal, you should clearly explain and demonstrate a strong understanding of the lifecycle of a feedback submission from its creation to deletion.
+
+Also make sure to funnel feedback from Android to the same spreadsheet using the feedback handler for Android that is already present.
+
+To prevent bots from spamming the feedback channel use [Google reCAPTCHA](https://www.google.com/recaptcha/about/) to validate users if they are not logged in (the captcha is not required when the user is signed in).
+
+**Useful resources:**
+
 ## Contributor Dashboard team
 
 ### 2.1. Contributor Dashboard Admin Stats Table
@@ -474,6 +693,58 @@ Additionally, finish adding [computer-aided translation (CAT)](https://docs.goog
   - See Computer Aided Translations (CAT) backend milestone PRs.
 * The CAT backend utilizes the Google Translate API for auto-translations. We can re-use that work here for auto-translations. Alternatively, we can investigate other translate APIs that may offer better translations, e.g. Oppia has done studies in the past that have shown Microsoft to produce preferred translations.
 
+
+**Useful resources:**
+
+
+## Data validation team
+
+### 3.1. Fix validation errors
+
+**Project Description:**
+
+The aim of this project is to fix various problems with data in our existing models. In order to do that, usually you’ll write a Beam job that takes the existing models and fixes them.
+
+Task set 1
+- Implementing a process to ensure that external storage models linked to a storage model are updated in case of storage model deletion ([#10809](https://github.com/oppia/oppia/issues/10809))
+- Removing traces of ‘cloned from’ from old versions of some explorations ([#10828](https://github.com/oppia/oppia/issues/10808))
+- Fixing datetime fields in `LearnerPlaylistModel`, `CompletedActivitiesModel`, `UserSubscriptionsModel`,  and `UserSettingsModel`  ([#11616](https://github.com/oppia/oppia/issues/11616), [#12120](https://github.com/oppia/oppia/issues/12120))
+- Fixing `CompletedActivitiesModel` and `IncompleteActivitiesModel` to only reference existing and public explorations ([#14968](https://github.com/oppia/oppia/issues/14968))
+- Fixing `GeneralFeedbackThreadModel` entities with missing related `GeneralSuggestionModel` entities ([#11736](https://github.com/oppia/oppia/issues/11736))
+
+Task set 2
+- Handling deprecated commands ([#10807](https://github.com/oppia/oppia/issues/10807), [#10820](https://github.com/oppia/oppia/issues/10820))
+- Fixing `UnsentFeedbackEmailModel` entities with missing `GeneralFeedbackThreadModel`s and `GeneralFeedbackMessageModel`s ([#14966](https://github.com/oppia/oppia/issues/14966))
+- Fixing `GeneralSuggestionModel` entities that are marked as rejected but are missing their final reviewer ID ([#14967](https://github.com/oppia/oppia/issues/14967))
+- Fixing `ExpUserLastPlaythroughModel` has a few validation issues ([#14972](https://github.com/oppia/oppia/issues/14972))
+- Fixing `GeneralFeedbackMessageModel.feedback_thread_ids` to only reference existing `GeneralFeedbackThreadModel` ([#14971](https://github.com/oppia/oppia/issues/14971))
+
+**Size of this project:** large (~350 hours)
+
+**Potential Mentors:**  TBA
+
+**Knowledge/Skills Recommended:**
+
+- Apache Beam jobs
+- Python
+- Responsibility with schedules and good communication, because you will need to coordinate with the Oppia release team to conduct test runs on the backup server, and this can delay the project if not handled responsibly
+
+**Suggested Milestones:**
+
+* **Milestone 1:** Fix all tasks from Task set 1.
+
+* **Milestone 2:** Fix all tasks from Task set 2.
+
+**Dependency on Release Schedule:** The timeline should be arranged so that such jobs can be run and verified during the appropriate release cycle. Note that releases can be delayed by up to a month, and you should account for such delays in your timeline.
+
+**Proposal notes:**
+
+- Make sure to provide example code for a Beam job that you will use to fix one of the issues. We just want to make sure that you've read the Beam job documentation and generally understand how to write Beam jobs.
+- You need to have at least one PR that either creates some Beam job or fixes some existing Beam job.
+- In your proposal, please explain how you plan to tackle each task from the list above. There are usually two parts to this: (a) making sure that we fix the current issues in our datastore, and (b) ensuring that those issues don’t reoccur in the future (which often requires doing a careful audit to prove that all possible “loopholes” that would allow them to occur have been plugged).
+- When designing the Beam jobs to fix existing issues in our datastore, make sure that those jobs only make modifications that are strictly necessary. Be especially careful with updates or deletions, since it is important to avoid any data loss or corruption. For each task, you should also write a verification Beam job that verifies that the changes were correct. You should also manually verify (on a test server) that the job has done the right thing after it is run. Make sure to also explain what the rollback procedure for the job is (if something goes wrong while running it).
+- Also, note that, in general, the jobs you write should be designed to be **idempotent**. That is, running them twice should result in the same outcome as running them once (since this allows us to just rerun them if an error happens within the Beam framework).
+- In your timeline, make sure that you account for possible delays in the job testing procedure. In particular, note that when you submit the job for testing on the backup server, it might take up to 48 hours to get the results
 
 **Useful resources:**
 
