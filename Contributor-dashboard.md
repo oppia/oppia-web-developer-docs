@@ -1,5 +1,3 @@
-# Contributor dashboard
-
 ## Overview
 The [contributor dashboard page](https://www.oppia.org/contributor-dashboard) on the Oppia site allows users to submit content suggestions (currently translations and practice questions) directly to lessons. These suggestions are then reviewed, and either accepted, or sent back for revision. See the [user docs](https://oppia-user-guide.readthedocs.io/en/latest/contributor/contribute.html) for step-by-step instructions how to contribute content suggestions.
 
@@ -38,7 +36,28 @@ There exists a separate admin page for the contributor dashboard at /contributor
 See [this](https://docs.google.com/document/d/1VqNiJttq85YyR6cQkd8M9lGGkOP8OlUlkI37Xw6SovM/edit) doc for step-by-step admin instructions. This may be useful for developing locally as a coder as well.
 
 ## Local development
-Some setup is usually required when developing locally for the contributor dashboard since before a user can submit a content suggestion to a lesson, a lesson needs to exist. Additionally, the requirements outlined in [How items for contribution are populated](#how-items-for-contribution-are-populated) must be satisfied. See [this](https://docs.google.com/document/d/1JYX4nvTcblaVVYAlTi7rApE0lWSBx0v_ZCCr_8WW4Wc/edit#) doc for step-by-step instructions on how to populate test data when running a local server.
+Some setup is usually required when developing locally for the contributor dashboard since before a user can submit a content suggestion to a lesson, a lesson needs to exist. Additionally, the requirements outlined in [How items for contribution are populated](#how-items-for-contribution-are-populated) must be satisfied. To start a local
+development server with pre-populated contributor dashboard data, run the `start.py` script with the `--contributor_dashboard_debug` command-line flag:
+
+```
+python -m scripts.start --contributor_dashboard_debug
+```
+
+Specifying the flag will automatically do the following:
+1. Create an admin user with the username "a" and email testadmin@example.com,
+and grant curriculum, translation, and question admin rights to the user.
+2. Create a non-admin user with the username "b" and email
+contributor@example.com, and grant the user "submit question" rights to the
+user.
+3. Set up 3 sample lessons for translation and question contribution.
+4. Add the sample lesson topics to a classroom.
+
+You can then use the testadmin@example.com user for admin duties, the
+contributor@example.com user to submit question suggestions, and/or either user
+to submit translation suggestions.
+
+For step-by-step instructions on how to generate sample data manually, see
+[this](https://docs.google.com/document/d/1JYX4nvTcblaVVYAlTi7rApE0lWSBx0v_ZCCr_8WW4Wc/edit#) doc.
 
 ## Code pointers
 
