@@ -163,7 +163,8 @@ You will be asked about the setup for the panel. Just click on default config.
 
 ## Step 9: Run Oppia locally
 
-To run the Oppia application locally, run `python -m scripts.start --no_browser` in the Ubuntu environment. Then you can access Oppia at http://localhost:8181.
+To run the Oppia application locally, run `python -m scripts.start --no_browser` in the Ubuntu environment.
+Navigate to any browser and access Oppia at http://localhost:8181.
 
 ## How to run the E2E tests?
 
@@ -307,7 +308,8 @@ The estimated runtime for this script is about 10-20 minutes. It will open a ser
 
 ## Run frontend tests
 
-**Note**: run_frontend_tests.py might not run correctly every time, and we’re still working on figuring out why.
+> **Note**
+> run_frontend_tests.py might not run correctly every time, and we’re still working on figuring out why.
 
 1. If you are in the Docker container bash, type `exit` to return to your Command Prompt.
 

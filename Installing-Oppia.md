@@ -12,7 +12,7 @@ To install Oppia, follow these instructions:
 * [[Mac OS|Installing-Oppia-(Mac-OS;-Python-3)]]
 * [[Windows|Installing-Oppia-(Windows;-Python-3)]]
 
-If you run into any problems during installation, please read [[these notes|Issues-with-installation?]] and the [[Troubleshooting page|Troubleshooting]].
+If you run into any problems during installation, please read [[these notes|Issues-with-installation]] and the [[Troubleshooting page|Troubleshooting]].
 
 Take a look at our [[guide for getting started with some common code editors|Tips-for-common-IDEs]].
 

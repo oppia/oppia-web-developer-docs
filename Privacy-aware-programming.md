@@ -1,4 +1,4 @@
-_This wiki page is not a legal document and does not give binding legal advice in any way. This wiki page does not create any representation or warranty by Oppia with respect to its data practices. If you have any questions or suggestions for this wiki page, please contact [vojtech.jelinek@hey.com](mailto:vojtech.jelinek@hey.com). For any official privacy-related inquiries, please contact [admin@oppia.org](mailto:admin@oppia.org)._
+_This wiki page is not a legal document and does not give binding legal advice in any way. This wiki page does not create any representation or warranty by Oppia with respect to its data practices. If you have any questions or suggestions for this wiki page, please contact @vojtechjelinek. For any official privacy-related inquiries, please contact [admin@oppia.org](mailto:admin@oppia.org)._
 
 This wiki page contains a basic explanation of privacy-aware programming, a section about privacy practices to follow in the design stage and a third section about privacy practices to follow in the implementation stage. A lot of the content of this page is based on [Privacy Design Strategies](https://www.cs.ru.nl/J.H.Hoepman/publications/pds-booklet.pdf) by Jaap-Henk Hoepman.
 
@@ -131,4 +131,4 @@ We need to make sure that the data is only displayed to and modifiable by the ap
 
 All user data needs to be handled with Wipeout (deletion of user data) and Takeout (export of user data). More on this can be found in [[Storage models|Storage-models]] and [Wipeout Implementation](https://github.com/oppia/oppia/wiki/Wipeout-Implementation).
 
-**Important**: Note that if data is stored in external systems (such as Cloud Storage or Firebase), care must be taken to include those storage locations in the Takeout and Wipeout processes. Please consult Vojta ([vojtech.jelinek@hey.com](mailto:vojtech.jelinek@hey.com)) if you need advice on this.
+**Important**: Note that if data is stored in external systems (such as Cloud Storage or Firebase), care must be taken to include those storage locations in the Takeout and Wipeout processes. Please consult @vojtechjelinek if you need advice on this.

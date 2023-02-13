@@ -1,4 +1,4 @@
-_If you miss any info or do not understand some instruction in this wiki page please contact @vojtechjelinek (vojtin.j@gmail.com). See also this wiki page for reference: [[Storage models|Storage-models]].
+_If you miss any info or do not understand some instruction in this wiki page please contact @vojtechjelinek. See also this wiki page for reference: [[Storage models|Storage-models]].
 
 
 # Wipeout design
