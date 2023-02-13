@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-=======
-# Contributor dashboard
-
->>>>>>> upstream/develop
 ## Overview
 The [contributor dashboard page](https://www.oppia.org/contributor-dashboard) on the Oppia site allows users to submit content suggestions (currently translations and practice questions) directly to lessons. These suggestions are then reviewed, and either accepted, or sent back for revision. See the [user docs](https://oppia-user-guide.readthedocs.io/en/latest/contributor/contribute.html) for step-by-step instructions how to contribute content suggestions.
 
