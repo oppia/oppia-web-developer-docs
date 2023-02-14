@@ -292,7 +292,9 @@ Please note that the list of project ideas below is not set in stone: more proje
 
 2.1. [Contributor Dashboard Admin Stats Table](#21-contributor-dashboard-admin-stats-table)
 
-2.2. [Prioritized Translation Languages and Auto-Translations](#23-improvements-for-translation-reviewer-experience)
+2.2. [Prioritized Translation Languages and Auto-Translations](#22-prioritized-translation-languages-and-auto-translations)
+
+2.3 [Improvements for translation reviewer experience](#23-improvements-for-translation-reviewer-experience)
 
 ### Data validation team
 
@@ -696,6 +698,44 @@ Additionally, finish adding [computer-aided translation (CAT)](https://docs.goog
 
 **Useful resources:**
 
+
+### 2.3. Improvements for translation reviewer experience
+
+**Project Description:**
+
+Translation reviewers have given feedback such that the current contributor dashboard reviewer workflow doesn’t match with most of their needs. This project aims to improve the translation reviewer experience in the contributor dashboard.
+
+**Size of this project:** large (~350 hours)
+
+**Potential Mentors:** TBA
+
+**Knowledge/Skills Recommended:**
+
+* Knowledge and understanding of Python
+* Knowledge and understanding of TypeScript, Angular, basic HTML, and CSS
+
+**Suggested Milestones:**
+
+* **Milestone 1:**
+  - Showing translation cards according to the order of the content flow in the lesson.
+  - Exploration editor should also be linked so that the original lesson can be seen.
+  - Showing the size of the translation(short/large) ([Mocks in progress](https://github.com/oppia/design-team/issues/53))
+  - Pin/unpin specific lessons to translate ([Mocks in progress](https://github.com/oppia/design-team/issues/53))
+
+
+* **Milestone 2:**
+  - Ability to revert the acceptance or rejection of cards. [The exact time limit that we allow to undo the review should be decided](https://docs.google.com/document/d/1lIXkcQwPcPeS715vhX6mY-lowzltLxE8v2QQEvFadks/edit?disco=AAAAn56QFwE).
+  - Showing image alt text below the image. ([Mocks in progress](https://github.com/oppia/design-team/issues/54))
+  - Notifying new submissions through emails. [Existing CD reviewer notification system](https://docs.google.com/document/d/1tuXPSHvUN6I32Rle7E2CQs5HONgtP3TMuA__bWEsoDY/edit#heading=h.qzrvkvw31j3i).
+
+**Dependency on Release Schedule:** 
+
+**Proposal notes:**
+
+* To support lesson pinning, we have to make sure the pinned lessons are returned at the top of the list of lessons with translation suggestions in the fetch query [here](https://github.com/oppia/oppia/blob/develop/core/controllers/contributor_dashboard.py#L336) (`_get_reviewable_exploration_opportunity_summaries()`).
+* We will likely want to introduce a new storage model to track pinned lessons by language and user.
+
+**Useful resources:**
 
 ## Data validation team
 
