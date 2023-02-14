@@ -59,9 +59,8 @@ For more complicated tasks, Apache Beam supports tasks whose transformations for
 flowchart TD
 E(Explorations) -->|Count interactions| C(Count) -->|Sum| NI(Num Interactions)
 E -->|Count cards| C2(Count) -->|Sum| NC(Num Cards)
-NC --> +(+)
-NI --> +
-+ -->|Divide| IC(Interactions / Cards)
+NC --> |Divide| IC(Interactions / Cards)
+NI --> |Divide| IC(Interactions / Cards)
 ```
 Note that the first example we saw, while linear, is still a DAG!
 

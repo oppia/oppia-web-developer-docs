@@ -85,18 +85,24 @@ Finally, flakes mean that developers rerun failing tests more readily. We even i
 ### Preventing flakes
 
 Conceptually, preventing flakes is easy. We can use `waitFor` statements to make the tests deterministic despite testing a non-deterministic system. For example, suppose we have a function `waitForModal()` that waits for a modal to appear. Then we could write our test like this:
-```mermaid
-flowchart LR
-a("<--A-->")
-COM("Clickto open modal") ---- |"//"| MO("Modal opens")
-COM ----|"//"| WM("waitForModal") ---- |"//"| CCM("Click to close modal")
-MO ---- P("+")
-CCM ---- P
-P ----> O("Operations continue")
-BC("<--B--><-------C------->")
-starts ----time-----> ends
-```
+```text
+               <---A--->
 
+                        +-------+
+                        | Modal |
++----------+   +---//---+ opens +---------------------------------+
+| Click to |   |        +-------+                                 |
+| open     +---+                                                  +---->
+| modal    |   |        +----------------+    +-------------+     |
++----------+   +---//---+ waitForModal() +-//-+ Click to    +-----+
+                        +----------------+    | close modal |
+                                              +-------------+
+
+               <---B---><-------C-------->
+
+
+--------------------- time -------------------------------------------->
+```
 Now, we know that the test code won't move past `waitForModal()` until after the modal opens. In other words, we know that `B + C > A`. This assures us that the test won't try to close the modal until after the modal has opened.
 
 The challenge in writing robust E2E tests is making sure to always include a waitFor statement like `waitForModal()`. It's common for people to write E2E tests and forget to include a waitFor somewhere, but when they run the tests, they pass. Their tests might even pass consistently if their race condition only causes the test to fail very rarely. However, months later, an apparently unrelated change might change the runtimes enough that one of the test starts flaking frequently.
