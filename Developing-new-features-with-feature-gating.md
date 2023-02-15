@@ -166,7 +166,7 @@ self.mock_feature_flag = registry.Registry.create_feature_flag(
   platform_parameter_domain.FeatureStages.DEV) # FeatureStage DEV just simplifies things
 ```
 
-3. Set the rules for when the feature flag is to be enabled (in the method which performs the testing), like so:
+3. Set the rules for when the feature flag is to be enabled (in the method which performs the testing), like so (here we're setting the flag to be enabled when in DEV mode):
 
 ```python
 test_can_do_something(self) -> None:
