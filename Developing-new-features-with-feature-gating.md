@@ -315,12 +315,14 @@ Say you are working on a large scale user-facing feature that will take multiple
 
 3. The very last PR you make (to finish up the feature you are working on) must include changes that move the feature flag to the TEST stage. This is to ensure that the feature is available in the test environment, and we can feature-test it before it is made available to the users in the production environment. **NOTE: Please test all the changes manually to make sure that the feature works fully end-to-end on your local dev server, before flipping the flag to TEST.**
 
-4. If the feature testing reveals that the feature is not ready for production, you must work on fixing the highlighted issues before proceeding further.
+4. Ask the release testers to enable the feature flag of the feature you are building for the TEST environment (in the test server, of course), before proceeding with the actual testing.
 
-5. Once you receive a go-ahead from the feature testers, you must merge another PR -- this PR is meant to do only one thing, i.e. move the feature flag to the PROD stage, allowing it to be enabled/disabled in production (by the admin(s)). **NOTE: When opening this PR, include a link to the testing doc or other proof that the feature has been approved for release.**
+5. If the feature testing reveals that the feature is not ready for production, you must work on fixing the highlighted issues before proceeding further.
 
-6. Once this PR is merged, send a request to the release coordinators to turn on the feature in production by adding a rule in the `/admin` page.
+6. Once you receive a go-ahead from the feature testers, you must merge another PR -- this PR is meant to do only one thing, i.e. move the feature flag to the PROD stage, allowing it to be enabled/disabled in production (by the admin(s)). **NOTE: When opening this PR, include a link to the testing doc or other proof that the feature has been approved for release.**
 
-7. Once the feature is confirmed to be functioning as intended in production (for at least two weeks), please do the following, in order:
-    - Make sure that the feature is indeed functioning as intended, and ready to be made permanent. To do this, confirm with the PMs that no users have reported issues with it, and that no regressions have been detected via StackDriver and other usage metrics.
+7. Once this PR is merged, send a request to the release coordinators to turn on the feature in production by adding a rule in the `/admin` page.
+
+8. Once the feature is confirmed to be functioning as intended in production (for at least two weeks), please do the following, in order:
+    - Make sure that the feature is indeed functioning as intended, and ready to be made permanent. To do this, confirm with the PMs that no users have reported issues with it, and that no regressions have been detected via StackDriver or general user feedback.
     - Once you have confirmation that the feature can be made permanent, merge one last PR to "un-gate" the feature and move the feature flag to the deprecated stage (one of the stages listed in `core/domain/platform_parameter_list.py` for flags that are no longer in use). Additionally, in this PR, please remove all remaining references to the feature flag from the codebase (for example, in all the `if` blocks you created to gate the feature).
