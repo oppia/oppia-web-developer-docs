@@ -162,16 +162,16 @@ from core.domain import platform_parameter_registry as registry # (alias is opti
 
 ```python
 self.mock_feature_flag = registry.Registry.create_feature_flag(
-  platform_parameter_list.ParamNames.NewFeature, 'a mock of the new_feature feature flag',
-  platform_parameter_domain.FeatureStages.DEV) # FeatureStage DEV just simplifies things
+    platform_parameter_list.ParamNames.NewFeature, 'a mock of the new_feature feature flag',
+    platform_parameter_domain.FeatureStages.DEV)
 ```
 
 3. Set the rules for when the feature flag is to be enabled (in the method which performs the testing), like so (here we're setting the flag to be enabled when in DEV mode):
 
 ```python
 test_can_do_something(self) -> None:
-  feature_services.update_feature_flag_rules(
-            platform_parameter_list.ParamNames.NewFeature.value, self.owner_id, 'test update', # owner_id is the id of the user that is updating the feature flag. See note underneath this code block.
+    feature_services.update_feature_flag_rules(
+        platform_parameter_list.ParamNames.NewFeature.value, self.owner_id, 'test update', # owner_id is the id of the user that is updating the feature flag. See note underneath this code block.
             [
                 platform_parameter_domain.PlatformParameterRule.from_dict({
                     'filters': [
@@ -185,23 +185,23 @@ test_can_do_something(self) -> None:
                     'value_when_matched': True
                 })
             ]
-        )
+    )
 
 ```
 
-**NOTE**: Like mentioned above `self.owner_id` refers to the id of the user with the necessary permissions to perform the actual feature flag rules update. Some tests have the `owner_id` property created within the `setUp()` hook, and this variable can be used throughout the test class.
+**NOTE**: Like mentioned above `self.owner_id` refers to the id of the user with the necessary permissions (i.e. super-admin permissions) to perform the actual feature flag rules update. Some tests have the `owner_id` property created within the `setUp()` hook, and this variable can be used throughout the test class.
 
 If this is not the case (i.e. you do not have access to the `owner_id` property in the class within which you are writing your tests), you can obtain the `owner_id` by following these steps:
 
-- Create a new user with the proper credentials, so that this user has the necessary permissions,
+- Create a new user with the proper credentials (see code below for how these 'proper' credentials can be accessed), so that this user has super-admin permissions,
 - Then use the `get_user_id_from_email()` method to get the `owner_id` from the email address of the newly created user.
 
 The code would look like this (note that this needs to be in the `setUp()` hook):
 
 ```python
-  self.signup(self.OWNER_EMAIL, self.OWNER_USERNAME)
-  # ...
-  self.owner_id = self.get_user_id_from_email(self.OWNER_EMAIL)
+    self.signup(self.OWNER_EMAIL, self.OWNER_USERNAME)
+    # ...
+    self.owner_id = self.get_user_id_from_email(self.OWNER_EMAIL)
 ```
 
 4. Now you can create a `with` statement to manipulate the value of the feature flag as needed!
@@ -210,15 +210,15 @@ For example, in case of this tutorial, the rules we set for the feature flag in 
 
 ```python
 with self.swap(constants, 'DEV_MODE', True):
-  # ...
+    # ...
 ```
 
 To start with, you could test whether the feature flag is actually behaving as expected with the following lines of code in the `with` block:
 
 ```python
 with self.swap(constants, 'DEV_MODE', True):
-  self.assertTrue(
-    feature_services.is_feature_enabled(platform_parameter_list.ParamNames.NewFeature.value))
+    self.assertTrue(
+      feature_services.is_feature_enabled(platform_parameter_list.ParamNames.NewFeature.value))
 ```
 
 and then proceed to write the actual test right after that assertion, within the `with` block.
@@ -227,7 +227,7 @@ and then proceed to write the actual test right after that assertion, within the
 
 ```python
 with self.swap(constants, 'DEV_MODE', False):
-  # ...
+    # ...
 ```
 
 ## Feature Stage Explanation
@@ -315,7 +315,7 @@ Say you are working on a large scale user-facing feature that will take multiple
 
 3. The very last PR you make (to finish up the feature you are working on) must include changes that move the feature flag to the TEST stage. This is to ensure that the feature is available in the test environment, and we can feature-test it before it is made available to the users in the production environment. **NOTE: Please test all the changes manually to make sure that the feature works fully end-to-end on your local dev server, before flipping the flag to TEST.**
 
-4. Ask the release testers to enable the feature flag of the feature you are building for the TEST environment (in the test server, of course), before proceeding with the actual testing.
+4. Ask the release coordinator to go to the test server admin page and enable the feature flag for the feature you are building, before opening up the server for the actual testing by the release testers.
 
 5. If the feature testing reveals that the feature is not ready for production, you must work on fixing the highlighted issues before proceeding further.
 
