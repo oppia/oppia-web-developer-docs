@@ -199,7 +199,7 @@ If this is not the case (i.e. you do not have access to the `owner_id` property 
 The code would look like this (note that this needs to be in the `setUp()` hook):
 
 ```python
-    self.signup(self.OWNER_EMAIL, self.OWNER_USERNAME)
+    self.signup(self.OWNER_EMAIL, self.OWNER_USERNAME) # an account created using these credentials will have super-admin permissions
     # ...
     self.owner_id = self.get_user_id_from_email(self.OWNER_EMAIL)
 ```
