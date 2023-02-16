@@ -11,7 +11,7 @@
 
 **Note:** If you just want to create and share explorations, you may be able to use the hosted server at https://www.oppia.org (in which case you don't need to install anything).
 
-*These installation instructions were last tested on 24 July 2021. For more information on issues that may occasionally arise with the installation process, please contact _vojtech.jelinek@hey.com_ or see the [Troubleshooting](https://github.com/oppia/oppia/wiki/Troubleshooting) page.*
+*These installation instructions were last tested on 24 July 2021. For more information on issues that may occasionally arise with the installation process, see the [Troubleshooting](https://github.com/oppia/oppia/wiki/Troubleshooting) page or ask in the GitHub Discussions.*
 
 ## Install prerequisites
 
@@ -94,24 +94,9 @@ bash scripts/install_prerequisites.sh
 For your virtual environment, we recommend you use [pyenv](https://github.com/pyenv/pyenv). Here are some instructions for doing so, but you can use another virtual environment tool if you wish:
 
 1. **Make sure you install the Python build dependencies for your operating system. These are specified [here](https://github.com/pyenv/pyenv/wiki#suggested-build-environment). If you don't do this it might lead to problems further on.** The build dependencies for Ubuntu/Debian are
-    ```sh
-    sudo apt-get install make
-    sudo apt-get install build-essential
-    sudo apt-get install libssl-dev
-    sudo apt-get install zlib1g-dev
-    sudo apt-get install libbz2-dev
-    sudo apt-get install libreadline-dev
-    sudo apt-get install libsqlite3-dev
-    sudo apt-get install wget
-    sudo apt-get install llvm
-    sudo apt-get install libncursesw5-dev
-    sudo apt-get install xz-utils
-    sudo apt-get install tk-dev
-    sudo apt-get install libxml2-dev
-    sudo apt-get install libxmlsec1-dev
-    sudo apt-get install libffi-dev
-    sudo apt-get install liblzma-dev
-    ```
+
+
+    `sudo apt-get install make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget llvm libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev`
 
 2. Install pyenv:
 
@@ -220,13 +205,17 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
 
    The first time you run this script, it will take a while -- about 5 - 10 minutes when we last tested it in Sep 2020, though this depends on your Internet connection. (It might also hang after "Checking if pip is installed on the local machine" due to the grpcio build being slow -- just give it some time, and it should finish.) Subsequent runs should be much faster. The `start.py` script downloads and installs the required dependencies (such as Google App Engine) if they are not already present, and sets up a development server for you to play with. The development server logs are then output to this terminal, so you will not be able to enter further commands in it until you disconnect the server.
 
-   **Note**: **Please don't use `sudo` while installing.** It's not required, and using it may cause problems later. If you face permissions issues, ensure that you have the necessary permissions for the directory in which you're trying to set up Oppia. If you run into any other installation problems, please read [these notes](https://github.com/oppia/oppia/wiki/Issues-with-installation).
+   > **Note**
+   > **Please don't use `sudo` while installing.** It's not required, and using it may cause problems later. If you face permissions issues, ensure that you have the necessary permissions for the directory in which you're trying to set up Oppia. If you run into any other installation problems, please read [these notes](https://github.com/oppia/oppia/wiki/Issues-with-installation).
 
-   **Note**: The script will create two folders that are siblings of the `oppia/` root directory: `oppia_tools` and `node_modules`. This is done so that these two folders will not be uploaded to App Engine when the application is deployed to the web.
+   > **Note**
+   > The script will create two folders that are siblings of the `oppia/` root directory: `oppia_tools` and `node_modules`. This is done so that these two folders will not be uploaded to App Engine when the application is deployed to the web.
 
-   **Note**: If you run into errors while installing Oppia, please try running `python -m scripts.clean` and running `start.py` again.
+   > **Note**
+   > If you run into errors while installing Oppia, please try running `python -m scripts.clean` and running `start.py` again.
 
-   **Note**: Oppia uses the npm tool to install some packages. This tool accesses both ~/tmp and ~/.npm, and has been known to occasionally encounter permissions issues with those directories. You may need to either delete these directories and all their contents (if they do not contain anything else that needs to be preserved), or change their permissions so that they are owned by you, which you can do by running
+   > **Note**
+   > Oppia uses the npm tool to install some packages. This tool accesses both ~/tmp and ~/.npm, and has been known to occasionally encounter permissions issues with those directories. You may need to either delete these directories and all their contents (if they do not contain anything else that needs to be preserved), or change their permissions so that they are owned by you, which you can do by running
 
    ```console
    sudo chown -R {{YOUR_USERNAME}} ~/tmp
@@ -237,7 +226,7 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
 
 2. The `start.py` script will start a development server at http://localhost:8181. It should look something like this:
 
-   ![Image showing the default splash page.](https://res.cloudinary.com/dozmja9ir/image/upload/v1538254601/home_page.png)
+   ![Image showing the default splash page.](https://user-images.githubusercontent.com/57531197/213922682-5ce66f8f-6a5d-493f-8f7c-fa1a566bb6f9.png)
 
    You can also view the App Engine admin console at http://localhost:8000.
 

@@ -1,6 +1,54 @@
 ## General
 
-Here are some general troubleshooting tips for Oppia. The platform specific tips are [[Linux|Troubleshooting#linux]], [[Windows|Troubleshooting#windows]], and [[Mac OS|Troubleshooting#mac-os]].
+Here are some general troubleshooting tips for Oppia. The platform specific tips are [Linux](#linux), [Windows](#windows), and [Mac OS](#mac-os).
+
+# Table of Contents  
+
+- [No module named builtins](#no-module-named-builtins)
+- [No Java](#no-java)
+- [Frontend Tests Stuck](#frontend-tests-stuck)
+- [Selenium Server Not Killed by Ctrl-C](#selenium-server-not-killed-by-ctrl-c)
+- [403 Error](#403-error)
+- [MERGE_MSG Newer than Swap File](#merge_msg-newer-than-swap-file)
+- [Warnings from start.py](#warnings-from-startpy)
+- [No Such File or Directory: Google Cloud SDK](#no-such-file-or-directory-google-cloud-sdk)
+- [No module named '_sqlite3'](#no-module-named-_sqlite3)
+- [Problems Cloning from GitHub](#problems-cloning-from-github)
+- [Certificate Verify Failed](#certificate-verify-failed)
+- [No Module Named Scripts](#no-module-named-scripts)
+- [Invalid Syntax](#invalid-syntax)
+- [Java Read Past EOF](#java-read-past-eof)
+- [Low RAM](#low-ram)
+- [Failed to Start Server on Port XXXX](#failed-to-start-server-on-port-xxxx)
+- [./portserver.socket is not listed in the .github/CODEOWNERS file](#portserversocket-is-not-listed-in-the-githubcodeowners-file)
+- [Push fails due to connection timeout](#push-fails-due-to-connection-timeout)
+- [Exception: Error compiling proto files](#exception-error-compiling-proto-files)
+- [Linux](#linux)
+  - [Python 2 is not available](#python-2-is-not-available)
+  - [OSError: [Errno 2] No such file or directory](#oserror-errno-2-no-such-file-or-directory)
+  - [Pip: Cannot Import Name Main](#pip-cannot-import-name-main)
+  - [System Limit for Number of File Watchers Reached](#system-limit-for-number-of-file-watchers-reached)
+  - [No Module functools_lru_cache](#no-module-functools_lru_cache)
+  - [No Module appengine.api](#no-module-appengineapi)
+  - [ModuleNotFoundError: No module named _bz2](#modulenotfounderror-no-module-named-_bz2)
+- [Mac OS](#mac-os)
+  - [Python 2 is not available](#python-2-is-not-available-1)
+  - [Error: alert_on_exit() -> Iterator[None]](#error-alert_on_exit---iteratornone)
+  - [Local datastore data are not being deleted](#local-datastore-data-are-not-being-deleted)
+  - [No module named '_ctypes' on M1 Macs](#no-module-named-_ctypes-on-m1-macs)
+  - [Cannot Import Name _imaging](#cannot-import-name-_imaging)
+  - [Command cc failed with exit status 1](#command-cc-failed-with-exit-status-1)
+  - [GitPython Not Installed](#gitpython-not-installed)
+  - [Install Imaging](#install-imaging)
+  - [No Java Runtime Present](#no-java-runtime-present)
+  - [503 Error when Starting Appengine](#503-error-when-starting-appengine)
+  - [SSL Wrong Version Number](#ssl-wrong-version-number)
+  - [SSL Verification Issues](#ssl-verification-issues)
+  - [Yarn: ESOCKETTIMEDOUT](#yarn-esockettimedout)
+- [Windows](#windows)
+  - [Windows Firewall](#windows-firewall)
+  - [No Such File or Directory /dev/disk/by-id](#no-such-file-or-directory-devdiskby-id)
+  - [If the above doesn't work](#if-the-above-doesnt-work)
 
 ### `No module named builtins`
 

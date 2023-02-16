@@ -33,7 +33,8 @@ Once you've figured whether or not to add type annotations to a file, follow the
 
 ### Steps to add type annotations to a file:
 
-**Note**: Test file should **always** be type annotated along with the main code file (if the latter one is going to be fully annotated).
+> **Note**
+> Test file should **always** be type annotated along with the main code file (if the latter one is going to be fully annotated).
 
 1.  Run mypy type checks on the main code file you are trying to annotate. This will give the errors. (Either use the `--files` version or use the normal version but ensure that the file is removed from mypy denylist)
 2.  Start solving these errors one by one.

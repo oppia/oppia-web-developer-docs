@@ -375,4 +375,4 @@ Actually remove the field:
 
 ## Contact
 
-If you have any questions about Oppia's storage models, please reach out to @vojtechjelinek (vojtech.jelinek@hey.com).
+If you have any questions about Oppia's storage models, please reach out to @vojtechjelinek.
