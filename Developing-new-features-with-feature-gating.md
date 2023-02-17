@@ -323,6 +323,6 @@ Say you are working on a large scale user-facing feature that will take multiple
 
 7. Once this PR is merged, send a request to the release coordinators to turn on the feature in production by adding a rule in the `/admin` page.
 
-8. Once the feature is confirmed to be functioning as intended in production (for at least two weeks), please do the following, in order:
-    - Make sure that the feature is indeed functioning as intended, and ready to be made permanent. To do this, confirm with the PMs that no users have reported issues with it, and that no regressions have been detected via StackDriver or general user feedback.
+8. Once the feature is confirmed to be functioning as intended in production (for no fewer than two weeks) by the product team, please do the following, in order:
+    - Make sure that the feature is ready to be made permanent. To do this, confirm with the PMs that no users have reported issues with it, and that no regressions have been detected via StackDriver or general user feedback.
     - Once you have confirmation that the feature can be made permanent, merge one last PR to "un-gate" the feature and move the feature flag to the deprecated stage (one of the stages listed in `core/domain/platform_parameter_list.py` for flags that are no longer in use). Additionally, in this PR, please remove all remaining references to the feature flag from the codebase (for example, in all the `if` blocks you created to gate the feature).
