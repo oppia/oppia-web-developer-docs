@@ -703,7 +703,7 @@ Additionally, finish adding [computer-aided translation (CAT)](https://docs.goog
 
 **Project Description:**
 
-Translation reviewers have given feedback such that the current contributor dashboard reviewer workflow doesn’t match with most of their needs. This project aims to improve the translation reviewer experience in the contributor dashboard.
+Translation reviewers have given feedback that the current contributor dashboard reviewer workflow doesn’t match with most of their needs. This project aims to improve the translation reviewer experience in the contributor dashboard.
 
 **Size of this project:** large (~350 hours)
 
@@ -717,18 +717,18 @@ Translation reviewers have given feedback such that the current contributor dash
 **Suggested Milestones:**
 
 * **Milestone 1:**
-  - Showing translation cards according to the order of the content flow in the lesson.
-  - Exploration editor should also be linked so that the original lesson can be seen.
-  - Showing the size of the translation(short/large) ([Mocks in progress](https://github.com/oppia/design-team/issues/53))
-  - Pin/unpin specific lessons to translate ([Mocks in progress](https://github.com/oppia/design-team/issues/53))
+  - Show translation cards according to the order of the content flow in the lesson.
+  - Link to the exploration editor so that the original lesson can be seen.
+  - Show the size of the translation ([Mocks in progress](https://github.com/oppia/design-team/issues/53))
+  - Allow translators to pin/unpin ([Mocks in progress](https://github.com/oppia/design-team/issues/53))
 
 
 * **Milestone 2:**
-  - Ability to revert the acceptance or rejection of cards. [The exact time limit that we allow to undo the review should be decided](https://docs.google.com/document/d/1lIXkcQwPcPeS715vhX6mY-lowzltLxE8v2QQEvFadks/edit?disco=AAAAn56QFwE).
-  - Showing image alt text below the image. ([Mocks in progress](https://github.com/oppia/design-team/issues/54))
-  - Notifying new submissions through emails. [Existing CD reviewer notification system](https://docs.google.com/document/d/1tuXPSHvUN6I32Rle7E2CQs5HONgtP3TMuA__bWEsoDY/edit#heading=h.qzrvkvw31j3i).
+  - Enable translation reviewers to revert the acceptance or rejection of cards. [We are currently in the process of deciding on the exact time limit that we allow to undo a review](https://docs.google.com/document/d/1lIXkcQwPcPeS715vhX6mY-lowzltLxE8v2QQEvFadks/edit?disco=AAAAn56QFwE).
+  - Show image alt text below the image. ([Mocks in progress](https://github.com/oppia/design-team/issues/54))
+  - Notify translation reviewers about new submissions by email. [Existing CD reviewer notification system](https://docs.google.com/document/d/1tuXPSHvUN6I32Rle7E2CQs5HONgtP3TMuA__bWEsoDY/edit#heading=h.qzrvkvw31j3i).
 
-**Dependency on Release Schedule:** 
+**Dependency on Release Schedule:** None
 
 **Proposal notes:**
 
