@@ -150,3 +150,11 @@ Here are some alternative approaches:
 * Using the `GITHUB_TOKEN` generated automatically for actions workflows.
 
   * This token does not grant access to the wiki, so even if we force-deployed from the source repository instead of creating a revert commit, the workflow in the deployment repository that detects an edit through the web interface would not have permission to force-deploy the source documentation to the deployment wiki.
+
+### Failed to push changes to wiki upon PR merge.
+
+If the deployment of changes to the wiki following the merging of a pull request was unsuccessful, you have the option to manually push the changes to the wiki by following these steps:
+
+1. Navigate to the Oppia wiki repository's Actions tab.
+2. Select the "Deploy to wiki" workflow.
+3. Refer to these [instructions](https://docs.github.com/en/actions/managing-workflow-runs/manually-running-a-workflow?tool=webui#running-a-workflow) to manually execute the workflow.
