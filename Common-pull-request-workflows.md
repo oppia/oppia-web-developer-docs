@@ -6,28 +6,15 @@
 * [Working on multiple pull requests](#working-on-multiple-pull-requests)
 
 ## Pull request lifecycle
-
-![Flowchart of PR lifecycle](images/prLifecycle.png)
-
-<details>
-<summary>Flowchart source code</summary>
-
-The flowchart was generated from the below source code by https://flowchart.fun.
-
-```text
-~~~
-layout:
-  name: dagre
-  rankDir: LR
-~~~
-Draft PR
-  Ready for review: PR awaiting review
-    Request changes: Changes requested
-      Addresses comments: (PR awaiting review)
-    All reviewers approve: PR labeled LGTM
-      Merge: PR closed
+```mermaid
+flowchart LR
+DP("Draft PR") -->|"Ready for review"| PRW("PR awaiting review")
+PRW -->|"Request changes"|CR("Changes Requested")
+CR -->|"Addresses comments"| PRW
+PRW -->|"All reviewers approve"|PRL("PR labeled LGTM")
+PRL -->|"Merge"| M("Merged")
 ```
-</details>
+
 
 1. (optional) Draft PR: Authors can open draft PRs to get early feedback or debug CI tests. Reviewers usually won't leave comments on these PRs unless the author leaves a comment of the form `@reviewer_username PTAL` to request a review from GitHub user `reviewer_username`.
 2. PR ready for review: Once authors mark PRs as ready for review (or if they skip the draft PR stage entirely), reviews will automatically be requested from all code owners. Oppiabot will assign one developer (typically the developer from the changelog label) to take a first pass. Oppiabot will assign the other code owners to review once the first pass is complete.

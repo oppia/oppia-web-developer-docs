@@ -56,28 +56,12 @@ The rest of Oppia's development and production dependencies are managed by the O
 
 When you run `python -m scripts.start`, a chain of scripts installs and/or upgrades dependencies as necessary:
 
-```text
-          +----------+
-          | start.py |
-          +----------+
-               |
-               | calls install_third_party_libs.main() when start.py is executed or imported
-               v
-  +-----------------------------+ calls install_python_dev_dependencies.main() when executed or imported
-  | install_third_party_libs.py |     +------------------------------------+
-  +-----------------------------+ --> | install_python_dev_dependencies.py |
-               |                      +------------------------------------+
-               | main() calls install_third_party.main()
-               v
-    +------------------------+
-    | install_third_party.py |
-    +------------------------+
-               |
-               | main() calls install_python_prod_dependencies.main()
-               v
-+-------------------------------------+
-| install_python_prod_dependencies.py |
-+-------------------------------------+
+```mermaid
+flowchart TD
+first("start.py") -->|"calls install_third_party_libs.main() when start.py is executed or imported"| ITPL("install_third_party_libs.py")
+ITPL -->|"main() calls install_third_party.main()"|ITP("install_third_party.py")
+ITPL -->|"calls install_python_dev_dependencies.main() when executed or imported"| IPDD("install_python_dev_dependencies.py")
+ITP -->|"main() calls install_python_prod_dependencies.main()"| IPPD("install_python_prod_dependencies.py")
 ```
 
 We'll look at each of these scripts below.
