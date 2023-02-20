@@ -6,6 +6,16 @@ Note that throughout our wiki, we use the following notations:
 * `#` represents a root command prompt. For example, `# apt-get install python` means to run `apt-get install python` as root (e.g. using `sudo`).
 * `...` indicates where we've omitted content for the sake of brevity.
 
+We also assume that readers (and all Oppia developers) are familiar with the
+following:
+
+* Standard Unix path notation, including `~` as an abbreviation for the home directory.
+* Creating and editing text files, including hidden files.
+* Basic Unix commands like `ls`, `cat`, `echo`, `cd`, etc.
+* Using `git`.
+
+If you need to learn or brush up on these, please do so before trying to start the installation so you don't get confused by our instructions.
+
 To install Oppia, follow these instructions:
 
 * [[Linux|Installing-Oppia-(Linux;-Python-3)]]
