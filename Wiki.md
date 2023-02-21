@@ -8,6 +8,7 @@
   * [GitHub App for synchronizer bot](#github-app-for-synchronizer-bot)
   * [Workflow to revert changes through the web interface](#workflow-to-revert-changes-through-the-web-interface)
   * [Security analysis](#security-analysis)
+  * [Failed to push changes to wiki upon PR merge](#failed-to-push-changes-to-wiki-upon-pr-merge)
 
 ## Wiki architecture
 
