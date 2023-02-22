@@ -48,8 +48,8 @@ Here are some general troubleshooting tips for Oppia. The platform specific tips
 - [Windows](#windows)
   - [Windows Firewall](#windows-firewall)
   - [No Such File or Directory /dev/disk/by-id](#no-such-file-or-directory-devdiskby-id)
-  - [If the above doesn't work](#if-the-above-doesnt-work)
   - [First build never completed](#first-build-never-completed)
+  - [If the above doesn't work](#if-the-above-doesnt-work)
 
 ### `No module named builtins`
 
@@ -555,53 +555,53 @@ If you are running on Windows with WSL2 and a relatively small amount of RAM (<1
 
 ```
 Traceback (most recent call last):
-  File "/home/pratiksolanki/opensource/oppia/scripts/servers.py", line 95, in managed_process
+  File "/home/user/opensource/oppia/scripts/servers.py", line 95, in managed_process
     yield popen_proc
-  File "/home/pratiksolanki/opensource/oppia/scripts/servers.py", line 449, in managed_ng_build
+  File "/home/user/opensource/oppia/scripts/servers.py", line 449, in managed_ng_build
     raise IOError('First build never completed')
 OSError: First build never completed
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/home/pratiksolanki/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 131, in __exit__
+  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 131, in __exit__
     self.gen.throw(type, value, traceback)
-  File "/home/pratiksolanki/opensource/oppia/scripts/servers.py", line 365, in managed_redis_server
+  File "/home/user/opensource/oppia/scripts/servers.py", line 365, in managed_redis_server
     yield proc
-  File "/home/pratiksolanki/opensource/oppia/scripts/start.py", line 178, in main
+  File "/home/user/opensource/oppia/scripts/start.py", line 178, in main
     stack.enter_context(servers.managed_ng_build(watch_mode=True))
-  File "/home/pratiksolanki/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 425, in enter_context
+  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 425, in enter_context
     result = _cm_type.__enter__(cm)
-  File "/home/pratiksolanki/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 113, in __enter__
+  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 113, in __enter__
     return next(self.gen)
-  File "/home/pratiksolanki/opensource/oppia/scripts/servers.py", line 461, in managed_ng_build
+  File "/home/user/opensource/oppia/scripts/servers.py", line 461, in managed_ng_build
     yield proc
-  File "/home/pratiksolanki/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 525, in __exit__
+  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 525, in __exit__
     raise exc_details[1]
-  File "/home/pratiksolanki/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 510, in __exit__
+  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 510, in __exit__
     if cb(*exc_details):
-  File "/home/pratiksolanki/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 131, in __exit__
+  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 131, in __exit__
     self.gen.throw(type, value, traceback)
-  File "/home/pratiksolanki/opensource/oppia/scripts/servers.py", line 138, in managed_process
+  File "/home/user/opensource/oppia/scripts/servers.py", line 138, in managed_process
     raise Exception(
 Exception: Process Angular Compiler(name="sh", pid=2350) exited unexpectedly with exit code 137
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/home/pratiksolanki/.pyenv/versions/3.8.15/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/runpy.py", line 194, in _run_module_as_main
     return _run_code(code, main_globals, None,
-  File "/home/pratiksolanki/.pyenv/versions/3.8.15/lib/python3.8/runpy.py", line 87, in _run_code
+  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/runpy.py", line 87, in _run_code
     exec(code, run_globals)
-  File "/home/pratiksolanki/opensource/oppia/scripts/start.py", line 233, in <module>
+  File "/home/user/opensource/oppia/scripts/start.py", line 233, in <module>
     main()
-  File "/home/pratiksolanki/opensource/oppia/scripts/start.py", line 229, in main
+  File "/home/user/opensource/oppia/scripts/start.py", line 229, in main
     dev_appserver.wait()
-  File "/home/pratiksolanki/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 525, in __exit__
+  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 525, in __exit__
     raise exc_details[1]
-  File "/home/pratiksolanki/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 510, in __exit__
+  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 510, in __exit__
     if cb(*exc_details):
-  File "/home/pratiksolanki/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 382, in _exit_wrapper
+  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 382, in _exit_wrapper
     callback(*args, **kwds)
   File "/home/pratiksolanki/opensource/oppia/scripts/start.py", line 132, in call_extend_index_yaml
     extend_index_yaml.main()
@@ -610,7 +610,7 @@ Traceback (most recent call last):
 FileNotFoundError: [Errno 2] No such file or directory: '/home/pratiksolanki/opensource/oppia/../cloud_datastore_emulator_cache/WEB-INF/appengine-generated/datastore-indexes-auto.xml'
 ```
 
-The error code 137 indicates that the Angular compiler ran out of memory. This happens because by default, WSL2 only gives the host operating system (Ubuntu in our case) 50% of the machine's RAM. If you have 8 GB RAM, for example, this means Ubuntu only gets 4 GB, which is not enough to run Oppia. To fix this, you need to follow [Microsoft's instructions](https://learn.microsoft.com/en-us/windows/wsl/wsl-config) to increase the amount of RAM given to the host operating system.
+The error code 137 indicates that the Angular compiler ran out of memory. This happens because WSL2 only gives the host operating system (Ubuntu, in our case) 50% of the machine's RAM by default. If you have 8 GB RAM, for example, this means Ubuntu only gets 4 GB, which is insufficient to run Oppia. To fix this, you need to follow [Microsoft's instructions](https://learn.microsoft.com/en-us/windows/wsl/wsl-config) to increase the amount of RAM given to the host operating system.
 
 ## If the above doesn't work
 
