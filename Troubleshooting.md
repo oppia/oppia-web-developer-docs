@@ -2,7 +2,7 @@
 
 Here are some general troubleshooting tips for Oppia. The platform specific tips are [Linux](#linux), [Windows](#windows), and [Mac OS](#mac-os).
 
-# Table of Contents  
+# Table of Contents
 
 - [No module named builtins](#no-module-named-builtins)
 - [No Java](#no-java)
@@ -48,6 +48,7 @@ Here are some general troubleshooting tips for Oppia. The platform specific tips
 - [Windows](#windows)
   - [Windows Firewall](#windows-firewall)
   - [No Such File or Directory /dev/disk/by-id](#no-such-file-or-directory-devdiskby-id)
+  - [First build never completed](#first-build-never-completed)
   - [If the above doesn't work](#if-the-above-doesnt-work)
 
 ### `No module named builtins`
@@ -261,7 +262,7 @@ If you get error like this when running `python -m scripts.start`:
 ```
 ERROR: (dev_appserver) python2: command not found
 ```
-you will need to install Python 2 on your platform, even though Oppia doesn't use Python 2 anymore some parts of the App Engine dev server still need it. If you are on Ubuntu, you should be able to fix this using `sudo apt install python2`. 
+you will need to install Python 2 on your platform, even though Oppia doesn't use Python 2 anymore some parts of the App Engine dev server still need it. If you are on Ubuntu, you should be able to fix this using `sudo apt install python2`.
 
 
 ### OSError: [Errno 2] No such file or directory
@@ -351,7 +352,7 @@ If this error occurs within a virtual environment, try reinstalling the libs by 
 
 ## Mac OS
 
-### Python 2 is not available 
+### Python 2 is not available
 
 If you get error like this when running `python -m scripts.start`:
 
@@ -359,7 +360,7 @@ If you get error like this when running `python -m scripts.start`:
 ERROR: (dev_appserver) python2: command not found
 ```
 
-you will need to install Python 2 on your platform, even though Oppia doesn't use Python 2 anymore some parts of the App Engine dev server still need it. If you have MacOS >= 12.3, please follow the steps listed [here](https://github.com/oppia/oppia/wiki/Installing-Oppia-(Mac-OS;-Python-3)#install-prerequisites) to install Python 2 on your system. 
+you will need to install Python 2 on your platform, even though Oppia doesn't use Python 2 anymore some parts of the App Engine dev server still need it. If you have MacOS >= 12.3, please follow the steps listed [here](https://github.com/oppia/oppia/wiki/Installing-Oppia-(Mac-OS;-Python-3)#install-prerequisites) to install Python 2 on your system.
 
 ### Error: alert_on_exit() -> Iterator[None]
 
@@ -375,10 +376,10 @@ Traceback (most recent call last):
     self.code = compile(source, self.filename, 'exec')
   File "/Users/Desktop/opensource-oppia/oppia/scripts/start.py", line 85
     def alert_on_exit() -> Iterator[None]:
-``` 
+```
 
-Then, 
-1. Open your `.bash_profile` file, and check if there are two versions of Python listed inside of it, one for Python 2.7 and other for Python 3.8. Simply remove the entry for Python 2.7. Finally, this is how your file should look like: 
+Then,
+1. Open your `.bash_profile` file, and check if there are two versions of Python listed inside of it, one for Python 2.7 and other for Python 3.8. Simply remove the entry for Python 2.7. Finally, this is how your file should look like:
 
 ```
 export PYENV_ROOT="$HOME/.pyenv"
@@ -394,7 +395,7 @@ PATH="/Library/Frameworks/Python.framework/Versions/3.10/bin:${PATH}"
 export PATH
 ```
 
-2. Reload the .bash_profile by doing “source .bash_profile”, and now start your Oppia server `python -m scripts.start`. 
+2. Reload the .bash_profile by doing “source .bash_profile”, and now start your Oppia server `python -m scripts.start`.
 
 **Note:** Even if the bash_profile file doesn’t contain two entries for Python version per #1, please do #2 in order to make sure that the new version of Python is set for the virtual environment.
 
@@ -520,14 +521,14 @@ If all else fails, and you run into SSL related issues while installing third pa
 If you get an error like this when running `python -m scripts.start`:
 
 ```
-info There appears to be trouble with your network connection. Retrying... 
-info There appears to be trouble with your network connection. Retrying... 
-info There appears to be trouble with your network connection. Retrying... 
-info There appears to be trouble with your network connection. Retrying... 
-info There appears to be trouble with your network connection. Retrying... 
-error An unexpected error occurred: "https://registry.yarnpkg.com/mathjs/-/mathjs-9.5.2.tgz: ESOCKETTIMEDOUT". 
-info If you think this is a bug, please open a bug report with the information provided in /opensource/oppia/yarn-error.log". 
-info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this command. 
+info There appears to be trouble with your network connection. Retrying...
+info There appears to be trouble with your network connection. Retrying...
+info There appears to be trouble with your network connection. Retrying...
+info There appears to be trouble with your network connection. Retrying...
+info There appears to be trouble with your network connection. Retrying...
+error An unexpected error occurred: "https://registry.yarnpkg.com/mathjs/-/mathjs-9.5.2.tgz: ESOCKETTIMEDOUT".
+info If you think this is a bug, please open a bug report with the information provided in /opensource/oppia/yarn-error.log".
+info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this command.
 ```
 
 Try running `yarn install --network-timeout 100000`, where the timeout value is in milliseconds. If that doesn’t work, try running the command with a larger network timeout value and keep increasing the timeout (e.g. adding a zero at the end of the value) until it succeeds. Then try running `python -m scripts.start` again. Note: To see if you've raised the timeout enough, you only need to run `yarn install`. You don’t need to run `python -m scripts.start` every time.
@@ -548,7 +549,68 @@ If you get this error
 ```
 try fixing it by adding the `--no_browser` argument to your command, e.g. `python -m scripts.start --no_browser`.
 
+### First build never completed
 
+If you are running on Windows with WSL2 and a relatively small amount of RAM (<16 GB), you might see this error:
+
+```
+Traceback (most recent call last):
+  File "/home/user/opensource/oppia/scripts/servers.py", line 95, in managed_process
+    yield popen_proc
+  File "/home/user/opensource/oppia/scripts/servers.py", line 449, in managed_ng_build
+    raise IOError('First build never completed')
+OSError: First build never completed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 131, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/home/user/opensource/oppia/scripts/servers.py", line 365, in managed_redis_server
+    yield proc
+  File "/home/user/opensource/oppia/scripts/start.py", line 178, in main
+    stack.enter_context(servers.managed_ng_build(watch_mode=True))
+  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 425, in enter_context
+    result = _cm_type.__enter__(cm)
+  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/user/opensource/oppia/scripts/servers.py", line 461, in managed_ng_build
+    yield proc
+  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 525, in __exit__
+    raise exc_details[1]
+  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 510, in __exit__
+    if cb(*exc_details):
+  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 131, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/home/user/opensource/oppia/scripts/servers.py", line 138, in managed_process
+    raise Exception(
+Exception: Process Angular Compiler(name="sh", pid=2350) exited unexpectedly with exit code 137
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/user/opensource/oppia/scripts/start.py", line 233, in <module>
+    main()
+  File "/home/user/opensource/oppia/scripts/start.py", line 229, in main
+    dev_appserver.wait()
+  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 525, in __exit__
+    raise exc_details[1]
+  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 510, in __exit__
+    if cb(*exc_details):
+  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 382, in _exit_wrapper
+    callback(*args, **kwds)
+  File "/home/user/opensource/oppia/scripts/start.py", line 132, in call_extend_index_yaml
+    extend_index_yaml.main()
+  File "/home/user/opensource/oppia/scripts/extend_index_yaml.py", line 92, in main
+    with open(WEB_INF_INDEX_XML_PATH, 'r', encoding='utf-8') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/home/user/opensource/oppia/../cloud_datastore_emulator_cache/WEB-INF/appengine-generated/datastore-indexes-auto.xml'
+```
+
+The error code 137 indicates that the Angular compiler ran out of memory. This happens because WSL2 only gives the host operating system (Ubuntu, in our case) 50% of the machine's RAM by default. If you have 8 GB RAM, for example, this means Ubuntu only gets 4 GB, which is insufficient to run Oppia. To fix this, you need to follow [Microsoft's instructions](https://learn.microsoft.com/en-us/windows/wsl/wsl-config) to increase the amount of RAM given to the host operating system.
 
 ## If the above doesn't work
 
