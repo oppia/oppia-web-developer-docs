@@ -603,11 +603,11 @@ Traceback (most recent call last):
     if cb(*exc_details):
   File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 382, in _exit_wrapper
     callback(*args, **kwds)
-  File "/home/pratiksolanki/opensource/oppia/scripts/start.py", line 132, in call_extend_index_yaml
+  File "/home/user/opensource/oppia/scripts/start.py", line 132, in call_extend_index_yaml
     extend_index_yaml.main()
-  File "/home/pratiksolanki/opensource/oppia/scripts/extend_index_yaml.py", line 92, in main
+  File "/home/user/opensource/oppia/scripts/extend_index_yaml.py", line 92, in main
     with open(WEB_INF_INDEX_XML_PATH, 'r', encoding='utf-8') as f:
-FileNotFoundError: [Errno 2] No such file or directory: '/home/pratiksolanki/opensource/oppia/../cloud_datastore_emulator_cache/WEB-INF/appengine-generated/datastore-indexes-auto.xml'
+FileNotFoundError: [Errno 2] No such file or directory: '/home/user/opensource/oppia/../cloud_datastore_emulator_cache/WEB-INF/appengine-generated/datastore-indexes-auto.xml'
 ```
 
 The error code 137 indicates that the Angular compiler ran out of memory. This happens because WSL2 only gives the host operating system (Ubuntu, in our case) 50% of the machine's RAM by default. If you have 8 GB RAM, for example, this means Ubuntu only gets 4 GB, which is insufficient to run Oppia. To fix this, you need to follow [Microsoft's instructions](https://learn.microsoft.com/en-us/windows/wsl/wsl-config) to increase the amount of RAM given to the host operating system.
