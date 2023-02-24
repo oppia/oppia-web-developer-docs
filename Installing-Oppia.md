@@ -10,7 +10,7 @@ We also assume that readers (and all Oppia developers) are familiar with the
 following:
 
 * Standard Unix path notation, including `~` as an abbreviation for the home directory.
-* Creating and editing text files, including hidden files.
+* Creating and editing text files, including hidden files. Be careful with using graphical editors like Notepad in Windows. These can add carriage returns (`\r`) that confuse our Linux-based development tools. Instead, we recommend using editors designed for programming or command-line text editors.
 * Basic Unix commands like `ls`, `cat`, `echo`, `cd`, etc.
 * Using `git`.
 
