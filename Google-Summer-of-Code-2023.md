@@ -123,7 +123,7 @@ A: Difficulty can vary from person to person depending on the skills required wh
 
 ## Dates and Deadlines
 
-Noteworthy dates for 2023 ([Full Timeline](https://developers.google.com/open-source/gsoc/timeline)):
+Noteworthy dates for 2023 ([Official GSoC Timeline](https://developers.google.com/open-source/gsoc/timeline), [Full Oppia Timeline](https://docs.google.com/spreadsheets/d/1T-KVs5gFP0PzcBw9EL-fnod_Nt-WZ17hfd7vxrXGNh8/edit)):
 
 - **Jan 23 - Feb 7**: Mentoring organizations apply
 - **Feb 22**: Mentoring organizations are announced
