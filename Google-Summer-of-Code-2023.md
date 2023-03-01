@@ -121,6 +121,10 @@ A: Yes, GSoC might not be the best choice if you don't have enough time during t
 
 A: Difficulty can vary from person to person depending on the skills required which is why we list all the prerequisite skills for each project.
 
+**Q: Can I use content from the project ideas list or PRD in my proposal?**
+
+A: You are welcome to use content from the project ideas list or associated project PRDs in your proposal. However, remember from our [selection criteria](#selection-criteria) that when we review proposals, one of the things we look for is evidence that the applicant understands the project and existing codebase well. Strong proposals will therefore contain details that are original (e.g. that are not copied from the PRD).
+
 ## Dates and Deadlines
 
 Noteworthy dates for 2023 ([Official GSoC Timeline](https://developers.google.com/open-source/gsoc/timeline), [Full Oppia Timeline](https://docs.google.com/spreadsheets/d/1T-KVs5gFP0PzcBw9EL-fnod_Nt-WZ17hfd7vxrXGNh8/edit)):
