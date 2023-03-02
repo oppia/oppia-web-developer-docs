@@ -1,5 +1,7 @@
+"""This linter checks for Note and Warning notation for a particular format"""
 import os
 import re
+import sys
 from typing import Pattern, List
 
 SEARCH_NOTE_PATTERN: Pattern = re.compile(r'^\*\*Note\*\*')
@@ -19,7 +21,9 @@ def find_regex_in_file_content(
         with open(filename, 'r', encoding='utf-8') as file:
             for i, line in enumerate(file):
                 if search_pattern.search(line):
-                    print(f'{filename}:{i+1}: error: wrong notation "{search_pattern.search(line).string}"; expected "{correct_string}"')
+                    print(f"{filename}:{i+1}: error: wrong notation "
+                        f"\"{search_pattern.search(line).string[:-1]}\"; "
+                        f"expected \"{correct_string}\"")
                     match_found = True
     return match_found
 def main() -> None:
@@ -37,7 +41,7 @@ def main() -> None:
 
     if found_note_pattern or found_warning_pattern:
         print("Lint Check Failed!")
-        exit(1)
+        sys.exit(1)
 
 
 if __name__ == '__main__':

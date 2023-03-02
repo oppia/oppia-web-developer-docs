@@ -18,3 +18,7 @@ jobs:
       - name: Lint markdown files
         run: |
           python scripts/linter.py
+      - name: Pylint for python files
+        run: |
+          pip install pylint
+          pylint **/*.py
