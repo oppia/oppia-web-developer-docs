@@ -653,6 +653,8 @@ Contributor dashboard admin page revamp. Table view of contributors with key sta
 
 **Useful resources:**
 
+* [PRD](https://docs.google.com/document/d/1_vvewEwviQjtPvZy9yo74eCcRTQNcQKyCgdHNpyWNWw/edit?usp=sharing)
+
 ### 2.2. Prioritized Translation Languages and Auto-Translations
 
 **Project Description:**
@@ -698,12 +700,14 @@ Additionally, finish adding [computer-aided translation (CAT)](https://docs.goog
 
 **Useful resources:**
 
+* [PRD](https://docs.google.com/document/d/1TeGQQNLNJWkTgvGQ1xmV6snz8zXnJ23TvuDKtK5_Tok/edit?usp=sharing)
+
 
 ### 2.3. Improvements for translation reviewer experience
 
 **Project Description:**
 
-Translation reviewers have given feedback such that the current contributor dashboard reviewer workflow doesn’t match with most of their needs. This project aims to improve the translation reviewer experience in the contributor dashboard.
+Translation reviewers have given feedback that the current contributor dashboard reviewer workflow doesn’t match with most of their needs. This project aims to improve the translation reviewer experience in the contributor dashboard.
 
 **Size of this project:** large (~350 hours)
 
@@ -720,11 +724,11 @@ Translation reviewers have given feedback such that the current contributor dash
   - Show translation cards according to the order of the content flow in the lesson.
   - Link to the exploration editor so that the original lesson can be seen ([Mock](https://docs.google.com/document/d/1lIXkcQwPcPeS715vhX6mY-lowzltLxE8v2QQEvFadks/edit#heading=h.v0ksth5jphpg))
   - Show the size of the translation ([Mocks in progress](https://github.com/oppia/design-team/issues/53))
-  - Allow translators to pin/unpin ([Mocks in progress](https://github.com/oppia/design-team/issues/53))
+  - Allow translation reviewers to pin/unpin ([Mocks in progress](https://github.com/oppia/design-team/issues/53))
 
 
 * **Milestone 2:**
-  - Ability to undo the acceptance or rejection of a translation card for up to 30 seconds.
+  - Allow reviewers to undo the acceptance or rejection of a translation card for up to 30 seconds.
   - Show image alt text below the image. ([Mocks in progress](https://github.com/oppia/design-team/issues/54))
   - Notify translation reviewers about new submissions by email. [Existing CD reviewer notification system](https://docs.google.com/document/d/1tuXPSHvUN6I32Rle7E2CQs5HONgtP3TMuA__bWEsoDY/edit#heading=h.qzrvkvw31j3i).
 
@@ -739,8 +743,10 @@ Translation reviewers have given feedback such that the current contributor dash
     - user_id: str. User ID.
     - exp_id: str. Exploration ID.
     - language_code: str. Language code.
-* To support translation review undo, we will likely want to enqueue suggestion creation in a task scheduled for 30 seconds in the future. If the decides to undo the translation, we can then delete the task. See core/domain/taskqueue_services.py, core/platform/taskqueue/cloud_taskqueue_services.py, and [CloudTasksClient](https://cloud.google.com/python/docs/reference/cloudtasks/latest/google.cloud.tasks_v2.services.cloud_tasks.CloudTasksClient). 
+* To support translation review undo, we will likely want to enqueue suggestion creation in a task scheduled for 30 seconds in the future. If the user decides to undo the translation, we can then delete the task. See core/domain/taskqueue_services.py, core/platform/taskqueue/cloud_taskqueue_services.py, and [CloudTasksClient](https://cloud.google.com/python/docs/reference/cloudtasks/latest/google.cloud.tasks_v2.services.cloud_tasks.CloudTasksClient).
 **Useful resources:**
+
+* [PRD](https://docs.google.com/document/d/1lIXkcQwPcPeS715vhX6mY-lowzltLxE8v2QQEvFadks/edit)
 
 ## Data validation team
 
