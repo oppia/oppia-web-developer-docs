@@ -298,7 +298,9 @@ Please note that the list of project ideas below is not set in stone: more proje
 
 2.1. [Contributor Dashboard Admin Stats Table](#21-contributor-dashboard-admin-stats-table)
 
-2.2. [Prioritized Translation Languages and Auto-Translations](#23-improvements-for-translation-reviewer-experience)
+2.2. [Prioritized Translation Languages and Auto-Translations](#22-prioritized-translation-languages-and-auto-translations)
+
+2.3 [Improvements for translation reviewer experience](#23-improvements-for-translation-reviewer-experience)
 
 ### Data validation team
 
@@ -657,6 +659,8 @@ Contributor dashboard admin page revamp. Table view of contributors with key sta
 
 **Useful resources:**
 
+* [PRD](https://docs.google.com/document/d/1_vvewEwviQjtPvZy9yo74eCcRTQNcQKyCgdHNpyWNWw/edit?usp=sharing)
+
 ### 2.2. Prioritized Translation Languages and Auto-Translations
 
 **Project Description:**
@@ -702,6 +706,53 @@ Additionally, finish adding [computer-aided translation (CAT)](https://docs.goog
 
 **Useful resources:**
 
+* [PRD](https://docs.google.com/document/d/1TeGQQNLNJWkTgvGQ1xmV6snz8zXnJ23TvuDKtK5_Tok/edit?usp=sharing)
+
+
+### 2.3. Improvements for translation reviewer experience
+
+**Project Description:**
+
+Translation reviewers have given feedback that the current contributor dashboard reviewer workflow doesn’t match with most of their needs. This project aims to improve the translation reviewer experience in the contributor dashboard.
+
+**Size of this project:** large (~350 hours)
+
+**Potential Mentors:** TBA
+
+**Knowledge/Skills Recommended:**
+
+* Knowledge and understanding of Python
+* Knowledge and understanding of TypeScript, Angular, basic HTML, and CSS
+
+**Suggested Milestones:**
+
+* **Milestone 1:**
+  - Show translation cards according to the order of the content flow in the lesson.
+  - Link to the exploration editor so that the original lesson can be seen ([Mock](https://docs.google.com/document/d/1lIXkcQwPcPeS715vhX6mY-lowzltLxE8v2QQEvFadks/edit#heading=h.v0ksth5jphpg))
+  - Show the size of the translation ([Mocks in progress](https://github.com/oppia/design-team/issues/53))
+  - Allow translation reviewers to pin/unpin ([Mocks in progress](https://github.com/oppia/design-team/issues/53))
+
+
+* **Milestone 2:**
+  - Allow reviewers to undo the acceptance or rejection of a translation card for up to 30 seconds.
+  - Show image alt text below the image. ([Mocks in progress](https://github.com/oppia/design-team/issues/54))
+  - Notify translation reviewers about new submissions by email. [Existing CD reviewer notification system](https://docs.google.com/document/d/1tuXPSHvUN6I32Rle7E2CQs5HONgtP3TMuA__bWEsoDY/edit#heading=h.qzrvkvw31j3i).
+
+**Dependency on Release Schedule:** None
+
+**Proposal notes:**
+
+* For showing translation cards in order, we can likely make use of the `computeBfsTraversalOfStates()` function in core/templates/services/compute-graph.service.ts to obtain a lesson's state names in order. We can then sort translation cards by lesson state. Within a state, it’s probably fine to leave translations unsorted, as there’s not necessarily an ordering of content within a state.
+* To support lesson pinning, we have to make sure the pinned lessons are returned at the top of the list of lessons with translation suggestions in the fetch query [here](https://github.com/oppia/oppia/blob/develop/core/controllers/contributor_dashboard.py#L336) (`_get_reviewable_exploration_opportunity_summaries()`).
+* We will likely want to introduce a new storage model to track pinned lessons by language and user. For example:
+  - PinnedReviewableLessonModel
+    - user_id: str. User ID.
+    - exp_id: str. Exploration ID.
+    - language_code: str. Language code.
+* To support translation review undo, we will likely want to enqueue suggestion creation in a task scheduled for 30 seconds in the future. If the user decides to undo the translation, we can then delete the task. See core/domain/taskqueue_services.py, core/platform/taskqueue/cloud_taskqueue_services.py, and [CloudTasksClient](https://cloud.google.com/python/docs/reference/cloudtasks/latest/google.cloud.tasks_v2.services.cloud_tasks.CloudTasksClient).
+**Useful resources:**
+
+* [PRD](https://docs.google.com/document/d/1lIXkcQwPcPeS715vhX6mY-lowzltLxE8v2QQEvFadks/edit)
 
 ## Data validation team
 
