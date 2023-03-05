@@ -190,7 +190,7 @@ We've also asked our previous GSoC contributors what they learned during previou
       - It is really an awesome experience working with some amazing folks from all around the world at Oppia.
       - The kind of support the complete community provides is extra-ordinary.
     - Giving back
-      - "Everybody wants to do some good work but lets be honest, it is maybe the lazyness or the time issue that you are not able to do the type of work you always wanted to do, what can be a good way to give back to the community than to contributing here.
+      - Everybody wants to do some good work but lets be honest, it is maybe the lazyness or the time issue that you are not able to do the type of work you always wanted to do, what can be a good way to give back to the community than to contributing here.
       - It makes me very happy that I'm a part of an organization which provides free education and I think the education is the biggest blessing we can give to one to make them stand on their feet.
       - I would love to be part of this org by knowing that maybe not much but yes I'm trying to make an impact and my contribution in the educational field. I really want to do this because where I come from there is not much of education.
       - Also the main reason to stay connected is the purpose the community serves. Providing education to those who do not have access to it helps me give back to the society.
