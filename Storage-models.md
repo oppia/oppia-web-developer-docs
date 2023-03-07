@@ -318,14 +318,13 @@ Pseudonymization is not handled by the model classes. Instead, it's handled in [
 
 6. If the takeout policies will result in any data export, add a method to [export user data](#export-data).
 7. Optionally [provide a mapping from property names to takeout dictionary keys](#map-property-names-to-takeout-keys).
-8. [[Add a validator for the model|Writing-Validators-for-storage-models]].
-9. **Important:** If this model relates to other models, then make sure that when the other models are deleted, this model is also deleted.
+8. **Important:** If this model relates to other models, then make sure that when the other models are deleted, this model is also deleted.
 
    For example, if this model exists for every exploration, then when `ExplorationModel` gets deleted, we want this model to be deleted also. In this example, the `ExplorationModel.delete_explorations` method should be modified to delete your new model.
 
    Add tests that verify that this deletion works correctly!
 
-10. Write [[backend tests|Backend-tests]] for your new model.
+9. Write [[backend tests|Backend-tests]] for your new model.
 
 ### Add a pseudonymizable model
 

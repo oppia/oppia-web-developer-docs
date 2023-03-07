@@ -4,13 +4,13 @@ import re
 import sys
 from typing import Pattern, List
 
-SEARCH_NOTE_PATTERN: Pattern = re.compile(r'^\*\*Note\*\*')
-SEARCH_WARNING_PATTERN: Pattern = re.compile(r'^\*\*Warning\*\*')
+SEARCH_NOTE_PATTERN: Pattern[str] = re.compile(r'^\*\*Note\*\*')
+SEARCH_WARNING_PATTERN: Pattern[str] = re.compile(r'^\*\*Warning\*\*')
 CORRECT_NOTE_STRING: str = '> **Note**'
 CORRECT_WARNING_STRING: str = '> **Warning**'
 
 def find_regex_in_file_content(
-    search_pattern: Pattern,
+    search_pattern: Pattern[str],
     correct_string: str,
     filenames: List[str]
 ) -> bool:
@@ -21,7 +21,8 @@ def find_regex_in_file_content(
         with open(filename, 'r', encoding='utf-8') as file:
             for i, line in enumerate(file):
                 if search_pattern.search(line):
-                    print(f"{filename}:{i+1}: error: wrong notation "
+                    print(
+                        f"{filename}:{i+1}: error: wrong notation "
                         f"\"{search_pattern.search(line).string[:-1]}\"; "
                         f"expected \"{correct_string}\"")
                     match_found = True

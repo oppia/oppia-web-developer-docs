@@ -9,8 +9,8 @@ on:
       - develop
 
 jobs:
-  lint:
-    name: Linter
+  markdown_linter:
+    name: Run markdown linter
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -18,7 +18,13 @@ jobs:
       - name: Lint markdown files
         run: |
           python scripts/linter.py
-      - name: Pylint python files
+  pylint_linter:
+    name: Run pylint linter
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v3
+      - name: Lint python files
         run: |
           pip install pylint
           pylint **/*.py
