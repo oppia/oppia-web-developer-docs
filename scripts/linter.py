@@ -23,7 +23,7 @@ def find_regex_in_file_content(
                 if search_pattern.search(line):
                     print(
                         f"{filename}:{i+1}: error: wrong notation "
-                        f"\"{search_pattern.search(line).string[:-1]}\"; "
+                        f"\"{search_pattern.search(line)}\"; "
                         f"expected \"{correct_string}\"")
                     match_found = True
     return match_found
