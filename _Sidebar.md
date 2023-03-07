@@ -88,7 +88,6 @@
     * [[Writing state migrations | Writing-state-migrations]]
     * [[Calculating statistics|Calculating-statistics]]
     * [[Storage models|Storage-models]]
-    * [[Writing validators for storage models | Writing-Validators-for-storage-models]]
     * [[Coding for speed in GAE | Coding-for-speed-in-GAE]]
     * [[Adding static assets|Adding-static-assets]]
     * [[Wipeout Implementation|Wipeout-Implementation]]
