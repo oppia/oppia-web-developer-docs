@@ -554,7 +554,7 @@ Oppia aims to provide a good and fruitful learning experience to all people. Thi
 
 Therefore, the aim of this project is to improve the accessibility of all learner facing pages on Oppia, i.e. getting the Lighthouse scores of all these pages to 1.0. Under this project, the contributor is expected to fix all [the accessibility issues](https://github.com/oppia/oppia/issues?q=is%3Aissue+is%3Aopen+label%3Aa11y+) that have already been filed and run Lighthouse tests on all learner facing pages and bring their scores to 1.0, if that isn’t already the case.
 
-**Link to PRD:** [Improvements to Math Interactions PRD](https://docs.google.com/document/d/1cha8e5H4Dfb7t8cLL2VZYi02Ysk2YEdyyalY1dDqPXE/edit#heading=h.rpq25vez37fp)
+**Link to PRD:** None
 
 **Size of this project:** medium (~175 hours)
 
