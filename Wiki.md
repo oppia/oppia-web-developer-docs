@@ -86,19 +86,21 @@ Then for every new contribution (including your first), you should follow these 
 9. Once reviewers have approved, the welfare team will merge your PR, and your changes will be automatically deployed to the Oppia wiki. Congratulations!
 
 ### Run pylint on python files in the [Oppia-docs-repo](https://github.com/oppia/oppia-web-developer-docs).
-steps:
+Steps:
 
   1.  Install Pylint
 
       If pip refers to python3, then run:
-      > pip install pylint
+
+      `pip install pylint`
       
       else run:
-      > pip3 install pylint
+      
+      `pip3 install pylint`
 
   2. Run pylint on all python files in the repository:
 
-      > pylint **/*.py
+      `pylint **/*.py`
 
 ### When you make changes through the web interface
 
