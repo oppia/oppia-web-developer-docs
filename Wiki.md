@@ -3,6 +3,7 @@
 * [Wiki architecture](#wiki-architecture)
 * [Contributing to the wiki](#contributing-to-the-wiki)
   * [Opening a pull request](#opening-a-pull-request)
+  * [Run pylint on python files in the Oppia-docs-repo](#run-pylint-on-python-files-in-the-oppia-docs-repo)
   * [When you make changes through the web interface](#when-you-make-changes-through-the-web-interface)
 * [Implementation details](#implementation-details)
   * [GitHub App for synchronizer bot](#github-app-for-synchronizer-bot)
@@ -83,6 +84,23 @@ Then for every new contribution (including your first), you should follow these 
 8. Once the welfare team leaves comments, respond to them and make changes as needed. Like on oppia/oppia, please do not resolve review threads--let the reviewer do that. Repeat as needed until reviewers approve. Note that we don't have code owners in the source repository. Instead, the welfare team will ask other developers to review PRs as needed. For example, we'll usually ask team leads to review substantive changes to wiki pages on their team's work.
 
 9. Once reviewers have approved, the welfare team will merge your PR, and your changes will be automatically deployed to the Oppia wiki. Congratulations!
+
+### Run pylint on python files in the [Oppia-docs-repo](https://github.com/oppia/oppia-web-developer-docs).
+Steps:
+
+  1.  Install Pylint
+
+      If pip refers to python3, then run:
+
+      `pip install pylint`
+      
+      else run:
+      
+      `pip3 install pylint`
+
+  2. Run pylint on all python files in the repository:
+
+      `pylint **/*.py`
 
 ### When you make changes through the web interface
 
