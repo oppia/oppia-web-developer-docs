@@ -8,7 +8,7 @@ This guide will help you to get started on how to write `e2e acceptance test` fo
 ## Files and Directory Structure
 
 ```
-Oppia/core/tests/
+oppia/core/tests/
  └── puppeteer-acceptance-tests
     ├── spec
     │  ├── blog-admin-tests (give user type name)
