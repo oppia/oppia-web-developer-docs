@@ -8,7 +8,7 @@ This guide will help you to get started on how to write `e2e acceptance test` fo
 ## Files and Directory Structure
 
 ```
-Oppia/core/tests/
+oppia/core/tests/
  └── puppeteer-acceptance-tests
     ├── spec
     │  ├── blog-admin-tests (give user type name)
@@ -77,8 +77,8 @@ For example, to run the `check-blog-editor-unable-to-publish-duplicate-blog-post
 
 ## Reference Links
 Blog Admin and Blog Editor Tests - 
-  [Blog Admin top-level tests](insert link when @AshishPatwal PR is merged)
-  [Blog Editor top-level tests](insert link when @AshishPatwal PR is merged)
+  [Blog Admin top-level tests](https://github.com/oppia/oppia/pull/17364)
+  [Blog Editor top-level tests](https://github.com/oppia/oppia/pull/17364)
   [user utility files](https://github.com/oppia/oppia/blob/develop/core/tests/puppeteer-acceptance-tests/user-utilities/blog-post-admin-utils.js)
   [puppeteer utility files - base class](https://github.com/oppia/oppia/blob/develop/core/tests/puppeteer-acceptance-tests/puppeteer-testing-utilities/puppeteer-utils.js)
   [puppeteer utility files - user factory](https://github.com/oppia/oppia/blob/develop/core/tests/puppeteer-acceptance-tests/puppeteer-testing-utilities/user-factory.js)
