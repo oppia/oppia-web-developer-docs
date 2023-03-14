@@ -66,6 +66,7 @@
       * [[Frontend tests|Frontend-tests]]
       * [[End-to-end tests|End-to-End-Tests]]
       * [[Lighthouse Tests|Lighthouse-Tests]]
+      * [[Acceptance Tests|Acceptance-Tests]]
     * Manual tests
       * [[Testing for Accessibility|Testing-for-Accessibility]]
       * [[Release accessibility checklist|Release-accessibility-checklist]]
