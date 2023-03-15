@@ -760,21 +760,21 @@ Translation reviewers have given feedback that the current contributor dashboard
 
 **Project Description:**
 
-The aim of this project is to fix various problems with data in our existing models. In order to do that, usually you’ll write a Beam job that takes the existing models and fixes them.
+The aim of this project is to fix various problems with data in our existing models. In order to do that, usually you’ll write a Beam job that takes the existing models and fixes them. Also, you’ll need to put in place measures to ensure that these problems don’t reoccur in the future.
 
 Task set 1
-- Implementing a process to ensure that external storage models linked to a storage model are updated in case of storage model deletion ([#10809](https://github.com/oppia/oppia/issues/10809))
-- Removing traces of ‘cloned from’ from old versions of some explorations ([#10828](https://github.com/oppia/oppia/issues/10808))
-- Fixing datetime fields in `LearnerPlaylistModel`, `CompletedActivitiesModel`, `UserSubscriptionsModel`,  and `UserSettingsModel`  ([#11616](https://github.com/oppia/oppia/issues/11616), [#12120](https://github.com/oppia/oppia/issues/12120))
-- Fixing `CompletedActivitiesModel` and `IncompleteActivitiesModel` to only reference existing and public explorations ([#14968](https://github.com/oppia/oppia/issues/14968))
-- Fixing `GeneralFeedbackThreadModel` entities with missing related `GeneralSuggestionModel` entities ([#11736](https://github.com/oppia/oppia/issues/11736))
+- Implement a process to ensure that external storage models linked to a storage model are updated in case of storage model deletion ([#10809](https://github.com/oppia/oppia/issues/10809))
+- Remove traces of "cloned from" from old versions of some explorations ([#10828](https://github.com/oppia/oppia/issues/10828))
+- Fix datetime fields in `LearnerPlaylistModel`, `CompletedActivitiesModel`, `UserSubscriptionsModel`,  and `UserSettingsModel` ([#11616](https://github.com/oppia/oppia/issues/11616), [#12120](https://github.com/oppia/oppia/issues/12120))
+- Fix `CompletedActivitiesModel` and `IncompleteActivitiesModel` to only reference existing and public explorations ([#14968](https://github.com/oppia/oppia/issues/14968))
+- Fix `ExpUserLastPlaythroughModel` ([#14972](https://github.com/oppia/oppia/issues/14972))
 
 Task set 2
-- Handling deprecated commands ([#10807](https://github.com/oppia/oppia/issues/10807), [#10820](https://github.com/oppia/oppia/issues/10820))
-- Fixing `UnsentFeedbackEmailModel` entities with missing `GeneralFeedbackThreadModel`s and `GeneralFeedbackMessageModel`s ([#14966](https://github.com/oppia/oppia/issues/14966))
-- Fixing `GeneralSuggestionModel` entities that are marked as rejected but are missing their final reviewer ID ([#14967](https://github.com/oppia/oppia/issues/14967))
-- Fixing `ExpUserLastPlaythroughModel` has a few validation issues ([#14972](https://github.com/oppia/oppia/issues/14972))
-- Fixing `GeneralFeedbackMessageModel.feedback_thread_ids` to only reference existing `GeneralFeedbackThreadModel` ([#14971](https://github.com/oppia/oppia/issues/14971))
+- Handle deprecated commands ([#10807](https://github.com/oppia/oppia/issues/10807), [#10820](https://github.com/oppia/oppia/issues/10820))
+- Fix `GeneralFeedbackThreadModel` entities with missing related `GeneralSuggestionModel` entities ([#11736](https://github.com/oppia/oppia/issues/11736))
+- Fix `UnsentFeedbackEmailModel` entities with missing `GeneralFeedbackThreadModel`s and `GeneralFeedbackMessageModel`s ([#14966](https://github.com/oppia/oppia/issues/14966))
+- Fix `GeneralSuggestionModel` entities that are marked as rejected but are missing their final reviewer ID ([#14967](https://github.com/oppia/oppia/issues/14967))
+- Fix `GeneralFeedbackMessageModel.feedback_thread_ids` to only reference existing `GeneralFeedbackThreadModel` ([#14971](https://github.com/oppia/oppia/issues/14971))
 
 **Size of this project:** large (~350 hours)
 
@@ -784,7 +784,7 @@ Task set 2
 
 - Apache Beam jobs
 - Python
-- Responsibility with schedules and good communication, because you will need to coordinate with the Oppia release team to conduct test runs on the backup server, and this can delay the project if not handled responsibly
+- Responsibility with schedules and good communication, because you will need to coordinate with the Oppia release team to conduct test runs on the backup server, and this can delay the project if not handled responsibly.
 
 **Suggested Milestones:**
 
@@ -796,14 +796,53 @@ Task set 2
 
 **Proposal notes:**
 
-- Make sure to provide example code for a Beam job that you will use to fix one of the issues. We just want to make sure that you've read the Beam job documentation and generally understand how to write Beam jobs.
-- You need to have at least one PR that either creates some Beam job or fixes some existing Beam job.
-- In your proposal, please explain how you plan to tackle each task from the list above. There are usually two parts to this: (a) making sure that we fix the current issues in our datastore, and (b) ensuring that those issues don’t reoccur in the future (which often requires doing a careful audit to prove that all possible “loopholes” that would allow them to occur have been plugged).
-- When designing the Beam jobs to fix existing issues in our datastore, make sure that those jobs only make modifications that are strictly necessary. Be especially careful with updates or deletions, since it is important to avoid any data loss or corruption. For each task, you should also write a verification Beam job that verifies that the changes were correct. You should also manually verify (on a test server) that the job has done the right thing after it is run. Make sure to also explain what the rollback procedure for the job is (if something goes wrong while running it).
-- Also, note that, in general, the jobs you write should be designed to be **idempotent**. That is, running them twice should result in the same outcome as running them once (since this allows us to just rerun them if an error happens within the Beam framework).
-- In your timeline, make sure that you account for possible delays in the job testing procedure. In particular, note that when you submit the job for testing on the backup server, it might take up to 48 hours to get the results
+* You need to have at least one PR that either creates some Beam job or fixes some existing Beam job.
+* When designing the Beam jobs to fix existing issues in our datastore, make sure that those jobs only make modifications that are strictly necessary. Be especially careful with updates or deletions, since it is important to avoid any data loss or corruption. For each task, you should also write a verification Beam job that verifies that the changes were correct. You should also manually verify (on a test server) that the job has done the right thing after it is run. Make sure to also explain what the rollback procedure for the job is (if something goes wrong while running it).
+* Also, note that, in general, the jobs you write should be designed to be **idempotent**. That is, running them twice should result in the same outcome as running them once (since this allows us to just rerun them if an error happens within the Beam framework).
+* In your timeline, make sure that you account for possible delays in the job testing procedure. In particular, note that when you submit the job for testing on the backup server, it might take up to 48 hours to get the results.
+* In your proposal, please clearly explain how you plan to tackle each task from the list above. There are usually two parts to this: (a) making sure that we fix the current issues in our datastore, and (b) ensuring that those issues don’t reoccur in the future (which often requires doing a careful audit to prove that all possible “loopholes” that would allow them to occur have been plugged). Additionally, here are some suggestions for information to include in your proposal to demonstrate that you understand each of the subtasks; you will also find some helpful tips further down below:
 
-**Useful resources:**
+  * **Task set 1, subtask 1**: List all the datastore models and their corresponding external datastore models, explaining how they are connected. Take one of the models as an example and explain how the complete process of prevention will work. You can refer to the second bullet point under the "How to remove a model" guide below for more details. Also explain how you will fix the currently-existing datastore models that are linked to deleted models.
+  * **Task set 1, subtask 2**: Explain how you plan to deprecate the "cloned_from" field from the ExplorationRightsModels. How do you plan to remove the explorations having "cloned_from" field as not None? You can refer to "How to remove a field from a model" guide below for the reference.
+  * **Task set 1, subtask 3**: How do you plan to find the correct way to update the "created_on" date, what models will you be using in order to get the correct "created_on"? How will you prevent this from happening in the future? For reference you can take a look at this [PR](https://github.com/oppia/oppia/pull/11437) which solves the similar problem.
+  * **Task set 1, subtask 4**: Mention the complete process that you will be following in order to to complete this task. What do you plan to do with the models which reference deleted or private explorations? How will you prevent this from happening in the future?
+  * **Task set 1, subtask 5**: Mention what do you plan to do with each of the validation errors `ExpUserLastPlayThroughModel`.
+  * **Task set 2, subtask 1**: Explain how you will modify the existing structure used for commands so that we can accommodate for deprecations and also changes to existing commands, make the changes generic enough. Focus on one example of deprecation and one example of a change to a command.
+  * **Task set 2, subtask 2**: Explain what do you plan to do with the `GeneralFeedbackThreadModel` which does not have any related `GeneralSuggestionModel`?
+  * **Task set 2, subtask 3**: Mention how you plan to remove the invalid `UnsentFeedbackEmailModel`, also explain your decision. Invalid here means that the two fields `thread_id` and `message_id` do not reference `GeneralFeedbackThreadModel` and `GeneralFeedbackMessageModel` respectively. Mention the way to prevent this from happening in the future.
+  * **Task set 2, subtask 4**: Explain how you plan to fix the `GeneralSuggestionModel` that is rejected but is missing final reviewer ID, also explain your decision. Mention the way to prevent this from happening in the future.
+  * **Task set 2, subtask 5**: How do you plan to fix the `GeneralFeedbackMessageModel` referencing non existing `GeneralFeedbackThreadModel` via `thread_id` field. Explain your decision.
+
+* **Tip – How to safely remove a field from a model**: You would need to write a beam job for this particular part. Previously we were using [this approach](https://github.com/oppia/oppia/blob/v3.1.0/core/domain/exp_jobs_one_off.py#L81-L87) to remove a field from the model. Before removing the field make sure that the field is set to None and it is not used anywhere in the codebase. Alongside this you have to remove the field from the model present in the storage layer and update the tests accordingly.
+* **Tip – How to safely remove a model**:
+
+  * Removing the model via beam job: We will be using "ndb_io.DeleteModels()" to remove all the unwanted models. You will be able to find several examples in the codebase related to this for reference.
+  * Removal of externally-linked-models when removing storage models – for this, let's look at an example. The `ExplorationRecommendationModel` stores recommendations link to explorations; suppose we want to remove this model when we remove the `ExplorationModel`. Note that `ExplorationModel` is inherited from `BaseModel` and we have overridden the `delete_multi()` function inside the [`ExplorationModel`](https://github.com/oppia/oppia/blob/develop/core/storage/exploration/gae_models.py#L364). As you can see by examining the codebase, from [editor.ExplorationHandler.delete](https://github.com/oppia/oppia/blob/develop/core/controllers/editor.py#L262) we make a call to exploration service which in the end makes call to `Exploration.delete_multi()`. So, now we know where we have to make changes: inside the `delete_multi` function we first have to fetch the `ExplorationRecommendationModel` (which we can do using the `get_multi()` function) and after that, we can call its deletion method too.
+
+* **Tip – How to analyze what needs to be done**: Let us take, as our example, subtask 4 in task set 1. If we take a look at the [issue](https://github.com/oppia/oppia/issues/14968), we can see that there are 2 models ([CompletedActivitiesModel](https://github.com/oppia/oppia/blob/develop/core/storage/user/gae_models.py#L406) and [IncompleteActivitiesModel](https://github.com/oppia/oppia/blob/develop/core/storage/user/gae_models.py#L503)) which in some cases refer to private or deleted explorations. Our job is to make the 2 activities models valid and to make sure that this does not happen in the future. Now, from the issue description, we know that we need to make some changes to both models so that they do not reference invalid explorations (i.e.,  private or deleted exps). Both models have `exploration_ids` as one of their fields, which is of type`List[str]`. So, in order to fix the currently-existing models, step 1 is to remove the private or deleted explorations from this field. Here, we will do this for `CompletedActivitiesModel`; the same process works for `IncompleteActivitiesModel`:
+
+  * Make a PCollection of `CompletedActivitiesModel` models. Make another PCollection of `ExplorationModel` models, then extract the IDs and put them into the PCollection, something like [this](https://github.com/oppia/oppia/blob/develop/core/jobs/batch_jobs/email_deletion_jobs.py#L50). Now convert the latest PCollection you made of exp IDs to an iterable type (you can refer to [this](https://github.com/oppia/oppia/blob/develop/core/jobs/batch_jobs/email_deletion_jobs.py#L53) example in the codebase).
+  * Next, iterate over each `CompletedActivitiesModel` and compare its `exploration_ids` field with the iterable collection of exp IDs you made in step 1. If an exploration_id from that field is not present in the list, then remove that ID from the `exploration_ids` field. Now, you have a Pcollection of `CompletedActivitiesModel` models whose `exploration_ids` fields contain only explorations which are not deleted.
+  * Repeat the previous step by creating a PCollection of explorations that are private, and reusing the `CompletedActivitiesModel` PCollection from the previous step. After removing private explorations, you will put the models to the datastore in order to save them; for that, you can use `ndb_io.PutModels()`.
+  * You also need to write an audit job to confirm that both of the activities models are valid, so that we can run this on a test server and confirm that the changes you have done are correct.
+
+* **Tip – How to prevent issues from happening in future**: We will continue the example from above. Let us analyze why the issue might have occurred in the first place.
+
+  * Suppose both of our activity models refer to deleted explorations – then, one possibility might be that we forget to update the activities models at time of deletion.
+  *  Now that we have a hypothesis for why this happened, we should check that we understand the process for deleting an exploration (mentioned in the "How to safely remove a model" section above). To validate this hypothesis, we can read through the codebase to see what happens when we delete an exploration. As discussed previously, this happens in `exp_services.py` file in the `delete_explorations()` function. Take a look at that function and check if you can find anything related to the removal of exp id from the `CompletedActivitiesModel`.
+  * Now, go through the codebase and try to see where we are using `CompletedActivitiesModel` and how it is related to explorations. Try to check how we are populating the `CompletedActivitiesModel` model in relation to explorations. You will find that, in `exp_services.py`, there is a function named `delete_explorations_from_activities`. So, one option might be to use this function from within the `delete_explorations` function inside the `exp_services` file.
+  * To verify this plan, first write down steps to reproduce the error, so that you can see what happens before and after the proposed change:
+
+    * Create an exploration and then publish it. After that create a topic, a story and a chapter. When creating the chapter, you will be able to link the exploration to it; you must have admin rights for this. Finally, in the admin dashboard config tab, add the topic id to the classroom page.
+    * [Set up DSAdmin locally](https://github.com/oppia/oppia/wiki/Debugging-datastore-locally), which will help you visualize the datastore locally.
+    * Create another user, visit the classroom page, and complete the chapter. Now check DSadmin and you will be able to see `CompletedActivitiesModel` model which was not there before.
+    * Come back to the admin user and delete the exploration. Now check `CompletedActivitiesModel` inside DSadmin again and see if the exploration id still exists there.
+
+  * Run the above steps before making the change. Then make the change and run the steps again from the beginning. This will help you determine whether your solution works.
+
+  This example shows how to modify the codebase so that such data errors can be prevented in future; you should follow a similar process for other tasks. Notice how we formulate a hypothesis, check it, and use that to reach a suitable conclusion.
+
+**Useful resources:** None
 
 ## Developer workflow team
 
@@ -811,22 +850,48 @@ Task set 2
 
 **Project Description:**
 
-We want to package Oppia as a Docker container so that new contributors can get started by running `docker-compose up -d` after cloning the repository to install all the dependencies and start the local development server. This will be much easier than the current installation process, which is often painful to troubleshoot. Docker will also let us speed up test runs on GitHub Actions by caching the Docker image.
+We want to package Oppia as a Docker container so that new contributors can get started by running `make up` after cloning the repository to install all the dependencies and start the local development server. This will be much easier than the current installation process, which is often painful to troubleshoot.
 
 Requirements:
-* Setup should be quick and easy. For example, a user might need to:
-  - Install Docker
-  - Clone oppia/oppia
-  - Run `docker-compose up -d`
-* The setup should be independent of the OS or platform it is run on.
-* The setup should not exceed the 8GB RAM requirement for Oppia on any platform for which we have supported installation instructions.
-* It should be easy for a user to update their installation to the current dependency versions.
-* It should be easy to reset the environment, for example if the internet connection fails and so a dependency is only partly installed.
-* Developers should be able to run tests, use git (e.g. switch branches, push changes, and checkout commits), and use all the other development tools we document in the wiki. The interface for doing so should undergo only minimal changes.
-* Maintainers should be able to easily upgrade Oppia’s dependencies (e.g. change requirements.in to specify updated versions) and check that the local server still works. When those updates are merged into develop, all developers should be smoothly upgraded to the new versions.
-* All dependencies must be pinned to a specific version and come from a trustworthy source. We should also verify dependency checksums before installing them.
-* All installations should happen via Docker or standard command-line tools.
-* Should use Docker compose V2 (since compose V1 has been [deprecated](https://www.docker.com/blog/announcing-compose-v2-general-availability/)).
+
+* Installation:
+
+  * All installations should happen via Docker files. Please avoid using any other scripts.
+  * You should use Docker compose V2 (since compose V1 has been deprecated ([source](https://www.docker.com/blog/announcing-compose-v2-general-availability/))) and Compose file V3.
+  * You should create a Makefile that supports the following Make commands:
+
+    * make run-offline: Starts the Oppia server without checking dependencies. Should not require internet access.
+    * make run: Sets up and starts the Oppia server. Also runs the steps in “make update-pip-and-npm-packages”.
+    * make install-dependencies: Installs all the necessary dependencies (redis, App Engine, pip libraries, npm libraries, etc.), but does NOT start the server. This does NOT include performing the steps from “make update-pip-and-npm-packages”.
+    * make update-pip-and-npm-packages: Updates the locally-installed pip and npm packages to match the versions specified in dependency specification files (e.g. packages.json). Should check that the dependencies match the versions specified in the currently checked-out commit. If they do not, the correct versions should be installed.
+    * make clean: Cleans the entire setup. Deletes all the dependencies.
+    * make terminal: Opens a terminal accessing the Oppia environment built using Docker. **Note**: The tests will be run in the standard way (e.g. python -m scripts.run_frontend_tests) from the Docker terminal after running the “make terminal” command.
+
+  * The Setup should be quick and easy. It should follow the following steps
+
+    * Install Docker Desktop
+    * Clone oppia/oppia
+    * Run `make install-dependencies`
+    * Run `make run`
+
+  * The setup should work the same way on Ubuntu, Mac (both M1 and Intel chip) and Windows. In all these platforms, the setup should use no more than 8GB RAM.
+  * Developers should be able to run tests, use git (e.g. switch branches, push changes, and checkout commits), and use all the other development tools we document in the wiki. The interface for doing so should undergo only minimal changes.
+  * All dependency management should be handled by Docker and your Makefile. You will need to remove the current dependency-management logic from our Python scripts.
+
+* Dependencies for Docker installation:
+
+  * The Oppia developers must be easily able to update the local setup when a dependency is updated.
+  * All dependencies must be pinned to a specific version and come from a trustworthy source. There should be a method to verify the checksum of each dependency that is being installed.
+
+* CI/CD test (GitHub actions)
+
+  * All CI/CD tests that require the installation of Oppia (check https://github.com/oppia/oppia/tree/develop/.github/workflows) must be migrated to use docker. The docker image should only be set up once, and then stored and reused (cache the docker image) for all the remaining CI/CD tests in that run.
+
+**What's excplicitly out of scope:**
+
+Here are ideas we have for the future but that you do not need to implement for this project:
+
+* Create a repository on Docker Hub to allow quick deployments onto a server. This is to deploy PRs (or the develop branch) onto a server to allow reviewers to test the changes themselves. The setup instructions on the server would be: Run `docker pull oppia/oppia`
 
 **Size of this project:** large (~350 hours)
 
@@ -836,29 +901,63 @@ Requirements:
 
 **Suggested Milestones:**
 
-* **Milestone 1:** The server launch should be successful and all Oppia pages should be functioning correctly.
+* **Milestone 1:**
 
-* **Milestone 2:** All tests should be executed locally and the migration of GitHub actions to utilize docker, including caching of docker images, should be completed.
+  * Under Docker, the server should launch successfully, and all Oppia pages should be functioning correctly. All makefile commands with respect to starting the Oppia server must work (make run, make clean, make update-pip-and-npm-packages, make install-dependencies, make terminal).
+  * Update the wiki to include instructions on how to setup Docker and setup Oppia using docker
 
-**Dependency on Release Schedule:** None.
+* **Milestone 2:**
+
+  * The remaining make command must work (make run-offline). All tests should work locally under Docker. All github actions should be migrated to use a single build step that creates a docker image which is cached and used by the rest of the jobs. All the python scripts should be removed.
+  * Update the wiki to include instructions on how the Docker setup works for Oppia (Ensure to explain the setup process in detail and each service),how to debug setup issues in Docker and share docker images to other developers.
+**Dependency on Release Schedule:** Applicants should be familiar with Python and have some exposure to Docker.
 
 **Proposal notes:**
 
-**Useful resources:**
+We recommend the following approach:
 
+1. Set up each of Oppia’s dependencies. For example, you might install them as Docker images (preferred) or use a separate Dockerfile to download them from the internet and set up the required dependency. For all Docker containers/services, you should create [health checks](https://docs.docker.com/compose/compose-file/compose-file-v3/#healthcheck). Given below are the key dependencies of Oppia and the suggested installation approach for each:
+
+   1. [Redis](https://hub.docker.com/layers/library/redis/7.0-alpine/images/sha256-8158082a62d4dc96ce7492026bb0e0de012bee04a0a50a97a93244112611c60c?context=explore) (redis:7.0-alpine) (Docker Image)
+   2. [ElasticSearch](https://hub.docker.com/layers/library/elasticsearch/7.17.0/images/sha256-fa7141154a7e14df214e42f08c333702403eb88c02ba44e79322a1f42d733013?context=explore) (elasticsearch:7.17.0) (Docker Image)
+   3. [Google Cloud Datastore](https://hub.docker.com/r/singularities/datastore-emulator) (Docker Image)
+   4. Firebase (Setup using a separate Dockerfile)
+   5. All the packages from [dependencies.json](https://github.com/oppia/oppia/blob/develop/dependencies.json) should be moved to [package.json](https://github.com/oppia/oppia/blob/develop/package.json). The moved packages should be downloaded via npm (preferred), or by forking the package into Oppia and downloading from the fork. Please check this [document](https://docs.google.com/document/d/1DgJRRY917cSA0a1qXt6Q0-D4Lrw1dOi8LIoMAmx5_Zc/edit?usp=sharing) for where to move each of the libraries. (Dockerfile)
+   6. Any remaining third-party dependencies should be installed via npm or pip (Dockerfile).
+
+   **Note**: You do not have to stick to the above method of installation. If you can prove that a different approach would result in improved effectiveness and efficiency in terms of memory occupied, internet data used and speed of setup, you may use that approach instead.
+
+2. Verify that the Oppia development server can run and works fine under Docker, and catalog any issues that occur for later fixing. In particular, check that:
+
+   1. (Redis) The flush memcache button on the /release-coordinator page works (and there is stuff stored in memcache before that button is pressed)
+   2. (ElasticSearch) The search functionality in the community library page works
+   3. (Firebase) It’s possible to log in
+   4. (Google Cloud Datastore) It’s possible to create a lesson and load it
+
+3. Verify that backend, frontend, e2e tests, linter, mypy, lighthouse, etc. checks can run within the Docker container.
+4. Add a non-required Docker Action to test the docker setup.
+5. Once this works for 20 runs: change all our Github Actions to use docker setup.
+6. Once GitHub Actions works reliably with the docker setup process: move developers to the new setup process (and try to centralize the build step into a single workflow). (Cache only the dependencies. Avoid caching webpack, as this will be taken care of by the “Make CI faster” project.)
+7. Deprecate the `python -m scripts.start` setup process.
+
+**Useful resources:** None
 
 ### 4.2. Developer Workflow Release Dashboard
 
 **Project Description:**
 
+
 The aim of this project is to create a dashboard for release testers and team leads on the Oppia developer team. The dashboard should be built as a standard App Engine app that supports login. It should show a list of all commits in develop. For each commit, it should show the status of the release candidate (RC) that was built for that commit:
-* A link to the RC (note: you can find links at the bottom of runs, e.g. https://github.com/oppia/release-scripts/actions/runs/3987166674).
+
+* A link to the RC. RC links look like this: `http://test-develop-17018.oppiaserver-backup-migration.appspot.com/`. These are generated by a deployment script that runs in a private repository. While we can’t add you to this repository, we can answer questions you have about how to get these links.
 * Did that RC pass acceptance testing, fail acceptance testing, or get skipped?
 * For all RCs that pass acceptance testing:
-  - **Prod server**. Show a button next to the deployable RC (if present) to deploy it to prod. An RC is deployable if it is strictly newer (here “newer” refers to commit order, not the timestamp on the commit) than the currently-deployed RC, all CI tests are passing, all acceptance tests are passing, no newer RC meets the preceding deployability requirements (i.e. only the newest RC with passing tests is deployable). Deploying should be restricted to members of the team-leads-and-release-coordinators Google Group or allowlist; when clicked, it should notify that mailing list. The deployed version should be formatted on App Engine as {{tag}}-{{commithash}}, where {{tag}} is the release version (e.g. “3.2.1”).
-  - **Test server**.
-    - If the RC is currently provisioned on a test server, show a link to that test server.
-    - If not, show a button to provision a test server on BrowserStack with this RC. This button should be restricted to members of the release-testers Google Group or allowlist. Once provisioned, it should send an email to the requester and the status in the dashboard should be updated. The deployed version should be formatted as {{tag}}-{{commithash}}, where {{tag}} is the release version (e.g. “3.2.1”).
+
+  * **Prod server.** Show a button next to the deployable RC (if present) to deploy it to prod. An RC is deployable if it is strictly newer (here “newer” refers to commit order, not the timestamp on the commit) than the currently-deployed RC, all CI tests are passing, all acceptance tests are passing, and no newer RC meets the preceding deployability requirements (i.e. only the newest RC with passing tests is deployable). Deploying the RC should be restricted to members of the team-leads-and-release-coordinators Google Group or allowlist; when the “deploy” button is clicked, it should notify that mailing list and state who authorized the deployment. The deployed version should be formatted on App Engine as {{tag}}-{{commithash}}, where {{tag}} is the release version (e.g. “3.2.1”).
+  * **Test server.**
+
+    * If the RC has already been provisioned on a test server, show a link to that test server.
+    * If not, show a button to provision a test server on BrowserStack with this RC. This button should be restricted to members of the release-testers Google Group. Once provisioned, it should send an email to the requester and the status in the dashboard should be updated. The deployed version should be formatted on App Engine as {{tag}}-{{commithash}}, where {{tag}} is the release version (e.g. “3.2.1”).
 
 (Note that the team-leads-and-release-coordinators Google Group will be a member of the release-testers Google Group.)
 
@@ -866,15 +965,23 @@ Pagination should be included to allow paging through multiple pages of commits 
 
 Include full documentation on how to update code, test, and deploy new releases of this app. The app will also need unit tests and linting, and to support easy developer setup.
 
+**What's explicitly out of scope:**
+
+* We will provide the correct endpoints to trigger a prod server or test server deployment using GitHub Actions. If those endpoints are not yet ready, you can call a stub.
+* From a design perspective, it is sufficient that the dashboard has the right information architecture and is reasonably easy to use. You don’t need to make it super pretty.
+* You don’t need to write any acceptance tests; these will be provided. If they are not ready in time, you can interact with a stub.
+* We have access to BrowserStack credits as an open source org, so you don’t need to provide the final BrowserStack account. However, you should create your own account and use the free version to develop your prototype and to do any testing or development. You will also need to tell us how to configure the final BrowserStack account.
+* Note that, in addition to prod/test-server release candidates deployed using this dashboard, our release pipeline also supports manually-triggered ad hoc deployments for testing migration PRs. In such cases, the version on App Engine is formatted as {{username}}-{{PR number}}-{{commithash}}. Supporting such ad hoc deployments using the release dashboard is not part of this project.
+* We will provide a domain or subdomain for your app, and we can provide hosting via Google Appengine. If you want to host your app elsewhere, you should discuss with us before submitting your proposal.
+
 **Size of this project:** large (~350 hours)
 
 **Potential Mentors:** TBA
 
 **Knowledge/Skills Recommended:**
 
-* Frontend development (probably Angular, but we don’t require that)
-* Backend development (probably Python, but we don’t require that)
-
+* Angular, CSS, HTML, and Typescript for frontend development
+* Python for backend development
 
 **Suggested Milestones:**
 
@@ -886,66 +993,33 @@ Include full documentation on how to update code, test, and deploy new releases 
 
 **Proposal notes:**
 
-Follow existing Oppia design patterns and app conventions, so that the app is easy for the team to maintain. In particular, for authentication, we suggest using Firebase authentication in a similar way to the main Oppia.org app, rather than rolling out a custom username/password system. You should also take care to avoid any security vulnerabilities (e.g. XSS, CSRF). Following Oppia design patterns and conventions will help here, but whether or not you borrow from Oppia, you should make clear what patterns and conventions you will use, and why they are important.
+Follow existing Oppia code patterns and app conventions, so that the app is easy for the team to maintain. In particular, for authentication, we suggest using Firebase authentication in a similar way to the main Oppia.org app, rather than rolling out a custom username/password system. You should also take care to avoid any security vulnerabilities (e.g. XSS, CSRF). Following Oppia design patterns and conventions will help here, but whether or not you borrow from Oppia, you should make clear what patterns and conventions you will use, and why they are important. You may find automated security scanning tools like CodeQL helpful, but you should not rely on them to replace your own knowledge.
 
-Your app should be independent of the production Oppia deployment at https://oppia.org. This is because if Oppia is broken, we need to be able to access the release dashboard to fix it.
+Your app should be independent of the production Oppia deployment at [https://oppia.org](https://oppia.org). This is because if Oppia is broken, we need to be able to access the release dashboard to fix it.
+
+Deploying your app should be straightforward and reliable.
 
 Most important things for the proposal:
-- Make a table showing types of notification events received, when they’re triggered, where they’re sent from, what their format is and what the app will do with them.
-- Check that you’re able to do the following from an App Engine app, and describe how you would do so in detail. As a bonus, show proof of a working prototype for these that someone can experiment with:
-- Receive a notification from GitHub
-- Send an email to a given address (can follow what Web does with Mailgun)
-- Send a request to trigger a GItHub Action.
-- Send a request to provision BrowserStack.
-- Get current status from BrowserStack.
 
-Note that this dashboard could also optionally link to, or iframe, [the proposed telemetry dashboard](#43-developer-workflow-telemetry-dashboard), so that team leads have a single point of reference.
+* Make a table showing types of notification events received, when they’re triggered, where they’re sent from, what their format is and what the app will do with them.
+* Check that you’re able to do the following from an App Engine app, and describe how you would do so in detail. As a bonus, show proof of a working prototype for these that someone can experiment with:
+
+  * Receive a notification from GitHub
+  * Send an email to a given address (can follow what Web does with Mailgun)
+  * Send a request to trigger a GitHub Action.
+  * Send a request to provision BrowserStack.
+  * Get current status from BrowserStack.
+
+* Discuss how you would handle access control for your app. Provide details on how you would get the membership list of a Google Groups mailing list so that you can handle access accordingly.
+* Break the project down into clear steps and map these steps to a timeline, showing that your proposed project is feasible in the time allotted.
 
 The dashboard does not need to meet accessibility guidelines.
 
-
-**Useful resources:**
+**Useful resources:** None
 
 ### 4.3. Developer Workflow Telemetry Dashboard
 
-**Project Description:**
-
-The aim of this project is to create a public dashboard that anyone on the Oppia developer team can view. This dashboard should show summaries of the following metrics (these are known as the DORA metrics or “Four Keys”), supplemented by charts. In all cases, the horizontal axis represents time, and the options should support both grouping by day and by week.
-
-The following graphs should be shown:
-- Failure recovery time (how long it takes us to recover from a failing build in develop – note that this is a bit different from the more standard “how long it takes us to recover from a failing deploy to production”)
-- Deploy frequency (how often we cut and deploy a new release to Oppia.org)
-- Change failure rate (how often we get a defect in develop)
-- Lead time for changes: (how long it takes for a commit to get deployed to Oppia.org)
-
-You can see an example of what this dashboard might look like in the visualization here, but there is no requirement that you use this [library](https://github.com/GoogleCloudPlatform/fourkeys#dashboard).
-
-Also, include full documentation on how to update code, test, and deploy new releases of this app. The app will also need unit tests and linting, and to support easy developer setup.
-
-**Size of this project:** medium (~175 hours)
-
-**Potential Mentors:** TBA
-
-**Knowledge/Skills Recommended:**
-
-**Suggested Milestones:**
-
-* **Milestone 1:** Create a new repo for the telemetry dashboard and include setup, update, test and deployment instructions, as well as CI checks that run all the tests and ensure that all code is 100% tested before an update can be merged to develop. The telemetry dashboard should show at least one chart and summary statistic (of your choice) of the four that are given.
-
-* **Milestone 2:** The telemetry dashboard should show all four metrics, and be added to the Oppia team’s wiki and broadcast to the dev team.
-
-**Dependency on Release Schedule:**  None.
-
-**Proposal notes:**
-
-When coding, try to follow existing Oppia design patterns so it’s easy for other folks on the team to maintain the app in the future.
-
-Most important things for the proposal:
-- Would be good to see a comparison of technical options. One of them is [fourkeys](https://github.com/GoogleCloudPlatform/fourkeys) but there may be others (including building from scratch). Note that you can use a library like ApexCharts for the graphs.
-- Make a table showing types of notification events received, when they’re triggered, where they’re sent from, what their format is and what the app will do with them.
-- If you can, try to show proof of a sample prototype set up and working with data from some other repository. This would be helpful since the documentation for how to get these metrics (e.g. in the fourkeys [README](https://github.com/GoogleCloudPlatform/fourkeys/blob/main/README.md)) is already pretty good (though we still ask that you explain your approach clearly so that we can check that you understand what you’re doing).
-
-**Useful resources:**
+We have decided that we don't have the capacity to support this project this year.
 
 ### 4.4. Make CI faster
 
@@ -995,14 +1069,35 @@ Clear understanding of the current Oppia pre-push and CI pipeline.
 
 **Project Description:**
 
-The aim of this project is to normalize the usage of feature flags (implemented using [platform parameters](https://github.com/oppia/oppia/wiki/Developing-new-features-with-feature-gating)) in Oppia’s deployment process. At the end of the project:
+The aim of this project is to normalize and standardize the usage of [platform parameters](https://github.com/oppia/oppia/wiki/Developing-new-features-with-feature-gating) and feature flags (which use the same backend system as platform parameters, but are located in a different page with different permissions) in Oppia’s deployment process. The overall project has three aims:
 
-- The feature flags dashboard should be moved from /admin to /release-coordinator, and be made more intuitive. (The current UI is not intuitive at all – it’s quite unclear what to do.) The common case of switching a boolean flag on and off should be easy for developers to do.
-- Feature flags should support rollbacks. There seems to be an [issue](https://github.com/oppia/oppia/issues/16416) with rollbacks not being correctly captured that should be diagnosed and fixed.
-- Extend the current functionality to allowlist specific usernames for external trusted tester programs.
-- Ensure the documentation is sufficiently complete so that developers are used to creating feature flags for new features, and have no questions about how to do so.
+Migrate to a system that only supports two constructs: platform parameters (controllable by the server super-admin) and feature flags (controllable by release coordinators).
 
-**Size of this project:** medium (~175 hours)
+* Extend platform parameters to support an additional type: list of strings. (This is needed in order to migrate certain config properties to the platform parameter system.)
+* Each platform parameter should, as part of its codebase configuration, have a boolean that says whether it is a feature flag or not. If a platform parameter is marked as a feature flag, then its type must be boolean, and a backend test should verify this.
+* All config properties should be either deleted, turned into feature flags, or turned into platform parameters. (See the “Technical hints / guidance” section for more details.) After this migration, the config page in the /admin tab, and all code related to config property infrastructure, should be removed.
+
+Improve the UI for platform parameter / feature flag configuration.
+
+* The feature flags dashboard (in /release-coordinator) and the general platform parameters dashboard (in /admin) should be made more intuitive. Platform parameters are currently specified along the lines of “if these conditions hold, the parameter value should be enabled/disabled”; but the current UI in the /admin page is not intuitive at all, and this idea could be conveyed more intuitively in the UI. More specifically:
+
+  * The platform parameters (in the admin page) and feature flags (in the release coordinator page) should be arranged in a deterministic order. This order should be specified by a list in the codebase. A backend test should confirm that all platform parameters appear exactly once, in exactly one of these two lists.
+  * Platform parameters and feature flags that are not in a valid “feature stage” for the given server (i.e., in a feature stage that is not allowed on the current server) should be shown as such, and not allowed to be configured on the admin page.
+  * For platform parameters and feature flags in a valid “feature stage”: (i) the default value (in the case where no filters apply) should be modifiable by the admin, and (ii) the “server_mode” filter should not be required for such values (since the server_mode is already determined by the server that the /admin dashboard is running on). In fact, it is fine to remove the “server_mode” filter altogether from the codebase.
+  * In the end, it should be clear, for each feature flag or platform parameter: (a) whether it’s editable on the current server, (b) what its default value is, (c) what other values it might take under given conditions. For the feature flags dashboard in particular, the common case of switching a boolean flag on and off should be easy for developers to do.
+
+Support common use cases.
+
+* Enable percentage rollouts for logged-in Oppia Web clients. In other words, admins (for platform parameters) or release coordinators (for feature flags) should be able to specify a percentage of logged-in Oppia Web users for whom the feature should be enabled. Which users are shown the feature should be as consistent and stable as possible even as accounts are created, accounts are deleted, account permissions change, releases are deployed, and the percentage is changed.
+* Enable allowlisting specific usernames for external trusted tester programs for Oppia Web clients. Only users whose usernames are on the allowlist should be shown the feature, and everyone on the allowlist should be shown the feature regardless of any percentage rollout setting.
+* Update the backend test infrastructure to make it easy for developers to enable particular feature flag values for particular backend tests using an appropriate Python decorator, and update the wiki documentation accordingly with examples on how to use this system. The aim is to make it really easy for developers to write tests for the behaviour of the system under different feature flag configurations.
+
+**What's explicitly out of scope:**
+
+* Enabling percentage rollouts for Android clients, or logged-out Oppia Web clients.
+* Enabling allowlisting of specific usernames for Android clients.
+
+**Size of this project:** large (~350 hours)
 
 **Potential Mentors:** TBA
 
@@ -1010,24 +1105,72 @@ The aim of this project is to normalize the usage of feature flags (implemented 
 
 **Suggested Milestones:**
 
-* **Milestone 1:** The feature flags dashboard is moved from /admin to /release-coordinator. It is also made more intuitive; in particular, the common case of switching a boolean flag on and off is easy for developers to do.  Feature flags support rollbacks (see [#16416](https://github.com/oppia/oppia/issues/16416)).
+* **Milestone 1:** Platform parameters include support for list-of-strings types, and each platform parameter has a boolean describing whether it is a feature flag or not. The concept of config properties is removed from the codebase entirely, with existing config properties migrated or deleted as appropriate. There is a feature flags dashboard in /release-coordinator and a more general platform parameters dashboard in /admin; both dashboards are intuitive to use.
 
-* **Milestone 2:** Feature flags support allowlisting specific user IDs for external trusted tester programs. The documentation for handling feature flags is fully complete and developers use feature flags as a matter-of-course, without any issues.
+* **Milestone 2:** Feature flags support percentage rollouts and allowlisting specific usernames for external trusted tester programs. The system for testing with different feature flag configurations is lightweight, and developers have no trouble using it. The wiki documentation for handling feature flags is fully complete and developers use feature flags as a matter-of-course, without any issues.
 
 **Dependency on Release Schedule:** None (unless you propose using beam jobs).
 
 **Proposal notes:**
 
-See "launching new features" page on wiki:
-- [Launching new features](https://github.com/oppia/oppia/wiki/Launching-new-features)
+Please don’t be intimidated by the length of this section; it is here to help you with the overall technical approach for this project. In general, this project includes a lot of “small things” – most of these things are fairly straightforward, but you will need to have good attention to detail in order to make sure nothing gets missed and everything is implemented correctly.
+
+Firstly, here is a brief overview of how feature flags work. Generally, features start out in the DEV FeatureStage. When the functionality is complete, they should be moved to the TEST FeatureStage (and the test servers, but not oppia.org, should accept features in that FeatureStage). When release testing completes and the feature is cleared for full launch, a single PR should be created to flip the TEST flag to PROD, which will enable it to run on oppia.org in the next prod release of the app. For more details, see the following wiki pages related to "launching new features":
+
 - [Developing new features with feature gating](https://github.com/oppia/oppia/wiki/Developing-new-features-with-feature-gating)
+- [Launching new features](https://github.com/oppia/oppia/wiki/Launching-new-features)
 
-In general, features should start out in the DEV FeatureStage. When the functionality is complete, they should be moved to the TEST FeatureStage (and the test servers, but not oppia.org, should accept features in the TEST FeatureStage). When release testing completes and the feature is cleared for full launch, a single PR should be created to flip the TEST flag to PROD, which will enable it to run on oppia.org in the next prod release of the app.
+Here are details on how to plan the migration of config properties:
 
-The feature flags UI is typically used for (a) boolean feature flags on Web, (b) platform parameters needed to give signals to the Android app. It may be worth having different simplified UIs for these two common cases as well as the more generic UI at the very bottom, all of which should work the same way “under the hood”.
+* The process for deleting obsolete config properties should have the following steps:
 
-Issue #16416 might be due to a caching issue where feature flags aren’t properly cleared from users’ caches when reset.
+  * Check to see where the config property is used in the codebase, and replace it with the appropriate value.
+  * Delete the property.
 
-For supporting specific user IDs for external trusted tester programs, it should be possible to define groups of users (managed by username, but stored in the datastore using user IDs) and then have the flag be something like “if the user is in this group, enable the feature”.
+* The process for migrating config properties should have the following steps:
 
-**Useful resources:**
+  * Create new platform parameters to match the existing config properties.
+  * Do a deployment to the production server.
+  * Ask the server admins to copy the current config property values on the server to the new platform parameter values, and confirm that everything is working fine. (Note: at this stage, the platform parameters are not being used yet.)
+  * Switch the parts of the codebase which depend on config properties to depend on the new platform parameters instead. Remove all the config property infrastructure.
+  * Work with the server admins to do a deployment to the test server and confirm that the platform parameters are in effect.
+  * Do a final deployment to the production server.
+
+* The following config properties should be removed:
+
+  * The “checkpoints”, “show classroom promos” and “contributor dashboard page” flags, which should just be turned on permanently.
+  * The “classroom details” config property – the details here will be controlled in the classroom-admin page instead (please contact @Nik-09 for more details).
+  * Asking learners for answer details (always False)
+  * Index of batch to populate mailchimp database (if any backend job uses this, that job should be removed as well)
+  * Max number of exps that can be sent in a batch of math rich text svgs (if any backend job uses this, that job should be removed as well)
+  * Max number of math SVGs that can be sent in a batch of math rich text SVGs (if any backend job uses this, that job should be removed as well)
+
+* The following config properties should be turned into feature flags:
+
+  * “Exposes improvements tab for creators”
+  * “Enable learner groups feature”
+
+* All other config properties should be converted to platform parameters.
+
+For supporting specific user IDs for external trusted tester programs, it should be possible to define named groups of users in the /admin page (managed by username, but stored in the datastore using user IDs) and then have release coordinators configure feature flag applicability in /release-coordinator along the lines of “if the user is in this group, enable the feature”.
+
+For enabling percentage rollouts for logged-in users, you should provide a filter for release coordinators that allows them to configure the “rollout %” P, specifiable up to 0.1% precision. Then, in order to figure out whether a user has the feature turned on for them, you can do the following:
+
+* Generate a salt from the platform parameter name (which needs to be unique).
+* Using this salt, hash the user ID and then take it mod 1000. If the resulting number is less than 100P, turn the feature on for that user, otherwise, turn it off.
+
+For backend tests, the aim is to make it easy for developers to write tests along the lines of:
+
+```
+@enable_feature_flag(FEATURE_FLAG_CHECKPOINTS)
+def test_that_checkpoints_show_up_for_learners(self):
+    ...
+
+@disable_feature_flag(FEATURE_FLAG_CHECKPOINTS)
+def test_that_checkpoints_are_not_shown_for_learners(self):
+    ...
+```
+
+by implementing the appropriate decorators.
+
+**Useful resources:** None
