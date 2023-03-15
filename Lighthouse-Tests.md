@@ -1,5 +1,5 @@
 # Lighthouse CI Automated Tests
-Lighthouse CI is a suite of tools that make continuously running, saving, retrieving, and asserting against Lighthouse results as easy as possible. Lighthouse has tests for performance, best practices, and accessibility. 
+Lighthouse CI is a suite of tools that make continuously running, saving, retrieving, and asserting against Lighthouse results as easy as possible. Lighthouse has tests for performance, best practices, and accessibility.
 
 To run the automated tests on Oppia. Type the commands
 "python -m scripts.run_lighthouse_tests"
@@ -15,7 +15,7 @@ For further information about lighthouse [checkout this page](https://developers
 If you have recently created a new webpage on Oppia, it should be covered by lighthouse tests to ensure that your page is accessible.
 
 ## Add a static webpage
-If your webpage URL is static and doesn't require any id generation. Then the only thing you need to do is add your webpage to the lighthouserc.js and lighthouserc-accessibility.js config. 
+If your webpage URL is static and doesn't require any id generation. Then the only thing you need to do is add your webpage to the lighthouserc.js and lighthouserc-accessibility.js config.
 
 For example, if your webpage is on the URL: `http://127.0.0.1:8181/your/static/webpage`
 Just add the URL to the `'url'` list in the config
@@ -26,7 +26,7 @@ Just add the URL to the `'url'` list in the config
       ]
 
 ## Add a dynamic webpage
-If your webpage URL is dynamic and requires id generation. You will need to generate the id in lighthouse_setup.js and export the id to the lighthouse configs. As an example, we will show how we add the exploration editor to the lighthouse tests. 
+If your webpage URL is dynamic and requires id generation. You will need to generate the id in lighthouse_setup.js and export the id to the lighthouse configs. As an example, we will show how we add the exploration editor to the lighthouse tests.
 
 ### 1. Get the URL
 
@@ -78,5 +78,3 @@ def export_url(url):
       ]
     },
 ```
-
-# Debugging Lighthouse Tests
