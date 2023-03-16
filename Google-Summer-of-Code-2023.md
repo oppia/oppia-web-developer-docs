@@ -322,49 +322,7 @@ Please note that the list of project ideas below is not set in stone: more proje
 
 ### 1.1. Implementing the “needs guiding responses” section of the lesson analytics dashboard
 
-**Project Description:**
-
-Oppia has, for each exploration, an “improvements tab” that shows common wrong answers to a question. This allows lesson creators to subsequently improve the lessons. (For example, if a particular wrong answer isn’t addressed well by the existing feedback, and is being submitted regularly, then we can detect this and update the lesson.) This is important for ensuring that learners don’t get stuck.
-
-Unfortunately, the existing stats dashboard is somewhat unwieldy and not well-suited for easily taking action to update lessons. A new [improvements tab](https://drive.google.com/file/d/1GOrwZhVKCunSmOgbvMDaGFU2LSjT_MOf/view) that is more editor-friendly has already been (mostly) designed. This improvements tab shows improvements that can be made to the exploration, categorized by bounce rate, incomplete learning, and specific wrong answers for cards.
-
-The aim of this project is to implement the part of the improvements tab that covers “Card-Level Improvements > Needs Guiding Responses”. (The other parts are out of scope for this project.)
-
-The main challenge for this project is surfacing the necessary data for this view correctly and quickly. In order to do this, the data needs to be grouped and arranged properly in the backend for easy retrieval. This data should be kept up-to-date using Apache Beam jobs that are regularly run using a cron scheduler, but since there is a lot of data, there should be some aggregation and archival strategy so that the cron jobs do not need to perform computations on the full historical dataset each time. The aim of this project is thus to build out this data pipeline and ensure that it is robust, and display its output in an easy-to-understand way in the exploration editor improvements tab.
-
-**Size of this project:** large (~350 hours)
-
-**Potential Mentors:** TBA
-
-**Knowledge/Skills Recommended:**
-
-* Knowledge and understanding of Python
-* Ability to write Beam jobs
-* Knowledge and understanding of TypeScript, Angular, HTML, and CSS
-* Strong technical design skills
-
-**Suggested Milestones:**
-
-* **Milestone 1:** Implement the data pipeline for answer statistics. This should include (a) generating one-off archival models for historical data that can be queried quickly, (b) creating “realtime” models for each exploration/state that store the most recent set of answer data, (c) adding a trigger to update the archival model via a deferred job once the realtime model exceeds a certain number of distinct answers or storage size, (d) implementing the necessary queries and controllers to provide the “top wrong answers” data to the frontend. These jobs should work correctly in production.
-
-* **Milestone 2:** Implement the UI for the “Card-Level Improvements > Needs Guiding Responses” section of the improvements tab. This section should correctly display answers for the various different types of interactions (note that the mock in the “Useful Resources” section only shows one such type, which is TextInput answers). It should also display an “Address Answers” call-to-action which, when clicked, brings the user to the relevant part of the main exploration editor tab, which would also open the “Add Response” dialog box with a reminder of the wrong answers they still need to address, so that they can add new answer groups and feedback for them (see more details [here](https://docs.google.com/document/d/1qQbW9Z_cgJ1mwU0hzBpPVS_4WLT_l_08ZixLR1G2bvQ/edit#heading=h.c63b1rerczu8)).
-
-**Dependency on Release Schedule:**  Since this project involves a step to generate archival models, the timeline should be arranged so that this step can be run and verified during the appropriate release cycle. Note that releases can be delayed by up to a month, and you should account for such delays in your timeline.
-
-**Proposal notes:**
-
-* One thing to consider when designing the data structure is versioning, and how to tell whether a set of answers is “still useful” for a given exploration version. A simple rule of thumb that could be used is whether the card still uses the same interaction type. Additionally (or alternatively), each wrong answer surfaced could include the date when it was last seen, and this can be used to filter wrong answers that have become obsolete. (Note that these are just ideas for you to consider, and it is fine if you decide not to go with these or have alternative suggestions. You may want to compare and contrast different approaches.)
-* It's also worth thinking about how to handle the fact that answers may be submitted in different languages, now that we have the functionality for lessons to be played entirely in other languages.
-* We recommend taking a look at the existing codebase. Some good places to start are event_services.py, StateAnswersModel, and the stats_domain.py and stats_services.py files. Although these models and functionality may not be optimally implemented, they should be useful for getting a sense of what exists today.
-* Note that an existing infrastructure for stats computations relied on a “continuous-computation” infrastructure in our codebase, which was deprecated some time ago (though you can see it in older versions of the codebase, in jobs.py). This infrastructure also relied on MapReduce jobs, which became obsolete after the recent migration to Python 3. Additionally, the previous infrastructure didn’t really handle versioning correctly. Thus, we would advise revisiting the infrastructure questions afresh and coming up with a clear technical design (that doesn’t assume that what exists in the codebase is already optimal).
-* In general, we recommend that the proposal should examine the existing stats pipeline, describe how it works, and identify problems with it. It should then propose a technical design that would satisfy the criteria mentioned in this project (and explain in detail how statistics should be computed, archived, and surfaced), and describe how we would move from the existing pipeline to this new design. It is important to compare multiple alternative approaches to doing this (for example, there may be pros/cons associated with building an independent “realtime model” from scratch, vs making light modifications to the existing models).
-
-
-**Useful resources:**
-* UI mocks: [link](https://drive.google.com/file/d/1GOrwZhVKCunSmOgbvMDaGFU2LSjT_MOf/view?usp=sharing)
-* How to write Apache Beam jobs: [wiki page](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs)
-* Here is a somewhat outdated and incomplete [design doc](https://docs.google.com/document/d/1qQbW9Z_cgJ1mwU0hzBpPVS_4WLT_l_08ZixLR1G2bvQ/edit#heading=h.ylvrrqipsjif) that overlaps a bit with this project. Most of the doc is out of scope for the project, but you might find it interesting reading for context. The most relevant section is [this one](https://docs.google.com/document/d/1qQbW9Z_cgJ1mwU0hzBpPVS_4WLT_l_08ZixLR1G2bvQ/edit#bookmark=id.3fmayg4aifoi) in the "product design" part of the doc. Note that you do not need to follow the approach in the technical design section of that document (since, on reflection, it looks like the storage and display approach for NGR tasks would likely need to be handled differently from other tasks in the dashboard).
-* Release schedule: [wiki page](https://github.com/oppia/oppia/wiki/Release-schedule-and-other-information)
+We have decided that for now, we don't have the capacity to support this project.
 
 ### 1.2. Improving the lesson creation experience
 
