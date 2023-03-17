@@ -17,7 +17,7 @@ PRL -->|"Merge"| M("Merged")
 
 
 1. (optional) Draft PR: Authors can open draft PRs to get early feedback or debug CI tests. Reviewers usually won't leave comments on these PRs unless the author leaves a comment of the form `@reviewer_username PTAL` to request a review from GitHub user `reviewer_username`.
-2. PR ready for review: Once authors mark PRs as ready for review (or if they skip the draft PR stage entirely), reviews will automatically be requested from all code owners. Oppiabot will assign one developer (typically the developer from the changelog label) to take a first pass. Oppiabot will assign the other code owners to review once the first pass is complete.
+2. PR ready for review: Once authors mark PRs as ready for review (or if they skip the draft PR stage entirely), reviews will automatically be requested from all code owners. Oppiabot will assign the code owners to review the PR.
 3. Changes requested: Reviewers will either approve the PR or request changes. Almost all PRs will have at least some changes requested. PR authors address each comment, either by making the requested change or explaining why they think it is unnecessary. Once all comments are addressed, reviewers will re-review.
 4. LGTM: A PR gets labeled LGTM ("looks good to me") when it has sufficient reviews. This means that a code owner from each modified file has approved. When multiple developers share code ownership, only one has to approve.
 5. PR merged: PRs can be merged once CI checks pass and the LGTM label has been applied. Only members of the Oppia organization can merge PRs.
@@ -42,9 +42,8 @@ While contributing to Oppia, you will need to add different labels to issues or 
 * Added automatically:
 
   * Labels starting with `PR: don't merge`: Indicates that some problem with the PR needs to be addressed before merging. For example, one of these labels gets added if the PR author hasn't signed the CLA yet.
-* `REVIEWERS: Please add changelog label`: When a new contributor opens a PR, they don't have permission to add labels. In that case, Oppiabot adds this label to tell reviewers to assign the appropriate changelog label.
-* `stale`: This label gets added by oppiabot to PRs that have been inactive for a week. They will be automatically closed after 4 more days of inactivity.
-* `PR: LGTM`: Indicates that a PR has all necessary approvals. The PR can be merged as soon as the CI checks pass.
+  * `stale`: This label gets added by oppiabot to PRs that have been inactive for a week. They will be automatically closed after 4 more days of inactivity.
+  * `PR: LGTM`: Indicates that a PR has all necessary approvals. The PR can be merged as soon as the CI checks pass.
 
 * Added by the release team:
 
