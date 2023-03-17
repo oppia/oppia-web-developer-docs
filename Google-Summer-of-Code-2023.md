@@ -983,22 +983,44 @@ We have decided that we don't have the capacity to support this project this yea
 
 **Project Description:**
 
-The broad aim of this project is to get the CI tests to run in under 1 hour so that PRs can be merged into develop quicker. This entails several steps:
+Developers often have to wait multiple hours for continuous integration (CI) checks to finish running on their PRs. This delay slows down development and frustrates developers. This project proposes an acceleration of our CI runs and moving CI checks to the pre-push hooks to flag bugs for developers within 45 minutes. This entails several steps:
 
-- Get the pre-push tests (that run on the developer’s local machine) to run in under 5 minutes:
-  - Audit backend unit tests to see which ones take a long time, and refactor those to avoid network/database/disk-access calls in order to shorten their runtime (while still testing what they need to).
-  - For long backend unit tests that need to be long because they are creating a lot of data to test scalability, add them to a “scalability” list of tests that doesn’t need to get run during pre-push.
-  - Run only the lint, MyPy, and typescript checks; karma tests; and backend unit tests that were affected by files changed since the last push.
-  - (If possible) On pre-push, shorten the build step or remove it altogether.
-- Get the CI checks to run in under 1 hr wall time (i.e. including parallelization):
-  - Create a single environment at the start that gets used for all other tests. (In particular we currently seem to be running the “install third party deps” step repeatedly, so it might be good to cache folders like oppia_tools.)
-  - Create a build artifact that gets reused in all workflows. (Currently, build artifacts can’t be persisted across workflows, but this GitHub action for uploading to GCS might be helpful.)
-  - Run the full versions of all pre-push tests (mentioned above) first, and block other tests on these. (If any of the pre-push tests fail, then do not run the other CI checks.)
-  - For long-running tests:
-    - If the test is essential, find a way to make it shorter.
-    - If it is not, remove it from CI and put it in an acceptance layer that only runs on some release-candidate builds (see below).
-- Split off less-important long-running tests into acceptance tests:
-- Create a GitHub Action that, at regular time intervals, takes the latest release-candidate build on develop that passes all CI checks, runs the acceptance tests on them. Builds that pass all acceptance tests should have a public, machine-readable indication that they did, and builds that cause an acceptance test failure should result in an email or chat notification to the CI Stability team.
+* Get the pre-push tests (that run on the developer’s local machine) to run in under 5 minutes:
+
+  * Audit backend unit tests to see which ones take a long time, and refactor those to avoid network/database/disk-access calls in order to shorten their runtime (while still testing what they need to).
+  * For long backend unit tests that need to be long because they are creating a lot of data to test scalability, add them to a “scalability” list of tests that doesn’t need to get run during pre-push.
+  * Run only the lint, MyPy, and typescript checks; karma tests (frontend tests); and backend unit tests that were affected by files changed since the last push.
+  * (If possible) On pre-push, shorten the install and build step or remove it altogether.
+
+* Get the CI checks to run in under 45 minutes wall time (i.e. including parallelization):
+
+  * Create a single environment at the start that gets used for all other tests. (In particular we currently seem to be running the “install third party deps” step repeatedly, so it might be good to cache folders like oppia_tools.) We’re hoping to get this done before GSoC, but you should confirm that it’s working.
+  * Create a build artifact that gets reused in all workflows. (Currently, build artifacts can’t be persisted across workflows, but [this GitHub action](https://github.com/google-github-actions/upload-cloud-storage) for uploading to GCS might be helpful. Alternatively, all CI checks could be combined into one workflow of multiple jobs, letting you use GitHub Actions artifacts.)
+
+    * Warning: This has the potential to clash with the project to Dockerize Oppia. To avoid any problems, you should plan to do this early (the Docker project won’t get to CI until later in the summer).
+
+  * Run the full versions of all pre-push tests (mentioned above).
+
+    * Run these tests first, and block other tests on these. In other words, if any of the pre-push tests fail, then do not run the other CI checks. This may complicate reaching the goal of 45 minutes wall time, but see if you can figure out a way to do it.
+
+  * For long-running tests:
+
+    * If the test is essential, find a way to make it shorter. For example, by mocking expensive calls in backend unit tests.
+    * If the test is not essential, remove it from CI and put it in an acceptance layer that only runs on some release-candidate builds (see below).
+
+  * (optional) As a stretch goal, see if you can get the CI checks down to under 30 minutes of wall time.
+
+* Split off less-important long-running tests into acceptance tests:
+
+  * Create a GitHub Action that, at regular time intervals, takes the latest release-candidate build on develop that passes all CI checks, runs the acceptance tests on them. Builds that pass all acceptance tests should have a public, machine-readable indication that they did, and builds that cause an acceptance test failure should result in an email or chat notification to the dev workflow team and the release engineering task force.
+
+* To increase the number of CI runners we have to parallelize tests across, avoid duplicate CI runs from taking up resources when multiple pushes are done to a PR in quick succession (see https://docs.github.com/en/actions/using-jobs/using-concurrency).
+
+**What's explicitly out of scope:**
+
+* We want builds that pass acceptance tests to have a machine-readable indication of success so that the Release Dashboard can query this indicator. You are not responsible for creating the release dashboard though.
+* The pre-push runtime only needs to be 5 mins or less on machines that we have supported installation instructions for on the wiki. In particular, you can assume that developers have at least 8 GB RAM.
+* You may assume that the build step runs in 5 minutes. We should be able to achieve this once the Angular migration is complete, but you are not responsible for completing the migration.
 
 **Size of this project:** large (~350 hours)
 
@@ -1007,11 +1029,11 @@ The broad aim of this project is to get the CI tests to run in under 1 hour so t
 **Knowledge/Skills Recommended:**
 
 * Familiarity with GitHub Actions and workflows.
-Clear understanding of the current Oppia pre-push and CI pipeline.
+* Clear understanding of the current Oppia pre-push and CI pipeline.
 
 **Suggested Milestones:**
 
-* **Milestone 1:** CI checks run in under an hour. Less important tests are split off into an acceptance layer.
+* **Milestone 1:** CI checks run in under 45 minutes. Less important tests are split off into an acceptance layer. Duplicate CI runs are avoided.
 
 * **Milestone 2:** Pre-push checks run in under 5 minutes.
 
@@ -1019,9 +1041,29 @@ Clear understanding of the current Oppia pre-push and CI pipeline.
 
 **Proposal notes:**
 
-* See the [GSoC idea doc](https://docs.google.com/document/d/1pIAu06LJS39BUeRyPZVWFYSW9aIKDrA_z7uoNtzoe9I/edit#) and the PRD linked there for more details.
+
+Most important things for the proposal:
+
+* Benchmark the current process (you can do this using data from existing GitHub Actions runs) and explain where you plan to make improvements and how much the improvements will be. Ideally your estimates of how much the improvements will improve runtime would be based on your own testing, but this is not required. At the end, provide a summary of how long the pre-push, CI and acceptance phases are likely to take once this project is completed, and compare those to how long they are now.
+  * Note: Do not just use the benchmarking in this project spec. Those benchmarks are very rough, and we just used them to scope out a reasonable project. Your proposal should be more rigorous.
+* Enumerate the changes you would make to the backend tests and the approximate effect that those are likely to have on runtime.
+* Show a sample PR for how you would make a slow backend test quicker.
+* Explain the details of how you plan to separate backend tests into categories and allow configuration of which categories to run. Show a proof-of-concept if possible.
+* Explain how you plan to get the list of files changed since the last push, and how you plan to run only the lint checks, karma tests and backend unit tests that relate to those files.
+* (Bonus) Explain any ideas you have for shortening the build process in build.py, with proof-of-concept if possible.
+* Explain your naming convention for workflow build artifacts and how you plan to upload and download them, with proof-of-concept if possible.
+* Explain how you would write the “acceptance tests” GitHub Action and how the results of these tests would be persisted/broadcasted.
+* List which tests you will move to the acceptance layer and explain your reasoning.
+
+We put together [a possible re-arrangement of CI checks](https://docs.google.com/spreadsheets/d/1ywA6KbLCECXo1z1egSK9LPG80e6oxXM1nOZyeUZyWV8/edit#gid=0) to get runtime (in wall time) below 45 minutes. You may find it a useful resource for ideas about how to cut CI runtime, but you should not consider it authoritative.
+
+In that worksheet, we assumed a PR would have access to 5 GitHub Actions runners. Here’s the reasoning for how we arrived at that number:
+
+It's pretty typical for us to have ~50 PRs open at once. Let's suppose we automatically cancel past CI runs on a PR once a new commit is pushed and PRs are really active (daily pushes). We generally have 2 bursts of pushes, one when people around UTC-0600 (in the US) are active, and one when people around UTC+0530 (in India) are active. Let’s also assume that each burst of pushes is a few hours long so that a full set of CI checks can run at least twice during the burst. Thus, we can estimate that each PR’s CI checks will run alongside 50/4=12.5 other PRs. With 60 test runners, this gives each PR 4.8, or approximately 5, runners on average.
 
 **Useful resources:**
+
+* https://stackoverflow.com/questions/58457140/dependencies-between-workflows-on-github-actions
 
 ### 4.5. Normalize Usage of Feature Flags
 
