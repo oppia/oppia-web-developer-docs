@@ -3,53 +3,83 @@
 Here are some general troubleshooting tips for Oppia. The platform specific tips are [Linux](#linux), [Windows](#windows), and [Mac OS](#mac-os).
 
 # Table of Contents
-
-- [No module named builtins](#no-module-named-builtins)
-- [No Java](#no-java)
-- [Frontend Tests Stuck](#frontend-tests-stuck)
-- [Selenium Server Not Killed by Ctrl-C](#selenium-server-not-killed-by-ctrl-c)
+- [./portserver.socket is not listed in the .github/CODEOWNERS file](#portserversocket-is-not-listed-in-the-githubcodeowners-file)
+- [[Errno 104] Connection reset by peer](#errno-104-connection-reset-by-peer) 
 - [403 Error](#403-error)
-- [MERGE_MSG Newer than Swap File](#merge_msg-newer-than-swap-file)
-- [Warnings from start.py](#warnings-from-startpy)
-- [No Such File or Directory: Google Cloud SDK](#no-such-file-or-directory-google-cloud-sdk)
-- [No module named '_sqlite3'](#no-module-named-_sqlite3)
-- [Problems Cloning from GitHub](#problems-cloning-from-github)
 - [Certificate Verify Failed](#certificate-verify-failed)
-- [No Module Named Scripts](#no-module-named-scripts)
+- [Exception: Error compiling proto files](#exception-error-compiling-proto-files)
+- [Failed to Start Server on Port XXXX](#failed-to-start-server-on-port-xxxx)
+- [Frontend Tests Stuck](#frontend-tests-stuck)
 - [Invalid Syntax](#invalid-syntax)
 - [Java Read Past EOF](#java-read-past-eof)
 - [Low RAM](#low-ram)
-- [Failed to Start Server on Port XXXX](#failed-to-start-server-on-port-xxxx)
-- [./portserver.socket is not listed in the .github/CODEOWNERS file](#portserversocket-is-not-listed-in-the-githubcodeowners-file)
+- [MERGE_MSG Newer than Swap File](#merge_msg-newer-than-swap-file)
+- [No module named builtins](#no-module-named-builtins)
+- [No Java](#no-java)
+- [No Such File or Directory: Google Cloud SDK](#no-such-file-or-directory-google-cloud-sdk)
+- [No module named '_sqlite3'](#no-module-named-_sqlite3)
+- [No Module Named Scripts](#no-module-named-scripts)
+- [Problems Cloning from GitHub](#problems-cloning-from-github)
 - [Push fails due to connection timeout](#push-fails-due-to-connection-timeout)
-- [Exception: Error compiling proto files](#exception-error-compiling-proto-files)
+- [Selenium Server Not Killed by Ctrl-C](#selenium-server-not-killed-by-ctrl-c)
+- [Warnings from start.py](#warnings-from-startpy)
 - [Linux](#linux)
-  - [Python 2 is not available](#python-2-is-not-available)
-  - [OSError: [Errno 2] No such file or directory](#oserror-errno-2-no-such-file-or-directory)
-  - [Pip: Cannot Import Name Main](#pip-cannot-import-name-main)
-  - [System Limit for Number of File Watchers Reached](#system-limit-for-number-of-file-watchers-reached)
+  - [ModuleNotFoundError: No module named _bz2](#modulenotfounderror-no-module-named-_bz2)
   - [No Module functools_lru_cache](#no-module-functools_lru_cache)
   - [No Module appengine.api](#no-module-appengineapi)
-  - [ModuleNotFoundError: No module named _bz2](#modulenotfounderror-no-module-named-_bz2)
+  - [OSError: [Errno 2] No such file or directory](#oserror-errno-2-no-such-file-or-directory)
+  - [Pip: Cannot Import Name Main](#pip-cannot-import-name-main)
+  - [Python 2 is not available](#python-2-is-not-available) 
+  - [System Limit for Number of File Watchers Reached](#system-limit-for-number-of-file-watchers-reached)
+
 - [Mac OS](#mac-os)
-  - [Python 2 is not available](#python-2-is-not-available-1)
-  - [Error: alert_on_exit() -> Iterator[None]](#error-alert_on_exit---iteratornone)
-  - [Local datastore data are not being deleted](#local-datastore-data-are-not-being-deleted)
-  - [No module named '_ctypes' on M1 Macs](#no-module-named-_ctypes-on-m1-macs)
+  - [503 Error when Starting Appengine](#503-error-when-starting-appengine)
   - [Cannot Import Name _imaging](#cannot-import-name-_imaging)
   - [Command cc failed with exit status 1](#command-cc-failed-with-exit-status-1)
+  - [Error: alert_on_exit() -> Iterator[None]](#error-alert_on_exit---iteratornone)
   - [GitPython Not Installed](#gitpython-not-installed)
   - [Install Imaging](#install-imaging)
+  - [Local datastore data are not being deleted](#local-datastore-data-are-not-being-deleted)
+  - [No module named '_ctypes' on M1 Macs](#no-module-named-_ctypes-on-m1-macs)
   - [No Java Runtime Present](#no-java-runtime-present)
-  - [503 Error when Starting Appengine](#503-error-when-starting-appengine)
+  - [Python 2 is not available](#python-2-is-not-available-1)
   - [SSL Wrong Version Number](#ssl-wrong-version-number)
   - [SSL Verification Issues](#ssl-verification-issues)
-  - [Yarn: ESOCKETTIMEDOUT](#yarn-esockettimedout)
+  - [Yarn: ESOCKETTIMEDOUT](#yarn-esockettimedout) 
+
 - [Windows](#windows)
-  - [Windows Firewall](#windows-firewall)
-  - [No Such File or Directory /dev/disk/by-id](#no-such-file-or-directory-devdiskby-id)
   - [First build never completed](#first-build-never-completed)
   - [If the above doesn't work](#if-the-above-doesnt-work)
+  - [No Such File or Directory /dev/disk/by-id](#no-such-file-or-directory-devdiskby-id)
+  - [Windows Firewall](#windows-firewall)
+
+### `[Errno 104] Connection reset by peer`
+If after running `python -m scripts.start` you get the following lines:
+```
+Traceback (most recent call last):
+  File "/home/vansh/.pyenv/versions/3.8.15/lib/python3.8/urllib/request.py", line 1354, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/home/vansh/.pyenv/versions/3.8.15/lib/python3.8/http/client.py", line 1256, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/home/vansh/.pyenv/versions/3.8.15/lib/python3.8/http/client.py", line 1302, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/home/vansh/.pyenv/versions/3.8.15/lib/python3.8/http/client.py", line 1251, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/vansh/.pyenv/versions/3.8.15/lib/python3.8/http/client.py", line 1011, in _send_output
+    self.send(msg)
+  File "/home/vansh/.pyenv/versions/3.8.15/lib/python3.8/http/client.py", line 951, in send
+    self.connect()
+  File "/home/vansh/.pyenv/versions/3.8.15/lib/python3.8/http/client.py", line 1425, in connect
+    self.sock = self._context.wrap_socket(self.sock,
+  File "/home/vansh/.pyenv/versions/3.8.15/lib/python3.8/ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/home/vansh/.pyenv/versions/3.8.15/lib/python3.8/ssl.py", line 1040, in _create
+    self.do_handshake()
+  File "/home/vansh/.pyenv/versions/3.8.15/lib/python3.8/ssl.py", line 1309, in do_handshake
+    self._sslobj.do_handshake()
+ConnectionResetError: [Errno 104] Connection reset by peer
+```
+Then run `pip install "requests[security]"`. 
 
 ### `No module named builtins`
 
