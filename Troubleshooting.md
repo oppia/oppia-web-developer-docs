@@ -375,7 +375,7 @@ If you get error like this when running `python -m scripts.start`:
 ERROR: (dev_appserver) python2: command not found
 ```
 
-you will need to install Python 2 on your platform, even though Oppia doesn't use Python 2 anymore some parts of the App Engine dev server still need it. If you have MacOS >= 12.3, please follow the steps listed [here](<https://github.com/oppia/oppia/wiki/Installing-Oppia-(Mac-OS;-Python-3)#install-prerequisites>) to install Python 2 on your system.
+you will need to install Python 2 on your platform, even though Oppia doesn't use Python 2 anymore some parts of the App Engine dev server still need it. If you have MacOS >= 12.3, please follow the steps listed [here](https://github.com/oppia/oppia/wiki/Installing-Oppia-(Mac-OS;-Python-3)#install-prerequisites) to install Python 2 on your system.
 
 ### Error: alert_on_exit() -> Iterator[None]
 
@@ -437,7 +437,9 @@ After running `python -m scripts.start`, if you get an error around the followin
    ImportError: cannot import name _imaging
 ```
 
-(note: [Google search results](https://pillow.readthedocs.io/en/stable/installation.html#warnings) indicate that PIL and Pillow cannot coexist in the same environment)
+> **Note**  
+> [Google search results]
+(https://pillow.readthedocs.io/en/stable/installation.html#warnings) indicate that PIL and Pillow cannot coexist in the same environment
 
 First stop the script running with Ctrl + C (or Command-period on a MAC).
 Try uninstalling PIL:
@@ -457,11 +459,11 @@ Finally, try running the `python -m scripts.start` script again.
 
 ### Command cc failed with exit status 1
 
-If, on MacOS Mojave V10.14.x, you get an issue arises while installing PIL library that has a lot of gibberish and that includes stuff like:
+If you encounter an issue during the installation of the PIL library on MacOS Mojave V10.14.x, which includes a lot of meaningless characters and contains logs such as:
 
-`error: command 'cc' failed with exit status 1`
+* `error: command 'cc' failed with exit status 1`
 
-`error: command 'clang' failed with exit status 1`
+* `error: command 'clang' failed with exit status 1`
 
 then try running this command on terminal ([reference](https://github.com/python-pillow/Pillow/issues/3438)):
 
@@ -506,7 +508,7 @@ No Java runtime present, requesting install.
 closure-compiler failed.
 ```
 
-please download [Java](https://support.apple.com/kb/DL1572?locale=en_US) and install it.
+Please download [Java](https://support.apple.com/kb/DL1572?locale=en_US) and install it.
 
 ### 503 Error when Starting Appengine
 
@@ -549,7 +551,7 @@ Try running `yarn install --network-timeout 100000`, where the timeout value is 
 
 ### Windows Firewall
 
-It's possible that Windows firewall might be preventing localhost:8181 to launch. In such a case, you should re-config the firewall by adding new inbound rule so that ports 8181 and 8000 are allowed. (Instruction about how to add inbound rules can be found [here](<https://msdn.microsoft.com/en-us/library/hh168549(v=nav.90).aspx>))
+It's possible that Windows firewall might be preventing localhost:8181 to launch. In such a case, you should re-config the firewall by adding new inbound rule so that ports 8181 and 8000 are allowed. (Instruction about how to add inbound rules can be found [here](https://msdn.microsoft.com/en-us/library/hh168549(v=nav.90).aspx))
 
 ### No Such File or Directory /dev/disk/by-id
 
