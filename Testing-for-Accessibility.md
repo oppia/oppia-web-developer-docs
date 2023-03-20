@@ -6,7 +6,7 @@
 
 `<span class="oppia-icon-accessibility-label">Ratings</span>`
 * **Consider the implications of dynamic pages:** In Oppia, there are some pages that change their contents dynamically based on an action (e.g. the explorations). This is a feature of many contemporary web apps, however, screenreader users are not able to tell that the page has changed which can lead to confusion and frustration. The accessibility team is working to implement a focus management approach, such that, on change, a screenreader will reread the content. Any other pages and/or new features that include dynamic content changes will need to implement the same approach. 
-A focus management approach is described well in this article: [http://simplyaccessible.com/article/spangular-accessibility/ ](http://simplyaccessible.com/article/spangular-accessibility/ )
+A focus management approach is described well in this article: [http://simplyaccessible.com/article/spangular-accessibility/ ](https://web.archive.org/web/20220206112133/http://simplyaccessible.com/article/spangular-accessibility/ )
 * **Use ARIA appropriately:** ARIA attributes allows us to label some elements to screenreaders. Screenreader implementation is still a bit spotty, but it’s best to include these, as appropriate, to future proof the design.
   * Note that ARIA attributes have proper hierarchies. The WorldSpace Attest checker is a good resource for checking that your ARIA attributes are used properly.
   * Elements where ARIA attributes are helpful:
