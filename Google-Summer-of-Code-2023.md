@@ -469,16 +469,21 @@ In its current state, the architecture of the learner dashboard is inconsistent 
 In the current system,
 - There is no interaction that takes percentages as a response. Currently,  TextInput fields are used to take input in the form of percentages.
 - Learners use their physical keyboards on laptops or desktops to give input to math explorations. This may create confusion and can slow down or hinder learners' progress. For example, users may not identify * as the symbol for multiplication, they may instead provide “x” as the symbol for multiplication in their response, which will be recorded as a wrong answer.
+- Number lines are implemented by creators using the ImageClickInput interaction.
 
 The proposed solution to this problem is to:
 
-1. Introduce clickable keys to solve math interactions.
-   1. For algebraic expression, numeric expression and algebraic equation input, clickable buttons with special characters will show up below the input field on desktop/mobile. Each button contains a single character (like ‘+’, ‘-’, ‘×’, ‘÷’, ‘(‘, ‘)’, ‘=’), and when clicked it will “type” that character in the input field.
-   2. Lesson creators will be able to customize which of these buttons are shown.
-   3. Learners should be able to use both these keys and their standard keyboard when submitting their solution.
+1. Introduce a clickable keyboard to solve math interactions.
+   1. For algebraic expression, numeric expression and algebraic equation input, a clickable keyboard with special characters will show up below the input field on desktop/mobile. This keyboard will have the basic algebraic keys like ‘+’, ‘-’, ‘×’, ‘÷’, ‘(‘, ‘)’, ‘=’, and when clicked it will “type” that character in the input field. 
+   2. Learners should be able to use both these keys and their standard keyboard when submitting their solution.
 2. Allow learners to submit answers in the form of percentages and allow curriculum admins to convert the responses from text input fields to percentage.
    1. Introduce a percentage interaction with a ‘%’ button below it.
    2. Provide a utility, gated behind a feature flag, for curriculum admins to convert existing text input fields to percentage input. Curriculum admins should be able to transform text input to percent input with the click of a button, and the system will accept that change and perform the necessary updates if it is able to validate that the update can be done successfully for that exploration card. The effect of the button should be to perform the standard actions that would be needed to do the update manually, but without losing any of the existing answer groups, translations, and voiceovers.
+3. Introduce a number line interaction.
+   1. Lesson creators should be able to provide the start and end integer values of the number line as well as the interval length. The number line should have equally spaced out marks between the starting and ending values. Creators should not be able to create a number line with more than 10 or less than 3 points.
+   2. Creators should be able to specify the feedback that the learner gets based on their responses at various points along the number line. Care should be taken to correctly handle the case when the number line parameters subsequently change – a warning should be displayed to the creator if the corresponding rule becomes invalid.
+   3. Learners should be able to choose and drag their solution along the number line and the cursor should instantly "snap" to the demarcated lines along the number line. The learner should be able to confirm their choice and get feedback once they have submitted.
+
 
 **Link to PRD:** [Improvements to Math Interactions PRD](https://docs.google.com/document/d/1cha8e5H4Dfb7t8cLL2VZYi02Ysk2YEdyyalY1dDqPXE/edit#heading=h.rpq25vez37fp)
 
@@ -493,13 +498,8 @@ The proposed solution to this problem is to:
 
 **Suggested Milestones:**
 
-* **Milestone 1:** Implementation of percentage interaction
-* **Milestone 2:** Implementation of text to percentage conversion utility and virtual math keys
-
-**Proposal notes:**
-
-Math symbol input:
-- In order to allow the lesson creator to customize which buttons are shown, a new customization arg will be needed for the interactions. This entails a change in the schema to the explorations, so an exploration migration will be needed. Sensible default values for this customization arg should be chosen – e.g. all arithmetic operation symbols and parentheses – but the creator should be able to turn these off if needed (e.g. in a lesson about division, many of the other symbols will not be relevant).
+* **Milestone 1:** Implementation of percentage interaction and text to percentage conversion utility
+* **Milestone 2:** Implementation of virtual math keyboard and number line interaction.
 
 
 **Useful resources:**
