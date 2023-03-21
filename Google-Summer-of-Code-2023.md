@@ -607,7 +607,7 @@ Contributor dashboard admin page revamp. Table view of contributors with key sta
 
 **Size of this project:** medium (~175 hours)
 
-**Potential Mentors:** @sahiljoster32, @sagangwee
+**Potential Mentors:** @sagangwee
 
 **Product Clarifier:** @dchen97
 
