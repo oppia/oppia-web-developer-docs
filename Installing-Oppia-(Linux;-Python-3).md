@@ -122,6 +122,9 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
    eval "$(pyenv virtualenv-init -)"
    ```
 
+   > **Warning**
+   > Be careful with using graphical editors like Notepad in Windows. These can add carriage returns (`\r`) that confuse our Linux-based development tools. Instead, we recommend using editors designed for programming or command-line text editors.
+
 3. Reload your shell or open a new terminal window to load your updated `~/.bashrc`.
 
 4. Now you can install Python 3.8.15 and the associated pip like this:
@@ -142,9 +145,13 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
    ```
 
 6. Setup direnv into your shell. Add following lines to the end of `.bashrc` (see [here](https://askubuntu.com/a/127059) for where to find this file):
+
    ```bash
    eval "$(direnv hook bash)"
    ```
+
+   > **Warning**
+   > Be careful with using graphical editors like Notepad in Windows. These can add carriage returns (`\r`) that confuse our Linux-based development tools. Instead, we recommend using editors designed for programming or command-line text editors.
 
 7. Add new file called `.direnvrc` into your home (`~`) folder with this content:
    ```bash
@@ -159,6 +166,9 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
      fi
    }
    ```
+
+   > **Warning**
+   > Be careful with using graphical editors like Notepad in Windows. These can add carriage returns (`\r`) that confuse our Linux-based development tools. Instead, we recommend using editors designed for programming or command-line text editors.
 
 8. Create a virtual environment for oppia by adding file named `.envrc` into the parent folder of the oppia repository
    with this content:
@@ -202,6 +212,9 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
    ```console
    python -m scripts.start
    ```
+
+   > **Note**
+   > If you are using **Windows**, you will need to run `python -m scripts.start --no_browser` instead. This is because Windows does not support the `xdg-open` command that the script uses to open a browser window.
 
    The first time you run this script, it will take a while -- about 5 - 10 minutes when we last tested it in Sep 2020, though this depends on your Internet connection. (It might also hang after "Checking if pip is installed on the local machine" due to the grpcio build being slow -- just give it some time, and it should finish.) Subsequent runs should be much faster. The `start.py` script downloads and installs the required dependencies (such as Google App Engine) if they are not already present, and sets up a development server for you to play with. The development server logs are then output to this terminal, so you will not be able to enter further commands in it until you disconnect the server.
 
