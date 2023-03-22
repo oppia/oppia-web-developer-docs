@@ -469,16 +469,21 @@ In its current state, the architecture of the learner dashboard is inconsistent 
 In the current system,
 - There is no interaction that takes percentages as a response. Currently,  TextInput fields are used to take input in the form of percentages.
 - Learners use their physical keyboards on laptops or desktops to give input to math explorations. This may create confusion and can slow down or hinder learners' progress. For example, users may not identify * as the symbol for multiplication, they may instead provide “x” as the symbol for multiplication in their response, which will be recorded as a wrong answer.
+- Number lines are implemented by creators using the ImageClickInput interaction.
 
 The proposed solution to this problem is to:
 
-1. Introduce clickable keys to solve math interactions.
-   1. For algebraic expression, numeric expression and algebraic equation input, clickable buttons with special characters will show up below the input field on desktop/mobile. Each button contains a single character (like ‘+’, ‘-’, ‘×’, ‘÷’, ‘(‘, ‘)’, ‘=’), and when clicked it will “type” that character in the input field.
-   2. Lesson creators will be able to customize which of these buttons are shown.
-   3. Learners should be able to use both these keys and their standard keyboard when submitting their solution.
+1. Introduce a clickable keyboard to solve math interactions.
+   1. For algebraic expression, numeric expression and algebraic equation input, a clickable keyboard with special characters will show up below the input field on desktop/mobile. This keyboard will have the basic algebraic keys like ‘+’, ‘-’, ‘×’, ‘÷’, ‘(‘, ‘)’, ‘=’, and when clicked it will “type” that character in the input field. 
+   2. Learners should be able to use both these keys and their standard keyboard when submitting their solution.
 2. Allow learners to submit answers in the form of percentages and allow curriculum admins to convert the responses from text input fields to percentage.
    1. Introduce a percentage interaction with a ‘%’ button below it.
    2. Provide a utility, gated behind a feature flag, for curriculum admins to convert existing text input fields to percentage input. Curriculum admins should be able to transform text input to percent input with the click of a button, and the system will accept that change and perform the necessary updates if it is able to validate that the update can be done successfully for that exploration card. The effect of the button should be to perform the standard actions that would be needed to do the update manually, but without losing any of the existing answer groups, translations, and voiceovers.
+3. Introduce a number line interaction.
+   1. Lesson creators should be able to provide the start and end integer values of the number line as well as the interval length. The number line should have equally spaced out marks between the starting and ending values. Creators should not be able to create a number line with more than 10 or less than 3 points.
+   2. Creators should be able to specify the feedback that the learner gets based on their responses at various points along the number line. Care should be taken to correctly handle the case when the number line parameters subsequently change – a warning should be displayed to the creator if the corresponding rule becomes invalid.
+   3. Learners should be able to choose and drag their solution along the number line and the cursor should instantly "snap" to the demarcated lines along the number line. The learner should be able to confirm their choice and get feedback once they have submitted.
+
 
 **Link to PRD:** [Improvements to Math Interactions PRD](https://docs.google.com/document/d/1cha8e5H4Dfb7t8cLL2VZYi02Ysk2YEdyyalY1dDqPXE/edit#heading=h.rpq25vez37fp)
 
@@ -493,13 +498,8 @@ The proposed solution to this problem is to:
 
 **Suggested Milestones:**
 
-* **Milestone 1:** Implementation of percentage interaction
-* **Milestone 2:** Implementation of text to percentage conversion utility and virtual math keys
-
-**Proposal notes:**
-
-Math symbol input:
-- In order to allow the lesson creator to customize which buttons are shown, a new customization arg will be needed for the interactions. This entails a change in the schema to the explorations, so an exploration migration will be needed. Sensible default values for this customization arg should be chosen – e.g. all arithmetic operation symbols and parentheses – but the creator should be able to turn these off if needed (e.g. in a lesson about division, many of the other symbols will not be relevant).
+* **Milestone 1:** Implementation of percentage interaction and text to percentage conversion utility
+* **Milestone 2:** Implementation of virtual math keyboard and number line interaction.
 
 
 **Useful resources:**
@@ -983,22 +983,44 @@ We have decided that we don't have the capacity to support this project this yea
 
 **Project Description:**
 
-The broad aim of this project is to get the CI tests to run in under 1 hour so that PRs can be merged into develop quicker. This entails several steps:
+Developers often have to wait multiple hours for continuous integration (CI) checks to finish running on their PRs. This delay slows down development and frustrates developers. This project proposes an acceleration of our CI runs and moving CI checks to the pre-push hooks to flag bugs for developers within 45 minutes. This entails several steps:
 
-- Get the pre-push tests (that run on the developer’s local machine) to run in under 5 minutes:
-  - Audit backend unit tests to see which ones take a long time, and refactor those to avoid network/database/disk-access calls in order to shorten their runtime (while still testing what they need to).
-  - For long backend unit tests that need to be long because they are creating a lot of data to test scalability, add them to a “scalability” list of tests that doesn’t need to get run during pre-push.
-  - Run only the lint, MyPy, and typescript checks; karma tests; and backend unit tests that were affected by files changed since the last push.
-  - (If possible) On pre-push, shorten the build step or remove it altogether.
-- Get the CI checks to run in under 1 hr wall time (i.e. including parallelization):
-  - Create a single environment at the start that gets used for all other tests. (In particular we currently seem to be running the “install third party deps” step repeatedly, so it might be good to cache folders like oppia_tools.)
-  - Create a build artifact that gets reused in all workflows. (Currently, build artifacts can’t be persisted across workflows, but this GitHub action for uploading to GCS might be helpful.)
-  - Run the full versions of all pre-push tests (mentioned above) first, and block other tests on these. (If any of the pre-push tests fail, then do not run the other CI checks.)
-  - For long-running tests:
-    - If the test is essential, find a way to make it shorter.
-    - If it is not, remove it from CI and put it in an acceptance layer that only runs on some release-candidate builds (see below).
-- Split off less-important long-running tests into acceptance tests:
-- Create a GitHub Action that, at regular time intervals, takes the latest release-candidate build on develop that passes all CI checks, runs the acceptance tests on them. Builds that pass all acceptance tests should have a public, machine-readable indication that they did, and builds that cause an acceptance test failure should result in an email or chat notification to the CI Stability team.
+* Get the pre-push tests (that run on the developer’s local machine) to run in under 5 minutes:
+
+  * Audit backend unit tests to see which ones take a long time, and refactor those to avoid network/database/disk-access calls in order to shorten their runtime (while still testing what they need to).
+  * For long backend unit tests that need to be long because they are creating a lot of data to test scalability, add them to a “scalability” list of tests that doesn’t need to get run during pre-push.
+  * Run only the lint, MyPy, and typescript checks; karma tests (frontend tests); and backend unit tests that were affected by files changed since the last push.
+  * (If possible) On pre-push, shorten the install and build step or remove it altogether.
+
+* Get the CI checks to run in under 45 minutes wall time (i.e. including parallelization):
+
+  * Create a single environment at the start that gets used for all other tests. (In particular we currently seem to be running the “install third party deps” step repeatedly, so it might be good to cache folders like oppia_tools.) We’re hoping to get this done before GSoC, but you should confirm that it’s working.
+  * Create a build artifact that gets reused in all workflows. (Currently, build artifacts can’t be persisted across workflows, but [this GitHub action](https://github.com/google-github-actions/upload-cloud-storage) for uploading to GCS might be helpful. Alternatively, all CI checks could be combined into one workflow of multiple jobs, letting you use GitHub Actions artifacts.)
+
+    * Warning: This has the potential to clash with the project to Dockerize Oppia. To avoid any problems, you should plan to do this early (the Docker project won’t get to CI until later in the summer).
+
+  * Run the full versions of all pre-push tests (mentioned above).
+
+    * Run these tests first, and block other tests on these. In other words, if any of the pre-push tests fail, then do not run the other CI checks. This may complicate reaching the goal of 45 minutes wall time, but see if you can figure out a way to do it.
+
+  * For long-running tests:
+
+    * If the test is essential, find a way to make it shorter. For example, by mocking expensive calls in backend unit tests.
+    * If the test is not essential, remove it from CI and put it in an acceptance layer that only runs on some release-candidate builds (see below).
+
+  * (optional) As a stretch goal, see if you can get the CI checks down to under 30 minutes of wall time.
+
+* Split off less-important long-running tests into acceptance tests:
+
+  * Create a GitHub Action that, at regular time intervals, takes the latest release-candidate build on develop that passes all CI checks, runs the acceptance tests on them. Builds that pass all acceptance tests should have a public, machine-readable indication that they did, and builds that cause an acceptance test failure should result in an email or chat notification to the dev workflow team and the release engineering task force.
+
+* To increase the number of CI runners we have to parallelize tests across, avoid duplicate CI runs from taking up resources when multiple pushes are done to a PR in quick succession (see https://docs.github.com/en/actions/using-jobs/using-concurrency).
+
+**What's explicitly out of scope:**
+
+* We want builds that pass acceptance tests to have a machine-readable indication of success so that the Release Dashboard can query this indicator. You are not responsible for creating the release dashboard though.
+* The pre-push runtime only needs to be 5 mins or less on machines that we have supported installation instructions for on the wiki. In particular, you can assume that developers have at least 8 GB RAM.
+* You may assume that the build step runs in 5 minutes. We should be able to achieve this once the Angular migration is complete, but you are not responsible for completing the migration.
 
 **Size of this project:** large (~350 hours)
 
@@ -1007,11 +1029,11 @@ The broad aim of this project is to get the CI tests to run in under 1 hour so t
 **Knowledge/Skills Recommended:**
 
 * Familiarity with GitHub Actions and workflows.
-Clear understanding of the current Oppia pre-push and CI pipeline.
+* Clear understanding of the current Oppia pre-push and CI pipeline.
 
 **Suggested Milestones:**
 
-* **Milestone 1:** CI checks run in under an hour. Less important tests are split off into an acceptance layer.
+* **Milestone 1:** CI checks run in under 45 minutes. Less important tests are split off into an acceptance layer. Duplicate CI runs are avoided.
 
 * **Milestone 2:** Pre-push checks run in under 5 minutes.
 
@@ -1019,116 +1041,30 @@ Clear understanding of the current Oppia pre-push and CI pipeline.
 
 **Proposal notes:**
 
-* See the [GSoC idea doc](https://docs.google.com/document/d/1pIAu06LJS39BUeRyPZVWFYSW9aIKDrA_z7uoNtzoe9I/edit#) and the PRD linked there for more details.
+
+Most important things for the proposal:
+
+* Benchmark the current process (you can do this using data from existing GitHub Actions runs) and explain where you plan to make improvements and how much the improvements will be. Ideally your estimates of how much the improvements will improve runtime would be based on your own testing, but this is not required. At the end, provide a summary of how long the pre-push, CI and acceptance phases are likely to take once this project is completed, and compare those to how long they are now.
+  * Note: Do not just use the benchmarking in this project spec. Those benchmarks are very rough, and we just used them to scope out a reasonable project. Your proposal should be more rigorous.
+* Enumerate the changes you would make to the backend tests and the approximate effect that those are likely to have on runtime.
+* Show a sample PR for how you would make a slow backend test quicker.
+* Explain the details of how you plan to separate backend tests into categories and allow configuration of which categories to run. Show a proof-of-concept if possible.
+* Explain how you plan to get the list of files changed since the last push, and how you plan to run only the lint checks, karma tests and backend unit tests that relate to those files.
+* (Bonus) Explain any ideas you have for shortening the build process in build.py, with proof-of-concept if possible.
+* Explain your naming convention for workflow build artifacts and how you plan to upload and download them, with proof-of-concept if possible.
+* Explain how you would write the “acceptance tests” GitHub Action and how the results of these tests would be persisted/broadcasted.
+* List which tests you will move to the acceptance layer and explain your reasoning.
+
+We put together [a possible re-arrangement of CI checks](https://docs.google.com/spreadsheets/d/1ywA6KbLCECXo1z1egSK9LPG80e6oxXM1nOZyeUZyWV8/edit#gid=0) to get runtime (in wall time) below 45 minutes. You may find it a useful resource for ideas about how to cut CI runtime, but you should not consider it authoritative.
+
+In that worksheet, we assumed a PR would have access to 5 GitHub Actions runners. Here’s the reasoning for how we arrived at that number:
+
+It's pretty typical for us to have ~50 PRs open at once. Let's suppose we automatically cancel past CI runs on a PR once a new commit is pushed and PRs are really active (daily pushes). We generally have 2 bursts of pushes, one when people around UTC-0600 (in the US) are active, and one when people around UTC+0530 (in India) are active. Let’s also assume that each burst of pushes is a few hours long so that a full set of CI checks can run at least twice during the burst. Thus, we can estimate that each PR’s CI checks will run alongside 50/4=12.5 other PRs. With 60 test runners, this gives each PR 4.8, or approximately 5, runners on average.
 
 **Useful resources:**
 
+* https://stackoverflow.com/questions/58457140/dependencies-between-workflows-on-github-actions
+
 ### 4.5. Normalize Usage of Feature Flags
 
-**Project Description:**
-
-The aim of this project is to normalize and standardize the usage of [platform parameters](https://github.com/oppia/oppia/wiki/Developing-new-features-with-feature-gating) and feature flags (which use the same backend system as platform parameters, but are located in a different page with different permissions) in Oppia’s deployment process. The overall project has three aims:
-
-Migrate to a system that only supports two constructs: platform parameters (controllable by the server super-admin) and feature flags (controllable by release coordinators).
-
-* Extend platform parameters to support an additional type: list of strings. (This is needed in order to migrate certain config properties to the platform parameter system.)
-* Each platform parameter should, as part of its codebase configuration, have a boolean that says whether it is a feature flag or not. If a platform parameter is marked as a feature flag, then its type must be boolean, and a backend test should verify this.
-* All config properties should be either deleted, turned into feature flags, or turned into platform parameters. (See the “Technical hints / guidance” section for more details.) After this migration, the config page in the /admin tab, and all code related to config property infrastructure, should be removed.
-
-Improve the UI for platform parameter / feature flag configuration.
-
-* The feature flags dashboard (in /release-coordinator) and the general platform parameters dashboard (in /admin) should be made more intuitive. Platform parameters are currently specified along the lines of “if these conditions hold, the parameter value should be enabled/disabled”; but the current UI in the /admin page is not intuitive at all, and this idea could be conveyed more intuitively in the UI. More specifically:
-
-  * The platform parameters (in the admin page) and feature flags (in the release coordinator page) should be arranged in a deterministic order. This order should be specified by a list in the codebase. A backend test should confirm that all platform parameters appear exactly once, in exactly one of these two lists.
-  * Platform parameters and feature flags that are not in a valid “feature stage” for the given server (i.e., in a feature stage that is not allowed on the current server) should be shown as such, and not allowed to be configured on the admin page.
-  * For platform parameters and feature flags in a valid “feature stage”: (i) the default value (in the case where no filters apply) should be modifiable by the admin, and (ii) the “server_mode” filter should not be required for such values (since the server_mode is already determined by the server that the /admin dashboard is running on). In fact, it is fine to remove the “server_mode” filter altogether from the codebase.
-  * In the end, it should be clear, for each feature flag or platform parameter: (a) whether it’s editable on the current server, (b) what its default value is, (c) what other values it might take under given conditions. For the feature flags dashboard in particular, the common case of switching a boolean flag on and off should be easy for developers to do.
-
-Support common use cases.
-
-* Enable percentage rollouts for logged-in Oppia Web clients. In other words, admins (for platform parameters) or release coordinators (for feature flags) should be able to specify a percentage of logged-in Oppia Web users for whom the feature should be enabled. Which users are shown the feature should be as consistent and stable as possible even as accounts are created, accounts are deleted, account permissions change, releases are deployed, and the percentage is changed.
-* Enable allowlisting specific usernames for external trusted tester programs for Oppia Web clients. Only users whose usernames are on the allowlist should be shown the feature, and everyone on the allowlist should be shown the feature regardless of any percentage rollout setting.
-* Update the backend test infrastructure to make it easy for developers to enable particular feature flag values for particular backend tests using an appropriate Python decorator, and update the wiki documentation accordingly with examples on how to use this system. The aim is to make it really easy for developers to write tests for the behaviour of the system under different feature flag configurations.
-
-**What's explicitly out of scope:**
-
-* Enabling percentage rollouts for Android clients, or logged-out Oppia Web clients.
-* Enabling allowlisting of specific usernames for Android clients.
-
-**Size of this project:** large (~350 hours)
-
-**Potential Mentors:** TBA
-
-**Knowledge/Skills Recommended:** Python and TypeScript
-
-**Suggested Milestones:**
-
-* **Milestone 1:** Platform parameters include support for list-of-strings types, and each platform parameter has a boolean describing whether it is a feature flag or not. The concept of config properties is removed from the codebase entirely, with existing config properties migrated or deleted as appropriate. There is a feature flags dashboard in /release-coordinator and a more general platform parameters dashboard in /admin; both dashboards are intuitive to use.
-
-* **Milestone 2:** Feature flags support percentage rollouts and allowlisting specific usernames for external trusted tester programs. The system for testing with different feature flag configurations is lightweight, and developers have no trouble using it. The wiki documentation for handling feature flags is fully complete and developers use feature flags as a matter-of-course, without any issues.
-
-**Dependency on Release Schedule:** None (unless you propose using beam jobs).
-
-**Proposal notes:**
-
-Please don’t be intimidated by the length of this section; it is here to help you with the overall technical approach for this project. In general, this project includes a lot of “small things” – most of these things are fairly straightforward, but you will need to have good attention to detail in order to make sure nothing gets missed and everything is implemented correctly.
-
-Firstly, here is a brief overview of how feature flags work. Generally, features start out in the DEV FeatureStage. When the functionality is complete, they should be moved to the TEST FeatureStage (and the test servers, but not oppia.org, should accept features in that FeatureStage). When release testing completes and the feature is cleared for full launch, a single PR should be created to flip the TEST flag to PROD, which will enable it to run on oppia.org in the next prod release of the app. For more details, see the following wiki pages related to "launching new features":
-
-- [Developing new features with feature gating](https://github.com/oppia/oppia/wiki/Developing-new-features-with-feature-gating)
-- [Launching new features](https://github.com/oppia/oppia/wiki/Launching-new-features)
-
-Here are details on how to plan the migration of config properties:
-
-* The process for deleting obsolete config properties should have the following steps:
-
-  * Check to see where the config property is used in the codebase, and replace it with the appropriate value.
-  * Delete the property.
-
-* The process for migrating config properties should have the following steps:
-
-  * Create new platform parameters to match the existing config properties.
-  * Do a deployment to the production server.
-  * Ask the server admins to copy the current config property values on the server to the new platform parameter values, and confirm that everything is working fine. (Note: at this stage, the platform parameters are not being used yet.)
-  * Switch the parts of the codebase which depend on config properties to depend on the new platform parameters instead. Remove all the config property infrastructure.
-  * Work with the server admins to do a deployment to the test server and confirm that the platform parameters are in effect.
-  * Do a final deployment to the production server.
-
-* The following config properties should be removed:
-
-  * The “checkpoints”, “show classroom promos” and “contributor dashboard page” flags, which should just be turned on permanently.
-  * The “classroom details” config property – the details here will be controlled in the classroom-admin page instead (please contact @Nik-09 for more details).
-  * Asking learners for answer details (always False)
-  * Index of batch to populate mailchimp database (if any backend job uses this, that job should be removed as well)
-  * Max number of exps that can be sent in a batch of math rich text svgs (if any backend job uses this, that job should be removed as well)
-  * Max number of math SVGs that can be sent in a batch of math rich text SVGs (if any backend job uses this, that job should be removed as well)
-
-* The following config properties should be turned into feature flags:
-
-  * “Exposes improvements tab for creators”
-  * “Enable learner groups feature”
-
-* All other config properties should be converted to platform parameters.
-
-For supporting specific user IDs for external trusted tester programs, it should be possible to define named groups of users in the /admin page (managed by username, but stored in the datastore using user IDs) and then have release coordinators configure feature flag applicability in /release-coordinator along the lines of “if the user is in this group, enable the feature”.
-
-For enabling percentage rollouts for logged-in users, you should provide a filter for release coordinators that allows them to configure the “rollout %” P, specifiable up to 0.1% precision. Then, in order to figure out whether a user has the feature turned on for them, you can do the following:
-
-* Generate a salt from the platform parameter name (which needs to be unique).
-* Using this salt, hash the user ID and then take it mod 1000. If the resulting number is less than 100P, turn the feature on for that user, otherwise, turn it off.
-
-For backend tests, the aim is to make it easy for developers to write tests along the lines of:
-
-```
-@enable_feature_flag(FEATURE_FLAG_CHECKPOINTS)
-def test_that_checkpoints_show_up_for_learners(self):
-    ...
-
-@disable_feature_flag(FEATURE_FLAG_CHECKPOINTS)
-def test_that_checkpoints_are_not_shown_for_learners(self):
-    ...
-```
-
-by implementing the appropriate decorators.
-
-**Useful resources:** None
+Due to changing availability of mentors, we are no longer able to offer this project.
