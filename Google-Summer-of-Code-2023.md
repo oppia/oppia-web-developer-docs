@@ -340,7 +340,11 @@ For (c): In the state editor, when a change is made to a part of a card and this
 
 **Size of this project:** large (~350 hours); can be reduced to medium (~175 hours) if desired (see description)
 
-**Potential Mentors:** TBA
+**Potential Mentors:** @Rijuta-s
+
+**Product Clarifier:** @dchen97
+
+**Technical Clarifier:** @SanjaySajuJacob
 
 **Knowledge/Skills Recommended:**
 
@@ -384,7 +388,11 @@ This project involves the following steps:
 
 **Size of this project:** medium (~175 hours)
 
-**Potential Mentors:** TBA
+**Potential Mentors:** @Nik-09
+
+**Product Clarifier:** @dchen97
+
+**Technical Clarifier:** @seanlip
 
 **Knowledge/Skills Recommended:**
 
@@ -447,7 +455,11 @@ In its current state, the architecture of the learner dashboard is inconsistent 
 
 **Size of this project:** medium (~175 hours)
 
-**Potential Mentors:** TBA
+**Potential Mentors:** @sahiljoster32
+
+**Product Clarifier:** @dchen97
+
+**Technical Clarifier:** @seanlip
 
 **Knowledge/Skills Recommended:**
 
@@ -489,7 +501,11 @@ The proposed solution to this problem is to:
 
 **Size of this project:** medium (~175 hours)
 
-**Potential Mentors:** TBA
+**Potential Mentors:** @kevintab95
+
+**Product Clarifier:** @dchen97
+
+**Technical Clarifier:** @Lawful2002 
 
 **Knowledge/Skills Recommended:**
 
@@ -516,7 +532,11 @@ Therefore, the aim of this project is to improve the accessibility of all learne
 
 **Size of this project:** medium (~175 hours)
 
-**Potential Mentors:** TBA
+**Potential Mentors:** @Rijuta-s
+
+**Product Clarifier:** @dchen97
+
+**Technical Clarifier:** @seanlip
 
 **Knowledge/Skills Recommended:**
 
@@ -538,20 +558,24 @@ Run [Lighthouse tests](https://developer.chrome.com/docs/lighthouse/overview/#de
 Currently, users of the Oppia platform can submit feedback through one of three channels depending on the nature of the issue:
 - Issues related to lessons are reported through the feedback tab present inside the lesson player.
 - Technical issues are generally reported through Github.
-- Additional feedback may be shared through the [site feedback form](https://docs.google.com/forms/d/e/1FAIpQLSceYX653pUB2zalfdFZLybV6x7QI1dTFBrk17SVk5Th68gN-g/viewform) linked in the footer at oppia.org.
+- Additional feedback may be shared through the [site feedback form](https://docs.google.com/forms/d/e/1FAIpQLSceYX653pUB2zalfdFZLybV6x7QI1dTFBrk17SVk5Th68gN-g/viewform) linked in the footer at [oppia.org](https://www.oppia.org/).
 
-Having three different channels for submitting feedback is not ideal because it discourages casual users from reporting issues. Therefore the aim of this project is to introduce a feedback button on every page of Oppia’s web app, clicking on which will open a minimizable modal where users can submit different kinds of feedback. This will make it easier for less technically adept users to submit issues/feedback without having knowledge about the workings of the Oppia platform. The issues/feedback generated will contain metadata (the page the user clicked the feedback button from, current language etc.) which will make it easy to ascertain details about the shared feedback without having the author explicitly mentioning it.
+Three different channels for submitting feedback are not ideal because it discourages casual users from reporting issues. Therefore the aim of this project is to introduce a feedback button on every page of Oppia’s web app, clicking on which will open a minimizable modal where users can submit different kinds of feedback. This will make it easier for less technically adept users to submit issues/feedback without having knowledge about the workings of the Oppia platform. The issues/feedback generated will contain metadata (the page the user clicked the feedback button from, current language, etc.) which will make it easy to ascertain details about the shared feedback without having the author explicitly mentioning it.
 
-The contributor is expected to create a new feedback modal which is reachable from every page on Oppia, possibly by pressing a button on the navbar (or any other spot which is easily reachable by the users).
-Once on this modal, the users should be able to select the type of feedback (technical, content, platform etc.), add a description, upload an image, add server logs (if applicable) and optionally add their contact information (if they are open to the Oppia team following up).
+The contributor is expected to create a new feedback modal that is reachable from every page on Oppia, possibly by pressing a button on the navbar (or any other spot which is easily reachable by the users).
+Once on this modal, the users should be able to select the type of feedback (technical, content, platform, etc.), add a description, upload an image, add server logs (if applicable), and optionally add their contact information (if they are open to the Oppia team following up).
 
-The feedback should then be listed (as a table)  on the Admin page (/admin). Here the feedback is auto redacted after 30 days by stripping out the text fields (or any other field which might contain sensitive data). This makes sure that user privacy is maintained in case they enter some sensitive information (like phone numbers etc.).
+The feedback should then be sent to an email alias (feedback@oppia.org), which would then be evaluated by the tech and PM teams to determine if and how to address them. If feedback is submitted in a language other than English - then auto-translate the feedback into English and include the translation as well as the original text in the filed issue.
 
 **Link to PRD:** [Web user feedback PRD](https://docs.google.com/document/d/1ZUD7nktZrl5ZyxcXfLAqJqb6wI40U9rdg-2vHHWUZ1g/edit)
 
 **Size of this project:** medium (~175 hours)
 
-**Potential Mentors:** TBA
+**Potential Mentors:** @sahiljoster32
+
+**Product Clarifier:** @dchen97
+
+**Technical Clarifier:** @seanlip
 
 **Knowledge/Skills Recommended:**
 
@@ -560,16 +584,14 @@ The feedback should then be listed (as a table)  on the Admin page (/admin). Her
 
 **Suggested Milestones:**
 
-* **Milestone 1:** Create logic for handling the submitted feedback. Make sure the submitted feedback is sanitized, and translated to English (in case it is in some other language). Add necessary metadata to each piece of feedback to add context, after which it is added to a table on the Admin Dashboard.
-* **Milestone 2:** Build the frontend interface to allow users to submit feedback. Make sure this feedback modal is accessible from everywhere on the Oppia platform and supports i18n, is RTL and mobile friendly and has proper aria tags for accessibility.
+* **Milestone 1:** Create logic for handling the submitted feedback. Make sure the submitted feedback is sanitized and translated into English (in case it is in some other language). Add necessary metadata to each piece of feedback to add context, after which it is sent to the feedback team via email.
+* **Milestone 2:** Build the frontend interface to allow users to submit feedback. Ensure this feedback modal is accessible from everywhere on the Oppia platform and supports i18n, is RTL and mobile friendly, and, has proper aria tags for accessibility.
 
 **Proposal notes:**
 
 The feedback needs to have certain metadata attached to it to provide context to the person triaging the issues later down the line. This metadata should include the current page (where the modal has been opened) and the current site language. The information about the current page may be fetched from the [context service](https://github.com/oppia/oppia/blob/e431106a4e473ff62a4f372b60d74f5d3a425734/core/templates/services/context.service.ts#L1) or the URL can itself be used (in case the context service doesn’t provide enough information about the current page). The site language can be fetched using the [i18n language code service](https://github.com/oppia/oppia/blob/e431106a4e473ff62a4f372b60d74f5d3a425734/core/templates/services/i18n-language-code.service.ts#L1).
 
-Take a look at [app_feedback_report_services/domain/gae_models.py](https://github.com/oppia/oppia/blob/f944c7ca68cfad517542f8542819ff173be01359/core/storage/app_feedback_report/gae_models.py#L1), which is the current system for handling feedback. Make sure the submitted feedback is redacted after a period of 30 days. Make sure this happens to the feedback submitted from Android as well. In your proposal, you should clearly explain and demonstrate a strong understanding of the lifecycle of a feedback submission from its creation to deletion.
-
-Also make sure to funnel feedback from Android to the same spreadsheet using the feedback handler for Android that is already present.
+Note that platform-level feedback submitted through this channel should not be stored anywhere in the backend.
 
 To prevent bots from spamming the feedback channel use [Google reCAPTCHA](https://www.google.com/recaptcha/about/) to validate users if they are not logged in (the captcha is not required when the user is signed in).
 
@@ -585,7 +607,11 @@ Contributor dashboard admin page revamp. Table view of contributors with key sta
 
 **Size of this project:** medium (~175 hours)
 
-**Potential Mentors:** TBA
+**Potential Mentors:** @sagangwee
+
+**Product Clarifier:** @dchen97
+
+**Technical Clarifier:** @sagangwee
 
 **Knowledge/Skills Recommended:**
 
@@ -629,7 +655,11 @@ Additionally, finish adding [computer-aided translation (CAT)](https://docs.goog
 
 **Size of this project:** medium (~175 hours)
 
-**Potential Mentors:** TBA
+**Potential Mentors:** @qinghaoyang, @sagangwee
+
+**Product Clarifier:** @dchen97
+
+**Technical Clarifier:** @sagangwee
 
 **Knowledge/Skills Recommended:**
 
@@ -675,7 +705,11 @@ Translation reviewers have given feedback that the current contributor dashboard
 
 **Size of this project:** large (~350 hours)
 
-**Potential Mentors:** TBA
+**Potential Mentors:** @chris7716, @sagangwee
+
+**Product Clarifier:** @dchen97
+
+**Technical Clarifier:** @chris7716, @sagangwee
 
 **Knowledge/Skills Recommended:**
 
@@ -736,7 +770,9 @@ Task set 2
 
 **Size of this project:** large (~350 hours)
 
-**Potential Mentors:**  TBA
+**Potential Mentors:** @lkbhitesh07, @JayVivarekar
+
+**Technical Clarifier:** @lkbhitesh07, @JayVivarekar
 
 **Knowledge/Skills Recommended:**
 
@@ -853,7 +889,11 @@ Here are ideas we have for the future but that you do not need to implement for 
 
 **Size of this project:** large (~350 hours)
 
-**Potential Mentors:**  TBA
+**Potential Mentors:** @U8NWXD, @gp201
+
+**Product Clarifier:** @seanlip
+
+**Technical Clarifier:** @gp201
 
 **Knowledge/Skills Recommended:** Applicants should be familiar with Python and have some exposure to Docker.
 
@@ -934,7 +974,11 @@ Include full documentation on how to update code, test, and deploy new releases 
 
 **Size of this project:** large (~350 hours)
 
-**Potential Mentors:** TBA
+**Potential Mentors:** @U8NWXD, @gp201
+
+**Product Clarifier:** @seanlip
+
+**Technical Clarifier:** @U8NWXD
 
 **Knowledge/Skills Recommended:**
 
@@ -1024,7 +1068,11 @@ Developers often have to wait multiple hours for continuous integration (CI) che
 
 **Size of this project:** large (~350 hours)
 
-**Potential Mentors:** TBA
+**Potential Mentors:** @U8NWXD, @gp201
+
+**Product Clarifier:** @seanlip
+
+**Technical Clarifier:** @U8NWXD
 
 **Knowledge/Skills Recommended:**
 
