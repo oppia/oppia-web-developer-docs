@@ -486,7 +486,7 @@ In the current system,
 The proposed solution to this problem is to:
 
 1. Introduce a clickable keyboard to solve math interactions.
-   1. For algebraic expression, numeric expression and algebraic equation input, a clickable keyboard with special characters will show up below the input field on desktop/mobile. This keyboard will have the basic algebraic keys like ‘+’, ‘-’, ‘×’, ‘÷’, ‘(‘, ‘)’, ‘=’, and when clicked it will “type” that character in the input field. 
+   1. For algebraic expression, numeric expression and algebraic equation input, a clickable keyboard with special characters will show up below the input field on desktop/mobile. This keyboard will have the basic algebraic keys like ‘+’, ‘-’, ‘×’, ‘÷’, ‘(‘, ‘)’, ‘=’, and when clicked it will “type” that character in the input field.
    2. Learners should be able to use both these keys and their standard keyboard when submitting their solution.
 2. Allow learners to submit answers in the form of percentages and allow curriculum admins to convert the responses from text input fields to percentage.
    1. Introduce a percentage interaction with a ‘%’ button below it.
@@ -505,7 +505,7 @@ The proposed solution to this problem is to:
 
 **Product Clarifier:** @dchen97
 
-**Technical Clarifier:** @Lawful2002 
+**Technical Clarifier:** @Lawful2002
 
 **Knowledge/Skills Recommended:**
 
@@ -565,7 +565,7 @@ Three different channels for submitting feedback are not ideal because it discou
 The contributor is expected to create a new feedback modal that is reachable from every page on Oppia, possibly by pressing a button on the navbar (or any other spot which is easily reachable by the users).
 Once on this modal, the users should be able to select the type of feedback (technical, content, platform, etc.), add a description, upload an image, add server logs (if applicable), and optionally add their contact information (if they are open to the Oppia team following up).
 
-The feedback should then be sent to an email alias (feedback@oppia.org), which would then be evaluated by the tech and PM teams to determine if and how to address them. If feedback is submitted in a language other than English - then auto-translate the feedback into English and include the translation as well as the original text in the filed issue.
+The feedback should then be sent to an email alias [feedback@oppia.org](feedback@oppia.org), which would then be evaluated by the tech and PM teams to determine if and how to address them. If feedback is submitted in a language other than English - then auto-translate the feedback into English and include the translation as well as the original text in the filed issue.
 
 **Link to PRD:** [Web user feedback PRD](https://docs.google.com/document/d/1ZUD7nktZrl5ZyxcXfLAqJqb6wI40U9rdg-2vHHWUZ1g/edit)
 
