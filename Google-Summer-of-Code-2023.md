@@ -340,7 +340,11 @@ For (c): In the state editor, when a change is made to a part of a card and this
 
 **Size of this project:** large (~350 hours); can be reduced to medium (~175 hours) if desired (see description)
 
-**Potential Mentors:** TBA
+**Potential Mentors:** @Rijuta-s
+
+**Product Clarifier:** @dchen97
+
+**Technical Clarifier:** @SanjaySajuJacob
 
 **Knowledge/Skills Recommended:**
 
@@ -384,7 +388,11 @@ This project involves the following steps:
 
 **Size of this project:** medium (~175 hours)
 
-**Potential Mentors:** TBA
+**Potential Mentors:** @Nik-09
+
+**Product Clarifier:** @dchen97
+
+**Technical Clarifier:** @seanlip
 
 **Knowledge/Skills Recommended:**
 
@@ -447,7 +455,11 @@ In its current state, the architecture of the learner dashboard is inconsistent 
 
 **Size of this project:** medium (~175 hours)
 
-**Potential Mentors:** TBA
+**Potential Mentors:** @sahiljoster32
+
+**Product Clarifier:** @dchen97
+
+**Technical Clarifier:** @seanlip
 
 **Knowledge/Skills Recommended:**
 
@@ -474,7 +486,7 @@ In the current system,
 The proposed solution to this problem is to:
 
 1. Introduce a clickable keyboard to solve math interactions.
-   1. For algebraic expression, numeric expression and algebraic equation input, a clickable keyboard with special characters will show up below the input field on desktop/mobile. This keyboard will have the basic algebraic keys like ‘+’, ‘-’, ‘×’, ‘÷’, ‘(‘, ‘)’, ‘=’, and when clicked it will “type” that character in the input field. 
+   1. For algebraic expression, numeric expression and algebraic equation input, a clickable keyboard with special characters will show up below the input field on desktop/mobile. This keyboard will have the basic algebraic keys like ‘+’, ‘-’, ‘×’, ‘÷’, ‘(‘, ‘)’, ‘=’, and when clicked it will “type” that character in the input field.
    2. Learners should be able to use both these keys and their standard keyboard when submitting their solution.
 2. Allow learners to submit answers in the form of percentages and allow curriculum admins to convert the responses from text input fields to percentage.
    1. Introduce a percentage interaction with a ‘%’ button below it.
@@ -489,7 +501,11 @@ The proposed solution to this problem is to:
 
 **Size of this project:** medium (~175 hours)
 
-**Potential Mentors:** TBA
+**Potential Mentors:** @kevintab95
+
+**Product Clarifier:** @dchen97
+
+**Technical Clarifier:** @Lawful2002
 
 **Knowledge/Skills Recommended:**
 
@@ -516,7 +532,11 @@ Therefore, the aim of this project is to improve the accessibility of all learne
 
 **Size of this project:** medium (~175 hours)
 
-**Potential Mentors:** TBA
+**Potential Mentors:** @Rijuta-s
+
+**Product Clarifier:** @dchen97
+
+**Technical Clarifier:** @seanlip
 
 **Knowledge/Skills Recommended:**
 
@@ -538,7 +558,7 @@ Run [Lighthouse tests](https://developer.chrome.com/docs/lighthouse/overview/#de
 Currently, users of the Oppia platform can submit feedback through one of three channels depending on the nature of the issue:
 - Issues related to lessons are reported through the feedback tab present inside the lesson player.
 - Technical issues are generally reported through Github.
-- Additional feedback may be shared through the [site feedback form](https://docs.google.com/forms/d/e/1FAIpQLSceYX653pUB2zalfdFZLybV6x7QI1dTFBrk17SVk5Th68gN-g/viewform) linked in the footer at oppia.org.
+- Additional feedback may be shared through the [site feedback form](https://docs.google.com/forms/d/e/1FAIpQLSceYX653pUB2zalfdFZLybV6x7QI1dTFBrk17SVk5Th68gN-g/viewform) linked in the footer at [oppia.org](https://www.oppia.org/).
 
 Three different channels for submitting feedback are not ideal because it discourages casual users from reporting issues. Therefore the aim of this project is to introduce a feedback button on every page of Oppia’s web app, clicking on which will open a minimizable modal where users can submit different kinds of feedback. This will make it easier for less technically adept users to submit issues/feedback without having knowledge about the workings of the Oppia platform. The issues/feedback generated will contain metadata (the page the user clicked the feedback button from, current language, etc.) which will make it easy to ascertain details about the shared feedback without having the author explicitly mentioning it.
 
@@ -551,7 +571,11 @@ The feedback should then be sent to an email alias [feedback@oppia.org](feedback
 
 **Size of this project:** medium (~175 hours)
 
-**Potential Mentors:** TBA
+**Potential Mentors:** @sahiljoster32
+
+**Product Clarifier:** @dchen97
+
+**Technical Clarifier:** @seanlip
 
 **Knowledge/Skills Recommended:**
 
@@ -583,7 +607,11 @@ Contributor dashboard admin page revamp. Table view of contributors with key sta
 
 **Size of this project:** medium (~175 hours)
 
-**Potential Mentors:** TBA
+**Potential Mentors:** @sagangwee
+
+**Product Clarifier:** @dchen97
+
+**Technical Clarifier:** @sagangwee
 
 **Knowledge/Skills Recommended:**
 
@@ -627,7 +655,11 @@ Additionally, finish adding [computer-aided translation (CAT)](https://docs.goog
 
 **Size of this project:** medium (~175 hours)
 
-**Potential Mentors:** TBA
+**Potential Mentors:** @qinghaoyang, @sagangwee
+
+**Product Clarifier:** @dchen97
+
+**Technical Clarifier:** @sagangwee
 
 **Knowledge/Skills Recommended:**
 
@@ -673,7 +705,11 @@ Translation reviewers have given feedback that the current contributor dashboard
 
 **Size of this project:** large (~350 hours)
 
-**Potential Mentors:** TBA
+**Potential Mentors:** @chris7716, @sagangwee
+
+**Product Clarifier:** @dchen97
+
+**Technical Clarifier:** @chris7716, @sagangwee
 
 **Knowledge/Skills Recommended:**
 
@@ -734,7 +770,9 @@ Task set 2
 
 **Size of this project:** large (~350 hours)
 
-**Potential Mentors:**  TBA
+**Potential Mentors:** @lkbhitesh07, @JayVivarekar
+
+**Technical Clarifier:** @lkbhitesh07, @JayVivarekar
 
 **Knowledge/Skills Recommended:**
 
@@ -851,7 +889,11 @@ Here are ideas we have for the future but that you do not need to implement for 
 
 **Size of this project:** large (~350 hours)
 
-**Potential Mentors:**  TBA
+**Potential Mentors:** @U8NWXD, @gp201
+
+**Product Clarifier:** @seanlip
+
+**Technical Clarifier:** @gp201
 
 **Knowledge/Skills Recommended:** Applicants should be familiar with Python and have some exposure to Docker.
 
@@ -932,7 +974,11 @@ Include full documentation on how to update code, test, and deploy new releases 
 
 **Size of this project:** large (~350 hours)
 
-**Potential Mentors:** TBA
+**Potential Mentors:** @U8NWXD, @gp201
+
+**Product Clarifier:** @seanlip
+
+**Technical Clarifier:** @U8NWXD
 
 **Knowledge/Skills Recommended:**
 
@@ -1022,7 +1068,11 @@ Developers often have to wait multiple hours for continuous integration (CI) che
 
 **Size of this project:** large (~350 hours)
 
-**Potential Mentors:** TBA
+**Potential Mentors:** @U8NWXD, @gp201
+
+**Product Clarifier:** @seanlip
+
+**Technical Clarifier:** @U8NWXD
 
 **Knowledge/Skills Recommended:**
 
