@@ -78,7 +78,7 @@ Traceback (most recent call last):
     self._sslobj.do_handshake()
 ConnectionResetError: [Errno 104] Connection reset by peer
 ```
-Then run `pip install "requests[security]"`. 
+Then run `pip install requests[security]`. 
 
 ### `No module named builtins`
 
