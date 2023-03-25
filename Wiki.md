@@ -177,3 +177,12 @@ If the deployment of changes to the wiki following the merging of a pull request
 1. Navigate to the Oppia wiki repository's Actions tab.
 2. Select the "Deploy to wiki" workflow.
 3. Refer to these [instructions](https://docs.github.com/en/actions/managing-workflow-runs/manually-running-a-workflow?tool=webui#running-a-workflow) to manually execute the workflow.
+
+## Tips and Try
+
+* ### How can I see markdown (wiki) preview in Visual Studio Code?
+
+Right-click on the editor Tab and select **Open Preview** (Windows/Linux: `Ctrl+Shift+V`, Mac: `Command+Shift+V`) or use the **Command Palette** Windows/Linux: `Ctrl+Shift+V`, Mac: `Command+Shift+V` to run the **Markdown: Open Preview to the Side** command (Windows/Linux: `Ctrl+K V`, Mac: `Command+K V`). 
+
+#### Demo
+<img width="1074" alt="Screenshot wiki preview" src="https://user-images.githubusercontent.com/76530270/227735960-6dcd4453-4c5a-4eaf-b33b-48a68a2dbdfb.gif">
