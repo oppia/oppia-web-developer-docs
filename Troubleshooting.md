@@ -4,6 +4,7 @@ Here are some general troubleshooting tips for Oppia. The platform specific tips
 
 # Table of Contents
 
+- [[Errno 104] Connection reset by peer](#errno-104-connection-reset-by-peer)
 - [No module named builtins](#no-module-named-builtins)
 - [No Java](#no-java)
 - [Frontend Tests Stuck](#frontend-tests-stuck)
@@ -51,6 +52,34 @@ Here are some general troubleshooting tips for Oppia. The platform specific tips
   - [No Such File or Directory /dev/disk/by-id](#no-such-file-or-directory-devdiskby-id)
   - [First build never completed](#first-build-never-completed)
   - [If the above doesn't work](#if-the-above-doesnt-work)
+
+### `[Errno 104] Connection reset by peer`
+If after running `python -m scripts.start` you get the following lines:
+```
+Traceback (most recent call last):
+  File "/home/vansh/.pyenv/versions/3.8.15/lib/python3.8/urllib/request.py", line 1354, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/home/vansh/.pyenv/versions/3.8.15/lib/python3.8/http/client.py", line 1256, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/home/vansh/.pyenv/versions/3.8.15/lib/python3.8/http/client.py", line 1302, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/home/vansh/.pyenv/versions/3.8.15/lib/python3.8/http/client.py", line 1251, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/vansh/.pyenv/versions/3.8.15/lib/python3.8/http/client.py", line 1011, in _send_output
+    self.send(msg)
+  File "/home/vansh/.pyenv/versions/3.8.15/lib/python3.8/http/client.py", line 951, in send
+    self.connect()
+  File "/home/vansh/.pyenv/versions/3.8.15/lib/python3.8/http/client.py", line 1425, in connect
+    self.sock = self._context.wrap_socket(self.sock,
+  File "/home/vansh/.pyenv/versions/3.8.15/lib/python3.8/ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/home/vansh/.pyenv/versions/3.8.15/lib/python3.8/ssl.py", line 1040, in _create
+    self.do_handshake()
+  File "/home/vansh/.pyenv/versions/3.8.15/lib/python3.8/ssl.py", line 1309, in do_handshake
+    self._sslobj.do_handshake()
+ConnectionResetError: [Errno 104] Connection reset by peer
+```
+Then run `pip install requests[security]`. 
 
 ### `No module named builtins`
 
