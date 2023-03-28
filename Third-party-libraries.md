@@ -88,7 +88,7 @@ We also install the protoc and buf tools for protobuf (these versions are pinned
 
 #### Manifest files
 
-We use a `manifest.json` file to specify other dependencies that we have but which aren't Python packages or Node.js modules. This file has a `dependencies` key, under which it has the following keys:
+We use a `dependencies.json` file to specify other dependencies that we have but which aren't Python packages or Node.js modules. This file has a `dependencies` key, under which it has the following keys:
 
 * `proto`: Files here are installed to `third_party/`
 * `frontend`: Files here are installed to `third_party/static/`
@@ -125,7 +125,7 @@ Under each of these keys is a collection of key-value pairs where each key is a 
   * `tarRootDirPrefix`: Same as `rootDirPrefix` for zip files.
   * `targetDirPrefix`: Same as `targetDirPrefix` for zip files.
 
-New dependencies should not be added to `manifest.json`, as we are trying to remove this method of installing dependencies. Instead, you should use the [node modules](#node-modules) method.
+New dependencies should not be added to `dependencies.json`, as we are trying to remove this method of installing dependencies. Instead, you should use the [node modules](#node-modules) method.
 
 #### Redis and Elasticsearch
 
@@ -197,18 +197,18 @@ You can update all frontend libraries that we install from npm as follows. Note 
 
 #### Upgrade frontend libraries not installed from npm
 
-Other frontend libraries are specified in `manifest.json`. You can upgrade these libraries as follows:
+Other frontend libraries are specified in `dependencies.json`. You can upgrade these libraries as follows:
 
 1. Check for breaking changes in the libraries you want to upgrade. You should:
 
    * Check the library's changelog for breaking changes.
    * Test that after you install the upgraded version (see below), everything works correctly.
 
-2. Change the version in `manifest.json` to the new version you want to install.
+2. Change the version in `dependencies.json` to the new version you want to install.
 
-Note that we don't have an automatic way to detect outdated libraries in `manifest.json`, so to upgrade all such libraries, you have to check each version manually.
+Note that we don't have an automatic way to detect outdated libraries in `dependencies.json`, so to upgrade all such libraries, you have to check each version manually.
 
-Note that we don't have an automatic way to detect outdated libraries in `manifest.json`, so to identify outdated dependencies, you have to look up each library online to find its latest version and compare that to the version specified in `manifest.json`.
+Note that we don't have an automatic way to detect outdated libraries in `dependencies.json`, so to identify outdated dependencies, you have to look up each library online to find its latest version and compare that to the version specified in `dependencies.json`.
 
 ## Add dependencies
 
@@ -245,4 +245,4 @@ If the library is available from npm, you can install it like this:
 
 #### Add a frontend library from outside npm
 
-If your library is not available from npm, you can add it to `manifest.json`. However, you should check with @vojtechjelinek first as we are trying to move away from `manifest.json`.
+If your library is not available from npm, you can add it to `dependencies.json`. However, you should check with @vojtechjelinek first as we are trying to move away from `dependencies.json`.
