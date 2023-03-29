@@ -26,7 +26,7 @@ For the custom on-screen keyboard, the functionality is handled by the component
 ### Backend
 There are some custom objects (e.g. `MathEquation`, `AlgebraicIdentifier`, etc.)  present in `extensions/objects/models/objects.py` that help in type checks for the objects used in these interactions. The validators (e.g. `is_valid_math_expression`, `is_valid_algebraic_expression`, etc.) for these objects are present in `core/schema_utils.py`. 
 
-For backend validations of the data stored for these interactions, we have a custom expression parser in `core/domain/expression_parser.py`. **Note that these need to be in sync with the behavior of nerdamer's validations.** To check nerdamer's behaviour, the source code can be checked [here](https://github.com/jiggzson/nerdamer). To ensure sync, an exhaustive list of test cases (refer to the original proposal) are run on both frontend and backend validators, so these can be updated if and when required.
+For backend validations of the data stored for these interactions, we have a custom expression parser in `core/domain/expression_parser.py`. **Note that these need to be in sync with the behavior of nerdamer's validations.** To check nerdamer's behaviour, the source code can be checked [here](https://github.com/jiggzson/nerdamer). To ensure sync, an exhaustive list of test cases (refer to the original proposal linked in the references section below) are run on both frontend and backend validators, so these can be updated if and when required. These test cases are currently present in `math-interactions.service.spec.ts` for frontend and in `expression_parser_test.py` for backend.
 
 ## FAQs
 - **How is the data stored for these interactions validated?**
@@ -37,17 +37,7 @@ For backend validations of the data stored for these interactions, we have a cus
 
 # Glossary
 - **Syntactic checks:** Checks that ensure structural validity of an expression by checking if a valid abstract syntax tree can be formed for the given expression. For e.g. "a + b / c" is syntactically valid whereas "a + b /" is not.
-- **Logical checks:** Checks that catch logical errors in an expression. A syntactically valid expression can still have logical erros. E.g. "4 + x / 0". 
+- **Logical checks:** Checks that catch logical errors in an expression. A syntactically valid expression can still have logical errors. E.g. "4 + x / 0". 
 
 ## References
 - [Original proposal](https://drive.google.com/file/d/1vB3vxvBUEsYivUgTiZrmUYhmReCfQPQE/view)
-
-## Open Issues
-- [ ] [Division sign customization arg acts exploration-specific instead of being state-specific.](https://github.com/oppia/oppia/issues/13689)
-  - **Context:** The division sign display is Guppy config that is currently set on a global level. This needs to be changed to an instance-level config. But that config context needs to persist for all instances for a given state. Might be a little tricky, need to find a cleaner solution.
-- [ ] [Unexpected error message in guppy input](https://github.com/oppia/oppia/issues/16488)
-  - **Context:"** There are some modifications done to the input provided by guppy where we explicitly add parentheses to some expressions so that the nerdamer and the backend parsers understand the expression. We also have a real-time validation that checks for redundant parentheses in an expression. The modifications seem to be triggering this validation. Check `validateAlgebraicExpression` in `math-interactions.service.ts` for more info.
-- [ ] [The error message "Not a prefix operator" is not clear](https://github.com/oppia/oppia/issues/16358)
-  - **Context:** For showing errors on the frontend, we rely on Nerdamer's syntactic checks and we update the error message thrown by Nerdamer's validator to make it human readable. The error message can be updated to be more user friendly. Check `cleanErrorMessage` in `math-interactions.service.ts`.
-- [ ] [The placeholder text for NumericExpressionInput overflows out of the box.](https://github.com/oppia/oppia/issues/11747)
-  - **Context:** We allow custom placeholder for the guppy inputs so if the custom placeholder text is too long, instead of wrapping, it overflows. This seems to be a non-trivial UI issue that is native to the guppy library. Some hacks were tried to fix this, but a long term fix might be required to handle all scenarios. Check `guppy.html`.

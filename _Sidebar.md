@@ -96,8 +96,6 @@
     * [[How to handle merging of change lists for exploration properties|Guide-to-handle-merging-of-change-lists-for-exploration-properties]]
     * [[Instructions for editing roles or actions|Instructions-for-editing-roles-or-actions]]
     * [[Protocol buffers|Protocol-buffers]]
-  * Interactions
-    * [[Math Interactions Overview | Math-Interactions-Overview]]
   * Translations
     * [[Adding new translations|Adding-new-translations-for-i18n]]
     * [[How to develop for i18n|How-to-develop-for-i18n]]
@@ -107,6 +105,7 @@
   * [[Extension frameworks|Extensions-Overview]]
     * [[Rich Text Components|Rich-Text-Editor-(RTE)-Overview]]
     * [[Interactions|Creating-Interactions]]
+      * [[Math Interactions Overview | Math-Interactions-Overview]]
     * [[Rules|Creating-Rules]]
     * [[Objects|Creating-Objects]]
     * [[Dependencies|Creating-Dependencies]]
