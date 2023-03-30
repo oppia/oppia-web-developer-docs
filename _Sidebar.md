@@ -105,6 +105,7 @@
   * [[Extension frameworks|Extensions-Overview]]
     * [[Rich Text Components|Rich-Text-Editor-(RTE)-Overview]]
     * [[Interactions|Creating-Interactions]]
+      * [[Math Interactions Overview | Math-Interactions-Overview]]
     * [[Rules|Creating-Rules]]
     * [[Objects|Creating-Objects]]
     * [[Dependencies|Creating-Dependencies]]
