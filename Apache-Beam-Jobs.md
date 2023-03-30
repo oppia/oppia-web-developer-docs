@@ -789,6 +789,14 @@ class MigrateToLatestVersion(beam.PTransform):
                 | beam.Flatten()
             )
             results.append(models_to_migrate | beam.FlatMap(do_fn))
+         # add error handling
+        results = (results
+               | beam.Filter(lambda model: model is not None)
+               | beam.Map(lambda model: (model.id, model))
+               | beam.GroupByKey()
+               | beam.Map(lambda kv: kv[1])
+               )
+    return results
 ```
 
 Note that this implementation won't work as-is since we focused on the step where we upgrade the models. To get this fully working, we'd need to write a `Pipeline` that handles loading in the models and writing the upgraded models back to the datastore.
