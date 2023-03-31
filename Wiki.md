@@ -10,6 +10,7 @@
   * [Workflow to revert changes through the web interface](#workflow-to-revert-changes-through-the-web-interface)
   * [Security analysis](#security-analysis)
   * [Failed to push changes to wiki upon PR merge](#failed-to-push-changes-to-wiki-upon-pr-merge)
+* [Tips and Tricks](#tips-and-tricks)
 
 ## Wiki architecture
 
@@ -180,7 +181,7 @@ If the deployment of changes to the wiki following the merging of a pull request
 
 ## Tips and Tricks
 
-* ### How can I see markdown (wiki) preview in Visual Studio Code?
+### How can I see markdown (wiki) preview in Visual Studio Code?
 
 Right-click on the editor Tab and select **Open Preview** (Windows/Linux: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>, Mac: <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>) or use the **Command Palette** Windows/Linux: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>, Mac: <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> to run the **Markdown: Open Preview to the Side** command (Windows/Linux: <kbd>Ctrl</kbd>+<kbd>K</kbd>+<kbd>V</kbd>, Mac: <kbd>Command</kbd>+<kbd>K</kbd>+<kbd>V</kbd>). 
 
