@@ -419,37 +419,54 @@ The Learner Dashboard is the “home page” for signed-in learners. This is the
 In its current state, the architecture of the learner dashboard is inconsistent and unintuitive. Therefore this project aims to fix various issues plaguing the learner dashboard. Broadly, the contributor is expected to the following:
 
 1. Move the “Feedback Updates” tab out of the learner dashboard to the profile pic dropdown. There should also be an indicator that appears when there are updates to show, and the overall feedback-update flow (including sending and receiving messages in feedback threads) should work smoothly.
-2. Update the learner dashboard to have the following architecture:
-   - Home
-     - “Continue where you left off” section
-       1. CTA (call to action) to start any lessons (from Classroom or community library) that are in progress
-       2. CTA to start next suggested lesson for any goals they’ve set (if any)
-       3. CTA to start next suggested lesson to complete for any learner groups they’ve joined (if any)
-     - Learn something new section
-       1. Show topics in classroom and CTA to view the topic pages
-       2. CTA to start any lessons that haven’t been started that are in their Play Later list (if any)
-       3. CTA to go to Math Classroom (“Browse All Math lessons”)
-       4. Lesson search box
-     - Learner Groups section
-       1. Show any invitations that are not yet responded to for learner groups
-       2. Include CTAs to show more info, accept, or decline invitation
-       3. Include a CTA to view any learner groups they’ve already joined (should navigate to the associated learner group page)
-     - Review section
-       1. If they’ve completed any previous topics from the classroom, suggest CTAs for up to 3 relevant review cards
-     - Goals
-       1. CTAs to set or remove any goals (can only have up to 5 goals set at a time)
-       2. Can view current goals and progress towards completing those goals
-       3. Can view previously completed goals
-       4. CTA to start next suggested item to move forward their goal (i.e. next lesson in the topic they need to complete)
-     - Progress
-       1. Can view all lessons (Classroom and Community Library) that are currently in progress
-          - CTA to continue any of these lessons
-       2. Can view all skills they’ve started learning or mastering (i.e. via Practice sessions) and the level of mastery
-          - CTA to start practice session with that skill (will be directed to practice session tab for that topic with that skill pre-selected)
-          - CTA to view relevant review card for that skill
-       3. Can view all completed lessons (Classroom and Community Library)
-3. Make sure the new architecture and UI is responsive and has all the necessary accessibility labels (like aria, tag etc)
 
+2. Update the learner dashboard to have the following architecture:
+
+   1. Home
+
+      1. “Continue where you left off” section
+
+         1. CTA (call to action) to start any lessons (from Classroom or community library) that are in progress
+         2. CTA to start next suggested lesson for any goals they’ve set (if any)
+         3. CTA to start next suggested lesson to complete for any learner groups they’ve joined (if any)
+
+      2. Learn something new section
+
+         1. Show topics in classroom and CTA to view the topic pages
+         2. CTA to start any lessons that haven’t been started that are in their Play Later list (if any)
+         3. CTA to go to Math Classroom (“Browse All Math lessons”)
+         4. Lesson search box
+
+      3. Learner Groups section
+
+         1. Show any invitations that are not yet responded to for learner groups
+         2. Include CTAs to show more info, accept, or decline invitations
+         3. Include a CTA to view any learner groups they’ve already joined (should navigate to the associated learner group page)
+
+      4. Review section
+
+         1. If they’ve completed any previous topics from the classroom, suggest CTAs for up to 3 relevant review cards
+
+   2. Goals
+
+      1. CTAs to set or remove any goals (can only have up to 5 goals set at a time)
+      2. Can view current goals and progress towards completing those goals
+      3. Can view previously completed goals
+      4. CTA to start next suggested item to move forward their goal (i.e. next lesson in the topic they need to complete)
+
+   3. Progress
+
+      1. Can view all lessons (Classroom and Community Library) that are currently in progress
+
+         1. CTA to continue any of these lessons
+
+      2. Can view all skills they’ve started learning or mastering (i.e. via Practice sessions) and the level of mastery
+
+         1. CTA to start practice session with that skill (will be directed to practice session tab for that topic with that skill pre-selected)
+         2. CTA to view relevant review card for that skill
+
+      3. Can view all completed lessons (Classroom and Community Library)
+3. Make sure the new architecture and UI is responsive and has all the necessary accessibility labels (like aria, tag etc)
 
 **Link to PRD:** [Learner Dashboard IA Redesign Project Primer](https://docs.google.com/document/d/1PIs9QaEF_Itbj_H8lLWe-NsP18QSNY0f_JLsZW2e_PQ/edit)
 
@@ -470,9 +487,9 @@ In its current state, the architecture of the learner dashboard is inconsistent 
 * **Milestone 1:** Move the feedback tab out of the learner dashboard and add it in the profile pic dropdown menu and add an indicator to notify the user when there updates to show and update the architecture for the home tab. Verify that the feedback flow is working fully end-to-end.
 * **Milestone 2:** Update the architecture for the Goals and Progress tabs.
 
-**Proposal notes:**
+**Proposal notes:** None
 
-**Useful resources:**
+**Useful resources:** None
 
 ### 1.5. Improvements to Math Interactions
 
@@ -524,9 +541,11 @@ The proposed solution to this problem is to:
 
 **Project Description:**
 
-Oppia aims to provide a good and fruitful learning experience to all people. This includes people with certain conditions like poor vision, hearing loss etc. Certain tools like Lighthouse grade pages based on their accessibility and assign a score from 0 to 1 (inclusive). As of now not all pages on Oppia have an accessibility score of 1, which can make it difficult for some learners to use Oppia which is not ideal.
+Oppia aims to provide a good and fruitful learning experience to all people. This includes people with certain conditions like poor vision, hearing loss etc. Certain tools like **Lighthouse** grade pages based on their accessibility and assign a score from 0 to 1 (inclusive). As of now not all pages on Oppia have an accessibility score of 1, which can make it difficult for some learners to use Oppia which is not ideal.
 
 Therefore, the aim of this project is to improve the accessibility of all learner facing pages on Oppia, i.e. getting the Lighthouse scores of all these pages to 1.0. Under this project, the contributor is expected to fix all [the accessibility issues](https://github.com/oppia/oppia/issues?q=is%3Aissue+is%3Aopen+label%3Aa11y+) that have already been filed and run Lighthouse tests on all learner facing pages and bring their scores to 1.0, if that isn’t already the case.
+
+**What's Explicitly Out of Scope:** Improving the accessibility of non-learner facing pages (e.g. Admin page, Release coordinator page, etc.)
 
 **Link to PRD:** None
 
@@ -565,7 +584,7 @@ Three different channels for submitting feedback are not ideal because it discou
 The contributor is expected to create a new feedback modal that is reachable from every page on Oppia, possibly by pressing a button on the navbar (or any other spot which is easily reachable by the users).
 Once on this modal, the users should be able to select the type of feedback (technical, content, platform, etc.), add a description, upload an image, add server logs (if applicable), and optionally add their contact information (if they are open to the Oppia team following up).
 
-The feedback should then be sent to an email alias [feedback@oppia.org](feedback@oppia.org), which would then be evaluated by the tech and PM teams to determine if and how to address them. If feedback is submitted in a language other than English - then auto-translate the feedback into English and include the translation as well as the original text in the filed issue.
+The feedback should then be sent to an email alias ([feedback@oppia.org](feedback@oppia.org)), which would then be evaluated by the tech and PM teams to determine if and how to address them.
 
 **Link to PRD:** [Web user feedback PRD](https://docs.google.com/document/d/1ZUD7nktZrl5ZyxcXfLAqJqb6wI40U9rdg-2vHHWUZ1g/edit)
 
@@ -584,7 +603,7 @@ The feedback should then be sent to an email alias [feedback@oppia.org](feedback
 
 **Suggested Milestones:**
 
-* **Milestone 1:** Create logic for handling the submitted feedback. Make sure the submitted feedback is sanitized and translated into English (in case it is in some other language). Add necessary metadata to each piece of feedback to add context, after which it is sent to the feedback team via email.
+* **Milestone 1:** Create logic for handling the submitted feedback. Make sure the submitted feedback is sanitized. Add necessary metadata to each piece of feedback to add context, after which it is sent to the feedback team via email.
 * **Milestone 2:** Build the frontend interface to allow users to submit feedback. Ensure this feedback modal is accessible from everywhere on the Oppia platform and supports i18n, is RTL and mobile friendly, and, has proper aria tags for accessibility.
 
 **Proposal notes:**
@@ -653,6 +672,18 @@ Support the marking of languages as “prioritized” for translation. Prioritiz
 
 Additionally, finish adding [computer-aided translation (CAT)](https://docs.google.com/document/d/1kJd-yLTzB9a2c3Nq7v9pzKfHwKHKGpkWfQ8B0YGf50U/edit#heading=h.24wysknhgyrz) support when submitting translation suggestions.
 
+**What's Explicitly Out of Scope:**
+
+* Auto-generation of translated voiceovers
+* Enable concept card translation
+* Enable review card translation
+* Enable auto-translation of images in lessons
+  * Likely will be more difficult to do successfully compared to translating text
+* Surfacing auto-translations in Contributor Dashboard
+* Enable practice question translation
+
+**Link to PRD:** [Language Management and Lesson Auto-translation PRD](https://docs.google.com/document/d/1TeGQQNLNJWkTgvGQ1xmV6snz8zXnJ23TvuDKtK5_Tok/edit?usp=sharing)
+
 **Size of this project:** medium (~175 hours)
 
 **Potential Mentors:** @qinghaoyang, @sagangwee
@@ -673,14 +704,11 @@ Additionally, finish adding [computer-aided translation (CAT)](https://docs.goog
   - Store list of prioritized languages
   - Create beam job to auto-translate remaining text content for a prioritized language
 
-
 * **Milestone 2:** Surface prioritized languages in the UI and add CAT support:
   - Enable the adding of a prioritized language in the contributor dashboard admin page
   - Add note to lesson text content that has been auto-translated
   - Auto-translate non-prioritized language once translation threshold has been achieved (95%)
   - Add computer-aided translation capability to translation contribution modal
-
-
 
 **Dependency on Release Schedule:** Some sections of this proposal may entail writing Beam jobs to update existing server data. The timeline should be arranged so that such jobs can be run and verified during the appropriate release cycle. Note that releases can be delayed by up to a month, and you should account for such delays in your timeline.
 
@@ -688,14 +716,10 @@ Additionally, finish adding [computer-aided translation (CAT)](https://docs.goog
 
 * We’ll likely write a beam job to populate the auto-translations for a language. See the [wiki](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs) for more details.
 * Maybe ~80% of the CAT work is already done, including all of the backend changes. We just need to hook it up in the frontend, e.g. see working PR: [#12624](https://github.com/oppia/oppia/pull/12604/files) and related issue [#11434](https://github.com/oppia/oppia/issues/11434).
-  - See Computer Aided Translations (CAT) backend milestone PRs.
+  - See [Computer Aided Translations (CAT)](https://docs.google.com/document/d/1kJd-yLTzB9a2c3Nq7v9pzKfHwKHKGpkWfQ8B0YGf50U/edit#heading=h.jp6no890gjkv) backend milestone PRs.
 * The CAT backend utilizes the Google Translate API for auto-translations. We can re-use that work here for auto-translations. Alternatively, we can investigate other translate APIs that may offer better translations, e.g. Oppia has done studies in the past that have shown Microsoft to produce preferred translations.
 
-
-**Useful resources:**
-
-* [PRD](https://docs.google.com/document/d/1TeGQQNLNJWkTgvGQ1xmV6snz8zXnJ23TvuDKtK5_Tok/edit?usp=sharing)
-
+**Useful resources:** None
 
 ### 2.3. Improvements for translation reviewer experience
 
