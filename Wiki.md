@@ -11,6 +11,7 @@
   * [Security analysis](#security-analysis)
   * [Failed to push changes to wiki upon PR merge](#failed-to-push-changes-to-wiki-upon-pr-merge)
 * [Tips and Tricks](#tips-and-tricks)
+  * [How can I see markdown (wiki) preview in Visual Studio Code?](#how-can-i-see-markdown-wiki-preview-in-visual-studio-code)
 
 ## Wiki architecture
 
@@ -185,5 +186,4 @@ If the deployment of changes to the wiki following the merging of a pull request
 
 Right-click on the editor Tab and select **Open Preview** (Windows/Linux: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>, Mac: <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>) or use the **Command Palette** Windows/Linux: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>, Mac: <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> to run the **Markdown: Open Preview to the Side** command (Windows/Linux: <kbd>Ctrl</kbd>+<kbd>K</kbd>+<kbd>V</kbd>, Mac: <kbd>Command</kbd>+<kbd>K</kbd>+<kbd>V</kbd>). 
 
-#### Demo
 <img width="1074" alt="Screenshot wiki preview" src="https://user-images.githubusercontent.com/76530270/227735960-6dcd4453-4c5a-4eaf-b33b-48a68a2dbdfb.gif">
