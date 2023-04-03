@@ -472,7 +472,7 @@ In its current state, the architecture of the learner dashboard is inconsistent 
 
 **Size of this project:** medium (~175 hours)
 
-**Potential Mentors:** @sahiljoster32
+**Potential Mentors:** @heyimshivam
 
 **Product Clarifier:** @dchen97
 
