@@ -8,16 +8,16 @@ If you run into any problems along the way, we're here to help! Check out our [[
 
 ## Table of Contents
 
-- [Table of Contents](#table-of-contents)
-- [Setting things up](#setting-things-up)
-- [Developing your skills](#developing-your-skills)
-- [Finding something to do](#finding-something-to-do)
-  - [Good first issues for new contributors](#good-first-issues-for-new-contributors)
-  - [Choosing a good first issue](#choosing-a-good-first-issue)
-  - [Contributor Roles](#contributor-roles)
-  - [Tasks for Existing Contributors](#tasks-for-existing-contributors)
-- [Tips for Success](#tips-for-success)
-- [Notes](#notes)
+* [Setting things up](#setting-things-up)
+* [Developing your skills](#developing-your-skills)
+* [Finding something to do](#finding-something-to-do)
+  * [Good first issues for new contributors](#good-first-issues-for-new-contributors)
+    * [Backend](#backend)
+    * [Frontend](#frontend)
+  * [Contributor Roles](#contributor-roles)
+  * [Tasks for Existing Contributors](#tasks-for-existing-contributors)
+* [Tips for Success](#tips-for-success)
+* [Notes](#notes)
 
 ## Setting things up
 
