@@ -76,7 +76,7 @@ You can also browse good first issues for each of the core Oppia Web teams to fi
 When you've found a good first issue you'd like to tackle, please investigate it first to understand why the issue is happening. Here are some things you should do:
 
 - Read the entire discussion thread to understand what has been tried so far.
-- Try to reproduce the issue on your local dev server. (For Contributor Dashboard issues, the [[Contributor Dashboard wiki page|Contributor-dashboard]] has some useful setup information. For Learner and Creator Experience releated issues, you can refer to the [[LaCE Guide|LaCE-guide]].)
+- Try to reproduce the issue on your local dev server. (For Contributor Dashboard issues, the [[Contributor Dashboard wiki page|Contributor-dashboard]] has some useful setup information. For Learner and Creator Experience releated issues, you can refer to the [[LaCE-onboarding-guide|LaCE onboarding guide]].)
 - Figure out why the problem is happening, and find the relevant code in the Oppia repository to change. (The [['Finding the right code to change' wiki page|Find-the-right-code-to-change]] might be helpful.) If you have trouble with this, feel free to ask on [GitHub Discussion](https://github.com/oppia/oppia/discussions) and explain what you've tried doing so far.
 - If the issue is easy to fix, try to get a rough fix working on your local dev server!
 

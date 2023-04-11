@@ -79,7 +79,7 @@
 **Developer Reference**
 
   * [[Oppiabot|Oppiabot]]
-  * [[LaCE Guide|LaCE-guide]]
+  * [[LaCE onboarding guide|LaCE-onboarding-guide]]
   * Frontend
     * [[Angular Migration | Angular-Migration]]
     * [UX guidelines](https://github.com/oppia/oppia/wiki/Oppia-UX-guidelines-&-rationales)
