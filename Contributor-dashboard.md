@@ -36,14 +36,16 @@ There exists a separate admin page for the contributor dashboard at /contributor
 See [this](https://docs.google.com/document/d/1VqNiJttq85YyR6cQkd8M9lGGkOP8OlUlkI37Xw6SovM/edit) doc for step-by-step admin instructions. This may be useful for developing locally as a coder as well.
 
 ## Local development
-Some setup is usually required when developing locally for the contributor dashboard since before a user can submit a content suggestion to a lesson, a lesson needs to exist. Additionally, the requirements outlined in [How items for contribution are populated](#how-items-for-contribution-are-populated) must be satisfied. To start a local
-development server with pre-populated contributor dashboard data, run the `start.py` script with the `--contributor_dashboard_debug` command-line flag:
+Some setup is usually required when developing locally for the contributor dashboard since before a user can submit a content suggestion to a lesson, a lesson needs to exist. Additionally, the requirements outlined in [How items for contribution are populated](#how-items-for-contribution-are-populated) must be satisfied. To pre-populate contributor dashboard data, run the `populate_sample_contributor_data.py` script after starting a local development server:
 
 ```
-python -m scripts.start --contributor_dashboard_debug
+python -m scripts.start
+```
+```
+python -m scripts.populate_sample_contributor_data
 ```
 
-Specifying the flag will automatically do the following:
+The `populate_sample_contributor_data.py` script will automatically do the following:
 1. Create an admin user with the username "a" and email testadmin@example.com,
 and grant curriculum, translation, and question admin rights to the user.
 2. Create a non-admin user with the username "b" and email
