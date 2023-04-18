@@ -12,8 +12,7 @@ If you run into any problems along the way, we're here to help! Check out our [[
 * [Developing your skills](#developing-your-skills)
 * [Finding something to do](#finding-something-to-do)
   * [Good first issues for new contributors](#good-first-issues-for-new-contributors)
-    * [Backend](#backend)
-    * [Frontend](#frontend)
+  * [How to tackle good first issues](#how-to-tackle-good-first-issues)
   * [Contributor Roles](#contributor-roles)
   * [Tasks for Existing Contributors](#tasks-for-existing-contributors)
 * [Tips for Success](#tips-for-success)
@@ -71,7 +70,7 @@ You can also browse good first issues for each of the core Oppia Web teams to fi
 - Contributor Dashboard: https://github.com/orgs/oppia/projects/18/views/5, typically frontend or full-stack
 - Developer Workflow: https://github.com/orgs/oppia/projects/8/views/10, typically backend or frontend
 
-### Choosing a good first issue
+### How to tackle good first issues
 
 When you've found a good first issue you'd like to tackle, please investigate it first to understand why the issue is happening. Here are some things you should do:
 
