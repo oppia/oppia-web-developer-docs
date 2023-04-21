@@ -75,44 +75,45 @@ The testers have to be in constant touch with both the QA coordinator as well as
 
 We also have a project leads council who will be contacted about project specific bugs, and the QA team will report the bug to the concerned project lead. This will help us get people with experience in the area to help fix the bug quicker.
 
-**Note:** If you would like to help out with the release testing, please contact @nithusha21 or @aks681. They will be able to guide you further. 
+**Note:** If you would like to help out with the release testing, please contact @vojtechjelinek or @kevintab95. They will be able to guide you further. 
 
 
 # Team members
 * Release team: 
   * Sandeep Dubey (**@DubeySandeep**)
-  * Nithesh Hariharan (**@nithusha21**)
   * Akshay Anand (**@aks681**)
   * Vojtěch Jelínek (**@vojtechjelinek**)
   * Kevin Thomas (**@kevintab95**)
   * Chris Skalnik (**@U8NWXD**)
-  * Ankita Saxena (**@ankita240796**)
+  * Praneeth G (**@gp201**)
+  * Sagang Wee (**@sagangwee**)
+  * Hasitha Kaushan (**@chris7716**)
+  * Sanjay Saju (**@SanjaySajuJacob**)
+  * Priyansh Mehta (**@Priyansh61**)
 
 * Release Coordination team:
-  * Nithesh Hariharan (**@nithusha21**)
   * Vojtěch Jelínek (**@vojtechjelinek**)
 
-* QA coordinators team: 
-  * Nithesh Hariharan (**@nithusha21**)
+* QA coordinators team:
   * Akshay Anand (**@aks681**)
   * Chris Skalnik (**@U8NWXD**)
   * Kevin Thomas (**@kevintab95**)
   * Vojtěch Jelínek (**@vojtechjelinek**)
-  * Rohit Katlaa (**@rohitkatlaa**)
 
 # Release coordinators and QA coordinators for upcoming releases
 
 **Note:** If you can't make it to a shift mentioned in the below rota, please make sure to swap with someone else in advance! 
 
-| Month         | Release cut date | Release team member         | QA coordinator              | Server errors coordinator   |
-| ------------- | ---------------- | --------------------------- | --------------------------- | --------------------------- |
-| March         | 4th March        | Kevin (**@kevintab95**)     | Vojta (**@vojtechjelinek**) | Kevin (**@kevintab95**)     |
-| April         | 1st April        | Akshay (**@aks681**)        | Chris (**@U8NWXD**)         | Kevin (**@vojtechjelinek**) |
-| May           | 6th May          | Chris (**@U8NWXD**)         | Nithesh (**@nithusha21**)   | Kevin (**@kevintab95**)     |
-| June          | 1st June         | Vojta (**@vojtechjelinek**) | Akshay (**@aks681**)        | Vojta (**@vojtechjelinek**) |
-| July          | 29th June        | Kevin (**@kevintab95**)     | Nithesh (**@nithusha21**)   | Vojta (**@vojtechjelinek**) |
-| August        | 3rd August       | Vojta (**@vojtechjelinek**) | Kevin (**@kevintab95**)     | Kevin (**@kevintab95**)     |
-| September     | 31st August      | Sandeep (**@DubeySandeep**) | Rohit (**@rohitkatlaa**)    | Kevin (**@kevintab95**)     |
-| October       | 28th September   | Kevin (**@kevintab95**)     | Nithesh (**@nithusha21**)   | Vojta (**@vojtechjelinek**) |
-| November      | 2nd November     | Akshay (**@aks681**)        | Vojta (**@vojtechjelinek**) | Kevin (**@kevintab95**)     |
-| December      | 30th November    | Chris (**@U8NWXD**)         | Rohit (**@rohitkatlaa**)    | Kevin (**@kevintab95**)     |
+| Month     | Release cut date | Release coordinator           | Release coordinator mentor  | QA coordinator              | Server errors coordinator |
+|-----------|------------------|-------------------------------|-----------------------------|-----------------------------|-------------------------|
+| February  | 1st February     | Kevin (**@kevintab95**)       | Kevin (**@kevintab95**)     | Vojta (**@vojtechjelinek**) | Kevin (**@kevintab95**) |
+| March     | 1st March        | Sanjay (**@SanjaySajuJacob**) | Chris (**@U8NWXD**)         | Sandeep (**@DubeySandeep**) | Kevin (**@kevintab95**) |
+| April     | 3rd April        | Sagang (**@sagangwee**)       | Akshay (**@aks681**)        | Kevin (**@kevintab95**)     | Kevin (**@kevintab95**) |
+| May       | 6th May          | Hasitha (**@chris7716**)      | Sandeep (**@DubeySandeep**) | Chris (**@U8NWXD**)         | Kevin (**@kevintab95**) |
+| June      | 31st May         | Praneeth (**@gp201**)         | Kevin (**@kevintab95**)     | Akshay (**@aks681**)        | Kevin (**@kevintab95**) |
+| July      | 28th June        | Priyansh (**@Priyansh61**)    | Chris (**@U8NWXD**)         | Sandeep (**@DubeySandeep**) | Kevin (**@kevintab95**) |
+| August    | 2nd August       | Akshay (**@aks681**)          |                             | Kevin (**@kevintab95**)     | Kevin (**@kevintab95**) |
+| September | 30th August      | Sandeep (**@DubeySandeep**)   |                             | Chris (**@U8NWXD**)         | Kevin (**@kevintab95**) |
+| October   | 4th October      | Kevin (**@kevintab95**)       |                             | Akshay (**@aks681**)        | Kevin (**@kevintab95**) |
+| November  | 1st November     | Chris (**@U8NWXD**)           |                             | Sandeep (**@DubeySandeep**) | Kevin (**@kevintab95**) |
+| December  | 29th November    | Akshay (**@aks681**)          |                             | Kevin (**@kevintab95**)     | Kevin (**@kevintab95**) |

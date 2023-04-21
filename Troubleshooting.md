@@ -1,10 +1,90 @@
 ## General
 
-Here are some general troubleshooting tips for Oppia. The platform specific tips are [[Linux|Troubleshooting#linux]], [[Windows|Troubleshooting#windows]], and [[Mac OS|Troubleshooting#mac-os]].
+Here are some general troubleshooting tips for Oppia. The platform specific tips are [Linux](#linux), [Windows](#windows), and [Mac OS](#mac-os).
+
+# Table of Contents
+
+- [[Errno 104] Connection reset by peer](#errno-104-connection-reset-by-peer)
+- [No module named builtins](#no-module-named-builtins)
+- [No Java](#no-java)
+- [Frontend Tests Stuck](#frontend-tests-stuck)
+- [Selenium Server Not Killed by Ctrl-C](#selenium-server-not-killed-by-ctrl-c)
+- [403 Error](#403-error)
+- [MERGE_MSG Newer than Swap File](#merge_msg-newer-than-swap-file)
+- [Warnings from start.py](#warnings-from-startpy)
+- [No Such File or Directory: Google Cloud SDK](#no-such-file-or-directory-google-cloud-sdk)
+- [No module named '\_sqlite3'](#no-module-named-_sqlite3)
+- [Problems Cloning from GitHub](#problems-cloning-from-github)
+- [Certificate Verify Failed](#certificate-verify-failed)
+- [No Module Named Scripts](#no-module-named-scripts)
+- [Invalid Syntax](#invalid-syntax)
+- [Java Read Past EOF](#java-read-past-eof)
+- [Low RAM](#low-ram)
+- [Failed to Start Server on Port XXXX](#failed-to-start-server-on-port-xxxx)
+- [Failed to connect to raw.githubusercontent.com port 443](#failed-to-connect-to-rawgithubusercontentcom-port-443)
+- [./portserver.socket is not listed in the .github/CODEOWNERS file](#portserversocket-is-not-listed-in-the-githubcodeowners-file)
+- [Push fails due to connection timeout](#push-fails-due-to-connection-timeout)
+- [Exception: Error compiling proto files](#exception-error-compiling-proto-files)
+- [Linux](#linux)
+  - [Python 2 is not available](#python-2-is-not-available)
+  - [OSError: [Errno 2] No such file or directory](#oserror-errno-2-no-such-file-or-directory)
+  - [Pip: Cannot Import Name Main](#pip-cannot-import-name-main)
+  - [System Limit for Number of File Watchers Reached](#system-limit-for-number-of-file-watchers-reached)
+  - [No Module functools_lru_cache](#no-module-functools_lru_cache)
+  - [No Module appengine.api](#no-module-appengineapi)
+  - [ModuleNotFoundError: No module named \_bz2](#modulenotfounderror-no-module-named-_bz2)
+- [Mac OS](#mac-os)
+  - [Python 2 is not available](#python-2-is-not-available-1)
+  - [Error: alert_on_exit() -> Iterator[None]](#error-alert_on_exit---iteratornone)
+  - [Local datastore data are not being deleted](#local-datastore-data-are-not-being-deleted)
+  - [No module named '\_ctypes' on M1 Macs](#no-module-named-_ctypes-on-m1-macs)
+  - [Cannot Import Name \_imaging](#cannot-import-name-_imaging)
+  - [Command cc failed with exit status 1](#command-cc-failed-with-exit-status-1)
+  - [GitPython Not Installed](#gitpython-not-installed)
+  - [Install Imaging](#install-imaging)
+  - [No Java Runtime Present](#no-java-runtime-present)
+  - [503 Error when Starting Appengine](#503-error-when-starting-appengine)
+  - [SSL Wrong Version Number](#ssl-wrong-version-number)
+  - [SSL Verification Issues](#ssl-verification-issues)
+  - [Yarn: ESOCKETTIMEDOUT](#yarn-esockettimedout)
+- [Windows](#windows)
+  - [Windows Firewall](#windows-firewall)
+  - [No Such File or Directory /dev/disk/by-id](#no-such-file-or-directory-devdiskby-id)
+  - [First build never completed](#first-build-never-completed)
+  - [If the above doesn't work](#if-the-above-doesnt-work)
+
+### `[Errno 104] Connection reset by peer`
+If after running `python -m scripts.start` you get the following lines:
+```
+Traceback (most recent call last):
+  File "/home/vansh/.pyenv/versions/3.8.15/lib/python3.8/urllib/request.py", line 1354, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/home/vansh/.pyenv/versions/3.8.15/lib/python3.8/http/client.py", line 1256, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/home/vansh/.pyenv/versions/3.8.15/lib/python3.8/http/client.py", line 1302, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/home/vansh/.pyenv/versions/3.8.15/lib/python3.8/http/client.py", line 1251, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/vansh/.pyenv/versions/3.8.15/lib/python3.8/http/client.py", line 1011, in _send_output
+    self.send(msg)
+  File "/home/vansh/.pyenv/versions/3.8.15/lib/python3.8/http/client.py", line 951, in send
+    self.connect()
+  File "/home/vansh/.pyenv/versions/3.8.15/lib/python3.8/http/client.py", line 1425, in connect
+    self.sock = self._context.wrap_socket(self.sock,
+  File "/home/vansh/.pyenv/versions/3.8.15/lib/python3.8/ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/home/vansh/.pyenv/versions/3.8.15/lib/python3.8/ssl.py", line 1040, in _create
+    self.do_handshake()
+  File "/home/vansh/.pyenv/versions/3.8.15/lib/python3.8/ssl.py", line 1309, in do_handshake
+    self._sslobj.do_handshake()
+ConnectionResetError: [Errno 104] Connection reset by peer
+```
+Then run `pip install requests[security]`. 
 
 ### `No module named builtins`
 
 If after running `python -m scripts.start` you get the following lines:
+
 ```
 Traceback (most recent call last):
 File "/usr/lib/python2.7/runpy.py", line 174, in _run_module_as_main
@@ -60,13 +140,13 @@ If you’re seeing issues when trying to merge from upstream/develop that say so
 
 If you see an error that says something along the lines of `OSError: [Errno 2] No such file or directory: '/.../opensource/oppia_tools/google-cloud-sdk-XXX.X.X/google-cloud-sdk/platform/google_appengine/google/appengine'` while running `scripts.start` - then try deleting the `../oppia_tools` directory and then running `scripts.start` again.
 
-### No module named '_sqlite3'
+### No module named '\_sqlite3'
 
 If you see an error that says something along the lines of `ERROR: gcloud failed to load: No module named _sqlite3` while running `scripts.start` - then follow the steps below:
 
-1. Uninstall Python 3.7.10 from pyenv with the command: `pyenv uninstall 3.7.10`
+1. Uninstall Python 3.8.15 from pyenv with the command: `pyenv uninstall 3.8.15`
 2. Install the packages as per the [wiki](https://github.com/pyenv/pyenv/wiki#suggested-build-environment) to have the suggested build environment.
-3. Install Python 3.7.10 from pyenv with the command: `pyenv install 3.7.10` and make sure that there are no warnings or errors in the output of the command.
+3. Install Python 3.8.15 from pyenv with the command: `pyenv install 3.8.15` and make sure that there are no warnings or errors in the output of the command.
 
 ### Problems Cloning from GitHub
 
@@ -88,8 +168,8 @@ If you see an error that contains `No module named scripts` when trying to run a
 
 If you repeatedly get errors with `SyntaxError: invalid syntax` for a module or class that you didn’t edit and/or is part of a third party library, then try doing either of the following…
 
-* Be sure that libraries were installed using Python 3. If not, uninstall all Python 2 environments and reinstall everything in Python 3.
-* Delete the `oppia_tools` directory and rerun the script
+- Be sure that libraries were installed using Python 3. If not, uninstall all Python 2 environments and reinstall everything in Python 3.
+- Delete the `oppia_tools` directory and rerun the script
 
 ### Java Read Past EOF
 
@@ -109,22 +189,28 @@ For possible workarounds, see [[Failed to Start Server on Port XXXX|Troubleshoot
 
 If you see `Failed to start server on port XXXX, exiting ...` here are some possible solutions:
 
-* Sometimes this happens because the service is taking a long time to start running on that port. If the service takes longer than our timeout, you'll see this message. To fix this, you can increase the timeout in `scripts/common.py` by increasing the value of `MAX_WAIT_TIME_FOR_PORT_TO_OPEN_SECS`. This can also happen when your machine is running more slowly than usual. Quitting resource-intensive applications or rebooting may help.
-* Sometimes this happens because the server earlier failed to shutdown correctly. You may need to kill remaining processes. You can search for processes containing `oppia`, and `elasticsearch` like this: `ps -ax | grep <search term>`. This will show the process ID numbers, which you can pass to `kill` to kill the process like this: `kill <process ID>`.
-* Some developers have found that they have to run some services manually to get Oppia to work. This is an unsupported workaround, but you may find it useful:
-  * Redis (port 6379) on M1 macs:
+- Sometimes this happens because the service is taking a long time to start running on that port. If the service takes longer than our timeout, you'll see this message. To fix this, you can increase the timeout in `scripts/common.py` by increasing the value of `MAX_WAIT_TIME_FOR_PORT_TO_OPEN_SECS`. This can also happen when your machine is running more slowly than usual. Quitting resource-intensive applications or rebooting may help.
+- Sometimes this happens because the server earlier failed to shutdown correctly. You may need to kill remaining processes. You can search for processes containing `oppia`, and `elasticsearch` like this: `ps -ax | grep <search term>`. This will show the process ID numbers, which you can pass to `kill` to kill the process like this: `kill <process ID>`.
+- Some developers have found that they have to run some services manually to get Oppia to work. This is an unsupported workaround, but you may find it useful:
+
+  - Redis (port 6379) on M1 macs:
     1. Install Rosetta 2 try [this](https://www.google.com/url?q=https://stackoverflow.com/questions/64882584/how-to-run-the-homebrew-installer-under-rosetta-2-on-m1-macbook%23:~:text%3DYou%2520can%2520run%2520Terminal%2520with,%2522Open%2520using%2520Rosetta%2522%2520option&sa=D&source=hangouts&ust=1611504651223000&usg=AFQjCNFhJysGCAFdzLswFuK5JVoxjs6CwQ)
     2. Inside Rosetta perform all the installations/prerequisites.
        Note: If `sudo easy_install pyyaml` does not work try using `pip install pyyaml`.
     3. Open the Rosetta terminal and download redis server using `pip install redis`.
     4. Run redis-server with the following cmd: `redis-server` (**Don't stop the redis server**)
     5. Open another rosetta terminal and run `python -m scripts.start`
-  * Elasticsearch (port 9200):
+  - Elasticsearch (port 9200):
 
     ```console
     $ oppia_tools/elasticsearch-<version>/bin/elasticsearch
     ```
+
     For some version number `<version>`.
+
+### Failed to connect to raw.githubusercontent.com port 443
+
+Change the DNS address to 8.8.8.8 or change your network/WiFi.
 
 ### `./portserver.socket is not listed in the .github/CODEOWNERS file`
 
@@ -191,9 +277,9 @@ If you are getting something like this in M1 macbooks when running `python -m sc
 ```
 b'protoc-gen-js: program not found or is not executable\Please specify a program using absolute path or make sure the program is available in your PATH system variable\n--js_out: protoc-gen-js: Plugin failed with status code 1. Inplugin js: exit status 1\n
 Traceback (most recent call last) :
-   File "/Users/.../.pyenv/versions/3.7.10/lib/python3.7/runpy.py", line 193, in _run_module_as_main
+   File "/Users/.../.pyenv/versions/3.8.15/lib/python3.8/runpy.py", line 193, in _run_module_as_main
       "main" mod_spec)
-   File "/Users/.../.pyenv/versions/3.7.10/lib/python3.7/runpy.py", line 85, in run_code
+   File "/Users/.../.pyenv/versions/3.8.15/lib/python3.8/runpy.py", line 85, in run_code
       exec (code, run globals)
    File "/Users/.../opensource/oppia/scripts/start.py", line 32, in <module>
       install_third_party_libs.main()
@@ -203,6 +289,7 @@ Traceback (most recent call last) :
       raise Exception ('Error compiling proto files at %s' % path)
    Exception: Error compiling proto files at /Users/.../opensource/oppia/third_party/oppia-ml-proto-0.0.0
 ```
+
 Try searching for where protoc is installed (probably in `/opt/homebrew/bin/protoc`) and remove it and then re-run the command.
 
 ## Linux
@@ -210,15 +297,17 @@ Try searching for where protoc is installed (probably in `/opt/homebrew/bin/prot
 ### Python 2 is not available
 
 If you get error like this when running `python -m scripts.start`:
+
 ```
 ERROR: (dev_appserver) python2: command not found
 ```
-you will need to install Python 2 on your platform, even though Oppia doesn't use Python 2 anymore some parts of the App Engine dev server still need it. If you are on Ubuntu, you should be able to fix this using `sudo apt install python2`. 
 
+you will need to install Python 2 on your platform, even though Oppia doesn't use Python 2 anymore some parts of the App Engine dev server still need it. If you are on Ubuntu, you should be able to fix this using `sudo apt install python2`.
 
 ### OSError: [Errno 2] No such file or directory
 
 If you get an error like this
+
 ```
   File "/home/…/oppia/oppia_tools/google-cloud-sdk-335.0.0/google-cloud-sdk/platform/google_appengine/google/appengine/tools/devappserver2/module.py", line 231, in _create_instance_factory
     module_configuration=module_configuration)
@@ -236,19 +325,21 @@ If you get an error like this
     raise child_exception
 OSError: [Errno 2] No such file or directory
 ```
+
 please follow the instructions mentioned in [#13672](https://github.com/oppia/oppia/issues/13672) to fix it.
 
 ### Pip: Cannot Import Name Main
 
 If you get an error while running install_third_party.py which ends with:
+
 ```
 Traceback (most recent call last):
 File "/usr/bin/pip", line 9, in <module>
 from pip import main
 ImportError: cannot import name main
 ```
-Try running `$ python -m pip uninstall pip` followed by running `$ python -m scripts.install_third_party` (source: [SO thread](https://stackoverflow.com/questions/49964093/file-usr-bin-pip-line-9-in-module-from-pip-import-main-importerror-canno)).
 
+Try running `$ python -m pip uninstall pip` followed by running `$ python -m scripts.install_third_party` (source: [SO thread](https://stackoverflow.com/questions/49964093/file-usr-bin-pip-line-9-in-module-from-pip-import-main-importerror-canno)).
 
 ### System Limit for Number of File Watchers Reached
 
@@ -260,50 +351,52 @@ Error: ENOSPC: System limit for number of file watchers reached, watch 'some fil
 ```
 
 then you will need to increase the number of system watchers by running the command:
+
 ```
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 ```
-Use the same command in the cases where the changes made by you to files are not being detected by the server.
 
+Use the same command in the cases where the changes made by you to files are not being detected by the server.
 
 ### No Module functools_lru_cache
 
 If you get an error of the format:
+
 ```
 ImportError: No module named functools_lru_cache
 ```
 
 First check the directory `../oppia_tools/pylint-1.9.4` and if it is empty, re-install the missing prerequisites by running:
+
 ```
 python -m scripts.start
 ```
 
 If the directory is not empty and you still get the same error, try installing matplotlib by running the following command:
+
 ```
 sudo apt-get install python3-matplotlib
 ```
 
-
 ### No Module appengine.api
 
 If after running `python -m scripts.linters.pre_commit_linter`, you get an error that contains:
+
 ```
 No module named appengine.api
 ```
+
 If you're not using a virtual environment, make sure that the path to the appengine lib is locatable. Also, make sure that there are no other versions of google libraries installed globally which may cause path conflict issues. Refer to [this blog](https://medium.com/@maanavshah/fixing-python-import-error-no-module-named-appengine-ebcb540e7f18) for more reference.
 If this error occurs within a virtual environment, try reinstalling the libs by running clean.py followed by start.py.
 
+### ModuleNotFoundError: No module named \_bz2
 
-
-### ModuleNotFoundError: No module named _bz2
 1. Install bz2 headers. Use the command `sudo apt-get install libbz2-dev` on Ubuntu.
-2. Install Python 3 again so that the bz2 library gets included in `~/.pyenv/versions/3.7.10/lib/python3.7/`. Use the command `pyenv install 3.7.10`.
-
-
+2. Install Python 3 again so that the bz2 library gets included in `~/.pyenv/versions/3.8.15/lib/python3.8/`. Use the command `pyenv install 3.8.15`.
 
 ## Mac OS
 
-### Python 2 is not available 
+### Python 2 is not available
 
 If you get error like this when running `python -m scripts.start`:
 
@@ -311,7 +404,7 @@ If you get error like this when running `python -m scripts.start`:
 ERROR: (dev_appserver) python2: command not found
 ```
 
-you will need to install Python 2 on your platform, even though Oppia doesn't use Python 2 anymore some parts of the App Engine dev server still need it. If you have MacOS >= 12.3, please follow the steps listed [here](https://github.com/oppia/oppia/wiki/Installing-Oppia-(Mac-OS;-Python-3)#install-prerequisites) to install Python 2 on your system. 
+you will need to install Python 2 on your platform, even though Oppia doesn't use Python 2 anymore some parts of the App Engine dev server still need it. If you have MacOS >= 12.3, please follow the steps listed [here](https://github.com/oppia/oppia/wiki/Installing-Oppia-(Mac-OS;-Python-3)#install-prerequisites) to install Python 2 on your system.
 
 ### Error: alert_on_exit() -> Iterator[None]
 
@@ -327,10 +420,11 @@ Traceback (most recent call last):
     self.code = compile(source, self.filename, 'exec')
   File "/Users/Desktop/opensource-oppia/oppia/scripts/start.py", line 85
     def alert_on_exit() -> Iterator[None]:
-``` 
+```
 
-Then, 
-1. Open your `.bash_profile` file, and check if there are two versions of Python listed inside of it, one for Python 2.7 and other for Python 3.7. Simply remove the entry for Python 2.7. Finally, this is how your file should look like: 
+Then,
+
+1. Open your `.bash_profile` file, and check if there are two versions of Python listed inside of it, one for Python 2.7 and other for Python 3.8. Simply remove the entry for Python 2.7. Finally, this is how your file should look like:
 
 ```
 export PYENV_ROOT="$HOME/.pyenv"
@@ -346,16 +440,15 @@ PATH="/Library/Frameworks/Python.framework/Versions/3.10/bin:${PATH}"
 export PATH
 ```
 
-2. Reload the .bash_profile by doing “source .bash_profile”, and now start your Oppia server `python -m scripts.start`. 
+2. Reload the .bash_profile by doing “source .bash_profile”, and now start your Oppia server `python -m scripts.start`.
 
 **Note:** Even if the bash_profile file doesn’t contain two entries for Python version per #1, please do #2 in order to make sure that the new version of Python is set for the virtual environment.
-
 
 ### Local datastore data are not being deleted
 
 In some cases it is possible that the local datastore data are not deleted when the server is rerun, you can delete the data by running `curl -X POST http://localhost:8089/reset` when the devserver is running.
 
-### No module named '_ctypes' on M1 Macs
+### No module named '\_ctypes' on M1 Macs
 
 When one contributor got a `ModuleNotFoundError: No module named '_ctypes'` error when installing on an M1 Mac with Rosetta, they found that using Python 3.9 worked.
 
@@ -372,15 +465,20 @@ After running `python -m scripts.start`, if you get an error around the followin
          from . import _imaging as core
    ImportError: cannot import name _imaging
 ```
- (note: [Google search results](https://pillow.readthedocs.io/en/stable/installation.html#warnings) indicate that PIL and Pillow cannot coexist in the same environment)
+
+> **Note**  
+> [Google search results]
+(https://pillow.readthedocs.io/en/stable/installation.html#warnings) indicate that PIL and Pillow cannot coexist in the same environment
 
 First stop the script running with Ctrl + C (or Command-period on a MAC).
 Try uninstalling PIL:
+
 ```
   $ pip uninstall PIL
 ```
 
 Then, uninstall and reinstall Pillow
+
 ```
   $ pip uninstall pillow
   $ pip install pillow
@@ -388,21 +486,19 @@ Then, uninstall and reinstall Pillow
 
 Finally, try running the `python -m scripts.start` script again.
 
-
 ### Command cc failed with exit status 1
 
-If, on MacOS Mojave V10.14.x, you get an issue arises while installing PIL library that has a lot of gibberish and that includes stuff like:
+If you encounter an issue during the installation of the PIL library on MacOS Mojave V10.14.x, which includes a lot of meaningless characters and contains logs such as:
 
-  `error: command 'cc' failed with exit status 1`
+* `error: command 'cc' failed with exit status 1`
 
-  `error: command 'clang' failed with exit status 1`
+* `error: command 'clang' failed with exit status 1`
 
 then try running this command on terminal ([reference](https://github.com/python-pillow/Pillow/issues/3438)):
 
 ```
   sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /
 ```
-
 
 ### GitPython Not Installed
 
@@ -414,13 +510,12 @@ GitPython is not installed for Python 3.x the 'dist' command will not work witho
 
 please install [GitPython](http://gitpython.readthedocs.io/en/stable/intro.html#installing-gitpython) before proceeding further.
 
-
 ### Install Imaging
 
 If you get an error that includes:
 
 ```
-Command "/usr/local/opt/python@3/bin/python3.7 -u -c "import setuptools, tokenize;__file__='/private/tmp/pip-req-build-TGvu2M/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" install --record /private/tmp/pip-record-6nuoQh/install-record.txt --single-version-externally-managed --compile --home=/private/tmp/pip-target-CMgDrw" failed with error code 1 in /private/tmp/pip-req-build-TGvu2M/
+Command "/usr/local/opt/python@3/bin/python3.8 -u -c "import setuptools, tokenize;__file__='/private/tmp/pip-req-build-TGvu2M/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" install --record /private/tmp/pip-record-6nuoQh/install-record.txt --single-version-externally-managed --compile --home=/private/tmp/pip-target-CMgDrw" failed with error code 1 in /private/tmp/pip-req-build-TGvu2M/
 ```
 
 please run the following comands:-
@@ -433,7 +528,6 @@ pip install http://effbot.org/downloads/Imaging-1.1.7.tar.gz
 
 For more details look up the following [link](https://answers.ros.org/question/145856/having-trouble-installing-pil-in-mac-osx/?answer=146471#post-id-146471)
 
-
 ### No Java Runtime Present
 
 If you get an error that includes:
@@ -442,26 +536,24 @@ If you get an error that includes:
 No Java runtime present, requesting install.
 closure-compiler failed.
 ```
-please download [Java](https://support.apple.com/kb/DL1572?locale=en_US) and install it.
 
+Please download [Java](https://support.apple.com/kb/DL1572?locale=en_US) and install it.
 
 ### 503 Error when Starting Appengine
 
 if you run into an error that looks like this when starting App Engine:
 
 ```
-File "/System/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/urllib2.py", line 558, in http_error_default
+File "/System/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib2.py", line 558, in http_error_default
     raise HTTPError(req.get_full_url(), code, msg, hdrs, fp)
 HTTPError: HTTP Error 503: Service Unavailable
 ```
 
 please take a look at this StackOverflow [answer](https://stackoverflow.com/a/19460147) and see if it helps.
 
-
 ### SSL Wrong Version Number
 
 If you get an error with `IOError: [Errno socket error] [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:727)` at the bottom, one contributor found that the error occurred intermitently. If you rerun your command, you should get further down the list of files to download. Keep rerunning until all the downloads succeed.
-
 
 ### SSL Verification Issues
 
@@ -472,18 +564,17 @@ If all else fails, and you run into SSL related issues while installing third pa
 If you get an error like this when running `python -m scripts.start`:
 
 ```
-info There appears to be trouble with your network connection. Retrying... 
-info There appears to be trouble with your network connection. Retrying... 
-info There appears to be trouble with your network connection. Retrying... 
-info There appears to be trouble with your network connection. Retrying... 
-info There appears to be trouble with your network connection. Retrying... 
-error An unexpected error occurred: "https://registry.yarnpkg.com/mathjs/-/mathjs-9.5.2.tgz: ESOCKETTIMEDOUT". 
-info If you think this is a bug, please open a bug report with the information provided in /opensource/oppia/yarn-error.log". 
-info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this command. 
+info There appears to be trouble with your network connection. Retrying...
+info There appears to be trouble with your network connection. Retrying...
+info There appears to be trouble with your network connection. Retrying...
+info There appears to be trouble with your network connection. Retrying...
+info There appears to be trouble with your network connection. Retrying...
+error An unexpected error occurred: "https://registry.yarnpkg.com/mathjs/-/mathjs-9.5.2.tgz: ESOCKETTIMEDOUT".
+info If you think this is a bug, please open a bug report with the information provided in /opensource/oppia/yarn-error.log".
+info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this command.
 ```
 
 Try running `yarn install --network-timeout 100000`, where the timeout value is in milliseconds. If that doesn’t work, try running the command with a larger network timeout value and keep increasing the timeout (e.g. adding a zero at the end of the value) until it succeeds. Then try running `python -m scripts.start` again. Note: To see if you've raised the timeout enough, you only need to run `yarn install`. You don’t need to run `python -m scripts.start` every time.
-
 
 ## Windows
 
@@ -491,16 +582,78 @@ Try running `yarn install --network-timeout 100000`, where the timeout value is 
 
 It's possible that Windows firewall might be preventing localhost:8181 to launch. In such a case, you should re-config the firewall by adding new inbound rule so that ports 8181 and 8000 are allowed. (Instruction about how to add inbound rules can be found [here](https://msdn.microsoft.com/en-us/library/hh168549(v=nav.90).aspx))
 
-
 ### No Such File or Directory /dev/disk/by-id
 
 If you get this error
+
 ```
 [OSError: [Errno 2] No such file or directory: `/dev/disk/by-id/`
 ```
+
 try fixing it by adding the `--no_browser` argument to your command, e.g. `python -m scripts.start --no_browser`.
 
+### First build never completed
 
+If you are running on Windows with WSL2 and a relatively small amount of RAM (<16 GB), you might see this error:
+
+```
+Traceback (most recent call last):
+  File "/home/user/opensource/oppia/scripts/servers.py", line 95, in managed_process
+    yield popen_proc
+  File "/home/user/opensource/oppia/scripts/servers.py", line 449, in managed_ng_build
+    raise IOError('First build never completed')
+OSError: First build never completed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 131, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/home/user/opensource/oppia/scripts/servers.py", line 365, in managed_redis_server
+    yield proc
+  File "/home/user/opensource/oppia/scripts/start.py", line 178, in main
+    stack.enter_context(servers.managed_ng_build(watch_mode=True))
+  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 425, in enter_context
+    result = _cm_type.__enter__(cm)
+  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/user/opensource/oppia/scripts/servers.py", line 461, in managed_ng_build
+    yield proc
+  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 525, in __exit__
+    raise exc_details[1]
+  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 510, in __exit__
+    if cb(*exc_details):
+  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 131, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/home/user/opensource/oppia/scripts/servers.py", line 138, in managed_process
+    raise Exception(
+Exception: Process Angular Compiler(name="sh", pid=2350) exited unexpectedly with exit code 137
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/user/opensource/oppia/scripts/start.py", line 233, in <module>
+    main()
+  File "/home/user/opensource/oppia/scripts/start.py", line 229, in main
+    dev_appserver.wait()
+  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 525, in __exit__
+    raise exc_details[1]
+  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 510, in __exit__
+    if cb(*exc_details):
+  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 382, in _exit_wrapper
+    callback(*args, **kwds)
+  File "/home/user/opensource/oppia/scripts/start.py", line 132, in call_extend_index_yaml
+    extend_index_yaml.main()
+  File "/home/user/opensource/oppia/scripts/extend_index_yaml.py", line 92, in main
+    with open(WEB_INF_INDEX_XML_PATH, 'r', encoding='utf-8') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/home/user/opensource/oppia/../cloud_datastore_emulator_cache/WEB-INF/appengine-generated/datastore-indexes-auto.xml'
+```
+
+The error code 137 indicates that the Angular compiler ran out of memory. This happens because WSL2 only gives the host operating system (Ubuntu, in our case) 50% of the machine's RAM by default. If you have 8 GB RAM, for example, this means Ubuntu only gets 4 GB, which is insufficient to run Oppia. To fix this, you need to follow [Microsoft's instructions](https://learn.microsoft.com/en-us/windows/wsl/wsl-config) to increase the amount of RAM given to the host operating system.
 
 ## If the above doesn't work
 

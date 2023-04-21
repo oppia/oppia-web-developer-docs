@@ -22,7 +22,7 @@ Below, we'll discuss how we use protocol buffers at Oppia.
 
 ### Install proto files
 
-We expect proto files to be defined in their own repositories, which we download and install as dependencies. In [`manifest.json`](https://github.com/oppia/oppia/blob/develop/manifest.json), the `proto` section describes how to download proto files:
+We expect proto files to be defined in their own repositories, which we download and install as dependencies. In [`dependencies.json`](https://github.com/oppia/oppia/blob/develop/dependencies.json), the `proto` section describes how to download proto files:
 
 ```json
 "proto": {
@@ -79,7 +79,7 @@ Note that for Python code, protobuf [replaces `.proto` with `_pb2.py`](https://d
 To take advantage of Oppia's support for protocol buffers, you should follow these steps:
 
 1. Create and publish (or find) your proto files in a dedicated repository. This doesn't necessarily have to be on GitHub, for example if you want to use someone else's proto files. See [the protobuf docs](https://developers.google.com/protocol-buffers/docs/proto3) for details on proto file syntax.
-2. Add an object under the `proto` key in `manifest.json` describing how to download your proto files. For details on the syntax used by `manifest.json`, check the code in `scripts/install_third_party.py`, which parses the manifest.
+2. Add an object under the `proto` key in `dependencies.json` describing how to download your proto files. For details on the syntax used by `dependencies.json`, check the code in `scripts/install_third_party.py`, which parses the manifest.
 3. Add the path to where your proto files will be downloaded to `buf.yaml` under the `roots` key.
 4. Also add the path to your proto files to the `PROTO_FILES_PATHS` constant in `scripts/install_third_party_libs`.
 4. If you need more languages than are currently in `buf.gen.yaml`, update `buf.gen.yaml` to add your languages.

@@ -37,7 +37,7 @@ If you're interested in applying to work with Oppia for GSoC, please follow thes
 1. Work on one or more [starter issues](https://github.com/oppia/oppia/issues?q=is%3Aopen+label%3A%22TODO%3A+code%22+milestone%3A%22Recommended+projects%22) in order to become familiar with the contribution process. This will help us get an idea of what it's like to work with you -- e.g. how independent, resourceful, responsive, etc. you are. It will also help you get a better understanding of the codebase, so that you can write a good, detailed project proposal.
   - **Pro-tip!** Quality is more important than quantity; we want to see examples of your best work. So, please make sure to follow the [dev workflow](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#instructions-for-making-a-code-change) carefully, manually test your code before submitting (to ensure it does what you want it to and doesn't break anything else), ensure that your code conforms to the [style rules](https://github.com/oppia/oppia/wiki/Coding-style-guide), and pay attention to small details. These are good skills to learn when developing software in general, and they will also help you build credibility as a responsible developer who can be trusted to be a good steward of the Oppia codebase.
 
-1. When you've done enough starter projects to get a good understanding for the "lay of the land", select one or more GSoC projects that you're most interested in from the list below (or propose your own), and write your project proposal! If you have any questions about a project, feel free to ask on [Gitter](https://gitter.im/oppia/oppia-chat) or email the [mentors' mailing list](mailto:oppia-gsoc-mentors-17@googlegroups.com). Please be specific when asking questions, since this makes it easier for us to help you.
+1. When you've done enough starter projects to get a good understanding for the "lay of the land", select one or more GSoC projects that you're most interested in from the list below (or propose your own), and write your project proposal! If you have any questions about a project, feel free to email the [mentors' mailing list](mailto:oppia-gsoc-mentors-17@googlegroups.com). Please be specific when asking questions, since this makes it easier for us to help you.
 
 ## FAQs
 
@@ -138,7 +138,7 @@ We believe that the following project ideas will have significant impact on Oppi
 - How can we make it easy for students to start the process of playtesting an exploration? One avenue might be the learner dashboard, but perhaps there should also be an in-exploration way to do this (or a good argument for why not).
 - Would it be possible to get feedback from students who do not complete an exploration? In any case, we should make it easy for learners to report that they're stuck or feeling lost on a particular card (and explain why).
 - Here are some ideas for other things that might be worth considering. Note that these are just ideas; they should be evaluated based on how useful the data would be to the exploration authors versus how much of an additional burden they impose on the playtester. Feel free to incorporate other ideas of your own that are not listed here, too.
-  - At the outset, perhaps we could ask the user for the context in which they're playtesting this (e.g., are they a teacher, or are they part of a classroom working with the Oppia team, or did they randomly stumble across the exploration while browsing the site), since doing so might provide useful information for exploration authors. 
+  - At the outset, perhaps we could ask the user for the context in which they're playtesting this (e.g., are they a teacher, or are they part of a classroom working with the Oppia team, or did they randomly stumble across the exploration while browsing the site), since doing so might provide useful information for exploration authors.
   - Perhaps we could give students the opportunity to link to a "Let's play" video of their experience on YouTube.
   - Perhaps we could track additional statistics of explorations played under playtesting (e.g. the number of times the playtester submitted an answer to a particular card, or the amount of time spent at each card) and include that alongside the playtest report.
 
@@ -173,7 +173,7 @@ A good proposal should discuss these issues and describe an appropriate UX. It's
 
 ## Applying machine learning to the code interaction
 
-**Aim:** We want to give students useful feedback when they get stuck. For this, we need to understand the answers they submit -- e.g., in coding problems, we'd like to understand when the user incorrectly initializes a variable, or makes some other common mistake, so that we can address it. Currently, we are working on building an extensible machine learning framework and a training interface for classifying free-form answers. The proposed code classifier for this project will be built on top of this framework, and would allow learners to type in code in order to match some sort of output, avoid an error, or match specific code. The project itself involves figuring out a way to cluster similar pieces of code, and then using that to train a classification model that can predict which feedback cluster ("answer group") a new piece of code should belong to. Lesson creators will then be able to create a training set and assign responses to a set of similar code submissions using the training interface. 
+**Aim:** We want to give students useful feedback when they get stuck. For this, we need to understand the answers they submit -- e.g., in coding problems, we'd like to understand when the user incorrectly initializes a variable, or makes some other common mistake, so that we can address it. Currently, we are working on building an extensible machine learning framework and a training interface for classifying free-form answers. The proposed code classifier for this project will be built on top of this framework, and would allow learners to type in code in order to match some sort of output, avoid an error, or match specific code. The project itself involves figuring out a way to cluster similar pieces of code, and then using that to train a classification model that can predict which feedback cluster ("answer group") a new piece of code should belong to. Lesson creators will then be able to create a training set and assign responses to a set of similar code submissions using the training interface.
 
 **Skills/knowledge required**:
 - Machine learning
@@ -189,11 +189,11 @@ A good proposal should discuss these issues and describe an appropriate UX. It's
 
 **Notes**:
 - We will be looking carefully at the technical design section of the proposal in order to evaluate the feasibility of the proposed approach. A strong proposal will demonstrate a good understanding of Oppia’s existing classification system, and clearly explain how the proposed classifier will interface with it.
-- If code evaluation is needed, this should happen in the frontend (although the results and the learner's code will be stored in the backend). For security reasons, we can't execute arbitrary Python scripts in the backend. 
+- If code evaluation is needed, this should happen in the frontend (although the results and the learner's code will be stored in the backend). For security reasons, we can't execute arbitrary Python scripts in the backend.
 - The proposal should discuss an effective strategy to build/generate datasets for training the classifier.
 - The classification algorithm used should be pluggable into the existing classification framework (so that it's easy to upgrade the algorithm in the future, if needed).
 - The exact milestones for this project would depend somewhat on the technical approach used; the ones above are meant only as suggestions. The proposer should feel free to use alternate milestones that lead to a production deployment by the end of the third milestone, but please ensure that each milestone is very concrete and that it can be delivered by the end of the corresponding month of GSoC. If your milestones significantly deviate from the ones above, we encourage you to get feedback from the mentoring team before submitting your proposal.
-- For reference, it might be worth looking at the [GitHub project page](https://github.com/oppia/oppia/projects/4), which contains a list of open issues and a link to the design document for the existing machine learning framework. 
+- For reference, it might be worth looking at the [GitHub project page](https://github.com/oppia/oppia/projects/4), which contains a list of open issues and a link to the design document for the existing machine learning framework.
 
 
 ## Learner dashboard
@@ -407,13 +407,8 @@ We would also like to thank Kristin Anthony (@anthkris) and Mark Halpin (@markha
 
 ## Communication
 
-**Chat**
-
-Oppia doesn't have an official IRC channel, but we do have a real-time chat channel on [Gitter](
-https://gitter.im/oppia/oppia-chat#)! You can log in using your GitHub account (Gitter will ask to be associated with your GitHub account for authentication) and you will then be able to talk in it.
-
 **Email**
 
-If you have questions, please ask them on Gitter, or the oppia-dev@ mailing list. Please be specific when asking questions; this makes it easier for us to help you.
+If you have questions, please ask them on the oppia-dev@ mailing list. Please be specific when asking questions; this makes it easier for us to help you.
 
 If you want your question to be read only by the mentors, you can instead send it to the Oppia GSoC mentors mailing list at oppia-gsoc-mentors-17@googlegroups.com. However, note that open communication means that more people are likely to be able to help you (and is more in line with the spirit of an open source project), and you can also get feedback from the community at large. For similar reasons, we recommend not pinging individual mentors personally -- it's better to use the GSoC mentors mailing list.

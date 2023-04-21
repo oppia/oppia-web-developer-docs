@@ -143,9 +143,17 @@ You can generate an SVG sequence diagram by copying this source text into one of
 Select 'Simple' as the theme and download the SVG file. The downloaded SVG file will contain the sequence diagram.
 
 The generated sequence diagram will look like this:
-
-<img src="https://user-images.githubusercontent.com/11008603/91026669-b34d1b80-e618-11ea-9df8-e234f3f6d0fe.png" width="600px"/>
-
+```mermaid
+sequenceDiagram
+    controller->>service: get_all_topics()
+    Note right of controller: LOOP BEGIN:Loop Max_TOPICS times
+    service->>fetcher: get_topic()
+    Note over fetcher: Get Topic from datastore
+    fetcher-->>service: Topic Model
+    Note left of service: LOOP END
+    service->>controller: Topic list
+                              
+```
 
 See more examples [here](https://gist.github.com/kevintab95/3b2375f71f04476b507b22e7ad8d123f).
 

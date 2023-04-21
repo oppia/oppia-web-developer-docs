@@ -24,6 +24,7 @@
   * [Production Server](#production-server)
 * [Beam guidelines](#beam-guidelines)
   * [Do not use NDB put/get/delete directly](#do-not-use-ndb-putgetdelete-directly)
+  * [Use `get_package_file_contents` for accessing files](#use-get_package_file_contents-for-accessing-files)
 * [Common Beam errors](#common-beam-errors)
   * [`'_UnwindowedValues' object is not subscriptable` error](#_unwindowedvalues-object-is-not-subscriptable-error)
   * [`_namedptransform is not iterable` error](#_namedptransform-is-not-iterable-error)
@@ -48,26 +49,19 @@ If you're already familiar with Apache Beam or are eager to start writing a new 
 
 Conceptually, an Apache Beam job is just a bunch of steps, each of which transforms some input data into some output data. For example, if you wanted to count how many interactions are in all of Oppia's explorations, you could break that task down into a series of transformations:
 
-    .--------------. Count interactions .--------. Sum .-------.
-    | Explorations | -----------------> | Counts | --> | Total |
-    '--------------'                    '--------'     '-------'
+```mermaid
+flowchart LR
+    A(Explorations) -->|Count interactions| B(Counts) -->|Sum| C(Total)
+```
 
 For more complicated tasks, Apache Beam supports tasks whose transformations form a [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph), or "DAG." These are just graphs with no cycles. For example, if you wanted to find the ratio of interactions to cards, you could use this DAG:
-
-    .--------------. Count interactions .-------. Sum .------------------.
-    | Explorations | -----------------> | Count | --> | Num Interactions |
-    '--------------'                    '-------'     '------------------'
-           |                                                    |
-           |                                                    |
-           |                                                    |
-           | Count cards .-------. Sum .-----------.            |
-           '-----------> | Count | --> | Num Cards |------------+
-                         '-------'     '-----------'            |
-                                                                |
-                                .----------------------. Divide |
-                                | Interactions / Cards | <------'
-                                '----------------------'
-
+```mermaid
+flowchart TD
+E(Explorations) -->|Count interactions| C(Count) -->|Sum| NI(Num Interactions)
+E -->|Count cards| C2(Count) -->|Sum| NC(Num Cards)
+NC --> |Divide| IC(Interactions / Cards)
+NI --> |Divide| IC(Interactions / Cards)
+```
 Note that the first example we saw, while linear, is still a DAG!
 
 In Apache Beam, all jobs are represented as these DAGs. The nodes are represented as [`PValue`](#pvalues) objects, and the edges are represented as [`PTransform`](#ptransforms) objects. [`Pipeline`](#pipelines) objects manage the DAGs, and [`Runner`](#runners) objects actually execute the jobs.
@@ -80,22 +74,11 @@ Next, we'll look at each of these components in more detail.
 
 For example, here's a schematic representation of a `Pipeline` that counts the number of occurrences of every word in an input file and writes those counts to an output file:
 
-    .------------. io.ReadFromText(fname) .-------. FlatMap(str.split)
-    | Input File | ---------------------> | Lines | -----------------.
-    '------------'                        '-------'                  |
-                                                                     |
-       .----------------. combiners.Count.PerElement() .-------.     |
-    .- | (word, count)s | <--------------------------- | Words | <---'
-    |  '----------------'                              '-------'
-    |
-    | MapTuple(lambda word, count: '%s: %d' % (word, count)) .------------.
-    '------------------------------------------------------> | "word: #"s |
-                                                             '------------'
-                                                                    |
-                             .-------------. io.WriteToText(ofname) |
-                             | Output File | <----------------------'
-                             '-------------'
-
+```mermaid
+flowchart TD
+IF(Input File) -->|"io.ReadFromText(fname)"| L(Lines) -->|"FlatMap(str.split)"| W(Words) -->|"combiners.Count.PerElement()"| WC(word counts) --> |"MapTuple(lambda word, count: '%s: %d' % (word, count))"|w("word: #"s)
+w -->|"io.WriteToText (ofname)"| OF(Output File)
+```
 Here's the code for this job:
 
 ```python
@@ -232,11 +215,10 @@ For this section, we'll walk through the steps of implementing a job by writing 
 It's helpful to begin by sketching a diagram of what you want the job to do. We recommend using pen and paper or a whiteboard, but in this wiki page we'll use ASCII art to keep the document self-contained.
 
 Here's a diagram for the `CountExplorationStatesJob`:
-
-    .--------------. Count states .--------. Sum .-------.
-    | Explorations | -----------> | Counts | --> | Total |
-    '--------------'              '--------'     '-------'
-
+```mermaid
+flowchart LR
+    A(Explorations) -->|Count states| B(Counts) -->|Sum| C(Total)
+```
 > **TIP**: As illustrated, you don't need to know what the names of the `PTransform`s (edges) used in a diagram are. It's easy to look up the appropriate `PTransform` after drawing the diagram.
 
 Now that we have our bearings, let's get started on implementing the job.
@@ -294,17 +276,10 @@ As illustrated in the Architecture section, jobs are organized by `Pipeline`s, `
 
 We can represent this in our DAG by adding a special `Pipeline` node.
 
-      ____________
-     /           /\
-    |  Pipeline |  |
-     \___________\/
-            |
-            | GetModels()
-            v
-    .--------------. Count states .--------. Sum .-------.
-    | Explorations | -----------> | Counts | --> | Total |
-    '--------------'              '--------'     '-------'
-
+```mermaid
+flowchart TD
+P(Pipeline) -->|"GetModels()"| E(Explorations) -->|"Count states"| C(Counts) -->|"Sum"| T(Total)
+```
 > **NOTE**: since pipelines are a part of every job, it's fine to leave it out of a DAG to save on complexity.
 
 Now, let's see how this would translate into code, starting with the Explorations.
@@ -488,7 +463,8 @@ There are two base classes dedicated to testing our Apache Beam jobs: `Pipelined
 
 The class operates by first, in `setUp()`, entering the context of a `Pipeline` object (accessible via `self.pipeline`). Upon exiting the context, the `Pipeline` will execute any operations attached to it. Running the `assert_pcoll_*` methods will add a "verification" `PTransform` to the input `PCollection`, and then close the context (thus running it immediately). For this reason, **only _one_ `assert_pcoll_*` method may be called in a test case!** If you want to run multiple assertions on a `PCollection`, then create a separate test case for that purpose.
 
-> **NOTE**: The verification `PTransform` will also run type checks on all inputs/outputs generated by the `PTransform`s under test!
+> **NOTE**
+> The verification `PTransform` will also run type checks on all inputs/outputs generated by the `PTransform`s under test!
 
 Here's an example:
 ```python
@@ -639,6 +615,31 @@ Even though it is possible to use NDB functions directly, they should not be use
 
 All of the aforementioned classes are already used in the codebase so you can look for examples.
 
+### Use `get_package_file_contents` for accessing files
+
+If you need to access a file in a Beam job, please use `get_package_file_contents` (from _core/constants.py_) instead of `open` or `open_file` (from _core/utils.py_). Also, make sure that the file is included in the _assets_ folder or is listed in _MANIFEST.in_ explicitly.
+
+#### Example
+
+When we have a function that is used in a Beam pipeline, like:
+
+```python
+@staticmethod
+def function_used_in_beam_pipeline():
+    file = utils.open_file('assets/images/about/cc.svg', 'rb')
+    return file.read()
+```
+
+it needs to be replaced with something like:
+
+```python
+@staticmethod
+def function_used_in_beam_pipeline():
+    return constants.get_package_file_contents(
+        'assets', 'images/about/cc.svg', binary_mode=True
+    )
+```
+
 ## Common Beam errors
 
 ### `'_UnwindowedValues' object is not subscriptable` error
@@ -726,31 +727,15 @@ Let's start by listing the specification of a schema migration job:
 
   * Models should only be put into storage after successfully migrating to v`N`.
   * Models that were already at v`N` should be reported separately.
-
-        .--------------. Partition(lambda model: model.schema_version)
-        | Input Models | ---------------------------------------------.
-        '--------------'                                              |
-                                                     .-----------.    |
-                            .----------------------- | Model @v1 | <--|
-                            |                        '-----------'    |
-                            |                                         |
-                            | ParDo(MigrateToNextVersion())           |
-                             >-----------------------------.          |
-                            |                              |          |
-                            |                              v          |
-                            |                        .-----------.    |
-                            '----------------------- | Model ... | <--'
-                                                     '-----------'
-                                                           |
-                                                           v
-                                                     .-----------.
-                                                     | Model @vN |
-                                                     '-----------'
-                                                           |
-                         .-----------.  ndb_io.PutModels() |
-                         | Datastore | <-------------------'
-                         '-----------'
-
+  ```mermaid
+  flowchart TD
+  IM(Input Models) -->|"Partition(lambda model: model.schema_version)"| MV("Model @v1")
+  IM -->|"Partition(lambda model: model.schema_version)"| M(Model ...)
+  MV -->|"ParDo(MigrateToNextVersion())"| M
+  MV ---- M
+  M --> MvN("Model @vN")
+  MvN -->|"ndb_io.PutModels()"| D(Datastore)
+  ```
 There's a lot of complexity here, so we'll need many `PTransform`s to write our job. We'll focus on the most interesting one: the loop to migrate models to the next version.
 
 ```python

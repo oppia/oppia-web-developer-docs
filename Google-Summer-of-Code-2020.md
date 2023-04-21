@@ -28,8 +28,8 @@ The following projects were fully completed during GSoC 2020:
 
     - **Milestone 1**: All RTE math expressions have a new “SVG filename” attribute in addition to the LaTeX value. For existing expressions, this filename will be an empty string. For newly-created expressions other than expressions created in suggestions, the filename will be non-empty and the corresponding SVG file is guaranteed to exist on the server (but will not be used for display yet).
     - **Milestone 2**: All RTE math expressions in the server (in explorations, questions, topics, skills, question/translation suggestions, and any other RTEs) include a non-empty SVG filename that points to a valid file. There is a validation job that can be used to audit this, and that validation job runs to completion successfully on existing production data.
-    - **Milestone 3**: 
-       - All math expressions are displayed using SVGs in the learner view. 
+    - **Milestone 3**:
+       - All math expressions are displayed using SVGs in the learner view.
        - MathJax is fully removed from the learner view.
 
 - [Anshul Hudda's proposal](pdfs/GSoC2020AnshulHudda.pdf) and [final blog post](https://medium.com/@anshulhudda.ssap/google-summer-of-code20-with-oppia-60208850be57): Fix the linter and implement all the lint checks. Mentor: Nitish Bansal.
@@ -61,7 +61,7 @@ The following projects were fully completed during GSoC 2020:
           - Complete manual accessibility review ([Review Checklist](https://docs.google.com/document/d/1UQpNSqVi2sSoj3nUiArdq5KgK0NPYuTbQrnSXAe5X-w/edit))
        - Users can use keyboard shortcuts to navigate to all critical pages (Get Started, Library, Creator Dashboard, Learner Dashboard, Profile, Notification, Preferences)
        - Users can use keyboard shortcuts for critical actions on the Library page and Exploration Viewer. Users also have a way of discovering these keyboard shortcuts
-    - **Milestone 3**: 
+    - **Milestone 3**:
        - For all web pages in the Oppia web application, including all webpages listed above in M1 and M2, as well as: Preferences, Profile, Review_Test, Signup, Skill_Editor, Splash, Stewards, Story_Editor, Story_Viewer, Subtopic_Viewer, Teach, Terms, Thanks, Topic_Editor, Topics_and_Skills_Dashboard, Topic_Viewer, and any other pages.
           - Achieve Google Chrome Lighthouse audit report scores of 100
           - Complete manual accessibility review ([Review Checklist](https://docs.google.com/document/d/1UQpNSqVi2sSoj3nUiArdq5KgK0NPYuTbQrnSXAe5X-w/edit))
@@ -85,10 +85,10 @@ The following projects were fully completed during GSoC 2020:
 
     - **Milestone 1**: Review and provide suggestions for all tablet mocks. Implement low-fidelity & high-fidelity code for tablet UI in the Onboarding Flow, HomeFragment , ProfileChooser, NavigationDrawer, and RecentlyPlayedStoryList.
     - **Milestone 2**: Implement low-fidelity & high-fidelity code for tablet UI in following screens: Topic including all Tabs, ExplorationPlayer, Hints & Solution, QuestionPlayer and Concept Card.
-    - **Milestone 3**: 
-        - Implement low-fidelity & high-fidelity code for tablet UI in following screens: 
+    - **Milestone 3**:
+        - Implement low-fidelity & high-fidelity code for tablet UI in following screens:
            - Admin Controls
-           - Options and its 3 child screens(Audio Selection, Language Selection and StoryTextSize Selection). 
+           - Options and its 3 child screens(Audio Selection, Language Selection and StoryTextSize Selection).
         - Create an API in android which can take a screenshot in the test case and the image should be accessible for comparison.
 
 
@@ -104,7 +104,7 @@ The following projects were fully completed during GSoC 2020:
        - All backend api services migrated to angular return camelCase objects.
        - There is proper documentation on adding type definitions.
        - No PRs that reach the review stage have any typescript errors.
-    - **Milestone 3**: 
+    - **Milestone 3**:
        - There will be no generated third_party.js file.
        - All *scripts.ts files have been renamed to *import.ts
        - There will be no script imports,  except for jQuery, MathJax, and PencilCode embed.
@@ -127,7 +127,7 @@ The following projects were fully completed during GSoC 2020:
        - The Numeric Expression Input interaction will be ready to use with all its rules implemented.
        - A customized OSK will be added for mobile friendliness of the guppy editor.
        - A migration job will be merged and ready to be run on production that will appropriately upgrade the explorations that use the old math interaction based on the output of the audit job that would have been merged in Milestone 1.
-    - **Milestone 3**: 
+    - **Milestone 3**:
        - The migration job from M2 will be run on prod and no exploration on the production server will use the old MathExpressionInput interaction.
        - The following rules will be added to the Algebraic Expression Input and Math Equation Input interaction:
           - ContainsSomeOf
@@ -163,7 +163,7 @@ The following projects were fully completed during GSoC 2020:
        - All E2E tests for the svg editor will be completed.
        - The flag variable is removed and the UI is fully available for creators.
        - The user will be able to use the pie chart tool to add pie charts to the editor.
-    - **Milestone 3**: 
+    - **Milestone 3**:
        - The user will be able to use the arc tool to draw arcs.
        - The user will be able to use the import image tool to import the required image into the editor.
 
@@ -218,7 +218,7 @@ A: All the projects we've listed here are important, and we'd be very happy to s
 
 **Q: Can I submit more than one proposal to Oppia?**
 
-A: Yes you can. However, we strongly recommend picking one project and writing a solid proposal for it. Splitting attention across multiple projects might not be a great idea. 
+A: Yes you can. However, we strongly recommend picking one project and writing a solid proposal for it. Splitting attention across multiple projects might not be a great idea.
 
 **Q: How early should I start working on the proposal?**
 
@@ -442,7 +442,7 @@ This project aims to introduce SVG rendering for all LaTeX expressions in explor
 
 ### 1.3. Bulk Upload of Voiceovers
 
-Voiceover recording is an important feature for making lessons accessible in more than one language. As one of the most used features for creators, there are 2 ways voiceovers can be added to the platform: recording and uploading files. 
+Voiceover recording is an important feature for making lessons accessible in more than one language. As one of the most used features for creators, there are 2 ways voiceovers can be added to the platform: recording and uploading files.
 
 Recently there was a concern raised with the workflow for uploading files. The current workflow that exists for uploads is to update one section of the lesson at a time, which is quite time-consuming. The main aim of this project is to address this by providing voice artists and creators the ability to bulk upload files and give them improved control of assigning the individual audio files to desired sections of the lesson. This will streamline the process and reduce the time needed for adding voiceovers to the lessons.
 
@@ -464,7 +464,7 @@ Recently there was a concern raised with the workflow for uploading files. The c
 
 **Notes**
 
-- The main goal of this project is to improve the workflow for the voiceover artists. This requires careful consideration towards figuring out the correct UX design for the voiceover flow, so please make sure that you think carefully about the design and make it as intuitive as possible. Remember that voiceover artists will be using this flow a lot (there are perhaps 150 audio clips per exploration, typically), so it should not be cumbersome. The proposal should clearly explain the design and how it improves the experience. 
+- The main goal of this project is to improve the workflow for the voiceover artists. This requires careful consideration towards figuring out the correct UX design for the voiceover flow, so please make sure that you think carefully about the design and make it as intuitive as possible. Remember that voiceover artists will be using this flow a lot (there are perhaps 150 audio clips per exploration, typically), so it should not be cumbersome. The proposal should clearly explain the design and how it improves the experience.
 
 - You may need to do some research on the constraints of saving raw audio file data on different browsers. Each browser may have different constraints.
 
@@ -521,7 +521,7 @@ This project also aims to add functionality in the corresponding user's profile 
 
 ### 1.6. Improvements to TextClassifier for ML-based responses to student inputs
 
-Oppia provides several ways to interact with students when they are going through an exploration. Text input interaction is one such interaction, in which students provide their answer as a text string. Currently, Oppia uses "hard" rules such as ‘answer contains xyz’, ‘answer starts with abc’ etc… to figure out proper response to student inputs. Providing a proper response is very important, because an improper response may confuse students and lead to them leaving the lesson. These rules are created by the creators of the exploration. However, it is hard for them to enumerate all possible conditions. 
+Oppia provides several ways to interact with students when they are going through an exploration. Text input interaction is one such interaction, in which students provide their answer as a text string. Currently, Oppia uses "hard" rules such as ‘answer contains xyz’, ‘answer starts with abc’ etc… to figure out proper response to student inputs. Providing a proper response is very important, because an improper response may confuse students and lead to them leaving the lesson. These rules are created by the creators of the exploration. However, it is hard for them to enumerate all possible conditions.
 
 Recent advances in machine learning / deep learning could prove to be very useful here. The creator simply labels student inputs with proper responses which could be treated as training data in order to train an ML model. The goal of this project is to research and implement a machine learning model which can be used to provide appropriate responses to textual user inputs. This is a classification problem: based on training data, the model should predict the appropriate class which would map to a response that should be used by Oppia for the given answer.
 
@@ -542,13 +542,13 @@ Currently, Oppia has already implemented a naive version of such a classifier, w
 **Suggested Milestones**
 
 1. **Literature review**: Compile relevant research papers. Explore their methodologies, and implement them (possibly adapting code published by researchers), then test your implementations on the proposed datasets and compare the results with 1-2 baselines. Provide working implementations and a report of the results for at least the initially-proposed idea and the baselines. Submit a list of at least 4 ideas that you would like to try in the next month.
-2. **Experiment and build a classifier**: Experiment with the ideas proposed in the previous milestone, and provide a report on the results, including a clear specification of the model you are going to implement in Oppia, as well as a full list of changes that are required to implement the classifier using the current ML pipeline. The performance of the final classifier must be adequate (compared to state-of-the-art performance on the proposed datasets), and it must satisfy the constraints in the “notes” section below. You will need to provide sufficient evidence to show that the classifier meets these criteria. 
+2. **Experiment and build a classifier**: Experiment with the ideas proposed in the previous milestone, and provide a report on the results, including a clear specification of the model you are going to implement in Oppia, as well as a full list of changes that are required to implement the classifier using the current ML pipeline. The performance of the final classifier must be adequate (compared to state-of-the-art performance on the proposed datasets), and it must satisfy the constraints in the “notes” section below. You will need to provide sufficient evidence to show that the classifier meets these criteria.
 3. **Implement and test**: Implement the final classifier in the Oppia code base, and create a dummy exploration on which it can be tested. Note that the responses that end up being given by the classifier in manual testing are the primary success criterion here (rather than the reports that were created in earlier milestones). Also, depending upon the model you propose, you might need to make some changes to the existing ML pipeline.
 
 **Notes**
 
 The ML pipeline implemented in Oppia performs the classification in the browser of a learner's machine. The models are trained by a backend server called “Oppia-ML”, and then they are transferred to the frontend where prediction is carried out in the browser in JavaScript. Hence, there are several constraints on the model which need to be adhered to:
-1. The model must be small, i.e., it should fit within a few MBs. 
+1. The model must be small, i.e., it should fit within a few MBs.
 2. Inference must be fast on a machine with nominal specifications (4GB RAM, i3 process, no GPUs).
 3. It must be possible to implement the inference code in JavaScript in the frontend. The backend could be anything Python-based (e.g. tensorflow, pytorch), but the inference code has to be implemented in JavaScript.
 4. The model must have reasonably good performance (compared to state-of-the-art benchmarks) on natural language inference datasets (e.g. SNLI or equivalent).
@@ -571,7 +571,7 @@ Art and graphics form an integral part of most explorations on Oppia, and are es
 
 * Are familiar with the flow of logic between the Oppia backend and frontend
 * Are familiar with the state migration functionality
-* Are familiar with the rich-text editor workflow 
+* Are familiar with the rich-text editor workflow
 * Have good technical design skills
 
 **Suggested Milestones**
@@ -585,7 +585,7 @@ Art and graphics form an integral part of most explorations on Oppia, and are es
 A few things should be considered while writing the design doc:
 - There should be a separate section in the state object which should have reference to images. (Similar to RecordedVoiceover and WrittenTranslation.) This will help establish a specific section in the backend objects which contributors can edit.
 - While designing the workflow for the rich-text editor, please note that this editor is used in several different places (stories, topics, etc.). Currently, we aren't implementing the image suggestion workflow for those other places, but we might do so in the future. So, when designing the infrastructure for this project, it would be a good idea to think about how the functionality (such as any necessary changes to the RTE) can be reused in other places.
- 
+
 ## Frontend Projects
 
 ### 2.1. Editor Page Redesigns
@@ -624,7 +624,7 @@ The aim of this project is to complete all remaining typescript and webpack task
 * Replace third_party and remaining `<script>` imports with webpack
 * Reduce the overall time for webpack compilation (under 8s for develop and 60s for production builds)
 * Add documentation on all typescript and webpack errors and solutions on how to fix them.
- 
+
 **Related issues**: 7601, 7434, 6431, 6351
 
 **Team**: Dev Workflow
@@ -669,9 +669,9 @@ This project aims at improving the frontend test coverage of controllers and dir
 3. Fully cover 100% of the controllers and directives.
 
 **Notes**
-1. Currently we don't have a way to test controllers and directives in the codebase. The applicant would need to research suggested methods and pick one such strategy to implement the tests in Oppia (this should be a part of the proposal). A proof of concept pull request would be great. 
-2. Please checkout our wiki page for best practices while writing frontend tests. It outlines standard guidelines which need to be followed while writing frontend tests. 
-3. The project would involve applying the testing template to a large number of controllers and directives. The proposals must contain a concrete plan (preferably as a table) which outlines which file will be worked out at what time. 
+1. Currently we don't have a way to test controllers and directives in the codebase. The applicant would need to research suggested methods and pick one such strategy to implement the tests in Oppia (this should be a part of the proposal). A proof of concept pull request would be great.
+2. Please checkout our wiki page for best practices while writing frontend tests. It outlines standard guidelines which need to be followed while writing frontend tests.
+3. The project would involve applying the testing template to a large number of controllers and directives. The proposals must contain a concrete plan (preferably as a table) which outlines which file will be worked out at what time.
 
 ### 2.4. Ensure that Oppia is Fully Accessible
 
@@ -688,7 +688,7 @@ Ensure that the entire Oppia website is fully accessible to screen readers (i.e.
 
 **Suggested Milestones**
 
-* Milestone 1: 
+* Milestone 1:
   * The following pages should score 100% in both Chrome and manual accessibility audits:
     * Learner dashboard
     * Creator dashboard
@@ -697,15 +697,15 @@ Ensure that the entire Oppia website is fully accessible to screen readers (i.e.
     * Exploration editor page
   * Ensure that automated tests are put in place (eg. [axe-core](https://github.com/dequelabs/axe-core), [protractor-accessiblity-plugin](https://github.com/angular/protractor-accessibility-plugin/), [lighthouse CI](https://github.com/GoogleChrome/lighthouse-ci/blob/master/docs/getting-started.md)) to ensure that this score is maintained, going forward.
 * Milestone 2:
-  * The following pages should score 100% in the accessibility audit: 
+  * The following pages should score 100% in the accessibility audit:
     * Editor page (stats, history, feedback)
     * Topics editor
     * Skills editor
   * Complete the "Keyboard navigation" feature (eg. [Facebook's shortcuts](https://www.facebook.com/help/156151771119453)):
     * Keyboard shortcuts for navigation across Oppia (eg. moving to a particular section of the same page, navigating to a new page).
     * Must include an easy to access "quick reference".
-* Milestone 3: 
-  * The following pages should score 100% in the accessibility audit: 
+* Milestone 3:
+  * The following pages should score 100% in the accessibility audit:
     * Story editor
     * Preferences
     * Profile
@@ -721,7 +721,7 @@ Ensure that the entire Oppia website is fully accessible to screen readers (i.e.
 
 ### 3.1. Simplify the Oppia build process
 
-The build process that Oppia uses to prepare the files for reliably serving the site was changed quite a lot in the last few months: we introduced webpack, changed our build scripts from bash to Python, and also upgraded some libraries. Since a lot of these changes affected the build process and sometimes weren’t accounted for, the build process is now clunky and quite hard to understand. 
+The build process that Oppia uses to prepare the files for reliably serving the site was changed quite a lot in the last few months: we introduced webpack, changed our build scripts from bash to Python, and also upgraded some libraries. Since a lot of these changes affected the build process and sometimes weren’t accounted for, the build process is now clunky and quite hard to understand.
 
 This project’s aim is to simplify the build process, making it easy for developers to work with it and unifying the multiple entry points that need to build some files (backend tests, e2e tests, frontend tests, local dev server) as much as possible. After the project is complete, all the build-related stuff should be handled exclusively with either Python or webpack.
 
@@ -740,7 +740,7 @@ This project’s aim is to simplify the build process, making it easy for develo
 
 1. Remove gulp build (#5676). Simplify directory structure (#6369). Replace Java yuicompressor minification of CSS by some npm or webpack alternative.
 2. Refactor the production build process to only move and build the files that are actually needed.
-3. Tidy up various scripts that developers use so that they’re more self-explaining. Currently, there's usually one big (hundreds of lines) main method that does everything; this should be replaced with multiple smaller methods. Document the updated build process either in a separate document, or together with the code. 
+3. Tidy up various scripts that developers use so that they’re more self-explaining. Currently, there's usually one big (hundreds of lines) main method that does everything; this should be replaced with multiple smaller methods. Document the updated build process either in a separate document, or together with the code.
 
 **Notes**
 
@@ -804,7 +804,7 @@ The Oppia development workflow uses lint checks to help detect style errors befo
 
 - The proposal should include a detailed plan in the format of a table which mentions which new lint checks will be added along with the timeline. It should include code samples for implementing at least 2 new checks (if you like, these can be done by linking to PRs that you have previously submitted to the codebase).
 - Milestones 2 and 3 should be separately defined by the student in their proposal.
-- The proposal should also include implementation details for the refactor process, as well as a clear description of the "end state" and an explanation of how this refactoring will improve the linter. 
+- The proposal should also include implementation details for the refactor process, as well as a clear description of the "end state" and an explanation of how this refactoring will improve the linter.
 - Mentors will examine proposals for this project to see whether the applicant has a good understanding of the existing linting process, as well as organizational clarity (i.e. do they have a good understanding of the "big picture" and a clear vision for how these and future lint checks should be implemented so as to fit into a standard organizational structure).
 
 
@@ -829,7 +829,7 @@ All the rows in the doc mentioned in the project description above should be com
 **Notes**
 
 We recommend implementing at least two of the rows mentioned in the [functionalities doc](https://docs.google.com/spreadsheets/d/1hFSfl6eQs14m-eLPDCTfwWAZazmFUyTbHwDox15qoW8/edit?usp=sharing) and explaining your implementation in the proposal. The proposal should also include details of how you would implement the remaining functionality, along with mocks to illustrate what Oppiabot does in the various situations that occur.
- 
+
 Use the following [technical design template](https://docs.google.com/document/d/1DdQVdTkGShIbqdz2TTQ9UAKJSoeJ7ut_9jnKFvXnUdc/edit?usp=sharing) for describing technical design of each task mentioned in the [functionalities doc](https://docs.google.com/spreadsheets/d/1hFSfl6eQs14m-eLPDCTfwWAZazmFUyTbHwDox15qoW8/edit?usp=sharing).
 
 
@@ -968,14 +968,8 @@ Noteworthy dates for 2020:
 
 ## Communication
 
-**Chat**
-
-Oppia doesn't have an official IRC channel, but we do have a real-time chat channel on [Gitter](
-https://gitter.im/oppia/oppia-chat)! You can log in using your GitHub account (Gitter will ask to be associated with your GitHub account for authentication) and you will then be able to talk in it. Please feel free to use Gitter if you just want to say hi to the community or if you have any questions related to getting started. For project-specific questions, please direct your queries to the [GSoC discussion mailing list](mailto:oppia-gsoc-discuss@googlegroups.com).
-
 **Email**
 
-If you have questions pertaining to "how-to-get-started", please ask them on [Gitter](
-https://gitter.im/oppia/oppia-chat), or the oppia-dev@ mailing list. Please be specific when asking questions; this makes it easier for us to help you. Also, please make sure to read our ["getting started" wiki page](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up) before sending an email, since the answer to your question might already be contained there!
+If you have questions pertaining to "how-to-get-started", please ask them on the oppia-dev@ mailing list. Please be specific when asking questions; this makes it easier for us to help you. Also, please make sure to read our ["getting started" wiki page](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up) before sending an email, since the answer to your question might already be contained there!
 
 To discuss your project ideas, or share your proposal for feedback from the community, please email the [GSoC discussion mailing list](mailto:oppia-gsoc-discuss@googlegroups.com). You can also use this list for specific questions about GSoC.

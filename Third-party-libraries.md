@@ -12,6 +12,7 @@
     * [Manifest files](#manifest-files)
     * [Redis and Elasticsearch](#redis-and-elasticsearch)
   * [`install_backend_python_libs.py`](#install_backend_python_libspy)
+* [Security](#security)
 * [Upgrade dependencies](#upgrade-dependencies)
   * [Upgrade backend libraries](#upgrade-backend-libraries)
     * [Upgrade production, backend libraries](#upgrade-production-backend-libraries)
@@ -36,7 +37,7 @@ At Oppia we have a lot of dependencies, and we have many different ways of manag
 
 Oppia has some development dependencies that the user has to manage themselves. These are:
 
-* Python 3.7
+* Python 3.8
 * Google Chrome
 * git
 * Tools commonly found on Linux and MacOS systems like bash
@@ -55,28 +56,12 @@ The rest of Oppia's development and production dependencies are managed by the O
 
 When you run `python -m scripts.start`, a chain of scripts installs and/or upgrades dependencies as necessary:
 
-```text
-          +----------+
-          | start.py |
-          +----------+
-               |
-               | calls install_third_party_libs.main() when start.py is executed or imported
-               v
-  +-----------------------------+
-  | install_third_party_libs.py |
-  +-----------------------------+
-               |
-               | main() calls install_third_party.main()
-               v
-    +------------------------+
-    | install_third_party.py |
-    +------------------------+
-               |
-               | main() calls install_backend_python_libs.main()
-               v
-+--------------------------------+
-| install_backend_python_libs.py |
-+--------------------------------+
+```mermaid
+flowchart TD
+first("start.py") -->|"calls install_third_party_libs.main() when start.py is executed or imported"| ITPL("install_third_party_libs.py")
+ITPL -->|"main() calls install_third_party.main()"|ITP("install_third_party.py")
+ITPL -->|"calls install_python_dev_dependencies.main() when executed or imported"| IPDD("install_python_dev_dependencies.py")
+ITP -->|"main() calls install_python_prod_dependencies.main()"| IPPD("install_python_prod_dependencies.py")
 ```
 
 We'll look at each of these scripts below.
@@ -89,16 +74,7 @@ When you start a development server, you execute `scripts/start.py`. This file d
 
 #### Python packages
 
-Whenever `install_third_party_libs.py` is executed or imported, it installs some Python packages that are needed early by the installation process. Some are installed to `oppia_tools/`, and other are installed to `third_party/python_libs/`.
-
-When `install_third_party_libs.main()` runs, it installs additional Python packages:
-
-* Packages that need to be available on the system `PATH` are installed "globally" using pip (in practice these are installed into your virtual environment).
-* Other packages are installed to `oppia_tools/`.
-
-All of these Python packages are listed directly in the `install_third_party_libs.py` file.
-
-For all the Python packages installed by this script, the version of the package is pinned (i.e. we always install the same version, even if a newer version is available). However, the dependencies of that package may not have pinned versions. For example, we depend on `pip-tools`, which in turn depends on `pip`. The `setup.py` in `pip-tools` does not specify a particular version of `pip` that it requires, so when we install `pip-tools`, we will install the latest version of `pip`. This can lead to test failures when a breaking change in `pip` is released.
+Whenever `install_third_party_libs.py` is executed or imported, it calls `install_python_dev_dependencies.main()` to install Python development dependencies to the active virtual environment. These dependencies are listed in `requirements_dev.txt`, which `install_python_dev_dependencies.py` asserts matches what would be produced by compiling `requirements_dev.in`. If this assertion fails, the script goes ahead and does the compilation but then fails to make sure you commit the updated `requirements_dev.txt` file.
 
 #### Node modules
 
@@ -112,7 +88,7 @@ We also install the protoc and buf tools for protobuf (these versions are pinned
 
 #### Manifest files
 
-We use a `manifest.json` file to specify other dependencies that we have but which aren't Python packages or Node.js modules. This file has a `dependencies` key, under which it has the following keys:
+We use a `dependencies.json` file to specify other dependencies that we have but which aren't Python packages or Node.js modules. This file has a `dependencies` key, under which it has the following keys:
 
 * `proto`: Files here are installed to `third_party/`
 * `frontend`: Files here are installed to `third_party/static/`
@@ -149,7 +125,7 @@ Under each of these keys is a collection of key-value pairs where each key is a 
   * `tarRootDirPrefix`: Same as `rootDirPrefix` for zip files.
   * `targetDirPrefix`: Same as `targetDirPrefix` for zip files.
 
-New dependencies should not be added to `manifest.json`, as we are trying to remove this method of installing dependencies. Instead, you should use the [node modules](#node-modules) method.
+New dependencies should not be added to `dependencies.json`, as we are trying to remove this method of installing dependencies. Instead, you should use the [node modules](#node-modules) method.
 
 #### Redis and Elasticsearch
 
@@ -157,7 +133,26 @@ We download and install the Redis CLI and Elasticsearch development server. We p
 
 ### `install_backend_python_libs.py`
 
-This script uses pip to install the Python dependencies we need in production to `third_party/python_libs`. We define these dependencies using `requirements.in`, which lists the libraries we depend on directly. Then `install_backend_python_libs.py` runs `scripts.regenerate_requirements` to generate `requirements.txt`, which lists those direct dependencies, plus all the packages that our direct dependencies need, and so on. Both `requirements.in` and `requirements.txt` specify versions, so `requirements.txt` is analogous to `yarn.lock` in that it pins all the versions of all the Python packages we use in production.
+This script uses pip to install the Python dependencies we need in production to `third_party/python_libs`. We define these dependencies using `requirements.in`, which lists the libraries we depend on directly. Then `install_backend_python_libs.py` generates `requirements.txt`, which lists those direct dependencies, plus all the packages that our direct dependencies need, and so on. Both `requirements.in` and `requirements.txt` specify versions, so `requirements.txt` is analogous to `yarn.lock` in that it pins all the versions of all the Python packages we use in production.
+
+## Security
+
+All dependencies we add to our projects introduce risks. These include security risks (an attacker could inject malicious code into Oppia if they control one of our dependencies) and maintainability risks (if a dependency isn't well-maintained, its bugs could break Oppia). To mitigate these risks, we should do the following:
+
+1. **Minimize** the number of dependencies we have and the extent to which we rely on them. Especially for small dependencies, it may be better to implement them ourselves. That said, for security-related operations (especially cryptographic ones), relying on a trusted library may be better than rolling our own and possibly making mistakes.
+2. **Vet** any dependencies we do have. This means checking that we trust the maintainer not to add malicious code, maintain security measures to stop someone else from adding malicious code, and maintain the dependency by fixing bugs. For small dependencies, this may mean reviewing their code manually. For larger ones, we may have to rely on reputation.
+3. **Pin** dependencies to a specific, immutable version. Here are some examples of types of dependencies we use often:
+   * PyPI: Use `==` to specify a particular version number, e.g. `my_dependency==1.0.5`.
+
+     > **Warning**
+     > Do not use `=>`, which will tell `pip` to automatically install the latest version of a package without our involvement.
+
+   * NPM: Use `yarn.lock` to pin dependency versions (this happens automatically for all NPM dependencies handled by yarn).
+   * GitHub Actions: Use a commit hash ("SHA value" in the [docs](https://docs.github.com/en/actions/learn-github-actions/finding-and-customizing-actions#using-release-management-for-your-custom-actions)) when specifying a third-party dependency. For example: `- uses: actions/javascript-action@172239021f7ba04fe7327647b213799853a9eb89`.
+4. **Hash** dependencies using a hashing algorithm [approved by NIST](https://csrc.nist.gov/projects/hash-functions) and compare that hash to a list of the values we expect. In most cases, we should take advantage of package managers' built-in functionality to verify checksums. This ensures that even if someone manages to change the code of a supposedly immutable dependency version (for example, there are ways to do this in PyPI where packages can be provided either as source code or as binaries), we won't install the malicious dependency.
+5. **Upgrade** dependencies every month to ensure we benefit from any security fixes.
+
+Ideally, we'd also constrain dependencies to limit the damage they can do, but that isn't really supported by any of the dependency ecosystems we use yet. Also note that not all of these measures are in place yet. Work on implementing them is tracked in [oppia/oppia#16991](https://github.com/oppia/oppia/issues/16991).
 
 ## Upgrade dependencies
 
@@ -175,17 +170,12 @@ Note that we don't have an automatic way to detect outdated backend dependencies
 A production library (these are listed in `requirements.in`) can be upgraded as follows:
 
 1. Update the library's version number in `requirements.in`.
-2. Run `scripts/regenerate_requirements.py` to update `requirements.txt` based on the new `requirements.in`.
+2. Run `scripts/start.py` to update `requirements.txt` based on the new `requirements.in`.
 
 #### Upgrade development, backend libraries
 
-A development library installed using pip can be upgraded by changing the version specified in our `scripts/install_third_party_libs.py` script. Versions are specified in one of the following places:
-
-* The `PREREQUISITES` constant.
-* The `local_pip_dependencies` variable.
-* The `system_pip_dependencies` variable.
-
-Note that for some of these locations, a constant from `scripts/common.py` may be used to specify the version.
+1. Update the library's version number in `requirements_dev.in`.
+2. Run `scripts/start.py` to update `requirements_dev.txt` based on the new `requirements_dev.in`.
 
 Backend libraries that are not installed using pip also have their versions specified in `install_third_party_libs.py`, but they use custom code for each library. You should read the code to find the section for your library.
 
@@ -207,18 +197,18 @@ You can update all frontend libraries that we install from npm as follows. Note 
 
 #### Upgrade frontend libraries not installed from npm
 
-Other frontend libraries are specified in `manifest.json`. You can upgrade these libraries as follows:
+Other frontend libraries are specified in `dependencies.json`. You can upgrade these libraries as follows:
 
 1. Check for breaking changes in the libraries you want to upgrade. You should:
 
    * Check the library's changelog for breaking changes.
    * Test that after you install the upgraded version (see below), everything works correctly.
 
-2. Change the version in `manifest.json` to the new version you want to install.
+2. Change the version in `dependencies.json` to the new version you want to install.
 
-Note that we don't have an automatic way to detect outdated libraries in `manifest.json`, so to upgrade all such libraries, you have to check each version manually.
+Note that we don't have an automatic way to detect outdated libraries in `dependencies.json`, so to upgrade all such libraries, you have to check each version manually.
 
-Note that we don't have an automatic way to detect outdated libraries in `manifest.json`, so to identify outdated dependencies, you have to look up each library online to find its latest version and compare that to the version specified in `manifest.json`.
+Note that we don't have an automatic way to detect outdated libraries in `dependencies.json`, so to identify outdated dependencies, you have to look up each library online to find its latest version and compare that to the version specified in `dependencies.json`.
 
 ## Add dependencies
 
@@ -233,13 +223,12 @@ Note that if a library is needed both for development and in production, then it
 Here's how to add a backend, production library that can be installed from pip:
 
 1. Add the library to `requirements.in` in the form `<package-name>==<version>`.
-2. Generate `requirements.txt` from `requirements.in` by running `scripts/regenerate_requirements.py`.
+2. Generate `requirements.txt` from `requirements.in` by running `scripts/start.py`.
 
 #### Add a backend, development library from pip
 
-To add a backend, development library that can be installed from pip, first figure out whether the library is needed before running or importing any script. The libraries needed this early are usually only those required by the installation scripts. If the answer is yes, add it to the `PREREQUISITES` constant in `scripts/install_third_party_libs.py`. Otherwise, add it to the `local_pip_dependencies` variable in `scripts/install_third_party_libs.py`.
-
-If you aren't sure whether a library is needed before running or importing any script, you can guess that the answer is "no" and follow the above instructions accordingly. Then try running `python -m scripts.start` and see if there are any errors. If there are, then the answer is actually "yes." Otherwise, your guess was correct and the answer is "no."
+1. Add the library to `requirements_dev.in` in the form `<package-name>==<version>`.
+2. Generate `requirements_dev.txt` from `requirements_dev.in` by running `scripts/start.py`.
 
 #### Add a library that cannot be installed from pip
 
@@ -256,4 +245,4 @@ If the library is available from npm, you can install it like this:
 
 #### Add a frontend library from outside npm
 
-If your library is not available from npm, you can add it to `manifest.json`. However, you should check with @vojtechjelinek first as we are trying to move away from `manifest.json`.
+If your library is not available from npm, you can add it to `dependencies.json`. However, you should check with @vojtechjelinek first as we are trying to move away from `dependencies.json`.

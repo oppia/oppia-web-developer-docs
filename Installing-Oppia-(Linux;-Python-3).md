@@ -11,16 +11,22 @@
 
 **Note:** If you just want to create and share explorations, you may be able to use the hosted server at https://www.oppia.org (in which case you don't need to install anything).
 
-*These installation instructions were last tested on 24 July 2021. For more information on issues that may occasionally arise with the installation process, please contact _vojtech.jelinek@hey.com_ or see the [Troubleshooting](https://github.com/oppia/oppia/wiki/Troubleshooting) page.*
+*These installation instructions were last tested on 24 July 2021. For more information on issues that may occasionally arise with the installation process, see the [Troubleshooting](https://github.com/oppia/oppia/wiki/Troubleshooting) page or ask in the GitHub Discussions.*
 
 ## Install prerequisites
 
 Oppia relies on a number of programs and third-party libraries. Many of these libraries are downloaded automatically for you when you first run the `start.py` script provided with Oppia (see step 1 in the next section). However, there are some things that you will need to do beforehand:
 
-1. Make sure you have curl (used to download third-party libraries), setuptools (needed for installing coverage, which checks test coverage for the Python code), git (which allows you to store the source in version control), python-dev (which is used for the numpy installation), python-pip (which is also used for the numpy installation) and pyyaml (which is used to parse YAML files), libbz2-dev (used by Apache Beam):
+1. Update your package list to the latest version by running:
 
 ```
-sudo apt-get install curl openjdk-8-jre python3-setuptools git python3-dev python3-pip python3-yaml unzip python-matplotlib python3-matplotlib libbz2-dev
+sudo apt-get update
+```
+
+2. Make sure you have curl (used to download third-party libraries), setuptools (needed for installing coverage, which checks test coverage for the Python code), git (which allows you to store the source in version control), python-dev (which is used for the numpy installation), python-pip (which is also used for the numpy installation), pyyaml (which is used to parse YAML files) and libbz2-dev (used by Apache Beam):
+
+```
+sudo apt-get install python3-pip python3-setuptools curl openjdk-8-jre git python3-dev python3-yaml python3-matplotlib unzip libbz2-dev
 ```
 
 Alternatively, if you are on Debian/Ubuntu, you can use the `install_prerequisites.sh` script to install these. From the oppia directory:
@@ -29,9 +35,9 @@ Alternatively, if you are on Debian/Ubuntu, you can use the `install_prerequisit
 bash scripts/install_prerequisites.sh
 ```
 
-2. Make sure that you have **Python 2** installed, it is needed for the dev server to run. On Ubuntu 20 you can install it using `sudo apt install python2`.
+3. Make sure that you have **Python 2** installed, it is needed for the dev server to run. On Ubuntu 20 you can install it using `sudo apt install python2`.
 
-3. Install Chrome from [Google's website](https://www.google.com/chrome). You'll need this to run tests.
+4. Install Chrome from [Google's website](https://www.google.com/chrome). You'll need this to run tests.
 
 ## Clone Oppia
 
@@ -88,24 +94,9 @@ bash scripts/install_prerequisites.sh
 For your virtual environment, we recommend you use [pyenv](https://github.com/pyenv/pyenv). Here are some instructions for doing so, but you can use another virtual environment tool if you wish:
 
 1. **Make sure you install the Python build dependencies for your operating system. These are specified [here](https://github.com/pyenv/pyenv/wiki#suggested-build-environment). If you don't do this it might lead to problems further on.** The build dependencies for Ubuntu/Debian are
-    ```sh
-    sudo apt-get install make
-    sudo apt-get install build-essential
-    sudo apt-get install libssl-dev
-    sudo apt-get install zlib1g-dev
-    sudo apt-get install libbz2-dev
-    sudo apt-get install libreadline-dev
-    sudo apt-get install libsqlite3-dev
-    sudo apt-get install wget
-    sudo apt-get install llvm
-    sudo apt-get install libncursesw5-dev
-    sudo apt-get install xz-utils
-    sudo apt-get install tk-dev
-    sudo apt-get install libxml2-dev
-    sudo apt-get install libxmlsec1-dev
-    sudo apt-get install libffi-dev
-    sudo apt-get install liblzma-dev
-    ```
+
+
+    `sudo apt-get install make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget llvm libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev`
 
 2. Install pyenv:
 
@@ -131,17 +122,20 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
    eval "$(pyenv virtualenv-init -)"
    ```
 
+   > **Warning**
+   > Be careful with using graphical editors like Notepad in Windows. These can add carriage returns (`\r`) that confuse our Linux-based development tools. Instead, we recommend using editors designed for programming or command-line text editors.
+
 3. Reload your shell or open a new terminal window to load your updated `~/.bashrc`.
 
-4. Now you can install Python 3.8.12 and the associated pip like this:
+4. Now you can install Python 3.8.15 and the associated pip like this:
 
    ```console
-   $ pyenv install 3.8.12
-   installing python-3.8.12...
+   $ pyenv install 3.8.15
+   installing python-3.8.15...
    patching file misc/news.d/next/build/2021-10-11-16-27-38.bpo-45405.isfdw5.rst
    patching file configure
    patching file configure.ac
-   installed python-3.8.12 to /home/user/.pyenv/versions/3.8.12
+   installed python-3.8.15 to /home/user/.pyenv/versions/3.8.15
    ```
 
 5. Install direnv
@@ -149,11 +143,15 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
    ```sh
    $ sudo apt install direnv
    ```
-   
+
 6. Setup direnv into your shell. Add following lines to the end of `.bashrc` (see [here](https://askubuntu.com/a/127059) for where to find this file):
+
    ```bash
    eval "$(direnv hook bash)"
    ```
+
+   > **Warning**
+   > Be careful with using graphical editors like Notepad in Windows. These can add carriage returns (`\r`) that confuse our Linux-based development tools. Instead, we recommend using editors designed for programming or command-line text editors.
 
 7. Add new file called `.direnvrc` into your home (`~`) folder with this content:
    ```bash
@@ -169,11 +167,14 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
    }
    ```
 
-8. Create a virtual environment for oppia by adding file named `.envrc` into the parent folder of the oppia repository 
+   > **Warning**
+   > Be careful with using graphical editors like Notepad in Windows. These can add carriage returns (`\r`) that confuse our Linux-based development tools. Instead, we recommend using editors designed for programming or command-line text editors.
+
+8. Create a virtual environment for oppia by adding file named `.envrc` into the parent folder of the oppia repository
    with this content:
 
     ```console
-    use python 3.8.12
+    use python 3.8.15
     ```
 
     Then run this command in the same folder:
@@ -212,15 +213,22 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
    python -m scripts.start
    ```
 
+   > **Note**
+   > If you are using **Windows**, you will need to run `python -m scripts.start --no_browser` instead. This is because Windows does not support the `xdg-open` command that the script uses to open a browser window.
+
    The first time you run this script, it will take a while -- about 5 - 10 minutes when we last tested it in Sep 2020, though this depends on your Internet connection. (It might also hang after "Checking if pip is installed on the local machine" due to the grpcio build being slow -- just give it some time, and it should finish.) Subsequent runs should be much faster. The `start.py` script downloads and installs the required dependencies (such as Google App Engine) if they are not already present, and sets up a development server for you to play with. The development server logs are then output to this terminal, so you will not be able to enter further commands in it until you disconnect the server.
 
-   **Note**: **Please don't use `sudo` while installing.** It's not required, and using it may cause problems later. If you face permissions issues, ensure that you have the necessary permissions for the directory in which you're trying to set up Oppia. If you run into any other installation problems, please read [these notes](https://github.com/oppia/oppia/wiki/Issues-with-installation%3F).
+   > **Note**
+   > **Please don't use `sudo` while installing.** It's not required, and using it may cause problems later. If you face permissions issues, ensure that you have the necessary permissions for the directory in which you're trying to set up Oppia. If you run into any other installation problems, please read [these notes](https://github.com/oppia/oppia/wiki/Issues-with-installation).
 
-   **Note**: The script will create two folders that are siblings of the `oppia/` root directory: `oppia_tools` and `node_modules`. This is done so that these two folders will not be uploaded to App Engine when the application is deployed to the web.
+   > **Note**
+   > The script will create two folders that are siblings of the `oppia/` root directory: `oppia_tools` and `node_modules`. This is done so that these two folders will not be uploaded to App Engine when the application is deployed to the web.
 
-   **Note**: If you run into errors while installing Oppia, please try running `python -m scripts.clean` and running `start.py` again.
+   > **Note**
+   > If you run into errors while installing Oppia, please try running `python -m scripts.clean` and running `start.py` again.
 
-   **Note**: Oppia uses the npm tool to install some packages. This tool accesses both ~/tmp and ~/.npm, and has been known to occasionally encounter permissions issues with those directories. You may need to either delete these directories and all their contents (if they do not contain anything else that needs to be preserved), or change their permissions so that they are owned by you, which you can do by running
+   > **Note**
+   > Oppia uses the npm tool to install some packages. This tool accesses both ~/tmp and ~/.npm, and has been known to occasionally encounter permissions issues with those directories. You may need to either delete these directories and all their contents (if they do not contain anything else that needs to be preserved), or change their permissions so that they are owned by you, which you can do by running
 
    ```console
    sudo chown -R {{YOUR_USERNAME}} ~/tmp
@@ -231,7 +239,7 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
 
 2. The `start.py` script will start a development server at http://localhost:8181. It should look something like this:
 
-   ![Image showing the default splash page.](https://res.cloudinary.com/dozmja9ir/image/upload/v1538254601/home_page.png)
+   ![Image showing the default splash page.](https://user-images.githubusercontent.com/57531197/213922682-5ce66f8f-6a5d-493f-8f7c-fa1a566bb6f9.png)
 
    You can also view the App Engine admin console at http://localhost:8000.
 
@@ -386,21 +394,21 @@ On Arch Linux, you should follow these instructions to set up your virtual envir
 
 3. Reload your shell or open a new terminal window to load your updated `.bashrc`, `.zshrc`, or `config.fish`
 
-4. Now you can install Python 3.7.10 and the associated pip like this:
+4. Now you can install Python 3.8.15 and the associated pip like this:
 
    ```console
-   $ pyenv install 3.8.12
-   installing python-3.8.12...
+   $ pyenv install 3.8.15
+   installing python-3.8.15...
    patching file misc/news.d/next/build/2021-10-11-16-27-38.bpo-45405.isfdw5.rst
    patching file configure
    patching file configure.ac
-   installed python-3.8.12 to /home/user/.pyenv/versions/3.8.12
+   installed python-3.8.15 to /home/user/.pyenv/versions/3.8.1
    ```
 
 5. Create a virtual environment for oppia:
 
    ```console
-   $ pyenv virtualenv 3.8.12 oppia
+   $ pyenv virtualenv 3.8.15 oppia
    ...
    $ pyenv versions
    ...
