@@ -131,7 +131,7 @@ This section describes how Oppia's rich text editor and rich text component syst
 
 ### Third-Party Libraries
 
-The RTE depends on the following third-party libraries, all specified in our `manifest.json`:
+The RTE depends on the following third-party libraries, all specified in our `dependencies.json`:
 
 * [CKEditor 4](https://github.com/ckeditor/ckeditor4): CKEditor is a what-you-see-is-what-you-get (WYSIWYG) rich text editor. The RTE is largely just a wrapper around CKEditor. We currently use version 4.
 * [SharedSpace](https://ckeditor.com/cke4/addon/sharedspace): ensures that the toolbar will always remain in one place on the page.
@@ -167,7 +167,7 @@ Near the end of the `ngAfterViewInit()` function, we use `ck.on` to specify the 
 
 To add a new plugin, follow these steps:
 
-1. Add the plugin to the `manifest.json` to add it as a dependency. Take a look at how we added `SharedSpace` for an example. Alternatively, define your own custom plugin like we did with `pre`.
+1. Add the plugin to the `dependencies.json` to add it as a dependency. Take a look at how we added `SharedSpace` for an example. Alternatively, define your own custom plugin like we did with `pre`.
 2. Add a call to `CKEditor.plugins.addExternal` in the component's `ngAfterViewInit()` method. For example, here's how we added the `pre` plugin:
 
    ```ts

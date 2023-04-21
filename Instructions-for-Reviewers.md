@@ -4,7 +4,7 @@ When you receive a code review request, please try to do the review as soon as p
 
 ## Figuring out which PRs need your attention
 
-Simply visit this URL: https://github.com/pulls/assigned. It takes you to a list of PRs that are assigned to you, across all repositories. 
+Simply visit this URL: https://github.com/pulls/assigned. It takes you to a list of PRs that are assigned to you, across all repositories.
 
 **Note:** If you just want to restrict to the oppia/oppia repository, use https://github.com/oppia/oppia/pulls/assigned/{{USERNAME}} instead (replacing `{{USERNAME}}` with your GitHub username at the end. However, the resulting list will not include your assigned PRs from other Oppia repositories.
 
@@ -12,7 +12,6 @@ Simply visit this URL: https://github.com/pulls/assigned. It takes you to a list
 
   1. When you get an email saying a pull request has been assigned to you for review, click on the link to open it in GitHub.
   1. Ensure that the correct target branch (usually "develop") has been selected to merge the branch into.
-  1. Ensure that a "changelog" label is applied on the PR. If not, select an appropriate changelog category label for the PR.
   1. If you want to CC additional reviewers, you can do so using "/cc @username". Say why you're adding them.
 
 ## Doing the review
@@ -20,7 +19,7 @@ Simply visit this URL: https://github.com/pulls/assigned. It takes you to a list
 **Pro-tip**: You can change the review pane on the "Files Changed" tab of a PR to show the old and new versions side-by-side! This makes it easier to review the diffs. See this [GitHub help page](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-comparing-branches-in-pull-requests#diff-view-options) for more information.
 
   1. Look out for the following things:
-     * Do you understand exactly what the code is doing, without needing to dig in too much? If not, it's probably the writer's fault, and you should tell them so. The logic needs to be very clear. 
+     * Do you understand exactly what the code is doing, without needing to dig in too much? If not, it's probably the writer's fault, and you should tell them so. The logic needs to be very clear.
        * Don't be afraid, as a reviewer, about asking for the logic to be broken up or simplified. It's also totally fine (and preferable!) to ask for code to be simplified if it is hard to read (even though it may be technically correct in its current form). Code is typically written once and read many times, so we try to optimize for readability.
      * Is the code doing the right thing? (Make sure to further expand the parts above and below the code you're looking at, to ensure that you have the full context of what is going on. This is _especially_ important for complex logic -- e.g. can you find the critical bug that was introduced [here](https://github.com/oppia/oppia/pull/9141/files#diff-3d7e1efacf316f35426e24bedbd89564R128)?)
      * Does the design look sensible?
@@ -35,12 +34,13 @@ Simply visit this URL: https://github.com/pulls/assigned. It takes you to a list
      * **Important:** Please also ensure that, if a PR author files a TODO for future work, they assign themselves to it (or arrange for it to be assigned responsibly to someone else) and don't just abandon it. It should typically be the next thing they work on, unless there is a principled reason to agree otherwise. (In other words, PR authors shouldn't just file TODOs for future work and then abandon them.)
 
 
-      **Note**: To checkout branch BRANCH_NAME from committer COMMITTER_USERNAME to your local machine, run:
-      ```
-        git checkout -b {{COMMITTER_NAME}}-{{BRANCH_NAME}} develop
-        git pull https://github.com/{{COMMITTER_NAME}}/oppia.git {{BRANCH_NAME}}
-      ```
-      See also [Checking out pull requests locally](https://help.github.com/articles/checking-out-pull-requests-locally/).
+      > **Note**
+      > To checkout branch BRANCH_NAME from committer COMMITTER_USERNAME to your local machine, run:
+      > ```
+      >   git checkout -b {{COMMITTER_NAME}}-{{BRANCH_NAME}} develop
+      >   git pull https://github.com/{{COMMITTER_NAME}}/oppia.git {{BRANCH_NAME}}
+      > ```
+      > See also [Checking out pull requests locally](https://help.github.com/articles/checking-out-pull-requests-locally/).
 
   1. After submitting the review, set the Assignee field to the developer's GitHub username, so that they know it's their turn.
 
@@ -80,7 +80,7 @@ In some cases, the reviewer (contributors with write access) might want to fix t
 ### Instructions
 
 1. Add PR author fork as a new remote, `git remote add {{AUTHOR_NAME}} git@github.com:{{AUTHOR_NAME}}/oppia.git`.
-1. Locally fetch author branches, `git fetch {{AUTHOR_NAME}}`.   
+1. Locally fetch author branches, `git fetch {{AUTHOR_NAME}}`.
 1. Checkout to the fetched branch, `git checkout -b {{AUTHOR_NAME}}-{{BRANCH_NAME}} {{AUTHOR_NAME}}/{{BRANCH_NAME}}`.
 1. Update that branch from develop, `git pull upstream develop` and fix the merge conflicts as usual.
 1. Push back to the branch, `git push {{AUTHOR_NAME}} HEAD:{{BRANCH_NAME}}`.

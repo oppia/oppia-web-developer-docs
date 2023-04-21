@@ -8,14 +8,12 @@
     * [[UX researchers|Conducting-research-with-students]]
     * [[Voice artists | Instructions-for-voice-artists]]
     * [[Designers and artists|Contributing-to-Oppia's-design]]
-  * **[[Hacktoberfest 2022|Hacktoberfest-2022]]**
-  * **[[SLoP 2022|SLoP-2022]]**
-  * **[[Google Summer of Code 2022|Google-Summer-of-Code-2022]]**
+  * **[[Google Summer of Code 2023|Google-Summer-of-Code-2023]]**
 ---
 **Developing Oppia**
   * [[FAQs|Frequently-Asked-Questions]]
   * [[Installing Oppia|https://github.com/oppia/oppia/wiki/Installing-Oppia]]
-  * [[Upgrading python version to 3.8.12|Upgrading-python-interpreter-to-version-3.8-for-existing-oppia-directory]]
+  * [[Upgrading python version to 3.8.15|Upgrading-python-interpreter-to-version-3.8-for-existing-oppia-directory]]
   * [[Tips for common IDEs|Tips-for-common-IDEs]]
   * [[Make a pull request|Make-a-pull-request]]
   * [[Common pull request workflows|Common-pull-request-workflows]]
@@ -81,6 +79,7 @@
 **Developer Reference**
 
   * [[Oppiabot|Oppiabot]]
+  * [[LaCE onboarding guide|LaCE-onboarding-guide]]
   * Frontend
     * [[Angular Migration | Angular-Migration]]
     * [UX guidelines](https://github.com/oppia/oppia/wiki/Oppia-UX-guidelines-&-rationales)
@@ -91,7 +90,6 @@
     * [[Writing state migrations | Writing-state-migrations]]
     * [[Calculating statistics|Calculating-statistics]]
     * [[Storage models|Storage-models]]
-    * [[Writing validators for storage models | Writing-Validators-for-storage-models]]
     * [[Coding for speed in GAE | Coding-for-speed-in-GAE]]
     * [[Adding static assets|Adding-static-assets]]
     * [[Wipeout Implementation|Wipeout-Implementation]]
@@ -102,11 +100,13 @@
   * Translations
     * [[Adding new translations|Adding-new-translations-for-i18n]]
     * [[How to develop for i18n|How-to-develop-for-i18n]]
+  * [[Contributor dashboard|Contributor-dashboard]]
   * [[Webpack|Webpack]]
   * [[Third-party libraries|Third-party-libraries]]
   * [[Extension frameworks|Extensions-Overview]]
     * [[Rich Text Components|Rich-Text-Editor-(RTE)-Overview]]
     * [[Interactions|Creating-Interactions]]
+      * [[Math Interactions Overview | Math-Interactions-Overview]]
     * [[Rules|Creating-Rules]]
     * [[Objects|Creating-Objects]]
     * [[Dependencies|Creating-Dependencies]]
@@ -118,6 +118,7 @@
   * [[Performance testing|Performance-Testing]]
   * [[Build process|Build-process]]
   * [[Team structure|Team-Structure]]
+  * [[Triaging Process|Triaging-process]]
   * Playbooks
     * [[Instructions for making PR passes|Instructions-for-making-PR-passes]]
     * [[Instructions for Reviewers|Instructions-for-Reviewers]]
@@ -126,11 +127,11 @@
   * [[Wiki|Wiki]]
     * [[Wiki-style-guide|Wiki-style-guide]]
   * Past Events
-    * Google Summer of Code: [[2021|Google-Summer-of-Code-2021]], [[2020|Google-Summer-of-Code-2020]], [[2019|Google-Summer-of-Code-2019]], [[2018|Google-Summer-of-Code-2018]], [[2017|Google-Summer-of-Code-2017]], [[2016|Google-Summer-of-Code-2016]]
-    * Hacktoberfest: [[2021|Hacktoberfest-2021]], [[2020|Hacktoberfest-2020]], [[2019|Hacktoberfest-2019]], [[2018|Hacktoberfest-2018]], [[2017|Hacktoberfest-2017]], [[2016|Hacktoberfest-2016]]
+    * Google Summer of Code: [[2022|Google-Summer-of-Code-2022]], [[2021|Google-Summer-of-Code-2021]], [[2020|Google-Summer-of-Code-2020]], [[2019|Google-Summer-of-Code-2019]], [[2018|Google-Summer-of-Code-2018]], [[2017|Google-Summer-of-Code-2017]], [[2016|Google-Summer-of-Code-2016]]
+    * Hacktoberfest: [[2022|Hacktoberfest-2022]], [[2021|Hacktoberfest-2021]], [[2020|Hacktoberfest-2020]], [[2019|Hacktoberfest-2019]], [[2018|Hacktoberfest-2018]], [[2017|Hacktoberfest-2017]], [[2016|Hacktoberfest-2016]]
     * GHC Open Source Day: [[2019|GHC-Open-Source-Day-2019]], [[2018|GHC-Open-Source-Day]]
     * Season of Docs: [[2019|Season-of-Docs-2019]]
-    * DSC-SLoP (Semester Long Project): [[2020|SLoP-2020]]
+    * DSC-SLoP (Semester Long Project): [[2022|SLoP-2022]], [[2020|SLoP-2020]]
     * Outreachy: [[Dec 2021 to Mar 2022|Outreachy-Dec-2021-to-Mar-2022]]
 ---
 **Fun**

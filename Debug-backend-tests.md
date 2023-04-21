@@ -4,6 +4,7 @@
 * [Interpret log output](#interpret-log-output)
 * [Find tests](#find-tests)
 * [Run tests in isolation](#run-tests-in-isolation)
+* [Complete coverage](#complete-coverage)
 * [Increase verbosity](#increase-verbosity)
 * [Use the Python debugger](#use-the-python-debugger)
   * [Step 1: Insert break points](#step-1-insert-break-points)
@@ -88,6 +89,15 @@ python -m scripts.run_backend_tests --test_path jobs
 ```
 
 **Make sure that you can reproduce the problem you are trying to debug when you run the test in isolation!** While rare, it is possible for a test failure to have been caused by previous tests. In these cases, you may not be able to reproduce the problem when you only run the test that initially failed.
+
+## Complete coverage
+
+To identify the missing coverage lines run the below command.
+```console
+python -m scripts.run_backend_tests --generate_coverage_report
+```
+
+For more information about the backend code coverage kindly refer [here](https://github.com/oppia/oppia/wiki/Backend-tests#coverage-reports).
 
 ## Increase verbosity
 

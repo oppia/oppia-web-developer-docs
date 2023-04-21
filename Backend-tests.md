@@ -203,7 +203,9 @@ Note that you might see a bunch of lines that just contain `[datastore]`. While 
 
 ### Coverage reports
 
-We use a simple tool, called *code coverage*, to check that all of Oppia’s backend code is fully covered by at least one test. Coverage reports specify which lines of each file have not been used in any test, and they report what percentage of each file is covered by the tests. Currently, Oppia has achieved **100% backend coverage**. We require that all changes maintain this full coverage.
+#### Overall coverage
+
+We use a simple tool called *code coverage* to check that all of Oppia’s backend code is fully covered by at least one test. Coverage reports specify which lines of each file have not been executed in any test, and they report what percentage of each file (branches and lines) is covered by the tests. Currently, Oppia has achieved **100% backend line coverage**. We require that all changes maintain this full coverage.
 
 When writing a test for a function or class, you can generate a coverage report to verify that all the lines of the function/class have been included in the tests. To do this, simply add the `--generate_coverage_report` flag to the `run_backend_tests` command:
 
@@ -214,18 +216,23 @@ python -m scripts.run_backend_tests --generate_coverage_report
 If there are **any** backend test errors, no coverage report will be produced. Please fix those errors and then re-run the above command. If the tests all pass, a coverage report will be printed that lists each backend file, along with the lines not covered by tests. Here is an example of a coverage report:
 
 ```text
-Name                                                                             Stmts   Miss  Cover   Missing
---------------------------------------------------------------------------------------------------------------
-appengine_config.py                                                                 23      0   100%
-constants.py                                                                        20      0   100%
-core/controllers/acl_decorators.py                                                 686      0   100%
-core/controllers/admin.py                                                          304      0   100%
-core/controllers/base.py                                                           258      0   100%
-core/controllers/classifier.py                                                      79      0   100%
-core/controllers/classroom.py                                                       99      1    99%   23
+Name                                                                             Stmts   Miss Branch BrPart  Cover   Missing
+----------------------------------------------------------------------------------------------------------------------------
+core/android_validation_constants.py                                                23      0      0      0   100%
+core/constants.py                                                                   32      1      2      1    94%   3, 5->4
+core/controllers/access_validators.py                                               80      0     10      0   100%
 ```
 
-Notice that `classroom.py` has only 99% code coverage because line 23 was not covered. This means that none of the tests executed line 23.
+Notice that `constants.py` has only 94% code coverage because line 3 and the branch `5->4` were not covered. This means that none of the tests executed line 3. It also means that a branch in the code causes execution to jump from line 5 to line 4, and none of the tests executed this branch. Here's an example of such a branch:
+
+```text
+1 for elem in lst:
+2    if elem == 0:
+3        continue
+4    pass
+```
+
+If we find an element in `lst` that is `0`, then we will hit the `continue` statement, and execution will jump from line 3 to line 1. This would be denoted in the coverage report as a branch `3->1`. We currently require that all files have full line coverage, and files not in the `scripts/backend_tests_incomplete_coverage.txt` exclusion list are also required to have full branch coverage. This means that you might see an overall coverage of less than 100% on your PR--that's okay so long as all the missing coverage is coming from branches in files that are in the exclusion list.
 
 #### Warning: full coverage does not mean your tests are comprehensive
 
@@ -249,6 +256,27 @@ Now consider the following sets of test cases:
 * `absoluteValue(-1)`, `absoluteValue(0)`, and `absoluteValue(1)`: These test cases are comprehensive, and code coverage is 100%. Note that even though line 1 doesn't execute, coverage is 100% because line 1 is not executable.
 
 This example illustrates something very important about code coverage: **Code coverage less than 100% implies that the tests are not comprehensive, but code coverage of 100% does NOT imply that tests are comprehensive.** Therefore, while code coverage is a useful tool, you should primarily think about whether your tests cover all the possible behaviors of the code being tested. In other words, you should have a behavior-first perspective. Don't just think about which lines are covered.
+
+#### Associated test files
+
+We require that every backend file have an associated test file. For example, if you create a file `new_file.py`, you will also need to create a test file `new_file_test.py`. We have a CI check (defined by `.github/workflows/backend_associated_test_file_check.yml`) that will fail if any test files are missing.
+
+#### Per-file coverage
+
+Above, we discussed overall coverage, which measures how much of our code runs when all the tests run. Per-file coverage is similar, but it measures only how much of a file runs when that file's associated test file runs. We are working to achieve full per-file coverage, but since that work is incomplete, we currently allow files in the exclusion list `scripts/backend_tests_incomplete_coverage.txt` to have incomplete per-file line and branch coverage (though they must still have 100% overall line coverage).
+
+If your changes result in incomplete per-file coverage of a file not in the exclusion list, you'll see an error like this:
+
+```text
+ INCOMPLETE COVERAGE (95.0%): scripts.run_lighthouse_tests_test
+Name                              Stmts   Miss Branch BrPart  Cover   Missing
+-----------------------------------------------------------------------------
+scripts/run_lighthouse_tests.py     118      5     34      3    95%   107->116, 111-113, 114->107, 117-118
+-----------------------------------------------------------------------------
+TOTAL                               118      5     34      3    95%
+```
+
+If you want to check that you've fixed the per-file coverage issue without running all the tests, you can use `--test_target` to run only the test file associated with the file whose coverage you want to check. Then in the overall coverage report, check the line for your file to see if it's 100%. Note that most other files in the codebase will show as being incompletely covered since you didn't run all the tests, and that's okay.
 
 ## Write backend tests
 

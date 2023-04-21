@@ -96,7 +96,6 @@ In this case, you should resolve these merge conflicts on your local machine and
 ### I need more help, where do I go?
 
 If you run into any problems, please read our [Developer Wiki](https://github.com/oppia/oppia/wiki), or create a post on our [GitHub Discussions](https://github.com/oppia/oppia/discussions/categories/setup-issues), or post to our [developer mailing list](https://groups.google.com/forum/?fromgroups#!forum/oppia-dev).
-Or you could probably ask your questions on our official [Gitter](http://gitter.im/oppia/oppia-chat) channel.
 
 ### How to enable maintenance mode in the local server?
 

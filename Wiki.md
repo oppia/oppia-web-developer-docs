@@ -3,11 +3,15 @@
 * [Wiki architecture](#wiki-architecture)
 * [Contributing to the wiki](#contributing-to-the-wiki)
   * [Opening a pull request](#opening-a-pull-request)
+  * [Run pylint on python files in the Oppia-docs-repo](#run-pylint-on-python-files-in-the-oppia-docs-repo)
   * [When you make changes through the web interface](#when-you-make-changes-through-the-web-interface)
 * [Implementation details](#implementation-details)
   * [GitHub App for synchronizer bot](#github-app-for-synchronizer-bot)
   * [Workflow to revert changes through the web interface](#workflow-to-revert-changes-through-the-web-interface)
   * [Security analysis](#security-analysis)
+  * [Failed to push changes to wiki upon PR merge](#failed-to-push-changes-to-wiki-upon-pr-merge)
+* [Tips and Tricks](#tips-and-tricks)
+  * [How can I see markdown (wiki) preview in Visual Studio Code?](#how-can-i-see-markdown-wiki-preview-in-visual-studio-code)
 
 ## Wiki architecture
 
@@ -42,7 +46,7 @@ For your first contribution, you'll need to set up your repository (you only hav
 3. Add the upstream repository as a remote:
 
    ```console
-   git add remote upstream https://github.com/oppia/oppia-web-developer-docs.git
+   git remote add upstream https://github.com/oppia/oppia-web-developer-docs.git
    ```
 
 Then for every new contribution (including your first), you should follow these steps:
@@ -82,6 +86,23 @@ Then for every new contribution (including your first), you should follow these 
 8. Once the welfare team leaves comments, respond to them and make changes as needed. Like on oppia/oppia, please do not resolve review threads--let the reviewer do that. Repeat as needed until reviewers approve. Note that we don't have code owners in the source repository. Instead, the welfare team will ask other developers to review PRs as needed. For example, we'll usually ask team leads to review substantive changes to wiki pages on their team's work.
 
 9. Once reviewers have approved, the welfare team will merge your PR, and your changes will be automatically deployed to the Oppia wiki. Congratulations!
+
+### Run pylint on python files in the [Oppia-docs-repo](https://github.com/oppia/oppia-web-developer-docs).
+Steps:
+
+  1.  Install Pylint
+
+      If pip refers to python3, then run:
+
+      `pip install pylint`
+      
+      else run:
+      
+      `pip3 install pylint`
+
+  2. Run pylint on all python files in the repository:
+
+      `pylint **/*.py`
 
 ### When you make changes through the web interface
 
@@ -150,3 +171,19 @@ Here are some alternative approaches:
 * Using the `GITHUB_TOKEN` generated automatically for actions workflows.
 
   * This token does not grant access to the wiki, so even if we force-deployed from the source repository instead of creating a revert commit, the workflow in the deployment repository that detects an edit through the web interface would not have permission to force-deploy the source documentation to the deployment wiki.
+
+### Failed to push changes to wiki upon PR merge.
+
+If the deployment of changes to the wiki following the merging of a pull request was unsuccessful, you have the option to manually push the changes to the wiki by following these steps:
+
+1. Navigate to the Oppia wiki repository's Actions tab.
+2. Select the "Deploy to wiki" workflow.
+3. Refer to these [instructions](https://docs.github.com/en/actions/managing-workflow-runs/manually-running-a-workflow?tool=webui#running-a-workflow) to manually execute the workflow.
+
+## Tips and Tricks
+
+### How can I see markdown (wiki) preview in Visual Studio Code?
+
+Right-click on the editor Tab and select **Open Preview** (Windows/Linux: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>, Mac: <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>) or use the **Command Palette** Windows/Linux: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>, Mac: <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> to run the **Markdown: Open Preview to the Side** command (Windows/Linux: <kbd>Ctrl</kbd>+<kbd>K</kbd>+<kbd>V</kbd>, Mac: <kbd>Command</kbd>+<kbd>K</kbd>+<kbd>V</kbd>). 
+
+<img width="1074" alt="Screenshot wiki preview" src="https://user-images.githubusercontent.com/76530270/227735960-6dcd4453-4c5a-4eaf-b33b-48a68a2dbdfb.gif">

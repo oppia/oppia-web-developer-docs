@@ -109,7 +109,7 @@ This is a guide for new Oppia lesson creators about lessons/explorations, skills
 
 ## Guide for Oppia developers
 
-This involves organizing the information architecture of the [Oppia wiki](https://github.com/oppia/oppia/wiki), and fleshing it out with additional short guides for Oppia developers in the form of “how-tos” which provide useful resources for new but also experienced developers. The aim is to answer all questions that Oppia developers regularly face in their work, so part of this project would also involve monitoring discussions on Gitter and PRs to see which issues tend to come up frequently, and address those. Some examples:
+This involves organizing the information architecture of the [Oppia wiki](https://github.com/oppia/oppia/wiki), and fleshing it out with additional short guides for Oppia developers in the form of “how-tos” which provide useful resources for new but also experienced developers. The aim is to answer all questions that Oppia developers regularly face in their work, so part of this project would also involve monitoring discussions on PRs to see which issues tend to come up frequently, and address those. Some examples:
 
 * How to install and start Oppia
 * How to deploy Oppia on Google App Engine
@@ -176,9 +176,5 @@ This involves creating documentation for the Oppia codebase that explains the st
 
 ## Communication
 
-#### Chat
-Oppia has a real-time chat channel on [Gitter](https://gitter.im/oppia/oppia-chat)! You can log in using your GitHub account (Gitter will ask to be associated with your GitHub account for authentication) and you will then be able to talk in it. Please feel free to use Gitter if you just want to say hi to the community or if you have any questions related to getting started.
-
 #### Email
-If you have questions pertaining to "how-to-get-started", please ask them on [Gitter](
-https://gitter.im/oppia/oppia-chat), or the oppia-dev@ mailing list. Please be specific when asking questions; this makes it easier for us to help you.
+If you have questions pertaining to "how-to-get-started", please ask them on the oppia-dev@ mailing list. Please be specific when asking questions; this makes it easier for us to help you.

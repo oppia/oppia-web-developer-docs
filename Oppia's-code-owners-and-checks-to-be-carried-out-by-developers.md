@@ -1136,7 +1136,7 @@ Check that UX for the users is positive. Changes should be compatible with mobil
    </td>
   </tr>
   <tr>
-   <td>/manifest.json (+@seanlip)
+   <td>/dependencies.json (+@seanlip)
    </td>
    <td>(seanlip) Ensure that no new libraries are added unnecessarily, and that third-party libraries have a proper license.
    </td>

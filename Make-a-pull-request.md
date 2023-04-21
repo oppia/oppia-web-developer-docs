@@ -59,7 +59,8 @@ You can change your most recent commit message using `git commit --amend`. **It 
   git commit -m "{{YOUR COMMIT MESSAGE HERE}}"
   ```
 
-**Note**: There is no maximum or minimum number of commits required in a PR. Instead of aiming for a certain number, you should try to make each commit a logical "chunk" of work. There are many opinions about how big commits should be, but a useful rule of thumb is that you should be able to read the first lines of all your commit messages to get a good idea of what you changed. If you find yourself needing lots of clauses to capture what you changed, your commit is probably too big.
+> **Note**
+> There is no maximum or minimum number of commits required in a PR. Instead of aiming for a certain number, you should try to make each commit a logical "chunk" of work. There are many opinions about how big commits should be, but a useful rule of thumb is that you should be able to read the first lines of all your commit messages to get a good idea of what you changed. If you find yourself needing lots of clauses to capture what you changed, your commit is probably too big.
 
 ## Step 3: Push changes to your GitHub fork
 
@@ -97,17 +98,17 @@ Once your feature is ready, you can open a pull request (PR)!
 
   **WARNING: If your PR only fixes a specific part of the issue, start the title with "Fix part of issue #bugnum:" instead so that the original issue is not auto-closed by GitHub when the PR is merged.**
 
+* Write a clear description of your PR that explains why the change is being made, how the change was made, as well as any identified risks and resulting countermeasures. See [here](https://github.com/oppia/oppia-android/pull/4757#issue-1461272376) for a good example of what sorts of things to include.
+
 * Fill out the rest of the PR checklist.
 
 * Add the screen recording you saved to the description.
 
 * Click "Create pull request".
 
-* If you have already completed 2 pull requests and been added as a collaborator to the project, you should also add a changelog label.  If you are a new contributor, you don't have permission to do this.  Don't worry! Oppiabot will automatically ask someone to do it for you.
-
 * Oppiabot will check that you filled out the PR description correctly. If you didn't, it will leave a comment explaining what you need to do to fix it. More details on the kinds of comments Oppiabot leaves are coming soon.
 
-* GitHub will automatically assign reviewers, and Oppiabot will assign the issue's "owner" (from the changelog label) to do the first review.
+* GitHub will automatically assign reviewers, and Oppiabot will assign them as codeowners to do the first review.
 
   If you need to assign someone else but aren't a collaborator yet, leave a comment of the form `@{{reviewer username}} PTAL`, which will tell Oppiabot to assign that person for you. ("PTAL" means "Please take a look".)
 
@@ -148,7 +149,7 @@ When your reviewer has completed their review, they will reassign the pull reque
 
 * **Always make commits locally, and then push to GitHub.** Don't make changes using the online GitHub editor -- this bypasses lint/presubmit checks, and will cause the code on GitHub to diverge from the code on your machine.
 
-* **Never force-push changes to GitHub.** This will lead to the PR being closed.
+* **Never force-push changes to GitHub, or rebase your PR.** This will lead to the PR being closed.
 
 * As you are making changes, track them by replying to each comment via the Files Changed tab. Each reply should be either "Done" or a response explaining why the corresponding suggestion wasn't implemented. Also, please **do not** mark the comment as resolved, since this just makes it harder to actually read the comment thread. Also, please **use the 'Start a review' button** (rather than the 'Add single comment' button) to write draft comments, so that you don't publish them before the code is ready.
 

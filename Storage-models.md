@@ -27,36 +27,21 @@
 ## Introduction
 
 You might be used to programs holding data in variables, but for an application like Oppia, we need some way to store that data such that it survives the application shutting down. We don't want to lose all our data just because we release a new version of Oppia! To store data persistently, you might think about storing it in a file like this:
-
-```text
- User        Application               File system
- ----        -----------               -----------
-  |  GET /prefs   |                         |
-  | ------------> |                         |
-  |               |   f = open('f.json')    |
-  |               |   data = json.load(f)   |
-  |               | ----------------------> |
-  |               |                         |
-  |               |          data           |
-  |               | <---------------------- |
-  | data['prefs'] |                         |
-  | <------------ |                         |
+```mermaid
+sequenceDiagram
+    User ->>Application: GET /prefs
+    Application ->> File System: f = open('f.json'), data= json.load(f)
+    File System -->>Application: data
+    Application -->>User: data['prefs']
 ```
 
 This works, but it turns out we can do better by using a dedicated database server. At Oppia, we use Google Cloud's [Datastore](https://cloud.google.com/datastore) like this:
-
-```text
- User        Application                Datastore
- ----        -----------                ---------
-  |  GET /prefs   |                         |
-  | ------------> |                         |
-  |               |  Retrieve preferences   |
-  |               | ----------------------> |
-  |               |                         |
-  |               |          prefs          |
-  |               | <---------------------- |
-  |      prefs    |                         |
-  | <------------ |                         |
+```mermaid
+sequenceDiagram
+    User ->>Application: GET /prefs
+    Application ->> Datastore: Retrieve preferences 
+    Datastore -->>Application: prefs
+    Application -->>User: prefs
 ```
 
 To interact with the datastore, we use Google's [ndb library](https://googleapis.dev/python/python-ndb/latest/index.html). We refer to the code that uses ndb and defines what kind of data we store in the datastore as the "storage layer." In this guide, we'll discuss how the storage layer works and how to make some common storage layer changes.
@@ -333,14 +318,13 @@ Pseudonymization is not handled by the model classes. Instead, it's handled in [
 
 6. If the takeout policies will result in any data export, add a method to [export user data](#export-data).
 7. Optionally [provide a mapping from property names to takeout dictionary keys](#map-property-names-to-takeout-keys).
-8. [[Add a validator for the model|Writing-Validators-for-storage-models]].
-9. **Important:** If this model relates to other models, then make sure that when the other models are deleted, this model is also deleted.
+8. **Important:** If this model relates to other models, then make sure that when the other models are deleted, this model is also deleted.
 
    For example, if this model exists for every exploration, then when `ExplorationModel` gets deleted, we want this model to be deleted also. In this example, the `ExplorationModel.delete_explorations` method should be modified to delete your new model.
 
    Add tests that verify that this deletion works correctly!
 
-10. Write [[backend tests|Backend-tests]] for your new model.
+9. Write [[backend tests|Backend-tests]] for your new model.
 
 ### Add a pseudonymizable model
 
@@ -390,4 +374,4 @@ Actually remove the field:
 
 ## Contact
 
-If you have any questions about Oppia's storage models, please reach out to @vojtechjelinek (vojtech.jelinek@hey.com).
+If you have any questions about Oppia's storage models, please reach out to @vojtechjelinek.
