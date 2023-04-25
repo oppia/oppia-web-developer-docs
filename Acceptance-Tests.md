@@ -46,11 +46,10 @@ Files included inside this directory are :
 
 ## How to run the acceptance tests
 From the root directory of oppia, run the following command:
-`python -m scripts.run_acceptance_tests`
-If you want to run just a single test, then run the following command:
-`jasmine --config=core/tests/puppeteer-acceptance-tests/jasmine.json {path to the file}`
+`python -m scripts.run_acceptance_tests --suite={{suiteName}}`
+
 For example, to run the `check-blog-editor-unable-to-publish-duplicate-blog-post.spec.js` test, run the following command:
-`jasmine --config="core/tests/puppeteer-acceptance-tests/jasmine.json" core/tests/puppeteer-acceptance-tests/spec/blog-editor-tests/check-blog-editor-unable-to-publish-duplicate-blog-post.spec.js`
+`python -m scripts.run_acceptance_tests --suite="blog-editor-tests/check-blog-editor-unable-to-publish-duplicate-blog-post.spec.js"`
 
 
 ## How to write new tests for a specific user
@@ -74,11 +73,12 @@ For example, to run the `check-blog-editor-unable-to-publish-duplicate-blog-post
 
 8) The `puppeteer-testing-utilities` directory contains all the utility files and helper functions, which you would require to write new acceptance tests. This directory can also be used to append more utility functions as when required or needed by the user.
 
+9) The test must be thoroughly tested before submitting a PR. The test can be run locally by running the following command as mentioned above or you can run the test on the CI server by pushing your code to the remote branch in your fork. The CI server will run the test and will show the result.
 
 ## Reference Links
 Blog Admin and Blog Editor Tests - 
-  [Blog Admin top-level tests](https://github.com/oppia/oppia/pull/17364)
-  [Blog Editor top-level tests](https://github.com/oppia/oppia/pull/17364)
+  [Blog Admin top-level tests](https://github.com/oppia/oppia/tree/develop/core/tests/puppeteer-acceptance-tests/spec/blog-admin-tests)
+  [Blog Editor top-level tests](https://github.com/oppia/oppia/tree/develop/core/tests/puppeteer-acceptance-tests/spec/blog-editor-tests)
   [user utility files](https://github.com/oppia/oppia/blob/develop/core/tests/puppeteer-acceptance-tests/user-utilities/blog-post-admin-utils.js)
   [puppeteer utility files - base class](https://github.com/oppia/oppia/blob/develop/core/tests/puppeteer-acceptance-tests/puppeteer-testing-utilities/puppeteer-utils.js)
   [puppeteer utility files - user factory](https://github.com/oppia/oppia/blob/develop/core/tests/puppeteer-acceptance-tests/puppeteer-testing-utilities/user-factory.js)
