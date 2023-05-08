@@ -11,7 +11,7 @@ That said, we strongly recommend that you be open to learning new things. If you
       * Levels 1, 2, and 3 from the Introduction sequence.
       * Levels 1, 2, 3, 4, 5, and 6 from Push and Pull Git Remotes.
 
-    * [Introduction to GitHub](https://lab.github.com/courses/introduction-to-github) covers how to use GitHub.
+    * [Introduction to GitHub](https://github.com/skills/introduction-to-github) covers how to use GitHub.
 
   * More advanced:
 
