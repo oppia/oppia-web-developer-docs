@@ -37,4 +37,6 @@ That said, we strongly recommend that you be open to learning new things. If you
 
 * If you are new to HTML, some tutorials include [Mozilla's guide](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML) (which includes some practice assessments), as well as [this tutorial for beginners](http://htmldog.com/guides/html/beginner/).
 
+* If you are new to Python, the free [CS50p](https://cs50.harvard.edu/python/2022/) course is a great place to start learning. W3Schools' [Python Tutorial](https://www.w3schools.com/python/) is a good quick reference guide and includes interactive practice exercises. Also, check out the official Python [documentation](https://docs.python.org/3/).
+
 If you find a useful learning resource that isn't listed here, please add it to help other new contributors!
