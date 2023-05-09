@@ -12,8 +12,17 @@ This page will help you solve common queries that you may face while working on 
 ## 1. Creating a Topic 
 - To create a new topic, we first navigate to the `Topics and Skill Dashboard` and select the `CREATE TOPIC` option. To do so, you can take a look at this [guide](Editor-pages.md#steps-to-create-a-topicskill)
 - A modal will open up with necessary details of the topic that are to be filled such as topic name, topic thumbnail, etc.
+
+![topic-modal](https://github.com/SanjaySajuJacob/oppia-web-developer-docs/assets/70763993/038e469a-d236-4147-bfd8-93919e98f587)
+
 - Once this is done, the topic is created and you will be redirected to the topic editor page.
+
+![topic-editor](https://github.com/SanjaySajuJacob/oppia-web-developer-docs/assets/70763993/ad57a855-c141-4318-bef3-5e75ed127fee)
+
 - In the main editor tab, we will be able to see the errors that are preventing the topic from being published.
+
+![topic-editor-warnings](https://github.com/SanjaySajuJacob/oppia-web-developer-docs/assets/70763993/7a838aaa-3a0a-4199-b5f1-368ccf7ec795)
+
 - This tab has 4 main sections:
   - Details: Information related to the topic
   - Subtopics section: Subtopics and skills associated with the topic are listed.
