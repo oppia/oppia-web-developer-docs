@@ -41,7 +41,7 @@ This page will help you solve common queries that you may face while working on 
     - Hints
   - Once all these sections are filled, the question can be saved.
 
-## 3. Generating data on localhost
+## 3. Generating testing data on localhost
 - To generate data, we must first navigate to the admin page. We will automatically be redirected to the `ACTIVITIES` tab.
 - This tab will have several sections:
   - Reload a single exploration: This section has preloaded explorations. These can be loaded onto your local server by clicking the `Reload` button for each of them.
