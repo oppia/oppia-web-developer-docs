@@ -8,6 +8,7 @@ If you run into any problems along the way, we're here to help! Check out our [[
 
 ## Table of Contents
 
+* [How to find information on this wiki](#how-to-find-information-on-this-wiki)
 * [Setting things up](#setting-things-up)
 * [Developing your skills](#developing-your-skills)
 * [Finding something to do](#finding-something-to-do)
@@ -17,6 +18,10 @@ If you run into any problems along the way, we're here to help! Check out our [[
   * [Tasks for Existing Contributors](#tasks-for-existing-contributors)
 * [Tips for Success](#tips-for-success)
 * [Notes](#notes)
+
+## How to find information on this wiki
+
+<img width="1074" alt="Screenshot wiki preview" src="https://github.com/MohitGupta121/oppia-android/assets/76530270/866c6796-3c50-41fe-992a-778728401c8f">
 
 ## Setting things up
 
