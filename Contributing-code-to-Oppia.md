@@ -21,6 +21,9 @@ If you run into any problems along the way, we're here to help! Check out our [[
 
 ## How to find information on this wiki
 
+1. In the search bar at the top of the page, enter your search query.
+2. By default, GitHub will show you the search results across code section of repository, but you can filter the results by selecting the "Wikis" tab to view only wikis-specific results.
+
 <img width="1074" alt="Screenshot wiki preview" src="https://github.com/MohitGupta121/oppia-android/assets/76530270/866c6796-3c50-41fe-992a-778728401c8f">
 
 ## Setting things up
