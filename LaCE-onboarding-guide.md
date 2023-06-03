@@ -42,14 +42,41 @@ This page will help you solve common queries that you may face while working on 
   - Once all these sections are filled, the question can be saved.
 
 ## 3. Generating data on localhost
-- To generate data, we must first navigate to the admin page. We will automatically be redirected to the `ACTIVITIES` tab.
+- To generate data, we must first navigate to the admin page.
+
+![Admin Page](https://github.com/prafulbbandre/oppia-web-developer-docs/assets/109658545/bbfb7acd-356f-41a1-8f4e-f7747a9de805)
+
+-  We will automatically be redirected to the `ACTIVITIES` tab.
 - This tab will have several sections:
   - Reload a single exploration: This section has preloaded explorations. These can be loaded onto your local server by clicking the `Reload` button for each of them.
+
+![Activities Tab](https://github.com/prafulbbandre/oppia-web-developer-docs/assets/109658545/39a77f42-c38b-4f5b-9bd9-29366ab8bcb8)
+
   - Generate dummy explorations: Along with the option to generate dummy explorations (with no content), we can also publish a certain number of them.
+
+![Dummy Exploration](https://github.com/prafulbbandre/oppia-web-developer-docs/assets/109658545/ea31d6dc-f27a-4b5c-94c9-5f5dbb858ea2)
+
+
   - Reload a single collection: This section has preloaded collections.
+
+![Reload Single Collection](https://github.com/prafulbbandre/oppia-web-developer-docs/assets/109658545/fe7352c1-89a4-4752-adf7-c264b510befd)
+
+
   - Load dummy new structures data: This section provides a combination of topics, skills, stories and exploration.
+
+![Dummy New Structures Data](https://github.com/prafulbbandre/oppia-web-developer-docs/assets/109658545/81ed5aac-c424-4fb9-8adf-c0a24fe220c1)
+
+
   - Generate dummy skill with questions
+
+![Dummy Skills with Questions](https://github.com/prafulbbandre/oppia-web-developer-docs/assets/109658545/9936be95-d2a8-4ecd-8da2-90f43f7fa5fa)
+
+
   - Generate a dummy math classroom
+
+![Dummy Math Classroom](https://github.com/prafulbbandre/oppia-web-developer-docs/assets/109658545/a369e3b1-bc51-4f80-9770-3f7d0daa0706)
+
+
 
 ## 4. Creating a Classroom
 
