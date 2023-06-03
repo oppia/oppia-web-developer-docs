@@ -56,27 +56,21 @@ This page will help you solve common queries that you may face while working on 
 
 ![Dummy Exploration](https://github.com/prafulbbandre/oppia-web-developer-docs/assets/109658545/ea31d6dc-f27a-4b5c-94c9-5f5dbb858ea2)
 
-
   - Reload a single collection: This section has preloaded collections.
 
 ![Reload Single Collection](https://github.com/prafulbbandre/oppia-web-developer-docs/assets/109658545/fe7352c1-89a4-4752-adf7-c264b510befd)
-
 
   - Load dummy new structures data: This section provides a combination of topics, skills, stories and exploration.
 
 ![Dummy New Structures Data](https://github.com/prafulbbandre/oppia-web-developer-docs/assets/109658545/81ed5aac-c424-4fb9-8adf-c0a24fe220c1)
 
-
   - Generate dummy skill with questions
 
 ![Dummy Skills with Questions](https://github.com/prafulbbandre/oppia-web-developer-docs/assets/109658545/9936be95-d2a8-4ecd-8da2-90f43f7fa5fa)
 
-
   - Generate a dummy math classroom
 
 ![Dummy Math Classroom](https://github.com/prafulbbandre/oppia-web-developer-docs/assets/109658545/a369e3b1-bc51-4f80-9770-3f7d0daa0706)
-
-
 
 ## 4. Creating a Classroom
 
@@ -84,7 +78,6 @@ This page will help you solve common queries that you may face while working on 
 - In this tab, there is a section `The details for each classroom page.` in which you will find a default math classroom that is filled out.
 
 ![The Detail of Classroom Page](https://github.com/prafulbbandre/oppia-web-developer-docs/assets/109658545/ca9a5586-202e-451c-a8a5-c8e22b97bfec)
-
 
 - It has details about the classroom:
   - Name
@@ -96,10 +89,8 @@ This page will help you solve common queries that you may face while working on 
 
 ![Save](https://github.com/prafulbbandre/oppia-web-developer-docs/assets/109658545/70be95fc-e616-4a1a-aa6c-47a7fab35139)
 
-
 - If the classroom has been created successfully you will be able to see a message `Data successfully saved` at the bottom right corner of the screen.
 
 ![Data Successfully Saved](https://github.com/prafulbbandre/oppia-web-developer-docs/assets/109658545/1747eefe-4e6e-4c99-8ff8-9e77714b86d1)
-
 
 - The newly created classroom will be visible in the `Home` tab of the learner dashboard page or we can directly access the classroom from the link `localhost:8181/learn/<classroom-url-fragment>`.
