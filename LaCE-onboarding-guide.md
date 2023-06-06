@@ -43,21 +43,54 @@ This page will help you solve common queries that you may face while working on 
 - A skill can be directly created from the topic editor by clicking the `ADD SKILL` button under `Subtopics` section of the topic editor. But in this case, the skill will be automatically assigned to that topic.
 - A skill can also be created from the Topic and Skill Dashboard as well but it will not be assigned to any topic.
 - On clicking the `ADD SKILL` option a modal will pop up with necessary details of the skill.
+
+![Screenshot 2023-06-06 161320](https://github.com/SanjaySajuJacob/oppia-web-developer-docs/assets/70763993/742d186d-4cde-431d-8d62-a0e25cfe93fe)
+
 - Once this is done, the skill is created and you will be redirected to the skill editor page
 - The main skill editor section has the following part:
   - Details
+  
+  ![image](https://github.com/SanjaySajuJacob/oppia-web-developer-docs/assets/70763993/212d63dd-aa46-48de-a464-8a305fe65ab2)
+
   - Worked example
-  - Misconceptions: Common errors that users may have and their explanations.
-  - Pre-requisite Skills: Skills that are to be completed before attempting the current skill.
+
+  ![Screenshot 2023-06-06 162428](https://github.com/SanjaySajuJacob/oppia-web-developer-docs/assets/70763993/5570ed30-a50e-4002-ace9-6cab8c778d37)
+
+  - Misconceptions: Common errors that users may have and their explanations. The creator is given the option to enforce the misconception on all question within the skill as seen in the image below.
+ 
+  ![Screenshot 2023-06-06 162134](https://github.com/SanjaySajuJacob/oppia-web-developer-docs/assets/70763993/3c990c57-8136-4ebb-ab9e-3e2af3705e40)
+
+  - Pre-requisite Skills: Skills that are to be completed before attempting the current skill. The prerequisite skills can be filtered by topic, subtopic and by title of the skill.
+
+  ![image](https://github.com/SanjaySajuJacob/oppia-web-developer-docs/assets/70763993/4c5796fa-804d-49a9-ae95-eda872091076)
+
+  - Rubrics: This section of the skill helps question creators make questions under a certain rubric. 
+  
+  ![image](https://github.com/SanjaySajuJacob/oppia-web-developer-docs/assets/70763993/8c99dd48-6b8a-4570-a83d-1398f100e9ca)
+
 - The questions section lists the questions in the skill:
   - To add a new question, select the `ADD QUESTION` option
   - In the question editor, there are 5 sections:
     - Difficulty
+    
+    ![Screenshot 2023-06-06 163256](https://github.com/SanjaySajuJacob/oppia-web-developer-docs/assets/70763993/248005c1-f621-4554-a0bb-1fb4b24c3a69)
+
     - Problem
+    
+    ![Screenshot 2023-06-06 163438](https://github.com/SanjaySajuJacob/oppia-web-developer-docs/assets/70763993/be349b23-235e-4884-b07a-fb0bd69f220c)
+
     - Interaction
-    - Answers ans Responses
+    
+    ![Screenshot 2023-06-06 163642](https://github.com/SanjaySajuJacob/oppia-web-developer-docs/assets/70763993/0edbcb7d-7837-42ba-bf2f-55d909e7b440)
+
+    - Answers ans Responses (This section can be seen in the image above)
     - Hints
+    
+    ![Screenshot 2023-06-06 163820](https://github.com/SanjaySajuJacob/oppia-web-developer-docs/assets/70763993/31aa1504-29fb-46b6-b3d2-98caef9f6957)
+
   - Once all these sections are filled, the question can be saved.
+  
+  ![image](https://github.com/SanjaySajuJacob/oppia-web-developer-docs/assets/70763993/7fbe35cb-f1c5-4ace-b098-26112bbd4568)
 
 ## 3. Generating data on localhost
 - To generate data, we must first navigate to the admin page. We will automatically be redirected to the `ACTIVITIES` tab.
