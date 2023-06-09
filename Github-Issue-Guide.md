@@ -26,7 +26,7 @@ Welcome to Oppia's GitHub issue filing guide for non-developers! This step-by-st
 2. In the "Issues" tab, you will find a green button labeled "New issue." Click on it to create a new issue.
 <img width="1440" alt="Screenshot 2023-06-08 at 23 51 58" src="https://github.com/Ash-2k3/oppia-web-developer-docs/assets/98253080/05b279f5-24b9-4986-a7a9-352e882198f1">
 
-3. Choose type of the issue which you want to file from the list of availaible types.
+3. Choose type of the issue which you want to file from the list of available types.
 <img width="1440" alt="Screenshot 2023-06-08 at 23 53 15" src="https://github.com/Ash-2k3/oppia-web-developer-docs/assets/98253080/e4ac8fd7-858f-41ca-84c1-0b7a32f425d6">
 
 4. On the issue creation page, provide a concise and descriptive title for your issue in the "Title" field and follow the steps as mentioned along with each comment box.
