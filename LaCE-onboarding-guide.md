@@ -91,6 +91,6 @@ This page will help you solve common queries that you may face while working on 
 
 - If the classroom has been created successfully you will be able to see a message `Data successfully saved` at the bottom right corner of the screen.
 
-![Data Successfully Saved](https://github.com/prafulbbandre/oppia-web-developer-docs/assets/109658545/1747eefe-4e6e-4c99-8ff8-9e77714b86d1)
+![Data Successfully Saved](https://github.com/oppia/oppia-web-developer-docs/assets/109658545/1747eefe-4e6e-4c99-8ff8-9e77714b86d1)
 
 - The newly created classroom will be visible in the `Home` tab of the learner dashboard page or we can directly access the classroom from the link `localhost:8181/learn/<classroom-url-fragment>`.
