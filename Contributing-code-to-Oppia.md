@@ -28,7 +28,7 @@ If you run into any problems along the way, we're here to help! Check out our [[
 5. GitHub will display the search results based on your query. The results will show matching files, code snippets, issues, pull requests, commits, discussions, wikis and other relevant information which you can see in left side after search.
 6. You can click on any search result to view more details or explore the code/files associated with it.
 
-Additionally, GitHub also provides an advanced search syntax that allows you to construct more complex queries. You can find more information about this syntax in the GitHub documentation under "Searching code."
+Additionally, GitHub also provides an advanced search syntax that allows you to construct more complex queries. You can find more information about this syntax in the [GitHub documentation](https://docs.github.com/en/github-ae@latest/search-github/searching-on-github/searching-code).
 
 <img width="1074" alt="Screenshot wiki preview" src="https://github.com/MohitGupta121/oppia-android/assets/76530270/866c6796-3c50-41fe-992a-778728401c8f">
 
