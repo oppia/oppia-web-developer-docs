@@ -1,6 +1,13 @@
 # Filing an Issue on Oppia's GitHub: A Step-by-Step Guide for Non-Developers
 
-Welcome to Oppia's GitHub issue filing guide for non-developers! This step-by-step guide will help you navigate the process of creating a GitHub account and filing an issue on Oppia's GitHub repository. By following these instructions, you can contribute to improving Oppia without worrying about making mistakes. Let's get started!
+## Table of Contents
+- [Create a GitHub Account](#create-a-github-account)
+- [Access Oppia's GitHub Repository](#access-oppia's-github-repository)
+- [File a New Issue](#file-a-new-issue)
+- [Engage in the Issue Discussion](#engage-in-the-issue-discussion)
+- [Conclusion](#conclusion)
+
+Welcome to Oppia's GitHub issue filing guide for non-developers! This step-by-step guide will help you navigate the process of creating a GitHub account and filing an issue on Oppia's GitHub repository. Let's get started!
 
 ## Create a GitHub Account
 
@@ -30,13 +37,13 @@ Welcome to Oppia's GitHub issue filing guide for non-developers! This step-by-st
 <img width="1440" alt="Screenshot 2023-06-08 at 23 53 15" src="https://github.com/Ash-2k3/oppia-web-developer-docs/assets/98253080/e4ac8fd7-858f-41ca-84c1-0b7a32f425d6">
 
 4. On the issue creation page, provide a concise and descriptive title for your issue in the "Title" field and follow the steps as mentioned along with each comment box.
+
+   `Note :` Read starred comment box means it must be filled.
 <img width="1440" alt="Screenshot 2023-06-09 at 00 00 18" src="https://github.com/Ash-2k3/oppia-web-developer-docs/assets/98253080/0a578025-cef5-4a6b-bb7b-dbf0ba0b8887">
 
 5. If applicable, you can include screenshots or any other supporting files by dragging and dropping them into the comment box.
 
-6. Preview your issue by clicking on the "Preview" tab and make any necessary edits.
-
-7. Once you are satisfied with your issue, click on the green "Submit new issue" button to file it.
+6. Once you are satisfied with your issue, click on the green "Submit new issue" button to file it.
 
 ## Engage in the Issue Discussion
 
@@ -44,12 +51,18 @@ Welcome to Oppia's GitHub issue filing guide for non-developers! This step-by-st
 
 2. From this point, you can monitor updates and engage in discussions related to the issue.
 
-3. If a developer requests additional information or clarification, you can provide your input in the comments section.
+3. To comment on the issue, scroll down to the comment section and enter your comment in the text box provided. You can share additional information, provide clarifications, or ask questions related to the issue.
 
-4. Feel free to ask questions, share insights, or offer suggestions to help resolve the issue.
+4. If a developer requests additional information or clarification, you can respond by adding a comment.
+
+5. Utilize the preview feature to review your comment before submitting it. Click on the "Preview" tab beside the comment box to see how your comment will appear. Make any necessary edits if required.
+
+6. Once you are satisfied with your comment, click on the "Comment" button to post it.
+
+7. Feel free to engage in the ongoing discussion by adding more comments as needed.
 
 ## Conclusion
 
-Congratulations! You have successfully filed an issue on Oppia's GitHub repository. Your contribution is valuable in improving Oppia for everyone. Remember to follow notifications and actively participate in the issue's discussion to collaborate effectively with the Oppia community.
+Congratulations! You have successfully filed an issue on Oppia's GitHub repository. Your contribution is valuable in improving Oppia for everyone. Remember to follow notifications and actively participate in the issue's discussion to help the developers fix it as soon as possible.
 
 For further assistance or more information, you can refer to the [GitHub Help Documentation](https://docs.github.com/en/issues).
