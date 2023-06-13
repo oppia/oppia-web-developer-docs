@@ -83,7 +83,7 @@ This page will help you solve common queries that you may face while working on 
     
     ![Screenshot of interaction and answers and responses sections](images/LaCEOnboardingGuide/question-interaction-answers-responses.png)
 
-    - Answers ans Responses (This section can be seen in the image above)
+    - Answers and Responses (This section can be seen in the image above)
     - Hints
     
     ![Screenshot of question hint section](images/LaCEOnboardingGuide/question-hint.png)
