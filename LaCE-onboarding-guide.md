@@ -27,15 +27,15 @@ This page will help you solve common queries that you may face while working on 
   - Details: Information related to the topic
   - Subtopics section: Subtopics and skills associated with the topic are listed.
   
-  ![Screenshot of topic subtopics section](images/LaCEOnboardingGuide/topic-subtopics-section.png)
+  ![Screenshot of subtopics section](images/LaCEOnboardingGuide/topic-subtopics-section.png)
 
   - Diagnostic Tests: Add skills that will be used to generate the diagnostic test that determines whether to recommend this topic to new learners. For a skill to qualify for this, it must have at least 3 questions and be assigned to that topic.
   
-  ![Screenshot of topic diagnostic test section](images/LaCEOnboardingGuide/topic-diagnostic-test-section.png)
+  ![Screenshot of diagnostic test section](images/LaCEOnboardingGuide/topic-diagnostic-test-section.png)
 
   - Canonical stories: In this section, the stories belonging to the topic are listed.
   
-  ![Screenshot of topic canonical stories section](images/LaCEOnboardingGuide/topic-canonical-stories-section.png)
+  ![Screenshot of canonical stories section](images/LaCEOnboardingGuide/topic-canonical-stories-section.png)
   
 
 ## 2. Creating a Skill
@@ -54,7 +54,7 @@ This page will help you solve common queries that you may face while working on 
 
   - Worked example
 
-  ![Screenshot of skill worked examples section](images/LaCEOnboardingGuide/skill-worked-examples-section.png)
+  ![Screenshot of worked examples section](images/LaCEOnboardingGuide/skill-worked-examples-section.png)
 
   - Misconceptions: Common errors that users may have and their explanations. The creator is given the option to enforce the misconception on all question within the skill as seen in the image below.
  
@@ -62,7 +62,7 @@ This page will help you solve common queries that you may face while working on 
 
   - Pre-requisite Skills: Skills that are to be completed before attempting the current skill. The prerequisite skills can be filtered by topic, subtopic and by title of the skill.
 
-  ![Screenshot of skill pre-requisite skill section](images/LaCEOnboardingGuide/skill-pre-requisite-skill-section.png)
+  ![Screenshot of pre-requisite skill section](images/LaCEOnboardingGuide/skill-pre-requisite-skill-section.png)
 
   - Rubrics: This section of the skill helps question creators make questions under a certain rubric. 
   
@@ -77,11 +77,11 @@ This page will help you solve common queries that you may face while working on 
 
     - Problem
     
-    ![Screenshot of question problem section](images/LaCEOnboardingGuide/question-problem.png)
+    ![Screenshot of problem section](images/LaCEOnboardingGuide/question-problem.png)
 
     - Interaction
     
-    ![Screenshot of question interaction, answers and responses sections](images/LaCEOnboardingGuide/question-interaction-answers-responses.png)
+    ![Screenshot of interaction and answers and responses sections](images/LaCEOnboardingGuide/question-interaction-answers-responses.png)
 
     - Answers ans Responses (This section can be seen in the image above)
     - Hints
@@ -90,7 +90,7 @@ This page will help you solve common queries that you may face while working on 
 
   - Once all these sections are filled, the question can be saved.
   
-  ![Screenshot of clickable question save button](images/LaCEOnboardingGuide/question-save-button.png)
+  ![Screenshot of clickable save button](images/LaCEOnboardingGuide/question-save-button.png)
 
 ## 3. Generating data on localhost
 - To generate data, we must first navigate to the admin page. We will automatically be redirected to the `ACTIVITIES` tab.
