@@ -13,29 +13,29 @@ This page will help you solve common queries that you may face while working on 
 - To create a new topic, we first navigate to the `Topics and Skill Dashboard` and select the `CREATE TOPIC` option. To do so, you can take a look at this [guide](Editor-pages.md#steps-to-create-a-topicskill)
 - A modal will open up with necessary details of the topic that are to be filled such as topic name, topic thumbnail, etc.
 
-![topic-modal](images/LaCEOnboardingGuide/topic-modal.png)
+![Screenshot of topic modal](images/LaCEOnboardingGuide/topic-modal.png)
 
 - Once this is done, the topic is created and you will be redirected to the topic editor page.
 
-![topic-editor](images/LaCEOnboardingGuide/topic-editor.png)
+![Screenshot of topic editor](images/LaCEOnboardingGuide/topic-editor.png)
 
 - In the main editor tab, we will be able to see the errors that are preventing the topic from being published.
 
-![topic-editor-warnings](images/LaCEOnboardingGuide/topic-editor-warnings.png)
+![Screenshot of topic editor warnings](images/LaCEOnboardingGuide/topic-editor-warnings.png)
 
 - This tab has 4 main sections:
   - Details: Information related to the topic
   - Subtopics section: Subtopics and skills associated with the topic are listed.
   
-  ![topic-subtopics-section](images/LaCEOnboardingGuide/topic-subtopics-section.png)
+  ![Screenshot of topic subtopics section](images/LaCEOnboardingGuide/topic-subtopics-section.png)
 
   - Diagnostic Tests: Add skills that will be used to generate the diagnostic test that determines whether to recommend this topic to new learners. For a skill to qualify for this, it must have at least 3 questions and be assigned to that topic.
   
-  ![topic-diagnostic-test-section](images/LaCEOnboardingGuide/topic-diagnostic-test-section.png)
+  ![Screenshot of topic diagnostic test section](images/LaCEOnboardingGuide/topic-diagnostic-test-section.png)
 
   - Canonical stories: In this section, the stories belonging to the topic are listed.
   
-  ![topic-canonical-stories-section](images/LaCEOnboardingGuide/topic-canonical-stories-section.png)
+  ![Screenshot of topic canonical stories section](images/LaCEOnboardingGuide/topic-canonical-stories-section.png)
   
 
 ## 2. Creating a Skill
@@ -44,53 +44,53 @@ This page will help you solve common queries that you may face while working on 
 - A skill can also be created from the Topic and Skill Dashboard as well but it will not be assigned to any topic.
 - On clicking the `ADD SKILL` option a modal will pop up with necessary details of the skill.
 
-![creating-a-skill](images/LaCEOnboardingGuide/creating-a-skill.png)
+![Screenshot of creating a skill](images/LaCEOnboardingGuide/creating-a-skill.png)
 
 - Once this is done, the skill is created and you will be redirected to the skill editor page
 - The main skill editor section has the following part:
   - Details
   
-  ![skill-details-section](images/LaCEOnboardingGuide/skill-details-section.png)
+  ![Screenshot of skill details section](images/LaCEOnboardingGuide/skill-details-section.png)
 
   - Worked example
 
-  ![skill-worked-examples-section](images/LaCEOnboardingGuide/skill-worked-examples-section.png)
+  ![Screenshot of skill worked examples section](images/LaCEOnboardingGuide/skill-worked-examples-section.png)
 
   - Misconceptions: Common errors that users may have and their explanations. The creator is given the option to enforce the misconception on all question within the skill as seen in the image below.
  
-  ![skill-misconceptions-section](images/LaCEOnboardingGuide/skill-misconceptions-section.png)
+  ![Screenshot of skill misconceptions section](images/LaCEOnboardingGuide/skill-misconceptions-section.png)
 
   - Pre-requisite Skills: Skills that are to be completed before attempting the current skill. The prerequisite skills can be filtered by topic, subtopic and by title of the skill.
 
-  ![skill-pre-requisite-skill-section](images/LaCEOnboardingGuide/skill-pre-requisite-skill-section.png)
+  ![Screenshot of skill pre-requisite skill section](images/LaCEOnboardingGuide/skill-pre-requisite-skill-section.png)
 
   - Rubrics: This section of the skill helps question creators make questions under a certain rubric. 
   
-  ![skill-rubrics-section](images/LaCEOnboardingGuide/skill-rubrics-section.png)
+  ![Screenshot of skill rubrics section](images/LaCEOnboardingGuide/skill-rubrics-section.png)
 
 - The questions section lists the questions in the skill:
   - To add a new question, select the `ADD QUESTION` option
   - In the question editor, there are 5 sections:
     - Difficulty
     
-    ![question-difficulty](images/LaCEOnboardingGuide/question-difficulty.png)
+    ![Screenshot of question difficulty section](images/LaCEOnboardingGuide/question-difficulty.png)
 
     - Problem
     
-    ![question-problem](images/LaCEOnboardingGuide/question-problem.png)
+    ![Screenshot of question problem section](images/LaCEOnboardingGuide/question-problem.png)
 
     - Interaction
     
-    ![question-interaction-answers-responses](images/LaCEOnboardingGuide/question-interaction-answers-responses.png)
+    ![Screenshot of question interaction, answers and responses sections](images/LaCEOnboardingGuide/question-interaction-answers-responses.png)
 
     - Answers ans Responses (This section can be seen in the image above)
     - Hints
     
-    ![question-hint](images/LaCEOnboardingGuide/question-hint.png)
+    ![Screenshot of question hint section](images/LaCEOnboardingGuide/question-hint.png)
 
   - Once all these sections are filled, the question can be saved.
   
-  ![question-save-button](images/LaCEOnboardingGuide/question-save-button.png)
+  ![Screenshot of clickable question save button](images/LaCEOnboardingGuide/question-save-button.png)
 
 ## 3. Generating data on localhost
 - To generate data, we must first navigate to the admin page. We will automatically be redirected to the `ACTIVITIES` tab.
