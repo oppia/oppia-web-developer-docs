@@ -2,7 +2,7 @@
 
 ## Table of Contents
 - [Create a GitHub Account](#create-a-github-account)
-- [Access Oppia's GitHub Repository](#access-oppia's-github-repository)
+- [Access Oppia's GitHub Repository](#access-oppias-github-repository)
 - [File a New Issue](#file-a-new-issue)
 - [Engage in the Issue Discussion](#engage-in-the-issue-discussion)
 - [Conclusion](#conclusion)
