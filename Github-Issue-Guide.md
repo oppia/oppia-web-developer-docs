@@ -28,18 +28,18 @@ Welcome to Oppia's GitHub issue filing guide for non-developers! This step-by-st
 ## File a New Issue
 
 1. On the Oppia repository page, locate the "Issues" tab near the top navigation bar and click on it.
- <img width="1437" alt="Image pointing Issue tab" src="images/githubIssueGuide/LinkToIssue.png">
+![Screenshot showing link to the issue tab](images/githubIssueGuide/LinkToIssue.png)
 
 2. In the "Issues" tab, you will find a green button labeled "New issue." Click on it to create a new issue.
-<img width="1440" alt="Image pointing new issue button" src="images/githubIssueGuide/LinkToNewIssue.png">
+![Screenshot showing link to new issue button](images/githubIssueGuide/LinkToNewIssue.png)
 
 3. Choose type of the issue which you want to file from the list of available types.
-<img width="1440" alt="Image showing list of available issues" src="images/githubIssueGuide/typeOfIssues.png">
+![Screenshot showing types of issues](images/githubIssueGuide/typeOfIssues.png)
 
 4. On the issue creation page, provide a concise and descriptive title for your issue in the "Title" field and follow the steps as mentioned along with each comment box.
 
    `Note :` Red starred comment box means it must be filled.
-<img width="1440" alt="Image showing comment boxes to be filled for an issue" src="images/githubIssueGuide/issueDescription.png">
+![Screenshot showing issue description's comment box](images/githubIssueGuide/issueDescription.png)
 
 5. If applicable, you can include screenshots or any other supporting files by dragging and dropping them into the comment box.
 
