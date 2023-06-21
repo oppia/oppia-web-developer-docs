@@ -8,7 +8,7 @@ If you run into any problems along the way, we're here to help! Check out our [[
 
 ## Table of Contents
 
-* [How to find information on this wiki](#how-to-find-information-on-this-wiki)
+* [How to find information in the repo and the wiki](#how-to-find-information-in-the-repo-and-the-wiki)
 * [Setting things up](#setting-things-up)
 * [Developing your skills](#developing-your-skills)
 * [Finding something to do](#finding-something-to-do)
@@ -19,7 +19,7 @@ If you run into any problems along the way, we're here to help! Check out our [[
 * [Tips for Success](#tips-for-success)
 * [Notes](#notes)
 
-## How to find information on this wiki
+## How to find information in the repo and the wiki
 
 1. In the top-right corner of the repository page, you'll find a search bar. Click on it to expand the search options.
 2. Enter the search query you want to use. You can search for specific keywords, file names, code snippets, or any other relevant information you're looking for.
@@ -30,7 +30,7 @@ If you run into any problems along the way, we're here to help! Check out our [[
 
 Additionally, GitHub also provides an advanced search syntax that allows you to construct more complex queries. You can find more information about this syntax in the [GitHub documentation](https://docs.github.com/en/github-ae@latest/search-github/searching-on-github/searching-code).
 
-<img width="1074" alt="Screenshot wiki preview" src="https://github.com/MohitGupta121/oppia-android/assets/76530270/866c6796-3c50-41fe-992a-778728401c8f">
+[How to find information in the repo and the wiki demonstration](https://github.com/oppia/oppia-web-developer-docs/assets/76530270/5ad36445-61a5-448d-8432-db6fad24c384)
 
 ## Setting things up
 
