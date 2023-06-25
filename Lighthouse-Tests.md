@@ -78,3 +78,36 @@ def export_url(url):
       ]
     },
 ```
+# How to debug Lighthouse tests?
+- **Common question:** What to do if your changes cause the lighthouse accessibility tests to fail?
+- The lighthouse logs will provide you most of the information you need (To see the logs, click on the details button on the right)
+
+## Steps solve the failing lighthouse test
+
+**1. Find out which pages are failing:** You can find which pages are failing in the lighthouse logs
+<img height="150" src="https://github.com/Patel-Muhammad/oppia-web-developer-docs/assets/96219910/a7833e61-8294-446e-a588-bdfbef13ab10">
+
+**2. Find report for failing page:** The lighthouse checks will upload reports to a temporary url for each page that it audits. 
+The lighthouse checks will print the link to each report in the logs.
+
+![image](https://github.com/Patel-Muhammad/oppia-web-developer-docs/assets/96219910/8e5a712c-5409-4e5c-90b6-7c2bb9ad21c3)
+
+or
+
+- (From the branch that is related to you PR which is failing the lighthouse tests) Go to the failing page on localhost in chrome web browser 
+- Go to inspect tab and select the `lighthouse` option
+- Select the "Accessibility" checkbox to specifically test for accessibility issues (uncheck all the other options)
+- Click the "Generate report" or "Run audits" button
+- After the test completes, Lighthouse will generate a detailed report with various sections, including accessibility.
+
+**3. Read report and learn how to fix the problem:** Click on the accessibility tab in the report to see which elements are failing.
+![image](https://github.com/Patel-Muhammad/oppia-web-developer-docs/assets/96219910/28c6de02-522f-4ed9-a46a-b7a30aed123a)
+
+**4. Find the failing element and Apply the fix:** Lighthouse often suggests possible solutions and provides additional resources for fixing the issues.
+
+**5. Re-run the Lighthouse tests after making the changes to ensure the issues are successfully addressed.**
+
+
+
+
+
