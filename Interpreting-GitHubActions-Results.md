@@ -12,5 +12,5 @@ We also have two checks that have been skipped due to the failure of one of the 
 
 ### What should you do?
 
-- Following the example above, you must first fix the [failing lint checks, mypy checks and e2e tests](https://github.com/oppia/oppia/wiki/If-CI-checks-fail-on-your-PR#failing-tests-and-lint-checks) then push.
 - Go to 'Details' to view the test logs.
+- Following the example above, you must first fix the [failing CI checks](https://github.com/oppia/oppia/wiki/If-CI-checks-fail-on-your-PR#failing-tests-and-lint-checks) then push.
