@@ -111,7 +111,7 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
    ...
    ```
 
-   If you see the warning at the end, add the following lines to your `.bashrc` (see [here](https://askubuntu.com/a/127059) for where to find this file):
+   If you see the warning at the end, add the following lines to your `.bashrc` or `.zshrc` if you are using **Zsh** (see [here](https://askubuntu.com/a/127059) for where to find these files):
 
    ```bash
    export PYENV_ROOT="$HOME/.pyenv"
@@ -125,7 +125,7 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
    > **Warning**
    > Be careful with using graphical editors like Notepad in Windows. These can add carriage returns (`\r`) that confuse our Linux-based development tools. Instead, we recommend using editors designed for programming or command-line text editors.
 
-3. Reload your shell or open a new terminal window to load your updated `~/.bashrc`.
+3. Reload your shell or open a new terminal window to load your updated `~/.bashrc` or `~/.zshrc`.
 
 4. Now you can install Python 3.8.15 and the associated pip like this:
 
@@ -149,7 +149,11 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
    ```bash
    eval "$(direnv hook bash)"
    ```
+   If you are using **Zsh**, add following lines to the end of `.zshrc`
 
+   ```bash
+   eval "$(direnv hook zsh)"
+   ``` 
    > **Warning**
    > Be careful with using graphical editors like Notepad in Windows. These can add carriage returns (`\r`) that confuse our Linux-based development tools. Instead, we recommend using editors designed for programming or command-line text editors.
 
