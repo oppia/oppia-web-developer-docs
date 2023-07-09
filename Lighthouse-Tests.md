@@ -85,12 +85,12 @@ def export_url(url):
 ## Steps solve the failing lighthouse test
 
 **1. Find out which pages are failing:** You can find which pages are failing in the lighthouse logs
-<img height="150" src="https://github.com/Patel-Muhammad/oppia-web-developer-docs/assets/96219910/a7833e61-8294-446e-a588-bdfbef13ab10">
+<img height="150" src="images/lighthouse-test-failure.png">
 
 **2. Find report for failing page:** The lighthouse checks will upload reports to a temporary url for each page that it audits. 
 The lighthouse checks will print the link to each report in the logs.
 
-![image](https://github.com/Patel-Muhammad/oppia-web-developer-docs/assets/96219910/8e5a712c-5409-4e5c-90b6-7c2bb9ad21c3)
+![image](images/lighthouse-test-report.png)
 
 or
 
@@ -101,7 +101,7 @@ or
 - After the test completes, Lighthouse will generate a detailed report with various sections, including accessibility.
 
 **3. Read report and learn how to fix the problem:** Click on the accessibility tab in the report to see which elements are failing.
-![image](https://github.com/Patel-Muhammad/oppia-web-developer-docs/assets/96219910/28c6de02-522f-4ed9-a46a-b7a30aed123a)
+![image](images/lighthouse-test-score.png)
 
 **4. Find the failing element and Apply the fix:** Lighthouse often suggests possible solutions and provides additional resources for fixing the issues.
 
