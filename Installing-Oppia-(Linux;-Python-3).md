@@ -111,7 +111,7 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
    ...
    ```
 
-   If you see the warning at the end, add the following lines to your `.bashrc` or `.zshrc` if you are using **Zsh** (see [here](https://askubuntu.com/a/127059) for where to find these files):
+   If you see the warning at the end, add the following lines to your `~/.bashrc` (if you are using bash) or `~/.zshrc` (if you are using zsh).
 
    ```bash
    export PYENV_ROOT="$HOME/.pyenv"
@@ -144,12 +144,13 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
    $ sudo apt install direnv
    ```
 
-6. Setup direnv into your shell. Add following lines to the end of `.bashrc` (see [here](https://askubuntu.com/a/127059) for where to find this file):
+6. Setup direnv into your shell.  
+   If you are using bash, add following lines to the end of `~/.bashrc`.
 
    ```bash
    eval "$(direnv hook bash)"
    ```
-   If you are using **Zsh**, add following lines to the end of `.zshrc`
+   If you are using zsh, add following lines to the end of `~/.zshrc`.
 
    ```bash
    eval "$(direnv hook zsh)"
