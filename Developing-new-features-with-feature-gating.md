@@ -1,6 +1,42 @@
-If you are developing a new feature that hasn't been in a stable state, you may want to limit the scope of the feature so that it's only enabled when certain criteria is met (e.g. only enabled in dev environment). In these cases you can use the dynamic feature gating system to gate the enabling of the features with a feature flag.
+When developing a new feature, you might want to limit the scope of the feature so that it's only enabled when certain criteria are met (e.g. only enabled in dev environment). In these cases, you can use the feature gating system to gate the enabling of the features with a feature flag.
 
-If you have any question regarding the feature gating system, feel free to contact @MegrezZhu.
+## Why do we need feature flags?
+
+Feature flags vastly improve/simplify the development process by allowing developers to safely deploy new features to production. They also allow us to quickly disable features if we find that they are causing problems in production.
+
+They allow us to hide features that are still in development/still being tested. This means that developers can add the feature incrementally to the codebase, and only enable it once it is fully ready for production. Should the feature break, they also allow us to easily disable it without having to remove all the changes from the codebase. This is especially useful when the feature is large and/or complex.
+
+Additionally, feature flags allow us to decouple the feature & binary releases. This allows us to deploy new binaries to the server with less risk of regressions.
+
+
+## How do you, as a developer, use feature flags?
+
+### When to use feature flags?
+
+Feature flags should be used when you are working on a feature whose scale makes it hard to implement all at once, or for more experimental features that are likely to cause breakages. Essentially, feature flags are a must for features that are not yet ready for production/fully-tested at the time that they're merged into develop.
+
+### How to use feature flags?
+
+Say you are working on a large scale user-facing feature that will take multiple PRs to fully implement. In such a case, please use feature flags to gate your feature appropriately by carefully following the steps listed below:
+
+1. The very first PR you make must introduce a new feature flag to the codebase, that is meant to be used with this new feature. The feature flag should be placed in the DEV stage. Every single user-facing aspect of the feature -- whether frontend or backend -- must be gated behind the feature flag (both in the first PR, and all the following ones as well). This is to ensure that the feature is not visible to the user until it is fully implemented and ready for production.
+
+2. The first PR above must be merged before any of the following PRs are merged. This is to ensure that the feature flag is available in the codebase for it to be used in the following PRs.
+
+3. The very last PR you make (to finish up the feature you are working on) must include changes that move the feature flag to the TEST stage. This is to ensure that the feature is available in the test environment, so that we can feature-test it before it is made available to the users in the production environment. **NOTE: Please test all the changes manually to make sure that the feature works fully end-to-end on your local dev server, before moving the flag to the TEST stage.**
+
+4. When the PR is merged, fill out [this form](https://forms.gle/zDCsoN6Xb6JvQku87) to request that your feature be tested. This form will be processed by the server admins team, who will work with you and the feature testers to set a date during which your feature will be available to use on one of our test servers. (We can only surface the feature for a limited time because the servers are also needed for other things, such as release testing.) Once the testing date is confirmed, the server admin will make a deployment, turn the feature flag on, and send instructions to the feature testers for how to test the feature.
+
+5. If the feature testing reveals that the feature is not yet ready for production, you must work on fixing the highlighted issues before proceeding further. You can request a re-test once all the testing feedback is addressed.
+
+6. Once you receive a go-ahead from the feature testers, you must merge another PR. This PR should do only one thing, i.e. move the feature flag to the PROD stage, allowing it to be enabled/disabled in production (by the admin(s)). **NOTE: When opening this PR, include a link to the testing doc or other proof that the feature has been approved for release.**
+
+7. Once this PR is merged, send a ["job run request"](https://forms.gle/rUJaHJSpRGemtGDp6) to the release coordinators to turn on the feature in production by adding a rule in the `/admin` page.
+
+8. Once the feature is confirmed to be functioning as intended in production (for at least 2 weeks) by the product team, please do the following, in order:
+    - Make sure that the feature is ready to be made permanent. To do this, confirm with the PMs that no users have reported issues with it, and that no regressions have been detected via StackDriver or general user feedback.
+    - Once you have confirmation that the feature can be made permanent, merge one last PR to "un-gate" the feature and move the feature flag to the deprecated stage (one of the stages listed in `core/domain/platform_parameter_list.py`, meant for flags that are no longer in use). Additionally, in the same PR, please remove all remaining references to the feature flag from the codebase (for example, in all the `if` blocks you created to gate the feature).
+
 
 ## Follow the steps below to add a new feature flag
 
@@ -290,39 +326,3 @@ We use the following principles to determine the value of a feature flags:
 For example, if we want a feature flag to be enabled only on Chrome + Firefox, we can configure the flag's rules/filters as shown below.
 
 ![Example feature setting](images/adminPageFeatureFlagSettings.png)
-
-## Why do we need feature flags?
-
-Feature flags vastly improve/simplify the development process by allowing developers to safely deploy new features to production. They also allow us to quickly disable features that are causing problems in production.
-
-They allow us to hide features that are still in development/still being tested. This enables a developer to add a feature incrementally to the codebase, and only enable it when it is ready for production. Should the feature break, they also allow us to easily disable it without having to roll back all the changes. This is especially useful when the feature is large and/or complex.
-
-Additionally, they let us decouple the feature & binary releases. This allows us to release the server with less risk of regressions.
-
-## How do you, as a developer, use feature flags?
-
-### When to use feature flags?
-
-Feature flags should be used when you are working on a feature whose scale makes it hard to implement all at once, or for more experimental features that are likely to cause breakages. Essentially, feature flags are a must for features that are not yet ready for production/fully-tested at the time that they're merged into develop.
-
-### How to use feature flags?
-
-Say you are working on a large scale user-facing feature that will take multiple PRs to fully implement. In such a case, please use feature flags to gate your feature appropriately by carefully following the steps listed below:
-
-1. The very first PR you make must include changes that add a new feature flag to the codebase, meant to be used with this new feature. The feature flag must be placed in the DEV stage. Every single user-facing aspect of the feature -- whether frontend or backend -- must be gated behind the feature flag (both in the first PR, and all the following ones as well). This is to ensure that the feature is not visible to the user until it is fully implemented and ready for production.
-
-2. The first PR above must be merged before any following PRs are merged. This is to ensure that the feature flag is available in the codebase for it to be used in the following PRs.
-
-3. The very last PR you make (to finish up the feature you are working on) must include changes that move the feature flag to the TEST stage. This is to ensure that the feature is available in the test environment, and we can feature-test it before it is made available to the users in the production environment. **NOTE: Please test all the changes manually to make sure that the feature works fully end-to-end on your local dev server, before flipping the flag to TEST.**
-
-4. Ask the release coordinator to go to the test server admin page and enable the feature flag for the feature you are building, before opening up the server for the actual testing by the release testers.
-
-5. If the feature testing reveals that the feature is not ready for production, you must work on fixing the highlighted issues before proceeding further.
-
-6. Once you receive a go-ahead from the feature testers, you must merge another PR -- this PR is meant to do only one thing, i.e. move the feature flag to the PROD stage, allowing it to be enabled/disabled in production (by the admin(s)). **NOTE: When opening this PR, include a link to the testing doc or other proof that the feature has been approved for release.**
-
-7. Once this PR is merged, send a request to the release coordinators to turn on the feature in production by adding a rule in the `/admin` page.
-
-8. Once the feature is confirmed to be functioning as intended in production (for no fewer than two weeks) by the product team, please do the following, in order:
-    - Make sure that the feature is ready to be made permanent. To do this, confirm with the PMs that no users have reported issues with it, and that no regressions have been detected via StackDriver or general user feedback.
-    - Once you have confirmation that the feature can be made permanent, merge one last PR to "un-gate" the feature and move the feature flag to the deprecated stage (one of the stages listed in `core/domain/platform_parameter_list.py` for flags that are no longer in use). Additionally, in this PR, please remove all remaining references to the feature flag from the codebase (for example, in all the `if` blocks you created to gate the feature).
