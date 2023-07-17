@@ -16,11 +16,14 @@ following:
 
 If you need to learn or brush up on these, please do so before trying to start the installation so you don't get confused by our instructions.
 
-To install Oppia, follow these instructions:
+To install Oppia (using Python setup), follow these instructions:
 
 * [[Linux|Installing-Oppia-(Linux;-Python-3)]]
 * [[Mac OS|Installing-Oppia-(Mac-OS;-Python-3)]]
 * [[Windows|Installing-Oppia-(Windows;-Python-3)]]
+
+To install oppia using Docker, follow these instructions:
+* [[Oppia Docker Setup|Installing-Oppia-Docker]]
 
 If you run into any problems during installation, please read [[these notes|Issues-with-installation]] and the [[Troubleshooting page|Troubleshooting]].
 
