@@ -8,6 +8,7 @@ If you run into any problems along the way, we're here to help! Check out our [[
 
 ## Table of Contents
 
+* [How to find information in the repo and the wiki](#how-to-find-information-in-the-repo-and-the-wiki)
 * [Setting things up](#setting-things-up)
 * [Developing your skills](#developing-your-skills)
 * [Finding something to do](#finding-something-to-do)
@@ -17,6 +18,19 @@ If you run into any problems along the way, we're here to help! Check out our [[
   * [Tasks for Existing Contributors](#tasks-for-existing-contributors)
 * [Tips for Success](#tips-for-success)
 * [Notes](#notes)
+
+## How to find information in the repo and the wiki
+
+1. In the top-right corner of the repository page, you'll find a search bar. Click on it to expand the search options.
+2. Enter the search query you want to use. You can search for specific keywords, file names, code snippets, or any other relevant information you're looking for.
+3. GitHub provides some advanced search filters that you can use to refine your search further. You can filter results by the file type, code language, author, or specific locations within the repository. To use these filters, click on the "Filters" button next to the search bar and select the desired options.
+4. Press Enter or click on the search button to initiate the search.
+5. GitHub will display the search results based on your query. The results will show matching files, code snippets, issues, pull requests, commits, discussions, wikis and other relevant information which you can see in left side after search.
+6. You can click on any search result to view more details or explore the code/files associated with it.
+
+Additionally, GitHub also provides an advanced search syntax that allows you to construct more complex queries. You can find more information about this syntax in the [GitHub documentation](https://docs.github.com/en/github-ae@latest/search-github/searching-on-github/searching-code).
+
+[How to find information in the repo and the wiki demonstration](https://github.com/oppia/oppia-web-developer-docs/assets/76530270/5ad36445-61a5-448d-8432-db6fad24c384)
 
 ## Setting things up
 
