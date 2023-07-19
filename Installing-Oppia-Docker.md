@@ -1,16 +1,17 @@
-# **Dockerized Oppia Installation Guide**
-
 This guide provides step-by-step instructions for installing Oppia using Docker. Docker simplifies the installation process and ensures a consistent environment across different systems, making it easier to set up and run Oppia.
 
 ## Table of Contents
 
-* Docker - Brief Overview
-* Installation Steps
-  * Clone Oppia
-  * Install Docker Desktop
-  * Start development server using `make` commands
-* Using Flags with Make Command
-* Additional Make Commands
+- [Table of Contents](#table-of-contents)
+- [Docker - Brief Overview](#docker---brief-overview)
+- [Installation Steps](#installation-steps)
+  - [Clone Oppia](#clone-oppia)
+  - [Install Docker Desktop](#install-docker-desktop)
+  - [Start development server using `make` commands](#start-development-server-using-make-commands)
+- [That's it! You have successfully installed Oppia using Docker, and ready-to-go for your contributions at Oppia.](#thats-it-you-have-successfully-installed-oppia-using-docker-and-ready-to-go-for-your-contributions-at-oppia)
+- [Using Flags with Make Command](#using-flags-with-make-command)
+- [Additional Make Commands](#additional-make-commands)
+- [Contributing](#contributing)
 
 ## Docker - Brief Overview
 
@@ -75,19 +76,20 @@ To install Oppia under Docker, follow these steps:
 ### Install Docker Desktop
 Download and install the latest version of Docker Desktop from the [official Docker website](https://www.docker.com/products/docker-desktop/). Docker Desktop provides a user-friendly interface and one must follow simple steps to download and install it from the given link.
 
-> NOTE: The above 2 steps need to be followed only once. The next time you want to run Oppia, you can directly start from the next section, i.e. by executing simple `make` commands from the root directory of the cloned Oppia repository.
+> NOTE: The above step needs to be followed only once. The next time you want to run Oppia, you can directly start from the next section, i.e. by executing simple `make` commands from the root directory of the cloned Oppia repository.
 
 ### Start development server using `make` commands
 
 1. **Navigate to Oppia Root Directory**: Open a terminal or command prompt and navigate to the root directory of the cloned Oppia repository.
 
-2. **Build Oppia for the First Time**: Run the following command to build Oppia for the first time. This step downloads all the necessary third-party libraries, python dependencies, and the other services required for the Oppia development server, which may take approximately 15-20 minutes (may vary according to the network connection speed).
+2. **Build Oppia for the First Time**: Run the following command to build Oppia for the first time. This step downloads all the necessary third-party libraries, python dependencies, and the other services required for the Oppia development server, which may take approximately 15-20 minutes (varies according to the network connection speed).
 
    ```
-   make setup-devserver
+   make build
    ```
+> NOTE: This build is not related to production build by anyway. This command runs `docker compose build` under the hood, which is used to build the images for services defined in the `docker-compose.yml` file. For more information, refer to the [official documentation](https://docs.docker.com/compose/reference/build/).
 
-3. **Start the Local Development Server**: To start the local development server, execute the following command:
+3. **Start the local development server**: To start the local development server, execute the following command:
 
    ```
    make run-devserver
@@ -95,40 +97,73 @@ Download and install the latest version of Docker Desktop from the [official Doc
 
    This command launches the Oppia development server, and you can continue to perform your tasks as usual.
 
+4. **Start the local development server in Offline mode**: To start the local development server in offline mode, execute the following command:
+
+   ```
+   make run-offline
+   ```
+
+   This command launches the Oppia development server in offline mode, and you can continue to perform your tasks as usual.
+   > NOTE: Ensure that you have already built Oppia for the first time before running this command. If not, run `make build` first (with internet connection), which downloads all the necessary third-party libraries, python dependencies, and the other services required for the Oppia development server.
+
+5. **Stop the Local Development Server**: To stop the local development server, execute the following command:
+
+   ```
+   make stop
+   ```
+
+   This command stops the Oppia development server and shuts down the Docker containers running the Oppia development server.
+
+--------------------
+That's it! You have successfully installed Oppia using Docker, and ready-to-go for your contributions at Oppia.
+--------------------
 
 ## Using Flags with Make Command
 
-You can use flags with the `make run-devserver` command to modify the behavior of Oppia development server as per the flag which is required to enhance your development workflow. The following table lists the available flags and their descriptions:
-- `save_datastore`: This flag saves donot clear the datastore on shutting down the development server.
-- `disable_host_checking`: It disables host checking so that the dev server can be accessed by any device on the same network using the host device's IP address. DO NOT use this flag if you're running on an untrusted network.
-- `prod_env`: It runs the development server in production mode. This flag is useful for testing the production build of Oppia locally.
+You can use flags with the `make run-devserver` and `make run-offline` command to modify the behavior of Oppia development server as per the flag which is required to enhance your development workflow. The following table lists the available flags and their descriptions:
+- `save_datastore`: This flag prevents clearing of the datastore upon shutting down the development server.
+- `disable_host_checking`: Disables host checking so that the dev server can be accessed by any device on the same network using the host device's IP address. DO NOT use this flag if you're running on an untrusted network.
+- `prod_env`: Runs the development server in production mode. This flag is useful for testing the production build of Oppia locally.
 - `maintenance_mode`: This flag puts the Oppia development server into the maintenance mode.
-- `source_maps`: It builds webpack with source maps.
-- `no_auto_restart`: This flag disables the auto-restart feature of the development server when files are changed.
+- `source_maps`: Builds webpack with source maps.
+- `no_auto_restart`: Disables the auto-restart feature of the development server when files are changed.
 
-You can run the `make run-devserver` command with any of the above flags as follows:
+
+You can run the `make run-devserver` and `make run-offline` command with any of the above flags as follows:
 
 ```
 make run-devserver save_datastore=true
 ```
+or
+```
+make run-offline save_datastore=true
+```
 
-Similarly, you can use multiple flags with the `make run-devserver` command as follows:
+Similarly, you can use multiple flags as follows:
 
 ```
 make run-devserver prod_env=true maintenance_mode=true
 ```
+or
+```
+make run-offline prod_env=true maintenance_mode=true
+```
 
 ## Additional Make Commands
 
-The Oppia development environment provides additional `make` commands that you can use for various purposes. The following lists the available `make` commands and their descriptions --
-- `make terminal`: This command opens a terminal in the Docker container environment.
-- `make stop-devserver`: It stops and kills the Docker containers running the Oppia development server.
-- `make clean`: This command cleans the Oppia development environment (under Docker) by removing all the docker containers, images, and volumes.
+The Oppia development environment provides additional `make` commands that you can use for various purposes. The following lists the available `make` commands and their descriptions:
+- `make help`: This command shows the help menu for all the `make` commands for Oppia development environment under Docker.
+- `make clean`: This command cleans the Oppia development environment (under Docker) by removing all the docker containers, images, and volumes. This command is useful when you want to start installation (under Docker) from scratch.
+- `make logs.%`: This command shows the logs of the specified Docker container of the Oppia server. Replace `%` with the name of the service for which you want to see the logs. For example, `make logs.dev-server` shows the logs of the dev-server docker container of the Oppia server.
+- `make shell.%`: Opens a terminal in the Docker container environment. Replace `%` with the name of the service for which you want to open the terminal. For example, `make shell.datastore` opens a terminal in the Datastore Docker container environment of the Oppia server.
+- `make restart.%`: Restarts the specified Docker container of the Oppia server. Replace `%` with the name of the service for which you want to restart. For example, `make restart.dev-server` restarts the dev-server Docker container.
+- `make update.requirements`: Updates all the Python dependencies of the Oppia server. Run this command when the local development server is running.
+- `make update.package`: Updates all the npm packages of the Oppia server. Run this command when the local development server is running.
+- `make build.%`: Builds the specified Docker container of the Oppia server. Replace `%` with the name of the service for which you want to build. For example, `make build.dev-server` builds the dev-server Docker container.
+- `make stop.%`: Stops the specified Docker container of the Oppia server. Replace `%` with the name of the service for which you want to stop. For example, `make stop.dev-server` stops the dev-server Docker container.
+- `make init`: Initializes the Oppia development environment by building the Docker Images and starting the dev-server.
+- `make echo_flags`: This command shows the flags with thier values that are being used by the Oppia development server.
 
 ## Contributing
 
 If you encounter any issues during the installation process or have suggestions for improvement, please feel free to open a discussion on [Oppia's GitHub Discussion](https://github.com/oppia/oppia/discussions)
-
-------
-
-That's it! You have successfully installed Oppia using Docker, and ready-to-go for your contributions at Oppia.
