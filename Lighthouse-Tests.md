@@ -82,7 +82,7 @@ def export_url(url):
 - **Common question:** What to do if your changes cause the lighthouse accessibility tests to fail?
 - The lighthouse logs will provide you most of the information you need (To see the logs, click on the details button on the right)
 
-## Steps solve the failing lighthouse test
+## Steps to solve the failing lighthouse test
 
 **1. Find out which pages are failing:** You can find which pages are failing in the lighthouse logs
 <img height="150" src="images/lighthouse-test-failure.png">
@@ -92,7 +92,7 @@ The lighthouse checks will print the link to each report in the logs.
 
 ![image](images/lighthouse-test-report.png)
 
-or
+Alternatively, you can do the following:
 
 - (From the branch that is related to you PR which is failing the lighthouse tests) Go to the failing page on localhost in chrome web browser 
 - Go to inspect tab and select the `lighthouse` option
@@ -100,10 +100,10 @@ or
 - Click the "Generate report" or "Run audits" button
 - After the test completes, Lighthouse will generate a detailed report with various sections, including accessibility.
 
-**3. Read report and learn how to fix the problem:** Click on the accessibility tab in the report to see which elements are failing.
+**3. Read the report and learn how to fix the problem:** Click on the accessibility tab in the report to see which elements are failing.
 ![image](images/lighthouse-test-score.png)
 
-**4. Find the failing element and Apply the fix:** Lighthouse often suggests possible solutions and provides additional resources for fixing the issues.
+**4. Find the failing element and apply the fix:** Lighthouse often suggests possible solutions and provides additional resources for fixing the issues.
 
 **5. Re-run the Lighthouse tests after making the changes to ensure the issues are successfully addressed.**
 
