@@ -2,13 +2,11 @@ This guide provides step-by-step instructions for installing Oppia using Docker.
 
 ## Table of Contents
 
-- [Table of Contents](#table-of-contents)
 - [Docker - Brief Overview](#docker---brief-overview)
 - [Installation Steps](#installation-steps)
   - [Clone Oppia](#clone-oppia)
   - [Install Docker Desktop](#install-docker-desktop)
   - [Start development server using `make` commands](#start-development-server-using-make-commands)
-      - [That's it! You have successfully installed Oppia using Docker, and ready-to-go for your contributions at Oppia.](#thats-it-you-have-successfully-installed-oppia-using-docker-and-ready-to-go-for-your-contributions-at-oppia)
 - [Using Flags with Make Command](#using-flags-with-make-command)
 - [Additional Make Commands](#additional-make-commands)
 - [Contributing](#contributing)
