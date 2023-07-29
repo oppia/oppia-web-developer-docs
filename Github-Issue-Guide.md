@@ -36,7 +36,7 @@ Welcome to Oppia's GitHub issue filing guide for non-developers! This step-by-st
 
 4. On the issue creation page, provide a concise and descriptive title for your issue in the "Title" field and follow the steps as mentioned along with each comment box.
 
-   "Note:" Red starred comment box means it must be filled.
+   Note: Red starred comment box means it must be filled.
 ![Screenshot showing issue description's comment box](images/githubIssueGuide/issueDescription.png)
 
 5. If applicable, you can include screenshots or any other supporting files by dragging and dropping them into the comment box.
