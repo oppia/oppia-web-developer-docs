@@ -118,7 +118,7 @@ Download and install the latest version of Docker Desktop from the [official Doc
 **Note for Developers: Allocating Resources to Docker Desktop**
 For systems with 8GB RAM:
 - Allocate at least 6GB RAM to Docker Desktop from the settings (Resources tab) in Docker Desktop.
-- Adjust CPU and swap memory according to your system specifications from the same settings panel.
+- Allocate around 75% of the CPUs and swap memory available on your system specifications from the same settings panel.
 
 --------------------
 ##### That's it! You have successfully installed Oppia using Docker, and ready-to-go for your contributions at Oppia.
