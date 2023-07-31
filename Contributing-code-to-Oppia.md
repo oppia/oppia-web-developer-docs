@@ -97,7 +97,7 @@ Once you have a good understanding of the issue, you can ask for it to be assign
 
 - Explain clearly how you'd tackle the issue (at a minimum, point to which file(s) you'd modify and describe the changes you'd make).
 - If possible, show a screenshot or code snippet demonstrating your proposed fix.
-- @-mention the leads of the corresponding project the issue falls under, letting them know you'd like to work on it. (The leads are: @SanjaySajuJacob and @Priyansh61 for [LaCE](https://github.com/orgs/oppia/projects/3/views/8?pane=info); @sagangwee and @chris7716 for [Contributor Dashboard](https://github.com/orgs/oppia/projects/18/views/4?pane=info); @U8NWXD and @gp201 for [Developer Workflow](https://github.com/orgs/oppia/projects/8?pane=info).)
+- @-mention the leads of the corresponding project the issue falls under, letting them know you'd like to work on it. You can find the team leads here: https://github.com/orgs/oppia/projects
 
 If your explanation makes sense, we'll assign the issue to you. Once assigned, feel free to submit a PR by following the [[instructions for making a PR|Make-a-pull-request]].
 
