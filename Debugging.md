@@ -11,7 +11,7 @@ Unless the bug you are trying to fix is trivial, we recommend creating a debuggi
 
 Here are some debugging guides for particular kinds of issues you might encounter or types of tests:
 
-* [[Interpreting CircleCI Results|Interpreting-CircleCI-Results]]
+* [[Interpreting GitHub Actions Results|Interpreting-GitHubActions-Results]]
 * [[Debugging end-to-end tests|Debug-end-to-end-tests]]
 * [[Debugging backend tests|Debug-backend-tests]]
 * [[Debugging frontend tests|Debug-frontend-tests]]
