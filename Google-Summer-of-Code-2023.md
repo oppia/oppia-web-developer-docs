@@ -22,7 +22,7 @@ Therefore, there will not be any additional extensions. Please refer to the [Dat
 Also, please note that acceptance into GSoC isn't a prerequisite for becoming an Oppia contributor. The Oppia project is run by the community for the community, and we warmly welcome anyone who'd like to help out! You can get started by following the instructions [here](https://github.com/oppia/oppia/wiki).
 
 
-# Contributors
+## Contributors
 
 GSoC is an excellent opportunity for new contributors to get paid to work on an open source project. If you're interested in applying as a contributor, you should definitely read the following resources:
 
@@ -30,6 +30,15 @@ GSoC is an excellent opportunity for new contributors to get paid to work on an 
 -   [Google's list of resources](https://developers.google.com/open-source/gsoc/resources/)
 -   [GSoC FAQ](https://developers.google.com/open-source/gsoc/faq)
 
+## Current Projects
+
+The following projects (with linked proposals where available) are currently in progress for GSoC 2023:
+
+* [Kshitij Patil](pdfs/GSoC2023PatelMuhammed.pdf): Contributor Dashboard Admin Stats Table
+* [Patel Muhammed](pdfs/GSoC2023PatelMuhammed.pdf): Accessibility improvements
+* [Rishi Kejriwal](pdfs/GSoC2023RishiKejriwal.pdf): Serial chapter launch
+* [Shivkant Chauhan](pdfs/GSoC2023ShivkantChauhan.pdf): Dockerize Oppia
+* Ashwath Kannan: Improvements for translation reviewer experience
 
 ## Getting started
 
