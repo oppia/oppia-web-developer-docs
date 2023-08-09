@@ -30,17 +30,15 @@ GSoC is an excellent opportunity for new contributors to get paid to work on an 
 -   [Google's list of resources](https://developers.google.com/open-source/gsoc/resources/)
 -   [GSoC FAQ](https://developers.google.com/open-source/gsoc/faq)
 
-## Selected Projects
+## Current Projects
 
-The following projects (with linked proposals where available) were selected for GSoC 2023:
+The following projects (with linked proposals where available) are currently in progress for GSoC 2023:
 
 * [Kshitij Patil](pdfs/GSoC2023PatelMuhammed.pdf): Contributor Dashboard Admin Stats Table
 * [Patel Muhammed](pdfs/GSoC2023PatelMuhammed.pdf): Accessibility improvements
 * [Rishi Kejriwal](pdfs/GSoC2023RishiKejriwal.pdf): Serial chapter launch
 * [Shivkant Chauhan](pdfs/GSoC2023ShivkantChauhan.pdf): Dockerize Oppia
-* [Subhash Thenua](pdfs/GSoC2023SubhashThenua.pdf): Learner dashboard redesign
 * Ashwath Kannan: Improvements for translation reviewer experience
-
 
 ## Getting started
 
