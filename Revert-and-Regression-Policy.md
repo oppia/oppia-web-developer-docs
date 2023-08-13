@@ -77,6 +77,10 @@ Once the dev workflow leads decide whether to revert, fix forward, or both, you 
 
 Any Oppia developer with permission to open revert PRs on GitHub may decide, following the above policy, whether to revert the PR, fix forward, pursue both in parallel, or make one of the two allowed exceptions. If you are such a developer, you should document your reasoning and communicate on the tracking issue so the dev workflow leads can understand what happened.
 
+Please note that:
+* You don't need to get permission from the author of the original PR before making your revert PR. Just notify them so that they are aware.
+* It is usually fine to merge revert PRs without review, as long as the relevant CI checks pass. Contact one of the dev workflow leads (or **@seanlip**) to help you with this.
+
 ### Dev Workflow Leads
 
 As dev workflow leads, you are developers with revert permissions, so the above instructions apply to you too. Further, you should make sure a tracking issue is created and alert the rest of the dev workflow leads. You are also responsible for making sure whatever stragety we decide on to fix develop is actually executed.

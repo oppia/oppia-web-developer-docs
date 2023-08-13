@@ -24,9 +24,9 @@ PRL -->|"Merge"| M("Merged")
 
 ## Draft pull requests
 
-While making a contribution, you may discover that your change is not complete and needs some more work. You can make a draft pull request to make it easy for other developers to give you feedback; however, draft pull requests consume resources like time on our CI runners, which slows down CI runs for other developers. Hence, you should prefix the commit messages with `[skip ci]` or `[ci skip]` to disable CI runs when those commits are going to a draft PR. If you want those tests to run to help you debug a problem, you should open a PR against your fork's `develop` branch instead of the `oppia/oppia` develop. This will still delay other developers' CircleCI runs, but not their GitHub Actions runs.
+While making a contribution, you may discover that your change is not complete and needs some more work. You can make a draft pull request to make it easy for other developers to give you feedback; however, draft pull requests consume resources like time on our CI runners, which slows down CI runs for other developers. Hence, you should prefix the commit messages with `[skip ci]` or `[ci skip]` to disable CI runs when those commits are going to a draft PR. If you want those tests to run to help you debug a problem, you should open a PR against your fork's `develop` branch instead of the `oppia/oppia` develop. This will not delay other developers' GitHub Actions runs.
 
-Learn more about [skipping a CircleCI build](https://circleci.com/docs/2.0/skip-build/#skipping-a-build) and [skipping a GitHub Actions run](https://github.blog/changelog/2021-02-08-github-actions-skip-pull-request-and-push-workflows-with-skip-ci/).
+Learn more about [skipping a GitHub Actions run](https://github.blog/changelog/2021-02-08-github-actions-skip-pull-request-and-push-workflows-with-skip-ci/).
 
 ## Labeling pull requests
 

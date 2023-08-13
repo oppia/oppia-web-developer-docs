@@ -67,10 +67,7 @@ Screenshots, have a filename that follows the name of the test from which the sc
 
 When screen recordings are enabled, we capture video of the test running on GitHub Actions. This helps developers solve problems in E2E tests that only occur on CI or are difficult to replicate locally.
 
-To enable screen recordings on GitHub Actions, you need to set the `VIDEO_RECORDING_IS_ENABLED` environment variable to `1` in your GitHub Actions workflow file, and for enabling it locally, you need to set the `LOCAL_VIDEO_RECORDING_IS_ENABLED` variable to `1` in 'wdio.conf.js' file. Note that screen recordings are still not saved under the following circumstances:
-
-* The test is running on CircleCI. CircleCI runners have too little memory to support video recording.
-* The test passed. Videos of tests that pass are deleted before being made available for download. You can change this behavior by setting `saveAllVideos` to `true` in `wdio.conf.js`.
+To enable screen recordings on GitHub Actions, you need to set the `VIDEO_RECORDING_IS_ENABLED` environment variable to `1` in your GitHub Actions workflow file, and for enabling it locally, you need to set the `LOCAL_VIDEO_RECORDING_IS_ENABLED` variable to `1` in 'wdio.conf.js' file. Note that screen recordings are still not saved if the test passes (though you can change this behavior by setting `saveAllVideos` to `true` in `wdio.conf.js`).
 
 Each individual test within each suite gets its own video.  The video of each test gets a randomly assigned name, and this gets printed out above the suite, like this:
 
