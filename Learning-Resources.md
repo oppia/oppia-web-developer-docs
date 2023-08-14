@@ -24,7 +24,7 @@ That said, we strongly recommend that you be open to learning new things. If you
   Most of our open issues are in the frontend and require at least some knowledge of HTML, AngularJS/Angular and CSS, so knowledge of frontend coding will serve you well if you'd like to contribute to Oppia over the longer term.
 
   * TypeScript
-    * Checkout the great TypeScript [tutorial](https://www.freecodecamp.org/news/learn-typescript-beginners-guide/)
+    * Check out this TypeScript [tutorial](https://www.freecodecamp.org/news/learn-typescript-beginners-guide/)
 
   * AngularJS
 
