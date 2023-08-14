@@ -60,5 +60,3 @@ At the very end, ensure that no one contributor has too many open PRs (ie. over 
 Dev-workflow team members are expected to take a [full pass](#full-pass) on a weekly basis and create a report which the team lead can share with Core-maintainers in the Core-maintainer's meeting.
 
 **Current Dev-workflow team members taking pass:** @sajalasati & @DubeySandep
-
-**Weekly report doc:** https://docs.google.com/document/d/1lisXJYYXbmLGLGWoJx0E0XxAMndVG0J98KMp8N-hOho

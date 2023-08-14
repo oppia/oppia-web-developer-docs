@@ -36,9 +36,9 @@ Traceback (most recent call last):
     "__main__", fname, loader, pkg_name)
   File "/usr/local/lib/python2.7/runpy.py", line 72, in _run_code
     exec code in run_globals
-  File "scripts/install_third_party_libs.py", line 311, in <module>
+  File ".../scripts/install_third_party_libs.py", line 311, in <module>
     main()
-  File "scripts/install_third_party_libs.py", line 236, in main
+  File ".../scripts/install_third_party_libs.py", line 236, in main
     setup.main(args=[])
   File "scripts/setup.py", line 158, in main
     download_and_install_node()
