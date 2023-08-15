@@ -71,19 +71,15 @@ To install Oppia under Docker, follow these steps:
 
    For making any changes to original repository, we first sync our cloned repository with original repository. We merge develop with `upstream/develop` to do this. Now we make a new branch, do the changes on the branch, push the branch to forked repository, and make a PR from Github interface. We use a different branch to make changes so that we can work on multiple issues while still having a clean version in develop branch.
 
-### Install Docker Desktop
-Download and install the latest version of Docker Desktop from the [official Docker website](https://www.docker.com/products/docker-desktop/). Docker Desktop provides a user-friendly interface and one must follow simple steps to download and install it from the given link.
+### Pre-requisites for setting up the development server
 
-> NOTE: The above step needs to be followed only once. The next time you want to run Oppia, you can directly start from the next section, i.e. by executing simple `make` commands from the root directory of the cloned Oppia repository.
+1. **Install Docker Desktop**: Download and install the latest version of Docker Desktop from the [official Docker website](https://www.docker.com/products/docker-desktop/). Docker Desktop provides a user-friendly interface and one must follow simple steps to download and install it from the given link.
 
 **Note for Developers: Allocating Resources to Docker Desktop**
 For systems with 8GB RAM:
 - Allocate at least 6GB RAM to Docker Desktop from the settings (Resources tab) in Docker Desktop.
 - Allocate around 75% of the CPUs and swap memory available on your system specifications from the same settings panel.
 
-### Start development server using `make` commands
-
-1. **Navigate to Oppia Root Directory**: Open a terminal or command prompt and navigate to the root directory of the cloned Oppia repository.
 
 2. **Build Oppia for the First Time**: Run the following command to build Oppia for the first time. This step downloads all the necessary third-party libraries, python dependencies, and the other services required for the Oppia development server, which may take approximately 15-20 minutes (varies according to the network connection speed).
 
@@ -94,17 +90,29 @@ For systems with 8GB RAM:
 
    > NOTE: This build is not related to production build in any way. This command runs `docker compose build` under the hood, which is used to build the images for services defined in the `docker-compose.yml` file. For more information, refer to the [official documentation](https://docs.docker.com/compose/reference/build/).
 
-3. **Launch the Docker Desktop app from your Applications menu**: This will start the Docker Engine, which is required to run any dockerized application or the Docker commands.
+### Launching the development server
 
-4. **Start the local development server**: To start the local development server, execute the following command:
+1. **Launch the Docker Desktop app from your Applications menu**: This will start the Docker Engine, which is required to run any dockerized application or the Docker commands.
+
+2. **Start the local development server**: To start the local development server, execute the following command:
 
    ```
    make run-devserver
    ```
 
+   ![Docker Setup Terminal Logs](images/dockerSetupTerminalLogs.png)
+
+   Here are the logs that will appear in the Terminal once the development server is initiated along with all the services.
+
+   ![Docker Setup running with all services](images/dockerSetupExample.png)
+
+   You can verify the development server is up in the Containers Tab of Docker Desktop which displays that all services within `Oppia` are running.
+
    This command launches the Oppia development server, and you can continue to perform your tasks as usual.
 
-5. **Start the local development server in Offline mode**: To start the local development server in offline mode, execute the following command:
+   > NOTE: The development server requires Docker Desktop to be running, as it relies on the Docker Engine, which is initiated by Docker Desktop, to function locally.
+
+3. **Start the local development server in Offline mode**: To start the local development server in offline mode, execute the following command:
 
    ```
    make run-offline
@@ -113,7 +121,7 @@ For systems with 8GB RAM:
    This command launches the Oppia development server in offline mode, and you can continue to perform your tasks as usual.
    > NOTE: Ensure that you have already built and run the Oppia development server for the first time before running this command. If not, run `make build` and then `make run-devserver` first (with internet connection), which downloads all the necessary third-party libraries, python dependencies, and the other services required for the Oppia development server.
 
-6. **Stop the Local Development Server**: To stop the local development server, execute the following command:
+4. **Stop the Local Development Server**: To stop the local development server, execute the following command:
 
    ```
    make stop
