@@ -52,6 +52,7 @@ Here are some general troubleshooting tips for Oppia. The platform specific tips
   - [No Such File or Directory /dev/disk/by-id](#no-such-file-or-directory-devdiskby-id)
   - [First build never completed](#first-build-never-completed)
   - [If the above doesn't work](#if-the-above-doesnt-work)
+- [Docker Setup](#docker-setup)
 
 ### `[Errno 104] Connection reset by peer`
 If after running `python -m scripts.start` you get the following lines:
@@ -654,6 +655,36 @@ FileNotFoundError: [Errno 2] No such file or directory: '/home/user/opensource/o
 ```
 
 The error code 137 indicates that the Angular compiler ran out of memory. This happens because WSL2 only gives the host operating system (Ubuntu, in our case) 50% of the machine's RAM by default. If you have 8 GB RAM, for example, this means Ubuntu only gets 4 GB, which is insufficient to run Oppia. To fix this, you need to follow [Microsoft's instructions](https://learn.microsoft.com/en-us/windows/wsl/wsl-config) to increase the amount of RAM given to the host operating system.
+
+## Docker Setup
+
+### docker-desktop : Depends: docker-ce-cli but it is not installable
+
+While installing of Docker Desktop, ubuntu users might see the following error logs:
+```
+Some packages could not be installed. This may mean that you have
+requested an impossible situation or if you are using the unstable
+distribution that some required packages have not yet been created
+or been moved out of Incoming.
+The following information may help to resolve the situation:
+ 
+The following packages have unmet dependencies:
+ docker-desktop : Depends: docker-ce-cli but it is not installable
+E: Unable to correct problems, you have held broken packages.
+```
+
+The cause of this error is the absence of the Docker repository installation on the system. To address this issue, a straightforward solution is to execute the following commands before installing Docker Desktop:
+```
+sudo apt install -y ca-certificates curl gnupg lsb-release
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt update -y
+```
+
+Following the completion of the aforementioned commands, you can proceed with the installation of Docker Desktop.
+
+[Reference](https://stackoverflow.com/questions/72299444/docker-desktop-doesnt-install-saying-docker-ce-cli-not-installable) for the solution stated.
 
 ## If the above doesn't work
 
