@@ -53,10 +53,3 @@ On Github:
 
 
 At the very end, ensure that no one contributor has too many open PRs (ie. over 3), if so, please encourage them to complete those PRs before opening new ones. Also, if there is a reviewer with a lot of PRs assigned to them, then it's worth starting a conversion whether the reviewer needs to focus their code ownership. Finally, if there are any community-wide issues, please let the community and core maintainers know.
-
-
-## Rota
-
-Dev-workflow team members are expected to take a [full pass](#full-pass) on a weekly basis and create a report which the team lead can share with Core-maintainers in the Core-maintainer's meeting.
-
-**Current Dev-workflow team members taking pass:** @sajalasati & @DubeySandep
