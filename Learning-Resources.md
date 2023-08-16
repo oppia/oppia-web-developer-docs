@@ -23,6 +23,8 @@ That said, we strongly recommend that you be open to learning new things. If you
 
   * JavaScript/TypeScript
 
+    * Check out this TypeScript [tutorial](https://www.freecodecamp.org/news/learn-typescript-beginners-guide/)
+
     * Check out https://jskatas.org/#bundle-es6-katas for some JavaScript practice exercises using ES6.
 
   * Angular
