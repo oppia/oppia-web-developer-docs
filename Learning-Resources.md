@@ -19,27 +19,34 @@ That said, we strongly recommend that you be open to learning new things. If you
     * You may find this [git visualizer](https://git-school.github.io/visualizing-git/) helpful for understanding more advanced git operations. It can be helpful for simple ones too!
     * GitHub's [managing merge conflicts page](https://lab.github.com/courses/managing-merge-conflicts) explains how to address merge conflicts.
 
-* AngularJS (v1) and Angular (2+) are used for Oppia's frontend; we are currently in the process of migrating from AngularJS to Angular, so you will use Angular for any new code. However, you might want to know AngularJS to understand some of the code we haven't migrated yet.
+* Most of our open issues are in the frontend and require at least some knowledge of HTML, Angular and CSS, so knowledge of frontend coding will serve you well if you'd like to contribute to Oppia over the longer term.
 
-  Most of our open issues are in the frontend and require at least some knowledge of HTML, AngularJS/Angular and CSS, so knowledge of frontend coding will serve you well if you'd like to contribute to Oppia over the longer term.
+  * JavaScript/TypeScript
 
-  * TypeScript
     * Check out this TypeScript [tutorial](https://www.freecodecamp.org/news/learn-typescript-beginners-guide/)
 
-  * AngularJS
-
-    * A nice YouTube video tutorial for AngularJS can be found [here](https://www.youtube.com/watch?v=nO1ROKMjPqI&list=PLvZkOAgBYrsS_ugyamsNpCgLSmtIXZGiz).
-
-    * AngularJS also has an official [tutorial](https://docs.angularjs.org/tutorial/index) and [guide](https://docs.angularjs.org/guide).
-
-    * For an outline of AngularJS, you can also take a look at this [short overview](https://egghead.io/articles/new-to-angularjs-start-learning-here) with pointers to other resources.
+    * Check out https://jskatas.org/#bundle-es6-katas for some JavaScript practice exercises using ES6.
 
   * Angular
 
     * Check out the official [documentation](https://angular.io/docs), which also includes a [tutorial](https://angular.io/tutorial).
 
-* If you are new to HTML, some tutorials include [Mozilla's guide](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML) (which includes some practice assessments), as well as [this tutorial for beginners](http://htmldog.com/guides/html/beginner/).
+    * This slide deck might also be helpful: [Let's Learn Angular!](https://docs.google.com/presentation/d/1QmuEhc0sN807n8HSFQ-DhhBlC46HDYxWnuocTQnPzRs/preview)
 
-* If you are new to Python, the free [CS50p](https://cs50.harvard.edu/python/2022/) course is a great place to start learning. W3Schools' [Python Tutorial](https://www.w3schools.com/python/) is a good quick reference guide and includes interactive practice exercises. Also, check out the official Python [documentation](https://docs.python.org/3/).
+  * HTML/CSS:
+
+    * See [Mozilla's guide](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML), which includes some practice assessments.
+
+    * Here is an [HTML tutorial for beginners](http://htmldog.com/guides/html/beginner/).
+
+    * This is a fun game for learning CSS: https://flexboxfroggy.com/
+
+* Our backend is written in Python. If you are new to Python, then:
+
+  * The free [CS50p](https://cs50.harvard.edu/python/2022/) course is a great place to start learning.
+
+  * W3Schools' [Python Tutorial](https://www.w3schools.com/python/) is a good quick reference guide and includes interactive practice exercises.
+
+  * Also, check out the official Python [documentation](https://docs.python.org/3/).
 
 If you find a useful learning resource that isn't listed here, please add it to help other new contributors!

@@ -180,4 +180,4 @@ These are the devtools we use
 
 ### webpack.terser.config.ts
 
-This config was written so that it can be used in the e2e tests run on Circle CI. You can refer to this [discussion](https://discuss.circleci.com/t/build-fails-with-error-spawn-enomem/30537/10) on why it was needed. This basically disables the parallelism in the terser config.
+This config was originally written so that it can be used in the e2e tests run on Circle CI. You can refer to this [discussion](https://discuss.circleci.com/t/build-fails-with-error-spawn-enomem/30537/10) on why it was needed. This basically disables the parallelism in the terser config.

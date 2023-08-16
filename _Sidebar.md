@@ -39,9 +39,9 @@
     * [[Debugging|Debugging]]
       * [[If your presubmit checks fail|If-your-presubmit-check-fails]]
       * [[If CI checks fail on your PR|If-CI-checks-fail-on-your-PR]]
-      * [[Interpreting CircleCI Results|Interpreting CircleCI Results]]
-      * [[Debugging datastore locally|Debugging-datastore-locally]]
+      * [[Interpreting GitHub Actions Results|Interpreting-GitHubActions-Results]]
       * [[Debugging Docs|Debugging-Docs]]
+      * [[Debugging datastore locally|Debugging-datastore-locally]]
       * [[Debugging end-to-end tests|Debug-end-to-end-tests]]
       * [[Debugging backend tests|Debug-backend-tests]]
       * [[Debugging frontend tests|Debug-frontend-tests]]
@@ -79,7 +79,9 @@
 **Developer Reference**
 
   * [[Oppiabot|Oppiabot]]
-  * [[LaCE onboarding guide|LaCE-onboarding-guide]]
+  * Team onboarding guides
+    * [[LaCE Team|LaCE-onboarding-guide]]
+    * [[Contributor Dashboard Team|Contributor-dashboard]]
   * Frontend
     * [[Angular Migration | Angular-Migration]]
     * [UX guidelines](https://github.com/oppia/oppia/wiki/Oppia-UX-guidelines-&-rationales)
@@ -100,7 +102,6 @@
   * Translations
     * [[Adding new translations|Adding-new-translations-for-i18n]]
     * [[How to develop for i18n|How-to-develop-for-i18n]]
-  * [[Contributor dashboard|Contributor-dashboard]]
   * [[Webpack|Webpack]]
   * [[Third-party libraries|Third-party-libraries]]
   * [[Extension frameworks|Extensions-Overview]]

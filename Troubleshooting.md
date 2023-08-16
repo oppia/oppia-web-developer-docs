@@ -29,7 +29,7 @@ Here are some general troubleshooting tips for Oppia. The platform specific tips
   - [Python 2 is not available](#python-2-is-not-available)
   - [OSError: [Errno 2] No such file or directory](#oserror-errno-2-no-such-file-or-directory)
   - [Pip: Cannot Import Name Main](#pip-cannot-import-name-main)
-  - [System Limit for Number of File Watchers Reached](#system-limit-for-number-of-file-watchers-reached)
+  - [ENOSPC: System Limit for Number of File Watchers Reached](#enospc-system-limit-for-number-of-file-watchers-reached)
   - [No Module functools_lru_cache](#no-module-functools_lru_cache)
   - [No Module appengine.api](#no-module-appengineapi)
   - [ModuleNotFoundError: No module named \_bz2](#modulenotfounderror-no-module-named-_bz2)
@@ -79,7 +79,7 @@ Traceback (most recent call last):
     self._sslobj.do_handshake()
 ConnectionResetError: [Errno 104] Connection reset by peer
 ```
-Then run `pip install requests[security]`. 
+Then run `pip install requests[security]`.
 
 ### `No module named builtins`
 
@@ -341,7 +341,7 @@ ImportError: cannot import name main
 
 Try running `$ python -m pip uninstall pip` followed by running `$ python -m scripts.install_third_party` (source: [SO thread](https://stackoverflow.com/questions/49964093/file-usr-bin-pip-line-9-in-module-from-pip-import-main-importerror-canno)).
 
-### System Limit for Number of File Watchers Reached
+### ENOSPC: System Limit for Number of File Watchers Reached
 
 If you get an error while running a local server which says something like this:
 
@@ -356,7 +356,8 @@ then you will need to increase the number of system watchers by running the comm
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 ```
 
-Use the same command in the cases where the changes made by you to files are not being detected by the server.
+Use the same command in the cases where the changes made by you to files are not being detected by the server. See https://stackoverflow.com/questions/22475849/node-js-what-is-enospc-error-and-how-to-solve/32600959#32600959 for more details.
+
 
 ### No Module functools_lru_cache
 
@@ -466,7 +467,7 @@ After running `python -m scripts.start`, if you get an error around the followin
    ImportError: cannot import name _imaging
 ```
 
-> **Note**  
+> **Note**
 > [Google search results]
 (https://pillow.readthedocs.io/en/stable/installation.html#warnings) indicate that PIL and Pillow cannot coexist in the same environment
 
