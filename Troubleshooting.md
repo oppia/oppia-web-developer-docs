@@ -660,7 +660,7 @@ The error code 137 indicates that the Angular compiler ran out of memory. This h
 
 ### docker-desktop : Depends: docker-ce-cli but it is not installable
 
-While installing of Docker Desktop, ubuntu users might see the following error logs:
+While installing Docker Desktop, ubuntu users might see the following error logs:
 ```
 Some packages could not be installed. This may mean that you have
 requested an impossible situation or if you are using the unstable
