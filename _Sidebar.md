@@ -50,7 +50,6 @@
       * [[Debugging custom Pylint check tests|Debug-custom-Pylint-check-tests]]
       * [[Debugging Stories|Debugging-Stories]]
     * **[[Guidelines for launching new features|Launching-new-features]]**
-    * [[Feature Gating|Developing-new-features-with-feature-gating]]
     * [[Lint Checks|Lint-Checks]]
       * [[Custom Pylint checks|Custom-Pylint-checks]]
       * [[Custom ESLint checks|Custom-ESLint-checks]]
