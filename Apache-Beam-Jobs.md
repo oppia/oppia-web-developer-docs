@@ -28,6 +28,7 @@
 * [Common Beam errors](#common-beam-errors)
   * [`'_UnwindowedValues' object is not subscriptable` error](#_unwindowedvalues-object-is-not-subscriptable-error)
   * [`_namedptransform is not iterable` error](#_namedptransform-is-not-iterable-error)
+* [Guidelines for writing beam jobs](#guidelines-for-writing-beam-jobs)
 * [Case studies](#case-studies)
   * [Case Study: `SchemaMigrationJob`](#case-study-schemamigrationjob)
 
@@ -691,6 +692,32 @@ some_values = (
     | 'Get values' >> beam.Values()
 )
 ```
+## Guidelines for writing beam jobs
+This section provides some general guidelines for writing Beam jobs, which would be particularly helpful for new contributors.
+
+### Planning a job
+* If your beam job includes updating the storage models, make sure to write an audit job. An audit job is similar to your beam job but doesn't make any changes to the datastore. During testing, the audit job is run before the actual beam job to prevent any unwanted changes to the datastore incase of an error. You will be able to find examples in the codebase for the same.
+* There should also be a job to verify the changes done by your job.
+
+### Executing jobs
+* Refer to code from similar jobs to avoid mistakes. The "Troubleshooting" section in the wiki lists out the common errors encountered while executing jobs.
+* Make sure to write tests for all jobs. These tests should check the behaviour of the job for different cases of inputs. The common cases for all jobs are listed below:
+    * Empty input.
+    * Input which triggers the job to perform its intended action.
+    * Incorrect input which causes the job to fail.
+* The tests should ensure that the job runs appropirately for all such cases. 
+
+### PR guidelines
+* A PR for a beam job should always have "Proof of work" in the description which should include the successful local run of the beam job on the release coordinator page and a screenshot of the storage model which is being changed. The storage models can be checked [locally](https://github.com/oppia/oppia/wiki/Debugging-datastore-locally) via dsadmin.
+* A testing request for the job must be submitted once it is approved by all reviewers. Make sure to be clear in your instructions (in the doc) about what exactly needs to be done by the tester. Also, the doc link should be included in the PR description.
+
+### Job testing workflow
+* As soon as a PR is approved by all reviewers, a testing doc should be created.
+* The sample job testing [template](https://docs.google.com/document/d/1Xg0MSIpYUEax8dqH39CKhgqt30f-kr8wxO2F4aSxwz4/edit) should be used as a starting point for the testing doc. Make sure to make a copy before editing the doc.
+* In case of multiple jobs to be tested, they should be written in the order of testing. Generally, an audit job is run before the migration job to verify that the job runs as intended.
+* The instructions should be concise to prevent any confusion for the tester. Any pre and post checks to be done should also be specified clearly.
+* After the doc is complete, request a review from the main code reviewer of the related PR. The reviewer should answer the relevant questions at the beginnig of the doc after completing their review.
+* The assigned server admin will then test the PR according to the instructions in the doc and update the PR author with the results. In case of errors,the server admin would provide the relevant logs for debugging.
 
 ## Case Studies
 
