@@ -681,6 +681,7 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o 
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt update -y
 ```
+These commands are used to prepare an Ubuntu system for Docker installation. They start by installing necessary packages like ca-certificates, gnupg, and lsb-release. Then, a directory named /etc/apt/keyrings is created to store GPG keys. Next, a Docker GPG key is downloaded from the Docker repository and converted to binary format before being saved in the keyring directory. A Docker repository source is added to the APT sources list using an echo command, specifying the architecture, GPG key location, repository URL, and Ubuntu version. Finally, the package list is updated to include Docker packages from the newly added repository. These steps collectively enable secure access to Docker packages and facilitate their installation and management on the system.
 
 Following the completion of the aforementioned commands, you can proceed with the installation of Docker Desktop.
 

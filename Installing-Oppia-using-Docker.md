@@ -112,7 +112,8 @@ For systems with 8GB RAM:
 
    > NOTE: The development server requires Docker Desktop to be running, as it relies on the Docker Engine, which is initiated by Docker Desktop, to function locally.
 
-3. **Start the local development server in Offline mode**: To start the local development server in offline mode, execute the following command:
+
+   **[ALTERNATE] - Start the local development server in Offline mode**: To start the local development server in offline mode, execute the following command:
 
    ```
    make run-offline
@@ -121,7 +122,7 @@ For systems with 8GB RAM:
    This command launches the Oppia development server in offline mode, and you can continue to perform your tasks as usual.
    > NOTE: Ensure that you have already built and run the Oppia development server for the first time before running this command. If not, run `make build` and then `make run-devserver` first (with internet connection), which downloads all the necessary third-party libraries, python dependencies, and the other services required for the Oppia development server.
 
-4. **Stop the Local Development Server**: To stop the local development server, execute the following command:
+3. **Stop the Local Development Server**: To stop the local development server, execute the following command:
 
    ```
    make stop
