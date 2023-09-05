@@ -82,6 +82,15 @@ def export_url(url):
 - **Common question:** What to do if your changes cause the lighthouse accessibility tests to fail?
 - The lighthouse logs will provide you most of the information you need (To see the logs, click on the details button on the right)
 
+## Failing Lighthouse Puppeteer Script
+
+Lighthouse tests might fail because the puppeteer script failed to properly set up the web page to run ligthouse tests on. To determine if 
+this is the case, check the log and see whether the line "Puppeteer script failed" was printed.
+
+To debug Puppeteer script errors locally, please run `python -m scripts.run_lighthouse_tests` with the extra argument `--record_screen`. The 
+video will then be saved in a folder titled "ffmpeg-puppeteer-video" in the folder outside of "oppia". Alternatively, to view the recording
+from a GitHub test, you can downlaod the recording as an artifact titled "ffmpeg-puppeteer-video" from the summary page of the lighthouse test.
+
 ## Steps to solve the failing lighthouse test
 
 **1. Find out which pages are failing:** You can find which pages are failing in the lighthouse logs
