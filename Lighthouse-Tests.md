@@ -84,12 +84,9 @@ def export_url(url):
 
 ## Failing Lighthouse Puppeteer Script
 
-Lighthouse tests might fail because the puppeteer script failed to properly set up the web page to run ligthouse tests on. To determine if 
-this is the case, check the log and see whether the line "Puppeteer script failed" was printed.
+Lighthouse tests might fail because the puppeteer script failed to properly set up the web page to run ligthouse tests on. To determine if this is the case, check the log and see whether the line "Puppeteer script failed" was printed.
 
-To debug Puppeteer script errors locally, please run `python -m scripts.run_lighthouse_tests` with the extra argument `--record_screen`. The 
-video will then be saved in a folder titled "ffmpeg-puppeteer-video" in the folder outside of "oppia". Alternatively, to view the recording
-from a GitHub test, you can downlaod the recording as an artifact titled "ffmpeg-puppeteer-video" from the summary page of the lighthouse test.
+To debug Puppeteer script errors locally, please run `python -m scripts.run_lighthouse_tests` with the extra argument `--record_screen`. The video will then be saved in a folder titled "ffmpeg-puppeteer-video" in the folder outside of "oppia". Alternatively, to view the recording from a GitHub test, you can downlaod the recording as an artifact titled "ffmpeg-puppeteer-video" from the summary page of the lighthouse test.
 
 ## Steps to solve the failing lighthouse test
 
