@@ -25,7 +25,7 @@ To install Oppia, follow these instructions:
 
 ## Experimental installation using Docker - under development
 To install Oppia using Docker, follow these instructions:
-* [[Oppia Docker Setup|Installing-Oppia-Docker]]
+* [[Oppia Docker Setup|Installing-Oppia-using-Docker]]
 
 If you run into any problems during installation, please read [[these notes|Issues-with-installation]] and the [[Troubleshooting page|Troubleshooting]].
 
