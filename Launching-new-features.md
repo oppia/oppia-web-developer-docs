@@ -23,7 +23,7 @@ Say you are working on a large scale user-facing feature that will take 1 or mor
 
 2. The first PR above must be merged before any of the following PRs are merged. This is to ensure that the feature flag is available in the codebase for it to be used in the following PRs.
 
-3. When developing, make sure that e2e tests are present for your feature. If the feature is gated behind a feature flag, you may need to use the 'enableFeatureForProd'/'enableFeatureForDev' utility functions for the admin page to first enable the required flag, and then proceed to perform the testing. For unit tests, you should include tests for both the `flag=True` and `flag=False` cases.
+3. When developing, make sure that e2e tests are present for your feature. If the feature is gated behind a feature flag, you may need to use the 'enableFeature' utility functions for the release-coordinator page to first enable the required flag, and then proceed to perform the testing. For unit tests, you should include tests for both the `flag=True` and `flag=False` cases.
 
 4. The very last PR you make (to finish up the feature you are working on) must include changes that move the feature flag to the TEST stage. This is to ensure that the feature is available in the test environment, so that we can feature-test it before it is made available to the users in the production environment. **NOTE: Please test all the changes manually to make sure that the feature works fully end-to-end on your local dev server, before moving the flag to the TEST stage.**
 
@@ -31,9 +31,9 @@ Say you are working on a large scale user-facing feature that will take 1 or mor
 
 6. If the feature testing reveals that the feature is not yet ready for production, you must work on fixing the highlighted issues before proceeding further. You can request a re-test once all the testing feedback is addressed.
 
-7. Once you receive a go-ahead from the feature testers, you must merge another PR. This PR should do only one thing, i.e. move the feature flag to the PROD stage, allowing it to be enabled/disabled in production (by the admin(s)). **NOTE: When opening this PR, include a link to the testing doc or other proof that the feature has been approved for release.** While this PR is open, confirm with the release coordinators that the new CUJs for this feature have been added to the overall CUJs used for testing releases in general.
+7. Once you receive a go-ahead from the feature testers, you must merge another PR. This PR should do only one thing, i.e. move the feature flag to the PROD stage, allowing it to be enabled/disabled in production (by the release-coordinator(s)). **NOTE: When opening this PR, include a link to the testing doc or other proof that the feature has been approved for release.** While this PR is open, confirm with the release coordinators that the new CUJs for this feature have been added to the overall CUJs used for testing releases in general.
 
-8. Once this PR is merged, send a ["job run request"](https://forms.gle/rUJaHJSpRGemtGDp6) to the release coordinators to turn on the feature in production by adding a rule in the `/admin` page.
+8. Once this PR is merged, send a ["job run request"](https://forms.gle/rUJaHJSpRGemtGDp6) to the release coordinators to turn on the feature in production by adding a rule in the `/release-coordinator` page.
     - (Optional) If you like, you can fill in [this form](https://goo.gl/forms/sNBWrW03fS6dBWEp1) to announce your feature to the public once it's launched!
 
 9. Once the feature is confirmed to be functioning as intended in production (for at least 2 weeks) by the product team, please do the following, in order:
@@ -215,9 +215,9 @@ test_can_do_something(self) -> None:
                 platform_parameter_domain.PlatformParameterRule.from_dict({
                     'filters': [
                         {
-                            'type': 'server_mode',
+                            'type': 'platform_type',
                             'conditions': [
-                                ['=', platform_parameter_domain.FeatureStages.DEV.value]
+                                ['=', platform_parameter_domain.ALLOWED_PLATFORM_TYPES[0]]
                             ]
                         }
                     ],
@@ -311,11 +311,11 @@ if (this.featureService.status.NewFeature.isEnabled) {
 
 ## Changing Value of Feature Flags
 
-Feature flags are defaulted to `false/disabled`. To change their values, you can login as the administrator, navigate to the admin page, then to the feature tab.
+Feature flags are defaulted to `false/disabled`. To change their values, you can login as the administrator, provide yourself the role of release-coordinator from the 'Roles' tab present on the Admin page, navigate to the release-coordinator page, then to the feature tab.
 
 In the feature tab, where you will see the feature flag you added, you can change the settings (see the [Setting of Feature Flags](#settings-of-feature-flags) section for detail) of the feature flags.
 
-Note: since only users with admin permission can edit the settings of feature flags, you can only enable your features on your local dev instance of Oppia, while in production environment, only administrators can enable/disable features.
+Note: since only users with release-coordinator permission can edit the settings of feature flags, you can only enable your features on your local dev instance of Oppia, while in production environment, only release-coordinators can enable/disable features.
 
 ## Settings of Feature Flags
 
@@ -323,9 +323,9 @@ We use the following principles to determine the value of a feature flags:
 
 - Each feature flag has multiple *rules*, its value changes to the value specified in the first rule that is matched. If no rule is matched, its value remains default.
 - Each rule has multiple *filters*, and a rule is matched only when all of its filters are matched.
-- Each filter describes a scenario. There are multiple types of filters (like `server mode` and `client type`) which can be used in combination with each other to describe various scenarios (like `server mode = dev OR server mode = test`).
+- Each filter describes a scenario. There are multiple types of filters (like `platform type` and `app version`) which can be used in combination with each other to describe various scenarios (like `platform type = Web OR platform type = Android`).
 - Each filter can have multiple conditions, and a filter is matched if any of the conditions specified in the rule are matched.
 
-For example, if we want a feature flag to be enabled only on Chrome + Firefox, we can configure the flag's rules/filters as shown below.
+For example, if we want a feature flag to be enabled on Web, we can configure the flag's rules/filters as shown below.
 
 ![Example feature setting](images/adminPageFeatureFlagSettings.png)
