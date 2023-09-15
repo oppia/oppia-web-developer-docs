@@ -23,7 +23,7 @@ Say you are working on a large scale user-facing feature that will take 1 or mor
 
 2. The first PR above must be merged before any of the following PRs are merged. This is to ensure that the feature flag is available in the codebase for it to be used in the following PRs.
 
-3. When developing, make sure that e2e tests are present for your feature. If the feature is gated behind a feature flag, you may need to use the 'enableFeature' utility functions for the release-coordinator page to first enable the required flag, and then proceed to perform the testing. For unit tests, you should include tests for both the `flag=True` and `flag=False` cases.
+3. When developing, make sure that e2e tests are present for your feature. If the feature is gated behind a feature flag, you may need to use the [enableFeature](https://github.com/oppia/oppia/blob/c48ff1510a680666bfe891d7b2f68130d21e4dcf/core/tests/webdriverio_utils/ReleaseCoordinatorPage.js#L126) utility functions for the release-coordinator page to first enable the required flag, and then proceed to perform the testing. For unit tests, you should include tests for both the `flag=True` and `flag=False` cases.
 
 4. The very last PR you make (to finish up the feature you are working on) must include changes that move the feature flag to the TEST stage. This is to ensure that the feature is available in the test environment, so that we can feature-test it before it is made available to the users in the production environment. **NOTE: Please test all the changes manually to make sure that the feature works fully end-to-end on your local dev server, before moving the flag to the TEST stage.**
 
@@ -31,7 +31,7 @@ Say you are working on a large scale user-facing feature that will take 1 or mor
 
 6. If the feature testing reveals that the feature is not yet ready for production, you must work on fixing the highlighted issues before proceeding further. You can request a re-test once all the testing feedback is addressed.
 
-7. Once you receive a go-ahead from the feature testers, you must merge another PR. This PR should do only one thing, i.e. move the feature flag to the PROD stage, allowing it to be enabled/disabled in production (by the release-coordinator(s)). **NOTE: When opening this PR, include a link to the testing doc or other proof that the feature has been approved for release.** While this PR is open, confirm with the release coordinators that the new CUJs for this feature have been added to the overall CUJs used for testing releases in general.
+7. Once you receive a go-ahead from the feature testers, you must merge another PR. This PR should do only one thing, i.e. move the feature flag to the PROD stage, allowing it to be enabled/disabled in production (by the release coordinator(s)). **NOTE: When opening this PR, include a link to the testing doc or other proof that the feature has been approved for release.** While this PR is open, confirm with the release coordinators that the new CUJs for this feature have been added to the overall CUJs used for testing releases in general.
 
 8. Once this PR is merged, send a ["job run request"](https://forms.gle/rUJaHJSpRGemtGDp6) to the release coordinators to turn on the feature in production by adding a rule in the `/release-coordinator` page.
     - (Optional) If you like, you can fill in [this form](https://goo.gl/forms/sNBWrW03fS6dBWEp1) to announce your feature to the public once it's launched!
@@ -311,11 +311,11 @@ if (this.featureService.status.NewFeature.isEnabled) {
 
 ## Changing Value of Feature Flags
 
-Feature flags are defaulted to `false/disabled`. To change their values, you can login as the administrator, provide yourself the role of release-coordinator from the 'Roles' tab present on the Admin page, navigate to the release-coordinator page, then to the feature tab.
+Feature flags are defaulted to `false/disabled`. To change their values, you can login as the administrator, provide yourself the role of Release Coordinator from the 'Roles' tab present on the Admin page, navigate to the `/release-coordinator` page, then to the feature tab.
 
 In the feature tab, where you will see the feature flag you added, you can change the settings (see the [Setting of Feature Flags](#settings-of-feature-flags) section for detail) of the feature flags.
 
-Note: since only users with release-coordinator permission can edit the settings of feature flags, you can only enable your features on your local dev instance of Oppia, while in production environment, only release-coordinators can enable/disable features.
+Note: since only users with release-coordinator permission can edit the settings of feature flags, you can only enable your features on your local dev instance of Oppia. However, on the live site, only release coordinators can enable/disable features.
 
 ## Settings of Feature Flags
 
