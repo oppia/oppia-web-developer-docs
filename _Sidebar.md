@@ -8,6 +8,7 @@
     * [[UX researchers|Conducting-research-with-students]]
     * [[Voice artists | Instructions-for-voice-artists]]
     * [[Designers and artists|Contributing-to-Oppia's-design]]
+  * **[[Hacktoberfest 2023|Hacktoberfest-2023]]**
   * **[[Google Summer of Code 2023|Google-Summer-of-Code-2023]]**
 ---
 **Developing Oppia**
