@@ -15,16 +15,9 @@ Please follow these steps to get started:
 5. Go through the code review process until you receive approval and the PR gets merged.
 6. To earn the digital reward kit: repeat until you've submitted at least 4 pull requests!
 
-## For non-code contributors
-
-If you’re not a coder, don’t worry! Hacktoberfest has introduced a [low/non-code contribution option](https://hacktoberfest.com/about/#low-or-non-code), so you can still participate, and there are lots of opportunities to do so :)
-
-We have a lot of non-code-contribution opportunities available, including giving talks, organizing case studies, translating, illustrations, graphic design and creating practice questions. To learn more about these opportunities, please check out our [hacktoberfest-2023-non-code-contributions GitHub repo](https://github.com/oppia/hacktoberfest-2023-non-code-contributions) and its [issue tracker](https://github.com/oppia/hacktoberfest-2023-non-code-contributions/issues)!
-
 ## Donations
 
 You can also support the Oppia open source project through donations! Please see the [Hacktoberfest page](https://hacktoberfest.com/donate/) or our [GitHub Sponsors](https://github.com/sponsors/oppia) page for more information. We truly appreciate your support!
-
 
 ## FAQ
 
