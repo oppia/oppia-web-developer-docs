@@ -83,7 +83,7 @@ In this stage, the creator is advised to breakdown the topic into as many concre
 <ul>
 <li><a href="https://docs.google.com/document/d/1EWUXEOqk490T6SRR4kbOFL4se3Vzq9ou5PLqE6TN_w8/edit?usp=sharing">Fractions</a></li>
 <li><a href="https://docs.google.com/document/d/1AJ9l5rL-wPwiePYXhBZwreOz8piQ4Ur-KFj1KPCIPvg/edit?usp=sharing">Place values (Storyline section)</a></li>
-<li><a href="https://docs.google.com/document/d/1_bIdtLxjd9TVYZh6-XeJwnH8gpAijXVs/edit?usp=sharing&ouid=111464122301601144618&rtpof=true&sd=true">Light</a></li>
+<li><a href="https://docs.google.com/document/d/1_bIdtLxjd9TVYZh6-XeJwnH8gpAijXVs/edit">Light</a></li>
 </ul>
 <h2 id="Table">Skill Table</h2>
 <p>Developing the Skill Table is the stage that will help you organize and further elaborate the math skills you have prepared in the previous steps.</p>
