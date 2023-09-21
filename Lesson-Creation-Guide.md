@@ -57,6 +57,7 @@ In this stage, the creator is advised to breakdown the topic into as many concre
 <ul>
 <li><a href="https://docs.google.com/document/d/1VgMugLebqK-8c0nS80BBuQ4Fw49X0oZpU2krD-y2B0U/edit?usp=sharing">Fractions </a></li> 
 <li><a href="https://docs.google.com/document/d/1AJ9l5rL-wPwiePYXhBZwreOz8piQ4Ur-KFj1KPCIPvg/edit?usp=sharing">Place Values (page 1) </a></li> 
+<li><a href="https://docs.google.com/document/d/1PENTaWzw1CeBkoWaBnOiZocPP39nfoXQiT9tT__bXwQ/edit?usp=sharing">Light </a></li>
 </ul>
 <h2 id="Story">Story Outline Development</h2>
 <p>The story component is what makes Oppia lessons so effective. Stories help learners stay engaged - learners relate to the characters and realize the important role that math can play in their lives.</p> 
@@ -82,6 +83,7 @@ In this stage, the creator is advised to breakdown the topic into as many concre
 <ul>
 <li><a href="https://docs.google.com/document/d/1EWUXEOqk490T6SRR4kbOFL4se3Vzq9ou5PLqE6TN_w8/edit?usp=sharing">Fractions</a></li>
 <li><a href="https://docs.google.com/document/d/1AJ9l5rL-wPwiePYXhBZwreOz8piQ4Ur-KFj1KPCIPvg/edit?usp=sharing">Place values (Storyline section)</a></li>
+<li><a href="https://docs.google.com/document/d/1_bIdtLxjd9TVYZh6-XeJwnH8gpAijXVs/edit?usp=sharing&ouid=111464122301601144618&rtpof=true&sd=true">Light</a></li>
 </ul>
 <h2 id="Table">Skill Table</h2>
 <p>Developing the Skill Table is the stage that will help you organize and further elaborate the math skills you have prepared in the previous steps.</p>
@@ -114,6 +116,7 @@ In this stage, the creator is advised to breakdown the topic into as many concre
 <b>Samples:</b>
 <ul>
 <li><a href="https://docs.google.com/document/d/1GNP_slUbT1ZjA9BhDquvSTEWEIBlBgM2NdXcaCDSeVo/edit">Fractions (See the tables)</a></li>
+<li><a href="https://docs.google.com/document/d/1d8KZZgLLz6pqPHNHy8OjgmaTj6Yw5PQQ9_v2rlrypLM/edit?usp=sharing">Light (See the tables)</a></li>
 </ul>
 
 <h2 id="Script">Script Writing</h2>
@@ -136,6 +139,7 @@ In this stage, the creator is advised to breakdown the topic into as many concre
 <b>Samples</b>
 <ul>
 <li><a href="https://docs.google.com/document/d/1NbVO8Dv9V81eNGGjIOVakDD02E6uFX-Sp4NuLkCJaWU/edit">Ratio lesson 1</a></li>
+<li><a href="https://docs.google.com/document/d/1Z4lMcbkAiKUxKHUHejSA5tqJj-2AJdvcVx80LRhKeec/edit?usp=sharing">Light lesson 1</a></li>
 </ul>
 
 <h2 id="Graphics">Graphics And Implementation</h2>
@@ -148,4 +152,7 @@ In this stage, the creator is advised to breakdown the topic into as many concre
 <ul>
 <li>The alt text for images should clearly describe the images for users who can't see them. E.g. instead of "James", write "A picture of James, jumping excitedly, in a yellow sweatshirt." </li>
 <li>Crop images so that the image is a tight fit with zero empty space around the borders.</li>
+
+<h2> General note for science and financial literacy lessons </h2>
+<li>Please see this guide, which is more focused on developing science and financial literacy lessons: <a href="https://docs.google.com/document/d/1SgBVMpuiwfm-EH2Q7GLB8RW8XaNFUH8S4IaImFi7_V8/edit?usp=sharing">Click here </li></p>
 </ul>
