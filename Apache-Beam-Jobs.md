@@ -699,8 +699,8 @@ This section provides some general guidelines for writing Beam jobs, which would
 * If your Beam job includes updating the storage models, make sure to write an audit job. An audit job is similar to your Beam job but doesn't make any changes to the datastore. During testing, the audit job is run before the actual Beam job to prevent any unwanted changes to the datastore in case of an error. Some examples which illustrate this paradigm are listed below:
     * [Topic migration job](https://github.com/oppia/oppia/blob/fc2e383032a0f9308fdde03d7efd10971752bacf/core/jobs/batch_jobs/topic_migration_jobs.py#L54)
     * [Story migration job](https://github.com/oppia/oppia/blob/fc2e383032a0f9308fdde03d7efd10971752bacf/core/jobs/batch_jobs/story_migration_jobs.py#L60)
-* Consider the example of topic migration job. The [AuditTopicMigrateJob](https://github.com/oppia/oppia/blob/fc2e383032a0f9308fdde03d7efd10971752bacf/core/jobs/batch_jobs/topic_migration_jobs.py#L355) is the audit job which performs all the steps in the main job ([MigrateTopicJob](https://github.com/oppia/oppia/blob/fc2e383032a0f9308fdde03d7efd10971752bacf/core/jobs/batch_jobs/topic_migration_jobs.py#L244)), except it doesn't write those changes to the datastore.
 * There should also be a job to verify the changes done by your job.
+* Consider the example of topic migration job. The [AuditTopicMigrateJob](https://github.com/oppia/oppia/blob/fc2e383032a0f9308fdde03d7efd10971752bacf/core/jobs/batch_jobs/topic_migration_jobs.py#L355) is the audit job which performs all the steps in the main job ([MigrateTopicJob](https://github.com/oppia/oppia/blob/fc2e383032a0f9308fdde03d7efd10971752bacf/core/jobs/batch_jobs/topic_migration_jobs.py#L244)), except it doesn't write those changes to the datastore.
 
 ### Executing jobs
 * Refer to code from similar jobs to avoid mistakes. The "Troubleshooting" section in the wiki lists common errors encountered while executing jobs.
