@@ -2,7 +2,6 @@ This guide provides step-by-step instructions for installing Oppia using Docker.
 
 ## Table of Contents
 
-- [Table of Contents](#table-of-contents)
 - [Docker - Brief Overview](#docker---brief-overview)
 - [Installation Steps](#installation-steps)
   - [Clone Oppia](#clone-oppia)
