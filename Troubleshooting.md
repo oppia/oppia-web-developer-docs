@@ -54,7 +54,7 @@ Here are some general troubleshooting tips for Oppia. The platform specific tips
 - [Docker Setup](#docker-setup)
   - [docker-desktop : Depends: docker-ce-cli but it is not installable](#docker-desktop--depends-docker-ce-cli-but-it-is-not-installable)
   - [make commands: `Operation not permitted`](#make-commands-operation-not-permitted)
-  - [If the above doesn't work](#if-the-above-doesnt-work)
+- [If the above doesn't work](#if-the-above-doesnt-work)
 
 ### `[Errno 104] Connection reset by peer`
 If after running `python -m scripts.start` you get the following lines:
