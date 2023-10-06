@@ -2,11 +2,12 @@ This guide provides step-by-step instructions for installing Oppia using Docker.
 
 ## Table of Contents
 
+- [Table of Contents](#table-of-contents)
 - [Docker - Brief Overview](#docker---brief-overview)
 - [Installation Steps](#installation-steps)
   - [Clone Oppia](#clone-oppia)
-  - [Install Docker Desktop](#install-docker-desktop)
-  - [Start development server using `make` commands](#start-development-server-using-make-commands)
+  - [Pre-requisites for setting up the development server](#pre-requisites-for-setting-up-the-development-server)
+  - [Launching the development server](#launching-the-development-server)
 - [Using Flags with Make Command](#using-flags-with-make-command)
 - [Additional Make Commands](#additional-make-commands)
 - [Contributing](#contributing)
@@ -74,6 +75,7 @@ To install Oppia under Docker, follow these steps:
 ### Pre-requisites for setting up the development server
 
 1. **Install Docker Desktop**: Download and install the latest version of Docker Desktop from the [official Docker website](https://www.docker.com/products/docker-desktop/). Docker Desktop provides a user-friendly interface for developers. Follow the steps in the given link to download and install it.
+2. **[For Windows users]**: The Windows users must have `make` installed on their system. To install `make`, follow the steps given in the following link: [Installing make on Windows](https://stackoverflow.com/questions/32127524/how-to-install-and-use-make-in-windows).
 
 **Note for Developers: Allocating Resources to Docker Desktop**
 For systems with 8GB RAM:
