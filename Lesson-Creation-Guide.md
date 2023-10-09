@@ -14,11 +14,11 @@ Here is a list of terms that we’ll be using to describe the various parts of l
 <h2>High-Level Process Flow</h2>
 This is the high-level process of how a lesson is created. When you complete each step, a senior reviewer on the team will work with you to review and finalize the work. Click on each item below to view the guideline and detail of each process:
 <ol>
-<li><a href="#Skill">Create the Math Skill Tree</a></li> 
-<li><a href="#Story">Develop a Story Outline</a></li>
-<li><a href="#Table">Build out the Skill Table - Errors, Remediation, Sample Questions, Development of the topic</a></li>
-<li><a href="#Script">Create the Script</a></li>
-<li><a href="#Graphics">Graphics and Implementation</a></li>
+<li><a href="#skill-tree">Create the Math Skill Tree</a></li> 
+<li><a href="#story-outline-development">Develop a Story Outline</a></li>
+<li><a href="#skill-table">Build out the Skill Table - Errors, Remediation, Sample Questions, Development of the topic</a></li>
+<li><a href="#script-writing">Create the Script</a></li>
+<li><a href="#graphics-and-implementation">Graphics and Implementation</a></li>
 </ol>
 
 <h3>Key Contacts</h3>
