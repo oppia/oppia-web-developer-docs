@@ -235,7 +235,7 @@ For your vitual environment, we recommend you use [pyenv](https://github.com/pye
    > **Please don't use `sudo` while installing.** It's not required, and using it may cause problems later. If you face permissions issues, ensure that you have the necessary permissions for the directory in which you're trying to set up Oppia. If you run into any other installation problems, please read [[these notes|Issues-with-installation]]
 
    > **Note**
-   > The script will create a number of files and folders that are siblings of the `oppia/` root directory (e.g. `oppia_tools`). This is done so that these two folders will not be uploaded to App Engine when the application is deployed to the web.
+   > The script will create a number of files and folders that are siblings of the `oppia` / root directory (e.g. `oppia_tools`). This is done so that these files and folders will not be uploaded to App Engine when the application is deployed to the web.
 
    > **Note**
    > If you run into errors while installing Oppia, please try running `python -m scripts.clean` and then running `start.py` again.
