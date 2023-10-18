@@ -38,7 +38,7 @@ The following projects (with linked proposals where available) are currently in 
 * [Patel Muhammed](pdfs/GSoC2023PatelMuhammed.pdf): Accessibility improvements
 * [Rishi Kejriwal](pdfs/GSoC2023RishiKejriwal.pdf): Serial chapter launch
 * [Shivkant Chauhan](pdfs/GSoC2023ShivkantChauhan.pdf): Dockerize Oppia
-* Ashwath Kannan: Improvements for translation reviewer experience
+* [Ashwath Kannan](pdfs/GSoC2023AshwathKannan.pdf): Improvements for translation reviewer experience
 
 ## Getting started
 
