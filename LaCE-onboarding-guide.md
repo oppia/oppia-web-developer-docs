@@ -10,7 +10,7 @@ This page will help you solve common queries that you may face while working on 
 | 4.    | [Creating a classroom](#4-creating-a-classroom)|
 
 ## 1. Creating a Topic 
-- To create a new topic, we first navigate to the `Topics and Skill Dashboard` and select the `CREATE TOPIC` option. To do so, you can take a look at this [guide](Editor-pages.md#steps-to-create-a-topicskill)
+- To create a new topic, we first navigate to the `Topics and Skill Dashboard` and select the `CREATE TOPIC` option. To do so, you can take a look at this [guide](Editor-pages#steps-to-create-a-topicskill)
 - A modal will open up with necessary details of the topic that are to be filled such as topic name, topic thumbnail, etc.
 
 ![Screenshot of topic modal](images/LaCEOnboardingGuide/topic-modal.png)
