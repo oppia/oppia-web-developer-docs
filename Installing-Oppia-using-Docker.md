@@ -74,7 +74,7 @@ To install Oppia under Docker, follow these steps:
 ### Pre-requisites for setting up the development server
 
 1. **Install Docker Desktop**: Download and install the latest version of Docker Desktop from the [official Docker website](https://www.docker.com/products/docker-desktop/). Docker Desktop provides a user-friendly interface for developers. Follow the steps in the given link to download and install it.
-2. **[For Windows users]**: The Windows users must have `make` installed on their system. To install `make`, follow the steps given in the following link: [Installing make on Windows](https://stackoverflow.com/questions/32127524/how-to-install-and-use-make-in-windows).
+2. **[For Windows users]**: You need to have `make` installed on your system. Confirm whether `make` is installed on your system by running `make --version`. If `make` is not installed, you can install it by following the instructions provided in the following link: [Installing make on Windows](https://stackoverflow.com/questions/32127524/how-to-install-and-use-make-in-windows).
 
 **Note for Developers: Allocating Resources to Docker Desktop**
 For systems with 8GB RAM:
