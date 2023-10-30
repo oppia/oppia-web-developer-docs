@@ -698,7 +698,7 @@ Operation not permitted
 make: *** [Makefile:14: docker] Error 1
 ```
 
-Create a new user called 'docker' and include the current user in the 'docker' group. Execute the following commands to achieve this:
+To fix this, create a new user called 'docker' and include the current user in the 'docker' group. Execute the following commands to achieve this:
 ```
 sudo groupadd docker
 sudo gpasswd -a $USER docker
