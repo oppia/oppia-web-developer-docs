@@ -706,7 +706,7 @@ sudo gpasswd -a $USER docker
 
 [Reference]([url](https://askubuntu.com/questions/477551/how-can-i-use-docker-without-sudo))
 
-The cause of the issue is that Docker daemon binds to a unix socker by default, which is owned by root. So, when you run the make commands without admin access, it is not able to access the unix socket and hence the error is thrown.
+The cause of the issue is that Docker daemon binds to a unix socket by default, which is owned by root. So, when you run the make commands without admin access, it is not able to access the unix socket and hence the error is thrown.
 
 
 ## If the above doesn't work
