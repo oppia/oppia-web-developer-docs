@@ -698,10 +698,14 @@ Operation not permitted
 make: *** [Makefile:14: docker] Error 1
 ```
 
-The simple solution for the above error is to run the make commands with admin access i.e. with `sudo`, example:
+Create a new user called 'docker' and include the current user in the 'docker' group. Execute the following commands to achieve this:
 ```
-sudo make build
+sudo groupadd docker
+sudo gpasswd -a $USER docker
 ```
+
+[Reference]([url](https://askubuntu.com/questions/477551/how-can-i-use-docker-without-sudo))
+
 The cause of the issue is that Docker daemon binds to a unix socker by default, which is owned by root. So, when you run the make commands without admin access, it is not able to access the unix socket and hence the error is thrown.
 
 
