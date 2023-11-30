@@ -60,7 +60,7 @@ The commit message of the squash should be a clear one-line summary of the chang
 * ``Fix #bugnum: introduce the first version of the collection editor.``
 * ``Update the exploration editor to do X better.``
 
-Getting this message correct is important, since it will be used to compile the CHANGELOG during the next release. If you like, feel free to also add optional follow-up sentences after the one-line summary.
+Getting this message correct is important, since it will be used by the release team to compile the list of features for the release notes. If you like, feel free to also add optional follow-up sentences after the one-line summary.
 
 ### Who Should Merge
 

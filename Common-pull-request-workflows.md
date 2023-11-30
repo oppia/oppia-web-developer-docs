@@ -36,7 +36,6 @@ While contributing to Oppia, you will need to add different labels to issues or 
 
   * `dependencies`: Should be added to pull requests that update one or more dependencies.
   * `PR: Affects datastore layer`: Indicates that a PR changes the datastore layer. Adding this label notifies the developers in charge of datastore stability so they can review the PR. Sometimes this label gets added automatically by Oppiabot, but if you open a PR that changes the datastore layer and the label isn't added automatically, you should add it manually. You can also add the label without waiting for Oppiabot.
-  * Changelog (labels containing `PR CHANGELOG`): Each PR should have one of these labels added to indicate what project this PR applies to. The developer mentioned in the label will be assigned to review the PR first.
 * `PR: require post-merge sync to HEAD`: Should only be applied to pull requests which, when merged, will require all other open pull requests to be updated with the develop branch.
 
 * Added automatically:
