@@ -38,7 +38,7 @@ Say you are working on a large scale user-facing feature that will take 1 or mor
 
 9. Once the feature is confirmed to be functioning as intended in production (for at least 2 weeks) by the product team, please do the following, in order:
     - Make sure that the feature is ready to be made permanent. To do this, confirm with the PMs that no users have reported issues with it, and that no regressions have been detected via StackDriver or general user feedback. The PMs should also fill in this [post-launch review template](https://docs.google.com/document/d/1DifFAe3oRzjmVPh2fEllfAky4n0QMAXVQc3Y580qkr8/edit).
-    - Once you have confirmation that the feature can be made permanent, merge one last PR to "un-gate" the feature and move the feature flag to the deprecated stage (one of the stages listed in `core/domain/platform_parameter_list.py`, meant for flags that are no longer in use). Additionally, in the same PR, please remove all remaining references to the feature flag from the codebase (for example, in all the `if` blocks you created to gate the feature).
+    - Once you have confirmation that the feature can be made permanent, merge one last PR to "un-gate" the feature and move the feature flag to the deprecated stage (one of the stages listed in `core/domain/platform_feature_list.py`, meant for flags that are no longer in use). Additionally, in the same PR, please remove all remaining references to the feature flag from the codebase (for example, in all the `if` blocks you created to gate the feature).
 
 
 ## Follow the steps below to add a new feature flag
@@ -55,7 +55,7 @@ class ParamNames(enum.Enum):
 
 ```
 
-2. Create and register a feature flag instance in the same file with its name, description and stage (see the [Feature Stage](#feature-stage-explanation) section for more details). Example:
+2. Create and register a feature flag instance in the `core/domain/platform_parameter_registry.py` file with its name, description and stage (see the [Feature Stage](#feature-stage-explanation) section for more details). Example:
 
 ```python
 Registry.create_feature_flag(
@@ -89,7 +89,7 @@ The codebase contains two unit tests (one in the backend and one in the frontend
 
 To make sure those two tests succeed, please follow the steps below (so they account for the newly created feature flag).
 
-1. Add the name of the feature flag to the `EXPECTED_PARAM_NAMES` array in the `ExistingPlatformParameterValidityTests` class in `core/domain/platform_parameter_list.py`. Example:
+1. Add the name of the feature flag to the `EXPECTED_PARAM_NAMES` array in the `ExistingPlatformParameterValidityTests` class in `core/domain/platform_parameter_list_test.py`. Example:
 
 ```python
 EXPECTED_PARAM_NAMES = [
