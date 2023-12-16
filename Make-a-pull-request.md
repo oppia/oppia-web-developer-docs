@@ -59,7 +59,7 @@ You can change your most recent commit message using `git commit --amend`. **It 
   git commit -m "{{YOUR COMMIT MESSAGE HERE}}"
   ```
 
-> **Note**
+> [!NOTE]
 > There is no maximum or minimum number of commits required in a PR. Instead of aiming for a certain number, you should try to make each commit a logical "chunk" of work. There are many opinions about how big commits should be, but a useful rule of thumb is that you should be able to read the first lines of all your commit messages to get a good idea of what you changed. If you find yourself needing lots of clauses to capture what you changed, your commit is probably too big.
 
 ## Step 3: Push changes to your GitHub fork

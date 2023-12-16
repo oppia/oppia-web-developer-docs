@@ -681,7 +681,7 @@ The project also involves moving all existing blog posts from Medium to this new
 
 The aim of this project is to provide three enhancements to the exploration editor page for lesson creators: (a) showing the history of metadata changes to an exploration; (b) showing the history of changes to a specific card and allowing that history to be browsed through; (c) allowing creators to see which languages a particular part of a lesson has been translated into when editing it, and to update those translations if appropriate.
 
-> **Note**
+> [!NOTE]
 > If desired, you may submit a proposal for a <span style="text-decoration:underline;">half-size project</span> covering EITHER both options (a) and (b), OR option (c). If you do this, please label your proposal accordingly with “parts (a) + (b)” or “part (c)” in the title.
 
 For (a): The current exploration history tab allows comparison between each “state card”, but doesn’t include details of the exploration metadata. An additional box containing these details should be added to the comparison graph.

@@ -635,7 +635,7 @@ Also, there are controllers that are not linked to modals. Here is an example:
 
 ### Testing AngularJS directives and components
 
-> **Note**
+> [!NOTE]
 > If you're creating a new AngularJS directive, please make sure the value of the restrict `property` is not `E`. If it's an `E`, change the directive to an AngularJS component. You can check out [this PR](https://github.com/oppia/oppia/pull/9850) to learn how to properly make the changes.
 
 Use these AngularJS component files that are correctly following the testing patterns for reference:

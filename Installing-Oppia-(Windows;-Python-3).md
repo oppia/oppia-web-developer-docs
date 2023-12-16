@@ -308,7 +308,7 @@ The estimated runtime for this script is about 10-20 minutes. It will open a ser
 
 ## Run frontend tests
 
-> **Note**
+> [!WARNING]
 > run_frontend_tests.py might not run correctly every time, and we’re still working on figuring out why.
 
 1. If you are in the Docker container bash, type `exit` to return to your Command Prompt.

@@ -228,7 +228,8 @@ test_can_do_something(self) -> None:
 
 ```
 
-**NOTE**: Like mentioned above `self.owner_id` refers to the id of the user with the necessary permissions (i.e. super-admin permissions) to perform the actual feature flag rules update. Some tests have the `owner_id` property created within the `setUp()` hook, and this variable can be used throughout the test class.
+> [!NOTE]
+> Like mentioned above `self.owner_id` refers to the id of the user with the necessary permissions (i.e. super-admin permissions) to perform the actual feature flag rules update. Some tests have the `owner_id` property created within the `setUp()` hook, and this variable can be used throughout the test class.
 
 If this is not the case (i.e. you do not have access to the `owner_id` property in the class within which you are writing your tests), you can obtain the `owner_id` by following these steps:
 

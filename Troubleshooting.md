@@ -470,7 +470,7 @@ After running `python -m scripts.start`, if you get an error around the followin
    ImportError: cannot import name _imaging
 ```
 
-> **Note**
+> [!NOTE]
 > [Google search results]
 (https://pillow.readthedocs.io/en/stable/installation.html#warnings) indicate that PIL and Pillow cannot coexist in the same environment
 

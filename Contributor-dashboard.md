@@ -128,7 +128,7 @@ Notice the subheadings are formatted [TOPIC NAME - CHAPTER TITLE]. Now let's mak
 
 6. Finally, go back to core/templates/domain/opportunity/exploration-opportunity-summary.model.ts and modify `getOpportunitySubheading()` to return the description instead of the topic and chapter title. Make sure all your changes are saved, refresh the page, and you should see your custom description in all the opportunity subheadings!
 
-> **Note**
+> [!NOTE]
 > For this example, our description field was not fetched from persisted storage and was instead manually set in the backend controller.
 
 ## Appendix

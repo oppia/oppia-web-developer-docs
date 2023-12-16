@@ -122,7 +122,7 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
    eval "$(pyenv virtualenv-init -)"
    ```
 
-   > **Warning**
+   > [!WARNING]
    > Be careful with using graphical editors like Notepad in Windows. These can add carriage returns (`\r`) that confuse our Linux-based development tools. Instead, we recommend using editors designed for programming or command-line text editors.
 
 3. Reload your shell or open a new terminal window to load your updated `~/.bashrc` or `~/.zshrc`.
@@ -155,7 +155,7 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
    ```bash
    eval "$(direnv hook zsh)"
    ``` 
-   > **Warning**
+   > [!WARNING]
    > Be careful with using graphical editors like Notepad in Windows. These can add carriage returns (`\r`) that confuse our Linux-based development tools. Instead, we recommend using editors designed for programming or command-line text editors.
 
 7. Add new file called `.direnvrc` into your home (`~`) folder with this content:
@@ -172,7 +172,7 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
    }
    ```
 
-   > **Warning**
+   > [!WARNING]
    > Be careful with using graphical editors like Notepad in Windows. These can add carriage returns (`\r`) that confuse our Linux-based development tools. Instead, we recommend using editors designed for programming or command-line text editors.
 
 8. Create a virtual environment for oppia by adding file named `.envrc` into the parent folder of the oppia repository
@@ -218,21 +218,21 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
    python -m scripts.start
    ```
 
-   > **Note**
+   > [[!IMPORTANT]
    > If you are using **Windows**, you will need to run `python -m scripts.start --no_browser` instead. This is because Windows does not support the `xdg-open` command that the script uses to open a browser window.
 
    The first time you run this script, it will take a while -- about 5 - 10 minutes when we last tested it in Sep 2020, though this depends on your Internet connection. (It might also hang after "Checking if pip is installed on the local machine" due to the grpcio build being slow -- just give it some time, and it should finish.) Subsequent runs should be much faster. The `start.py` script downloads and installs the required dependencies (such as Google App Engine) if they are not already present, and sets up a development server for you to play with. The development server logs are then output to this terminal, so you will not be able to enter further commands in it until you disconnect the server.
 
-   > **Note**
+   > [!CAUTION]
    > **Please don't use `sudo` while installing.** It's not required, and using it may cause problems later. If you face permissions issues, ensure that you have the necessary permissions for the directory in which you're trying to set up Oppia. If you run into any other installation problems, please read [these notes](https://github.com/oppia/oppia/wiki/Issues-with-installation).
 
-   > **Note**
+   > [!NOTE]
    > The script will create a number of files and folders that are siblings of the `oppia/` root directory (e.g. `oppia_tools`). This is done so that these files and folders will not be uploaded to App Engine when the application is deployed to the web.
 
-   > **Note**
+   > [!TIP]
    > If you run into errors while installing Oppia, please try running `python -m scripts.clean` and running `start.py` again.
 
-   > **Note**
+   > [!NOTE]
    > Oppia uses the npm tool to install some packages. This tool accesses both ~/tmp and ~/.npm, and has been known to occasionally encounter permissions issues with those directories. You may need to either delete these directories and all their contents (if they do not contain anything else that needs to be preserved), or change their permissions so that they are owned by you, which you can do by running
 
    ```console
