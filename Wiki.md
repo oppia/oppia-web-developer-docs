@@ -131,7 +131,7 @@ Here are instructions for creating and using the GitHub App:
 
 * Download the app's private key.
 
-  * **WARNING**: Treat this private key like a password! Anyone in possession of it can access and change the contents of the repositories the app has been installed on.
+  * [!WARNING]: Treat this private key like a password! Anyone in possession of it can access and change the contents of the repositories the app has been installed on.
 
 * Install the app on the repository with the wiki source and on the repository whose wiki will contain the deployed documentation.
 * To both repositories, add the following secrets:

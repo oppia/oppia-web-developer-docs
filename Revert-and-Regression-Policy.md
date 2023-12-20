@@ -24,7 +24,7 @@ When a PR is merged that causes a regression in develop, there are two ways to f
 1. Revert the PR. This can be quick if there are no merge conflicts, but with large PRs, reverts can be difficult.
 2. Fix forward by merging another PR without reverting the problematic PR. This can be easy if the bug is small and easily-identifiable, but if the solution is unclear, fixing forward can be hard.
 
-> **Note**
+> [!IMPORTANT]
 > In either case, the PR author is responsible for fixing the bug in their PR, either by re-creating their PR without the bug (if we revert) or by opening a new PR to fix the bug (if we fix forward).
 
 By default, we should take whichever approach will fix develop first, possibly by pursuing both in parallel. The dev workflow leads are responsible for deciding which approach(es) to follow.

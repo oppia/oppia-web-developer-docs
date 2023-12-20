@@ -19,8 +19,8 @@ If your PR changes the properties of an exploration or state (or other structure
 7. Create a PR. If the tests fail resolve them.
 8. Once your PR is finalized, file a one request for the `AuditExplorationMigrationJob` and `MigrateExplorationJob` by following the [wiki page](https://github.com/oppia/oppia/wiki/Testing-jobs-and-other-features-on-production). The job tests a migration by running your conversion function on the dicts of existing exploration models and validating that the migration will be successful. Make sure to mention to only run `MigrateExplorationJob` when the `AuditExplorationMigrationJob` is successful. After successful testing you can get you PR merged.
 
-> **Note**
-These steps are for the migration where one is changing the schema of all existing states, depending on the changes your migration is going to make the steps will be less as you’ll have to change very fewer test files.
+> [!NOTE]
+> These steps are for the migration where one is changing the schema of all existing states, depending on the changes your migration is going to make the steps will be less as you’ll have to change very fewer test files.
 
 If you find new test files where changes needed to be required, try updating the list.
 

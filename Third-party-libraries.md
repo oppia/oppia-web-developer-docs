@@ -144,7 +144,7 @@ All dependencies we add to our projects introduce risks. These include security 
 3. **Pin** dependencies to a specific, immutable version. Here are some examples of types of dependencies we use often:
    * PyPI: Use `==` to specify a particular version number, e.g. `my_dependency==1.0.5`.
 
-     > **Warning**
+     > [!WARNING]
      > Do not use `=>`, which will tell `pip` to automatically install the latest version of a package without our involvement.
 
    * NPM: Use `yarn.lock` to pin dependency versions (this happens automatically for all NPM dependencies handled by yarn).

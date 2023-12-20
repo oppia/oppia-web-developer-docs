@@ -29,12 +29,12 @@ All jobs must adhere to the following requirements before they can be run on the
 ### Submitting a PR with a new job or feature that requires third-party API
 
 **If a PR introduces a new job(s) or feature(s) that requires third-party API, it can be merged only after it is tested on the backup server.** The author of the PR should submit a request using [this form](https://goo.gl/forms/XIj00RJ2h5L55XzU2) after the job is approved by all reviewers except the server admins (admins will only approve after the job or feature is verified to be working).
-> **Note**
+> [!NOTE]
 > Please submit just a single request if multiple jobs need to be run in succession.
 
 The form responses go to the server jobs admins and the admins should respond to the contributor within 24 hours. The server jobs admin will send updates after running the job(s) to the job author and the [server admins team](web-server-admins@oppia.org). If the job(s) runs successfully, the server admin will approve the job(s) in the corresponding [spreadsheet row](https://docs.google.com/spreadsheets/d/1Wegd0rZhVOm3Q3VCIw0xMbLC7IWtRyrEahiPn61Fhoo/edit#gid=948463314&range=S:S) as well as merge the PR which introduces the job.
 
-> **Warning**
+> [!WARNING]
 > Before submitting a testing request, please ensure that the job or server action has already been tested manually on your local machine, and that all CI checks are passing in your PR on GitHub. For an existing job, make sure that you test the job locally and specify clearly, in the form, why you want to run the job.
 
 If you are hoping to run your job in a particular release, please plan your work schedule appropriately so that you get the testing completed in time for that release. Jobs must have completed a successful run on the backup server before the [date of the relevant release cutoff](https://github.com/oppia/oppia/wiki/Release-Schedule), which is typically the first Saturday of the corresponding month.

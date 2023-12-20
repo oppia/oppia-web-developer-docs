@@ -34,7 +34,7 @@ Simply visit this URL: https://github.com/pulls/assigned. It takes you to a list
      * **Important:** Please also ensure that, if a PR author files a TODO for future work, they assign themselves to it (or arrange for it to be assigned responsibly to someone else) and don't just abandon it. It should typically be the next thing they work on, unless there is a principled reason to agree otherwise. (In other words, PR authors shouldn't just file TODOs for future work and then abandon them.)
 
 
-      > **Note**
+      > [!TIP]
       > To checkout branch BRANCH_NAME from committer COMMITTER_USERNAME to your local machine, run:
       > ```
       >   git checkout -b {{COMMITTER_NAME}}-{{BRANCH_NAME}} develop
