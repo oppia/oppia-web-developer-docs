@@ -184,6 +184,5 @@ The Oppia development environment provides additional `make` commands that you c
 - `make init`: Initializes the Oppia development environment by building the Docker Images and starting the dev-server.
 - `make echo_flags`: This command shows the flags with thier values that are being used by the Oppia development server.
 
-## Contributing
-
-If you encounter any issues during the installation process or have suggestions for improvement, please feel free to open a discussion on [Oppia's GitHub Discussion](https://github.com/oppia/oppia/discussions)
+## Troubleshooting
+If you are facing any issues while installing Oppia using Docker, please refer to the [[Troubleshooting page|Troubleshooting]].
