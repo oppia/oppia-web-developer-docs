@@ -54,6 +54,7 @@ Here are some general troubleshooting tips for Oppia. The platform specific tips
 - [Docker Setup](#docker-setup)
   - [docker-desktop : Depends: docker-ce-cli but it is not installable](#docker-desktop--depends-docker-ce-cli-but-it-is-not-installable)
   - [make commands: `Operation not permitted`](#make-commands-operation-not-permitted)
+  - [Installation encounters `network timeout` or `connection error`](#installation-encounters-network-timeout-or-connection-error)
 - [If the above doesn't work](#if-the-above-doesnt-work)
 
 ### `[Errno 104] Connection reset by peer`
@@ -707,6 +708,10 @@ sudo gpasswd -a $USER docker
 [Reference]([url](https://askubuntu.com/questions/477551/how-can-i-use-docker-without-sudo))
 
 The cause of the issue is that Docker daemon binds to a unix socket by default, which is owned by root. So, when you run the make commands without admin access, it is not able to access the unix socket and hence the error is thrown.
+
+### Installation encounters `network timeout` or `connection error`
+
+If you encounter network timeout or connection errors during the Docker setup process, simply re-execute the `make build` command. This is necessary as the Docker setup may have been disrupted by network problems. By rerunning the command, the setup will pick up from the point of failure and continue accordingly.
 
 
 ## If the above doesn't work
