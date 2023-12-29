@@ -18,6 +18,7 @@ Here are some debugging guides for particular kinds of issues you might encounte
 * [[Debugging lighthouse Tests|Lighthouse-Tests]]
 * [[Debugging custom ESLint check tests|Debug-custom-ESLint-check-tests]]
 * [[Debugging custom Pylint check tests|Debug-custom-Pylint-check-tests]]
+* [[Debugging the commit that introduced a bug|How-to-find-the-commit-which-introduced-a-bug]]
 
 Finally, see these debugging stories to learn more about how debugging works in practice:
 
