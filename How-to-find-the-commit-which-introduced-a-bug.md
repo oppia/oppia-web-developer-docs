@@ -1,33 +1,29 @@
 ## Finding Bad Commits with the help of `git blame` and `git bisect`
 
-#### Before Using both these commands:
-1. **Make sure to checkout to the latest commit and see if the error exists.**
+#### Before using both these commands:
+1. **Make sure to checkout the latest commit and see if the error exists.**
     * **If the error is not reproducible on the latest commit:** we don’t need to do anything! You can post video proof on the issue thread and request that a maintainer close the issue.
     * **Otherwise**: continue with the steps below.
 2. **Depending on how far back you want to go, checkout one of the following:**
     * **This commit from Dec 2022 &lt;[9a334e9bde1d3d10e3b69dcd461d3e649733b0c0](https://github.com/oppia/oppia/commit/9a334e9bde1d3d10e3b69dcd461d3e649733b0c0)>, which is when the Python version was last updated – though this might not work if you are using Docker.**
-    * **This commit from Aug 2023 &lt;<code>[dc333e4](https://github.com/oppia/oppia/commit/dc333e4e25dc72e22910cb6f8ef32ae652a29dad)</code>>, which is when Docker was first usable.</strong>
-    * <strong>The latest release commit (you can find the hash and release date [here](https://github.com/oppia/oppia/releases)), if you want to see whether the error happened since the last release;</strong>
-3. <strong>If the issue is <span style="text-decoration:underline;">not</span> reproducible on that commit then go ahead with the approach provided below.</strong>
-4. <strong>If the issue is reproducible on that commit, report that info on the issue thread or group chat as appropriate. Include a link to the commit and mention the month/year it was made.</strong>
+    * **This commit from Aug 2023 &lt;[dc333e4](https://github.com/oppia/oppia/commit/dc333e4e25dc72e22910cb6f8ef32ae652a29dad)>, which is when Docker was first usable.**
+    * **The latest release commit (you can find the hash and release date [here](https://github.com/oppia/oppia/releases)), if you want to see whether the error happened since the last release;**
+3. **If the issue is not reproducible on the earliest commit you checked, go ahead with the approach provided below. However, if the issue is reproducible on that commit, we know that the problem occurred before the earliest commit. In that case, report that information on the issue thread or group chat as appropriate. Include a link to the commit and mention the month/year it was made.**
 
-<!-- <span style="text-decoration:underline; font-size: 20px;">Git Blame</span> -->
 ## Git Blame
 
-**`git blame` is a powerful Git command that helps you identify who last modified each line of a file. It's a useful tool for understanding the history of changes in a file and finding out who made specific modifications.**
+**`git blame` is a powerful Git command that helps you identify who last modified each line of a file. It's a useful tool for understanding the history of changes in a file and finding out who made specific modifications. This method is useful if you know which specific line of code caused the error.**
 
 How to use `git blame` to find bad commits:
 
-
-1. Based on console errors or analysis of the code, find out which line(s) of code are causing problems.
-2. Run `git blame` for that specific file and see if the line was recently introduced to the file.
-3. Once the commit is obtained from the “blame” view, checkout that commit
+1. If the parent commit doesn’t have errors, then you’ve confirmed that the error is due to that commit through which the lines were added to the codebase. Congratulations! Mention this info in the issue thread and include a link to the problematic commit.
+2. Based on console errors or analysis of the code, find out which line(s) of code are causing problems.
+3. Run `git blame` for that specific file and see if the line was recently introduced to the file.
+4. Once the commit is obtained from the “blame” view, checkout that commit
     ```bash
     git checkout <commit-id>
     ```
     and see if the error is present. If yes, then checkout its parent commit (one commit earlier – you can find out what this is with `git log`).
-
-4. If the parent commit doesn’t have errors, then you’ve confirmed that the error is due to that commit through which the lines are added to the codebase. Congratulations! Mention this info in the issue thread and include a link to the problematic commit.
 
 ## Using GitHub Website
     
@@ -40,12 +36,12 @@ If you want a **guided Practical** go [here](https://app.tango.us/app/workflow/U
 Let’s start: 
 
 
-1. **Open the GitHub repository in your web browser.**
+1. Open the GitHub repository in your web browser.
 
 ![Screenshot of the home page](images/findCommitWhichIntroducedBug/image2.png)
 
 
-2. **Navigate to the file(In this example we need to navigate to the core/templates/pages/contact-page/contact-page.component.html)**
+2. Navigate to the file. (In this example we need to navigate to the core/templates/pages/contact-page/contact-page.component.html)
 
 
 ![Screenshot of the "core" folder](images/findCommitWhichIntroducedBug/image6.png)
@@ -56,27 +52,26 @@ Let’s start:
 
 ![Screenshot of the "pages" folder](images/findCommitWhichIntroducedBug/image1.png)
 
-3. **Open the file by clicking on its name.**
+3. Open the file by clicking on its name.
 
 
 ![Screenshot of the "contact-page-component" file](images/findCommitWhichIntroducedBug/image5.png)
 
 
-4. **Now, you're viewing the content of the file. To see the blame information:**
+4. Now, you're viewing the content of the file. To see the blame information:
 
-    **In the upper right corner of the file view, find the Blame button. It's next to the History and Raw buttons**.
+    In the upper right corner of the file view, find the Blame button. It's next to the History and Raw buttons.
 
 
 ![Screenshot of the "blame" option highlighted](images/findCommitWhichIntroducedBug/image7.png)
 
 
-**This will display the blame information for each line directly on the GitHub website. You can see the commit hash, author, and date for each line in the file.**
-
+This will display the blame information for each line directly on the GitHub website. You can see the commit hash, author, and date for each line in the file.
 
 ![Screenshot of the commit log highlighted](images/findCommitWhichIntroducedBug/image8.png)
 
 
-**If you click on the "Blame Info" as shown in the above image you will be forwarded to the commit page where it belongs.**
+If you click on the "Blame Info" as shown in the above image you will be forwarded to the commit page where it belongs.
 
 
 ![Screenshot asking you to click on "blame info"](images/findCommitWhichIntroducedBug/image4.png)
@@ -84,7 +79,7 @@ Let’s start:
 
 ## Git Bisect
 
-**`git bisect` is a powerful Git command that helps you find the commit that introduced a bug or regression in your codebase. It uses a binary search algorithm to efficiently narrow down the range of commits where the issue was introduced.**
+**`git bisect` is a powerful Git command that helps you find the commit that introduced a bug or regression in your codebase. It uses a binary search algorithm to efficiently narrow down the range of commits where the issue was introduced. However, you should note that this method is more useful if you don't know which line of code is causing the error (otherwise, we recommend using the "git blame" approach above instead).**
 
 
 Steps to use Git Bisect:
@@ -134,7 +129,7 @@ Steps to use Git Bisect:
         ```
 
 
-7. Repeat steps 6 until Git identifies the commit where the bug was introduced.
+7. Repeat step 6 until Git identifies the commit where the bug was introduced.
 8. Once Git finds the first bad commit, it will display the commit hash.
 9. To end the “git bisect” process, reset back to your original branch:
 
@@ -155,7 +150,7 @@ Steps to use Git Bisect:
 
 ## Appendix: Using “`git blame`” on CLI
 
-**<span style="text-decoration:underline;">If you prefer using your terminal, here is how you can do “`git blame`”:</span>**
+**If you prefer using your terminal, here is how you can do “`git blame`”:**
 
 i. First navigate the file location using the `cd` command.
 
