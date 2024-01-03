@@ -206,5 +206,26 @@ The following table lists the available `make` commands for running tests:
 | `make run_tests.lighthouse_accessibility shard=SHARD_NUMBER` | Runs the Lighthouse accessibility tests for the specified shard. | Assesses the application's accessibility for users with disabilities.                       |
 | `make run_tests.lighthouse_performance shard=SHARD_NUMBER`   | Runs the Lighthouse performance tests for the specified shard.   | Evaluates the application's performance and identifies potential bottlenecks.
 
+
+### Customizing test behavior:
+
+**Flags for e2e tests:**
+
+
+   Specify the Chrome driver version to ensure compatibility:
+    ```bash
+    make run_tests.e2e suite=SUITE_NAME CHROME_VERSION=99.0.4844.51
+    ```
+
+   Run tests in mobile viewport mode:
+    ```bash
+    make run_tests.e2e suite=SUITE_NAME MOBILE=true
+    ```
+
+   Enable debugging for more detailed output:
+    ```bash
+    make run_tests.e2e suite=SUITE_NAME DEBUG=true
+    ```
+
 ## Troubleshooting
 If you are facing any issues while installing Oppia using Docker, please refer to the [[Troubleshooting page|Troubleshooting]].
