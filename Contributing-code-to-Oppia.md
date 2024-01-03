@@ -40,7 +40,7 @@ Additionally, GitHub also provides an advanced search syntax that allows you to 
 
 3. Say hi and introduce yourself on [GitHub Discussions](https://github.com/oppia/oppia/discussions/16715)!
 
-4. Install Oppia following the [[installation instructions|Installing-Oppia]]. If you run into any issues, please check out the [[troubleshooting instructions|Troubleshooting]]. If you want help setting up a code editor, also check out our [[guide to common IDEs|Tips-for-common-IDEs]]. If the above resources don't help and you're still stuck, please check [GitHub Discussions](https://github.com/oppia/oppia/discussions/categories/q-a-installation) to see if any existing threads address the issue. If not, feel free to start a new thread explaining what you've tried and what you're seeing, so that we can try and help you!
+4. Install Oppia following the [installation instructions](https://github.com/oppia/oppia-web-developer-docs/blob/develop/Installing-Oppia.md). If you run into any issues, please check out the [troubleshooting instructions](https://github.com/oppia/oppia-web-developer-docs/blob/develop/Troubleshooting.md). If you want help setting up a code editor, also check out our [guide to common IDEs](https://github.com/oppia/oppia-web-developer-docs/blob/develop/Tips-for-common-IDEs.md). If the above resources don't help and you're still stuck, please check [GitHub Discussions](https://github.com/oppia/oppia/discussions/categories/q-a-installation) to see if any existing threads address the issue. If not, feel free to start a new thread explaining what you've tried and what you're seeing, so that we can try and help you!
 
 5. Update your GitHub settings:
 
