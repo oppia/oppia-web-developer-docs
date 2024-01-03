@@ -4,7 +4,7 @@ Here are some general troubleshooting tips for Oppia. The platform specific tips
 
 # Table of Contents
 
-- [For Jio India Users](#jio-domain-block)
+- [For Jio India Users](#for-jio-india-users)
 - [`[Errno 104] Connection reset by peer`](#errno-104-connection-reset-by-peer)
 - [`No module named builtins`](#no-module-named-builtins)
 - [No Java](#no-java)
@@ -58,7 +58,7 @@ Here are some general troubleshooting tips for Oppia. The platform specific tips
   - [Installation encounters `network timeout` or `connection error`](#installation-encounters-network-timeout-or-connection-error)
 - [If the above doesn't work](#if-the-above-doesnt-work)
 
-### For Jio Users
+### For Jio India Users
 It seems the Jio network is blocking the domain `raw.githubusercontent.com` which is used by Github for storage of images in this wiki and some of the dependencies while installing Opia.. If you are using Jio, you can try changing the DNS address to 8.8.8.8 (Google DNS) or 1.1.1.1 (Cloudfare DNS) from settings. Original discussion [here](https://github.com/orgs/community/discussions/42655)
 
 ### `[Errno 104] Connection reset by peer`
