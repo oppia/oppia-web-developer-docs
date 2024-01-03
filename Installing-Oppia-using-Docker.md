@@ -207,23 +207,21 @@ The following table lists the available `make` commands for running tests:
 | `make run_tests.lighthouse_performance shard=SHARD_NUMBER`   | Runs the Lighthouse performance tests for the specified shard.   | Evaluates the application's performance and identifies potential bottlenecks.
 
 
-### Customizing test behavior:
-
-**Flags for e2e tests:**
+## Flags for e2e tests
 
 
    Specify the Chrome driver version to ensure compatibility:
-    ```bash
-    make run_tests.e2e suite=SUITE_NAME CHROME_VERSION=99.0.4844.51
+    ```
+    make run_tests.e2e suite=SUITE_NAME CHROME_VERSION=<version_no>
     ```
 
    Run tests in mobile viewport mode:
-    ```bash
+    ```
     make run_tests.e2e suite=SUITE_NAME MOBILE=true
     ```
 
    Enable debugging for more detailed output:
-    ```bash
+    ```
     make run_tests.e2e suite=SUITE_NAME DEBUG=true
     ```
 
