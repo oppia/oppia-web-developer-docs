@@ -185,7 +185,26 @@ The Oppia development environment provides additional `make` commands that you c
 - `make echo_flags`: This command shows the flags with thier values that are being used by the Oppia development server.
 
 ## Running tests
+
 Once you have Oppia installed using Docker, you can execute a variety of tests to ensure the functionality and quality of the code. These tests check various parts of the application, such as code style (linting), server-side functionality (backend), client-side functionality (frontend), and how the application behaves in different scenarios (acceptance testing).
+
+## Available make commands for running tests
+
+The following table lists the available `make` commands for running tests:
+
+| Command                                                    | Description                                                      | Purpose                                                                           |
+| ---------------------------------------------------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `make run_tests.lint`                                        | Runs the linter tests.                                           | Checks code style and formatting for consistency.                                           |
+| `make run_tests.backend`                                   | Runs the backend tests.                                          | Verifies the functionality of backend logic and database interactions.                      |
+| `make run_tests.frontend`                                    | Runs the frontend unit tests.                                    | Tests individual components and functions of the frontend code.                             |
+| `make run_tests.typescript`                                  | Runs the TypeScript checks.                                      | Ensures type safety and catches potential errors in TypeScript code.                        |
+| `make run_tests.custom_eslint`                               | Runs the custom ESLint tests.                                    | Enforces additional code style and quality rules defined by the project.                    |
+| `make run_tests.mypy`                                        | Runs mypy checks.                                                | Performs static type checking for Python code, detecting potential type-related errors.     |
+| `make run_tests.check_backend_associated_tests`              | Runs the backend associate tests.                                | Verifies that backend changes have corresponding test coverage.                             |
+| `make run_tests.acceptance suite=SUITE_NAME`                 | Runs the acceptance tests for the specified suite.               | Tests end-to-end user interactions and workflows within a specific feature area.            |
+| `make run_tests.e2e suite=SUITE_NAME`                        | Runs the e2e tests for the specified suite.                      | Tests the entire application from a user's perspective, simulating real-world interactions. |
+| `make run_tests.lighthouse_accessibility shard=SHARD_NUMBER` | Runs the Lighthouse accessibility tests for the specified shard. | Assesses the application's accessibility for users with disabilities.                       |
+| `make run_tests.lighthouse_performance shard=SHARD_NUMBER`   | Runs the Lighthouse performance tests for the specified shard.   | Evaluates the application's performance and identifies potential bottlenecks.
 
 ## Troubleshooting
 If you are facing any issues while installing Oppia using Docker, please refer to the [[Troubleshooting page|Troubleshooting]].
