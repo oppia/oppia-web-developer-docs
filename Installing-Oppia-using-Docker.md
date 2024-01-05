@@ -222,7 +222,7 @@ The following table lists the available `make` commands for running tests:
 
    Enable debugging for more detailed output:
     ```
-    make run_tests.e2e suite=SUITE_NAME DEBUG=true
+    make run_tests.e2e DEBUG=true
     ```
 
 ## Troubleshooting
