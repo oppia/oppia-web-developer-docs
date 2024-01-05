@@ -188,7 +188,7 @@ The Oppia development environment provides additional `make` commands that you c
 
 Once you have Oppia installed using Docker, you can execute a variety of tests to ensure the functionality and quality of the code. These tests check various parts of the application, such as code style (linting), server-side functionality (backend), client-side functionality (frontend), and how the application behaves in different scenarios (acceptance testing).
 
-## Available make commands for running tests
+### Available make commands for running tests
 
 The following table lists the available `make` commands for running tests:
 
