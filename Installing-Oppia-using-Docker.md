@@ -217,7 +217,7 @@ The following table lists the available `make` commands for running tests:
 
    Run tests in mobile viewport mode:
     ```
-    make run_tests.e2e suite=SUITE_NAME MOBILE=true
+    make run_tests.e2e MOBILE=true
     ```
 
    Enable debugging for more detailed output:
