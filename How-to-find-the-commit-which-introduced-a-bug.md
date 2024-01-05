@@ -1,18 +1,18 @@
 ## Finding Bad Commits with the help of `git blame` and `git bisect`
 
 #### Before using both these commands:
-1. **Make sure to checkout the latest commit and see if the error exists.**
-    * **If the error is not reproducible on the latest commit:** we don’t need to do anything! You can post video proof on the issue thread and request that a maintainer close the issue.
-    * **Otherwise**: continue with the steps below.
-2. **Depending on how far back you want to go, checkout one of the following:**
-    * **This commit from Dec 2022 &lt;[9a334e9bde1d3d10e3b69dcd461d3e649733b0c0](https://github.com/oppia/oppia/commit/9a334e9bde1d3d10e3b69dcd461d3e649733b0c0)>, which is when the Python version was last updated – though this might not work if you are using Docker.**
-    * **This commit from Aug 2023 &lt;[dc333e4](https://github.com/oppia/oppia/commit/dc333e4e25dc72e22910cb6f8ef32ae652a29dad)>, which is when Docker was first usable.**
-    * **The latest release commit (you can find the hash and release date [here](https://github.com/oppia/oppia/releases)), if you want to see whether the error happened since the last release;**
-3. **If the issue is not reproducible on the earliest commit you checked, go ahead with the approach provided below. However, if the issue is reproducible on that commit, we know that the problem occurred before the earliest commit. In that case, report that information on the issue thread or group chat as appropriate. Include a link to the commit and mention the month/year it was made.**
+1. Make sure to checkout the latest commit and see if the error exists.
+    * If the error is not reproducible on the latest commit: we don’t need to do anything! You can post video proof on the issue thread and request that a maintainer close the issue.
+    * Otherwise: continue with the steps below.
+2. Depending on how far back you want to go, checkout one of the following:
+    * [This](https://github.com/oppia/oppia/commit/9a334e9bde1d3d10e3b69dcd461d3e649733b0c0) commit from Dec 2022, which is when the Python version was last updated – though this might not work if you are using Docker.
+    * [This](https://github.com/oppia/oppia/commit/dc333e4e25dc72e22910cb6f8ef32ae652a29dad) commit from Aug 2023, which is when Docker was first usable.
+    * The latest release commit (you can find the hash and release date [here](https://github.com/oppia/oppia/releases)), if you want to see whether the error happened since the last release;
+3. If the issue is not reproducible on the earliest commit you checked, go ahead with the approach provided below. However, if the issue is reproducible on that commit, we know that the problem occurred before the earliest commit. In that case, report that information on the issue thread or group chat as appropriate. Include a link to the commit and mention the month/year it was made.
 
 ## Git Blame
 
-**`git blame` is a powerful Git command that helps you identify who last modified each line of a file. It's a useful tool for understanding the history of changes in a file and finding out who made specific modifications. This method is useful if you know which specific line of code caused the error.**
+`git blame` is a powerful Git command that helps you identify who last modified each line of a file. It's a useful tool for understanding the history of changes in a file and finding out who made specific modifications. This method is useful if you know which specific line of code caused the error.
 
 How to use `git blame` to find bad commits:
 
@@ -21,7 +21,7 @@ How to use `git blame` to find bad commits:
 3. Run `git blame` for that specific file and see if the line was recently introduced to the file.
 4. Once the commit is obtained from the “blame” view, checkout that commit
     ```bash
-    git checkout <commit-id>
+    git checkout (commit-id)
     ```
     and see if the error is present. If yes, then checkout its parent commit (one commit earlier – you can find out what this is with `git log`).
 
@@ -38,24 +38,24 @@ Let’s start:
 
 1. Open the GitHub repository in your web browser.
 
-![Screenshot of the home page](images/findCommitWhichIntroducedBug/image2.png)
+    ![Screenshot of the home page](images/findCommitWhichIntroducedBug/image2.png)
 
 
 2. Navigate to the file. (In this example we need to navigate to the core/templates/pages/contact-page/contact-page.component.html)
 
 
-![Screenshot of the "core" folder](images/findCommitWhichIntroducedBug/image6.png)
+    ![Screenshot of the "core" folder](images/findCommitWhichIntroducedBug/image6.png)
 
 
-![Screenshot of the "templates" folder](images/findCommitWhichIntroducedBug/image3.png)
+    ![Screenshot of the "templates" folder](images/findCommitWhichIntroducedBug/image3.png)
 
 
-![Screenshot of the "pages" folder](images/findCommitWhichIntroducedBug/image1.png)
+    ![Screenshot of the "pages" folder](images/findCommitWhichIntroducedBug/image1.png)
 
 3. Open the file by clicking on its name.
 
 
-![Screenshot of the "contact-page-component" file](images/findCommitWhichIntroducedBug/image5.png)
+    ![Screenshot of the "contact-page-component" file](images/findCommitWhichIntroducedBug/image5.png)
 
 
 4. Now, you're viewing the content of the file. To see the blame information:
@@ -63,7 +63,7 @@ Let’s start:
     In the upper right corner of the file view, find the Blame button. It's next to the History and Raw buttons.
 
 
-![Screenshot of the "blame" option highlighted](images/findCommitWhichIntroducedBug/image7.png)
+    ![Screenshot of the "blame" option highlighted](images/findCommitWhichIntroducedBug/image7.png)
 
 
 This will display the blame information for each line directly on the GitHub website. You can see the commit hash, author, and date for each line in the file.
@@ -79,7 +79,7 @@ If you click on the "Blame Info" as shown in the above image you will be forward
 
 ## Git Bisect
 
-**`git bisect` is a powerful Git command that helps you find the commit that introduced a bug or regression in your codebase. It uses a binary search algorithm to efficiently narrow down the range of commits where the issue was introduced. However, you should note that this method is more useful if you don't know which line of code is causing the error (otherwise, we recommend using the "git blame" approach above instead).**
+`git bisect` is a powerful Git command that helps you find the commit that introduced a bug or regression in your codebase. It uses a binary search algorithm to efficiently narrow down the range of commits where the issue was introduced. However, you should note that this method is more useful if you don't know which line of code is causing the error (otherwise, we recommend using the "git blame" approach above instead).
 
 
 Steps to use Git Bisect:
@@ -110,11 +110,11 @@ Steps to use Git Bisect:
 5. Mark an older commit known to be bug-free as good (see [point 2](#bookmark=kix.vtty5bx24m2x) in the initial instructions):
 
     ```bash
-    git bisect good <commit-id>
+    git bisect good (commit-id)
     ```
 
 
-6. **Git will automatically checkout a commit in the middle of the range. Test your code to determine if the bug is present (e.g. refresh your browser and try to reproduce the error).**
+6. Git will automatically checkout a commit in the middle of the range. Test your code to determine if the bug is present (e.g. refresh your browser and try to reproduce the error).
     * If the bug is present, mark the current commit as bad, so that “git bisect” only searches the range from the good commit to the current commit:
 
         ```bash
@@ -144,22 +144,22 @@ Steps to use Git Bisect:
     **Tip:** While bisecting, you might need to inspect the changes in each commit. You can use this command to view those details: 
 
     ```bash
-    git show <commit-id>
+    git show (commit-id)
     ```
 
 
 ## Appendix: Using “`git blame`” on CLI
 
-**If you prefer using your terminal, here is how you can do “`git blame`”:**
+If you prefer using your terminal, here is how you can do “`git blame`”:
 
-i. First navigate the file location using the `cd` command.
+1. First navigate to the file location using the `cd` command.
 
-ii. Then use the `git blame` command (`git blame <file_name>`).
+2. Then use the `git blame` command (`git blame (file_name)`).
 Example: 
-```bash
-git blame myfile.txt
-```
-(where  myfile.txt  is the name of the file.)
+    ```bash
+    git blame myfile.txt
+    ```
+    (where  myfile.txt  is the name of the file.)
 
 The output of `git blame` includes the following information:
 * **Commit Hash:** The unique identifier of the commit.
