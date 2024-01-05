@@ -42,8 +42,8 @@
 - [Contributor pages](#contributor-pages)
   - [Contributor dashboard page](#contributor-dashboard-page)
   - [Contributor dashboard admin page](#contributor-dashboard-admin-page)
-- [Classroom pages](#classroom-pages)
-  - [Maths classroom page](#maths-classroom-page)
+- [Classroom Pages](#classroom-pages)
+  - [Maths Classroom Page](#maths-classroom-page)
 
 Oppia has many webpages and this is a comprehensive guide on how to access all those pages. Before a contributor makes a PR, we expect that the contributor has thoroughly tested the changes made in the PR for functional correctness. Part of this process is manually testing any pages that are affected by their code.
 
@@ -434,19 +434,23 @@ The contributor dashboard page allows users to translate existing explorations i
 2. Navigate to http://localhost:8181/contributor-dashboard-admin.
 
 
-## Classroom pages
+## Classroom Pages
 
-### Maths classroom page
+### Maths Classroom Page
 
-1. Log in as a super-admin and assign to your user the "Curriculum admin" role as shown below.
+1. Assign "Curriculum Admin" Role:
 
-   ![Assigning role](images/Webpage-Guide/carriculumAdmin.png)
+   - Log in as a super-admin.
+   - Navigate to the Admin page.
+   - Assign the "Curriculum Admin" role to your user.
+  ![Assigning role](images/Webpage-Guide/carriculumAdmin.png)
 
-2. Generate a new math classroom.
-   1. Navigate to the Activities tab of the admin page and  `Generate a dummy math classroom` by clicking `Generate Data` button.
+2. Generate a New Math Classroom:
 
-      ![Generate new math classroom button](images/Webpage-Guide/generateDummyMathData.png)
+   - On the Activities tab of the admin page, click the "Generate Data" button to create a new dummy math classroom.
+  ![Generate new math classroom button](images/Webpage-Guide/generateDummyMathData.png)
 
-3. Navigate to the math classroom page at http://localhost:8181/learn/math.
-   ![Math classroom page](images/Webpage-Guide/mathClassroom.png)
+3. Access Math Classroom Page:
 
+   - Go to http://localhost:8181/learn/math to view the newly generated math classroom.
+  ![Math classroom page](images/Webpage-Guide/mathClassroom.png)
