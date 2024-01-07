@@ -96,9 +96,11 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
 1. **Make sure you install the Python build dependencies for your operating system. These are specified [here](https://github.com/pyenv/pyenv/wiki#suggested-build-environment). If you don't do this it might lead to problems further on.** The build dependencies for Ubuntu/Debian are
 
 
-    `sudo apt-get install make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget llvm libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev`
+   ```
+   sudo apt-get install make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget llvm libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+   ```
 
-2. Install pyenv:
+3. Install pyenv:
 
    ```console
    $ curl pyenv.run | bash
@@ -125,9 +127,9 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
    > [!WARNING]
    > Be careful with using graphical editors like Notepad in Windows. These can add carriage returns (`\r`) that confuse our Linux-based development tools. Instead, we recommend using editors designed for programming or command-line text editors.
 
-3. Reload your shell or open a new terminal window to load your updated `~/.bashrc` or `~/.zshrc`.
+4. Reload your shell or open a new terminal window to load your updated `~/.bashrc` or `~/.zshrc`.
 
-4. Now you can install Python 3.8.15 and the associated pip like this:
+5. Now you can install Python 3.8.15 and the associated pip like this:
 
    ```console
    $ pyenv install 3.8.15
@@ -138,13 +140,13 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
    installed python-3.8.15 to /home/user/.pyenv/versions/3.8.15
    ```
 
-5. Install direnv
+6. Install direnv
 
    ```sh
    $ sudo apt install direnv
    ```
 
-6. Setup direnv into your shell.  
+7. Setup direnv into your shell.  
    If you are using bash, add following lines to the end of `~/.bashrc`.
 
    ```bash
@@ -158,7 +160,7 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
    > [!WARNING]
    > Be careful with using graphical editors like Notepad in Windows. These can add carriage returns (`\r`) that confuse our Linux-based development tools. Instead, we recommend using editors designed for programming or command-line text editors.
 
-7. Add new file called `.direnvrc` into your home (`~`) folder with this content:
+8. Add new file called `.direnvrc` into your home (`~`) folder with this content:
    ```bash
    use_python() {
      local python_root=$(pyenv root)/versions/$1
@@ -175,7 +177,7 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
    > [!WARNING]
    > Be careful with using graphical editors like Notepad in Windows. These can add carriage returns (`\r`) that confuse our Linux-based development tools. Instead, we recommend using editors designed for programming or command-line text editors.
 
-8. Create a virtual environment for oppia by adding file named `.envrc` into the parent folder of the oppia repository
+9. Create a virtual environment for oppia by adding file named `.envrc` into the parent folder of the oppia repository
    with this content:
 
     ```console
@@ -190,7 +192,7 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
 
     Now whenever you are within the `oppia` folder, the virtual environment will be active.
 
-9. Install the Python dependencies:
+10. Install the Python dependencies:
 
     ```console
     $ pip install pyyaml setuptools
@@ -204,7 +206,7 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
 
     Note that you don't need to install pyyaml if you were able to install python-yaml with your package manager earlier.
 
-10. If you want to run backend tests and check coverage, please install these 2 pip libraries:
+11. If you want to run backend tests and check coverage, please install these 2 pip libraries:
 
     ```console
     pip install coverage configparser
