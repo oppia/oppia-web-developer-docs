@@ -103,6 +103,8 @@ For systems with 8GB RAM:
 
    ![Docker Setup Terminal Logs](images/dockerSetupTerminalLogs.png)
 
+3. **Verify the development server is up**: Open your browser and navigate to `http://localhost:8181/`. You should see the Oppia development server running.
+
    Here are the logs that will appear in the Terminal once the development server is initiated along with all the services.
 
    ![Docker Setup running with all services](images/dockerSetupExample.png)
