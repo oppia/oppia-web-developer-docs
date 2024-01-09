@@ -111,7 +111,7 @@ This page will help you solve common queries that you may face while working on 
 
 ![Reload-Single-Collection](images/LaCEOnboardingGuide/Reload-Single-collection.png)
 
-  - Load dummy new structures data: This section provides a combination of topics, skills, stories and exploration.
+  - Load dummy new structures data: This section provides a combination of topics, skills, stories and exploration. 
   
 ![Dummy-New-Structure-Data](images/LaCEOnboardingGuide/Dummy-New-Structure-Data.png)  
 
@@ -123,6 +123,9 @@ This page will help you solve common queries that you may face while working on 
 
 ![Dummy-Math-Classroom](images/LaCEOnboardingGuide/Dummy-Math-Classroom.png)
 
+*Note*: If we face the error `Server error: 'None Type' object has no attribute 'version'`, go to `/release-coordinator page`(the user should have release-coordinator role), and under the MISC tab, click on `Flush Cache` button.
+
+![Flush-Cache-Button](images/LaCEOnboardingGuide/Flush-Cache-Button.png)
 
 ## 4. Creating a Classroom
 - We must first navigate to the `CONFIG` tab in the admin page. 
