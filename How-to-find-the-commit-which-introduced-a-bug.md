@@ -66,15 +66,15 @@ Let’s start:
     ![Screenshot of the "blame" option highlighted](images/findCommitWhichIntroducedBug/image7.png)
 
 
-This will display the blame information for each line directly on the GitHub website. You can see the commit hash, author, and date for each line in the file.
+    This will display the blame information for each line directly on the GitHub website. You can see the commit hash, author, and date for each line in the file.
 
-![Screenshot of the commit log highlighted](images/findCommitWhichIntroducedBug/image8.png)
-
-
-If you click on the "Blame Info" as shown in the above image you will be forwarded to the commit page where it belongs.
+    ![Screenshot of the commit log highlighted](images/findCommitWhichIntroducedBug/image8.png)
 
 
-![Screenshot asking you to click on "blame info"](images/findCommitWhichIntroducedBug/image4.png)
+    If you click on the "Blame Info" as shown in the above image you will be forwarded to the commit page where it belongs.
+
+
+    ![Screenshot asking you to click on "blame info"](images/findCommitWhichIntroducedBug/image4.png)
 
 
 ## Git Bisect
