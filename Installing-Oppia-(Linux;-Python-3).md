@@ -35,7 +35,7 @@ Alternatively, if you are on Debian/Ubuntu, you can use the `install_prerequisit
 bash scripts/install_prerequisites.sh
 ```
 
-3. Make sure that you have **Python 2** installed, it is needed for the dev server to run. On Ubuntu 20 you can install it using `sudo apt install python2`.
+3. Make sure that you have **Python 2** installed, it is needed for the dev server to run. On Ubuntu 20 you can install it using `sudo apt install python2`. On Ubuntu 18 you can install it using `sudo apt install python-minimal`. If both of these commands do not work, try using `sudo apt install python2-minimal`.
 
 4. Install Chrome from [Google's website](https://www.google.com/chrome). You'll need this to run tests.
 
@@ -96,7 +96,9 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
 1. **Make sure you install the Python build dependencies for your operating system. These are specified [here](https://github.com/pyenv/pyenv/wiki#suggested-build-environment). If you don't do this it might lead to problems further on.** The build dependencies for Ubuntu/Debian are
 
 
-    `sudo apt-get install make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget llvm libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev`
+   ```
+   sudo apt-get install make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget llvm libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+   ```
 
 2. Install pyenv:
 
