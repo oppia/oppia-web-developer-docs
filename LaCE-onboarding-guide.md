@@ -123,7 +123,10 @@ This page will help you solve common queries that you may face while working on 
 
 ![Dummy-Math-Classroom](images/LaCEOnboardingGuide/Dummy-Math-Classroom.png)
 
-*Note*: If we face the error `Server error: 'None Type' object has no attribute 'version'`, go to `/release-coordinator page`(the user should have release-coordinator role), and under the MISC tab, click on `Flush Cache` button.
+*Note*: If we face the error `Server error: 'None Type' object has no attribute 'version'`, do the following steps to fix it.
+1. Make sure the user has release-coordinator role. If not, 
+    * Go to /admin page and under Roles tab assign your username with "release-coordinator" role.
+2. Go to `/release-coordinator page`, and under the MISC tab, click on `Flush Cache` button.
 
 ![Flush-Cache-Button](images/LaCEOnboardingGuide/Flush-Cache-Button.png)
 
