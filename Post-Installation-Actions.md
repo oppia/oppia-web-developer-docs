@@ -1,6 +1,5 @@
 ## Table of Contents
 
-- [Table of Contents](#table-of-contents)
 - [Classroom Pages](#classroom-pages)
   - [Maths Classroom Page](#maths-classroom-page)
 
