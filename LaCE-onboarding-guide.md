@@ -111,8 +111,8 @@ This page will help you solve common queries that you may face while working on 
 
 ![Reload-Single-Collection](images/LaCEOnboardingGuide/Reload-Single-collection.png)
 
-  - Load dummy new structures data: This section provides a combination of topics, skills, stories and exploration. 
-  
+  - Load dummy new structures data: This section provides a combination of topics, skills, stories and exploration.
+
 ![Dummy-New-Structure-Data](images/LaCEOnboardingGuide/Dummy-New-Structure-Data.png)  
 
   - Generate dummy skill with questions
