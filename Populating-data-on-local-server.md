@@ -1,10 +1,11 @@
-## Table of Contents
+This guide provides step-by-step instructions for populating data on a local Oppia server. It is intended for Oppia users who need to set up a local environment for testing or development purposes.
 
+## Table of Contents
 - [Classroom Pages](#classroom-pages)
   - [Maths Classroom Page](#maths-classroom-page)
 
 Please note that the instructions provided in this document are to be executed only after logging into Oppia.
-If you are not logged in, please follow the link [logging-instruction](https://github.com/oppia/oppia/wiki/How-to-access-Oppia-webpages#user-account-pages) before executing the guidelines in this document.
+If you are not logged in, please follow the link [log-in-instruction](https://github.com/oppia/oppia/wiki/How-to-access-Oppia-webpages#user-account-pages) before executing the guidelines in this document.
 
 ## Classroom Pages
 
