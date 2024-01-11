@@ -16,10 +16,10 @@
   * [[Installing Oppia|https://github.com/oppia/oppia/wiki/Installing-Oppia]]
   * Getting started with the codebase
     * [[Populating data on local server|Populating-data-on-local-server]]
+    * [[How to access Oppia webpages|How-to-access-Oppia-webpages]]
     * Team onboarding guides
       * [[LaCE Team|LaCE-onboarding-guide]]
       * [[Contributor Dashboard Team|Contributor-dashboard]]
-    * [[How to access Oppia webpages|How-to-access-Oppia-webpages]]
   * [[Upgrading python version to 3.8.15|Upgrading-python-interpreter-to-version-3.8-for-existing-oppia-directory]]
   * [[Tips for common IDEs|Tips-for-common-IDEs]]
   * [[Make a pull request|Make-a-pull-request]]
