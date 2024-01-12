@@ -14,6 +14,12 @@
 **Developing Oppia**
   * [[FAQs|Frequently-Asked-Questions]]
   * [[Installing Oppia|https://github.com/oppia/oppia/wiki/Installing-Oppia]]
+  * Getting started with the codebase
+    * [[Populating data on local server|Populating-data-on-local-server]]
+    * [[How to access Oppia webpages|How-to-access-Oppia-webpages]]
+    * Team onboarding guides
+      * [[LaCE Team|LaCE-onboarding-guide]]
+      * [[Contributor Dashboard Team|Contributor-dashboard]]
   * [[Upgrading python version to 3.8.15|Upgrading-python-interpreter-to-version-3.8-for-existing-oppia-directory]]
   * [[Tips for common IDEs|Tips-for-common-IDEs]]
   * [[Make a pull request|Make-a-pull-request]]
@@ -25,7 +31,6 @@
     * [[Glossary of terms|Glossary-of-terms]]
     * [[Tips for finding the right code to change|Find-the-right-code-to-change]]
     * [[Tips for analyzing the codebase|Analyzing-the-codebase]]
-    * [[Tour of Oppia webpages|How-to-access-Oppia-webpages]]
     * [User documentation](https://oppia.github.io/)
     * [[Apache Beam Jobs|Apache-beam-jobs]]
   * [[List of current projects|https://github.com/oppia/oppia/projects]]
@@ -79,9 +84,6 @@
 **Developer Reference**
 
   * [[Oppiabot|Oppiabot]]
-  * Team onboarding guides
-    * [[LaCE Team|LaCE-onboarding-guide]]
-    * [[Contributor Dashboard Team|Contributor-dashboard]]
   * Frontend
     * [[Angular Migration | Angular-Migration]]
     * [UX guidelines](https://github.com/oppia/oppia/wiki/Oppia-UX-guidelines-&-rationales)
