@@ -1,4 +1,5 @@
 __If you are looking for more elaborate instructions on how to get started with Oppia, go to [setting things up](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up).__
+If you get stuck somewhere and need help please refer to getting help page[https://github.com/oppia/oppia/wiki/Get-help]
 
 Note that throughout our wiki, we use the following notations:
 
