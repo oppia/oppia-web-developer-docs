@@ -37,7 +37,7 @@
     * [[How to write frontend type definitions|Guide-on-defining-types]]
     * [[How to write design docs|Writing-design-docs]]
     * [[Revert and Regression Policy|Revert-and-Regression-Policy]]
-    * [[Server errors and solutions|Server-errors-and-solutions]]
+    * [[Coding safely to avoid server errors|Server-errors-and-solutions]]
     * [[Debugging|Debugging]]
       * [[If your presubmit checks fail|If-your-presubmit-check-fails]]
       * [[If CI checks fail on your PR|If-CI-checks-fail-on-your-PR]]
