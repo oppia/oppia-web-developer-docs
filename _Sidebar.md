@@ -14,7 +14,7 @@
 **Developing Oppia**
   * [[FAQs|Frequently-Asked-Questions]]
   * [[Installing Oppia|https://github.com/oppia/oppia/wiki/Installing-Oppia]]
-  * [[Tutorials]]
+  * Tutorials
     * [[Tutorial 1|Tutorial-1]]
   * Getting started with the codebase
     * [[Populating data on local server|Populating-data-on-local-server]]
