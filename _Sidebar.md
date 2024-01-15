@@ -14,7 +14,6 @@
 **Developing Oppia**
   * [[FAQs|Frequently-Asked-Questions]]
   * [[Installing Oppia|https://github.com/oppia/oppia/wiki/Installing-Oppia]]
-Tutorial-1
   * [[Tutorials]]
     * [[Tutorial 1|Tutorial-1]]
   * Getting started with the codebase
