@@ -36,14 +36,17 @@ There exists a separate admin page for the contributor dashboard at /contributor
 See [this](https://docs.google.com/document/d/1VqNiJttq85YyR6cQkd8M9lGGkOP8OlUlkI37Xw6SovM/edit) doc for step-by-step admin instructions. This may be useful for developing locally as a coder as well.
 
 ## Local development
-Some setup is usually required when developing locally for the contributor dashboard since before a user can submit a content suggestion to a lesson, a lesson needs to exist. Additionally, the requirements outlined in [How items for contribution are populated](#how-items-for-contribution-are-populated) must be satisfied. To start a local
-development server with pre-populated contributor dashboard data, run the `start.py` script with the `--contributor_dashboard_debug` command-line flag:
+Some setup is usually required when developing locally for the contributor dashboard since before a user can submit a content suggestion to a lesson, a lesson needs to exist. Additionally, the requirements outlined in [How items for contribution are populated](#how-items-for-contribution-are-populated) must be satisfied. To pre-populate contributor dashboard data, run the `populate_sample_contributor_data.py` script after starting a local development server:
 
 ```
-python -m scripts.start --contributor_dashboard_debug
+python -m scripts.start
 ```
 
-Specifying the flag will automatically do the following:
+```
+python -m scripts.populate_sample_contributor_data
+```
+
+The `populate_sample_contributor_data.py` script will automatically do the following:
 1. Create an admin user with the username "a" and email testadmin@example.com,
 and grant curriculum, translation, and question admin rights to the user.
 2. Create a non-admin user with the username "b" and email
@@ -125,7 +128,7 @@ Notice the subheadings are formatted [TOPIC NAME - CHAPTER TITLE]. Now let's mak
 
 6. Finally, go back to core/templates/domain/opportunity/exploration-opportunity-summary.model.ts and modify `getOpportunitySubheading()` to return the description instead of the topic and chapter title. Make sure all your changes are saved, refresh the page, and you should see your custom description in all the opportunity subheadings!
 
-> **Note**
+> [!NOTE]
 > For this example, our description field was not fetched from persisted storage and was instead manually set in the backend controller.
 
 ## Appendix

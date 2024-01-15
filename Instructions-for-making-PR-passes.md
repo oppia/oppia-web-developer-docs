@@ -34,7 +34,7 @@ On Github:
 
 
 ### Actions to take:
-1. If it’s a first-time contributor’s PR 
+1. If it’s a first-time contributor’s PR
    - If the author hasn’t followed any OppiaBot’s comments, then explain that comment and ask/help them to follow it. [e.g, New contributor doesn’t have rights to add a label to the PRs, help them by adding a label to the PR]
    - If they have pushed changes but not replied/assigned/pinged any reviewers:
       1. Ask the contributor to follow the instructions provided on the wiki page. (and if possible write the important instructions explicitly.)
@@ -53,37 +53,3 @@ On Github:
 
 
 At the very end, ensure that no one contributor has too many open PRs (ie. over 3), if so, please encourage them to complete those PRs before opening new ones. Also, if there is a reviewer with a lot of PRs assigned to them, then it's worth starting a conversion whether the reviewer needs to focus their code ownership. Finally, if there are any community-wide issues, please let the community and core maintainers know.
-
-## Cancelling CI Builds
-
-### Overview
-Builds sometimes are canceled for the following reasons:
-
-* CI queue is very high.
-* Contributor clearly needs to perform more work on the PR due to one of the following:
-  * Merge conflict
-  * Outstanding comments from reviewers.
-
-Note: Please ensure that you logged into TravisCI or CircleCI, otherwise, you can't cancel.
-
-### CircleCI
-Keep in mind that it is not possible to cancel all CircleCI builds due to permission issues.
-
-1. Click on any "Details" link that corresponds to CircleCI in the status checks section at the bottom.
-   ![CI Details](images/testStatuses2.png)
-2. Click on "circleci_tests" at the top section.
-   ![CI Top Bar](images/circleCITopbar.png)
-3. Click on the Cancel button in the top left.
-   ![CI Action](images/circleCIWorkflowAction.png)
-   If you don't see the "Cancel" button, you can't cancel this build like the following:
-
-   ![CI Action Disabled](images/circleCIWorkflowActionDisabled.png)
-
-
-## Rota
-
-Dev-workflow team members are expected to take a [full pass](#full-pass) on a weekly basis and create a report which the team lead can share with Core-maintainers in the Core-maintainer's meeting.
-
-**Current Dev-workflow team members taking pass:** @sajalasati & @DubeySandep
-
-**Weekly report doc:** https://docs.google.com/document/d/1lisXJYYXbmLGLGWoJx0E0XxAMndVG0J98KMp8N-hOho

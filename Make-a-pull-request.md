@@ -59,14 +59,16 @@ You can change your most recent commit message using `git commit --amend`. **It 
   git commit -m "{{YOUR COMMIT MESSAGE HERE}}"
   ```
 
-> **Note**
+> [!NOTE]
 > There is no maximum or minimum number of commits required in a PR. Instead of aiming for a certain number, you should try to make each commit a logical "chunk" of work. There are many opinions about how big commits should be, but a useful rule of thumb is that you should be able to read the first lines of all your commit messages to get a good idea of what you changed. If you find yourself needing lots of clauses to capture what you changed, your commit is probably too big.
 
 ## Step 3: Push changes to your GitHub fork
 
 * **Before pushing**, make sure to check the following things, otherwise you will incur delays with the review process or the automated checks:
 
-  * **Do some manual testing** on your local instance of Oppia to check that you haven't broken anything. This is important to avoid breakages. **Don't rely on the automated tests alone.** Once you're sure that your changes are correct, make a screen recording showing that the part of the website you changed still works correctly. You'll need to add this video to the pull request description.
+  * **Do some manual testing** on your local instance of Oppia to check that you haven't broken anything. This is important to avoid breakages. **Don't rely on the automated tests alone.** This [[resource on how to access different Oppia webpages|How-to-access-Oppia-webpages]] might be useful.
+
+  * Once you're sure that your changes are correct, make a screen recording showing that the part of the website you changed still works correctly. You'll need to add this video to the pull request description.
 
   * Use a tool like `git diff upstream/develop` to check that the changes you've made are exactly what you want them to be, and that you haven't left in anything spurious like debugging code.
 
@@ -100,11 +102,9 @@ Once your feature is ready, you can open a pull request (PR)!
 
 * Write a clear description of your PR that explains why the change is being made, how the change was made, as well as any identified risks and resulting countermeasures. See [here](https://github.com/oppia/oppia-android/pull/4757#issue-1461272376) for a good example of what sorts of things to include.
 
-* Fill out the rest of the PR checklist.
+* Fill out the rest of the PR checklist, including the screen recording you saved previously.
 
-* Add the screen recording you saved to the description.
-
-* Click "Create pull request".
+* Click "Create pull request". If applicable, verify that the issue your PR fixes is linked in the "Development" section on the right. (If not, update your description to clearly reference the issue, using the format "Fix #bugnum".)
 
 * Oppiabot will check that you filled out the PR description correctly. If you didn't, it will leave a comment explaining what you need to do to fix it. More details on the kinds of comments Oppiabot leaves are coming soon.
 
@@ -151,7 +151,7 @@ When your reviewer has completed their review, they will reassign the pull reque
 
 * **Never force-push changes to GitHub, or rebase your PR.** This will lead to the PR being closed.
 
-* As you are making changes, track them by replying to each comment via the Files Changed tab. Each reply should be either "Done" or a response explaining why the corresponding suggestion wasn't implemented. Also, please **do not** mark the comment as resolved, since this just makes it harder to actually read the comment thread. Also, please **use the 'Start a review' button** (rather than the 'Add single comment' button) to write draft comments, so that you don't publish them before the code is ready.
+* As you are making changes, track them by replying to each comment via the "Files Changed" tab. Each reply should be either "Done" or a response explaining why the corresponding suggestion wasn't implemented. **Use the 'Start a review' button** (rather than the 'Add single comment' button) to write draft comments, so that you don't publish them before the code is ready. Please **do not** mark the comment as resolved, since this just makes it harder to actually read the comment thread.
 
   **Tip:** If a reviewer asks questions about the "why" behind something, consider proactively adding a clear comment above the relevant line in your code, since the fact that the reviewer had to ask suggests that at least one developer doesn't understand what is going on from the code alone. Otherwise, you'll probably get a follow-up review comment asking you to leave a code comment anyway :)
 
@@ -163,13 +163,13 @@ When your reviewer has completed their review, they will reassign the pull reque
 
   * Make the push, and then immediately check that the changes in the "Files Changed" tab are what you intend them to be.
 
-  * Verify that you've posted responses to **all** the review comments from the reviewer(s). (If you see "Pending" labels next to your comments, that means it hasn't been submitted yet and others cannot see it. To fix this, make sure you've actually clicked through the green "Review changes > Submit review" button in the top right of the Files Changed tab.)
+  * Verify that you've posted responses to **all** the review comments from the reviewer(s). This may require scrolling up and checking older conversations on the comment thread. (If you see "Pending" labels next to your comments, that means it hasn't been submitted yet and others cannot see it. To fix this, make sure you've actually clicked through the green "Review changes > Submit review" button in the top right of the Files Changed tab.)
 
   * In the conversation thread, **write a top-level comment** explicitly asking the reviewer(s) to take another look ("@XXX PTAL"), and assign them to the PR. Be sure to use the **"Assignees"** rather than the "Reviewers" section of the PR, since the latter field is auto-populated by GitHub and reviewers typically don't track it.
 
 ## Step 6: Make sure all continuous integration checks pass
 
-While waiting to get approval from reviewers, make sure that all the continuous integration (CI) checks (GitHub Actions, CircleCI, etc.) pass, since otherwise you won't be able to merge your pull requests. CI checks are shown at the bottom of your pull request on GitHub.
+While waiting to get approval from reviewers, make sure that all the continuous integration (CI) checks on GitHub Actions pass, since otherwise you won't be able to merge your pull requests. CI checks are shown at the bottom of your pull request on GitHub.
 
 ![CI results at the bottom of a PR](images/prCiResults.png)
 

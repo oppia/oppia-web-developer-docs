@@ -8,6 +8,7 @@ If you run into any problems along the way, we're here to help! Check out our [[
 
 ## Table of Contents
 
+* [How to find information in the repo and the wiki](#how-to-find-information-in-the-repo-and-the-wiki)
 * [Setting things up](#setting-things-up)
 * [Developing your skills](#developing-your-skills)
 * [Finding something to do](#finding-something-to-do)
@@ -17,6 +18,19 @@ If you run into any problems along the way, we're here to help! Check out our [[
   * [Tasks for Existing Contributors](#tasks-for-existing-contributors)
 * [Tips for Success](#tips-for-success)
 * [Notes](#notes)
+
+## How to find information in the repo and the wiki
+
+1. In the top-right corner of the repository page, you'll find a search bar. Click on it to expand the search options.
+2. Enter the search query you want to use. You can search for specific keywords, file names, code snippets, or any other relevant information you're looking for.
+3. GitHub provides some advanced search filters that you can use to refine your search further. You can filter results by the file type, code language, author, or specific locations within the repository. To use these filters, click on the "Filters" button next to the search bar and select the desired options.
+4. Press Enter or click on the search button to initiate the search.
+5. GitHub will display the search results based on your query. The results will show matching files, code snippets, issues, pull requests, commits, discussions, wikis and other relevant information which you can see in left side after search.
+6. You can click on any search result to view more details or explore the code/files associated with it.
+
+Additionally, GitHub also provides an advanced search syntax that allows you to construct more complex queries. You can find more information about this syntax in the [GitHub documentation](https://docs.github.com/en/github-ae@latest/search-github/searching-on-github/searching-code).
+
+[How to find information in the repo and the wiki demonstration](https://github.com/oppia/oppia-web-developer-docs/assets/76530270/5ad36445-61a5-448d-8432-db6fad24c384)
 
 ## Setting things up
 
@@ -75,15 +89,14 @@ You can also browse good first issues for each of the core Oppia Web teams to fi
 When you've found a good first issue you'd like to tackle, please investigate it first to understand why the issue is happening. Here are some things you should do:
 
 - Read the entire discussion thread to understand what has been tried so far.
-- Try to reproduce the issue on your local dev server. (For Contributor Dashboard issues, the [[Contributor Dashboard wiki page|Contributor-dashboard]] has some useful setup information. For Learner and Creator Experience releated issues, you can refer to the [[LaCE-onboarding-guide|LaCE onboarding guide]].)
+- Try to reproduce the issue on your local dev server. (For Contributor Dashboard issues, the [[Contributor Dashboard onboarding guide|Contributor-dashboard]] has some useful setup information. For Learner and Creator Experience releated issues, you can refer to the [[LaCE onboarding guide|LaCE-onboarding-guide]].)
 - Figure out why the problem is happening, and find the relevant code in the Oppia repository to change. (The [['Finding the right code to change' wiki page|Find-the-right-code-to-change]] might be helpful.) If you have trouble with this, feel free to ask on [GitHub Discussion](https://github.com/oppia/oppia/discussions) and explain what you've tried doing so far.
 - If the issue is easy to fix, try to get a rough fix working on your local dev server!
 
 Once you have a good understanding of the issue, you can ask for it to be assigned to you by leaving a comment as follows:
 
-- Explain clearly how you'd tackle the issue (at a minimum, point to which file(s) you'd modify and describe the changes you'd make).
-- If possible, show a screenshot or code snippet demonstrating your proposed fix.
-- @-mention the leads of the corresponding project the issue falls under, letting them know you'd like to work on it. (The leads are: @SanjaySajuJacob and @Priyansh61 for [LaCE](https://github.com/orgs/oppia/projects/3/views/8?pane=info); @sagangwee and @chris7716 for [Contributor Dashboard](https://github.com/orgs/oppia/projects/18/views/4?pane=info); @U8NWXD and @gp201 for [Developer Workflow](https://github.com/orgs/oppia/projects/8?pane=info).)
+- Explain clearly how you'd tackle the issue (at a minimum, point to which file(s) you'd modify and describe the changes you'd make). If possible, show a screenshot or code snippet demonstrating your proposed fix.
+- @-mention the leads of the corresponding project (you can find their details [here](https://github.com/orgs/oppia/projects)), letting them know you'd like to work on it and when you can submit a PR by.
 
 If your explanation makes sense, we'll assign the issue to you. Once assigned, feel free to submit a PR by following the [[instructions for making a PR|Make-a-pull-request]].
 
@@ -103,7 +116,7 @@ graph TD;
 
 As a new contributor, you won't have any permissions on the repository except to read the code, so you'll need to ask other developers (or Oppiabot) to assign reviewers to your PR or add labels to your issue.
 
-After you've completed parts of at least two different issues and successfully submitted PRs for them into develop, you can fill in [this form](https://forms.gle/NxPjimCMqsSTNUgu5) to become an Oppia collaborator! This will grant you access to the repository, and allow you to join a team of your choice. Once you fill out the form, we'll mail you a collaborator invite link for the Oppia repository -- this is a manual process, and may take up to 48 hours. Please visit [this link](https://github.com/oppia/oppia/invitations) to accept the invitation to collaborate. Feel free to email us at admin@oppia.org if you don't receive the email!
+After you've completed parts of at least two different issues and successfully submitted PRs for them into develop, you can fill in [this form](https://forms.gle/NxPjimCMqsSTNUgu5) to become an Oppia collaborator! This will grant you access to the repository, and allow you to join a team of your choice. Once you fill out the form, we'll mail you a collaborator invite link for the Oppia repository -- this is a manual process, and may take up to 48 hours. Please visit [this link](https://github.com/oppia/oppia/invitations) to accept the invitation to collaborate. Feel free to email us at dev-support@oppia.org if you don't receive the email!
 
 Then you'll be a collaborator with triage access, which lets you assign reviewers and labels. No more asking for reviewers to be assigned! If you continue to make quality contributions, you may be added as a member of the Oppia organization, which grants you write access. Then you'll be able to restart tests, serve as a [code owner](https://docs.github.com/en/articles/about-code-owners), and review pull requests.
 
@@ -123,11 +136,11 @@ There are lots of options!
 
 * **Want to practice writing a design doc?** Check out the [list of issues requiring a design doc](https://github.com/oppia/oppia/labels/needs%20design%20doc). This is useful for learning how to write good "technical implementation" proposals.
 
-* **Want to lead a project?** Let us know by emailing admin@oppia.org.  We may offer you the opportunity to do this once you've sent in several good PRs.
+* **Want to lead a project?** Let us know by emailing dev-support@oppia.org.  We may offer you the opportunity to do this once you've sent in several good PRs.
 
-* **Want help figuring out what to do?** Just ask us on [GitHub Discussions](https://github.com/oppia/oppia/discussions), or send an email to admin@oppia.org. We'll try to help!
+* **Want help figuring out what to do?** Just ask us on [GitHub Discussions](https://github.com/oppia/oppia/discussions), or send an email to dev-support@oppia.org. We'll try to help!
 
-If an issue hasn't got someone assigned to it, and there's no existing PR for the issue (you can check this by scanning the list of [existing PRs](https://github.com/oppia/oppia/pulls)), feel free to take it up by assigning yourself to it. You don't need to ask permission to do so. Also, if you need help or advice on an issue, you can contact the corresponding team lead, whose GitHub username you can find in the description of the project the issue is assigned to. You can also find a list of all Oppia teams on the [Projects page](https://github.com/oppia/oppia/projects).
+If an issue hasn't got someone assigned to it, and there's no existing PR for the issue (you can check this by scanning the list of [existing PRs](https://github.com/oppia/oppia/pulls)), feel free to take it up by assigning yourself to it, and let the corresponding team lead know. Also, if you need help or advice on an issue, you can contact the corresponding team lead. See the [Projects page](https://github.com/oppia/oppia/projects) for details of who the team leads are.
 
 ## Tips for Success
 

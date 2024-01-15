@@ -49,7 +49,7 @@ This step will guide you through determining which one you are using currently, 
 * In case you don't have a ***.envrc***. file, check if you have ***.python-version*** file in that directory. If the ***.python-version*** file is present, that means you are using pyenv for virtualenv activation. pyenv users should follow the instructions in [Step 3 (b)](#step-3-(b).-setting-up-virtualenv-for-pyenv-users).
 
 ## Step 3 (a). Setting up virtualenv for Direnv Users
-> **Note**
+> [!NOTE]
 > Follow this step if you are using direnv as your virtualenv manager.
 
 1. Edit the ***.envrc*** file in your oppia folder to this :
@@ -63,7 +63,7 @@ $ direnv reload
 ```
 
 ## Step 3 (b). Setting up virtualenv for pyenv users
-> **Note**
+> [!NOTE]
 > Follow this step if you are using pyenv as your virtualenv manager.
 
 #### Do the following:

@@ -4,10 +4,13 @@ import re
 import sys
 from typing import Pattern, List
 
-SEARCH_NOTE_PATTERN: Pattern[str] = re.compile(r'^\*\*Note\*\*')
-SEARCH_WARNING_PATTERN: Pattern[str] = re.compile(r'^\*\*Warning\*\*')
-CORRECT_NOTE_STRING: str = '> **Note**'
-CORRECT_WARNING_STRING: str = '> **Warning**'
+SEARCH_NOTE_PATTERN: Pattern[str] = re.compile(r'^\[\!NOTE\]')
+SEARCH_TIP_PATTERN: Pattern[str] = re.compile(r'^\[\!TIP\]')
+SEARCH_IMPORTANT_PATTERN: Pattern[str] = re.compile(r'^\[\!IMPORTANT\]')
+SEARCH_CAUTION_PATTERN: Pattern[str] = re.compile(r'^\[\!CAUTION\]')
+SEARCH_WARNING_PATTERN: Pattern[str] = re.compile(r'^\[\!WARNING\]')
+CORRECT_NOTE_STRING: str = '> [!NOTE]'
+CORRECT_WARNING_STRING: str = '> [!WARNING]'
 
 def find_regex_in_file_content(
     search_pattern: Pattern[str],

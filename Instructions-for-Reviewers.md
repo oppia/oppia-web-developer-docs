@@ -34,7 +34,7 @@ Simply visit this URL: https://github.com/pulls/assigned. It takes you to a list
      * **Important:** Please also ensure that, if a PR author files a TODO for future work, they assign themselves to it (or arrange for it to be assigned responsibly to someone else) and don't just abandon it. It should typically be the next thing they work on, unless there is a principled reason to agree otherwise. (In other words, PR authors shouldn't just file TODOs for future work and then abandon them.)
 
 
-      > **Note**
+      > [!TIP]
       > To checkout branch BRANCH_NAME from committer COMMITTER_USERNAME to your local machine, run:
       > ```
       >   git checkout -b {{COMMITTER_NAME}}-{{BRANCH_NAME}} develop
@@ -60,7 +60,7 @@ The commit message of the squash should be a clear one-line summary of the chang
 * ``Fix #bugnum: introduce the first version of the collection editor.``
 * ``Update the exploration editor to do X better.``
 
-Getting this message correct is important, since it will be used to compile the CHANGELOG during the next release. If you like, feel free to also add optional follow-up sentences after the one-line summary.
+Getting this message correct is important, since it will be used by the release team to compile the list of features for the release notes. If you like, feel free to also add optional follow-up sentences after the one-line summary.
 
 ### Who Should Merge
 

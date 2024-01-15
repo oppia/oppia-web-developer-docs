@@ -78,3 +78,42 @@ def export_url(url):
       ]
     },
 ```
+# How to debug Lighthouse tests?
+- **Common question:** What to do if your changes cause the lighthouse accessibility tests to fail?
+- The lighthouse logs will provide you most of the information you need (To see the logs, click on the details button on the right)
+
+## Failing Lighthouse Puppeteer Script
+
+Lighthouse tests might fail because the puppeteer script failed to properly set up the web page to run ligthouse tests on. To determine if this is the case, check the log and see whether the line "Puppeteer script failed" was printed.
+
+To debug Puppeteer script errors locally, please run `python -m scripts.run_lighthouse_tests` with the extra argument `--record_screen`. The video will then be saved in a folder titled "ffmpeg-puppeteer-video" in the folder outside of "oppia". Alternatively, to view the recording from a GitHub test, you can downlaod the recording as an artifact titled "ffmpeg-puppeteer-video" from the summary page of the lighthouse test.
+
+## Steps to solve the failing lighthouse test
+
+**1. Find out which pages are failing:** You can find which pages are failing in the lighthouse logs
+<img height="150" src="images/lighthouse-test-failure.png">
+
+**2. Find report for failing page:** The lighthouse checks will upload reports to a temporary url for each page that it audits. 
+The lighthouse checks will print the link to each report in the logs.
+
+![image](images/lighthouse-test-report.png)
+
+Alternatively, you can do the following:
+
+- (From the branch that is related to you PR which is failing the lighthouse tests) Go to the failing page on localhost in chrome web browser 
+- Go to inspect tab and select the `lighthouse` option
+- Select the "Accessibility" checkbox to specifically test for accessibility issues (uncheck all the other options)
+- Click the "Generate report" or "Run audits" button
+- After the test completes, Lighthouse will generate a detailed report with various sections, including accessibility.
+
+**3. Read the report and learn how to fix the problem:** Click on the accessibility tab in the report to see which elements are failing.
+![image](images/lighthouse-test-score.png)
+
+**4. Find the failing element and apply the fix:** Lighthouse often suggests possible solutions and provides additional resources for fixing the issues.
+
+**5. Re-run the Lighthouse tests after making the changes to ensure the issues are successfully addressed.**
+
+
+
+
+

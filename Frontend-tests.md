@@ -116,6 +116,10 @@ python -m scripts.run_frontend_tests
 
 These tests also run whenever you push changes to the frontend code.
 
+**Tips for speeding things up**:
+- When running the tests locally, you can add `--skip_install` after the first run to skip installing dependencies (and speed up the test).
+- The file `combined-tests.spec.ts` has a require statement with a regex that matches and compiles all the specs files (irrespective of whether we want to run the spec files or not). To debug a specific unit test, you can replace the regex with the name of the specific file (make sure to escape all the hyphens (-), dots (.) and any other reserved regex characters). This will make the test run faster.
+
 ### Coverage reports
 
 Coverage reports are an indispensable tool when working with unit tests. They can show you which lines are being tested and which are not. Use these reports to help you write better tests and to ensure that all the files and functionality are totally covered by the tests you write.
@@ -631,7 +635,7 @@ Also, there are controllers that are not linked to modals. Here is an example:
 
 ### Testing AngularJS directives and components
 
-> **Note**
+> [!NOTE]
 > If you're creating a new AngularJS directive, please make sure the value of the restrict `property` is not `E`. If it's an `E`, change the directive to an AngularJS component. You can check out [this PR](https://github.com/oppia/oppia/pull/9850) to learn how to properly make the changes.
 
 Use these AngularJS component files that are correctly following the testing patterns for reference:

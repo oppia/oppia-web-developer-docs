@@ -22,7 +22,7 @@ Therefore, there will not be any additional extensions. Please refer to the [Dat
 Also, please note that acceptance into GSoC isn't a prerequisite for becoming an Oppia contributor. The Oppia project is run by the community for the community, and we warmly welcome anyone who'd like to help out! You can get started by following the instructions [here](https://github.com/oppia/oppia/wiki).
 
 
-# Contributors
+## Contributors
 
 GSoC is an excellent opportunity for new contributors to get paid to work on an open source project. If you're interested in applying as a contributor, you should definitely read the following resources:
 
@@ -30,6 +30,15 @@ GSoC is an excellent opportunity for new contributors to get paid to work on an 
 -   [Google's list of resources](https://developers.google.com/open-source/gsoc/resources/)
 -   [GSoC FAQ](https://developers.google.com/open-source/gsoc/faq)
 
+## Current Projects
+
+The following projects (with linked proposals where available) are currently in progress for GSoC 2023:
+
+* [Kshitij Patil](pdfs/GSoC2023PatelMuhammed.pdf): Contributor Dashboard Admin Stats Table
+* [Patel Muhammed](pdfs/GSoC2023PatelMuhammed.pdf): Accessibility improvements
+* [Rishi Kejriwal](pdfs/GSoC2023RishiKejriwal.pdf): Serial chapter launch
+* [Shivkant Chauhan](pdfs/GSoC2023ShivkantChauhan.pdf): Dockerize Oppia
+* [Ashwath Kannan](pdfs/GSoC2023AshwathKannan.pdf): Improvements for translation reviewer experience
 
 ## Getting started
 
@@ -41,7 +50,7 @@ Welcome! If you're interested in applying to work with Oppia for GSoC, please fo
     - Read the [user documentation](http://oppia.github.io/#/) to become familiar with important concepts like explorations and interactions.
     - Play some lessons on [Oppia.org](https://www.oppia.org/learn/math), which hosts a live instance of Oppia.
 
-3. To get started with development, read and follow the instructions in the contributors' guide carefully ([Oppia Web](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up)).
+3. To get started with development, read and follow the instructions in the contributors' guide carefully ([Oppia Web](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up)). You might also find this [[page of learning resources|Learning-Resources]] helpful for learning the technologies needed to contribute to Oppia.
     - **Note!** Oppia Android won't be offering GSoC projects in 2023, but will be doing so again from 2024 onwards.
 
 4. Do one or more starter projects to become familiar with the contribution process. This will help us get an idea of what it's like to work with you. It will also help you get a better understanding of the codebase and our development process, which may help with writing a good project proposal. Once you've merged at least 2 pull requests, you will get an invitation to become a collaborator to the Oppia repository and be officially onboarded! **This step is a prerequisite** to applying for GSoC.
@@ -66,7 +75,7 @@ A: Oppia Android won't be able to participate in GSoC this year. Note that this 
 
 **Q: What technical skills do I need to work on Oppia?**
 
-A: For Oppia Web, Angular 2+, Python 3.8 and Google App Engine are useful and recommended for most Oppia work; in addition, UI design skills are useful for frontend, user-facing work. Please see the individual project ideas to determine whether these skills are recommended for the project in question.
+A: For Oppia Web, Angular 2+, Python 3.8 and Google App Engine are useful and recommended for most Oppia work; in addition, UI design skills are useful for frontend, user-facing work. Please see the individual project ideas to determine whether these skills are recommended for the project in question. Note that, although GSoC is aimed at beginner contributors to open source and at students, "beginner to open source" is not the same as "beginner to coding" -- the projects assume some proficiency with coding. This [[page of learning resources|Learning-Resources]] might be helpful for learning the technologies needed to contribute to Oppia.
 
 **Q: How can I increase my chances of getting selected?**
 

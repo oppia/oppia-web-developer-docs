@@ -4,14 +4,15 @@ Here are some general troubleshooting tips for Oppia. The platform specific tips
 
 # Table of Contents
 
-- [[Errno 104] Connection reset by peer](#errno-104-connection-reset-by-peer)
-- [No module named builtins](#no-module-named-builtins)
+- [For Jio India Users](#for-jio-india-users)
+- [`[Errno 104] Connection reset by peer`](#errno-104-connection-reset-by-peer)
+- [`No module named builtins`](#no-module-named-builtins)
 - [No Java](#no-java)
 - [Frontend Tests Stuck](#frontend-tests-stuck)
 - [Selenium Server Not Killed by Ctrl-C](#selenium-server-not-killed-by-ctrl-c)
 - [403 Error](#403-error)
-- [MERGE_MSG Newer than Swap File](#merge_msg-newer-than-swap-file)
-- [Warnings from start.py](#warnings-from-startpy)
+- [MERGE\_MSG Newer than Swap File](#merge_msg-newer-than-swap-file)
+- [Warnings from `start.py`](#warnings-from-startpy)
 - [No Such File or Directory: Google Cloud SDK](#no-such-file-or-directory-google-cloud-sdk)
 - [No module named '\_sqlite3'](#no-module-named-_sqlite3)
 - [Problems Cloning from GitHub](#problems-cloning-from-github)
@@ -22,23 +23,23 @@ Here are some general troubleshooting tips for Oppia. The platform specific tips
 - [Low RAM](#low-ram)
 - [Failed to Start Server on Port XXXX](#failed-to-start-server-on-port-xxxx)
 - [Failed to connect to raw.githubusercontent.com port 443](#failed-to-connect-to-rawgithubusercontentcom-port-443)
-- [./portserver.socket is not listed in the .github/CODEOWNERS file](#portserversocket-is-not-listed-in-the-githubcodeowners-file)
+- [`./portserver.socket is not listed in the .github/CODEOWNERS file`](#portserversocket-is-not-listed-in-the-githubcodeowners-file)
 - [Push fails due to connection timeout](#push-fails-due-to-connection-timeout)
 - [Exception: Error compiling proto files](#exception-error-compiling-proto-files)
 - [Linux](#linux)
   - [Python 2 is not available](#python-2-is-not-available)
-  - [OSError: [Errno 2] No such file or directory](#oserror-errno-2-no-such-file-or-directory)
+  - [OSError: \[Errno 2\] No such file or directory](#oserror-errno-2-no-such-file-or-directory)
   - [Pip: Cannot Import Name Main](#pip-cannot-import-name-main)
-  - [System Limit for Number of File Watchers Reached](#system-limit-for-number-of-file-watchers-reached)
-  - [No Module functools_lru_cache](#no-module-functools_lru_cache)
+  - [ENOSPC: System Limit for Number of File Watchers Reached](#enospc-system-limit-for-number-of-file-watchers-reached)
+  - [No Module functools\_lru\_cache](#no-module-functools_lru_cache)
   - [No Module appengine.api](#no-module-appengineapi)
   - [ModuleNotFoundError: No module named \_bz2](#modulenotfounderror-no-module-named-_bz2)
 - [Mac OS](#mac-os)
   - [Python 2 is not available](#python-2-is-not-available-1)
-  - [Error: alert_on_exit() -> Iterator[None]](#error-alert_on_exit---iteratornone)
+  - [Error: alert\_on\_exit() -\> Iterator\[None\]](#error-alert_on_exit---iteratornone)
   - [Local datastore data are not being deleted](#local-datastore-data-are-not-being-deleted)
   - [No module named '\_ctypes' on M1 Macs](#no-module-named-_ctypes-on-m1-macs)
-  - [Cannot Import Name \_imaging](#cannot-import-name-_imaging)
+  - [Cannot Import Name `_imaging`](#cannot-import-name-_imaging)
   - [Command cc failed with exit status 1](#command-cc-failed-with-exit-status-1)
   - [GitPython Not Installed](#gitpython-not-installed)
   - [Install Imaging](#install-imaging)
@@ -51,7 +52,14 @@ Here are some general troubleshooting tips for Oppia. The platform specific tips
   - [Windows Firewall](#windows-firewall)
   - [No Such File or Directory /dev/disk/by-id](#no-such-file-or-directory-devdiskby-id)
   - [First build never completed](#first-build-never-completed)
-  - [If the above doesn't work](#if-the-above-doesnt-work)
+- [Docker Setup](#docker-setup)
+  - [docker-desktop : Depends: docker-ce-cli but it is not installable](#docker-desktop--depends-docker-ce-cli-but-it-is-not-installable)
+  - [make commands: `Operation not permitted`](#make-commands-operation-not-permitted)
+  - [Installation encounters `network timeout` or `connection error`](#installation-encounters-network-timeout-or-connection-error)
+- [If the above doesn't work](#if-the-above-doesnt-work)
+
+### For Jio India Users
+It seems the Jio network is blocking the domain `raw.githubusercontent.com` which is used by Github for storage of images in this wiki and some of the dependencies while installing Opia.. If you are using Jio, you can try changing the DNS address to 8.8.8.8 (Google DNS) or 1.1.1.1 (Cloudfare DNS) from settings. Original discussion [here](https://github.com/orgs/community/discussions/42655)
 
 ### `[Errno 104] Connection reset by peer`
 If after running `python -m scripts.start` you get the following lines:
@@ -79,7 +87,7 @@ Traceback (most recent call last):
     self._sslobj.do_handshake()
 ConnectionResetError: [Errno 104] Connection reset by peer
 ```
-Then run `pip install requests[security]`. 
+Then run `pip install requests[security]`.
 
 ### `No module named builtins`
 
@@ -341,7 +349,7 @@ ImportError: cannot import name main
 
 Try running `$ python -m pip uninstall pip` followed by running `$ python -m scripts.install_third_party` (source: [SO thread](https://stackoverflow.com/questions/49964093/file-usr-bin-pip-line-9-in-module-from-pip-import-main-importerror-canno)).
 
-### System Limit for Number of File Watchers Reached
+### ENOSPC: System Limit for Number of File Watchers Reached
 
 If you get an error while running a local server which says something like this:
 
@@ -356,7 +364,8 @@ then you will need to increase the number of system watchers by running the comm
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 ```
 
-Use the same command in the cases where the changes made by you to files are not being detected by the server.
+Use the same command in the cases where the changes made by you to files are not being detected by the server. See https://stackoverflow.com/questions/22475849/node-js-what-is-enospc-error-and-how-to-solve/32600959#32600959 for more details.
+
 
 ### No Module functools_lru_cache
 
@@ -466,7 +475,7 @@ After running `python -m scripts.start`, if you get an error around the followin
    ImportError: cannot import name _imaging
 ```
 
-> **Note**  
+> [!NOTE]
 > [Google search results]
 (https://pillow.readthedocs.io/en/stable/installation.html#warnings) indicate that PIL and Pillow cannot coexist in the same environment
 
@@ -654,6 +663,60 @@ FileNotFoundError: [Errno 2] No such file or directory: '/home/user/opensource/o
 ```
 
 The error code 137 indicates that the Angular compiler ran out of memory. This happens because WSL2 only gives the host operating system (Ubuntu, in our case) 50% of the machine's RAM by default. If you have 8 GB RAM, for example, this means Ubuntu only gets 4 GB, which is insufficient to run Oppia. To fix this, you need to follow [Microsoft's instructions](https://learn.microsoft.com/en-us/windows/wsl/wsl-config) to increase the amount of RAM given to the host operating system.
+
+## Docker Setup
+
+### docker-desktop : Depends: docker-ce-cli but it is not installable
+
+While installing Docker Desktop, ubuntu users might see the following error logs:
+```
+Some packages could not be installed. This may mean that you have
+requested an impossible situation or if you are using the unstable
+distribution that some required packages have not yet been created
+or been moved out of Incoming.
+The following information may help to resolve the situation:
+ 
+The following packages have unmet dependencies:
+ docker-desktop : Depends: docker-ce-cli but it is not installable
+E: Unable to correct problems, you have held broken packages.
+```
+
+The cause of this error is the absence of the Docker repository installation on the system. To address this issue, a straightforward solution is to execute the following commands before installing Docker Desktop:
+```
+sudo apt install -y ca-certificates curl gnupg lsb-release
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt update -y
+```
+These commands are used to prepare an Ubuntu system for Docker installation. They start by installing necessary packages like ca-certificates, gnupg, and lsb-release. Then, a directory named /etc/apt/keyrings is created to store GPG keys. Next, a Docker GPG key is downloaded from the Docker repository and converted to binary format before being saved in the keyring directory. A Docker repository source is added to the APT sources list using an echo command, specifying the architecture, GPG key location, repository URL, and Ubuntu version. Finally, the package list is updated to include Docker packages from the newly added repository. These steps collectively enable secure access to Docker packages and facilitate their installation and management on the system.
+
+Following the completion of the aforementioned commands, you can proceed with the installation of Docker Desktop.
+
+[Reference](https://stackoverflow.com/questions/72299444/docker-desktop-doesnt-install-saying-docker-ce-cli-not-installable) for the solution stated.
+
+### make commands: `Operation not permitted`
+
+Some users might face the following error while running `make` commands:
+```
+Operation not permitted
+make: *** [Makefile:14: docker] Error 1
+```
+
+To fix this, create a new user called 'docker' and include the current user in the 'docker' group. Execute the following commands to achieve this:
+```
+sudo groupadd docker
+sudo gpasswd -a $USER docker
+```
+
+[Reference]([url](https://askubuntu.com/questions/477551/how-can-i-use-docker-without-sudo))
+
+The cause of the issue is that Docker daemon binds to a unix socket by default, which is owned by root. So, when you run the make commands without admin access, it is not able to access the unix socket and hence the error is thrown.
+
+### Installation encounters `network timeout` or `connection error`
+
+If you encounter network timeout or connection errors during the Docker setup process, simply re-execute the `make build` command. This is necessary as the Docker setup may have been disrupted by network problems. By rerunning the command, the setup will pick up from the point of failure and continue accordingly.
+
 
 ## If the above doesn't work
 
