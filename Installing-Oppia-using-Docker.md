@@ -1,5 +1,5 @@
 This guide provides step-by-step instructions for installing Oppia using Docker. Docker simplifies the installation process and ensures a consistent environment across different systems, making it easier to set up and run Oppia.
-If you get stuck somewhere and need help please refer to getting help page[https://github.com/oppia/oppia/wiki/Get-help]
+If you get stuck somewhere and need help please refer to [getting help page](https://github.com/oppia/oppia/wiki/Get-help)
 
 ## Table of Contents
 
