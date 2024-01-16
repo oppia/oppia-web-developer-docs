@@ -185,7 +185,7 @@ If an issue hasn't got someone assigned to it, and there's no existing PR for th
 
   ```console
   git blame -L 40,60 file-name
-  
+  ```
   The output will then show lines 40 to 60 of the particular file.
 
   For more `git blame` options, you can visit the [git blame documentation](https://git-scm.com/docs/git-blame). You can also view this information on GitHub. Just navigate to the file you are interested and click the "Blame" button:
