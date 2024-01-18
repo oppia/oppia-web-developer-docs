@@ -6,9 +6,9 @@
   * [GitHub](#github)
   * [Email](#email) 
 * [How to Ask Good Questions](#how-to-ask-good-questions)
-  * [General Guidelines to follow](#general-guidelines-to-follow) 
-  * [Providing Error Information](#providing-error-information)
-* [Building Your Skills: Technical Writing](#building-your-skills-technical-writing)
+  * [General guidelines to follow](#general-guidelines-to-follow) 
+  * [Providing error information](#providing-error-information)
+* [Building your skills: Technical writing](#building-your-skills-technical-writing)
 * [Setup-related questions](#setup-related-questions)
     * [Before you ask a setup question](#before-you-ask-a-setup-question)
     * [How to ask a setup question](#how-to-ask-a-setup-question)
@@ -56,7 +56,7 @@ You can also email your mentor with any questions. If you don't have a mentor, c
 
 At Oppia we don’t care how silly your question is! Just ensure your question is clear, and provide us with enough information to help us resolve it faster. 
 
-### General Guidelines to follow 
+### General guidelines to follow 
 
 * __Be clear and concise__: Clearly articulate your question to avoid confusion and allow others to understand it easily.
 * __Provide context__: If applicable, provide relevant background information to help others understand your question and situation.
@@ -64,7 +64,7 @@ At Oppia we don’t care how silly your question is! Just ensure your question i
 * __Use proper formatting__: Organize your question using paragraphs, bullet points, and appropriate formatting to enhance readability.
 * __Proofread your message__: Take a moment to proofread your question to ensure clarity and accuracy before sending it.
 
-### Providing Error Information 
+### Providing error information 
 
 When reporting an error, follow these steps to communicate the issue effectively:
 
@@ -73,7 +73,7 @@ When reporting an error, follow these steps to communicate the issue effectively
 * __Share reproduction steps__: Include the specific steps that recipients should follow to reproduce the error you encountered. This allows them to investigate the issue more effectively.
 * __Explain your efforts and conclusions__: Explain what you've tried and what conclusions you've drawn, if any. (Providing a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs) may help.)
 
-## Building Your Skills: Technical Writing
+## Building your skills: Technical writing
 
 In addition to effective communication, developing strong technical writing skills can greatly benefit your contributions. We recommend exploring the technical writing courses available at https://developers.google.com/tech-writing/overview. These courses can help you improve your ability to write clear code comments, create technical documentation, and effectively communicate complex ideas.
 
