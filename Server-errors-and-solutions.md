@@ -1,4 +1,4 @@
-This page discusses different types of server problems that have been fixed before, and it suggests ways to stop those problems from happening again. The types of problems include issues with data, problems when lots of people are using the server, situations that don't happen very often, making sure the server works with old internet browsers, problems when the internet is slow. For each type of problem, it gives an example and tips on how to stop it from happening.
+This page discusses different types of server problems that have been fixed before, and it suggests ways to stop those problems from happening again. For each type of problem, it gives an example and tips on how to stop it from happening.
 
 # Categories
 
