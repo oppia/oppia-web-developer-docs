@@ -45,6 +45,7 @@
     * [[Debugging|Debugging]]
       * [[If your presubmit checks fail|If-your-presubmit-check-fails]]
       * [[If CI checks fail on your PR|If-CI-checks-fail-on-your-PR]]
+      * [[Finding the commit that introduced a bug|How-to-find-the-commit-which-introduced-a-bug]]
       * [[Interpreting GitHub Actions Results|Interpreting-GitHubActions-Results]]
       * [[Debugging Docs|Debugging-Docs]]
       * [[Debugging datastore locally|Debugging-datastore-locally]]
