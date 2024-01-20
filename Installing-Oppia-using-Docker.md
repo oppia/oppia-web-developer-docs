@@ -188,5 +188,83 @@ The Oppia development environment provides additional `make` commands that you c
 - `make init`: Initializes the Oppia development environment by building the Docker Images and starting the dev-server.
 - `make echo_flags`: This command shows the flags with thier values that are being used by the Oppia development server.
 
+## Running tests
+
+Once you have Oppia installed using Docker, you can execute a variety of tests to ensure the functionality and quality of the code. These tests check various parts of the application, such as code style (linting), server-side functionality (backend), client-side functionality (frontend), and how the application behaves in different scenarios (acceptance testing).
+
+### Available make commands for running tests
+
+These are the `make` commands available for running tests:
+
+- `make run_tests.lint` - Runs the linter tests, checks code style and formatting for consistency.
+
+- `make run_tests.backend` - Runs the backend tests, verifies the functionality of backend logic and database interactions.  
+**Flags:**  
+	Usage - `make run_tests.backend PYTHON_ARGS="--flag_name"`
+	* `--test_target` - Specifies the dotted module name of the test(s) to run.
+	* `--test_path` - Specifies the subdirectory path containing the test(s) to run.
+	* `--test_shard` - Specifies the name of the shard to run.
+	* `--generate_coverage_report` - Generates a coverage report.
+	* `--ignore_coverage` - Prevents tests from failing due to coverage issues.
+	* `--exclude_load_tests` - Excludes load tests from being run.
+	* `--verbose` - Displays the output of the tests being run.
+
+- `make run_tests.frontend` - Runs the frontend unit tests, tests individual components and functions of the frontend code.  
+**Flags:**  
+	Usage - `make run_tests.frontend PYTHON_ARGS="--flag_name"`
+	* `--dtslint_only` - Runs only dtslint type tests.
+	* `--skip_install` - Skips installing dependencies.
+	* `--verbose` - Enables the Karma terminal and prints all logs.
+	* `--run_minified_tests` - Runs tests on both minified and non-minified code.
+	* `--check_coverage` - Checks frontend test coverage..
+	* `--download_combined_frontend_spec_file` - Downloads the combined frontend spec file.
+
+- `make run_tests.typescript` - Runs the TypeScript checks, ensures type safety and catches potential errors in TypeScript code.  
+**Flag:**  
+	Usage - `make run_tests.typescript PYTHON_ARGS="--flag_name"`
+	* `--strict_checks` - Compiles TypeScript using strict config.
+
+- `make run_tests.custom_eslint` - Runs the custom ESLint tests, enforces additional code style and quality rules defined by the project.
+
+- `make run_tests.mypy` - Runs mypy checks., performs static type checking for Python code, detecting potential type-related errors.  
+**Flags:**  
+	Usage - `make run_tests.mypy PYTHON_ARGS="--flag_name"`
+	* `--skip-install` - Skips installing dependencies.
+	* `--install-globally` - Installs mypy and its requirements globally.
+	* `--files` - Specifies the files to type-check.
+
+- `make run_tests.check_backend_associated_tests` - Runs the backend associate tests, verifies that backend changes have corresponding test coverage.
+
+- `make run_tests.acceptance suite=SUITE_NAME` - Runs the acceptance tests for the specified suite, tests end-to-end user interactions and workflows within a specific feature area.  
+**Flags:**  
+	Usage - `make run_tests.e2e FLAG_NAME=VALUE`
+	* `suite` - The suite to run the acceptance tests
+
+	Usage - `make run_tests.acceptance PYTHON_ARGS="--flag_name"`
+	* `--skip-build` - Skips building files.
+	* `--prod_env` - Runs tests in production mode.
+	* `--server_log_level` - Sets the log level for the appengine server.
+	* `--source_maps` - Builds webpack with source maps.
+
+- `make run_tests.e2e` - Runs the e2e tests for the specified suite, tests the entire application from a user's perspective, simulating real-world interactions.  
+**Flags:**  
+	Usage - `make run_tests.e2e FLAG_NAME=VALUE`
+	* `suite` - The suite to run the e2e tests.
+	* `sharding_instances` - Sets the number of parallel browsers to open while sharding.
+	* `CHROME_VERSION` - Uses the specified version of the chrome driver.
+	* `MOBILE` - Run e2e test in mobile viewport e.g. `make run_tests.e2e MOBILE=true`.
+	* `DEBUG` - Enables debugging for more detailed output e.g. `make run_tests.e2e DEBUG=true`.
+	
+	Usage - `make run_tests.e2e PYTHON_ARGS="--flag_name"`
+	* `--skip-install` - Skips installing dependencies.
+	* `--skip-build` - Skips building files.
+	* `--prod_env` - Runs tests in production mode.
+	* `--server_log_level` - Sets the log level for the appengine server.
+	* `--source_maps` - Builds webpack with source maps.
+
+- `make run_tests.lighthouse_accessibility shard=SHARD_NUMBER` - Runs the Lighthouse accessibility tests for the specified shard, assesses the application's accessibility for users with disabilities.
+
+- `make run_tests.lighthouse_performance shard=SHARD_NUMBER` - Runs the Lighthouse performance tests for the specified shard, evaluates the application's performance and identifies potential bottlenecks.
+
 ## Troubleshooting
 If you are facing any issues while installing Oppia using Docker, please refer to the [[Troubleshooting page|Troubleshooting]].

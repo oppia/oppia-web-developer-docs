@@ -112,7 +112,7 @@ This page will help you solve common queries that you may face while working on 
 ![Reload-Single-Collection](images/LaCEOnboardingGuide/Reload-Single-collection.png)
 
   - Load dummy new structures data: This section provides a combination of topics, skills, stories and exploration.
-  
+
 ![Dummy-New-Structure-Data](images/LaCEOnboardingGuide/Dummy-New-Structure-Data.png)  
 
   - Generate dummy skill with questions
@@ -123,6 +123,12 @@ This page will help you solve common queries that you may face while working on 
 
 ![Dummy-Math-Classroom](images/LaCEOnboardingGuide/Dummy-Math-Classroom.png)
 
+*Note*: If you encounter the error `Server error: 'None Type' object has no attribute 'version'`, do the following steps to fix it.
+1. Make sure the user has the release-coordinator role. If not, 
+    * Go to the /admin page, and under the Roles tab, assign your username the "release-coordinator" role.
+2. Go to the `/release-coordinator page`, and under the MISC tab, click on the `Flush Cache` button.
+
+![Flush-Cache-Button](images/LaCEOnboardingGuide/Flush-Cache-Button.png)
 
 ## 4. Creating a Classroom
 - We must first navigate to the `CONFIG` tab in the admin page. 
