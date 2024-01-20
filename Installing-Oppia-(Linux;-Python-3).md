@@ -35,7 +35,7 @@ Alternatively, if you are on Debian/Ubuntu, you can use the `install_prerequisit
 bash scripts/install_prerequisites.sh
 ```
 
-3. Make sure that you have **Python 2** installed, it is needed for the dev server to run. On Ubuntu 20 you can install it using `sudo apt install python2`. On Ubuntu 18 you can install it using `sudo apt install python-minimal`. If both of them do not work, try using `sudo apt install python2-minimal`.
+3. Make sure that you have **Python 2** installed, it is needed for the dev server to run. On Ubuntu 20 you can install it using `sudo apt install python2`.
 
 4. Install Chrome from [Google's website](https://www.google.com/chrome). You'll need this to run tests.
 
