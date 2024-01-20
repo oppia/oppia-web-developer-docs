@@ -76,8 +76,9 @@ We also **strongly recommend** looking through the resources under "Developing O
 
 Welcome! Please make sure to follow the instructions above if you haven't already.
 
-After that, you can choose a good first issue from the [list of good first issues](https://github.com/oppia/oppia/labels/good%20first%20issue). These issues are hand-picked to ensure that you don't run into unexpected roadblocks while working on them, and each of them should have clear instructions for new contributors. If you see one that doesn't, please let us know via [GitHub Discussions](https://github.com/oppia/oppia/discussions) and we'll fix it.
-If you run into any problems along the way, we're here to help! Check out our [wiki page on getting help](https://github.com/oppia/oppia/wiki/Get-help) for the communication channels you can use. For other issues, you might need to be more independent because we might not know how to solve them either.
+After that, you can choose a good first issue from the [list of good first issues](https://github.com/oppia/oppia/labels/good%20first%20issue). These issues are hand-picked to ensure that you don't run into unexpected roadblocks while working on them, and each of them should have clear instructions for new contributors. If you see one that doesn't, please let us know via [GitHub Discussions](https://github.com/oppia/oppia/discussions) and we'll fix it.For other issues, you might need to be more independent because we might not know how to solve them either.
+
+As a new contributor, if you run into any problems along the way, we're here to help! Check out our [Getting Help Page](https://github.com/oppia/oppia/wiki/Get-help) for the communication channels you can use.
 
 You can also browse good first issues for each of the core Oppia Web teams to find something you'd enjoy working on! Please only choose issues that have **not yet** been assigned, unless the issue is a "checkbox issue" with multiple claimable parts. Here are the project boards for the different teams:
 
