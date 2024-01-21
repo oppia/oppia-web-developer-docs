@@ -17,7 +17,7 @@
   * Getting started with the codebase
     * [[Populating data on local server|Populating-data-on-local-server]]
     * Tutorials
-      * [[Tutorial 1|Tutorial-1]]
+      * [[Make a Simple UI change|Tutorial-1]]
     * [[How to access Oppia webpages|How-to-access-Oppia-webpages]]
     * Team onboarding guides
       * [[LaCE Team|LaCE-onboarding-guide]]
