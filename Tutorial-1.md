@@ -31,7 +31,7 @@ When the server is started, it navigates to the home page by default. Since the 
 
 <img src="images/tutorial-1/HomePage.png" alt="Practice 1 Image">
 
-> [!NOTE]
+> [!IMPORTANT]
 > Practice 1:
 > Load the /about page on your machine following the instructions above. It should look different from the screenshot above.
 >
@@ -42,7 +42,7 @@ The About page opens up. Now, you need to figure out which section needs to be c
 
 You have now successfully identified the section that needs to be modified. Next, let’s figure out what part of the codebase needs to be altered, to achieve our target. To do so, you will be using [browser developer tools](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools), preferably Chrome.
 
-> [!NOTE]
+> [!IMPORTANT]
 > Practice 2:
 > On the About page, right-click on the "Get Started With Oppia" text on the About page and select "Inspect." This action will open the Developer Tools and highlight the relevant HTML section.
 >
@@ -55,7 +55,7 @@ You’ll see a highlighted code that looks like `<h2 class="oppia-about-title op
 
 Now, let’s find the file on your computer so that you can make the necessary changes.
 
-> [!NOTE]
+> [!IMPORTANT]
 > Practice 3:
 > Open your code editor (such as VS Code). Search for the file that contains the class name "oppia-about-title". Can you identify the specific file where this text is stored?
 >
@@ -75,7 +75,7 @@ To change the text, locate the i18n file or section that contains `I18N_ABOUT_PA
 
 <img src="images/tutorial-1/searchI18nKey.png" alt="Practice 6 Image">
 
-> [!NOTE]
+> [!IMPORTANT]
 > Practice 4:
 > Search for the I18N_ABOUT_PAGE_TITLE_SECTION_ONE key. You’ll get a lot of results for this. Can you > > find the file which contains the english translations?
 
@@ -83,7 +83,7 @@ When you search for the I18N_ABOUT_PAGE_TITLE_SECTION_ONE key, you'll find sever
 
 Open the en.json file. Inside, you’ll see multiple i18n keys and their respective translated strings. Look for the key I18N_ABOUT_PAGE_TITLE_SECTION_ONE. Currently, it should be assigned to the text "Get Started with Oppia".
 
-> [!NOTE]
+> [!IMPORTANT]
 > Practice 5:
 > Now that you know which key-value pair needs to be altered to get the result, can you change the text from "Get Started with Oppia" to “Introducing Oppia” ?
 
@@ -104,7 +104,7 @@ Open your local Oppia instance and go to the About page. Check that the text now
 
 If you’d like to see I18N in action, then change I18N keys in a different language too.
 
-> [!NOTE]
+> [!IMPORTANT]
 > Practice 6:
 > Try changing the value for the key ` I18N_ABOUT_PAGE_TITLE_SECTION_ONE` in some other language file, say Hindi.
 > Change the value to anything, for instance `Getting Started in Hindi`.
