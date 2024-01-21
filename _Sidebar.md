@@ -16,6 +16,8 @@
   * [[Installing Oppia|https://github.com/oppia/oppia/wiki/Installing-Oppia]]
   * Getting started with the codebase
     * [[Populating data on local server|Populating-data-on-local-server]]
+    * Tutorials
+      * [[Make a simple UI change|Tutorial-1]]
     * [[How to access Oppia webpages|How-to-access-Oppia-webpages]]
     * Team onboarding guides
       * [[LaCE Team|LaCE-onboarding-guide]]
