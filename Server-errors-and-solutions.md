@@ -46,14 +46,14 @@ Logical errors in the code. Example: The "this" scope was referring to the globa
 
 ## Data-related issue
 
- Issues that result in corrupt or missing data on the server. Issues like this are quite hard to debug and involve running complicated one-off jobs. Example: Certain exploration stats models were missing on the production server, which resulted in a few deferred tasks erroring often and piling up in the StackDriver logs. Fortunately, these issues are quite rare. Other examples of errors include: [#6159](https://github.com/oppia/oppia/pull/6159), [#9632](https://github.com/oppia/oppia/pull/9632), [#7440](https://github.com/oppia/oppia/pull/7440).
+Issues that result in corrupt or missing data on the server. Issues like this are quite hard to debug and involve running complicated one-off jobs. Example: Certain exploration stats models were missing on the production server, which resulted in a few deferred tasks erroring often and piling up in the StackDriver logs. Fortunately, these issues are quite rare. Other examples of errors include: [#6159](https://github.com/oppia/oppia/pull/6159), [#9632](https://github.com/oppia/oppia/pull/9632), [#7440](https://github.com/oppia/oppia/pull/7440).
 
 ### Preventive action
 
 1. __Manual testing__:  
-    i\. When testing, perform destructive operations on entities that have related supplementary entities to check if the supplementary objects reflect the correct state of the original ones.
+   i\. When testing, perform destructive operations on entities that have related supplementary entities to check if the supplementary objects reflect the correct state of the original ones.
 
-    ii\. Testing with foreign / special characters (as mentioned under [Template Users](https://docs.google.com/document/d/1FYShgUHI0GM2I6eWe5B78PAQLvPxZxMFVjTivVoBrTg/edit#)).
+   ii\. Testing with foreign / special characters (as mentioned under [Template Users](https://docs.google.com/document/d/1FYShgUHI0GM2I6eWe5B78PAQLvPxZxMFVjTivVoBrTg/edit#)).
 
 3. __Code__: Audit jobs need to account for all instances or occurrences of the relevant item on the server. Sufficient written proof / explanation about the "thoroughness" of the audit can be added as a comment in the audit job code.
 
