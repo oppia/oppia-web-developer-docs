@@ -72,7 +72,7 @@ When reporting an error, follow these steps to communicate the issue effectively
 * __Include the specific error message__: Share the exact error message you encountered. This helps others quickly identify the potential cause and provide relevant solutions or suggestions.
 * __Share reproduction steps__: Include the specific steps that recipients should follow to reproduce the error you encountered. This allows them to investigate the issue more effectively.
 * __Explain your efforts and conclusions__: Explain what you've tried and what conclusions you've drawn, if any. (Providing a [[Debugging Docs|Debugging-Docs]] may help.)
-* __Including relevant log lines__: Sometimes, log lines from the browser console or terminal can provide helpful context. However, ensure to only include relevant lines and omit unnecessary information to maintain the readability of the report.
+* __Include relevant log lines__: Sometimes, log lines from the browser console or terminal can provide helpful context. However, ensure you only include relevant lines and omit unnecessary information to maintain the readability of the report.
 
 ## Building your skills: Technical writing
 
