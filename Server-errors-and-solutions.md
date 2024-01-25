@@ -38,7 +38,7 @@ Certain JS functionality may not be supported in older browsers. Example: String
 1. __Static analysis / compilation stage__: Fix a JS standard that we expect all clients to support and specify a "target version" in typescript so that the code will be compiled to that version / JS standard.
 
 ## Logic errors
-Logical errors in the code. Example: The "this" scope was referring to the global scope when it was supposed to refer to a local one ([#7873](https://github.com/oppia/oppia/pull/7873)). These are quite rare. Other examples of errors include: [#7872](https://github.com/oppia/oppia/issues/7872)(incorrect scope of "this"), [#7927](https://github.com/oppia/oppia/pull/7927).
+Logical errors in the code. Example: The "this" scope was referring to the global scope when it was supposed to refer to a local one ([#7873](https://github.com/oppia/oppia/pull/7873)). These are quite rare. Other examples of errors include: [#7872](https://github.com/oppia/oppia/issues/7872) (incorrect scope of "this"), [#7927](https://github.com/oppia/oppia/pull/7927).
 
 ### Preventive action
 
@@ -50,10 +50,11 @@ Issues that result in corrupt or missing data on the server. Issues like this ar
 
 ### Preventive action
 
-1. __Manual testing__:  
-   i\. When testing, perform destructive operations on entities that have related supplementary entities to check if the supplementary objects reflect the correct state of the original ones.
+1. __Manual testing__:
+ 
+    1. When testing, perform destructive operations on entities that have related supplementary entities to check if the supplementary objects reflect the correct state of the original ones.
 
-   ii\. Testing with foreign / special characters (as mentioned under [Template Users](https://docs.google.com/document/d/1FYShgUHI0GM2I6eWe5B78PAQLvPxZxMFVjTivVoBrTg/edit#)).
+    2. Testing with foreign / special characters (as mentioned under [Template Users](https://docs.google.com/document/d/1FYShgUHI0GM2I6eWe5B78PAQLvPxZxMFVjTivVoBrTg/edit#)).
 
 3. __Code__: Audit jobs need to account for all instances or occurrences of the relevant item on the server. Sufficient written proof / explanation about the "thoroughness" of the audit can be added as a comment in the audit job code.
 
