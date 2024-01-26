@@ -113,12 +113,14 @@
 
 * Include punctuation at the ends of sentences. Also include punctuation at the ends of phrases that are exceptions to the "Write in complete sentences" rule above. For example, notice the period at the end of the example above.
 
-* Start each page with a bulletted table of contents that follows these rules:
+* Start each page with a bulleted table of contents that follows these rules:
 
   * The bullets must exactly match the structure of headings in the rest of the file.
   * Each bullet point must be a clickable link that leads to the described heading. The link text must exactly match the text of the heading.
   * Each bullet point link must begin with `#`. In other words, the link must not include the URL protocol, domain, nor file path. This ensures that if the filename changes, the links don't need to be updated.
-  * The table of contents must start with a top-level header that reads "Table of contents". This header must not  appear in the table of contents.
+  * The table of contents must start with a top-level header that reads "Table of contents". This header must not appear in the table of contents.
   * The table of contents may optionally be preceded by some introductory text. This text must not include any headers and should be short.
+
+  You can also use https://ecotrust-canada.github.io/markdown-toc/ to generate a table of contents in this format automatically.
 
 * The top-level headers of your document should be level 2 (i.e. `<h2>` tags created by `##` in Markdown) because GitHub will automatically generate a level 1 heading (i.e. a title) based on the name of the file.
