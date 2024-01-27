@@ -151,14 +151,26 @@ In fact, too many mocks can be a problem because when someone changes the code y
 
 You can run backend tests like this:
 
+Python:
 ```console
 python -m scripts.run_backend_tests
 ```
 
+Docker:
+```console
+make run_tests.backend
+```
+
 Alternatively, you can run just a single test module like this:
 
+Python:
 ```console
 python -m scripts.run_backend_tests --test_target=core.controllers.editor_test
+```
+
+Docker:
+```console
+make run_tests.backend PYTHON_ARGS="--test_target=core.controllers.editor_test"
 ```
 
 The argument to `--test_target` can be as specific as you like. For example:
@@ -168,14 +180,26 @@ The argument to `--test_target` can be as specific as you like. For example:
 
 If you also want to see the output of `print` statements and error logs in the terminal, use `--verbose` like this:
 
+Python:
 ```console
 python -m scripts.run_backend_tests --test_target=core.controllers.editor_test --verbose
 ```
 
+Docker:
+```console
+make run_tests.backend PYTHON_ARGS="--test_target=core.controllers.editor_test --verbose"
+```
+
 For more information about `--test_target` and other flags, run:
 
+Python:
 ```console
 python -m scripts.run_backend_tests --help
+```
+
+Docker:
+```console
+make run_tests.backend PYTHON_ARGS="--help"
 ```
 
 Note that while the tests are running, you may see the word `ERROR` show up in the test logs. This does not necessarily mean that an error has occurred; it happens because some tests actually expect an error to be raised.
@@ -209,8 +233,14 @@ We use a simple tool called *code coverage* to check that all of Oppia’s backe
 
 When writing a test for a function or class, you can generate a coverage report to verify that all the lines of the function/class have been included in the tests. To do this, simply add the `--generate_coverage_report` flag to the `run_backend_tests` command:
 
+Python:
 ```console
 python -m scripts.run_backend_tests --generate_coverage_report
+```
+
+Docker:
+```console
+make run_tests.backend PYTHON_ARGS="--generate_coverage_report"
 ```
 
 If there are **any** backend test errors, no coverage report will be produced. Please fix those errors and then re-run the above command. If the tests all pass, a coverage report will be printed that lists each backend file, along with the lines not covered by tests. Here is an example of a coverage report:
