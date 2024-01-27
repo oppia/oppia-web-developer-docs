@@ -34,7 +34,7 @@ GSoC is an excellent opportunity for new contributors to get paid to work on an 
 
 The following projects (with linked proposals where available) are currently in progress for GSoC 2023:
 
-* [Kshitij Patil](pdfs/GSoC2023PatelMuhammed.pdf): Contributor Dashboard Admin Stats Table
+* [Kshitij Patil](pdfs/GSoC2023KshitijPatil.pdf): Contributor Dashboard Admin Stats Table
 * [Patel Muhammed](pdfs/GSoC2023PatelMuhammed.pdf): Accessibility improvements
 * [Rishi Kejriwal](pdfs/GSoC2023RishiKejriwal.pdf): Serial chapter launch
 * [Shivkant Chauhan](pdfs/GSoC2023ShivkantChauhan.pdf): Dockerize Oppia
