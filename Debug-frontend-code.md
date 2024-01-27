@@ -60,9 +60,16 @@ If you select `webpack://` in the sidebar of the sources tab, you can see Oppia'
 
 However, here you are seeing the code that has been altered by the build process. To see the original source code, you need to enable source maps when running the development server like this:
 
+Pytho:
 ```console
 python -m scripts.start --source_maps
 python -m scripts.run_e2e_tests --prod_env --source_maps
+```
+
+Docker:
+```console
+make run-devserver source_maps=true
+make run_e2e_tests.prod prod_env=true source_maps=true
 ```
 
 When generated, source maps will automatically be available through the Chrome debugger:

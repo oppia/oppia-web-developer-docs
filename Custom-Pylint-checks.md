@@ -527,8 +527,14 @@ def test_finds_hello_world_assignment(self):
 
 Once you've added test cases, you can run them like this:
 
+Python:
 ```console
 python -m scripts.run_backend_tests --test_target=scripts.linters.pylint_extensions_test --verbose
+```
+
+Docker:
+```console
+make run_backend_tests PYTHON_ARGS="--test_target=scripts.linters.pylint_extensions_test --verbose"
 ```
 
 The `--verbose` option will help with debugging by printing out more logging information.

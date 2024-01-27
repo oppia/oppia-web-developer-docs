@@ -72,20 +72,38 @@ When you know which test is causing you problems, running it in isolation can he
 
 To run a test in isolation, you can use the `--test_target` option:
 
+Python:
 ```console
 python -m scripts.run_backend_tests --test_target jobs.jobs_manager_test.RefreshStateOfBeamJobRunModelTests.test_failed_api_call_logs_the_exception
 ```
 
+Docker:
+```console
+make run_tests.backend PYTHON_ARGS="--test_target jobs.jobs_manager_test.RefreshStateOfBeamJobRunModelTests.test_failed_api_call_logs_the_exception"
+```
+
 If you wanted to run all the tests defined by the `RefreshStateOfBeamJobRunModelTests`, you could do that too. Just shorten the dotted name to end at the class:
 
+Python:
 ```console
 python -m scripts.run_backend_tests --test_target jobs.jobs_manager_test.RefreshStateOfBeamJobRunModelTests
 ```
 
+Docker:
+```console
+make run_tests.backend PYTHON_ARGS="--test_target jobs.jobs_manager_test.RefreshStateOfBeamJobRunModelTests"
+```
+
 Note that if you want to run all the tests in a directory, you need to use `--test_path` instead like this:
 
+Python:
 ```console
 python -m scripts.run_backend_tests --test_path jobs
+```
+
+Docker:
+```console
+make run_tests.backend PYTHON_ARGS="--test_path jobs"
 ```
 
 **Make sure that you can reproduce the problem you are trying to debug when you run the test in isolation!** While rare, it is possible for a test failure to have been caused by previous tests. In these cases, you may not be able to reproduce the problem when you only run the test that initially failed.
@@ -93,8 +111,14 @@ python -m scripts.run_backend_tests --test_path jobs
 ## Complete coverage
 
 To identify the missing coverage lines run the below command.
+Python:
 ```console
 python -m scripts.run_backend_tests --generate_coverage_report
+```
+
+Docker:
+```console
+make run_tests.backend PYTHON_ARGS="--generate_coverage_report"
 ```
 
 For more information about the backend code coverage kindly refer [here](https://github.com/oppia/oppia/wiki/Backend-tests#coverage-reports).

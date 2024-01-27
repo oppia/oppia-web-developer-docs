@@ -167,8 +167,14 @@ Extensions provide `webdriverio.js` files to make them easier to test. The E2E t
 
 If you don't know the name of the suite you want to run, you can find it in `core/tests/wdio.conf.js`. Then you can run your test like this:
 
+Python:
 ```console
 python -m scripts.run_e2e_tests --suite="suiteName"
+```
+
+Docker:
+```console
+make run_tests.e2e PYTHON_ARGS="--suite=suiteName"
 ```
 
 Chrome will open and start running your tests.
@@ -185,8 +191,14 @@ You may also want to set the chromedriver version manually if you want to test a
 
 To manually set the chromedriver version, use the `--chrome_driver_version` argument:
 
+Python:
 ```console
 python -m scripts.run_e2e_tests --chrome_driver_version <version>
+```
+
+Docker:
+```console
+make run_tests.e2e PYTHON_ARGS="--chrome_driver_version <version>"
 ```
 
 To determine which version of chromedriver to use, please follow these steps:
@@ -207,14 +219,26 @@ If you see a failure due to the webdriver, please follow the instructions above 
 
 If you run all the E2E tests at once (i.e. if you don't specify a suite), the tests will be sharded across multiple Chrome browser instances. By default, the tests will use 3 shards (i.e. 3 browsers). If you do this, you should close background processes to maximize the compute resources available to the tests. You can configure the number of shards like this:
 
+Python:
 ```console
 python -m scripts.run_e2e_tests --sharding-instances=<number of shards>
 ```
 
+Docker:
+```console
+make run_tests.e2e PYTHON_ARGS="--sharding-instances=<number of shards>"
+```
+
 You can disable sharding like this:
 
+Python:
 ```console
 python -m scripts.run_e2e_tests --sharding=false
+```
+
+Docker:
+```console
+make run_tests.e2e PYTHON_ARGS="--sharding=false"
 ```
 
 Note that when we run tests on CI, we run one suite at a time, so there is no sharding.
@@ -227,8 +251,14 @@ To run just one test, change the "it" to "fit" for that test. Then when you run 
 
 To run the end-to-end tests in production mode, use the `--prod_env` flag:
 
+Python:
 ```console
 python -m scripts.run_e2e_tests --prod_env
+```
+
+Docker:
+```console
+make run_tests.e2e PYTHON_ARGS="--prod_env"
 ```
 
 On CI, we run all the E2E tests in production mode to more closely mimic how the Oppia application behaves in production.

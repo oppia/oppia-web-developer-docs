@@ -88,8 +88,14 @@ The tests should work correctly regardless of what order they run in. If you fin
 
 By default, we suppress log output from the tests to the terminal when running the frontend tests. This keeps the test output clean so it's easy to find which tests failed. However, this output can be useful for debugging. For example, if you add `console.log()` or `console.error()` statements to your tests for debugging, the output from those statements will be suppressed by default. To view this output, pass `--verbose` when you run the frontend tests:
 
+Python:
 ```console
 python -m scripts.run_frontend_tests --verbose
+```
+
+Docker:
+```console
+make run_tests.frontend PYTHON_ARGS="--verbose"
 ```
 
 **Only use --verbose when you are running a few tests in isolation. Otherwise, you will be swamped with way too many log messages.**
@@ -103,8 +109,14 @@ Note that depending on your situation, `console.log()` or `console.error()` migh
 
 By default, the combined-tests.spec.js file is deleted after running the frontend tests. This is because it is a large file that is a combination of all the frontend test files. Currently, the stack traces for frontend test failures mention the line numbers with respect to the combined-tests.spec.js file. To allow you to easily find the line in the combined-tests.spec.js file, you can download the file and view it in a text editor using the `--download_combined_frontend_spec_file` flag:
 
+Python:
 ```console
 python -m scripts.run_frontend_tests --download_combined_frontend_spec_file
+```
+
+Docker:
+```console
+make run_tests.frontend PYTHON_ARGS="--download_combined_frontend_spec_file"
 ```
 
 The combined-tests.spec.js file will be downloaded to the karma_coverage_reports directory.

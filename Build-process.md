@@ -84,6 +84,7 @@ First, let's consider what happens in plain prod mode where those two options ar
 
 This is the mode our tests run in (except the lighthouse accessibility tests), and it's what you'll want to use if you want to locally run a version of the app that's as close to the production version as possible. You can use this mode like this:
 
+Python:
 ```console
 python -m scripts.start --prod_env
 ```
@@ -119,9 +120,16 @@ Even when running in dev mode, the code your browser runs does not look much lik
 
 Generating source maps is expensive, so by default we don't make them. However, you can enable source map generation in both dev and prod modes, usually by passing a `--source_maps`, for example:
 
+Python:
 ```console
 python -m scripts.start --source_maps
 python -m scripts.run_e2e_tests --prod_env --source_maps
+```
+
+Docker:
+```console
+make run-devserver source_maps=true
+make run_e2e_tests.prod prod_env=true source_maps=true
 ```
 
 With these flags, the `webpack.*.sourcemap.config.ts` configuration files are used to enable source mapping. For information about using source maps, see our [[guide to debugging frontend code|Debug-frontend-code]]

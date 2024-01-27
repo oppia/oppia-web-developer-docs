@@ -151,7 +151,12 @@ output: {
 Here we specify the build mode i.e. production and the output config. We don't use a devtool here to make the build faster.
 
 This is the config that is used while running the dev server using
+
+Python:
 `python -m scripts.start --prod_env`.
+
+Docker:
+`make run-devserver prod_env=true`.
 
 ### webpack.prod.sourcemap.config.ts and webpack.dev.sourcemap.config.ts
 
