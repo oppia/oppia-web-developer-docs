@@ -1,14 +1,17 @@
 ## Table of Contents
 
 * [Communication channels](#communication-channels)
-  * [Email](#email)
   * [GitHub Discussions](#github-discussions)
   * [Google Chat or Hangouts](#google-chat-or-hangouts)
   * [GitHub](#github)
+  * [Email](#email) 
 * [How to Ask Good Questions](#how-to-ask-good-questions)
-  * [Setup-related questions](#setup-related-questions)
-    * [Before you ask a setup question](#before-you-ask-a-setup-question)
-    * [How to ask a setup question](#how-to-ask-a-setup-question)
+  * [General guidelines to follow](#general-guidelines-to-follow) 
+  * [Providing error information](#providing-error-information)
+* [Building your skills: Technical writing](#building-your-skills-technical-writing)
+* [Setup-related questions](#setup-related-questions)
+  * [Before you ask a setup question](#before-you-ask-a-setup-question)
+  * [How to ask a setup question](#how-to-ask-a-setup-question)
 * [General questions](#general-questions)
   * [Before you ask a general question](#before-you-ask-a-general-question)
   * [How to ask a general question](#how-to-ask-a-general-question)
@@ -20,21 +23,13 @@ Here we document Oppia's main communication channels and how to ask good questio
 
 If you need help, there are a few communication channels you can use. Developers usually respond within 24 hours so long as you use a channel they actually check.
 
-### Email
-
-We have several mailing lists in the form of Google Groups that you can join:
-
-* [oppia-announce](https://groups.google.com/forum/#!forum/oppia-announce) is for announcements of new releases or blog posts. It's not for asking questions though.
-* [oppia-dev](https://groups.google.com/forum/#!forum/oppia-dev) is the main mailing list for communication between developers and for technical questions. You can post to it even if you're not a member of the group. This is where you can ask questions, solicit feedback, or make developer-specific announcements (e.g. a temporary GitHub outage).
-
-You can also email your mentor with any questions. If you don't have a mentor, complete the steps on the [[wiki page for contributing code to Oppia|Contributing-code-to-Oppia]] and you'll be assigned one.
-
 ### GitHub Discussions
+
 If you have questions regarding Oppia you can create a discussion here where Oppia's Welfare team and other developers will assist you in resolving the issue. You can create a discussion in any of the following categories based on the question:
 
-* Developer announcements: All announcements that affect developers for the Oppia repository will be announced here.
-* Q&A (multiple categories): Any questions that developers have.
-* General: General discussions that don't fit in any of the other categories.
+* __Developer announcements__: Announcements for the Oppia developer community.
+* __Q&A (multiple categories)__: Any questions that developers have.
+* __General__: General discussions that don't fit in any of the other categories.
 
 You can refer to [this guide](https://docs.github.com/en/discussions/quickstart#creating-a-new-discussion) on how to create a new discussion. You can also ping the welfare team by at-mentioning the welfare team: @oppia/web-welfare-team
 
@@ -48,13 +43,44 @@ If you have a question about a pull request or issue, you can also reach out to 
 
 You can even mention whole teams of people! For example, if you find an issue that is destabilizing the project, you could notify all the core maintainers by including `@oppia/core-maintainers` in your issue. The teams are all listed [here](https://github.com/orgs/oppia/teams).
 
+### Email
+
+We have several mailing lists in the form of Google Groups that you can join, but please note that these are less active than GitHub Discussions:
+
+* [oppia-announce](https://groups.google.com/forum/#!forum/oppia-announce) is for announcements of new releases or blog posts. It's not for asking questions though.
+* [oppia-dev](https://groups.google.com/forum/#!forum/oppia-dev) is the main mailing list for communication between developers and for technical questions. You can post to it even if you're not a member of the group. This is where you can ask questions, solicit feedback, or make developer-specific announcements (e.g. a temporary GitHub outage).
+
+You can also email your mentor with any questions. If you don't have a mentor, complete the steps on the [[wiki page for contributing code to Oppia|Contributing-code-to-Oppia]] and we'll try to assign you.
+
 ## How to Ask Good Questions
 
-At Oppia we don’t care how silly your question is! Just ensure your question is clear, and provide us with enough information to help us resolve it faster. We've divided the questions into 2 categories - Setup-related and General questions. You can start following the sections below to understand how you can ask each of them.
+At Oppia we don’t care how silly your question is! Just ensure your question is clear, and provide us with enough information to help us resolve it faster. 
 
-### Setup-related questions
+### General guidelines to follow 
 
-#### Before you ask a setup question
+* __Be clear and concise__: Clearly articulate your question to avoid confusion and allow others to understand it easily.
+* __Provide context__: If applicable, provide relevant background information to help others understand your question and situation.
+* __Be respectful__: Maintain a respectful and courteous tone in your communication to foster a positive and inclusive community environment.
+* __Format your text for easy reading__: Organize your question using paragraphs, bullet points, and appropriate formatting to enhance readability.
+* __Proofread your message__: Take a moment to proofread your question to ensure clarity and accuracy before sending it.
+
+### Providing error information 
+
+When reporting an error, follow these steps to communicate the issue effectively:
+
+* __Start with the command__: Rather than saying "I have an error," provide the actual command you ran. Copy and paste the command in your email or chat message to give recipients the complete context.
+* __Include the specific error message__: Share the exact error message you encountered. This helps others quickly identify the potential cause and provide relevant solutions or suggestions.
+* __Share reproduction steps__: Include the specific steps that recipients should follow to reproduce the error you encountered. This allows them to investigate the issue more effectively.
+* __Explain your efforts and conclusions__: Explain what you've tried and what conclusions you've drawn, if any. (Providing a [[Debugging Docs|Debugging-Docs]] may help.)
+* __Include relevant log lines__: Sometimes, log lines from the browser console or terminal can provide helpful context. However, ensure you only include relevant lines and omit unnecessary information to maintain the readability of the report.
+
+## Building your skills: Technical writing
+
+In addition to effective communication, developing strong technical writing skills can greatly benefit your contributions. We recommend exploring the technical writing courses available at https://developers.google.com/tech-writing/overview. These courses can help you improve your ability to write clear code comments, create technical documentation, and effectively communicate complex ideas.
+
+## Setup-related questions
+
+### Before you ask a setup question
 
 1. You can setup/install Oppia by visiting [[this page|Installing-Oppia]].  Make sure you follow **all** the mentioned instructions from the beginning in a step-by-step manner.
 
@@ -64,7 +90,7 @@ At Oppia we don’t care how silly your question is! Just ensure your question i
 
 If you are still not able to fix your error, start following the section below to raise your question on [GitHub Discussions](https://github.com/oppia/oppia/discussions/categories/setup-issues).
 
-#### How to ask a setup question
+### How to ask a setup question
 
 > [!NOTE]
 > If you are stuck at Step X, we will assume all previous steps through X-1 were successful for you. In case there were any previously failed steps, kindly mention those too with their error logs.
