@@ -57,10 +57,14 @@ make run_tests.acceptance suite=SUITE_NAME
 
 For example, to run the `check-blog-editor-unable-to-publish-duplicate-blog-post.spec.js` test, run the following command:
 Python:
-```python -m scripts.run_acceptance_tests --suite="blog-editor-tests/check-blog-editor-unable-to-publish-duplicate-blog-post.spec.js"```
+```
+python -m scripts.run_acceptance_tests --suite="blog-editor-tests/check-blog-editor-unable-to-publish-duplicate-blog-post.spec.js"
+```
 
 Docker:
-```make run_tests.acceptance suite="blog-editor-tests/check-blog-editor-unable-to-publish-duplicate-blog-post.spec.js"```
+```
+make run_tests.acceptance suite="blog-editor-tests/check-blog-editor-unable-to-publish-duplicate-blog-post.spec.js"
+```
 
 
 ## How to write new tests for a specific user

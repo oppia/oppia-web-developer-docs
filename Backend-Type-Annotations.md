@@ -19,14 +19,20 @@ Mypy checks script (`scripts/run_mypy_checks.py`) is the script used to run our 
 It has two modes of running:
 
 1. Python:
-  `python -m scripts.run_mypy_checks`\
+  ```
+     python -m scripts.run_mypy_checks
+  ```
 
    Docker:
-   `make run_tests.mypy`
+  ```
+    make run_tests.mypy
+  ```
 
   This runs the type checks on all the type annotated files in the codebase.
 2. Python:
-  `python -m scripts.run_mypy_checks --files path/file1.py path/file2.py`\
+  ```
+     python -m scripts.run_mypy_checks --files path/file1.py path/file2.py
+  ```
 
    Docker:
    `make run_tests.mypy PYTHON_ARGS="--files path/file1.py path/file2.py"`
