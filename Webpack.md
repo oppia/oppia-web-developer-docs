@@ -155,7 +155,7 @@ This is the config that is used while running the dev server using
 Python:
 ```
 python -m scripts.start --prod_env
-```.
+```
 
 Docker:
 ```
