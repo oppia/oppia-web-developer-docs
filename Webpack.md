@@ -160,7 +160,7 @@ python -m scripts.start --prod_env
 Docker:
 ```
 make run-devserver prod_env=true
-```.
+```
 
 ### webpack.prod.sourcemap.config.ts and webpack.dev.sourcemap.config.ts
 

@@ -35,7 +35,9 @@ It has two modes of running:
   ```
 
    Docker:
-   `make run_tests.mypy PYTHON_ARGS="--files path/file1.py path/file2.py"`
+  ```
+     make run_tests.mypy PYTHON_ARGS="--files path/file1.py path/file2.py"
+  ```
   This runs the type checks on the files specified, i.e., file1 and file2.
 
 **Note:**
