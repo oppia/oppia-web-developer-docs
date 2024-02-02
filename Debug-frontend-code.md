@@ -68,8 +68,8 @@ python -m scripts.run_e2e_tests --prod_env --source_maps
 
 Docker:
 ```console
-make run-devserver source_maps=true
-make run_e2e_tests.prod prod_env=true source_maps=true
+make run-devserver PYTHON_ARGS="--source_maps"
+make run_tests.e2e PYTHON_ARGS="--prod_env --source_maps"
 ```
 
 When generated, source maps will automatically be available through the Chrome debugger:
