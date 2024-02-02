@@ -1,20 +1,20 @@
 **Core documentation**
-  * [Oppia's mission](https://github.com/oppia/oppia/wiki/Oppia's-Mission)
+  * [Oppia's mission](Oppia's-Mission)
   * [Code of Conduct](https://github.com/oppia/oppia/blob/develop/.github/CODE_OF_CONDUCT.md)
   * **[[Get involved!|Home]]**
     * [Coders](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up)
     * [[Instructional designers|Teaching-with-Oppia]]
-      * [[Create a Lesson!|https://github.com/oppia/oppia/wiki/Lesson-Creation-Guide]]
+      * [[Create a Lesson!|Lesson-Creation-Guide]]
     * [[UX researchers|Conducting-research-with-students]]
     * [[Voice artists | Instructions-for-voice-artists]]
     * [[Designers and artists|Contributing-to-Oppia's-design]]
-  * **[[Hacktoberfest 2023|Hacktoberfest-2023]]**
-  * **[[Google Summer of Code 2023|Google-Summer-of-Code-2023]]**
+  * **[[Google Summer of Code 2024|Google-Summer-of-Code-2024]]**
 ---
 **Developing Oppia**
   * [[FAQs|Frequently-Asked-Questions]]
-  * [[Installing Oppia|https://github.com/oppia/oppia/wiki/Installing-Oppia]]
+  * [[Installing Oppia|Installing-Oppia]]
   * Getting started with the codebase
+    * [['Getting started' guide|https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up]]
     * [[Populating data on local server|Populating-data-on-local-server]]
     * Tutorials
       * [[Make a simple UI change|Tutorial-1]]
@@ -89,8 +89,8 @@
 
   * [[Oppiabot|Oppiabot]]
   * Frontend
-    * [[Angular Migration | Angular-Migration]]
-    * [UX guidelines](https://github.com/oppia/oppia/wiki/Oppia-UX-guidelines-&-rationales)
+    * [[Angular Migration|Angular-Migration]]
+    * [[UX guidelines|Oppia-UX-guidelines-&-rationales]]
     * [[Writing style guide|Writing-style-guide]]
     * [[Schemas|Schemas]]
     * [[Editor pages|Editor-pages]]
@@ -134,8 +134,8 @@
   * [[Wiki|Wiki]]
     * [[Wiki-style-guide|Wiki-style-guide]]
   * Past Events
-    * Google Summer of Code: [[2022|Google-Summer-of-Code-2022]], [[2021|Google-Summer-of-Code-2021]], [[2020|Google-Summer-of-Code-2020]], [[2019|Google-Summer-of-Code-2019]], [[2018|Google-Summer-of-Code-2018]], [[2017|Google-Summer-of-Code-2017]], [[2016|Google-Summer-of-Code-2016]]
-    * Hacktoberfest: [[2022|Hacktoberfest-2022]], [[2021|Hacktoberfest-2021]], [[2020|Hacktoberfest-2020]], [[2019|Hacktoberfest-2019]], [[2018|Hacktoberfest-2018]], [[2017|Hacktoberfest-2017]], [[2016|Hacktoberfest-2016]]
+    * Google Summer of Code: [[2023|Google-Summer-of-Code-2023]], [[2022|Google-Summer-of-Code-2022]], [[2021|Google-Summer-of-Code-2021]], [[2020|Google-Summer-of-Code-2020]], [[2019|Google-Summer-of-Code-2019]], [[2018|Google-Summer-of-Code-2018]], [[2017|Google-Summer-of-Code-2017]], [[2016|Google-Summer-of-Code-2016]]
+    * Hacktoberfest: [[2023|Hacktoberfest-2023]], [[2022|Hacktoberfest-2022]], [[2021|Hacktoberfest-2021]], [[2020|Hacktoberfest-2020]], [[2019|Hacktoberfest-2019]], [[2018|Hacktoberfest-2018]], [[2017|Hacktoberfest-2017]], [[2016|Hacktoberfest-2016]]
     * GHC Open Source Day: [[2019|GHC-Open-Source-Day-2019]], [[2018|GHC-Open-Source-Day]]
     * Season of Docs: [[2019|Season-of-Docs-2019]]
     * DSC-SLoP (Semester Long Project): [[2022|SLoP-2022]], [[2020|SLoP-2020]]
