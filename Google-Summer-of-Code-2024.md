@@ -18,9 +18,9 @@ _We are making some changes to how we run GSoC for 2024. Please read this page c
 
 Oppia is planning to participate in [Google Summer of Code 2024](https://summerofcode.withgoogle.com/)! GSoC is a global program which offers an opportunity to discover and work with open source organizations to post-secondary students and other non-experienced contributors. The contributions are supported by a stipend. Contributors work closely with one or more mentors from an open source organization in order to implement either a project idea by the organization, or a proposal of their own.
 
-In order to receive updates about GSoC at Oppia, please subscribe to the [Oppia GSoC Announce](https://groups.google.com/g/oppia-gsoc-announce) mailing list and keep an eye on [GitHub Discussions](https://github.com/oppia/oppia/discussions).
+In order to receive updates about GSoC at Oppia, please subscribe to the [Oppia GSoC Announce](https://groups.google.com/g/oppia-gsoc-announce) mailing list.
 
-This year, Oppia will follow the standard GSoC timeline: projects will have 6 weeks for each milestone, with a PM demo and internal evaluation after 5 weeks. Please refer to the [Dates and Deadlines](#dates-and-deadlines) section below for more details.
+This year, Oppia will follow the standard GSoC timeline: projects will have 6 weeks for each milestone, with a product demo and internal evaluation after 5 weeks. Please refer to the [Dates and Deadlines](#dates-and-deadlines) section below for more details.
 
 Also, please note that acceptance into GSoC isn't a prerequisite for becoming an Oppia contributor. The Oppia project is run by the community for the community, and we warmly welcome anyone who'd like to help out! You can get started by following the instructions [here](https://github.com/oppia/oppia/wiki).
 
@@ -38,7 +38,7 @@ GSoC is an excellent opportunity for new contributors to get paid to work on an 
 
 Welcome! If you're interested in applying to work with Oppia for GSoC, please follow these steps:
 
-1. Sign up to the [oppia-gsoc-announce@](https://groups.google.com/forum/#!forum/oppia-gsoc-announce) mailing list in order to receive important notifications about Oppia's participation in GSoC. Also, turn on notifications for [Github Discussions](https://github.com/oppia/oppia/discussions) since announcements may be made there as well. Make sure to set your preferences for both of these correctly so that you actually get the emails!
+1. Sign up to the [oppia-gsoc-announce@](https://groups.google.com/forum/#!forum/oppia-gsoc-announce) mailing list in order to receive important notifications about Oppia's participation in GSoC. Make sure to set your preferences correctly so that you actually get the emails!
 
 2. Get a better understanding of what Oppia is about:
     - Read the [user documentation](http://oppia.github.io/#/) to become familiar with important concepts like explorations and interactions.
@@ -54,7 +54,7 @@ Welcome! If you're interested in applying to work with Oppia for GSoC, please fo
 
 5. Select one or more [GSoC project ideas](#oppias-project-ideas-list) that you're most interested in, and write your project proposal! You can get feedback from project mentors when you've completed a sufficient draft -- see the instructions in the [GSoC proposal template](#gsoc-proposal-template) section for details.
 
-   We require that all general discussion about GSoC projects take place in open channels. If you have questions about a project, you can ask in [GitHub Discussions](https://github.com/oppia/oppia/discussions/categories/gsoc-2024-q-a) or email the [oppia-gsoc-discuss@](https://groups.google.com/g/oppia-gsoc-discuss) mailing list. Please be specific when asking questions, since this makes it easier for us to help you.
+   We require that all general discussion about GSoC projects take place in open channels. If you have questions about a project, you can ask in [GitHub Discussions](https://github.com/oppia/oppia/discussions/categories/gsoc-2024-q-a). Please be specific when asking questions, since this makes it easier for us to help you.
 
    - **Pro-tip!** During the application period, your first goal should be to figure out how to become an effective contributor. Start developing your project proposal only once you have experience getting some PRs merged. This will give you a much better idea of what you want to work on, and how much you can accomplish.
 
@@ -186,7 +186,7 @@ Contributors have also told us why they continue to stay engaged with the projec
 
 - Community
   - I had a great experience with Oppia and would like to continue contributing to the project. I'd like to help newer contributors too, (for example by reviewing their code when I get the chance).
-  - The organisation is active and have strong community bond.
+  - The organisation is active and has a strong community bond.
   - It is really an awesome experience working with some amazing folks from all around the world at Oppia.
   - The kind of support the complete community provides is extraordinary.
 - Giving back
@@ -266,7 +266,7 @@ For the proposal, we generally look for a clear indication that the contributor 
 
 If you have questions pertaining to "how to get started with Oppia" or any other queries regarding GSoC at Oppia, please ask them on **GitHub Discussions** ([Web](https://github.com/oppia/oppia/discussions)). Please be specific when asking questions; this makes it easier for us to help you. Also, please make sure to read the relevant "getting started" wiki page ([Web](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up), [Android](https://github.com/oppia/oppia-android/wiki/Contributing-to-Oppia-android)) first, since the answer to your question might already exist there!
 
-To receive important announcements and updates about GSoC at Oppia, please subscribe to the **[Oppia GSoC Announce](https://groups.google.com/g/oppia-gsoc-announce)** mailing list and turn on notifications for GitHub Discussions.
+To receive important announcements and updates about GSoC at Oppia, please subscribe to the **[Oppia GSoC Announce](https://groups.google.com/g/oppia-gsoc-announce)** mailing list.
 
 ## Oppia's Project Ideas List
 
