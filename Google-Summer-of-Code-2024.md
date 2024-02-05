@@ -276,7 +276,7 @@ Please note that the list of project ideas below is not set in stone: more proje
 
 ### Learner and Creator Experience (LaCE) team
 
-The LaCE team's project ideas for GSoC 2024 are still in development, and will be published shortly.
+1.1. [Infrastructure and navigation for multiple classrooms](#11-infrastructure-and-navigation-for-multiple-classrooms)
 
 ### Contributor Dashboard team
 
@@ -299,7 +299,59 @@ The Developer Workflow team's project ideas for GSoC 2024 are still in developme
 
 ## Learner and Creator Experience (LaCE) team
 
-(No published projects yet.)
+### 1.1. Infrastructure and navigation for multiple classrooms
+
+**Project Description:**
+
+Oppia currently has a classroom page for Math lessons, which is featured prominently and accessible via the home page, navigation bar, community library and learner dashboard. We are planning to create more classrooms for other topics.
+
+The aim of this project is to implement the infrastructure to display these classrooms, and make it easy for learners to navigate to them.
+
+**Size of this project:** Medium (\~175 hours)
+
+**Difficulty**: Medium
+
+**Potential mentors:** @Nik-09
+
+**Product Clarifier:** @yupigummy
+
+**Technical Clarifier:** @seanlip
+
+**Required knowledge/skills:**
+- Ability to write code in Python with unit tests.
+- Ability to write code in TypeScript/Angular with unit tests.
+- Ability to write end-to-end or acceptance tests.
+- Effective communication using debugging docs.
+
+**Suggested Milestones:**
+- **Milestone 1**: Creators should be able to create new classrooms and view them at the relevant URLs. Specific deliverables:
+  - In the topics and skills dashboard, topics can be filtered by classroom, and the default sorting order for topics should be by when they were last updated.
+  - The topic editor page should show which classroom a topic is in.
+  - Whether a classroom is visible/hidden should be configurable on the classroom admin dashboard.
+  - A new "classroom index" page is implemented at www.oppia.org/learn, with e2e tests. The page is gated behind a feature flag. If there is only 1 visible classroom, this page should redirect to /learn/{{classroom-name}}. If there are more visible classrooms, it should show a list of classrooms. If there are no visible classrooms, it should show a standard error message in prod mode, and tell the user that they can create a new classroom at /classroom-admin in dev mode.
+  - Implement a generalized per-subject classroom page and update the math classroom to use it, including the routing. The functionality for classrooms should be fully generalized so that there is no direct reference to “/math” in the codebase.
+
+- **Milestone 2**: The new classrooms page should be discoverable and the learner-facing functionality should be completed so that the feature can be launched to users.
+  - Update the splash page and navigation bar to point to the new classroom index page if there is more than one classroom. (The existing behaviour of the site should be preserved if there is only one classroom.) Add e2e tests for this.
+  - Update the community library and learner dashboard to point to the new classroom pages, and add e2e tests for this.
+  - In the topic viewer page, show which classroom the topic is in.
+  - Work with the tech lead to add new CUJs and launch the new classrooms page functionality. Remove the feature flag once the launch is successful.
+
+**What we are looking for in proposals:**
+
+Here are some examples of questions to analyze:
+- How will you generalize the routing to multiple classrooms? (Ideally, this is handled in the frontend.) Which parts of this solution are already implemented and which parts still need to be done?
+- How will you efficiently determine which classroom (if any) a topic is in?
+- What backend changes are needed in order to remove any hardcoding of "/math" and generalize it?
+- What corner cases are there? Feel free to ask the product team if you need UI decisions, but you should think through and fully enumerate all the 'corner case' questions.
+
+**Technical hints / guidance**
+
+- Note that new classrooms are created using the dashboard at /classroom-admin. You will need curriculum admin permissions, which you can grant at /admin (see the Roles tab).
+- Here are [the PRD](https://docs.google.com/document/d/1d_FUVKiHsdB8drn9ofw72mIEHztM2GAF8UhErllVMCw/edit) and [mocks](https://www.figma.com/file/CxEKn4FvaZRAAbvuqDchD1/Oppia-Multiple-Classrooms?type=design&node-id=0%3A1&mode=design&t=a3kGrOeQP0HJm0dh-1) for the project, which you can use as a reference.
+- Make sure to include unit and acceptance tests to confirm both 1-classroom and multiple classrooms behaviour. In general, you'll want to test the behaviour for (a) a single /math classroom, (b) a single non-/math classroom, (c) 2+ classrooms.
+- All UI updates should work fully on mobile devices and be responsive, accessible and fully internationalized.
+- Make sure to handle corner cases correctly. E.g. if the learner has done no topics in the science classroom yet, then don’t show that classroom in the list of classrooms-with-topics-in-progress in the learner dashboard.
 
 
 ### 2.1. Show translation suggestions to translation submitters
