@@ -546,7 +546,7 @@ This project entails introducing support for more than just mathematics topics b
 
 **Reference document**: [PRD](https://docs.google.com/document/d/1uOiDnWBxJmDMwqej-VSRKEnDP4Been3np9y1ov6YTNA/edit)
 
-**Not in scope:** TBD
+**Not in scope:** N/A (nothing of note for this project).
 
 **Size of this project:** Large (\~350 hours)
 
