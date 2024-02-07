@@ -53,7 +53,7 @@ Python:
 
 Docker:
 ```
-    make run_backend_tests PYTHON_ARGS="--test_target=core.controllers.base_test.I18nDictsTests"
+make run_backend_tests PYTHON_ARGS="--test_target=core.controllers.base_test.I18nDictsTests"
 ```
 
 This validates the translation JSON files by verifying that the keys are correctly sorted, that the keys in en.json and qqq.json match, that every other translation JSON file has a subset of the keys in en.json, and so on.
