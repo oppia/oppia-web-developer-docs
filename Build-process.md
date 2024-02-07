@@ -107,7 +107,7 @@ python -m scripts.start --prod_env --maintenance_mode
 
 Docker:
 ```console
-make run-devserver PYTHON_ARGS="--prod_env --maintenance_mode"
+make run-devserver prod_env=true maintenance_mode=true
 ```
 
 #### Deploy mode
@@ -139,8 +139,8 @@ python -m scripts.run_e2e_tests --prod_env --source_maps
 
 Docker:
 ```console
-make run-devserver PYTHON_ARGS="--source_maps"
-make run_tests.e2e PYTHON_ARGS="--prod_env --source_maps"
+make run-devserver source_maps=true
+make run_tests.e2e prod_env=true source_maps=true
 ```
 
 With these flags, the `webpack.*.sourcemap.config.ts` configuration files are used to enable source mapping. For information about using source maps, see our [[guide to debugging frontend code|Debug-frontend-code]]
