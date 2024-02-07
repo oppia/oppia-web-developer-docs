@@ -95,8 +95,14 @@ As far as the build process is concerned, maintenance mode works just like [plai
 
 This mode is used by our deployment scripts. You can also enable it locally like this:
 
+Python:
 ```console
 python -m scripts.start --prod_env --maintenance_mode
+```
+
+Docker:
+```console
+make run-devserver PYTHON_ARGS="--prod_env --maintenance_mode"
 ```
 
 #### Deploy mode
