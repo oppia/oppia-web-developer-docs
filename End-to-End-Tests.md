@@ -258,7 +258,7 @@ python -m scripts.run_e2e_tests --prod_env
 
 Docker:
 ```console
-make run_tests.e2e PYTHON_ARGS="--prod_env"
+make run_tests.e2e prod_env=true
 ```
 
 On CI, we run all the E2E tests in production mode to more closely mimic how the Oppia application behaves in production.
