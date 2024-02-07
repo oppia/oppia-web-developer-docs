@@ -89,6 +89,11 @@ Python:
 python -m scripts.start --prod_env
 ```
 
+Docker:
+```console
+make run-devserver PYTHON_ARGS="--prod_env"
+```
+
 #### Maintenance mode
 
 As far as the build process is concerned, maintenance mode works just like [plain prod mode](#plain-prod-mode) except that the `ENABLE_MAINTENANCE_MODE` constant gets set to `true`. Then when the app runs, only admins can log in. We use this when we are upgrading the production server and need to let jobs run while ensuring users don't change any data.
