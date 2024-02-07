@@ -91,7 +91,7 @@ python -m scripts.start --prod_env
 
 Docker:
 ```console
-make run-devserver PYTHON_ARGS="--prod_env"
+make run-devserver prod_env=true
 ```
 
 #### Maintenance mode
