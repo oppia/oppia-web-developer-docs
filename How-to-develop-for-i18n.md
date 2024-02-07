@@ -48,7 +48,7 @@ To verify your changes to translation files locally, run the following command i
 
 Python:
 ```
-    python -m scripts.run_backend_tests --test_target=core.controllers.base_test.I18nDictsTests
+python -m scripts.run_backend_tests --test_target=core.controllers.base_test.I18nDictsTests
 ```
 
 Docker:
