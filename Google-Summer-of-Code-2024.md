@@ -280,13 +280,13 @@ Please note that the list of project ideas below is not set in stone: more proje
 
 ### Contributor Dashboard team
 
-2.1. [Show translation suggestions to translation submitters](#21-show-translation-suggestions-to-translation-submitters)
+2.1. [Show AI-powered and cached translation suggestions to translation submitters](#21-show-ai-powered-and-cached-translation-suggestions-to-translation-submitters)
 
 2.2. [Make it possible to update translations for previously-translated content](#22-make-it-possible-to-update-translations-for-previously-translated-content)
 
 ### Developer Workflow team
 
-The Developer Workflow team's project ideas for GSoC 2024 are still in development, and will be published shortly.
+3.1. [Acceptance tests](#31-acceptance-tests)
 
 ### Android team
 
@@ -354,7 +354,9 @@ Here are some examples of questions to analyze:
 - Make sure to handle corner cases correctly. E.g. if the learner has done no topics in the science classroom yet, then don’t show that classroom in the list of classrooms-with-topics-in-progress in the learner dashboard.
 
 
-### 2.1. Show translation suggestions to translation submitters
+## Contributor Dashboard (CD) team
+
+### 2.1. Show AI-powered and cached translation suggestions to translation submitters
 
 **Project Description:**
 
@@ -363,6 +365,8 @@ This project involves showing auto-generated suggestions in the Contributor Dash
 The project involves implementing a system for caching translations so that each (string, language) pair is associated with both an unreviewed and approved translation. The approved translation should be populated just once, and cached for future use, and the source of the automatic translation should also be stored. The manual translation is only populated once a translation is approved by a human reviewer (possibly after edits). This cache system should then be used to generate auto-suggestions for new strings that match an existing one, when the translation submitter is asked to create a translation for a string that exactly matches one that is already in our database.
 
 Additionally, Oppia already has a partial implementation for [computer-aided translation (CAT)](https://docs.google.com/document/d/1kJd-yLTzB9a2c3Nq7v9pzKfHwKHKGpkWfQ8B0YGf50U/edit#heading=h.24wysknhgyrz) support. This project also involves auditing that implementation and completing it, so that auto-generated translations can be suggested to translation submitters.
+
+**Tracking issues**: [#16164](https://github.com/oppia/oppia/issues/16164), [#19680](https://github.com/oppia/oppia/issues/19680), [#19681](https://github.com/oppia/oppia/issues/19681)
 
 **Not in scope:**
 - Configuring the list of languages that are prioritized for translation
@@ -373,7 +377,7 @@ Additionally, Oppia already has a partial implementation for [computer-aided tra
 
 **Difficulty**: Hard
 
-**Potential mentors:** @chris7716
+**Potential mentors:** @chris7716, @Aakash-Jakhmola
 
 **Product Clarifier:** @seanlip
 
@@ -384,6 +388,7 @@ Additionally, Oppia already has a partial implementation for [computer-aided tra
 - Ability to write code in TypeScript/Angular with unit tests.
 - Ability to write Beam jobs with tests. (This [wiki page](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs) explains how to write Apache Beam jobs. You can try some issues from [this list](https://docs.google.com/document/d/1egQNvBXlgRNhSXdscUZlYOTgd48MXO9a5cPW2rVFL0Y/edit) to get experience.)
 - Effective communication using debugging docs.
+- Ability to write and/or fix flakes in e2e/acceptance tests.
 
 **Suggested Milestones:**
 - **Milestone 1**: The full translation caching system backend is implemented and used for auto-suggesting translations for strings that have been previously accepted. The contributor dashboard UI displays these suggestions to translation submitters and explains why they are being suggested. When a translation is accepted by a reviewer, its 'approved' entry in the datastore model is updated. If availability of translations meets the existing criteria for displaying a translated language in the exploration player, the exploration player UI displays these translations to learners, along with an indicator that the translation has not been reviewed yet (see [these mocks](https://github.com/oppia/design-team/issues/95)).
@@ -403,6 +408,10 @@ Additionally, Oppia already has a partial implementation for [computer-aided tra
 - Here is an [information sketch](https://docs.google.com/document/d/1ZZ6pVKpmynTlmf1_PV1I5TcccmEXPnmoFAVKXN-u2xM/edit#bookmark=id.d999h6434xq2) about the translation caching system. You can use it as a starting point for your technical design. Note that there are other reasons to cache beyond the one implemented in this project (e.g. we might have custom logic for auto-translation of strings that are entirely numeric) and your system should be extensible to these.
 - We have filed a request for the CD mocks with the design team; you can follow [this design issue](https://github.com/oppia/design-team/issues/128) for updates. For your proposal, focus more on the technical aspects than the mocks.
 - A large part (probably around \~80%) of the CAT backend work is already done (see [this doc](https://docs.google.com/document/d/1kJd-yLTzB9a2c3Nq7v9pzKfHwKHKGpkWfQ8B0YGf50U/edit#heading=h.jp6no890gjkv) for details). You might like to look at previous unfinished PRs: [#12604](https://github.com/oppia/oppia/pull/12604/files) / [#14418](https://github.com/oppia/oppia/pull/14418).
+- If anything goes wrong with generating the suggestion, just don’t show the suggestion part of the submission modal. (Don’t error noisily in a way that blocks the experience for the translation submitter.)
+- You will need to gate the new functionality behind [feature flags](https://github.com/oppia/oppia/wiki/Launching-new-features). The flags that would need to be added are for:
+  - `SHOW_TRANSLATION_SUGGESTIONS_IN_CD`, for gating the integration of translation suggestions to the contributor dashboard
+  - `SHOW_AUTOGENERATED_TRANSLATIONS_IN_LESSONS` -- for showing autogenerated translations in the exploration player
 - This [related PRD](https://docs.google.com/document/d/1TeGQQNLNJWkTgvGQ1xmV6snz8zXnJ23TvuDKtK5_Tok/edit) might be a helpful reference.
 
 
@@ -412,10 +421,10 @@ Additionally, Oppia already has a partial implementation for [computer-aided tra
 
 Sometimes, after a piece of content is translated, a small part of the original text is edited. In such cases, we should:
 
-- Ensure that the translation counts in the exploration editor translations tab and contributor dashboard are updated correctly.
+- Ensure that the translation counts in the exploration editor translations tab and contributor dashboard are updated correctly, and that the correct behaviour is locked in by acceptance tests.
 - Make it easy for the translator to base their new translation on the original one, but just edit the part of the previous translation that has changed. (Currently, they need to submit a brand-new translation instead.) We can do this by showing the new content to be translated, the existing translation, and a diff between the new content and the previously-translated content.
 
-We should also have a way to regenerate the translation count data (in both the exploration editor translations tab and the contributor dashboard) in case of any data corruption.
+**Tracking issues**: [#16163](https://github.com/oppia/oppia/issues/16163)
 
 **Not in scope:**
 - Translation caching and/or auto-generation
@@ -425,7 +434,7 @@ We should also have a way to regenerate the translation count data (in both the 
 
 **Difficulty**: Hard
 
-**Potential mentors:** @chris7716
+**Potential mentors:** @chris7716, @Aakash-Jakhmola
 
 **Product Clarifier:** @seanlip
 
@@ -436,11 +445,15 @@ We should also have a way to regenerate the translation count data (in both the 
 - Ability to write code in TypeScript/Angular with unit tests.
 - Ability to write Beam jobs with tests. (This [wiki page](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs) explains how to write Apache Beam jobs. You can try some issues from [this list](https://docs.google.com/document/d/1egQNvBXlgRNhSXdscUZlYOTgd48MXO9a5cPW2rVFL0Y/edit) to get experience.)
 - Effective communication using debugging docs.
+- Ability to write and/or fix flakes in e2e/acceptance tests.
+- An understanding of how to query the App Engine datastore directly, e.g. structuring queries to use 1 get-multi operation rather than N get operations.
 
 **Suggested Milestones:**
-- **Milestone 1**: Ensure that the translation counts in the exploration editor translations tab and contributor dashboard are updated correctly when translations are marked-as-stale or new translations are updated. Provide a way for admins to regenerate the translation count data (in both the exploration editor translations tab and the contributor dashboard) in case of any data corruption (they should be able to select 'all explorations' or a particular exploration, and they should be able to select 'all languages' or a particular language).
+- **Milestone 1**: Ensure that the translation counts in the exploration editor translations tab and contributor dashboard are updated correctly when translations are marked-as-stale or new translations are updated, and that the strings to re-translate show up in the CD view for submitters; write acceptance tests to cover this behaviour. Verify also that the reviewer sees the current text at the time they are reviewing, and not the text at the time of submission.
 
-- **Milestone 2**: Make any necessary backend changes for storing data about the English content of an exploration at the time the last translation for that content was accepted. Use this to show a diff view in the UI that translators can use to create the translation for the updated content.
+  Make the necessary backend changes for storing data about the English content of an exploration at the time the last translation for that content was accepted (note: not the English content at the time the opportunity was created), and populate this information retroactively for lessons in topics using a Beam job.
+
+- **Milestone 2**: Show a diff view in the UI that translators can use to create the translation for the updated content. Hide this diff view behind a feature flag `SHOW_DIFF_VIEW_FOR_RETRANSLATING_UPDATED_CONTENT`.
 
 **What we are looking for in proposals:**
 
@@ -454,21 +467,83 @@ We should also have a way to regenerate the translation count data (in both the 
 
 - A request for mocks for the contributor dashboard UI has been filed with the design team; feel free to follow along at [this link](https://github.com/oppia/design-team/issues/128).
 - Note that a tricky part of this project involves showing the English content at the time the previous translation was accepted. We recommend first investigating if this information is stored anywhere, or is easily retrievable. If not, you’ll need to create a separate model for it and populate it via a Beam job, and ensure that it is subsequently populated whenever a translation is approved. There is some earlier analysis in [this TDD](https://docs.google.com/document/d/1RIlefl2kmXyqwrcqTruNjJlQ6EWoiKs9DApT52Kahx8/edit) which you can use as a starting point, but you should validate whether that analysis is correct and not follow it blindly.
+- You might find this information about [feature flags](https://github.com/oppia/oppia/wiki/Launching-new-features) useful.
 
 
 ## Developer workflow team
 
-(No published projects yet.)
+### 3.1. Acceptance tests
+
+**Project Description:**
+
+The Oppia development team is enhancing its software quality by implementing Acceptance Testing on the develop branch. These end-to-end tests are crucial for ensuring the application's functionality aligns with user expectations, with the aim of detecting and fixing bugs before release. By automating the tests for every commit, the team ensures that key user journeys remain unbroken, enhancing the reliability and user experience of the software.
+
+A detailed documentation of user journeys and test steps is maintained to guide the testing process. This project requires both writing acceptance tests for all the user stories, as well as fixing any minor UI/UX issues that cause e2e test flakiness.
+
+Note that one other benefit of moving to the acceptance tests is that critical user journeys (CUJs) can be more easily tracked. With a complete suite of acceptance tests, it is easier to audit whether or not a particular CUJ has been included. This makes it easier to add tests for new CUJs introduced in new features while still keeping the tests well-organized. A key goal of this project is therefore to write the acceptance tests in a maintainable way that achieves these aims.
+
+Here is a spreadsheet detailing most of the tests that need to be written:
+https://docs.google.com/spreadsheets/d/1O8EHiSAGrG0yoNUBz9E4DIwKNS8Rfsv_ffC4k1WK5jc/edit#gid=1807800085
+
+**Tracking issue**: [#17712](https://github.com/oppia/oppia/issues/17712)
+
+**Not in scope:**
+- Building the infrastructure to write and run the acceptance tests. (Though please note that writing the acceptance tests in a maintainable way, e.g. extracting utility functions to enable code reuse or provide relevant functionality for a group of tests, is still in scope.)
+- Writing acceptance tests for new features that are first introduced after April 2024.
+
+**Size of this project:** Large (\~350 hours). Alternatively, you may pick either Milestone 1 or Milestone 2 for a medium-sized project.
+
+**Difficulty**: Medium
+
+**Potential mentors:** TBD
+
+**Product Clarifier:** @seanlip
+
+**Technical Clarifier:** @DubeySandeep
+
+**Required knowledge/skills:**
+- Ability to write non-flaky End-to-End tests, including appropriate use of WaitFor. (To demonstrate this, we recommend making at least one PR that solves a part of #17712 by covering the CUJs for at least one set of users. This PR should demonstrate the ability to comprehend and articulate acceptance test requirements.)
+- Ability to diagnose and resolve issues within E2E tests, particularly flakiness. (To demonstrate this, show one or more [debugging docs](https://github.com/oppia/oppia/wiki/Debugging-Docs) that correctly diagnose the root cause of an e2e flake, and make at least one PR that resolves at least one E2E flakiness issue.)
+- Ability to make frontend changes to fix small code issues that are found when writing the acceptance tests. (To demonstrate this, you can show 2-3 PRs that fix UI/UX issues.)
+- Ability to debug changes in general and communicate issues clearly in writing. (See above note re debugging docs.)
+- Participation in QA testing. This is required because, for this project, it is important to understand the app from a product perspective. If you are interested in this project, we recommend joining the release testers mailing list at oppia-release-testers@googlegroups.com and looking out for calls to help with release testing.
+
+**Suggested Milestones:**
+- **Milestone 1**: Complete the acceptance tests for creators' and contributors' user journeys, and ensure that they run on all PRs (by adding them to the "acceptance test" GitHub workflow). Remove any existing webdriverio tests whose functionality is fully covered by the new acceptance tests.
+
+  Creators' journeys include: exploration editor, blog editor and voice artist CUJs.
+
+  Contributors' journeys include: translation and question submitters, translation and question reviewers.
+
+- **Milestone 2**: Complete the acceptance tests for learners' and admins' user journeys, and ensure that they run on all PRs (by adding them to the "acceptance test”"GitHub workflow). Remove any existing webdriverio tests whose functionality is fully covered by the new acceptance tests.
+
+  Learners' journeys include: guest/anonymous users and logged-in users. Surfaces to test include the site’s static pages, the exploration player, the learner dashboard, the embedded lesson player, the newsletter email signup, and the “contact us” page.
+
+  Admins' journeys include: curriculum admin or topic manager (topic, skill, question creation / editing), contributor dashboard admin, release coordinator (feature flags, flush cache, running a Beam job), site admin.
+
+**What we are looking for in proposals:**
+
+For this particular GSoC project, the proposal is less important and we are more interested in your previous PRs, as described above. We recommend focusing your efforts accordingly.
+
+Some things you could address in your proposal:
+- How will you break down this project into individual milestones? Provide a clear timeline for this.
+- Explain how your tests would catch console errors that arise during execution of the user journeys.
+- For each existing webdriverio test file, specify the set of CUJs which need to be covered by acceptance tests in order for it to be removed. (If you identify gaps in the spreadsheet CUJs during this audit, feel free to suggest improvements to those.)
+- In the release-coordinator tab, we want to test the "running Beam jobs" CUJ. Analyze the tradeoffs of creating a separate tiny Beam job for this that runs quickly, doesn't affect the datastore, and that can be added to the list of jobs in the /release-coordinator page, versus using one of the existing Beam jobs. Describe which approach you would take and why. (Note: you can find more info on how to write Beam jobs in [this wiki page](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs).)
+- Describe how you would handle specific issues that arise in acceptance tests like mobile viewports, waiting for long-running operations like Beam jobs, etc.
+- Suggest any improvements to test organization that you would make, or missing CUJs that you would add. You can cross-reference the testing spreadsheet with the CUJ document that is currently used for release testing, or identify those journeys yourself. Focus only on *critical* user journeys -- you do not need to go into detail for all the edge cases.
+- Include test specs for some of the journeys that are not yet covered in the spreadsheet, such as the release-coordinator and site admin user journeys. You can also do this for recently-released features or features that are about to be released (like the contributor admin dashboard, learner groups, contributor recognition project, etc.).
+
+
+**Technical hints / guidance**
+
+- Start by writing tests for just one CUJ to make sure you can do it properly. If you are able to do that well, then there is a good chance that you will be successful with this project.
+- For this project, user journeys are detailed in a shared sheet, divided into distinct tabs. During the implementation phase, applicants should tackle each user journey in a structured way, leveraging lessons and code from earlier phases to inform later work. This will help streamline implementation and ensure efficient reuse of developed solutions.
+- There is some buffer time built in to the project for improving the organization of tests as more tests get written. Your mentors will work with you on this.
+- Note that QA coordinators can advise on CUJs and provide detail on them if any are unclear. Feel free to reach out to them once you've joined the release testing team.
 
 
 ## Android team
-
-4.1. [Code coverage support and enforcement](#41-code-coverage-support-and-enforcement)
-
-4.2. [Multiple classrooms support](#42-multiple-classrooms-support)
-
-4.3. [Platform parameter developer dashboard and improvements to platform parameter testing support](#43-platform-parameter-developer-dashboard-and-improvements-to-platform-parameter-testing-support)
-
 
 ### 4.1. Code coverage support and enforcement
 
@@ -482,7 +557,7 @@ This project entails introducing support for measuring code coverage for all Kot
 
 **Tracking issues**: [#1497](https://github.com/oppia/oppia-android/issues/1497), [#1726](https://github.com/oppia/oppia-android/issues/1726), [#1727](https://github.com/oppia/oppia-android/issues/1727), [#1728](https://github.com/oppia/oppia-android/issues/1728)
 
-**Not in scope:** 
+**Not in scope:**
 - Adding tests for any existing code not affected by the new script functionality itself. This project is NOT intending to increase code coverage, just add instrumentation for it.
 - Updating any projects outside of Oppia Android unless this is required in order to get code coverage working during proposal writing.
 
