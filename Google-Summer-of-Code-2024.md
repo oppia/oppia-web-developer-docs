@@ -278,6 +278,11 @@ Please note that the list of project ideas below is not set in stone: more proje
 
 1.1. [Infrastructure and navigation for multiple classrooms](#11-infrastructure-and-navigation-for-multiple-classrooms)
 
+1.2. [Static page redesigns](#12-static-page-redesigns)
+
+1.3. [Clean up the structure for revision cards and worked examples](#13-clean-up-the-structure-for-revision-cards-and-worked-examples)
+
+
 ### Contributor Dashboard team
 
 2.1. [Show AI-powered and cached translation suggestions to translation submitters](#21-show-ai-powered-and-cached-translation-suggestions-to-translation-submitters)
@@ -321,7 +326,7 @@ The aim of this project is to implement the infrastructure to display these clas
 - Ability to write code in Python with unit tests.
 - Ability to write code in TypeScript/Angular with unit tests.
 - Ability to write end-to-end or acceptance tests.
-- Effective communication using debugging docs.
+- Effective communication using [debugging docs](https://github.com/oppia/oppia/wiki/Debugging-Docs).
 
 **Suggested Milestones:**
 - **Milestone 1**: Creators should be able to create new classrooms and view them at the relevant URLs. Specific deliverables:
@@ -335,6 +340,7 @@ The aim of this project is to implement the infrastructure to display these clas
   - Update the splash page and navigation bar to point to the new classroom index page if there is more than one classroom. (The existing behaviour of the site should be preserved if there is only one classroom.) Add e2e tests for this.
   - Update the community library and learner dashboard to point to the new classroom pages, and add e2e tests for this.
   - In the topic viewer page, show which classroom the topic is in.
+  - Implement the necessary analytics events for classroom usage (see the "Automatically-collected metrics" section of the PRD).
   - Work with the tech lead to add new CUJs and launch the new classrooms page functionality. Remove the feature flag once the launch is successful.
 
 **What we are looking for in proposals:**
@@ -352,6 +358,111 @@ Here are some examples of questions to analyze:
 - Make sure to include unit and acceptance tests to confirm both 1-classroom and multiple classrooms behaviour. In general, you'll want to test the behaviour for (a) a single /math classroom, (b) a single non-/math classroom, (c) 2+ classrooms.
 - All UI updates should work fully on mobile devices and be responsive, accessible and fully internationalized.
 - Make sure to handle corner cases correctly. E.g. if the learner has done no topics in the science classroom yet, then don’t show that classroom in the list of classrooms-with-topics-in-progress in the learner dashboard.
+
+
+### 1.2. Static page redesigns
+
+**Project Description:**
+
+User research has indicated that the informational pages on the Oppia.org website could be improved, because users cannot find the information that they need from them. The aim of this project is to make these improvements.
+
+Please refer to [this PRD](https://docs.google.com/document/d/1enceUlqh7KpaE5i_rdKE-0mZh899tYNf524vFiUYZvI/edit) (still being worked on) for the full details of this project.
+
+**Not in scope:**
+- Writing translations for the pages into other languages. You should only fill in en.json and qqq.json for any learner-facing strings, as described in our [internationalization wiki page](https://github.com/oppia/oppia/wiki/How-to-develop-for-i18n#adding-new-translation-keys).
+
+**Size of this project:** Small (\~90 hours)
+
+**Difficulty**: Easy
+
+**Potential mentors:** TBD
+
+**Product Clarifier:** @tanzhirong (tentative)
+
+**Technical Clarifier:** TBD
+
+**Required knowledge/skills:**
+- Ability to write frontend PRs in TypeScript/Angular/HTML/CSS with unit tests. These PRs should show attention to detail and excellent judgment for responsive design.
+- Ability to write and/or fix flakes in e2e/acceptance tests.
+- Ability to make small backend changes in the Python code.
+- Effective communication using [debugging docs](https://github.com/oppia/oppia/wiki/Debugging-Docs).
+
+**Suggested Milestones:**
+- **Milestone 1**: Update the acceptance tests to cover the "ideal flows" for volunteers, donors, partners, and parents/teachers with acceptance tests (see the "Product Flows and Requirements for Specific User Flows”"section). This might involve modifying some of the existing tests to make the user type more specific.
+
+  Redesign the About page according to the given mocks, and ensure that it is fully-responsive for all device sizes, reaches a Lighthouse score of 100 for accessibility, and fully internationalizable.
+
+  Update and simplify the navbar according to the given mocks.
+
+- **Milestone 2**: Redesign the "Volunteering" and "For Parents/Teachers" pages according to the given mocks, and ensure that they are fully-responsive for all device sizes, reach a Lighthouse score of 100 for accessibility, and fully internationalizable. Add the necessary metrics events to these pages (see the “Automatically-collected metrics” section).
+
+**What we are looking for in proposals:**
+
+- Explain how you will ensure that the implemented/updated pages are (a) fully-responsive for all device sizes, (b) reach a Lighthouse score of 100 for accessibility, and (c) fully internationalizable. If possible, link to PRs that demonstrate that you have a good understanding of these areas.
+- List all the events you plan to add to Oppia’s site analytics service, and provide a sample of how you would do this.
+- For each element in the mocks (such as the bar graphs, timeline chart, etc.), explain how you would implement it.
+- Which common components would you create, and where would those common components be used? (It is a bonus if you are able to also use them in pages outside the ones covered in this project.)
+- When auditing the mocks and thinking about implementation, you might find that you need to get clarifications on various aspects of the mocks. Include, in your proposal, a list of questions that you have asked / would ask, how they affect the implementation, and the answers to those questions. You might even consider conducting some lightweight user research using the scripts provided in the PRD, but this is optional.
+
+**Technical hints / guidance**
+
+- Attention to detail is very important for this project – we don't want to have to revisit these pages again for several years after the GSoC project is completed. So, exhibiting good UI judgment is a particularly important skill that is required for this project. (For example, a button isn’t just a coloured rectangle – it has hover effects, it might change its size depending on the screen width, it might need accessibility support, etc.) Keep this in mind when tackling issues on Oppia, or proposing implementation strategies for this project.
+
+- Where possible, try to make common components (like the primary-button component that is used in several static pages; see e.g. [oppia#19676](https://github.com/oppia/oppia/pull/19676)) so that you only need to implement the details once, and can more easily keep things consistent throughout the website. We suggest doing this for any UI element that you would use at least twice, and in some cases it might make sense to do it even if you use the element once (so that the component is better encapsulated)
+
+
+### 1.3. Clean up the structure for revision cards and worked examples
+
+**Project Description:**
+
+Currently, topics in Oppia contain a list of skills that they teach, and these skills are grouped into “subtopics” (like “Adding Fractions”), each with its own revision card (or “subtopic page”). Subtopic pages were originally implemented as a single rich-text editor (RTE) component, but given their length in practice, this was a mistake since it means that they are too big to be translated easily. Additionally, skill descriptions (“concept cards”) and subtopic pages can include worked examples, but worked examples were incorrectly implemented as a field on the skill model. Experience has shown that worked examples would be better implemented as a rich-text component instead, since this gives more flexibility in where they are placed and allows them to be used in other contexts like the subtopic pages.
+
+The aim of this project is therefore to clean up some of this incorrect modelling and fix the representation of subtopic pages and worked examples, while also ensuring that they are easily translatable.
+
+**Not in scope:**
+- Implementing new rich-text components other than "Worked Example".
+
+**Size of this project:** Large (\~350 hours)
+
+**Difficulty**: Hard
+
+**Potential mentors:** @kevintab95
+
+**Product Clarifier:** @seanlip
+
+**Technical Clarifier:** @kevintab95
+
+**Required knowledge/skills:**
+- Ability to write code in Python with unit tests.
+- Ability to write code in TypeScript/Angular with unit tests.
+- Ability to write Beam jobs with tests. (This [wiki page](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs) explains how to write Apache Beam jobs. You can try some issues from [this list](https://docs.google.com/document/d/1egQNvBXlgRNhSXdscUZlYOTgd48MXO9a5cPW2rVFL0Y/edit) to get experience.)
+- Ability to write and/or fix flakes in e2e/acceptance tests.
+- Effective communication using [debugging docs](https://github.com/oppia/oppia/wiki/Debugging-Docs).
+
+**Suggested Milestones:**
+- **Milestone 1**: Carry out a schema migration to split the subtitled_html field of SubtopicPageContents (also known as "revision cards") into a list of (heading: str, content: RTE) pairs – existing subtopic page content should be migrated to a single-element list, with the only item in that list having a heading that is the revision card’s title, and a body consisting of the existing RTE content.
+
+  Store the written translations for subtopic pages in EntityTranslationsModel instead of within the SubtopicPage object, similar to the migration that was done for the correspondingly-named field in explorations a few years ago. Also, introduce a unique content ID for each translatable field, similar to explorations. (This should be a relatively easy migration because there are no translations for SubtopicPages yet, but you will need to figure out the new structure and fix the "plumbing".)
+
+  Update the editor UI to accommodate the new structure, and the learner UI to use an improved display for the revision cards based on these mocks, with clearly-indicated headings for each of the sections.
+
+- **Milestone 2**: Carry out a schema migration to safely deprecate the `worked_examples` field in the `skill_contents` part of the SkillModel, and remove it from the skill editor UI as well. Implement a new 'Worked Example' RTE component that appears only in the skill description and subtopic page RTEs, and add acceptance tests for its use. Ensure that this component is (in principle) translatable in the contributor dashboard.
+
+**What we are looking for in proposals:**
+
+- Explain how the current structure for exploration translations works, and describe, by analogy, the ideal structure for skill and subtopic card translations. For the subtopic pages, what changes exactly will you make with regards to written translations and content IDs?
+- Explain in detail the steps you would take to carry out the structural migrations for subtopic pages and skills. For the former, what will the updated editor UI look like?
+- Explain how you would make the new 'worked examples' component appear only in the concept card and revision card RTEs. Additionally, what will the schema of this new RTE component look like, and how will you structure the acceptance tests?
+- What is the **full list** of places which use RTE components, and that will need to be updated with details for the worked example component? Explain the approach you took to find these.
+
+**Technical hints / guidance**
+
+- For the worked examples section, see [this PRD](https://docs.google.com/document/d/1QrqTsR1Ew3WfQvj7D83mh0k9HjW6xQ-2dpJGkbe8XqY/edit#heading=h.s68z2sezulra). There is currently no PRD for revision cards, but there are [preliminary mocks](https://www.figma.com/file/wH1RGiZ7KEvLUxeL5R16G6/Oppia-%7C-RTE?type=design&mode=design&t=vEGSCuJcR3gRtZlB-0#681559870) that you can use as a basis.
+- See [this wiki page](https://github.com/oppia/oppia/wiki/Rich-Text-Editor-%28RTE%29-Overview) for details on how to implement rich-text components.
+- See [this wiki page](https://github.com/oppia/oppia/wiki/Writing-state-migrations) for details on how to write state migrations. Writing migrations for other entities follows a similar process.
+- We recommend taking the time to really understand how exploration translations work before you try to figure out a similar structure for subtopic pages. The original TDD for that project is here: [Infrastructure for separate storage of translations](https://docs.google.com/document/d/1ZZ6pVKpmynTlmf1_PV1I5TcccmEXPnmoFAVKXN-u2xM/edit).
+- For subtopic page contents, be careful to ensure that each element in the list has its own unique content ID. Do not just base the content ID on the item's index in the list – if you have 3 elements in the list and then remove the middle one, the last element’s content ID should not change. This is why we need a counter to keep track of the "next content ID to assign".
+- For "ensure that this component is (in principle) translatable in the contributor dashboard", you can temporarily enable it in exploration RTEs (e.g. in the hints RTE), and then test out the translation workflow. It's important to ensure that the new 'worked example' RTE component has behavioural parity with other RTE components in all places which refer to RTE components, even if it's not being used in the relevant contexts yet – for example, you should update the character-counting logic for hint/solution validation to handle worked-example RTE components as well, in case we decide to make this component available to explorations in the future.
 
 
 ## Contributor Dashboard (CD) team
@@ -387,7 +498,7 @@ Additionally, Oppia already has a partial implementation for [computer-aided tra
 - Ability to write code in Python with unit tests.
 - Ability to write code in TypeScript/Angular with unit tests.
 - Ability to write Beam jobs with tests. (This [wiki page](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs) explains how to write Apache Beam jobs. You can try some issues from [this list](https://docs.google.com/document/d/1egQNvBXlgRNhSXdscUZlYOTgd48MXO9a5cPW2rVFL0Y/edit) to get experience.)
-- Effective communication using debugging docs.
+- Effective communication using [debugging docs](https://github.com/oppia/oppia/wiki/Debugging-Docs).
 - Ability to write and/or fix flakes in e2e/acceptance tests.
 
 **Suggested Milestones:**
@@ -444,7 +555,7 @@ Sometimes, after a piece of content is translated, a small part of the original 
 - Ability to write code in Python with unit tests.
 - Ability to write code in TypeScript/Angular with unit tests.
 - Ability to write Beam jobs with tests. (This [wiki page](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs) explains how to write Apache Beam jobs. You can try some issues from [this list](https://docs.google.com/document/d/1egQNvBXlgRNhSXdscUZlYOTgd48MXO9a5cPW2rVFL0Y/edit) to get experience.)
-- Effective communication using debugging docs.
+- Effective communication using [debugging docs](https://github.com/oppia/oppia/wiki/Debugging-Docs).
 - Ability to write and/or fix flakes in e2e/acceptance tests.
 - An understanding of how to query the App Engine datastore directly, e.g. structuring queries to use 1 get-multi operation rather than N get operations.
 
@@ -521,6 +632,7 @@ https://docs.google.com/spreadsheets/d/1O8EHiSAGrG0yoNUBz9E4DIwKNS8Rfsv_ffC4k1WK
 
   Admins' journeys include: curriculum admin or topic manager (topic, skill, question creation / editing), contributor dashboard admin, release coordinator (feature flags, flush cache, running a Beam job), site admin.
 
+
 **What we are looking for in proposals:**
 
 For this particular GSoC project, the proposal is less important and we are more interested in your previous PRs, as described above. We recommend focusing your efforts accordingly.
@@ -531,7 +643,7 @@ Some things you could address in your proposal:
 - For each existing webdriverio test file, specify the set of CUJs which need to be covered by acceptance tests in order for it to be removed. (If you identify gaps in the spreadsheet CUJs during this audit, feel free to suggest improvements to those.)
 - In the release-coordinator tab, we want to test the "running Beam jobs" CUJ. Analyze the tradeoffs of creating a separate tiny Beam job for this that runs quickly, doesn't affect the datastore, and that can be added to the list of jobs in the /release-coordinator page, versus using one of the existing Beam jobs. Describe which approach you would take and why. (Note: you can find more info on how to write Beam jobs in [this wiki page](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs).)
 - Describe how you would handle specific issues that arise in acceptance tests like mobile viewports, waiting for long-running operations like Beam jobs, etc.
-- Suggest any improvements to test organization that you would make, or missing CUJs that you would add. You can cross-reference the testing spreadsheet with the CUJ document that is currently used for release testing, or identify those journeys yourself. Focus only on *critical* user journeys -- you do not need to go into detail for all the edge cases.
+- Suggest any improvements to test organization that you would make, or missing CUJs that you would add. You can cross-reference the testing spreadsheet with the [CUJ document](https://docs.google.com/document/d/1s3MG2MVh_7m7B0wIlZb7sAcoyUdY0zq7a1JEFtwYBjI/edit) that is currently used for release testing, or identify those journeys yourself through direct experimentation with the test server or your local dev setup. Focus only on *critical* user journeys -- you do not need to go into detail for all the edge cases.
 - Include test specs for some of the journeys that are not yet covered in the spreadsheet, such as the release-coordinator and site admin user journeys. You can also do this for recently-released features or features that are about to be released (like the contributor admin dashboard, learner groups, contributor recognition project, etc.).
 
 
