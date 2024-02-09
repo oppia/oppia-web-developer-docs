@@ -632,6 +632,7 @@ https://docs.google.com/spreadsheets/d/1O8EHiSAGrG0yoNUBz9E4DIwKNS8Rfsv_ffC4k1WK
 
   Admins' journeys include: curriculum admin or topic manager (topic, skill, question creation / editing), contributor dashboard admin, release coordinator (feature flags, flush cache, running a Beam job), site admin.
 
+
 **What we are looking for in proposals:**
 
 For this particular GSoC project, the proposal is less important and we are more interested in your previous PRs, as described above. We recommend focusing your efforts accordingly.
