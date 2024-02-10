@@ -352,20 +352,31 @@ The aim of this project is to implement the infrastructure to display these clas
 <details>
 <summary>What we are looking for in proposals:</summary>
 <br>
+
 Here are some examples of questions to analyze:
+
 - How will you generalize the routing to multiple classrooms? (Ideally, this is handled in the frontend.) Which parts of this solution are already implemented and which parts still need to be done?
+
 - How will you efficiently determine which classroom (if any) a topic is in?
+
 - What backend changes are needed in order to remove any hardcoding of "/math" and generalize it?
+
 - What corner cases are there? Feel free to ask the product team if you need UI decisions, but you should think through and fully enumerate all the 'corner case' questions.
+
 </details>
 
 <details>
 <summary>Technical hints / guidance</summary>
 <br>
+
 - Note that new classrooms are created using the dashboard at /classroom-admin. You will need curriculum admin permissions, which you can grant at /admin (see the Roles tab).
+
 - Here are [the PRD](https://docs.google.com/document/d/1d_FUVKiHsdB8drn9ofw72mIEHztM2GAF8UhErllVMCw/edit) and [mocks](https://www.figma.com/file/CxEKn4FvaZRAAbvuqDchD1/Oppia-Multiple-Classrooms?type=design&node-id=0%3A1&mode=design&t=a3kGrOeQP0HJm0dh-1) for the project, which you can use as a reference.
+
 - Make sure to include unit and acceptance tests to confirm both 1-classroom and multiple classrooms behaviour. In general, you'll want to test the behaviour for (a) a single /math classroom, (b) a single non-/math classroom, (c) 2+ classrooms.
+
 - All UI updates should work fully on mobile devices and be responsive, accessible and fully internationalized.
+
 - Make sure to handle corner cases correctly. E.g. if the learner has done no topics in the science classroom yet, then don’t show that classroom in the list of classrooms-with-topics-in-progress in the learner dashboard.
 </details>
 
@@ -409,16 +420,22 @@ Please refer to [this PRD](https://docs.google.com/document/d/1enceUlqh7KpaE5i_r
 <details>
 <summary>What we are looking for in proposals:</summary>
 <br>
+
 - Explain how you will ensure that the implemented/updated pages are (a) fully-responsive for all device sizes, (b) reach a Lighthouse score of 100 for accessibility, (c) support RTL layouts properly, and (d) fully internationalizable. If possible, link to PRs that demonstrate that you have a good understanding of these areas.
+
 - List all the events you plan to add to Oppia’s site analytics service, and provide a sample of how you would do this.
+
 - For each element in the mocks (such as the bar graphs, timeline chart, etc.), explain how you would implement it.
+
 - Which common components would you create, and where would those common components be used? (It is a bonus if you are able to also use them in pages outside the ones covered in this project.)
+
 - When auditing the mocks and thinking about implementation, you might find that you need to get clarifications on various aspects of the mocks. Include, in your proposal, a list of questions that you have asked / would ask, how they affect the implementation, and the answers to those questions. You might even consider conducting some lightweight user research using the scripts provided in the PRD, but this is optional.
 </details>
 
 <details>
 <summary>Technical hints / guidance</summary>
 <br>
+
 - Attention to detail is very important for this project – we don't want to have to revisit these pages again for several years after the GSoC project is completed. So, exhibiting good UI judgment is a particularly important skill that is required for this project. (For example, a button isn’t just a coloured rectangle – it has hover effects, it might change its size depending on the screen width, it might need accessibility support, etc.) Keep this in mind when tackling issues on Oppia, or proposing implementation strategies for this project.
 
 - When implementing, plan for each PR to include both desktop and mobile views (for a particular part of the mocks), as well as the necessary tests.
@@ -466,20 +483,30 @@ The aim of this project is therefore to clean up some of this incorrect modellin
 <details>
 <summary>What we are looking for in proposals:</summary>
 <br>
+
 - Explain how the current structure for exploration translations works, and describe, by analogy, the ideal structure for skill and subtopic card translations. For the subtopic pages, what changes exactly will you make with regards to written translations and content IDs?
+
 - Explain in detail the steps you would take to carry out the structural migrations for subtopic pages and skills. For the former, what will the updated editor UI look like?
+
 - Explain how you would make the new 'worked examples' component appear only in the concept card and revision card RTEs. Additionally, what will the schema of this new RTE component look like, and how will you structure the acceptance tests?
+
 - What is the **full list** of places which use RTE components, and that will need to be updated with details for the worked example component? Explain the approach you took to find these.
+
 </details>
 
 <details>
 <summary>Technical hints / guidance</summary>
 <br>
 - For the worked examples section, see [this PRD](https://docs.google.com/document/d/1QrqTsR1Ew3WfQvj7D83mh0k9HjW6xQ-2dpJGkbe8XqY/edit#heading=h.s68z2sezulra). There is currently no PRD for revision cards, but there are [preliminary mocks](https://www.figma.com/file/wH1RGiZ7KEvLUxeL5R16G6/Oppia-%7C-RTE?type=design&mode=design&t=vEGSCuJcR3gRtZlB-0#681559870) that you can use as a basis.
+
 - See [this wiki page](https://github.com/oppia/oppia/wiki/Rich-Text-Editor-%28RTE%29-Overview) for details on how to implement rich-text components.
+
 - See [this wiki page](https://github.com/oppia/oppia/wiki/Writing-state-migrations) for details on how to write state migrations. Writing migrations for other entities follows a similar process.
+
 - We recommend taking the time to really understand how exploration translations work before you try to figure out a similar structure for subtopic pages. The original TDD for that project is here: [Infrastructure for separate storage of translations](https://docs.google.com/document/d/1ZZ6pVKpmynTlmf1_PV1I5TcccmEXPnmoFAVKXN-u2xM/edit).
+
 - For subtopic page contents, be careful to ensure that each element in the list has its own unique content ID. Do not just base the content ID on the item's index in the list – if you have 3 elements in the list and then remove the middle one, the last element’s content ID should not change. This is why we need a counter to keep track of the "next content ID to assign".
+
 - For "ensure that this component is (in principle) translatable in the contributor dashboard", you can temporarily enable it in exploration RTEs (e.g. in the hints RTE), and then test out the translation workflow. It's important to ensure that the new 'worked example' RTE component has behavioural parity with other RTE components in all places which refer to RTE components, even if it's not being used in the relevant contexts yet – for example, you should update the character-counting logic for hint/solution validation to handle worked-example RTE components as well, in case we decide to make this component available to explorations in the future.
 </details>
 
@@ -534,33 +561,49 @@ Link to PRD: https://docs.google.com/document/d/1r9IEQ5z_t-eu9XAWN3eRA7iKdKuYsOQ
 <details>
 <summary>What we are looking for in proposals:</summary>
 <br>
+
 Some questions to check that you understand the tech stack:
+
 - How will you load the lesson in the preferred language once the user clicks on the Start button?
+
 - How would you load the practice questions session populated with the desired subtopic ID?
+
 - Explain how you will ensure that the implemented/updated pages are (a) fully-responsive for all device sizes, (b) reach a Lighthouse score of 100 for accessibility, (c) support RTL layouts, and (d) are fully internationalizable. If possible, link to PRs that demonstrate that you have a good understanding of these areas.
 
 Additional things to discuss in your proposal:
+
 - What are the APIs for the components that you will create (e.g. modal, lesson card, progress bar, practice card, and possibly others)? For each of these, provide a definition of the API interface, and an example usage of the component that is associated with a screenshot of one of its instances in the mocks.
+
 - Show a screenshot of the existing "serial chapter launch" functionality running on your local machine, and explain the changes you would make to it to bring it into alignment with the mocks.
+
 - Describe the algorithm that you would use to compute the warning message in the topic editor page.
+
 - When auditing the mocks and thinking about implementation, you might find that you need to get clarifications on various aspects of the mocks. Include, in your proposal, a list of questions that you have asked / would ask, how they affect the implementation, and the answers to those questions.
 </details>
 
 <details>
 <summary>Technical hints / guidance</summary>
 <br>
+
 - Note that there is a terminology mismatch between the UI and the code (see "Update 1" under "Details of the Proposed Solution" in the PRD). In your proposal, use the names in the code (skills, subtopics) to describe concepts. The only exception is when you are specifically referring to language that the end user actually sees.
+
 - When implementing, plan for each PR to include both desktop and mobile views (for a particular part of the mocks), as well as the necessary tests.
+
 - For how to launch new features, see this wiki page: https://github.com/oppia/oppia/wiki/Launching-new-features
+
 - When fetching multiple entities, do a single GET-MULTI call. Avoid executing a single GET call N times in a for loop.
+
 - Where possible, try to make common components (like the primary-button component that is used in several static pages; see e.g. oppia#19676) so that you only need to implement the details once, and can more easily keep things consistent throughout the website. We suggest doing this for any UI element that you would use at least twice, and in some cases it might make sense to do it even if you use the element once (so that the component is better encapsulated).
+
 - Here is how to calculate where the practice cards should go in the list contained in the topic editor page. When sending data to the frontend, include all subtopic IDs for the topic and the skill IDs that each subtopic contains. Also, for each chapter, send the list of "acquired skill IDs" to the frontend (these are part of the specification for each chapter). Then, in the frontend, do the following on the fly:
   - For each subtopic, compute the list of its skill IDs that are included in at least one of the lesson chapters of the given story. If the subtopic has no skill IDs that match this criterion, omit it from the list.
   - For each subtopic, run through the list of chapters in order until all of its skills in the list above have been marked as acquired. Place the subtopic practice card immediately after the first chapter for which that condition is met.
   - When two or more subtopic practice cards fall in the same slot, order them based on the ordering of the list of subtopics in the topic editor page.
+
 - The warning in the topic editor page should display:
   - Any subtopics that would be skipped in the first step of the algorithm above, because none of their skills were the "acquired skills" for any chapter.
   - Any skills in other subtopics that are not an acquired skill of any of the chapters within the canonical stories.
+
 - To turn on the "coming soon" functionality, you’ll need to flip the "serial chapter launch" feature flag in the /release-coordinator page (you can give yourself permissions for that in /admin > Roles). See Rishi Kejriwal’s project in GSoC 2023 for more details about how this feature works.
 </details>
 
@@ -617,21 +660,32 @@ Note: Ability to write Beam jobs is a plus, but is not strictly required.
 <details>
 <summary>What we are looking for in proposals:</summary>
 <br>
+
 Here are some parts of your proposal that we will be paying particular attention to:
+
 - Explain carefully how you would implement the algorithms for (a) tracking mastery and (b) selecting the questions to use for a practice session. You will need to generalize these from the descriptions given in the PRD – try to understand the underlying ideas that the author is going for, and turn those into a generalized algorithm that doesn't have a lot of special-casing.
+
 - Currently, we have approximately 5 questions per skill in the question database. This will mean that the algorithm for (b) above needs to be modified for the initial implementation. Propose how you would handle that, and what instructions the site admin / tech lead should follow to reconfigure the system when the number of questions per skill reaches a higher threshold.
+
 - Explain how you would code the animations in the practice sessions player.
+
 - When auditing the mocks and thinking about implementation, you might find that you need to get clarifications on various aspects of the mocks. Include, in your proposal, a list of questions that you have asked / would ask, how they affect the implementation, and the answers to those questions.
 </details>
 
 <details>
 <summary>Technical hints / guidance</summary>
 <br>
+
 - Note that there is a terminology mismatch between the UI and the code (see "Update 1" under "Details of the Proposed Solution" in the PRD). In your proposal, use the names in the code (skills, subtopics) to describe concepts. The only exception is when you are specifically referring to language that the end user actually sees. Note that you should avoid doing any renaming in the backend.
+
 - For how to launch new features, see this wiki page: https://github.com/oppia/oppia/wiki/Launching-new-features
+
 - When implementing, each PR should include both desktop and mobile views (for a particular part of the mocks), and include the necessary tests.
+
 - The new practice session experience should be implemented behind a feature flag until it is ready to launch.
+
 - For questions in lessons (explorations), you only need to track mastery for that question if that question has been tagged with a skill.
+
 - Note that not all sub-tasks in each milestone are of equal difficulty. In Milestone 1, the classification level and mastery tracking are straightforward and tracking the total points/stars is easy, but implementing the redesigned practice session UI will take the longest. Plan your schedule accordingly. In Milestone 2, the practice session results UI redesign will probably take longer than the update of the question selection algorithm, since there are multiple parts to the former.
 </details>
 
@@ -680,8 +734,11 @@ Additionally, Oppia already has a partial implementation for [computer-aided tra
 <details>
 <summary>What we are looking for in proposals:</summary>
 <br>
+
 - For the cache structure, you will probably need to hash strings for quick lookup, and also because the datastore has a [maximum limit for indexable string fields](https://cloud.google.com/appengine/docs/legacy/standard/python/ndb/entity-property-reference#types) (1500 bytes). How will this be handled?
+
 - If the same string can have multiple translations in different contexts, how will that be handled?
+
 - Please provide a clear list of the remaining steps which are  required to complete the CAT project. Bear in mind that getting CAT fully ready includes:
   - Making sure that all rich-text components are handled properly, and fine-tuning the user experience to ensure that all parts of translations (e.g. alt text for images) are easily auditable by submitters before they submit.
   - Ensuring that the system is extensible so that we can specify different service providers for different languages, and each service provider should have a ‘services.py’ file in core/platform/translate. (For this project, it is fine to include the implementation for only one provider, but the framework should be extensible and there should be clear instructions in the wiki for contributors on how to do this.)
@@ -690,13 +747,19 @@ Additionally, Oppia already has a partial implementation for [computer-aided tra
 <details>
 <summary>Technical hints / guidance</summary>
 <br>
+
 - Here is an [information sketch](https://docs.google.com/document/d/1ZZ6pVKpmynTlmf1_PV1I5TcccmEXPnmoFAVKXN-u2xM/edit#bookmark=id.d999h6434xq2) about the translation caching system. You can use it as a starting point for your technical design. Note that there are other reasons to cache beyond the one implemented in this project (e.g. we might have custom logic for auto-translation of strings that are entirely numeric) and your system should be extensible to these.
+
 - We have filed a request for the CD mocks with the design team; you can follow [this design issue](https://github.com/oppia/design-team/issues/128) for updates. For your proposal, focus more on the technical aspects than the mocks.
+
 - A large part (probably around \~80%) of the CAT backend work is already done (see [this doc](https://docs.google.com/document/d/1kJd-yLTzB9a2c3Nq7v9pzKfHwKHKGpkWfQ8B0YGf50U/edit#heading=h.jp6no890gjkv) for details). You might like to look at previous unfinished PRs: [#12604](https://github.com/oppia/oppia/pull/12604/files) / [#14418](https://github.com/oppia/oppia/pull/14418).
+
 - If anything goes wrong with generating the suggestion, just don’t show the suggestion part of the submission modal. (Don’t error noisily in a way that blocks the experience for the translation submitter.)
+
 - You will need to gate the new functionality behind [feature flags](https://github.com/oppia/oppia/wiki/Launching-new-features). The flags that would need to be added are for:
   - `SHOW_TRANSLATION_SUGGESTIONS_IN_CD`, for gating the integration of translation suggestions to the contributor dashboard
   - `SHOW_AUTOGENERATED_TRANSLATIONS_IN_LESSONS` -- for showing autogenerated translations in the exploration player
+
 - This [related PRD](https://docs.google.com/document/d/1TeGQQNLNJWkTgvGQ1xmV6snz8zXnJ23TvuDKtK5_Tok/edit) might be a helpful reference.
 </details>
 
@@ -744,18 +807,26 @@ Sometimes, after a piece of content is translated, a small part of the original 
 <details>
 <summary>What we are looking for in proposals:</summary>
 <br>
+
 - A clear analysis of how translation counts in the exploration editor translations tab and contributor dashboard are currently generated, with links to lines of code in GitHub.
+
 - A clear description of how the end-to-end system for updating previous translations should work, and the gaps that exist in the current system for doing so.
+
 - A description of your Beam job for regenerating the translation count data, as well as how you would validate its correctness.
+
 - A clear description of how you would retrieve the “version when translation was last accepted” for a particular translatable string of a lesson. This might involve storing the entire string somewhere, or storing just the relevant version of the exploration and using that to retrieve the string as needed. Consider different approaches and evaluate their tradeoffs using a decision table.
+
 - A description of how you would generalize the “diff view” component in the exploration history tab to use for the contributor dashboard as well (or if this isn’t a good idea and, if so, why).
 </details>
 
 <details>
 <summary>Technical hints / guidance</summary>
 <br>
+
 - A request for mocks for the contributor dashboard UI has been filed with the design team; feel free to follow along at [this link](https://github.com/oppia/design-team/issues/128).
+
 - Note that a tricky part of this project involves showing the English content at the time the previous translation was accepted. We recommend first investigating if this information is stored anywhere, or is easily retrievable. If not, you’ll need to create a separate model for it and populate it via a Beam job, and ensure that it is subsequently populated whenever a translation is approved. There is some earlier analysis in [this TDD](https://docs.google.com/document/d/1RIlefl2kmXyqwrcqTruNjJlQ6EWoiKs9DApT52Kahx8/edit) which you can use as a starting point, but you should validate whether that analysis is correct and not follow it blindly.
+
 - You might find this information about [feature flags](https://github.com/oppia/oppia/wiki/Launching-new-features) useful.
 </details>
 
@@ -814,24 +885,36 @@ https://docs.google.com/spreadsheets/d/1O8EHiSAGrG0yoNUBz9E4DIwKNS8Rfsv_ffC4k1WK
 <details>
 <summary>What we are looking for in proposals:</summary>
 <br>
+
 For this particular GSoC project, the proposal is less important and we are more interested in your previous PRs, as described above. We recommend focusing your efforts accordingly.
 
 Some things you could address in your proposal:
+
 - How will you break down this project into individual milestones? Provide a clear timeline for this.
+
 - Explain how your tests would catch console errors that arise during execution of the user journeys.
+
 - For each existing webdriverio test file, specify the set of CUJs which need to be covered by acceptance tests in order for it to be removed. (If you identify gaps in the spreadsheet CUJs during this audit, feel free to suggest improvements to those.)
+
 - In the release-coordinator tab, we want to test the "running Beam jobs" CUJ. Analyze the tradeoffs of creating a separate tiny Beam job for this that runs quickly, doesn't affect the datastore, and that can be added to the list of jobs in the /release-coordinator page, versus using one of the existing Beam jobs. Describe which approach you would take and why. (Note: you can find more info on how to write Beam jobs in [this wiki page](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs).)
+
 - Describe how you would handle specific issues that arise in acceptance tests like mobile viewports, waiting for long-running operations like Beam jobs, etc.
+
 - Suggest any improvements to test organization that you would make, or missing CUJs that you would add. You can cross-reference the testing spreadsheet with the [CUJ document](https://docs.google.com/document/d/1s3MG2MVh_7m7B0wIlZb7sAcoyUdY0zq7a1JEFtwYBjI/edit) that is currently used for release testing, or identify those journeys yourself through direct experimentation with the test server or your local dev setup. Focus only on *critical* user journeys -- you do not need to go into detail for all the edge cases.
+
 - Include test specs for some of the journeys that are not yet covered in the spreadsheet, such as the release-coordinator and site admin user journeys. You can also do this for recently-released features or features that are about to be released (like the contributor admin dashboard, learner groups, contributor recognition project, etc.).
 </details>
 
 <details>
 <summary>Technical hints / guidance</summary>
 <br>
+
 - Start by writing tests for just one CUJ to make sure you can do it properly. If you are able to do that well, then there is a good chance that you will be successful with this project.
+
 - For this project, user journeys are detailed in a shared sheet, divided into distinct tabs. During the implementation phase, applicants should tackle each user journey in a structured way, leveraging lessons and code from earlier phases to inform later work. This will help streamline implementation and ensure efficient reuse of developed solutions.
+
 - There is some buffer time built in to the project for improving the organization of tests as more tests get written. Your mentors will work with you on this.
+
 - Note that QA coordinators can advise on CUJs and provide detail on them if any are unclear. Feel free to reach out to them once you've joined the release testing team.
 </details>
 
@@ -879,29 +962,45 @@ Optimize the pre-push hooks and CI checks so that they only run necessary tests.
 <details>
 <summary>What we are looking for in proposals:</summary>
 <br>
+
 General:
+
 - While CI builds on PRs do not need to run the full set of checks in some cases, the merge queue should still run the full set of checks. Explain how you would achieve that.
+
 - If the merge queue becomes flaky, we might be forced to turn off the merge queue. In such cases, we would need a configuration flag that switches back to running all tests on PR CI builds. Explain how you would implement this flag and what instructions a core maintainer of the Oppia repository should follow if this scenario occurs in the future.
+
 - Explain clearly how you plan to get the list of files changed since the last push, and how you plan to run only the lint checks and unit tests that relate to those files. Ensure that your proposed structure is easily maintainable.
+
 - Explain how you would measure the impact of these optimizations on pre-push hook and CI runtimes.
 
 Also, for this project, it is important that you are able to demonstrate familiarity with GitHub actions, since this project has a number of tasks related to it. E.g.
+
 - Adding build resource usage information to the actions job-summary: https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#adding-a-job-summary
+
 - Setting up different workflows for PRs in merge-queue vs develop.
+
 - Setting up an environment flag to enable/disable whether to run only changed files on a PR.
+
 - Setting up CI such that it can trigger which e2e suites need to be run based on the changes.
+
 We would like to see a description in your proposal of how you'd tackle each of these, and a proof-of-concept demonstration of one of them in a personal repo that you own.
 
 Specific questions for particular milestones:
 
 Milestone 1:
+
 - Find one of the longest-running backend tests, explain how you would make it quicker, and provide a time analysis of the difference.
+
 - For frontend tests, the karma config file uses a regex check to combine all the specs that need to be tested. Explain how, for the purposes of the pre-push hook, you would safely modify that to only include the changed files. (For example, you might create a seam by separating out that regex to a different file/constant and, in the pre-push hook, substitute a custom set of filepaths instead).
+
 - Explain how the pre-push checks will run in the Docker container – e.g. will we run multiple services in parallel, what will the output would look like, what would the order of these checks be, etc.
+
 - What changes will you make to the install-and-build step in the pre-push hook?
 
 Milestone 2:
+
 - Explain how you would generate the frontend dependency graph required by Milestone 2.
+
 </details>
 
 <details>
@@ -971,17 +1070,21 @@ This project entails introducing support for measuring code coverage for all Kot
 <details>
 <summary>What we are looking for in proposals:</summary>
 <br>
+
 - A **working** demonstration of running code coverage using _bazel coverage_ with a test within the Oppia Android project with correct results (it’s fine if some branches aren’t hit due to missing JaCoCo functionality). Proposals that do not include this working demonstration will be rejected as this is considered a critical prerequisite for succeeding in this project.
+
 - All of the components outlined in the break-down Gist are expected to be fully expanded in the document and finalized, including:
   - Adding documentation strings for each proto field, class, and method being proposed.
   - Adding a dependency diagram showing how the components will be interconnected.
   - Adding a sequence diagram to show how the workflows will behave, and how different uses of the scripts will call through to different dependencies.
+
 - That other [scripts](https://github.com/oppia/oppia-android/tree/develop/scripts) in the codebase are used as the basis for fully writing out the technical portions of the proposal.
 </details>
 
 <details>
 <summary>Technical hints / guidance</summary>
 <br>
+
 See this [Gist](https://gist.github.com/BenHenning/4d1db014731eb9b1e5d7ba175df78962).
 </details>
 
@@ -1035,15 +1138,18 @@ This project entails introducing support for more than just mathematics topics b
 <details>
 <summary>What we are looking for in proposals:</summary>
 <br>
+
 That all of the components outlined in the break-down Gist are expected to be fully expanded in the document and finalized, including:
 - Adding documentation strings for each proto field, class, and method being proposed.
 - Adding a dependency diagram showing how the components will be interconnected.
 - Adding a sequence diagram to show how different user flows will call through to different dependencies in the project.
+
 </details>
 
 <details>
 <summary>Technical hints / guidance</summary>
 <br>
+
 See this [Gist](https://gist.github.com/BenHenning/8bbc85721747a6c1d4362448b2151aec).
 </details>
 
@@ -1111,16 +1217,20 @@ This project entails two parts: (1) introduce a developer-only UI (as part of th
 <details>
 <summary>What we are looking for in proposals:</summary>
 <br>
+
 - All of the components outlined in the break-down Gist are expected to be fully expanded in the document and finalized, including:
   - Adding documentation strings for each proto field, class, and method being proposed.
   - Adding a dependency diagram showing how the components will be interconnected.
   - Adding a sequence diagram to show how different user flows will call through to different dependencies in the project.
+
 - Examples of the new feature testing API.
+
 - Hand-created mocks for the new platform parameter dashboard (these can be rough; they just serve as the basis for development of the project).
 </details>
 
 <details>
 <summary>Technical hints / guidance</summary>
 <br>
+
 See this [Gist](https://gist.github.com/BenHenning/93f89b9cc824e090fbcce1cfade3152e).
 </details>
