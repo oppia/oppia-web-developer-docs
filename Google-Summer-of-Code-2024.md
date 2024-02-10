@@ -351,7 +351,6 @@ The aim of this project is to implement the infrastructure to display these clas
 
 <details>
 <summary>What we are looking for in proposals:</summary>
-<br>
 
 Here are some examples of questions to analyze:
 
@@ -367,7 +366,6 @@ Here are some examples of questions to analyze:
 
 <details>
 <summary>Technical hints / guidance</summary>
-<br>
 
 - Note that new classrooms are created using the dashboard at /classroom-admin. You will need curriculum admin permissions, which you can grant at /admin (see the Roles tab).
 
@@ -480,7 +478,7 @@ The aim of this project is therefore to clean up some of this incorrect modellin
 
 <details>
 <summary>What we are looking for in proposals:</summary>
-<br>
+
 
 - Explain how the current structure for exploration translations works, and describe, by analogy, the ideal structure for skill and subtopic card translations. For the subtopic pages, what changes exactly will you make with regards to written translations and content IDs?
 
@@ -494,7 +492,6 @@ The aim of this project is therefore to clean up some of this incorrect modellin
 
 <details>
 <summary>Technical hints / guidance</summary>
-<br>
 
 - For the worked examples section, see [this PRD](https://docs.google.com/document/d/1QrqTsR1Ew3WfQvj7D83mh0k9HjW6xQ-2dpJGkbe8XqY/edit#heading=h.s68z2sezulra). There is currently no PRD for revision cards, but there are [preliminary mocks](https://www.figma.com/file/wH1RGiZ7KEvLUxeL5R16G6/Oppia-%7C-RTE?type=design&mode=design&t=vEGSCuJcR3gRtZlB-0#681559870) that you can use as a basis.
 
@@ -559,7 +556,6 @@ Link to PRD: https://docs.google.com/document/d/1r9IEQ5z_t-eu9XAWN3eRA7iKdKuYsOQ
 
 <details>
 <summary>What we are looking for in proposals:</summary>
-<br>
 
 Some questions to check that you understand the tech stack:
 
@@ -582,7 +578,6 @@ Additional things to discuss in your proposal:
 
 <details>
 <summary>Technical hints / guidance</summary>
-<br>
 
 - Note that there is a terminology mismatch between the UI and the code (see "Update 1" under "Details of the Proposed Solution" in the PRD). In your proposal, use the names in the code (skills, subtopics) to describe concepts. The only exception is when you are specifically referring to language that the end user actually sees.
 
@@ -658,7 +653,6 @@ Note: Ability to write Beam jobs is a plus, but is not strictly required.
 
 <details>
 <summary>What we are looking for in proposals:</summary>
-<br>
 
 Here are some parts of your proposal that we will be paying particular attention to:
 
@@ -673,7 +667,6 @@ Here are some parts of your proposal that we will be paying particular attention
 
 <details>
 <summary>Technical hints / guidance</summary>
-<br>
 
 - Note that there is a terminology mismatch between the UI and the code (see "Update 1" under "Details of the Proposed Solution" in the PRD). In your proposal, use the names in the code (skills, subtopics) to describe concepts. The only exception is when you are specifically referring to language that the end user actually sees. Note that you should avoid doing any renaming in the backend.
 
@@ -732,7 +725,6 @@ Additionally, Oppia already has a partial implementation for [computer-aided tra
 
 <details>
 <summary>What we are looking for in proposals:</summary>
-<br>
 
 - For the cache structure, you will probably need to hash strings for quick lookup, and also because the datastore has a [maximum limit for indexable string fields](https://cloud.google.com/appengine/docs/legacy/standard/python/ndb/entity-property-reference#types) (1500 bytes). How will this be handled?
 
@@ -745,7 +737,6 @@ Additionally, Oppia already has a partial implementation for [computer-aided tra
 
 <details>
 <summary>Technical hints / guidance</summary>
-<br>
 
 - Here is an [information sketch](https://docs.google.com/document/d/1ZZ6pVKpmynTlmf1_PV1I5TcccmEXPnmoFAVKXN-u2xM/edit#bookmark=id.d999h6434xq2) about the translation caching system. You can use it as a starting point for your technical design. Note that there are other reasons to cache beyond the one implemented in this project (e.g. we might have custom logic for auto-translation of strings that are entirely numeric) and your system should be extensible to these.
 
@@ -805,7 +796,6 @@ Sometimes, after a piece of content is translated, a small part of the original 
 
 <details>
 <summary>What we are looking for in proposals:</summary>
-<br>
 
 - A clear analysis of how translation counts in the exploration editor translations tab and contributor dashboard are currently generated, with links to lines of code in GitHub.
 
@@ -820,7 +810,6 @@ Sometimes, after a piece of content is translated, a small part of the original 
 
 <details>
 <summary>Technical hints / guidance</summary>
-<br>
 
 - A request for mocks for the contributor dashboard UI has been filed with the design team; feel free to follow along at [this link](https://github.com/oppia/design-team/issues/128).
 
@@ -883,7 +872,6 @@ https://docs.google.com/spreadsheets/d/1O8EHiSAGrG0yoNUBz9E4DIwKNS8Rfsv_ffC4k1WK
 
 <details>
 <summary>What we are looking for in proposals:</summary>
-<br>
 
 For this particular GSoC project, the proposal is less important and we are more interested in your previous PRs, as described above. We recommend focusing your efforts accordingly.
 
@@ -906,7 +894,6 @@ Some things you could address in your proposal:
 
 <details>
 <summary>Technical hints / guidance</summary>
-<br>
 
 - Start by writing tests for just one CUJ to make sure you can do it properly. If you are able to do that well, then there is a good chance that you will be successful with this project.
 
@@ -960,7 +947,6 @@ Optimize the pre-push hooks and CI checks so that they only run necessary tests.
 
 <details>
 <summary>What we are looking for in proposals:</summary>
-<br>
 
 General:
 
@@ -1004,7 +990,7 @@ Milestone 2:
 
 <details>
 <summary>Technical hints / guidance</summary>
-<br>
+
 - You can use git commands to detect which files have changed (and thus need to be tested in the pre-push hook).
 - Ensure all optimizations are designed with our Docker environment in mind. In other words, consider how the overall pre-push check will run on docker containers.
 </details>
@@ -1068,7 +1054,6 @@ This project entails introducing support for measuring code coverage for all Kot
 
 <details>
 <summary>What we are looking for in proposals:</summary>
-<br>
 
 - A **working** demonstration of running code coverage using _bazel coverage_ with a test within the Oppia Android project with correct results (it’s fine if some branches aren’t hit due to missing JaCoCo functionality). Proposals that do not include this working demonstration will be rejected as this is considered a critical prerequisite for succeeding in this project.
 
@@ -1082,7 +1067,6 @@ This project entails introducing support for measuring code coverage for all Kot
 
 <details>
 <summary>Technical hints / guidance</summary>
-<br>
 
 See this [Gist](https://gist.github.com/BenHenning/4d1db014731eb9b1e5d7ba175df78962).
 </details>
@@ -1136,7 +1120,6 @@ This project entails introducing support for more than just mathematics topics b
 
 <details>
 <summary>What we are looking for in proposals:</summary>
-<br>
 
 That all of the components outlined in the break-down Gist are expected to be fully expanded in the document and finalized, including:
 - Adding documentation strings for each proto field, class, and method being proposed.
@@ -1147,7 +1130,6 @@ That all of the components outlined in the break-down Gist are expected to be fu
 
 <details>
 <summary>Technical hints / guidance</summary>
-<br>
 
 See this [Gist](https://gist.github.com/BenHenning/8bbc85721747a6c1d4362448b2151aec).
 </details>
@@ -1215,7 +1197,6 @@ This project entails two parts: (1) introduce a developer-only UI (as part of th
 
 <details>
 <summary>What we are looking for in proposals:</summary>
-<br>
 
 - All of the components outlined in the break-down Gist are expected to be fully expanded in the document and finalized, including:
   - Adding documentation strings for each proto field, class, and method being proposed.
@@ -1229,7 +1210,6 @@ This project entails two parts: (1) introduce a developer-only UI (as part of th
 
 <details>
 <summary>Technical hints / guidance</summary>
-<br>
 
 See this [Gist](https://gist.github.com/BenHenning/93f89b9cc824e090fbcce1cfade3152e).
 </details>
