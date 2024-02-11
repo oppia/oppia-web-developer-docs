@@ -760,7 +760,6 @@ For (b):
 </details>
 
 
-
 ## Contributor Dashboard (CD) team
 
 ### 2.1. Show AI-powered and cached translation suggestions to translation submitters
