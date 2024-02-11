@@ -286,6 +286,7 @@ Please note that the list of project ideas below is not set in stone: more proje
 
 1.5. [Improve the practice sessions experience](#15-improve-the-practice-sessions-experience)
 
+1.6. [Improvements to the exploration editor page](#16-improvements-to-the-exploration-editor-page)
 
 ### Contributor Dashboard team
 
@@ -636,7 +637,7 @@ Link to PRD: https://docs.google.com/document/d/1r9IEQ5z_t-eu9XAWN3eRA7iKdKuYsOQ
 - Ability to write and/or fix flakes in e2e/acceptance tests.
 - Effective communication using [debugging docs](https://github.com/oppia/oppia/wiki/Debugging-Docs).
 
-Note: Ability to write Beam jobs is a plus, but is not strictly required.
+Note: Ability to [write Beam jobs](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs) is a plus, but is not strictly required.
 
 **Suggested Milestones:**
 - **Milestone 1**: Add a classification level for each skill as trivial/simple/regular, and allow the curriculum admin / topic manager to update this classification in the skill editor (with a default to regular). Include help text for them to explain what each classification means.
@@ -680,6 +681,84 @@ Here are some parts of your proposal that we will be paying particular attention
 
 - Note that not all sub-tasks in each milestone are of equal difficulty. In Milestone 1, the classification level and mastery tracking are straightforward and tracking the total points/stars is easy, but implementing the redesigned practice session UI will take the longest. Plan your schedule accordingly. In Milestone 2, the practice session results UI redesign will probably take longer than the update of the question selection algorithm, since there are multiple parts to the former.
 </details>
+
+
+### 1.6. Improvements to the exploration editor page
+
+**Project Description:**
+
+The aim of this project is to provide two enhancements to the exploration editor page for lesson creators, and ensure that they are covered by acceptance tests:
+
+(a) Allow creators to see which languages a particular part of a lesson has been translated into when editing it, and update those translations directly if appropriate. (For reference, the current user journey – just for updating images – is described here, and as you can see it is somewhat convoluted! This project would help simplify steps 22-26, which involve navigating to the translation tab to edit the images there.)
+
+(b) For cards that are tagged with skills: enable lesson creators to tag their response groups with misconceptions, and highlight any non-optional misconceptions that are missing (though this need not block saving).
+
+For (a): in the state editor, when a change is made to a part of a card that has existing translations and this results in a “should translations be updated?” pop-up modal, the modal should also include a list of the existing languages for which that content has been translated, and the currently-saved translations for those languages. The lesson creator should be given the option to update or confirm these translations if the changes are trivial to do (e.g. the content is just numbers), and otherwise leave them alone by default. This will help to save some re-translation work for the community. Note: these translation changes should not be applied immediately – if the lesson creator subsequently discards their change before committing it to the backend, then those translation changes should also be discarded. A cancel button should be added to the main modal for this purpose.
+
+For (b): we have run into issues with missing feedback in lessons, even in cases where we know that the skill is likely to result in specific misconceptions being caught. This is already handled in the question editor by ensuring that all (mandatory) misconceptions for skills are addressed, and we want to extend this functionality to the exploration editor. So, the aim of this project is, for cards which are tagged with a skill in the exploration editor, to show a list of non-optional misconceptions pertaining to the skill which aren’t tagged to an answer response group yet, and to provide functionality that allows the lesson creator to view the list of misconceptions for that card and tag answer response groups with misconceptions as appropriate, in a similar way as is done in the practice questions creation flow.
+
+**Not in scope:**
+- Autogenerating the translations for updated content.
+- Adding validation checks in the exploration editor to ensure that all misconceptions are tagged, or that all cards are tagged with skills.
+
+**Size of this project:** Large (\~350 hours). Alternatively, you can pick either of the sub-projects for a medium (\~175 hours) project.
+
+**Difficulty**: Medium
+
+**Potential mentors:** @kevintab95
+
+**Product Clarifier:** @seanlip
+
+**Technical Clarifier:** @seanlip
+
+**Required knowledge/skills:**
+- Ability to write code for full-stack features in TypeScript/Angular + Python with unit tests.
+- Strong UI/UX and technical design skills, including the ability to follow existin design and coding patterns.
+- Ability to write and/or fix flakes in e2e/acceptance tests.
+- Effective communication using [debugging docs](https://github.com/oppia/oppia/wiki/Debugging-Docs).
+
+Note: Ability to [write Beam jobs](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs) is a plus, but is not strictly required.
+
+**Suggested Milestones:**
+- **Milestone 1**: Creators should be able to see a list of existing translations through the modal that pops up when they make changes to a published exploration, and should be able to edit those translations if the edits are easy to make.
+
+- **Milestone 2**: Exploration creators should be able to tag answer groups in curated explorations with misconceptions.
+
+<details>
+<summary>What we are looking for in proposals:</summary>
+
+General notes:
+- Before talking about the fixes you will make, clearly describe how the existing end-to-end user flows work from a technical perspective. This is important to ensure that you have a clear understanding of the system you are modifying.
+- You will need to propose a UI for each of these features that aligns with the existing design of the page. Figma prototypes might be a good way to demonstrate this.
+- When fetching multiple entities, do a single GET-MULTI call. Avoid executing a single GET call N times in a for loop.
+
+For (a):
+- Explain how you would efficiently fetch the info about translations for that piece of content from the backend.
+- Explain what updates your code will make to propagate the changes in the modal when the user clicks a non-Cancel button to confirm the changes.
+- Outline the acceptance test specs for the intended user flows in each of the following cases: the main content, multiple-choice options, text input responses, hints, and solutions. You can follow a similar pattern as given here: [Web QA Test Matrix (arranged by user type)](https://docs.google.com/spreadsheets/d/1O8EHiSAGrG0yoNUBz9E4DIwKNS8Rfsv_ffC4k1WK5jc/edit#gid=1275148408)
+
+For (b):
+- Provide a clear technical description of the relevant parts of the existing question editor workflow, and explain how you would generalize the existing question editor components so that they can be used in the exploration editor as well.
+</details>
+
+<details>
+<summary>Technical hints / guidance</summary>
+
+The features described here are fairly standard full-stack projects that require both backend and frontend changes to add new functionality to an existing UI. In general, the most important thing to demonstrate in the proposal for this project is good technical design skills and attention to detail (e.g. correct treatment of corner cases). Strong proposals would first show a good understanding of the current system, and correctly describe the parts of it that are relevant to the relevant subproject, before suggesting the changes that would be needed in order to achieve the desired functionality.
+
+For (a):
+- The relevant modal to edit is `mark-translations-as-needing-update-modal.component.html`.
+- When the modal is opened, you would need to fetch the info about translations for that piece of content from the backend; ensure that the action buttons on the modal are disabled until that happens and the creator has had a chance to audit the translations.
+- When proposing mocks for this feature, ensure that consideration is given to the case where there are many translations, since they might overflow if all of them are displayed at once – you could display these in an accordion, and limit the max-height of the modal so that there is an internal scrollbar. For editing translations, you can add a second modal on top of the first one that shows the new content and the editable translation. In the main modal, the “Leave as-is” option should be changed to “Accept the translations above” or similar, and the instructional text should be amended to let creators know that they can edit the translations directly if they wish (and that their chosen option will apply to the translations for all the languages).
+- Any changes made while in the context of these modals should be stored temporarily and only applied to the main change list when the modal is saved. If the user clicks Cancel then all changes, including the edit that led to the opening of the modal, should be discarded.
+- Make sure to test that your functionality works correctly on a range of different types of content – the main content, multiple-choice options, text input responses, hints, solutions – and cover these journeys using acceptance tests to ensure that they do not break in the future.
+
+For (b):
+- This feature should only exist for “curated explorations”, i.e. those that are included in at least one story.
+- You can use a UI here that is similar to that in the question editor. Try to reuse existing components where possible.
+- Since we will need to update the misconception tags on an incremental basis for existing explorations, you don’t need to add any validation to the exploration editor for missing misconceptions. (Otherwise, this will cause a large number of already-published explorations to become unsaveable until all their misconceptions are completed.)
+</details>
+
 
 
 ## Contributor Dashboard (CD) team
