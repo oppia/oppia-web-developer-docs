@@ -9,7 +9,6 @@
 - [GSoC proposal template](#gsoc-proposal-template)
   - [Tips for writing a good project plan](#tips-for-writing-a-good-project-plan)
   - [What should applicants expect from mentors in a proposal review?](#what-should-applicants-expect-from-mentors-in-a-proposal-review)
-  - [Sample proposals from past years](#sample-proposals-from-past-years)
 - [Selection Criteria](#selection-criteria)
 - [Communication](#communication)
 - [Oppia's Project Ideas List](#oppias-project-ideas-list)
