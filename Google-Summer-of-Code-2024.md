@@ -205,13 +205,13 @@ When submitting a proposal, please use the provided GSoC proposal template. We w
 
 **Note:** although some of the previous years' proposals are a bit on the long side, there's **no** formal length requirement for your proposal. The quality of what you write is much more important than the amount of text you write, and we encourage you to write shorter proposals that still convey the main aim of the project.
 
-
-
 (**NOTE**: The link to the 2024 template will be posted soon. **It will differ from the 2023 template.** We will post instructions together with the template.)
 
 **Some important notes:**
 
-1. When the necessary criteria for requesting a review are met, share your proposal to gsoc-2024-mentors@oppia.org and provide them with commenting permissions. Use only this channel for proposal reviews; **do not** send proposals directly to individual GSoC mentors. All proposal-related communication should happen through the gsoc-2024-mentors@oppia.org mailing list or directly through comments in the proposal doc.
+1. When the necessary criteria for requesting a review are met, add gsoc-2024-mentors@oppia.org as an editor for your proposal doc. (This makes some workflows, like inviting PMs or fixing typos, etc., easier, but if you're concerned about changes to your doc, then you can [turn on notifications for edits](https://support.google.com/docs/answer/91588?hl=en&co=GENIE.Platform%3DDesktop).) After fixing the sharing settings, make a new post in the correct "proposal reviews" category in [GitHub Discussions](https://github.com/oppia/oppia/discussions) that is clearly titled with the name of the project that you are requesting a review for, and provide a link to the doc in your post.
+
+Please use only the above channel for proposal reviews: all proposal-related communication should happen through GitHub Discussions or directly through comments in the proposal doc. **Do not** send proposals directly to individual GSoC mentors.
 
 2. Your final proposal should be self-contained. In particular, to be fair to all applicants, key components of the proposal should not be editable after the deadline. Don't assume that reviewers will follow external links.
 
