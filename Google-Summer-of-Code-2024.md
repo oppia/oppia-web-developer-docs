@@ -301,6 +301,8 @@ Please note that the list of project ideas below is not set in stone: more proje
 
 3.2. [Make CI and pre-push hooks more efficient](#32-make-ci-and-pre-push-hooks-more-efficient)
 
+3.3. [Optimize Docker builds](#33-optimize-docker-builds)
+
 ### Android team
 
 4.1. [Code coverage support and enforcement](#41-code-coverage-support-and-enforcement)
@@ -445,7 +447,7 @@ Please refer to [this PRD](https://docs.google.com/document/d/1enceUlqh7KpaE5i_r
 
 **Project Description:**
 
-Currently, topics in Oppia contain a list of skills that they teach, and these skills are grouped into “subtopics” (like “Adding Fractions”), each with its own revision card (or “subtopic page”). Subtopic pages were originally implemented as a single rich-text editor (RTE) component, but given their length in practice, this was a mistake since it means that they are too big to be translated easily. Additionally, skill descriptions (“concept cards”) and subtopic pages can include worked examples, but worked examples were incorrectly implemented as a field on the skill model. Experience has shown that worked examples would be better implemented as a rich-text component instead, since this gives more flexibility in where they are placed and allows them to be used in other contexts like the subtopic pages.
+Currently, topics in Oppia contain a list of skills that they teach, and these skills are grouped into subtopics (like 'Adding Fractions'), each with its own revision card (or 'subtopic page' in the backend). Subtopic pages were originally implemented as a single rich-text editor (RTE) component, but given their length in practice, this was a mistake since it means that they are too big to be translated easily. Additionally, both skill descriptions and subtopic pages can include worked examples, but worked examples were incorrectly implemented only as a field on the skill model. Experience has shown that worked examples would be better implemented as a rich-text component instead, since this gives more flexibility in where they are placed and allows them to be used in other contexts like the subtopic pages.
 
 The aim of this project is therefore to clean up some of this incorrect modelling and fix the representation of subtopic pages and worked examples, while also ensuring that they are easily translatable.
 
@@ -690,7 +692,7 @@ Here are some parts of your proposal that we will be paying particular attention
 
 The aim of this project is to provide two enhancements to the exploration editor page for lesson creators, and ensure that they are covered by acceptance tests:
 
-(a) Allow creators to see which languages a particular part of a lesson has been translated into when editing it, and update those translations directly if appropriate. (For reference, the current user journey – just for updating images – is described here, and as you can see it is somewhat convoluted! This project would help simplify steps 22-26, which involve navigating to the translation tab to edit the images there.)
+(a) Allow creators to see which languages a particular part of a lesson has been translated into when editing it, and update those translations directly if appropriate. (For reference, the current user journey – just for updating images – is described [here](https://docs.google.com/document/d/1SRGKBBYdyXN_LWvnHM_Radhdg74mHgvfs27P_n8tAAk/edit), and as you can see it is somewhat convoluted! This project would help simplify steps 22-26, which involve navigating to the translation tab to edit the images there.)
 
 (b) For cards that are tagged with skills: enable lesson creators to tag their response groups with misconceptions, and highlight any non-optional misconceptions that are missing (though this need not block saving).
 
@@ -734,7 +736,7 @@ General notes:
 - When fetching multiple entities, do a single GET-MULTI call. Avoid executing a single GET call N times in a for loop.
 
 For (a):
-- Explain how you would efficiently fetch the info about translations for that piece of content from the backend.
+- Explain how you would efficiently fetch the info about translations for a piece of content from the backend.
 - Explain what updates your code will make to propagate the changes in the modal when the user clicks a non-Cancel button to confirm the changes.
 - Outline the acceptance test specs for the intended user flows in each of the following cases: the main content, multiple-choice options, text input responses, hints, and solutions. You can follow a similar pattern as given here: [Web QA Test Matrix (arranged by user type)](https://docs.google.com/spreadsheets/d/1O8EHiSAGrG0yoNUBz9E4DIwKNS8Rfsv_ffC4k1WK5jc/edit#gid=1275148408)
 
@@ -1072,6 +1074,57 @@ Milestone 2:
 
 - You can use git commands to detect which files have changed (and thus need to be tested in the pre-push hook).
 - Ensure all optimizations are designed with our Docker environment in mind. In other words, consider how the overall pre-push check will run on docker containers.
+</details>
+
+
+### 3.3. Optimize Docker builds
+
+**Project Description:**
+
+Our Docker installation process isn't optimized, and this results in barriers to entry for contributors with lower RAM machines (as well as making some processes take longer than they should). The aim of this project is therefore to reduce Docker build time and resource usage.
+
+**Not in scope:**
+- Implementing caching of Docker images in our GitHub build process so that we only need to build Docker once per PR (though this is a prerequisite for using Dockerhub).
+- Storing the Docker image in Dockerhub every time a PR is merged to the develop branch, so that it can be used when building new PRs (with a graceful fallback if that image isn’t downloadable due to Dockerhub rate limits).
+
+**Size of this project:** Medium (\~175 hours)
+
+**Difficulty**: Medium
+
+**Potential mentors:** @gp201, @DubeySandeep
+
+**Product Clarifier:** @DubeySandeep
+
+**Technical Clarifier:** @DubeySandeep
+
+**Required knowledge/skills:**
+- Ability to work with Docker (you can demonstrate this by tackling some issues from [this list](https://github.com/orgs/oppia/projects/8/views/11?sliceBy%5Bvalue%5D=Docker+migration))
+- Ability to work with GitHub Actions and CI/CD pipelines.
+
+**Suggested Milestones:**
+- **Milestone 1**: Optimize Docker builds by reducing both Docker build time (both locally and on CI) and resource usage (e.g. memory, CPU). In particular:
+  - Set up a workflow for logging resource usage so that the memory/CPU use is reported on CI. Add this to any Docker build steps so that resource usage can be tracked. (As an optional bonus: add this to other resource-intensive steps in existing GitHub Actions workflows as well.)
+  - Organize the steps in the backend and frontend Dockerfiles to make build caching (which reuses layers from previous builds, thus reducing the build time for unchanged layers) as efficient as possible, and take other measures to keep the layers small as described in https://docs.docker.com/build/cache/.
+  - Minimize the Docker image size – achieve a balance between a lightweight image and the inclusion of necessary tools/libraries.
+
+- **Milestone 2**: For each Makefile command (like running frontend tests, running backend tests, etc.), only build images that the command needs, and ensure that we are running only the services that are required for that Makefile command. When building multiple images, these should happen in parallel.
+
+<details>
+<summary>What we are looking for in proposals:</summary>
+- For resource usage monitoring, what are the trade-offs of using third-party actions vs writing your own? Investigate those tradeoffs in your proposal.
+- We would like to see a clear, detailed plan for optimizing Docker builds. A large part of this requires clear analysis, e.g.:
+  - For reordering the lines: you should provide an analysis of how you would make docker/Dockerfile.backend and docker/Dockerfile.frontend efficient (less resource-intensive), and explain the rationale behind the key decisions you took, with reference to the Docker documentation for layer caching. Explain why your proposed rearrangement is optimal.
+  - You will need to figure out a way to track the dependencies of a developer workflow (e.g. running tests, setting up the backend server) and identify the “minimal core” needed for each workflow to run successfully. Then, propose ways to structure things so that only the necessary services/dependencies are used in each case. The proposal should illustrate a good understanding of the relevant workflows and their essential steps, and demonstrate a clean architecture for organizing things so that nothing extraneous gets run.
+</details>
+
+<details>
+<summary>Technical hints / guidance</summary>
+- This project requires being very methodical. Plan the project so that you test changes to each service in isolation (one PR per service – it’s totally fine if PR is small). If you do a lot of changes in one go, then it will be hard to debug issues if they occur because the "surface area of what changed" is larger.
+- The Docker installation and build process must be as lightweight as possible. Keep all Dockerfile steps minimal and avoid doing any unnecessary 'work' (e.g. using Python scripts that import lots of unneeded dependencies).
+- You should implement regular cache invalidation to ensure that the dependencies remain current.
+- When minimizing the Docker image size, look for opportunities to use smaller base images and remove unneeded files (though you’ll still need to achieve a balance between keeping the image lightweight and including the necessary tools/libraries).
+- In our project's docker-compose file, we define multiple services using our custom backend and frontend Dockerfile images. Traditionally, when conducting tests (e.g., running eslint), we initially start specific services, such as a dev-server service, and then modify the command executed by these services to initiate the test ([example](https://github.com/oppia/oppia/blob/develop/Makefile#L119-L138)). This approach of starting services and altering their commands for testing purposes is not optimal. Instead, we recommend creating a reusable configuration that encompasses the common storage configuration, so that we can effortlessly run various services—such as webpack, ng-serve, and eslint—without the need to start or modify services unnecessarily. For a practical example from another project (openProject), observe how a [frontend-build](https://github.com/opf/openproject/blob/bdd5391285e732b2d88a18db16f3ee2acc9fb2fc/docker-compose.yml#L29) structure is seamlessly integrated within the docker-compose file, enabling the separate execution of [frontend server](https://github.com/opf/openproject/blob/bdd5391285e732b2d88a18db16f3ee2acc9fb2fc/docker-compose.yml#L76) and [frontend tests](https://github.com/opf/openproject/blob/bdd5391285e732b2d88a18db16f3ee2acc9fb2fc/docker-compose.yml#L123) without the redundancy of starting and stopping services. This method not only simplifies the workflow but also enhances maintainability and efficiency. (See also these comments in PRs for reference: [https://github.com/oppia/oppia/pull/18698#discussion_r1277716623](link 1), [https://github.com/oppia/oppia/pull/18698#discussion_r1328245520](link 2).)
+- We strongly recommend that you build in a plan to get feedback during implementation from developers on the Oppia team, who can give feedback about whether the improved flow works on their machines.
 </details>
 
 
