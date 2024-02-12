@@ -716,7 +716,7 @@ For (b): we have run into issues with missing feedback in lessons, even in cases
 
 **Required knowledge/skills:**
 - Ability to write code for full-stack features in TypeScript/Angular + Python with unit tests.
-- Strong UI/UX and technical design skills, including the ability to follow existin design and coding patterns.
+- Strong UI/UX and technical design skills, including the ability to follow existing design and coding patterns.
 - Ability to write and/or fix flakes in e2e/acceptance tests.
 - Effective communication using [debugging docs](https://github.com/oppia/oppia/wiki/Debugging-Docs).
 
@@ -866,7 +866,6 @@ Sometimes, after a piece of content is translated, a small part of the original 
 - Ability to write Beam jobs with tests. (This [wiki page](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs) explains how to write Apache Beam jobs. You can try some issues from [this list](https://docs.google.com/document/d/1egQNvBXlgRNhSXdscUZlYOTgd48MXO9a5cPW2rVFL0Y/edit) to get experience.)
 - Effective communication using [debugging docs](https://github.com/oppia/oppia/wiki/Debugging-Docs).
 - Ability to write and/or fix flakes in e2e/acceptance tests.
-- An understanding of how to query the App Engine datastore directly, e.g. structuring queries to use 1 get-multi operation rather than N get operations.
 
 **Suggested Milestones:**
 - **Milestone 1**: Ensure that the translation counts in the exploration editor translations tab and contributor dashboard are updated correctly when translations are marked-as-stale or new translations are updated, and that the strings to re-translate show up in the CD view for submitters; write acceptance tests to cover this behaviour. Verify also that the reviewer sees the current text at the time they are reviewing, and not the text at the time of submission.
@@ -897,6 +896,8 @@ Sometimes, after a piece of content is translated, a small part of the original 
 - Note that a tricky part of this project involves showing the English content at the time the previous translation was accepted. We recommend first investigating if this information is stored anywhere, or is easily retrievable. If not, you’ll need to create a separate model for it and populate it via a Beam job, and ensure that it is subsequently populated whenever a translation is approved. There is some earlier analysis in [this TDD](https://docs.google.com/document/d/1RIlefl2kmXyqwrcqTruNjJlQ6EWoiKs9DApT52Kahx8/edit) which you can use as a starting point, but you should validate whether that analysis is correct and not follow it blindly.
 
 - You might find this information about [feature flags](https://github.com/oppia/oppia/wiki/Launching-new-features) useful.
+
+- When fetching multiple entities, do a single GET-MULTI call. Avoid executing a single GET call N times in a for loop.
 </details>
 
 
