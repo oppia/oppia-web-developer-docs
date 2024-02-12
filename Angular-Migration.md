@@ -751,23 +751,41 @@ There may be some style updates required to make sure that the pages look exactl
 
 1. Ensure your frontend tests pass
 
+   Python:
    ```console
    python -m scripts.run_frontend_tests
+   ```
+   
+   Docker:
+   ```console
+   make run_tests.frontend
    ```
 
    Note: If your migrated service involves HTTP calls and when you run the frontend test your frontend test fail for some other service (One error that might pop is `Error: No pending request to flush !`) then go ahead and migrate the failing tests for the other service too. You might have guessed that in such a case we have migrated a service which is now making HTTP calls in Angular using HttpClient but some other service that is issuing HTTP requests to this service is still testing by making calls via AngularJS HTTP module (using $httpBackend). Go through this [PR #9029](https://github.com/oppia/oppia/pull/9029/files), wherein `question-creation.service` and `question-backend-api.service` are migrated to Angular and we went ahead to change relevant tests in `questions-list.service.spec`.
 
 2. Ensure there are no typescript errors:
 
+   Python:
    ```console
    python -m scripts.typescript_checks
    ```
 
+    Docker:
+    ```console
+    make run_tests.typescript
+    ```
+
 3. Ensure there are no linting errors:
 
+   Python:
    ```console
    python -m scripts.linters.pre_commit_linter
    ```
+   
+    Docker:
+    ```console
+    make run_tests.lint
+    ```
 
 4. Test manually. See where the directive you have migrated is being used. You can do this by seeing where it's corresponding `selector` is being used. Then check whether functionality that you have implemented works as expected (like on the develop branch). Add a screen recording of the places where the directive is used when you open your PR!
 

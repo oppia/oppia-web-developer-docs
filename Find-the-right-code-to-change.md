@@ -21,8 +21,14 @@ In this tutorial, we'll work from the more user-facing code all the way back to 
 
 First, let's take a look at the page we want to modify. Start up a development server:
 
+Python:
 ```console
 python -m scripts.start
+```
+
+Docker:
+```console
+make run-devserver
 ```
 
 A development server will open at http://localhost:8181. Create a new account and navigate to the preferences page at http://localhost:8181/preferences. It should look like this:
