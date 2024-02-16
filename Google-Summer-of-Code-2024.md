@@ -200,7 +200,7 @@ Contributors have also told us why they continue to stay engaged with the projec
 
 ## GSoC Proposal Template
 
-When submitting a proposal, please use the provided GSoC proposal template. We will only consider proposals submitted using this template. Note that, this year, there is a length limit: the proposal's technical section should fall within 8-20 pages at "Arial 11" font size.
+When submitting a proposal, please use the provided GSoC proposal template. We will only consider proposals submitted using this template. Note that, this year, there is a length limit: the proposal's technical section should fall within 8-20 pages at "Roboto 10" font size.
 
 **Note:** although some of the previous years' proposals are a bit on the long side, there's **no** formal length requirement for your proposal. The quality of what you write is much more important than the amount of text you write, and we encourage you to write shorter proposals that still convey the main aim of the project.
 
@@ -210,9 +210,9 @@ When submitting a proposal, please use the provided GSoC proposal template. We w
 
 1. When the necessary criteria for requesting a review are met, add gsoc-2024-mentors@oppia.org as an editor for your proposal doc. (This makes some workflows, like inviting PMs or fixing typos, etc., easier, but if you're concerned about changes to your doc, then you can [turn on notifications for edits](https://support.google.com/docs/answer/91588?hl=en&co=GENIE.Platform%3DDesktop).) After fixing the sharing settings, make a new post in the correct "proposal reviews" category in [GitHub Discussions](https://github.com/oppia/oppia/discussions) that is clearly titled with the name of the project that you are requesting a review for, and provide a link to the doc in your post.
 
-Please use only the above channel for proposal reviews: all proposal-related communication should happen through GitHub Discussions or directly through comments in the proposal doc. **Do not** send proposals directly to individual GSoC mentors.
+   Please use only the above channel for proposal reviews: all proposal-related communication should happen through GitHub Discussions or directly through comments in the proposal doc. **Do not** send proposals directly to individual GSoC mentors.
 
-You can also request **at most one** "tech lead review" for **at most one** of your proposals during the pre-selection phase. To keep things fair, the tech lead will do only a single pass on your proposal and leave comments, but is not required to follow up on replies to those comments. Since you can only request a tech lead review once (per applicant), we recommend doing so after you have gotten feedback from mentors and completed a full draft of your proposal, but at least a week before the due date. Tech leads will process requests in the order they are received. To request a tech lead review, fill in [this Google Form](https://forms.gle/v6QCE4KrEt1vRRKv8).
+   You can also request **at most one** "tech lead review" for **at most one** of your proposals during the pre-selection phase. To keep things fair, the tech lead will do only a single pass on your proposal and leave comments, but is not required to follow up on replies to those comments. Since you can only request a tech lead review once (per applicant), we recommend doing so after you have gotten feedback from mentors and completed a full draft of your proposal, but at least a week before the due date. Tech leads will process requests in the order they are received. To request a tech lead review, fill in [this Google Form](https://forms.gle/v6QCE4KrEt1vRRKv8).
 
 2. Your final proposal should be self-contained. In particular, to be fair to all applicants, key components of the proposal should not be editable after the deadline. Don't assume that reviewers will follow external links.
 
@@ -371,7 +371,9 @@ Here are some examples of questions to analyze:
 <details>
 <summary>Technical hints / guidance</summary>
 
-- Note that new classrooms are created using the dashboard at /classroom-admin. You will need curriculum admin permissions, which you can grant at /admin (see the Roles tab).
+- Note that new classrooms are created by curriculum admins using the dashboard at /classroom-admin. You will need curriculum admin permissions, which you can grant at /admin (see the Roles tab).
+
+- Hidden classrooms should be viewable by curriculum admins and super admins, with a banner displayed across the top to point out that it is hidden. They should result in a 404 for all other users.
 
 - Here are [the PRD](https://docs.google.com/document/d/1d_FUVKiHsdB8drn9ofw72mIEHztM2GAF8UhErllVMCw/edit) and [mocks](https://www.figma.com/file/CxEKn4FvaZRAAbvuqDchD1/Oppia-Multiple-Classrooms?type=design&node-id=0%3A1&mode=design&t=a3kGrOeQP0HJm0dh-1) for the project, which you can use as a reference.
 
@@ -380,6 +382,8 @@ Here are some examples of questions to analyze:
 - All UI updates should work fully on mobile devices and be responsive, accessible and fully internationalized.
 
 - Make sure to handle corner cases correctly. E.g. if the learner has done no topics in the science classroom yet, then don’t show that classroom in the list of classrooms-with-topics-in-progress in the learner dashboard.
+
+- You can assume that, from a product perspective, it's fine to require that a topic cannot be linked to more than one classroom. However, if your technical design depends upon this being true, then you should take steps to prevent this from happening (e.g. erroring and refusing to save if the user makes a change that would cause such a state to arise).
 </details>
 
 
@@ -926,7 +930,7 @@ https://docs.google.com/spreadsheets/d/1O8EHiSAGrG0yoNUBz9E4DIwKNS8Rfsv_ffC4k1WK
 
 **Difficulty**: Medium
 
-**Potential mentors:** TBD
+**Potential mentors:** @imchristie
 
 **Product Clarifier:** @seanlip
 
@@ -1003,7 +1007,7 @@ Optimize the pre-push hooks and CI checks so that they only run necessary tests.
 
 **Difficulty**: Medium/Hard
 
-**Potential mentors:** TBD
+**Potential mentors:** @seanlip
 
 **Product Clarifier:** @DubeySandeep
 
