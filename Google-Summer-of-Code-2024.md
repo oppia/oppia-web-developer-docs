@@ -202,7 +202,7 @@ Contributors have also told us why they continue to stay engaged with the projec
 
 When submitting a proposal, please use the provided GSoC proposal template. We will only consider proposals submitted using this template. Note that, this year, there is a length limit: the proposal's technical section should fall within 8-20 pages at "Roboto 10" font size.
 
-**Note:** although some of the previous years' proposals are a bit on the long side, there's **no** formal length requirement for your proposal. The quality of what you write is much more important than the amount of text you write, and we encourage you to write shorter proposals that still convey the main aim of the project.
+**Note:** There's **no** formal minimum length requirement for your proposal. The quality of what you write is much more important than the amount of text you write, and we encourage you to write **shorter** proposals that still convey the main aim of the project.
 
 (**NOTE**: The link to the 2024 template will be posted soon. **It will differ from the 2023 template.** We will post instructions together with the template.)
 
@@ -244,10 +244,10 @@ Here's some advice about proposals and milestone timeline planning that we colla
 
 ## Selection Criteria
 
-In order to select contributors for GSoC, we will mainly be looking at three things:
+In order to select contributors for GSoC, we will mainly be looking at three things (the first of this is the most important, and the other two are of roughly equal weight):
 
+- Whether the contributor has the required skills for the project
 - The quality of the submitted proposal
-- The quality of the applicant's PRs (in order to assess their ability to code, debug, break down complex tasks, etc.). In particular, we will be assessing whether the applicant has the necessary technical and communication skills to succeed in their chosen GSoC project.
 - Our prior experience working with the contributor (do they keep commitments, communicate well, demonstrate independence/initiative/responsiveness, help others, etc.)
 
 We believe that strong performance in these dimensions is likely to correlate well with the contributor having an enjoyable, fulfilling and productive experience over the summer, and successfully completing the GSoC program.
