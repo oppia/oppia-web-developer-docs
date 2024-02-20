@@ -1188,6 +1188,12 @@ This project entails introducing support for measuring code coverage for all Kot
 - That other [scripts](https://github.com/oppia/oppia-android/tree/develop/scripts) in the codebase are used as the basis for fully writing out the technical portions of the proposal.
 </details>
 
+<details>
+<summary>Technical hints / guidance</summary>
+
+See tracking issue: [#5343](https://github.com/oppia/oppia-android/issues/5343).
+</details>
+
 ### 4.2. Multiple classrooms support
 
 **Project Description:**
@@ -1234,6 +1240,12 @@ That all of the components outlined in the break-down Gist are expected to be fu
 - Adding a dependency diagram showing how the components will be interconnected.
 - Adding a sequence diagram to show how different user flows will call through to different dependencies in the project.
 
+</details>
+
+<details>
+<summary>Technical hints / guidance</summary>
+
+See tracking issue: [#5344](https://github.com/oppia/oppia-android/issues/5344).
 </details>
 
 ### 4.3. Platform parameter developer dashboard and improvements to platform parameter testing support
@@ -1287,4 +1299,10 @@ This project entails two parts: (1) introduce a developer-only UI (as part of th
 - Examples of the new feature testing API.
 
 - Hand-created mocks for the new platform parameter dashboard (these can be rough; they just serve as the basis for development of the project).
+</details>
+
+<details>
+<summary>Technical hints / guidance</summary>
+
+See tracking issue: [#5345](https://github.com/oppia/oppia-android/issues/5345).
 </details>
