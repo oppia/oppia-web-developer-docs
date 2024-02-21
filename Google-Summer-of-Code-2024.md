@@ -82,7 +82,7 @@ A: Yes, you can. However, we strongly recommend picking one project and writing 
 
 **Q: How early should I start working on the proposal?**
 
-A: We recommend that you first figure out how to become an effective contributor and get onboarded to the project by getting some PRs merged. Then, start developing your project proposal as early as possible after accepted mentoring organizations are announced on 21 Feb. This will give you time to get feedback from mentors and improve the proposal before submission. Make sure to follow all instructions in the [proposal template](https://docs.google.com/document/d/1yYefLkT7dJJa86MyrdWpbZtzeaWAKCi1eXZZDGUrasM/edit) (especially around sharing and access) to reduce delays in reviewing your proposal.
+A: We recommend that you first figure out how to become an effective contributor and get onboarded to the project by getting some PRs merged. Then, start developing your project proposal as early as possible after accepted mentoring organizations are announced on 21 Feb. This will give you time to get feedback from mentors and improve the proposal before submission. Make sure to follow all instructions in the [proposal template](https://docs.google.com/document/d/1BIvB0Pt_KCAD17wFS1viOTfZiehBuEJOO1GeypezdkY/edit) (especially around sharing and access) to reduce delays in reviewing your proposal.
 
 **Q: I only discovered Oppia recently. Does this mean that, during selection, my application would automatically be ranked lower than those by other applicants who have a longer tenure with Oppia?**
 
@@ -200,11 +200,9 @@ Contributors have also told us why they continue to stay engaged with the projec
 
 ## GSoC Proposal Template
 
-When submitting a proposal, please use the provided GSoC proposal template. We will only consider proposals submitted using this template. Note that, this year, there is a length limit: the proposal's technical section should fall within 8-20 pages at "Roboto 10" font size.
+When submitting a proposal, please use the provided [GSoC proposal template](https://docs.google.com/document/d/1BIvB0Pt_KCAD17wFS1viOTfZiehBuEJOO1GeypezdkY/edit). We will only consider proposals submitted using this template. Note that, this year, there is a length limit: the proposal's technical "HOW" section should not exceed 20 pages at "Roboto 10" font size.
 
 **Note:** There's **no** formal minimum length requirement for your proposal. The quality of what you write is much more important than the amount of text you write, and we encourage you to write **shorter** proposals that still convey the main aim of the project.
-
-(**NOTE**: The link to the 2024 template will be posted soon. **It will differ from the 2023 template.** We will post instructions together with the template.)
 
 **Some important notes:**
 
@@ -300,8 +298,6 @@ Please note that the list of project ideas below is not set in stone: more proje
 3.1. [Acceptance tests](#31-acceptance-tests)
 
 3.2. [Make CI and pre-push hooks more efficient](#32-make-ci-and-pre-push-hooks-more-efficient)
-
-3.3. [Optimize Docker builds](#33-optimize-docker-builds)
 
 ### Android team
 
@@ -790,7 +786,7 @@ Additionally, Oppia already has a partial implementation for [computer-aided tra
 
 **Difficulty**: Hard
 
-**Potential mentors:** @chris7716, @Aakash-Jakhmola
+**Potential mentors:** @chris7716
 
 **Product Clarifier:** @seanlip
 
@@ -858,7 +854,7 @@ Sometimes, after a piece of content is translated, a small part of the original 
 
 **Difficulty**: Hard
 
-**Potential mentors:** @chris7716, @Aakash-Jakhmola
+**Potential mentors:** @chris7716
 
 **Product Clarifier:** @seanlip
 
@@ -1079,57 +1075,6 @@ Milestone 2:
 
 - You can use git commands to detect which files have changed (and thus need to be tested in the pre-push hook).
 - Ensure all optimizations are designed with our Docker environment in mind. In other words, consider how the overall pre-push check will run on docker containers.
-</details>
-
-
-### 3.3. Optimize Docker builds
-
-**Project Description:**
-
-Our Docker installation process isn't optimized, and this results in barriers to entry for contributors with lower RAM machines (as well as making some processes take longer than they should). The aim of this project is therefore to reduce Docker build time and resource usage.
-
-**Not in scope:**
-- Implementing caching of Docker images in our GitHub build process so that we only need to build Docker once per PR (though this is a prerequisite for using Dockerhub).
-- Storing the Docker image in Dockerhub every time a PR is merged to the develop branch, so that it can be used when building new PRs (with a graceful fallback if that image isn’t downloadable due to Dockerhub rate limits).
-
-**Size of this project:** Medium (\~175 hours)
-
-**Difficulty**: Medium
-
-**Potential mentors:** @gp201, @DubeySandeep
-
-**Product Clarifier:** @DubeySandeep
-
-**Technical Clarifier:** @DubeySandeep
-
-**Required knowledge/skills:**
-- Ability to work with Docker (you can demonstrate this by tackling some issues from [this list](https://github.com/orgs/oppia/projects/8/views/11?sliceBy%5Bvalue%5D=Docker+migration))
-- Ability to work with GitHub Actions and CI/CD pipelines.
-
-**Suggested Milestones:**
-- **Milestone 1**: Optimize Docker builds by reducing both Docker build time (both locally and on CI) and resource usage (e.g. memory, CPU). In particular:
-  - Set up a workflow for logging resource usage so that the memory/CPU use is reported on CI. Add this to any Docker build steps so that resource usage can be tracked. (As an optional bonus: add this to other resource-intensive steps in existing GitHub Actions workflows as well.)
-  - Organize the steps in the backend and frontend Dockerfiles to make build caching (which reuses layers from previous builds, thus reducing the build time for unchanged layers) as efficient as possible, and take other measures to keep the layers small as described in https://docs.docker.com/build/cache/.
-  - Minimize the Docker image size – achieve a balance between a lightweight image and the inclusion of necessary tools/libraries.
-
-- **Milestone 2**: For each Makefile command (like running frontend tests, running backend tests, etc.), only build images that the command needs, and ensure that we are running only the services that are required for that Makefile command. When building multiple images, these should happen in parallel.
-
-<details>
-<summary>What we are looking for in proposals:</summary>
-- For resource usage monitoring, what are the trade-offs of using third-party actions vs writing your own? Investigate those tradeoffs in your proposal.
-- We would like to see a clear, detailed plan for optimizing Docker builds. A large part of this requires clear analysis, e.g.:
-  - For reordering the lines: you should provide an analysis of how you would make docker/Dockerfile.backend and docker/Dockerfile.frontend efficient (less resource-intensive), and explain the rationale behind the key decisions you took, with reference to the Docker documentation for layer caching. Explain why your proposed rearrangement is optimal.
-  - You will need to figure out a way to track the dependencies of a developer workflow (e.g. running tests, setting up the backend server) and identify the “minimal core” needed for each workflow to run successfully. Then, propose ways to structure things so that only the necessary services/dependencies are used in each case. The proposal should illustrate a good understanding of the relevant workflows and their essential steps, and demonstrate a clean architecture for organizing things so that nothing extraneous gets run.
-</details>
-
-<details>
-<summary>Technical hints / guidance</summary>
-- This project requires being very methodical. Plan the project so that you test changes to each service in isolation (one PR per service – it’s totally fine if PR is small). If you do a lot of changes in one go, then it will be hard to debug issues if they occur because the "surface area of what changed" is larger.
-- The Docker installation and build process must be as lightweight as possible. Keep all Dockerfile steps minimal and avoid doing any unnecessary 'work' (e.g. using Python scripts that import lots of unneeded dependencies).
-- You should implement regular cache invalidation to ensure that the dependencies remain current.
-- When minimizing the Docker image size, look for opportunities to use smaller base images and remove unneeded files (though you’ll still need to achieve a balance between keeping the image lightweight and including the necessary tools/libraries).
-- In our project's docker-compose file, we define multiple services using our custom backend and frontend Dockerfile images. Traditionally, when conducting tests (e.g., running eslint), we initially start specific services, such as a dev-server service, and then modify the command executed by these services to initiate the test ([example](https://github.com/oppia/oppia/blob/develop/Makefile#L119-L138)). This approach of starting services and altering their commands for testing purposes is not optimal. Instead, we recommend creating a reusable configuration that encompasses the common storage configuration, so that we can effortlessly run various services—such as webpack, ng-serve, and eslint—without the need to start or modify services unnecessarily. For a practical example from another project (openProject), observe how a [frontend-build](https://github.com/opf/openproject/blob/bdd5391285e732b2d88a18db16f3ee2acc9fb2fc/docker-compose.yml#L29) structure is seamlessly integrated within the docker-compose file, enabling the separate execution of [frontend server](https://github.com/opf/openproject/blob/bdd5391285e732b2d88a18db16f3ee2acc9fb2fc/docker-compose.yml#L76) and [frontend tests](https://github.com/opf/openproject/blob/bdd5391285e732b2d88a18db16f3ee2acc9fb2fc/docker-compose.yml#L123) without the redundancy of starting and stopping services. This method not only simplifies the workflow but also enhances maintainability and efficiency. (See also these comments in PRs for reference: [https://github.com/oppia/oppia/pull/18698#discussion_r1277716623](link 1), [https://github.com/oppia/oppia/pull/18698#discussion_r1328245520](link 2).)
-- We strongly recommend that you build in a plan to get feedback during implementation from developers on the Oppia team, who can give feedback about whether the improved flow works on their machines.
 </details>
 
 
