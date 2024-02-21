@@ -1,3 +1,5 @@
+# Tutorial: Making a Simple UI Change
+
 ## Introduction
 
 This tutorial guides you through making a simple UI change on the Oppia website. Specifically, we'll update the text on the top of the About page from "Get Started with Oppia" to "Introducing Oppia."
