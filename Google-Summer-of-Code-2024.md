@@ -51,7 +51,7 @@ Welcome! If you're interested in applying to work with Oppia for GSoC, please fo
 
 5. Select one or more [GSoC project ideas](#oppias-project-ideas-list) that you're most interested in, and write your project proposal! You can get feedback from project mentors when you've completed a sufficient draft -- see the instructions in the [GSoC proposal template](#gsoc-proposal-template) section for details.
 
-   We require that all general discussion about GSoC projects take place in open channels. If you have questions about a project, you can ask in [GitHub Discussions](https://github.com/oppia/oppia/discussions/categories/gsoc-2024-q-a). Please be specific when asking questions, since this makes it easier for us to help you.
+   We require that all general discussion about GSoC projects take place in open channels. If you have questions about a project, you can ask in [GitHub Web Discussions](https://github.com/oppia/oppia/discussions/categories/gsoc-2024-q-a) or [GitHub Android Discussions](https://github.com/oppia/oppia-android/discussions/categories/general-gsoc-q-a). Note that individual projects have their own categories, so please make use of those if you have project-specific questions. Please also be specific when asking questions, since this makes it easier for us to help you.
 
    - **Pro-tip!** During the application period, your first goal should be to figure out how to become an effective contributor. Start developing your project proposal only once you have experience getting some PRs merged. This will give you a much better idea of what you want to work on, and how much you can accomplish.
 
@@ -1090,7 +1090,7 @@ Historically, this has been a challenging area for the team. Past attempts (see 
 
 This project entails introducing support for measuring code coverage for all Kotlin files in the Android codebase, with any support gaps documented (e.g. lambdas if those still cause problems: [jacoco#654](https://github.com/jacoco/jacoco/issues/654)). It also involves introducing support for running coverage on a per-unit basis (that is, only measuring the coverage of file Example.kt when running ExampleTest.kt and no other tests), with enforcement for targeting a specific coverage percentage (that's configurable).
 
-**Tracking issues**: [#1497](https://github.com/oppia/oppia-android/issues/1497), [#1726](https://github.com/oppia/oppia-android/issues/1726), [#1727](https://github.com/oppia/oppia-android/issues/1727), [#1728](https://github.com/oppia/oppia-android/issues/1728)
+**Tracking issue**: [#5343](https://github.com/oppia/oppia-android/issues/5343) (**important**: make sure to subscribe to notifications to this issue if you're going to submit a proposal so that you can be notified if there are any changes to the project's requirements).
 
 **Not in scope:**
 - Adding tests for any existing code not affected by the new script functionality itself. This project is NOT intending to increase code coverage, just add instrumentation for it.
@@ -1107,32 +1107,18 @@ This project entails introducing support for measuring code coverage for all Kot
 **Technical Clarifier:** @BenHenning
 
 **Required knowledge/skills:**
+- Ability to write code and tests in Kotlin.
+- Ability to build the app and run tests in Bazel.
+
+**Recommended knowledge/skills:**
 - Comfortable with digging into problems that may require exploring code outside of Oppia Android, and that may not have obvious solutions findable via search engines.
 - Excellent technical communication skills.
-- Strong familiarity with Kotlin (coroutines is a bonus as they will be used during development, but it isn’t strongly required).
-- Basic familiarity with using the Bazel command line for building and running tests. Working knowledge of how Bazel targets work.
+- Familiarity with Kotlin coroutines.
+- Understanding of how Bazel targets work.
 - Comfortable with performing Bazel queries (e.g. using _bazel query_) and referencing the Bazel [build encyclopedia](https://bazel.build/reference/be/overview) and [query guide](https://bazel.build/query/guide) when needed.
-- Working Bazel setup in local development environment. Specifically:
-  - _bazel test //scripts/..._ should pass.
-  - Recommended: you have a local Android Studio project set up with the Bazel Android Studio plugin (not required, but it can greatly help with day-to-day development).
+- Having a local Android Studio project set up with the Bazel Android Studio plugin (not required, but it can greatly help with day-to-day development).
 
-**Suggested Milestones:**
-
-- **Milestone 1**:  Introduce a new script to compute a per-unit code coverage percentage for a single file.
-  - Deliverable 1: Introduce a new scripting utility that can run code coverage for a specific Bazel test target, interpret the results, and return a proto for data processing.
-  - Deliverable 2: Introduce a new utility which can, given the proto from the deliverable 1 utility, generate a rich-text code coverage report in one of three formats:
-    1. Markdown (for easy copying to GitHub)
-    2. HTML (for easy local viewing)
-  - Deliverable 3: Update the test exemption check script & its exemption format such that each file now has two possible states:
-    1. Exempt from having a test file (the current exemption behavior).
-    2. An override of the code coverage to meet a specific minimum (which can be 0%).
-
-- **Milestone 2**: Integrate code coverage checking.
-  - Deliverable 1: Introduce a new script that uses the utility from deliverable 1 to perform code coverage analysis for a single target and the utility from deliverable 2 to _optionally_ generate and output a rich-text report file for the test run. This script should always output the computed code coverage for a given file, and have a configuration option to fail if it's below a specified threshold.
-  - Deliverable 2: Introduce a new CI workflow which, similarly to the [existing unit test workflow](https://github.com/oppia/oppia-android/blob/3ced7e14a8bff8c3757ed15a1626b0e63c6ce14d/.github/workflows/unit_tests.yml#L16), runs a series of buckets for code coverage analysis using the new script from milestone 1. Report generation should be enabled & reports uploaded as artifacts. Code coverage should only run after tests are passing (on a per-bucket basis if possible).
-  - Deliverable 3: Fix/replace the cancellation workflow to ensure re-runs of CI correctly and _quickly_ terminate all existing workflows that are running.
-  - Deliverable 4: Introduce a wiki page explaining how to use the code coverage tool, provide advice on how to write tests with good behavioral coverage, and explain the limitations of the code coverage tool (i.e. all the cases it does _not_ correctly count coverage for a specific line).
-  - Deliverable 5: File issues for all cases where the code coverage tool misses or incorrectly counts code coverage for future work.
+**Suggested Milestones:** See the project's tracking issue.
 
 <details>
 <summary>What we are looking for in proposals:</summary>
@@ -1150,7 +1136,7 @@ This project entails introducing support for measuring code coverage for all Kot
 <details>
 <summary>Technical hints / guidance</summary>
 
-See this [Gist](https://gist.github.com/BenHenning/4d1db014731eb9b1e5d7ba175df78962).
+See tracking issue: [#5343](https://github.com/oppia/oppia-android/issues/5343).
 </details>
 
 ### 4.2. Multiple classrooms support
@@ -1160,6 +1146,8 @@ See this [Gist](https://gist.github.com/BenHenning/4d1db014731eb9b1e5d7ba175df78
 The app is currently limited to displaying a single list of basic numeracy topics. Together, these topics comprise what we call a 'classroom' (see https://oppia.org/learn/math for Oppia web's classroom viewer).
 
 This project entails introducing support for more than just mathematics topics by revising the core home screen & navigation flows to support topics grouped by their classroom. Future classrooms will include science, financial literacy, and more.
+
+**Tracking issue**: [#5344](https://github.com/oppia/oppia-android/issues/5344) (**important**: make sure to subscribe to notifications to this issue if you're going to submit a proposal so that you can be notified if there are any changes to the project's requirements).
 
 **Reference document**: [PRD](https://docs.google.com/document/d/1uOiDnWBxJmDMwqej-VSRKEnDP4Been3np9y1ov6YTNA/edit)
 
@@ -1176,29 +1164,18 @@ This project entails introducing support for more than just mathematics topics b
 **Technical Clarifier:** @adhiamboperes
 
 **Required knowledge/skills:**
-- Strong familiarity with how UIs are layered in Oppia Android, and with corresponding terminology: activities, fragments, presenters, listeners, and view models, and how activity and fragment navigation works.
-- Good working knowledge of modifying and/or creating new layout files in Android. Ability to read mocks and apply them when creating layouts.
-- At least basic familiarity with writing UI tests in Oppia Android.
-- Proficiency in writing Kotlin and Android code.
-- Familiarity with how DataProviders behave and are used for piping data from the domain layer to the app layer. Familiarity with Kotlin coroutines is a plus, but not required.
-- Familiarity with proto files and how the app uses protos for both lesson file formats and data interchange in the app.
-- Good working knowledge of the app home screen (from a UX perspective).
-- Able to build the project locally using Bazel.
+- Ability to write code and tests in Kotlin.
+- Ability to build the app and run tests in Bazel.
+- Ability to make changes & test UI code in Android, and strong familiarity with how the app layers UI components.
+- Ability to work with DataProviders.
+- Ability to understand and work with protos.
 
-**Suggested Milestones:**
-- **Milestone 1**: Introduce new UIs for classroom selection.
-  - Deliverable 1: Introduce new feature flag for the multiple classrooms feature.
-  - Deliverable 2: Update the model & domain layer to support the definition of classrooms, and specify a classroom per-topic.
-  - Deliverable 3: Introduce a ClassroomController.
-  - Deliverable 4: Introduce a new activity & related fragments/views/tests for a new classroom selection landing page (recommendations section should be faked out for now).
-  - Deliverable 5: Introduce a new activity & related fragments/views/tests for a classroom page with topic list picker.
-- **Milestone 2**:
-  - Deliverable 1: Update the asset download script ([#4885](https://github.com/oppia/oppia-android/pull/4885)) to support classrooms.
-  - Deliverable 2: Implement new recommendations logic & UI support for the classroom selection page (includes updating recommendation cards to include classroom information).
-  - Deliverable 3: Update topic cards to include classroom & topic progress information.
-  - Deliverable 4: Gated by the feature flag, hook up the new classroom selection page to replace the existing home activity upon profile login.
-  - Deliverable 5: Test, iterate, and work with the tech lead to finalize and launch the feature.
-  - Deliverable 6: Audit home activity/fragment & recommendation tests to ensure the new utilities cover the same behaviors. Remove the old home activity/fragment.
+**Recommended knowledge/skills:**
+- Ability to read UI mock-ups and apply them when creating layouts.
+- Familiarity with Kotlin coroutines.
+- Good working knowledge of the app home screen (from a UX perspective).
+
+**Suggested Milestones:** See the project's tracking issue.
 
 <details>
 <summary>What we are looking for in proposals:</summary>
@@ -1213,7 +1190,7 @@ That all of the components outlined in the break-down Gist are expected to be fu
 <details>
 <summary>Technical hints / guidance</summary>
 
-See this [Gist](https://gist.github.com/BenHenning/8bbc85721747a6c1d4362448b2151aec).
+See tracking issue: [#5344](https://github.com/oppia/oppia-android/issues/5344).
 </details>
 
 ### 4.3. Platform parameter developer dashboard and improvements to platform parameter testing support
@@ -1224,7 +1201,7 @@ Feature flags are a special type of configurable [platform parameter](https://gi
 
 This project entails two parts: (1) introduce a developer-only UI (as part of the developer options section of the app) which displays all platform parameters in the app, their current enabled/disabled status (for feature flags) or values (for regular parameters), their sync status (i.e. whether they're being synced from the server or using a local developer default), and allows an explicit manual override to force the feature on or off or override the parameter's value. And, (2) refactor the existing functionality for testing feature flags and platform parameters from using [TestPlatformParameterModule](https://github.com/oppia/oppia-android/blob/3ced7e14a8bff8c3757ed15a1626b0e63c6ce14d/testing/src/main/java/org/oppia/android/testing/platformparameter/TestPlatformParameterModule.kt#L64) to instead using an annotation-based enable/disable/value override trigger with support for multiple parameter tweaks per test, and both per-test and per-class configuration.
 
-**Tracking issues**: [#4303](https://github.com/oppia/oppia-android/issues/4303) & [#4302](https://github.com/oppia/oppia-android/issues/4302)
+**Tracking issue**: [#5345](https://github.com/oppia/oppia-android/issues/5345) (**important**: make sure to subscribe to notifications to this issue if you're going to submit a proposal so that you can be notified if there are any changes to the project's requirements).
 
 **Not in scope:**
 - Platform parameter and feature flag enumeration.
@@ -1241,41 +1218,20 @@ This project entails two parts: (1) introduce a developer-only UI (as part of th
 **Technical Clarifier:** @kkmurerwa
 
 **Required knowledge/skills:**
-- Strong familiarity with Kotlin.
-- Strong familiarity with platform parameter and feature flag system, and tests. Preferred to demonstrate working with feature flags in tests.
-- Strong familiarity with how UIs are layered in Oppia Android, and with corresponding terminology: activities, fragments, presenters, listeners, and view models, and how activity and fragment navigation works.
-- Good working knowledge of modifying and/or creating new layout files in Android. Ability to read mocks and apply them when creating layouts.
+- Ability to write code and tests in Kotlin.
+- Ability to build the app and run tests in Bazel.
+- Ability to make changes & test UI code in Android, and strong familiarity with how the app layers UI components.
+- Ability to understand and work with protos.
+- Ability to work with platform parameters and feature flags.
+- Ability to add/update Dagger graph bindings.
+
+**Recommended knowledge/skills:**
+- Ability to read UI mock-ups and apply them when creating layouts.
+- Familiarity with Kotlin coroutines.
 - Good working knowledge of different app build flavors.
 - At least basic working knowledge of the in-app developer options screens.
-- At least basic working knowledge of protos and textprotos, and how they’re used in the app.
-- Able to build the project locally using Bazel.
 
-**Suggested Milestones:**
-- **Milestone 1**: Introduce improved testing support for platform parameters.
-  - Deliverable 1: Introduce new annotations for overriding feature flags, platform parameters, and defaulting each back to normal, all targeted for test classes and methods.
-  - Deliverable 2: Update OppiaTestRule to properly arrange the platform parameters and feature flags for each overridden value as indicated by the class-level and method-level annotations.
-  - Deliverable 3: Update OppiaTestRule to fail if it's not the first rule run for a test, and update any tests that fail because of this.
-  - Deliverable 4: Add a regex check ensuring that OppiaTestRule is always present in a test file, and update all tests that are missing the rule.
-  - Deliverable 5: Migrate all old TestPlatformParameterModule usage over to the new annotations and remove the module.
-- **Milestone 2**: Introduce UI for overriding platform parameters and feature flags.
-  - Deliverable 1: Refactor the domain logic for platform parameters and feature flags to facilitate value updating using compile-time module configuration (i.e. production implementations should make it impossible to override platform parameters).
-  - Deliverable 2: Introduce a new platform parameter to gate the override UI feature.
-  - Deliverable 3: Introduce a new UI that distinctly lists:
-    - Platform parameters and features (each should be distinctly indicated).
-    - Both parameters & features show, for each:
-      - Their name.
-      - Their local default value.
-      - Their remote value (if any).
-      - Their current value.
-      - Their sync status, that is one of: unspecified, using local value, using remote value, using override value.
-    - Parameters show the values of the parameter based on type. Feature flags show based on enabled/disabled state (rather than true/false boolean values).
-  - Deliverable 4: Update the UI to include support for overriding values.
-    - Platform parameters provide true/false switches for boolean values, and text input for integers & strings.
-    - Feature flags provide enable/disable switches.
-    - Both provide a button for resetting the override (only if it’s set).
-  - Deliverable 5: Update the UI to include a status indicator for whether the app needs to be restarted in order for the override to take effect, and a button to force restart the app (i.e. by crashing it and letting the user reopen it).
-  - Deliverable 6: Test, iterate, and finalize (i.e. release) the new UI to developers.
-  - Deliverable 7: Introduce a new wiki page demonstrating the UI and explaining how and when to use it. Add an interactive link to this page in the new UI itself.
+**Suggested Milestones:** See the project's tracking issue.
 
 <details>
 <summary>What we are looking for in proposals:</summary>
@@ -1293,5 +1249,5 @@ This project entails two parts: (1) introduce a developer-only UI (as part of th
 <details>
 <summary>Technical hints / guidance</summary>
 
-See this [Gist](https://gist.github.com/BenHenning/93f89b9cc824e090fbcce1cfade3152e).
+See tracking issue: [#5345](https://github.com/oppia/oppia-android/issues/5345).
 </details>
