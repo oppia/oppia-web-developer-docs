@@ -200,7 +200,7 @@ Contributors have also told us why they continue to stay engaged with the projec
 
 ## GSoC Proposal Template
 
-When submitting a proposal, please use the provided [GSoC proposal template](https://docs.google.com/document/d/1BIvB0Pt_KCAD17wFS1viOTfZiehBuEJOO1GeypezdkY/edit). We will only consider proposals submitted using this template. Note that, this year, there is a length limit: the proposal's technical HOW section should not exceed 20 pages at "Roboto 10" font size.
+When submitting a proposal, please use the provided [GSoC proposal template](https://docs.google.com/document/d/1BIvB0Pt_KCAD17wFS1viOTfZiehBuEJOO1GeypezdkY/edit). We will only consider proposals submitted using this template. Note that, this year, there is a length limit: the proposal's technical "HOW" section should not exceed 20 pages at "Roboto 10" font size.
 
 **Note:** There's **no** formal minimum length requirement for your proposal. The quality of what you write is much more important than the amount of text you write, and we encourage you to write **shorter** proposals that still convey the main aim of the project.
 
