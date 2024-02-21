@@ -78,7 +78,11 @@ A: All the projects we've listed in the [Ideas List](#oppias-project-ideas-list)
 
 **Q: Can I submit more than one proposal to Oppia?**
 
-A: Yes, you can. However, we strongly recommend picking one project and writing a solid proposal for it. Splitting attention across multiple projects might not be a great idea. (That said, GSoC is offering full-length and half-length projects, so one exception might be if you're interested in doing either the 'full version' or the 'half version' of a project idea that can support both modes. In such a case, you would be welcome to submit both the 'full version' and the 'half version' as separate applications, but, before doing so, please make sure that you'd be happy with either outcome if you are selected.)
+A: Yes, you can. However, we strongly recommend picking one project and writing a solid proposal for it. Splitting attention across multiple projects might not be a great idea. (That said, GSoC is offering projects of multiple lengths, and if you're interested in doing either the 'full version' or the 'half version' of a project idea that can support both modes, you can submit **both** the 'full version' and the 'half version' as separate applications. Just make sure that you'd be happy with either outcome if you are selected!)
+
+**Q: I'm part of team X in Oppia. Can I submit a proposal for a project idea from a different team?**
+
+A: Yes, you can; there are no issues with that. There is a space in the proposal template to list teams at Oppia you've participated in, and we will get feedback from members of those teams about what their experience of collaborating with you is like.
 
 **Q: How early should I start working on the proposal?**
 
@@ -380,6 +384,8 @@ Here are some examples of questions to analyze:
 - Make sure to handle corner cases correctly. E.g. if the learner has done no topics in the science classroom yet, then don’t show that classroom in the list of classrooms-with-topics-in-progress in the learner dashboard.
 
 - You can assume that, from a product perspective, it's fine to require that a topic cannot be linked to more than one classroom. However, if your technical design depends upon this being true, then you should take steps to prevent this from happening (e.g. erroring and refusing to save if the user makes a change that would cause such a state to arise).
+
+- This project includes changes to the learner dashboard. The mocks are based on the redesigned learner dashboard which is currently being worked on in [#18384](https://github.com/oppia/oppia/issues/18384). We expect the redesigned learner dashboard to be ready by the time you are ready to implement those parts, but if not, you can implement the new functionality on the existing learner dashboard instead. You do not need to tackle [#18384](https://github.com/oppia/oppia/issues/18384) directly as part of this project.
 </details>
 
 
@@ -447,9 +453,11 @@ Please refer to [this PRD](https://docs.google.com/document/d/1enceUlqh7KpaE5i_r
 
 **Project Description:**
 
-Currently, topics in Oppia contain a list of skills that they teach, and these skills are grouped into subtopics (like 'Adding Fractions'), each with its own revision card (or 'subtopic page' in the backend). Subtopic pages were originally implemented as a single rich-text editor (RTE) component, but given their length in practice, this was a mistake since it means that they are too big to be translated easily. Additionally, both skill descriptions and subtopic pages can include worked examples, but worked examples were incorrectly implemented only as a field on the skill model. Experience has shown that worked examples would be better implemented as a rich-text component instead, since this gives more flexibility in where they are placed and allows them to be used in other contexts like the subtopic pages.
+Currently, topics in Oppia contain a list of skills that they teach, and these skills are grouped into subtopics (like 'Adding Fractions'), each with its own revision card (or 'subtopic page' in the backend). Subtopic pages are currently implemented as a single rich-text editor (RTE) field, but this results in their being too long to translate, and the content doesn't look good. (For example, this is one of the revision cards in the Division topic: [link](https://www.oppia.org/learn/math/division/revision/basic-concepts).) We would like to instead split this RTE field into multiple heading/content parts, both to make it easier to translate each revision card in stages and also to improve the display for learners. In the example above, the updated revision card would have two sections: "What is division?" and "Parts of a division equation". In the subtopic page editor, each of these sections would have its own text field (for the heading) and RTE field (for the content).
 
-The aim of this project is therefore to clean up some of this incorrect modelling and fix the representation of subtopic pages and worked examples, while also ensuring that they are easily translatable.
+Additionally, both skill explanations and subtopic pages can include worked examples, but worked examples were incorrectly implemented only as a field on the skill model. Experience has shown that worked examples would be better implemented as a rich-text component instead, since this gives more flexibility in where they are placed and allows them to be used in other contexts like the subtopic pages.
+
+The aim of this project is therefore to clean up the incorrect modelling described above and fix the representation of subtopic pages and worked examples, while also ensuring that they are easily translatable.
 
 **Not in scope:**
 - Implementing new rich-text components other than "Worked Example".
@@ -472,17 +480,16 @@ The aim of this project is therefore to clean up some of this incorrect modellin
 - Effective communication using [debugging docs](https://github.com/oppia/oppia/wiki/Debugging-Docs).
 
 **Suggested Milestones:**
-- **Milestone 1**: Carry out a schema migration to split the subtitled_html field of SubtopicPageContents (also known as "revision cards") into a list of (heading: str, content: RTE) pairs – existing subtopic page content should be migrated to a single-element list, with the only item in that list having a heading that is the revision card’s title, and a body consisting of the existing RTE content.
+- **Milestone 1**: Create a new `subtopic_page_sections` field in SubtopicPageContents that is a repeated JsonProperty consisting of (heading: str, content: RTE) pairs. Then, carry out a migration that converts the existing `subtitled_html` field (also known as "revision cards") into the new structure, which should be a single-element list with one item whose heading is the revision card’s title, and whose body is the existing RTE content.
 
   Store the written translations for subtopic pages in EntityTranslationsModel instead of within the SubtopicPage object, similar to the migration that was done for the correspondingly-named field in explorations a few years ago. Also, introduce a unique content ID for each translatable field, similar to explorations. (This should be a relatively easy migration because there are no translations for SubtopicPages yet, but you will need to figure out the new structure and fix the "plumbing".)
 
-  Update the editor UI to accommodate the new structure, and the learner UI to use an improved display for the revision cards based on these mocks, with clearly-indicated headings for each of the sections.
+  Update the editor UI to accommodate the new structure, and the learner UI to use an improved display for the revision cards based on these mocks, with clearly-indicated headings for each of the sections. Finally, deprecate the old `subtitled_html` field.
 
-- **Milestone 2**: Carry out a schema migration to safely deprecate the `worked_examples` field in the `skill_contents` part of the SkillModel, and remove it from the skill editor UI as well. Implement a new 'Worked Example' RTE component that appears only in the skill description and subtopic page RTEs, and add acceptance tests for its use. Ensure that this component is (in principle) translatable in the contributor dashboard.
+- **Milestone 2**: Carry out a schema migration to safely deprecate the `worked_examples` field in the `skill_contents` part of the SkillModel, and remove it from the skill editor UI as well. Implement a new 'Worked Example' RTE component that appears only in the skill explanation and subtopic page RTEs, and add acceptance tests for its use. Ensure that this component is (in principle) translatable in the contributor dashboard.
 
 <details>
 <summary>What we are looking for in proposals:</summary>
-
 
 - Explain how the current structure for exploration translations works, and describe, by analogy, the ideal structure for skill and subtopic card translations. For the subtopic pages, what changes exactly will you make with regards to written translations and content IDs?
 
@@ -501,7 +508,7 @@ The aim of this project is therefore to clean up some of this incorrect modellin
 
 - See [this wiki page](https://github.com/oppia/oppia/wiki/Rich-Text-Editor-%28RTE%29-Overview) for details on how to implement rich-text components.
 
-- See [this wiki page](https://github.com/oppia/oppia/wiki/Writing-state-migrations) for details on how to write state migrations. Writing migrations for other entities follows a similar process.
+- See [this wiki page](https://github.com/oppia/oppia/wiki/Writing-state-migrations) for details on how to write state migrations. Writing migrations for JSON properties in other entities follows a similar process.
 
 - We recommend taking the time to really understand how exploration translations work before you try to figure out a similar structure for subtopic pages. The original TDD for that project is here: [Infrastructure for separate storage of translations](https://docs.google.com/document/d/1ZZ6pVKpmynTlmf1_PV1I5TcccmEXPnmoFAVKXN-u2xM/edit).
 
@@ -681,6 +688,8 @@ Here are some parts of your proposal that we will be paying particular attention
 - The new practice session experience should be implemented behind a feature flag until it is ready to launch.
 
 - For questions in lessons (explorations), you only need to track mastery for that question if that question has been tagged with a skill.
+
+- While the question player supports a range of question types, we don't have mocks for most of those types. For now, it is fine to use the existing UI implementations of those question types, tweaking them slightly as needed, as long as the end-user experience is playable without significant obstacles. However, please ensure that, when using shared components, that you test your changes in the other contexts in which those components are being used as well (so that you don't break anything) -- you should show proof of that in the PR descriptions.
 
 - Note that not all sub-tasks in each milestone are of equal difficulty. In Milestone 1, the classification level and mastery tracking are straightforward and tracking the total points/stars is easy, but implementing the redesigned practice session UI will take the longest. Plan your schedule accordingly. In Milestone 2, the practice session results UI redesign will probably take longer than the update of the question selection algorithm, since there are multiple parts to the former.
 </details>
