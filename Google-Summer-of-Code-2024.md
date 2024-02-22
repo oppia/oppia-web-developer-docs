@@ -13,7 +13,7 @@
 - [Communication](#communication)
 - [Oppia's Project Ideas List](#oppias-project-ideas-list)
 
-Oppia is planning to participate in [Google Summer of Code 2024](https://summerofcode.withgoogle.com/)! GSoC is a global program which offers an opportunity to discover and work with open source organizations to post-secondary students and other non-experienced contributors. The contributions are supported by a stipend. Contributors work closely with one or more mentors from an open source organization in order to implement either a project idea by the organization, or a proposal of their own.
+This year, Oppia will be participating in [Google Summer of Code 2024](https://summerofcode.withgoogle.com/)! GSoC is a global program which offers an opportunity to discover and work with open source organizations to post-secondary students and other non-experienced contributors. The contributions are supported by a stipend. Contributors work closely with one or more mentors from an open source organization in order to implement either a project idea by the organization, or a proposal of their own.
 
 In order to receive updates about GSoC at Oppia, please subscribe to the [Oppia GSoC Announce](https://groups.google.com/g/oppia-gsoc-announce) mailing list.
 
