@@ -15,7 +15,7 @@ You can run the TypeScript tests like this:
 
 Python:
 ```console
-python -m scripts.typescript_checks
+python -m scripts.run_typescript_checks --strict_check
 ```
 
 Docker:
