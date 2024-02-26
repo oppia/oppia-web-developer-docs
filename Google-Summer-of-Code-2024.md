@@ -687,11 +687,11 @@ Here are some parts of your proposal that we will be paying particular attention
 
 - The new practice session experience should be implemented behind a feature flag until it is ready to launch.
 
-- For questions in lessons (explorations), you only need to track mastery for that question if that question has been tagged with a skill.
+- For questions in lessons (explorations), you only need to track mastery for that question if that question has been tagged with a skill. Points don't need to be tracked for questions within lessons.
 
 - While the question player supports a range of question types, we don't have mocks for most of those types. For now, it is fine to use the existing UI implementations of those question types, tweaking them slightly as needed, as long as the end-user experience is playable without significant obstacles. However, please ensure that, when using shared components, that you test your changes in the other contexts in which those components are being used as well (so that you don't break anything) -- you should show proof of that in the PR descriptions.
 
-- Note that not all sub-tasks in each milestone are of equal difficulty. In Milestone 1, the classification level and mastery tracking are straightforward and tracking the total points/stars is easy, but implementing the redesigned practice session UI will take the longest. Plan your schedule accordingly. In Milestone 2, the practice session results UI redesign will probably take longer than the update of the question selection algorithm, since there are multiple parts to the former.
+- Note that not all sub-tasks in each milestone are of equal difficulty. In Milestone 1, the mastery tracking is straightforward and tracking the total points is easy, but implementing the redesigned practice session UI will take the longest. Plan your schedule accordingly. In Milestone 2, the practice session results UI redesign will probably take longer than the update of the question selection algorithm, since there are multiple parts to the former.
 </details>
 
 
