@@ -554,7 +554,7 @@ Link to PRD: https://docs.google.com/document/d/1r9IEQ5z_t-eu9XAWN3eRA7iKdKuYsOQ
   * Create a feature flag for the redesigned page. The new page should be implemented behind this feature flag until it is ready for launch.
   * Create a common modal component to use throughout Oppia that aligns with the designs in the mocks.
   * Create components for (a) lesson cards (which should include the learner’s progress bar and a button to play the lesson – you don’t need to customize the button text at this stage) and (b) practice cards. Use these to display the topic list in the UI.
-  * Implement the “Representation of Chapter Availability” section in the mocks by updating the existing "coming soon" UI. (This is related to the "serial chapter launch" project.)
+  * Implement the “Representation of Chapter Availability” section in the mocks by updating the existing "coming soon" UI.
 
   Additionally, in the **topic editor** page, when applicable, display a warning in the “Canonical Stories” section that lists all subtopics and/or skills that aren’t covered by any chapter of the canonical stories. (This should not block publication of the story, but is important information for the topic manager to know, now that we are associating practice cards with lessons.)
 
@@ -621,15 +621,17 @@ In order to help learners develop mastery of the skills they learn, we want to m
 
 This project aims to redesign the practice sessions experience to incorporate mastery tracking and light gamification, and motivate learners to practice more.
 
-The Figma mocks for this project are linked [here](https://www.figma.com/file/pe0Q3Zx9j6Lt9cvgC7FOOV/Practice-Session-and-Topic-Page---Project-3?type=design&node-id=1099-59863&mode=design&t=gsj3ZOqNEojCgTkw-0) (specifically, see the sections towards the right titled "Practice Player" and "Session Results").
+The Figma mocks for this project are linked [here](https://www.figma.com/file/pe0Q3Zx9j6Lt9cvgC7FOOV/Practice-Session-and-Topic-Page---Project-3?type=design&node-id=1099-59863&mode=design&t=gsj3ZOqNEojCgTkw-0) (specifically, see the sections towards the right titled "Practice Player" and "Session Results"). Note that, for this project, we will not be implementing the "Stars" part of the mocks.
 
 Link to PRD: https://docs.google.com/document/d/1r9IEQ5z_t-eu9XAWN3eRA7iKdKuYsOQbVUjO2ZH1qKg/edit (note: only the parts of the PRD related to practice sessions are relevant for this project)
 
 **Tracking issues**: [#19613](https://github.com/oppia/oppia/issues/19613)
 
 **Not in scope:**
+- Implementing the "stars" part of the mocks/PRD (though points and mastery are still in scope).
 - Showing skill progress in the topic page.
 - Adding links from other parts of the site to the practice question experience (e.g. in the learner dashboard, the topic page, and at the ends of lessons).
+- Adding a classification level for each skill as trivial/simple/regular, and allowing the curriculum admin / topic manager to update this classification in the skill editor (with a default to regular).
 
 **Size of this project:** Large (\~350 hours)
 
@@ -650,15 +652,13 @@ Link to PRD: https://docs.google.com/document/d/1r9IEQ5z_t-eu9XAWN3eRA7iKdKuYsOQ
 Note: Ability to [write Beam jobs](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs) is a plus, but is not strictly required.
 
 **Suggested Milestones:**
-- **Milestone 1**: Add a classification level for each skill as trivial/simple/regular, and allow the curriculum admin / topic manager to update this classification in the skill editor (with a default to regular). Include help text for them to explain what each classification means.
+- **Milestone 1**: Track each user’s total points (this should be updated in the backend each time a learner answers a question correctly, regardless of whether they eventually complete the practice session or not), and show this total in their learner dashboard. The tracking functionality should be hidden behind a `TRACK_PRACTICE_QUESTION_POINTS` feature flag, and the display functionality should be hidden behind a `SHOW_PRACTICE_QUESTION_POINTS` feature flag.
+
+  Implement the redesigned practice sessions UI behind a `SHOW_UPDATED_PRACTICE_SESSIONS_UI` flag, including counters and animations for showing how many points a user has earned in a practice session.
 
   Add functionality for tracking mastery at both the skill and subtopic levels (this includes storing information about "number correct", "total number attempted", and "results of last 100 questions attempted"). Use this to track answers for questions that are done in both lessons and practice sessions, and update the learner’s mastery scores in the backend. This functionality should be hidden behind a `TRACK_SKILL_MASTERY` feature flag.
 
-  Implement the redesigned practice sessions UI behind a `SHOW_UPDATED_PRACTICE_SESSIONS_UI` flag, including counters and animations for showing how many points and stars a user has earned in a practice session.
-
-  Track each user’s total points/stars (this should be updated on completion of each practice session), and show these totals in their learner dashboard. The tracking functionality should be hidden behind a `TRACK_POINTS_AND_STARS` feature flag, and the display functionality should be hidden behind a `SHOW_POINTS_AND_STARS` feature flag.
-
-- **Milestone 2**: Implement the redesigned practice session results UI behind a `SHOW_UPDATED_PRACTICE_SESSION_RESULTS_UI` flag. Show the total number of stars/points, overall mastery (change from start to finish), and wrong answers.
+- **Milestone 2**: Implement the redesigned practice session results UI behind a `SHOW_UPDATED_PRACTICE_SESSION_RESULTS_UI` flag. Show the total number of points, overall mastery (with an animation showing the change from 'before the session' to 'after the session'), and wrong answers.
 
   Update functionality for the question selection algorithm to incorporate skill mastery as well. If there aren’t enough questions to choose from, the frontend should display a message saying “sorry, there aren’t enough questions for this topic yet, please check back later” and notify the question admins by email.
 
@@ -687,11 +687,11 @@ Here are some parts of your proposal that we will be paying particular attention
 
 - The new practice session experience should be implemented behind a feature flag until it is ready to launch.
 
-- For questions in lessons (explorations), you only need to track mastery for that question if that question has been tagged with a skill.
+- For questions in lessons (explorations), you only need to track mastery for that question if that question has been tagged with a skill. Points don't need to be tracked for questions within lessons.
 
 - While the question player supports a range of question types, we don't have mocks for most of those types. For now, it is fine to use the existing UI implementations of those question types, tweaking them slightly as needed, as long as the end-user experience is playable without significant obstacles. However, please ensure that, when using shared components, that you test your changes in the other contexts in which those components are being used as well (so that you don't break anything) -- you should show proof of that in the PR descriptions.
 
-- Note that not all sub-tasks in each milestone are of equal difficulty. In Milestone 1, the classification level and mastery tracking are straightforward and tracking the total points/stars is easy, but implementing the redesigned practice session UI will take the longest. Plan your schedule accordingly. In Milestone 2, the practice session results UI redesign will probably take longer than the update of the question selection algorithm, since there are multiple parts to the former.
+- Note that not all sub-tasks in each milestone are of equal difficulty. In Milestone 1, the mastery tracking is straightforward and tracking the total points is easy, but implementing the redesigned practice session UI will take the longest. Plan your schedule accordingly. In Milestone 2, the practice session results UI redesign will probably take longer than the update of the question selection algorithm, since there are multiple parts to the former.
 </details>
 
 
@@ -811,7 +811,7 @@ Additionally, Oppia already has a partial implementation for [computer-aided tra
 **Suggested Milestones:**
 - **Milestone 1**: The full translation caching system backend is implemented and used for auto-suggesting translations for strings that have been previously accepted. The contributor dashboard UI displays these suggestions to translation submitters and explains why they are being suggested. When a translation is accepted by a reviewer, its 'approved' entry in the datastore model is updated. If availability of translations meets the existing criteria for displaying a translated language in the exploration player, the exploration player UI displays these translations to learners, along with an indicator that the translation has not been reviewed yet (see [these mocks](https://github.com/oppia/design-team/issues/95)).
 
-- **Milestone 2**: The full computer-aided translation (CAT) backend implementation is completed, including functionality that allows the developer team to configure the CAT service provider for each language. Admins can run a Beam job from the admin dashboard to generate auto-translations for any untranslated texts for all curated lessons in Oppia's prioritized languages (they can select 'all explorations' or a particular exploration, and they can select 'all languages' or a particular language). These auto-generated suggestions are then shown in the contributor dashboard UI when they are available, as well as the exploration player, together with the relevant context as described in Milestone 1.
+- **Milestone 2**: The full computer-aided translation (CAT) backend implementation is completed, including functionality that allows the developer team to configure the CAT service provider for each language. Admins can run a Beam job from the admin dashboard to generate auto-translations for any untranslated texts for all curated lessons in Oppia's prioritized languages (they can select 'all explorations' or a particular exploration, and they can select 'all languages' or a particular language). Any stored auto-generated suggestions (from caching or from AI providers) are then shown in the contributor dashboard UI when they are available, as well as the exploration player, together with the relevant context as described in Milestone 1.
 
 <details>
 <summary>What we are looking for in proposals:</summary>
@@ -839,6 +839,7 @@ Additionally, Oppia already has a partial implementation for [computer-aided tra
 - You will need to gate the new functionality behind [feature flags](https://github.com/oppia/oppia/wiki/Launching-new-features). The flags that would need to be added are for:
   - `SHOW_TRANSLATION_SUGGESTIONS_IN_CD`, for gating the integration of translation suggestions to the contributor dashboard
   - `SHOW_AUTOGENERATED_TRANSLATIONS_IN_LESSONS` -- for showing autogenerated translations in the exploration player
+In addition, it would be helpful to provide per-language configuration for showing autogenerated translations in lessons, so that we can only turn that feature on for languages where the auto-translations have proven to be sufficiently good. This can be done by using a platform parameter that contains the supported languages; we would only show the autogenerated translations if the feature flag is turned on **and** the language is in the list of supported languages.
 
 - This [related PRD](https://docs.google.com/document/d/1TeGQQNLNJWkTgvGQ1xmV6snz8zXnJ23TvuDKtK5_Tok/edit) might be a helpful reference.
 </details>
@@ -1012,7 +1013,7 @@ Optimize the pre-push hooks and CI checks so that they only run necessary tests.
 
 **Difficulty**: Medium/Hard
 
-**Potential mentors:** @seanlip
+**Potential mentors:** @vojtechjelinek
 
 **Product Clarifier:** @DubeySandeep
 
