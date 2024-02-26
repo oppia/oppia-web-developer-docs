@@ -652,7 +652,7 @@ Link to PRD: https://docs.google.com/document/d/1r9IEQ5z_t-eu9XAWN3eRA7iKdKuYsOQ
 Note: Ability to [write Beam jobs](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs) is a plus, but is not strictly required.
 
 **Suggested Milestones:**
-- **Milestone 1**: Track each user’s total points (this should be updated in the backend each time a learner answers a question correctly, regardless of whether they eventually complete the practice session or not), and show these totals in their learner dashboard. The tracking functionality should be hidden behind a `TRACK_PRACTICE_QUESTION_POINTS` feature flag, and the display functionality should be hidden behind a `SHOW_PRACTICE_QUESTION_POINTS` feature flag.
+- **Milestone 1**: Track each user’s total points (this should be updated in the backend each time a learner answers a question correctly, regardless of whether they eventually complete the practice session or not), and show this total in their learner dashboard. The tracking functionality should be hidden behind a `TRACK_PRACTICE_QUESTION_POINTS` feature flag, and the display functionality should be hidden behind a `SHOW_PRACTICE_QUESTION_POINTS` feature flag.
 
   Implement the redesigned practice sessions UI behind a `SHOW_UPDATED_PRACTICE_SESSIONS_UI` flag, including counters and animations for showing how many points a user has earned in a practice session.
 
