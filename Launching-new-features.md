@@ -80,7 +80,7 @@ FEATURE_FLAG_NAME_TO_DESCRIPTION_AND_FEATURE_STAGE = {
 }
 ```
 
-4. To make the feature flag available in the front-end, you need to add it into the name enum in `core/templates/domain/feature-flag/feature-status-summary.model.ts` as well:
+4. To make the feature flag available in the front-end, you need to add it into the FeatureNames enum in `core/templates/domain/feature-flag/feature-status-summary.model.ts` as well:
 
 ```typescript
 export enum FeatureNames {
@@ -91,10 +91,9 @@ export enum FeatureNames {
 
 ### Modifying unit tests to account for the creation of the new flag
 
-The codebase contains two unit tests (one in the backend and one in the frontend) whose success or failure depends on them being aware of all the feature flags that currently exist. For the backend,
-we do not have to make any changes as we have already added the feature flag in one of the server list present in the `core/feature_flag_list.py`.
+The above changes are enough to add a new feature flag to the backend.
 
-To make sure those the frontend test succeed, please follow the steps below (so they account for the newly created feature flag).
+However, to make sure the frontend tests succeed, please follow the steps below (so they account for the newly created feature flag).
 
 1. Add the newly created flag as a key-value pair in the `featureStatusSummary` object in the unit-test meant for testing the functioning of the session storage in `core/templates/services/platform-feature.service.spec.ts`, like so:
 
@@ -184,7 +183,7 @@ spyOnProperty(platformFeatureService, 'status', 'get').and.returnValue(
 
 #### Backend
 
-For example, if you wish to write a test with the required feature flag enabled, you can do so by following the steps below:
+In general, you should test both the cases in which the feature flag is enabled and when it is not. To write a test with the feature flag enabled, you can do the following:
 
 1. Import the following modules into the test file:
 
@@ -201,6 +200,8 @@ from core.tests import test_utils
 def test_new_feature_flag_is_enabled(self) -> None:
   # ...
 ```
+
+To write a test with the feature flag disabled, you do not need to add any changes to your test, as by default all the feature flags are disabled.
 
 ## Feature Stage Explanation
 
@@ -252,8 +253,9 @@ Note: since only users with release-coordinator permission can edit the settings
 
 ## Settings of Feature Flags
 
-We use the following principles to determine the value of a feature flags:
+Feature flags can be configured in two ways:
 
-- Feature flag can be enabled via 2 methods, by editing `Rollout percentage for logged-in users (0-100)` or `Force-enable for all users`. The rollout-percentage method is use to enable the feature-flag for the defined percentage of logged-in users. The force-enable method is use to force enable the feature flag for logged-in as well as the logged-out users. Setting force enable property will disable the effect of all the existing properties.
+- **Editing 'Rollout percentage for logged-in users (0-100)'.** This turns on the feature flag for the specified percentage of logged-in users. Logged-out users are not affected.
+- **Editing 'Force-enabled for all users'.** This turns on the feature flag for all logged-in and logged-out users, and overrides all the other feature flag settings.
 
 ![Example feature setting](images/adminPageFeatureFlagSettings.png)
