@@ -38,43 +38,49 @@ Say you are working on a large scale user-facing feature that will take 1 or mor
 
 9. Once the feature is confirmed to be functioning as intended in production (for at least 2 weeks) by the product team, please do the following, in order:
     - Make sure that the feature is ready to be made permanent. To do this, confirm with the PMs that no users have reported issues with it, and that no regressions have been detected via StackDriver or general user feedback. The PMs should also fill in this [post-launch review template](https://docs.google.com/document/d/1DifFAe3oRzjmVPh2fEllfAky4n0QMAXVQc3Y580qkr8/edit).
-    - Once you have confirmation that the feature can be made permanent, merge one last PR to "un-gate" the feature and move the feature flag to the deprecated stage (one of the stages listed in `core/domain/platform_feature_list.py`, meant for flags that are no longer in use). Additionally, in the same PR, please remove all remaining references to the feature flag from the codebase (for example, in all the `if` blocks you created to gate the feature).
+    - Once you have confirmation that the feature can be made permanent, merge one last PR to "un-gate" the feature and move the feature flag to the deprecated stage (one of the stages listed in `core/feature_flag_list.py`, meant for flags that are no longer in use). Additionally, in the same PR, please remove all remaining references to the feature flag from the codebase (for example, in all the `if` blocks you created to gate the feature).
 
 
 ## Follow the steps below to add a new feature flag
 
 ### Creating the flag
 
-1. Add a new unique feature flag name in the `PARAM_NAMES` enum class in `core/domain/platform_parameter_list.py`, similar to a key-value pair. Example:
+1. Add a new unique feature flag name in the `FeatureNames` enum class in `core/feature_flag_list.py`, similar to a key-value pair. Example:
 
 ```python
-class ParamNames(enum.Enum):
-    """Enum for parameter names."""
+class FeatureNames(enum.Enum):
+    """Enum for feature flag names."""
     // ...
     NEW_FEATURE = 'new_feature',
 
 ```
 
-2. Create and register a feature flag instance in the `core/domain/platform_parameter_registry.py` file with its name, description and stage (see the [Feature Stage](#feature-stage-explanation) section for more details). Example:
-
-```python
-Registry.create_feature_flag(
-    PARAM_NAMES.NEW_FEATURE,
-    'This is a newly created feature.',
-    platform_parameter_domain.FeatureStages.DEV,
-)
-```
-
-3. Add the name of the newly created feature to one of the feature name lists (`DEV_FEATURES_LIST`, `TEST_FEATURES_LIST`, or `PROD_FEATURES_LIST`) in `core/platform_feature_list.py` according to its stage. Note: if the name is added to the wrong list, a backend test error will raise. Example:
+2. Add the name of the new feature flag to one of the feature name lists (`DEV_FEATURES_LIST`, `TEST_FEATURES_LIST`, or `PROD_FEATURES_LIST`) in `core/feature_flag_list.py` according to its stage. Example:
 
 ```python
 DEV_FEATURES_LIST = [
     # ...
-    params.PARAM_NAMES.NEW_FEATURE,
+    FeatureNames.NEW_FEATURE,
 ]
 ```
 
-4. To make the feature flag available in the front-end, you need to add it into the name enum in `core/templates/domain/platform_feature/feature-status-summary.model.ts` as well:
+3. Add feature flag description and feature stage to the `FEATURE_FLAG_NAME_TO_DESCRIPTION_AND_FEATURE_STAGE` present in `core/feature_flag_list.py`.
+Example:
+
+```python
+FEATURE_FLAG_NAME_TO_DESCRIPTION_AND_FEATURE_STAGE = {
+  # ...
+  FeatureNames.NEW_FEATURE.value: (
+    (
+      'This is description for new feature flag.',
+      feature_flag_domain.ServerMode.DEV
+    )
+  ),
+  # ...
+}
+```
+
+4. To make the feature flag available in the front-end, you need to add it into the FeatureNames enum in `core/templates/domain/feature-flag/feature-status-summary.model.ts` as well:
 
 ```typescript
 export enum FeatureNames {
@@ -85,20 +91,11 @@ export enum FeatureNames {
 
 ### Modifying unit tests to account for the creation of the new flag
 
-The codebase contains two unit tests (one in the backend and one in the frontend) whose success or failure depends on them being aware of all the feature flags that currently exist.
+The above changes are enough to add a new feature flag to the backend.
 
-To make sure those two tests succeed, please follow the steps below (so they account for the newly created feature flag).
+However, to make sure the frontend tests succeed, please follow the steps below (so they account for the newly created feature flag).
 
-1. Add the name of the feature flag to the `EXPECTED_PARAM_NAMES` array in the `ExistingPlatformParameterValidityTests` class in `core/domain/platform_parameter_list_test.py`. Example:
-
-```python
-EXPECTED_PARAM_NAMES = [
-    # ... existing names
-    'new_feature',
-]
-```
-
-2. Add the newly created flag as a key-value pair in the `featureStatusSummary` object in the unit-test meant for testing the functioning of the session storage in `core/templates/services/platform-feature.service.spec.ts`, like so:
+1. Add the newly created flag as a key-value pair in the `featureStatusSummary` object in the unit-test meant for testing the functioning of the session storage in `core/templates/services/platform-feature.service.spec.ts`, like so:
 
 ```typescript
 it('should load from sessionStorage if there are valid results.', fakeAsync(
@@ -186,89 +183,25 @@ spyOnProperty(platformFeatureService, 'status', 'get').and.returnValue(
 
 #### Backend
 
-For example, if you wish to write a test with the required feature flag enabled, you can do so by following the steps below (the approach to testing with the feature flag disabled is the same up to step 4):
+In general, you should test both the cases in which the feature flag is enabled and when it is not. To write a test with the feature flag enabled, you can do the following:
 
 1. Import the following modules into the test file:
 
 ```python
-from core.domain import platform_feature_services as feature_services # (alias is optional)
-from core.domain import platform_parameter_domain
-from core.domain import platform_parameter_list
-from core.domain import platform_parameter_registry as registry # (alias is optional)
+from core import feature_flag_list
+from core.tests import test_utils
 ```
 
-2. Clear the parameter registry and create a mock feature flag (using the actual enum of the feature flag -- we recommend you do it in the `setUp` hook), like so:
+2. Visit the test where you want to enable feature flags. Add the following decorator to the test, @test_utils.enable_feature_flags([feature_flag_list.FeatureNames.NEW_FEATURE]). Example:
 
 ```python
-self.mock_feature_flag = registry.Registry.create_feature_flag(
-    platform_parameter_list.ParamNames.NewFeature, 'a mock of the new_feature feature flag',
-    platform_parameter_domain.FeatureStages.DEV)
+@test_utils.enable_feature_flags([
+  feature_flag_list.FeatureNames.NEW_FEATURE])
+def test_new_feature_flag_is_enabled(self) -> None:
+  # ...
 ```
 
-3. Set the rules for when the feature flag is to be enabled (in the method which performs the testing), like so (here we're setting the flag to be enabled when in DEV mode):
-
-```python
-test_can_do_something(self) -> None:
-    feature_services.update_feature_flag_rules(
-        platform_parameter_list.ParamNames.NewFeature.value, self.owner_id, 'test update', # owner_id is the id of the user that is updating the feature flag. See note underneath this code block.
-            [
-                platform_parameter_domain.PlatformParameterRule.from_dict({
-                    'filters': [
-                        {
-                            'type': 'platform_type',
-                            'conditions': [
-                                ['=', platform_parameter_domain.ALLOWED_PLATFORM_TYPES[0]]
-                            ]
-                        }
-                    ],
-                    'value_when_matched': True
-                })
-            ]
-    )
-
-```
-
-> [!NOTE]
-> Like mentioned above `self.owner_id` refers to the id of the user with the necessary permissions (i.e. super-admin permissions) to perform the actual feature flag rules update. Some tests have the `owner_id` property created within the `setUp()` hook, and this variable can be used throughout the test class.
-
-If this is not the case (i.e. you do not have access to the `owner_id` property in the class within which you are writing your tests), you can obtain the `owner_id` by following these steps:
-
-- Create a new user with the proper credentials (see code below for how these 'proper' credentials can be accessed), so that this user has super-admin permissions,
-- Then use the `get_user_id_from_email()` method to get the `owner_id` from the email address of the newly created user.
-
-The code would look like this (note that this needs to be in the `setUp()` hook):
-
-```python
-    self.signup(self.OWNER_EMAIL, self.OWNER_USERNAME) # an account created using these credentials will have super-admin permissions
-    # ...
-    self.owner_id = self.get_user_id_from_email(self.OWNER_EMAIL)
-```
-
-4. Now you can create a `with` statement to manipulate the value of the feature flag as needed!
-
-For example, in case of this tutorial, the rules we set for the feature flag in the previous step would mean that the feature flag is enabled only in the `dev` environment. So, if we want to write a test with the feature flag enabled, we can write it within the following `with` statement:
-
-```python
-with self.swap(constants, 'DEV_MODE', True):
-    # ...
-```
-
-To start with, you could test whether the feature flag is actually behaving as expected with the following lines of code in the `with` block:
-
-```python
-with self.swap(constants, 'DEV_MODE', True):
-    self.assertTrue(
-      feature_services.is_feature_enabled(platform_parameter_list.ParamNames.NewFeature.value))
-```
-
-and then proceed to write the actual test right after that assertion, within the `with` block.
-
-**(Similarly, if you wish to write a test with the feature flag disabled, you can write it within the following `with` statement):**
-
-```python
-with self.swap(constants, 'DEV_MODE', False):
-    # ...
-```
+To write a test with the feature flag disabled, you do not need to add any changes to your test, as by default all the feature flags are disabled.
 
 ## Feature Stage Explanation
 
@@ -285,13 +218,13 @@ Note: The environment the flag is placed in determines the enviroment(s) where i
 ### Gating in Backend
 
 ```python
-from core import platform_feature_list
-from core.domain import platform_feature_services
+from core import feature_flag_list
+from core.domain import feature_flag_services
 
 # ...
 
-if platform_feature_services.is_feature_enabled(
-    platform_feature_list.ParamNames.DUMMY_FEATURE.value):
+if feature_flag_services.is_feature_flag_enabled(
+    self.user_id, feature_flag_list.FeatureNames.DUMMY_FEATURE.value):
     # Code of the feature
 else:
     raise Exception("Feature is not fully implemented yet.")
@@ -320,13 +253,9 @@ Note: since only users with release-coordinator permission can edit the settings
 
 ## Settings of Feature Flags
 
-We use the following principles to determine the value of a feature flags:
+Feature flags can be configured in two ways:
 
-- Each feature flag has multiple *rules*, its value changes to the value specified in the first rule that is matched. If no rule is matched, its value remains default.
-- Each rule has multiple *filters*, and a rule is matched only when all of its filters are matched.
-- Each filter describes a scenario. There are multiple types of filters (like `platform type` and `app version`) which can be used in combination with each other to describe various scenarios (like `platform type = Web OR platform type = Android`).
-- Each filter can have multiple conditions, and a filter is matched if any of the conditions specified in the rule are matched.
-
-For example, if we want a feature flag to be enabled on Web, we can configure the flag's rules/filters as shown below.
+- **Editing 'Rollout percentage for logged-in users (0-100)'.** This turns on the feature flag for the specified percentage of logged-in users. Logged-out users are not affected.
+- **Editing 'Force-enabled for all users'.** This turns on the feature flag for all logged-in and logged-out users, and overrides all the other feature flag settings.
 
 ![Example feature setting](images/adminPageFeatureFlagSettings.png)
