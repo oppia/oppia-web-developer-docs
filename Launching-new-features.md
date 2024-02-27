@@ -55,7 +55,7 @@ class FeatureNames(enum.Enum):
 
 ```
 
-2. Add the name of the new feature flag to one of the feature name lists (`DEV_FEATURES_LIST`, `TEST_FEATURES_LIST`, or `PROD_FEATURES_LIST`) in `core/feature_flag_list.py` according to its stage. Note: if the name is added to the wrong list, a backend test error will raise. Example:
+2. Add the name of the new feature flag to one of the feature name lists (`DEV_FEATURES_LIST`, `TEST_FEATURES_LIST`, or `PROD_FEATURES_LIST`) in `core/feature_flag_list.py` according to its stage. Example:
 
 ```python
 DEV_FEATURES_LIST = [
