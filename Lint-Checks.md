@@ -28,13 +28,13 @@ We use linters to check our code for common errors or bad patterns. The Oppia li
 1. To lint only files that have been changed but not committed:
 
    ```console
-   python -m scripts.linters.pre_commit_linter
+   python -m scripts.linters.run_lint_checks
    ```
 
 2. To lint the file or files at a path:
 
    ```console
-   python -m scripts.linters.pre_commit_linter --path {{path}}
+   python -m scripts.linters.run_lint_checks --path {{path}}
    ```
 
    If you specify the path to a file, only that file will be linted, but if you provide a directory, all the files under that directory will be linted.
@@ -42,19 +42,19 @@ We use linters to check our code for common errors or bad patterns. The Oppia li
 3. To lint a specific list of files:
 
    ```console
-   python -m scripts.linters.pre_commit_linter --files {{file paths}}
+   python -m scripts.linters.run_lint_checks --files {{file paths}}
    ```
 
    Separate file paths with spaces. For example, to lint `scripts/start.py` and `python_utils.py`, you could run this:
 
    ```console
-   python -m scripts.linters.pre_commit_linter --files scripts/start.py python_utils.py
+   python -m scripts.linters.run_lint_checks --files scripts/start.py python_utils.py
    ```
 
 4. To lint files in verbose mode, add the `--verbose` flag like this:
 
    ```console
-   python -m scripts.linters.pre_commit_linter --verbose
+   python -m scripts.linters.run_lint_checks --verbose
    ```
 
    This also enables logging, so it is very useful for debugging!
@@ -62,13 +62,13 @@ We use linters to check our code for common errors or bad patterns. The Oppia li
 5. To lint a specific list of file extensions (separated by spaces):
 
    ```console
-   python -m scripts.linters.pre_commit_linter --only-check-file-extensions {{extensions}}
+   python -m scripts.linters.run_lint_checks --only-check-file-extensions {{extensions}}
    ```
 
    For example, to lint Python and JavaScript files, you could run this:
 
    ```console
-   python -m scripts.linters.pre_commit_linter --only-check-file-extensions py js
+   python -m scripts.linters.run_lint_checks --only-check-file-extensions py js
    ```
 
 ## Write lint checks
