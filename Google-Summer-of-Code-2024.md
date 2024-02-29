@@ -322,6 +322,8 @@ Oppia currently has a classroom page for Math lessons, which is featured promine
 
 The aim of this project is to implement the infrastructure to display these classrooms, and make it easy for learners to navigate to them.
 
+**Tracking issue**: [#19849](https://github.com/oppia/oppia/issues/19849)
+
 **Size of this project:** Medium (\~175 hours)
 
 **Difficulty**: Medium
@@ -397,6 +399,8 @@ User research has indicated that the informational pages on the Oppia.org websit
 
 Please refer to [this PRD](https://docs.google.com/document/d/1enceUlqh7KpaE5i_rdKE-0mZh899tYNf524vFiUYZvI/edit) (still being worked on) for the full details of this project.
 
+**Tracking issue**: [#19850](https://github.com/oppia/oppia/issues/19850)
+
 **Not in scope:**
 - Writing translations for the pages into other languages. You should only fill in en.json and qqq.json for any learner-facing strings, as described in our [internationalization wiki page](https://github.com/oppia/oppia/wiki/How-to-develop-for-i18n#adding-new-translation-keys).
 
@@ -417,7 +421,7 @@ Please refer to [this PRD](https://docs.google.com/document/d/1enceUlqh7KpaE5i_r
 - Effective communication using [debugging docs](https://github.com/oppia/oppia/wiki/Debugging-Docs).
 
 **Suggested Milestones:**
-- **Milestone 1**: Update the acceptance tests to cover the "ideal flows" for volunteers, donors, partners, and parents/teachers with acceptance tests (see the "Product Flows and Requirements for Specific User Flows”"section). This might involve modifying some of the existing tests to make the user type more specific.
+- **Milestone 1**: Update the acceptance tests to cover as much as possible of the "ideal flows" for volunteers, donors, partners, and parents/teachers (see the "Product Flows and Requirements for Specific User Flows" section). This might involve modifying some of the existing tests to make the user type more specific. (Then, as you subsequently redesign the pages, update these tests as needed.)
 
   Redesign the About page according to the given mocks, and ensure that it is fully-responsive for all device sizes, reaches a Lighthouse score of 100 for accessibility, and fully internationalizable.
 
@@ -458,6 +462,8 @@ Currently, topics in Oppia contain a list of skills that they teach, and these s
 Additionally, both skill explanations and subtopic pages can include worked examples, but worked examples were incorrectly implemented only as a field on the skill model. Experience has shown that worked examples would be better implemented as a rich-text component instead, since this gives more flexibility in where they are placed and allows them to be used in other contexts like the subtopic pages.
 
 The aim of this project is therefore to clean up the incorrect modelling described above and fix the representation of subtopic pages and worked examples, while also ensuring that they are easily translatable.
+
+**Tracking issues**: [#18305](https://github.com/oppia/oppia/issues/18305), [#19851](https://github.com/oppia/oppia/issues/19851)
 
 **Not in scope:**
 - Implementing new rich-text components other than "Worked Example".
@@ -527,6 +533,8 @@ Based on user feedback, on the current topic page, users often overlook the Prac
 The aim of this project is to update the design of the topic page to present a more integrated view of the lessons, practice sessions, and links to revision cards (subtopic pages), so that learners can practice the skills they learned in the relevant lesson. Additionally, it is disappointing for learners to find that the languages that they would want to use for translations and voiceovers are missing only after they start the lesson, so the new design incorporates these selections within the topic page itself and follows the overall site language as a default.
 
 Link to PRD: https://docs.google.com/document/d/1r9IEQ5z_t-eu9XAWN3eRA7iKdKuYsOQbVUjO2ZH1qKg/edit (note: only the parts of the PRD related to the topic page are relevant for this project)
+
+**Tracking issue**: [#19614](https://github.com/oppia/oppia/issues/19614)
 
 **Not in scope:**
 - Changes in the linked PRD that relate solely to the practice questions player.
@@ -625,7 +633,7 @@ The Figma mocks for this project are linked [here](https://www.figma.com/file/pe
 
 Link to PRD: https://docs.google.com/document/d/1r9IEQ5z_t-eu9XAWN3eRA7iKdKuYsOQbVUjO2ZH1qKg/edit (note: only the parts of the PRD related to practice sessions are relevant for this project)
 
-**Tracking issues**: [#19613](https://github.com/oppia/oppia/issues/19613)
+**Tracking issue**: [#19613](https://github.com/oppia/oppia/issues/19613)
 
 **Not in scope:**
 - Implementing the "stars" part of the mocks/PRD (though points and mastery are still in scope).
@@ -708,6 +716,8 @@ The aim of this project is to provide two enhancements to the exploration editor
 For (a): in the state editor, when a change is made to a part of a card that has existing translations and this results in a “should translations be updated?” pop-up modal, the modal should also include a list of the existing languages for which that content has been translated, and the currently-saved translations for those languages. The lesson creator should be given the option to update or confirm these translations if the changes are trivial to do (e.g. the content is just numbers), and otherwise leave them alone by default. This will help to save some re-translation work for the community. Note: these translation changes should not be applied immediately – if the lesson creator subsequently discards their change before committing it to the backend, then those translation changes should also be discarded. A cancel button should be added to the main modal for this purpose.
 
 For (b): we have run into issues with missing feedback in lessons, even in cases where we know that the skill is likely to result in specific misconceptions being caught. This is already handled in the question editor by ensuring that all (mandatory) misconceptions for skills are addressed, and we want to extend this functionality to the exploration editor. So, the aim of this project is, for cards which are tagged with a skill in the exploration editor, to show a list of non-optional misconceptions pertaining to the skill which aren’t tagged to an answer response group yet, and to provide functionality that allows the lesson creator to view the list of misconceptions for that card and tag answer response groups with misconceptions as appropriate, in a similar way as is done in the practice questions creation flow.
+
+**Tracking issues**: [#18549](https://github.com/oppia/oppia/issues/18549), [#19852](https://github.com/oppia/oppia/issues/19852)
 
 **Not in scope:**
 - Autogenerating the translations for updated content.
