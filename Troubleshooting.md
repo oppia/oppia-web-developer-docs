@@ -48,6 +48,7 @@ Here are some general troubleshooting tips for Oppia. The platform specific tips
   - [SSL Wrong Version Number](#ssl-wrong-version-number)
   - [SSL Verification Issues](#ssl-verification-issues)
   - [Yarn: ESOCKETTIMEDOUT](#yarn-esockettimedout)
+  - [ERROR: Cannot uninstall {Package-Name-and-version}, RECORD file not found](#error-cannot-uninstall-package-name-and-version-record-file-not-found)
 - [Windows](#windows)
   - [Windows Firewall](#windows-firewall)
   - [No Such File or Directory /dev/disk/by-id](#no-such-file-or-directory-devdiskby-id)
@@ -584,6 +585,61 @@ info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this 
 ```
 
 Try running `yarn install --network-timeout 100000`, where the timeout value is in milliseconds. If that doesn’t work, try running the command with a larger network timeout value and keep increasing the timeout (e.g. adding a zero at the end of the value) until it succeeds. Then try running `python -m scripts.start` again. Note: To see if you've raised the timeout enough, you only need to run `yarn install`. You don’t need to run `python -m scripts.start` every time.
+
+### ERROR: Cannot uninstall {Package-Name-and-version}, RECORD file not found
+
+If you get an error like this when running `python -m scripts.start` or scripts for running checks for frontend/backend unit tests:
+
+```
+Installing collected packages: certifi
+  Attempting uninstall: certifi
+    WARNING: No metadata found in /Users/ash/Desktop/openSource/.direnv/python-3.8.15/lib/python3.8/site-packages
+    Found existing installation: certifi 2022.12.7
+ERROR: Cannot uninstall certifi 2022.12.7, RECORD file not found. You might be able to recover from this via: 'pip install --force-reinstall --no-deps certifi==2022.12.7'.
+
+[notice] A new release of pip is available: 23.1.2 -> 24.0
+[notice] To update, run: pip install --upgrade pip
+Traceback (most recent call last):
+  File "/Users/ash/Desktop/openSource/.direnv/python-3.8.15/bin/pip-sync", line 8, in <module>
+    sys.exit(cli())
+  File "/Users/ash/Desktop/openSource/.direnv/python-3.8.15/lib/python3.8/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/Users/ash/Desktop/openSource/.direnv/python-3.8.15/lib/python3.8/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/Users/ash/Desktop/openSource/.direnv/python-3.8.15/lib/python3.8/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/Users/ash/Desktop/openSource/.direnv/python-3.8.15/lib/python3.8/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/Users/ash/Desktop/openSource/.direnv/python-3.8.15/lib/python3.8/site-packages/piptools/scripts/sync.py", line 174, in cli
+    sync.sync(
+  File "/Users/ash/Desktop/openSource/.direnv/python-3.8.15/lib/python3.8/site-packages/piptools/sync.py", line 244, in sync
+    run(  # nosec
+  File "/Users/ash/.pyenv/versions/3.8.15/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/ash/Desktop/openSource/.direnv/python-3.8.15/bin/python', '-m', 'pip', 'install', '-r', '/var/folders/75/00_6bzhj2yv42jzg6bk544vh0000gn/T/tmp8rdctoxc', '--require-hashes', '--no-deps']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/Users/ash/.pyenv/versions/3.8.15/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/Users/ash/.pyenv/versions/3.8.15/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/Users/ash/Desktop/openSource/oppia/scripts/run_backend_tests.py", line 67, in <module>
+    from . import install_third_party_libs
+  File "/Users/ash/Desktop/openSource/oppia/scripts/install_third_party_libs.py", line 32, in <module>
+    install_python_dev_dependencies.main(['--assert_compiled'])
+  File "/Users/ash/Desktop/openSource/oppia/scripts/install_python_dev_dependencies.py", line 145, in main
+    install_dev_dependencies()
+  File "/Users/ash/Desktop/openSource/oppia/scripts/install_python_dev_dependencies.py", line 89, in install_dev_dependencies
+    subprocess.run(
+  File "/Users/ash/.pyenv/versions/3.8.15/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['pip-sync', 'requirements_dev.txt', '--pip-args', '--require-hashes --no-deps']' returned non-zero exit status 1.
+```
+
+ Try removing the `.direnv` directory located at `{path-to-opensource-directory}/openSource/.direnv`. This directory may contain corrupted or misconfigured environment settings that could lead to installation issues. You can run `rm -rf {path-to-opensource-directory}/openSource/.direnv` to remove it. Please exercise caution when using the `rm -rf` command, as it can delete files and directories recursively without confirmation.
+
+After removing `.direnv`, run `direnv allow` in your active directory (ensure it's `opensource`). This command applies changes to the `.direnv` configuration after manual modifications.
+
+Next, execute `python -m scripts.start` inside your Oppia directory before running other scripts like `python -m scripts.run_frontend_tests`. The `python -m scripts.start` command automatically reinstalls all necessary packages required for Oppia's development environment. Running other scripts before this step might result in "Module not found" errors, requiring manual reinstallation of each package using the `pip` command.
 
 ## Windows
 
