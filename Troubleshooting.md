@@ -639,7 +639,7 @@ subprocess.CalledProcessError: Command '['pip-sync', 'requirements_dev.txt', '--
 
 After removing `.direnv`, run `direnv allow` in your active directory (ensure it's `opensource`). This command applies changes to the `.direnv` configuration after manual modifications.
 
-Next, execute `python -m scripts.start` inside your Oppia directory before running other scripts like `python -m scripts.run_frontend_tests`. The `python -m scripts.start` command automatically reinstalls all necessary packages required for Oppia's development environment. Running other scripts before this step might result in "Module not found" errors, requiring manual reinstallation of each package using the `pip` command.
+Next, execute `python -m scripts.start` inside your Oppia directory before running other scripts like `python -m scripts.run_frontend_tests`. The `python -m scripts.start` command automatically reinstalls all necessary python packages required for Oppia's development environment. Running other scripts before this step might result in "Module not found" errors, requiring manual reinstallation of each package using the `pip` command.
 
 ## Windows
 
