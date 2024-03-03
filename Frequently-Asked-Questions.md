@@ -40,13 +40,8 @@ Let's say you want to run the linting tests on a specific file type. In the oppi
 python -m scripts.linters.pre_commit_linter --only-check-file-extensions file_extension_type
 
 ### How to test email functionality?
- You can test email functionality by deploying your own oppia in appengine, this works perfectly, you'll just have to enable the flags from `feconf.py`. Other workaround would be a hacky way to test this using logs:
-- Simple and hacky way:
-   - Enable the email functionality, i.e, make `feconf.CAN_SEND_EMAILS` equals true and other email related flags true.
-   - Change the `send_mail` function of `core/platform/email/gae_email_service.py` to `print` instead of
-    `mail.EmailMessage`.
-   - Do the mannual testing which will kisck the email functionality.
-   - Check the logs in terminal.
+
+Please refer to [Testing-Email-Functionality](https://github.com/oppia/oppia/wiki/Testing-Email-Functionality) for details.
 
 ### I am not very familiar with Git, what should I do?
 
