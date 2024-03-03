@@ -14,6 +14,6 @@ If you're unable to deploy Oppia or prefer a simpler method, you can use the fol
 
 2. **Modify the Send Mail Function**: In the file `core/platform/email/gae_email_service.py`, locate the `send_mail` function. Modify it to print messages instead of sending emails.
 
-3. **Manual Testing**: Perform actions in Oppia that trigger email notifications. For example, creating a new account or resetting a password. If emails are sent via a cron job, manually trigger the corresponding endpoint.
+3. **Manual Testing**: Perform actions in Oppia that trigger email notifications. If emails are sent via a cron job, manually trigger the corresponding endpoint.
 
 4. **Check Logs**: Monitor the terminal or logs to observe the messages that would have been sent via email.
