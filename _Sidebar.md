@@ -72,6 +72,7 @@
     * [[Automated tests|Tests]]
       * [[TypeScript tests|TypeScript-tests]]
       * [[Backend tests|Backend-tests]]
+        * [[Testing Email Functionality|Testing-Email-Functionality]]
       * [[Frontend tests|Frontend-tests]]
       * [[End-to-end tests|End-to-End-Tests]]
       * [[Lighthouse Tests|Lighthouse-Tests]]
