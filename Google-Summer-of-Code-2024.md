@@ -1271,3 +1271,13 @@ This project entails two parts: (1) introduce a developer-only UI (as part of th
 
 See tracking issue: [#5345](https://github.com/oppia/oppia-android/issues/5345).
 </details>
+
+
+
+** summary of this page **
+
+The provided page is the Oppia project's ideas list for Google Summer of Code 2024. It contains a list of potential projects for students and new contributors to work on. The projects are divided into four categories: Learner and Creator Experience (LaCE), Contributor Dashboard, Developer Workflow, and Android. Each project has a description, tracking issue, not in scope section, size, difficulty, potential mentors, product clarifier, technical clarifier, required knowledge/skills, suggested milestones, what we are looking for in proposals, and technical hints/guidance.
+
+The LaCE category includes projects to improve the user interface, user experience, and functionality for learners and creators. The Contributor Dashboard category includes projects to improve the Oppia dashboard for contributors, such as adding AI-powered translation suggestions and making it possible to update translations for previously-translated content. The Developer Workflow category includes projects to enhance the development process, like improving the acceptance tests and making CI and pre-push hooks more efficient. The Android category includes projects to improve the Oppia Android app, such as adding code coverage support and enforcement, and implementing multiple classrooms support.
+
+The page also provides resources for new contributors, including a contributor guide, GSoC FAQ, and Oppia's mission. To get started, new contributors should sign up for the oppia-gsoc-announce mailing list, read the user documentation, play some lessons on Oppia.org, and follow the contributors' guide to set up their development environment. After completing at least two pull requests, they will be invited to become a collaborator and officially onboarded.
