@@ -309,8 +309,6 @@ Please note that the list of project ideas below is not set in stone: more proje
 
 4.2. [Multiple classrooms support](#42-multiple-classrooms-support)
 
-4.3. [Platform parameter developer dashboard and improvements to platform parameter testing support](#43-platform-parameter-developer-dashboard-and-improvements-to-platform-parameter-testing-support)
-
 
 ## Learner and Creator Experience (LaCE) team
 
@@ -1211,63 +1209,4 @@ That all of the components outlined in the break-down Gist are expected to be fu
 <summary>Technical hints / guidance</summary>
 
 See tracking issue: [#5344](https://github.com/oppia/oppia-android/issues/5344).
-</details>
-
-### 4.3. Platform parameter developer dashboard and improvements to platform parameter testing support
-
-**Project Description:**
-
-Feature flags are a special type of configurable [platform parameter](https://github.com/oppia/oppia-android/wiki/Platform-Parameters-&-Feature-Flags#introduction) which allows the team to stage features behind remotely configurable flags until they're ready to be launched. This allows features to be developed across multiple releases without users seeing part of the feature (or app stability issues when the feature is enabled), ensuring the team releases high-quality features and doesn't hurt the overall quality and performance of the app. Broadly, platform parameters allow the team to overall configure the app (which can be useful both for feature flags, as described above, and safety 'knobs' such as controlling rate limits to remote APIs to help reduce the chance of server outages).
-
-This project entails two parts: (1) introduce a developer-only UI (as part of the developer options section of the app) which displays all platform parameters in the app, their current enabled/disabled status (for feature flags) or values (for regular parameters), their sync status (i.e. whether they're being synced from the server or using a local developer default), and allows an explicit manual override to force the feature on or off or override the parameter's value. And, (2) refactor the existing functionality for testing feature flags and platform parameters from using [TestPlatformParameterModule](https://github.com/oppia/oppia-android/blob/3ced7e14a8bff8c3757ed15a1626b0e63c6ce14d/testing/src/main/java/org/oppia/android/testing/platformparameter/TestPlatformParameterModule.kt#L64) to instead using an annotation-based enable/disable/value override trigger with support for multiple parameter tweaks per test, and both per-test and per-class configuration.
-
-**Tracking issue**: [#5345](https://github.com/oppia/oppia-android/issues/5345) (**important**: make sure to subscribe to notifications to this issue if you're going to submit a proposal so that you can be notified if there are any changes to the project's requirements).
-
-**Not in scope:**
-- Platform parameter and feature flag enumeration.
-- Changing existing tests to specific enable/disable features (beyond migrating existing overrides).
-
-**Size of this project:** Large (\~350 hours)
-
-**Difficulty**: Medium
-
-**Potential mentors:** @kkmurerwa
-
-**Product Clarifier:** @BenHenning
-
-**Technical Clarifier:** @kkmurerwa
-
-**Required knowledge/skills:**
-- Ability to write code and tests in Kotlin.
-- Ability to build the app and run tests in Bazel.
-- Ability to make changes & test UI code in Android, and strong familiarity with how the app layers UI components.
-- Ability to understand and work with protos.
-- Ability to work with platform parameters and feature flags.
-- Ability to add/update Dagger graph bindings.
-
-**Recommended knowledge/skills:**
-- Ability to read UI mock-ups and apply them when creating layouts.
-- Familiarity with Kotlin coroutines.
-- Good working knowledge of different app build flavors.
-- At least basic working knowledge of the in-app developer options screens.
-
-**Suggested Milestones:** See the project's tracking issue.
-
-<details>
-<summary>What we are looking for in proposals:</summary>
-
-- All of the components outlined in the break-down Gist are expected to be fully expanded in the document and finalized, including:
-  - Adding documentation strings for each proto field, class, and method being proposed.
-  - Adding a dependency diagram showing how the components will be interconnected.
-  - Adding a sequence diagram to show how different user flows will call through to different dependencies in the project.
-
-- Examples of the new feature testing API.
-
-- Hand-created mocks for the new platform parameter dashboard (these can be rough; they just serve as the basis for development of the project).
-</details>
-
-<details>
-<summary>Technical hints / guidance</summary>
-
-See tracking issue: [#5345](https://github.com/oppia/oppia-android/issues/5345).
 </details>
