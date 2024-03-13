@@ -246,12 +246,11 @@ Here's some advice about proposals and milestone timeline planning that we colla
 
 ## Selection Criteria
 
-In order to select contributors for GSoC, we will evaluate candidates based on a set of criteria and it is designed to ensure we select individuals who not only possess the necessary skills but also demonstrate the ability to contribute effectively to the project. The criteria are as follows, listed in order of significance::
+To select contributors for GSoC, we will evaluate candidates based on a set of criteria designed to ensure we select individuals who not only possess the necessary skills but also demonstrate the ability to contribute effectively to the project. The criteria are as follows, listed in order of significance::
 
 - **Primary Criterion: Required Skills for the Project** - This is the most critical factor in our selection process. A contributor must have the necessary skills for the project. Lack of these skills is a deal-breaker and can lead to immediate rejection of the proposal.
 
 - **Secondary Criteria** (of Equal Importance):
-
     - **Quality of the Submitted Proposal** - The proposal's clarity, thoroughness, feasibility, and alignment with project goals are key. This criterion helps us gauge the applicant's understanding of the project requirements.
     - **Prior Experience Working with the Contributor** - We consider our previous interactions with the contributor, focusing on their reliability, communication skills, independence, initiative, responsiveness, and willingness to assist others. This assessment allows us to predict how well the contributor will integrate with our team and contribute to the project's success.
 
@@ -264,6 +263,7 @@ For the proposal, we generally look for a clear indication that the contributor 
 - A proposed solution approach which is sufficiently concrete and which demonstrates that the applicant has a good understanding of both the scope of the problem and the existing codebase.
 - A description, if applicable, of how the applicant plans to mitigate risks that could potentially derail the project.
 - A concrete, specific description of each milestone, together with a breakdown of the necessary work.
+
 
 ## Communication
 
