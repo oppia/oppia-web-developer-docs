@@ -250,9 +250,9 @@ To select contributors for GSoC, we will evaluate candidates based on a set of c
 
 - **Primary Criterion: Required Skills for the Project** - This is the most critical factor in our selection process. A contributor must have the necessary skills for the project. Lack of these skills is a deal-breaker and can lead to immediate rejection of the proposal.
 
-- **Secondary Criteria** (of Equal Importance):
-    - **Quality of the Submitted Proposal** - The proposal's clarity, thoroughness, feasibility, and alignment with project goals are key. This criterion helps us gauge the applicant's understanding of the project requirements.
-    - **Prior Experience Working with the Contributor** - We consider our previous interactions with the contributor, focusing on their reliability, communication skills, independence, initiative, responsiveness, and willingness to assist others. This assessment allows us to predict how well the contributor will integrate with our team and contribute to the project's success.
+- **Secondary Criteria** (of equal importance):
+    - **Quality of the Submitted Proposal** - This criterion helps us gauge the applicant's understanding of the project requirements. The proposal should align with project goals, and be clear, thorough, and feasible.
+    - **Prior Experience Working with the Contributor** - We consider our previous interactions with the contributor, focusing on their reliability, communication skills, independence, initiative, responsiveness, and willingness to assist others. This assessment allows us to predict how well the contributor will integrate with the Oppia developer community and contribute to the project's success.
 
 We believe that strong performance in these dimensions is likely to correlate well with the contributor having an enjoyable, fulfilling and productive experience over the summer, and successfully completing the GSoC program.
 
