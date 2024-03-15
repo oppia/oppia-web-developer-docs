@@ -26,7 +26,7 @@ Every list item on the "Submit Question" tab corresponds to a particular _skill_
 - Only subjects/topics associated with a classroom, e.g. Math, are surfaced in the topic/subject selector of the "Translate Text" tab.
 
 ## Admin page
-There exists a separate admin page for the contributor dashboard at /contributor-admin-dashboard. There, an admin user can:
+There exists a separate admin page for the contributor dashboard at /contributor-dashboard-admin. There, an admin user can:
 
 1. allowlist a user to submit question suggestions
 1. allowlist a user to review translation suggestions in a particular language
