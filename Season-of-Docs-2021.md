@@ -29,7 +29,7 @@ Please note that acceptance into Season of Docs isn't a prerequisite for [becomi
 
 **Selection announcement:** The admin* will announce the selected technical writers on [oppia-sod-announce@](https://groups.google.com/g/oppia-sod-announce) on 14th May 2021, 22:00 IST.
 
-*_Admin_: The organization administrators who are organizing and representative for the Season of docs program on behalf of the organization.
+*_Admin_*: The organization administrators who are organizing and representative for the Season of Docs program on behalf of the organization.
 
 # Getting started
 If you're interested in applying to work with Oppia for Season of Docs, please follow these steps:
