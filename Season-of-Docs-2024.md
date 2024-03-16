@@ -133,7 +133,7 @@ Note that all documentation will be submitted to our [GitHub wiki repository](ht
 ### How would we measure success?
 
 - Increase in the number of new contributors who are able to successfully merge a PR for their first issue.
-- Increase in the number of contributors who onboard to one of Oppia's development teams (typically after completing two starter isseus).
+- Increase in the number of contributors onboarded to one of Oppia's development teams (typically after completing two starter issues).
 - Increase in the number of closed "good first issues".
 
 ### Knowledge/Skills needed
