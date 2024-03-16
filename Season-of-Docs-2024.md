@@ -75,6 +75,7 @@ The aim of this project is to create a case study of your experience installing 
 Steps to follow:
 - Follow the instructions on the [Getting Started page](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up) to set up Oppia locally on your machine and tackle a starter issue. Maintain a doc/journal describing your experience, any roadblocks you encountered, and how you overcame these roadblocks.
 - Feel free to open issues or questions on GitHub Discussions if you need help. Make sure that you provide sufficient context to help responders answer your questions.
+- Think about how you might address these roadblocks so that other contributors do not encounter them, and include a section in your doc specifying what changes you would make (if any) to Oppia's onboarding guides and general documentation.
 - Submit a link to your doc/journal as part of your statement of interest.
 
 
