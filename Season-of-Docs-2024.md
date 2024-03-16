@@ -113,9 +113,9 @@ Per the guidance in the official [Season of Docs guide](https://developers.googl
 
 ### Problem statement
 
-We are seeing a number of contributors sign up to start contributing to Oppia, but having trouble getting started on their first issue.
+The Oppia project has a large technical community, comprising numerous open-source contributors from around the world. However, we have been seeing that quite a number of contributors who sign up to start contributing to Oppia are having trouble getting started on their first issue.
 
-While there is plenty of documentation on the wiki that outlines the basic steps of how to get started and run tests etc., we are concerned that new contributors may not know how to navigate these, and may not have enough support to map the documentation to the next step in their development journey after they get Oppia set up locally.
+While there is plenty of documentation on the wiki that outlines the basic steps of how to get started and run tests etc., we are concerned that new contributors may not have enough support to map the documentation to the next step in their development journey after they get Oppia set up locally. After an analysis of our documentation using the [Diátaxis framework](https://diataxis.fr/), we believe that part of the issue is that our documentation has a significant lack of tutorials. The aim of this project is to remedy this.
 
 ### Project’s scope
 
