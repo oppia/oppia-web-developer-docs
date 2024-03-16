@@ -148,8 +148,7 @@ Note that all documentation will be submitted to our [GitHub wiki repository](ht
 
 ## List of Org Admins
 
-* Chris (@U8NWXD, primary org admin)
-* Sean (@seanlip, secondary org admin)
+* Chris (@U8NWXD)
 
 ## Communication
 
