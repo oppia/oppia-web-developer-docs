@@ -127,7 +127,7 @@ This project involves three parts. Most of the work for the project is contained
 
 (c) Creating tutorials for new developers to Oppia Web and Oppia Android that are specifically designed to help them "learn by example" and gain the knowledge and skills needed to tackle common tasks in both codebases.
 
-Note that all documentation will be submitted to our [GitHub wiki repository](https://github.com/oppia/oppia-web-developer-docs/), though you might want to use tools like Google Docs to draft tutorials and get preliminary feedback on them.
+Note that all documentation will be submitted to our [GitHub wiki repository](https://github.com/oppia/oppia-web-developer-docs/), though you might want to use tools like Google Docs to draft tutorials and get preliminary feedback on those.
 
 ### How would we measure success?
 
