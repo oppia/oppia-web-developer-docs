@@ -110,7 +110,7 @@ Per the guidance in the official [Season of Docs guide](https://developers.googl
 
 # Project Idea
 
-## Help new contributors to Oppia Web and Oppia Android tackle their first starter issues
+## Develop tutorials to help contributors tackle issues in new domains
 
 ### Problem statement
 
