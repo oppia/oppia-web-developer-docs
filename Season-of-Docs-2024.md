@@ -53,7 +53,7 @@ If you're interested in applying to work with Oppia for Season of Docs, please f
 
 **Q: How can I increase my chances of getting selected?**
 
-A: Writing a good project proposal, engaging with the community, helping other applicants, successfully contributing to [already-existing documentation](https://github.com/oppia/oppia/wiki), and demonstrating that you can work independently can all help you.
+A: Writing a good project proposal, engaging with the community, helping other applicants, successfully contributing to [already-existing documentation](https://github.com/oppia/oppia/wiki), gaining and showing familiarity with the parts of Oppia you propose to document, and demonstrating that you can work independently can all help you.
 
 # Starter projects
 
