@@ -25,7 +25,7 @@ Please see the Season of Docs timeline here: https://developers.google.com/seaso
 
 In addition to the dates provided there, Oppia will follow the timeline below:
 
-**25 Mar - 5 Apr 2024** Proposal submission:** Technical writers are expected to submit their "Statement of interest" in PDF format through [the google form](https://forms.gle/bxR1j5sqFsQwRV3m7) before the deadline to show their interest in the project. Org admins will reach out to shortlisted technical writers by 12 Apr 2024.
+**25 Mar - 5 Apr 2024 Proposal submission:** Technical writers are expected to submit their "Statement of interest" in PDF format through [the google form](https://forms.gle/bxR1j5sqFsQwRV3m7) before the deadline to show their interest in the project. Org admins will reach out to shortlisted technical writers by 12 Apr 2024.
 
 **Selection announcement:** We expect to announce the selected technical writer on [oppia-sod-announce@](https://groups.google.com/g/oppia-sod-announce) on or before 30 Apr 2024 at 18:00 UTC. Note that this is conditional on Oppia being accepted to the Summer of Docs program for 2024 (the results of which will be announced by Google on 10 Apr 2024 at 18:00 UTC).
 
