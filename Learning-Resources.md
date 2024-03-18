@@ -49,4 +49,8 @@ That said, we strongly recommend that you be open to learning new things. If you
 
   * Also, check out the official Python [documentation](https://docs.python.org/3/).
 
+* Explore our curated tutorials designed to help contributors familiarize themselves with our codebase and gain hands-on experience with the development process at Oppia.
+
+  * [Tutorial: Making a Simple UI change](https://github.com/oppia/oppia/wiki/Making-a-simple-UI-change)
+
 If you find a useful learning resource that isn't listed here, please add it to help other new contributors!
