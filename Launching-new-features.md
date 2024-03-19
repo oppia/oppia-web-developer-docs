@@ -89,33 +89,6 @@ export enum FeatureNames {
 }
 ```
 
-### Modifying unit tests to account for the creation of the new flag
-
-The above changes are enough to add a new feature flag to the backend.
-
-However, to make sure the frontend tests succeed, please follow the steps below (so they account for the newly created feature flag).
-
-1. Add the newly created flag as a key-value pair in the `featureStatusSummary` object in the unit-test meant for testing the functioning of the session storage in `core/templates/services/platform-feature.service.spec.ts`, like so:
-
-```typescript
-it('should load from sessionStorage if there are valid results.', fakeAsync(
-  () => {
-    // ...
-    mockSessionStore({
-      SAVED_FEATURE_FLAGS: JSON.stringify({
-        // ...
-        featureStatusSummary: {
-          // ...
-          [FeatureNames.NewFeature]: true,
-        }
-      })
-    });
-
-    // ...
-  })
-);
-```
-
 ### Writing unit tests for gated features
 
 To write unit tests for gated features, follow the steps below:
