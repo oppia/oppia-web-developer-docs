@@ -8,6 +8,8 @@
     * [[UX researchers|Conducting-research-with-students]]
     * [[Voice artists | Instructions-for-voice-artists]]
     * [[Designers and artists|Contributing-to-Oppia's-design]]
+  * Reporting a bug
+    * [[File an issue for bug|Github-Issue-Guide]]
   * **[[Google Summer of Code 2024|Google-Summer-of-Code-2024]]**
 ---
 **Developing Oppia**
