@@ -89,7 +89,7 @@ make run_tests.acceptance suite="blog-editor-tests/check-blog-editor-unable-to-p
 3) The functionality of the top-level tests for each user-type is defined in the `user-utilities` directory. For ex. the blog editor tests are written within the `spec/blog-editor-tests` directory, and the functionality of the tests are defined in the `user-utilities/blog-post-editor-utils.ts` file.
 > Note: A utility file is maintained for each user type. The purpose of maintaining this file is to add methods specific to that user on top of the already provided basic methods. This file maintains a user class which is extended from the base class of puppeteer-utils.ts . For ex. blog-post-admin-utils.ts have a class BlogPostEditor which have methods like `createDraftBlogPostWithTitle`, `deleteDraftBlogPostWithTitle` etc. specific to Blog Admin only.
 
-4) The utility files are imported into the top-level test files, and the methods are called to perform the required actions. For example, in the `try-to-publish-a-duplicate-blog-post-and-get-blocked.spec.ts` file, the `createNewBlogPostWithTitle` method is called to create a new blog post with the given title. Additionally, the `expectUserUnableToPublishBlogPost` method is called to check if the user is unable to publish a blog post. To facilitate instantiation of classes, each utils file should also include a `UserFactory` function. This function's purpose is to instantiate a new class of the corresponding type. For instance, export `let QuestionAdminFactory = (): QuestionAdmin => new QuestionAdmin();` would create a QuestionAdmin instance.
+4) The utility files are imported into the top-level test files, and the methods are called to perform the required actions. For example, in the `try-to-publish-a-duplicate-blog-post-and-get-blocked.spec.ts` file, the `createNewBlogPostWithTitle` method is called to create a new blog post with the given title. Additionally, the `expectUserUnableToPublishBlogPost` method is called to check if the user is unable to publish a blog post. To facilitate instantiation of classes, each utils file should also include a `UserFactory` function. This function's purpose is to instantiate a new class of the corresponding type. For instance, ` export let QuestionAdminFactory = (): QuestionAdmin => new QuestionAdmin();` would create a QuestionAdmin instance.
 
 5) Adding a New User-Utilities File to the User-Factory:
 
@@ -97,14 +97,14 @@ make run_tests.acceptance suite="blog-editor-tests/check-blog-editor-unable-to-p
 
    For example, if we want to add Translation admin with the help of super admin then:
 
-    i) Define the role in `Roles` enum:
+    • Define the role in `Roles` enum:
     ```
       Roles: {
         other roles... ,
         TRANSLATION_ADMIN: 'translation admin',
       }
     ```
-    ii) Add the role to `USER_ROLE_MAPPING`:
+    • Add the role to `USER_ROLE_MAPPING`:
     ```
       const USER_ROLE_MAPPING = {
         other roles... ,
@@ -112,7 +112,7 @@ make run_tests.acceptance suite="blog-editor-tests/check-blog-editor-unable-to-p
       } as const;
     ```
 
-    For roles that don't require super admin privileges, such as `LoggedInUser`, guide the developer to add the factory to the array inside `createNewUser` under `composeUserWithRoles(BaseUserFactory(), [...])`. This ensures that the new user role is included when creating a new user instance.
+    For roles that don't require super admin privileges, such as `LoggedInUser`, add the developer to add the factory to the array inside `createNewUser` under `composeUserWithRoles(BaseUserFactory(), [...])`. This ensures that the new user role is included when creating a new user instance.
 
     Please ensure to follow the appropriate conventions and guidelines while adding new user-utilities files to the user-factory to maintain consistency and clarity in the testing process.
 
