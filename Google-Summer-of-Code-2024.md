@@ -316,6 +316,10 @@ Please note that the list of project ideas below is not set in stone: more proje
 
 ### 1.1. Infrastructure and navigation for multiple classrooms
 
+> [!IMPORTANT]
+> This is a popular project idea.
+> Multiple applicants are interested in this project.
+
 **Project Description:**
 
 Oppia currently has a classroom page for Math lessons, which is featured prominently and accessible via the home page, navigation bar, community library and learner dashboard. We are planning to create more classrooms for other topics.
@@ -1008,6 +1012,10 @@ Some things you could address in your proposal:
 
 
 ### 3.2. Make CI and pre-push hooks more efficient
+
+> [!IMPORTANT]
+> This is a popular project idea.
+> Multiple applicants are interested in this project.
 
 **Project Description:**
 
