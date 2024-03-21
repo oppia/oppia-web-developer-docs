@@ -46,12 +46,12 @@ The directory structure is as follows:
 
 2) The `puppeteer-testing-utilities` directory contains all the utility files and helper functions, which you would require to write new acceptance tests. This directory can also be used to append more utility functions as when required or needed by the user.
 Files included inside this directory are :
-  - `puppeteer-utils.ts` -> This file contains the base _*puppeteerUtilities*_ class which provides the most common and useful methods such as _*openBrowser*_, _*goto*_, _*clickOn*_, _*openExternalPdfLink*_ etc. This class also serves as a foundation for defining other user-oriented subclasses, facilitating various testing scenarios.
+  - `puppeteer-utils.ts` -> This file contains the base _*BaseUser*_ class which provides the most common and useful methods such as _*openBrowser*_, _*goto*_, _*clickOn*_, _*openExternalPdfLink*_ etc. This class also serves as a foundation for defining other user-oriented subclasses, facilitating various testing scenarios.
   - `user-factory.ts` -> This file contains methods for creating a certain user. The file has different methods for creating different types of user.
   - `test-constants.ts` -> This file contains defined constants such as _*URLs, classname, id etc. which are used in the tests.
   - `show-message-utils.ts` -> This file contains method for logging the progress and errors during a test.
 
-3) The `user-utilities` directory holds the utility files for different user types. Each user utility class is build upon the base `puppeteerUtilities` class containing the original methods along with the ones related to that user type. For eg. `BlogPostEditor` contains base functions as well as additional functions just related to `Blog Admin` user.
+3) The `user-utilities` directory holds the utility files for different user types. Each user utility class is build upon the base `BaseUser` class containing the original methods along with the ones related to that user type. For eg. `BlogPostEditor` contains base functions as well as additional functions just related to `Blog Post Editor` user.
 
 4) The `images` directory contains all the images used in the tests.
 
@@ -89,10 +89,34 @@ make run_tests.acceptance suite="blog-editor-tests/check-blog-editor-unable-to-p
 3) The functionality of the top-level tests for each user-type is defined in the `user-utilities` directory. For ex. the blog editor tests are written within the `spec/blog-editor-tests` directory, and the functionality of the tests are defined in the `user-utilities/blog-post-editor-utils.ts` file.
 > Note: A utility file is maintained for each user type. The purpose of maintaining this file is to add methods specific to that user on top of the already provided basic methods. This file maintains a user class which is extended from the base class of puppeteer-utils.ts . For ex. blog-post-admin-utils.ts have a class BlogPostEditor which have methods like `createDraftBlogPostWithTitle`, `deleteDraftBlogPostWithTitle` etc. specific to Blog Admin only.
 
+4) The utility files are imported into the top-level test files, and the methods are called to perform the required actions. For example, in the `try-to-publish-a-duplicate-blog-post-and-get-blocked.spec.ts` file, the `createNewBlogPostWithTitle` method is called to create a new blog post with the given title. Additionally, the `expectUserUnableToPublishBlogPost` method is called to check if the user is unable to publish a blog post. To facilitate instantiation of classes, each utils file should also include a `UserFactory` function. This function's purpose is to instantiate a new class of the corresponding type. For instance, export `let QuestionAdminFactory = (): QuestionAdmin => new QuestionAdmin();` would create a QuestionAdmin instance.
 
-4) The utility files are imported in the top-level test files and the methods are called to perform the required actions. For ex. in the `try-to-publish-a-duplicate-blog-post-and-get-blocked.spec.ts` file, the `createNewBlogPostWithTitle` method is called to create a new blog post with the given title. The `expectUserUnableToPublishBlogPost` method is called to check if the user is unable to publish a blog post.
+6) Adding a New User-Utilities File to the User-Factory:
 
-5) For each test, the user is created using the `userFactory` class. For ex. in the `try-to-publish-a-duplicate-blog-post-and-get-blocked.spec.ts` file, The `createNewUser` method is called to create a new user, with the parameter `[ROLES.BLOG_POST_EDITOR]` assigned as the role of the blog post editor. The `createNewUser` method is defined in the `user-factory.ts` file. The `createNewUser` method creates a new user with the provided username, email and role, and then returns the user object. The user object is used to perform the required actions (that are defined in the `user-utilities/*-utils.ts`).
+   If the role requires a super admin to assign it, first, add the role to the `Roles` enum in `test-constants.ts`. Then, to add it, reference the `USER_ROLE_MAPPING` inside the `user-factory.ts` file. If the user requires a role from the super admin, add the reference accordingly.
+
+   For example, if we want to add Translation admin with the help of super admin then:
+
+    i) Define the role in `Roles` enum:
+    ```
+      Roles: {
+        other roles... ,
+        TRANSLATION_ADMIN: 'translation admin',
+      }
+    ```
+    ii) Add the role to `USER_ROLE_MAPPING`:
+    ```
+      const USER_ROLE_MAPPING = {
+        other roles... ,
+        [ROLES.TRANSLATION_ADMIN]: TranslationAdminFactory,
+      } as const;
+    ```
+
+    For roles that don't require super admin privileges, such as `LoggedInUser`, guide the developer to add the factory to the array inside `createNewUser` under `composeUserWithRoles(BaseUserFactory(), [...])`. This ensures that the new user role is included when creating a new user instance.
+
+    Please ensure to follow the appropriate conventions and guidelines while adding new user-utilities files to the user-factory to maintain consistency and clarity in the testing process.
+
+5) For each test, the user is created using the `UserFactory` class. For ex. in the `try-to-publish-a-duplicate-blog-post-and-get-blocked.spec.ts` file, The `createNewUser` method is called to create a new user, with the parameter `[ROLES.BLOG_POST_EDITOR]` assigned as the role of the blog post editor. The `createNewUser` method is defined in the `user-factory.ts` file. The `createNewUser` method creates a new user with the provided username, email and role, and then returns the user object. The user object is used to perform the required actions (that are defined in the `user-utilities/*-utils.ts`).
 
 6) After successful completition of any test step or any expectation, the `showMessage` method is called to log the progress. For ex. in the `blog-post-editor-utils.ts` file, the `showMessage` method is called to log the progress after publishing new blog post. The `showMessage` method is defined in the `show-message-utils.ts` file.
 
