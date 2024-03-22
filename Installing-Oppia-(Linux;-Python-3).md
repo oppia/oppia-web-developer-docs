@@ -92,7 +92,8 @@ bash scripts/install_prerequisites.sh
 ## Setup a virtual environment
 
 For your virtual environment, we recommend you use [pyenv](https://github.com/pyenv/pyenv). Here are some instructions for doing so, but you can use another virtual environment tool if you wish:
-
+   > [NOTE!]
+   > Below commands can be executed in any directory, as they are not path-specific. However, new contributors should execute in the folder (``cd opensource/``) to prevent any confusion.
 1. **Make sure you install the Python build dependencies for your operating system. These are specified [here](https://github.com/pyenv/pyenv/wiki#suggested-build-environment). If you don't do this it might lead to problems further on.** The build dependencies for Ubuntu/Debian are
 
 
@@ -113,7 +114,7 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
    ...
    ```
 
-   If you see the warning at the end, add the following lines to your `~/.bashrc` (if you are using bash) or `~/.zshrc` (if you are using zsh).
+   If you see the warning at the end, add the following lines to your ``>> ~/.bashrc`` (if you are using bash) or ``>> ~/.zshrc`` (if you are using zsh).
 
    ```bash
    export PYENV_ROOT="$HOME/.pyenv"
@@ -128,7 +129,9 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
    > Be careful with using graphical editors like Notepad in Windows. These can add carriage returns (`\r`) that confuse our Linux-based development tools. Instead, we recommend using editors designed for programming or command-line text editors.
 
 3. Reload your shell or open a new terminal window to load your updated `~/.bashrc` or `~/.zshrc`.
-
+```bash
+exec "$SHELL"
+```
 4. Now you can install Python 3.8.15 and the associated pip like this:
 
    ```console
@@ -143,19 +146,19 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
 5. Install direnv
 
    ```sh
-   $ sudo apt install direnv
+   sudo apt install direnv
    ```
 
 6. Setup direnv into your shell.  
-   If you are using bash, add following lines to the end of `~/.bashrc`.
+   If you are using bash.
 
    ```bash
-   eval "$(direnv hook bash)"
+   eval "$(direnv hook bash)" >> ~/.bashrc
    ```
-   If you are using zsh, add following lines to the end of `~/.zshrc`.
+   If you are using zsh.
 
    ```bash
-   eval "$(direnv hook zsh)"
+   eval "$(direnv hook zsh)" >> ~/.zshrc
    ``` 
    > [!WARNING]
    > Be careful with using graphical editors like Notepad in Windows. These can add carriage returns (`\r`) that confuse our Linux-based development tools. Instead, we recommend using editors designed for programming or command-line text editors.
@@ -187,7 +190,7 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
     Then run this command in the same folder:
 
     ```sh
-    $ direnv allow
+    direnv allow
     ```
 
     Now whenever you are within the `oppia` folder, the virtual environment will be active.
