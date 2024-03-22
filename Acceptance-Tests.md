@@ -91,7 +91,7 @@ make run_tests.acceptance suite="blog-editor-tests/check-blog-editor-unable-to-p
 
 4) The utility files are imported into the top-level test files, and the methods are called to perform the required actions. For example, in the `try-to-publish-a-duplicate-blog-post-and-get-blocked.spec.ts` file, the `createNewBlogPostWithTitle` method is called to create a new blog post with the given title. Additionally, the `expectUserUnableToPublishBlogPost` method is called to check if the user is unable to publish a blog post. To facilitate instantiation of classes, each utils file should also include a `UserFactory` function. This function's purpose is to instantiate a new class of the corresponding type. For instance, ` export let QuestionAdminFactory = (): QuestionAdmin => new QuestionAdmin();` would create a QuestionAdmin instance.
 
-5) Adding a New User-Utilities File to the User-Factory:
+5) After adding a new user utility file, you should make the following changes to user factory:
 
    If the role requires a super admin to assign it, first, add the role to the `Roles` enum in `test-constants.ts`. Then, to add it, reference the `USER_ROLE_MAPPING` inside the `user-factory.ts` file. If the user requires a role from the super admin, add the reference accordingly.
 
@@ -112,7 +112,7 @@ make run_tests.acceptance suite="blog-editor-tests/check-blog-editor-unable-to-p
       } as const;
     ```
 
-    For roles that don't require super admin privileges, such as `LoggedInUser`, add the developer to add the factory to the array inside `createNewUser` under `composeUserWithRoles(BaseUserFactory(), [...])`. This ensures that the new user role is included when creating a new user instance.
+    For roles that don't require super admin privileges, such as `LoggedInUser`, add the factory to the array inside `createNewUser` under `composeUserWithRoles(BaseUserFactory(), [...])`. This ensures that the new user role is included when creating a new user instance.
 
     Please ensure to follow the appropriate conventions and guidelines while adding new user-utilities files to the user-factory to maintain consistency and clarity in the testing process.
 
