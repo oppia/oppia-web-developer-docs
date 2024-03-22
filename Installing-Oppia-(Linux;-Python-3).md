@@ -93,8 +93,6 @@ bash scripts/install_prerequisites.sh
 
 For your virtual environment, we recommend you use [pyenv](https://github.com/pyenv/pyenv). Here are some instructions for doing so, but you can use another virtual environment tool if you wish:
 
-   > [NOTE!]
-   > Below commands can be run in any directory, its not path specific but if new contributor try to run them in ``cd opensource``
 1. **Make sure you install the Python build dependencies for your operating system. These are specified [here](https://github.com/pyenv/pyenv/wiki#suggested-build-environment). If you don't do this it might lead to problems further on.** The build dependencies for Ubuntu/Debian are
 
 
@@ -115,7 +113,7 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
    ...
    ```
 
-   If you see the warning at the end, add the following lines to your `>> ~/.bashrc` (if you are using bash) or `>> ~/.zshrc` (if you are using zsh).
+   If you see the warning at the end, add the following lines to your `~/.bashrc` (if you are using bash) or `~/.zshrc` (if you are using zsh).
 
    ```bash
    export PYENV_ROOT="$HOME/.pyenv"
@@ -123,16 +121,13 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
    eval "$(pyenv init --path)"
 
    eval "$(pyenv init -)"
-   eval "$(pyenv virtualenv-init -)" 
+   eval "$(pyenv virtualenv-init -)"
    ```
 
    > [!WARNING]
    > Be careful with using graphical editors like Notepad in Windows. These can add carriage returns (`\r`) that confuse our Linux-based development tools. Instead, we recommend using editors designed for programming or command-line text editors.
 
 3. Reload your shell or open a new terminal window to load your updated `~/.bashrc` or `~/.zshrc`.
-```
-exec $SHELL
-```
 
 4. Now you can install Python 3.8.15 and the associated pip like this:
 
