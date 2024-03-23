@@ -11,7 +11,7 @@
 
 **Note:** If you just want to create and share explorations, you may be able to use the hosted server at https://www.oppia.org (in which case you don't need to install anything).
 
-*These installation instructions were last tested on 24 July 2021. For more information on issues that may occasionally arise with the installation process, see the [Troubleshooting](https://github.com/oppia/oppia/wiki/Troubleshooting) page or ask in the GitHub Discussions.*
+*These installation instructions were last tested on 8 January 2024. For more information on issues that may occasionally arise with the installation process, see the [Troubleshooting](https://github.com/oppia/oppia/wiki/Troubleshooting) page or ask in the [GitHub Discussions](https://github.com/oppia/oppia/discussions).*
 
 ## Install prerequisites
 
@@ -93,7 +93,7 @@ bash scripts/install_prerequisites.sh
 
 For your virtual environment, we recommend you use [pyenv](https://github.com/pyenv/pyenv). Here are some instructions for doing so, but you can use another virtual environment tool if you wish:
    > [NOTE!]
-   > Below commands can be executed in any directory, as they are not path-specific. However, new contributors should execute in the folder (``cd opensource/``) to prevent any confusion.
+   > The commands below can be executed in any directory, as they are not path-specific.
 1. **Make sure you install the Python build dependencies for your operating system. These are specified [here](https://github.com/pyenv/pyenv/wiki#suggested-build-environment). If you don't do this it might lead to problems further on.** The build dependencies for Ubuntu/Debian are
 
 
@@ -150,12 +150,12 @@ exec "$SHELL"
    ```
 
 6. Setup direnv into your shell.  
-   If you are using bash.
+   If you are using bash:
 
    ```bash
    eval "$(direnv hook bash)" >> ~/.bashrc
    ```
-   If you are using zsh.
+   If you are using zsh:
 
    ```bash
    eval "$(direnv hook zsh)" >> ~/.zshrc
