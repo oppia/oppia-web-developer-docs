@@ -42,6 +42,7 @@
   * **[[Good first issues|https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22]]**
   * Coding Guidelines
     * [[Coding style guide|Coding-style-guide]]
+      * [[Formatters|Formatters]]
     * [[Guidelines for creating new files|The-File-Naming-Convention-and-Directory-Structure]]
     * [[How to add a new page|Adding-new-page]]
     * [[How to write frontend type definitions|Guide-on-defining-types]]
