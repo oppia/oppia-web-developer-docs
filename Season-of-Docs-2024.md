@@ -153,3 +153,5 @@ Note that all documentation will be submitted to our [GitHub wiki repository](ht
 ## Communication
 
 If you have questions pertaining to how-to-get-started with the various codebases, please ask them on GitHub Discussions ([Web](https://github.com/oppia/oppia/discussions), [Android](https://github.com/oppia/oppia-android/discussions)). Please be specific when asking questions; this makes it easier for us to help you.
+
+Please use the public channels above wherever possible so that others can learn from the answer to your questions. If you need to contact the org admins confidentially, you can email them at sod-2024-admins@oppia.org.
