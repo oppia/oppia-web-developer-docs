@@ -103,6 +103,8 @@ For the "Statement of interest", we generally look for a clear indication that t
 
 Applicants are expected to fill up the [application form](https://forms.gle/py5rWVemffdgdPbz6) and upload the final "Statement of interest (SOI)" in PDF format before the deadline. If you fail to submit the form before the deadline, then we will not be able to accept your application.
 
+You may optionally submit draft SOIs to the org admins for pre-submission review. Please draft your SOI in Google Docs and send an email to the org admins at sod-2024-admins@oppia.org with a link to your draft. The org admins will review your draft and make suggestions to help you improve your SOI. Please make sure you give everyone with the link permission to comment so that we can give you feedback! Pre-submission is completely optional, and we may not be able to respond to everyone's drafts. **Please do not risk missing the submission deadline, even if you are waiting for feedback.**
+
 Per the guidance in the official [Season of Docs guide](https://developers.google.com/season-of-docs/docs/tech-writer-guide#application_phase), we will reach out directly if we would like to work with you or discuss your statement of interest further.
 
 
