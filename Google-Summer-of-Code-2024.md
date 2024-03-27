@@ -1021,6 +1021,8 @@ Some things you could address in your proposal:
 
 Optimize the pre-push hooks and CI checks so that they only run necessary tests. This is meant to speed up the developer workflow, while still maintaining a quality bar for PRs that are merged into the develop branch.
 
+**Tracking issue**: [#20001](https://github.com/oppia/oppia/issues/20001)
+
 **Not in scope:**
 - Replacing the linter with a faster one (e.g. ruff).
 - Migrating the backend tests to a different framework like pytest (so that we can use, e.g., pytest-testmon).
