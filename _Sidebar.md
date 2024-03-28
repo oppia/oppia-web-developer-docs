@@ -8,8 +8,7 @@
     * [[UX researchers|Conducting-research-with-students]]
     * [[Voice artists | Instructions-for-voice-artists]]
     * [[Designers and artists|Contributing-to-Oppia's-design]]
-  * Reporting a bug
-    * [[File an issue for bug|Github-Issue-Guide]]
+  * [[How to file a bug report|How-to-file-a-bug-report]]
   * **[[Google Summer of Code 2024|Google-Summer-of-Code-2024]]**
   * **[[Google Season of Docs 2024|Season-of-Docs-2024]]**
 ---
@@ -42,6 +41,7 @@
   * **[[Good first issues|https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22]]**
   * Coding Guidelines
     * [[Coding style guide|Coding-style-guide]]
+      * [[Formatters|Formatters]]
     * [[Guidelines for creating new files|The-File-Naming-Convention-and-Directory-Structure]]
     * [[How to add a new page|Adding-new-page]]
     * [[How to write frontend type definitions|Guide-on-defining-types]]
