@@ -126,6 +126,74 @@ make run_tests.acceptance suite="blog-editor-tests/check-blog-editor-unable-to-p
 
 10) The test must be thoroughly tested before submitting a PR. The test can be run locally by running the following command as mentioned above or you can run the test on the CI server by pushing your code to the remote branch in your fork. The CI server will run the test and will show the result.
 
+## Acceptance Tests for Mobile
+
+Similar to desktop, we also have acceptance tests for mobile to ensure responsiveness and uninterrupted user journeys on small screen devices. While the tests themselves remain largely the same for both desktop and mobile, there are some differences. For instance, large full menus on desktop may be converted to dropdowns, hamburger menus, or other shortcuts on mobile, requiring additional actions to complete the tests.
+
+### How to Write Tests for Mobile
+
+There will be no change in the `spec` file of the tests; however, there may be some changes in the `utils` file, which is optional and dependent on the specific test cases. In most cases, the tests will run correctly for both mobile and desktop.
+
+However, in scenarios where certain actions are affected by the smaller screen size, additional steps may be required.
+
+For example: consider a scenario where a menu is collapsed into a hamburger menu due to the small screen size:
+
+![Shortcut Menu](image.png)
+
+Here, if we want to click on the "Home" or any other button, we need to first click on the hamburger menu. Additionally, there may be differences in selectors for the same buttons between desktop and mobile. For instance, the publish button in desktop might be `e2e-test-publish-exploration`, while in mobile it could be `e2e-test-mobile-publish-button`.
+
+We can handle these differences by including conditional statements in the `utils` file, using the `isViewportAtMobileWidth()` function to execute commands specific to mobile devices.
+
+For Eg.
+
+```typescript
+async discardCurrentChanges(): Promise<void> {
+    // Check if the viewport corresponds to a mobile device.
+    if (this.isViewportAtMobileWidth()) {
+        // If on mobile, click on the mobile-specific discard button.
+        await this.clickOn(mobileDiscardButton);
+    } else {
+        // If on desktop, click on the desktop-specific discard button.
+        await this.clickOn(discardDraftButton);
+    }
+    // Confirm the discard action, regardless of the viewport size(common in both).
+    await this.clickOn(discardConfirmButton);
+}
+```
+
+In this example, the `discardCurrentChanges()` function checks if the viewport width corresponds to a mobile device, and if so, clicks on the mobile-specific discard button. Otherwise, it clicks on the desktop-specific discard button. Finally, it confirms the discard action. This approach allows us to maintain a single set of tests while accommodating differences between desktop and mobile environments.
+
+### console errors logging functionality in Acceptance Tests
+
+Now, Acceptance Tests are capable of finding console errors during CUJ's and it will break the test. But in some cases where the console error can be ignored and not in high priority right now then we can ignore that with help of `consoleReporter.setConsoleErrorsToIgnore`
+```typescript
+ConsoleReporter.setConsoleErrorsToIgnore([
+  /Failed to load resource: the server responded with a status of 500/,
+]);
+```
+
+### How to run mobile acceptance tests
+From the root directory of oppia, run the following command:
+```  
+python -m scripts.run_acceptance_tests --mobile --suite={{suiteName}}  
+``` 
+
+Docker:
+```
+make run_tests.acceptance --mobile suite=SUITE_NAME
+```
+
+For example, to run the `check-blog-editor-unable-to-publish-duplicate-blog-post.spec.ts` test, run the following command:
+Python:
+```
+python -m scripts.run_acceptance_tests --mobile --suite="blog-editor-tests/check-blog-editor-unable-to-publish-duplicate-blog-post"
+```
+
+Docker:
+```
+make run_tests.acceptance --mobile suite="blog-editor-tests/check-blog-editor-unable-to-publish-duplicate-blog-post"
+```
+
 ## Reference Links
 Blog Admin and Blog Editor Tests - 
   [Blog Admin top-level tests](https://github.com/oppia/oppia/tree/develop/core/tests/puppeteer-acceptance-tests/spec/blog-admin-tests)
