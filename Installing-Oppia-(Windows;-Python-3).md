@@ -202,10 +202,9 @@ Any VM manager is fine, but the instructions here are specific to VirtualBox.
 7. Depending on free space on the machine, either dynamically allocated or static can be chosen here.
 8. Select the amount of storage that is needed (around 20 GB should be fine) and select a location on the machine with enough free space to host the VM and click create.
 
-## Install Ubuntu 18 ISO
+## Install Ubuntu ISO
 
-1. Download the Ubuntu 18.04 64bit ISO from [here](https://releases.ubuntu.com/18.04/) or download the the version 22.0.4 from [here] https://releases.ubuntu.com/jammy/ubuntu-22.04.3-desktop-amd64.iso .
-
+1. Download the Ubuntu 18.04 64bit ISO from [here](https://releases.ubuntu.com/18.04/) or download the the version 22.04 from [here] (https://releases.ubuntu.com/jammy/)
 2. Select the newly created VM in the virtual box and click Start.
 3. Here, a window pops up where you have to link the downloaded ISO file. Click the folder icon and select the ISO from your machine.
 4. Now, go through the normal Ubuntu installation steps, you can do the following the specific steps:
