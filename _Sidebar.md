@@ -8,8 +8,7 @@
     * [[UX researchers|Conducting-research-with-students]]
     * [[Voice artists | Instructions-for-voice-artists]]
     * [[Designers and artists|Contributing-to-Oppia's-design]]
-  * Reporting a bug
-    * [[How to File a Bug Report|Github-Issue-Guide]]
+  * [[How to file a bug report|How-to-file-a-bug-report]]
   * **[[Google Summer of Code 2024|Google-Summer-of-Code-2024]]**
   * **[[Google Season of Docs 2024|Season-of-Docs-2024]]**
 ---
