@@ -316,6 +316,10 @@ Please note that the list of project ideas below is not set in stone: more proje
 
 ### 1.1. Infrastructure and navigation for multiple classrooms
 
+> [!IMPORTANT]
+> This is a popular project idea.
+> Multiple applicants are interested in this project.
+
 **Project Description:**
 
 Oppia currently has a classroom page for Math lessons, which is featured prominently and accessible via the home page, navigation bar, community library and learner dashboard. We are planning to create more classrooms for other topics.
@@ -1009,9 +1013,15 @@ Some things you could address in your proposal:
 
 ### 3.2. Make CI and pre-push hooks more efficient
 
+> [!IMPORTANT]
+> This is a popular project idea.
+> Multiple applicants are interested in this project.
+
 **Project Description:**
 
 Optimize the pre-push hooks and CI checks so that they only run necessary tests. This is meant to speed up the developer workflow, while still maintaining a quality bar for PRs that are merged into the develop branch.
+
+**Tracking issue**: [#20001](https://github.com/oppia/oppia/issues/20001)
 
 **Not in scope:**
 - Replacing the linter with a faster one (e.g. ruff).
