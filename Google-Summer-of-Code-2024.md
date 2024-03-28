@@ -397,6 +397,10 @@ Here are some examples of questions to analyze:
 
 ### 1.2. Static page redesigns
 
+> [!IMPORTANT]
+> This is a popular project idea.
+> Multiple applicants are interested in this project.
+
 **Project Description:**
 
 User research has indicated that the informational pages on the Oppia.org website could be improved, because users cannot find the information that they need from them. The aim of this project is to make these improvements.
@@ -929,6 +933,10 @@ Sometimes, after a piece of content is translated, a small part of the original 
 
 ### 3.1. Acceptance tests
 
+> [!IMPORTANT]
+> This is a popular project idea.
+> Multiple applicants are interested in this project.
+
 **Project Description:**
 
 The Oppia development team is enhancing its software quality by implementing Acceptance Testing on the develop branch. These end-to-end tests are crucial for ensuring the application's functionality aligns with user expectations, with the aim of detecting and fixing bugs before release. By automating the tests for every commit, the team ensures that key user journeys remain unbroken, enhancing the reliability and user experience of the software.
@@ -1170,6 +1178,10 @@ See tracking issue: [#5343](https://github.com/oppia/oppia-android/issues/5343).
 </details>
 
 ### 4.2. Multiple classrooms support
+
+> [!IMPORTANT]
+> This is a popular project idea.
+> Multiple applicants are interested in this project.
 
 **Project Description:**
 
