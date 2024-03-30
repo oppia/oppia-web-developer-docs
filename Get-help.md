@@ -4,9 +4,9 @@
   * [GitHub Discussions](#github-discussions)
   * [Google Chat or Hangouts](#google-chat-or-hangouts)
   * [GitHub](#github)
-  * [Email](#email) 
+  * [Email](#email)
 * [How to Ask Good Questions](#how-to-ask-good-questions)
-  * [General guidelines to follow](#general-guidelines-to-follow) 
+  * [General guidelines to follow](#general-guidelines-to-follow)
   * [Providing error information](#providing-error-information)
 * [Building your skills: Technical writing](#building-your-skills-technical-writing)
 * [Setup-related questions](#setup-related-questions)
@@ -45,18 +45,17 @@ You can even mention whole teams of people! For example, if you find an issue th
 
 ### Email
 
-We have several mailing lists in the form of Google Groups that you can join, but please note that these are less active than GitHub Discussions:
+We have a low-volume announcement Google Groups mailing list that you can subscribe to:
 
 * [oppia-announce](https://groups.google.com/forum/#!forum/oppia-announce) is for announcements of new releases or blog posts. It's not for asking questions though.
-* [oppia-dev](https://groups.google.com/forum/#!forum/oppia-dev) is the main mailing list for communication between developers and for technical questions. You can post to it even if you're not a member of the group. This is where you can ask questions, solicit feedback, or make developer-specific announcements (e.g. a temporary GitHub outage).
 
-You can also email your mentor with any questions. If you don't have a mentor, complete the steps on the [[wiki page for contributing code to Oppia|Contributing-code-to-Oppia]] and we'll try to assign you.
+Please note that this list is mainly for announcements. If you have technical questions, please ask them on [GitHub Discussions](https://github.com/oppia/oppia/discussions) instead.
 
 ## How to Ask Good Questions
 
-At Oppia we don’t care how silly your question is! Just ensure your question is clear, and provide us with enough information to help us resolve it faster. 
+At Oppia we don’t care how silly your question is! Just ensure your question is clear, and provide us with enough information to help us resolve it faster.
 
-### General guidelines to follow 
+### General guidelines to follow
 
 * __Be clear and concise__: Clearly articulate your question to avoid confusion and allow others to understand it easily.
 * __Provide context__: If applicable, provide relevant background information to help others understand your question and situation.
@@ -64,7 +63,7 @@ At Oppia we don’t care how silly your question is! Just ensure your question i
 * __Format your text for easy reading__: Organize your question using paragraphs, bullet points, and appropriate formatting to enhance readability.
 * __Proofread your message__: Take a moment to proofread your question to ensure clarity and accuracy before sending it.
 
-### Providing error information 
+### Providing error information
 
 When reporting an error, follow these steps to communicate the issue effectively:
 

@@ -8,37 +8,36 @@
     * [[UX researchers|Conducting-research-with-students]]
     * [[Voice artists | Instructions-for-voice-artists]]
     * [[Designers and artists|Contributing-to-Oppia's-design]]
-  * [[How to file a bug report|How-to-file-a-bug-report]]
-  * **[[Google Summer of Code 2024|Google-Summer-of-Code-2024]]**
+  * [[How to report a bug|How-to-file-a-bug-report]]
+  * [[Google Summer of Code 2024|Google-Summer-of-Code-2024]]
   * **[[Google Season of Docs 2024|Season-of-Docs-2024]]**
 ---
 **Developing Oppia**
   * [[FAQs|Frequently-Asked-Questions]]
   * [[Installing Oppia|Installing-Oppia]]
   * Getting started with the codebase
-    * [['Getting started' guide|https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up]]
+    * **[['Getting started' guide|https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up]]**
     * [[Populating data on local server|Populating-data-on-local-server]]
     * Tutorials
       * [[Make a simple UI change|Making-a-simple-UI-change]]
+      * [[Tips for finding the right code to change|Find-the-right-code-to-change]]
+      * [[Tips for analyzing the codebase|Analyzing-the-codebase]]
     * [[How to access Oppia webpages|How-to-access-Oppia-webpages]]
     * Team onboarding guides
       * [[LaCE Team|LaCE-onboarding-guide]]
       * [[Contributor Dashboard Team|Contributor-dashboard]]
-  * [[Upgrading python version to 3.8.15|Upgrading-python-interpreter-to-version-3.8-for-existing-oppia-directory]]
-  * [[Tips for common IDEs|Tips-for-common-IDEs]]
-  * [[Make a pull request|Make-a-pull-request]]
-  * [[Common pull request workflows|Common-pull-request-workflows]]
-  * [[How to get help|Get-help]]
+  * Making your first PR
+    * **[[Good first issues|https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22]]**
+    * [[Make a pull request|Make-a-pull-request]]
+    * [[Common pull request workflows|Common-pull-request-workflows]]
+    * [[Git cheat sheet|Git-cheat-sheet]]
+    * [[Tips for common IDEs|Tips-for-common-IDEs]]
+    * [[How to get help|Get-help]]
   * [[Learning resources for developers|Learning-Resources]]
-  * [[Git cheat sheet|Git-cheat-sheet]]
   * [[Codebase Overview|Overview-of-the-Oppia-codebase]]
     * [[Glossary of terms|Glossary-of-terms]]
-    * [[Tips for finding the right code to change|Find-the-right-code-to-change]]
-    * [[Tips for analyzing the codebase|Analyzing-the-codebase]]
     * [User documentation](https://oppia.github.io/)
     * [[Apache Beam Jobs|Apache-beam-jobs]]
-  * [[List of current projects|https://github.com/oppia/oppia/projects]]
-  * **[[Good first issues|https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22]]**
   * Coding Guidelines
     * [[Coding style guide|Coding-style-guide]]
       * [[Formatters|Formatters]]

@@ -106,9 +106,9 @@ Once your feature is ready, you can open a pull request (PR)!
 
 * Click "Create pull request". If applicable, verify that the issue your PR fixes is linked in the "Development" section on the right. (If not, update your description to clearly reference the issue, using the format "Fix #bugnum".)
 
-* Oppiabot will check that you filled out the PR description correctly. If you didn't, it will leave a comment explaining what you need to do to fix it. More details on the kinds of comments Oppiabot leaves are coming soon.
+* Double-check that the changes in the "Files Changed" tab are exactly what you want them to be, and that there are no extra changes. (If there are any issues, make a new commit to fix them and push your changes.)
 
-* GitHub will automatically assign reviewers, and Oppiabot will assign them as codeowners to do the first review.
+* Oppiabot will check that you filled out the PR description correctly. If you didn't, it will leave a comment explaining what you need to do to fix it. Also, GitHub will automatically assign reviewers, and Oppiabot will assign them as codeowners to do the first review.
 
   If you need to assign someone else but aren't a collaborator yet, leave a comment of the form `@{{reviewer username}} PTAL`, which will tell Oppiabot to assign that person for you. ("PTAL" means "Please take a look".)
 
