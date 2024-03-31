@@ -31,7 +31,8 @@ oppia/core/tests/
     │  ├── puppeteer-utils.ts
     │  ├── show-message-utils.ts
     │  ├── test-constants.ts
-    │  └── user-factory.ts
+    │  ├── user-factory.ts
+    │  └── console-reporter.ts
     └── user-utilities
        └── blog-admin-utils.ts
        └── blog-post-editor-utils.ts
@@ -126,6 +127,32 @@ make run_tests.acceptance suite="blog-editor-tests/check-blog-editor-unable-to-p
 
 10) The test must be thoroughly tested before submitting a PR. The test can be run locally by running the following command as mentioned above or you can run the test on the CI server by pushing your code to the remote branch in your fork. The CI server will run the test and will show the result.
 
+### Console errors logging functionality in Acceptance Tests
+
+Now, Acceptance Tests have the capability to detect console errors during CUJ's, potentially causing test failures. However, there are scenarios where certain console errors can be deemed acceptable and require more precise handling, especially when these errors are incidental to the test execution. For example, using `ConsoleReporter.setConsoleErrorsToIgnore`, specific error messages can be designated to be overlooked temporarily. This functionality is particularly useful when the observed console errors are not critical for the current testing objectives. For instance, errors like `Blog Post with the given title exists already. Please use a different title.` might occur during testing but are not indicative of a test failure. Such errors, distinct from generic ones like status 500, can be selectively ignored to prevent unnecessary test failures.
+```typescript
+ConsoleReporter.setConsoleErrorsToIgnore([
+  /Failed to load resource: the server responded with a status of 500/,
+]);
+```
+
+To handle generic errors that need to be ignored, it's advisable to include them directly within the `console-reporter.ts` utility. In this file, you would add the error regex to a constant array and annotate each with a TODO comment referring to the relevant filed issue. Here's how you can implement this:
+
+```typescript
+const CONSOLE_ERRORS_TO_FIX = [
+  // TODO(#19746): Resolve development console error "Uncaught in Promise" encountered during signup.
+  new RegExp(
+    'Uncaught \\(in promise\\).*learner_groups_feature_status_handler'
+  ),
+  // TODO(#19733): Rectify 404 (Not Found) error for resources utilized in midi-js.
+  escapeRegExp(
+    'http://localhost:8181/dist/oppia-angular/midi/examples/soundfont/acoustic' +
+      '_grand_piano-ogg.js Failed to load resource: the server responded with a ' +
+      'status of 404 (Not Found)'
+  ),
+];
+```
+
 ## Acceptance Tests for Mobile
 
 Similar to desktop, we also have acceptance tests for mobile to ensure responsiveness and uninterrupted user journeys on small screen devices. While the tests themselves remain largely the same for both desktop and mobile, there are some differences. For instance, large full menus on desktop may be converted to dropdowns, hamburger menus, or other shortcuts on mobile, requiring additional actions to complete the tests.
@@ -162,15 +189,6 @@ async discardCurrentChanges(): Promise<void> {
 ```
 
 In this example, the `discardCurrentChanges()` function checks if the viewport width corresponds to a mobile device, and if so, clicks on the mobile-specific discard button. Otherwise, it clicks on the desktop-specific discard button. Finally, it confirms the discard action. This approach allows us to maintain a single set of tests while accommodating differences between desktop and mobile environments.
-
-### console errors logging functionality in Acceptance Tests
-
-Now, Acceptance Tests are capable of finding console errors during CUJ's and it will break the test. But in some cases where the console error can be ignored and not in high priority right now then we can ignore that with help of `consoleReporter.setConsoleErrorsToIgnore`
-```typescript
-ConsoleReporter.setConsoleErrorsToIgnore([
-  /Failed to load resource: the server responded with a status of 500/,
-]);
-```
 
 ### How to run mobile acceptance tests
 From the root directory of oppia, run the following command:
