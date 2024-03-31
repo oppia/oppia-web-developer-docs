@@ -139,16 +139,20 @@ ConsoleReporter.setConsoleErrorsToIgnore([
 To handle generic errors that need to be ignored, it's advisable to include them directly within the `console-reporter.ts` utility. In this file, you would add the error regex to a constant array and annotate each with a TODO comment referring to the relevant filed issue. Here's how you can implement this:
 
 ```typescript
-const CONSOLE_ERRORS_TO_FIX = [
-  // TODO(#19746): Resolve development console error "Uncaught in Promise" encountered during signup.
-  new RegExp(
-    'Uncaught \\(in promise\\).*learner_groups_feature_status_handler'
-  ),
-  // TODO(#19733): Rectify 404 (Not Found) error for resources utilized in midi-js.
+const CONSOLE_ERRORS_TO_IGNORE = [
+  // These "localhost:9099" are errors related to communicating with the
+  // Firebase emulator, which would never occur in production, so we just ignore
+  // them.
   escapeRegExp(
-    'http://localhost:8181/dist/oppia-angular/midi/examples/soundfont/acoustic' +
-      '_grand_piano-ogg.js Failed to load resource: the server responded with a ' +
-      'status of 404 (Not Found)'
+    'http://localhost:9099/www.googleapis.com/identitytoolkit/v3/' +
+      'relyingparty/getAccountInfo?key=fake-api-key'
+  ),
+  // This error covers the case when the PencilCode site uses an
+  // invalid SSL certificate (which can happen when it expires).
+  // In such cases, we ignore the error since it is out of our control.
+  escapeRegExp(
+    'https://pencilcode.net/lib/pencilcodeembed.js - Failed to ' +
+      'load resource: net::ERR_CERT_DATE_INVALID'
   ),
 ];
 ```
