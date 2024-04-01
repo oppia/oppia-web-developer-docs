@@ -34,6 +34,11 @@ Here are some general troubleshooting tips for Oppia. The platform specific tips
   - [No Module functools\_lru\_cache](#no-module-functools_lru_cache)
   - [No Module appengine.api](#no-module-appengineapi)
   - [ModuleNotFoundError: No module named \_bz2](#modulenotfounderror-no-module-named-_bz2)
+  - [Subprocess.CalledProcessError: Command 'yarn install --pure-lockfile' returned non-zero exit status 1](#subprocesscalledprocesserror-command-yarn-install-pure-lockfile-returned-non-zero-exit-status-1)
+
+<!-- 
+  - [Subprocess.CalledProcessError: Command '['yarn', 'install', '--pure-lockfile']' returned non-zero exit status 1](#subprocesscalledprocesserror-command-yarn-install-pure-lockfile-returned-non-zero-exit-status-1) -->
+
 - [Mac OS](#mac-os)
   - [Python 2 is not available](#python-2-is-not-available-1)
   - [Error: alert\_on\_exit() -\> Iterator\[None\]](#error-alert_on_exit---iteratornone)
@@ -403,6 +408,32 @@ If this error occurs within a virtual environment, try reinstalling the libs by 
 
 1. Install bz2 headers. Use the command `sudo apt-get install libbz2-dev` on Ubuntu.
 2. Install Python 3 again so that the bz2 library gets included in `~/.pyenv/versions/3.8.15/lib/python3.8/`. Use the command `pyenv install 3.8.15`.
+
+### Subprocess.CalledProcessError: Command 'yarn install --pure-lockfile' returned non-zero exit status 1
+
+If you get error like this when running ``python -m scripts.start``:
+```
+Traceback (most recent call last):
+  File "/home/hardik/.pyenv/versions/3.8.15/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/hardik/.pyenv/versions/3.8.15/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/hardik/opensource/oppia/scripts/start.py", line 33, in <module>
+    install_third_party_libs.main()
+  File "/home/hardik/opensource/oppia/scripts/install_third_party_libs.py", line 234, in main
+    subprocess.check_call([get_yarn_command(), 'install', '--pure-lockfile'])
+  File "/home/hardik/.pyenv/versions/3.8.15/lib/python3.8/subprocess.py", line 364, in check_call
+    raise CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command '['yarn', 'install', '--pure-lockfile']' returned non-zero exit status 1.
+```
+ - In ``opensource/`` i.e parent folder of ``oppia/``, run below commands :
+ ```
+sudo apt install cmdtest
+```
+
+```
+npm install  yarn
+```
 
 ## Mac OS
 
