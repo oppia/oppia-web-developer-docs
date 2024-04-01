@@ -93,9 +93,9 @@ Go to your fork on GitHub, select your branch from the dropdown menu, and click 
 ![The GitHub PR creation screen](images/makingAPR.png)
 
 > [!WARNING]
-> **Important:** **Check these changes carefully** to make sure that they are correct (e.g., no extra files; no files left out by mistake; no missing newlines at the ends of files). This is a good way to catch obvious errors that would otherwise lead to delays in the review process. (You can also double-check them on the "Files Changed" tab after the PR is created, but make sure to do at least one self-review before assigning any reviewers.)
+> **Read through these changes carefully** to make sure that they are correct (e.g., no extra files; no files left out by mistake; no missing newlines at the ends of files). This is a good way to catch obvious errors that would otherwise lead to delays in the review process. (You can also double-check them on the "Files Changed" tab after the PR is created, but make sure to do at least one self-review before assigning any reviewers.)
 
-After confirming your changes:
+**After** confirming your changes:
 
 * Click "Create pull request".
 
