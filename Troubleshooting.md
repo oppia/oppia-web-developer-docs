@@ -34,10 +34,7 @@ Here are some general troubleshooting tips for Oppia. The platform specific tips
   - [No Module functools\_lru\_cache](#no-module-functools_lru_cache)
   - [No Module appengine.api](#no-module-appengineapi)
   - [ModuleNotFoundError: No module named \_bz2](#modulenotfounderror-no-module-named-_bz2)
-  - [Subprocess.CalledProcessError: Command 'yarn install --pure-lockfile' returned non-zero exit status 1](#subprocesscalledprocesserror-command-yarn-install-pure-lockfile-returned-non-zero-exit-status-1)
-
-<!-- 
-  - [Subprocess.CalledProcessError: Command '['yarn', 'install', '--pure-lockfile']' returned non-zero exit status 1](#subprocesscalledprocesserror-command-yarn-install-pure-lockfile-returned-non-zero-exit-status-1) -->
+  - [Subprocess.CalledProcessError: Command 'yarn install --pure-lockfile' returned non-zero exit status 1](#subprocesscalledprocesserror-command-yarn-install---pure-lockfile-returned-non-zero-exit-status-1)
 
 - [Mac OS](#mac-os)
   - [Python 2 is not available](#python-2-is-not-available-1)
