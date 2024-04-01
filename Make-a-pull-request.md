@@ -88,14 +88,14 @@ You can change your most recent commit message using `git commit --amend`. **It 
 
 Once your feature is ready, you can open a pull request (PR)!
 
-* Go to your fork on GitHub, select your branch from the dropdown menu, and click "pull request". Ensure that the base repository is `oppia/oppia` and that the base branch is `develop`. The head repository should be your fork, and the head branch should be your branch. If you don't see the repository, click the link to `compare across forks`.
+Go to your fork on GitHub, select your branch from the dropdown menu, and click "pull request". Ensure that the base repository is `oppia/oppia` and that the base branch is `develop`. The head repository should be your fork, and the head branch should be your branch. If you don't see the repository, click the link to `compare across forks`. On this page, you can also see your commits and your changes.
 
-  On this page, you can also see your commits and your changes.
+![The GitHub PR creation screen](images/makingAPR.png)
 
 > [!WARNING]
-> **Important:** **Check those changes carefully** to make sure that they are correct (e.g., no extra files; no files left out by mistake; no missing newlines at the ends of files). This is a good way to catch obvious errors that would otherwise lead to delays in the review process. (You can also double-check them on the "Files Changed" tab after the PR is created, but make sure to do at least one self-review before assigning any reviewers.)
+> **Important:** **Check these changes carefully** to make sure that they are correct (e.g., no extra files; no files left out by mistake; no missing newlines at the ends of files). This is a good way to catch obvious errors that would otherwise lead to delays in the review process. (You can also double-check them on the "Files Changed" tab after the PR is created, but make sure to do at least one self-review before assigning any reviewers.)
 
-  ![The GitHub PR creation screen](images/makingAPR.png)
+After confirming your changes:
 
 * Click "Create pull request".
 
