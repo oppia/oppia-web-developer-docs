@@ -431,8 +431,7 @@ sudo apt install cmdtest
 ```
 npm install  yarn
 ```
-> Note :- This solution is generalized, if doesn't solves your problem kindly check similar discussions listed below [oppia/oppia#17425](https://github.com/oppia/oppia/discussions/17425), [oppia/oppia#18428](https://github.com/oppia/oppia/discussions/18428), [oppia/oppia#14814](https://github.com/oppia/oppia/discussions/14814)
-
+> Note :- If the above solution doesn't work, please go through the following answered discussions and try the solution mentioned there. [oppia/oppia#17425](https://github.com/oppia/oppia/discussions/17425), [oppia/oppia#18428](https://github.com/oppia/oppia/discussions/18428), [oppia/oppia#14814](https://github.com/oppia/oppia/discussions/14814)
 
 ## Mac OS
 
