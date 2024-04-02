@@ -611,7 +611,7 @@ In order to run jobs through the local dev server you need to have JSON key that
 
 Even though it is possible to use NDB functions directly, they should not be used because they are slow and we have Beam compliant alternatives from them. All these alternatives are located in _core/jobs/io/ndb_io.py_.
 
-- Instead of using `get`, `get_multi`, `get_by_id`, etc. you should use `GetModels`, and you should pass a query to it, `GetModels` will execute the query and return a `PCollection` of the models that were returned by the query. 
+- Instead of using `get`, `get_multi`, `get_by_id`, etc. you should use `GetModels`, and you should pass a query to it, `GetModels` will execute the query and return a `PCollection` of the models that were returned by the query.
 - Instead of using `put`, `put_multi`, etc. you should use `PutModels`, and you just pipe a `PCollection` of models to it and they will be put into the datastore.
 - Instead of using `delete`, `delete_multi`, etc. you should use `DeleteModels`, and you just pipe a `PCollection` of models to it and they will be deleted from the datastore.
 
@@ -676,7 +676,7 @@ The code above throws this error `'_UnwindowedValues' object is not subscriptabl
 
 ### `_namedptransform is not iterable` error
 
-This error sometimes happens when you forget to add a label for some operation (the strings of code before `>>`). The solution is to add a label for all operations. 
+This error sometimes happens when you forget to add a label for some operation (the strings of code before `>>`). The solution is to add a label for all operations.
 
 #### Example
 
@@ -702,6 +702,7 @@ This section provides some general guidelines for writing Beam jobs, which would
     * [Story migration job](https://github.com/oppia/oppia/blob/fc2e383032a0f9308fdde03d7efd10971752bacf/core/jobs/batch_jobs/story_migration_jobs.py#L60)
 * There should also be a job to verify the changes done by your job.
 * Consider the example of topic migration job. The [AuditTopicMigrateJob](https://github.com/oppia/oppia/blob/fc2e383032a0f9308fdde03d7efd10971752bacf/core/jobs/batch_jobs/topic_migration_jobs.py#L355) is the audit job which performs all the steps in the main job ([MigrateTopicJob](https://github.com/oppia/oppia/blob/fc2e383032a0f9308fdde03d7efd10971752bacf/core/jobs/batch_jobs/topic_migration_jobs.py#L244)), except it doesn't write those changes to the datastore.
+* It is often helpful to include debugging information with your job from the outset, since modifying a failed job and rerunning it can take time. Feel free to include additional logs or counts that will help you debug any issues that arise during execution. To help you identify these easily, you can prefix the relevant lines of output with an identifier in square brackets (e.g. `[NUMBER OF MODELS PROCESSED]`).
 
 ### Executing jobs
 * Refer to code from similar jobs to avoid mistakes. The "Troubleshooting" section in the wiki lists common errors encountered while executing jobs.
@@ -709,7 +710,7 @@ This section provides some general guidelines for writing Beam jobs, which would
     * Empty input.
     * Input which triggers the job to perform its intended action.
     * Incorrect input which causes the job to fail.
-* The tests should ensure that the job runs appropriately for all such cases. 
+* The tests should ensure that the job runs appropriately for all such cases.
 
 ### PR guidelines
 * A PR for a Beam job should always have "Proof of work" in the description which should include the successful local run of the Beam job on the release coordinator page and a screenshot of the storage model which is being changed. The storage models can be checked [locally](https://github.com/oppia/oppia/wiki/Debugging-datastore-locally) via dsadmin.

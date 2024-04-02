@@ -78,13 +78,15 @@ Welcome! Please make sure to follow the instructions above if you haven't alread
 
 After that, you can choose a good first issue from the [list of good first issues](https://github.com/oppia/oppia/labels/good%20first%20issue). These issues are hand-picked to ensure that you don't run into unexpected roadblocks while working on them, and each of them should have clear instructions for new contributors. If you see one that doesn't, please let us know via [GitHub Discussions](https://github.com/oppia/oppia/discussions) and we'll fix it. For other issues, you might need to be more independent because we might not know how to solve them either.
 
+Please only work on issues that are labelled **"Impact: High"** or **"Impact: Medium"**. (We are not focusing on "Impact: Low" or "Backlog" issues for now; if you submit a fix for those, you will likely be redirected. We also recommend not working on "triage needed" issues since these might get closed or modified during the weekly triage process.)
+
 As a new contributor, if you run into any problems along the way, we're here to help! Check out our [[Getting Help Page|Get-help]] for the communication channels you can use.
 
 You can also browse good first issues for each of the core Oppia Web teams to find something you'd enjoy working on! Please only choose issues that have **not yet** been assigned, unless the issue is a "checkbox issue" with multiple claimable parts. Here are the project boards for the different teams:
 
+- Developer Workflow: https://github.com/orgs/oppia/projects/8/views/10, typically backend or frontend
 - Learner and Creator Experience (LaCE): https://github.com/orgs/oppia/projects/3/views/10, typically frontend or full-stack
 - Contributor Dashboard: https://github.com/orgs/oppia/projects/18/views/5, typically frontend or full-stack
-- Developer Workflow: https://github.com/orgs/oppia/projects/8/views/10, typically backend or frontend
 
 ### How to tackle good first issues
 
@@ -100,9 +102,11 @@ Once you have a good understanding of the issue, you can ask for it to be assign
 - Explain clearly how you'd tackle the issue (at a minimum, point to which file(s) you'd modify and describe the changes you'd make). If possible, show a screenshot or code snippet demonstrating your proposed fix.
 - @-mention the leads of the corresponding project (you can find their details [here](https://github.com/orgs/oppia/projects)), letting them know you'd like to work on it and when you can submit a PR by.
 
-If your explanation makes sense, we'll assign the issue to you. Once assigned, feel free to submit a PR by following the [[instructions for making a PR|Make-a-pull-request]].
+If your explanation makes sense, we'll assign the issue to you. Once assigned, feel free to submit a PR by following the [[instructions for making a PR|Make-a-pull-request]]. We recommend actively working to get your PR merged once you are assigned, because we will de-assign contributors if the PR is closed for being stale or there is no activity after the initial assignment.
 
-If you run into any problems, feel free to create a [GitHub Discussion](https://github.com/oppia/oppia/discussions) and get help from the Oppia community, or [request a mentor](https://forms.gle/udsRP4WQgLcez9Zm8) if you'd like individual support.
+Generally, we aim to review PRs within 48 hours. If you have not heard from a reviewer by then, feel free to escalate. You can leave a comment on the review thread and also add a message to the "Contacting Folks" section of [GitHub Discussions](https://github.com/oppia/oppia/discussions/categories/q-a-contacting-folks).
+
+If you run into any problems, feel free to create a [GitHub Discussion](https://github.com/oppia/oppia/discussions) and get help from the Oppia community, or [request a mentor](https://forms.gle/udsRP4WQgLcez9Zm8) if you'd like individual support. If you need specific help, write a [[debugging doc|Debugging-Docs]] to compile the necessary information and outline your thought process, so that we can help you more easily.
 
 **Important Note**: Please follow the [[PR instructions|Make-a-pull-request]] carefully! Otherwise your PR review may be delayed or your PR may be closed.
 
@@ -140,7 +144,7 @@ There are lots of options!
 
 * **Want to lead a project?** Let us know by emailing dev-support@oppia.org.  We may offer you the opportunity to do this once you've sent in several good PRs.
 
-* **Want help figuring out what to do?** Just ask us on [GitHub Discussions](https://github.com/oppia/oppia/discussions), or send an email to dev-support@oppia.org. We'll try to help!
+* **Want help figuring out what to do?** Just ask us on [GitHub Discussions](https://github.com/oppia/oppia/discussions). We'll try to help!
 
 If an issue hasn't got someone assigned to it, and there's no existing PR for the issue (you can check this by scanning the list of [existing PRs](https://github.com/oppia/oppia/pulls)), feel free to take it up by assigning yourself to it, and let the corresponding team lead know. Also, if you need help or advice on an issue, you can contact the corresponding team lead. See the [Projects page](https://github.com/oppia/oppia/projects) for details of who the team leads are.
 

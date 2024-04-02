@@ -88,11 +88,14 @@ You can change your most recent commit message using `git commit --amend`. **It 
 
 Once your feature is ready, you can open a pull request (PR)!
 
-* Go to your fork on GitHub, select your branch from the dropdown menu, and click "pull request". Ensure that the base repository is `oppia/oppia` and that the base branch is `develop`. The head repository should be your fork, and the head branch should be your branch. If you don't see the repository, click the link to `compare across forks`.
+Go to your fork on GitHub, select your branch from the dropdown menu, and click "pull request". Ensure that the base repository is `oppia/oppia` and that the base branch is `develop`. The head repository should be your fork, and the head branch should be your branch. If you don't see the repository, click the link to `compare across forks`. On this page, you can also see your commits and your changes.
 
-  On this page you can also see your commits and your changes.  Read these changes carefully to make sure that the changes are correct (e.g., no missing newlines at the ends of files; no files left out by mistake). This is a good way to catch obvious errors that would otherwise lead to delays in the review process.
+![The GitHub PR creation screen](images/makingAPR.png)
 
-  ![The GitHub PR creation screen](images/makingAPR.png)
+> [!WARNING]
+> **Read through these changes carefully** to make sure that they are correct (e.g., no extra files; no files left out by mistake; no missing newlines at the ends of files). This is a good way to catch obvious errors that would otherwise lead to delays in the review process. (You can also double-check them on the "Files Changed" tab after the PR is created, but make sure to do at least one self-review before assigning any reviewers.)
+
+**After** confirming your changes:
 
 * Click "Create pull request".
 
@@ -106,9 +109,7 @@ Once your feature is ready, you can open a pull request (PR)!
 
 * Click "Create pull request". If applicable, verify that the issue your PR fixes is linked in the "Development" section on the right. (If not, update your description to clearly reference the issue, using the format "Fix #bugnum".)
 
-* Oppiabot will check that you filled out the PR description correctly. If you didn't, it will leave a comment explaining what you need to do to fix it. More details on the kinds of comments Oppiabot leaves are coming soon.
-
-* GitHub will automatically assign reviewers, and Oppiabot will assign them as codeowners to do the first review.
+* Oppiabot will check that you filled out the PR description correctly. If you didn't, it will leave a comment explaining what you need to do to fix it. Also, GitHub will automatically assign reviewers, and Oppiabot will assign them as codeowners to do the first review.
 
   If you need to assign someone else but aren't a collaborator yet, leave a comment of the form `@{{reviewer username}} PTAL`, which will tell Oppiabot to assign that person for you. ("PTAL" means "Please take a look".)
 

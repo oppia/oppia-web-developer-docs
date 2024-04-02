@@ -73,16 +73,15 @@ If you see that a test or lint check is failing, there are two possibilities: yo
 
   This message is based on a list of known flakes maintained by the Automated QA team. Note however that this list may be incomplete, so a test could be flaking even if this message says `false`.
 
-If your code is wrong, then you'll need to fix it just as you would [respond to reviewer comments](https://github.com/oppia/oppia/wiki/Make-a-pull-request#step-5-address-review-comments-until-all-reviewers-approve). You may also want to review the documentation on our various tests and lint checks to help you debug:
+Note that all our CI checks except for the backend tests merge from the upstream `develop` branch before running, so you may need to merge from `develop` locally to reproduce the failure.
+
+If your code is wrong, then you'll need to fix it just as you would [respond to reviewer comments](https://github.com/oppia/oppia/wiki/Make-a-pull-request#step-5-address-review-comments-until-all-reviewers-approve). You may also want to review the following documentation to help you debug:
 
 * If a lint check is failing, see [[Lint Checks|Lint-Checks]].
 * If a test is failing, see [[Tests|Tests]].
+* For general debugging tips, see our [[debugging guides|Debugging]].
 
-We also have [[debugging guides|Debugging]] that you may find useful.
-
-Note that all our CI checks except for the backend tests merge from the upstream `develop` branch before running, so you may need to merge from `develop` locally to reproduce the failure.
-
-If the test/check is flaky, you can restart the test as follows:
+If the test/check is flaky, and you have confirmed that it's not due to your changes, please file a [CI Flake report](https://github.com/oppia/oppia/issues/new?assignees=&labels=triage+needed%2Cbug&projects=&template=3_ci_error_template.yml&title=%5BFlake%5D%3A+). After doing that, you can restart the test as follows:
 
 1. Click the "Details" link next to the test you want to restart.
 
@@ -92,6 +91,6 @@ If the test/check is flaky, you can restart the test as follows:
 
    ![Screenshot of CI result page with link to rerun jobs](images/rerunCI.png)
 
-   If you don't see the button or cannot click it, you might not have the necessary permissions. In that case, ask one of your reviewers to restart the test for you.
+   If you don't see the button or cannot click it, you might not have the necessary permissions. In that case, ask one of your reviewers to restart the test for you. When doing this, please **provide a link to the [CI Flake report](https://github.com/oppia/oppia/issues/new?assignees=&labels=triage+needed%2Cbug&projects=&template=3_ci_error_template.yml&title=%5BFlake%5D%3A+) you filed.**
 
 Following these instructions should result in PRs that are green and ready to merge by the time a reviewer looks at them, thus shortening the review cycle! If you are still unable to resolve the issues yourself, please follow our instructions to [[get help|Get-help]] from other developers.
