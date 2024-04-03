@@ -136,7 +136,7 @@ ConsoleReporter.setConsoleErrorsToIgnore([
 ]);
 ```
 
-To handle generic errors that need to be ignored, it's advisable to include them directly within the `console-reporter.ts` utility. In this file, you would add the error regex to a constant array and annotate each with a TODO comment referring to the relevant filed issue. Here's how you can implement this:
+To handle errors that need to be ignored and are are not specific to any acceptance test, you should include them directly within the `console-reporter.ts` utility. In this file, you would add the error regex to the `CONSOLE_ERRORS_TO_IGNORE` array and explain with a comment why this error should be ignored.
 
 ```typescript
 const CONSOLE_ERRORS_TO_IGNORE = [
