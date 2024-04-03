@@ -132,7 +132,7 @@ make run_tests.acceptance suite="blog-editor-tests/check-blog-editor-unable-to-p
 Now, Acceptance Tests have the capability to detect console errors during CUJ's, potentially causing test failures. However, there are scenarios where certain console errors can be deemed acceptable and require more precise handling, especially when these errors are incidental to the test execution. For example, using `ConsoleReporter.setConsoleErrorsToIgnore`, specific error messages can be designated to be overlooked temporarily. This functionality is particularly useful when the observed console errors are not critical for the current testing objectives. For instance, errors like `Blog Post with the given title exists already. Please use a different title.` might occur during testing but are not indicative of a test failure. Such errors, distinct from generic ones like status 500, can be selectively ignored to prevent unnecessary test failures.
 ```typescript
 ConsoleReporter.setConsoleErrorsToIgnore([
-  /Failed to load resource: the server responded with a status of 500/,
+  'Blog Post with the given title exists already. Please use a different title.'
 ]);
 ```
 
