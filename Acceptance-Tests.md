@@ -51,6 +51,7 @@ Files included inside this directory are :
   - `user-factory.ts` -> This file contains methods for creating a certain user. The file has different methods for creating different types of user.
   - `test-constants.ts` -> This file contains defined constants such as _*URLs, classname, id etc. which are used in the tests.
   - `show-message-utils.ts` -> This file contains method for logging the progress and errors during a test.
+  - `console-reporter.ts` ->   This file contains methods for capturing, filtering, and reporting specific console messages during puppeteer tests.
 
 3) The `user-utilities` directory holds the utility files for different user types. Each user utility class is build upon the base `BaseUser` class containing the original methods along with the ones related to that user type. For eg. `BlogPostEditor` contains base functions as well as additional functions just related to `Blog Post Editor` user.
 
