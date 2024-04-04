@@ -12,6 +12,6 @@ To make it easier to get started, we've catalogued some of the different ways to
 
 If you are interested in working on Oppia's Android app, you should also take a look at the [oppia/oppia-android repository](https://github.com/oppia/oppia-android).
 
-If you run into any problems, you can check out the [user documentation](http://oppia.github.io/), our [GitHub Discussions board](https://github.com/oppia/oppia/discussions), or post to our [developer mailing list](https://groups.google.com/forum/?fromgroups#!forum/oppia-dev).
+If you run into any problems, you can check out the [user documentation](http://oppia.github.io/) or our [GitHub Discussions board](https://github.com/oppia/oppia/discussions).
 
 Finally, if, after reading the above links, you'd like to help, but aren't sure how -- don't worry! The Oppia project is very multi-faceted, and we'd be glad to help you find something to do that matches your interests and skills. Just fill out [this form](https://forms.gle/jEytndtgdsx7BrnV6) to let us know what you'd like to help with, or write to us at [volunteer@oppia.org](mailto:volunteer@oppia.org) and tell us a bit about yourself and what you'd like to do. We'll do our best to help you get started!

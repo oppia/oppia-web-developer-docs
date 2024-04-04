@@ -130,6 +130,8 @@ This project involves three parts. Most of the work for the project is contained
 
 Note that all documentation will be submitted to our [GitHub wiki repository](https://github.com/oppia/oppia-web-developer-docs/), though you might want to use tools like Google Docs to draft tutorials and get preliminary feedback on those.
 
+We have begun drafting [skill trees](https://docs.google.com/document/d/1TthsS08uCudiNDJWOi6ce0_DvuxB-_9ZXauEdTfcN8c/edit) that you are welcome to use in your SOI. **These trees are works in progress and subject to change.**
+
 #### How would we measure success?
 
 - Increase in the number of new contributors who are able to successfully merge a PR for their first issue.
