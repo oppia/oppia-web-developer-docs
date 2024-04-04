@@ -308,6 +308,7 @@ If you need to, you can add a new test suite to [`core/tests/webdriverio_desktop
 3. Write the tests! Each test should step through one of your user journeys, asserting that the page is in the expected state along the way.
 
 For information on writing tests with webdriverio, see the [webdriverio's documentation](https://webdriver.io/docs/gettingstarted). If you need to work out why your tests aren't working, check out our [debugging guide for E2E tests](https://github.com/oppia/oppia/wiki/Debug-end-to-end-tests).
+
 ### Writing utilities
 
 #### Selecting elements
