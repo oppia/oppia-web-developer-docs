@@ -204,7 +204,7 @@ Any VM manager is fine, but the instructions here are specific to VirtualBox.
 
 ## Install Ubuntu ISO
 
-1. Download the Ubuntu 18.04 64bit ISO from [here](https://releases.ubuntu.com/18.04/) or download the the version 22.04 from (https://releases.ubuntu.com/jammy/)
+1. Download the Ubuntu 18.04 64bit ISO from [here](https://releases.ubuntu.com/18.04/). Alternatively the version 22.04 can be downloaded from (https://releases.ubuntu.com/jammy/).
 2. Select the newly created VM in the virtual box and click Start.
 3. Here, a window pops up where you have to link the downloaded ISO file. Click the folder icon and select the ISO from your machine.
 4. Now, go through the normal Ubuntu installation steps, you can do the following the specific steps:
