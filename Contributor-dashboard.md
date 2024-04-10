@@ -36,30 +36,19 @@ There exists a separate admin page for the contributor dashboard at /contributor
 See [this](https://docs.google.com/document/d/1VqNiJttq85YyR6cQkd8M9lGGkOP8OlUlkI37Xw6SovM/edit) doc for step-by-step admin instructions. This may be useful for developing locally as a coder as well.
 
 ## Local development
-Some setup is usually required when developing locally for the contributor dashboard since before a user can submit a content suggestion to a lesson, a lesson needs to exist. Additionally, the requirements outlined in [How items for contribution are populated](#how-items-for-contribution-are-populated) must be satisfied. To pre-populate contributor dashboard data, run the `populate_sample_contributor_data.py` script after starting a local development server:
+Some setup is usually required when developing locally for the contributor dashboard since before a user can submit a content suggestion to a lesson, a lesson needs to exist. Additionally, the requirements outlined in [How items for contribution are populated](#how-items-for-contribution-are-populated) must be satisfied. To populate contributor dashboard data, navigate to Admin page and click on "Load Data" under Activities tab as shown in below screenshot.
+
+![Screenshot of Admin page](images/CdOnboardingGuide/Admin-Page.png)
+
+>Note: In order to generate data, you will need to assign yourself Curriculum Admin role from "Roles" tab of admin page.
+
+This will generate, three translatable opportunities, for which suggestions can be made through translate text tab of Contributor Dashbaord page.
 
 ```
 python -m scripts.start
 ```
 
-```
-python -m scripts.populate_sample_contributor_data
-```
-
-The `populate_sample_contributor_data.py` script will automatically do the following:
-1. Create an admin user with the username "a" and email testadmin@example.com,
-and grant curriculum, translation, and question admin rights to the user.
-2. Create a non-admin user with the username "b" and email
-contributor@example.com, and grant the user "submit question" rights to the
-user.
-3. Set up 3 sample lessons for translation and question contribution.
-4. Add the sample lesson topics to a classroom.
-
-You can then use the testadmin@example.com user for admin duties, the
-contributor@example.com user to submit question suggestions, and/or either user
-to submit translation suggestions.
-
-For step-by-step instructions on how to generate sample data manually, see
+If you need to generate more sample data, follow the step-by-step instructions on how to generate sample data manually, see
 [this](https://docs.google.com/document/d/1JYX4nvTcblaVVYAlTi7rApE0lWSBx0v_ZCCr_8WW4Wc/edit#) doc.
 
 ## Code pointers
