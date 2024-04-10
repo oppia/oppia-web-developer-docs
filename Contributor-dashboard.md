@@ -36,17 +36,19 @@ There exists a separate admin page for the contributor dashboard at /contributor
 See [this](https://docs.google.com/document/d/1VqNiJttq85YyR6cQkd8M9lGGkOP8OlUlkI37Xw6SovM/edit) doc for step-by-step admin instructions. This may be useful for developing locally as a coder as well.
 
 ## Local development
-Some setup is usually required when developing locally for the contributor dashboard since before a user can submit a content suggestion to a lesson, a lesson needs to exist. Additionally, the requirements outlined in [How items for contribution are populated](#how-items-for-contribution-are-populated) must be satisfied. To populate contributor dashboard data, navigate to Admin page and click on "Load Data" under Activities tab as shown in below screenshot.
+Some setup is usually required when developing locally for the contributor dashboard since before a user can submit a content suggestion to a lesson, a lesson needs to exist. Additionally, the requirements outlined in [How items for contribution are populated](#how-items-for-contribution-are-populated) must be satisfied. 
+
+To populate contributor dashboard data, start your local server using:
+```
+python -m scripts.start
+```
+And then navigate to Admin page and click on "Load Data" under Activities tab as shown in the below screenshot.
 
 ![Screenshot of Admin page](images/CdOnboardingGuide/Admin-Page.png)
 
 >Note: In order to generate data, you will need to assign yourself Curriculum Admin role from "Roles" tab of admin page.
 
 This will generate, three translatable opportunities, for which suggestions can be made through translate text tab of Contributor Dashbaord page.
-
-```
-python -m scripts.start
-```
 
 If you need to generate more sample data, follow the step-by-step instructions on how to generate sample data manually, see
 [this](https://docs.google.com/document/d/1JYX4nvTcblaVVYAlTi7rApE0lWSBx0v_ZCCr_8WW4Wc/edit#) doc.
