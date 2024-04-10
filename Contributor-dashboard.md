@@ -48,7 +48,7 @@ And then navigate to Admin page and click on "Load Data" under Activities tab as
 
 >Note: In order to generate data, you will need to assign yourself Curriculum Admin role from "Roles" tab of admin page.
 
-This will generate, three translatable opportunities, for which suggestions can be made through translate text tab of Contributor Dashbaord page.
+This will generate, three translatable opportunities, for which suggestions can be made through translate text tab of Contributor Dashboard page.
 
 If you need to generate more sample data, follow the step-by-step instructions on how to generate sample data manually, see
 [this](https://docs.google.com/document/d/1JYX4nvTcblaVVYAlTi7rApE0lWSBx0v_ZCCr_8WW4Wc/edit#) doc.
