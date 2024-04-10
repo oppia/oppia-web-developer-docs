@@ -183,11 +183,11 @@ Open the terminal (in the ubuntu-desktop env/ the RDP client) and run `google-ch
 
 # Installation in VirtualBox on Windows 10
 
-_Last tested by **@aks681** on Windows 10 in July of 2020. E2e, frontend and backend tests worked at that point._
+_Last tested by **@Sadasiva20** on Windows 10 in October 28 2023. E2e, frontend and backend tests worked at that point._
 
 _For this method, a machine with at least 8 GB RAM (preferably 16 GB) and at least a dual-core processor (preferably quad-core) is recommended._
 
-With VirtualBox, we run an Ubuntu 18.04 VM, with some minor changes to the VM config. With this installation, the terminal and editor for the codebase will be in VM, while the development site itself can be accessed on the Windows host. This is done so that at least some memory usage can be reduced on VM for better performance.
+With VirtualBox, we run an Ubuntu 18.04 VM, with some minor changes to the VM config. With this installation, the terminal and editor for the codebase will be in VM, while the development site itself can be accessed on the Windows host. This is done so that at least some memory usage can be reduced on VM for better performance.  This configuration was also tested on Ubuntu 22.0.3 VM.
 
 ## Set up Ubuntu VM in VirtualBox
 
@@ -202,7 +202,7 @@ Any VM manager is fine, but the instructions here are specific to VirtualBox.
 7. Depending on free space on the machine, either dynamically allocated or static can be chosen here.
 8. Select the amount of storage that is needed (around 20 GB should be fine) and select a location on the machine with enough free space to host the VM and click create.
 
-## Install Ubuntu 18 ISO
+## Install Ubuntu 18 ISO or later version
 
 1. Download the Ubuntu 18.04 64bit ISO from [here](https://releases.ubuntu.com/18.04/).
 2. Select the newly created VM in the virtual box and click Start.
