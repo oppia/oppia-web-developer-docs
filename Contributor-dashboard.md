@@ -45,13 +45,14 @@ python -m scripts.start
 ```
 
 And then navigate to Admin page and go to the "Roles" tab. Assign yourself the "Curriculum Admin" role.
-Now go back to the "Activities" tab of Admin page and click on "Load Data" as shown in the below screenshot.
+
+Now go back to the "Activities" tab on the Admin page and click on "Load Data" as shown in the below screenshot.
 
 ![Screenshot of Admin page](images/CdOnboardingGuide/Admin-Page.png)
 
-This will generate three translatable opportunities, for which suggestions can be made through the "Translate Text" tab of Contributor Dashboard page(http://localhost:8181/contributor-dashboard).
+This will generate three translatable opportunities, for which suggestions can be made through the "Translate Text" tab of Contributor Dashboard page (http://localhost:8181/contributor-dashboard).
 
-If you need to generate more sample data, follow the step-by-step instructions on how to generate sample data manually, see
+If you need to generate more sample data, follow the step-by-step instructions on how to generate sample data manually. See
 [this doc](https://docs.google.com/document/d/1JYX4nvTcblaVVYAlTi7rApE0lWSBx0v_ZCCr_8WW4Wc/edit#).
 
 ## Code pointers
