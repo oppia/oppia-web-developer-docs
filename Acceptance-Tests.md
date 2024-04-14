@@ -79,7 +79,7 @@ Docker:
 ```
 make run_tests.acceptance suite="blog-editor-tests/check-blog-editor-unable-to-publish-duplicate-blog-post"
 ```
-
+**Note: Typically, these tests take anywhere between 0.5 to 2-3 minutes (excluding the time taken for setting up the server) for any suite to run, both in headless and non-headless modes, assuming the machine has sufficient resources. If the total time taken is significantly longer than this, it may indicate an issue with the testing environment. If such an issue is noticed or observed, please raise it on our [issue tracker](https://github.com/oppia/oppia/issues).**
 
 ## How to write new tests for a specific user
 

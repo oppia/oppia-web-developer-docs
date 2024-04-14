@@ -142,6 +142,3 @@
     * Season of Docs: [[2021|Season-of-Docs-2021]], [[2019|Season-of-Docs-2019]]
     * DSC-SLoP (Semester Long Project): [[2022|SLoP-2022]], [[2020|SLoP-2020]]
     * Outreachy: [[Dec 2021 to Mar 2022|Outreachy-Dec-2021-to-Mar-2022]]
----
-**Fun**
-* [Events Team](https://github.com/oppia/oppia/wiki/Events-Team)
