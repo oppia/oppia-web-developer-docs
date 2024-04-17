@@ -80,6 +80,7 @@
       * [[Acceptance Tests|Acceptance-Tests]]
     * Manual tests
       * [[Testing for Accessibility|Testing-for-Accessibility]]
+      * [[Testing email functionality|Testing-email-functionality]]
       * [[Release accessibility checklist|Release-accessibility-checklist]]
   * Release Process
     * [[Release schedule and other information|Release-schedule-and-other-information]]
