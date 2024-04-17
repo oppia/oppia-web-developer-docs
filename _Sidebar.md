@@ -74,13 +74,13 @@
     * [[Automated tests|Tests]]
       * [[TypeScript tests|TypeScript-tests]]
       * [[Backend tests|Backend-tests]]
-        * [[Testing email functionality|Testing-email-functionality]]
       * [[Frontend tests|Frontend-tests]]
       * [[End-to-end tests|End-to-End-Tests]]
       * [[Lighthouse Tests|Lighthouse-Tests]]
       * [[Acceptance Tests|Acceptance-Tests]]
     * Manual tests
       * [[Testing for Accessibility|Testing-for-Accessibility]]
+      * [[Testing email functionality|Testing-email-functionality]]
       * [[Release accessibility checklist|Release-accessibility-checklist]]
   * Release Process
     * [[Release schedule and other information|Release-schedule-and-other-information]]
