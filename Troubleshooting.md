@@ -26,6 +26,7 @@ Here are some general troubleshooting tips for Oppia. The platform specific tips
 - [`./portserver.socket is not listed in the .github/CODEOWNERS file`](#portserversocket-is-not-listed-in-the-githubcodeowners-file)
 - [Push fails due to connection timeout](#push-fails-due-to-connection-timeout)
 - [Exception: Error compiling proto files](#exception-error-compiling-proto-files)
+- [Error: File not found](#error-file-not-found)
 - [Linux](#linux)
   - [Python 2 is not available](#python-2-is-not-available)
   - [OSError: \[Errno 2\] No such file or directory](#oserror-errno-2-no-such-file-or-directory)
@@ -302,6 +303,38 @@ Traceback (most recent call last) :
 ```
 
 Try searching for where protoc is installed (probably in `/opt/homebrew/bin/protoc`) and remove it and then re-run the command.
+
+### Error: File not found
+
+If you encounter an error resembling the following when executing python -m scripts.start:
+
+```
+Traceback (most recent call last):
+  File "/home/yourUserName/.pyenv/versions/3.7.10/lib/python3.7/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/home/yourUserName/.pyenv/versions/3.7.10/lib/python3.7/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/home/yourUserName/Desktop/New Folder 1/oppia/scripts/start.py", line 219, in <module>
+    main()
+  File "/home/yourUserName/Desktop/New Folder 1/oppia/scripts/start.py", line 215, in main
+    dev_appserver.wait()
+  File "/home/yourUserName/.pyenv/versions/3.7.10/lib/python3.7/contextlib.py", line 524, in __exit__
+    raise exc_details[1]
+  File "/home/yourUserName/.pyenv/versions/3.7.10/lib/python3.7/contextlib.py", line 509, in __exit__
+    if cb(*exc_details):
+  File "/home/yourUserName/.pyenv/versions/3.7.10/lib/python3.7/contextlib.py", line 384, in _exit_wrapper
+    callback(*args, **kwds)
+  File "/home/yourUserName/Desktop/New Folder 1/oppia/scripts/start.py", line 132, in call_extend_index_yaml
+    extend_index_yaml.main()
+  File "/home/yourUserName/Desktop/New Folder 1/oppia/scripts/extend_index_yaml.py", line 39, in main
+    with open(WEB_INF_INDEX_YAML_PATH, 'r', encoding='utf-8') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/home/yourUserName/Desktop/New Folder 1/oppia/../cloud_datastore_emulator_cache/WEB-INF/index.yaml'
+yourUserName:~/Desktop/New Folder 1/oppia$
+```
+
+This error typically indicates that a critical Oppia setup script cannot locate a required file.
+
+To resolve this, you need to rename the directory `New Folder 1` located at `/home/yourUserName/Desktop/New Folder 1/oppia` to a name without spaces. Doing so should rectify the issue.
 
 ## Linux
 
