@@ -94,3 +94,14 @@ If you run into any problems, please read our [Developer Wiki](https://github.co
 ### How to enable maintenance mode in the local server?
 
 The maintenance mode can be enabled by setting the [ENABLE_MAINTENANCE_MODE](https://github.com/oppia/oppia/blob/release-2.5.0/feconf.py#L264) flag to True in feconf.
+
+### How to generate a translation opportunity in Contributor Dashboard?
+
+To generate a translation opportunity, you can follow the following steps.
+
+* Start a local server and sign in as an administrator (testadmin@example.com, assume username “test”).
+* Navigate to the Admin page.
+* Click the Roles tab.
+* In the Role editor, enter the admin username (“test”). Click Add Role, and add the “Curriculum Admin” role.
+* Navigate to the Activities tab. Click Load Data under Load dummy new structures data.
+* You should now see translation opportunities in the Translate Text tab at /contributor-dashboard.
