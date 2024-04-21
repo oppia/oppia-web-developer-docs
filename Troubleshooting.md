@@ -27,6 +27,7 @@ Here are some general troubleshooting tips for Oppia. The platform specific tips
 - [Push fails due to connection timeout](#push-fails-due-to-connection-timeout)
 - [Exception: Error compiling proto files](#exception-error-compiling-proto-files)
 - [Error: File not found](#error-file-not-found)
+- [Not able to run Cron Jobs "Request failed with status: 400" Error occurs](#not-able-to-run-cron-jobs-request-failed-with-status-400-error-occurs)
 - [Linux](#linux)
   - [Python 2 is not available](#python-2-is-not-available)
   - [OSError: \[Errno 2\] No such file or directory](#oserror-errno-2-no-such-file-or-directory)
@@ -335,6 +336,20 @@ yourUserName:~/Desktop/New Folder 1/oppia$
 This error typically indicates that a critical Oppia setup script cannot locate a required file.
 
 To resolve this, you need to rename the directory `New Folder 1` located at `/home/yourUserName/Desktop/New Folder 1/oppia` to a name without spaces. Doing so should rectify the issue.
+
+### Not able to run Cron Jobs "Request failed with status: 400" Error occurs
+
+If you are not able to run cron jobs and you see an error `Request failed with status: 400` then you can try the following steps:
+
+* Manual Trigger
+  1. Locate the controllers in `cron.py` file.
+  2. Find the function that you want to run.
+  3. Add a `print` statement at the trigger point.
+
+* Web interface
+  1. Go to the `0.0.0.0:8000/cron` page.
+  2. Locate the URL you want to trigger.
+  3. Click on the `Run Now` button.
 
 ## Linux
 
