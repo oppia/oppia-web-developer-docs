@@ -12,6 +12,9 @@
 * [List of Org Admins](#list-of-org-admins)
 * [Communication](#communication)
 
+> [!NOTE]
+> Oppia was not accepted for Season of Docs 2024.
+
 Oppia is planning to participate in the [Season of Docs](https://developers.google.com/season-of-docs/) 2024 program! This program provides support for open source projects to improve their documentation and gives professional technical writers an opportunity to gain experience in open source. The technical writers work closely with one or more mentors on finishing a project idea given by the organization.
 
 Please note that acceptance into Season of Docs isn't a prerequisite for [becoming an Oppia contributor](https://github.com/oppia/oppia/wiki). The Oppia project is run by the community for the community, and we warmly welcome anyone who'd like to help out!
