@@ -10,7 +10,6 @@
     * [[Designers and artists|Contributing-to-Oppia's-design]]
   * [[How to report a bug|How-to-file-a-bug-report]]
   * [[Google Summer of Code 2024|Google-Summer-of-Code-2024]]
-  * **[[Google Season of Docs 2024|Season-of-Docs-2024]]**
 ---
 **Developing Oppia**
   * [[FAQs|Frequently-Asked-Questions]]
@@ -62,6 +61,7 @@
       * [[Debugging custom Pylint check tests|Debug-custom-Pylint-check-tests]]
       * [[Debugging Stories|Debugging-Stories]]
     * **[[Guidelines for launching new features|Launching-new-features]]**
+    * [[Guidelines for making an urgent fix (hotfix)|Making-an-urgent-fix-(hotfix)]]
     * [[Lint Checks|Lint-Checks]]
       * [[Custom Pylint checks|Custom-Pylint-checks]]
       * [[Custom ESLint checks|Custom-ESLint-checks]]
@@ -80,6 +80,7 @@
       * [[Acceptance Tests|Acceptance-Tests]]
     * Manual tests
       * [[Testing for Accessibility|Testing-for-Accessibility]]
+      * [[Testing email functionality|Testing-email-functionality]]
       * [[Release accessibility checklist|Release-accessibility-checklist]]
   * Release Process
     * [[Release schedule and other information|Release-schedule-and-other-information]]
@@ -139,9 +140,6 @@
     * Google Summer of Code: [[2023|Google-Summer-of-Code-2023]], [[2022|Google-Summer-of-Code-2022]], [[2021|Google-Summer-of-Code-2021]], [[2020|Google-Summer-of-Code-2020]], [[2019|Google-Summer-of-Code-2019]], [[2018|Google-Summer-of-Code-2018]], [[2017|Google-Summer-of-Code-2017]], [[2016|Google-Summer-of-Code-2016]]
     * Hacktoberfest: [[2023|Hacktoberfest-2023]], [[2022|Hacktoberfest-2022]], [[2021|Hacktoberfest-2021]], [[2020|Hacktoberfest-2020]], [[2019|Hacktoberfest-2019]], [[2018|Hacktoberfest-2018]], [[2017|Hacktoberfest-2017]], [[2016|Hacktoberfest-2016]]
     * GHC Open Source Day: [[2019|GHC-Open-Source-Day-2019]], [[2018|GHC-Open-Source-Day]]
-    * Season of Docs: [[2021|Season-of-Docs-2021]], [[2019|Season-of-Docs-2019]]
+    * Season of Docs: [[2024|Season-of-Docs-2024]], [[2021|Season-of-Docs-2021]], [[2019|Season-of-Docs-2019]]
     * DSC-SLoP (Semester Long Project): [[2022|SLoP-2022]], [[2020|SLoP-2020]]
     * Outreachy: [[Dec 2021 to Mar 2022|Outreachy-Dec-2021-to-Mar-2022]]
----
-**Fun**
-* [Events Team](https://github.com/oppia/oppia/wiki/Events-Team)

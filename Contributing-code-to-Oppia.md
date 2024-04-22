@@ -86,7 +86,7 @@ You can also browse good first issues for each of the core Oppia Web teams to fi
 
 - Developer Workflow: https://github.com/orgs/oppia/projects/8/views/10, typically backend or frontend
 - Learner and Creator Experience (LaCE): https://github.com/orgs/oppia/projects/3/views/10, typically frontend or full-stack
-- Contributor Dashboard: https://github.com/orgs/oppia/projects/18/views/5, typically frontend or full-stack
+- Contributor Dashboard: https://github.com/orgs/oppia/projects/18/views/14, typically frontend or full-stack
 
 ### How to tackle good first issues
 
