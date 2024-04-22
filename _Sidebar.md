@@ -61,6 +61,7 @@
       * [[Debugging custom Pylint check tests|Debug-custom-Pylint-check-tests]]
       * [[Debugging Stories|Debugging-Stories]]
     * **[[Guidelines for launching new features|Launching-new-features]]**
+    * [[Guidelines for making an urgent fix (hotfix)|Making-an-urgent-fix-(hotfix)]]
     * [[Lint Checks|Lint-Checks]]
       * [[Custom Pylint checks|Custom-Pylint-checks]]
       * [[Custom ESLint checks|Custom-ESLint-checks]]

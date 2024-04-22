@@ -2,8 +2,6 @@ Oppia releases happen monthly, and are typically cut on the first Saturday of ea
 
 Please see the rota below for the expected release dates. We expect QA testing to be completed 1 week after the release cut, and final deployment to take place 1 week after that.
 
-Sometimes, we do hotfixes outside the release cycle for PRs that need to be urgently deployed. If you need to request a hotfix, please fill in [this form](https://forms.gle/4CRqXovA3xS27rDLA) and work with the corresponding release coordinator to get your changes into production safely.
-
 ## Release Team members
 * Team lead:
   * Kevin Thomas (**@kevintab95**)
