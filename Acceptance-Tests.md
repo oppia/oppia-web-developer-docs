@@ -157,7 +157,7 @@ const CONSOLE_ERRORS_TO_IGNORE = [
   ),
 ];
 ```
-To handle errors that need to be fixed, you should include them directly within the `console-reporter.ts` utility. In this file, you would add the error regex to the `CONSOLE_ERRORS_TO_FIX ` array and add a TODO comment which have the details of the issue. If the error is new, also raise it in the issue section.
+To handle errors that need to be fixed, you should include them directly within the `console-reporter.ts` utility. In this file, you would add the error regex to the `CONSOLE_ERRORS_TO_FIX ` array and add a TODO comment which points to the existing issue number. If the error doesn't have any corresponding issue, then file a new issue on our [issue tracker](https://github.com/oppia/oppia/issues).
 
 Note: This will be removed after the bug is resolved.
 
