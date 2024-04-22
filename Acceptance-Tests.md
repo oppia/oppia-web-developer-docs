@@ -157,6 +157,25 @@ const CONSOLE_ERRORS_TO_IGNORE = [
   ),
 ];
 ```
+To handle errors that need to be fixed, you should include them directly within the `console-reporter.ts` utility. In this file, you would add the error regex to the `CONSOLE_ERRORS_TO_FIX ` array and add a TODO comment which have the details of the issue. If the error is new, also raise it in the issue section.
+
+Note: This will be removed after the bug is resolved.
+
+For example:
+```typescript
+const CONSOLE_ERRORS_TO_FIX = [
+  // TODO(#19746): Development console error "Uncaught in Promise" on signup.
+  new RegExp(
+    'Uncaught \\(in promise\\).*learner_groups_feature_status_handler'
+  ),
+  // TODO(#19733): 404 (Not Found) for resources used in midi-js.
+  escapeRegExp(
+    'http://localhost:8181/dist/oppia-angular/midi/examples/soundfont/acoustic' +
+      '_grand_piano-ogg.js Failed to load resource: the server responded with a ' +
+      'status of 404 (Not Found)'
+  )
+];
+```
 
 ## Acceptance Tests for Mobile
 
@@ -176,7 +195,7 @@ Here, if we want to click on the "Home" or any other button, we need to first cl
 
 We can handle these differences by including conditional statements in the `utils` file, using the `isViewportAtMobileWidth()` function to execute commands specific to mobile devices.
 
-For Eg.
+For example:
 
 ```typescript
 async discardCurrentChanges(): Promise<void> {
