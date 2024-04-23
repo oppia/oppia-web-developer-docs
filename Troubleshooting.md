@@ -28,6 +28,7 @@ Here are some general troubleshooting tips for Oppia. The platform specific tips
 - [Exception: Error compiling proto files](#exception-error-compiling-proto-files)
 - [Error: File not found](#error-file-not-found)
 - [Not able to run Cron Jobs "Request failed with status: 400" Error occurs](#not-able-to-run-cron-jobs-request-failed-with-status-400-error-occurs)
+- [Not able to load http://localhost:8181/learn/math](#not-able-to-load-httplocalhost8181learnmath)
 - [Linux](#linux)
   - [Python 2 is not available](#python-2-is-not-available)
   - [OSError: \[Errno 2\] No such file or directory](#oserror-errno-2-no-such-file-or-directory)
@@ -350,6 +351,21 @@ If you are not able to run cron jobs and you see an error `Request failed with s
   1. Go to the `0.0.0.0:8000/cron` page.
   2. Locate the URL you want to trigger.
   3. Click on the `Run Now` button.
+
+### Not able to load http://localhost:8181/learn/math
+
+If you are not able to load the page `http://localhost:8181/learn/math` and you see an error `Error 404 - Page not found` then you can try the following steps:
+1. Check if the server is running by running `python -m scripts.start`.
+2. Assign yourself "Curriculum Admin" Role.
+    * Log in as a super-admin.
+    * Navigate to the `Admin` page.
+    * Click on the "Roles" tab.
+    * Assign the "Curriculum Admin" role to your user.
+3. Generate a New Math Classroom:
+    * Click on the "Activities" tab.
+    * Locate "Generate a dummy math classroom".
+    * Click on the "Generate Data" button.
+4. Navigate to the `http://localhost:8181/learn/math` page.
 
 ## Linux
 
