@@ -29,6 +29,7 @@ Here are some general troubleshooting tips for Oppia. The platform specific tips
 - [Error: File not found](#error-file-not-found)
 - [Not able to run Cron Jobs "Request failed with status: 400" Error occurs](#not-able-to-run-cron-jobs-request-failed-with-status-400-error-occurs)
 - [Not able to load http://localhost:8181/learn/math](#not-able-to-load-httplocalhost8181learnmath)
+- [VS Code Import Errors (pylint, astroid)](#vs-code-import-errors-pylint-astroid)
 - [Linux](#linux)
   - [Python 2 is not available](#python-2-is-not-available)
   - [OSError: \[Errno 2\] No such file or directory](#oserror-errno-2-no-such-file-or-directory)
@@ -366,6 +367,18 @@ If you are not able to load the page `http://localhost:8181/learn/math` and you 
     * Locate "Generate a dummy math classroom".
     * Click on the "Generate Data" button.
 4. Navigate to the `http://localhost:8181/learn/math` page.
+
+### VS Code Import Errors (pylint, astroid)
+
+If you are using VS Code and you see import errors `(could not be resolved)` for `pylint` and `astroid` then you can try the following steps:
+
+1. Check the selected interpreter: Look in the VS Code status bar (usually the bottom) and see which Python interpreter is being used.
+
+2. Switch to the correct interpreter:
+
+    * Choose the correct interpreter from the list that appears. This might be located in a `.direnv`.
+
+For more detailed instructions on working with interpreters in VS Code, see the official documentation: https://code.visualstudio.com/docs/python/environments#_working-with-python-interpreters
 
 ## Linux
 
