@@ -15,7 +15,7 @@
   * [Miscellaneous](#miscellaneous)
 * [Installation in VirtualBox on Windows 10](#installation-in-virtualbox-on-windows-10)
   * [Set up Ubuntu VM in VirtualBox](#set-up-ubuntu-vm-in-virtualbox)
-  * [Install Ubuntu 18 ISO](#install-ubuntu-18-iso)
+  * [Install Ubuntu  ISO](#install-ubuntu-iso)
   * [Optional but recommended: Setup VirtualBox config](#optional-but-recommended-setup-virtualbox-config)
 * [Installation using Docker on Windows 10](#installation-using-docker-on-windows-10)
   * [Prerequisites and Getting Docker Container Set Up](#prerequisites-and-getting-docker-container-set-up)
