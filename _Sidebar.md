@@ -8,38 +8,35 @@
     * [[UX researchers|Conducting-research-with-students]]
     * [[Voice artists | Instructions-for-voice-artists]]
     * [[Designers and artists|Contributing-to-Oppia's-design]]
-  * Reporting a bug
-    * [[File an issue for bug|Github-Issue-Guide]]
-  * **[[Google Summer of Code 2024|Google-Summer-of-Code-2024]]**
-  * **[[Google Season of Docs 2024|Season-of-Docs-2024]]**
+  * [[How to report a bug|How-to-file-a-bug-report]]
+  * [[Google Summer of Code 2024|Google-Summer-of-Code-2024]]
 ---
 **Developing Oppia**
   * [[FAQs|Frequently-Asked-Questions]]
   * [[Installing Oppia|Installing-Oppia]]
   * Getting started with the codebase
-    * [['Getting started' guide|https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up]]
+    * **[['Getting started' guide|https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up]]**
     * [[Populating data on local server|Populating-data-on-local-server]]
     * Tutorials
       * [[Make a simple UI change|Making-a-simple-UI-change]]
+      * [[Tips for finding the right code to change|Find-the-right-code-to-change]]
+      * [[Tips for analyzing the codebase|Analyzing-the-codebase]]
     * [[How to access Oppia webpages|How-to-access-Oppia-webpages]]
     * Team onboarding guides
       * [[LaCE Team|LaCE-onboarding-guide]]
       * [[Contributor Dashboard Team|Contributor-dashboard]]
-  * [[Upgrading python version to 3.8.15|Upgrading-python-interpreter-to-version-3.8-for-existing-oppia-directory]]
-  * [[Tips for common IDEs|Tips-for-common-IDEs]]
-  * [[Make a pull request|Make-a-pull-request]]
-  * [[Common pull request workflows|Common-pull-request-workflows]]
-  * [[How to get help|Get-help]]
+  * Making your first PR
+    * **[[Good first issues|https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22]]**
+    * [[Make a pull request|Make-a-pull-request]]
+    * [[Common pull request workflows|Common-pull-request-workflows]]
+    * [[Git cheat sheet|Git-cheat-sheet]]
+    * [[Tips for common IDEs|Tips-for-common-IDEs]]
+    * [[How to get help|Get-help]]
   * [[Learning resources for developers|Learning-Resources]]
-  * [[Git cheat sheet|Git-cheat-sheet]]
   * [[Codebase Overview|Overview-of-the-Oppia-codebase]]
     * [[Glossary of terms|Glossary-of-terms]]
-    * [[Tips for finding the right code to change|Find-the-right-code-to-change]]
-    * [[Tips for analyzing the codebase|Analyzing-the-codebase]]
     * [User documentation](https://oppia.github.io/)
     * [[Apache Beam Jobs|Apache-beam-jobs]]
-  * [[List of current projects|https://github.com/oppia/oppia/projects]]
-  * **[[Good first issues|https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22]]**
   * Coding Guidelines
     * [[Coding style guide|Coding-style-guide]]
       * [[Formatters|Formatters]]
@@ -64,6 +61,7 @@
       * [[Debugging custom Pylint check tests|Debug-custom-Pylint-check-tests]]
       * [[Debugging Stories|Debugging-Stories]]
     * **[[Guidelines for launching new features|Launching-new-features]]**
+    * [[Guidelines for making an urgent fix (hotfix)|Making-an-urgent-fix-(hotfix)]]
     * [[Lint Checks|Lint-Checks]]
       * [[Custom Pylint checks|Custom-Pylint-checks]]
       * [[Custom ESLint checks|Custom-ESLint-checks]]
@@ -82,6 +80,7 @@
       * [[Acceptance Tests|Acceptance-Tests]]
     * Manual tests
       * [[Testing for Accessibility|Testing-for-Accessibility]]
+      * [[Testing email functionality|Testing-email-functionality]]
       * [[Release accessibility checklist|Release-accessibility-checklist]]
   * Release Process
     * [[Release schedule and other information|Release-schedule-and-other-information]]
@@ -141,9 +140,6 @@
     * Google Summer of Code: [[2023|Google-Summer-of-Code-2023]], [[2022|Google-Summer-of-Code-2022]], [[2021|Google-Summer-of-Code-2021]], [[2020|Google-Summer-of-Code-2020]], [[2019|Google-Summer-of-Code-2019]], [[2018|Google-Summer-of-Code-2018]], [[2017|Google-Summer-of-Code-2017]], [[2016|Google-Summer-of-Code-2016]]
     * Hacktoberfest: [[2023|Hacktoberfest-2023]], [[2022|Hacktoberfest-2022]], [[2021|Hacktoberfest-2021]], [[2020|Hacktoberfest-2020]], [[2019|Hacktoberfest-2019]], [[2018|Hacktoberfest-2018]], [[2017|Hacktoberfest-2017]], [[2016|Hacktoberfest-2016]]
     * GHC Open Source Day: [[2019|GHC-Open-Source-Day-2019]], [[2018|GHC-Open-Source-Day]]
-    * Season of Docs: [[2021|Season-of-Docs-2021]], [[2019|Season-of-Docs-2019]]
+    * Season of Docs: [[2024|Season-of-Docs-2024]], [[2021|Season-of-Docs-2021]], [[2019|Season-of-Docs-2019]]
     * DSC-SLoP (Semester Long Project): [[2022|SLoP-2022]], [[2020|SLoP-2020]]
     * Outreachy: [[Dec 2021 to Mar 2022|Outreachy-Dec-2021-to-Mar-2022]]
----
-**Fun**
-* [Events Team](https://github.com/oppia/oppia/wiki/Events-Team)

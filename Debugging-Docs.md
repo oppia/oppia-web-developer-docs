@@ -1,8 +1,11 @@
 If you're running into an issue that you have trouble solving, you might find it useful to keep a record of your debugging process so that you can easily organize your thoughts and get help from other members of the team. The format we use for this is called a "debugging doc".
 
-To get started, make a copy of [this "debugging doc" template](https://docs.google.com/document/d/1qRbvKjJ0A7NPVK8g6XJNISMx_6BuepoCL7F2eIfrGqM/edit?usp=sharing) and fill it in. If you're new to debugging, filling out as much of this template as you can is a great way to practice and improve your debugging skills.
+To get started, make a copy of [this "debugging doc" template](https://docs.google.com/document/d/1qRbvKjJ0A7NPVK8g6XJNISMx_6BuepoCL7F2eIfrGqM/edit?usp=sharing) and fill it in. If you're new to debugging, filling out as much of this template as you can is a great way to practice and improve your debugging skills. In general, we strongly recommend writing and sharing a debugging doc if you can't figure out the solution to a problem after working on it for **30 minutes**.
 
-**Note:** In general, we strongly recommend writing and sharing a debugging doc if you can't figure out the solution to a problem after working on it for **30 minutes**.
+Once you've filled out the "Background" and "Initial investigation" parts of the template, share the debugging doc in your team's group chat or the relevant issue thread, so that others can look at it in parallel. Then, continue working on the "Hypotheses Testing" section (search the Internet, narrow down the problem window, etc.) and fill out as much of it as you can.
+
+When it's not clear what to do further, please ask for help immediately on your team chat or [GitHub Discussions](https://github.com/oppia/oppia/discussions). Note that, at this stage, reviewers will reasonably expect, at minimum, at least one hypothesis to be proposed and under investigation.
+
 
 ## Benefits
 

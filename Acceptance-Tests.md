@@ -31,7 +31,8 @@ oppia/core/tests/
     │  ├── puppeteer-utils.ts
     │  ├── show-message-utils.ts
     │  ├── test-constants.ts
-    │  └── user-factory.ts
+    │  ├── user-factory.ts
+    │  └── console-reporter.ts
     └── user-utilities
        └── blog-admin-utils.ts
        └── blog-post-editor-utils.ts
@@ -50,6 +51,7 @@ Files included inside this directory are :
   - `user-factory.ts` -> This file contains methods for creating a certain user. The file has different methods for creating different types of user.
   - `test-constants.ts` -> This file contains defined constants such as _*URLs, classname, id etc. which are used in the tests.
   - `show-message-utils.ts` -> This file contains method for logging the progress and errors during a test.
+  - `console-reporter.ts` ->   This file contains methods for capturing, filtering, and reporting specific console messages during puppeteer tests.
 
 3) The `user-utilities` directory holds the utility files for different user types. Each user utility class is build upon the base `BaseUser` class containing the original methods along with the ones related to that user type. For eg. `BlogPostEditor` contains base functions as well as additional functions just related to `Blog Post Editor` user.
 
@@ -77,7 +79,7 @@ Docker:
 ```
 make run_tests.acceptance suite="blog-editor-tests/check-blog-editor-unable-to-publish-duplicate-blog-post"
 ```
-
+**Note: Typically, these tests take anywhere between 0.5 to 2-3 minutes (excluding the time taken for setting up the server) for any suite to run, both in headless and non-headless modes, assuming the machine has sufficient resources. If the total time taken is significantly longer than this, it may indicate an issue with the testing environment. If such an issue is noticed or observed, please raise it on our [issue tracker](https://github.com/oppia/oppia/issues).**
 
 ## How to write new tests for a specific user
 
@@ -125,6 +127,114 @@ make run_tests.acceptance suite="blog-editor-tests/check-blog-editor-unable-to-p
 9) The `puppeteer-testing-utilities` directory contains all the utility files and helper functions, which you would require to write new acceptance tests. This directory can also be used to append more utility functions as when required or needed by the user.
 
 10) The test must be thoroughly tested before submitting a PR. The test can be run locally by running the following command as mentioned above or you can run the test on the CI server by pushing your code to the remote branch in your fork. The CI server will run the test and will show the result.
+
+### Console errors logging functionality in Acceptance Tests
+
+Acceptance Tests have the capability to detect console errors during CUJs, potentially resulting in test failures. However, there are scenarios where certain console errors can be deemed acceptable and should not cause the test to fail. In order to ignore errors like these, you can use `ConsoleReporter.setConsoleErrorsToIgnore`, which takes in an array of error regexes to match the errors that can be acceptable. For instance, an error like `Blog Post with the given title exists already. Please use a different title.`, which occurs during the 'blog-editor-tests/try-to-publish-a-duplicate-blog-post-and-get-blocked' test, is ignored using the ConsoleReporter since it is an acceptable error in the context of the test. When passing acceptable errors like these to the ConsoleReporter, you should be specific and not use vague errors like `Failed to load resource...`.
+
+Below is an example of this usage:
+```typescript
+ConsoleReporter.setConsoleErrorsToIgnore([
+  'Blog Post with the given title exists already. Please use a different title.'
+]);
+```
+
+To handle errors that need to be ignored and are not specific to any acceptance test, you should include them directly within the `console-reporter.ts` utility. In this file, you would add the error regex to the `CONSOLE_ERRORS_TO_IGNORE` array and explain with a comment why this error should be ignored.
+
+```typescript
+const CONSOLE_ERRORS_TO_IGNORE = [
+  // These "localhost:9099" are errors related to communicating with the
+  // Firebase emulator, which would never occur in production, so we just ignore
+  // them.
+  escapeRegExp(
+    'http://localhost:9099/www.googleapis.com/identitytoolkit/v3/' +
+      'relyingparty/getAccountInfo?key=fake-api-key'
+  ),
+  // This error covers the case when the PencilCode site uses an
+  // invalid SSL certificate (which can happen when it expires).
+  // In such cases, we ignore the error since it is out of our control.
+  escapeRegExp(
+    'https://pencilcode.net/lib/pencilcodeembed.js - Failed to ' +
+      'load resource: net::ERR_CERT_DATE_INVALID'
+  ),
+];
+```
+To handle errors that need to be fixed, you should include them directly within the `console-reporter.ts` utility. In this file, you would add the error regex to the `CONSOLE_ERRORS_TO_FIX ` array and add a TODO comment which points to the existing issue number (this comment should be removed when the bug is resolved). If the error doesn't have any corresponding issue, then file a new issue on our [issue tracker](https://github.com/oppia/oppia/issues).
+
+For example:
+```typescript
+const CONSOLE_ERRORS_TO_FIX = [
+  // TODO(#19746): Development console error "Uncaught in Promise" on signup.
+  new RegExp(
+    'Uncaught \\(in promise\\).*learner_groups_feature_status_handler'
+  ),
+  // TODO(#19733): 404 (Not Found) for resources used in midi-js.
+  escapeRegExp(
+    'http://localhost:8181/dist/oppia-angular/midi/examples/soundfont/acoustic' +
+      '_grand_piano-ogg.js Failed to load resource: the server responded with a ' +
+      'status of 404 (Not Found)'
+  )
+];
+```
+
+## Acceptance Tests for Mobile
+
+Similar to desktop, we also have acceptance tests for mobile to ensure responsiveness and uninterrupted user journeys on small screen devices. While the tests themselves remain largely the same for both desktop and mobile, there are some differences. For instance, large full menus on desktop may be converted to dropdowns, hamburger menus, or other shortcuts on mobile, requiring additional actions to complete the tests.
+
+### How to write tests for mobile
+
+There will be no change in the `spec` file of the tests; however, there may be some changes in the `utils` file, which is optional and dependent on the specific test cases. In most cases, the tests will run correctly for both mobile and desktop.
+
+However, in scenarios where certain actions are affected by the smaller screen size, additional steps may be required.
+
+For example: consider a scenario where a menu is collapsed into a hamburger menu due to the small screen size:
+
+![Shortcut Menu](image.png)
+
+Here, if we want to click on the "Home" or any other button, we need to first click on the hamburger menu. Additionally, there may be differences in selectors for the same buttons between desktop and mobile. For instance, the publish button in desktop might be `e2e-test-publish-exploration`, while in mobile it could be `e2e-test-mobile-publish-button`.
+
+We can handle these differences by including conditional statements in the `utils` file, using the `isViewportAtMobileWidth()` function to execute commands specific to mobile devices.
+
+For example:
+
+```typescript
+async discardCurrentChanges(): Promise<void> {
+    // Check if the viewport corresponds to a mobile device.
+    if (this.isViewportAtMobileWidth()) {
+        // If on mobile, click on the mobile-specific discard button.
+        await this.clickOn(mobileDiscardButton);
+    } else {
+        // If on desktop, click on the desktop-specific discard button.
+        await this.clickOn(discardDraftButton);
+    }
+    // Confirm the discard action, regardless of the viewport size(common in both).
+    await this.clickOn(discardConfirmButton);
+}
+```
+
+In this example, the `discardCurrentChanges()` function checks if the viewport width corresponds to a mobile device, and if so, clicks on the mobile-specific discard button. Otherwise, it clicks on the desktop-specific discard button. Finally, it confirms the discard action. This approach allows us to maintain a single set of tests while accommodating differences between desktop and mobile environments.
+
+### How to run mobile acceptance tests
+From the root directory of oppia, run the following command:
+```  
+python -m scripts.run_acceptance_tests --mobile --suite={{suiteName}}  
+``` 
+
+Docker:
+```
+make run_tests.acceptance --mobile suite=SUITE_NAME
+```
+
+For example, to run the `check-blog-editor-unable-to-publish-duplicate-blog-post.spec.ts` test, run the following command:
+Python:
+```
+python -m scripts.run_acceptance_tests --mobile --suite="blog-editor-tests/check-blog-editor-unable-to-publish-duplicate-blog-post"
+```
+
+Docker:
+```
+make run_tests.acceptance --mobile suite="blog-editor-tests/check-blog-editor-unable-to-publish-duplicate-blog-post"
+```
 
 ## Reference Links
 Blog Admin and Blog Editor Tests - 
