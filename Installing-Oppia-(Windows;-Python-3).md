@@ -15,7 +15,7 @@
   * [Miscellaneous](#miscellaneous)
 * [Installation in VirtualBox on Windows 10](#installation-in-virtualbox-on-windows-10)
   * [Set up Ubuntu VM in VirtualBox](#set-up-ubuntu-vm-in-virtualbox)
-  * [Install Ubuntu 18 ISO](#install-ubuntu-18-iso)
+  * [Install Ubuntu  ISO](#install-ubuntu-iso)
   * [Optional but recommended: Setup VirtualBox config](#optional-but-recommended-setup-virtualbox-config)
 * [Installation using Docker on Windows 10](#installation-using-docker-on-windows-10)
   * [Prerequisites and Getting Docker Container Set Up](#prerequisites-and-getting-docker-container-set-up)
@@ -202,9 +202,9 @@ Any VM manager is fine, but the instructions here are specific to VirtualBox.
 7. Depending on free space on the machine, either dynamically allocated or static can be chosen here.
 8. Select the amount of storage that is needed (around 20 GB should be fine) and select a location on the machine with enough free space to host the VM and click create.
 
-## Install Ubuntu 18 ISO
+## Install Ubuntu ISO
 
-1. Download the Ubuntu 18.04 64bit ISO from [here](https://releases.ubuntu.com/18.04/).
+1. Download the Ubuntu 18.04 64bit ISO from [here](https://releases.ubuntu.com/18.04/). Alternatively the version 22.04 can be downloaded from (https://releases.ubuntu.com/jammy/).
 2. Select the newly created VM in the virtual box and click Start.
 3. Here, a window pops up where you have to link the downloaded ISO file. Click the folder icon and select the ISO from your machine.
 4. Now, go through the normal Ubuntu installation steps, you can do the following the specific steps:
