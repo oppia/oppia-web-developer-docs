@@ -779,7 +779,7 @@ There may be some style updates required to make sure that the pages look exactl
 
    Python:
    ```console
-   python -m scripts.linters.pre_commit_linter
+   python -m scripts.linters.run_lint_checks
    ```
    
     Docker:

@@ -392,7 +392,7 @@ sudo apt-get install python3-matplotlib
 
 ### No Module appengine.api
 
-If after running `python -m scripts.linters.pre_commit_linter`, you get an error that contains:
+If after running `python -m scripts.linters.run_lint_checks`, you get an error that contains:
 
 ```
 No module named appengine.api

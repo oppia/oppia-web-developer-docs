@@ -81,7 +81,7 @@ Below, we'll walk through how to implement this rule using each of the three kin
 To develop an intuition for how ASTs work, let's see how astroid represents some example `Hello, world!` code. Open a Python shell in your Oppia directory and import a file from Oppia like the pre-commit linter:
 
 ```python
->>> from scripts.linters import pre_commit_linter
+>>> from scripts.linters import run_lint_checks
 ```
 
 This import will modify your PYTHONPATH to include Oppia's Python dependencies, so you can now import [astroid](https://pylint.pycqa.org/projects/astroid/), which Pylint uses to generate the AST:
