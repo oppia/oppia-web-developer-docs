@@ -2,7 +2,7 @@
 
 While committing or pushing the changes in the code that you made, we have certain checks and tests in place that run on your changes and verify that everything is in order and good to go. This means that, sometimes, you'll be unable to push your code because your changes are failing our tests and require some changes to be made. They can fail for reasons as simple as like missing a space or missing a newline, or using an invalid keyword, or missing docstrings. They might also fail due to [insufficient test coverage](https://github.com/oppia/oppia/wiki/Frontend-tests#generating-coverage-reports).
 
-These tests are triggered automatically when you try to commit or push your changes, but you can also trigger these tests manually by running the command **python -m scripts.pre_commit_linter.** (See the top of scripts/pre_commit_linter.py for instructions on command-line args you can use to customize this script.)
+These tests are triggered automatically when you try to commit or push your changes, but you can also trigger these tests manually by running the command **python -m scripts.run_lint_checks.** (See the top of scripts/run_lint_checks.py for instructions on command-line args you can use to customize this script.)
 
 If the tests fail, you'll see the following in your terminal:
 

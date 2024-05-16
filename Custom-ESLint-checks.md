@@ -190,7 +190,7 @@ To run the linter with your new rule, follow these steps:
 3. Execute the pre-commit linter, which will use your new rule. To speed up the lint checks, we recommend running the rule on just a single file when testing it. If you created a `test.js` file with some code to try linting, you would run the linter like this:
 
    ```console
-   $ python -m scripts.linters.pre_commit_linter --path test.js
+   $ python -m scripts.linters.run_lint_checks --path test.js
    ...
    ----------------------------------------
    Please fix the errors below:

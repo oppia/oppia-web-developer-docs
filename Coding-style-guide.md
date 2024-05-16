@@ -366,17 +366,17 @@ And then the variable can be loaded by `import functions from 'folder/folder/fun
 
 You can invoke the pre-commit script to ensure that your code follows the coding guidelines for a particular file that you've modified by running the following command from the root directory:
 ```bash
-python -m scripts.linters.pre_commit_linter --path filepath
+python -m scripts.linters.run_lint_checks --path filepath
 ```
 
 If you'd like to run the checks for a list of files, run the following command:
 ```bash
-python -m scripts.linters.pre_commit_linter --files file_1 file_2 ... file_n
+python -m scripts.linters.run_lint_checks --files file_1 file_2 ... file_n
 ```
 
 If you'd like to run the checks for a list of file-types, run the following command:
 ```bash
-python -m scripts.linters.pre_commit_linter --only-check-file-extensions file_extension_type_1 file_extension_type_2 ... file_extension_type_n
+python -m scripts.linters.run_lint_checks --only-check-file-extensions file_extension_type_1 file_extension_type_2 ... file_extension_type_n
 ```
 
 ### Note for Sublime Text users

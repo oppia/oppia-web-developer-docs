@@ -29,15 +29,15 @@ The basic pattern is to inspect an element and search for an unique class/keywor
 
 ### How to run only the linting test on a file?
 
-There is a `pre_commit_linter.py` for linting the files. Let's say you want to run the linting tests on the file. In the oppia directory, run the following command.
+There is a `run_lint_checks.py` for linting the files. Let's say you want to run the linting tests on the file. In the oppia directory, run the following command.
 
-python -m scripts.linters.pre_commit_linter --path=path/to/the/file
+python -m scripts.linters.run_lint_checks --path=path/to/the/file
 
 ### How to run only the linting test on a specific file type?
 
 Let's say you want to run the linting tests on a specific file type. In the oppia directory, run the following command.
 
-python -m scripts.linters.pre_commit_linter --only-check-file-extensions file_extension_type
+python -m scripts.linters.run_lint_checks --only-check-file-extensions file_extension_type
 
 ### How to test email functionality?
  Please refer to [Testing-email-functionality](https://github.com/oppia/oppia/wiki/Testing-email-functionality) for details.

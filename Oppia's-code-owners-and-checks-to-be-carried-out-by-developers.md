@@ -492,7 +492,7 @@ Also make sure your PR meets all the points in the [codeowners checklist on the 
   <tr>
    <td>/scripts/
    </td>
-   <td>For pre_commit_linter.py, pylint_extensions.py and pylint_extensions_test.py, the added lint checks should be optimized and placed at the best location possible within the script.
+   <td>For run_lint_checks.py, pylint_extensions.py and pylint_extensions_test.py, the added lint checks should be optimized and placed at the best location possible within the script.
 <p>
 For other scripts, in general, the changes done should be optimum and do not affect the existing infrastructure negatively.
    </td>
