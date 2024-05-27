@@ -1,4 +1,4 @@
-Oppia releases happen monthly, and are typically cut on the first Saturday of each month. (Features merged into `develop` after this date will only go out in the following release.)
+Oppia releases happen monthly, and are typically cut on the first Wednesday of each month. (Features merged into `develop` after this date will only go out in the following release.)
 
 Please see the rota below for the expected release dates. We expect QA testing to be completed 1 week after the release cut, and final deployment to take place 1 week after that.
 
@@ -7,38 +7,31 @@ Please see the rota below for the expected release dates. We expect QA testing t
   * Kevin Thomas (**@kevintab95**)
 
 * Release coordinators:
-  * Sandeep Dubey (**@DubeySandeep**)
-  * Akshay Anand (**@aks681**)
-  * Vojtěch Jelínek (**@vojtechjelinek**)
-  * Kevin Thomas (**@kevintab95**)
-  * Chris Skalnik (**@U8NWXD**)
-  * Sagang Wee (**@sagangwee**)
   * Hasitha Kaushan (**@chris7716**)
-  * Sanjay Saju (**@SanjaySajuJacob**)
+  * Hitesh Tomar (**@lkbhitesh07**)
+  * Jay Vivarekar (**@JayVivarekar**)
+  * Kevin Thomas (**@kevintab95**)
 
 * QA coordinators:
-  * Akshay Anand (**@aks681**)
-  * Chris Skalnik (**@U8NWXD**)
+  * Camila Pinheiro (**@cam-pinheiro**)
+  * Kanupriya Gupta (**@kanupriyagupta**)
   * Kevin Thomas (**@kevintab95**)
-  * Vojtěch Jelínek (**@vojtechjelinek**)
+  * Sylvia (**@sesundor**)
 
 ## Release coordinators and QA coordinators for upcoming releases
 
 **Note:** If you can't make it to a shift mentioned in the below rota, please make sure to swap with someone else in advance!
 
-| Month     | Release cut date | Release coordinator           | Release coordinator mentor  | QA coordinator              | Server errors coordinator |
-|-----------|------------------|-------------------------------|-----------------------------|-----------------------------|-------------------------|
-| February  | 1st February     | Kevin (**@kevintab95**)       | Kevin (**@kevintab95**)     | Vojta (**@vojtechjelinek**) | Kevin (**@kevintab95**) |
-| March     | 1st March        | Sanjay (**@SanjaySajuJacob**) | Chris (**@U8NWXD**)         | Sandeep (**@DubeySandeep**) | Kevin (**@kevintab95**) |
-| April     | 3rd April        | Sagang (**@sagangwee**)       | Akshay (**@aks681**)        | Kevin (**@kevintab95**)     | Kevin (**@kevintab95**) |
-| May       | 6th May          | Hasitha (**@chris7716**)      | Sandeep (**@DubeySandeep**) | Chris (**@U8NWXD**)         | Kevin (**@kevintab95**) |
-| June      | 31st May         | Praneeth (**@gp201**)         | Kevin (**@kevintab95**)     | Akshay (**@aks681**)        | Kevin (**@kevintab95**) |
-| July      | 28th June        | Priyansh (**@Priyansh61**)    | Chris (**@U8NWXD**)         | Sandeep (**@DubeySandeep**) | Kevin (**@kevintab95**) |
-| August    | 2nd August       | Akshay (**@aks681**)          |                             | Kevin (**@kevintab95**)     | Kevin (**@kevintab95**) |
-| September | 30th August      | Sandeep (**@DubeySandeep**)   |                             | Chris (**@U8NWXD**)         | Kevin (**@kevintab95**) |
-| October   | 4th October      | Kevin (**@kevintab95**)       |                             | Akshay (**@aks681**)        | Kevin (**@kevintab95**) |
-| November  | 1st November     | Chris (**@U8NWXD**)           |                             | Sandeep (**@DubeySandeep**) | Kevin (**@kevintab95**) |
-| December  | 29th November    | Akshay (**@aks681**)          |                             | Kevin (**@kevintab95**)     | Kevin (**@kevintab95**) |
+| Month     | Release cut date | Release coordinator               | QA coordinator                                               |
+|-----------|------------------|-----------------------------------|--------------------------------------------------------------|
+| May       | 1 May            | Hasitha (**@chris7716**)          | Kanupriya (**@Kanupriyaoppia**) & Sylvia (**@sesundor**)     |
+| June      | 5 June           | Jay Vivarekar (**@JayVivarekar**) | Kanupriya (**@Kanupriyaoppia**) & Camila (**@cam-pinheiro**) |
+| July      | 3 July           | Hitesh Tomar (**@lkbhitesh07**)   | Sylvia (**@sesundor**)                                       |
+| August    | 7 August         | Kevin (**@kevintab95**)           | Kanupriya (**@Kanupriyaoppia**)                              |
+| September | 4 September      | Hasitha (**@chris7716**)          | Camila (**@cam-pinheiro**)                                   |
+| October   | 2 October        | Jay Vivarekar (**@JayVivarekar**) | Sylvia (**@sesundor**)                                       |
+| November  | 6 November       | Hitesh Tomar (**@lkbhitesh07**)   | Kanupriya (**@Kanupriyaoppia**)                              |
+| December  | 4 November       | Kevin (**@kevintab95**)           | Camila (**@cam-pinheiro**)                                   |
 
 
 ## Responsibilities of the release coordinator
