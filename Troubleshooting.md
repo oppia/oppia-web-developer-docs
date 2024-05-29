@@ -281,6 +281,14 @@ To github.com:{{GITHUB USERNAME}}/oppia.git
 
 Note that the output above will look somewhat different for you since it's specific to what data you're pushing.
 
+If the push still keeps failing due to a connection timeout, add the following lines to `~/.ssh/config` ([Reference](https://stackoverflow.com/a/65818657)):
+
+  ```console
+  Host*
+    ServerAliveInterval 60
+    ServerAliveCountMax 30
+  ```
+
 ### Exception: Error compiling proto files
 
 If you are getting something like this in M1 macbooks when running `python -m scripts.start`:
