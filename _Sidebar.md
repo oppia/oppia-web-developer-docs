@@ -127,6 +127,7 @@
   * [[Mobile device testing|Mobile-device-testing]]
   * [[Performance testing|Performance-Testing]]
   * [[Build process|Build-process]]
+  * [[Partial CI Tests Structure|Partial-CI-Tests-Structure]]
   * [[Team structure|Team-Structure]]
   * [[Triaging Process|Triaging-process]]
   * Playbooks
