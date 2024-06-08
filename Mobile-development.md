@@ -1,11 +1,65 @@
-The following instructions, adapted by royshouvik@ from the [Chrome DevTools Docs](https://developer.chrome.com/devtools/docs/remote-debugging), explain how to do remote debugging on Android devices using Chrome.
+The following instructions (contributed by @edallison) outline how to test the behavior an Oppia development server on iOS and Android. If you have one of these devices, you should be able to test the development server directly; otherwise, you may have to use the Chrome mobile emulator or install an emulator on your desktop machine. Instructions for all these cases are provided below.
 
-> [!NOTE]
-> If you just want to view the website on a mobile device, without full fledged debugging, you can start the server as follows: `python -m scripts.start --disable_host_checking` and connect your mobile device to the same Wi-Fi network as your PC. Then, by going to 'http://<[local-ip-address-of-pc]>:8181' on your mobile will open the dev server on it.
+## Accessing an Oppia development instance via a mobile device
+
+1. Ensure that the device hosting your Oppia developer instance, as well as the mobile device you will be testing the instance on, are both connected to the same network.
+2. Determine the local IP of the device hosting your Oppia instance:
+  * Windows: Open the Command Prompt and enter `ipconfig`.
+  * OS X: Open `System Preferences > Network`
+  * Linux: In a terminal, enter `ip addr show`.
+3. In the browser on your mobile device, enter the local IP address found in the previous step into the browser address bar, followed by `:8181` (e.g. `xxx.xxx.xxx.x:8181`).
+
+A lot of developers have faced an issue "Request Host not whitelisted". To workaround this issue, modify the host parameter [here](https://github.com/oppia/oppia/blob/450e094392995794553b2ad64cd82c233d9b591d/scripts/start.py#L148) from `--host 0.0.0.0` to `--host xxx.xxx.x.xxx` where xxx.xxx.x.xxx is your local IP. After restarting the server, you can access the Oppia instance on your mobile device as mentioned in step 3 above. (Note: If you make a PR after testing using these steps, please remember to revert these changes.)
+
+## Using the Chrome mobile emulator
+
+1. Follow the instructions on this [Google Developers page](https://developers.google.com/web/tools/chrome-devtools/iterate/device-mode/).
+
+## Installing iOS Simulator (for OS X)
+
+1. Install Xcode via the [Mac App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12).
+2. Right click on the Xcode icon in the dock, then select `Open Developer Tools > Simulator`.
+3. Once the simulator app icon appears in the dock, you can either pin it in the dock, or move/copy the app to a more convenient location for future access. This allows you to open the simulator without having to first open Xcode.
+4. Open Safari, then navigate to a locally-hosted developer instance to test Oppia on iOS.
+
+#### Directly run the simulator via command line
+
+1. See a list of available simulators.
+```
+$ xcrun simctl list
+iPhone 11 (17DDCE3C-1V29-4251-BC19-21168CA1B259) (Shutdown)
+```
+The string of alphanumerics within the `()` is the UDID.
+2. Run a particular device using its UDID.
+```
+open -a Simulator --args -CurrentDeviceUDID <device UDID>
+```
+
+## Installing Android Emulator
+
+1. Follow the directions for installing the [Android SDK Tools](https://developer.android.com/sdk/installing/index.html?pkg=tools).
+2. Run the SDK manager:
+  * Windows: Double-click the `SDK Manager.exe` file at the root of the Android SDK directory.
+  * OS X/Linux: Open a terminal and navigate to the `tools/` directory in the location where the Android SDK was installed. Then, execute `android sdk`.
+3. Download all packages under a given Android API directory (e.g. Android 6.0), as well as all packages under the Tools directory.
+4. Using the command line, navigate to your SDK’s `tools/` directory and execute `android avd`.
+5. With Android Virtual Device selected, click the `Create` button.
+6. Create a name for the AVD Name field.
+7. Select an available device for the Device field.
+8. Select an available target API for the Target field.
+9. Select an available CPU for the CPU field.
+10. Select a skin for the Skin field.
+11. Click OK to create an AVD.
+12. In AVD Manager, select your AVD, and click Start to boot your virtual device.
 
 ## Remote Debugging on Android with Chrome
 
 The way your web content behaves on mobile can be dramatically different from the desktop experience. Remote debugging with Chrome DevTools lets you debug live content on your Android device from your development machine.
+
+The following instructions, adapted by royshouvik@ from the [Chrome DevTools Docs](https://developer.chrome.com/devtools/docs/remote-debugging), explain how to do remote debugging on Android devices using Chrome.
+
+> [!NOTE]
+> If you just want to view the website on a mobile device, without full fledged debugging, you can start the server as follows: `python -m scripts.start --disable_host_checking` and connect your mobile device to the same Wi-Fi network as your PC. Then, by going to 'http://<[local-ip-address-of-pc]>:8181' on your mobile will open the dev server on it.
 
 ### Debugging Chrome for Android using the Chrome Developer Tools
 
@@ -91,9 +145,9 @@ To enable port forwarding:
 
 1. Open chrome://inspect on your development machine.
 2. Click Port Forwarding. The port forwarding settings display.
-3. In the Device port field, enter the port number you want your Android device to listen on. 
+3. In the Device port field, enter the port number you want your Android device to listen on.
 (The default port is 8080.)
-4. In the Host field, enter the IP address (or hostname) and port number where your web application is running. 
+4. In the Host field, enter the IP address (or hostname) and port number where your web application is running.
 5. This address can be any local location accessible from your development machine. Currently, port numbers must be between 1024 and 32767 (inclusive).
 6. Check Enable port forwarding.
 7. Click Done.
