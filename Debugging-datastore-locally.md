@@ -4,7 +4,7 @@ If you need to debug the data in Google Cloud Datastore Emulator when running th
 
 In some cases it is possible that the local datastore data are not deleted when the server is rerun, you can delete the data by running `curl -X POST http://localhost:8089/reset` when the devserver is running.
 
-## How start DSAdmin
+## How to start DSAdmin
 
 # Docker Setup
 
