@@ -14,7 +14,7 @@
 **Developing Oppia**
   * [[FAQs|Frequently-Asked-Questions]]
   * [[How to get help|Get-help]]
-    * [[Troubleshooting|Troubleshooting]]A
+    * [[Troubleshooting|Troubleshooting]]
   * Getting started with the project
     * **[['Getting started' guide|https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up]]**
     * [[Installing Oppia|Installing-Oppia]]
