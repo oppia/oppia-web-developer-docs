@@ -1,6 +1,12 @@
-## Overview
+## Introduction
 
-For non-python files, we run partial ci tests depending on the tests that a specific file effects. The process of determining which tests to run goes like this:
+If your PR fails due to the `check_ci_test_suites_to_run` workflow, please look at the error log and depending on the error, do the following:
+
+* If you see an error about the root files config, then see the [root files config section](#root-files-config) below.
+
+## Overview of Partial CI Tests Structure
+
+For non-python files, we run partial ci tests depending on the tests that a specific file affects. The process of determining which tests to run goes like this:
 
 1. Generate a root files mapping which maps files to their root files.
 2. Store golden files containing the page modules that a specific test uses.

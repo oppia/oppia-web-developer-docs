@@ -78,6 +78,7 @@
       * [[End-to-end tests|End-to-End-Tests]]
       * [[Lighthouse Tests|Lighthouse-Tests]]
       * [[Acceptance Tests|Acceptance-Tests]]
+      * [[Partial CI Tests Structure|Partial-CI-Tests-Structure]]
     * Manual tests
       * [[Testing for Accessibility|Testing-for-Accessibility]]
       * [[Testing email functionality|Testing-email-functionality]]
@@ -127,7 +128,6 @@
   * [[Mobile device testing|Mobile-device-testing]]
   * [[Performance testing|Performance-Testing]]
   * [[Build process|Build-process]]
-  * [[Partial CI Tests Structure|Partial-CI-Tests-Structure]]
   * [[Team structure|Team-Structure]]
   * [[Triaging Process|Triaging-process]]
   * Playbooks
