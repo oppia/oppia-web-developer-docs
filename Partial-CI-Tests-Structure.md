@@ -7,7 +7,7 @@ If your PR fails due to the `check_ci_test_suites_to_run` workflow, please look 
 
 ## Overview of Partial CI Tests Structure
 
-For non-python files, we run partial ci tests depending on the tests that a specific file affects. Running partial tests like this allow for PRs to be checked faster on the tests that a PR's code actually changed. As tests are run faster, developers can get feedback faster and CI resources are freed up for other jobs quicker. The process of determining which tests to run goes like this:
+For non-python files, we run partial ci tests depending on the tests that a specific file affects. Running partial tests like this allow for PRs to be checked faster on the tests that a PR actually modifies. This faster test speed allows developers to get feedback faster and allows CI resources to be free more. The process of determining which tests to run goes like this:
 
 1. Generate a root files mapping which maps files to their root files.
 2. Store golden files containing the page modules that a specific test uses.

@@ -58,7 +58,7 @@
       * [[End-to-end tests|End-to-End-Tests]]
       * [[Acceptance Tests|Acceptance-Tests]]
       * [[Lighthouse Tests|Lighthouse-Tests]]
-      * [[Partial CI Tests Structure|Partial-CI-Tests-Structure]]
+      * [[Determining which CI tests run for a PR|Partial-CI-Tests-Structure]]
   * Codebase policies and processes
     * **[[Guidelines for launching new features|Launching-new-features]]**
     * **[[Guidelines for making an urgent fix (hotfix)|Making-an-urgent-fix-(hotfix)]]**
