@@ -9,9 +9,9 @@ If your PR fails due to the `check_ci_test_suites_to_run` workflow, please look 
 
 For non-python files, we run partial ci tests depending on the tests that a specific file affects. Running partial tests like this allow for PRs to be checked faster on the tests that a PR actually modifies. This faster test speed allows developers to get feedback faster and allows CI resources to be free more. The process of determining which tests to run goes like this:
 
-1. Generate a root files mapping which maps files to their root files.
-2. Store golden files containing the page modules that a specific test uses.
-3. Run a script inside the Github workflow which will map changed files in a PR to their root files using the mapping above. Afterwards, map those root files to tests by using the golden files containing the page modules that a test uses.
+1. Generate a root files mapping which maps files to their root files. This file is generated at the start of every PR check run and is stored at `root-files-mapping.json`.
+2. Store golden files containing the page modules that a specific test uses. These golden files are stored at `core/tests/test-modules-mappings/{{test-type}}/{{test-name}}`.
+3. Run the script, `scripts/check_ci_test_suites_to_run.py` inside the Github workflow which will map changed files in a PR to their root files using the mapping above. Afterwards, map those root files to tests by using the golden files containing the page modules that a test uses.
 
 # Root Files Config
 
