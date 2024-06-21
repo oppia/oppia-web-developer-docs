@@ -32,8 +32,9 @@ If you get an error about the test-to-modules mapping, please do the following:
 
 # Root Files Config
 
-The root files config at `core/tests/root-files-config.json` contains all the valid root files that are generated in the root files mapping. A root file is a file in the dependency graph which has no parents, the most common root files in the codebase are page modules and other files like `README.md`. The "root files mapping generator" validates the `root-files-config.json` by comparing the PR's root files in the mapping with the root files found in the config, if there are any discrepancies, the generator will error. This ensures that the "root-files config" is always up to date with every PR.
+The root files config at `core/tests/root-files-config.json` contains all the valid root files that are generated in the root files mapping. A root file is a file in the dependency graph which has no parents, the most common root files in the codebase are page modules and other files like `README.md`. The "root files mapping generator" validates the `root-files-config.json` by comparing the PR's root files in the mapping with the root files found in the config. If there are any discrepancies, the generator will error; this ensures that the "root-files config" is always up to date with every PR.
+
 If you get an error that there is a root file not contained in these lists, please add them to one of these lists depending on the context of the file:
 
-* If the specific file has a chance to break some part of the Oppia website, like `src/index.html`, please add it to the `RUN_ALL_TESTS_ROOT_FILES`.
-* If it is a file like `README.md` which doesn't affect any test, please add it to the `RUN_NO_TESTS_ROOT_FILES`.
+* If the specific file has a chance to break some part of the Oppia website, like `src/index.html`, please add it to the `RUN_ALL_TESTS_ROOT_FILES` in the `root-files-config.json` file.
+* If it is a file like `README.md` which doesn't affect any test, please add it to the `RUN_NO_TESTS_ROOT_FILES` in the `root-files-config.json` file.
