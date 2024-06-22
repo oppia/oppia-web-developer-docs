@@ -174,7 +174,7 @@ python -m scripts.run_e2e_tests --suite="suiteName"
 
 Docker:
 ```console
-make run_tests.e2e PYTHON_ARGS="--suite=suiteName"
+make run_tests.e2e suite=suiteName
 ```
 
 Chrome will open and start running your tests.
@@ -189,7 +189,7 @@ Please set the chromedriver version manually using the --chrome_driver_version f
 
 You may also want to set the chromedriver version manually if you want to test a particular version.
 
-To manually set the chromedriver version, use the `--chrome_driver_version` argument:
+To manually set the chromedriver version, use the `CHROME_VERSION=<version>` (or `--chrome_driver_version` argument in python setup):
 
 Python:
 ```console
@@ -198,7 +198,7 @@ python -m scripts.run_e2e_tests --chrome_driver_version <version>
 
 Docker:
 ```console
-make run_tests.e2e PYTHON_ARGS="--chrome_driver_version <version>"
+make run_tests.e2e CHROME_VERSION=<version>
 ```
 
 To determine which version of chromedriver to use, please follow these steps:
@@ -226,7 +226,7 @@ python -m scripts.run_e2e_tests --sharding-instances=<number of shards>
 
 Docker:
 ```console
-make run_tests.e2e PYTHON_ARGS="--sharding-instances=<number of shards>"
+make run_tests.e2e sharding_instances=<number_of_shards>
 ```
 
 You can disable sharding like this:
