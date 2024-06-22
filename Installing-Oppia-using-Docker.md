@@ -240,10 +240,11 @@ These are the `make` commands available for running tests:
 **Flags:**  
 	Usage - `make run_tests.e2e FLAG_NAME=VALUE`
 	* `suite` - The suite to run the acceptance tests
+   * `MOBILE` - Runs the mobile acceptance tests.
 
 	Usage - `make run_tests.acceptance PYTHON_ARGS="--flag_name"`
 	* `--skip-build` - Skips building files.
-	* `--prod_env` - Runs tests in production mode.
+	* `--prod_env` - Run acceptance test in mobile viewport
 	* `--server_log_level` - Sets the log level for the appengine server.
 	* `--source_maps` - Builds webpack with source maps.
 
