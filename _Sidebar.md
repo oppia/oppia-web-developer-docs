@@ -63,7 +63,7 @@
     * **[[Guidelines for launching new features|Launching-new-features]]**
     * **[[Guidelines for making an urgent fix (hotfix)|Making-an-urgent-fix-(hotfix)]]**
     * **[[Testing jobs and other features on production|Testing-jobs-and-other-features-on-production]]**
-    * [[Guidelines for Developers with Write Access to oppia/oppia|Guidelines-for-Developers-with-Write-Access-to-oppia-oppia]]
+    * [[Guidelines for Developers with Write Access to the Oppia Repository|Guidelines-for-Developers-with-Write-Access-to-the-Oppia-repository]]
     * [[Release schedule and other information|Release-schedule-and-other-information]]
     * [[Revert and Regression Policy|Revert-and-Regression-Policy]]
     * [[Privacy aware programming|Privacy-aware-programming]]
