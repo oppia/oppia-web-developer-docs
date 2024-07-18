@@ -4,7 +4,15 @@ If you need to debug the data in Google Cloud Datastore Emulator when running th
 
 In some cases it is possible that the local datastore data are not deleted when the server is rerun, you can delete the data by running `curl -X POST http://localhost:8089/reset` when the devserver is running.
 
-## How start DSAdmin
+## How to start DSAdmin
+
+# Docker Setup
+
+1. Build and run dev-server using `make build` and `make run-devserver` respectively.
+2. Once the dev-server is running, run `make run-dsadmin` in a separate terminal window.
+3. Navigate to `localhost:8080` to access DSAdmin.
+
+## Python Setup
 
 1. Download an archive for your platform and processor from the [DSAdmin releases GitHub page](https://github.com/remko/dsadmin/releases)
 2. Unpack the archive and put the binary somewhere you can easily access it through the terminal
