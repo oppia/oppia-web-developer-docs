@@ -222,7 +222,7 @@ python -m scripts.run_acceptance_tests --mobile --suite={{suiteName}}
 
 Docker:
 ```
-make run_tests.acceptance --mobile suite=SUITE_NAME
+make run_tests.acceptance suite=SUITE_NAME MOBILE=true
 ```
 
 For example, to run the `check-blog-editor-unable-to-publish-duplicate-blog-post.spec.ts` test, run the following command:
@@ -233,7 +233,7 @@ python -m scripts.run_acceptance_tests --mobile --suite="blog-editor-tests/check
 
 Docker:
 ```
-make run_tests.acceptance --mobile suite="blog-editor-tests/check-blog-editor-unable-to-publish-duplicate-blog-post"
+make run_tests.acceptance suite="blog-editor-tests/check-blog-editor-unable-to-publish-duplicate-blog-post" MOBILE=true
 ```
 
 ## Reference Links

@@ -18,6 +18,11 @@ Docker is an open-source platform that automates the deployment, scaling, and ma
 
 Using Docker to install Oppia eliminates the need for extra configurations or setting up development environments for the local server. It provides a consistent and reproducible environment for running Oppia across different systems.
 
+## Pre-requisites for setting up the development server
+
+1. **Install Docker Desktop**: Download and install the latest version of Docker Desktop from the [official Docker website](https://www.docker.com/products/docker-desktop/). Docker Desktop provides a user-friendly interface for developers. Follow the steps in the given link to download and install it.
+2. **For Windows users**: Prior to proceeding with the setup, make sure you have activated the WSL2 backend for Windows in Docker Desktop. You can find instructions on how to do this [here](https://docs.docker.com/desktop/wsl/). Additionally, ensure that you execute all the `make` commands within the Windows Subsystem for Linux 2 (WSL2) terminal.
+
 ## Installation Steps
 
 To install Oppia under Docker, follow these steps:
@@ -71,11 +76,6 @@ To install Oppia under Docker, follow these steps:
    ![Diagram of the fork-and-clone workflow](images/install/forkCloneWorkflow.png)
 
    For making any changes to original repository, we first sync our cloned repository with original repository. We merge develop with `upstream/develop` to do this. Now we make a new branch, do the changes on the branch, push the branch to forked repository, and make a PR from Github interface. We use a different branch to make changes so that we can work on multiple issues while still having a clean version in develop branch.
-
-### Pre-requisites for setting up the development server
-
-1. **Install Docker Desktop**: Download and install the latest version of Docker Desktop from the [official Docker website](https://www.docker.com/products/docker-desktop/). Docker Desktop provides a user-friendly interface for developers. Follow the steps in the given link to download and install it.
-2. **For Windows users**: Prior to proceeding with the setup, make sure you have activated the WSL2 backend for Windows in Docker Desktop. You can find instructions on how to do this [here](https://docs.docker.com/desktop/wsl/). Additionally, ensure that you execute all the `make` commands within the Windows Subsystem for Linux 2 (WSL2) terminal.
 
 **Note for Developers: Allocating Resources to Docker Desktop**
 For systems with 8GB RAM:
@@ -240,10 +240,11 @@ These are the `make` commands available for running tests:
 **Flags:**  
 	Usage - `make run_tests.e2e FLAG_NAME=VALUE`
 	* `suite` - The suite to run the acceptance tests
+   * `MOBILE` - Runs the mobile acceptance tests.
 
 	Usage - `make run_tests.acceptance PYTHON_ARGS="--flag_name"`
 	* `--skip-build` - Skips building files.
-	* `--prod_env` - Runs tests in production mode.
+	* `--prod_env` - Run acceptance test in production mode.
 	* `--server_log_level` - Sets the log level for the appengine server.
 	* `--source_maps` - Builds webpack with source maps.
 

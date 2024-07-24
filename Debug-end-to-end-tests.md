@@ -36,7 +36,7 @@ There are many ways to go about debugging an E2E test, but here is one approach:
    ...
    ```
 
-2. Run the e2e script with the flag `--debug_mode`. For example,
+2. Run the e2e script with arg `DEBUG=true` (or with the flag `--debug_mode` in python setup). For example,
 
    Python:
    ```console
@@ -45,7 +45,7 @@ There are many ways to go about debugging an E2E test, but here is one approach:
 
    Docker:
    ```console
-   make run_tests.e2e PYTHON_ARGS="--debug_mode --suite="topicAndStoryEditor"
+   make run_tests.e2e suite=topicAndStoryEditor DEBUG=true
    ```
 
 3. Wait for the script to show the following log:
