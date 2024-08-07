@@ -55,6 +55,11 @@ This will generate three translatable opportunities, for which suggestions can b
 If you need to generate more sample data, follow the step-by-step instructions on how to generate sample data manually. See
 [this doc](https://docs.google.com/document/d/1JYX4nvTcblaVVYAlTi7rApE0lWSBx0v_ZCCr_8WW4Wc/edit#).
 
+### Accepted translation suggestions
+Upon accepting a translation suggestion, the translation becomes a part of the target exploration. To view these translations as the exploration creator, turn on the feature flag named "exploration_editor_can_modify_translations". See [this page](https://github.com/oppia/oppia/wiki/Launching-new-features#changing-value-of-feature-flags) for instructions to turn on feature flags.
+
+Then, go to the exploration editor page corresponding to the target exploration ID of the accepted suggestion. Go to the translations tab. Switch to translate mode and select the target language of the suggestion. On the graph, click on the content card corresponding to the suggestion. The translation should appear in the edit translation text area.
+
 ## Code pointers
 
 See the [Oppia codebase overview](https://github.com/oppia/oppia/wiki/Overview-of-the-Oppia-codebase) for a general overview of Oppia's code structure.
