@@ -68,7 +68,7 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
 
 2. Install [direnv](https://direnv.net/).
 
-   After finishing with the official installation instructions, you should also create a `~/.direnvrc` file with the following content:
+   After finishing with the official installation instructions, you should also create a `~/.config/direnv/direnvrc` file with the following content:
 
    ```bash
    use_python() {
