@@ -37,7 +37,6 @@ The following projects (with linked proposals where available) are currently in 
 
 * [Mohd Afzal Khan](pdfs/GSoC2024MohdAfzal.pdf): Infrastructure and navigation for multiple classrooms
 * [Akash Paloju](pdfs/GSoC2024AkashPaloju.pdf): Static Page Redesigns
-* [Pritam Singh](pdfs/GSoC2024PritamSingh.pdf): Redesign the topic page
 * [Vir Kothari](pdfs/GSoC2024VirKothari.pdf): Improvements to the exploration editor page
 * [Akhilesh Kumar Yadav](pdfs/GSoC2024AkhileshKumar.pdf): Acceptance Tests
 * [Justin Nguyen](pdfs/GSoC2024JustinNguyen.pdf): Make CI and pre-push hooks more efficient
