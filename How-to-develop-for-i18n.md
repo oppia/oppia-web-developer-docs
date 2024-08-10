@@ -48,12 +48,12 @@ To verify your changes to translation files locally, run the following command i
 
 Python:
 ```
-python -m scripts.run_backend_tests --test_target=core.controllers.base_test.I18nDictsTests
+python -m scripts.run_backend_tests --test_targets=core.controllers.base_test.I18nDictsTests
 ```
 
 Docker:
 ```
-make run_tests.backend PYTHON_ARGS="--test_target=core.controllers.base_test.I18nDictsTests"
+make run_tests.backend PYTHON_ARGS="--test_targets=core.controllers.base_test.I18nDictsTests"
 ```
 
 This validates the translation JSON files by verifying that the keys are correctly sorted, that the keys in en.json and qqq.json match, that every other translation JSON file has a subset of the keys in en.json, and so on.
