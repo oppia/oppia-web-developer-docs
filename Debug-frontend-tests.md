@@ -60,9 +60,7 @@ The strings from the `describe` and `it` functions get concatenated with space (
 
 ## Isolate tests
 
-Once you have identified which test is failing, you often want to run that test in isolation next. This will let you get results quickly as you try other debugging strategies. Thankfully, you just have to change the `it()` of your test to `fit()`. You can even do this multiple times to mark multiple tests for running. Then when you run the frontend tests, only those tests with `fit()` will run. Note that `fdescribe()` works the same way.
-
-**Remember to revert your `fit()` and `fdescribe()` changes before committing!**
+Once you have identified which test is failing, you often want to run that test in isolation next. This will let you get results quickly as you try other debugging strategies. To do this you can use the `--specs_to_run` flag on the frontend tests script which takes in a comma-delimited list of frontend test files, which allows you to run only specific frontend test(s).
 
 Once you've specified which tests you want to run, you should make sure you can still reproduce the bug you are investigating. Some bugs are caused by how tests relate to each other, so in these cases, you won't be able to reproduce the bug by running the failing test in isolation. To see how this might happen, consider the following test code:
 
