@@ -810,6 +810,18 @@ The cause of the issue is that Docker daemon binds to a unix socket by default, 
 
 If you encounter network timeout or connection errors during the Docker setup process, simply re-execute the `make build` command. This is necessary as the Docker setup may have been disrupted by network problems. By rerunning the command, the setup will pick up from the point of failure and continue accordingly.
 
+### Any Installation Error in Docker Setup
+
+If you encounter any error during the Oppia Docker setup process, please try the following steps to resolve the issue:
+1. Run `make clean` to remove the existing Docker containers and images.
+2. Run `make build` to rebuild the Docker containers and images.
+3. Run `make run-devserver` to start the Oppia development server.
+
+If the issue persists, try clearing the Docker cache by running the following commands:
+1.  Run `make clean` to remove the existing Docker containers and images.
+2.  Run `docker builder prune --all` to remove all build cache.
+3.  Run `make build` to rebuild the Docker containers and images.
+4.  Run `make run-devserver` to start the Oppia development server.
 
 ## If the above doesn't work
 
