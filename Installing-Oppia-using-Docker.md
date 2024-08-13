@@ -104,6 +104,9 @@ For systems with 8GB RAM:
 
    ![Docker Setup Terminal Logs](images/dockerSetupTerminalLogs.png)
 
+   > [!TIP]  
+   > If you run into errors while installing Oppia, please try running `make clean` and running `make run-devserver` again. If the issue persists, please refer to the [[Troubleshooting page|Troubleshooting]].
+
 3. **Access oppia development server**: Open your browser and navigate to `http://localhost:8181/`. You should see the Oppia development server running.
 
    ![Oppia home Page](images/install/homePage.png)
