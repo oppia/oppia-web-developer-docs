@@ -26,8 +26,8 @@ Using Docker to install Oppia eliminates the need for extra configurations or se
 **Note for Developers: Data required to setup Oppia using Docker Desktop**
 
 It takes 2.5 GB of data to download all the dependencies for setting up Oppia using Docker.
-- 2.1 GB to download the dependencies on running ``` make build ```.
-- 470 MB to download the dependencies on running ``` make run-devserver ``` for the first time.
+- 2.1 GB to download the dependencies on running `make build `.
+- 470 MB to download the dependencies on running `make run-devserver` for the first time.
 
 ## Installation Steps
 
