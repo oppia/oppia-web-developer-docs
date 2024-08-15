@@ -86,11 +86,10 @@ Files included inside this directory are:
   - `common/puppeteer-utils.ts` -> This file contains the base _*BaseUser*_ class which provides the most common and useful methods such as _*openBrowser*_, _*goto*_, _*clickOn*_, _*openExternalPdfLink*_ etc. This class also serves as a foundation for defining other user-oriented subclasses, facilitating various testing scenarios.
   - `common/user-factory.ts` -> This file contains methods for creating a certain user. The file has different methods for creating different types of users.
   - `common/test-constants.ts` -> This file contains defined constants such as _*URLs, roles, etc.*_ which are used in the tests.
-  - `common/console-report.ts` -> This file contains methods for logging the console errors during a test.
+  - `common/console-report.ts` -> This file contains methods for listening the console errors during a test.
   - `common/show-message.ts` -> This file contains methods for displaying messages during the tests.
 
 3) The `user` directory holds the utility files for different user types. Each user utility class is built upon the base `BaseUser` class containing the original methods along with the ones related to that user type. For example, `blog-post-editor.ts` contains base functions as well as additional functions just related to the `Blog Post Editor` user. 
-
 4) The `data` directory contains all the images and other data files used in the tests.
 
 ## How to run the acceptance tests
@@ -107,12 +106,12 @@ make run_tests.acceptance suite=SUITE_NAME
 For example, to run the `check-blog-editor-unable-to-publish-duplicate-blog-post.spec.ts` test, run the following command:
 Python:
 ```
-python -m scripts.run_acceptance_tests --suite="blog-editor-tests/check-blog-editor-unable-to-publish-duplicate-blog-post"
+python -m scripts.run_acceptance_tests --suite="blog-editor/check-blog-editor-unable-to-publish-duplicate-blog-post"
 ```
 
 Docker:
 ```
-make run_tests.acceptance suite="blog-editor-tests/check-blog-editor-unable-to-publish-duplicate-blog-post"
+make run_tests.acceptance suite="blog-editor/check-blog-editor-unable-to-publish-duplicate-blog-post"
 ```
 
 > **TIP:** To reduce the development cycle for the tests, try using `--skip-build` to skip the build in the local environment as this can reduce the run-time of tests.
@@ -166,7 +165,9 @@ Please ensure to follow the appropriate conventions and guidelines while adding 
 
 10) The test must be thoroughly tested before submitting a PR. The test can be run locally by running the following command as mentioned above or you can run the test on the CI server by pushing your code to the remote branch in your fork. The CI server will run the test and will show the result.
 
-**Note: Sometimes tests may pass locally but fail on the CI environment due to differences between the local and CI environments. In such cases, debugging and fixing should be done on the CI environment, as that is where the tests are intended to run. However, We are transitioning to using Docker for both local and CI setups, which should help mitigate these issues.**
+11) After writing the test, do not forget to add it in our configuration file `common.py` and in `acceptance.json` file so that it is included in the workflow.
+
+> Note: Sometimes tests may pass locally but fail on the CI environment due to differences between the local and CI environments. In such cases, debugging and fixing should be done on the CI environment, as that is where the tests are intended to run. However, We are transitioning to using Docker for both local and CI setups, which should help mitigate these issues.**
 
 ### Console errors logging functionality in Acceptance Tests
 
@@ -233,7 +234,7 @@ For example: consider a scenario where a menu is collapsed into a hamburger menu
 
 Here, if we want to click on the "Home" or any other button, we need to first click on the hamburger menu. Additionally, there may be differences in selectors for the same buttons between desktop and mobile. For instance, the publish button in desktop might be `e2e-test-publish-exploration`, while in mobile it could be `e2e-test-mobile-publish-button`.
 
-We can handle these differences by including conditional statements in the `utils` file, using the `isViewportAtMobileWidth()` function to execute commands specific to mobile devices.
+We can handle these differences by including conditional statements in the `utilities/user` file, using the `isViewportAtMobileWidth()` function to execute commands specific to mobile devices.
 
 For example:
 
@@ -268,12 +269,12 @@ make run_tests.acceptance suite=SUITE_NAME MOBILE=true
 For example, to run the `check-blog-editor-unable-to-publish-duplicate-blog-post.spec.ts` test, run the following command:
 Python:
 ```
-python -m scripts.run_acceptance_tests --mobile --suite="blog-editor-tests/check-blog-editor-unable-to-publish-duplicate-blog-post"
+python -m scripts.run_acceptance_tests --mobile --suite="blog-editor/check-blog-editor-unable-to-publish-duplicate-blog-post"
 ```
 
 Docker:
 ```
-make run_tests.acceptance suite="blog-editor-tests/check-blog-editor-unable-to-publish-duplicate-blog-post" MOBILE=true
+make run_tests.acceptance suite="blog-editor/check-blog-editor-unable-to-publish-duplicate-blog-post" MOBILE=true
 ```
 
 ## Reference Links
