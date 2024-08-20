@@ -10,53 +10,87 @@ This guide will help you to get started on how to write `e2e acceptance test` fo
 ```
 oppia/core/tests/
  └── puppeteer-acceptance-tests
-    ├── spec
-    │  ├── blog-admin-tests (give user type name)
-    │  │    ├── assign-role-to-users-and-change-tag-properties.spec.ts
-    │  ├── blog-editor-tests
-    │  │    ├── try-to-publish-a-duplicate-blog-post-and-get-blocked.spec.ts
-    │  ├── logged-in-user-tests
-    │  │    ├── click-all-buttons-in-about-foundation-page.spec.ts
-    │  │    ├── click-all-buttons-in-about-page.spec.ts
-    │  │    ├── click-all-buttons-in-thanks-for-donating-page.spec.ts
-    │  │    ├── click-all-buttons-on-navbar.spec.ts
-    │  ├── practice-question-admin-tests
-    │  │    ├── add-and-remove-contribution-rights.spec.ts
-    │  ├── translation-admin-tests
-    │  │    ├── add-translation-rights.spec.ts
-    │  │    ├── remove-translation-rights.spec.ts
-    ├── images
+    ├── data
     │  └── blog-post-thumbnail.svg
-    ├── puppeteer-testing-utilities
-    │  ├── puppeteer-utils.ts
-    │  ├── show-message-utils.ts
-    │  ├── test-constants.ts
-    │  ├── user-factory.ts
-    │  └── console-reporter.ts
-    └── user-utilities
-       └── blog-admin-utils.ts
-       └── blog-post-editor-utils.ts
-       └── logged-in-users-utils.ts
-       └── question-admin-utils.ts
-       └── super-admin-utils.ts
-       └── translation-admin-utils.ts
+    │  └── ...
+    ├── functions
+    │  └── is-element-clickable.ts
+    ├── specs
+    │  ├── blog-admin
+    │  │    ├── assign-role-to-users-and-change-tag-properties.spec.ts
+    │  │    └── ...
+    │  ├── curriculum-admin
+    │  │    ├── create-publish-unpublish-and-delete-topic-and-skill.spec.ts
+    │  │    ├── create-edit-and-delete-classroom.spec.ts
+    │  │    └── ...
+    │  ├── topic-manager
+    │  │    ├── create-and-delete-subtopic-and-story.spec.ts
+    │  │    ├── browse-topics-on-topics-and-skills-dashboard.spec.ts
+    │  │    └── ...
+    │  ├── moderator
+    │  │    ├── view-recent-commits-and-feedback-messages.spec.ts
+    │  │    └── ...
+    │  ├── site-admin
+    │  │    ├── edit-user-roles.spec.ts
+    │  │    └── ...
+    │  ├── contributor-dashboard-admin
+    │  │    ├── manage-translators-and-reviewers.spec.ts
+    │  │    └── ...
+    │  ├── release-coordinator
+    │  │    ├── run-a-beam-job-and-copy-the-output.spec.ts
+    │  │    └── ...
+    │  ├── voiceover-admin
+    │  │    ├── add-voiceover-artist-to-an-exploration.spec.ts
+    │  ├── logged-out-user
+    │  │    ├── click-all-buttons-on-contact-us-page.spec.ts
+    │  │    ├── click-all-buttons-on-creator-guidelines-page.spec.ts
+    │  │    └── ...
+    │  ├── logged-in-user
+    │  │    ├── create-and-delete-account.spec.ts
+    │  │    ├── access-dashboards-and-other-pages-from-profile-menu.spec.ts
+    │  │    └── ...
+    │  ├── translation-admin
+    │  │    ├── add-and-remove-translation-rights.spec.ts
+    │  ├── practice-question-admin
+    │  │    ├── add-and-remove-contribution-rights.spec.ts
+    ├── utilities
+    │  ├── common
+    │  │    ├── puppeteer-utils.ts
+    │  │    ├── show-message.ts
+    │  │    ├── test-constants.ts
+    │  │    ├── console-report.ts
+    │  │    ├── user-factory.ts
+    │  ├── user
+    │  │    ├── blog-admin.ts
+    │  │    ├── blog-post-editor.ts
+    │  │    ├── curriculum-admin.ts
+    │  │    ├── topic-manager.ts
+    │  │    ├── moderator.ts
+    │  │    ├── site-admin.ts
+    │  │    ├── contributor-dashboard-admin.ts
+    │  │    ├── release-coordinator-admin.ts
+    │  │    ├── email-dashboard-admin.ts
+    │  │    ├── voiceover-admin.ts
+    │  │    ├── logged-in-user.ts
+    │  │    ├── logged-out-user.ts
+    │  │    ├── question-admin.ts
+    │  │    ├── super-admin.ts
+    │  │    ├── translation-admin.ts
 ```
 
 The directory structure is as follows:
-1) The `spec` directory contains all the top-level test files. Each test file is named as `*.spec.ts` and contains the test for a particular user type. For example, `blog-admin-tests` directory contains all the tests for the `Blog Admin` user.
+1) The `specs` directory contains all the top-level test files. Each test file is named as `*.spec.ts` and contains the test for a particular user type. For example, the `blog-admin` directory contains available tests for the `Blog Admin` user.
 
-2) The `puppeteer-testing-utilities` directory contains all the utility files and helper functions, which you would require to write new acceptance tests. This directory can also be used to append more utility functions as when required or needed by the user.
-Files included inside this directory are :
-  - `puppeteer-utils.ts` -> This file contains the base _*BaseUser*_ class which provides the most common and useful methods such as _*openBrowser*_, _*goto*_, _*clickOn*_, _*openExternalPdfLink*_ etc. This class also serves as a foundation for defining other user-oriented subclasses, facilitating various testing scenarios.
-  - `user-factory.ts` -> This file contains methods for creating a certain user. The file has different methods for creating different types of user.
-  - `test-constants.ts` -> This file contains defined constants such as _*URLs, classname, id etc. which are used in the tests.
-  - `show-message-utils.ts` -> This file contains method for logging the progress and errors during a test.
-  - `console-reporter.ts` ->   This file contains methods for capturing, filtering, and reporting specific console messages during puppeteer tests.
+2) The `utilities` directory contains all the utility files and helper functions, which you would require to write new acceptance tests. This directory can also be used to append more utility functions as needed by the user.
+Files included inside this directory are:
+  - `common/puppeteer-utils.ts` -> This file contains the base _*BaseUser*_ class which provides the most common and useful methods such as _*openBrowser*_, _*goto*_, _*clickOn*_, _*openExternalPdfLink*_ etc. This class also serves as a foundation for defining other user-oriented subclasses, facilitating various testing scenarios.
+  - `common/user-factory.ts` -> This file contains methods for creating a certain user. The file has different methods for creating different types of users.
+  - `common/test-constants.ts` -> This file contains defined constants such as _*URLs, roles, etc.*_ which are used in the tests.
+  - `common/console-report.ts` -> This file contains methods for listening the console errors during a test.
+  - `common/show-message.ts` -> This file contains methods for displaying messages during the tests.
 
-3) The `user-utilities` directory holds the utility files for different user types. Each user utility class is build upon the base `BaseUser` class containing the original methods along with the ones related to that user type. For eg. `BlogPostEditor` contains base functions as well as additional functions just related to `Blog Post Editor` user.
-
-4) The `images` directory contains all the images used in the tests.
-
+3) The `user` directory holds the utility files for different user types. Each user utility class is built upon the base `BaseUser` class containing the original methods along with the ones related to that user type. For example, `blog-post-editor.ts` contains base functions as well as additional functions just related to the `Blog Post Editor` user. 
+4) The `data` directory contains all the images and other data files used in the tests.
 
 ## How to run the acceptance tests
 From the root directory of oppia, run the following command:
@@ -72,32 +106,35 @@ make run_tests.acceptance suite=SUITE_NAME
 For example, to run the `check-blog-editor-unable-to-publish-duplicate-blog-post.spec.ts` test, run the following command:
 Python:
 ```
-python -m scripts.run_acceptance_tests --suite="blog-editor-tests/check-blog-editor-unable-to-publish-duplicate-blog-post"
+python -m scripts.run_acceptance_tests --suite="blog-editor/check-blog-editor-unable-to-publish-duplicate-blog-post"
 ```
 
 Docker:
 ```
-make run_tests.acceptance suite="blog-editor-tests/check-blog-editor-unable-to-publish-duplicate-blog-post"
+make run_tests.acceptance suite="blog-editor/check-blog-editor-unable-to-publish-duplicate-blog-post"
 ```
-**Note: Typically, these tests take anywhere between 0.5 to 2-3 minutes (excluding the time taken for setting up the server) for any suite to run, both in headless and non-headless modes, assuming the machine has sufficient resources. If the total time taken is significantly longer than this, it may indicate an issue with the testing environment. If such an issue is noticed or observed, please raise it on our [issue tracker](https://github.com/oppia/oppia/issues).**
+
+> **TIP:** To reduce the development cycle for the tests, try using `--skip-build` to skip the build in the local environment as this can reduce the run-time of tests.
+
+**Note: Typically, these tests take anywhere between 2 to 5-6 minutes (excluding the time taken for setting up the server) for any suite to run, both in headless and non-headless modes, assuming the machine has sufficient resources. The duration depends on the tests, and some tests can run longer due to a more extensive setup (if there is a longer setup, it would be mentioned in the timeout in the test block). However, tests with longer setups can go up to 8-10 minutes (currently, we have some such tests). Usually, the total runtime of tests would be around 3-4 minutes in most cases. In any case, if the run-time appears unreasonably long to you on you machine, feel free to raise an issue on our [issue tracker](https://github.com/oppia/oppia/issues).**
 
 ## How to write new tests for a specific user
 
-1) Create a new directory for the specific user if it doesn't already exists inside the `spec` directory. For ex. `Topic Manager` user can have directory named as `topic-manager-tests`, and within the user directory, each test file is named as `*.spec.ts`. 
-> Note: Naming convention for directories / files is kebab case, where each word is separated by a (-)
+1) Create a new directory for the specific user if it doesn't already exist inside the `specs` directory. For example, the `Topic Manager` user can have a directory named `topic-manager`, and within the user directory, each test file is named as `*.spec.ts`. 
+> Note: Naming convention for directories/files is kebab case, where each word is separated by a (-).
 
-2) Within the user directory, create a new file for each test. For ex. `create-new-topic.spec.ts` and `delete-topic.spec.ts` for `Topic Manager` user. And these top-level test contains single user stories checking their test steps and expectations mentioned in the [testing spreadsheet](https://docs.google.com/spreadsheets/d/1O8EHiSAGrG0yoNUBz9E4DIwKNS8Rfsv_ffC4k1WK5jc/edit?usp=sharing).
+2) Within the user directory, create a new file for each test. For example, `create-and-delete-subtopic-and-story.spec.ts` and `browse-topics-on-topics-and-skills-dashboard.spec.ts` for the `Topic Manager` user. These top-level tests contain single user stories checking their test steps and expectations mentioned in the testing spreadsheet.
 
-3) The functionality of the top-level tests for each user-type is defined in the `user-utilities` directory. For ex. the blog editor tests are written within the `spec/blog-editor-tests` directory, and the functionality of the tests are defined in the `user-utilities/blog-post-editor-utils.ts` file.
-> Note: A utility file is maintained for each user type. The purpose of maintaining this file is to add methods specific to that user on top of the already provided basic methods. This file maintains a user class which is extended from the base class of puppeteer-utils.ts . For ex. blog-post-admin-utils.ts have a class BlogPostEditor which have methods like `createDraftBlogPostWithTitle`, `deleteDraftBlogPostWithTitle` etc. specific to Blog Admin only.
+3) The functionality of the top-level tests for each user type is defined in the `utilities/user` directory. For example, the blog admin tests are written within the `specs/blog-admin` directory, and the functionality of the tests is defined in the `utilities/user/blog-admin.ts` file.
+> Note: A utility file is maintained for each user type. The purpose of maintaining this file is to add methods specific to that user on top of the already provided basic methods. This file maintains a user class which is extended from the base class of `puppeteer-utils.ts`. For example, `blog-admin.ts` has a class `BlogAdmin` which has methods like `createDraftBlogPostWithTitle`, `deleteDraftBlogPostWithTitle`, etc., specific to Blog Admin only. Sometimes, when a user (e.g., Topic Manager) requires methods from another user type (e.g., Curriculum Admin), it's acceptable to use intersection types to combine the necessary methods.
 
-4) The utility files are imported into the top-level test files, and the methods are called to perform the required actions. For example, in the `try-to-publish-a-duplicate-blog-post-and-get-blocked.spec.ts` file, the `createNewBlogPostWithTitle` method is called to create a new blog post with the given title. Additionally, the `expectUserUnableToPublishBlogPost` method is called to check if the user is unable to publish a blog post. To facilitate instantiation of classes, each utils file should also include a `UserFactory` function. This function's purpose is to instantiate a new class of the corresponding type. For instance, ` export let QuestionAdminFactory = (): QuestionAdmin => new QuestionAdmin();` would create a QuestionAdmin instance.
+4) The utility files are imported into the top-level test files, and the methods are called to perform the required actions. For example, in the `assign-role-to-users-and-change-tag-properties.spec.ts` file, the `assignRoleToUser` method is called to assign a role to a user. Additionally, the `expectRoleAssignedSuccessfully` method is called to check if the role was assigned successfully. To facilitate instantiation of classes, each utils file should also include a `UserFactory` function. This function's purpose is to instantiate a new class of the corresponding type. For instance, `export let BlogAdminFactory = (): BlogAdmin => new BlogAdmin();` would create a BlogAdmin instance.
 
-5) After adding a new user utility file, you should make the following changes to user factory:
+5) After adding a new user utility file, you should make the following changes to the user factory:
 
-   If the role requires a super admin to assign it, first, add the role to the `Roles` enum in `test-constants.ts`. Then, to add it, reference the `USER_ROLE_MAPPING` inside the `user-factory.ts` file. If the user requires a role from the super admin, add the reference accordingly.
+If the role requires a super admin to assign it, first, add the role to the `Roles` enum in `test-constants.ts`. Then, to add it, reference the `USER_ROLE_MAPPING` inside the `user-factory.ts` file. If the user requires a role from the super admin, add the reference accordingly.
 
-   For example, if we want to add Translation admin with the help of super admin then:
+For example, if we want to add Translation Admin with the help of a super admin then:
 
     • Define the role in `Roles` enum:
     ```
@@ -114,19 +151,21 @@ make run_tests.acceptance suite="blog-editor-tests/check-blog-editor-unable-to-p
       } as const;
     ```
 
-    For roles that don't require super admin privileges, such as `LoggedInUser`, add the factory to the array inside `createNewUser` under `composeUserWithRoles(BaseUserFactory(), [...])`. This ensures that the new user role is included when creating a new user instance.
+For roles that don't require super admin privileges, such as `LoggedInUser`, add the factory to the array inside `createNewUser` under `composeUserWithRoles(BaseUserFactory(), [...])`. This ensures that the new user role is included when creating a new user instance. Please ensure to follow the appropriate conventions and guidelines while adding new user-utilities files to the user-factory to maintain consistency and clarity in the testing process.
 
-    Please ensure to follow the appropriate conventions and guidelines while adding new user-utilities files to the user-factory to maintain consistency and clarity in the testing process.
+6) For each test, the user is created using the `UserFactory` class. For example, in the `assign-role-to-users-and-change-tag-properties.spec.ts` file, the `createNewUser` method is called to create a new user, with the parameter `[ROLES.BLOG_ADMIN]` assigned as the role of the blog admin. The `createNewUser` method is defined in the `user-factory.ts`file. The `createNewUser` method creates a new user with the provided username, email, and role, and then returns the user object. The user object is used to perform the required actions (that are defined in the `utilities/user/*-utils.ts`).
 
-6) For each test, the user is created using the `UserFactory` class. For ex. in the `try-to-publish-a-duplicate-blog-post-and-get-blocked.spec.ts` file, The `createNewUser` method is called to create a new user, with the parameter `[ROLES.BLOG_POST_EDITOR]` assigned as the role of the blog post editor. The `createNewUser` method is defined in the `user-factory.ts` file. The `createNewUser` method creates a new user with the provided username, email and role, and then returns the user object. The user object is used to perform the required actions (that are defined in the `user-utilities/*-utils.ts`).
+7) After successful completion of any test step or any expectation, the `showMessage` method is called to log the progress. For example, in the `blog-admin.ts` file, the `showMessage` method is called to log the progress after publishing a new blog post. The `showMessage` method is defined in the `show-message.ts` file.
 
-7) After successful completition of any test step or any expectation, the `showMessage` method is called to log the progress. For ex. in the `blog-post-editor-utils.ts` file, the `showMessage` method is called to log the progress after publishing new blog post. The `showMessage` method is defined in the `show-message-utils.ts` file.
+8) If there is any error during the test, then we throw errors in the expectation step or there would be a timeout error if some component does not behave as intended.
 
-8) If there is any error during the test, then we throw errors in the expectation step or there would be timeout error if some component does not behave as intended.
-
-9) The `puppeteer-testing-utilities` directory contains all the utility files and helper functions, which you would require to write new acceptance tests. This directory can also be used to append more utility functions as when required or needed by the user.
+9) The `utilities` directory contains all the utility files and helper functions, which you would require to write new acceptance tests. This directory can also be used to append more utility functions as and when required or needed by the user.
 
 10) The test must be thoroughly tested before submitting a PR. The test can be run locally by running the following command as mentioned above or you can run the test on the CI server by pushing your code to the remote branch in your fork. The CI server will run the test and will show the result.
+
+11) After writing the test, do not forget to add it in our configuration file `common.py` and in `acceptance.json` file so that it is included in the workflow.
+
+> Note: Sometimes tests may pass locally but fail on the CI environment due to differences between the local and CI environments. In such cases, debugging and fixing should be done on the CI environment, as that is where the tests are intended to run. However, we are transitioning to using Docker for both the local and CI setups, which should help mitigate these issues.**
 
 ### Console errors logging functionality in Acceptance Tests
 
@@ -183,7 +222,7 @@ Similar to desktop, we also have acceptance tests for mobile to ensure responsiv
 
 ### How to write tests for mobile
 
-There will be no change in the `spec` file of the tests; however, there may be some changes in the `utils` file, which is optional and dependent on the specific test cases. In most cases, the tests will run correctly for both mobile and desktop.
+There will be no change in the `specs` file of the tests; however, there may be some changes in the `utilities/user` file, which is optional and dependent on the specific test cases. In most cases, the tests will run correctly for both mobile and desktop.
 
 However, in scenarios where certain actions are affected by the smaller screen size, additional steps may be required.
 
@@ -193,7 +232,7 @@ For example: consider a scenario where a menu is collapsed into a hamburger menu
 
 Here, if we want to click on the "Home" or any other button, we need to first click on the hamburger menu. Additionally, there may be differences in selectors for the same buttons between desktop and mobile. For instance, the publish button in desktop might be `e2e-test-publish-exploration`, while in mobile it could be `e2e-test-mobile-publish-button`.
 
-We can handle these differences by including conditional statements in the `utils` file, using the `isViewportAtMobileWidth()` function to execute commands specific to mobile devices.
+We can handle these differences by including conditional statements in the `utilities/user` file, using the `isViewportAtMobileWidth()` function to execute commands specific to mobile devices.
 
 For example:
 
@@ -228,12 +267,12 @@ make run_tests.acceptance suite=SUITE_NAME MOBILE=true
 For example, to run the `check-blog-editor-unable-to-publish-duplicate-blog-post.spec.ts` test, run the following command:
 Python:
 ```
-python -m scripts.run_acceptance_tests --mobile --suite="blog-editor-tests/check-blog-editor-unable-to-publish-duplicate-blog-post"
+python -m scripts.run_acceptance_tests --mobile --suite="blog-editor/check-blog-editor-unable-to-publish-duplicate-blog-post"
 ```
 
 Docker:
 ```
-make run_tests.acceptance suite="blog-editor-tests/check-blog-editor-unable-to-publish-duplicate-blog-post" MOBILE=true
+make run_tests.acceptance suite="blog-editor/check-blog-editor-unable-to-publish-duplicate-blog-post" MOBILE=true
 ```
 
 ## Reference Links
