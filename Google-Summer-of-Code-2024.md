@@ -33,15 +33,15 @@ GSoC is an excellent opportunity for new contributors to get paid to work on an 
 
 ## Current Projects
 
-The following projects (with linked proposals where available) are currently in progress for GSoC 2024:
+The following projects (with linked proposals and contributor journals) are currently in progress for GSoC 2024:
 
-* [Mohd Afzal Khan](pdfs/GSoC2024MohdAfzal.pdf): Infrastructure and navigation for multiple classrooms
-* [Akash Paloju](pdfs/GSoC2024AkashPaloju.pdf): Static Page Redesigns
-* [Vir Kothari](pdfs/GSoC2024VirKothari.pdf): Improvements to the exploration editor page
-* [Akhilesh Kumar Yadav](pdfs/GSoC2024AkhileshKumar.pdf): Acceptance Tests
-* [Justin Nguyen](pdfs/GSoC2024JustinNguyen.pdf): Make CI and pre-push hooks more efficient
-* [Ramadevi](pdfs/GSoC2024RamaDevi.pdf): Code coverage support and enforcement
-* [Saptak Manna](pdfs/GSoC2024SaptakManna.pdf): Multiple Classrooms Support
+* [Mohd Afzal Khan](pdfs/GSoC2024MohdAfzal.pdf): Infrastructure and navigation for multiple classrooms. Mentor: Nikita Vorobyev. [Journal link](https://medium.com/@afzl210).
+* [Akash Paloju](pdfs/GSoC2024AkashPaloju.pdf): Static Page Redesigns. Mentor: Harshvardhan Singh. [Journal link](https://add-compelling-pages.blogspot.com/).
+* [Vir Kothari](pdfs/GSoC2024VirKothari.pdf): Improvements to the exploration editor page. Mentor: Kevin Thomas. [Journal link](https://medium.com/@virkothari8).
+* [Akhilesh Kumar Yadav](pdfs/GSoC2024AkhileshKumar.pdf): Acceptance Tests. Mentor: Christie Ho. [Journal link](https://medium.com/@akacademic05).
+* [Justin Nguyen](pdfs/GSoC2024JustinNguyen.pdf): Make CI and pre-push hooks more efficient.  Mentor: Vojtěch Jelínek. [Journal link](https://medium.com/@jn-nguyen).
+* [Ramadevi](pdfs/GSoC2024RamaDevi.pdf): Code coverage support and enforcement. Mentor: Ben Henning. [Journal link](https://medium.com/@rd4dev).
+* [Saptak Manna](pdfs/GSoC2024SaptakManna.pdf): Multiple Classrooms Support. Mentor: Adhiambo Peres. [Journal link](https://medium.com/@Mr_17).
 
 
 ## Getting started
