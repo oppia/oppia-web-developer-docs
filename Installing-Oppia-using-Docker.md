@@ -77,13 +77,13 @@ To install Oppia under Docker, follow these steps:
 
    For making any changes to original repository, we first sync our cloned repository with original repository. We merge develop with `upstream/develop` to do this. Now we make a new branch, do the changes on the branch, push the branch to forked repository, and make a PR from Github interface. We use a different branch to make changes so that we can work on multiple issues while still having a clean version in develop branch.
 
-**Note for Developers: Using Git SSH**
-For developers that are using SSH to push to their git repository, please change the SSH config at `~/.ssh/config` to ensure that the git pre-push hook doesn't timeout at 5 minutes. In order to do this, add the following lines to `~/.ssh/config` ([Reference](https://stackoverflow.com/a/65818657)):
+   **Note for Developers: Using Git SSH**
+   For developers that are using SSH to push to their git repository, please change the SSH config at `~/.ssh/config` to ensure that the git pre-push hook doesn't timeout at 5 minutes. In order to do this, add the following lines to `~/.ssh/config` ([Reference](https://stackoverflow.com/a/65818657)):
 
-  ```console
-  Host*
-    ServerAliveInterval 60
-    ServerAliveCountMax 30
+   ```console
+   Host*
+      ServerAliveInterval 60
+      ServerAliveCountMax 30
   ```
 
 **Note for Developers: Allocating Resources to Docker Desktop**
