@@ -69,6 +69,14 @@ To install Oppia under Docker, follow these steps:
 
    The `git remote -v` command at the end shows all your current remotes.
 
+   For developers that are using SSH to push to their git repository, please change the SSH config at `~/.ssh/config` to ensure that the git pre-push hook doesn't timeout at 5 minutes. In order to do this, add the following lines to `~/.ssh/config` ([Reference](https://stackoverflow.com/a/65818657)):
+
+      ```console
+      Host*
+         ServerAliveInterval 60
+         ServerAliveCountMax 30
+      ```
+
    Now you can pull in changes from `oppia/oppia` by running `git pull upstream {{branch}}` and push your changes to your fork by running `git push origin {{branch}}`.
 
    We have established a clean setup now. We can make any changes we like and push it to this forked repository, and then make a pull request for getting the changes merged into the original repository. Here's a nice picture explaining the process ([image source](https://github.com/Rafase282/My-FreeCodeCamp-Code/wiki/Lesson-Save-your-Code-Revisions-Forever-with-Git)).
@@ -76,15 +84,6 @@ To install Oppia under Docker, follow these steps:
    ![Diagram of the fork-and-clone workflow](images/install/forkCloneWorkflow.png)
 
    For making any changes to original repository, we first sync our cloned repository with original repository. We merge develop with `upstream/develop` to do this. Now we make a new branch, do the changes on the branch, push the branch to forked repository, and make a PR from Github interface. We use a different branch to make changes so that we can work on multiple issues while still having a clean version in develop branch.
-
-   **Note for Developers: Using Git SSH**
-   For developers that are using SSH to push to their git repository, please change the SSH config at `~/.ssh/config` to ensure that the git pre-push hook doesn't timeout at 5 minutes. In order to do this, add the following lines to `~/.ssh/config` ([Reference](https://stackoverflow.com/a/65818657)):
-
-   ```console
-   Host*
-      ServerAliveInterval 60
-      ServerAliveCountMax 30
-  ```
 
 **Note for Developers: Allocating Resources to Docker Desktop**
 For systems with 8GB RAM:
