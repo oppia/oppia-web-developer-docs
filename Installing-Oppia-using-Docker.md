@@ -69,7 +69,7 @@ To install Oppia under Docker, follow these steps:
 
    The `git remote -v` command at the end shows all your current remotes.
 
-   For developers that are using SSH to push to their git repository, please change the SSH config at `~/.ssh/config` to ensure that the git pre-push hook doesn't timeout at 5 minutes. In order to do this, add the following lines to `~/.ssh/config` ([Reference](https://stackoverflow.com/a/65818657)):
+   For developers who are using SSH to push to their git repository, please change the SSH config at `~/.ssh/config` to ensure that the git pre-push hook doesn't time out at 5 minutes. In order to do this, add the following lines to `~/.ssh/config` ([Reference](https://stackoverflow.com/a/65818657)):
 
       ```console
       Host*
@@ -210,7 +210,7 @@ These are the `make` commands available for running tests:
 - `make run_tests.backend` - Runs the backend tests, verifies the functionality of backend logic and database interactions.  
 **Flags:**  
 	Usage - `make run_tests.backend PYTHON_ARGS="--flag_name"`
-	* `--test_targets` - Specifies the dotted module name of the test(s) to run.
+	* `--test_targets` - Specifies the dotted module name(s) of the test(s) to run, each test separated by comma.
 	* `--test_path` - Specifies the subdirectory path containing the test(s) to run.
 	* `--test_shard` - Specifies the name of the shard to run.
 	* `--generate_coverage_report` - Generates a coverage report.
