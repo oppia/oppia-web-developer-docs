@@ -217,7 +217,7 @@ These are the `make` commands available for running tests:
 	* `--ignore_coverage` - Prevents tests from failing due to coverage issues.
 	* `--exclude_load_tests` - Excludes load tests from being run.
 	* `--verbose` - Displays the output of the tests being run.
-   * `--run_on_changed_files_in_branch` - Runs only the backend tests for files that have been altered in the current branch.
+	* `--run_on_changed_files_in_branch` - Runs only the backend tests for files that have been altered in the current branch.
 
 - `make run_tests.frontend` - Runs the frontend unit tests, tests individual components and functions of the frontend code.  
 **Flags:**  
@@ -228,8 +228,8 @@ These are the `make` commands available for running tests:
 	* `--run_minified_tests` - Runs tests on both minified and non-minified code.
 	* `--check_coverage` - Checks frontend test coverage..
 	* `--download_combined_frontend_spec_file` - Downloads the combined frontend spec file.
-   * `--specs_to_run` - Takes a comma-delimited list of frontend files and runs the frontend tests only on the files specified.
-   * `--run_on_changed_files_in_branch` - Runs only the frontend tests for files that have been altered in the current branch.
+	* `--specs_to_run` - Takes a comma-delimited list of frontend files and runs the frontend tests only on the files specified.
+	* `--run_on_changed_files_in_branch` - Runs only the frontend tests for files that have been altered in the current branch.
 
 - `make run_tests.typescript` - Runs the TypeScript checks, ensures type safety and catches potential errors in TypeScript code.  
 **Flag:**  
