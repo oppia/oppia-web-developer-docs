@@ -70,28 +70,28 @@ Now that we've reached a file, the rest of the dotted name refers to Python attr
 
 When you know which test is causing you problems, running it in isolation can help you debug. For one thing, the tests will run much faster if you only run a few in isolation. Further, the console output from the test run will be much easier to understand.
 
-To run a test in isolation, you can use the `--test_target` option:
+To run a test in isolation, you can use the `--test_targets` option:
 
 Python:
 ```console
-python -m scripts.run_backend_tests --test_target jobs.jobs_manager_test.RefreshStateOfBeamJobRunModelTests.test_failed_api_call_logs_the_exception
+python -m scripts.run_backend_tests --test_targets jobs.jobs_manager_test.RefreshStateOfBeamJobRunModelTests.test_failed_api_call_logs_the_exception
 ```
 
 Docker:
 ```console
-make run_tests.backend PYTHON_ARGS="--test_target jobs.jobs_manager_test.RefreshStateOfBeamJobRunModelTests.test_failed_api_call_logs_the_exception"
+make run_tests.backend PYTHON_ARGS="--test_targets jobs.jobs_manager_test.RefreshStateOfBeamJobRunModelTests.test_failed_api_call_logs_the_exception"
 ```
 
 If you wanted to run all the tests defined by the `RefreshStateOfBeamJobRunModelTests`, you could do that too. Just shorten the dotted name to end at the class:
 
 Python:
 ```console
-python -m scripts.run_backend_tests --test_target jobs.jobs_manager_test.RefreshStateOfBeamJobRunModelTests
+python -m scripts.run_backend_tests --test_targets jobs.jobs_manager_test.RefreshStateOfBeamJobRunModelTests
 ```
 
 Docker:
 ```console
-make run_tests.backend PYTHON_ARGS="--test_target jobs.jobs_manager_test.RefreshStateOfBeamJobRunModelTests"
+make run_tests.backend PYTHON_ARGS="--test_targets jobs.jobs_manager_test.RefreshStateOfBeamJobRunModelTests"
 ```
 
 Note that if you want to run all the tests in a directory, you need to use `--test_path` instead like this:

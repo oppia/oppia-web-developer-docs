@@ -15,7 +15,7 @@ Editing roles and actions for the platform can be done using the following instr
    4. Search _ROLE_ACTIONS and add a new entry for the role.
       1. key → The role variable from feconf.
       2. value -> The list of actions allowed for the role.
-5. Run backend test corresponding to role changes python -m scripts.run_backend_tests --test_target=core.domain.role_services_test.
+5. Run backend test corresponding to role changes python -m scripts.run_backend_tests --test_targets=core.domain.role_services_test.
 6. Manually test the changes by [assigning the new role to a user](#assigning-a-role-to-a-user) and through [roles and actions visualizer](#roles-and-actions-visualizer).
 
 ## Removing the existing role
@@ -27,7 +27,7 @@ Editing roles and actions for the platform can be done using the following instr
    2. Check _ROLE_ACTIONS and [remove all unique actions](#removing-existing-action) allocated to the given role. 
    3. Remove the role entry from ROLE_ACTIONS
 3. Open feconf.py and delete the ROLE_ID* variable corresponding to the given role.
-4. Run backend test corresponding to role changes python -m scripts.run_backend_tests --test_target=core.domain.role_services_test.
+4. Run backend test corresponding to role changes python -m scripts.run_backend_tests --test_targets=core.domain.role_services_test.
 5. Manually test the changes
    1. Roles and actions visualizer should not show the given [role and associated unique actions](#roles-and-actions-visualizer).
 

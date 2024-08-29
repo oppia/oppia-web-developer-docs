@@ -76,6 +76,14 @@ To install Oppia under Docker, follow these steps:
 
    The `git remote -v` command at the end shows all your current remotes.
 
+   For developers who are using SSH to push to their git repository, please change the SSH config at `~/.ssh/config` to ensure that the git pre-push hook doesn't time out at 5 minutes. In order to do this, add the following lines to `~/.ssh/config` ([Reference](https://stackoverflow.com/a/65818657)):
+
+      ```console
+      Host*
+         ServerAliveInterval 60
+         ServerAliveCountMax 30
+      ```
+
    Now you can pull in changes from `oppia/oppia` by running `git pull upstream {{branch}}` and push your changes to your fork by running `git push origin {{branch}}`.
 
    We have established a clean setup now. We can make any changes we like and push it to this forked repository, and then make a pull request for getting the changes merged into the original repository. Here's a nice picture explaining the process ([image source](https://github.com/Rafase282/My-FreeCodeCamp-Code/wiki/Lesson-Save-your-Code-Revisions-Forever-with-Git)).
@@ -212,13 +220,14 @@ These are the `make` commands available for running tests:
 - `make run_tests.backend` - Runs the backend tests, verifies the functionality of backend logic and database interactions.  
 **Flags:**  
 	Usage - `make run_tests.backend PYTHON_ARGS="--flag_name"`
-	* `--test_target` - Specifies the dotted module name of the test(s) to run.
+	* `--test_targets` - Specifies the dotted module name(s) of the test(s) to run, each test separated by comma.
 	* `--test_path` - Specifies the subdirectory path containing the test(s) to run.
 	* `--test_shard` - Specifies the name of the shard to run.
 	* `--generate_coverage_report` - Generates a coverage report.
 	* `--ignore_coverage` - Prevents tests from failing due to coverage issues.
 	* `--exclude_load_tests` - Excludes load tests from being run.
 	* `--verbose` - Displays the output of the tests being run.
+	* `--run_on_changed_files_in_branch` - Runs only the backend tests for files that have been altered in the current branch.
 
 - `make run_tests.frontend` - Runs the frontend unit tests, tests individual components and functions of the frontend code.  
 **Flags:**  
@@ -229,6 +238,8 @@ These are the `make` commands available for running tests:
 	* `--run_minified_tests` - Runs tests on both minified and non-minified code.
 	* `--check_coverage` - Checks frontend test coverage..
 	* `--download_combined_frontend_spec_file` - Downloads the combined frontend spec file.
+	* `--specs_to_run` - Takes a comma-delimited list of frontend files and runs the frontend tests only on the files specified.
+	* `--run_on_changed_files_in_branch` - Runs only the frontend tests for files that have been altered in the current branch.
 
 - `make run_tests.typescript` - Runs the TypeScript checks, ensures type safety and catches potential errors in TypeScript code.  
 **Flag:**  

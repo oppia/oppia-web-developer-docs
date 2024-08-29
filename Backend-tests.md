@@ -161,36 +161,37 @@ Docker:
 make run_tests.backend
 ```
 
-Alternatively, you can run just a single test module like this:
+Alternatively, you can run just a single test module or multiple test modules like this:
 
 Python:
 ```console
-python -m scripts.run_backend_tests --test_target=core.controllers.editor_test
+python -m scripts.run_backend_tests --test_targets=core.controllers.editor_test
 ```
 
 Docker:
 ```console
-make run_tests.backend PYTHON_ARGS="--test_target=core.controllers.editor_test"
+make run_tests.backend PYTHON_ARGS="--test_targets=core.controllers.editor_test"
 ```
 
-The argument to `--test_target` can be as specific as you like. For example:
+The argument to `--test_targets` can be as specific as you like. For example:
 
-* Run a class of tests: `--test_target=core.controllers.editor_test.BaseEditorControllerTests`
-* Run a single test: `--test_target=core.controllers.editor_test.BaseEditorControllerTests.test_editor_page`
+* Run a class of tests: `--test_targets=core.controllers.editor_test.BaseEditorControllerTests`
+* Run a single test: `--test_targets=core.controllers.editor_test.BaseEditorControllerTests.test_editor_page`
+* Run multiple tests: `--test_targets=core.controllers.editor_test,core.controllers.domain_test`
 
 If you also want to see the output of `print` statements and error logs in the terminal, use `--verbose` like this:
 
 Python:
 ```console
-python -m scripts.run_backend_tests --test_target=core.controllers.editor_test --verbose
+python -m scripts.run_backend_tests --test_targets=core.controllers.editor_test --verbose
 ```
 
 Docker:
 ```console
-make run_tests.backend PYTHON_ARGS="--test_target=core.controllers.editor_test --verbose"
+make run_tests.backend PYTHON_ARGS="--test_targets=core.controllers.editor_test --verbose"
 ```
 
-For more information about `--test_target` and other flags, run:
+For more information about `--test_targets` and other flags, run:
 
 Python:
 ```console
@@ -306,7 +307,7 @@ scripts/run_lighthouse_tests.py     118      5     34      3    95%   107->116, 
 TOTAL                               118      5     34      3    95%
 ```
 
-If you want to check that you've fixed the per-file coverage issue without running all the tests, you can use `--test_target` to run only the test file associated with the file whose coverage you want to check. Then in the overall coverage report, check the line for your file to see if it's 100%. Note that most other files in the codebase will show as being incompletely covered since you didn't run all the tests, and that's okay.
+If you want to check that you've fixed the per-file coverage issue without running all the tests, you can use `--test_targets` to run only the test file associated with the file whose coverage you want to check. Then in the overall coverage report, check the line for your file to see if it's 100%. Note that most other files in the codebase will show as being incompletely covered since you didn't run all the tests, and that's okay.
 
 ## Write backend tests
 
