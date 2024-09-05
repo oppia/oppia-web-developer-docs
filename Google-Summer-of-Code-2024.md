@@ -31,17 +31,17 @@ GSoC is an excellent opportunity for new contributors to get paid to work on an 
 -   [GSoC FAQ](https://developers.google.com/open-source/gsoc/faq)
 
 
-## Current Projects
+## Completed Projects
 
-The following projects (with linked proposals and contributor journals) are currently in progress for GSoC 2024:
+The following projects (with linked proposals, contributor journals and final reports) were successfully completed as part of GSoC 2024:
 
-* [Mohd Afzal Khan](pdfs/GSoC2024MohdAfzal.pdf): Infrastructure and navigation for multiple classrooms. Mentor: Nikita Vorobyev. [Journal link](https://medium.com/@afzl210).
-* [Akash Paloju](pdfs/GSoC2024AkashPaloju.pdf): Static Page Redesigns. Mentor: Harshvardhan Singh. [Journal link](https://add-compelling-pages.blogspot.com/).
-* [Vir Kothari](pdfs/GSoC2024VirKothari.pdf): Improvements to the exploration editor page. Mentor: Kevin Thomas. [Journal link](https://medium.com/@virkothari8).
-* [Akhilesh Kumar Yadav](pdfs/GSoC2024AkhileshKumar.pdf): Acceptance Tests. Mentor: Christie Ho. [Journal link](https://medium.com/@akacademic05).
-* [Justin Nguyen](pdfs/GSoC2024JustinNguyen.pdf): Make CI and pre-push hooks more efficient.  Mentor: Vojtěch Jelínek. [Journal link](https://medium.com/@jn-nguyen).
-* [Ramadevi](pdfs/GSoC2024RamaDevi.pdf): Code coverage support and enforcement. Mentor: Ben Henning. [Journal link](https://medium.com/@rd4dev).
-* [Saptak Manna](pdfs/GSoC2024SaptakManna.pdf): Multiple Classrooms Support. Mentor: Adhiambo Peres. [Journal link](https://medium.com/@Mr_17).
+* [Mohd Afzal Khan](pdfs/GSoC2024MohdAfzal.pdf): Infrastructure and navigation for multiple classrooms. Mentor: Nikita Vorobyev. [Journal link](https://medium.com/@afzl210). [Final report](https://medium.com/@afzl210/gsoc24-final-report-multiple-classrooms-8bcf3d4d10bf).
+* [Akash Paloju](pdfs/GSoC2024AkashPaloju.pdf): Static Page Redesigns. Mentor: Harshvardhan Singh. [Journal link](https://add-compelling-pages.blogspot.com/). [Final report](https://gsoc-journey-akash-paloju.blogspot.com/2024/08/my-gsoc24-journey-with-oppia-foundation.html).
+* [Vir Kothari](pdfs/GSoC2024VirKothari.pdf): Improvements to the exploration editor page. Mentor: Kevin Thomas. [Journal link](https://medium.com/@virkothari8). [Final report](https://medium.com/@virkothari8/gsoc-2024-final-project-report-oppia-improvements-to-the-exploration-editor-page-fb93af950d3b).
+* [Akhilesh Kumar Yadav](pdfs/GSoC2024AkhileshKumar.pdf): Acceptance Tests. Mentor: Christie Ho. [Journal link](https://medium.com/@akacademic05). [Final report](https://medium.com/@akacademic05/my-google-summer-of-code24-with-oppia-foundation-2c12e796f258).
+* [Justin Nguyen](pdfs/GSoC2024JustinNguyen.pdf): Make CI and pre-push hooks more efficient.  Mentor: Vojtěch Jelínek. [Journal link](https://medium.com/@jn-nguyen). [Final report](https://docs.google.com/document/d/1Ev_qaJ2yybLZBRpXAtu7WMQIjguuNamLWGKB57v3hUs/edit).
+* [Ramadevi](pdfs/GSoC2024RamaDevi.pdf): Code coverage support and enforcement. Mentor: Ben Henning. [Journal link](https://medium.com/@rd4dev). [Final report](https://medium.com/@rd4dev/gsoc-24-final-report-oppia-android-code-coverage-enforcement-47089b8eb3e1).
+* [Saptak Manna](pdfs/GSoC2024SaptakManna.pdf): Multiple Classrooms Support. Mentor: Adhiambo Peres. [Journal link](https://medium.com/@Mr_17). [Final report](https://medium.com/@Mr_17/my-google-summer-of-code24-journey-with-oppia-286ebcdef2fd).
 
 
 ## Getting started
