@@ -385,6 +385,7 @@ class ValidateTopicModelsJob(base_jobs.JobBase):
 
 To have your job registered and acknowledged by the front-end, make sure to import the module in the corresponding section of `core/jobs/registry.py`
 
+> [!IMPORTANT]
 > Practice 7: Try importing the module in core/jobs/registry.py. Then check out the release coordinator page to verify that the job has been registered.
 > Hint: Follow the steps mentioned here in the wiki https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs#local-development-server
 
@@ -897,6 +898,7 @@ Now let’s try running the job on our local server.
 
 For the above step, we didn’t create any dummy data; thus, it covers a scenario similar to our first unit test. Let’s create dummy data and see how our job works for that. Generate dummy data by following the steps mentioned in this wiki page: [Populating data on local server](https://github.com/oppia/oppia/wiki/Populating-data-on-local-server#maths-classroom-page).
 
+> [!IMPORTANT]
 > **Practice 10:** Now let's create dummy data to see how our job works with different scenarios.
 >
 > Follow the steps mentioned in this [wiki page](https://github.com/oppia/oppia/wiki/Populating-data-on-local-server#maths-classroom-page) to generate dummy data on your local server.  
@@ -904,6 +906,7 @@ For the above step, we didn’t create any dummy data; thus, it covers a scenari
 
 The beam job doesn’t report any topic ID with missing topic summary models. That is because, by default, all the topic models are accompanied by their corresponding `TopicSummaryModel`.
 
+> [!IMPORTANT]
 > **Practice 11:** To test the job's ability to identify missing `TopicSummaryModel`:
 >
 > - Set up a local datastore using DSAdmin by following [these instructions](https://github.com/oppia/oppia/wiki/Debugging-datastore-locally).
@@ -912,6 +915,7 @@ The beam job doesn’t report any topic ID with missing topic summary models. Th
 
 The beam job will report the topic ID for which you deleted the topic-summary model this time.
 
+> [!IMPORTANT]
 > **Practice 12:** Now that you have a good understanding of Beam jobs at Oppia, let's add one more case to cover. Your job should also report any `TopicSummaryModel` that lacks a corresponding `TopicModel`.
 >
 > **Hint:** You'll need to adjust the job logic to include a check for `TopicSummaryModel` entries without corresponding `TopicModel` entries. Ensure that the unit tests also cover this scenario. Test the job by manually creating or deleting entries in your local datastore to mimic this scenario.
