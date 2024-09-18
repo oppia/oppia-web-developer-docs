@@ -79,7 +79,7 @@ To install Oppia under Docker, follow these steps:
    For developers who are using SSH to push to their git repository, please change the SSH config at `~/.ssh/config` to ensure that the git pre-push hook doesn't time out at 5 minutes. In order to do this, add the following lines to `~/.ssh/config` ([Reference](https://stackoverflow.com/a/65818657)):
 
       ```console
-      Host*
+      Host *
          ServerAliveInterval 60
          ServerAliveCountMax 30
       ```
