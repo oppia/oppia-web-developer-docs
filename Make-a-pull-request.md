@@ -31,6 +31,10 @@ Then create a new branch. In this example the branch is named `your-branch-name`
 git checkout -b your-branch-name
 ```
 
+> [!NOTE]
+> Do not use the character '/' in your branch name.
+
+
 ## Step 2: Make commits locally to your feature branch
 
 Each commit should be self-contained and have a descriptive commit message that helps other developers understand why the changes were made.
