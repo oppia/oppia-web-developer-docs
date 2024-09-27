@@ -10,6 +10,7 @@
     * [[Designers and artists|Contributing-to-Oppia's-design]]
   * [[How to report a bug|How-to-file-a-bug-report]]
   * [[Google Summer of Code 2024|Google-Summer-of-Code-2024]]
+  * **[[Hacktoberfest 2024|Hacktoberfest 2024]]**
 ---
 **Developing Oppia**
   * [[FAQs|Frequently-Asked-Questions]]
