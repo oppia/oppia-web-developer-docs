@@ -1,3 +1,18 @@
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Scenario](#scenario)
+- [Prerequisites](#prerequisites)
+- [Stage 1: Understand the Architecture of Beam Jobs at Oppia](#stage-1-understand-the-architecture-of-beam-jobs-at-oppia)
+- [Stage 2: Understand the Models](#stage-2-understand-the-models)
+- [Stage 3: Draft the Directed Acyclic Graph (DAG)](#stage-3-draft-the-directed-acyclic-graph-dag)
+- [Stage 4: Writing the Beam Job](#stage-4-writing-the-beam-job)
+- [Stage 5: Testing the Beam Job](#stage-5-testing-the-beam-job)
+- [Stage 6: Run and Validate the Job](#stage-6-run-and-validate-the-job)
+- [Conclusion](#conclusion)
+- [We Value Your Feedback](#we-value-your-feedback)
+
+
 ## Introduction
 
 This tutorial will guide you through the process of writing and testing a non-trivial Apache Beam job at Oppia. By the end of this tutorial, you will have a good understanding of:
