@@ -90,14 +90,9 @@ You can change your most recent commit message using `git commit --amend`. **It 
 
 ## Step 4: Create a pull request
 
-Once you have pushed your changes to your GitHub fork, you can create a pull request. Follow these steps:
+Once your feature is ready, you can open a pull request (PR)!
 
-1. Go to your fork on GitHub.
-2. Click the "Pull requests" tab, then click the "New pull request" button.
-3. Ensure that the base repository is `oppia/oppia` and that the base branch is `develop`.
-4. Select the compare branch (your feature branch).
-5. Add a descriptive title and detailed description for your pull request.
-6. Click "Create pull request" button to submit your pull request for review.
+Go to your fork on GitHub, select your branch from the dropdown menu, and click "pull request". Ensure that the base repository is oppia/oppia and that the base branch is develop. The head repository should be your fork, and the head branch should be your branch. If you don't see the repository, click the link to compare across forks. On this page, you can also see your commits and your changes.
 
 ### Detailed Instructions
 
