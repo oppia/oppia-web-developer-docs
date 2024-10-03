@@ -640,3 +640,56 @@ FAILED    core.domain.suggestion_services_test: 1 errors, 0 failures
 Thus, our suspicion appears to be correct. However, it's important to note that multiple bugs could produce the same error message, so while this provides strong supporting evidence, it doesn't conclusively confirm that this is the cause of the initial error.
 
 > You have successfully reproduced the error locally, validating your hypothesis and preparing to implement a solution.
+
+### Stage 5: Document Your Findings
+
+> Note: When tackling server errors at Oppia, it is essential to document your findings thoroughly on the issue thread. This practice not only ensures transparency in the debugging process but also enables other contributors to understand the progress, validate the issue, and collaborate effectively on finding a solution.
+
+#### Start with a Summary of the Error
+- Provide a brief description of the server error you encountered.
+- Include key details from the error logs and any initial observations.
+
+Example:
+
+I encountered a `TypeError: expected string or bytes-like object` in the `generate_contributor_certificate_data` method while accessing the Contributor Dashboard. The error occurs at line 1408 in the `suggestion_services.py` file, specifically within the `_get_plain_text_from_html_content_string` function, which calls `re.sub`.
+
+#### Detail the Steps Taken to Reproduce the Error
+- Outline the steps you followed to reproduce the error locally.
+- Mention the environment setup, data used, and any modifications made to the code.
+
+Example:
+
+To reproduce the error:
+- I set up a local environment with the latest version of Oppia.
+- I modified an existing backend test in `ContributorCertificateTests` to create a dummy translation suggestion. Specifically, I adjusted the `translation_html` field to be a list of strings instead of a single string, which matches the suspected cause of the error.
+- I ran the backend tests using `python -m scripts.run_backend_tests --test_target=core.domain.suggestion_services_test`.
+- The tests failed with a similar `TypeError` as observed in the production logs, confirming that the issue is reproducible locally.
+
+#### Identify the Commit or PR Likely to Have Introduced the Error:
+- Find the commit or PR that might have caused the issue using the Oppia wiki guide.
+- Mention the PR in your comment as a starting point for further investigation.
+ 
+Example:
+
+After examining recent changes, it appears that the issue might have been introduced in a PR that modified the `get_content_html` method to return `Union[str, List[str]]` instead of just a `str`. [Link to the PR](https://github.com/oppia/oppia/pull/17200/files#diff-6bff01224db1fe3047ddf87614d720deffd8efc7e3fca819408547f66926a541L2096) - Here, we are changing the return type of the get_content_html method from string to either strings/list. (It's not auto navigating, if you want to look, please check exp_domain file's line number 2096). 
+
+#### Explain the Possible Root Causes:
+- Describe your analysis of the potential causes.
+- Explain why the changes in the identified PR might have led to the error.
+- Provide any supporting information, such as error logs or specific observations.
+
+Example:
+
+The `get_content_html` method, which now returns `Union[str, List[str]]`, is being used in the `_get_plain_text_from_html_content_string function`. This function expects a `str`, but it sometimes receives a `List[str]`, causing a `TypeError`. The discrepancy between the expected input type (str) and the actual input type (List[str]) seems to be the root cause of the error.
+
+#### Suggest Next Steps:
+- Recommend further testing, confirming the bug with other contributors, or starting work on a fix.
+- Clearly outline what should happen next.
+
+Example:
+
+Review the `get_content_html` method and decide whether it should always return a str or update the `_get_plain_text_from_html_content_string` function to handle both `str` and `List[str]`.
+Check with other team members to gather insights on whether this bug might affect other parts of the codebase.
+If necessary, begin work on a fix by modifying the relevant functions to handle different data types appropriately.
+
+> By providing a clear and detailed comment on the issue thread, you have effectively communicated the problem and your findings to other contributors. This will help others understand the progress, reproduce the issue, and collaborate on finding a solution.
