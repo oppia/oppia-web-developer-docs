@@ -81,7 +81,7 @@ When faced with a server error, developers at Oppia typically follow these steps
 **Document Your Findings:** Once you've identified and confirmed the cause of the error, document your findings in detail on the original GitHub issue. Provide a summary of the error, clear steps to reproduce it, and any relevant observations or logs to support your conclusions.
 
 ### Stage 1: Analyze the Error Logs to Locate the Affected Code
-**Objective**: Identify where the error occurred in the code.
+> **Objective**: Identify where the error occurred in the code.
  
 > **Note**: This tutorial focuses on server errors, which are typically reported by server admins and come with error logs. For other issues, such as user-reported bugs, error logs might not always be available. In these cases, it is essential to ask users for "steps to reproduce the bug." If this information is not provided, we can contact the user to request additional details that will help us understand the issue better.
 
@@ -150,3 +150,160 @@ File "/workspace/core/domain/suggestion_services.py", line 1408, in _get_plain_t
 Based on the error logs, the issue arises because the argument passed to the re.sub() function in the _get_plain_text_from_html_content_string method is not of the expected data type (a string or bytes-like object).
 
 You have now pinpointed the exact file, function, and line where the issue originated and are ready to dive deeper into the problem area.
+
+### Stage 2: Examine the Affected Code
+> **Objective**: Analyze the affected code to understand its intended behavior and determine what might have gone wrong.
+
+Examine the _get_plain_text_from_html_content_string function to understand its purpose and the specific operation where the error occurs.
+
+<details>
+  <summary>Here's the function:</summary>
+
+```python
+def _get_plain_text_from_html_content_string(html_content_string: str) -> str:
+   """Retrieves the plain text from the given html content string. RTE element
+   occurrences in the html are replaced by their corresponding rte component
+   name, capitalized in square brackets.
+   eg: <p>Sample1 <oppia-noninteractive-math></oppia-noninteractive-math>
+       Sample2 </p> will give as output: Sample1 [Math] Sample2.
+   Note: similar logic exists in the frontend in format-rte-preview.filter.ts.
+
+   Args:
+       html_content_string: str. The content html string to convert to plain
+           text.
+
+   Returns:
+       str. The plain text string from the given html content string.
+   """
+
+   def _replace_rte_tag(rte_tag: Match[str]) -> str:
+       """Replaces all of the <oppia-noninteractive-**> tags with their
+       corresponding rte component name in square brackets.
+
+       Args:
+           rte_tag: MatchObject. A matched object that contains the
+               oppia-noninteractive rte tags.
+
+       Returns:
+           str. The string to replace the rte tags with.
+       """
+       # Retrieve the matched string from the MatchObject.
+       rte_tag_string = rte_tag.group(0)
+       # Get the name of the rte tag. The hyphen is there as an optional
+       # matching character to cover the case where the name of the rte
+       # component is more than one word.
+       rte_tag_name = re.search(
+           r'oppia-noninteractive-(\w|-)+', rte_tag_string)
+       # Here, rte_tag_name is always going to exists because the string
+       # that was passed in this function is always going to contain
+       # `<oppia-noninteractive>` substring. So, to just rule out the
+       # possibility of None for mypy type checking. we used assertion here.
+       assert rte_tag_name is not None
+       # Retrieve the matched string from the MatchObject.
+       rte_tag_name_string = rte_tag_name.group(0)
+       # Get the name of the rte component.
+       rte_component_name_string_list = rte_tag_name_string.split('-')[2:]
+       # If the component name is more than word, connect the words with spaces
+       # to create a single string.
+       rte_component_name_string = ' '.join(rte_component_name_string_list)
+       # Captialize each word in the string.
+       capitalized_rte_component_name_string = (
+           rte_component_name_string.title())
+       formatted_rte_component_name_string = ' [%s] ' % (
+           capitalized_rte_component_name_string)
+       return formatted_rte_component_name_string
+
+   # Replace all the <oppia-noninteractive-**> tags with their rte component
+   # names capitalized in square brackets.
+   html_content_string_with_rte_tags_replaced = re.sub(
+       r'<oppia-noninteractive-[^>]+>(.*?)</oppia-noninteractive-[^>]+>',
+       _replace_rte_tag, html_content_string)
+   # Get rid of all of the other html tags.
+   plain_text = html_cleaner.strip_html_tags(
+       html_content_string_with_rte_tags_replaced)
+   # Remove trailing and leading whitespace and ensure that all words are
+   # separated by a single space.
+   plain_text_without_contiguous_whitespace = ' '.join(plain_text.split())
+   return plain_text_without_contiguous_whitespace
+```
+
+</details>
+
+> [!IMPORTANT]
+> Practice 3: Locate the lines which are causing the error in the above mentioned function.
+>
+> **Hint**: Review the error logs. In a real debugging scenario, the stack trace would help you pinpoint this specific line as the source of the error.
+
+In this stack trace, the relevant line is:
+
+```python
+File "/workspace/core/domain/suggestion_services.py", line 1408, in _get_plain_text_from_html_content_string html_content_string_with_rte_tags_replaced = re.sub(
+```
+
+This line indicates that the error originated in the `_get_plain_text_from_html_content_string` function within the `suggestion_services.py` file at line number 1408. Let’s take a look at that line:
+
+```python
+html_content_string_with_rte_tags_replaced = re.sub(     r'<oppia-noninteractive-[^>]+>(.*?)</oppia-noninteractive-[^>]+>',
+       _replace_rte_tag, html_content_string)
+```
+
+Note that the third parameter, `html_content_string`, is being passed to the `re.sub` function and that this parameter is the argument of the function `_get_plain_text_from_html_content_string`.
+
+The `re.sub` function is used to replace certain HTML tags. According to the Python documentation for `re.sub`, it expects the first argument to be a pattern, the second argument to be a replacement string, and the third argument to be the string to be searched and replaced.
+
+Even though the re.sub [documentation](https://docs.python.org/3/library/re.html#re.sub) doesn't explicitly mention the TypeError, we can infer the following:
+- **TypeError Convention**: In Python, TypeError is conventionally raised to indicate that an operation or function received an argument of an inappropriate type. This means that if re.sub expects a string or bytes-like object but receives a different type, it raises a TypeError.
+- **Error Message**: The error message "expected string or bytes-like object" indicates that re.sub was given an argument that wasn't a string or bytes-like object, which is why it raised a `TypeError`.
+
+> [!IMPORTANT]
+> **Practice 4**: Determine where the `html_content_string` is coming from.
+>
+> **Hint**: Review the error logs carefully. Pay close attention to the lines mentioned in the stack trace, especially the one that is calling the `_get_plain_text_from_html_content_string` function. This will give you a clue about where the `html_content_string` originates.
+
+According to the error log, this function is called in `suggestion_services.py` within the `_generate_translation_contributor_certificate_data` function.
+
+```python
+# Retrieve the html content that is emphasized on the
+# Contributor Dashboard pages. This content is what stands
+# out for each suggestion when a user views a list of
+# suggestions.
+get_html_representing_suggestion = (
+    SUGGESTION_EMPHASIZED_TEXT_GETTER_FUNCTIONS[
+        Suggestion.suggestion_type]
+    )
+plain_text = _get_plain_text_from_html_content_string(
+get_html_representing_suggestion(suggestion))
+```
+
+As we can see, we are passing the output of the function, `get_html_representing_suggestion(suggestion)` as the input to the function  `_get_plain_text_from_html_content_string`.
+
+Let’s take a closer look at the method `get_html_representing_suggestion(suggestion)`. This method handles different types of suggestions and retrieves the corresponding HTML content based on the type of suggestion.
+
+In the context of this method, two lambda functions are defined to extract HTML content based on the `suggestion_type`:
+
+**For translation suggestions:**
+```python
+SUGGESTION_TRANSLATE_CONTENT_HTML: Callable[
+    [suggestion_registry.SuggestionTranslateContent], str
+] = lambda suggestion: suggestion.change_cmd.translation_html
+```
+This lambda function is used when the suggestion type is related to translating content. It retrieves the translation_html property from the change_cmd attribute of the suggestion object.
+
+**For question suggestions:**
+```python
+SUGGESTION_ADD_QUESTION_HTML: Callable[
+    [suggestion_registry.SuggestionAddQuestion], str
+] = lambda suggestion: suggestion.change_cmd.question_dict[
+    'question_state_data']['content']['html']
+```
+
+This lambda function is used when the suggestion type involves adding a question. It retrieves the `html` property from the `question_state_data` dictionary inside the `question_dict` of the suggestion object.
+
+> [!IMPORTANT]
+> Practice 5: Based on the code provided and the context of the lambda functions, what could potentially go wrong with the data being accessed? Specifically, think about the structure of the suggestion.change_cmd.question_dict['question_state_data']['content']['html'] and suggestion.change_cmd.translation_html fields. What potential data type or structure issues could arise here?
+
+One possible issue is that the `html` property of the `question_dict` or the `translation_html` field might not always be a string as expected. It could be `None` or another data type entirely, which would cause issues when the `_get_plain_text_from_html_content_string` function tries to process it. If the function is expecting a string but receives a different type (such as `None` or a more complex object), it could result in a `TypeError`. This could explain why the error indicates that a string or bytes-like object was expected but something else was provided.
+
+In this case, the issue is likely that either `suggestion.change_cmd.translation_html` or `suggestion.change_cmd.question_dict['question_state_data']['content']['html']` is not always a string, leading to the observed error when passed to the `re.sub()` function.
+
+> You now understand the purpose and expected behavior of the affected code and have identified areas where discrepancies may have occurred.
