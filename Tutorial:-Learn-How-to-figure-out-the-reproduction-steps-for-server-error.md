@@ -501,3 +501,142 @@ However, in this case, `setattr` is used to assign a value from `change_dict` wh
 This is why `mypy` does not catch the type mismatch when a function like `_get_plain_text_from_html_content_string`, which expects a `str`, encounters an attribute that is, in fact, a `List[str]`. The use of `setattr` bypasses `mypy's` static type checking, leading to potential runtime type errors that `mypy` does not detect.
 
 > You have pinpointed the exact cause of the error in the code, understanding why the issue occurs under certain conditions.
+
+### Stage 4: Reproduce the Error
+> **Objective**: Confirm the suspected cause of the error by replicating it in a controlled environment.
+
+Once you have a hypothesis about the root cause of the issue, it's time to verify it. There are several ways you can do this:
+
+##### Option 1: Reproduce on a Local Server**
+
+Try to replicate the error on a local server by following the user journey that leads to the issue. This involves setting up a local environment, creating or modifying an exploration with rule inputs, and attempting to generate a certificate to see if the error occurs again. This method is practical and quick if you can accurately simulate user actions, but it may not always capture the exact conditions of the live environment.
+
+**Pros**: Practical and quick if you can closely simulate user actions.
+
+**Cons**: May not always replicate the exact conditions of the live environment.
+
+##### Option 2: Use Unit Tests
+
+Modify or create unit tests to check if they trigger the same error when using the rule inputs in question. This approach involves locating existing unit tests, such as those for the `generate_contributor_certificate_data` function, and adjusting them to use the problematic inputs. This method can be efficient if you already have a good understanding of the issue, but it relies on having relevant unit tests available or being able to adapt existing ones easily.
+
+**Pros**: Efficient if you have a clear idea of the issue.
+
+**Cons**: Requires existing or easily adaptable unit tests.
+
+##### Option 3: Write a Validation Job**
+
+Develop a Beam job to fetch all translations and check their data types, reporting any that are not strings. This approach involves creating and testing the job and then running it on a live server with the help of server admins. It's a thorough and systematic method, but it can be time-consuming and requires server-side execution.
+
+**Pros**: Comprehensive and systematic.
+
+**Cons**: Time-consuming and involves server-side execution.
+
+##### Option 4: Write a Validation Job**
+
+Insert `logging.error()` statements into the codebase to capture more detailed information when the error happens. By placing these logs around suspected areas of the code, you can gather data that helps you understand the problem better. However, this method requires reviewing server logs and might depend on waiting for the error to reoccur in production.
+
+**Pros**:  Provides detailed context; useful for understanding complex issues when other methods fail.
+
+**Cons**: Requires additional review of server logs and depends on the error happening again in production.
+
+> [!IMPORTANT]
+> Practice 9: Which option do you think is better and why? Consider:
+> - Option 1 is ideal if the issue does not require specific production data. It's often the quickest way to validate your hypothesis.
+> - Option 2 is preferable if the issue can be simulated with unit tests, especially when you have a clear understanding of the root cause.
+> - Option 3 is useful when you need to perform a broad investigation of production data that you don't have locally, and you lack a clear lead on the issue.
+> - Option 4 is helpful when other methods do not provide enough detail or you need to generate logs to diagnose the problem more precisely.
+
+In our case, Option 1 or Option 2 is ideal since we have a clear root cause: the HTML content can be either a string or a list of strings. We want to verify that this discrepancy causes the error. Option 3 can serve as a fallback if our direct testing methods do not fully replicate the error.
+
+#### General Rule for Choosing an Verifying Option
+
+As a general rule, start with the first item on the list above that makes sense for the issue you're tackling:
+- Do Option 1 if the issue doesn't require specific production data.
+- Do Option 2 if the issue requires specific production data, but you can simulate it with unit tests.
+- Do Option 3 if you need to know what's in the production data in the first place.
+- Do Option 4 if you have no idea what to do and need more detailed information.
+
+Let’s go with Option 2 for this tutorial. Per the error log, the error is being generated due to this line:
+
+```python
+plain_text = _get_plain_text_from_html_content_string(get_html_representing_suggestion(suggestion))
+```
+
+If we look carefully at the function:
+```python
+def _get_plain_text_from_html_content_string(html_content_string: str) -> str:
+    
+ # Rest of the code.
+    html_content_string_with_rte_tags_replaced = re.sub(
+        r'<oppia-noninteractive-[^>]+>(.*?)</oppia-noninteractive-[^>]+>',
+        _replace_rte_tag, 
+        html_content_string
+    )
+    # Rest of the code.
+```
+
+Within the function, the value `html_content_string` is passed to `re.sub`. The `re.sub` function, as defined in Python's standard library, expects its third argument to be a string (or a bytes-like object).
+
+The error message "expected string or bytes-like object" suggests that `html_content_string` was not of the expected type when `re.sub` attempted to use it. This implies that the input passed to `_get_plain_text_from_html_content_string` was something other than a string or bytes-like object. And from the above investigation, we now suspect it to be a list of strings.
+
+> Note: Now that we understand why mypy did not catch this error, we can clarify that the type hint html_content_string: str in the function signature is actually accurate and not part of the issue. The type hint correctly indicates that the function expects a string argument. The problem arose because of how the attribute was dynamically assigned using setattr without a type check, leading to a case where a list of strings was mistakenly passed to this function.
+
+Let’s take a look at the unit tests
+> [!IMPORTANT]
+> Practice 10: Can you find the unit tests which could be used for our case? Check which unit tests are covering the behavior of generating certificates.
+
+In the unit test class `ContributorCertificateTests`, we have the method `test_create_translation_contributor_certificate`, which creates a dummy translation that serves as the input for the certificate generation method. As you can see here:
+```python
+change_cmd = {
+           'cmd': 'add_translation',
+           'content_id': 'content',
+           'language_code': 'hi',
+           'content_html': '',
+           'state_name': 'Introduction',
+           'translation_html': '<p>Translation for content.</p>'
+       }
+```
+`translation_html` holds the suggested value for an exploration card and here we are passing the `HTML` string. Let’s try changing it from a string to a list of strings, as that’s what we are suspecting:
+
+```python
+ change_cmd = {
+           'cmd': 'add_translation',
+           'content_id': 'content',
+           'language_code': 'hi',
+           'content_html': '',
+           'state_name': 'Introduction',
+           'translation_html': ['<p>Translation for content.</p>'],
+       }
+```
+
+Now let’s run the backend unit tests by running `python -m scripts.run_backend_tests --test_target=core.domain.suggestion_services_test` (You can check out the wiki on how to run backend unit tests: https://github.com/oppia/oppia/wiki/Backend-tests)
+
+Notice that the tests are failing with a similar error message to what we saw from the production logs. 
+
+```python
+| SUMMARY OF TESTS |
++------------------+
+
+======================================================================
+ERROR: test_create_translation_contributor_certificate (core.domain.suggestion_services_test.ContributorCertificateTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/ash/Desktop/openSource/oppia/core/domain/suggestion_services_test.py", line 7351, in test_create_translation_contributor_certificate
+    suggestion_services.generate_contributor_certificate_data(
+  File "/Users/ash/Desktop/openSource/oppia/core/domain/suggestion_services.py", line 3952, in generate_contributor_certificate_data
+    data = _generate_translation_contributor_certificate_data(
+  File "/Users/ash/Desktop/openSource/oppia/core/domain/suggestion_services.py", line 4026, in _generate_translation_contributor_certificate_data
+    plain_text = _get_plain_text_from_html_content_string(
+  File "/Users/ash/Desktop/openSource/oppia/core/domain/suggestion_services.py", line 1462, in _get_plain_text_from_html_content_string
+    html_content_string_with_rte_tags_replaced = re.sub(
+  File "/Users/ash/.pyenv/versions/3.8.15/lib/python3.8/re.py", line 210, in sub
+    return _compile(pattern, flags).sub(repl, string, count)
+TypeError: expected string or bytes-like object
+
+---------------------------------------------------------------------
+FAILED    core.domain.suggestion_services_test: 1 errors, 0 failures
+```
+
+Thus, our suspicion appears to be correct. However, it's important to note that multiple bugs could produce the same error message, so while this provides strong supporting evidence, it doesn't conclusively confirm that this is the cause of the initial error.
+
+> You have successfully reproduced the error locally, validating your hypothesis and preparing to implement a solution.
