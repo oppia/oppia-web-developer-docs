@@ -1,17 +1,45 @@
-# Tutorial: Learn How to Figure Out the Reproduction Steps for a Server Error
+## Table of Contents
+
+- [Introduction](#introduction)
+  * [Skills Covered](#skills-covered)
+  * [Scenario](#scenario)
+- [Procedure](#procedure)
+    + [Setup](#setup)
+    + [Debugging Process](#debugging-process)
+  * [Stage 1: Analyze the Error Logs to Locate the Affected Code](#stage-1-analyze-the-error-logs-to-locate-the-affected-code)
+    + [Understanding the Stack Trace](#understanding-the-stack-trace)
+  * [Stage 2: Examine the Affected Code](#stage-2-examine-the-affected-code)
+  * [Stage 3: Investigate Potential Causes by Exploring the Code in Depth](#stage-3-investigate-potential-causes-by-exploring-the-code-in-depth)
+    + [Investigating the Source of the Problem](#investigating-the-source-of-the-problem)
+    + [Verify the Return Type by Analyzing the Code](#verify-the-return-type-by-analyzing-the-code)
+  * [Stage 4: Reproduce the Error](#stage-4-reproduce-the-error)
+      - [Option 1: Reproduce on a Local Server](#option-1-reproduce-on-a-local-server)
+      - [Option 2: Use Unit Tests](#option-2-use-unit-tests)
+      - [Option 3: Write a Validation Job](#option-3-write-a-validation-job)
+      - [Option 4: Add Logging for Detailed Insight](#option-4-add-logging-for-detailed-insight)
+    + [General Rule for Choosing an Verifying Option](#general-rule-for-choosing-an-verifying-option)
+  * [Stage 5: Document Your Findings](#stage-5-document-your-findings)
+    + [Start with a Summary of the Error](#start-with-a-summary-of-the-error)
+    + [Detail the Steps Taken to Reproduce the Error](#detail-the-steps-taken-to-reproduce-the-error)
+    + [Identify the Commit or PR Likely to Have Introduced the Error](#identify-the-commit-or-pr-likely-to-have-introduced-the-error)
+    + [Explain the Possible Root Causes](#explain-the-possible-root-causes)
+    + [Suggest Next Steps](#suggest-next-steps)
+- [Conclusion](#conclusion)
+  * [Tidy Up](#tidy-up)
+  * [We Value Your Feedback](#we-value-your-feedback)
 
 ## Introduction
 
 This tutorial will guide you through debugging a server error that is challenging to reproduce locally. Specifically, we will investigate and fix a `TypeError` related to certificate generation for contributors.
 
-### Skills Covered:
+### Skills Covered
 
 - Codebase Navigation
 - Identifying and Analyzing Error Logs
 - Debugging Techniques
 - Reproducing Server Errors Locally
 
-### Scenario:
+### Scenario
 
 One of the server admins has reported the following error logs. Your task is to investigate the issue and determine how and why it is occurring.
 
@@ -39,13 +67,13 @@ Traceback (most recent call last):
 TypeError: expected string or bytes-like object
 ```
 
-## Procedure:
+## Procedure
 
 The following steps illustrate how a developer might tackle this issue. Try following this tutorial step-by-step on your local machine! This will give you a better sense of how to tackle other similar issues in the codebase. If you get stuck with a step in this tutorial, raise an issue in GitHub Discussions to get help.
 
 **Important**: When you see a “practice question box”, stop and try to figure out the answer on your own before reading ahead. You will learn more if you try to figure out your own answer to the question first!
 
-#### Setup:
+#### Setup
 
 **Install Oppia on Your Local Machine**  
 To begin, you'll need to have Oppia installed on your local machine. If you haven't done so already, please follow the installation steps provided in this [wiki page](https://github.com/oppia/oppia/wiki).
@@ -66,7 +94,7 @@ git log -1
 
 The output should display the commit ID `192f0a9a4866debac160015bc949130aaae6a7fe`.
 
-#### Debugging Process:
+#### Debugging Process
 
 When faced with a server error, developers at Oppia typically follow these steps:
 
@@ -109,7 +137,7 @@ Traceback (most recent call last):
 TypeError: expected string or bytes-like object
 ```
 
-#### Understanding the Stack Trace:
+#### Understanding the Stack Trace
 
 A **stack trace** is a report of the active stack frames at a certain point in time during the execution of a program. It shows the call sequence leading to the point where the error occurred. Each line provides the file name, line number, and function where the error occurred.
 
@@ -507,7 +535,7 @@ This is why `mypy` does not catch the type mismatch when a function like `_get_p
 
 Once you have a hypothesis about the root cause of the issue, it's time to verify it. There are several ways you can do this:
 
-##### Option 1: Reproduce on a Local Server**
+##### Option 1: Reproduce on a Local Server
 
 Try to replicate the error on a local server by following the user journey that leads to the issue. This involves setting up a local environment, creating or modifying an exploration with rule inputs, and attempting to generate a certificate to see if the error occurs again. This method is practical and quick if you can accurately simulate user actions, but it may not always capture the exact conditions of the live environment.
 
@@ -523,7 +551,7 @@ Modify or create unit tests to check if they trigger the same error when using t
 
 **Cons**: Requires existing or easily adaptable unit tests.
 
-##### Option 3: Write a Validation Job**
+##### Option 3: Write a Validation Job
 
 Develop a Beam job to fetch all translations and check their data types, reporting any that are not strings. This approach involves creating and testing the job and then running it on a live server with the help of server admins. It's a thorough and systematic method, but it can be time-consuming and requires server-side execution.
 
@@ -531,7 +559,7 @@ Develop a Beam job to fetch all translations and check their data types, reporti
 
 **Cons**: Time-consuming and involves server-side execution.
 
-##### Option 4: Write a Validation Job**
+##### Option 4: Add Logging for Detailed Insight
 
 Insert `logging.error()` statements into the codebase to capture more detailed information when the error happens. By placing these logs around suspected areas of the code, you can gather data that helps you understand the problem better. However, this method requires reviewing server logs and might depend on waiting for the error to reoccur in production.
 
@@ -665,7 +693,7 @@ To reproduce the error:
 - I ran the backend tests using `python -m scripts.run_backend_tests --test_target=core.domain.suggestion_services_test`.
 - The tests failed with a similar `TypeError` as observed in the production logs, confirming that the issue is reproducible locally.
 
-#### Identify the Commit or PR Likely to Have Introduced the Error:
+#### Identify the Commit or PR Likely to Have Introduced the Error
 - Find the commit or PR that might have caused the issue using the Oppia wiki guide.
 - Mention the PR in your comment as a starting point for further investigation.
  
@@ -673,7 +701,7 @@ Example:
 
 After examining recent changes, it appears that the issue might have been introduced in a PR that modified the `get_content_html` method to return `Union[str, List[str]]` instead of just a `str`. [Link to the PR](https://github.com/oppia/oppia/pull/17200/files#diff-6bff01224db1fe3047ddf87614d720deffd8efc7e3fca819408547f66926a541L2096) - Here, we are changing the return type of the get_content_html method from string to either strings/list. (It's not auto navigating, if you want to look, please check exp_domain file's line number 2096). 
 
-#### Explain the Possible Root Causes:
+#### Explain the Possible Root Causes
 - Describe your analysis of the potential causes.
 - Explain why the changes in the identified PR might have led to the error.
 - Provide any supporting information, such as error logs or specific observations.
@@ -682,7 +710,7 @@ Example:
 
 The `get_content_html` method, which now returns `Union[str, List[str]]`, is being used in the `_get_plain_text_from_html_content_string function`. This function expects a `str`, but it sometimes receives a `List[str]`, causing a `TypeError`. The discrepancy between the expected input type (str) and the actual input type (List[str]) seems to be the root cause of the error.
 
-#### Suggest Next Steps:
+#### Suggest Next Steps
 - Recommend further testing, confirming the bug with other contributors, or starting work on a fix.
 - Clearly outline what should happen next.
 
