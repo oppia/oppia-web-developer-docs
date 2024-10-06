@@ -84,6 +84,7 @@
       * [[Testing for Accessibility|Testing-for-Accessibility]]
       * [[Release accessibility checklist|Release-accessibility-checklist]]
       * [[Apache Beam Jobs|Apache-beam-jobs]]
+        * [[Tutorial - Learn to write and test a non-trivial Beam job|Tutorial:-Learn-How-to-Write-and-Test-a-Non-Trivial-Beam-Job]]
       * Translations:
         * [[Adding new translations|Adding-new-translations-for-i18n]]
         * [[How to develop for i18n|How-to-develop-for-i18n]]
