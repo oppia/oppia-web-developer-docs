@@ -52,6 +52,7 @@
     * [[Debug frontend code|Debug-frontend-code]]
     * [[Debugging Stories|Debugging-Stories]]
     * [[Testing email functionality|Testing-email-functionality]]
+    * [[Tutorial - Learn-to-figure-out-the-reproduction-steps-for-server-error|Tutorial:-Learn-to-figure-out-the-reproduction-steps-for-server-error]]
   * Testing
       * [[Backend tests|Backend-tests]]
       * [[Frontend tests|Frontend-tests]]
