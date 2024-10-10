@@ -52,7 +52,7 @@
     * [[Debug frontend code|Debug-frontend-code]]
     * [[Debugging Stories|Debugging-Stories]]
     * [[Testing email functionality|Testing-email-functionality]]
-    * [[Tutorial - Learn-to-figure-out-the-reproduction-steps-for-server-error|Tutorial:-Learn-to-figure-out-the-reproduction-steps-for-server-error]]
+    * [[Tutorial - Learn to figure out the reproduction steps for server error|Tutorial-Learn-to-Figure-Out-the-Reproduction-Steps-for-Server-Error]]
   * Testing
       * [[Backend tests|Backend-tests]]
       * [[Frontend tests|Frontend-tests]]
@@ -80,11 +80,11 @@
       * [[How to write design docs|Writing-design-docs]]
   * Team-Specific Guides
     * LaCE/CD:
-      * 👣 [[Make a simple UI change|Making-a-simple-UI-change]]
+      * 👣 [[Tutorial - Learn how to make a simple UI change|Tutorial-Learn-How-to-Make-a-Simple-UI-Change]]
       * [[Testing for Accessibility|Testing-for-Accessibility]]
       * [[Release accessibility checklist|Release-accessibility-checklist]]
       * [[Apache Beam Jobs|Apache-beam-jobs]]
-        * [[Tutorial - Learn to write and test a non-trivial Beam job|Tutorial:-Learn-How-to-Write-and-Test-a-Non-Trivial-Beam-Job]]
+        * [[Tutorial - Learn how to write and test a non-trivial Beam job|Tutorial-Learn-How-to-Write-and-Test-a-Non-Trivial-Beam-Job]]
       * Translations:
         * [[Adding new translations|Adding-new-translations-for-i18n]]
         * [[How to develop for i18n|How-to-develop-for-i18n]]
