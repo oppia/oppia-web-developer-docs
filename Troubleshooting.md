@@ -26,6 +26,10 @@ Here are some general troubleshooting tips for Oppia. The platform specific tips
 - [`./portserver.socket is not listed in the .github/CODEOWNERS file`](#portserversocket-is-not-listed-in-the-githubcodeowners-file)
 - [Push fails due to connection timeout](#push-fails-due-to-connection-timeout)
 - [Exception: Error compiling proto files](#exception-error-compiling-proto-files)
+- [Error: File not found](#error-file-not-found)
+- [Not able to run Cron Jobs "Request failed with status: 400" Error occurs](#not-able-to-run-cron-jobs-request-failed-with-status-400-error-occurs)
+- [Not able to load http://localhost:8181/learn/math](#not-able-to-load-httplocalhost8181learnmath)
+- [VS Code Import Errors (pylint, astroid)](#vs-code-import-errors-pylint-astroid)
 - [Linux](#linux)
   - [Python 2 is not available](#python-2-is-not-available)
   - [OSError: \[Errno 2\] No such file or directory](#oserror-errno-2-no-such-file-or-directory)
@@ -310,6 +314,79 @@ Traceback (most recent call last) :
 ```
 
 Try searching for where protoc is installed (probably in `/opt/homebrew/bin/protoc`) and remove it and then re-run the command.
+
+### Error: File not found
+
+If you encounter an error resembling the following when executing python -m scripts.start:
+
+```
+Traceback (most recent call last):
+  File "/home/yourUserName/.pyenv/versions/3.7.10/lib/python3.7/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/home/yourUserName/.pyenv/versions/3.7.10/lib/python3.7/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/home/yourUserName/Desktop/New Folder 1/oppia/scripts/start.py", line 219, in <module>
+    main()
+  File "/home/yourUserName/Desktop/New Folder 1/oppia/scripts/start.py", line 215, in main
+    dev_appserver.wait()
+  File "/home/yourUserName/.pyenv/versions/3.7.10/lib/python3.7/contextlib.py", line 524, in __exit__
+    raise exc_details[1]
+  File "/home/yourUserName/.pyenv/versions/3.7.10/lib/python3.7/contextlib.py", line 509, in __exit__
+    if cb(*exc_details):
+  File "/home/yourUserName/.pyenv/versions/3.7.10/lib/python3.7/contextlib.py", line 384, in _exit_wrapper
+    callback(*args, **kwds)
+  File "/home/yourUserName/Desktop/New Folder 1/oppia/scripts/start.py", line 132, in call_extend_index_yaml
+    extend_index_yaml.main()
+  File "/home/yourUserName/Desktop/New Folder 1/oppia/scripts/extend_index_yaml.py", line 39, in main
+    with open(WEB_INF_INDEX_YAML_PATH, 'r', encoding='utf-8') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/home/yourUserName/Desktop/New Folder 1/oppia/../cloud_datastore_emulator_cache/WEB-INF/index.yaml'
+yourUserName:~/Desktop/New Folder 1/oppia$
+```
+
+This error typically indicates that a critical Oppia setup script cannot locate a required file.
+
+To resolve this, you need to rename the directory `New Folder 1` located at `/home/yourUserName/Desktop/New Folder 1/oppia` to a name without spaces. Doing so should rectify the issue.
+
+### Not able to run Cron Jobs "Request failed with status: 400" Error occurs
+
+If you are not able to run cron jobs and you see an error `Request failed with status: 400` then you can try the following steps:
+
+* Manual Trigger
+  1. Locate the controllers in `cron.py` file.
+  2. Find the function that you want to run.
+  3. Add a `print` statement at the trigger point.
+
+* Web interface
+  1. Go to the `0.0.0.0:8000/cron` page.
+  2. Locate the URL you want to trigger.
+  3. Click on the `Run Now` button.
+
+### Not able to load http://localhost:8181/learn/math
+
+If you are not able to load the page `http://localhost:8181/learn/math` and you see an error `Error 404 - Page not found` then you can try the following steps:
+1. Check if the server is running by running `python -m scripts.start`.
+2. Assign yourself "Curriculum Admin" Role.
+    * Log in as a super-admin.
+    * Navigate to the `Admin` page.
+    * Click on the "Roles" tab.
+    * Assign the "Curriculum Admin" role to your user.
+3. Generate a New Math Classroom:
+    * Click on the "Activities" tab.
+    * Locate "Generate a dummy math classroom".
+    * Click on the "Generate Data" button.
+4. Navigate to the `http://localhost:8181/learn/math` page.
+
+### VS Code Import Errors (pylint, astroid)
+
+If you are using VS Code and you see import errors `(could not be resolved)` for `pylint` and `astroid` then you can try the following steps:
+
+1. Check the selected interpreter: Look in the VS Code status bar (usually the bottom) and see which Python interpreter is being used.
+
+2. Switch to the correct interpreter:
+
+    * Choose the correct interpreter from the list that appears. This might be located in a `.direnv`.
+
+For more detailed instructions on working with interpreters in VS Code, see the official documentation: https://code.visualstudio.com/docs/python/environments#_working-with-python-interpreters
 
 ## Linux
 
