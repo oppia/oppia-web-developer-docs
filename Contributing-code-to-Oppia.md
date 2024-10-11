@@ -4,7 +4,7 @@ Thanks for your interest in improving the Oppia platform! This page explains how
 
 If you run into any problems along the way, we're here to help! Check out our [[Getting Help Page|Get-help]] for the communication channels you can use. If you find any bugs, you can also file an issue on our [issue tracker](https://github.com/oppia/oppia/issues). There are also lots of helpful resources in the sidebar, check that out too! Also, if you'd like to get familiar with Oppia from a user's point of view, you can take a look at the [user documentation](http://oppia.github.io/).
 
-**Important! Please read this page in its entirety before making any code changes.** It contains lots of really important information. You should also read through our [[guide to making pull requests|Make-a-pull-request]].
+**Important! Please read this page in its entirety before making any code changes.** It contains lots of really important information. You should also read through our [[guide to making pull requests|Rules-for-making-PRs]].
 
 ## Table of Contents
 
@@ -54,9 +54,9 @@ Additionally, GitHub also provides an advanced search syntax that allows you to 
 
 6. Familiarize yourself with the resources linked to from the sidebar of this page, especially the [[overview of the codebase|Overview-of-the-Oppia-codebase]], the [[coding style guide|Coding-style-guide]], and the [[Frequently Asked Questions|Frequently-Asked-Questions]]. You don't have to read all the other stuff right now, but it's a good idea to be aware of what's available, so that you can refer to it later if needed.
 
-7. Take up your first Oppia starter issue! (See [below](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#finding-something-to-do) on how to do this.) Make sure to read and follow the [[PR instructions|Make-a-pull-request]] closely so that your PR review proceeds smoothly.
+7. Take up your first Oppia starter issue! (See [below](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#finding-something-to-do) on how to do this.) Make sure to read and follow the [[PR instructions|Rules-for-making-PRs]] closely so that your PR review proceeds smoothly.
 
-    * In your browser, consider bookmarking the [[guide to making pull requests|Make-a-pull-request]] for easy reference later, as well as the ["my issues" page](https://github.com/issues/assigned) (so that you can keep track of the issues assigned to you).
+    * In your browser, consider bookmarking the [[guide to making pull requests|Rules-for-making-PRs]] for easy reference later, as well as the ["my issues" page](https://github.com/issues/assigned) (so that you can keep track of the issues assigned to you).
 
     * Facing any problems (including non-coding ones)? Please feel free to create a [GitHub Discussion](https://github.com/oppia/oppia/discussions) and get help from the Oppia community. You can use this avenue for asking anything -- questions about any issue, who to contact for specific things, etc.
 
@@ -100,13 +100,13 @@ Once you have a good understanding of the issue, you can ask for it to be assign
 - Explain clearly how you'd tackle the issue (at a minimum, point to which file(s) you'd modify and describe the changes you'd make). If possible, show a screenshot or code snippet demonstrating your proposed fix.
 - @-mention the leads of the corresponding project (you can find their details [here](https://github.com/orgs/oppia/projects)), letting them know you'd like to work on it and when you can submit a PR by.
 
-If your explanation makes sense, we'll assign the issue to you. Once assigned, feel free to submit a PR by following the [[instructions for making a PR|Make-a-pull-request]]. We recommend actively working to get your PR merged once you are assigned, because we will de-assign contributors if the PR is closed for being stale or there is no activity after the initial assignment.
+If your explanation makes sense, we'll assign the issue to you. Once assigned, feel free to submit a PR by following the [[instructions for making a PR|Rules-for-making-PRs]]. We recommend actively working to get your PR merged once you are assigned, because we will de-assign contributors if the PR is closed for being stale or there is no activity after the initial assignment.
 
 Generally, we aim to review PRs within 48 hours. If you have not heard from a reviewer by then, feel free to escalate. You can leave a comment on the review thread and also add a message to the "Contacting Folks" section of [GitHub Discussions](https://github.com/oppia/oppia/discussions/categories/q-a-contacting-folks).
 
 If you run into any problems, feel free to create a [GitHub Discussion](https://github.com/oppia/oppia/discussions) and get help from the Oppia community, or [request a mentor](https://forms.gle/udsRP4WQgLcez9Zm8) if you'd like individual support. If you need specific help, write a [[debugging doc|Debugging-Docs]] to compile the necessary information and outline your thought process, so that we can help you more easily.
 
-**Important Note**: Please follow the [[PR instructions|Make-a-pull-request]] carefully! Otherwise your PR review may be delayed or your PR may be closed.
+**Important Note**: Please follow the [[PR instructions|Rules-for-making-PRs]] carefully! Otherwise your PR review may be delayed or your PR may be closed.
 
 
 ### Contributor Roles
