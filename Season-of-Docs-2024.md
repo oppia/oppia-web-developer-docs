@@ -67,7 +67,7 @@ Steps to follow:
 - Find an issue you're interested in tackling, and make sure you understand clearly what needs to be done. Dig into the main Oppia documentation and codebase as needed to get the necessary information to tackle the issue.
 - Read [these instructions](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#how-to-tackle-good-first-issues) for how to tackle a good first issue at Oppia. Following the instructions, leave a clear comment in the issue discussion thread explaining what you are planning to do, and demonstrating that you have sufficient understanding of the issue in order to tackle it.
 - While waiting to be assigned, consider creating a draft pull request that you can submit as soon as you're assigned to the issue.
-- Once you have been assigned, follow the instructions in [Make a pull request](https://github.com/oppia/oppia/wiki/Make-a-pull-request) to submit your pull request. (Note that this wiki page describes making PRs to oppia/oppia, and you might need to adjust the instructions as needed to make your PR to oppia-web-developer-docs instead.) Address any reviewer comments until your PR gets approved and merged.
+- Once you have been assigned, follow the instructions in [Rules for making PRs](https://github.com/oppia/oppia/wiki/Rules-for-making-PRs) to submit your pull request. (Note that this wiki page describes making PRs to oppia/oppia, and you might need to adjust the instructions as needed to make your PR to oppia-web-developer-docs instead.) Address any reviewer comments until your PR gets approved and merged.
 
 ### Document your process of installing Oppia and attempting a starter issue
 
