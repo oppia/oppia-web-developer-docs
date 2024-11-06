@@ -1,13 +1,26 @@
 ## Table of Contents
 
 - [Introduction](#introduction)
-- [Understanding CI Flakes](#understanding-ci-flakes)
-- [Identifying the Flake](#identifying-the-flake)
-- [Reproducing the Flake](#reproducing-the-flake)
-- [Implementing a Solution](#implementing-a-solution)
-- [Testing the Fix](#testing-the-fix)
-- [Conclusion](#conclusion)
-- [We Value Your Feedback](#we-value-your-feedback)
+- [Scenario](#scenario)
+- [Prerequisites](#prerequisites)
+- [Procedure](#procedure)
+  - [Interpreting the Error Logs](#interpreting-the-error-logs)
+    - [Understanding the Error Log](#understanding-the-error-log)
+    - [Analyzing the Error](#analyzing-the-error)
+  - [Reproducing the Flake](#reproducing-the-flake)
+    - [Reproducing the Flake Locally](#reproducing-the-flake-locally)
+    - [Reproducing the Flake on the CI Environment](#reproducing-the-flake-on-the-ci-environment)
+  - [Understanding the Error](#understanding-the-error)
+    - [Digging Deeper: Analyzing the Code](#digging-deeper-analyzing-the-code)
+    - [Debugging E2E Tests: Additional Tools](#debugging-e2e-tests-additional-tools)
+  - [Identifying the Root Cause](#identifying-the-root-cause)
+  - [Implementing the Solution](#implementing-the-solution)
+  - [Testing the Fix](#testing-the-fix)
+    - [Run Relevant Test Locally](#run-relevant-test-locally)
+    - [Run Relevant Test Repeatedly on CI](#run-relevant-test-repeatedly-on-ci)
+  - [Conclusion](#conclusion)
+    - [Appendix: Some Background on This Specific Flake](#appendix-some-background-on-this-specific-flake)
+    - [We Value Your Feedback](#we-value-your-feedback)
 
 ## Introduction
 
@@ -25,7 +38,7 @@ In this tutorial, we’ll investigate a CI flake where the test fails with the e
 
 By following this example, you will not only fix this flake but also gain an understanding of how to approach and solve similar issues moving forward. More importantly, you’ll learn to think like a developer at Oppia—considering factors such as timing, environment, and test reliability as part of your troubleshooting toolkit.
 
-## Prequisites
+## Prerequisites
 
 Before you begin, ensure you have:
 - Set up your development environment. (If you haven't, follow the [Oppia setup instructions](https://github.com/oppia/oppia/wiki/End-to-End-Tests)).
