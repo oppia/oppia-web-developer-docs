@@ -186,7 +186,7 @@ Let’s now take a look at a screenshot from a previously documented E2E test fa
 
 > **Note**: You can also try capturing screenshots or video recordings by running the relevant E2E tests locally, as mentioned in the previous section. However, if you are unable to reproduce the flake locally, feel free to use the screenshot below as a reference.
 
-IMAGE TO BE INSERTED
+![Exploration Editor Page](images/TutorialCIFlakeWaitForStatements/E2E-Test-Screenshot-Exploration-Editor-Page.png)
 
 If we take a look at the screenshot provided from the failed E2E test, we can see that the test is still on the Preview Tab. As a result, the "Add Interaction" button is not visible, and the test fails when trying to interact with it.
 
