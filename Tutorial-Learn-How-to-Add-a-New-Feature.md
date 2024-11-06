@@ -1,27 +1,3 @@
-## Table of Contents
-
-- [Introduction](#introduction)
-- [Scenario](#scenario)
-- [Prerequisites](#prerequisites)
-- [Procedure](#procedure)
-  - [Interpreting the Error Logs](#interpreting-the-error-logs)
-    - [Understanding the Error Log](#understanding-the-error-log)
-    - [Analyzing the Error](#analyzing-the-error)
-  - [Reproducing the Flake](#reproducing-the-flake)
-    - [Reproducing the Flake Locally](#reproducing-the-flake-locally)
-    - [Reproducing the Flake on the CI Environment](#reproducing-the-flake-on-the-ci-environment)
-  - [Understanding the Error](#understanding-the-error)
-    - [Digging Deeper: Analyzing the Code](#digging-deeper-analyzing-the-code)
-    - [Debugging E2E Tests: Additional Tools](#debugging-e2e-tests-additional-tools)
-  - [Identifying the Root Cause](#identifying-the-root-cause)
-  - [Implementing the Solution](#implementing-the-solution)
-  - [Testing the Fix](#testing-the-fix)
-    - [Run Relevant Test Locally](#run-relevant-test-locally)
-    - [Run Relevant Test Repeatedly on CI](#run-relevant-test-repeatedly-on-ci)
-  - [Conclusion](#conclusion)
-    - [Appendix: Some Background on This Specific Flake](#appendix-some-background-on-this-specific-flake)
-    - [We Value Your Feedback](#we-value-your-feedback)
-
 ## Introduction
 
 In this tutorial, you will learn how to add a new full-stack feature to Oppia. This guide will cover the entire process, from designing the feature to implementing it on both the backend and frontend. You’ll also learn how to manage communication between the frontend and backend through an API (Application Programming Interface)—which allows different parts of the application to send and receive data. By following this step-by-step guide, you’ll gain insights into how developers at Oppia approach implementing new features, enabling you to tackle similar challenges in the future.
@@ -111,6 +87,9 @@ Since we need to track the user's visit across devices, backend storage is the b
 - The frontend displays the modal.
 - Once the user closes the modal, the backend updates the flag, marking that the user has seen the modal.
 
+> **Note**: If the user refreshes the page without closing the modal, it will appear again the next time they visit the Contributor Dashboard. This is intentional to ensure the modal is only dismissed when the user explicitly closes it.
+
+
 ### Stage 2: Backend Development
 
 First, we need to figure out where to store the value. At Oppia, we use the Google Cloud Datastore, and we interface with it from Python using Cloud NDB. Please refer to this [wiki page](https://github.com/oppia/oppia/wiki/Overview-of-the-Oppia-codebase) if you haven’t, before going further in this tutorial, as the stages from here will require a basic understanding of the Oppia codebase architecture.
@@ -121,7 +100,6 @@ As per Oppia’s backend architecture, here’s what we would need to do:
 3. Create a new service function or update an existing one so that the function updates this new property to True once the user has visited the Contributor Dashboard.
 4. Create a new handler(s) or update the existing handler function(s) which will be responsible for returning the property to the frontend and calling the service layer to update the property once the user has visited the Contributor Dashboard.
 
-
 #### Storage Layer
 
 When adding the new property, we need to decide whether to incorporate it into an existing model or create a new one. This new property will indicate whether the user has visited the Contributor Dashboard at least once (True) or not (False).
@@ -129,7 +107,7 @@ When adding the new property, we need to decide whether to incorporate it into a
 >[!IMPORTANT]
 > **Practice 4**: Should we add a new property to an existing model or create a new model? Which one is better and why?
 >
-> Hint: Consider simplicity and feasibility.
+> **Hint**: Consider simplicity and feasibility.
 
 While adding a new model is feasible, it might introduce unnecessary complexity unless there’s a compelling reason to do so. The better approach often depends on whether there is already an existing model where this new property naturally fits.
 
@@ -140,7 +118,8 @@ To make an informed decision, it’s important to review the existing models to 
 Here’s a way to begin:
 
 - Explore the file descriptions at the beginning of model files, such as in `oppia/core/storage/exploration/gae_models.py`.
-IMAGE TO BE INSERTED
+
+![Exploration - gae_models.py](images/TutorialAddaNewFeature/exploration:gae_models.png)
 
 The file description at line 17 of this file describes it as "Model for an Oppia exploration."
 
@@ -148,9 +127,8 @@ Similarly, reviewing other `gae_models.py` files will help identify whether an e
 
 >[!IMPORTANT]
 > **Practice 5**:  Review the models at `oppia/core/storage` as mentioned above. Which model file should we modify?
-
 >
-> Hint: Check the file description for each model and determine if the new property aligns with the scope of the models in that file.
+> **Hint**: Check the file description for each model and determine if the new property aligns with the scope of the models in that file.
 
 In our case, the file `oppia/core/storage/user/gae_models.py` appears to be the most appropriate choice. This file contains models that handle user-related data at Oppia, and since the property we want to add tracks whether a user has closed the Welcome Modal on the Contributor Dashboard, it aligns with the purpose of these models.
 
@@ -159,7 +137,7 @@ Next, we need to decide which specific model within `oppia/core/storage/user/gae
 >[!IMPORTANT]
 > **Practice 6**:  Review the models defined in the file `oppia/core/storage/user/gae_models.py`. Can you determine which specific model should be updated ?
 >
-> Hint: : Examine each model in the file and consider where it makes the most sense to add the property that tracks whether the user has closed the Welcome Modal on the Contributor Dashboard.
+> **Hint**: : Examine each model in the file and consider where it makes the most sense to add the property that tracks whether the user has closed the Welcome Modal on the Contributor Dashboard.
 
 Upon reviewing the models, the best candidate for modification seems to be:
 
@@ -180,7 +158,7 @@ Make sure to add a brief, accurate comment describing what this attribute holds.
 # Flag to check whether the user has closed the Welcome Modal on the Contributor Dashboard.
 has_closed_contributor_dashboard_welcome_modal = ndb.BooleanProperty(default=False, indexed=True)
 ```
-> Note: For more information on how ndb model classes work, including the available property types, refer to the[ndb documentation](https://googleapis.dev/python/python-ndb/latest/model.html#google.cloud.ndb.model.BooleanProperty). Also, note that "properties" are sometimes referred to as "fields."
+> Note: For more information on how ndb model classes work, including the available property types, refer to the [ndb documentation](https://googleapis.dev/python/python-ndb/latest/model.html#google.cloud.ndb.model.BooleanProperty). Also, note that "properties" are sometimes referred to as "fields."
 
 Next, we need to update the domain model so that the application can interact with the new property in the storage model. The domain model implements operations on the data from the storage model and acts as the interface between the storage layer and other parts of the application.
 
@@ -229,10 +207,10 @@ Now that we have updated both the storage model (to store the data) and the doma
 
 Next we need to create a service function which will update the value of `has_closed_contributor_dashboard_welcome_modal`
 
-File: ``oppia/core/domain/user_services.py`
+File: `oppia/core/domain/user_services.py`
 
 >[!IMPORTANT]
-> **Practice 7**: Write a function to update the `has_closed_contributor_dashboard_welcome_modal` property to True for a specific user. This will indicate that the user has closed the Welcome Modal on the Contributor Dashboard.
+> **Practice 8**: Write a function to update the `has_closed_contributor_dashboard_welcome_modal` property to True for a specific user. This will indicate that the user has closed the Welcome Modal on the Contributor Dashboard.
 >
 > **Hint**: Here’s the pseudo code which you need to implement: 
 > Fetch the current settings of the user, from these settings update the property `has_closed_contributor_dashboard_welcome_modal`, and save the user settings.
@@ -266,16 +244,16 @@ This handler will be responsible for:
 - Updating this property once the user has closed the Welcome Modal.
 
 >[!IMPORTANT]
-> **Practice 8**: Can you locate the file where we need to add our new handler?
+> **Practice 9**: Can you locate the file where we need to add our new handler?
 >
-> Hint: Refer to this wiki page: https://github.com/oppia/oppia/wiki/Contributor-dashboard#code-pointers, where code pointers of Contributor Dashboard are mentioned
+> **Hint**: Refer to this wiki page: https://github.com/oppia/oppia/wiki/Contributor-dashboard#code-pointers, where code pointers of Contributor Dashboard are mentioned
 
 Per the [wiki](https://github.com/oppia/oppia/wiki/Contributor-dashboard#code-pointers) page, [core/controllers/contributor_dashboard.py](https://github.com/oppia/oppia/blob/develop/core/controllers/contributor_dashboard.py): Handles fetching opportunities and Contributor Dashboard metadata such as eligible translatable text content. Thus we would want to add our handler to this file.
 
 >[!IMPORTANT]
-> **Practice 9**: Can you create a new handler for our use case ?
+> **Practice 10**: Can you create a new handler for our use case ?
 >
-> Hint: Refer to the existing handlers and based on existing code conventions and our use case try writing the new handler
+> **Hint**: Refer to the existing handlers and based on existing code conventions and our use case try writing the new handler
 
 Here’s what one approach would look like -
 
@@ -319,9 +297,9 @@ And we have a post request which is going to record that the user has closed the
 Now it’s the time to attach the handler to the endpoint, before that we would want to create a new endpoint. Here’s what it could look like - `/contributor-dashboard-visit`. Remember that the endpoint should convey its meaning as to why this endpoint is called. In our case it denotes that it’s related to the Contributor Dashboard’s visit activity.
 
 >[!IMPORTANT]
-> **Practice 10**: Attach the handler to the above mentioned endpoint.
+> **Practice 11**: Attach the handler to the above mentioned endpoint.
 >
-> Hint: We have all the attachments mentioned in the main.py file. Look at how other handlers have been attached to their respective endpoints and try to do the same.
+> **Hint**: We have all the attachments mentioned in the main.py file. Look at how other handlers have been attached to their respective endpoints and try to do the same.
 
 In `main.py` 
 
@@ -333,6 +311,7 @@ In `main.py`
 ```
 
 Great, now we have the backend ready for our feature. Now’s the time to move on to the front-end part.
+
 
 
 ### Stage 3: Frontend Implementation
@@ -347,13 +326,13 @@ To implement this feature, we need to understand which files in the frontend cod
 4. **Location for the New Modal Component**: Since we are creating a new modal component for the Welcome Modal, we need to decide where in the codebase this component should live. Typically, this would be placed in a directory where reusable UI components are stored. This location should follow the established structure of the project to ensure consistency.
 
 >[!IMPORTANT]
-> **Practice 11**: To successfully implement the Welcome Modal feature on the Contributor Dashboard, you need to modify or create various files in the frontend codebase. Based on the pointers mentioned in the above section, identify the exact files and code locations where the following actions should occur:
+> **Practice 12**: To successfully implement the Welcome Modal feature on the Contributor Dashboard, you need to modify or create various files in the frontend codebase. Based on the pointers mentioned in the above section, identify the exact files and code locations where the following actions should occur:
 > 1. Handling Network Calls to the Backend: This involves identifying the file that will handle fetching and updating the `has_closed_contributor_dashboard_welcome_modal` property from the backend.
 > 2. Defining Service Methods for Backend Communication: Determine which service file will define methods such as `getUserSettings` and `updateUserSettings` to interact with the network layer, abstracting away the API details for the component.
 > 3.Rendering the Welcome Modal: Find the component responsible for rendering the Welcome Modal when a user visits the Contributor Dashboard.
 > 4. Storing the New Modal Component: Decide on the location where the modal component should be placed in the codebase, adhering to Oppia's file organization standards.
 >
-> Hint: Review the following resources [Overview of the Oppia Codebase](https://github.com/oppia/oppia/wiki/Overview-of-the-Oppia-codebase) & [Contributor Dashboard](https://github.com/oppia/oppia/wiki/Contributor-dashboard) and explore the file structure at `oppia/core/templates/pages/contributor-dashboard-page/` to understand the organization of frontend components and services. This will help you pinpoint the exact files and locations for adding the new logic.
+> **Hint**: Review the following resources [Overview of the Oppia Codebase](https://github.com/oppia/oppia/wiki/Overview-of-the-Oppia-codebase) & [Contributor Dashboard](https://github.com/oppia/oppia/wiki/Contributor-dashboard) and explore the file structure at `oppia/core/templates/pages/contributor-dashboard-page/` to understand the organization of frontend components and services. This will help you pinpoint the exact files and locations for adding the new logic.
 
 Based on Oppia’s architecture, here are the files we need to modify or create:
 
@@ -377,9 +356,9 @@ These identified code pointers will guide us in implementing the frontend logic 
 First, let's create methods to communicate with the backend API. These methods will be responsible for checking if a user has closed the Welcome Modal and for recording the closure once the user interacts with it.
 
 >[!IMPORTANT]
-> **Practice 12**: Write code for network calls to the backend.
+> **Practice 13**: Write code for network calls to the backend.
 >
-> Hint: Review the existing code in `contribution-opportunities-backend-api.service.ts` and analyze the pattern followed for other network requests.
+> **Hint**: Review the existing code in `contribution-opportunities-backend-api.service.ts` and analyze the pattern followed for other network requests.
 
 Creating Methods in `contribution-opportunities-backend-api.service.ts`
 
@@ -401,9 +380,9 @@ These methods handle all backend communication required for this feature:
 Creating Service Methods in `contribution-opportunities.service.ts`
 
 >[!IMPORTANT]
-> **Practice 13**: Implement service methods to call backend API.
+> **Practice 14**: Implement service methods to call backend API.
 >
-> Hint: Check how other service methods are defined in `contribution-opportunities.service.ts` and follow a similar pattern.
+> **Hint**: Check how other service methods are defined in `contribution-opportunities.service.ts` and follow a similar pattern.
 
 Next, we’ll create service methods to call the backend API methods. In the file `oppia/core/templates/pages/contributor-dashboard-page/services/contribution-opportunities.service.ts`, add the following methods:
 
@@ -427,9 +406,9 @@ Now that our methods for backend communication are ready, let's set up the Welco
 > Note: This tutorial does not focus on UI design, so we will create a minimal layout for the Welcome Modal.
 
 >[!IMPORTANT]
-> **Practice 14**: Write HTML template for the Welcome Modal
+> **Practice 15**: Write HTML template for the Welcome Modal
 >
-> Hint: Look at the existing modal templates in `modal-templates/` to understand the structure and styling conventions.
+> **Hint**: Look at the existing modal templates in `modal-templates/` to understand the structure and styling conventions.
 
 Create a new HTML file for the Welcome Modal `welcome-modal.component.html` in oppia/core/templates/pages/contributor-dashboard-page/modal-templates/:
 
@@ -453,9 +432,9 @@ The modal has a simple structure with a header, body, and footer. The "OK" butto
 
 
 > [!IMPORTANT]
-> **Practice 15**: Write typescript code for the Welcome Modal.
+> **Practice 16**: Write typescript code for the Welcome Modal.
 >
-> Hint: - Check the existing modal components in the `modal-templates/` folder to see how they are structured.
+> **Hint**: - Check the existing modal components in the `modal-templates/` folder to see how they are structured.
 
 Next, create the TypeScript file for the modal: oppia/core/templates/pages/contributor-dashboard-page/modal-templates/welcome-modal.component.ts:
 
@@ -505,7 +484,7 @@ export class ContributorDashboardPageModule { }
 Now, we need to decide where to trigger the code to in `contributions-and-review.component.ts` file to open the modal. 
 
 > [!IMPORTANT]
-> **Practice 16**:  Determine the right place in the code to trigger the Welcome Modal.
+> **Practice 17**:  Determine the right place in the code to trigger the Welcome Modal.
 
 > 
 > **Hint**: The code should be placed in a lifecycle hook that gets called every time the page loads.
@@ -584,12 +563,12 @@ Start your local development server. Ensure that your server is running without 
 
 Upon your first visit to the Contributor Dashboard, you should see the Welcome Modal appear.
 
-IMAGE TO BE INSERTED
+![First Visit to Contributor Dashboard](images/TutorialAddaNewFeature/ContributorDashboard.png)
 
 Close the Modal and refresh the page or navigate away and come back to the Contributor Dashboard. This time, the modal should not appear.
 
 > [!IMPORTANT]
-> **Practice 17**: Test the feature more thoroughly.
+> **Practice 18**: Test the feature more thoroughly.
 >  1. Log out from the current user and create a new user account using a different mock email address. Repeat the steps above to verify that the Welcome Modal appears for the new user on their first visit and not on subsequent visits.
 > 2. Log in with an existing user account that has already visited the Contributor Dashboard. Confirm that the modal does not appear.
 >
