@@ -1,3 +1,25 @@
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Scenario](#scenario)
+- [Prerequisites](#prerequisites)
+- [Procedure](#procedure)
+  - [Stage 1: Planning and Design](#stage-1-planning-and-design)
+    - [Understanding the Requirements](#understanding-the-requirements)
+    - [Key Considerations](#key-considerations-where-to-track-the-users-first-visit)
+    - [High-Level Workflow](#high-level-workflow)
+  - [Stage 2: Backend Development](#stage-2-backend-development)
+    - [Storage Layer](#storage-layer)
+    - [Service Layer](#service-layer)
+    - [Controller Layer](#controller-layer)
+  - [Stage 3: Frontend Implementation](#stage-3-frontend-implementation)
+    - [Setting Up Methods for Backend Communication](#setting-up-methods-for-backend-communication)
+    - [Creating the UI Component](#creating-the-ui-component)
+    - [Incorporating the Logic to Handle New Component](#incorporating-the-logic-to-handle-new-component)
+  - [Stage 4: Testing the Feature](#stage-4-testing-the-feature)
+- [Conclusion](#conclusion)
+  - [We Value Your Feedback](#we-value-your-feedback)
+
 ## Introduction
 
 In this tutorial, you will learn how to add a new full-stack feature to Oppia. This guide will cover the entire process, from designing the feature to implementing it on both the backend and frontend. You’ll also learn how to manage communication between the frontend and backend through an API (Application Programming Interface)—which allows different parts of the application to send and receive data. By following this step-by-step guide, you’ll gain insights into how developers at Oppia approach implementing new features, enabling you to tackle similar challenges in the future.
