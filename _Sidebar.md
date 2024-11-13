@@ -81,6 +81,7 @@
   * Team-Specific Guides
     * LaCE/CD:
       * 👣 [[Make a simple UI change|Making-a-simple-UI-change]]
+      * 👣 [[Tutorial - Learn to implement a new full stack feature|Tutorial-Learn-to-implement-a-new-full-stack-feature.md]]
       * [[Testing for Accessibility|Testing-for-Accessibility]]
       * [[Release accessibility checklist|Release-accessibility-checklist]]
       * [[Apache Beam Jobs|Apache-beam-jobs]]
