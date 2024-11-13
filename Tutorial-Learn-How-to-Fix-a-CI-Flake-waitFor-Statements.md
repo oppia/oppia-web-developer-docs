@@ -41,7 +41,7 @@ By following this example, you will not only fix this flake but also gain an und
 ## Prerequisites
 
 Before you begin, ensure you have:
-- Set up your development environment. (If you haven't, follow the [Oppia setup instructions](https://github.com/oppia/oppia/wiki/End-to-End-Tests)).
+- Set up your development environment. (If you haven't, follow the [Oppia setup instructions](https://github.com/oppia/oppia/wiki/Installing-Oppia)).
 - Familiarize yourself with how E2E tests are used at Oppia.
 - Familiarize yourself with the [Exploration Editor Page and its sub-tabs](https://oppia.github.io/#/TheExplorationEditor).
 
