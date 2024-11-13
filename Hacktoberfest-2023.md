@@ -11,7 +11,7 @@ Please follow these steps to get started:
 1. [Sign up](https://hacktoberfest.com/register/) to register for Hacktoberfest.
 2. [Set up your local environment](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#setting-things-up) to contribute to Oppia.
 3. Find a "good first issue" to work on (see [here](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#finding-something-to-do) and [here](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22+no%3Aassignee)).
-4. Fix the issue by creating some changes and sending a pull request for review, following our [PR instructions](https://github.com/oppia/oppia/wiki/Make-a-pull-request).
+4. Fix the issue by creating some changes and sending a pull request for review, following our [PR instructions](https://github.com/oppia/oppia/wiki/Rules-for-making-PRs).
 5. Go through the code review process until you receive approval and the PR gets merged.
 6. To earn the digital reward kit: repeat until you've submitted at least 4 pull requests!
 

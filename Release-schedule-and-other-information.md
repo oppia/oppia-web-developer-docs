@@ -24,15 +24,18 @@ Please see the rota below for the expected release dates. We expect QA testing t
 
 | Month     | Release cut date | Release coordinator               | QA coordinator                                               |
 |-----------|------------------|-----------------------------------|--------------------------------------------------------------|
-| May       | 1 May            | Hasitha (**@chris7716**)          | Kanupriya (**@Kanupriyaoppia**) & Sylvia (**@sesundor**)     |
-| June      | 5 June           | Jay Vivarekar (**@JayVivarekar**) | Kanupriya (**@Kanupriyaoppia**) & Camila (**@cam-pinheiro**) |
-| July      | 3 July           | Hitesh Tomar (**@lkbhitesh07**)   | Sylvia (**@sesundor**)                                       |
-| August    | 7 August         | Kevin (**@kevintab95**)           | Kanupriya (**@Kanupriyaoppia**)                              |
-| September | 4 September      | Hasitha (**@chris7716**)          | Camila (**@cam-pinheiro**)                                   |
-| October   | 2 October        | Jay Vivarekar (**@JayVivarekar**) | Sylvia (**@sesundor**)                                       |
-| November  | 6 November       | Hitesh Tomar (**@lkbhitesh07**)   | Kanupriya (**@Kanupriyaoppia**)                              |
-| December  | 4 November       | Kevin (**@kevintab95**)           | Camila (**@cam-pinheiro**)                                   |
-
+| November  | 12 November      | Kevin (**@kevintab95**)           | Kanupriya (**@Kanupriyaoppia**) & Andy (**@andyzhu7568**)    |
+| December  | 4 December       | Kevin (**@kevintab95**)           | Sylvia (**@sesundor**)                                       |
+| January   | 1 January        | Hasitha (**@chris7716**)          | Camila (**@cam-pinheiro**)                                   |
+| February  | 5 February       | Jay Vivarekar (**@JayVivarekar**) | Andy (**@andyzhu7568**)                                      |
+| March     | 5 March          | Kevin (**@kevintab95**)           | Kanupriya (**@Kanupriyaoppia**)                              |
+| April     | 2 April          | Hasitha (**@chris7716**)          | Sylvia (**@sesundor**)                                       |
+| May       | 7 May            | Jay Vivarekar (**@JayVivarekar**) | Camila (**@cam-pinheiro**)                                   |
+| June      | 4 June           | Kevin (**@kevintab95**)           | Andy (**@andyzhu7568**)                                      |
+| July      | 2 July           | Hasitha (**@chris7716**)          | Kanupriya (**@Kanupriyaoppia**)                              |
+| August    | 6 August         | Jay Vivarekar (**@JayVivarekar**) | Sylvia (**@sesundor**)                                       |
+| September | 3 September      | Kevin (**@kevintab95**)           | Camila (**@cam-pinheiro**)                                   |
+| October   | 2 October        | Hasitha (**@chris7716**)          | Andy (**@andyzhu7568**)                                      |
 
 ## Responsibilities of the release coordinator
 - Communicate clearly during the release process, especially in the group chat to share updates as the release steps are completed, and keeping the team apprised of any delays.

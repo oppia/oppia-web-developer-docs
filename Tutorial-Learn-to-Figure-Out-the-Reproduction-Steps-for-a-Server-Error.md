@@ -657,7 +657,7 @@ Traceback (most recent call last):
     plain_text = _get_plain_text_from_html_content_string(
   File "/Users/ash/Desktop/openSource/oppia/core/domain/suggestion_services.py", line 1462, in _get_plain_text_from_html_content_string
     html_content_string_with_rte_tags_replaced = re.sub(
-  File "/Users/ash/.pyenv/versions/3.8.15/lib/python3.8/re.py", line 210, in sub
+  File "/Users/ash/.pyenv/versions/3.9.20/lib/python3.8/re.py", line 210, in sub
     return _compile(pattern, flags).sub(repl, string, count)
 TypeError: expected string or bytes-like object
 

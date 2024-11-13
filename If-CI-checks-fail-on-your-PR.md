@@ -23,7 +23,7 @@ If many of the CI checks are failing at once, your PR has probably resulted in a
 
 ## Merge conflicts
 
-You can fix merge conflicts by following the "merge from develop" instructions in  [step 5 of our instructions for making a pull request](https://github.com/oppia/oppia/wiki/Make-a-pull-request#step-5-address-review-comments-until-all-reviewers-approve). Then when you push the merge commit to your feature branch on GitHub, the merge conflict message will disappear.
+You can fix merge conflicts by following the "merge from develop" instructions in  [step 5 of our instructions for making a pull request](https://github.com/oppia/oppia/wiki/Rules-for-making-PRs#step-5-address-review-comments-until-all-reviewers-approve). Then when you push the merge commit to your feature branch on GitHub, the merge conflict message will disappear.
 
 ## Network problems
 
@@ -75,7 +75,7 @@ If you see that a test or lint check is failing, there are two possibilities: yo
 
 Note that all our CI checks except for the backend tests merge from the upstream `develop` branch before running, so you may need to merge from `develop` locally to reproduce the failure.
 
-If your code is wrong, then you'll need to fix it just as you would [respond to reviewer comments](https://github.com/oppia/oppia/wiki/Make-a-pull-request#step-5-address-review-comments-until-all-reviewers-approve). You may also want to review the following documentation to help you debug:
+If your code is wrong, then you'll need to fix it just as you would [respond to reviewer comments](https://github.com/oppia/oppia/wiki/Rules-for-making-PRs#step-5-address-review-comments-until-all-reviewers-approve). You may also want to review the following documentation to help you debug:
 
 * If a lint check is failing, see [[Lint Checks|Lint-Checks]].
 * If a test is failing, see [[Tests|Tests]].

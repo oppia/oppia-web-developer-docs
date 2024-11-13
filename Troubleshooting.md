@@ -68,25 +68,25 @@ It seems the Jio network is blocking the domain `raw.githubusercontent.com` whic
 If after running `python -m scripts.start` you get the following lines:
 ```
 Traceback (most recent call last):
-  File "/home/vansh/.pyenv/versions/3.8.15/lib/python3.8/urllib/request.py", line 1354, in do_open
+  File "/home/vansh/.pyenv/versions/3.9.20/lib/python3.8/urllib/request.py", line 1354, in do_open
     h.request(req.get_method(), req.selector, req.data, headers,
-  File "/home/vansh/.pyenv/versions/3.8.15/lib/python3.8/http/client.py", line 1256, in request
+  File "/home/vansh/.pyenv/versions/3.9.20/lib/python3.8/http/client.py", line 1256, in request
     self._send_request(method, url, body, headers, encode_chunked)
-  File "/home/vansh/.pyenv/versions/3.8.15/lib/python3.8/http/client.py", line 1302, in _send_request
+  File "/home/vansh/.pyenv/versions/3.9.20/lib/python3.8/http/client.py", line 1302, in _send_request
     self.endheaders(body, encode_chunked=encode_chunked)
-  File "/home/vansh/.pyenv/versions/3.8.15/lib/python3.8/http/client.py", line 1251, in endheaders
+  File "/home/vansh/.pyenv/versions/3.9.20/lib/python3.8/http/client.py", line 1251, in endheaders
     self._send_output(message_body, encode_chunked=encode_chunked)
-  File "/home/vansh/.pyenv/versions/3.8.15/lib/python3.8/http/client.py", line 1011, in _send_output
+  File "/home/vansh/.pyenv/versions/3.9.20/lib/python3.8/http/client.py", line 1011, in _send_output
     self.send(msg)
-  File "/home/vansh/.pyenv/versions/3.8.15/lib/python3.8/http/client.py", line 951, in send
+  File "/home/vansh/.pyenv/versions/3.9.20/lib/python3.8/http/client.py", line 951, in send
     self.connect()
-  File "/home/vansh/.pyenv/versions/3.8.15/lib/python3.8/http/client.py", line 1425, in connect
+  File "/home/vansh/.pyenv/versions/3.9.20/lib/python3.8/http/client.py", line 1425, in connect
     self.sock = self._context.wrap_socket(self.sock,
-  File "/home/vansh/.pyenv/versions/3.8.15/lib/python3.8/ssl.py", line 500, in wrap_socket
+  File "/home/vansh/.pyenv/versions/3.9.20/lib/python3.8/ssl.py", line 500, in wrap_socket
     return self.sslsocket_class._create(
-  File "/home/vansh/.pyenv/versions/3.8.15/lib/python3.8/ssl.py", line 1040, in _create
+  File "/home/vansh/.pyenv/versions/3.9.20/lib/python3.8/ssl.py", line 1040, in _create
     self.do_handshake()
-  File "/home/vansh/.pyenv/versions/3.8.15/lib/python3.8/ssl.py", line 1309, in do_handshake
+  File "/home/vansh/.pyenv/versions/3.9.20/lib/python3.8/ssl.py", line 1309, in do_handshake
     self._sslobj.do_handshake()
 ConnectionResetError: [Errno 104] Connection reset by peer
 ```
@@ -155,9 +155,9 @@ If you see an error that says something along the lines of `OSError: [Errno 2] N
 
 If you see an error that says something along the lines of `ERROR: gcloud failed to load: No module named _sqlite3` while running `scripts.start` - then follow the steps below:
 
-1. Uninstall Python 3.8.15 from pyenv with the command: `pyenv uninstall 3.8.15`
+1. Uninstall Python 3.9.20 from pyenv with the command: `pyenv uninstall 3.9.20`
 2. Install the packages as per the [wiki](https://github.com/pyenv/pyenv/wiki#suggested-build-environment) to have the suggested build environment.
-3. Install Python 3.8.15 from pyenv with the command: `pyenv install 3.8.15` and make sure that there are no warnings or errors in the output of the command.
+3. Install Python 3.9.20 from pyenv with the command: `pyenv install 3.9.20` and make sure that there are no warnings or errors in the output of the command.
 
 ### Problems Cloning from GitHub
 
@@ -296,9 +296,9 @@ If you are getting something like this in M1 macbooks when running `python -m sc
 ```
 b'protoc-gen-js: program not found or is not executable\Please specify a program using absolute path or make sure the program is available in your PATH system variable\n--js_out: protoc-gen-js: Plugin failed with status code 1. Inplugin js: exit status 1\n
 Traceback (most recent call last) :
-   File "/Users/.../.pyenv/versions/3.8.15/lib/python3.8/runpy.py", line 193, in _run_module_as_main
+   File "/Users/.../.pyenv/versions/3.9.20/lib/python3.8/runpy.py", line 193, in _run_module_as_main
       "main" mod_spec)
-   File "/Users/.../.pyenv/versions/3.8.15/lib/python3.8/runpy.py", line 85, in run_code
+   File "/Users/.../.pyenv/versions/3.9.20/lib/python3.8/runpy.py", line 85, in run_code
       exec (code, run globals)
    File "/Users/.../opensource/oppia/scripts/start.py", line 32, in <module>
       install_third_party_libs.main()
@@ -412,22 +412,22 @@ If this error occurs within a virtual environment, try reinstalling the libs by 
 ### ModuleNotFoundError: No module named \_bz2
 
 1. Install bz2 headers. Use the command `sudo apt-get install libbz2-dev` on Ubuntu.
-2. Install Python 3 again so that the bz2 library gets included in `~/.pyenv/versions/3.8.15/lib/python3.8/`. Use the command `pyenv install 3.8.15`.
+2. Install Python 3 again so that the bz2 library gets included in `~/.pyenv/versions/3.9.20/lib/python3.8/`. Use the command `pyenv install 3.9.20`.
 
 ### Subprocess.CalledProcessError: Command 'yarn install --pure-lockfile' returned non-zero exit status 1
 
 If you get error like this when running ``python -m scripts.start``:
 ```
 Traceback (most recent call last):
-  File "/home/hardik/.pyenv/versions/3.8.15/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+  File "/home/hardik/.pyenv/versions/3.9.20/lib/python3.8/runpy.py", line 194, in _run_module_as_main
     return _run_code(code, main_globals, None,
-  File "/home/hardik/.pyenv/versions/3.8.15/lib/python3.8/runpy.py", line 87, in _run_code
+  File "/home/hardik/.pyenv/versions/3.9.20/lib/python3.8/runpy.py", line 87, in _run_code
     exec(code, run_globals)
   File "/home/hardik/opensource/oppia/scripts/start.py", line 33, in <module>
     install_third_party_libs.main()
   File "/home/hardik/opensource/oppia/scripts/install_third_party_libs.py", line 234, in main
     subprocess.check_call([get_yarn_command(), 'install', '--pure-lockfile'])
-  File "/home/hardik/.pyenv/versions/3.8.15/lib/python3.8/subprocess.py", line 364, in check_call
+  File "/home/hardik/.pyenv/versions/3.9.20/lib/python3.8/subprocess.py", line 364, in check_call
     raise CalledProcessError(retcode, cmd)
 subprocess.CalledProcessError: Command '['yarn', 'install', '--pure-lockfile']' returned non-zero exit status 1.
 ```
@@ -497,7 +497,7 @@ In some cases it is possible that the local datastore data are not deleted when 
 
 ### No module named '\_ctypes' on M1 Macs
 
-When one contributor got a `ModuleNotFoundError: No module named '_ctypes'` error when installing on an M1 Mac with Rosetta, they found that using Python 3.9 worked.
+When one contributor got a `ModuleNotFoundError: No module named '_ctypes'` error when installing on an M1 Mac with Rosetta, they found that using Python 3.9.20 worked.
 
 ### Cannot Import Name `_imaging`
 
@@ -630,34 +630,34 @@ If you get an error like this when running `python -m scripts.start` or scripts 
 ```
 Installing collected packages: certifi
   Attempting uninstall: certifi
-    WARNING: No metadata found in /Users/ash/Desktop/openSource/.direnv/python-3.8.15/lib/python3.8/site-packages
+    WARNING: No metadata found in /Users/ash/Desktop/openSource/.direnv/python-3.9.20/lib/python3.8/site-packages
     Found existing installation: certifi 2022.12.7
 ERROR: Cannot uninstall certifi 2022.12.7, RECORD file not found. You might be able to recover from this via: 'pip install --force-reinstall --no-deps certifi==2022.12.7'.
 
 [notice] A new release of pip is available: 23.1.2 -> 24.0
 [notice] To update, run: pip install --upgrade pip
 Traceback (most recent call last):
-  File "/Users/ash/Desktop/openSource/.direnv/python-3.8.15/bin/pip-sync", line 8, in <module>
+  File "/Users/ash/Desktop/openSource/.direnv/python-3.9.20/bin/pip-sync", line 8, in <module>
     sys.exit(cli())
-  File "/Users/ash/Desktop/openSource/.direnv/python-3.8.15/lib/python3.8/site-packages/click/core.py", line 1130, in __call__
+  File "/Users/ash/Desktop/openSource/.direnv/python-3.9.20/lib/python3.8/site-packages/click/core.py", line 1130, in __call__
     return self.main(*args, **kwargs)
-  File "/Users/ash/Desktop/openSource/.direnv/python-3.8.15/lib/python3.8/site-packages/click/core.py", line 1055, in main
+  File "/Users/ash/Desktop/openSource/.direnv/python-3.9.20/lib/python3.8/site-packages/click/core.py", line 1055, in main
     rv = self.invoke(ctx)
-  File "/Users/ash/Desktop/openSource/.direnv/python-3.8.15/lib/python3.8/site-packages/click/core.py", line 1404, in invoke
+  File "/Users/ash/Desktop/openSource/.direnv/python-3.9.20/lib/python3.8/site-packages/click/core.py", line 1404, in invoke
     return ctx.invoke(self.callback, **ctx.params)
-  File "/Users/ash/Desktop/openSource/.direnv/python-3.8.15/lib/python3.8/site-packages/click/core.py", line 760, in invoke
+  File "/Users/ash/Desktop/openSource/.direnv/python-3.9.20/lib/python3.8/site-packages/click/core.py", line 760, in invoke
     return __callback(*args, **kwargs)
-  File "/Users/ash/Desktop/openSource/.direnv/python-3.8.15/lib/python3.8/site-packages/piptools/scripts/sync.py", line 174, in cli
+  File "/Users/ash/Desktop/openSource/.direnv/python-3.9.20/lib/python3.8/site-packages/piptools/scripts/sync.py", line 174, in cli
     sync.sync(
-  File "/Users/ash/Desktop/openSource/.direnv/python-3.8.15/lib/python3.8/site-packages/piptools/sync.py", line 244, in sync
+  File "/Users/ash/Desktop/openSource/.direnv/python-3.9.20/lib/python3.8/site-packages/piptools/sync.py", line 244, in sync
     run(  # nosec
-  File "/Users/ash/.pyenv/versions/3.8.15/lib/python3.8/subprocess.py", line 516, in run
+  File "/Users/ash/.pyenv/versions/3.9.20/lib/python3.8/subprocess.py", line 516, in run
     raise CalledProcessError(retcode, process.args,
-subprocess.CalledProcessError: Command '['/Users/ash/Desktop/openSource/.direnv/python-3.8.15/bin/python', '-m', 'pip', 'install', '-r', '/var/folders/75/00_6bzhj2yv42jzg6bk544vh0000gn/T/tmp8rdctoxc', '--require-hashes', '--no-deps']' returned non-zero exit status 1.
+subprocess.CalledProcessError: Command '['/Users/ash/Desktop/openSource/.direnv/python-3.9.20/bin/python', '-m', 'pip', 'install', '-r', '/var/folders/75/00_6bzhj2yv42jzg6bk544vh0000gn/T/tmp8rdctoxc', '--require-hashes', '--no-deps']' returned non-zero exit status 1.
 Traceback (most recent call last):
-  File "/Users/ash/.pyenv/versions/3.8.15/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+  File "/Users/ash/.pyenv/versions/3.9.20/lib/python3.8/runpy.py", line 194, in _run_module_as_main
     return _run_code(code, main_globals, None,
-  File "/Users/ash/.pyenv/versions/3.8.15/lib/python3.8/runpy.py", line 87, in _run_code
+  File "/Users/ash/.pyenv/versions/3.9.20/lib/python3.8/runpy.py", line 87, in _run_code
     exec(code, run_globals)
   File "/Users/ash/Desktop/openSource/oppia/scripts/run_backend_tests.py", line 67, in <module>
     from . import install_third_party_libs
@@ -667,7 +667,7 @@ Traceback (most recent call last):
     install_dev_dependencies()
   File "/Users/ash/Desktop/openSource/oppia/scripts/install_python_dev_dependencies.py", line 89, in install_dev_dependencies
     subprocess.run(
-  File "/Users/ash/.pyenv/versions/3.8.15/lib/python3.8/subprocess.py", line 516, in run
+  File "/Users/ash/.pyenv/versions/3.9.20/lib/python3.8/subprocess.py", line 516, in run
     raise CalledProcessError(retcode, process.args,
 subprocess.CalledProcessError: Command '['pip-sync', 'requirements_dev.txt', '--pip-args', '--require-hashes --no-deps']' returned non-zero exit status 1.
 ```
@@ -709,23 +709,23 @@ OSError: First build never completed
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 131, in __exit__
+  File "/home/user/.pyenv/versions/3.9.20/lib/python3.8/contextlib.py", line 131, in __exit__
     self.gen.throw(type, value, traceback)
   File "/home/user/opensource/oppia/scripts/servers.py", line 365, in managed_redis_server
     yield proc
   File "/home/user/opensource/oppia/scripts/start.py", line 178, in main
     stack.enter_context(servers.managed_ng_build(watch_mode=True))
-  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 425, in enter_context
+  File "/home/user/.pyenv/versions/3.9.20/lib/python3.8/contextlib.py", line 425, in enter_context
     result = _cm_type.__enter__(cm)
-  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 113, in __enter__
+  File "/home/user/.pyenv/versions/3.9.20/lib/python3.8/contextlib.py", line 113, in __enter__
     return next(self.gen)
   File "/home/user/opensource/oppia/scripts/servers.py", line 461, in managed_ng_build
     yield proc
-  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 525, in __exit__
+  File "/home/user/.pyenv/versions/3.9.20/lib/python3.8/contextlib.py", line 525, in __exit__
     raise exc_details[1]
-  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 510, in __exit__
+  File "/home/user/.pyenv/versions/3.9.20/lib/python3.8/contextlib.py", line 510, in __exit__
     if cb(*exc_details):
-  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 131, in __exit__
+  File "/home/user/.pyenv/versions/3.9.20/lib/python3.8/contextlib.py", line 131, in __exit__
     self.gen.throw(type, value, traceback)
   File "/home/user/opensource/oppia/scripts/servers.py", line 138, in managed_process
     raise Exception(
@@ -734,19 +734,19 @@ Exception: Process Angular Compiler(name="sh", pid=2350) exited unexpectedly wit
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+  File "/home/user/.pyenv/versions/3.9.20/lib/python3.8/runpy.py", line 194, in _run_module_as_main
     return _run_code(code, main_globals, None,
-  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/runpy.py", line 87, in _run_code
+  File "/home/user/.pyenv/versions/3.9.20/lib/python3.8/runpy.py", line 87, in _run_code
     exec(code, run_globals)
   File "/home/user/opensource/oppia/scripts/start.py", line 233, in <module>
     main()
   File "/home/user/opensource/oppia/scripts/start.py", line 229, in main
     dev_appserver.wait()
-  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 525, in __exit__
+  File "/home/user/.pyenv/versions/3.9.20/lib/python3.8/contextlib.py", line 525, in __exit__
     raise exc_details[1]
-  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 510, in __exit__
+  File "/home/user/.pyenv/versions/3.9.20/lib/python3.8/contextlib.py", line 510, in __exit__
     if cb(*exc_details):
-  File "/home/user/.pyenv/versions/3.8.15/lib/python3.8/contextlib.py", line 382, in _exit_wrapper
+  File "/home/user/.pyenv/versions/3.9.20/lib/python3.8/contextlib.py", line 382, in _exit_wrapper
     callback(*args, **kwds)
   File "/home/user/opensource/oppia/scripts/start.py", line 132, in call_extend_index_yaml
     extend_index_yaml.main()
