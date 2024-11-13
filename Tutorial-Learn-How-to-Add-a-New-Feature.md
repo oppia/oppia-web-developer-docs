@@ -35,7 +35,7 @@ After the user closes the modal, they will be able to proceed with their usual t
 ## Prerequisites
 
 Before you begin, ensure you have:
-- Set up your development environment. (If you haven't, follow the [Oppia setup instructions](https://github.com/oppia/oppia/wiki/End-to-End-Tests)).
+- Set up your development environment. (If you haven't, follow the [Oppia setup instructions](https://github.com/oppia/oppia/wiki/Installing-Oppia)).
 - Basic understanding of frontend and backend development with [Angular](https://angular.dev/overview) & [Python](https://www.python.org/about/gettingstarted/)
 - Familiarity with the Oppia codebase and its file structure. (If not, refer to the [Oppia codebase overview](https://github.com/oppia/oppia/wiki/Overview-of-the-Oppia-codebase)).
 
