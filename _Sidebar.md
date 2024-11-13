@@ -95,6 +95,8 @@
       * [[Lint Checks|Lint-Checks]]
         * [[Custom Pylint checks|Custom-Pylint-checks]]
         * [[Custom ESLint checks|Custom-ESLint-checks]]
+      * Debug CI flakes
+        * 👣 [[Tutorial - Learn to fix a CI flake – E2E Tests - waitFor|Tutorial-Learn-How-to-Fix-a-CI-Flake-waitFor-Statements]]
       * [[Wiki infrastructure|Wiki]]
         * [[Wiki style guide|Wiki-style-guide]]
 
