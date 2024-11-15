@@ -52,7 +52,7 @@
     * [[Debug frontend code|Debug-frontend-code]]
     * [[Debugging Stories|Debugging-Stories]]
     * [[Testing email functionality|Testing-email-functionality]]
-    * [[Tutorial - Learn to figure out the reproduction steps for a server error|Tutorial-Learn-to-Figure-Out-the-Reproduction-Steps-for-a-Server-Error]]
+    * 👣 [[Tutorial - Learn to figure out the reproduction steps for a server error|Tutorial-Learn-to-Figure-Out-the-Reproduction-Steps-for-a-Server-Error]]
   * Testing
       * [[Backend tests|Backend-tests]]
       * [[Frontend tests|Frontend-tests]]
@@ -85,12 +85,9 @@
       * [[Testing for Accessibility|Testing-for-Accessibility]]
       * [[Release accessibility checklist|Release-accessibility-checklist]]
       * [[Apache Beam Jobs|Apache-beam-jobs]]
-        * [[Tutorial - Learn how to write and test a non-trivial Beam job|Tutorial-Learn-How-to-Write-and-Test-a-Non-Trivial-Beam-Job]]
-      * Translations:
-        * [[Adding new translations|Adding-new-translations-for-i18n]]
-        * [[How to develop for i18n|How-to-develop-for-i18n]]
-      * Server errors:
-        * [[Server errors and solutions|Server-errors-and-solutions]]
+        * 👣 [[Tutorial - Learn how to write and test a non-trivial Beam job|Tutorial-Learn-How-to-Write-and-Test-a-Non-Trivial-Beam-Job]]
+      * [[I18n/Translations Guide|Adding-new-translations-for-i18n]]
+      * [[Server errors and solutions|Server-errors-and-solutions]]
     * Developer Workflow:
       * [[Instructions for making PR passes|Instructions-for-making-PR-passes]]
       * [[Lint Checks|Lint-Checks]]
