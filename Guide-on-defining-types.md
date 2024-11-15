@@ -1,5 +1,6 @@
 ## Table of contents
-- [Why do we need to define types?](#why-do-we-need-to-define-types-)
+- [Introduction](#introduction)
+- [Running the TypeScript tests](#running-the-typescript-tests)
 - [Where should the types be defined?](#where-should-the-types-be-defined-)
   * [Functions](#functions)
   * [Classes](#classes)
@@ -18,11 +19,53 @@
   * [Example](#example)
 - [Cases encountered in Codebase:](#cases-encountered-in-oppia-codebase)
 
-## Why do we need to define types?
+## Introduction
+
+We use a lot of [TypeScript](https://www.typescriptlang.org/) code at Oppia, which lets us write JavaScript code that is strongly typed. We declare the types of variables, function arguments, and function return values. Then, TypeScript checks that there aren't any type errors when it compiles our code. For example, if you have a function that expects an int, TypeScript won't let you call the function with a string.
+
+Defining types helps with:
 - Earlier detection of errors which in turn speeds development
 - No run-time penalty for determining the type.
 - Clean code. This allows developers to write more robust code and maintain it, resulting in better, cleaner code.
 - Makes it easier for fellow developers to understand and use the already written code.
+
+This page describes how to run the TypeScript tests to make sure the types are correct, and also explains how to specify types for existing code.
+
+## Running the TypeScript Tests
+
+You can run the TypeScript tests like this:
+
+Python:
+```console
+python -m scripts.run_typescript_checks --strict_checks
+```
+
+Docker:
+```console
+make run_tests.typescript
+```
+
+These tests compile all ts files in the codebase and check for errors (including type errors) during compilation. The compiled files are put in the folder `local_compiled_js_for_test`, which is automatically deleted after the tests finish running. Note that this folder might not be deleted if you abort the tests early.
+
+The tests pass if, at the end of the test output, you see the message:
+
+```text
+Compilation successful!
+```
+
+If the tests fail, you'll see:
+
+```text
+Errors found during compilation
+```
+
+Below this message will be errors describing what went wrong. For example, consider this error:
+
+```text
+core/templates/services/exploration-features-backend-api.service.ts(49,7): error TS2345: Argument of type 'boolean' is not assignable to parameter of type 'string'.
+```
+
+This means that on line 49 of `exploration-features-backend-api.service.ts`, you are passing a boolean to a function that expects a string.
 
 ## Where should the types be defined?
 > NOTE: These conventions apply to the files in Angular.
