@@ -1,5 +1,6 @@
 ## Table of contents
 
+* [Important Note](#important-note)
 * [Introduction](#introduction)
 * [Flaky tests](#flaky-tests)
   * [What is a flake](#what-is-a-flake)
@@ -40,6 +41,12 @@
   * [Async-Await Tips](#async-await-tips)
     * [Good Patterns](#good-patterns)
     * [Anti-Patterns](#anti-patterns)
+
+## Important Note
+
+We are moving from e2e tests to [acceptance tests|Acceptance-Tests]. This is because we want to move to a general testing paradigm which organizes our end-to-end tests by critical user journey (CUJ) rather than by page (as the end-to-end tests are currently structured).
+
+So, for new code, please write [acceptance tests|Acceptance-Tests] (using Puppeteer) instead. The existing e2e tests (using webdriverio) are still functional but will be removed gradually as acceptance tests are written to replace them.
 
 ## Introduction
 
