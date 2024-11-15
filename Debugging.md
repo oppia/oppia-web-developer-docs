@@ -2,7 +2,7 @@ We do a lot of debugging at Oppia, whether because tests are failing on a PR or 
 
 Start here if failing tests are stopping you from pushing or merging a PR:
 
-* [[If your presubmit checks fail|If-your-presubmit-check-fails]]
+* [[If your local presubmit checks fail|If-your-presubmit-check-fails]]
 * [[If CI checks fail on your PR|If-CI-checks-fail-on-your-PR]]
 
 Unless the bug you are trying to fix is trivial, we recommend creating a debugging doc to organize your work:
@@ -11,8 +11,7 @@ Unless the bug you are trying to fix is trivial, we recommend creating a debuggi
 
 Here are some debugging guides for particular kinds of issues you might encounter or types of tests:
 
-* [[Interpreting GitHub Actions Results|Interpreting-GitHubActions-Results]]
-* [[Finding the commit that introduced a bug|How-to-find-the-commit-which-introduced-a-bug]]
+* [[Finding which commit introduced a bug|How-to-find-the-commit-which-introduced-a-bug]]
 * [[Debugging end-to-end tests|Debug-end-to-end-tests]]
 * [[Debugging backend tests|Debug-backend-tests]]
 * [[Debugging frontend tests|Debug-frontend-tests]]

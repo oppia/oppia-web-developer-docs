@@ -80,6 +80,7 @@ Any Oppia developer with permission to open revert PRs on GitHub may decide, fol
 Please note that:
 * You don't need to get permission from the author of the original PR before making your revert PR. Just notify them so that they are aware.
 * It is usually fine to merge revert PRs without review, as long as the relevant CI checks pass. Contact **@seanlip** to help you with this.
+* After the revert, add `[REVERTED]` to the beginning of the reverted PR's title, and reopen the issue that that PR was supposed to fix, with an explanation that the PR which "fixed" it has been reverted.
 
 ### Dev Workflow Leads
 
