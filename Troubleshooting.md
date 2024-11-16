@@ -27,7 +27,6 @@ Here are some general troubleshooting tips for Oppia. The platform specific tips
 - [Push fails due to connection timeout](#push-fails-due-to-connection-timeout)
 - [Exception: Error compiling proto files](#exception-error-compiling-proto-files)
 - [Linux](#linux)
-  - [Python 2 is not available](#python-2-is-not-available)
   - [OSError: \[Errno 2\] No such file or directory](#oserror-errno-2-no-such-file-or-directory)
   - [Pip: Cannot Import Name Main](#pip-cannot-import-name-main)
   - [ENOSPC: System Limit for Number of File Watchers Reached](#enospc-system-limit-for-number-of-file-watchers-reached)
@@ -37,7 +36,6 @@ Here are some general troubleshooting tips for Oppia. The platform specific tips
   - [Subprocess.CalledProcessError: Command 'yarn install --pure-lockfile' returned non-zero exit status 1](#subprocesscalledprocesserror-command-yarn-install---pure-lockfile-returned-non-zero-exit-status-1)
 
 - [Mac OS](#mac-os)
-  - [Python 2 is not available](#python-2-is-not-available-1)
   - [Error: alert\_on\_exit() -\> Iterator\[None\]](#error-alert_on_exit---iteratornone)
   - [Local datastore data are not being deleted](#local-datastore-data-are-not-being-deleted)
   - [No module named '\_ctypes' on M1 Macs](#no-module-named-_ctypes-on-m1-macs)
@@ -313,16 +311,6 @@ Try searching for where protoc is installed (probably in `/opt/homebrew/bin/prot
 
 ## Linux
 
-### Python 2 is not available
-
-If you get error like this when running `python -m scripts.start`:
-
-```
-ERROR: (dev_appserver) python2: command not found
-```
-
-you will need to install Python 2 on your platform, even though Oppia doesn't use Python 2 anymore some parts of the App Engine dev server still need it. If you are on Ubuntu, you should be able to fix this using `sudo apt install python2`.
-
 ### OSError: [Errno 2] No such file or directory
 
 If you get an error like this
@@ -443,16 +431,6 @@ npm install  yarn
 
 ## Mac OS
 
-### Python 2 is not available
-
-If you get error like this when running `python -m scripts.start`:
-
-```
-ERROR: (dev_appserver) python2: command not found
-```
-
-you will need to install Python 2 on your platform, even though Oppia doesn't use Python 2 anymore some parts of the App Engine dev server still need it. If you have MacOS >= 12.3, please follow the steps listed [here](https://github.com/oppia/oppia/wiki/Installing-Oppia-(Mac-OS;-Python-3)#install-prerequisites) to install Python 2 on your system.
-
 ### Error: alert_on_exit() -> Iterator[None]
 
 If after running python -m scripts.start, you get an error similar to this below:
@@ -471,7 +449,7 @@ Traceback (most recent call last):
 
 Then,
 
-1. Open your `.bash_profile` file, and check if there are two versions of Python listed inside of it, one for Python 2.7 and other for Python 3.8. Simply remove the entry for Python 2.7. Finally, this is how your file should look like:
+1. Open your `.bash_profile` file, and check if there are two versions of Python listed inside of it, one for Python 2.7 and other for Python 3.9. Simply remove the entry for Python 2.7. Finally, this is how your file should look like:
 
 ```
 export PYENV_ROOT="$HOME/.pyenv"
@@ -481,9 +459,9 @@ eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-# Setting PATH for Python 3.10
+# Setting PATH for Python 3.9
 # The original version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.10/bin:${PATH}"
+PATH="/Library/Frameworks/Python.framework/Versions/3.9/bin:${PATH}"
 export PATH
 ```
 

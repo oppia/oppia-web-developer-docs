@@ -197,21 +197,10 @@ For your vitual environment, we recommend you use [pyenv](https://github.com/pye
    Installed Python-3.9.20 to /Users/user/.pyenv/versions/3.9.20
    ```
 
-4. Install Python 2.7.18:
-
-
-   ```console
-   $ pyenv install 2.7.18
-   ...
-   Installed Python-2.7.18 to ~/.pyenv/versions/2.7.18
-   ```
-
-   This is needed because App Engine's `dev_appserver.py` [requires Python 2.7 to be installed](https://cloud.google.com/appengine/docs/standard/python3/tools/local-devserver-command).
-
-5. Make both Python 3 and Python 2 available globally on your system:
+4. Make Python 3 available globally on your system:
 
    ```console
-   pyenv global 3.9.20 2.7.18
+   pyenv global 3.9.20
    ```
 
    Note that you can use a different version of Python 3 if you prefer--we'll specify Python 3.9.20 as our version for Oppia development later.
@@ -297,11 +286,11 @@ For your vitual environment, we recommend you use [pyenv](https://github.com/pye
    i  hub: Stopping emulator hub
    i  logging: Stopping Logging Emulator
    Stopping Web Browser(name="open", pid=29306)...
-   Stopping GAE Development Server(name="python2.7", pid=29289)...
+   Stopping GAE Development Server(name="sh", pid=29289)...
    Stopping Webpack Compiler(name="node", pid=29234)...
    Stopping Firebase Emulator(name="node", pid=29216)...
    Stopping ElasticSearch Server(name="java", pid=29148)...
-   Stopping Redis Server(name="redis-server", pid=29147)...
+   Stopping Redis Server(name="sh", pid=29147)...
 
 
    Done! Thank you for waiting.

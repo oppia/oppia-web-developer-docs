@@ -129,7 +129,7 @@ The domain models are defined in `*_domain.py` files under `core/domain/`.
 
 ### Storage layer
 
-Finally, we have the storage layer, which defines the storage models.  These are also classes, but they define how data is stored in whatever system we are using to store data to the file system. In production, we use the [Google Cloud Datastore](https://cloud.google.com/datastore), and we interface with it from Python using [Cloud NDB](https://googleapis.dev/python/python-ndb/latest/index.html). (Cloud NDB is for Python 3. For Python 2, we use App Engine NDB.)
+Finally, we have the storage layer, which defines the storage models.  These are also classes, but they define how data is stored in whatever system we are using to store data to the file system. In production, we use the [Google Cloud Datastore](https://cloud.google.com/datastore), and we interface with it from Python using [Cloud NDB](https://googleapis.dev/python/python-ndb/latest/index.html).
 
 The storage models are defined in `core/storage`, while the code that handles interacting with the datastore is in `core/platform`.  `core/platform/models.py` provides an interface to these storage models and the underlying datastore that dynamically loads the correct classes to interface with whatever datastore is currently in use. All the code in the controller, service, and domain layers should remain platform-agnostic by relying on the storage layer.
 
