@@ -56,7 +56,7 @@ Additionally, GitHub also provides an advanced search syntax that allows you to 
 
 7. Take up your first Oppia starter issue! (See [below](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#finding-something-to-do) on how to do this.) Make sure to read and follow the [[PR instructions|Rules-for-making-PRs]] closely so that your PR review proceeds smoothly.
 
-    * In your browser, consider bookmarking the [[guide to making pull requests|Rules-for-making-PRs]] for easy reference later, as well as the ["my issues" page](https://github.com/issues/assigned) (so that you can keep track of the issues assigned to you).
+    * In your browser, consider bookmarking the [[guide to making pull requests|Rules-for-making-PRs]] for easy reference, as well as the ["my issues" page](https://github.com/issues/assigned) (so that you can keep track of the issues assigned to you).
 
     * Facing any problems (including non-coding ones)? Please feel free to create a [GitHub Discussion](https://github.com/oppia/oppia/discussions) and get help from the Oppia community. You can use this avenue for asking anything -- questions about any issue, who to contact for specific things, etc.
 
@@ -65,6 +65,8 @@ Additionally, GitHub also provides an advanced search syntax that allows you to 
 ## Developing your skills
 
 See our [[page of learning resources|Learning-Resources]] for suggestions on how you can improve your development skills. When you take up an issue that requires programming languages or tools you are unfamiliar with, check out that page for resources that other developers have found useful when learning.
+
+Our wiki has lots of useful documentation, including **tutorials** which are denoted in the sidebar by 👣 icons. Use them to learn key skills that are needed for solving issues.
 
 We also **strongly recommend** looking through the resources under "Developing Oppia" in the wiki sidebar. Good places to start include the [[Overview of the Oppia codebase|Overview-of-the-Oppia-codebase]] and the [[tips on how to find the right code to change|Find-the-right-code-to-change]].
 
@@ -76,14 +78,18 @@ Welcome! Please make sure to follow the instructions above if you haven't alread
 
 After that, you can choose a good first issue from the [list of good first issues](https://github.com/oppia/oppia/labels/good%20first%20issue). These issues are hand-picked to ensure that you don't run into unexpected roadblocks while working on them, and each of them should have clear instructions for new contributors. If you see one that doesn't, please let us know via [GitHub Discussions](https://github.com/oppia/oppia/discussions) and we'll fix it. For other issues, you might need to be more independent because we might not know how to solve them either.
 
-Please only work on issues that are labelled **"Impact: High"** or **"Impact: Medium"**. (We are not focusing on "Impact: Low" or "Backlog" issues for now; if you submit a fix for those, you will likely be redirected. We also recommend not working on "triage needed" issues since these might get closed or modified during the weekly triage process.)
+Please only work on issues that are labelled **"Impact: High"** or **"Impact: Medium"**.
+
+> [!CAUTION]
+> - Do not work on "Impact: Low" or "Backlog" issues. If you submit a fix for those, you will probably be asked to pick a different issue. Those issues often haven't been looked at closely yet, and might not be priorities for implementation.
+> - Do not work on issues with the "triage needed" label, including issues that you recently filed. These issues haven't been vetted yet and might get closed or modified during the weekly triage process.
 
 As a new contributor, if you run into any problems along the way, we're here to help! Check out our [[Getting Help Page|Get-help]] for the communication channels you can use.
 
 You can also browse good first issues for each of the core Oppia Web teams to find something you'd enjoy working on! Please only choose issues that have **not yet** been assigned, unless the issue is a "checkbox issue" with multiple claimable parts. Here are the project boards for the different teams:
 
-- Developer Workflow: https://github.com/orgs/oppia/projects/8/views/10, typically backend or frontend
 - Learner and Creator Experience (LaCE): https://github.com/orgs/oppia/projects/3/views/10, typically frontend or full-stack
+- Developer Workflow: https://github.com/orgs/oppia/projects/8/views/10, typically backend or frontend
 - Contributor Dashboard: https://github.com/orgs/oppia/projects/18/views/14, typically frontend or full-stack
 
 ### How to tackle good first issues
@@ -91,22 +97,28 @@ You can also browse good first issues for each of the core Oppia Web teams to fi
 When you've found a good first issue you'd like to tackle, please investigate it first to understand why the issue is happening. Here are some things you should do:
 
 - Read the entire discussion thread to understand what has been tried so far.
-- Try to reproduce the issue on your local dev server. (For Contributor Dashboard issues, the [[Contributor Dashboard onboarding guide|Contributor-dashboard]] has some useful setup information. For Learner and Creator Experience releated issues, you can refer to the [[LaCE onboarding guide|LaCE-onboarding-guide]].)
-- Figure out why the problem is happening, and find the relevant code in the Oppia repository to change. (The [['Finding the right code to change' wiki page|Find-the-right-code-to-change]] might be helpful.) If you have trouble with this, feel free to ask on [GitHub Discussion](https://github.com/oppia/oppia/discussions) and explain what you've tried doing so far.
-- If the issue is easy to fix, try to get a rough fix working on your local dev server!
+- Try to reproduce the issue on your local dev server. (For Contributor Dashboard issues, the [[Contributor Dashboard onboarding guide|Contributor-dashboard]] has some useful setup information. For Learner and Creator Experience related issues, you can refer to the [[LaCE onboarding guide|LaCE-onboarding-guide]].)
+- Figure out why the problem is happening, and [find the relevant code in the Oppia repository to change|Find-the-right-code-to-change]. If you have trouble with this, feel free to ask on [GitHub Discussion](https://github.com/oppia/oppia/discussions) and explain what you've tried doing so far.
+- Try and get a fix working on your local dev server. You will need to do this in order to claim the issue (see below).
 
 Once you have a good understanding of the issue, you can ask for it to be assigned to you by leaving a comment as follows:
 
-- Explain clearly how you'd tackle the issue (at a minimum, point to which file(s) you'd modify and describe the changes you'd make). If possible, show a screenshot or code snippet demonstrating your proposed fix.
+- Show a video of the fix working correctly on your local machine. (For user-facing changes, your video should show a URL that starts with localhost:8181.)
+- Explain clearly what you did to tackle the issue (at a minimum, point to which file(s) you modified and describe the changes you made). You can include code snippets if you like.
 - @-mention the leads of the corresponding project (you can find their details [here](https://github.com/orgs/oppia/projects)), letting them know you'd like to work on it and when you can submit a PR by.
 
-If your explanation makes sense, we'll assign the issue to you. Once assigned, feel free to submit a PR by following the [[instructions for making a PR|Rules-for-making-PRs]]. We recommend actively working to get your PR merged once you are assigned, because we will de-assign contributors if the PR is closed for being stale or there is no activity after the initial assignment.
+If your proof looks good and your explanation makes sense, we'll assign the issue to you. Once assigned, feel free to submit a PR by following the [[instructions for making a PR|Rules-for-making-PRs]]. We recommend actively working to get your PR merged once you are assigned, because we will de-assign contributors if the PR is closed for being stale or there is no activity after the initial assignment.
 
-Generally, we aim to review PRs within 48 hours. If you have not heard from a reviewer by then, feel free to escalate. You can leave a comment on the review thread and also add a message to the "Contacting Folks" section of [GitHub Discussions](https://github.com/oppia/oppia/discussions/categories/q-a-contacting-folks).
+> [!IMPORTANT]
+> Please follow the [[PR instructions|Rules-for-making-PRs]] carefully, otherwise your PR review may be delayed or your PR may be closed.
 
-If you run into any problems, feel free to create a [GitHub Discussion](https://github.com/oppia/oppia/discussions) and get help from the Oppia community, or [request a mentor](https://forms.gle/udsRP4WQgLcez9Zm8) if you'd like individual support. If you need specific help, write a [[debugging doc|Debugging-Docs]] to compile the necessary information and outline your thought process, so that we can help you more easily.
+#### Getting help
 
-**Important Note**: Please follow the [[PR instructions|Rules-for-making-PRs]] carefully! Otherwise your PR review may be delayed or your PR may be closed.
+Generally, we aim to review PRs within 48 hours. If you have not heard from a reviewer within 48 hours, feel free to leave a comment on the review thread, and also add a message to the "Contacting Folks" section of [GitHub Discussions](https://github.com/oppia/oppia/discussions/categories/q-a-contacting-folks). **Don't wait longer than 2 days to do this.**
+
+If you run into a general problem, please create a [GitHub Discussion thread](https://github.com/oppia/oppia/discussions) to get help from the Oppia community.
+
+**Note:** It is important to pick a starter issue that you are able to do! If you find that the issue you are tackling is too difficult, it is fine to choose another one instead and come back to it later.
 
 
 ### Contributor Roles
