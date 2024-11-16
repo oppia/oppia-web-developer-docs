@@ -8,6 +8,7 @@ This wiki page explains how to:
 - [Fill in missing platform translations](#how-to-fill-in-missing-platform-translations)
 - [Translate lessons and other dynamic text](#how-to-translate-lessons-and-other-dynamic-text)
 - [Create an i18n-compliant PR](#how-to-create-an-i18n-compliant-pr)
+- [Fetch new translations from translatewiki](#how-to-fetch-new-translations-from-translatewiki)
 - [Add a new translation language](#how-to-add-a-new-translation-language)
 
 ## How to fill in missing platform translations
@@ -19,6 +20,14 @@ All our translations are contributed through translatewiki.net. If you see missi
 3. Select a language to contribute translations for. (Also, read the [notes](https://github.com/oppia/oppia/wiki/Adding-new-translations-for-i18n#note-1-variable-replacement) below describing the translation formats used for variables and plurals.)
 
 Changes will then be pushed to Oppia automatically by the Translatewiki admins, and they will show up in future Oppia releases. We typically update new translations to the Oppia.org website on a monthly cadence.
+
+### Important: Don't rely on machine translation
+
+The translatewiki admins have requested that translators do not rely on machine auto-translation, especially if they don't know the language and cannot fix its mistakes. 
+
+In cases where filling in a translation is necessary for technical reasons, they recommend doing the following:
+- Add the string `!!FUZZY!!` to the beginning of the machine-translated string. This will update the translation in Oppia's source tree, and also mark it as "needing update" for the translators on translatewiki.
+- Ask a translator for that language to fix the translation. You can find active translators by going to [Special:ActiveLanguages](https://translatewiki.net/wiki/Special:ActiveLanguages) and clicking on a language name.
 
 ### Note 1: Variable replacement
 
@@ -160,6 +169,16 @@ Also, Karma tests may generate 404 warnings, as the required locale files aren't
 
     beforeEach(module('oppia', GLOBALS.TRANSLATOR_PROVIDER_FOR_TESTS));
 
+## How to fetch new translations from translatewiki
+
+Note that we generally do this on a monthly basis. Here are the steps that we follow:
+
+1. Checkout the `translatewiki-prs` branch.
+2. Merge `develop` into `translatewiki-prs` and resolve all conflicts (usually by accepting the changes from `translatewiki-prs`).
+3. Run `python -m scripts.run_backend_tests --test_target=core.controllers.base_test` on that branch. This will validate the I18n files. If any errors arise, they need to be fixed.
+4. Create a PR (similar to [this one](https://github.com/oppia/oppia/pull/20706)) that brings the new translations from translatewiki into develop.
+
+The reason we cannot fully automate this yet is because of step 3. Sometimes, the crowdsourced translations on translatewiki incorrectly handle syntax (e.g. HTML tags in the original strings do not show up in the translated text) and this is an issue that needs to be fixed manually.
 
 ## How to add a new translation language
 
