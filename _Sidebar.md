@@ -22,7 +22,6 @@
       * [[Set up your development tools|Tips-for-common-IDEs]]
     * [[How to access Oppia webpages|How-to-access-Oppia-webpages]]
       * [[Glossary of terms|Glossary-of-terms]]
-      * [User documentation](https://oppia.github.io/)
     * [[Populating data on local server|Populating-data-on-local-server]]
     * Team onboarding guides
       * [[LaCE Team|LaCE-onboarding-guide]]

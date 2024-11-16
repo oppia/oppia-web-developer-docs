@@ -39,6 +39,7 @@
 * [Contributor pages](#contributor-pages)
   * [Contributor dashboard page](#contributor-dashboard-page)
   * [Contributor dashboard admin page](#contributor-dashboard-admin-page)
+* [User documentation](#user-documentation)
 
 Oppia has many webpages and this is a comprehensive guide on how to access all those pages. Before a contributor makes a PR, we expect that the contributor has thoroughly tested the changes made in the PR for functional correctness. Part of this process is manually testing any pages that are affected by their code.
 
@@ -427,3 +428,7 @@ The contributor dashboard page allows users to translate existing explorations i
 1. Log in as a super-admin and assign to your user the "Question admin" role.
 
 2. Navigate to http://localhost:8181/contributor-dashboard-admin.
+
+## User Documentation
+
+More info about the usage of Oppia as a user and the pages can be found at the [user documentation page](https://oppia.github.io/).
