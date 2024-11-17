@@ -1,6 +1,6 @@
-This page details how to develop and test Oppia web pages for accessibility. 
+This page details how to develop and test Oppia web pages for accessibility.
 
-The guidelines below list the most critical accessibility features we want to ensure Oppia has. Without them, people who rely on screen readers and other aids might not be able to fully navigate the Oppia website. As you manually audit each page, please follow these general guidelines.
+As you manually audit each page, please follow the guidelines below, which list the most critical accessibility features we want to ensure Oppia has. Without them, people who rely on screen readers and other aids might not be able to fully navigate the Oppia website. We also recommend reading through [this page](https://www.w3.org/WAI/people-use-web/) by the Web Accessibility Initiative (WAI), and the pages linked from it, to learn more about how people with disabilities use the Web.
 
 ## Before you begin
 
@@ -10,7 +10,7 @@ To simulate how low-vision users interact with the website, you will need a scre
 - If you're on a PC, check out [this video on using NVDA](https://www.youtube.com/watch?v=Jao3s_CwdRU&list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g&index=4), a donation-supported, free and open-source screen reader for Windows. 
 - If you're on Linux, you can use [ChromeVox](https://chrome.google.com/webstore/detail/chromevox-classic-extensi/kgejglhpjiefppelpmljglcjbhoiplfn?hl=en), a Chrome extension, or [ORCA](https://help.gnome.org/users/orca/stable/introduction.html.en).
 
-Good, detailed instructions on how to use these tools are available in this [free accessibility course](https://egghead.io/courses/start-building-accessible-web-applications-today) by Marcy Sutton on Egghead.io. For more information on accessibility practices, check out this [article on accessibility testing](http://accessibility.voxmedia.com/) 
+Good, detailed instructions on how to use these tools are available in this [free accessibility course](https://egghead.io/courses/start-building-accessible-web-applications-today) by Marcy Sutton on Egghead.io. For more information on accessibility practices, check out this [article on accessibility testing](http://accessibility.voxmedia.com/). 
 
 
 ## Vision Disabilities
