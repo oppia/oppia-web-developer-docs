@@ -34,8 +34,6 @@
     * [[Learning resources for developers|Learning-Resources]]
     * [[Rules for making PRs|Rules-for-making-PRs]]
       * [[Coding style guide|Coding-style-guide]]
-      * [[Formatters|Formatters]]
-      * [[Bytes and string handling in Python 3|Bytes-and-string-handling-in-Python-3]]
   * [[Debugging|Debugging]]
     * [[Debugging Docs|Debugging-Docs]]
     * [[If your presubmit checks fail|If-your-presubmit-check-fails]]
