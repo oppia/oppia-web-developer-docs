@@ -88,20 +88,16 @@ As you go through https://www.oppia.org/, you will find these entities.
 ### Other terms
 
 1. **Collection**: A group of explorations.
-2. - **Community** Anyone who teaches, learns, and contributes to any content on Oppia. Community members are respectful citizens whose main objective is to steward enriching learning opportunities.
-3. **Opportunity**: An opportunity is specific to an exploration, and it refers to a way any contributor can contribute content to Oppia.
-4. **Suggestion**: Any time any user contributes to Oppia, their contribution is added as a request which is known as a suggestion. There are two types of suggestions:
-5. **Category/Subject** A category or subject that anyone can learn about on Oppia. Learners can choose from a list of categories on the home page.
-6. **Contributor** Anyone who pitches in content for an exploration/lesson. One way that Oppia is more of a collaborative learning space, in contrast to more traditional online learning platforms.
-7. **Create** To start an exploration/lesson in order to teach a topic
-8. **Creator** A person who starts an exploration or lesson, a creator takes on the teaching role in the learning environment.
-9. **Exploration** The fundamental unit of learning on Oppia. This is an interactive activity built by a creator, and consumed by a learner. 
-10. **Library** The page where all explorations and collection on Oppia are displayed.
-11. **Interaction** The interactive component of a card; this is the medium through which a learner communicates to a student by asking various types of questions and through which student can answer these question.
-12. **Learner** A user who engages in an exploration or lesson.
-13. **Response** Feedback and/or a new card that the learner is directed to based on their answer. A response can’t be empty; if a response doesn’t direct the learner to a new card, then feedback must be provided.
-14. **Rule** A condition that triggers a response. Different interactions have different rule options. Multiple rules can be grouped together in a single answer group.
-15. **Tags** Additional labels that can be added to an exploration in order to make it more findable in the gallery.
+2. **Opportunity**: An opportunity is specific to an exploration, and it refers to a way any contributor can contribute content to Oppia.
+3. **Suggestion**: Any time any user contributes to Oppia, their contribution is added as a request which is known as a suggestion. There are two types of suggestions:
+4. **Contributor** Anyone who pitches in content for an exploration/lesson. One way that Oppia is more of a collaborative learning space, in contrast to more traditional online learning platforms.
+5. **Exploration** The fundamental unit of learning on Oppia. This is an interactive activity built by a creator, and consumed by a learner. 
+6. **Library** The page where all explorations and collections on Oppia are displayed.
+7. **Interaction** The interactive component of a card; this is the medium through which a learner communicates to a student by asking various types of questions and through which student can answer these question.
+8. **Learner** A user who engages in an exploration or lesson.
+9. **Response** Feedback and/or a new card that the learner is directed to based on their answer. A response can’t be empty; if a response doesn’t direct the learner to a new card, then feedback must be provided.
+10. **Rule** A condition that triggers a response. Different interactions have different rule options. Multiple rules can be grouped together in a single answer group.
+11. **Tags** Additional labels that can be added to an exploration in order to make it more findable in the community library..
 
 
    * **Translation suggestion**: A suggested translation of content into another language.
