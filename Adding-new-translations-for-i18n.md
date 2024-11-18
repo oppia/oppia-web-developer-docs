@@ -25,7 +25,7 @@ Changes will then be pushed to Oppia automatically by the Translatewiki admins, 
 
 The translatewiki admins have requested that translators do not rely on machine auto-translation, especially if they don't know the language and cannot fix its mistakes. 
 
-In cases where filling in a translation is necessary for technical reasons, they recommend doing the following:
+In cases where fixing a translation is absolutely necessary for technical reasons (e.g. if a translatewiki string has errors and it's breaking the tests), they recommend doing the following:
 - Add the string `!!FUZZY!!` to the beginning of the machine-translated string. This will update the translation in Oppia's source tree, and also mark it as "needing update" for the translators on translatewiki.
 - Ask a translator for that language to fix the translation. You can find active translators by going to [Special:ActiveLanguages](https://translatewiki.net/wiki/Special:ActiveLanguages) and clicking on a language name.
 
@@ -70,7 +70,7 @@ Please consider i18n while developing. Not all languages are the same: words hav
 - When designing a page, plan for the case where strings are twice the length in other languages. Also, think about how the page would look like if the language is written from right to left.
 - Try to include as much text as you can in a single key, so that the translator can provide a more coherent translation. Do not divide a paragraph into multiple keys unless you cannot avoid it. Don't split strings up and concatenate them, since different languages will use a different grammatical order.
 - If you need to include html in your string, such as `<a></a>` tags, try and pass the code as an argument to the translation service.
-- Note that other languages may have more plural forms or genres than English. So, for example, if you include a sentence that is always going to be plural in English, add pluralization support regardless in your translation.
+- Note that other languages may have more plural forms or genres than English. So, for example, if you include a sentence that is always going to be plural in English, add pluralization support regardless in your translation (see [Note 2 on pluralization](#note-2-pluralization] above).
 
 ### Adding a new translation key
 
@@ -124,14 +124,6 @@ When adding a new string to Oppia's HTML code, please take into account the foll
 - The FoUC behaves differently in the preferred language (English) and all the other languages. Please manually check that there is no FoUC in both cases.
 - Add the translation key inside the html tag as the value of the translate attribute. This will prevent the key from being shown briefly -- instead, the location of the string will remain empty in the interim.
 - If the string is in a very visible location and there is FoUC in the preferred language, add the key and the translation into the `DEFAULT_TRANSLATIONS` constant defined in the file [i18n.js](https://github.com/oppia/oppia/blob/develop/core/templates/i18n.js).
-
-### Titles
-
-To add a title to the window, replace the block maintitle for a translation key:
-
-    {% block maintitle %}TRANSLATE_KEY{% endblock maintitle %}
-
-and add the translation into the corresponding json files. Titles should always be translated, but this is not mandatory. If you replace this block with a common string, it will be shown as the title instead.
 
 ### Placeholders and tooltips
 
