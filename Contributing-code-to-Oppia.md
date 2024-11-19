@@ -76,7 +76,7 @@ We also **strongly recommend** looking through the resources under "Developing O
 
 Welcome! Please make sure to follow the instructions above if you haven't already.
 
-After that, you can choose a good first issue from the [list of good first issues](https://github.com/oppia/oppia/labels/good%20first%20issue). These issues are hand-picked to ensure that you don't run into unexpected roadblocks while working on them, and each of them should have clear instructions for new contributors. If you see one that doesn't, please let us know via [GitHub Discussions](https://github.com/oppia/oppia/discussions) and we'll fix it. For other issues, you might need to be more independent because we might not know how to solve them either.
+After that, you can choose a good first issue from the [list of unassigned good first issues](https://github.com/oppia/oppia/issues?q=is%3Aopen+label%3A%22good+first+issue%22+no%3Aassignee). These issues are hand-picked to ensure that you don't run into unexpected roadblocks while working on them, and each of them should have clear instructions for new contributors. If you see one that doesn't, please let us know via [GitHub Discussions](https://github.com/oppia/oppia/discussions) and we'll fix it. For other issues, you might need to be more independent because we might not know how to solve them either.
 
 Please only work on issues that are labelled **"Impact: High"** or **"Impact: Medium"**.
 
