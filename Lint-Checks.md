@@ -45,10 +45,10 @@ We use linters to check our code for common errors or bad patterns. The Oppia li
    python -m scripts.linters.run_lint_checks --files {{file paths}}
    ```
 
-   Separate file paths with spaces. For example, to lint `scripts/start.py` and `python_utils.py`, you could run this:
+   Separate file paths with spaces. For example, to lint `scripts/start.py` and `servers.py`, you could run this:
 
    ```console
-   python -m scripts.linters.run_lint_checks --files scripts/start.py python_utils.py
+   python -m scripts.linters.run_lint_checks --files scripts/start.py servers.py
    ```
 
 4. To lint files in verbose mode, add the `--verbose` flag like this:

@@ -452,7 +452,7 @@ def test_finds_hello_world_assignment(self):
         doc='Custom test')
     temp_file = tempfile.NamedTemporaryFile()
     filename = temp_file.name
-    with python_utils.open_file(filename, 'w') as tmp:
+    with open(filename, 'w') as tmp:
         tmp.write('s = "Hello, world!"')
     node.file = filename
     node.path = filename
@@ -472,7 +472,7 @@ def test_finds_hello_world_func_call(self):
         doc='Custom test')
     temp_file = tempfile.NamedTemporaryFile()
     filename = temp_file.name
-    with python_utils.open_file(filename, 'w') as tmp:
+    with open(filename, 'w') as tmp:
         tmp.write('print("Hello, world!")')
     node.file = filename
     node.path = filename
@@ -499,7 +499,7 @@ def test_finds_hello_world_assignment(self):
     temp_file = tempfile.NamedTemporaryFile()
     filename = temp_file.name
 
-    with python_utils.open_file(filename, 'w') as tmp:
+    with open(filename, 'w') as tmp:
         tmp.write("""
         s = "Hello, world!"
         print("Hello, world!")

@@ -354,7 +354,7 @@ Notice that the test class inherits from `test_utils.GenericTestBase`, which pro
     ```python
     self.swap_with_checks(
         subprocess, 'Popen', mock_popen,
-        expected_args=[(['python'],), (['python2'],)],
+        expected_args=[(['python'],), (['python3'],)],
         expected_kwargs=[{'shell': True}, {'shell': False}])
     ```
 
@@ -362,7 +362,7 @@ Notice that the test class inherits from `test_utils.GenericTestBase`, which pro
 
     ```python
     mock_popen(['python'], shell=True)
-    mock_popen(['python2'], shell=False)
+    mock_popen(['python3'], shell=False)
     ```
 
   These swap functions each return a context where the mocking has been performed. You'll see this called a `swap` in the code. You can use the swap like this:

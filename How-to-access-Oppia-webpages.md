@@ -39,6 +39,7 @@
 * [Contributor pages](#contributor-pages)
   * [Contributor dashboard page](#contributor-dashboard-page)
   * [Contributor dashboard admin page](#contributor-dashboard-admin-page)
+* [User documentation](#user-documentation)
 
 Oppia has many webpages and this is a comprehensive guide on how to access all those pages. Before a contributor makes a PR, we expect that the contributor has thoroughly tested the changes made in the PR for functional correctness. Part of this process is manually testing any pages that are affected by their code.
 
@@ -87,9 +88,17 @@ As you go through https://www.oppia.org/, you will find these entities.
 ### Other terms
 
 1. **Collection**: A group of explorations.
-2. **Community**: Anyone who teaches, learns, and contributes to any content on Oppia.
-3. **Opportunity**: An opportunity is specific to an exploration, and it refers to a way any contributor can contribute content to Oppia.
-4. **Suggestion**: Any time any user contributes to Oppia, their contribution is added as a request which is known as a suggestion. There are two types of suggestions:
+2. **Opportunity**: An opportunity is specific to an exploration, and it refers to a way any contributor can contribute content to Oppia.
+3. **Suggestion**: Any time any user contributes to Oppia, their contribution is added as a request which is known as a suggestion. There are two types of suggestions:
+4. **Contributor** Anyone who pitches in content for an exploration/lesson. One way that Oppia is more of a collaborative learning space, in contrast to more traditional online learning platforms.
+5. **Exploration** The fundamental unit of learning on Oppia. This is an interactive activity built by a creator, and consumed by a learner. 
+6. **Library** The page where all explorations and collections on Oppia are displayed.
+7. **Interaction** The interactive component of a card; this is the medium through which a learner communicates to a student by asking various types of questions and through which student can answer these question.
+8. **Learner** A user who engages in an exploration or lesson.
+9. **Response** Feedback and/or a new card that the learner is directed to based on their answer. A response can’t be empty; if a response doesn’t direct the learner to a new card, then feedback must be provided.
+10. **Rule** A condition that triggers a response. Different interactions have different rule options. Multiple rules can be grouped together in a single answer group.
+11. **Tags** Additional labels that can be added to an exploration in order to make it more findable in the community library..
+
 
    * **Translation suggestion**: A suggested translation of content into another language.
    * **Question suggestion**: A suggested question for a skill.
@@ -427,3 +436,7 @@ The contributor dashboard page allows users to translate existing explorations i
 1. Log in as a super-admin and assign to your user the "Question admin" role.
 
 2. Navigate to http://localhost:8181/contributor-dashboard-admin.
+
+## User Documentation
+
+More info about the usage of Oppia as a user and the pages can be found at the [user documentation page](https://oppia.github.io/).

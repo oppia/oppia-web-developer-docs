@@ -1,6 +1,10 @@
 This page will help you solve common queries that you may face while working on LaCE issues. If you do not get a satisfactory explanation from this page, feel free to mention your query in the issue thread that you are working on or else make a discussion regarding this in [Dicussions](https://github.com/oppia/oppia/discussions). If you feel that your query can be a valid addition to this page, then make sure to create a new issue [here](https://github.com/oppia/oppia-web-developer-docs/issues) addressing your question.
 
+For help with tackling specific issues, you can also write a [[debugging doc|Debugging-Docs]] to organize your thoughts, and share it on [GitHub Discussions](https://github.com/oppia/oppia/discussions/categories/q-a-debugging-docs). Doing this will make it easier for others to suggest next steps.
+
 # How to perform common operations on your local server
+
+Please note that, to create a skill or a topic, you will need the Curriculum Admin role. To get this role, navigate to the Admin roles tab (/admin) and assign yourself the correct role from the Roles tab.
 
 | Index | Common Queries   |
 | :---: |     :---:        |

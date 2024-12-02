@@ -1,43 +1,51 @@
-When developing a new feature, you might want to limit the scope of the feature so that it's only enabled when certain criteria are met (e.g. only enabled in dev environment). In these cases, you can use the feature gating system to gate the enabling of the features with a feature flag.
+This wiki page explains how we build and launch new features safely at Oppia. In particular, user-facing features which need more than one PR to implement, or that aren't yet fully tested, **must** be launched using the process described on this page.
 
-## Why do we need feature flags?
+To control how a feature is launched, we use **feature flags** to limit the scope of the feature so that it's only enabled when certain criteria are met (e.g. only enabled in the dev environment, or on the test server). This means that developers can hide features that are still in development or still being tested. 
 
-Feature flags vastly improve/simplify the development process by allowing developers to safely deploy new features to production. They also allow us to quickly disable features if we find that they are causing problems in production.
+Using a feature flag has several advantages:
 
-They also allow us to hide features that are still in development/still being tested. This means that developers can add the feature incrementally to the codebase, and only enable it once it is fully ready for production. Should the feature break, they also allow us to easily disable it without having to remove all the changes from the codebase. This is especially useful when the feature is large and/or complex.
+- It allows the developer to add the feature incrementally to the codebase, and only enable it once it is fully ready for production.
 
-Additionally, feature flags allow us to decouple the feature & binary releases. This allows us to deploy new binaries to the server with less risk of regressions.
+- Should the feature break or cause problems in production, we can easily disable the feature without having to remove all the changes from the codebase. This is especially useful when the feature is large and/or complex.
 
+- They allow us to decouple the feature and binary releases. This allows us to make new code deployments to the server with less risk of regressions.
 
-## How do you, as a developer, use feature flags?
+## How to use feature flags
 
-### When to use feature flags?
+If you are working on a large scale user-facing feature that will take more than 1 PR to fully implement, please follow the steps listed below to gate your feature appropriately:
 
-Feature flags should be used when you are working on a feature whose scale makes it hard to implement all at once, or for more experimental features that are likely to cause breakages. Essentially, feature flags are a must for features that are not yet ready for production/fully-tested at the time that they're merged into develop.
+1. Create a [feature testing doc](https://docs.google.com/document/d/1ibQC9t1jnOg-o1lrHEM3QEXeF4eSqAiPhs2lD2iCpy4/edit?tab=t.0) that outlines all the critical user journeys (CUJs) for the fully-completed feature. Share this doc with the QA leads and Product Operations teams.
 
-### How to use feature flags?
+2. In your very first PR for the feature:
 
-Say you are working on a large scale user-facing feature that will take 1 or more PRs to fully implement. In such a case, please use feature flags to gate your feature appropriately by carefully following the steps listed below:
+   - Introduce a new feature flag to the codebase, that is meant to be used with this new feature. This feature flag should be placed in the DEV stage and disabled by default, so that it **cannot** accidentally be turned on in environments for which it is not yet ready (like the test/prod servers).
 
-1. The very first PR you make must introduce a new feature flag to the codebase, that is meant to be used with this new feature. The feature flag should be placed in the DEV stage and disabled by default, so that it **cannot** accidentally be turned on in environments for which it is not yet ready (like the test/prod servers). Every single user-facing aspect of the feature -- whether frontend or backend -- must be gated behind the feature flag (both in the first PR, and all the following ones as well). This is to ensure that the feature is not visible to the user until it is fully implemented and ready for production.
+   - Add a link in your PR description to the feature testing doc that you created in Step 1.
 
-2. The first PR above must be merged before any of the following PRs are merged. This is to ensure that the feature flag is available in the codebase for it to be used in the following PRs.
+3. While developing your feature:
 
-3. When developing, make sure that e2e tests are present for your feature. If the feature is gated behind a feature flag, you may need to use the [enableFeature](https://github.com/oppia/oppia/blob/c48ff1510a680666bfe891d7b2f68130d21e4dcf/core/tests/webdriverio_utils/ReleaseCoordinatorPage.js#L126) utility functions for the release-coordinator page to first enable the required flag, and then proceed to perform the testing. For unit tests, you should include tests for both the `flag=True` and `flag=False` cases.
+   - Ensure that every single user-facing aspect of the feature -- whether frontend or backend -- is gated behind the feature flag (both in the first PR, and all the following ones as well). It is important to ensure that all the new functionality is fully gated and does not "leak", otherwise this could cause issues like data corruption.
 
-4. The very last PR you make (to finish up the feature you are working on) must include changes that move the feature flag to the TEST stage. This is to ensure that the feature is available in the test environment, so that we can feature-test it before it is made available to the users in the production environment. **NOTE: Please test all the changes manually to make sure that the feature works fully end-to-end on your local dev server, before moving the flag to the TEST stage.**
+   - Make sure to write e2e/acceptance tests are present for your feature. You may need to use the [enableFeature](https://github.com/oppia/oppia/blob/c48ff1510a680666bfe891d7b2f68130d21e4dcf/core/tests/webdriverio_utils/ReleaseCoordinatorPage.js#L126) utility functions for the release-coordinator page to first enable the required flag, and then proceed to perform the testing. For unit tests, you should include tests for both the `flag=True` and `flag=False` cases.
 
-5. Once your PR has reached a stage where you don't anticipate any more major code changes, fill out [this form](https://forms.gle/zDCsoN6Xb6JvQku87) to request that your feature be tested. This form will be processed by the server admins team, who will work with you and the feature testers to set a date during which your feature will be available to use on one of our test servers. (We can only surface the feature for a limited time because the servers are also needed for other things, such as release testing.) Once the testing date is confirmed, the server admin will make a deployment, turn the feature flag on, and send instructions to the feature testers for how to test the feature. Feature testers will use this [feature review template](https://docs.google.com/document/d/1ibQC9t1jnOg-o1lrHEM3QEXeF4eSqAiPhs2lD2iCpy4/edit) to conduct the testing.
+4. Once your feature is code-complete, create a PR that moves the feature flag to the TEST stage. This allows the feature to be tested by our QA team before it is made available to the users in the production environment. In your PR, link to the feature testing doc that you created in Step 1. **NOTE: Please test all the changes manually to make sure that the feature works fully end-to-end on your local dev server, before moving the flag to the TEST stage.**
 
-6. If the feature testing reveals that the feature is not yet ready for production, you must work on fixing the highlighted issues before proceeding further. You can request a re-test once all the testing feedback is addressed.
+5. Once the above PR is merged, fill out [this form](https://forms.gle/zDCsoN6Xb6JvQku87) to request that your feature be tested. The Product Operations team will then organize testing for your feature, using the feature review template that you created in step 1. If the testing reveals that the feature is not yet ready for release, you must fix the highlighted issues before proceeding. You can request a re-test once you have addressed all the testing feedback.
 
-7. Once you receive a go-ahead from the feature testers, you must merge another PR. This PR should do only one thing, i.e. move the feature flag to the PROD stage, allowing it to be enabled/disabled in production (by the release coordinator(s)). **NOTE: When opening this PR, include a link to the testing doc or other proof that the feature has been approved for release.** While this PR is open, confirm with the release coordinators that the new CUJs for this feature have been added to the overall CUJs used for testing releases in general.
+6. Once your feature passes testing, do all of the following:
 
-8. Once this PR is merged, send a ["job run request"](https://forms.gle/rUJaHJSpRGemtGDp6) to the release coordinators to turn on the feature in production by adding a rule in the `/release-coordinator` page.
-    - (Optional) If you like, you can fill in [this form](https://goo.gl/forms/sNBWrW03fS6dBWEp1) to announce your feature to the public once it's launched!
+   - Create a PR that moves the feature flag to the PROD stage (and does nothing else). This will allow your feature to be launched in production. **NOTE: When opening this PR, include a link to the testing doc or other proof that the feature has been approved for release.**
 
-9. Once the feature is confirmed to be functioning as intended in production (for at least 2 weeks) by the product team, please do the following, in order:
+   - Send a ["feature-flag flip request"](https://forms.gle/rUJaHJSpRGemtGDp6) to the release coordinators to turn the flag on in production.
+
+   - Ensure that the QA team has added the CUJs for the new feature to the overall CUJs used for testing regular releases.
+
+   - (Optional) If you like, you can fill in [this form](https://goo.gl/forms/sNBWrW03fS6dBWEp1) to announce your feature to the public once it's launched!
+
+7. Once the feature is confirmed to be functioning as intended in production (for at least 2 weeks) by the product team, please do the following, in order:
+
     - Make sure that the feature is ready to be made permanent. To do this, confirm with the PMs that no users have reported issues with it, and that no regressions have been detected via StackDriver or general user feedback. The PMs should also fill in this [post-launch review template](https://docs.google.com/document/d/1DifFAe3oRzjmVPh2fEllfAky4n0QMAXVQc3Y580qkr8/edit).
+
     - Once you have confirmation that the feature can be made permanent, merge one last PR to "un-gate" the feature and move the feature flag to the deprecated stage (one of the stages listed in `core/feature_flag_list.py`, meant for flags that are no longer in use). Additionally, in the same PR, please remove all remaining references to the feature flag from the codebase (for example, in all the `if` blocks you created to gate the feature).
 
 

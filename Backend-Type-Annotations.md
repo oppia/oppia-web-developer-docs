@@ -2,15 +2,7 @@
 
 Type Annotations are a new feature added in [PEP 484](https://www.python.org/dev/peps/pep-0484/) that allow for adding type hints to variables. They give information about types of variables to someone who is reading the code. This brings a sense of statically-typed control to the dynamically typed Python. Though Python ignores these type hints during code execution, third-party libraries can be used to statically type-check the codebase.
 
-
-## When to add type annotations
-We use mypy to type check the backend part of our codebase. A file becomes eligible for type checking if it falls under one of the following 3 cases:
-1. If a **new file** is being added, it must be fully type annotated and hence type checked.
-2. If an **already type annotated file** is being updated, then the updated code must also have type annotations.
-3. If you are adding type annotations to a currently **non type-annotated file**, then make sure to fully type annotate it, and remove it from the mypy denylist.
-
-### Mypy Denylist - Important Note!
-Currently we are in the process of adding type annotations the whole codebase. We maintain a denylist called `NOT_FULLY_COVERED_FILES` inside `scripts/run_mypy_checks` - it holds the list of files/folders for which we want to skip mypy type checking. When you add/modify files, make sure to **remove the file(s) eligible for type checking from this denylist if you have fully type annotated them**, otherwise it won't be considered for type checking, and the file might be even left with incorrect annotations.
+To type-check the backend part of our codebase, we use mypy. **All backend files** should include type annotations.
 
 ## Running MyPy check script
 
@@ -29,6 +21,7 @@ make run_tests.mypy
 ```
 
   This runs the type checks on all the type annotated files in the codebase.
+
 2. Python:
 ```
 python -m scripts.run_mypy_checks --files path/file1.py path/file2.py
@@ -46,7 +39,7 @@ make run_tests.mypy PYTHON_ARGS="--files path/file1.py path/file2.py"
 
 ## Adding type annotations
 
-Once you've figured whether or not to add type annotations to a file, follow these steps. Here the method is simply to figure out types of the variables and mention them according to the syntax.
+To add type annotations to a file, figure out the types of the variables and mention them according to the syntax.
 
 ### Steps to add type annotations to a file:
 

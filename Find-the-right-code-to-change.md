@@ -193,7 +193,7 @@ Next let's identify the backend files involved in handling updates to the user's
    +             'User experience exceeds maximum character limit: %s'
    +             % feconf.MAX_BIO_LENGTH_IN_CHARS)
    +     else:
-   +         python_utils.PRINT(
+   +         print(
    +             'DEBUG Controller received update: ' +
    +             data)
    ```
@@ -218,7 +218,7 @@ Next let's identify the backend files involved in handling updates to the user's
        """
        user_settings = get_user_settings(user_id, strict=True)
        user_settings.user_experience = user_experience
-       python_utils.PRINT(
+       print(
            'DEBUG: update_user_experience: ' + user_experience)
        _save_user_settings(user_settings)
     ```
@@ -233,7 +233,7 @@ Next let's identify the backend files involved in handling updates to the user's
                  'User experience exceeds maximum character limit: %s'
                  % feconf.MAX_BIO_LENGTH_IN_CHARS)
          else:
-   -         python_utils.PRINT(
+   -         print(
    -             'DEBUG Controller received update: ' +
    -             data)
    +         user_services.update_user_experience(self.user_id, data)
@@ -279,7 +279,7 @@ Next let's identify the backend files involved in handling updates to the user's
    First, let's add a `user_experience` argument to the constructor, assign that argument to an instance field, and update the appropriate docstrings:
 
    ```diff
-   @@ -55,6 +55,7 @@ class UserSettings(python_utils.OBJECT):
+   @@ -55,6 +55,7 @@ class UserSettings:
                 a dataURI string.
             default_dashboard: str or None. The default dashboard of the user.
             user_bio: str. User-specified biography.
@@ -287,7 +287,7 @@ Next let's identify the backend files involved in handling updates to the user's
             subject_interests: list(str) or None. Subject interests specified by
                 the user.
             first_contribution_msec: float or None. The time in milliseconds when
-   @@ -77,7 +78,7 @@ class UserSettings(python_utils.OBJECT):
+   @@ -77,7 +78,7 @@ class UserSettings:
                 profile_picture_data_url=None, default_dashboard=None,
                 creator_dashboard_display_pref=(
                     constants.ALLOWED_CREATOR_DASHBOARD_DISPLAY_PREFS['CARD']),
@@ -296,7 +296,7 @@ Next let's identify the backend files involved in handling updates to the user's
                 preferred_language_codes=None, preferred_site_language_code=None,
                 preferred_audio_language_code=None, pin=None, display_alias=None,
                 deleted=False, created_on=None):
-   @@ -106,6 +107,7 @@ class UserSettings(python_utils.OBJECT):
+   @@ -106,6 +107,7 @@ class UserSettings:
                 creator_dashboard_display_pref: str. The creator dashboard of the
                     user.
                 user_bio: str. User-specified biography.
@@ -304,7 +304,7 @@ Next let's identify the backend files involved in handling updates to the user's
                 subject_interests: list(str) or None. Subject interests specified by
                     the user.
                 first_contribution_msec: float or None. The time in milliseconds
-   @@ -140,6 +142,7 @@ class UserSettings(python_utils.OBJECT):
+   @@ -140,6 +142,7 @@ class UserSettings:
             self.default_dashboard = default_dashboard
             self.creator_dashboard_display_pref = creator_dashboard_display_pref
             self.user_bio = user_bio
@@ -317,7 +317,7 @@ Next let's identify the backend files involved in handling updates to the user's
    Next, we need to update the `to_dict` function to include the `user_experience` field:
 
    ```diff
-   @@ -293,6 +296,7 @@ class UserSettings(python_utils.OBJECT):
+   @@ -293,6 +296,7 @@ class UserSettings:
                 'creator_dashboard_display_pref': (
                     self.creator_dashboard_display_pref),
                 'user_bio': self.user_bio,
@@ -369,7 +369,7 @@ Now that we have the user experience field added to all the models, we can updat
          logging.error('Could not find user with id %s' % user_id)
          raise Exception('User not found.')
    + if user_settings:
-   +     python_utils.PRINT(
+   +     print(
    +         'DEBUG get_user_settings experience: ' +
    +         user_settings.user_experience)
      return user_settings
@@ -401,7 +401,7 @@ Now that we have the user experience field added to all the models, we can updat
              user_email_preferences.can_receive_subscription_email),
          'subscription_list': subscription_list
      })
-   + python_utils.PRINT(self.values)
+   + print(self.values)
      self.render_json(self.values)
    ```
 

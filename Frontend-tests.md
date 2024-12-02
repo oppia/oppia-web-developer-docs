@@ -110,6 +110,12 @@ This list contains some resources that might help you while writing unit tests:
 
 Running the frontend tests is as simple as running this command:
 
+Docker:
+```console
+make run_tests.frontend
+```
+
+Python:
 ```console
 python -m scripts.run_frontend_tests
 ```
@@ -117,7 +123,7 @@ python -m scripts.run_frontend_tests
 These tests also run whenever you push changes to the frontend code.
 
 **Tips for speeding things up**:
-- When running the tests locally, you can add `--skip_install` after the first run to skip installing dependencies (and speed up the test).
+- When running the tests locally, you can add `--skip_install` (included by default for the Docker command) after the first run to skip installing dependencies (and speed up the test).
 - The file `combined-tests.spec.ts` has a require statement with a regex that matches and compiles all the specs files (irrespective of whether we want to run the spec files or not). To debug a specific unit test, you can replace the regex with the name of the specific file (make sure to escape all the hyphens (-), dots (.) and any other reserved regex characters). This will make the test run faster.
 
 **Note: Typically, these tests take around 2.5 to 5 minutes (exclusive of the time taken for setting up ChromeHeadless) to run, assuming the machine has sufficient resources. If the total time taken is significantly longer than this, it may indicate an issue with the testing environment. In case such an issue is noticed or observed, please raise it on our [issue tracker](https://github.com/oppia/oppia/issues).**

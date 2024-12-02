@@ -21,8 +21,6 @@
     * [[Installing Oppia|Installing-Oppia]]
       * [[Set up your development tools|Tips-for-common-IDEs]]
     * [[How to access Oppia webpages|How-to-access-Oppia-webpages]]
-      * [[Glossary of terms|Glossary-of-terms]]
-      * [User documentation](https://oppia.github.io/)
     * [[Populating data on local server|Populating-data-on-local-server]]
     * Team onboarding guides
       * [[LaCE Team|LaCE-onboarding-guide]]
@@ -36,8 +34,6 @@
     * [[Learning resources for developers|Learning-Resources]]
     * [[Rules for making PRs|Rules-for-making-PRs]]
       * [[Coding style guide|Coding-style-guide]]
-      * [[Formatters|Formatters]]
-      * [[Bytes and string handling in Python 3|Bytes-and-string-handling-in-Python-3]]
   * [[Debugging|Debugging]]
     * [[If your local presubmit checks fail|If-your-presubmit-check-fails]]
     * [[If CI checks fail on your PR|If-CI-checks-fail-on-your-PR]]
@@ -51,7 +47,7 @@
     * [[Debug frontend code|Debug-frontend-code]]
     * [[Debugging Stories|Debugging-Stories]]
     * [[Testing email functionality|Testing-email-functionality]]
-    * [[Tutorial - Learn to figure out the reproduction steps for a server error|Tutorial-Learn-to-Figure-Out-the-Reproduction-Steps-for-a-Server-Error]]
+    * 👣 [[Tutorial - Learn to figure out the reproduction steps for a server error|Tutorial-Learn-to-Figure-Out-the-Reproduction-Steps-for-a-Server-Error]]
   * Testing
       * [[Backend tests|Backend-tests]]
       * [[Frontend tests|Frontend-tests]]
@@ -82,19 +78,17 @@
       * 👣 [[Tutorial - Learn how to make a simple UI change|Tutorial-Learn-How-to-Make-a-Simple-UI-Change]]
       * 👣 [[Tutorial - Learn to implement a new full stack feature|Tutorial-Learn-to-implement-a-new-full-stack-feature.md]]
       * [[Testing for Accessibility|Testing-for-Accessibility]]
-      * [[Release accessibility checklist|Release-accessibility-checklist]]
       * [[Apache Beam Jobs|Apache-beam-jobs]]
-        * [[Tutorial - Learn how to write and test a non-trivial Beam job|Tutorial-Learn-How-to-Write-and-Test-a-Non-Trivial-Beam-Job]]
-      * Translations:
-        * [[Adding new translations|Adding-new-translations-for-i18n]]
-        * [[How to develop for i18n|How-to-develop-for-i18n]]
-      * Server errors:
-        * [[Server errors and solutions|Server-errors-and-solutions]]
+        * 👣 [[Tutorial - Learn how to write and test a non-trivial Beam job|Tutorial-Learn-How-to-Write-and-Test-a-Non-Trivial-Beam-Job]]
+      * [[I18n/Translations Guide|Adding-new-translations-for-i18n]]
+      * [[Server errors and solutions|Server-errors-and-solutions]]
     * Developer Workflow:
       * [[Instructions for making PR passes|Instructions-for-making-PR-passes]]
       * [[Lint Checks|Lint-Checks]]
         * [[Custom Pylint checks|Custom-Pylint-checks]]
         * [[Custom ESLint checks|Custom-ESLint-checks]]
+      * Debug CI flakes
+        * 👣 [[Tutorial - Learn to fix a CI flake – E2E Tests - waitFor|Tutorial-Learn-How-to-Fix-a-CI-Flake-waitFor-Statements]]
       * [[Wiki infrastructure|Wiki]]
         * [[Wiki style guide|Wiki-style-guide]]
 
@@ -104,8 +98,7 @@
   * [[Oppiabot|Oppiabot]]
   * [[Git cheat sheet|Git-cheat-sheet]]
   * Frontend
-    * [[How to write frontend type definitions|Guide-on-defining-types]]
-      * [[TypeScript tests|TypeScript-tests]]
+    * [[How to define frontend types and test them|Guide-on-defining-types]]
     * [[Frontend file naming conventions|The-File-Naming-Convention-and-Directory-Structure]]
     * [[Angular Migration|Angular-Migration]]
     * [[UX guidelines|Oppia-UX-guidelines-&-rationales]]
