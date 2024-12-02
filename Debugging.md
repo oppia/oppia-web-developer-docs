@@ -5,7 +5,7 @@ Start here if failing tests are stopping you from pushing or merging a PR:
 * [[If your local presubmit checks fail|If-your-presubmit-check-fails]]
 * [[If CI checks fail on your PR|If-CI-checks-fail-on-your-PR]]
 
-Unless the bug you are trying to fix is trivial, we recommend creating a debugging doc to organize your work:
+Unless the bug you are trying to fix is trivial, we recommend creating a debugging doc to organize your work. This **must be done** if you plan to ask for help from the community:
 
 * [[Debugging Docs|Debugging-Docs]]
 
