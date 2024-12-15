@@ -1,0 +1,452 @@
+diff --git a/assets/constants.ts b/assets/constants.ts
+index 852973803a..5db628c655 100644
+--- a/assets/constants.ts
++++ b/assets/constants.ts
+@@ -115,6 +115,14 @@ export default {
+     "IncreasingUpdatedOn": "Most Recently Updated",
+     "DecreasingUpdatedOn": "Least Recently Updated"
+   },
++  "TOPIC_SKILL_DASHBOARD_SORTING_OPTIONS": {
++    "IncreasingCreatedOn": "Newly Created",
++    "DecreasingCreatedOn": "Oldest Created",
++    "IncreasingUpdatedOn": "Most Recently Updated",
++    "DecreasingUpdatedOn": "Least Recently Updated",
++    "DecreasingUpcomingLaunches": "Most Upcoming Launches",
++    "DecreasingOverdueLaunches": "Most Launches Behind Schedule"
++  },
+ 
+   // Sorting categories for contributor admin dashboard.
+   "CD_ADMIN_STATS_SORT_OPTIONS": {
+@@ -6387,6 +6395,8 @@ export default {
+   // Maximum allowed length of unique progress url ID.
+   "MAX_PROGRESS_URL_ID_LENGTH": 6,
+ 
++  "PLATFORM_PARAMETER_ALLOWED_BROWSER_TYPES": [
++    "Chrome", "Edge", "Safari", "Firefox", "Others"],
+   "PLATFORM_PARAMETER_ALLOWED_PLATFORM_TYPES": ["Web", "Android", "Backend"],
+   // The ordering of in ALLOWED_APP_VERSION_FLAVORS implies the ordering
+   // of corresponding flavors, which is used in app_version_flavor filter for
+@@ -7096,6 +7106,6 @@ export default {
+   ],
+   "CONTRIBUTOR_CERTIFICATE_WIDTH": 1493,
+   "CONTRIBUTOR_CERTIFICATE_HEIGHT": 1313,
+-  "BRANCH_NAME": "",
+-  "SHORT_COMMIT_HASH": ""
++  "BRANCH_NAME": "develop",
++  "SHORT_COMMIT_HASH": "794b5d78e8"
+ } as const;
+diff --git a/core/templates/domain/topics_and_skills_dashboard/topics-and-skills-dashboard-filter.model.ts b/core/templates/domain/topics_and_skills_dashboard/topics-and-skills-dashboard-filter.model.ts
+index 8528b97292..cbab27e70a 100644
+--- a/core/templates/domain/topics_and_skills_dashboard/topics-and-skills-dashboard-filter.model.ts
++++ b/core/templates/domain/topics_and_skills_dashboard/topics-and-skills-dashboard-filter.model.ts
+@@ -19,7 +19,9 @@
+ 
+ import {
+   ETopicPublishedOptions,
++  ETopicStatusOptions,
+   ETopicSortOptions,
++  ETopicSortingOptions,
+   TopicsAndSkillsDashboardPageConstants } from
+   // eslint-disable-next-line max-len
+   'pages/topics-and-skills-dashboard-page/topics-and-skills-dashboard-page.constants';
+@@ -27,19 +29,20 @@ import {
+ export class TopicsAndSkillsDashboardFilter {
+   classroom: string;
+   keywords: string[];
+-  sort: ETopicSortOptions;
+-  status: ETopicPublishedOptions;
++  sort: ETopicSortOptions | ETopicSortingOptions;
++  status: ETopicPublishedOptions | ETopicStatusOptions;
+ 
+   /**
+    * @param {String} classroom - classroom to filter for.
+    * @param {String[]} keywords - keywords to filter for.
+    * @param {ETopicSortOptions} sort - One of the values in ETopicSortOptions.
+-   * @param {ETopicPublishedOptions} status - One of the values
+-   *   in ETopicPublishedOptions.
++   * @param {ETopicPublishedOptions | ETopicStatusOptions} status - One of the
++   *   calues in ETopicPublishedOptions or ETopicStatusOptions.
+    */
+   constructor(
+       classroom: string, keywords: string[],
+-      sort: ETopicSortOptions, status: ETopicPublishedOptions) {
++      sort: ETopicSortOptions | ETopicSortingOptions,
++      status: ETopicPublishedOptions | ETopicStatusOptions) {
+     this.classroom = classroom;
+     this.keywords = keywords;
+     this.sort = sort;
+diff --git a/core/templates/pages/topics-and-skills-dashboard-page/topics-and-skills-dashboard-page.component.spec.ts b/core/templates/pages/topics-and-skills-dashboard-page/topics-and-skills-dashboard-page.component.spec.ts
+index 163e395f8b..a3bc268aab 100644
+--- a/core/templates/pages/topics-and-skills-dashboard-page/topics-and-skills-dashboard-page.component.spec.ts
++++ b/core/templates/pages/topics-and-skills-dashboard-page/topics-and-skills-dashboard-page.component.spec.ts
+@@ -30,11 +30,20 @@ import { FocusManagerService } from 'services/stateful/focus-manager.service';
+ import { MockTranslatePipe } from 'tests/unit-test-utils';
+ import { TopicsAndSkillsDashboardPageComponent } from './topics-and-skills-dashboard-page.component';
+ import { TopicsAndSkillsDashboardPageService } from './topics-and-skills-dashboard-page.service';
++import { PlatformFeatureService } from '../../services/platform-feature.service';
+ 
+ /**
+  * @fileoverview Unit tests for the topics and skills dashboard component.
+  */
+ 
++class MockPlatformFeatureService {
++  status = {
++    SerialChapterLaunchCurriculumAdminView: {
++      isEnabled: false
++    }
++  };
++}
++
+ describe('Topics and skills dashboard page component', () => {
+   let fixture: ComponentFixture<TopicsAndSkillsDashboardPageComponent>;
+   let componentInstance: TopicsAndSkillsDashboardPageComponent;
+@@ -45,6 +54,7 @@ describe('Topics and skills dashboard page component', () => {
+   let topicCreationService: TopicCreationService;
+   let createNewSkillModalService: CreateNewSkillModalService;
+   let topicsAndSkillsDashboardPageService: TopicsAndSkillsDashboardPageService;
++  let mockPlatformFeatureService = new MockPlatformFeatureService();
+ 
+   beforeEach(waitForAsync(() => {
+     TestBed.configureTestingModule({
+@@ -61,7 +71,11 @@ describe('Topics and skills dashboard page component', () => {
+         TopicCreationService,
+         TopicsAndSkillsDashboardBackendApiService,
+         TopicsAndSkillsDashboardPageService,
+-        WindowDimensionsService
++        WindowDimensionsService,
++        {
++          provide: PlatformFeatureService,
++          useValue: mockPlatformFeatureService
++        }
+       ],
+       schemas: [NO_ERRORS_SCHEMA]
+     }).compileComponents();
+diff --git a/core/templates/pages/topics-and-skills-dashboard-page/topics-and-skills-dashboard-page.component.ts b/core/templates/pages/topics-and-skills-dashboard-page/topics-and-skills-dashboard-page.component.ts
+index 370352be70..a56c2e65a0 100644
+--- a/core/templates/pages/topics-and-skills-dashboard-page/topics-and-skills-dashboard-page.component.ts
++++ b/core/templates/pages/topics-and-skills-dashboard-page/topics-and-skills-dashboard-page.component.ts
+@@ -30,11 +30,16 @@ import { WindowDimensionsService } from 'services/contextual/window-dimensions.s
+ import { FocusManagerService } from 'services/stateful/focus-manager.service';
+ import { ETopicPublishedOptions, TopicsAndSkillsDashboardPageConstants } from './topics-and-skills-dashboard-page.constants';
+ import { TopicsAndSkillsDashboardPageService } from './topics-and-skills-dashboard-page.service';
++import { PlatformFeatureService } from 'services/platform-feature.service';
+ 
+ type TopicPublishedOptionsKeys = (
+   keyof typeof TopicsAndSkillsDashboardPageConstants.TOPIC_PUBLISHED_OPTIONS);
++type TopicStatusOptionsKeys = (
++  keyof typeof TopicsAndSkillsDashboardPageConstants.TOPIC_PUBLISHED_OPTIONS);
+ type TopicSortOptionsKeys = (
+   keyof typeof TopicsAndSkillsDashboardPageConstants.TOPIC_SORT_OPTIONS);
++type TopicSortingOptionsKeys = (
++  keyof typeof TopicsAndSkillsDashboardPageConstants.TOPIC_SORTING_OPTIONS);
+ type SkillStatusOptionsKeys = (
+   keyof typeof TopicsAndSkillsDashboardPageConstants.SKILL_STATUS_OPTIONS);
+ 
+@@ -96,7 +101,8 @@ export class TopicsAndSkillsDashboardPageComponent {
+     TopicsAndSkillsDashboardBackendApiService,
+     private topicsAndSkillsDashboardPageService:
+     TopicsAndSkillsDashboardPageService,
+-    private windowDimensionsService: WindowDimensionsService
++    private windowDimensionsService: WindowDimensionsService,
++    private platformFeatureService: PlatformFeatureService
+   ) {}
+ 
+   ngOnInit(): void {
+@@ -110,6 +116,17 @@ export class TopicsAndSkillsDashboardPageComponent {
+           key as TopicSortOptionsKeys]);
+     }
+ 
++    if (this.platformFeatureService.status.
++      SerialChapterLaunchCurriculumAdminView.isEnabled) {
++      this.sortOptions = [];
++      for (let key in TopicsAndSkillsDashboardPageConstants
++        .TOPIC_SORTING_OPTIONS) {
++        this.sortOptions.push(
++          TopicsAndSkillsDashboardPageConstants.TOPIC_SORTING_OPTIONS[
++              key as TopicSortingOptionsKeys]);
++      }
++    }
++
+     for (let key in TopicsAndSkillsDashboardPageConstants
+       .TOPIC_PUBLISHED_OPTIONS) {
+       this.statusOptions.push(
+@@ -117,6 +134,17 @@ export class TopicsAndSkillsDashboardPageComponent {
+           key as TopicPublishedOptionsKeys]);
+     }
+ 
++    if (this.platformFeatureService.status.
++      SerialChapterLaunchCurriculumAdminView.isEnabled) {
++      this.statusOptions = [];
++      for (let key in TopicsAndSkillsDashboardPageConstants
++        .TOPIC_STATUS_OPTIONS) {
++        this.statusOptions.push(
++          TopicsAndSkillsDashboardPageConstants.TOPIC_STATUS_OPTIONS[
++                key as TopicStatusOptionsKeys]);
++      }
++    }
++
+     this.fetchSkillsDebounced = debounce(this.fetchSkills, 300);
+ 
+     this.directiveSubscriptions.add(
+diff --git a/core/templates/pages/topics-and-skills-dashboard-page/topics-and-skills-dashboard-page.constants.ts b/core/templates/pages/topics-and-skills-dashboard-page/topics-and-skills-dashboard-page.constants.ts
+index 25c5638c13..2f18617f71 100644
+--- a/core/templates/pages/topics-and-skills-dashboard-page/topics-and-skills-dashboard-page.constants.ts
++++ b/core/templates/pages/topics-and-skills-dashboard-page/topics-and-skills-dashboard-page.constants.ts
+@@ -24,12 +24,28 @@ export enum ETopicSortOptions {
+   DecreasingUpdatedOn = 'Least Recently Updated',
+ }
+ 
++export enum ETopicSortingOptions {
++  IncreasingCreatedOn = 'Newly Created',
++  DecreasingCreatedOn = 'Oldest Created',
++  IncreasingUpdatedOn = 'Most Recently Updated',
++  DecreasingUpdatedOn = 'Least Recently Updated',
++  DecreasingUpcomingLaunches = 'Most Upcoming Launches',
++  DecreasingOverdueLaunches = 'Most Launches Behind Schedule'
++}
++
+ export enum ETopicPublishedOptions {
+   All = 'All',
+   Published = 'Published',
+   NotPublished = 'Not Published'
+ }
+ 
++export enum ETopicStatusOptions {
++  All = 'All',
++  FullyPublished = 'Fully Published',
++  PartiallyPublished = 'Partially Published',
++  NotPublished = 'Not Published',
++}
++
+ export const TopicsAndSkillsDashboardPageConstants = {
+   SKILL_DESCRIPTION_STATUS_VALUES: {
+     STATUS_UNCHANGED: 'unchanged',
+@@ -38,7 +54,10 @@ export const TopicsAndSkillsDashboardPageConstants = {
+   },
+   TOPIC_SORT_OPTIONS: (
+     AppConstants.TOPIC_SKILL_DASHBOARD_SORT_OPTIONS),
++  TOPIC_SORTING_OPTIONS: (
++    AppConstants.TOPIC_SKILL_DASHBOARD_SORTING_OPTIONS),
+   TOPIC_PUBLISHED_OPTIONS: ETopicPublishedOptions,
++  TOPIC_STATUS_OPTIONS: ETopicStatusOptions,
+   TOPIC_FILTER_CLASSROOM_ALL: 'All',
+   SKILL_STATUS_OPTIONS: AppConstants.SKILL_STATUS_OPTIONS
+ } as const;
+diff --git a/core/templates/pages/topics-and-skills-dashboard-page/topics-and-skills-dashboard-page.service.spec.ts b/core/templates/pages/topics-and-skills-dashboard-page/topics-and-skills-dashboard-page.service.spec.ts
+index cee6df5be8..ba3f984b36 100644
+--- a/core/templates/pages/topics-and-skills-dashboard-page/topics-and-skills-dashboard-page.service.spec.ts
++++ b/core/templates/pages/topics-and-skills-dashboard-page/topics-and-skills-dashboard-page.service.spec.ts
+@@ -16,8 +16,9 @@
+  * @fileoverview Unit tests for TopicsAndSkillsDashboardPageService.
+  */
+ 
+-import { ETopicPublishedOptions, ETopicSortOptions } from
+-// eslint-disable-next-line max-len
++import { ETopicPublishedOptions, ETopicSortOptions,
++  ETopicSortingOptions, ETopicStatusOptions } from
++  // eslint-disable-next-line max-len
+   'pages/topics-and-skills-dashboard-page/topics-and-skills-dashboard-page.constants';
+ import { TopicsAndSkillsDashboardFilter } from
+   // eslint-disable-next-line max-len
+@@ -27,15 +28,31 @@ import { TopicsAndSkillsDashboardPageService } from
+   'pages/topics-and-skills-dashboard-page/topics-and-skills-dashboard-page.service';
+ import { CreatorTopicSummary } from
+   'domain/topic/creator-topic-summary.model';
++import { PlatformFeatureService } from '../../services/platform-feature.service';
++import { TestBed, waitForAsync } from '@angular/core/testing';
++import { HttpClientTestingModule } from '@angular/common/http/testing';
+ 
+ describe('Topic and Skill dashboard page service', () => {
+   let tsds: TopicsAndSkillsDashboardPageService;
++  let platformFeatureService : PlatformFeatureService;
+ 
+   beforeEach(() => {
+     tsds = new TopicsAndSkillsDashboardPageService();
++    TestBed.configureTestingModule({
++      imports: [HttpClientTestingModule],
++    });
++    platformFeatureService = TestBed.inject(PlatformFeatureService);
+   });
+ 
+-  it('should filter the topics', () => {
++  fit('should filter the topics', () => {
++    spyOnProperty(platformFeatureService, 'status').and.returnValue(
++      {
++        SerialChapterLaunchCurriculumAdminView: {
++          isEnabled: false
++        }
++      }
++    );
++
+     const topic1 = CreatorTopicSummary.createFromBackendDict({
+       topic_model_created_on: 1581839432987.596,
+       uncategorized_skill_count: 0,
+@@ -129,6 +146,26 @@ describe('Topic and Skill dashboard page service', () => {
+     filteredArray = tsds.getFilteredTopics(topicsArray, filterOptions);
+     expect(filteredArray).toEqual([topic2]);
+ 
++    spyOnProperty(platformFeatureService, 'status').and.returnValue(
++      {
++        SerialChapterLaunchCurriculumAdminView: {
++          isEnabled: true
++        }
++      }
++    );
++
++    filterOptions.status = ETopicStatusOptions.FullyPublished;
++    filteredArray = tsds.getFilteredTopics(topicsArray, filterOptions);
++    expect(filteredArray).toEqual([topic3]);
++
++    filterOptions.status = ETopicStatusOptions.NotPublished;
++    filteredArray = tsds.getFilteredTopics(topicsArray, filterOptions);
++    expect(filteredArray).toEqual([topic2]);
++
++    filterOptions.status = ETopicStatusOptions.PartiallyPublished;
++    filteredArray = tsds.getFilteredTopics(topicsArray, filterOptions);
++    expect(filteredArray).toEqual([topic1]);
++
+     filterOptions.status = ETopicPublishedOptions.All;
+     filterOptions.sort = ETopicSortOptions.IncreasingUpdatedOn;
+     filteredArray = tsds.getFilteredTopics(topicsArray, filterOptions);
+@@ -146,6 +183,14 @@ describe('Topic and Skill dashboard page service', () => {
+     filteredArray = tsds.getFilteredTopics(topicsArray, filterOptions);
+     expect(filteredArray).toEqual([topic1, topic2, topic3]);
+ 
++    filterOptions.sort = ETopicSortingOptions.DecreasingUpcomingLaunches;
++    filteredArray = tsds.getFilteredTopics(topicsArray, filterOptions);
++    expect(filteredArray).toEqual([topic2, topic1, topic3]);
++
++    filterOptions.sort = ETopicSortOptions.DecreasingOverdueLaunches;
++    filteredArray = tsds.getFilteredTopics(topicsArray, filterOptions);
++    expect(filteredArray).toEqual([topic1, topic2, topic3]);
++
+     filterOptions.sort = ETopicSortOptions.IncreasingCreatedOn;
+     filterOptions.classroom = 'Math';
+     filteredArray = tsds.getFilteredTopics(topicsArray, filterOptions);
+diff --git a/core/templates/pages/topics-and-skills-dashboard-page/topics-and-skills-dashboard-page.service.ts b/core/templates/pages/topics-and-skills-dashboard-page/topics-and-skills-dashboard-page.service.ts
+index dd71be53fb..8bc5aeecaf 100644
+--- a/core/templates/pages/topics-and-skills-dashboard-page/topics-and-skills-dashboard-page.service.ts
++++ b/core/templates/pages/topics-and-skills-dashboard-page/topics-and-skills-dashboard-page.service.ts
+@@ -28,11 +28,17 @@ import { TopicsAndSkillsDashboardFilter } from
+ import { TopicsAndSkillsDashboardPageConstants } from
+   // eslint-disable-next-line max-len
+   'pages/topics-and-skills-dashboard-page/topics-and-skills-dashboard-page.constants';
++import { PlatformFeatureService } from 'services/platform-feature.service';
++import { filter } from 'mathjs';
+ 
+ @Injectable({
+   providedIn: 'root'
+ })
+ export class TopicsAndSkillsDashboardPageService {
++  constructor(
++    private platformFeatureService: PlatformFeatureService
++  ) {}
++
+   /**
+    * @param {Array} topicsArray - The original topics array
+    * @param {TopicsAndSkillsDashboardFilter} filterObject -
+@@ -42,9 +48,12 @@ export class TopicsAndSkillsDashboardPageService {
+   getFilteredTopics(
+       topicsArray: CreatorTopicSummary[],
+       filterObject: TopicsAndSkillsDashboardFilter): CreatorTopicSummary[] {
+-    let ESortOptions = TopicsAndSkillsDashboardPageConstants.TOPIC_SORT_OPTIONS;
++    let ESortOptions = (
++      TopicsAndSkillsDashboardPageConstants.TOPIC_SORTING_OPTIONS);
+     let EPublishedOptions = (
+       TopicsAndSkillsDashboardPageConstants.TOPIC_PUBLISHED_OPTIONS);
++    let EStatusOptions = (
++      TopicsAndSkillsDashboardPageConstants.TOPIC_STATUS_OPTIONS);
+     let filteredTopics = topicsArray;
+ 
+     if (filterObject.keywords.length) {
+@@ -72,17 +81,49 @@ export class TopicsAndSkillsDashboardPageService {
+     }
+ 
+     if (filterObject.status !== EPublishedOptions.All) {
+-      filteredTopics = filteredTopics.filter((topic) => {
+-        if (filterObject.status === EPublishedOptions.Published &&
+-            topic.isPublished) {
+-          return true;
+-        } else if (
+-          filterObject.status === EPublishedOptions.NotPublished &&
++      if (this.platformFeatureService.status.
++        SerialChapterLaunchCurriculumAdminView.isEnabled) {
++        filteredTopics = filteredTopics.filter((topic) => {
++          let fullyPublishedStoriesCount = 0;
++          let totalStories = topic.getTotalChaptersCounts().length;
++
++          for (let i = 0; i < totalStories; i++) {
++            if (topic.getTotalChaptersCounts()[i] ===
++                topic.getPublishedChaptersCounts()[i]) {
++              fullyPublishedStoriesCount++;
++            }
++          }
++          if (filterObject.status === EStatusOptions.FullyPublished &&
++                  totalStories &&
++                  totalStories === fullyPublishedStoriesCount &&
++                  topic.isPublished) {
++            return true;
++          } else if (
++            filterObject.status === EStatusOptions.PartiallyPublished && (
++                    !totalStories ||
++                    totalStories !== fullyPublishedStoriesCount) &&
++                    topic.isPublished) {
++            return true;
++          } else if (
++            filterObject.status === EStatusOptions.NotPublished &&
+             !topic.isPublished) {
+-          return true;
+-        }
+-        return false;
+-      });
++            return true;
++          }
++          return false;
++        });
++      } else {
++        filteredTopics = filteredTopics.filter((topic) => {
++          if (filterObject.status === EPublishedOptions.Published &&
++            topic.isPublished) {
++            return true;
++          } else if (
++            filterObject.status === EPublishedOptions.NotPublished &&
++                    !topic.isPublished) {
++            return true;
++          }
++          return false;
++        });
++      }
+     }
+ 
+     switch (filterObject.sort) {
+@@ -102,6 +143,16 @@ export class TopicsAndSkillsDashboardPageService {
+         filteredTopics.sort(
+           (a, b) => -(b.topicModelLastUpdated - a.topicModelLastUpdated));
+         break;
++      case ESortOptions.DecreasingUpcomingLaunches:
++        filteredTopics.sort(
++          (a, b) => -(a.totalUpcomingChaptersCount -
++            b.totalUpcomingChaptersCount));
++        break;
++      case ESortOptions.DecreasingOverdueLaunches:
++        filteredTopics.sort(
++          (a, b) => -(a.totalOverdueChaptersCount -
++            b.totalOverdueChaptersCount));
++        break;
+       default:
+         throw new Error('Invalid filter by sort value provided.');
+     }
+diff --git a/core/templates/services/UpgradedServices.ts b/core/templates/services/UpgradedServices.ts
+index fa37f098b1..bd92b03ec9 100644
+--- a/core/templates/services/UpgradedServices.ts
++++ b/core/templates/services/UpgradedServices.ts
+@@ -612,7 +612,8 @@ export class UpgradedServices {
+       new ThreadStatusDisplayService();
+     upgradedServices['Title'] = new Title({});
+     upgradedServices['TopicsAndSkillsDashboardPageService'] =
+-        new TopicsAndSkillsDashboardPageService();
++        new TopicsAndSkillsDashboardPageService(
++          upgradedServices['PlatformFeatureService']);
+     upgradedServices['UnitsObjectFactory'] = new UnitsObjectFactory();
+     upgradedServices['UtilsService'] = new UtilsService();
+     upgradedServices['VersionTreeService'] = new VersionTreeService();
