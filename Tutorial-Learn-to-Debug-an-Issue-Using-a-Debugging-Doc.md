@@ -88,7 +88,7 @@ Follow these steps to set up your environment for this tutorial:
 1. **Check Out the Specific Commit:** To ensure consistency, we’ll be working from a specific commit. Use the following command to switch to the relevant commit:   
    `git checkout 794b5d78e88f585efadc366b767889596afccacb`  
    This ensures you are working with the same version of the code referenced in this tutorial.  
-2. **Apply the Patch File:** Download the patch file from the [provided link](https://drive.google.com/file/d/1aTPrkslSg5nyc6e8BVEks-KGqlkACHjI/view) and apply it to your local branch: `git apply /path/to/your/patch-file.patch`  
+2. **Apply the Patch File:** Download the patch file from the [provided link](https://github.com/oppia/oppia-web-developer-docs/blob/develop/patchFiles/tutorial-debugging-doc-setup.patch) and apply it to your local branch: `git apply /path/to/your/patch-file.patch`  
    Replace `/path/to/your/patch-file.patch` with the actual location of the downloaded patch file on your machine.  
 3. **Verify the Commit:** After applying the patch, verify that you are on the correct commit: `git log -1`   
    You should see the commit hash `794b5d78e88f585efadc366b767889596afccacb` in the output.
