@@ -48,11 +48,11 @@ To debug and fix the failure, always start from the errors in the CI logs. They 
 
   * [Run the local development server](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Mac-OS%3B-Python-3%29#running-oppia-on-a-development-server) and check that the website behaves normally, with no errors in the developer console. Often, when doing this, you will get errors in the backend server logs or the developer console which can help you figure out what is going wrong.
 
-    > [!TIP]
-    > When running the test locally, make sure that you are using the same command that is used in CI, with the same flags. Otherwise, you might encounter different results locally and on CI. You can double-check the command by looking at the corresponding test script in `.github/actions/workflows`, or by examining the corresponding test log on GitHub Actions.
+> [!TIP]
+> When running the test locally, make sure that you are using the same command that is used in CI, with the same flags. Otherwise, you might encounter different results locally and on CI. You can double-check the command by looking at the corresponding test script in `.github/actions/workflows`, or by examining the corresponding test log on GitHub Actions.
 
-    > [!NOTE]
-    > Even with the same command, tests can fail on CI even if they pass locally, because the two environments are different. In such cases, the CI checks are what determines success, so you might need to "debug on CI" if you cannot reproduce the error locally. If you need to do this, it is generally a good idea to make the debugging cycle as short as possible (e.g. by temporarily deleting other workflow files so that GitHub CI only runs the test that you're interested in).
+> [!NOTE]
+> Even with the same command, tests can fail on CI even if they pass locally, because the two environments are different. In such cases, the CI checks are what determines success, so you might need to "debug on CI" if you cannot reproduce the error locally. If you need to do this, it is generally a good idea to make the debugging cycle as short as possible (e.g. by temporarily deleting other workflow files so that GitHub CI only runs the test that you're interested in).
 
 If your code is wrong, you will need to fix the error just as you would [respond to reviewer comments](https://github.com/oppia/oppia/wiki/Rules-for-making-PRs#step-5-address-review-comments-until-all-reviewers-approve). You may also want to review the following documentation to help you debug:
 
