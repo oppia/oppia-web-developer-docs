@@ -1,4 +1,17 @@
-## Tutorial \- Learn how to safely make a backend change that has an impact on server data.
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Scenario](#scenario)
+- [Prerequisites](#prerequisites)
+- [Procedure](#procedure)
+  - [Section 1: Navigating and Understanding the Preferences Page](#section-1-navigating-and-understanding-the-preferences-page)
+  - [SECTION 2: Writing the Migration Job](#section-2-writing-the-migration-job)
+  - [Section 3: Writing the Audit Job](#section-3-writing-the-audit-job)
+      - [**Thought Process for the Audit Job**](#thought-process-for-the-audit-job)
+  - [Section 4: Testing the Beam Job](#section-4-testing-the-beam-job)
+  - [Section 5: Run and Validate the Job](#section-5-run-and-validate-the-job)
+    - [**Conclusion**](#conclusion)
+      - [We Value Your Feedback](#we-value-your-feedback)
 
 # Introduction
 
