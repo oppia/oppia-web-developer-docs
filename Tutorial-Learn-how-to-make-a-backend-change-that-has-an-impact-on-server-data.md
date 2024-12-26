@@ -50,8 +50,7 @@ In this tutorial, we’ll use the second approach to showcase how to trace funct
 > [!IMPORTANT]
 > Practice 1: Familiarize yourself with the codebase architecture at Oppia. Understanding the structure of the codebase will help you navigate through various layers of code at Oppia more efficiently. Follow this guide: [Overview of the Oppia Codebase](https://github.com/oppia/oppia/wiki/Overview-of-the-Oppia-codebase).
 
-
-![][image1]
+![Screenshot of Preference Page](images/TutorialMigrationJob/preferencePage.png)
 
 Above is an image of the Preferences page, which includes various fields. In our case, we need to update the `Bio` field, then click the **Save Changes** button and observe which endpoint is triggered in the network tab of your browser's developer tools.
 
@@ -69,7 +68,7 @@ Upon clicking the **Save Changes** button, you’ll notice a call to the followi
 
 This tells us that the endpoint (`/preferenceshandler/data`) handles updates to the Preferences page.
 
-`![][image2]`
+![Screenshot of Preference Page with Network Tab opened](images/TutorialMigrationJob/preferencePageWithNetworkTab.png)
 
 Now it’s time to trace this endpoint in the codebase.
 
@@ -264,7 +263,7 @@ The Beam job’s objective is to truncate the `user_bio` field in the `UserSetti
 
 Here's a simple representation of the DAG for our Beam job:
 
-![][image3]
+![DAG for Migration Job](images/TutorialMigrationJob/MigrationJobDAG.png)
 
 Visualizing the job as a DAG ensures that every necessary step is accounted for and data flows seamlessly through the pipeline.
 
