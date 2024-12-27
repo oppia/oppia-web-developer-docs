@@ -69,7 +69,7 @@ If you are stuck, compile all your findings in a [[debugging doc|Debugging-Docs]
 
    * If the error message you see matches a known issue on the [issue tracker](https://github.com/oppia/oppia/issues), leave a comment on that known issue that points to the failing check on your PR, to document that it is still happening. This will help the dev workflow team recognize that this issue is serious and increase its priority.
 
-   * If the error message you see doesn't match a known issue, but you have confirmed that it's not due to your changes, please file a [CI Flake report](https://github.com/oppia/oppia/issues/new?assignees=&labels=triage+needed%2Cbug&projects=&template=3_ci_error_template.yml&title=%5BFlake%5D%3A+) that documents the error. Additionally, if you can [trace which PR caused the error|How-to-find-the-commit-which-introduced-a-bug], please link to it as well so that the Oppia maintainers can [revert it](https://github.com/oppia/oppia/wiki/Revert-and-Regression-Policy) if needed.
+   * If the error message you see doesn't match a known issue, but you have confirmed that it's not due to your changes, please file a [CI Flake report](https://github.com/oppia/oppia/issues/new?assignees=&labels=triage+needed%2Cbug&projects=&template=3_ci_error_template.yml&title=%5BFlake%5D%3A+) that documents the error. Additionally, if you can [[trace which PR caused the error|How-to-find-the-commit-which-introduced-a-bug]], please link to it as well so that the Oppia maintainers can [revert it](https://github.com/oppia/oppia/wiki/Revert-and-Regression-Policy) if needed.
 
 2. **Restart the failing test on your PR.**
 
