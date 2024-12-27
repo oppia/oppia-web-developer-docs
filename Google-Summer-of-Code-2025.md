@@ -99,7 +99,7 @@ A: If you are missing a skill that is needed for a project, we recommend trying 
 
 **Q: How will you assess whether I have the required skills for a project?**
 
-We will assess your application based on your proposal and the skills that you have demonstrated in your PRs and other interactions with the community. Please see the guidance in the "Required Skills" section of the [proposal template](#gsoc-proposal-template), which explains how to demonstrate that you have the required skills for a project.
+We will assess your application based on your proposal and the skills that you have demonstrated in your PRs and other interactions with the community. Please see the guidance in the "Required Skills" section of the [proposal template](#gsoc-proposal-template), which explains how to demonstrate that you have the required skills for a project, and provides pointers on how to develop those skills.
 
 **Q: Is it okay if I only focus on the frontend or backend?**
 
@@ -117,29 +117,29 @@ A: Not at all! Asking for help when you need it is part of the learning process,
 
 A: Definitely not! Here are the [selection criteria](#selection-criteria) we use when selecting contributors for GSoC. Note that tenure is explicitly not part of these criteria.
 
-**Q: Which projects are most important for Oppia?**
+**Q: How early should I start working on the proposal?**
 
-A: All the projects we've listed in the [Ideas List](#oppias-project-ideas-list) are important, and we'd be very happy to see good progress made on any of them! Projects are treated as equally important during selection; note that the relative importance of a project to Oppia is not part of the [selection criteria](#selection-criteria). We strongly encourage you to pick a project that you'd enjoy doing over the summer!
+A: We recommend developing your project proposal and engaging with the community as early as possible, so that you have enough time to get feedback from mentors and improve the proposal before the submission deadline. Make sure to follow all instructions in the [proposal template](https://docs.google.com/document/d/1BIvB0Pt_KCAD17wFS1viOTfZiehBuEJOO1GeypezdkY/edit) (especially around sharing and access) to reduce delays in reviewing your proposal. That said, it's important to note that the proposal is only one part of the application process, and it is probably more important to figure out how to become an effective contributor by getting some PRs merged and demonstrating that you have the required skills for the project.
 
 **Q: Can I submit more than one proposal to Oppia?**
 
 A: Yes, you can. However, we strongly recommend picking one project and writing a solid proposal for it. Splitting attention across multiple projects might not be a great idea. (That said, GSoC is offering projects of multiple lengths, and if you're interested in doing either the 'full version' or the 'half version' of a project idea that can support both modes, you can submit **both** the 'full version' and the 'half version' as separate applications. Just make sure that you'd be happy with either outcome if you are selected!)
 
-**Q: I'm part of team X in Oppia. Can I submit a proposal for a project idea from a different team?**
-
-A: Yes, you can; there are no issues with that. There is a space in the proposal template to list teams at Oppia you've participated in, and we will get feedback from members of those teams about what their experience of collaborating with you has been like.
-
-**Q: How early should I start working on the proposal?**
-
-A: We recommend that you first figure out how to become an effective contributor by getting some PRs merged, since demonstrating that you have the required skills is a key part of the application process. Then, after the accepted mentoring organizations are announced, you can start developing your project proposal. We recommend doing this as early as possible so that you have enough time to get feedback from mentors and improve the proposal before submission. Make sure to follow all instructions in the [proposal template](https://docs.google.com/document/d/1BIvB0Pt_KCAD17wFS1viOTfZiehBuEJOO1GeypezdkY/edit) (especially around sharing and access) to reduce delays in reviewing your proposal.
-
 **Q: Can I use content from the project ideas list or PRD in my proposal?**
 
 A: It is fine for proposals to draw from the GSoC idea in the wiki and any linked PRDs. However, please note that if you copy content directly from any source (even if it is an Oppia doc), **you must cite and link to the original source**. Also, remember from our [selection criteria](#selection-criteria) that when we review proposals, one of the things we look for is evidence that the applicant understands the project and existing codebase well. Strong proposals will therefore contain details that are original (e.g. that are not copied from the PRD).
 
+**Q: I'm part of team X in Oppia. Can I submit a proposal for a project idea from a different team?**
+
+A: Yes, you can; there are no issues with that. There is a space in the proposal template to list teams at Oppia you've participated in, and we will get feedback from members of those teams about what their experience of collaborating with you has been like.
+
 **Q: What is the total number of contributors that will be accepted?**
 
 A: We generally request slots for as many projects as we think will succeed. However, the Google GSoC admins may impose limits based on how they decide to distribute contributor slots among the different open-source organizations.
+
+**Q: Which projects are most important for Oppia?**
+
+A: All the projects we've listed in the [Ideas List](#oppias-project-ideas-list) are important, and we'd be very happy to see good progress made on any of them! Projects are treated as equally important during selection; note that the relative importance of a project to Oppia is not part of the [selection criteria](#selection-criteria). We strongly encourage you to pick a project that you'd enjoy doing over the summer!
 
 **Q: The [Google GSoC FAQ](https://developers.google.com/open-source/gsoc/faq#can_someone_already_participating_in_open_source_be_a_gsoc_contributor) mentions that the program is only for new contributors. I have already contributed to Oppia and I have write access. Can I still participate?**
 
