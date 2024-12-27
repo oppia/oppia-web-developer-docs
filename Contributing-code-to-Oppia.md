@@ -64,11 +64,12 @@ Additionally, GitHub also provides an advanced search syntax that allows you to 
 
 ## Developing your skills
 
-See our [[page of learning resources|Learning-Resources]] for suggestions on how you can improve your development skills. When you take up an issue that requires programming languages or tools you are unfamiliar with, check out that page for resources that other developers have found useful when learning.
+> [!NOTE]
+> Oppia's wiki now includes **tutorials**, which are denoted in the sidebar by 👣 icons. Use them to learn key skills that are needed for solving issues!
 
-Our wiki has lots of useful documentation, including **tutorials** which are denoted in the sidebar by 👣 icons. Use them to learn key skills that are needed for solving issues.
+The Oppia wiki has lots of useful documentation. We **strongly recommend** looking through the resources under "Developing Oppia" in the wiki sidebar. Good places to start include the [[Overview of the Oppia codebase|Overview-of-the-Oppia-codebase]] and the [[tips on how to find the right code to change|Find-the-right-code-to-change]].
 
-We also **strongly recommend** looking through the resources under "Developing Oppia" in the wiki sidebar. Good places to start include the [[Overview of the Oppia codebase|Overview-of-the-Oppia-codebase]] and the [[tips on how to find the right code to change|Find-the-right-code-to-change]].
+Our [[page of learning resources|Learning-Resources]] also has suggestions on how you can improve your development skills. When you take up an issue at Oppia that requires programming languages or tools you are unfamiliar with, check out that page for resources that other developers have found useful when learning.
 
 ## Finding something to do
 
@@ -84,7 +85,7 @@ Please only work on issues that are labelled **"Impact: High"** or **"Impact: Me
 > - Do not work on "Impact: Low" or "Backlog" issues. If you submit a fix for those, you will probably be asked to pick a different issue. Those issues often haven't been looked at closely yet, and might not be priorities for implementation.
 > - Do not work on issues with the "triage needed" label, including issues that you recently filed. These issues haven't been vetted yet and might get closed or modified during the weekly triage process.
 
-As a new contributor, if you run into any problems along the way, we're here to help! Check out our [[Getting Help Page|Get-help]] for the communication channels you can use.
+As a new contributor, if you run into any problems along the way, we're here to help! Check out our [[Getting Help Page|Get-help]] for the communication channels you can use. Also, it's worth bearing in mind (especially when starting out) that trying to understand the entire project at once is unrealistic -- focus on building up your understanding one small step at a time.
 
 You can also browse good first issues for each of the core Oppia Web teams to find something you'd enjoy working on! Please only choose issues that have **not yet** been assigned, unless the issue is a "checkbox issue" with multiple claimable parts. Here are the project boards for the different teams:
 
