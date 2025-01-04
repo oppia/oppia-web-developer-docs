@@ -28,7 +28,7 @@ Take a look at our [[guide for getting started with some common code editors|Tip
 If you still face problems, you can open a new discussion in [discussions page](https://github.com/oppia/oppia/discussions/new/choose).
 
 ## Python setup (soon to be depreciated)
-This setup is soon to be discontinued, please use Docker setup below.
+This setup is soon to be discontinued, please use Docker setup above.
 
 To install Oppia, follow these instructions:
 
