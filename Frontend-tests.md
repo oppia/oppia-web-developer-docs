@@ -110,16 +110,15 @@ This list contains some resources that might help you while writing unit tests:
 
 Running the frontend tests is as simple as running this command:
 
-Docker:
-```console
-make run_tests.frontend
-```
-
 Python:
 ```console
 python -m scripts.run_frontend_tests
 ```
 
+Docker:
+```console
+make run_tests.frontend
+```
 These tests also run whenever you push changes to the frontend code.
 
 **Tips for speeding things up**:
