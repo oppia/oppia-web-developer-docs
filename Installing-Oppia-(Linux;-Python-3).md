@@ -23,10 +23,10 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
 sudo apt-get update
 ```
 
-2. Make sure you have curl (used to download third-party libraries), setuptools (needed for installing coverage, which checks test coverage for the Python code), git (which allows you to store the source in version control), python-dev (which is used for the numpy installation), python-pip (which is also used for the numpy installation), pyyaml (which is used to parse YAML files) and libbz2-dev (used by Apache Beam):
+2. Make sure you have curl (used to download third-party libraries), git (which allows you to store the source in version control), unzip (used for unpacking zip files) and openjdk-11-jre (needed for GCP to work):
 
 ```
-sudo apt-get install python3-pip python3-setuptools curl openjdk-8-jre git python3-dev python3-yaml python3-matplotlib unzip libbz2-dev
+sudo apt-get install curl git unzip openjdk-11-jre
 ```
 
 Alternatively, if you are on Debian/Ubuntu, you can use the `install_prerequisites.sh` script to install these. From the oppia directory:
@@ -36,6 +36,8 @@ bash scripts/install_prerequisites.sh
 ```
 
 3. Install Chrome from [Google's website](https://www.google.com/chrome). You'll need this to run tests.
+
+4. Check that Java version 11+ is installed. You can use the command `java -version` to do this. If you need to change the default binary for the `java` command, use `sudo update-alternatives --config java`.
 
 ## Clone Oppia
 

@@ -1,10 +1,9 @@
 ## Table of contents
 
 * [Introduction](#introduction)
-* [Interpreting the CI checks display](#interpreting-the-ci-checks-display)
 * [Figuring out whether the failure is due to your PR or an existing issue](#figuring-out-whether-the-failure-is-due-to-your-pr-or-an-existing-issue)
-* [What to do if the failure is due to your PR](#what-to-do-if-the-failure-is-due-to-your-pr)
-* [What to do if the failure is due to an existing issue](#what-to-do-if-the-failure-is-due-to-an-existing-issue)
+  * [What to do if the failure is due to your PR](#what-to-do-if-the-failure-is-due-to-your-pr)
+  * [What to do if the failure is due to an existing issue](#what-to-do-if-the-failure-is-due-to-an-existing-issue)
 * [What to do if CI checks only fail in the merge queue](#what-to-do-if-ci-checks-only-fail-in-the-merge-queue)
 
 ## Introduction
@@ -40,7 +39,7 @@ Here are some tips for how to determine whether the failing CI check is due to y
   * If the error isn't related to your PR and there isn't an existing issue for it, you might need to file a new issue for the failure. Before doing this, double-check your PR changes and the error logs to ensure that nothing in your PR could be causing the failure.
 
 
-## What to do if the failure is due to your PR
+### What to do if the failure is due to your PR
 
 To debug and fix the failure, always start from the errors in the CI logs. They contain useful information that can help you with debugging. You can also do the following to get more information about what is causing the error:
 
@@ -63,13 +62,13 @@ If your code is wrong, you will need to fix the error just as you would [respond
 If you are stuck, compile all your findings in a [[debugging doc|Debugging-Docs]] and open a [GitHub Discussion](https://github.com/oppia/oppia/discussions/categories/q-a-debugging-docs) with a link to it. This will make it easier for the Oppia maintainers and other community members to give you suggestions on what to investigate next.
 
 
-## What to do if the failure is due to an existing issue
+### What to do if the failure is due to an existing issue
 
 1. **Document the error.**
 
    * If the error message you see matches a known issue on the [issue tracker](https://github.com/oppia/oppia/issues), leave a comment on that known issue that points to the failing check on your PR, to document that it is still happening. This will help the dev workflow team recognize that this issue is serious and increase its priority.
 
-   * If the error message you see doesn't match a known issue, but you have confirmed that it's not due to your changes, please file a [CI Flake report](https://github.com/oppia/oppia/issues/new?assignees=&labels=triage+needed%2Cbug&projects=&template=3_ci_error_template.yml&title=%5BFlake%5D%3A+) that documents the error. Additionally, if you can [[trace which PR caused the error|How-to-find-the-commit-which-introduced-a-bug]], please link to it as well so that the Oppia maintainers can [revert it](https://github.com/oppia/oppia/wiki/Revert-and-Regression-Policy) if needed.
+   * If the error message you see doesn't match a known issue, but you have confirmed that it's not due to your changes, please file a [CI Failure report](https://github.com/oppia/oppia/issues/new?assignees=&labels=triage+needed%2Cbug&projects=&template=3_ci_error_template.yml&title=%5BFlake%5D%3A+) that documents the error. Additionally, if you can [[trace which PR caused the error|How-to-find-the-commit-which-introduced-a-bug]], please link to it as well so that the Oppia maintainers can [revert it](https://github.com/oppia/oppia/wiki/Revert-and-Regression-Policy) if needed.
 
 2. **Restart the failing test on your PR.**
 
@@ -88,6 +87,8 @@ If you are stuck, compile all your findings in a [[debugging doc|Debugging-Docs]
      * Leave a comment on your PR that says something like "I have investigated the flake and it is the same one as reported in issue #XXX. Here is [the comment](link) I left in that issue pointing to this PR. Please could a maintainer help restart the test?" Then, tag one of your reviewers in the comment, so that they can help restart the test for you.
 
      * If you don't hear back within 24 hours, please use [GitHub Discussions](https://github.com/oppia/oppia/discussions/categories/q-a-contacting-folks) to request a follow-up.
+
+   * If the CI failure persists after 1 restart and continues to block your PR from being merged, please escalate the issue to the dev workflow team on both the issue thread and GitHub Discussions, since this is an indicator that it might start affecting other PRs.
 
 
 ## What to do if CI checks only fail in the merge queue

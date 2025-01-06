@@ -34,7 +34,6 @@ Here are some general troubleshooting tips for Oppia. The platform specific tips
   - [No Module appengine.api](#no-module-appengineapi)
   - [ModuleNotFoundError: No module named \_bz2](#modulenotfounderror-no-module-named-_bz2)
   - [Subprocess.CalledProcessError: Command 'yarn install --pure-lockfile' returned non-zero exit status 1](#subprocesscalledprocesserror-command-yarn-install---pure-lockfile-returned-non-zero-exit-status-1)
-
 - [Mac OS](#mac-os)
   - [Error: alert\_on\_exit() -\> Iterator\[None\]](#error-alert_on_exit---iteratornone)
   - [Local datastore data are not being deleted](#local-datastore-data-are-not-being-deleted)
@@ -49,6 +48,7 @@ Here are some general troubleshooting tips for Oppia. The platform specific tips
   - [SSL Verification Issues](#ssl-verification-issues)
   - [Yarn: ESOCKETTIMEDOUT](#yarn-esockettimedout)
   - [ERROR: Cannot uninstall {Package-Name-and-version}, RECORD file not found](#error-cannot-uninstall-package-name-and-version-record-file-not-found)
+  - [Failed to build typed-ast](#failed-to-build-typed-ast)
 - [Windows](#windows)
   - [Windows Firewall](#windows-firewall)
   - [No Such File or Directory /dev/disk/by-id](#no-such-file-or-directory-devdiskby-id)
@@ -111,7 +111,7 @@ Then run `pip install future`.
 
 ### No Java
 
-If running `which java` on the terminal does not return any output, you do not have java installed. You can install it by running `sudo apt install openjdk-7-jre-headless`. Note that this command might vary for your local machine.
+If running `which java` on the terminal does not return any output, you do not have java installed. You can install it by running `sudo apt install openjdk-11-jre`. Note that this command might vary for your local machine.
 
 ### Frontend Tests Stuck
 
@@ -309,6 +309,8 @@ Traceback (most recent call last) :
 
 Try searching for where protoc is installed (probably in `/opt/homebrew/bin/protoc`) and remove it and then re-run the command.
 
+
+
 ## Linux
 
 ### OSError: [Errno 2] No such file or directory
@@ -428,6 +430,8 @@ sudo apt install cmdtest
 npm install  yarn
 ```
 > Note :- If the above solution doesn't work, please go through the following answered discussions and try the solution mentioned there. [oppia/oppia#17425](https://github.com/oppia/oppia/discussions/17425), [oppia/oppia#18428](https://github.com/oppia/oppia/discussions/18428), [oppia/oppia#14814](https://github.com/oppia/oppia/discussions/14814)
+
+
 
 ## Mac OS
 
@@ -655,6 +659,38 @@ subprocess.CalledProcessError: Command '['pip-sync', 'requirements_dev.txt', '--
 After removing `.direnv`, run `direnv allow` in your active directory (ensure it's `opensource`). This command applies changes to the `.direnv` configuration after manual modifications.
 
 Next, execute `python -m scripts.start` inside your Oppia directory before running other scripts like `python -m scripts.run_frontend_tests`. The `python -m scripts.start` command automatically reinstalls all necessary python packages required for Oppia's development environment. Running other scripts before this step might result in "Module not found" errors, requiring manual reinstallation of each package using the `pip` command.
+
+### Failed to build typed-ast
+
+If you see the error `Failed to build typed-ast` with an error along the following lines:
+
+```
+      clang -Wno-unused-result -Wsign-compare -Wunreachable-code -DNDEBUG -g -fwrapv -O3 -Wall -DOPENSSL_NO_SSL3 -I/opt/homebrew/opt/node@22/include -Iast3/Include -I/Users/hemantayuj/Desktop/open_source/.direnv/python-3.9/include -I/Users/hemantayuj/.pyenv/versions/3.9.20/include/python3.9 -c ast3/Python/ast.c -o build/temp.macosx-14.5-arm64-cpython-39/ast3/Python/ast.o
+      ast3/Python/ast.c:844:5: warning: code will never be executed [-Wunreachable-code]
+          abort();
+          ^~~~~
+      ast3/Python/ast.c:4514:9: error: call to undeclared function '_PyUnicode_DecodeUnicodeEscape'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+          v = _PyUnicode_DecodeUnicodeEscape(s, len, NULL, &first_invalid_escape);
+              ^
+      ast3/Python/ast.c:4514:9: note: did you mean 'PyUnicode_DecodeUnicodeEscape'?
+      /Users/hemantayuj/.pyenv/versions/3.9.20/include/python3.9/unicodeobject.h:588:23: note: 'PyUnicode_DecodeUnicodeEscape' declared here
+      PyAPI_FUNC(PyObject*) PyUnicode_DecodeUnicodeEscape(
+                            ^
+      ast3/Python/ast.c:4514:7: error: incompatible integer to pointer conversion assigning to 'PyObject *' (aka 'struct _object *') from 'int' [-Wint-conversion]
+          v = _PyUnicode_DecodeUnicodeEscape(s, len, NULL, &first_invalid_escape);
+            ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      1 warning and 2 errors generated.
+      error: command '/usr/bin/clang' failed with exit code 1
+      [end of output]
+```
+
+This is due to mypy having some dependencies that don't build properly on Mac (see
+discussion [here](https://github.com/oppia/oppia/issues/21617)). To fix this
+temporarily, remove mypy from requirements_dev.in and try starting your server
+again. This will mean that the backend type checks won't work properly (at least
+until the issue above is resolved), but it will allow you to at least start the
+dev server locally.
+
 
 ## Windows
 
