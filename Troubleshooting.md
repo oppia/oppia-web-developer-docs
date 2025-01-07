@@ -113,6 +113,10 @@ Then run `pip install future`.
 
 If running `which java` on the terminal does not return any output, you do not have java installed. You can install it by running `sudo apt install openjdk-11-jre`. Note that this command might vary for your local machine.
 
+You can confirm your version of Java using the command `java -version`. It should be 11 or higher.
+
+If you need to change the default binary for the `java` command, use `sudo update-alternatives --config java`.
+
 ### Frontend Tests Stuck
 
 If you're unable to run frontend tests while pushing your changes due to the script getting stuck, please go to "node_modules" directory (located at the same level as that of the root directory) and delete the "webdriverio" directory present inside that folder.
