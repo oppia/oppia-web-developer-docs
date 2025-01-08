@@ -17,27 +17,24 @@
 
 Oppia relies on a number of programs and third-party libraries. Many of these libraries are downloaded automatically for you when you first run the `start.py` script provided with Oppia (see step 1 in the next section). However, there are some things that you will need to do beforehand:
 
-1. Update your package list to the latest version by running:
+1. Make sure you have curl (used to download third-party libraries), git (which allows you to store the source in version control), unzip (used for unpacking zip files) and openjdk-11-jre (needed for GCP to work):
+
 
 ```
 sudo apt-get update
-```
-
-2. Make sure you have curl (used to download third-party libraries), git (which allows you to store the source in version control), unzip (used for unpacking zip files) and openjdk-11-jre (needed for GCP to work):
-
-```
 sudo apt-get install curl git unzip openjdk-11-jre
 ```
 
-Alternatively, if you are on Debian/Ubuntu, you can use the `install_prerequisites.sh` script to install these. From the oppia directory:
+Alternatively, if you are on Debian/Ubuntu, you can use the `install_prerequisites.sh` script to install these. From the oppia directory, run:
 
 ```
 bash scripts/install_prerequisites.sh
 ```
 
+2. Verify that Java version 11+ is installed. You can use the command `java -version` to do this. (If you need to change the default binary for the `java` command on your machine, use `sudo update-alternatives --config java`.)
+
 3. Install Chrome from [Google's website](https://www.google.com/chrome). You'll need this to run tests.
 
-4. Check that Java version 11+ is installed. You can use the command `java -version` to do this. If you need to change the default binary for the `java` command, use `sudo update-alternatives --config java`.
 
 ## Clone Oppia
 
