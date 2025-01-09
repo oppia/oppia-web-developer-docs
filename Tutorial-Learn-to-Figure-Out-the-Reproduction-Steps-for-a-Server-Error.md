@@ -69,44 +69,42 @@ TypeError: expected string or bytes-like object
 
 ## Procedure
 
-The following steps illustrate how a developer might tackle this issue. Try following this tutorial step-by-step on your local machine! This will give you a better sense of how to tackle other similar issues in the codebase. If you get stuck with a step in this tutorial, raise an issue in GitHub Discussions to get help.
+The following steps illustrate how a developer might tackle this issue. Try following this tutorial step-by-step on your local machine! This will give you a better sense of how to tackle other similar issues in the codebase. If you get stuck with a step in this tutorial, raise an issue in [GitHub Discussions](https://github.com/oppia/oppia/discussions/categories/tutorial-feedback) to get help.
 
-**Important**: When you see a “practice question box”, stop and try to figure out the answer on your own before reading ahead. You will learn more if you try to figure out your own answer to the question first!
+**Important**: *When you see a “practice question box”, stop and try to figure out the answer on your own before reading ahead. You will learn more if you try to figure out your own answer to the question first!*
 
 #### Setup
 
-**Install Oppia on Your Local Machine**  
+1. **Install Oppia on Your Local Machine**  
 To begin, you'll need to have Oppia installed on your local machine. If you haven't done so already, please follow the installation steps provided in this [wiki page](https://github.com/oppia/oppia/wiki).
 
-**Check Out the Specific Commit**  
+2. **Check Out the Specific Commit**  
 To ensure that you are working with the same version of the code as this tutorial, navigate to your local Oppia directory and check out the specific commit: 
 
 ```bash
 git checkout 192f0a9a4866debac160015bc949130aaae6a7fe
 ```
 
-**Verify the Commit:**  
+3. **Verify the Commit:**  
 You can verify that you are on the correct commit by running:
 
 ```bash
-git log -1
+git log -1 # The output should display the commit ID `192f0a9a4866debac160015bc949130aaae6a7fe`.
 ```
-
-The output should display the commit ID `192f0a9a4866debac160015bc949130aaae6a7fe`.
 
 #### Debugging Process
 
 When faced with a server error, developers at Oppia typically follow these steps:
 
-**Analyze the Error Logs to Locate the Affected Code:** Start by reviewing the error logs to find a stack trace that indicates where the error occurred. Pinpoint the relevant file, function, or line number where the problem originated.
+1. **Analyze the Error Logs to Locate the Affected Code:** Start by reviewing the error logs to find a stack trace that indicates where the error occurred. Pinpoint the relevant file, function, or line number where the problem originated.
 
-**Examine the Affected Code:** Open the identified file(s) and examine the specific code blocks related to the error. Understand the intended functionality of the code and check for any immediate errors or inconsistencies.
+2. **Examine the Affected Code:** Open the identified file(s) and examine the specific code blocks related to the error. Understand the intended functionality of the code and check for any immediate errors or inconsistencies.
 
-**Investigate Potential Causes by Exploring the Code in Depth:** Consider possible reasons for the error, such as incorrect data types, missing conditions, edge cases, or unexpected inputs. Dive deeper into the code, focusing on sections that are most likely causing the issue. Look for logic errors, unhandled cases, or data processing problems that align with your initial suspicions.
+3. **Investigate Potential Causes by Exploring the Code in Depth:** Consider possible reasons for the error, such as incorrect data types, missing conditions, edge cases, or unexpected inputs. Dive deeper into the code, focusing on sections that are most likely causing the issue. Look for logic errors, unhandled cases, or data processing problems that align with your initial suspicions.
 
-**Reproduce the Error:** Set up an environment to recreate the conditions that led to the error. Use test data or modify unit tests to replicate the issue and confirm your hypotheses about its cause.
+4. **Reproduce the Error:** Set up an environment to recreate the conditions that led to the error. Use test data or modify unit tests to replicate the issue and confirm your hypotheses about its cause.
 
-**Document Your Findings:** Once you've identified and confirmed the cause of the error, document your findings in detail on the original GitHub issue. Provide a summary of the error, clear steps to reproduce it, and any relevant observations or logs to support your conclusions.
+5. **Document Your Findings:** Once you've identified and confirmed the cause of the error, document your findings in detail on the original GitHub issue. Provide a summary of the error, clear steps to reproduce it, and any relevant observations or logs to support your conclusions.
 
 ### Stage 1: Analyze the Error Logs to Locate the Affected Code
 > **Objective**: Identify where the error occurred in the code.
@@ -177,7 +175,7 @@ File "/workspace/core/domain/suggestion_services.py", line 1408, in _get_plain_t
 
 Based on the error logs, the issue arises because the argument passed to the re.sub() function in the _get_plain_text_from_html_content_string method is not of the expected data type (a string or bytes-like object).
 
-You have now pinpointed the exact file, function, and line where the issue originated and are ready to dive deeper into the problem area.
+> You have now pinpointed the exact file, function, and line where the issue originated and are ready to dive deeper into the problem area.
 
 ### Stage 2: Examine the Affected Code
 > **Objective**: Analyze the affected code to understand its intended behavior and determine what might have gone wrong.
@@ -512,6 +510,7 @@ Here, we can see that `content_html` can be either a `string` or a `List[string]
 We have identified the root cause of the error. The `_get_plain_text_from_html_content_string` function expects a `str`.When it receives a list of strings, it results in a `TypeError`.
 
 **Note on Why mypy Did Not Catch This Error**
+
 `mypy` is a static type checker for Python, designed to enforce type safety by verifying that types declared in type annotations are respected throughout the code. However, `mypy` has limitations when dynamic typing is involved, especially with the use of functions like `setattr` that dynamically set attributes at runtime.
 
 In the `create_suggestion` method, the `change_cmd` parameter is annotated with `Mapping[str, change_domain.AcceptableChangeDictTypes]`. The `AcceptableChangeDictTypes` union type includes a variety of types such as `str`, `bool`, `float`, `int`, `None`, `List[str]`, and several domain-specific dictionary types. This annotation indicates that `change_cmd` can contain any of these types.
@@ -752,4 +751,4 @@ By following these steps, you'll have a clean working environment ready for futu
 
 ### We Value Your Feedback
 
-Did you find this tutorial useful? Or, did you encounter any issues or find things hard to grasp? Let us know by opening a discussion on [GitHub Discussions](https://github.com/oppia/oppia/discussions/new?category=tutorial-feedback). We would be happy to help you and make improvements as needed!
+Did you find this tutorial useful? Or, did you encounter any issues or find things hard to grasp? Let us know by opening a discussion on [GitHub Discussions](https://github.com/oppia/oppia/discussions/categories/tutorial-feedback). We would be happy to help you and make improvements as needed!
