@@ -1,3 +1,14 @@
+## Table of Contents
+- [Introduction](#introduction)
+- [Skills Covered](#skills-covered)
+- [Scenario](#scenario)
+- [Procedure](#procedure)
+  - [Stage 1: Figure out the root cause of the issue and which files are affected](#stage-1-figure-out-the-root-cause-of-the-issue-and-which-files-are-affected)
+  - [Stage 2: Make the changes](#stage-2-make-the-changes)
+  - [Stage 3: Verify that your changes are correct](#stage-3-verify-that-your-changes-are-correct)
+- [Conclusion](#conclusion)
+  - [We Value Your Feedback](#we-value-your-feedback)
+
 ## Introduction
 
 This tutorial guides you through making a simple UI change on the Oppia website. Specifically, we'll update the text on the top of the About page from "Get Started with Oppia" to "Introducing Oppia."
@@ -14,10 +25,10 @@ The UX writing team has filed a request on GitHub asking to update the text on t
 
 ## Procedure
 
-<i>The following steps illustrate how a developer might tackle this issue. Try following this tutorial step-by-step on your local machine! This will give you a better sense of how to tackle other similar issues in the codebase.
+*The following steps illustrate how a developer might tackle this issue. Try following this tutorial step-by-step on your local machine! This will give you a better sense of how to tackle other similar issues in the codebase.*
 
 **Important:**
-When you see a “question box”, stop and try to figure out the answer on your own before reading ahead. You will learn more if you try to figure out your own answer to the question first!</i>
+*When you see a “question box”, stop and try to figure out the answer on your own before reading ahead. You will learn more if you try to figure out your own answer to the question first!*
 
 ### Stage 1: Figure out the root cause of the issue and which files are affected.
 
@@ -59,7 +70,7 @@ Now, let’s find the file on your computer so that you can make the necessary c
 >
 > Hint: To streamline your search, focus on HTML files as they commonly contain HTML classes. Use the editor's search functionality to narrow down the files containing this class. (Refer to the documentation for your editor if you don’t know how to do this – being able to use your tools efficiently is important!)
 
-You’ll likely find it in a file named something like about-page.component.html.
+You’ll likely find it in a file named about-page.component.html.
 
 <img src="images/tutorial-1/searchVsCode.png" alt="Practice 4 Image">
 
@@ -75,7 +86,7 @@ To change the text, locate the i18n file or section that contains `I18N_ABOUT_PA
 
 > [!IMPORTANT]
 > Practice 4:
-> Search for the I18N_ABOUT_PAGE_TITLE_SECTION_ONE key. You’ll get a lot of results for this. Can you > > find the file which contains the english translations?
+> Search for the I18N_ABOUT_PAGE_TITLE_SECTION_ONE key. You’ll get a lot of results for this. Can you find the file which contains the english translations?
 
 When you search for the I18N_ABOUT_PAGE_TITLE_SECTION_ONE key, you'll find several files in different languages. In general, when making PRs we update the English strings and let translators handle the other languages through translatewiki (which we will discuss later). So, we should focus on the en.json file, which contains the translations for Oppia in English.
 
@@ -89,9 +100,9 @@ Change the value of the key I18N_ABOUT_PAGE_TITLE_SECTION_ONE from "Get Started 
 
 <img src="images/tutorial-1/finalChangesInVsCode.png" alt="Practice 6 Image">
 
-Note: When you change en.json and check in the changes, Translatewiki (the service we use for translating) pulls the changes and automatically handles retranslation of the content. This all happens behind the scenes, and you don’t need to do anything besides submitting the PR with the English-language changes. If a language doesn’t have translations yet, then the text shown will default to the English version. See the following Oppia Wiki pages to understand I18N development at Oppia.
- - [Adding new translations for i18n](https://github.com/oppia/oppia/wiki/Adding-new-translations-for-i18n#contributing-translations-to-oppia)
- - [How to develop for i18n](https://github.com/oppia/oppia/wiki/How-to-develop-for-i18n)
+> **Note**: When you change en.json and check in the changes, Translatewiki (the service we use for translating) pulls the changes and automatically handles retranslation of the content. This all happens behind the scenes, and you don’t need to do anything besides submitting the PR with the English-language changes. If a language doesn’t have translations yet, then the text shown will default to the English version. See the following Oppia Wiki pages to understand I18N development at Oppia.
+> - [Adding new translations for i18n](https://github.com/oppia/oppia/wiki/Adding-new-translations-for-i18n#contributing-translations-to-oppia)
+> - [How to develop for i18n](https://github.com/oppia/oppia/wiki/How-to-develop-for-i18n)
 
 ### Stage 3: Verify that your changes are correct
 
@@ -110,4 +121,14 @@ If you’d like to see I18N in action, then change I18N keys in a different lang
 > Now, navigate to the ‘/about’ page in your local server. Change the language of the website from English to 
 > Hindi.  Do you see the text `Getting Started in Hindi` ?
 
-Remember, take your time with each step, and don’t hesitate to ask for help on [GitHub Discussions](https://github.com/oppia/oppia/discussions) if something isn’t clear. These changes might seem small, but they’re a great way to start getting comfortable with Oppia’s codebase!
+## Conclusion
+
+Congratulations on completing this tutorial!
+
+You’ve successfully made a UI change, covering essential steps for contributing to Oppia’s frontend. Through this process, you’ve learned how to navigate the codebase, work with i18n keys, and test your changes effectively to ensure quality.
+
+The skills you’ve practiced—like identifying the right files to modify and understanding internationalization—form a strong foundation for handling more complex tasks in the future. Keep building on these skills, exploring the codebase, and contributing to Oppia!
+
+### We Value Your Feedback
+
+Did you find this tutorial useful? Or, did you encounter any issues or find things hard to grasp? Let us know by opening a discussion on [GitHub Discussions](https://github.com/oppia/oppia/discussions/new?category=tutorial-feedback). We would be happy to help you and make improvements as needed!
