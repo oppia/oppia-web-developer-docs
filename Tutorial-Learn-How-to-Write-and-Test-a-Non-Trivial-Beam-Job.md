@@ -308,7 +308,9 @@ missing_topic_summary_models_report = (
 </details>
 
 **Report Total Topic Models**: This reports the count of all TopicModel entities.
+
 **Report count of missing TopicSummaryModels**: This reports the count of TopicModel entities that do not have corresponding TopicSummaryModel entities.
+
 **Report missing TopicSummaryModels**: This logs detailed information about each missing summary model.
 
 <details><summary>Here's one approach to do that</summary>
