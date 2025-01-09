@@ -42,12 +42,16 @@ By following this example, you will not only fix this flake but also gain an und
 
 Before you begin, ensure you have:
 - Set up your development environment. (If you haven't, follow the [Oppia setup instructions](https://github.com/oppia/oppia/wiki/Installing-Oppia)).
-- Familiarize yourself with how E2E tests are used at Oppia.
+- Familiarize yourself with how [E2E tests are used at Oppia](https://github.com/oppia/oppia/wiki/End-to-End-Tests).
 - Familiarize yourself with the [Exploration Editor Page and its sub-tabs](https://oppia.github.io/#/TheExplorationEditor).
 
 ## Procedure
 
 ### Interpreting the Error Logs
+
+When tackling any CI failure, especially one occurring in an E2E test, the first step is to carefully interpret the error logs. Logs provide a detailed view of what went wrong during the test, and understanding how to read them will help you quickly identify the root cause.
+
+Here is the error log for this specific CI flake:
 
 ```python
 Error: Add Interaction button is not visible.
@@ -124,6 +128,7 @@ Flakes may not always be reproducible locally due to differences between your lo
 - Network delays are more common, especially when CI environments need to communicate with external services or load remote assets.
 
 These factors can expose issues, such as timing problems or race conditions, that are not apparent in a local development environment where more resources are readily available.
+
 Generally, replicating the CI environment locally isn't a feasible strategy because e.g. the hardware is different. However, developers can minimize environment-specific issues by designing tests that are resilient to timing and resource differences. This might involve:
 - Using dynamic wait conditions rather than hard coded timeouts.
 - Avoiding reliance on exact timings that could vary between environments.
@@ -165,7 +170,9 @@ This block of code follows a sequence of steps to set an interaction in the Expl
 
 > [!IMPORTANT]
 > **Practice 4**: Familiarize yourself with the Exploration Editor page.
+> 
 > Since this E2E test deals with the Exploration Editor page, it’s essential to understand how this page works and how the various tabs (like the Main tab and the Preview tab) function.
+> 
 > To get familiar with the Exploration Editor page, refer to:
 > - [Oppia Exploration Editor Guide](https://oppia.github.io/#/TheExplorationEditor)
 > - [How to Access Oppia Webpages](https://github.com/oppia/oppia/wiki/How-to-access-Oppia-webpages)
@@ -188,11 +195,15 @@ This is a common issue in UI testing, especially when dealing with asynchronous 
 When debugging E2E tests, it’s helpful to leverage additional tools to get a clearer picture of what’s happening during test execution.
 
 **Screenshots & Recordings from Local Tests**: To start debugging locally, run the relevant E2E tests in your local environment. By visually inspecting the UI and using [breakpoints to pause execution at critical points](https://github.com/oppia/oppia/wiki/Debug-end-to-end-tests#using-the-debugger), you can observe how elements like the "Add Interaction" button behave during the test. This is especially useful for understanding the cause of failures and diagnosing flakiness or timing issues.
+
 If an E2E test fails locally, `WebdriverIO` automatically captures a screenshot of the UI at the exact moment of failure. These screenshots are stored in the `webdriverio-screenshots` folder. Reviewing these can help you understand the visual state of the UI at the time of the error.
+
 In addition to screenshots, `WebdriverIO` can also record videos of your local test runs, saving them in the `webdriverio-video` folder. These recordings allow you to trace the sequence of events leading up to a failure, which is especially helpful for debugging UI transitions and timing issues. To enable these recordings locally, set the `LOCAL_VIDEO_RECORDING_IS_ENABLED` variable to 1 in the `wdio.conf.js` file. By default, videos are saved only when a test fails. If you want to save recordings for all tests, you can set the `saveAllVideos` option to true in the configuration file.
 
 **Screenshots & Recordings from CI**: In addition to local debugging tools, Oppia supports video recordings and screenshots for tests running in CI environments. These tools are useful for identifying issues that occur only on CI or are difficult to reproduce locally. Oppia integrates test video recordings through GitHub Actions, capturing the entire test execution for later review. 
+
 To enable screen recordings in CI, set the `VIDEO_RECORDING_IS_ENABLED` environment variable to `1` in your GitHub Actions workflow file. This setup will ensure that video recordings are captured and saved for each test run, providing a complete visual record of the test execution process.
+
 For detailed instructions on setting up and using these debugging tools, [refer to the Oppia E2E Tests Debugging Wiki](https://github.com/oppia/oppia/wiki/Debug-end-to-end-tests).
 
 Let’s now take a look at a screenshot from a previously documented E2E test failure, which was captured during a debugging session. The screenshot was part of a debugging doc created for a similar issue where the "Add Interaction" button was not visible.
@@ -220,7 +231,7 @@ To investigate this issue further, let’s examine the code responsible for navi
 > [!IMPORTANT]
 > **Practice 6**: In your code editor, locate the function responsible for navigating to the Main Tab in `oppia/core/tests/webdriverio_utils/ExplorationEditorPage.js`.
 >
-> **Hint**: Use your code editor’s search functionality to quickly find it.
+> **Tip**: Use your code editor’s search functionality to quickly find it.
 
 Here’s the function responsible for navigating to the Main Tab in the test suite:
 
@@ -363,7 +374,8 @@ Alternatively, you could also modify the output of the check_test_suites_to_run.
 
 This will ensure that only the specified suite is run multiple times, reducing unnecessary execution of irrelevant test suites and saving time.
 
-Important Considerations for CI Reruns
+**Important Considerations for CI Reruns**
+
 Run Tests on Your Own Fork: To reduce the load on the main oppia/oppia CI runners, it’s recommended to only run tests repeatedly on PRs opened against branches on your own fork. For example, open a PR to merge changes from your feature branch to your fork’s develop branch, rather than the oppia/oppia develop branch.
 For more detailed information, you can refer to the [Debug Frontend Tests Guide](https://github.com/oppia/oppia/wiki/Debug-frontend-tests#run-tests-repeatedly-on-ci). The same approach applies to E2E tests.
 
