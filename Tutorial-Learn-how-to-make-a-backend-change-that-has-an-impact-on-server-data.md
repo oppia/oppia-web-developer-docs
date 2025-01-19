@@ -21,7 +21,7 @@ By the end of this tutorial, you will have the knowledge and confidence to handl
 
 # Scenario
 
-In this tutorial, we will address an issue where the `user_bio` field in `UserSettingsModel` allows users to enter bios of unrestricted length. While this provided users with flexibility in expressing themselves, it has become necessary to enforce a length limit of 200 characters. This change ensures consistency and allows UI designers to reliably allocate space for displaying bios, improving the overall user experience.
+In this tutorial, we will address an issue where the `user_bio` field in `UserSettingsModel` allows users to enter bios of unrestricted length. For the purposes of this tutorial, imagine that the technical team has decided to enforce a length limit of 200 characters for this field, in order to ensure consistency and allow UI designers to reliably allocate space for displaying bios.
 
 To implement this change, we need to modify the data model to restrict the bio length and write a migration job to ensure that existing user bios exceeding this limit are truncated accordingly. 
 
@@ -40,17 +40,14 @@ Before you begin, ensure that you have completed the following steps to set up a
 Start by navigating to the Preferences page in your local development environment.  
 **URL**: [`http://localhost:8181/preferences`](http://localhost:8181/preferences)
 
-Our goal is to identify which storage model stores the fields shown on this page. There are multiple ways to approach this:
+Our goal is to identify which storage model stores the fields shown on this page. If you already know which storage model handles these fields, you can inspect them directly. If not, observe the network call triggered when changes are made on the Preferences page. This will guide you in tracing the update process through the codebase and locating the relevant storage model.
 
-1. **Code Exploration**: Review the relevant files (e.g., `gae_models.py`) to manually inspect the fields. Keep in mind that this approach may not be ideal for new contributors who are just beginning to familiarize themselves with the codebase. It is typically more suitable for those who have already spent significant time working with and understanding the structure of the codebase.  
-2. **Network Inspection**: Observe the network call triggered when changes are made on the Preferences page to trace the update process through the codebase.
-
-In this tutorial, we’ll use the second approach to showcase how to trace functionality effectively.
+Let’s proceed and try to trace the model that stores the fields for this page.
 
 > [!IMPORTANT]
 > Practice 1: Familiarize yourself with the codebase architecture at Oppia. Understanding the structure of the codebase will help you navigate through various layers of code at Oppia more efficiently. Follow this guide: [Overview of the Oppia Codebase](https://github.com/oppia/oppia/wiki/Overview-of-the-Oppia-codebase).
 
-![Screenshot of Preference Page](images/TutorialMigrationJob/preferencePage.png)
+![Screenshot of Preferences Page](images/TutorialMigrationJob/preferencesPage.png)
 
 Above is an image of the Preferences page, which includes various fields. In our case, we need to update the `Bio` field, then click the **Save Changes** button and observe which endpoint is triggered in the network tab of your browser's developer tools.
 
@@ -68,7 +65,7 @@ Upon clicking the **Save Changes** button, you’ll notice a call to the followi
 
 This tells us that the endpoint (`/preferenceshandler/data`) handles updates to the Preferences page.
 
-![Screenshot of Preference Page with Network Tab opened](images/TutorialMigrationJob/preferencePageWithNetworkTab.png)
+![Screenshot of Preferences Page with Network Tab opened](images/TutorialMigrationJob/preferencesPageWithNetworkTab.png)
 
 Now it’s time to trace this endpoint in the codebase.
 
@@ -76,6 +73,8 @@ The URL triggered when clicking the **Save Changes** button is `/preferenceshand
 
 > [!IMPORTANT]
 > **Practice 3**: Can you search for the above variations of the endpoint in the codebase? Note down where these instances appear and identify the controller attached to the endpoint. It will help you trace the endpoint to its corresponding logic in the code. For tips on using your code editor effectively to ease the development process, refer to this guide: [Tips for Common IDEs](https://github.com/oppia/oppia/wiki/Tips-for-common-IDEs).
+>
+> **Hint**: All endpoint routings are centralized in main.py, so you can focus your search there instead of the entire codebase.
 
 Upon searching, you’ll find in `feconf.py` that the URL `/preferenceshandler/data` is aliased as `PREFERENCES_DATA_URL`.
 
@@ -203,7 +202,7 @@ elif update_type == 'user_bio':
                user_settings.user_bio = data
 ```
 
-***Note**: Normally, we would use schema validation to enforce this (e.g., using a regex as demonstrated [here](https://github.com/oppia/oppia/blob/cac148abaaa0bba4d96b9df26aa67fd3068b216c/core/schema_utils.py#L700)). However, the `preferences` handler hasn’t been set up for schema validation yet. Adding schema validation would require defining validations for the entire handler, which is beyond the scope of this tutorial.*
+***Note**: Normally, we would use schema validation to enforce this (e.g., by defining validation rules for the handler). You can refer to the [Oppia Schemas Guide](https://github.com/oppia/oppia/wiki/Schemas#how-to-write-validation-schemas-for-handlers) for instructions on how to write validation schemas for handlers. However, the preferences handler hasn’t been set up for schema validation yet. Adding schema validation would require defining validations for the entire handler, which is beyond the scope of this tutorial.*
 
 The changes we have implemented so far ensure that all new and updated user bios are limited to a maximum of 200 characters. However, this does not account for existing users whose bios may already exceed this limit. Such cases would create discrepancies in the data, potentially causing inconsistencies or unexpected behavior.
 
@@ -223,7 +222,7 @@ For example, potential options might include:
 
 For this tutorial, we will choose the **truncation** approach, ensuring all user bios conform to the 200-character limit.
 
-***Note**: While this approach is simple and sufficient for the purposes of this tutorial, it may lead to a sub-optimal user experience as it truncates user input without providing feedback or allowing edits. This is not necessarily a best practice for real-world applications but serves as an illustrative example for learning.*
+***Note**: In practice, when making decisions that aren’t clear-cut—especially those affecting user experience—it’s important for developers to compile a list of different options along with their respective pros and cons. This ensures that all potential approaches are considered thoroughly. Once the options are outlined, they should be discussed with the product team and technical leads to collaboratively decide on the best course of action. For the purposes of this tutorial, imagine that the team leads reviewed the options and decided to proceed with Option 1.*
 
 At Oppia, [**Apache Beam Jobs**](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs) are used for data migration, validation, and other large-scale data processing tasks. Let’s get started with writing an Apache Beam job to truncate the `user_bio` field for all records that exceed the limit.
 
@@ -248,9 +247,9 @@ The Beam job’s objective is to truncate the `user_bio` field in the `UserSetti
 > Practice 8: Take a notebook and try drafting a rough workflow of what our job would do, using boxes for the steps and arrows to connect different steps. 
 > 
 > Hint: 
-> - Read Everything First: Start by reading all the necessary data at the beginning of the job. This ensures that you have all the required information before performing any operations.
-> - Process Data in Steps: Break down the job's functionality into simpler steps, such as filtering, transforming, and aggregating the data. Each step should be a separate node in your DAG. 
-> - Write Everything Last: Ensure that all writing operations, such as saving results or updating models, are performed at the end of the job. This helps in maintaining data consistency and avoids incomplete writes.
+> - **Read Everything First**. Start by reading all the necessary data at the beginning of the job. This ensures that you have all the required information before performing any operations.
+> - **Process Data in Steps**. Break down the job's functionality into simpler steps, such as filtering, transforming, and aggregating the data. Each step should be a separate node in your DAG. 
+> - **Write Everything Last**. Ensure that all writing operations, such as saving results or updating models, are performed at the end of the job. This helps in maintaining data consistency and avoids incomplete writes.
 
 **Steps in the Workflow:**
 
@@ -385,15 +384,15 @@ The objective of our audit job, `AuditTruncateUserBioJob`, is to:
 2. Simulate truncation logic for these records without saving the changes.  
 3. Provide a detailed report of all affected records, ensuring we are confident in the data to be modified before running the actual migration job.
 
-#### **Thought Process for the Audit Job**
+#### Key Considerations for Designing an Audit Job
 
-1. **Simulating Logic**: The audit job must simulate the exact same steps as the main Beam job to ensure consistency in logic and results.  
-2. **Read-Only Operations**: Unlike the main job, an audit job should not persist any changes to the datastore. This avoids unintended side effects during testing.  
-3. **Detailed Reporting**: The job should generate a detailed report or log indicating the records that require updates. This transparency helps validate the scope and correctness of the job.  
-4. **Reusable Patterns**: Follow established patterns and conventions for audit jobs in the Oppia codebase.
+1. **Simulating Logic**: The audit job should closely mimic the steps performed by the main Beam job. This includes applying the same transformations, filters, and checks to ensure that the audit results align with what the main job is designed to process. The goal is to identify potential issues or discrepancies without altering the data.
+2. **Read-Only Operations**: Audit jobs should operate in a non-destructive manner, meaning they only read from the datastore without making any changes. This ensures that the audit process does not interfere with the existing data or workflows, and it provides a safe environment for validation.
+3. **Detailed Reporting**: The audit job should produce a comprehensive report or log that highlights records requiring updates or further inspection. This report could include the number of affected records, specific data anomalies, or a summary of records that don’t meet the expected criteria. This helps developers and reviewers validate the correctness and scope of the job.
+4. **Reusable Patterns**: Follow established patterns and conventions for audit jobs in the Oppia codebase. Adhering to existing patterns and conventions helps reduce development time, ensures compatibility with other components, and makes the code more maintainable and adaptable for future needs.
 
 > [!IMPORTANT]
-> Practice 9: Based on the above explanation and thought process. Can you write down the Audit Job for our use case.
+> **Practice 9**: Based on the explanation above, can you write an Audit Job for our use case? Think about how you can simulate the truncation logic while ensuring the job remains read-only and produces detailed reports.
 
 The `AuditTruncateUserBioJob` is implemented alongside the main Beam job in the `user_bio_truncation_jobs.py` file. Here’s how it can be implemented:
 
@@ -469,9 +468,9 @@ When designing tests, it’s important to consider the following types of scenar
 By covering these cases, we can ensure the robustness of the Beam job and gain confidence in its behavior across different scenarios.
 
 > [!IMPORTANT]
-> Practice 10: Based on the explanation above, can you write an Audit Job for our use case? Think about how you can simulate the truncation logic while ensuring the job remains read-only and produces detailed reports.
+> Practice 10: Using the scenarios outlined above, write unit tests for the `TruncateUserBioJob` to validate its behavior under different conditions.
 > 
-> Hint: Review the structure of other audit jobs in the Oppia codebase for examples and reusable patterns.
+> Hint: Refer to the structure of existing tests in the Oppia codebase for examples and reusable patterns that can guide you in writing effective tests.
 
 Here’s what one implementation of tests could look like 
 
