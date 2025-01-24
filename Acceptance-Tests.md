@@ -239,20 +239,11 @@ On the first run, a screenshot named `teachPage-snap.png` will be created and st
 - `dev-desktop-screenshots`: local development mode in desktop environments
 - `dev-mobile-screenshots`: local development mode in mobile environment, in which the `mobile` flag is used. 
 
+To introduce a new screenshot to the codebase, the test should be run in all these four modes/environments to generate each screenshot in all four folders. 
+
 On CI, we run all the acceptance tests in production mode, so the screenshots in `prod-desktop-screenshots` and `prod-mobile-screenshots` will be compared to the screenshots that are generated during CI checks. If a screenshot doesn't match on CI, it generates an image in a folder as an artifact in the GitHub workflow. For example, if the screenshot `teachPage-snap.png` fails in `logged-out-user/click-all-buttons-on-navbar.spec.ts` during the CI checks in desktop environment, a folder named `diff-snapshots-logged-out-user_click-all-buttons-on-navbar` will be created. Inside this folder, a folder named `prod-desktop-screenshots` will be created and a screenshot `teachPage-diff.png` will be stored under this folder. The screenshots `teachPage-diff.png` will show the difference between the screenshot from the codebase and the new generated screenshot, making it easier to identify the difference. 
 
 On the other hand, if the screenshot fails locally in desktop environment, the screenshot `teachPage-diff.png` will be generated and stored inside a new folder `diff-snapshots` under `logged-out-user/dev-desktop-screenshots`. 
-
-
-
-
-
-
-
-
-
-
-
 
 ## Acceptance Tests for Mobile
 
