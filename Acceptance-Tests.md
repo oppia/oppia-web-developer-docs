@@ -216,6 +216,43 @@ const CONSOLE_ERRORS_TO_FIX = [
 ];
 ```
 
+### Screenshots testing functionality in Acceptance Tests
+
+Acceptance Tests have a function called `expectScreenshotToMatch` in `puppeteer-utils.ts` to take screenshots of the UI during the acceptance tests and compare them to the existing screenshots in the codebase, which can help debugging test failures as it provides more information beside the error message. To use this functionality, call the function `expectScreenshotToMatch`, which takes in a string as the name of the screenshot, and the absolute path of the directory of the specs file to locate where the folder of the screenshots will be. For instance, to create a screenshot after calling the function `loggedOutUser.clickVolunteerButtonInGetInvolvedMenuOnNavbar` in `logged-out-user/click-all-buttons-on-navbar.spec.ts`, call the function `expectScreenshotToMatch` with the user type `loggedOutUser` to identify which user's browser should be screenshotted, `volunteerPage`, a description of the screenshot, and the variable `__dirname`. On the fist run, a screenshot named `volunteerPage-snap.png` will be created and stored in a folder based on which mode (prod mode or dev mode) and which device environment (desktop or mobile) the test was run in. There are four different folders:
+
+- prod-desktop-screenshots: production mode in desktop environment, in which the `prod_env` flag is used. 
+- prod-mobile-screenshots: production mode in mobile environment, in which the `prod_env` and `mobile` flags are used
+- dev-desktop-screenshots: local development mode in desktop enviornment
+- dev-mobile-screenshots: loval dedvelopment mode in mobile environment, in which the `mobile` flag is used. 
+
+On CI, we run all the acceptance tests in production mode, so the screenshots in prod-desktop-screenshots and prod-mobile-screenshots will be used to compare to the screenshots that are generated during CI checks. 
+
+Below is an example of this usage:
+```typescript
+it(
+  'should open Volunteer Url with Volunteer button in Get Involved menu ' +
+    'on navbar',
+  async function () {
+    await loggedOutUser.clickVolunteerButtonInGetInvolvedMenuOnNavbar();
+    await loggedOutUser.expectScreenshotToMatch('volunteerPage', __dirname);
+  },
+  DEFAULT_SPEC_TIMEOUT_MSECS
+);
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Acceptance Tests for Mobile
 
 Similar to desktop, we also have acceptance tests for mobile to ensure responsiveness and uninterrupted user journeys on small screen devices. While the tests themselves remain largely the same for both desktop and mobile, there are some differences. For instance, large full menus on desktop may be converted to dropdowns, hamburger menus, or other shortcuts on mobile, requiring additional actions to complete the tests.
