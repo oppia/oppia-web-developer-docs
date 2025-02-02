@@ -36,12 +36,12 @@ Before you begin, ensure that you have completed the following steps to set up a
 
 Before we dive into the implementation, let’s outline the sequence of operations required to enforce and apply the new bio length limit safely. Fixing an issue that affects existing data is a structured process that must follow the correct order:
 
-1. **Modify the backend Layer to Prevent Future Violations**
+1. **Modify the Backend Layer to Prevent Future Violations**
 	- Update the backend validation to ensure that new or updated bios cannot exceed 200 characters.
 	- This ensures that, once we fix existing data, no new invalid entries will be introduced.
 2. **Implement the Data Migration and Audit Jobs**
 	- Write an Apache Beam migration job to truncate existing bios that exceed the character limit.
-	- Implement an audit job to verify the migration logic before modifying any data.
+	- Implement an audit job that performs the same logic as the migration job but without modifying any data. This allows us to verify the migration logic before making actual 	changes.
 3. **Test the Migration and Audit Jobs**
 	- Run the jobs locally with test data to validate their correctness.
 	- Ensure that only bios exceeding 200 characters are truncated, while all other data remains unaffected.
@@ -53,6 +53,8 @@ Before we dive into the implementation, let’s outline the sequence of operatio
 	- Confirm the data integrity of UserSettingsModel after the migration is complete.
 
 In this tutorial, we will cover the first three steps—modifying the domain layer, implementing the migration and audit jobs, and testing them. Running the migration in a safe environment and deploying it to production are beyond this tutorial’s scope.
+
+> **Before moving forward, make sure to review the** [**Apache Beam Job Guidelines**](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs#guidelines-for-writing-beam-jobs) **to understand best practices for writing and testing Beam jobs effectively.**
 
 ## Section 1: Prevent New Data Violations - Identify Code Changes for Bio Length Limit
 
