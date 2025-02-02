@@ -35,7 +35,27 @@ Before you begin, ensure that you have completed the following steps to set up a
 
 # Procedure
 
-## Section 1: Navigating and Understanding the Preferences Page
+Before we dive into the implementation, let’s outline the sequence of operations required to enforce and apply the new bio length limit safely. Fixing an issue that affects existing data is a structured process that must follow the correct order:
+
+1. **Modify the backend Layer to Prevent Future Violations**
+	- Update the backend validation to ensure that new or updated bios cannot exceed 200 characters.
+	- This ensures that, once we fix existing data, no new invalid entries will be introduced.
+2. **Implement the Data Migration and Audit Jobs**
+	- Write an Apache Beam migration job to truncate existing bios that exceed the character limit.
+	- Implement an audit job to verify the migration logic before modifying any data.
+3. **Test the Migration and Audit Jobs**
+	- Run the jobs locally with test data to validate their correctness.
+	- Ensure that only bios exceeding 200 characters are truncated, while all other data remains unaffected.
+4. **Run the Migration Job in a Safe Environment** (Not covered in this tutorial)
+	- Execute the job in a staging environment or backup server before deploying it to production.
+	- Validate the results to confirm no unintended changes occur.
+5. **Deploy to Production** (Not covered in this tutorial)
+	- After thorough validation and approval, deploy the migration job on the live server.
+	- Confirm the data integrity of UserSettingsModel after the migration is complete.
+
+In this tutorial, we will cover the first three steps—modifying the domain layer, implementing the migration and audit jobs, and testing them. Running the migration in a safe environment and deploying it to production are beyond this tutorial’s scope.
+
+## Section 1: Prevent New Data Violations - Identify Code Changes for Bio Length Limit
 
 Start by navigating to the Preferences page in your local development environment.  
 **URL**: [`http://localhost:8181/preferences`](http://localhost:8181/preferences)
@@ -194,12 +214,12 @@ Update the `put` Method in the Controller by adding a check to enforce the chara
 
 ```python
 elif update_type == 'user_bio':
-               self.__validate_data_type(update_type, str, data)
-               if len(data) > feconf.MAX_BIO_LENGTH_IN_CHARS:
-                   raise self.InvalidInputException(
-                       'User bio exceeds maximum character limit: %s'
-                       % feconf.MAX_BIO_LENGTH_IN_CHARS)
-               user_settings.user_bio = data
+    self.__validate_data_type(update_type, str, data)
+    if len(data) > feconf.MAX_BIO_LENGTH_IN_CHARS:
+        raise self.InvalidInputException(
+            'User bio exceeds maximum character limit: %s'
+            % feconf.MAX_BIO_LENGTH_IN_CHARS)
+    user_settings.user_bio = data
 ```
 
 ***Note**: Normally, we would use schema validation to enforce this (e.g., by defining validation rules for the handler). You can refer to the [Oppia Schemas Guide](https://github.com/oppia/oppia/wiki/Schemas#how-to-write-validation-schemas-for-handlers) for instructions on how to write validation schemas for handlers. However, the preferences handler hasn’t been set up for schema validation yet. Adding schema validation would require defining validations for the entire handler, which is beyond the scope of this tutorial.*
@@ -247,9 +267,9 @@ The Beam job’s objective is to truncate the `user_bio` field in the `UserSetti
 > Practice 8: Take a notebook and try drafting a rough workflow of what our job would do, using boxes for the steps and arrows to connect different steps. 
 > 
 > Hint: 
-> - **Read Everything First**. Start by reading all the necessary data at the beginning of the job. This ensures that you have all the required information before performing any operations.
-> - **Process Data in Steps**. Break down the job's functionality into simpler steps, such as filtering, transforming, and aggregating the data. Each step should be a separate node in your DAG. 
-> - **Write Everything Last**. Ensure that all writing operations, such as saving results or updating models, are performed at the end of the job. This helps in maintaining data consistency and avoids incomplete writes.
+> - **Read everything first**. Start by reading all the necessary data at the beginning of the job. This ensures that you have all the required information before performing any operations.
+> - **Process data in steps**. Break down the job's functionality into simpler steps, such as filtering, transforming, and aggregating the data. Each step should be a separate node in your DAG. 
+> - **Write everything last**. Ensure that all writing operations, such as saving results or updating models, are performed at the end of the job. This helps in maintaining data consistency and avoids incomplete writes.
 
 **Steps in the Workflow:**
 
@@ -257,7 +277,7 @@ The Beam job’s objective is to truncate the `user_bio` field in the `UserSetti
 2. Filter Models with Long Bios: Identify records where the `user_bio` field exceeds 200 characters.  
 3. Truncate Long Bios: Modify the `user_bio` field to meet the character limit.  
 4. Update Truncated Models in Datastore: Save the updated records back to the datastore.  
-5. Count Truncated Bios: Count the number of bios that were truncated.  
+5. Count Truncated Bios: Count the number of bios that were truncated.
 6. Return Truncation Job Results: Output the results of the job, including statistics.
 
 Here's a simple representation of the DAG for our Beam job:
@@ -277,6 +297,15 @@ Per the [Oppia documentation for Beam Jobs](https://github.com/oppia/oppia/wiki/
 
 * The name of the file follows the format \`\<noun\>\_\<operation\>\_jobs.py\`. In this case, we can use something like \`user\_bio\_truncation\_jobs.py\`.  
 * The name of the job follows the convention: \<Verb\>\<Noun\>Job. In this case, we can name the job as \`TruncateUserBioJob\`.
+
+We will also use the `DATASTORE_UPDATES_ALLOWED` property, which controls whether a Beam job can modify datastore entities.
+
+**Why Use DATASTORE_UPDATES_ALLOWED?**
+
+- When set to True, the job can modify datastore entities (e.g., truncating bios).
+- When set to False, the job should behave as an audit job, simulating the logic without making actual changes.
+
+This property helps distinguish between migration jobs that modify data and audit jobs that merely report potential changes.
 
 Here’s what one implementation of the job could look like \- 
 
@@ -304,67 +333,80 @@ if MYPY:
 
 
 class TruncateUserBioJob(base_jobs.JobBase):
-   """One-off job to truncate user bio in UserSettingsModel."""
+    """One-off job to truncate user bio in UserSettingsModel."""
 
-   def run(self) -> beam.PCollection[job_run_result.JobRunResult]:
-       """Runs the job to truncate user bios.
+    DATASTORE_UPDATES_ALLOWED = True  # This job modifies the datastore.
 
-       Returns:
-           A PCollection containing the results of the job run.
-       """
-       # Retrieve all UserSettingsModels from the datastore
-       user_settings_models = (
-           self.pipeline
-           | 'Get all UserSettingsModels' >> (
-               ndb_io.GetModels(user_models.UserSettingsModel.get_all()))
-       )
+    def run(self) -> beam.PCollection[job_run_result.JobRunResult]:
+        """Runs the job to truncate user bios.
 
-       # Filter models to find those with a user_bio longer than 200 characters
-       truncated_models = (
-           user_settings_models
-           | 'Filter models with long user_bio' >> beam.Filter(
-               lambda model: model.user_bio and len(model.user_bio) > 200)
-           | 'Truncate user_bio' >> beam.ParDo(TruncateUserBioFn())  # Apply truncation
-       )
+        Returns:
+            A PCollection containing the results of the job run.
+        """
+        # Retrieve all UserSettingsModels from the datastore
+        user_settings_models = (
+            self.pipeline
+            | 'Get all UserSettingsModels' >> (
+                ndb_io.GetModels(user_models.UserSettingsModel.get_all()))
+        )
 
-       # Put the truncated models back into the datastore
-       unused_put_result = (
-           truncated_models
-           | 'Update truncated models in datastore' >> ndb_io.PutModels()
-       )
+        # Filter models with user_bio longer than 200 characters
+        models_to_process = (
+            user_settings_models
+            | 'Filter models with long user_bio' >> beam.Filter(
+                lambda model: model.user_bio and len(model.user_bio) > 200)
+        )
 
-       # Count the number of truncated bios and prepare the job result
-       truncate_job_result = (
-           truncated_models
-           | 'Count truncated bios' >> (
-               job_result_transforms.CountObjectsToJobRunResult('TRUNCATED BIOS'))
-       )
+        # Apply truncation
+        truncated_models = models_to_process | 'Truncate user_bio' >> beam.ParDo(TruncateUserBioFn())
 
-       return truncate_job_result  # Return the result of the job
+        # Count truncated bios
+        truncated_bios_count = (
+            truncated_models
+            | 'Count truncated bios' >> (
+                job_result_transforms.CountObjectsToJobRunResult('TRUNCATED BIOS'))
+        )
+
+        # Conditionally update the datastore if allowed
+        if self.DATASTORE_UPDATES_ALLOWED:
+            unused_put_results = (
+                truncated_models
+                | 'Update truncated models in datastore' >> ndb_io.PutModels()
+            )
+
+        # Return the job results
+        return (
+            truncated_bios_count
+        )
 
 
 class TruncateUserBioFn(beam.DoFn):
-   """DoFn to truncate user bio if it exceeds 200 characters."""
+    """DoFn to truncate user bio if it exceeds 200 characters."""
 
-   def process(
-       self, user_settings_model: user_models.UserSettingsModel
-   ) -> Iterable[user_models.UserSettingsModel]:
-       """Truncates user_bio to 200 characters.
+    def process(
+        self, user_settings_model: user_models.UserSettingsModel
+    ) -> Iterable[user_models.UserSettingsModel]:
+        """Truncates user_bio to 200 characters if updates are allowed.
 
-       Args:
-           user_settings_model: UserSettingsModel. Model to process.
+        Args:
+            user_settings_model: UserSettingsModel. Model to process.
 
-       Yields:
-           UserSettingsModel. Model with truncated user_bio.
-       """
-       # Clone the model to avoid modifying the original
-       model = job_utils.clone_model(user_settings_model) 
-       # Check if the user_bio exists and is longer than 200 characters
-       if model.user_bio and len(model.user_bio) > 200:
-           # Truncate the user_bio to the first 200 characters
-           model.user_bio = model.user_bio[:200]
-           model.update_timestamps()  # Update timestamps to reflect changes
-           yield model  # Yield the modified model
+        Yields:
+            UserSettingsModel. Modified model if datastore updates are allowed.
+        """
+        # Always clone the model to prevent accidental modifications
+        model = job_utils.clone_model(user_settings_model)
+
+        if model.user_bio and len(model.user_bio) > 200:
+            if TruncateUserBioJob.DATASTORE_UPDATES_ALLOWED:
+                model.user_bio = model.user_bio[:200]
+                model.update_timestamps()  # Only update timestamps if writing is allowed
+                yield model  # Yield the modified model
+            else:
+                # If updates aren't allowed, just log the affected user_bio (for auditing)
+                yield job_run_result.JobRunResult.as_stdout(
+                    f"User bio for ID {model.id} requires truncation."
+                )
 ```
 
 ## Section 3: Writing the Audit Job
@@ -380,62 +422,36 @@ For instance, in the **Topic Migration Job**, the `AuditTopicMigrateJob` simulat
 
 The objective of our audit job, `AuditTruncateUserBioJob`, is to:
 
-1. Identify user records with bios exceeding 200 characters.  
+1. Identify user records with bios exceeding 200 characters.
 2. Simulate truncation logic for these records without saving the changes.  
 3. Provide a detailed report of all affected records, ensuring we are confident in the data to be modified before running the actual migration job.
 
 #### Key Considerations for Designing an Audit Job
 
-1. **Simulating Logic**: The audit job should closely mimic the steps performed by the main Beam job. This includes applying the same transformations, filters, and checks to ensure that the audit results align with what the main job is designed to process. The goal is to identify potential issues or discrepancies without altering the data.
-2. **Read-Only Operations**: Audit jobs should operate in a non-destructive manner, meaning they only read from the datastore without making any changes. This ensures that the audit process does not interfere with the existing data or workflows, and it provides a safe environment for validation.
-3. **Detailed Reporting**: The audit job should produce a comprehensive report or log that highlights records requiring updates or further inspection. This report could include the number of affected records, specific data anomalies, or a summary of records that don’t meet the expected criteria. This helps developers and reviewers validate the correctness and scope of the job.
-4. **Reusable Patterns**: Follow established patterns and conventions for audit jobs in the Oppia codebase. Adhering to existing patterns and conventions helps reduce development time, ensures compatibility with other components, and makes the code more maintainable and adaptable for future needs.
+When designing an audit job, the goal is to validate the logic and scope of the main Beam job without making any changes to the datastore. Here’s a step-by-step thought process to guide you:
+
+**Step 1: Understand the Main Beam Job’s Logic**
+
+Before writing the audit job, thoroughly understand the logic of the main Beam job. For our scenario, the main job truncates the user_bio field in UserSettingsModel to 200 characters. The audit job should simulate this logic but skip the actual write operation.
+
+**Step 2: Use DATASTORE_UPDATES_ALLOWED to Enforce Read-Only Behavior**
+
+To ensure the audit job doesn’t modify the datastore, set the DATASTORE_UPDATES_ALLOWED property to False. This enforces read-only behavior and prevents accidental data changes. Additionally, subclass the main Beam job to reuse its logic, ensuring consistency between the two jobs.
+
+Reuse the main job’s logic by subclassing it. This ensures that the audit job performs the same transformations, filters, and checks as the main job. For example, the audit job should:
+- Filter UserSettingsModel instances with user_bio exceeding 200 characters.
+- Count the number of records that would be truncated.
 
 > [!IMPORTANT]
-> **Practice 9**: Based on the explanation above, can you write an Audit Job for our use case? Think about how you can simulate the truncation logic while ensuring the job remains read-only and produces detailed reports.
+> **Practice 9**: Based on the explanation above, can you write an audit job for our use case? Think about how you can simulate the truncation logic while ensuring the job remains read-only and produces detailed reports.
 
 The `AuditTruncateUserBioJob` is implemented alongside the main Beam job in the `user_bio_truncation_jobs.py` file. Here’s how it can be implemented:
 
 ```python
-class AuditTruncateUserBioJob(base_jobs.JobBase):
-   """Audit job to check how many UserSettingsModels require truncation."""
+class AuditTruncateUserBioJob(TruncateUserBioJob):
+    """Audit job to check how many UserSettingsModels require truncation."""
 
-
-   def run(self) -> beam.PCollection[job_run_result.JobRunResult]:
-       """Returns a PCollection of audit results from checking user bios.
-
-
-       This audit job performs all the steps of the migration job,
-       except for writing changes to the datastore.
-
-
-       Returns:
-           PCollection. A PCollection of results from the audit.
-       """
-       user_settings_models = (
-           self.pipeline
-           | 'Get all UserSettingsModels' >> (
-               ndb_io.GetModels(user_models.UserSettingsModel.get_all()))
-       )
-
-
-       audit_results = (
-           user_settings_models
-           | 'Filter models with long user_bio' >> beam.Filter(
-               lambda model: model.user_bio and len(model.user_bio) > 200)
-	    | 'Extract user IDs' >> beam.Map(lambda model: f"User bio for ID {model.id} requires truncation.")
-       )
-
-
-       audit_job_result = (
-           audit_results
-           | 'Count bios needing truncation' >> (
-               job_result_transforms.CountObjectsToJobRunResult(
-                   'BIOS NEEDING TRUNCATION'))
-       )
-
-
-       return audit_job_result
+    DATASTORE_UPDATES_ALLOWED = False  # Enforce read-only behavior
 ```
 
 With the audit job in place, you are now ready to confidently validate the migration logic and scope before executing the main Beam job. In the next section, we will focus on testing and running these jobs.
