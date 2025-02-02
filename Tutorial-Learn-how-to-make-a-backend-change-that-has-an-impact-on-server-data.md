@@ -4,10 +4,9 @@
 - [Scenario](#scenario)
 - [Prerequisites](#prerequisites)
 - [Procedure](#procedure)
-  - [Section 1: Navigating and Understanding the Preferences Page](#section-1-navigating-and-understanding-the-preferences-page)
-  - [SECTION 2: Writing the Migration Job](#section-2-writing-the-migration-job)
+  - [Section 1: Prevent New Data Violations](#section-1-prevent-new-data-violations---identify-code-changes-for-bio-length-limit)
+  - [Section 2: Writing the Migration Job](#section-2-writing-the-migration-job)
   - [Section 3: Writing the Audit Job](#section-3-writing-the-audit-job)
-      - [**Thought Process for the Audit Job**](#thought-process-for-the-audit-job)
   - [Section 4: Testing the Beam Job](#section-4-testing-the-beam-job)
   - [Section 5: Run and Validate the Job](#section-5-run-and-validate-the-job)
     - [**Conclusion**](#conclusion)
@@ -15,13 +14,13 @@
 
 # Introduction
 
-In this tutorial, you will learn how to safely implement backend changes that impact server data, an essential skill for any developer working with applications that store data. We’ll cover key concepts like modifying data models, writing and testing Beam Jobs (Audit and Migration), and documenting a reliable launch process. These skills are fundamental for maintaining data integrity, ensuring data consistency, and avoiding disruptions during backend updates.
+In this tutorial, you will learn how to safely implement backend changes that impact server data, an essential skill for any developer working with data-storing applications. We’ll cover key concepts like modifying data models, writing, and testing Beam jobs (Audit and Migration). These skills are fundamental for maintaining data integrity, ensuring data consistency, and avoiding disruptions during backend updates.
 
 By the end of this tutorial, you will have the knowledge and confidence to handle backend changes at Oppia effectively, ensuring data safety and smooth application performance.
 
 # Scenario
 
-In this tutorial, we will address an issue where the `user_bio` field in `UserSettingsModel` allows users to enter bios of unrestricted length. For the purposes of this tutorial, imagine that the technical team has decided to enforce a length limit of 200 characters for this field, in order to ensure consistency and allow UI designers to reliably allocate space for displaying bios.
+In this tutorial, we will address an issue in which the `user_bio` field in the `UserSettingsModel` allows users to enter bios of unrestricted length. For this tutorial, imagine that the technical team has decided to enforce a length limit of 200 characters for this field to ensure consistency and allow UI designers to allocate space reliably for displaying bios.
 
 To implement this change, we need to modify the data model to restrict the bio length and write a migration job to ensure that existing user bios exceeding this limit are truncated accordingly. 
 
@@ -31,7 +30,7 @@ Before you begin, ensure that you have completed the following steps to set up a
 
 1. Set Up Oppia Locally: Follow the [Oppia setup instructions](https://github.com/oppia/oppia/wiki) to clone the repository and set up your local development environment.  
 2. Familiarize Yourself with Apache Beam Jobs: [Beam jobs](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs) are an integral part of data processing at Oppia. Before proceeding, take some time to understand their role in auditing and migrating data. You can refer to the [Apache Beam Jobs at Oppia tutorial](https://github.com/oppia/oppia/wiki/Tutorial-Learn-How-to-Write-and-Test-a-Non-Trivial-Beam-Job) for detailed guidance on writing and testing Beam jobs.  
-3. Understand the Preferences Page: This tutorial involves modifying the Bio field in the user’s Preferences page. To understand the context better, go through the [How to Access Oppia Webpages: Preferences Page](https://github.com/oppia/oppia/wiki/How-to-access-Oppia-webpages#preferences-page) guide.
+3. Understand the Preferences Page: This tutorial involves modifying the bio field in the user’s Preferences page. To understand the context better, go through the [How to Access Oppia Webpages: Preferences Page](https://github.com/oppia/oppia/wiki/How-to-access-Oppia-webpages#preferences-page) guide.
 
 # Procedure
 
