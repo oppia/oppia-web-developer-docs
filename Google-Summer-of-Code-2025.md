@@ -161,12 +161,12 @@ Noteworthy dates for 2025 (see also the [Official GSoC Timeline](https://develop
 - **Mar 24 - Apr 8**: GSoC contributor application period
 - **May 8**: Accepted GSoC contributors are announced
 - **May 8 - June 1**: Community bonding ("greenlight") period
-- **June 2 - Jul 25**: Milestone 1 work period for GSoC
+- **June 2 - Jul 18**: Milestone 1 work period for GSoC
   - **Jul 4**: Milestone 1 work due for internal evaluation
   - **Jul 5 - Jul 11**: Testing of the milestone 1 work product
   - **Jul 12 - Jul 18**: Buffer time for Milestone 1 revisions
   - **Jul 19 - Jul 25**: Official GSoC midpoint evaluation
-- **Jul 26 - Spet 22**: Milestone 2 work period for GSoC contributors
+- **Jul 26 - Sept 12**: Milestone 2 work period for GSoC
   - **Aug 27**: Milestone 2 work due for internal evaluation
   - **Aug 28 - Sept 3**: Testing of the milestone 2 work product
   - **Sept 4 - Sept 10**: Buffer time for Phase 2 revisions
