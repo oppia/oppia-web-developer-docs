@@ -945,6 +945,7 @@ class Exploration(BaseVersionedDomainObject:
     - def _convert_states_v5_dict_to_v6_dict
     - ...
     - def _convert_states_v9_dict_to_v10_dict
+```
 
 **Tracking issues**: [#21646](https://github.com/oppia/oppia/issues/21646)
 
