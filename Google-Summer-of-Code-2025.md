@@ -1023,7 +1023,7 @@ In addition to your implementation approach, please also:
 
 ### 3.3. TBD
 
-_This project idea is still in development and will be added shortly.
+_This project idea is still in development and will be added shortly._
 
 
 ## Android team
@@ -1187,4 +1187,4 @@ _This will be added soon._
 
 ### 4.3. TBD
 
-_This project idea is still in development and will be added shortly.
+_This project idea is still in development and will be added shortly._
