@@ -153,10 +153,29 @@ A: Yes, GSoC is probably not the best choice if you don't have enough time durin
 
 ## Dates and Deadlines
 
-The official GSoC timeline for 2025 has not been posted yet. We will update this section when that happens.
+Noteworthy dates for 2025 (see also the [Official GSoC Timeline](https://developers.google.com/open-source/gsoc/timeline)):
 
-> [!NOTE]
-> For Oppia's participation in GSoC 2025, the coding period dates are strict, and we will not be offering extensions. Please ensure that you have sufficient time during the summer to work on your projects.
+- **Jan 27 - Feb 11**: Mentoring organizations apply
+- **Feb 27**: Mentoring organizations are announced
+- **Mar 1**: [GSoC Q&A session with Oppia](https://calendar.app.google/5jPfYs3oaoy2o8zx8)
+- **Mar 24 - Apr 8**: GSoC contributor application period
+- **May 8**: Accepted GSoC contributors are announced
+- **May 8 - June 1**: Community bonding ("greenlight") period
+- **June 2 - Jul 18**: Milestone 1 work period for GSoC
+  - **Jul 4**: Milestone 1 work due for internal evaluation
+  - **Jul 5 - Jul 11**: Testing of the milestone 1 work product
+  - **Jul 12 - Jul 18**: Buffer time for Milestone 1 revisions
+  - **Jul 19 - Jul 25**: Official GSoC midpoint evaluation
+- **Jul 26 - Sept 12**: Milestone 2 work period for GSoC
+  - **Aug 27**: Milestone 2 work due for internal evaluation
+  - **Aug 28 - Sept 3**: Testing of the milestone 2 work product
+  - **Sept 4 - Sept 10**: Buffer time for Phase 2 revisions
+  - **Sept 15 - Sept 22**: Official GSoC mentor evaluation due
+- **Sep 23**: GSoC period at Oppia officially ends
+
+**Note!** For Oppia's participation in GSoC 2025, the coding period dates are strict, and we will not be offering extensions. Please ensure that you have sufficient time during the summer to work on your projects.
+
+
 
 ## Types of work related to Oppia projects
 
