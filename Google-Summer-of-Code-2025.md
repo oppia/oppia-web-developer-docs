@@ -1109,7 +1109,7 @@ _This will be added soon._
 </details>
 
 
-### 4.2. Platform parameter dashboard
+### 4.2. Platform parameters dashboard
 
 **Project Description:**
 
