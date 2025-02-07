@@ -216,6 +216,37 @@ const CONSOLE_ERRORS_TO_FIX = [
 ];
 ```
 
+### Screenshots testing functionality in Acceptance Tests
+
+Acceptance Tests have a function called `expectScreenshotToMatch` in `puppeteer-utils.ts` to take screenshots of the UI during the acceptance tests and compare them to the existing screenshots in the codebase, which can help with debugging test failures as it provides more information beside the error message. 
+
+To use this functionality, call the function `expectScreenshotToMatch`, which takes in a string as the name of the screenshot, and the absolute path of the directory of the specs file to locate where the folder of the screenshots will be. For instance, to create a screenshot after calling the function `loggedOutUser.clickTeachButtonInAboutMenuOnNavbar` in `logged-out-user/click-all-buttons-on-navbar.spec.ts`, call the function `expectScreenshotToMatch` with the user type `loggedOutUser` to identify which user's browser should be screenshotted, `teachPage`, a name for the screenshots that describes what the page is, and the variable `__dirname`. 
+
+Below is an example of this usage:
+```typescript
+it(
+  'should open teach page when the "For Parents/Teachers" button is clicked in About Menu on navbar',
+  async function () {
+    await loggedOutUser.clickTeachButtonInAboutMenuOnNavbar();
+    await loggedOutUser.expectScreenshotToMatch('teachPage', __dirname);
+  },
+  DEFAULT_SPEC_TIMEOUT_MSECS
+);
+```
+
+On the first run, a screenshot named `teachPage-snap.png` will be created and stored in a folder based on which mode (prod mode or dev mode) and device environment (desktop or mobile) the test was run in. There are four different folders:
+
+- `prod-desktop-screenshots`: production mode in desktop environment, in which the `prod_env` flag is used. 
+- `prod-mobile-screenshots`: production mode in mobile environment, in which the `prod_env` and `mobile` flags are used
+- `dev-desktop-screenshots`: local development mode in desktop environments
+- `dev-mobile-screenshots`: local development mode in mobile environment, in which the `mobile` flag is used. 
+
+To introduce a new screenshot to the codebase, the test should be run in all these four modes/environments to generate each screenshot in all four folders. 
+
+On CI, we run all the acceptance tests in production mode, so the screenshots in `prod-desktop-screenshots` and `prod-mobile-screenshots` will be compared to the screenshots that are generated during CI checks. If a screenshot doesn't match on CI, it generates an image in a folder as an artifact in the GitHub workflow. For example, if the screenshot `teachPage-snap.png` fails in `logged-out-user/click-all-buttons-on-navbar.spec.ts` during the CI checks in desktop environment, a folder named `diff-snapshots-logged-out-user_click-all-buttons-on-navbar` will be created. Inside this folder, a folder named `prod-desktop-screenshots` will be created and a screenshot `teachPage-diff.png` will be stored under this folder. The screenshots `teachPage-diff.png` will show the difference between the screenshot from the codebase and the new generated screenshot, making it easier to identify the difference. 
+
+On the other hand, if the screenshot fails locally (in desktop environment), the screenshot `teachPage-diff.png` will be generated and stored inside a new folder `diff-snapshots` under `logged-out-user/dev-desktop-screenshots`. 
+
 ## Acceptance Tests for Mobile
 
 Similar to desktop, we also have acceptance tests for mobile to ensure responsiveness and uninterrupted user journeys on small screen devices. While the tests themselves remain largely the same for both desktop and mobile, there are some differences. For instance, large full menus on desktop may be converted to dropdowns, hamburger menus, or other shortcuts on mobile, requiring additional actions to complete the tests.
