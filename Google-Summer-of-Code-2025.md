@@ -597,7 +597,7 @@ Any non-backlog issues in the "Lesson Player CUJs" section of the [LaCE project 
 <details>
 <summary>Org-admin/tech-lead commentary/advice</summary>
 
-This is not an easy project. Although it primarily involves UI, it still requires quite a strong understanding of Angular and "layered architecture".
+Note that, although this project primarily involves UI changes, it also requires quite a strong understanding of Angular and "layered architecture", so it might be harder than you think.
 
 The most important part is the very first part, which involves refactoring the existing UI (in a way that doesn't make any changes to functionality) so that the “services” code is properly separated from "UI" code. To do this properly, you will need to have a strong understanding of how the different pieces of the UI connect together in the new implementation, and be able to write out that specification.
 
@@ -832,7 +832,7 @@ Acceptance test infrastructure: https://github.com/orgs/oppia/projects/8/views/1
 <details>
 <summary>Org-admin/tech-lead commentary/advice</summary>
 
-This is not a hard project, since a lot of the infrastructure has been written and there are lots of examples that you can follow. The most important thing is to set up a good development cycle so that you can debug issues with tests quickly.
+This is a relatively straightforward project, since a lot of the infrastructure has been written and there are lots of examples that you can follow. The most important thing is to set up a good development cycle so that you can debug issues with tests quickly.
 
 It is important that you are able to get the tests running on your machine, so that you can pause them when needed and investigate to see what is going wrong.
 </details>
