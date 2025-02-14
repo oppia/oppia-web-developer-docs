@@ -403,8 +403,8 @@ Links to PRD and mocks:
 
 <details>
 <summary>Org-admin/tech-lead commentary/advice</summary>
-This is an interesting and high-impact project that “has a little bit of everything”, and that should give you a good understanding of the overall Oppia stack. There is very little in the way of completely new functionality here; almost all the parts of the project have some existing precedent in the codebase.
 
+This is an interesting and high-impact project that “has a little bit of everything”, and that should give you a good understanding of the overall Oppia stack. There is very little in the way of completely new functionality here; almost all the parts of the project have some existing precedent in the codebase.
 
 If you tackle it, it is important to have a good understanding of the systems involved. Make sure you are familiar with Beam jobs, since these will be important.
 </details>
@@ -505,8 +505,8 @@ If you like, you can also suggest other improvements to the logging infrastructu
 
 <details>
 <summary>Org-admin/tech-lead commentary/advice</summary>
-This project requires very good debugging skills. You will be exposed to a mix of server errors, some of which are very easy to solve, and others which will require a lot more investigation. Along the way, look for improvements to the infrastructure that would make the debugging process easier (ideally to the point that server errors can be tackled as easily as regular issues).
 
+This project requires very good debugging skills. You will be exposed to a mix of server errors, some of which are very easy to solve, and others which will require a lot more investigation. Along the way, look for improvements to the infrastructure that would make the debugging process easier (ideally to the point that server errors can be tackled as easily as regular issues).
 
 Laying out your work in a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs) is a very important skill for this project, since you will sometimes need to get help and it is important to provide responders with the context needed to do so.
 </details>
@@ -596,6 +596,7 @@ Any non-backlog issues in the "Lesson Player CUJs" section of the [LaCE project 
 
 <details>
 <summary>Org-admin/tech-lead commentary/advice</summary>
+
 This is not an easy project. Although it primarily involves UI, it still requires quite a strong understanding of Angular and "layered architecture".
 
 The most important part is the very first part, which involves refactoring the existing UI (in a way that doesn't make any changes to functionality) so that the “services” code is properly separated from "UI" code. To do this properly, you will need to have a strong understanding of how the different pieces of the UI connect together in the new implementation, and be able to write out that specification.
@@ -830,8 +831,8 @@ Acceptance test infrastructure: https://github.com/orgs/oppia/projects/8/views/1
 
 <details>
 <summary>Org-admin/tech-lead commentary/advice</summary>
-This is not a hard project, since a lot of the infrastructure has been written and there are lots of examples that you can follow. The most important thing is to set up a good development cycle so that you can debug issues with tests quickly.
 
+This is not a hard project, since a lot of the infrastructure has been written and there are lots of examples that you can follow. The most important thing is to set up a good development cycle so that you can debug issues with tests quickly.
 
 It is important that you are able to get the tests running on your machine, so that you can pause them when needed and investigate to see what is going wrong.
 </details>
@@ -916,6 +917,7 @@ Additionally, strong technical design skills and a good sense of code architectu
 
 <details>
 <summary>Org-admin/tech-lead commentary/advice</summary>
+
 This project requires a very good understanding of how our migration pipeline works, and a solid grasp of technical architecture so that you can make good design decisions for how the base classes and their subclasses are structured. However, once that is well-understood, it should not be too difficult to implement. You will probably find deleting all the old code at the end quite satisfying!
 </details>
 
@@ -1034,8 +1036,8 @@ _(Note: Additional issues will be added soon.)_
 
 <details>
 <summary>Org-admin/tech-lead commentary/advice</summary>
-This project involves a lot of very gritty coding work in the most critical code pathways in the app: the core learner flow. These are not simple areas of the app as Oppia's core lesson flow is fundamentally complex, but fortunately there are dozens of past projects and changes that have changed these coding areas (which may act as good references) and the codepath has generally excellent test coverage (which means we can be confident when we make changes to these areas).
 
+This project involves a lot of very gritty coding work in the most critical code pathways in the app: the core learner flow. These are not simple areas of the app as Oppia's core lesson flow is fundamentally complex, but fortunately there are dozens of past projects and changes that have changed these coding areas (which may act as good references) and the codepath has generally excellent test coverage (which means we can be confident when we make changes to these areas).
 
 Making changes to the core lesson flow may be a combination of feeling like a lot of progress is being made (when adding some of the fairly substantial boilerplate involved in adding views to the lesson flow), and other times where it can take a while just to add a few lines of code (due to the surrounding area being particularly complex, such as for the actor-based [ExplorationProgressController](https://github.com/oppia/oppia-android/blob/4f58be9d399c70e1d1cd241495280ae913afbf07/domain/src/main/java/org/oppia/android/domain/exploration/ExplorationProgressController.kt#L106)). It may be very difficult to fully grok the full dependency and data flow for explorations, but it's usually straightforward to jump in and start making changes that in turn show up in the lesson viewer frontend.
 </details>
@@ -1109,8 +1111,8 @@ _(Note: Specific issues will be added soon.)_
 
 <details>
 <summary>Org-admin/tech-lead commentary/advice</summary>
-This project involves introducing a new, isolated user interface that only affects developers (and possibly testers or user study facilitators in the future) which means it doesn't require the same level of gating as regular learner-facing features. It's often nice to work on brand new UIs, as well, since everything is starting in a fresh, clean state rather than building on existing complexity and tests.
 
+This project involves introducing a new, isolated user interface that only affects developers (and possibly testers or user study facilitators in the future) which means it doesn't require the same level of gating as regular learner-facing features. It's often nice to work on brand new UIs, as well, since everything is starting in a fresh, clean state rather than building on existing complexity and tests.
 
 The domain side of platform parameters isn't trivial to understand, but it's straightforward to explain and analyze the dataflow. This is expected to be a straightforward project that balances domain and frontend work (with a majority of the work being UI-related).
 </details>
