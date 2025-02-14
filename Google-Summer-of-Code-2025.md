@@ -337,15 +337,11 @@ If you need clarification on any of these ideas, feel free to open a thread in G
 
 3.2. [Consolidate entity migration jobs](#32-consolidate-entity-migration-jobs)
 
-3.3. _This project idea is still in development and will be added shortly._
-
 ### Android team
 
 4.1. [Flashbacks](#41-flashbacks)
 
 4.2. [Platform parameters dashboard](#42-platform-parameters-dashboard)
-
-4.3. _This project idea is still in development and will be added shortly._
 
 
 ## Learner and Creator Experience (LaCE) team
@@ -354,19 +350,15 @@ If you need clarification on any of these ideas, feel free to open a thread in G
 
 **Project Description:**
 
-Currently, topics in Oppia contain a list of skills to teach. These skills are grouped into subtopics (like ['Basic Concepts of Division'](https://www.oppia.org/learn/math/division/revision/basic-concepts)), each with its own study guide (or 'subtopic page' in the backend; note that these were previously known as “revision cards”). Subtopic pages are currently implemented as a single rich-text editor (RTE) field, but this results in their being too lengthy to translate, and the content doesn't look good.
+Oppia topics include a list of skills to teach. These skills are grouped into subtopics (like ['Basic Concepts of Division'](https://www.oppia.org/learn/math/division/revision/basic-concepts)), each with its own study guide (or 'subtopic page' in the backend). Currently, subtopic pages are implemented as a single large rich-text field, which makes them hard to translate and limits how we can display them. We'd like to split this rich-text field into multiple heading/content parts. In the above example, the updated subtopic page would have two sections ("What is division?" and "Parts of a division equation"), and the subtopic page editor would have a list of sections, each with its own "heading" plain-text field and "content" rich-text field.
 
-We would like to instead split this RTE field into multiple heading/content parts, both to make it easier to translate each subtopic page in stages and also to improve the display for learners. In the example above, the updated subtopic page would have two sections: "What is division?" and "Parts of a division equation". In the subtopic page editor, each of these sections would have its own text field (for the heading) and RTE field (for the content).
+Additionally, both skill explanations and subtopic pages should be able to include worked examples. Previously, worked examples were implemented as an explicit subfield of the SkillContents object that is contained in the Skill model. We would like to implement worked examples as a general rich-text component instead, since this allows them to be used in contexts beyond skills as well.
 
-Additionally, both skill explanations and subtopic pages should be able to include worked examples, but worked examples were incorrectly implemented as an explicit subfield of the SkillContents object that is contained in the Skill model. Experience has shown that worked examples would be better implemented as a general rich-text component instead, since this gives more flexibility in where they are placed and allows them to be used in other contexts like the subtopic pages.
-
-The aim of this project is therefore to clean up the incorrect modelling described above and fix the representation of subtopic pages and worked examples, while also ensuring that they can be easily translated. We should also ensure that the user flows for creating and learning from subtopic pages and worked examples are solid, following the proposed [design mocks](https://www.figma.com/design/1e1pq5PSoiULZqM4zvVNY0/Oppia-%23136-Incorporate-worked-examples-in-the-learning-experience?node-id=0-1&p=f&t=a47Jd68ycVXdkjdM-0).
+The aim of this project is therefore to clean up the incorrect modelling described above and make the necessary updates to the viewing and editing flows for subtopic pages, worked examples, and their associated translations/voiceovers.
 
 Links to PRD and mocks:
-- For subtopic pages (study guides): https://www.figma.com/design/qIT6EvVeyLo2dDuQyR5xzC/Oppia-_-RTE?node-id=0-1&p=f&t=bfOaBMxVrGuWd7mF-0
-- For worked examples: [PRD: Incorporate worked examples in the learning experience](https://docs.google.com/document/d/1QrqTsR1Ew3WfQvj7D83mh0k9HjW6xQ-2dpJGkbe8XqY/edit#heading=h.s68z2sezulra)
-- Design thread for subtopic pages: https://github.com/oppia/design-team/issues/60
-- Design thread for concept cards and worked examples: https://github.com/oppia/design-team/issues/136
+- Subtopic pages (study guides): [Figma mocks](https://www.figma.com/design/qIT6EvVeyLo2dDuQyR5xzC/Oppia-_-RTE?node-id=0-1&p=f&t=bfOaBMxVrGuWd7mF-0) and [design thread](https://github.com/oppia/design-team/issues/60)
+- Worked examples: [Figma mocks](https://www.figma.com/design/1e1pq5PSoiULZqM4zvVNY0/Oppia-%23136-Incorporate-worked-examples-in-the-learning-experience?node-id=0-1&p=f&t=a47Jd68ycVXdkjdM-0), [design thread](https://github.com/oppia/design-team/issues/136), and [reference PRD](https://docs.google.com/document/d/1QrqTsR1Ew3WfQvj7D83mh0k9HjW6xQ-2dpJGkbe8XqY/edit#heading=h.s68z2sezulra). Note that some parts of the PRD are excluded -- see the "not in scope" section below.
 
 **Tracking issues**: [#18305](https://github.com/oppia/oppia/issues/18305), [#19851](https://github.com/oppia/oppia/issues/19851)
 
@@ -376,25 +368,21 @@ Links to PRD and mocks:
 - Enabling the use of worked examples in hints and feedback. (We will do this later once we have tried out the functionality in subtopic pages and skill descriptions.)
 - Implementing the more detailed validation described in the PRD (for limiting the number of worked examples to 2 if there are no images, or limiting them to 3 if there are images). For now, we will go with a general limit of 2.
 
-**Size of this project:** Large (\~350 hours)
+**Size:** Large (\~350 hours)
 
 **Difficulty**: Moderate/Hard
 
 **Potential mentors:** @kevintab95
 
-**Product Clarifier:** @seanlip
-
-**Technical Clarifier:** @kevintab95
+**Product/technical clarifiers:** @seanlip (product), @kevintab95 (technical)
 
 **Required knowledge/skills:**
-- General
-  - Figure out the root cause of an issue and communicate it well using a debugging doc.
-  - Debug and fix CI failures/flakes.
-- Web:
-  - Write Python code with unit tests.
-  - Write TS + Angular code with unit tests.
-  - Write or modify e2e/acceptance tests.
-  - Write or modify Beam jobs, with tests.
+- Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
+- Debug and fix CI failures/flakes.
+- Write Python code with unit tests.
+- Write TS + Angular code with unit tests.
+- Write or modify e2e/acceptance tests.
+- Write or modify Beam jobs, with tests.
 
 **Related issues:**
 - [RTE-related issues](https://github.com/orgs/oppia/projects/3/views/8?sliceBy%5Bvalue%5D=Creators%3A+RTE+bugs)
@@ -402,32 +390,27 @@ Links to PRD and mocks:
 - [Translation-related issues](https://github.com/orgs/oppia/projects/18/views/4)
 
 **Suggested Milestones:**
-- **Milestone 1**: Create a new `study_guide_sections` field in SubtopicPageContents that is a repeated JsonProperty consisting of (heading: str, content: RTE) pairs. Then, carry out a migration that converts the existing `subtitled_html` field into the new structure, which should be a single-element list with one item whose heading is the revision card’s title, and whose body is the existing RTE content.
+- **Milestone 1**: In SubtopicPageContents, carry out migrations to do the following:
+    - Convert the existing `subtitled_html` field into the new structure (a `study_guide_sections` "repeated JsonProperty" field consisting of `{heading: str, content: str}` dicts).
+    - Introduce a unique content ID for each translatable field, similar to explorations.
+    - Move the written translations and voiceovers for subtopic pages in EntityTranslationsModel and EntityVoiceoversModel, instead of within the SubtopicPage object (similar to explorations).
 
-  Store the written translations for subtopic pages in EntityTranslationsModel instead of within the SubtopicPage object, similar to the migration that was done for the correspondingly-named field in explorations a few years ago. Also, introduce a unique content ID for each translatable field, similar to explorations. (This should be a relatively easy migration because there are no translations for SubtopicPages yet, but you will need to figure out the new structure and fix the "plumbing".)
+  Update the subtopic page editor UI to accommodate the new structure, and the learner UI to match the Figma mocks. Then, deprecate the old `subtitled_html` field.
 
-  Update the editor UI for subtopic pages to accommodate the new structure, and the learner UI to use an improved display for the revision cards based on [these mocks](https://www.figma.com/design/qIT6EvVeyLo2dDuQyR5xzC/Oppia-_-RTE?node-id=0-1&p=f&t=bfOaBMxVrGuWd7mF-0), with clearly-indicated headings for each of the sections. Finally, deprecate the old `subtitled_html` field.
+- **Milestone 2**: Verify that the existing `worked_examples` fields are empty in production, then carry out a schema migration to safely deprecate the `worked_examples` field in the `skill_contents` part of the SkillModel, and remove it from the skill editor UI as well.
 
-  Suggested PM demo points:
-  - Editor UI for revision cards is complete
-  - Learner UI is complete
+  Implement a new 'Worked Example' RTE component that appears only in the skill explanation and subtopic page RTEs, and validate that skill explanations cannot have more than 2 such components. Add acceptance tests for the learner and creator flows to verify that they align with [these mocks](https://www.figma.com/design/1e1pq5PSoiULZqM4zvVNY0/Oppia-%23136-Incorporate-worked-examples-in-the-learning-experience?node-id=0-1&p=f&t=a47Jd68ycVXdkjdM-0). Ensure that this component is translatable in the contributor dashboard, and update the [translation guide](https://docs.google.com/document/d/17jMFtfHVWtJYrzyGQUKdsRXgky7lWv76sGYLOxSbA5w/edit?tab=t.0#heading=h.5mvcuwerfyif) to include it.
 
-- **Milestone 2**: After verifying that the existing `worked_examples` fields are empty in production, carry out a schema migration to safely deprecate the `worked_examples` field in the `skill_contents` part of the SkillModel, and remove it from the skill editor UI as well.
-
-  Implement a new 'Worked Example' RTE component that appears only in the skill explanation and subtopic page RTEs, and add acceptance tests for its use. Verify that the learner and creator user flows involving this RTE component are working smoothly and that the user experience aligns with [these mocks](https://www.figma.com/design/1e1pq5PSoiULZqM4zvVNY0/Oppia-%23136-Incorporate-worked-examples-in-the-learning-experience?node-id=0-1&p=f&t=a47Jd68ycVXdkjdM-0). Forbid skill descriptions from having more than 2 "worked example" components. Ensure that this component is translatable in the contributor dashboard, and update the [translation guide](https://docs.google.com/document/d/17jMFtfHVWtJYrzyGQUKdsRXgky7lWv76sGYLOxSbA5w/edit?tab=t.0#heading=h.5mvcuwerfyif) to include an explanation of how to translate worked examples.
-
-  Suggested PM demo points:
-  - A worked example RTE component can be created, and used within a broader context (such as a study guide section or a skill explanation).
-
-
-**Org-admin/tech-lead commentary/advice:**
+<details>
+<summary>Org-admin/tech-lead commentary/advice</summary>
 
 This is an interesting and high-impact project that “has a little bit of everything”, and that should give you a good understanding of the overall Oppia stack. There is very little in the way of completely new functionality here; almost all the parts of the project have some existing precedent in the codebase.
 
 If you tackle it, it is important to have a good understanding of the systems involved. Make sure you are familiar with Beam jobs, since these will be important.
+</details>
 
 <details>
-<summary>What we are looking for in proposals:</summary>
+<summary>What we are looking for in proposals</summary>
 
 - Almost all parts of this project have some precedent in the existing codebase, and it is important to maintain consistency with the existing implementations. Thus, in your proposal, when describing your technical approach, please also point to the existing parts of the codebase that already use a similar approach.
 
@@ -453,12 +436,24 @@ If you tackle it, it is important to have a good understanding of the systems in
   - How to control which RTE components appear in which RTEs, and validate that the RTE content is valid (i.e. doesn’t include any invalid components)
   - How translations work for existing entities, like explorations. (The original TDD for that project is here: [Infrastructure for separate storage of translations](https://docs.google.com/document/d/1ZZ6pVKpmynTlmf1_PV1I5TcccmEXPnmoFAVKXN-u2xM/edit), and you can examine the code related to the Contributor Dashboard for how the translation opportunities are generated and displayed.)
 
+- Note that "study guides" were previously known as "revision cards".
+
 - For subtopic page contents, be careful to ensure that each element in the list has its own unique content ID. Do not just base the content ID on the item's index in the list – if you have 3 elements in the list and then remove the middle one, the last element’s content ID should not change. This is why we need a counter to keep track of the "next content ID to assign".
 
-- For "ensure that this component is translatable in the contributor dashboard", you can temporarily enable it in exploration RTEs (e.g. in the hints RTE), and then test out the translation workflow. It's important to ensure that the new 'worked example' RTE component has behavioural parity with other RTE components in all places which refer to RTE components, even if it's not being used in the relevant contexts yet – for example, you should update the character-counting logic for hint/solution validation to handle worked-example RTE components as well, in case we decide to make this component available to explorations in the future.
+- To migrate the existing subtitled_html content, you can transform it into a single-element list with one item whose heading is the revision card's title, and whose body is the existing RTE content. The content_id and translation/voiceover migrations for SubtopicPages should be quite easy, because no translations/voiceovers exist for them yet. However, you will still need to figure out the new structure and fix the "plumbing".
 
-- **@chris7716** is currently looking into a project that involves updating the translation structure for concept cards, topic descriptions, etc. You might want to sync with him in order to ensure that your plan for introducing the necessary translation fields aligns with his work.
+- For "ensure that this component is translatable in the contributor dashboard", you can temporarily enable it in exploration RTEs (e.g. in the hints RTE), and then test out the translation workflow. It's important to ensure that the new 'worked example' RTE component has behavioural parity with other RTE components in all places which refer to RTE components, even if it's not being used in the relevant contexts yet – for example, you should update the character-counting logic for hint/solution validation to handle worked-example RTE components as well, in case we decide to make this component available to explorations in the future. Note that **@chris7716** is currently looking into a project that involves updating the translation structure for concept cards, topic descriptions, etc., and you might want to sync with him in order to ensure that your plan for introducing the necessary translation fields aligns with his work.
+</details>
 
+<details>
+<summary>Suggested PM demo points</summary>
+
+- Milestone 1:
+  - Editor UI for revision cards is complete
+  - Learner UI is complete
+
+- Milestone 2:
+  - A worked example RTE component can be created, and used within a broader context (such as a study guide section or a skill explanation).
 </details>
 
 
@@ -469,79 +464,59 @@ If you tackle it, it is important to have a good understanding of the systems in
 
 We currently see a number of unaddressed [server errors](https://github.com/oppia/oppia/labels/server%20errors) on hosted instances of Oppia. Many server errors relate to user-facing bugs, and are a good clue that something is problematic in the application. Furthermore, frequently occurring errors result in the server logs getting noisy, to the point that they are no longer treated as alerts because the volume of errors is too high.
 
-The aim of this project is to address the 15 most common server errors, so that we can have relatively clean logs. This would also make it easier to catch new issues during test deployments, and reduce the overall error rate of the app.
-
-Addressing a server error entails the following:
+The aim of this project is to address the 15 most common server errors, and improve/clarify the logging infrastructure to make server errors easier to debug in general. This would also make it easier to catch new issues during test deployments, and reduce the overall error rate of the app. "Addressing a server error" entails the following:
 
 - Find a set of setup steps and actions that reliably reproduce the error on a local machine (see [this tutorial](https://github.com/oppia/oppia/wiki/Tutorial-Learn-to-Figure-Out-the-Reproduction-Steps-for-a-Server-Error)). If more insight is needed, it is also fine to add some logging and do another deployment to get more information.
 - Identify the root cause of the error.
 - Confirm the expected behaviour with the product/tech leads, if needed.
-0 Fix the error and add tests (which could be frontend, backend, or full-stack) to ensure that the error does not happen again. Some of the other steps listed in this [wiki page](https://github.com/oppia/oppia/wiki/Server-errors-and-solutions) might also be of interest. Note that some errors may be due to data issues, in which case a migration job or direct editing might be required, as well as stricter typing/validation to ensure that the issue doesn’t reoccur.
-
-Throughout this process, it is also important to be able to:
-
-- Write clear [debugging docs](https://github.com/oppia/oppia/wiki/Debugging-Docs) if you run into any issues, so that you can get help and suggestions from other team members.
-- Improve and clarify the logging, where needed, to make errors easier to debug.
-
-
-Link to PRD:
-- N/A. For the most part, this issue is purely technical. Any clarifications of behaviour should be discussed in individual issue threads and in the project proposal.
+- Fix the error and add tests (which could be frontend, backend, or full-stack) to ensure that the error does not happen again. Some of the other steps listed in this [wiki page](https://github.com/oppia/oppia/wiki/Server-errors-and-solutions) might also be of interest. Note that some errors may be due to data issues, in which case a migration job or direct editing might be required, as well as stricter typing/validation to ensure that the issue doesn't reoccur.
 
 
 **Tracking issues**: _(To be updated.)_
 
-**Size of this project:** Medium (\~175 hours)
+**Size:** Medium (\~175 hours)
 
 **Difficulty**: Moderate
 
 **Potential mentors:** @Nik-09
 
-**Product Clarifier:** @kevintab95
-
-**Technical Clarifier:** @Nik-09
+**Product/technical clarifiers:** @kevintab95 (product), @Nik-09 (technical)
 
 **Required knowledge/skills:**
-- General
-  - Figure out the root cause of an issue and communicate it well using a debugging doc.
-- Web:
-  - Write Python code with unit tests.
-  - Write TS + Angular code with unit tests.
-  - Write or modify e2e/acceptance tests.
-  - Write or modify Beam jobs, with tests. (This is because you might need to write audit jobs for debugging certain errors.)
-  - Figure out repro steps based on info from server logs.
+- Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
+- Write Python code with unit tests.
+- Write TS + Angular code with unit tests.
+- Write or modify e2e/acceptance tests.
+- Write or modify Beam jobs, with tests. (This is because you might need to write audit jobs for debugging certain errors.)
+- Figure out repro steps based on info from server logs.
 
 **Related issues:**
 
 Consider taking up issues like [#21807](https://github.com/oppia/oppia/issues/21807), [#21841](https://github.com/oppia/oppia/issues/21841) and/or [#21872](https://github.com/oppia/oppia/issues/21872) to make errors easier to reproduce / debug.
 
-You might also want to try some issues from [this list]((https://github.com/oppia/oppia/labels/server%20errors)) to see whether this project is a good fit for you. In any issues you attempt, try to demonstrate your ability to (a) reproduce server errors deterministically, (b) write a debugging doc to narrow down the source of an error if you can’t pinpoint it in one go, (c) find the clear root cause of an error, and (d) prevent the error from happening in the future. Where possible, we recommend trying to do a mixture of issues that cover backend code, frontend code, and Beam jobs.
+You might also want to try some issues from [this list]((https://github.com/oppia/oppia/labels/server%20errors)) to see whether this project is a good fit. In any issues you attempt, try to demonstrate your ability to (a) reproduce server errors deterministically, (b) write a debugging doc to narrow down the source of an error if you can’t pinpoint it in one go, (c) find the clear root cause of an error, and (d) prevent the error from happening in the future.
 
 If you like, you can also suggest other improvements to the logging infrastructure that would make it easier to fix "server error" issues. (It is fine to file issues for these improvements and get assigned to them in the usual way. However, you should have tried to tackle at least one server error with a debugging doc, and the improvements you suggest should help address the problems you ran into while trying to figure out what caused the error.)
 
 **Suggested Milestones:**
-- **Milestone 1**: Fix the 7 most common server errors, and improve the logging for server errors as needed.
+- **Milestone 1**: Fix the 7 most common [server errors]((https://github.com/oppia/oppia/labels/server%20errors)), and improve the logging for server errors as needed.
 
-  Suggested PM demo points:
-  - Demonstrate fixes for any server errors with a user-facing behaviour component.
-
-- **Milestone 2**: Fix the 8 next-most common server errors.
-
-  Suggested PM demo points:
-  - Demonstrate fixes for server errors with a user-facing behaviour component.
-
-
-**Org-admin/tech-lead commentary/advice:**
-
-This is a slightly unusual GSoC project that requires very good debugging skills. You will be exposed to a mix of server errors, some of which are very easy to solve, and others which will require a lot more investigation. Along the way, look for improvements to the infrastructure that would make the debugging process easier (ideally to the point that server errors can be tackled as easily as regular issues).
-
-Laying out your work in a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs) is a very important skill for this project, since you will sometimes need to get help and it is important to provide responders with the context needed to do so.
+- **Milestone 2**: Fix the 8 next-most common [server errors]((https://github.com/oppia/oppia/labels/server%20errors)).
 
 <details>
-<summary>What we are looking for in proposals:</summary>
+<summary>Org-admin/tech-lead commentary/advice</summary>
+
+This project requires very good debugging skills. You will be exposed to a mix of server errors, some of which are very easy to solve, and others which will require a lot more investigation. Along the way, look for improvements to the infrastructure that would make the debugging process easier (ideally to the point that server errors can be tackled as easily as regular issues).
+
+Laying out your work in a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs) is a very important skill for this project, since you will sometimes need to get help and it is important to provide responders with the context needed to do so.
+</details>
+
+<details>
+<summary>What we are looking for in proposals</summary>
 
 For the proposal, we recommend that you focus on identifying around 15 issues tagged as “server errors”, correctly outline their root cause, and propose a fix. These should include most of the ones from the list in the project description, as well as additional ones of your choice. You may also link to reproduction instructions (with video proof) and public debugging docs that you have already added to the corresponding issue threads.
 
-Also, please note that, for this project, the proposal itself is a bit less important. The ability to solve some actual [server errors](https://github.com/oppia/oppia/labels/server%20errors) is better evidence that the project will be a good fit.
+Also, please note that, for this project, the proposal itself is a bit less important. The ability to solve some actual [server errors](https://github.com/oppia/oppia/labels/server%20errors) is better evidence that the project will be a good fit. If you need to clarify the expected behaviour for an issue, feel free to start discussions in individual issue threads and in the project proposal.
 
 </details>
 
@@ -555,102 +530,82 @@ When attempting to fix a server error, first find a set of deterministic reprodu
 Note that **@kevintab95** and **@lkbhitesh07** have access to the server logs. Please correspond with Kevin Thomas and the server admins team if you want to run debugging jobs on the server.
 </details>
 
+<details>
+<summary>Suggested PM demo points</summary>
+
+- Milestone 1: Demonstrate fixes for any server errors with a user-facing behaviour component.
+
+- Milestone 2: Demonstrate fixes for server errors with a user-facing behaviour component.
+</details>
+
+
 
 ### 1.3. Lesson player redesign
 
 **Project Description:**
 
-The aim of this project is to redesign the lesson player according to [these mocks](https://www.figma.com/file/YWe7SqfUVjxlJLKTUn0UZa/Project-2?type=design&node-id=7076-365949&mode=design&t=v3mhfxAkI0l9V53z-0), which were created based on feedback that we received from learners. The goals of the redesign are to make the lesson player intuitive to navigate, easy to add features to in the future, and more engaging for younger audiences. All features of the lesson player must work well on mobile, desktop and tablet device sizes, and all features should work in all languages (including both RTL and LTR languages).
+The aim of this project is to redesign Oppia's existing lesson player according to [these mocks](https://www.figma.com/file/YWe7SqfUVjxlJLKTUn0UZa/Project-2?type=design&node-id=7076-365949&mode=design&t=v3mhfxAkI0l9V53z-0). The goals of the redesign are to make the lesson player intuitive to navigate, easy to add features to in the future, and more engaging for younger audiences. The new lesson player should work well on mobile, desktop and tablet devices, as well as in RTL and LTR languages. (Note that some parts of the mocks are out of scope -- see the "Not in scope" section below.)
 
 The new functionality should be developed behind the /lesson URL (which should, for now, redirect to the same backend handlers as /explore), and be gated behind a feature flag. Once the lesson player is ready to launch, all /explore URLs should be redirected to /lesson instead, and the new lesson player should be used for all lessons.
 
-Note that parts of the lesson player functionality is reused in the exploration editor preview tab, practice sessions, and diagnostic test. Care should be taken to ensure that the new functionality is properly gated and does not break these other interfaces.
-
-Links to PRD and mocks:
-- Mini-PRD: [Oppia Lesson Player Redesign Project Mini-PRD](https://docs.google.com/document/u/1/d/1922aE9_TEFTbHyA3jrXy9cTxo2JgvjfEvKHlxqxG-Rw/edit)
-- Mocks: https://www.figma.com/file/YWe7SqfUVjxlJLKTUn0UZa/Project-2?type=design&node-id=7076-365949&mode=design&t=v3mhfxAkI0l9V53z-0
+Relevant links: [Mini-PRD](https://docs.google.com/document/u/1/d/1922aE9_TEFTbHyA3jrXy9cTxo2JgvjfEvKHlxqxG-Rw/edit) and [mocks](https://www.figma.com/file/YWe7SqfUVjxlJLKTUn0UZa/Project-2?type=design&node-id=7076-365949&mode=design&t=v3mhfxAkI0l9V53z-0)
 
 **Tracking issues**: [#19217](https://github.com/oppia/oppia/issues/19217)
 
 **Not in scope:**
 - Implementing the speed adjuster in the voiceover toolbar
-- Implementing the “Get Help” control in the sidebar and the tutorials within it
+- Implementing the "Get Help" control in the sidebar and the tutorials within it
 
-**Size of this project:** Large (\~350 hours)
+**Size:** Large (\~350 hours)
 
 **Difficulty**: Hard
 
 **Potential mentors:** @amyyeung17
 
-**Product Clarifier:** @seanlip
-
-**Technical Clarifier:** @amyyeung17
+**Product/technical clarifiers:** @seanlip (product), @amyyeung17 (technical)
 
 **Required knowledge/skills:**
-- General
-  - Figure out the root cause of an issue and communicate it well using a debugging doc.
-  - Debug and fix CI failures/flakes.
-- Web:
-  - Write Python code with unit tests.
-  - Write TS + Angular code with unit tests.
-  - Write or modify e2e/acceptance tests.
+- Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
+- Debug and fix CI failures/flakes.
+- Write Python code with unit tests.
+- Write TS + Angular code with unit tests.
+- Write or modify e2e/acceptance tests.
 
 **Related issues:**
 
-These include any non-backlog issues in the “Lesson Player CUJs” section of the [LaCE project board](https://github.com/orgs/oppia/projects/3/views/8?sliceBy%5Bvalue%5D=Lesson+player%3A+CUJ+bugs) (try to choose ones that relate specifically to the exploration player interface).
-
-Also, see the guidance in the last part of the “What we’re looking for in proposals” section below.
+Any non-backlog issues in the "Lesson Player CUJs" section of the [LaCE project board](https://github.com/orgs/oppia/projects/3/views/8?sliceBy%5Bvalue%5D=Lesson+player%3A+CUJ+bugs) (try to choose ones that relate specifically to the exploration player interface). Also, see the guidance in the last part of the "What we're looking for in proposals" section below.
 
 **Suggested Milestones:**
-- **Milestone 1**: Within `core/templates/pages/exploration-player-page`, move all non-UI-specific logic from component.ts files to service.ts files in the `services/`` folder, so that such logic can be reused in both the existing and new exploration player layouts. Organize that folder to have just 3 subdirectories: a current-player-components folder with the Angular components for the existing experience, a new-player-components folder with the Angular components for the new experience, and a services folder for the services that both experiences have in common. Add a README to the root of the exploration-player-page folder explaining the layout. At the end of this process:
 
-    - There should be no duplication of code logic throughout any of the files in `/exploration-player-page` – each piece of functionality should be specified in exactly one location, with no copy-pasting.
-    - The only dependencies between files in the three root subfolders should be from current-player-components to services, and from new-player-components to services. No other inter-subfolder dependencies are allowed.
-    - No further adjustments should be needed to files in `current-player-components/` for the rest of this project.
+- **Milestone 1**: Move all non-UI-specific logic in the exploration player page to services, so that they can be used in both the existing and new exploration players. Then, build the following parts of the new exploration player page at the /lesson URL:
+    - The overall layout (sub-navbar, main player area, sidebar, footer, audio bar). Only the back-and-forth navigation and "Continue" buttons in the footer need to work at this stage; the rest can be implemented in Milestone 2.
+    - The main "conversation flow" UI (including all interactions).
+    - The "correct answer" pop-up and confetti.
 
-  Build the following parts of the new exploration player page:
+  By the end of this milestone, it should be possible to play any Oppia exploration via the `/lesson/{{exploration_id}}` URL (if the feature flag is turned on), submit and view wrong answers, and navigate back-and-forth through the lesson. Also, the exploration editor preview tab, practice questions page and diagnostic test pages (which use components of the lesson player) should show the new UI if the flag is turned on, and the old UI if it is not. Finally, if the flag is turned on, the /explore URL should redirect to the corresponding `/lesson` page.
 
-    - The overall layout of the page (sub-navbar, main player area, sidebar, footer, audio bar). Note that the buttons in these components do not need to work yet, except for the back-and-forth navigation and "Continue" buttons in the footer.
-    - The main "conversation flow" UI (including all interactions)
-    - The confetti and "correct answer" pop-up on getting a correct answer
+- **Milestone 2**: Transfer the remaining UI components to the new layout, updating or adding new acceptance tests as needed to verify their behaviour:
 
-  By the end of this milestone, it should be possible to play any Oppia exploration via the `/lesson/{{exploration_id}}` URL (if the feature flag is turned on), submit and view wrong answers, and page back-and-forth through the lesson, on both desktop and mobile, and in both LTR and RTL layouts. However, it is not a requirement that the buttons in the main navbar, audio sub-navbar, etc. do anything yet when clicked (except for the navigation and “Continue” buttons in the footer). Also, the exploration editor preview tab, practice questions page and diagnostic test pages should show the new UI if the flag is turned on, and the old UI if it is not. Finally, if the flag is turned on, the /explore URL should redirect to the corresponding `/lesson` page.
+    - Hints, solutions and concept cards
+    - The voiceover audio player
+    - The share, feedback, report and "exit lesson" buttons
+    - The progress-saving and checkpoints flow
+    - The end-of-lesson next steps (rate lesson, go to new lesson, practice, etc.)
 
-  Suggested PM demo points:
-  - The overall structural layout for the exploration player is in place on both desktop and mobile.
-  - A simple Oppia exploration (with just Continue, Multiple Choice and NumericInput) is playable in the new lesson UI.
-  - An Oppia exploration with all interactions is playable in the new lesson UI.
-
-- **Milestone 2**: Implement the following UI components fully (using the services that you isolated in Milestone 1 where appropriate). The resulting functionality should work well in desktop, mobile and tablet UIs, as well as in LTR and RTL languages:
-
-    - Hints, solutions and concept card pop-ups
-    - The "exit lesson" flow in the top sub-navbar
-    - The voiceover player sub-navbar
-    - The Share, Feedback and Report buttons in the sidebar
-    - The progress bar visualization in the footer
-    - The save-lesson-progress and checkpoints flow
-    - The end-of-lesson next steps (rate lesson, see new lesson, practice, etc.)
-
-  Write acceptance tests, or edit the existing ones, to verify that all of the above functionality works correctly (including in the exploration editor preview tab, the practice questions page, and the diagnostic test page).
-
-  Launch the new lesson player in production, and remove the code for the old lesson player.
-
-  Suggested PM demo points:
-  - All the controls in both sub-navbars and the sidebar are fully functional.
-  - All the controls in the footer are fully functional.
-
-
-**Org-admin/tech-lead commentary/advice:**
-
-This is not an easy project. Although it primarily involves UI, it still requires quite a strong understanding of Angular and "layered architecture".
-
-The most important part is the very first part, which involves refactoring the existing UI (in a way that doesn't make any changes to functionality) so that the “services” code is properly separated from "UI" code. To do this properly, you will need to have a very good understanding of how the different pieces of the UI connect together in the new implementation, and be able to write that down as a specification.
-
-After the service code is properly isolated, the rest of the implementation should be fairly straightforward. However, there are a number of subparts and constraints to keep track of, so it will be important to plan the work in an organized way.
-
+  Flip the launch flag, and, once the new player is serving in production, remove the code for the old lesson player.
 
 <details>
-<summary>What we are looking for in proposals:</summary>
+<summary>Org-admin/tech-lead commentary/advice</summary>
+
+Note that, although this project primarily involves UI changes, it also requires quite a strong understanding of Angular and "layered architecture", so it might be harder than you think.
+
+The most important part is the very first part, which involves refactoring the existing UI (in a way that doesn't make any changes to functionality) so that the “services” code is properly separated from "UI" code. To do this properly, you will need to have a strong understanding of how the different pieces of the UI connect together in the new implementation, and be able to write out that specification.
+
+After the service code is properly isolated, the rest of the implementation should be fairly straightforward. However, there are a number of subparts and constraints to keep track of, so it will be important to plan the work in an organized way.
+</details>
+
+<details>
+<summary>What we are looking for in proposals</summary>
 
 For the proposal, we would like to see answers to the following questions:
 
@@ -675,16 +630,40 @@ In addition to the proposal, the following is optional, but would significantly 
 <details>
 <summary>Technical hints / guidance</summary>
 
-- Here is some guidance on how to [launch new features](https://github.com/oppia/oppia/wiki/Launching-new-features#how-do-you-as-a-developer-use-feature-flags), which also goes into detail on how to use feature flags.
-- The most important part of this project to get right (and also the hardest) is the first part of Milestone 1. If this is done properly then the rest of the project will be a lot more straightforward. To do this, make sure that you have a clear understanding, in your new implementation, of the list of services, list of components, and which components use which services (and how they do so) – this should all be specified clearly in your proposal. Then you can look at the existing services/components (for the old implementation) and figure out what modifications are needed to bring them in line with your proposal, and establish the right boundaries between UI and "domain logic" code.
-- After the code is organized, it is important to be really careful when modifying services, as doing so would impact both the new and old functionality.
-- The new exploration player will also need to handle "supplemental" interactions (like image click, music notes, etc.), where the interaction is a "canvas" that the learner enters answers in, and that doesn’t reset when Oppia gives feedback. Mocks do not exist for this case, but you can use the approach taken in the existing lesson player (e.g., for desktop view, show the "canvas" on the right of the screen and the conversation on the left side).
-- When developing the new UI, it is important to make sure that the new UI works for both mobile/desktop and also for RTL/LTR languages. Don't leave handling these till the end – take care to develop them properly as you go.
-- When developing the new UI components, keep CSS scoped to each of those components. There is a lot of “global CSS” in the old exploration player, but we do not want to repeat that pattern.
-- When developing the new UI components, it is fine to repeat UI code from the old components (if that matches the “new lesson player experience”), since we will be deleting the entire folder of old components at the end of the project.
-- In general, the old lesson player may not conform to best practices. You do not need to repeat those mistakes in the new implementation! If you are not sure whether an existing practice in the old lesson player UI code should be followed in the new UI implementation, feel free to ask about that on GitHub Discussions, and we can give you advice.
+  - Note that parts of the lesson player functionality are reused in the exploration editor preview tab, practice sessions, and diagnostic test. Care should be taken to ensure that the new functionality is properly gated and does not break these other interfaces. Your acceptance tests should cover these cases as well.
 
+  - Here is some guidance on how to [launch new features](https://github.com/oppia/oppia/wiki/Launching-new-features#how-do-you-as-a-developer-use-feature-flags), which also goes into detail on how to use feature flags.
+
+  - The most important part of this project to get right (and also the hardest) is the first part of Milestone 1. If this is done properly then the rest of the project will be a lot more straightforward. To do this, make sure that you have a clear understanding, in your new implementation, of the list of services, list of components, and which components use which services (and how they do so) – this should all be specified clearly in your proposal. Then you can look at the existing services/components (for the old implementation) and figure out what modifications are needed to bring them in line with your proposal, and establish the right boundaries between UI and "domain logic" code. Here is a suggested technical approach for this part of the project:
+    - Within `core/templates/pages/exploration-player-page`, move all non-UI-specific logic from component.ts files to service.ts files in the `services/`` folder, so that such logic can be reused in both the existing and new exploration player layouts. Organize that folder to have just 3 subdirectories: a current-player-components folder with the Angular components for the existing experience, a new-player-components folder with the Angular components for the new experience, and a services folder for the services that both experiences have in common. Add a README to the root of the exploration-player-page folder explaining the layout.
+    - At the end of this process:
+      - There should be no duplication of code logic throughout any of the files in `/exploration-player-page` – each piece of functionality should be specified in exactly one location, with no copy-pasting.
+      - The only dependencies between files in the three root subfolders should be from current-player-components to services, and from new-player-components to services. No other inter-subfolder dependencies are allowed.
+      - No further adjustments should be needed to files in `current-player-components/` for the rest of this project.
+    - After the code is organized, it is important to be really careful when modifying services, as doing so would impact both the new and old functionality.
+
+  - When developing the new UI components:
+    - Keep CSS scoped to each of the new UI components. There is a lot of “global CSS” in the old exploration player, but we do not want to repeat that pattern.
+    - More generally, the old lesson player may not conform to best practices. You do not need to repeat those mistakes in the new implementation! If you are not sure whether an existing practice in the old lesson player UI code should be followed in the new UI implementation, feel free to ask about that on [GitHub Discussions](https://github.com/oppia/oppia/discussions/categories/q-a-other), and we can give you advice.
+    - Where relevant, it is fine to copy UI code from the old components (if that matches the "new lesson player experience"), since we will be deleting the entire folder of old components at the end of the project.
+    - Ensure that the new UI works for both mobile/desktop and also for RTL/LTR languages as you go. Don't wait until the end of the project/milestone to handle this.
+
+  - Note that the new exploration player will also need to handle "supplemental" interactions (like image click, music notes, etc.), where the interaction is a "canvas" that the learner enters answers in, and that doesn’t reset when Oppia gives feedback. Mocks do not exist for this case, but you can use the approach taken in the existing lesson player (e.g., for desktop view, show the "canvas" on the right of the screen and the conversation on the left side).
 </details>
+
+<details>
+<summary>Suggested PM demo points</summary>
+
+- Milestone 1:
+  - The overall structural layout for the exploration player is in place on both desktop and mobile.
+  - A simple Oppia exploration (with just Continue, Multiple Choice and NumericInput) is playable in the new lesson UI.
+  - An Oppia exploration with all interactions is playable in the new lesson UI.
+
+- Milestone 2:
+  - All the controls in both sub-navbars and the sidebar are fully functional.
+  - All the controls in the footer are fully functional.
+</details>
+
 
 
 ## Contributor Dashboard team
@@ -695,10 +674,9 @@ In addition to the proposal, the following is optional, but would significantly 
 
 This project involves showing auto-generated suggestions in the Contributor Dashboard translation submission modal, so that translation submitters can edit and submit those translations, rather than needing to generate completely new ones from scratch each time. These suggestions would arise from autogenerated translations from an AI-powered translation service.
 
-The project involves implementing a system for updating `EntityTranslationsModel` to associate each (content_id, language) pair with both a “manual” and “auto” translation (see `VoiceoverType` in feconf.py, which does something similar for voiceovers). The manual translation should only be populated once a translation is approved by a human reviewer (possibly after edits), and this translation is what is shown to the learner when playing lessons. On the other hand, automatic translations will only be shown as suggestions to translation submitters via the contributor dashboard. To understand the effectiveness of the AI suggestions, the contributor admin dashboard will also display information about how many times the AI suggestions were used as-is, without any edits.
+The project involves implementing a system for updating `EntityTranslationsModel` to associate each (content_id, language) pair with both a "manual" and "auto" translation (similar to `VoiceoverType` in feconf.py for voiceovers). The manual translation should only be populated once a translation is approved by a human reviewer (possibly after edits); this translation is shown to the learner when playing lessons. On the other hand, automatic translations will only be shown as suggestions to translation submitters via the contributor dashboard. To understand the effectiveness of the AI suggestions, the contributor admin dashboard will also display information about how many times the AI suggestions were used as-is, without any edits.
 
-There should be a button in the /admin panel that is able to bulk-generate auto-translations via a Beam job. This job should be run to populate the initial auto-translations once the pipeline is ready. Subsequently, any additions/edits to a curated entity (lesson, topic, skill, etc.) should trigger a full auto-translation of the added/edited content, and publishing a curated entity should trigger a full auto-translation of all strings in the entity. In general, the auto-translations should always be up-to-date with the English strings in the current version of the entity.
-
+There should also be a button on the Admin page that can bulk-generate auto-translations via a Beam job. This job should be run to populate the initial auto-translations once the pipeline is ready. Subsequently, any additions/edits to a curated entity (lesson, topic, skill, etc.) should trigger an auto-translation of the added/edited content, and publishing a curated entity should trigger an auto-translation of all strings in the entity. In other words, the auto-translations should always be up-to-date with the English strings in the current version of the entity.
 
 Link to PRD: [Language Management and Lesson Auto-Translation PRD](https://docs.google.com/document/d/1TeGQQNLNJWkTgvGQ1xmV6snz8zXnJ23TvuDKtK5_Tok/edit?usp=sharing) (a bit out of date)
 
@@ -710,25 +688,21 @@ Link to PRD: [Language Management and Lesson Auto-Translation PRD](https://docs.
 - Enabling translations for concept cards, review cards, or practice questions
 - Showing auto-generated translations in the learner view (see https://github.com/oppia/oppia/issues/16164 for more information).
 
-**Size of this project:** Large (\~350 hours)
+**Size:** Large (\~350 hours)
 
 **Difficulty**: Hard
 
 **Potential mentors:** @chris7716
 
-**Product Clarifier:** @seanlip
-
-**Technical Clarifier:** @chris7716
+**Product/technical clarifiers:** @seanlip (product), @chris7716 (technical)
 
 **Required knowledge/skills:**
-- General
-  - Figure out the root cause of an issue and communicate it well using a debugging doc.
-  - Debug and fix CI failures/flakes.
-- Web:
-  - Write Python code with unit tests.
-  - Write TS + Angular code with unit tests.
-  - Write or modify e2e/acceptance tests.
-  - Write or modify Beam jobs, with tests.
+- Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
+- Debug and fix CI failures/flakes.
+- Write Python code with unit tests.
+- Write TS + Angular code with unit tests.
+- Write or modify e2e/acceptance tests.
+- Write or modify Beam jobs, with tests.
 
 **Related issues:**
 
@@ -736,33 +710,24 @@ Issues related to translation submitters are good ones to tackle: https://github
 
 
 **Suggested Milestones:**
-- **Milestone 1**: The full computer-aided translation (CAT) backend implementation is completed, including functionality that allows the developer team to configure the CAT service provider for each language. All rich-text fields, including those that use components like images, videos, skill links, math expressions, and so on, are handled properly, and there is validation to ensure that the autotranslated string has the same number and type of rich-text components as the original string.
 
-  A new `exactly_matches_ai_suggestion` boolean field, which defaults to False, is added to the GeneralSuggestionModel. This is used to increment new `submitted_ai_translations_exact_match_count` fields in `TranslationContributionStatsModel` and `TranslationSubmitterTotalContributionStatsModel` when a contributor’s translation suggestion is exactly the same as the auto-AI suggestion stored in `EntityTranslationsModel`, and this new count is displayed in the relevant table of the Contributor Admin dashboard. Any Beam backfill jobs that regenerate these statistics should also be updated as needed.
+- **Milestone 1**: The computer-aided translation (CAT) backend is completed, and can process any rich-text field properly (including components like images, skill links, etc.), including validating that the autotranslated string has the same number and type of rich-text components as the original string. Storage models are updated to store these autogenerated translations, and the relevant statistics models and regeneration jobs are also updated to include the number of times a translation suggestion exactly matches the auto-translation. The wiki pages are also updated to explain how to add new languages and translation providers to the system.
 
-  The storage models are updated to support the storage of autogenerated translations, and admins can run a Beam job from the admin dashboard to generate auto-translations for any untranslated texts for all curated lessons in Oppia's prioritized languages (they can select 'all entities', ‘all entities of a specific type’, or a specific entity; and they can select 'all languages' or a particular language). The wiki pages are also updated to explain how to add new translation providers for specific languages.
+  At the end of the milestone, admins should be able to configure the CAT service provider for each language, and run a job to generate auto-translations for any untranslated texts for curated lessons. (They can select 'all entities', 'all entities of a specific type', or a specific entity; and they can select 'all prioritized languages' or a particular language.)
 
-  Suggested PM demo points:
-  - Translation autogeneration works properly for rich-text content with different components (skill links, images, etc.).
-  - A Beam job allows generation of all autotranslations.
-
-- **Milestone 2**: When any additions/edits are made to a curated entity (lesson, topic, skill, etc.), these should trigger a full auto-translation of the added/edited content. When a curated entity is published, this should trigger a full auto-translation of all strings in the entity that don’t have translations yet.
-
-  Auto-generated translations are shown in the contributor dashboard UI, together with the relevant context that states where they come from.
-
-  Suggested PM demo points:
-  - Autogenerated translation suggestions are shown in the contributor dashboard UI.
-
-
-**Org-admin/tech-lead commentary/advice:**
-
-This is a difficult project that involves building and completing a pipeline that can greatly reduce the effort needed to internationalize lessons. It is also the only project we are offering this year that makes use of AI.
-
-The main things to be prepared for are Beam jobs and working with an external translation service. When planning your milestones, try and do the Beam testing as early as possible so that you have enough time to debug any issues that arise. For the translation service, it is essential to have a quick way to test it, because you will likely need to fine-tune how you send the strings to the service. Getting that set up can involve some registration/activation steps, so it's worth getting familiar with the pipeline to ensure that you will have a good development environment to iterate in.
+- **Milestone 2**: When a curated entity (lesson, topic, skill, etc.) is edited, this should trigger an auto-translation of the added/edited content. When a curated entity is published, this should trigger a full auto-translation of all strings that don't have auto-translations yet. These auto-generated translations are then shown to contributors in the contributor dashboard UI, together with an annotation explaining their origin.
 
 
 <details>
-<summary>What we are looking for in proposals:</summary>
+<summary>Org-admin/tech-lead commentary/advice</summary>
+
+This is a difficult project that involves building and completing a pipeline that can greatly reduce the effort needed to internationalize lessons. The main things to be prepared for are Beam jobs and working with an external translation service.
+
+When planning your milestones, try and do the Beam testing as early as possible so that you have enough time to debug any issues that arise. For the translation service, it is essential to have a quick way to test it, because you will likely need to fine-tune how you send the strings to the service. Getting that set up can involve some registration/activation steps, so it's worth getting familiar with the pipeline to ensure that you will have a good development environment to iterate in.
+</details>
+
+<details>
+<summary>What we are looking for in proposals</summary>
 
 Please explain the following clearly in your proposal:
 
@@ -780,16 +745,39 @@ Please explain the following clearly in your proposal:
 <details>
 <summary>Technical hints / guidance</summary>
 
+- Much of the computer-aided translation (CAT) backend work has already been done (see [this doc](https://docs.google.com/document/d/1kJd-yLTzB9a2c3Nq7v9pzKfHwKHKGpkWfQ8B0YGf50U/edit#heading=h.jp6no890gjkv) for details). You might like to look at previous unfinished PRs: #12604 / #14418. However, please bear in mind that the translations system has evolved significantly since those PRs were created.
+
 - You will need to gate the new functionality behind a `SHOW_TRANSLATION_SUGGESTIONS_IN_CD` [feature flag](https://github.com/oppia/oppia/wiki/Launching-new-features) that gates the integration of translation suggestions to the contributor dashboard. We will only turn on this feature flag once the feature testing process has been completed.
+
 - This [design issue](https://github.com/oppia/design-team/issues/128) tracks the progress of the mocks for showing translation suggestions on the contributor dashboard, and you can follow it for updates. That said, for your proposal, please focus more on the technical aspects than the mocks – in general, anything that contributor dashboard submitters can reasonably understand and make use of is fine.
+
 - The technical approach we are taking involves pre-generating the auto-translations, to reduce latency at the time of translating. There should therefore be no need to generate auto-translations “in the moment” while a volunteer is submitting a translation via the contributor dashboard. If, for some reason, a stored auto-translation is not available for a piece of content, it is fine to just not show that part of the submission modal. (Don’t error noisily in a way that blocks the experience for the translation submitter.)
+
 - The list of languages for which to auto-generate translations can be derived from the information stored in VoiceoverAutogenerationPolicyModel, which contains language codes as keys. This list is currently shown on the /voiceover-admin page.
-- A fair amount of the computer-aided translation (CAT) backend work has already been done (see [this doc](https://docs.google.com/document/d/1kJd-yLTzB9a2c3Nq7v9pzKfHwKHKGpkWfQ8B0YGf50U/edit#heading=h.jp6no890gjkv) for details). You might like to look at previous unfinished PRs: #12604 / #14418. However, please bear in mind that the translations system has evolved significantly since those PRs were created.
+
 - If you need to migrate JSON properties, following the approach used for migrating the states in the Exploration domain object might help (i.e. introduce a schema version field and use that to perform the migration safely).
+
 - To enable the (new version of the) Contributor Admin dashboard, go to /release-coordinator and turn the `cd_admin_dashboard_new_ui` flag on.
-- Note that, although we are adding `submitted_ai_translations_exact_match_count` to the `TranslationContributionStatsModel`, we don’t need to show it in the contributor’s “Contribution Stats” dashboard. The reason we add it here is so that it is easy to backfill the `TranslationSubmitterTotalContributionStatsModel` from it if needed (note that this is how the other attributes are backfilled if that stats model needs to be regenerated). However, if `TranslationContributionStatsModel` needs to be backfilled, then we would need to do so based on the suggestions and entity translations.
+
+- Here is a suggested technical sketch for the statistics model changes:
+  - Add a new `exactly_matches_ai_suggestion` boolean field, which defaults to False, to the GeneralSuggestionModel. This is used to increment new `submitted_ai_translations_exact_match_count` fields in `TranslationContributionStatsModel` and `TranslationSubmitterTotalContributionStatsModel` when a contributor’s translation suggestion is exactly the same as the auto-AI suggestion stored in `EntityTranslationsModel`.
+  - Display the new count from `TranslationSubmitterTotalContributionStatsModel` in the relevant table of the Contributor Admin dashboard. (You don't need to display the corresponding count from `TranslationContributionStatsModel` in the contributor's "Contribution Stats" dashboard -- the reason we're storing it there is to make it easy to backfill the `TranslationSubmitterTotalContributionStatsModel` from it if needed, similar to how its other attributes are backfilled.)
+  - Update any Beam backfill jobs that regenerate these statistics, as needed. (Note that `TranslationContributionStatsModel` would need to be backfilled based on the suggestions and entity translations.)
 
 </details>
+
+
+<details>
+<summary>Suggested PM demo points</summary>
+
+- Milestone 1:
+  - Translation autogeneration works properly for rich-text content with different components (skill links, images, etc.).
+  - A Beam job allows generation of all autotranslations.
+
+- Milestone 2:
+  - Autogenerated translation suggestions are shown in the contributor dashboard UI.
+</details>
+
 
 
 ## Developer Workflow Team
@@ -801,9 +789,8 @@ Please explain the following clearly in your proposal:
 In order to streamline releases, we are planning to ensure that all critical user journeys (CUJs) on the Oppia web application are covered by acceptance tests. This is important because it will provide assurance that, on the merge of every PR, these critical user journeys still function correctly, which means that no major breakages will result if the develop branch gets deployed to production. Additionally, having a complete set of acceptance tests that are organized by CUJ makes it easier to audit whether or not a particular CUJ has been included, and it also helps developers add tests for new CUJs while still keeping the tests well-organized.
 
 This project includes:
-
   - Writing acceptance tests for the as-yet-uncovered CUJs in a way that keeps the tests organized and maintainable. This might also include small updates to the acceptance test framework, e.g. extracting utility functions to enable code reuse or providing relevant functionality for a group of tests.
-  - Tightening all page utility functions to have pre/post checks (in the form of “wait” statements) and proper error messaging, so that it is easier to debug flakes. The pre-check wait ensures that the conditions are good for performing the action, and the post-check wait ensures that the action has fully completed.
+  - Tightening all page utility functions to have pre/post checks (in the form of "wait" statements) and proper error messaging, so that it is easier to debug flakes. The pre-check wait ensures that the conditions are good for performing the action, and the post-check wait ensures that the action has fully completed.
   - Deleting e2e tests whose functionality has been fully replaced by the acceptance tests.
 
 Relevant documents:
@@ -818,56 +805,40 @@ Relevant documents:
 - Enabling translations for concept cards, review cards, or practice questions
 - Showing auto-generated translations in the learner view (see https://github.com/oppia/oppia/issues/16164 for more information).
 
-**Size of this project:** Large (\~350 hours)
+**Size:** Large (\~350 hours)
 
 **Difficulty**: Easy / Moderate
 
 **Potential mentors:** @imchristie
 
-**Product Clarifier:** @seanlip
-
-**Technical Clarifier:** @imchristie
+**Product/technical clarifiers:** @seanlip (product), @imchristie (technical)
 
 **Required knowledge/skills:**
-- General
-  - Figure out the root cause of an issue and communicate it well using a debugging doc.
-  - Debug and fix CI failures/flakes.
-- Web:
-  - Write TS + Angular code with unit tests.
-  - Write or modify e2e/acceptance tests.
+- Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
+- Debug and fix CI failures/flakes.
+- Write TS + Angular code with unit tests.
+- Write or modify e2e/acceptance tests.
 
 **Related issues:**
 
 Acceptance test infrastructure: https://github.com/orgs/oppia/projects/8/views/11?sliceBy%5Bvalue%5D=Acceptance+Tests
 
-
 **Suggested Milestones:**
-- **Milestone 1**: Tighten all existing page utility functions in `core/tests/puppeteer-acceptance-tests` to have appropriate pre/post checks.
+- **Milestone 1**: Tighten all existing page utility functions in `core/tests/puppeteer-acceptance-tests` to have appropriate pre/post checks. Complete all acceptance tests for exploration creators, logged-out users, and logged-in users (as specified in [#21646](https://github.com/oppia/oppia/issues/21646)), and ensure that they run on all PRs by adding them to the "acceptance test" GitHub workflow. Remove any existing webdriverio tests whose functionality is fully covered by the new acceptance tests.
 
-  Complete all remaining acceptance tests (as specified in [#21646](https://github.com/oppia/oppia/issues/21646)) for exploration creators, logged-out users, and logged-in users, and ensure that they run on all PRs by adding them to the "acceptance test" GitHub workflow. Remove any existing webdriverio tests whose functionality is fully covered by the new acceptance tests.
-
-  Suggested PM demo points:
-  - Acceptance tests for the exploration creator user journeys have been written.
-
-- **Milestone 2**: Complete all other remaining acceptance tests (as specified in [#21646](https://github.com/oppia/oppia/issues/21646)), and ensure that they run on all PRs by adding them to the "acceptance test" GitHub workflow. Remove any existing webdriverio tests whose functionality is fully covered by the new acceptance tests.
-
-  If any webdriverio tests remain after this step, translate them into CUJs and work with the QA team to make them part of the CUJ document. Implement the corresponding acceptance tests.
-
-  Finally, remove the webdriverio and e2e test framework completely.
-
-  Suggested PM demo points:
-  - Acceptance tests for the contributor dashboard user journeys have been written.
-
-
-**Org-admin/tech-lead commentary/advice:**
-
-This is not a difficult project, since a lot of the infrastructure has been written and there are lots of examples that you can follow. The most important thing is to set up a good development cycle so that you can debug issues with tests quickly.
-
-It is important that you are able to get the tests running on your machine, so that you can pause them when needed and investigate to see what is going wrong.
+- **Milestone 2**: Complete all other remaining acceptance tests (as specified in [#21646](https://github.com/oppia/oppia/issues/21646)), and ensure that they run on all PRs by adding them to the "acceptance test" GitHub workflow. Remove any existing webdriverio tests whose functionality is fully covered by the new acceptance tests. If any webdriverio tests remain after this step, translate them into CUJs and work with the QA team to make them part of the CUJ document, then implement the corresponding acceptance tests. Finally, remove the old webdriverio and e2e test framework completely.
 
 
 <details>
-<summary>What we are looking for in proposals:</summary>
+<summary>Org-admin/tech-lead commentary/advice</summary>
+
+This is a relatively straightforward project, since a lot of the infrastructure has been written and there are lots of examples that you can follow. The most important thing is to set up a good development cycle so that you can debug issues with tests quickly.
+
+It is important that you are able to get the tests running on your machine, so that you can pause them when needed and investigate to see what is going wrong.
+</details>
+
+<details>
+<summary>What we are looking for in proposals</summary>
 
 For this particular GSoC project, the proposal is less important and we are more interested in your previous PRs. In particular, each of the following can significantly enhance your application:
 
@@ -897,6 +868,15 @@ Some things you could address in your proposal:
 
 </details>
 
+<details>
+<summary>Suggested PM demo points</summary>
+
+- Milestone 1: Acceptance tests for the exploration creator user journeys have been written.
+
+- Milestone 2: Acceptance tests for the contributor dashboard user journeys have been written.
+</details>
+
+
 
 ### 3.2. Consolidate entity migration jobs
 
@@ -906,67 +886,20 @@ The Oppia codebase includes several different versioned entities which store lea
 
 The aim of this project is to standardize these migration jobs so that there is a single, standard way to migrate and upgrade versioned models. This will (a) ensure that all the versioned models can be easily updated on a periodic basis, (b) let us delete the code for upgrading from old versions once all the entities of that version have been upgraded, and (c) simplify the remaining version upgrade code.
 
-Specifically, we would like to do the following:
-
-  - Have a BaseMigrateVersionedModelJob and a BaseMigrateVersionedModelSnapshotsJob, and refactor the jobs and audit jobs for migrating models and snapshots (like MigrateExplorationJob, ExpSnapshotsMigrationAuditJob, etc.) to be subclasses of these two jobs. The bulk of the logic for all of these jobs should be in the two base classes, with the subclasses just pointing to the relevant storage models / domain object classes and having no custom logic – see `SNAPSHOT_METADATA_CLASS` in `ExplorationModel` for an example of this.
-  - Run all the jobs in production so that all the models and snapshots on the server are upgraded to use the latest schema versions.
-  - Clean out all the old conversion functions and the methods they call (see https://github.com/oppia/oppia/pull/12256/files for an example).
-
-We would also like to standardize the infrastructure for migrating JSON properties. This entails the following:
-
-  - Create a BaseVersionedDomainObject whose subclasses declaratively specify a mapping from any versioned field to its corresponding schema version field. (These fields correspond to `JsonProperty` in the datastore's storage model.) Un-versioned fields of type `Dict` or `List[Dict]`` should be explicitly declared as un-versioned. Subclasses must also reference constants in feconf.py that specify the minimum and maximum version of each field.
-
-  - Write backend tests that:
-    - Identify all subclasses of BaseVersionedDomainObject in the codebase and verify that every `Dict` or `List[Dict]`` field contained in the object is either included in the mapping mentioned above or included in a list of un-versioned fields. This ensures that all versioned domain objects have the necessary infrastructure for performing schema upgrades for their respective JsonProperties.
-    - Ensure that the relevant migration functions for each upgradable field are present in the corresponding domain object class with the function signatures (including type hints). Specifically, each conversion function should accept one parameter of the same type as the versioned field and should return one value of the same type. The migration functions can be named using a standard scheme, e.g. `_convert_{{field_name}}_v{{x}}_dict_to_v{{x+1}}_dict`, and the backend test can check for that. This test should also use the minimum and maximum schema versions to check that upgrade functions from the minimum up to the maximum version are present.
-
-  - Add a `migrate_to_latest_schema_versions` function to BaseVersionedDomainObject to handle schema upgrades in a generalized way across all domain objects.
-  - Ensure that all the different getter functions in the _services/fetchers.py files that convert storage models to domain objects also use `migrate_to_latest_schema_versions` to translate that object’s fields to use the latest schema versions.
-  - Replace all domain objects corresponding to VersionedModels with the new BaseVersionedDomainObject.
-
-Here's a schematic depiction of a possible end state for versioned domain models:
-
-```
-class BaseVersionedDomainObject:
-  - Class Variables:
-     - schema_versioned_attributes = {}
-  - Methods:
-    - def migrate_to_latest_schema_versions():
-      - Use the versioned_attributes map to find versioned fields. Then call update functions on each of those until the entire domain object is fully upgraded.
-
-class Exploration(BaseVersionedDomainObject:
-  - Class Variables:
-    -  schema_versioned_attributes: {
-        "states_dict": {
-          "version_field": "states_schema_version",
-          "version_min": feconf.MIN_STATE_SCHEMA_VERSION (e.g. 5),
-          "version_max": feconf.CURRENT_STATE_SCHEMA_VERSION (e.g. 10)
-        }
-      }
-  - Methods:
-    - def _convert_states_v5_dict_to_v6_dict
-    - ...
-    - def _convert_states_v9_dict_to_v10_dict
-```
-
 **Tracking issues**: [#21646](https://github.com/oppia/oppia/issues/21646)
 
-**Size of this project:** Medium (\~175 hours)
+**Size:** Medium (\~175 hours)
 
 **Difficulty**: Moderate
 
 **Potential mentors:** @U8NWXD
 
-**Product Clarifier:** @seanlip
-
-**Technical Clarifier:** @U8NWXD
+**Product/technical clarifiers:** @seanlip (product), @U8NWXD (technical)
 
 **Required knowledge/skills:**
-- General
-  - Figure out the root cause of an issue and communicate it well using a debugging doc.
-- Web:
-  - Write Python code with unit tests.
-  - Write or modify Beam jobs, with tests.
+- Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
+- Write Python code with unit tests.
+- Write or modify Beam jobs, with tests.
 
 Additionally, strong technical design skills and a good sense of code architecture are helpful.
 
@@ -977,30 +910,19 @@ Additionally, strong technical design skills and a good sense of code architectu
 
 
 **Suggested Milestones:**
-- **Milestone 1**: Create a BaseVersionedDomainObject which specifies object member mappings to storage model properties in a declarative way, and also specifies the “schema version field” corresponding to each JsonProperty-related field. Add tests to ensure that all JsonProperties are accounted for. Then, replace all existing domain objects for versioned models with subclasses of BaseVersionedDomainObject.
+- **Milestone 1**: Create a BaseVersionedDomainObject which specifies object member mappings to storage model properties in a declarative way, and also specifies the "schema version field" corresponding to each JsonProperty-related field. Add tests to ensure that all JsonProperties are accounted for. Then, replace all existing domain objects for versioned models with subclasses of BaseVersionedDomainObject. Additionally, ensure that all functions that convert storage models to domain objects also migrate domain objects to the latest schema version.
 
-  Also, ensure that all functions that convert storage models to domain objects also migrate domain objects to the latest schema version.
-
-  Suggested PM demo points:
-  - At least one domain object is using BaseVersionedDomainObject, and all the get/save functionality works correctly.
-
-- **Milestone 2**: Create BaseMigrateVersionedModelJob and BaseMigrateVersionedModelSnapshotsJob classes with the core logic for upgrading models and snapshots to the latest schema versions, respectively. Use these to build both job and audit job subclasses for all versioned models (explorations, skills, stories, subtopic pages, questions, topics, collections) with proper logging and error reporting (e.g. if a migration fails, the model that could not be migrated should be logged for debugging). Test these jobs on production data to ensure that they work correctly, and fix any issues that arise. Delete the old jobs.
-
-  Finally, run all the jobs in all our production environments, so that all the models and snapshots on the server are upgraded to the latest schema versions. Then, clean out the old conversion functions for all 7 versioned models and the methods they call (similar to what was done in https://github.com/oppia/oppia/pull/12256/files).
-
-  Suggested PM demo points:
-  - All jobs run correctly on the backup server.
-
-
-**Org-admin/tech-lead commentary/advice:**
-
-This project requires a very good understanding of how our migration pipeline works, and a solid grasp of technical architecture so that you can make good design decisions for how the base classes and their subclasses are structured.
-
-However, once that is well-understood, it should not be too difficult to implement. You will probably find deleting all the old code at the end quite satisfying!
+- **Milestone 2**: Create BaseMigrateVersionedModelJob and BaseMigrateVersionedModelSnapshotsJob classes with the core logic for upgrading models and snapshots to the latest schema versions, respectively. Use these to build both job and audit job subclasses for all versioned models (explorations, skills, stories, subtopic pages, questions, topics, collections) with proper logging and error reporting (e.g. if a migration fails, the model that could not be migrated should be logged for debugging). Test these jobs on production data to ensure that they work correctly, and fix any issues that arise. Finally, run all the jobs in all our production environments, so that all the models and snapshots on the server are upgraded to the latest schema versions, then remove the old jobs and the old conversion functions for all 7 versioned models, as well as the methods they call (similar to what was done in https://github.com/oppia/oppia/pull/12256/files).
 
 
 <details>
-<summary>What we are looking for in proposals:</summary>
+<summary>Org-admin/tech-lead commentary/advice</summary>
+
+This project requires a very good understanding of how our migration pipeline works, and a solid grasp of technical architecture so that you can make good design decisions for how the base classes and their subclasses are structured. However, once that is well-understood, it should not be too difficult to implement. You will probably find deleting all the old code at the end quite satisfying!
+</details>
+
+<details>
+<summary>What we are looking for in proposals</summary>
 
 In addition to your implementation approach, please also:
 
@@ -1016,16 +938,55 @@ In addition to your implementation approach, please also:
 <details>
 <summary>Technical hints / guidance</summary>
 
-  - When designing the Beam jobs, note that audit jobs should be trivial subclasses of the main jobs with `DATASTORE_UPDATES_ALLOWED = False`. (Look at the usage of `DATASTORE_UPDATES_ALLOWED` in the codebase for more information.)
-  There is an old wiki page with instructions for writing schema migrations that might provide some useful background: https://github.com/oppia/oppia/wiki/Writing-state-migrations
-  In general, if some functionality is common to all versioned models, it should be included in the base class. Otherwise, it should be defined in the relevant subclass(es).
+- There are existing jobs and audit jobs in the codebase for migrating models and snapshots (e.g. MigrateExplorationJob, ExpSnapshotsMigrationAuditJob, etc.). All these should be deleted at the end of the project. This old wiki page with instructions for writing schema migrations might also provide some useful background: https://github.com/oppia/oppia/wiki/Writing-state-migrations
 
+- The bulk of the logic for all the new jobs should be in the two base classes, BaseMigrateVersionedModelJob and BaseMigrateVersionedModelSnapshotsJob. In general, if some functionality is common to all versioned models, it should be included in the base class, otherwise it should be defined in the relevant subclass(es). Ideally, the subclasses would just point to the relevant storage models / domain object classes and not include any custom logic – see `SNAPSHOT_METADATA_CLASS` in `ExplorationModel` for an example of this. The corresponding audit jobs for these two jobs should be trivial subclasses of the main jobs with `DATASTORE_UPDATES_ALLOWED = False`. (Look at the usage of `DATASTORE_UPDATES_ALLOWED` in the codebase for more information.)
+
+- Part of this project includes standardizing the infrastructure for migrating JSON properties. Here is a more detailed technical sketch for how this could be done:
+
+  - Create a BaseVersionedDomainObject whose subclasses declaratively specify a mapping from any versioned field to its corresponding schema version field. (These fields correspond to `JsonProperty` in the datastore's storage model.) Un-versioned fields of type `Dict` or `List[Dict]`` should be explicitly declared as un-versioned. Subclasses must also reference constants in feconf.py that specify the minimum and maximum version of each field.
+
+  - Write backend tests that:
+    - Identify all subclasses of BaseVersionedDomainObject in the codebase and verify that every `Dict` or `List[Dict]`` field contained in the object is either included in the mapping mentioned above or included in a list of un-versioned fields. This ensures that all versioned domain objects have the necessary infrastructure for performing schema upgrades for their respective JsonProperties.
+    - Ensure that the relevant migration functions for each upgradable field are present in the corresponding domain object class with the function signatures (including type hints). Specifically, each conversion function should accept one parameter of the same type as the versioned field and should return one value of the same type. The migration functions can be named using a standard scheme, e.g. `_convert_{{field_name}}_v{{x}}_dict_to_v{{x+1}}_dict`, and the backend test can check for that. This test should also use the minimum and maximum schema versions to check that upgrade functions from the minimum up to the maximum version are present.
+
+  - Add a `migrate_to_latest_schema_versions` function to BaseVersionedDomainObject to handle schema upgrades in a generalized way across all domain objects.
+  - Ensure that all the different getter functions in the _services/fetchers.py files that convert storage models to domain objects also use `migrate_to_latest_schema_versions` to translate that object’s fields to use the latest schema versions.
+  - Replace all domain objects corresponding to VersionedModels with the new BaseVersionedDomainObject.
+
+- Here's a schematic depiction of a possible end state for versioned domain models:
+
+  ```
+  class BaseVersionedDomainObject:
+    - Class Variables:
+       - schema_versioned_attributes = {}
+    - Methods:
+      - def migrate_to_latest_schema_versions():
+        - Use the versioned_attributes map to find versioned fields. Then call update functions on each of those until the entire domain object is fully upgraded.
+
+  class Exploration(BaseVersionedDomainObject:
+    - Class Variables:
+      -  schema_versioned_attributes: {
+          "states_dict": {
+            "version_field": "states_schema_version",
+            "version_min": feconf.MIN_STATE_SCHEMA_VERSION (e.g. 5),
+            "version_max": feconf.CURRENT_STATE_SCHEMA_VERSION (e.g. 10)
+          }
+        }
+    - Methods:
+      - def _convert_states_v5_dict_to_v6_dict
+      - ...
+      - def _convert_states_v9_dict_to_v10_dict
+  ```
 </details>
 
+<details>
+<summary>Suggested PM demo points</summary>
 
-### 3.3. TBD
+- Milestone 1: At least one domain object is using BaseVersionedDomainObject, and all the get/save functionality works correctly.
 
-_This project idea is still in development and will be added shortly._
+- Milestone 2: All jobs run correctly on the backup server.
+</details>
 
 
 ## Android team
@@ -1034,38 +995,32 @@ _This project idea is still in development and will be added shortly._
 
 **Project Description:**
 
-When learners make a mistake on a concept they have previously demonstrated in an earlier part of a lesson, it often makes sense to redirect them back (or to a parallel flow) to try and reinforce earlier concepts that the learner may have not fully understood. However, with the current implementation, learners subsequently need to re-answer all the cards between the earlier state and the state they had reached, which is frustrating.
+When learners make a mistake on a concept they have previously demonstrated in an earlier part of a lesson, it often makes sense to redirect them back to an earlier card to try and reinforce earlier concepts that the learner may have not fully understood. However, with the current implementation, learners subsequently need to re-answer all the cards between the earlier state and the state they had reached, which is frustrating.
 
 This project aims to provide a new feature called ‘flashbacks’ which helps to bring the benefits of earlier redirection (i.e. reviewing an earlier concept that directly ties to the misconception) without the frustrating part of having to redo the old questions before returning back to the question that originally caused the learner to become stuck.
 
 Additionally, this project also includes improving the general look-and-feel of submitted answers for both multiple choice and item selection interactions as these both currently rely on HTML generation rather than having a cleaner, natively rendered experience. This will also allow them to be displayed properly in the “flashback” experience.
 
-Links to PRD and mocks:
-- [PRD](https://docs.google.com/document/d/1NpWgRN6BgvlutWXTYkz997ft36nRMYCbxSO7RYy2iV8/edit?tab=t.0) (note that this is incomplete)
-- Design tracking issue for mocks: [oppia/design-team#50](https://github.com/oppia/design-team/issues/50). Specific notes on mocks:
+Relevant links: Mocks (https://github.com/oppia/design-team/issues/50) and [PRD](https://docs.google.com/document/d/1NpWgRN6BgvlutWXTYkz997ft36nRMYCbxSO7RYy2iV8/edit?tab=t.0) (incomplete). Specific notes on mocks:
   - The mocks don't include explicit changes for multiple choice and item selection.
   - The mocks don't quite represent the correct ‘inline’ experience that needs to be introduced for the ‘Learn Again’ button (which should be part of the answer & response section of the incorrect answer that is prompting for a revisit).
   - Only the mocks with the orange toolbars are actually correct and need to be implemented (except for the otter, and the return button should be part of the flow rather than overlaid).
 
 **Tracking issues**: _To be updated._
 
-**Size of this project:** Medium (\~175 hours)
+**Size:** Medium (\~175 hours)
 
 **Difficulty**: Moderate
 
 **Potential mentors:** @adhiamboperes
 
-**Product Clarifier:** @seanlip
-
-**Technical Clarifier:** @BenHenning
+**Product/technical clarifiers:** @seanlip (product), @BenHenning (technical)
 
 **Required knowledge/skills:**
-- General
-  - Figure out the root cause of an issue and communicate it well using a debugging doc.
-- Android:
-  - Build the app and install it on a local device or emulator. Then verify that you can (a) build a non-test library  target locally, (b) run a unit test locally, and (c) play through the app locally.
-  - Write new Kotlin code with unit tests.
-  - Change Android UIs, write tests for them, and manually verify that they work.
+- Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
+- Build the app and install it on a local device or emulator. Then verify that you can (a) build a non-test library  target locally, (b) run a unit test locally, and (c) play through the app locally.
+- Write new Kotlin code with unit tests.
+- Change Android UIs, write tests for them, and manually verify that they work.
 
 **Related issues:**
 
@@ -1076,24 +1031,19 @@ _(Note: Additional issues will be added soon.)_
 **Suggested Milestones:**
 - **Milestone 1**: The new flashback dialog is implemented and hooked up to the existing soft redirection button. (The in-line flow does not need to work at this stage.)
 
-  Suggested PM demo points:
-  - Trigger a “user is soft redirected” state to demonstrate the flashback dialog.
-
 - **Milestone 2**: The flashback dialog is hooked up with the learner flow to have an in-line view (i.e. the 'Learn Again' button is attached to the incorrect answer that led to the flashback), and relevant UI tests are added. Also, the new designs for multiple choice and item selection interactions are implemented.
 
-  Suggested PM demo points:
-  - Demonstrate the "user is soft-redirected" flashback with the in-line "Learn Again" button along with the new item selection and multiple choice interaction views (for submitted answers).
 
-
-**Org-admin/tech-lead commentary/advice:**
+<details>
+<summary>Org-admin/tech-lead commentary/advice</summary>
 
 This project involves a lot of very gritty coding work in the most critical code pathways in the app: the core learner flow. These are not simple areas of the app as Oppia's core lesson flow is fundamentally complex, but fortunately there are dozens of past projects and changes that have changed these coding areas (which may act as good references) and the codepath has generally excellent test coverage (which means we can be confident when we make changes to these areas).
 
 Making changes to the core lesson flow may be a combination of feeling like a lot of progress is being made (when adding some of the fairly substantial boilerplate involved in adding views to the lesson flow), and other times where it can take a while just to add a few lines of code (due to the surrounding area being particularly complex, such as for the actor-based [ExplorationProgressController](https://github.com/oppia/oppia-android/blob/4f58be9d399c70e1d1cd241495280ae913afbf07/domain/src/main/java/org/oppia/android/domain/exploration/ExplorationProgressController.kt#L106)). It may be very difficult to fully grok the full dependency and data flow for explorations, but it's usually straightforward to jump in and start making changes that in turn show up in the lesson viewer frontend.
-
+</details>
 
 <details>
-<summary>What we are looking for in proposals:</summary>
+<summary>What we are looking for in proposals</summary>
 
 - An explanation for how the new functionality will be gated behind a [feature flag](https://github.com/oppia/oppia-android/wiki/Platform-Parameters-&-Feature-Flags) to ensure that changes don't get shipped to end users before the feature is completed.
 - A list of test names that will be added (we generally add automated tests for every code change).
@@ -1111,33 +1061,39 @@ _This will be added soon._
 </details>
 
 
+<details>
+<summary>Suggested PM demo points</summary>
+
+- Milestone 1: Trigger a “user is soft redirected” state to demonstrate the flashback dialog.
+
+- Milestone 2: Demonstrate the "user is soft-redirected" flashback with the in-line "Learn Again" button along with the new item selection and multiple choice interaction views (for submitted answers).
+</details>
+
+
+
 ### 4.2. Platform parameters dashboard
 
 **Project Description:**
 
-Feature flags are a special type of configurable [platform parameter](https://github.com/oppia/oppia-android/wiki/Platform-Parameters-&-Feature-Flags#introduction) which allows the team to stage features behind remotely configurable flags until they're ready to be launched. This allows features to be developed across multiple releases without users seeing part of the feature (or app stability issues when the feature is enabled), ensuring the team releases high-quality features and doesn't hurt the overall quality and performance of the app. Broadly, platform parameters allow the team to overall configure the app (which can be useful both for feature flags, as described above, and safety 'knobs' such as controlling rate limits to remote APIs to help reduce the chance of server outages).
+Feature flags are a special type of configurable [platform parameter](https://github.com/oppia/oppia-android/wiki/Platform-Parameters-&-Feature-Flags#introduction) which allows the team to stage features behind remotely configurable flags until they're ready to be launched. This allows features to be developed across multiple releases without users seeing part of the feature (or app stability issues when the feature is enabled), ensuring the team can release high-quality features without hurting the overall quality and performance of the app. Broadly, platform parameters allow the team to configure the overall app (which can be useful both for feature flags, as described above, and safety 'knobs' such as controlling rate limits to remote APIs to help reduce the chance of server outages).
 
-This project entails introducing a developer-only UI (as part of the developer options section of the app) which displays all platform parameters and feature flags in the app, their current enabled/disabled status (for feature flags) or values (for platform parameters), their sync status (i.e. whether they're being synced from the server or using a local developer default), and allows an explicit manual override to force the feature on or off or to override the platform parameter's value.
+This project entails introducing a developer-only UI (as part of the developer options section of the app) which displays all platform parameters and feature flags in the app, their current enabled/disabled status (for feature flags) or values (for platform parameters), and their sync status (i.e. whether they're being synced from the server or using a local developer default). It also allows an explicit manual override to force the feature on or off, or to override the platform parameter's value.
 
 **Tracking issues**: [#5345](https://github.com/oppia/oppia-android/issues/5345) (note that this issue presently includes testing work that may well be completed by [#5565](https://github.com/oppia/oppia-android/pull/5565)).
 
-**Size of this project:** Medium (\~175 hours)
+**Size:** Medium (\~175 hours)
 
 **Difficulty**: Moderate
 
 **Potential mentors:** @Rd4dev
 
-**Product Clarifier:** @BenHenning
-
-**Technical Clarifier:** @BenHenning
+**Product/technical clarifiers:** @BenHenning (product + technical)
 
 **Required knowledge/skills:**
-- General
-  - Figure out the root cause of an issue and communicate it well using a debugging doc.
-- Android:
-  - Build the app and install it on a local device or emulator. Then verify that you can (a) build a non-test library  target locally, (b) run a unit test locally, and (c) play through the app locally.
-  - Write new Kotlin code with unit tests.
-  - Change Android UIs, write tests for them, and manually verify that they work.
+- Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
+- Build the app and install it on a local device or emulator. Then verify that you can (a) build a non-test library  target locally, (b) run a unit test locally, and (c) play through the app locally.
+- Write new Kotlin code with unit tests.
+- Change Android UIs, write tests for them, and manually verify that they work.
 
 **Related issues:**
 
@@ -1145,29 +1101,24 @@ _(Note: Specific issues will be added soon.)_
 
 **Suggested Milestones:**
 - **Milestone 1**: Key deliverables:
-   - Display a developer options-only list of platform parameters and feature flags along with their current values and sync statuses.
+   - Display a list of platform parameters and feature flags from a Developer Options menu, along with their current values and sync statuses.
    - Set up initial tests to demonstrate that the UI displays correctly.
-
-  Suggested PM demo points:
-  - The new UI correctly shows all platform parameters and feature flags, and their correct value and sync statuses.
 
 - **Milestone 2**: Key deliverables:
   - Support for overwriting platform parameters and feature flags, including force-restarting the app upon navigating away from the menu (so that the changes can take effect).
   - Updated UI tests for the new functionality.
 
-  Suggested PM demo points:
-  - The new screen fully supports overriding various platform parameters and feature flag values.
 
-
-**Org-admin/tech-lead commentary/advice:**
+<details>
+<summary>Org-admin/tech-lead commentary/advice</summary>
 
 This project involves introducing a new, isolated user interface that only affects developers (and possibly testers or user study facilitators in the future) which means it doesn't require the same level of gating as regular learner-facing features. It's often nice to work on brand new UIs, as well, since everything is starting in a fresh, clean state rather than building on existing complexity and tests.
 
 The domain side of platform parameters isn't trivial to understand, but it's straightforward to explain and analyze the dataflow. This is expected to be a straightforward project that balances domain and frontend work (with a majority of the work being UI-related).
-
+</details>
 
 <details>
-<summary>What we are looking for in proposals:</summary>
+<summary>What we are looking for in proposals</summary>
 
 - A strong understanding of:
   - Feature flags and platform parameters, including their complete lifecycle for both production and tests.
@@ -1187,6 +1138,11 @@ _This will be added soon._
 </details>
 
 
-### 4.3. TBD
+<details>
+<summary>Suggested PM demo points</summary>
 
-_This project idea is still in development and will be added shortly._
+- Milestone 1: The new UI correctly shows all platform parameters and feature flags, and their correct value and sync statuses.
+
+- Milestone 2: The new screen fully supports overriding various platform parameters and feature flag values.
+</details>
+
