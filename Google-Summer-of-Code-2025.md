@@ -374,17 +374,15 @@ Links to PRD and mocks:
 
 **Potential mentors:** @kevintab95
 
-**Product/Technical Clarifiers:** @seanlip (product), @kevintab95 (technical)
+**Product/technical clarifiers:** @seanlip (product), @kevintab95 (technical)
 
 **Required knowledge/skills:**
-- General
-  - Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
-  - Debug and fix CI failures/flakes.
-- Web:
-  - Write Python code with unit tests.
-  - Write TS + Angular code with unit tests.
-  - Write or modify e2e/acceptance tests.
-  - Write or modify Beam jobs, with tests.
+- Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
+- Debug and fix CI failures/flakes.
+- Write Python code with unit tests.
+- Write TS + Angular code with unit tests.
+- Write or modify e2e/acceptance tests.
+- Write or modify Beam jobs, with tests.
 
 **Related issues:**
 - [RTE-related issues](https://github.com/orgs/oppia/projects/3/views/8?sliceBy%5Bvalue%5D=Creators%3A+RTE+bugs)
@@ -406,6 +404,7 @@ Links to PRD and mocks:
 <details>
 <summary>Org-admin/tech-lead commentary/advice</summary>
 This is an interesting and high-impact project that “has a little bit of everything”, and that should give you a good understanding of the overall Oppia stack. There is very little in the way of completely new functionality here; almost all the parts of the project have some existing precedent in the codebase.
+
 
 If you tackle it, it is important to have a good understanding of the systems involved. Make sure you are familiar with Beam jobs, since these will be important.
 </details>
@@ -465,9 +464,7 @@ If you tackle it, it is important to have a good understanding of the systems in
 
 We currently see a number of unaddressed [server errors](https://github.com/oppia/oppia/labels/server%20errors) on hosted instances of Oppia. Many server errors relate to user-facing bugs, and are a good clue that something is problematic in the application. Furthermore, frequently occurring errors result in the server logs getting noisy, to the point that they are no longer treated as alerts because the volume of errors is too high.
 
-The aim of this project is to address the 15 most common server errors, and improve/clarify the logging to make them easier to debug. This would also make it easier to catch new issues during test deployments, and reduce the overall error rate of the app.
-
-Addressing a server error entails the following:
+The aim of this project is to address the 15 most common server errors, and improve/clarify the logging infrastructure to make server errors easier to debug in general. This would also make it easier to catch new issues during test deployments, and reduce the overall error rate of the app. "Addressing a server error" entails the following:
 
 - Find a set of setup steps and actions that reliably reproduce the error on a local machine (see [this tutorial](https://github.com/oppia/oppia/wiki/Tutorial-Learn-to-Figure-Out-the-Reproduction-Steps-for-a-Server-Error)). If more insight is needed, it is also fine to add some logging and do another deployment to get more information.
 - Identify the root cause of the error.
@@ -483,17 +480,15 @@ Addressing a server error entails the following:
 
 **Potential mentors:** @Nik-09
 
-**Product/Technical Clarifiers:** @kevintab95 (product), @Nik-09 (technical)
+**Product/technical clarifiers:** @kevintab95 (product), @Nik-09 (technical)
 
 **Required knowledge/skills:**
-- General
-  - Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
-- Web:
-  - Write Python code with unit tests.
-  - Write TS + Angular code with unit tests.
-  - Write or modify e2e/acceptance tests.
-  - Write or modify Beam jobs, with tests. (This is because you might need to write audit jobs for debugging certain errors.)
-  - Figure out repro steps based on info from server logs.
+- Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
+- Write Python code with unit tests.
+- Write TS + Angular code with unit tests.
+- Write or modify e2e/acceptance tests.
+- Write or modify Beam jobs, with tests. (This is because you might need to write audit jobs for debugging certain errors.)
+- Figure out repro steps based on info from server logs.
 
 **Related issues:**
 
@@ -511,6 +506,7 @@ If you like, you can also suggest other improvements to the logging infrastructu
 <details>
 <summary>Org-admin/tech-lead commentary/advice</summary>
 This project requires very good debugging skills. You will be exposed to a mix of server errors, some of which are very easy to solve, and others which will require a lot more investigation. Along the way, look for improvements to the infrastructure that would make the debugging process easier (ideally to the point that server errors can be tackled as easily as regular issues).
+
 
 Laying out your work in a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs) is a very important skill for this project, since you will sometimes need to get help and it is important to provide responders with the context needed to do so.
 </details>
@@ -537,11 +533,9 @@ Note that **@kevintab95** and **@lkbhitesh07** have access to the server logs. P
 <details>
 <summary>Suggested PM demo points</summary>
 
-- Milestone 1:
-  - Demonstrate fixes for any server errors with a user-facing behaviour component.
+- Milestone 1: Demonstrate fixes for any server errors with a user-facing behaviour component.
 
-- Milestone 2:
-  - Demonstrate fixes for server errors with a user-facing behaviour component.
+- Milestone 2: Demonstrate fixes for server errors with a user-facing behaviour component.
 </details>
 
 
@@ -568,16 +562,14 @@ Relevant links: [Mini-PRD](https://docs.google.com/document/u/1/d/1922aE9_TEFTbH
 
 **Potential mentors:** @amyyeung17
 
-**Product/Technical Clarifiers:** @seanlip (product), @amyyeung17 (technical)
+**Product/technical clarifiers:** @seanlip (product), @amyyeung17 (technical)
 
 **Required knowledge/skills:**
-- General
-  - Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
-  - Debug and fix CI failures/flakes.
-- Web:
-  - Write Python code with unit tests.
-  - Write TS + Angular code with unit tests.
-  - Write or modify e2e/acceptance tests.
+- Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
+- Debug and fix CI failures/flakes.
+- Write Python code with unit tests.
+- Write TS + Angular code with unit tests.
+- Write or modify e2e/acceptance tests.
 
 **Related issues:**
 
@@ -701,17 +693,15 @@ Link to PRD: [Language Management and Lesson Auto-Translation PRD](https://docs.
 
 **Potential mentors:** @chris7716
 
-**Product/Technical Clarifiers:** @seanlip (product), @chris7716 (technical)
+**Product/technical clarifiers:** @seanlip (product), @chris7716 (technical)
 
 **Required knowledge/skills:**
-- General
-  - Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
-  - Debug and fix CI failures/flakes.
-- Web:
-  - Write Python code with unit tests.
-  - Write TS + Angular code with unit tests.
-  - Write or modify e2e/acceptance tests.
-  - Write or modify Beam jobs, with tests.
+- Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
+- Debug and fix CI failures/flakes.
+- Write Python code with unit tests.
+- Write TS + Angular code with unit tests.
+- Write or modify e2e/acceptance tests.
+- Write or modify Beam jobs, with tests.
 
 **Related issues:**
 
@@ -753,22 +743,32 @@ Please explain the following clearly in your proposal:
 
 <details>
 <summary>Technical hints / guidance</summary>
-  - Much of the computer-aided translation (CAT) backend work has already been done (see [this doc](https://docs.google.com/document/d/1kJd-yLTzB9a2c3Nq7v9pzKfHwKHKGpkWfQ8B0YGf50U/edit#heading=h.jp6no890gjkv) for details). You might like to look at previous unfinished PRs: #12604 / #14418. However, please bear in mind that the translations system has evolved significantly since those PRs were created.
-  - You will need to gate the new functionality behind a `SHOW_TRANSLATION_SUGGESTIONS_IN_CD` [feature flag](https://github.com/oppia/oppia/wiki/Launching-new-features) that gates the integration of translation suggestions to the contributor dashboard. We will only turn on this feature flag once the feature testing process has been completed.
-  - This [design issue](https://github.com/oppia/design-team/issues/128) tracks the progress of the mocks for showing translation suggestions on the contributor dashboard, and you can follow it for updates. That said, for your proposal, please focus more on the technical aspects than the mocks – in general, anything that contributor dashboard submitters can reasonably understand and make use of is fine.
-  - The technical approach we are taking involves pre-generating the auto-translations, to reduce latency at the time of translating. There should therefore be no need to generate auto-translations “in the moment” while a volunteer is submitting a translation via the contributor dashboard. If, for some reason, a stored auto-translation is not available for a piece of content, it is fine to just not show that part of the submission modal. (Don’t error noisily in a way that blocks the experience for the translation submitter.)
-  - The list of languages for which to auto-generate translations can be derived from the information stored in VoiceoverAutogenerationPolicyModel, which contains language codes as keys. This list is currently shown on the /voiceover-admin page.
-  - If you need to migrate JSON properties, following the approach used for migrating the states in the Exploration domain object might help (i.e. introduce a schema version field and use that to perform the migration safely).
-  - To enable the (new version of the) Contributor Admin dashboard, go to /release-coordinator and turn the `cd_admin_dashboard_new_ui` flag on.
-  - Here is a suggested technical sketch for the statistics model changes:
-    - Add a new `exactly_matches_ai_suggestion` boolean field, which defaults to False, to the GeneralSuggestionModel. This is used to increment new `submitted_ai_translations_exact_match_count` fields in `TranslationContributionStatsModel` and `TranslationSubmitterTotalContributionStatsModel` when a contributor’s translation suggestion is exactly the same as the auto-AI suggestion stored in `EntityTranslationsModel`.
-    - Display the new count from `TranslationSubmitterTotalContributionStatsModel` in the relevant table of the Contributor Admin dashboard. (You don't need to display the corresponding count from `TranslationContributionStatsModel` in the contributor's "Contribution Stats" dashboard -- the reason we're storing it there is to make it easy to backfill the `TranslationSubmitterTotalContributionStatsModel` from it if needed, similar to how its other attributes are backfilled.)
-    - Update any Beam backfill jobs that regenerate these statistics, as needed. (Note that `TranslationContributionStatsModel` would need to be backfilled based on the suggestions and entity translations.)
+
+- Much of the computer-aided translation (CAT) backend work has already been done (see [this doc](https://docs.google.com/document/d/1kJd-yLTzB9a2c3Nq7v9pzKfHwKHKGpkWfQ8B0YGf50U/edit#heading=h.jp6no890gjkv) for details). You might like to look at previous unfinished PRs: #12604 / #14418. However, please bear in mind that the translations system has evolved significantly since those PRs were created.
+
+- You will need to gate the new functionality behind a `SHOW_TRANSLATION_SUGGESTIONS_IN_CD` [feature flag](https://github.com/oppia/oppia/wiki/Launching-new-features) that gates the integration of translation suggestions to the contributor dashboard. We will only turn on this feature flag once the feature testing process has been completed.
+
+- This [design issue](https://github.com/oppia/design-team/issues/128) tracks the progress of the mocks for showing translation suggestions on the contributor dashboard, and you can follow it for updates. That said, for your proposal, please focus more on the technical aspects than the mocks – in general, anything that contributor dashboard submitters can reasonably understand and make use of is fine.
+
+- The technical approach we are taking involves pre-generating the auto-translations, to reduce latency at the time of translating. There should therefore be no need to generate auto-translations “in the moment” while a volunteer is submitting a translation via the contributor dashboard. If, for some reason, a stored auto-translation is not available for a piece of content, it is fine to just not show that part of the submission modal. (Don’t error noisily in a way that blocks the experience for the translation submitter.)
+
+- The list of languages for which to auto-generate translations can be derived from the information stored in VoiceoverAutogenerationPolicyModel, which contains language codes as keys. This list is currently shown on the /voiceover-admin page.
+
+- If you need to migrate JSON properties, following the approach used for migrating the states in the Exploration domain object might help (i.e. introduce a schema version field and use that to perform the migration safely).
+
+- To enable the (new version of the) Contributor Admin dashboard, go to /release-coordinator and turn the `cd_admin_dashboard_new_ui` flag on.
+
+- Here is a suggested technical sketch for the statistics model changes:
+  - Add a new `exactly_matches_ai_suggestion` boolean field, which defaults to False, to the GeneralSuggestionModel. This is used to increment new `submitted_ai_translations_exact_match_count` fields in `TranslationContributionStatsModel` and `TranslationSubmitterTotalContributionStatsModel` when a contributor’s translation suggestion is exactly the same as the auto-AI suggestion stored in `EntityTranslationsModel`.
+  - Display the new count from `TranslationSubmitterTotalContributionStatsModel` in the relevant table of the Contributor Admin dashboard. (You don't need to display the corresponding count from `TranslationContributionStatsModel` in the contributor's "Contribution Stats" dashboard -- the reason we're storing it there is to make it easy to backfill the `TranslationSubmitterTotalContributionStatsModel` from it if needed, similar to how its other attributes are backfilled.)
+  - Update any Beam backfill jobs that regenerate these statistics, as needed. (Note that `TranslationContributionStatsModel` would need to be backfilled based on the suggestions and entity translations.)
+
 </details>
 
 
 <details>
 <summary>Suggested PM demo points</summary>
+
 - Milestone 1:
   - Translation autogeneration works properly for rich-text content with different components (skill links, images, etc.).
   - A Beam job allows generation of all autotranslations.
@@ -810,15 +810,13 @@ Relevant documents:
 
 **Potential mentors:** @imchristie
 
-**Product/Technical Clarifiers:** @seanlip (product), @imchristie (technical)
+**Product/technical clarifiers:** @seanlip (product), @imchristie (technical)
 
 **Required knowledge/skills:**
-- General
-  - Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
-  - Debug and fix CI failures/flakes.
-- Web:
-  - Write TS + Angular code with unit tests.
-  - Write or modify e2e/acceptance tests.
+- Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
+- Debug and fix CI failures/flakes.
+- Write TS + Angular code with unit tests.
+- Write or modify e2e/acceptance tests.
 
 **Related issues:**
 
@@ -833,6 +831,7 @@ Acceptance test infrastructure: https://github.com/orgs/oppia/projects/8/views/1
 <details>
 <summary>Org-admin/tech-lead commentary/advice</summary>
 This is not a hard project, since a lot of the infrastructure has been written and there are lots of examples that you can follow. The most important thing is to set up a good development cycle so that you can debug issues with tests quickly.
+
 
 It is important that you are able to get the tests running on your machine, so that you can pause them when needed and investigate to see what is going wrong.
 </details>
@@ -870,11 +869,10 @@ Some things you could address in your proposal:
 
 <details>
 <summary>Suggested PM demo points</summary>
-- Milestone 1:
-  - Acceptance tests for the exploration creator user journeys have been written.
 
-- Milestone 2:
-  - Acceptance tests for the contributor dashboard user journeys have been written.
+- Milestone 1: Acceptance tests for the exploration creator user journeys have been written.
+
+- Milestone 2: Acceptance tests for the contributor dashboard user journeys have been written.
 </details>
 
 
@@ -895,14 +893,12 @@ The aim of this project is to standardize these migration jobs so that there is 
 
 **Potential mentors:** @U8NWXD
 
-**Product/Technical Clarifiers:** @seanlip (product), @U8NWXD (technical)
+**Product/technical clarifiers:** @seanlip (product), @U8NWXD (technical)
 
 **Required knowledge/skills:**
-- General
-  - Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
-- Web:
-  - Write Python code with unit tests.
-  - Write or modify Beam jobs, with tests.
+- Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
+- Write Python code with unit tests.
+- Write or modify Beam jobs, with tests.
 
 Additionally, strong technical design skills and a good sense of code architecture are helpful.
 
@@ -920,9 +916,7 @@ Additionally, strong technical design skills and a good sense of code architectu
 
 <details>
 <summary>Org-admin/tech-lead commentary/advice</summary>
-This project requires a very good understanding of how our migration pipeline works, and a solid grasp of technical architecture so that you can make good design decisions for how the base classes and their subclasses are structured.
-
-However, once that is well-understood, it should not be too difficult to implement. You will probably find deleting all the old code at the end quite satisfying!
+This project requires a very good understanding of how our migration pipeline works, and a solid grasp of technical architecture so that you can make good design decisions for how the base classes and their subclasses are structured. However, once that is well-understood, it should not be too difficult to implement. You will probably find deleting all the old code at the end quite satisfying!
 </details>
 
 <details>
@@ -986,11 +980,10 @@ In addition to your implementation approach, please also:
 
 <details>
 <summary>Suggested PM demo points</summary>
-- Milestone 1:
-  - At least one domain object is using BaseVersionedDomainObject, and all the get/save functionality works correctly.
 
-- Milestone 2:
-  - All jobs run correctly on the backup server.
+- Milestone 1: At least one domain object is using BaseVersionedDomainObject, and all the get/save functionality works correctly.
+
+- Milestone 2: All jobs run correctly on the backup server.
 </details>
 
 
@@ -1019,15 +1012,13 @@ Relevant links: Mocks (https://github.com/oppia/design-team/issues/50) and [PRD]
 
 **Potential mentors:** @adhiamboperes
 
-**Product/Technical Clarifiers:** @seanlip (product), @BenHenning (technical)
+**Product/technical clarifiers:** @seanlip (product), @BenHenning (technical)
 
 **Required knowledge/skills:**
-- General
-  - Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
-- Android:
-  - Build the app and install it on a local device or emulator. Then verify that you can (a) build a non-test library  target locally, (b) run a unit test locally, and (c) play through the app locally.
-  - Write new Kotlin code with unit tests.
-  - Change Android UIs, write tests for them, and manually verify that they work.
+- Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
+- Build the app and install it on a local device or emulator. Then verify that you can (a) build a non-test library  target locally, (b) run a unit test locally, and (c) play through the app locally.
+- Write new Kotlin code with unit tests.
+- Change Android UIs, write tests for them, and manually verify that they work.
 
 **Related issues:**
 
@@ -1044,6 +1035,7 @@ _(Note: Additional issues will be added soon.)_
 <details>
 <summary>Org-admin/tech-lead commentary/advice</summary>
 This project involves a lot of very gritty coding work in the most critical code pathways in the app: the core learner flow. These are not simple areas of the app as Oppia's core lesson flow is fundamentally complex, but fortunately there are dozens of past projects and changes that have changed these coding areas (which may act as good references) and the codepath has generally excellent test coverage (which means we can be confident when we make changes to these areas).
+
 
 Making changes to the core lesson flow may be a combination of feeling like a lot of progress is being made (when adding some of the fairly substantial boilerplate involved in adding views to the lesson flow), and other times where it can take a while just to add a few lines of code (due to the surrounding area being particularly complex, such as for the actor-based [ExplorationProgressController](https://github.com/oppia/oppia-android/blob/4f58be9d399c70e1d1cd241495280ae913afbf07/domain/src/main/java/org/oppia/android/domain/exploration/ExplorationProgressController.kt#L106)). It may be very difficult to fully grok the full dependency and data flow for explorations, but it's usually straightforward to jump in and start making changes that in turn show up in the lesson viewer frontend.
 </details>
@@ -1069,11 +1061,10 @@ _This will be added soon._
 
 <details>
 <summary>Suggested PM demo points</summary>
-- Milestone 1:
-  - Trigger a “user is soft redirected” state to demonstrate the flashback dialog.
 
-- Milestone 2:
-  - Demonstrate the "user is soft-redirected" flashback with the in-line "Learn Again" button along with the new item selection and multiple choice interaction views (for submitted answers).
+- Milestone 1: Trigger a “user is soft redirected” state to demonstrate the flashback dialog.
+
+- Milestone 2: Demonstrate the "user is soft-redirected" flashback with the in-line "Learn Again" button along with the new item selection and multiple choice interaction views (for submitted answers).
 </details>
 
 
@@ -1094,15 +1085,13 @@ This project entails introducing a developer-only UI (as part of the developer o
 
 **Potential mentors:** @Rd4dev
 
-**Product/Technical Clarifiers:** @BenHenning (product + technical)
+**Product/technical clarifiers:** @BenHenning (product + technical)
 
 **Required knowledge/skills:**
-- General
-  - Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
-- Android:
-  - Build the app and install it on a local device or emulator. Then verify that you can (a) build a non-test library  target locally, (b) run a unit test locally, and (c) play through the app locally.
-  - Write new Kotlin code with unit tests.
-  - Change Android UIs, write tests for them, and manually verify that they work.
+- Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
+- Build the app and install it on a local device or emulator. Then verify that you can (a) build a non-test library  target locally, (b) run a unit test locally, and (c) play through the app locally.
+- Write new Kotlin code with unit tests.
+- Change Android UIs, write tests for them, and manually verify that they work.
 
 **Related issues:**
 
@@ -1121,6 +1110,7 @@ _(Note: Specific issues will be added soon.)_
 <details>
 <summary>Org-admin/tech-lead commentary/advice</summary>
 This project involves introducing a new, isolated user interface that only affects developers (and possibly testers or user study facilitators in the future) which means it doesn't require the same level of gating as regular learner-facing features. It's often nice to work on brand new UIs, as well, since everything is starting in a fresh, clean state rather than building on existing complexity and tests.
+
 
 The domain side of platform parameters isn't trivial to understand, but it's straightforward to explain and analyze the dataflow. This is expected to be a straightforward project that balances domain and frontend work (with a majority of the work being UI-related).
 </details>
@@ -1148,10 +1138,9 @@ _This will be added soon._
 
 <details>
 <summary>Suggested PM demo points</summary>
-- Milestone 1:
-  - The new UI correctly shows all platform parameters and feature flags, and their correct value and sync statuses.
 
-- Milestone 2:
-  - The new screen fully supports overriding various platform parameters and feature flag values.
+- Milestone 1: The new UI correctly shows all platform parameters and feature flags, and their correct value and sync statuses.
+
+- Milestone 2: The new screen fully supports overriding various platform parameters and feature flag values.
 </details>
 
