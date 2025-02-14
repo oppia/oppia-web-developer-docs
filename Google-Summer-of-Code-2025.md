@@ -368,15 +368,13 @@ Links to PRD and mocks:
 - Enabling the use of worked examples in hints and feedback. (We will do this later once we have tried out the functionality in subtopic pages and skill descriptions.)
 - Implementing the more detailed validation described in the PRD (for limiting the number of worked examples to 2 if there are no images, or limiting them to 3 if there are images). For now, we will go with a general limit of 2.
 
-**Size of this project:** Large (\~350 hours)
+**Size:** Large (\~350 hours)
 
 **Difficulty**: Moderate/Hard
 
 **Potential mentors:** @kevintab95
 
-**Product Clarifier:** @seanlip
-
-**Technical Clarifier:** @kevintab95
+**Product/Technical Clarifiers:** @seanlip (product), @kevintab95 (technical)
 
 **Required knowledge/skills:**
 - General
@@ -405,15 +403,15 @@ Links to PRD and mocks:
 
   Implement a new 'Worked Example' RTE component that appears only in the skill explanation and subtopic page RTEs, and validate that skill explanations cannot have more than 2 such components. Add acceptance tests for the learner and creator flows to verify that they align with [these mocks](https://www.figma.com/design/1e1pq5PSoiULZqM4zvVNY0/Oppia-%23136-Incorporate-worked-examples-in-the-learning-experience?node-id=0-1&p=f&t=a47Jd68ycVXdkjdM-0). Ensure that this component is translatable in the contributor dashboard, and update the [translation guide](https://docs.google.com/document/d/17jMFtfHVWtJYrzyGQUKdsRXgky7lWv76sGYLOxSbA5w/edit?tab=t.0#heading=h.5mvcuwerfyif) to include it.
 
-
-**Org-admin/tech-lead commentary/advice:**
-
+<details>
+<summary>Org-admin/tech-lead commentary/advice</summary>
 This is an interesting and high-impact project that “has a little bit of everything”, and that should give you a good understanding of the overall Oppia stack. There is very little in the way of completely new functionality here; almost all the parts of the project have some existing precedent in the codebase.
 
 If you tackle it, it is important to have a good understanding of the systems involved. Make sure you are familiar with Beam jobs, since these will be important.
+</details>
 
 <details>
-<summary>What we are looking for in proposals:</summary>
+<summary>What we are looking for in proposals</summary>
 
 - Almost all parts of this project have some precedent in the existing codebase, and it is important to maintain consistency with the existing implementations. Thus, in your proposal, when describing your technical approach, please also point to the existing parts of the codebase that already use a similar approach.
 
@@ -479,15 +477,13 @@ Addressing a server error entails the following:
 
 **Tracking issues**: _(To be updated.)_
 
-**Size of this project:** Medium (\~175 hours)
+**Size:** Medium (\~175 hours)
 
 **Difficulty**: Moderate
 
 **Potential mentors:** @Nik-09
 
-**Product Clarifier:** @kevintab95
-
-**Technical Clarifier:** @Nik-09
+**Product/Technical Clarifiers:** @kevintab95 (product), @Nik-09 (technical)
 
 **Required knowledge/skills:**
 - General
@@ -512,14 +508,15 @@ If you like, you can also suggest other improvements to the logging infrastructu
 
 - **Milestone 2**: Fix the 8 next-most common [server errors]((https://github.com/oppia/oppia/labels/server%20errors)).
 
-**Org-admin/tech-lead commentary/advice:**
-
+<details>
+<summary>Org-admin/tech-lead commentary/advice</summary>
 This project requires very good debugging skills. You will be exposed to a mix of server errors, some of which are very easy to solve, and others which will require a lot more investigation. Along the way, look for improvements to the infrastructure that would make the debugging process easier (ideally to the point that server errors can be tackled as easily as regular issues).
 
 Laying out your work in a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs) is a very important skill for this project, since you will sometimes need to get help and it is important to provide responders with the context needed to do so.
+</details>
 
 <details>
-<summary>What we are looking for in proposals:</summary>
+<summary>What we are looking for in proposals</summary>
 
 For the proposal, we recommend that you focus on identifying around 15 issues tagged as “server errors”, correctly outline their root cause, and propose a fix. These should include most of the ones from the list in the project description, as well as additional ones of your choice. You may also link to reproduction instructions (with video proof) and public debugging docs that you have already added to the corresponding issue threads.
 
@@ -565,15 +562,13 @@ Relevant links: [Mini-PRD](https://docs.google.com/document/u/1/d/1922aE9_TEFTbH
 - Implementing the speed adjuster in the voiceover toolbar
 - Implementing the "Get Help" control in the sidebar and the tutorials within it
 
-**Size of this project:** Large (\~350 hours)
+**Size:** Large (\~350 hours)
 
 **Difficulty**: Hard
 
 **Potential mentors:** @amyyeung17
 
-**Product Clarifier:** @seanlip
-
-**Technical Clarifier:** @amyyeung17
+**Product/Technical Clarifiers:** @seanlip (product), @amyyeung17 (technical)
 
 **Required knowledge/skills:**
 - General
@@ -607,17 +602,17 @@ Any non-backlog issues in the "Lesson Player CUJs" section of the [LaCE project 
 
   Flip the launch flag, and, once the new player is serving in production, remove the code for the old lesson player.
 
-**Org-admin/tech-lead commentary/advice:**
-
+<details>
+<summary>Org-admin/tech-lead commentary/advice</summary>
 This is not an easy project. Although it primarily involves UI, it still requires quite a strong understanding of Angular and "layered architecture".
 
 The most important part is the very first part, which involves refactoring the existing UI (in a way that doesn't make any changes to functionality) so that the “services” code is properly separated from "UI" code. To do this properly, you will need to have a strong understanding of how the different pieces of the UI connect together in the new implementation, and be able to write out that specification.
 
 After the service code is properly isolated, the rest of the implementation should be fairly straightforward. However, there are a number of subparts and constraints to keep track of, so it will be important to plan the work in an organized way.
-
+</details>
 
 <details>
-<summary>What we are looking for in proposals:</summary>
+<summary>What we are looking for in proposals</summary>
 
 For the proposal, we would like to see answers to the following questions:
 
@@ -700,15 +695,13 @@ Link to PRD: [Language Management and Lesson Auto-Translation PRD](https://docs.
 - Enabling translations for concept cards, review cards, or practice questions
 - Showing auto-generated translations in the learner view (see https://github.com/oppia/oppia/issues/16164 for more information).
 
-**Size of this project:** Large (\~350 hours)
+**Size:** Large (\~350 hours)
 
 **Difficulty**: Hard
 
 **Potential mentors:** @chris7716
 
-**Product Clarifier:** @seanlip
-
-**Technical Clarifier:** @chris7716
+**Product/Technical Clarifiers:** @seanlip (product), @chris7716 (technical)
 
 **Required knowledge/skills:**
 - General
@@ -734,15 +727,16 @@ Issues related to translation submitters are good ones to tackle: https://github
 - **Milestone 2**: When a curated entity (lesson, topic, skill, etc.) is edited, this should trigger an auto-translation of the added/edited content. When a curated entity is published, this should trigger a full auto-translation of all strings that don't have auto-translations yet. These auto-generated translations are then shown to contributors in the contributor dashboard UI, together with an annotation explaining their origin.
 
 
-**Org-admin/tech-lead commentary/advice:**
+<details>
+<summary>Org-admin/tech-lead commentary/advice</summary>
 
 This is a difficult project that involves building and completing a pipeline that can greatly reduce the effort needed to internationalize lessons. The main things to be prepared for are Beam jobs and working with an external translation service.
 
 When planning your milestones, try and do the Beam testing as early as possible so that you have enough time to debug any issues that arise. For the translation service, it is essential to have a quick way to test it, because you will likely need to fine-tune how you send the strings to the service. Getting that set up can involve some registration/activation steps, so it's worth getting familiar with the pipeline to ensure that you will have a good development environment to iterate in.
-
+</details>
 
 <details>
-<summary>What we are looking for in proposals:</summary>
+<summary>What we are looking for in proposals</summary>
 
 Please explain the following clearly in your proposal:
 
@@ -810,15 +804,13 @@ Relevant documents:
 - Enabling translations for concept cards, review cards, or practice questions
 - Showing auto-generated translations in the learner view (see https://github.com/oppia/oppia/issues/16164 for more information).
 
-**Size of this project:** Large (\~350 hours)
+**Size:** Large (\~350 hours)
 
 **Difficulty**: Easy / Moderate
 
 **Potential mentors:** @imchristie
 
-**Product Clarifier:** @seanlip
-
-**Technical Clarifier:** @imchristie
+**Product/Technical Clarifiers:** @seanlip (product), @imchristie (technical)
 
 **Required knowledge/skills:**
 - General
@@ -838,15 +830,15 @@ Acceptance test infrastructure: https://github.com/orgs/oppia/projects/8/views/1
 - **Milestone 2**: Complete all other remaining acceptance tests (as specified in [#21646](https://github.com/oppia/oppia/issues/21646)), and ensure that they run on all PRs by adding them to the "acceptance test" GitHub workflow. Remove any existing webdriverio tests whose functionality is fully covered by the new acceptance tests. If any webdriverio tests remain after this step, translate them into CUJs and work with the QA team to make them part of the CUJ document, then implement the corresponding acceptance tests. Finally, remove the old webdriverio and e2e test framework completely.
 
 
-**Org-admin/tech-lead commentary/advice:**
-
+<details>
+<summary>Org-admin/tech-lead commentary/advice</summary>
 This is not a hard project, since a lot of the infrastructure has been written and there are lots of examples that you can follow. The most important thing is to set up a good development cycle so that you can debug issues with tests quickly.
 
 It is important that you are able to get the tests running on your machine, so that you can pause them when needed and investigate to see what is going wrong.
-
+</details>
 
 <details>
-<summary>What we are looking for in proposals:</summary>
+<summary>What we are looking for in proposals</summary>
 
 For this particular GSoC project, the proposal is less important and we are more interested in your previous PRs. In particular, each of the following can significantly enhance your application:
 
@@ -897,15 +889,13 @@ The aim of this project is to standardize these migration jobs so that there is 
 
 **Tracking issues**: [#21646](https://github.com/oppia/oppia/issues/21646)
 
-**Size of this project:** Medium (\~175 hours)
+**Size:** Medium (\~175 hours)
 
 **Difficulty**: Moderate
 
 **Potential mentors:** @U8NWXD
 
-**Product Clarifier:** @seanlip
-
-**Technical Clarifier:** @U8NWXD
+**Product/Technical Clarifiers:** @seanlip (product), @U8NWXD (technical)
 
 **Required knowledge/skills:**
 - General
@@ -927,15 +917,16 @@ Additionally, strong technical design skills and a good sense of code architectu
 
 - **Milestone 2**: Create BaseMigrateVersionedModelJob and BaseMigrateVersionedModelSnapshotsJob classes with the core logic for upgrading models and snapshots to the latest schema versions, respectively. Use these to build both job and audit job subclasses for all versioned models (explorations, skills, stories, subtopic pages, questions, topics, collections) with proper logging and error reporting (e.g. if a migration fails, the model that could not be migrated should be logged for debugging). Test these jobs on production data to ensure that they work correctly, and fix any issues that arise. Finally, run all the jobs in all our production environments, so that all the models and snapshots on the server are upgraded to the latest schema versions, then remove the old jobs and the old conversion functions for all 7 versioned models, as well as the methods they call (similar to what was done in https://github.com/oppia/oppia/pull/12256/files).
 
-**Org-admin/tech-lead commentary/advice:**
 
+<details>
+<summary>Org-admin/tech-lead commentary/advice</summary>
 This project requires a very good understanding of how our migration pipeline works, and a solid grasp of technical architecture so that you can make good design decisions for how the base classes and their subclasses are structured.
 
 However, once that is well-understood, it should not be too difficult to implement. You will probably find deleting all the old code at the end quite satisfying!
-
+</details>
 
 <details>
-<summary>What we are looking for in proposals:</summary>
+<summary>What we are looking for in proposals</summary>
 
 In addition to your implementation approach, please also:
 
@@ -1022,15 +1013,13 @@ Relevant links: Mocks (https://github.com/oppia/design-team/issues/50) and [PRD]
 
 **Tracking issues**: _To be updated._
 
-**Size of this project:** Medium (\~175 hours)
+**Size:** Medium (\~175 hours)
 
 **Difficulty**: Moderate
 
 **Potential mentors:** @adhiamboperes
 
-**Product Clarifier:** @seanlip
-
-**Technical Clarifier:** @BenHenning
+**Product/Technical Clarifiers:** @seanlip (product), @BenHenning (technical)
 
 **Required knowledge/skills:**
 - General
@@ -1052,15 +1041,15 @@ _(Note: Additional issues will be added soon.)_
 - **Milestone 2**: The flashback dialog is hooked up with the learner flow to have an in-line view (i.e. the 'Learn Again' button is attached to the incorrect answer that led to the flashback), and relevant UI tests are added. Also, the new designs for multiple choice and item selection interactions are implemented.
 
 
-**Org-admin/tech-lead commentary/advice:**
-
+<details>
+<summary>Org-admin/tech-lead commentary/advice</summary>
 This project involves a lot of very gritty coding work in the most critical code pathways in the app: the core learner flow. These are not simple areas of the app as Oppia's core lesson flow is fundamentally complex, but fortunately there are dozens of past projects and changes that have changed these coding areas (which may act as good references) and the codepath has generally excellent test coverage (which means we can be confident when we make changes to these areas).
 
 Making changes to the core lesson flow may be a combination of feeling like a lot of progress is being made (when adding some of the fairly substantial boilerplate involved in adding views to the lesson flow), and other times where it can take a while just to add a few lines of code (due to the surrounding area being particularly complex, such as for the actor-based [ExplorationProgressController](https://github.com/oppia/oppia-android/blob/4f58be9d399c70e1d1cd241495280ae913afbf07/domain/src/main/java/org/oppia/android/domain/exploration/ExplorationProgressController.kt#L106)). It may be very difficult to fully grok the full dependency and data flow for explorations, but it's usually straightforward to jump in and start making changes that in turn show up in the lesson viewer frontend.
-
+</details>
 
 <details>
-<summary>What we are looking for in proposals:</summary>
+<summary>What we are looking for in proposals</summary>
 
 - An explanation for how the new functionality will be gated behind a [feature flag](https://github.com/oppia/oppia-android/wiki/Platform-Parameters-&-Feature-Flags) to ensure that changes don't get shipped to end users before the feature is completed.
 - A list of test names that will be added (we generally add automated tests for every code change).
@@ -1099,15 +1088,13 @@ This project entails introducing a developer-only UI (as part of the developer o
 
 **Tracking issues**: [#5345](https://github.com/oppia/oppia-android/issues/5345) (note that this issue presently includes testing work that may well be completed by [#5565](https://github.com/oppia/oppia-android/pull/5565)).
 
-**Size of this project:** Medium (\~175 hours)
+**Size:** Medium (\~175 hours)
 
 **Difficulty**: Moderate
 
 **Potential mentors:** @Rd4dev
 
-**Product Clarifier:** @BenHenning
-
-**Technical Clarifier:** @BenHenning
+**Product/Technical Clarifiers:** @BenHenning (product + technical)
 
 **Required knowledge/skills:**
 - General
@@ -1131,15 +1118,15 @@ _(Note: Specific issues will be added soon.)_
   - Updated UI tests for the new functionality.
 
 
-**Org-admin/tech-lead commentary/advice:**
-
+<details>
+<summary>Org-admin/tech-lead commentary/advice</summary>
 This project involves introducing a new, isolated user interface that only affects developers (and possibly testers or user study facilitators in the future) which means it doesn't require the same level of gating as regular learner-facing features. It's often nice to work on brand new UIs, as well, since everything is starting in a fresh, clean state rather than building on existing complexity and tests.
 
 The domain side of platform parameters isn't trivial to understand, but it's straightforward to explain and analyze the dataflow. This is expected to be a straightforward project that balances domain and frontend work (with a majority of the work being UI-related).
-
+</details>
 
 <details>
-<summary>What we are looking for in proposals:</summary>
+<summary>What we are looking for in proposals</summary>
 
 - A strong understanding of:
   - Feature flags and platform parameters, including their complete lifecycle for both production and tests.
