@@ -144,12 +144,14 @@ Navigate to the exploration player page and start a lesson. Once you’re inside
 * Whether the **background blurs** when the modal is open.
 
 These observations will help you connect the expected behavior with the current behavior, setting the stage for the changes you need to make.  
-![][image1]
+![Exploration Player Page](images/TutorialUIImprovements/ExplorationPlayer.png)
 
 #### Review the Current UI
 
 The screenshot below shows the feedback submission popover as it appears currently:  
-![][image2]  
+
+![Exploration Player Page With FeedbackPopover Opened](images/TutorialUIImprovements/ExplorationPlayerWithFeedbackPopover.png)
+
 As described in the issue, the following changes are needed:
 
 * Move the submit button to the left and the "Save Anonymously" checkbox to the right.  
@@ -170,7 +172,7 @@ Now that we’ve analyzed the issue and identified the expected behavior, it’s
 
 Open the "Elements" tab in your browser’s developer tools (e.g., Chrome DevTools) to inspect the webpage. Hover over the feedback submission modal in inspect mode to highlight the relevant code. The modal is defined by the `oppia-feedback-popup` tag.
 
-### **![][image3]**
+![Exploration Player Page With Console Opened](images/TutorialUIImprovements/ExplorationPlayerWithConsole.png)
 
 *Tip: When working on a UI bug, the browser console is a powerful tool for quickly testing potential fixes without modifying the actual codebase. By applying temporary CSS changes or rearranging HTML elements directly in the console, you can prototype and validate your approach before making permanent updates to the code.*
 
@@ -193,12 +195,17 @@ Now that you have identified the `<oppia-feedback-popup>` tag in the browser too
 
 Perform a global search in your code editor for `oppia-feedback-popup`. Use the `.html` file filter to locate the template. Upon searching for oppia-feedback-popup, we can see the following instances.
 
-![][image4]
+![VSCode Global Search](images/TutorialUIImprovements/VSCodeGlobalSearch.png)
 
 We can also include the .ts file so that we can figure out which typescript file declares this tag oppia-feedback-popup as the component selector. (To know more about these Angular-specific terms, you can go through the official angular documentation at [https://angular.dev/guide/components/selectors](https://angular.dev/guide/components/selectors).) You should find the following Angular component definition:
 
-| @Component({  selector: 'oppia-feedback-popup',  templateUrl: './feedback-popup.component.html',})  |
-| :---- |
+```python
+@Component({
+  selector: 'oppia-feedback-popup',
+  templateUrl: './feedback-popup.component.html',
+})
+
+```
 
 The file `oppia/core/templates/pages/exploration-player-page/layout-directives/feedback-popup.component.html` contains the HTML structure for the modal and the navbar component is located in `learner-local-nav.component.html`.
 
@@ -206,7 +213,7 @@ The file `oppia/core/templates/pages/exploration-player-page/layout-directives/f
 
 At this stage, we’ve understood the issue and located the relevant code. Now, we’ll focus on the implementation part. Since this is a UI-related issue, it might involve some back-and-forth between the code and the local server to see how changes reflect visually. It’s common to try out different approaches (trial and error) to arrive at the best solution.
 
-### Breaking Down the Problem:
+### Experimenting and Iterating
 
 We’ll break the problem into two parts:
 
@@ -215,8 +222,6 @@ We’ll break the problem into two parts:
    * Place the **"Save Anonymously" Checkbox** on the **right**.  
 2. **Implementing a Background Blur Effect:**  
    * Blur the background when the **Feedback popover** is open so the focus stays on the modal.
-
-### Experimenting and Iterating
 
 ##### Task 1: Rearranging the UI Elements
 
@@ -234,14 +239,29 @@ At first glance, this seems like a simple HTML adjustment, and in most cases, it
 
 Here’s the updated code after making the required changes:
 
-|   \<div class\="oppia\-feedback\-popover\-bottom\-container"\>     \<div class\="checkbox oppia\-checkbox" \*ngIf\="isLoggedIn"\>       \<label\>         \<input type\="checkbox" \[(ngModel)\]="isSubmitterAnonymized" class\="e2e\-test\-stay\-anonymous\-checkbox"\>         \<span\>{{ 'I18N\_PLAYER\_STAY\_ANONYMOUS' | translate }}\</span\>       \</label\>     \</div\>     \<\!-- The z\-index ensures that the button is not overlapped by the checkbox div. \--\>     \<button mat-button class=" btn btn-success float-right oppia-exploration-feedback-submit-btn e2e-test-exploration-feedback-submit-btn"             \[ngClass\]="{'oppia-feedback-popover-submit-btn-enabled': feedbackText}"             (click)="saveFeedback()"             \[disabled\]="\!feedbackText || feedbackText.length \> MAX\_REVIEW\_MESSAGE\_LENGTH"\>       {{ 'I18N\_PLAYER\_SUBMIT\_BUTTON' | translate }}     \</button\>   \</div\>  |
-| :---- |
+```html
+  <div class="oppia-feedback-popover-bottom-container">
+     <div class="checkbox oppia-checkbox" *ngIf="isLoggedIn">
+       <label>
+         <input type="checkbox" [(ngModel)]="isSubmitterAnonymized" class="e2e-test-stay-anonymous-checkbox">
+         <span>{{ 'I18N_PLAYER_STAY_ANONYMOUS' | translate }}</span>
+       </label>
+     </div>
+     <!-- The z-index ensures that the button is not overlapped by the checkbox div. -->
+     <button mat-button class=" btn btn-success float-right oppia-exploration-feedback-submit-btn e2e-test-exploration-feedback-submit-btn"
+             [ngClass]="{'oppia-feedback-popover-submit-btn-enabled': feedbackText}"
+             (click)="saveFeedback()"
+             [disabled]="!feedbackText || feedbackText.length > MAX_REVIEW_MESSAGE_LENGTH">
+       {{ 'I18N_PLAYER_SUBMIT_BUTTON' | translate }}
+     </button>
+    </div>
+```
 
 Notice how the Checkbox now comes first in the code, followed by the Submit Button. This change should directly reflect in the UI.
 
 *If you’ve worked with HTML before, you’ll know that the order of elements in the code typically determines their order on the screen. For horizontal layouts, the default rule applies: top-to-bottom in the code translates to left-to-right in the UI. Keep in mind that CSS properties like `flex`, `grid`, or `float` can override this behavior, but for this case, simply reordering the tags in the code is sufficient.*
 
-**![][image5]**
+![Exploration Player Page with Html Changes](images/TutorialUIImprovements/ExplorationPlayerWithHtmlChanges.png)
 
 ##### Task 2: Implementing a Background Blur
 
@@ -255,17 +275,21 @@ The feedback popover is defined in the `feedback-popup.component.html` file. An 
 
 The target element is:
 
-| \<div class\="oppia\-feedback\-popup\-container"\> |
-| :---- |
+```html
+<div class\="oppia\-feedback\-popup\-container"\>
+```
 
 Let’s add a CSS class to it with a blur effect:
 
-| .oppia-feedback-popup-container {   background: rgba(0, 0, 0, 0.5);} |
-| :---- |
+```css
+.oppia-feedback-popup-container {
+   background: rgba(0, 0, 0, 0.5);
+}
+```
 
 Now, refresh your local server and check the result.
 
-![][image6]
+![Entire Feedback Popover Page is blurred](images/TutorialUIImprovements/ExplorationPlayerEntireFeedbackPopverIsBlurred.png)
 
 The background blur only affects the container of the popover—it doesn’t span across the entire page.
 
@@ -280,13 +304,22 @@ Time for a new approach.
 Let’s try creating a **sibling div** alongside the popover container. The idea is to create an overlay div that spans the entire screen when the popover is open.  
 In `feedback-popup.component.html`, add the following at the end of the HTML:
 
-| \<div class\="popover\-backdrop"\>\</div\> |
-| :---- |
+```html
+<div class="popover-backdrop"></div>
+```
 
 And add the CSS:
 
-| .popover-backdrop {   position: fixed;   top: 0;   left: 0;   width: 100%;   height: 100%;   background: rgba(0, 0, 0, 0.5);} |
-| :---- |
+```css
+.popover-backdrop {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: rgba(0, 0, 0, 0.5);
+}
+```
 
 **What is this code doing?**
 
@@ -296,7 +329,7 @@ And add the CSS:
 
 Save your changes, refresh the server, and check the result.
 
-![][image6]
+![Entire Feedback Popover Page is blurred](images/TutorialUIImprovements/ExplorationPlayerEntireFeedbackPopverIsBlurred.png)
 
 Alright, it looks like we’ve hit a roadblock. The background blur still isn’t covering the entire screen, and it seems stuck inside the boundaries of the feedback popover. That’s frustrating, but roadblocks like this are normal when working on UI issues. Now’s a good time to pause, step back, and think about what we’re trying to solve before diving deeper.
 
@@ -378,13 +411,20 @@ In our case, setting ViewEncapsulation.None disables Angular's style encapsulati
 
 Let’s make this change in the feedback-popup.component.ts file. Update the @Component decorator like this:
 
-| @Component({ selector: 'oppia-feedback-popup', templateUrl: './feedback-popup.component.html', encapsulation: ViewEncapsulation.None}) |
-| :---- |
+```python
+@Component({
+ selector: 'oppia-feedback-popup',
+ templateUrl: './feedback-popup.component.html',
+ encapsulation: ViewEncapsulation.None
+})
+```
 
 This change disables the default scoping behavior, allowing our styles to apply globally.
 
-Head back to your local server and refresh the exploration player page.   
-![][image7]  
+Head back to your local server and refresh the exploration player page.
+
+![Entire Page is blurred](images/TutorialUIImprovements/EntirePageIsBlurred.png)
+
 After refreshing, you’ll likely notice:
 
 * The blur effect now covers the entire screen – great\!  
@@ -424,11 +464,25 @@ This will ensure the blur stays in the background while the popover remains inte
 
 Let’s update our CSS styles accordingly:
 
-| .oppia-feedback-popup-container {   z-index: 1300;   min-width: 200px;}.popover-backdrop {   position: fixed;   top: 0;   left: 0;   width: 100%;   height: 100%;   background: rgba(0, 0, 0, 0.5); /\* Dim background \*/   z-index: 1040;} |
-| :---- |
+```css
+.oppia-feedback-popup-container {
+   z-index: 1300;
+   min-width: 200px;
+}
+.popover-backdrop {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: rgba(0, 0, 0, 0.5); /* Dim background */
+   z-index: 1040;
+}
+```
 
 Now let’s test on the local machine.   
-![][image8]
+
+![Trial 3 Testing](images/TutorialUIImprovements/Trial3Testing.png)
 
 And hurray, it works as expected now.
 
@@ -470,8 +524,17 @@ We need to track whether the feedback popover is open using a state variable in 
 
 In the parent component (`learner-local-nav.component.ts`), we will add a new variable to track whether the popover is open.To control the overlay's visibility, update the `learner-local-nav.component.ts` file by introducing a new variable `popoverIsOpen`. The default value of this variable should be false.
 
-| export class LearnerLocalNavComponent implements OnInit { canEdit: boolean \= false; // The following property is set to null when the // user is not logged in. username: string | null \= ''; feedbackOptionIsShown: boolean \= true; explorationId\!: string; popoverIsOpen \= false; @ViewChild('feedbackPopOver') feedbackPopOver\!: NgbPopover; |
-| :---- |
+```python
+export class LearnerLocalNavComponent implements OnInit {
+    canEdit: boolean = false;
+    // The following property is set to null when the
+    // user is not logged in.
+    username: string | null = '';
+    feedbackOptionIsShown: boolean = true;
+    explorationId!: string;
+    popoverIsOpen = false;
+    @ViewChild('feedbackPopOver') feedbackPopOver!: NgbPopover;
+```
 
 This variable will toggle between `true` and `false` depending on whether the popover is open or closed.
 
@@ -484,8 +547,29 @@ Next, we need to ensure that the overlay is dynamically rendered based on `isPop
 
 To ensure the `popoverIsOpen` variable maintains accurate values, we need to review how the opening and closing of the popover are handled in the `learner-local-nav.component.html` file. Here’s the relevant portion of the `learner-local-nav.component.html` file:
 
-| \<ng-template \#popContent\>  \<oppia-feedback-popup (closePopover)="closePopover()"\>\</oppia-feedback-popup\>\</ng-template\>\<ul class\="nav navbar\-nav oppia\-navbar\-nav float\-right mr\-0"\>  \<li \*ngIf\="feedbackOptionIsShown"      placement\="bottom\-right"      \[ngbPopover\]="popContent"      triggers\="manual"      (click)\="togglePopover()"      (keydown.enter)\="togglePopover()"      class\="nav\-item"      tabindex\="0"      \#feedbackPopOver\="ngbPopover"      \[autoClose\]="false"\>    \<div class\="nav\-link e2e\-test\-exploration\-feedback\-popup\-link"         ngbTooltip\="{{ 'I18N\_PLAYER\_FEEDBACK\_TOOLTIP' | translate }}" placement\="bottom"\>      \<i class\="fas fa\-comment\-alt exploration\-player\-navbar\-icons"\>\</i\>      \<span class\="oppia\-icon\-accessibility\-label"\>{{ 'I18N\_PLAYER\_FEEDBACK\_TOOLTIP' | translate }}\</span\>    \</div\>  \</li\>\</ul\> |
-| :---- |
+```html
+<ng-template #popContent>
+  <oppia-feedback-popup (closePopover)="closePopover()"></oppia-feedback-popup>
+</ng-template>
+<ul class="nav navbar-nav oppia-navbar-nav float-right mr-0">
+  <li *ngIf="feedbackOptionIsShown"
+      placement="bottom-right"
+      [ngbPopover]="popContent"
+      triggers="manual"
+      (click)="togglePopover()"
+      (keydown.enter)="togglePopover()"
+      class="nav-item"
+      tabindex="0"
+      #feedbackPopOver="ngbPopover"
+      [autoClose]="false">
+    <div class="nav-link e2e-test-exploration-feedback-popup-link"
+         ngbTooltip="{{ 'I18N_PLAYER_FEEDBACK_TOOLTIP' | translate }}" placement="bottom">
+      <i class="fas fa-comment-alt exploration-player-navbar-icons"></i>
+      <span class="oppia-icon-accessibility-label">{{ 'I18N_PLAYER_FEEDBACK_TOOLTIP' | translate }}</span>
+    </div>
+  </li>
+</ul>
+```
 
 From the code, you can observe:
 
@@ -497,8 +581,17 @@ From the code, you can observe:
 
 Here’s an example of how the updated functions should look:
 
-| togglePopover(): void {  this.feedbackPopOver.toggle();  this.popoverIsOpen \= \!this.popoverIsOpen; // Toggle the value dynamically}closePopover(): void {  this.feedbackPopOver.close();  this.popoverIsOpen \= false; // Reset to false when the popover is closed} |
-| :---- |
+```python
+togglePopover(): void {
+  this.feedbackPopOver.toggle();
+  this.popoverIsOpen = !this.popoverIsOpen; // Toggle the value dynamically
+}
+
+closePopover(): void {
+  this.feedbackPopOver.close();
+  this.popoverIsOpen = false; // Reset to false when the popover is closed
+}
+```
 
 **Render the Overlay**
 
@@ -508,8 +601,9 @@ But before moving forward, it’s important to verify that this variable behaves
 
 In `learner-local-nav.component.html`, add the following overlay div:
 
-| \<div \*ngIf="popoverIsOpen" class\="popover\-backdrop" (click)\="closePopover()"\>\</div\> |
-| :---- |
+```html
+<div *ngIf="popoverIsOpen" class="popover-backdrop" (click)="closePopover()"></div>
+```
 
 This code uses Angular’s `*ngIf` directive to dynamically render the backdrop when the popover is open. The \*ngIf renders the backdrop based on the boolean value of this popoverIsOpen variable.  The `class="popover-backdrop"` applies the CSS dimming effect, and `(click)="closePopover()"` ensures the popover closes when the user clicks outside it.
 
@@ -519,8 +613,18 @@ Before proceeding, we need to confirm that the `popoverIsOpen` variable updates 
 
 To test this, we’ll add `console.log` statements to the `togglePopover` and `closePopover` functions in `learner-local-nav.component.ts`:
 
-|  togglePopover(): void {   this.feedbackPopOver.toggle();   this.popoverIsOpen \= \!this.popoverIsOpen; // Toggle the value dynamically   console.log('Toggling popover', this.popoverIsOpen) }  closePopover(): void {   this.feedbackPopOver.close();   this.popoverIsOpen \= false; // Reset to false when the popover is closed   console.log('Closing popver', this.popoverIsOpen) }  |
-| :---- |
+```python
+ togglePopover(): void {
+   this.feedbackPopOver.toggle();
+   this.popoverIsOpen = !this.popoverIsOpen; // Toggle the value dynamically
+   console.log('Toggling popover', this.popoverIsOpen)
+ }
+  closePopover(): void {
+   this.feedbackPopOver.close();
+   this.popoverIsOpen = false; // Reset to false when the popover is closed
+   console.log('Closing popver', this.popoverIsOpen)
+ } 
+```
 
 Here’s why this step is important:
 
@@ -531,11 +635,11 @@ Without this confirmation, we might end up troubleshooting CSS or HTML when the 
 
 Let’s test it now. Go to the exploration player page and click the feedback icon to toggle the popover. You should see \- 
 
-![][image9]
+![Trial 4 Popover is open](images/TutorialUIImprovements/Trial4PopoverIsOpen.png)
 
 Now click outside or close the popover. You should see:
 
-![][image10]
+![Trial 4 Popover is closed](images/TutorialUIImprovements/Trial4PopoverIsClosed.png)
 
 It means our `popoverIsOpen` variable is updating correctly, and we can rely on it to control the overlay.
 
@@ -546,8 +650,18 @@ It means our `popoverIsOpen` variable is updating correctly, and we can rely on 
 
 Now, add the CSS code which will be active when the popover is open \- 
 
-|  /\* Backdrop for the popover \*/.popover-backdrop { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); /\* Dim background \*/ z-index: 1040; /\* Below the popover \*/} |
-| :---- |
+```css
+ /* Backdrop for the popover */
+.popover-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Dim background */
+  z-index: 1040; /* Below the popover */
+}
+```
 
 Here’s what we are doing in the above code \-
 
@@ -557,7 +671,7 @@ Here’s what we are doing in the above code \-
 
 Refresh the exploration player page and verify the updated UI.
 
-![][image11]  
+![Final Solution](images/TutorialUIImprovements/FinalSolution.png)
 Great, our changes are working as expected\!
 
 ### Implementing the Final Solution
