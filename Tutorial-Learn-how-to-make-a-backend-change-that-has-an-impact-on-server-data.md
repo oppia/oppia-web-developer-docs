@@ -14,7 +14,7 @@
 
 # Introduction
 
-In this tutorial, you will learn how to safely implement backend changes that impact server data, an essential skill for any developer working with data-storing applications. We’ll cover key concepts like modifying data models, writing and testing Beam jobs (Audit and Migration). These skills are fundamental for maintaining data integrity, ensuring data consistency, and avoiding disruptions during backend updates.
+In this tutorial, you will learn how to safely implement backend changes that impact server data, an essential skill for any developer working with data-storing applications. We’ll cover key concepts like modifying data models, as well as writing and testing Beam jobs (Audit and Migration). These skills are fundamental for maintaining data integrity, ensuring data consistency, and avoiding disruptions during backend updates.
 
 By the end of this tutorial, you will have the knowledge and confidence to handle backend changes at Oppia effectively, ensuring data safety and smooth application performance.
 
