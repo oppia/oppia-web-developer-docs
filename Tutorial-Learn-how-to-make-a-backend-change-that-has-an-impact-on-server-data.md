@@ -188,15 +188,16 @@ class UserSettingsModel(base_models.BaseModel):
 
 Here, the `user_bio` field is defined as a `TextProperty`, allowing unrestricted text input
 
-***Note:** Now that we have identified the field storing the Bio property, there are multiple approaches to enforce the character limit. One straightforward approach is to validate the length of the Bio field in the frontend. Another is to add validation in the backend before storing the data. A more robust solution combines both approaches—adding validation in both the frontend and backend to ensure reliability and consistency.*
-
-*In real-world Oppia development, we would also consider how the UI handles this scenario. For instance, the frontend could validate the character limit before calling the backend, providing immediate feedback to users through a warning message near the text box or a snackbar notification. While this tutorial focuses on backend implementation, incorporating frontend validation would enhance the overall user experience.*
-
-*For this tutorial, we will focus on implementing backend validation. Within the backend, we also need to decide where to add this validation—whether in the service layer, controller layer, domain model layer, or storage model layer. If you find yourself unsure about such decisions in practice, don’t hesitate to reach out to team members for guidance.*
-
-*When implementing this in a real scenario, validation would also need to be enforced in the domain layer's `validate()` method to maintain consistency and adhere to Oppia's standards. For an example, see the `validate()` method in the domain layer: [user\_domain.py\#L217](https://github.com/oppia/oppia/blob/cac148abaaa0bba4d96b9df26aa67fd3068b216c/core/domain/user_domain.py#L217). However, since the focus of this tutorial is on the overall process of making a data-affecting change, we won’t cover domain layer validation in detail here.*
-
-*For this tutorial, we’ll implement the validation in the controller layer.*
+> [!NOTE]
+> Now that we have identified the field storing the Bio property, there are multiple approaches to enforce the character limit. One straightforward approach is to validate the length of the Bio field in the frontend. Another is to add validation in the backend before storing the data. A more robust solution combines both approaches—adding validation in both the frontend and backend to ensure reliability and consistency.
+>
+> In real-world Oppia development, we would also consider how the UI handles this scenario. For instance, the frontend could validate the character limit before calling the backend, providing immediate feedback to users through a warning message near the text box or a snackbar notification. While this tutorial focuses on backend implementation, incorporating frontend validation would enhance the overall user experience.
+>
+> For this tutorial, we will focus on implementing backend validation. Within the backend, we also need to decide where to add this validation—whether in the service layer, controller layer, domain model layer, or storage model layer. If you find yourself unsure about such decisions in practice, don’t hesitate to reach out to team members for guidance.
+>
+> When implementing this in a real scenario, validation would also need to be enforced in the domain layer's `validate()` method to maintain consistency and adhere to Oppia's standards. For an example, see the `validate()` method in the domain layer: [user\_domain.py\#L217](https://github.com/oppia/oppia/blob/cac148abaaa0bba4d96b9df26aa67fd3068b216c/core/domain/user_domain.py#L217). However, since the focus of this tutorial is on the overall process of making a data-affecting change, we won’t cover domain layer validation in detail here.
+>
+> For this tutorial, we’ll implement the validation in the controller layer.
 
 > [!IMPORTANT]
 > Practice 6: Add a validation check to ensure the length of the updated bio field in the `PreferencesHandler` class is within the allowed limit before making a call to the service layer to update it in the datastore. 
@@ -223,7 +224,8 @@ elif update_type == 'user_bio':
     user_settings.user_bio = data
 ```
 
-***Note**: Normally, we would use schema validation to enforce this (e.g., by defining validation rules for the handler). You can refer to the [Oppia Schemas Guide](https://github.com/oppia/oppia/wiki/Schemas#how-to-write-validation-schemas-for-handlers) for instructions on how to write validation schemas for handlers. However, the preferences handler hasn’t been set up for schema validation yet. Adding schema validation would require defining validations for the entire handler, which is beyond the scope of this tutorial.*
+> [!NOTE]
+> Normally, we would use schema validation to enforce this (e.g., by defining validation rules for the handler). You can refer to the [Oppia Schemas Guide](https://github.com/oppia/oppia/wiki/Schemas#how-to-write-validation-schemas-for-handlers) for instructions on how to write validation schemas for handlers. However, the preferences handler hasn’t been set up for schema validation yet. Adding schema validation would require defining validations for the entire handler, which is beyond the scope of this tutorial.
 
 The changes we have implemented so far ensure that all new and updated user bios are limited to a maximum of 200 characters. However, this does not account for existing users whose bios may already exceed this limit. Such cases would create discrepancies in the data, potentially causing inconsistencies or unexpected behavior.
 
@@ -243,7 +245,8 @@ For example, potential options might include:
 
 For this tutorial, we will choose the **truncation** approach, ensuring all user bios conform to the 200-character limit.
 
-***Note**: In practice, when making decisions that aren’t clear-cut—especially those affecting user experience—it’s important for developers to compile a list of different options along with their respective pros and cons. This ensures that all potential approaches are considered thoroughly. Once the options are outlined, they should be discussed with the product team and technical leads to collaboratively decide on the best course of action. For the purposes of this tutorial, imagine that the team leads reviewed the options and decided to proceed with Option 1.*
+> [!NOTE]
+> In practice, when making decisions that aren’t clear-cut—especially those affecting user experience—it’s important for developers to compile a list of different options along with their respective pros and cons. This ensures that all potential approaches are considered thoroughly. Once the options are outlined, they should be discussed with the product team and technical leads to collaboratively decide on the best course of action. For the purposes of this tutorial, imagine that the team leads reviewed the options and decided to proceed with Option 1.
 
 At Oppia, [**Apache Beam Jobs**](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs) are used for data migration, validation, and other large-scale data processing tasks. Let’s get started with writing an Apache Beam job to truncate the `user_bio` field for all records that exceed the limit.
 
@@ -612,7 +615,8 @@ original_last_updated_2 = user_2.last_updated
 self.assertNotEqual(updated_user_2.last_updated, original_last_updated_2)
 ```
 
-***Note:** In addition to testing the migration job, it is important to test the audit job (`AuditTruncateUserBioJob`) to ensure that it correctly identifies records needing truncation without making any changes to the datastore. While the implementation of audit job tests is not shown here, it follows a similar structure, focusing on validating read-only operations and accurate reporting.*
+> [!NOTE]
+> In addition to testing the migration job, it is important to test the audit job (`AuditTruncateUserBioJob`) to ensure that it correctly identifies records needing truncation without making any changes to the datastore. While the implementation of audit job tests is not shown here, it follows a similar structure, focusing on validating read-only operations and accurate reporting.
 
 ## Section 5: Run and Validate the Job
 
