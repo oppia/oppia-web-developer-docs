@@ -14,7 +14,7 @@
 
 # Introduction
 
-In this tutorial, you will learn how to safely implement backend changes that impact server data, an essential skill for any developer working with data-storing applications. We’ll cover key concepts like modifying data models, writing, and testing Beam jobs (Audit and Migration). These skills are fundamental for maintaining data integrity, ensuring data consistency, and avoiding disruptions during backend updates.
+In this tutorial, you will learn how to safely implement backend changes that impact server data, an essential skill for any developer working with data-storing applications. We’ll cover key concepts like modifying data models, writing and testing Beam jobs (Audit and Migration). These skills are fundamental for maintaining data integrity, ensuring data consistency, and avoiding disruptions during backend updates.
 
 By the end of this tutorial, you will have the knowledge and confidence to handle backend changes at Oppia effectively, ensuring data safety and smooth application performance.
 
@@ -39,15 +39,19 @@ Before we dive into the implementation, let’s outline the sequence of operatio
 1. **Modify the Backend Layer to Prevent Future Violations**
 	- Update the backend validation to ensure that new or updated bios cannot exceed 200 characters.
 	- This ensures that, once we fix existing data, no new invalid entries will be introduced.
+
 2. **Implement the Data Migration and Audit Jobs**
 	- Write an Apache Beam migration job to truncate existing bios that exceed the character limit.
-	- Implement an audit job that performs the same logic as the migration job but without modifying any data. This allows us to verify the migration logic before making actual 	changes.
+	- Implement an audit job that performs the same logic as the migration job but without modifying any data. This allows us to verify the migration logic before making actual changes.
+
 3. **Test the Migration and Audit Jobs**
 	- Run the jobs locally with test data to validate their correctness.
 	- Ensure that only bios exceeding 200 characters are truncated, while all other data remains unaffected.
+
 4. **Run the Migration Job in a Safe Environment** (Not covered in this tutorial)
 	- Execute the job in a staging environment or backup server before deploying it to production.
 	- Validate the results to confirm no unintended changes occur.
+
 5. **Deploy to Production** (Not covered in this tutorial)
 	- After thorough validation and approval, deploy the migration job on the live server.
 	- Confirm the data integrity of UserSettingsModel after the migration is complete.
