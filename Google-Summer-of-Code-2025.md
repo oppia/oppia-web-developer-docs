@@ -337,6 +337,8 @@ If you need clarification on any of these ideas, feel free to open a thread in G
 
 3.2. [Consolidate entity migration jobs](#32-consolidate-entity-migration-jobs)
 
+3.3. [Standardize and validate domain objects and storage models](#33-standardize-and-validate-domain-objects-and-storage-models)
+
 ### Android team
 
 4.1. [Flashbacks](#41-flashbacks)
@@ -472,7 +474,12 @@ The aim of this project is to address the 15 most common server errors, and impr
 - Fix the error and add tests (which could be frontend, backend, or full-stack) to ensure that the error does not happen again. Some of the other steps listed in this [wiki page](https://github.com/oppia/oppia/wiki/Server-errors-and-solutions) might also be of interest. Note that some errors may be due to data issues, in which case a migration job or direct editing might be required, as well as stricter typing/validation to ensure that the issue doesn't reoccur.
 
 
-**Tracking issues**: _(To be updated.)_
+**Tracking issues**:
+- [#21807](https://github.com/oppia/oppia/issues/21807), [#21841](https://github.com/oppia/oppia/issues/21841) and [#21872](https://github.com/oppia/oppia/issues/21872) are quality-of-life improvements to help make server errors easier to debug.
+- See [this link](https://github.com/oppia/oppia/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22server%20errors%22%20label%3A%22Impact%3A%20High%22&page=1) for a list of the most common server errors.
+
+Note that the project will only cover a subset of the above, per the milestones described below. This will be the subject of a discussion between the contributor, mentor and org admins at the start of CBP.
+
 
 **Size:** Medium (\~175 hours)
 
@@ -987,6 +994,123 @@ In addition to your implementation approach, please also:
 
 - Milestone 2: All jobs run correctly on the backup server.
 </details>
+
+
+### 3.3. Standardize and validate domain objects and storage models
+
+**Project Description:**
+
+Oppia's production data is organized using [NDB storage models](https://github.com/oppia/oppia/wiki/Storage-models#storage-model-concepts), which in simple terms can be thought of as objects having different properties. For instance, data related to a user can be stored in a UserSettingsModel with properties like username, user ID, etc.
+
+Different inter-model relationships exist as well, corresponding to relationships between prod data. For instance, a story includes a list of explorations. So, a StoryModel might include the IDs of all the ExplorationModels it is composed of.
+
+For proper functioning of the Oppia application, it is important to ensure that all the models are internally consistent and that the relationships between models are valid. The aim of this project is therefore to ensure that all production data is valid by:
+
+  - Ensuring that domain objects exist for all prod models, and that they have full `validate()` functions.
+
+  - Implementing Beam jobs that audit production data and flag any errors. These jobs should validate the model properties as well as inter-model relationships. After these jobs are run, any errors should be investigated, and checks should be implemented to ensure that such problems don’t reoccur in the future with new data.
+
+**Tracking issues**:
+- [#21970](https://github.com/oppia/oppia/issues/21970)
+- [#21905](https://github.com/oppia/oppia/issues/21905)
+- [#21869](https://github.com/oppia/oppia/issues/21869)
+
+**Not in scope:** Migrating existing datastore data to address the validation issues found in the first milestone.
+
+**Size:** Large (\~350 hours)
+
+**Difficulty**: Moderate
+
+**Potential mentors:** @ankita240796
+
+**Product/technical clarifiers:** @seanlip (product), @ankita240796 (technical)
+
+**Required knowledge/skills:**
+- Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
+- Write Python code with unit tests.
+- Write or modify Beam jobs, with tests.
+
+
+**Related issues:**
+
+- https://github.com/oppia/oppia/issues/21970
+- https://github.com/oppia/oppia/issues/21905
+- https://github.com/oppia/oppia/issues/21869
+- The first checkbox item from any of the following:
+  - https://github.com/oppia/oppia/issues/14968
+  - https://github.com/oppia/oppia/issues/14967
+  - https://github.com/oppia/oppia/issues/14969
+  - https://github.com/oppia/oppia/issues/14971
+  - https://github.com/oppia/oppia/issues/14972
+
+
+**Suggested Milestones:**
+
+- **Milestone 1**: Domain objects exist for all storage models, and include validate() methods that fully validate the domain object's internal consistency and correctness. The usage of storage models in the domain layer is restricted to the interfaces for getting and saving datastore models, and they are not passed further around the codebase. 50% of the validation jobs for the storage models are implemented and run successfully. For each validation error found, an issue is filed with clear action steps for (a) stopping the error from happening for new data, and (b) migrating old data to fix the error.
+
+- **Milestone 2**: All remaining validation jobs for the storage models are implemented and run successfully, and issues are filed for all validation errors as described in Milestone 1. All root causes of the validation issues found in Milestones 1 and 2 are identified and fixed, so that the error no longer happens for new data. (This corresponds to part (a) of each issue in Milestone 1.)
+
+
+<details>
+<summary>Org-admin/tech-lead commentary/advice</summary>
+
+This project is relatively straightforward if you can identify the validation checks correctly and are able to analyze the codebase to figure out why incorrect data is being written. The [design brief](https://docs.google.com/document/d/1u45oC6igsaTvQl4oNd8VvDiZe3JqeY3m_5n4QZ6d4rA/edit?usp=sharing) provided in the technical hints should help provide a lot of the necessary structure. Note that the validation requirements for the different models can vary greatly in terms of difficulty.
+</details>
+
+<details>
+<summary>What we are looking for in proposals</summary>
+
+For your proposal, please include the following:
+
+  - A complete list of all storage models, with “validity” clearly defined for (a) the corresponding domain objects, (b) the models themselves (including inter-model relationships).
+
+  - How you would structure the sub-milestones to enable you to run jobs efficiently on the server in batches.
+
+  - A worked example of how you would do each part of the project (domain-object creation, only using storage models in get/put, writing a validation job, filing the GitHub issue, fixing the root cause). You can link to sample PRs if you like. For the purposes of this illustration, we suggest that you pick one or two "average" or "hard" examples – try not to pick a trivial model.
+
+  - Any complicated cases you identify for any of the above steps, and an explanation of how you would tackle them. (For example, customization arg validation for interactions.)
+
+  - An explanation of how you would ensure/verify that storage models are not used beyond the get and save functions in the `*_services.py` file. (For example, you might come up with a standard pattern for get/save that you can implement universally to make that verification easy to do, or you might analyze import statements that involve to the storage layer, or you might add a backend test to ensure that ndb.Model instances are not passed beyond specific functions.)
+
+
+We also recommend taking up at least one checkbox item from each of the following, in order to confirm that this project is a good fit for you:
+  - https://github.com/oppia/oppia/issues/21970
+  - https://github.com/oppia/oppia/issues/21869
+  - The first checkbox from any of the following (to demonstrate ability to “identify the root cause of an error and stop it from happening”):
+    - https://github.com/oppia/oppia/issues/14968
+    - https://github.com/oppia/oppia/issues/14967
+    - https://github.com/oppia/oppia/issues/14969
+    - https://github.com/oppia/oppia/issues/14971
+    - https://github.com/oppia/oppia/issues/14972
+
+</details>
+
+<details>
+<summary>Technical hints / guidance</summary>
+
+- Please go through the following guides in the Oppia wiki:
+
+  - [Storage models](https://github.com/oppia/oppia/wiki/Storage-models#storage-model-concepts)
+  - [Testing jobs and other features on production](https://github.com/oppia/oppia/wiki/Testing-jobs-and-other-features-on-production)
+  - [Debugging datastore locally](https://github.com/oppia/oppia/wiki/Debugging-datastore-locally)
+  - [Apache Beam Jobs](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs) · oppia/oppia Wiki · GitHub
+    - Note that, in general, any Beam jobs you write should be **idempotent**, i.e., running them twice should result in the same outcome as running them once. This allows us to just rerun them if a job fails for some reason (e.g. due to an internal Beam error).
+
+- See [this design brief](https://docs.google.com/document/d/1u45oC6igsaTvQl4oNd8VvDiZe3JqeY3m_5n4QZ6d4rA/edit?usp=sharing) for a design approach that you can follow for the validation jobs.
+
+- To understand how validation jobs work, you might like to take a look at the existing [audit and validation jobs](https://github.com/oppia/oppia/tree/develop/core/jobs/batch_jobs). Some examples:
+  - https://github.com/oppia/oppia/blob/develop/core/jobs/batch_jobs/user_validation_jobs.py
+  - https://github.com/oppia/oppia/blob/develop/core/jobs/batch_jobs/blog_validation_jobs.py
+</details>
+
+<details>
+<summary>Suggested PM demo points</summary>
+
+- Milestone 1: Validation jobs for at least 5 prod models are written & run, and errors arising from those jobs have been filed as issues on GitHub.
+
+- Milestone 2: A full list of errors is compiled with clear action items.
+</details>
+
 
 
 ## Android team
