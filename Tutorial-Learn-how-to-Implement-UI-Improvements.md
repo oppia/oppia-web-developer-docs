@@ -80,19 +80,16 @@ When working on UI-related issues at Oppia, it’s helpful to follow a step-by-s
 4. **Experimenting and Iterating:**  
     Once you’ve identified the tasks, start solving them one by one. This process often involves a combination of experimentation and analysis.  
     What this looks like:
-
     * Modify the code for one task and observe the changes.  
     * Use browser DevTools or console.log statements to understand how the existing UI behaves.  
     * Refresh your local server frequently to test the updates.
 
     If something doesn’t work, pause to analyze why. Some guiding questions include:
-
     * Are the styles being applied to the correct elements?  
     * Is the logic in the component behaving as expected?  
     * Is there a scoping issue with CSS or JavaScript?
 
     When stuck, it’s helpful to research. Look for solutions within the codebase first—similar components or functionality might provide clues. If that doesn’t help, search online using specific queries. For instance:
-
     * "How to position elements in CSS flexbox."  
     * "Angular component communication best practices."
 
@@ -101,13 +98,11 @@ When working on UI-related issues at Oppia, it’s helpful to follow a step-by-s
 5. **Finalizing the Solution**
 
     Once you’ve implemented the changes, it’s time to verify and refine:
-
     * Test the updated UI to confirm it behaves as intended.  
     * Check for unintended side effects on other parts of the application.  
     * Test the changes on different devices, screen sizes, and user states.
 
     Additionally, clean up the code before finalizing:
-
     * Ensure your changes align with the Oppia’s code style and structure.  
     * Document any significant changes or new logic introduced.
 
@@ -132,8 +127,6 @@ Start by visiting the exploration player page on your local development server. 
 > Compare how it currently looks and behaves with the expected changes mentioned in the issue.
 > 
 > **Hint**: If you're unsure about explorations or how learners interact with them, refer to this guide for an overview.
-
-
 
 #### Explore the Issue
 
