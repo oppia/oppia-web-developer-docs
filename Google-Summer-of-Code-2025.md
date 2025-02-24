@@ -1060,16 +1060,6 @@ This project is relatively straightforward if you can identify the validation ch
 <details>
 <summary>What we are looking for in proposals</summary>
 
-We recommend taking up at least one checkbox item from each of the following, in order to confirm that this project is a good fit for you:
-  - https://github.com/oppia/oppia/issues/21970
-  - https://github.com/oppia/oppia/issues/21869
-  - The first checkbox from any of the following (to demonstrate ability to “identify the root cause of an error and stop it from happening”):
-    - https://github.com/oppia/oppia/issues/14968
-    - https://github.com/oppia/oppia/issues/14967
-    - https://github.com/oppia/oppia/issues/14969
-    - https://github.com/oppia/oppia/issues/14971
-    - https://github.com/oppia/oppia/issues/14972
-
 For your proposal, please include the following:
 
   - A complete list of all storage models, with “validity” clearly defined for (a) the corresponding domain objects, (b) the models themselves (including inter-model relationships).
@@ -1081,6 +1071,18 @@ For your proposal, please include the following:
   - Any complicated cases you identify for any of the above steps, and an explanation of how you would tackle them. (For example, customization arg validation for interactions.)
 
   - An explanation of how you would ensure/verify that storage models are not used beyond the get and save functions in the `*_services.py` file. (For example, you might come up with a standard pattern for get/save that you can implement universally to make that verification easy to do, or you might analyze import statements that involve to the storage layer, or you might add a backend test to ensure that ndb.Model instances are not passed beyond specific functions.)
+
+
+We also recommend taking up at least one checkbox item from each of the following, in order to confirm that this project is a good fit for you:
+  - https://github.com/oppia/oppia/issues/21970
+  - https://github.com/oppia/oppia/issues/21869
+  - The first checkbox from any of the following (to demonstrate ability to “identify the root cause of an error and stop it from happening”):
+    - https://github.com/oppia/oppia/issues/14968
+    - https://github.com/oppia/oppia/issues/14967
+    - https://github.com/oppia/oppia/issues/14969
+    - https://github.com/oppia/oppia/issues/14971
+    - https://github.com/oppia/oppia/issues/14972
+
 </details>
 
 <details>
