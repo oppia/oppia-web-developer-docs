@@ -893,7 +893,7 @@ The Oppia codebase includes several different versioned entities which store lea
 
 The aim of this project is to standardize these migration jobs so that there is a single, standard way to migrate and upgrade versioned models. This will (a) ensure that all the versioned models can be easily updated on a periodic basis, (b) let us delete the code for upgrading from old versions once all the entities of that version have been upgraded, and (c) simplify the remaining version upgrade code.
 
-**Tracking issues**: [#21646](https://github.com/oppia/oppia/issues/21646)
+**Tracking issues**: [#22023](https://github.com/oppia/oppia/issues/22023)
 
 **Size:** Medium (\~175 hours)
 
