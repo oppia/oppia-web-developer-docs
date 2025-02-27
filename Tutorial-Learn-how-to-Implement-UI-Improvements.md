@@ -79,8 +79,7 @@ When working on UI-related issues at Oppia, it’s helpful to follow a step-by-s
 
 4. **Experimenting and Iterating:**
 
-    Once you’ve identified the tasks, start solving them one by one. This process often involves a combination of experimentation and analysis.  
-    What this looks like:
+    Once you’ve identified the tasks, start solving them one by one. This process often involves a combination of experimentation and analysis. What this looks like:
     * Modify the code for one task and observe the changes.  
     * Use browser DevTools or console.log statements to understand how the existing UI behaves.  
     * Refresh your local server frequently to test the updates.
