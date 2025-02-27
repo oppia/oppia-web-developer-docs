@@ -77,7 +77,8 @@ When working on UI-related issues at Oppia, it’s helpful to follow a step-by-s
        
     By breaking the problem into smaller tasks, you’ll have a clearer starting point and avoid feeling overwhelmed.
 
-4. **Experimenting and Iterating:**  
+4. **Experimenting and Iterating:**
+
     Once you’ve identified the tasks, start solving them one by one. This process often involves a combination of experimentation and analysis.  
     What this looks like:
     * Modify the code for one task and observe the changes.  
@@ -95,7 +96,7 @@ When working on UI-related issues at Oppia, it’s helpful to follow a step-by-s
 
     Remember, trial and error is part of the process, but staying methodical helps keep your efforts focused.
 
-5. **Finalizing the Solution**
+6. **Finalizing the Solution**
 
     Once you’ve implemented the changes, it’s time to verify and refine:
     * Test the updated UI to confirm it behaves as intended.  
