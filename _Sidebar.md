@@ -82,7 +82,7 @@
       * [[Testing for Accessibility|Testing-for-Accessibility]]
       * [[Apache Beam Jobs|Apache-beam-jobs]]
         * 👣 [[Tutorial - Learn how to write and test a non-trivial Beam job|Tutorial-Learn-How-to-Write-and-Test-a-Non-Trivial-Beam-Job]]
-        * 👣 [[Tutorial - Learn how to make a backend change that has an impace on server data|Tutorial-Learn-how-to-make-a-backend-change-that-has-an-impace-on-server-data]]
+        * 👣 [[Tutorial - Learn how to make a backend change that has an impace on server data|Tutorial-Learn-how-to-make-a-backend-change-that-has-an-impact-on-server-data]]
       * [[I18n/Translations Guide|Adding-new-translations-for-i18n]]
       * [[Server errors and solutions|Server-errors-and-solutions]]
     * Developer Workflow:
