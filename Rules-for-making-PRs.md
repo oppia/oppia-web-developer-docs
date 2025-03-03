@@ -108,7 +108,11 @@ Go to your fork on GitHub, select your branch from the dropdown menu, and click 
 
 * Following the guidance in the PR checklist, add a descriptive title explaining the purpose of the PR (e.g. "Fix issue #bugnum: add a warning when the user leaves a page in the middle of an exploration.").
 
-  **WARNING: If your PR only fixes a specific part of the issue, start the title with "Fix part of issue #bugnum:" instead so that the original issue is not auto-closed by GitHub when the PR is merged.**
+> [!NOTE]
+> Ensure that your title is self-contained and describes what the PR does, since release coordinators need to understand it to compile the changelog. Don't just leave it at, e.g., "complete milestone 1" or "fix issue 1234".
+
+> [!WARNING]
+> If your PR only fixes a specific part of the issue, start the title with "Fix part of issue #bugnum:" instead so that the original issue is not auto-closed by GitHub when the PR is merged.
 
 * Write a clear description of your PR that explains why the change is being made, how the change was made, as well as any identified risks and resulting countermeasures. See [here](https://github.com/oppia/oppia-android/pull/4757#issue-1461272376) for a good example of what sorts of things to include.
 

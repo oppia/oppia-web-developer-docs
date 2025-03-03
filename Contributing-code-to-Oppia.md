@@ -79,7 +79,7 @@ Welcome! Please make sure to follow the instructions above if you haven't alread
 
 After that, you can choose a good first issue from the [list of unassigned good first issues](https://github.com/oppia/oppia/issues?q=is%3Aopen+label%3A%22good+first+issue%22+no%3Aassignee). These issues are hand-picked to ensure that you don't run into unexpected roadblocks while working on them, and each of them should have clear instructions for new contributors. If you see one that doesn't, please let us know via [GitHub Discussions](https://github.com/oppia/oppia/discussions) and we'll fix it. For other issues, you might need to be more independent because we might not know how to solve them either.
 
-Please only work on issues that are labelled **"Impact: High"** or **"Impact: Medium"**.
+Please only work on issues that are labelled **"Impact: High"** or **"Impact: Medium"**, and that **have no assignee**. Any such issue is available for contribution (you don't need to ask on the issue thread whether it is available or not).
 
 > [!CAUTION]
 > - Do not work on "Impact: Low" or "Backlog" issues. If you submit a fix for those, you will probably be asked to pick a different issue. Those issues often haven't been looked at closely yet, and might not be priorities for implementation.
@@ -109,7 +109,7 @@ Once you have a good understanding of the issue, you can ask for it to be assign
 - Explain clearly what you did to tackle the issue (at a minimum, point to which file(s) you modified and describe the changes you made). You can include code snippets if you like.
 - @-mention the leads of the corresponding project (you can find their details [here](https://github.com/orgs/oppia/projects)), letting them know you'd like to work on it and when you can submit a PR by.
 
-If your proof looks good and your explanation makes sense, we'll assign the issue to you. Once assigned, feel free to submit a PR by following the [[instructions for making a PR|Rules-for-making-PRs]]. We recommend actively working to get your PR merged once you are assigned, because we will de-assign contributors if the PR is closed for being stale or there is no activity after the initial assignment.
+If your proof looks good and your explanation makes sense, we'll assign the issue to you. Once assigned, feel free to submit a PR and get it merged by following the [[instructions for making a PR|Rules-for-making-PRs]]. We recommend actively working to merge your PR soon after getting assigned, because we will de-assign contributors if the PR is closed for being stale or there is no activity after the initial assignment.
 
 > [!IMPORTANT]
 > Please follow the [[PR instructions|Rules-for-making-PRs]] carefully, otherwise your PR review may be delayed or your PR may be closed.

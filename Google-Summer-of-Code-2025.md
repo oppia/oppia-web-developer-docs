@@ -13,7 +13,7 @@
 - [Communication](#communication)
 - [Oppia's Project Ideas List](#oppias-project-ideas-list)
 
-Oppia is planning to participate in [Google Summer of Code 2025](https://summerofcode.withgoogle.com/)! GSoC is a global program which offers post-secondary students, as well as newcomers to open source, an opportunity to discover and work with open source organizations. The contributions are supported by a stipend. Contributors work closely with one or more mentors to implement either a project idea by the organization, or a proposal of their own.
+This year marks the 10th year that Oppia will be participating in [Google Summer of Code (GSoC)](https://summerofcode.withgoogle.com/)! GSoC is a global program which offers post-secondary students, as well as newcomers to open source, an opportunity to discover and work with open source organizations. The contributions are supported by a stipend. Contributors work closely with one or more mentors to implement either a project idea by the organization, or a proposal of their own.
 
 In order to receive updates about GSoC at Oppia, please subscribe to the [Oppia GSoC Announce](https://groups.google.com/g/oppia-gsoc-announce) mailing list, as well as the [Developer Announcements](https://github.com/oppia/oppia/discussions/categories/developer-announcements) category on GitHub Discussions.
 
@@ -69,6 +69,8 @@ Welcome! If you're interested in applying to work with Oppia for GSoC, please fo
 
 > [!TIP]
 > During the application period, your first goal should be to figure out how to become an effective contributor. Start developing your project proposal only once you have experience getting some PRs merged. This will give you a much better idea of what you want to work on, and how much you can accomplish.
+>
+> You might also want to ensure that you have the required skills for your chosen project. For guidance on how to do this, see the relevant section in the [GSoC proposal template](#gsoc-proposal-template) document and our [FAQs](#faqs).
 
 Good luck!
 
@@ -83,15 +85,15 @@ A: Please see the individual project ideas to determine which skills are recomme
 
    - For Oppia Android, you will need to know how to program in Kotlin, and have experience with Android development. Knowledge of Bazel may also be helpful for some projects.
 
-   - Note that, although GSoC is aimed at both students and beginner contributors to open source, "beginner to open source" is **not** the same as "beginner to coding" -- the projects do assume that you have some proficiency with coding. The fact that GSoC projects produce high-quality code that solves real problems for open-source projects does make GSoC challenging, but this is also part of what makes GSoC such a valuable experience for students.
+   - Note that, although GSoC is aimed at both students and beginner contributors to open source, "beginner to open source" is **not** the same as "beginner to coding" -- the projects do assume that you have some proficiency with coding. The fact that GSoC projects produce high-quality code that solves real problems for open-source projects does make GSoC challenging, but this is also part of what makes GSoC such a valuable experience for our contributors.
 
 **Q: How can I increase my chances of getting selected?**
 
 A: The most important thing is to ensure that you have the required skills for the project -- see the "Required Skills" section of the [proposal template](#gsoc-proposal-template) for more details. Aside from that, writing a good project proposal with a solid solution approach, engaging with the community, helping other contributors, successfully contributing PRs for high-priority issues, and demonstrating that you can work independently can all help you. We've also compiled some notes below on the [selection criteria](#selection-criteria) we'll be using this year.
 
-**Q: Can you be flexible around my other commitments in the summer?**
+**Q: Which projects are most important for Oppia? Can you advise which project I should pick?**
 
-A: Probably not. We have not had good experiences offering flexibility in previous years, so this year, Oppia will strictly adhere to the Oppia GSoC timeline. Please refer to the [Dates and Deadlines](#dates-and-deadlines) section below, and avoid taking up major commitments alongside GSoC. Experience from previous years suggests that you will be unlikely to successfully balance both.
+A: All the projects we've listed in the [Ideas List](#oppias-project-ideas-list) are treated as equally important during selection, and we'd be very happy to see good progress made on any of them! Note that the relative importance of a project to Oppia is not part of the [selection criteria](#selection-criteria). In general, we recommend that you pick a project based on whether you already have (or will be able to learn) the skills required for it, and that you'd enjoy doing over the summer!
 
 **Q: I do not have any experience in skill XYZ. What should I do?**
 
@@ -103,7 +105,7 @@ We will assess your application based on your proposal and the skills that you h
 
 **Q: Is it okay if I only focus on the frontend or backend?**
 
-A: This probably depends on the project(s) you wish to apply for. However, note that most projects are full-stack and require ability in both the frontend and backend. We recommend becoming familiar with both of these, since this will open up more opportunities for you, as the projects we work on at Oppia often touch multiple layers of the stack.
+A: This probably depends on the project(s) you wish to apply for; check their "required skills" sections. However, note that most projects are full-stack and require ability in both the frontend and backend. We recommend becoming familiar with both of these, since this will open up more opportunities for you, as the projects we work on at Oppia often touch multiple layers of the stack.
 
 **Q: What is the minimum number of PRs that one should have?**
 
@@ -115,15 +117,19 @@ A: Not at all! Asking for help when you need it is part of the learning process,
 
 **Q: I only discovered Oppia recently. Does this mean that, during selection, my application would automatically be ranked lower than those by other applicants who have a longer tenure with Oppia?**
 
-A: Definitely not! Here are the [selection criteria](#selection-criteria) we use when selecting contributors for GSoC. Note that tenure is explicitly not part of these criteria.
+A: Definitely not! Here are the [selection criteria](#selection-criteria) we use when selecting contributors for GSoC. Note that tenure with Oppia is explicitly not part of these criteria.
 
 **Q: How early should I start working on the proposal?**
 
-A: We recommend developing your project proposal and engaging with the community as early as possible, so that you have enough time to get feedback from mentors and improve the proposal before the submission deadline. Make sure to follow all instructions in the [proposal template](https://docs.google.com/document/d/1BIvB0Pt_KCAD17wFS1viOTfZiehBuEJOO1GeypezdkY/edit) (especially around sharing and access) to reduce delays in reviewing your proposal. That said, it's important to note that the proposal is only one part of the application process, and it is probably more important to figure out how to become an effective contributor by getting some PRs merged and demonstrating that you have the required skills for the project.
+A: We recommend developing your project proposal and engaging with the community via GitHub Discussions as early as possible, so that you have enough time to get feedback from mentors and improve the proposal before the submission deadline. Make sure to follow all instructions in the [proposal template](#gsoc-proposal-template) (especially around sharing and access) to reduce delays in reviewing your proposal. That said, it's important to note that the proposal is only one part of the application process, and it is probably more important to figure out how to become an effective contributor by getting some PRs merged and demonstrating that you have the required skills for the project.
 
 **Q: Can I submit more than one proposal to Oppia?**
 
 A: Yes, you can. However, we strongly recommend picking one project and writing a solid proposal for it. Splitting attention across multiple projects might not be a great idea. (That said, GSoC is offering projects of multiple lengths, and if you're interested in doing either the 'full version' or the 'half version' of a project idea that can support both modes, you can submit **both** the 'full version' and the 'half version' as separate applications. Just make sure that you'd be happy with either outcome if you are selected!)
+
+**Q: If I only submit a proposal, without making any code contributions, will my application be considered?**
+
+A: No. See our [selection criteria](#selection-criteria) for more details.
 
 **Q: Can I use content from the project ideas list or PRD in my proposal?**
 
@@ -137,13 +143,13 @@ A: Yes, you can; there are no issues with that. There is a space in the proposal
 
 A: We generally request slots for as many projects as we think will succeed. However, the Google GSoC admins may impose limits based on how they decide to distribute contributor slots among the different open-source organizations.
 
-**Q: Which projects are most important for Oppia?**
-
-A: All the projects we've listed in the [Ideas List](#oppias-project-ideas-list) are important, and we'd be very happy to see good progress made on any of them! Projects are treated as equally important during selection; note that the relative importance of a project to Oppia is not part of the [selection criteria](#selection-criteria). We strongly encourage you to pick a project that you'd enjoy doing over the summer!
-
 **Q: The [Google GSoC FAQ](https://developers.google.com/open-source/gsoc/faq#can_someone_already_participating_in_open_source_be_a_gsoc_contributor) mentions that the program is only for new contributors. I have already contributed to Oppia and I have write access. Can I still participate?**
 
 A: The GSoC program is open to students, as well as beginner contributors to open source. If you do not qualify as a student, see [this FAQ](https://developers.google.com/open-source/gsoc/faq#how_do_i_know_if_i_am_considered_a_beginner_in_open_source_development) on the GSoC website for whether you would be considered a beginner.
+
+**Q: Can you be flexible around my other summer commitments?**
+
+A: Probably not. We have not had good experiences offering flexibility in previous years, so this year, Oppia will strictly adhere to the Oppia GSoC timeline. Please refer to the [Dates and Deadlines](#dates-and-deadlines) section below, and avoid taking up major commitments alongside GSoC. Experience from previous years suggests that you will be unlikely to successfully balance both.
 
 **Q: I'd love to contribute to open source, but I'm not sure I have enough time during the summer to do a GSoC project. Can I still help out?**
 
@@ -161,6 +167,7 @@ Noteworthy dates for 2025 (see also the [Official GSoC Timeline](https://develop
 - **Mar 24 - Apr 8**: GSoC contributor application period
 - **May 8**: Accepted GSoC contributors are announced
 - **May 8 - June 1**: Community bonding ("greenlight") period
+  - **May 10 at 3 pm UTC**: Briefing for accepted GSoC contributors (mandatory)
 - **June 2 - Jul 18**: Milestone 1 work period for GSoC
   - **Jul 4**: Milestone 1 work due for internal evaluation
   - **Jul 5 - Jul 11**: Testing of the milestone 1 work product
@@ -378,6 +385,8 @@ Links to PRD and mocks:
 
 **Product/technical clarifiers:** @seanlip (product), @kevintab95 (technical)
 
+**Discussion forum:** https://github.com/oppia/oppia/discussions/categories/gsoc-q-a-1-lace-projects
+
 **Required knowledge/skills:**
 - Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
 - Debug and fix CI failures/flakes.
@@ -393,7 +402,7 @@ Links to PRD and mocks:
 
 **Suggested Milestones:**
 - **Milestone 1**: In SubtopicPageContents, carry out migrations to do the following:
-    - Convert the existing `subtitled_html` field into the new structure (a `study_guide_sections` "repeated JsonProperty" field consisting of `{heading: str, content: str}` dicts).
+    - Convert the existing `subtitled_html` field into the new structure (a `sections` "repeated JsonProperty" field consisting of `{heading: SubtitledUnicode, content: SubtitledHtml}` dicts).
     - Introduce a unique content ID for each translatable field, similar to explorations.
     - Move the written translations and voiceovers for subtopic pages in EntityTranslationsModel and EntityVoiceoversModel, instead of within the SubtopicPage object (similar to explorations).
 
@@ -440,7 +449,7 @@ If you tackle it, it is important to have a good understanding of the systems in
 
 - Note that "study guides" were previously known as "revision cards".
 
-- For subtopic page contents, be careful to ensure that each element in the list has its own unique content ID. Do not just base the content ID on the item's index in the list – if you have 3 elements in the list and then remove the middle one, the last element’s content ID should not change. This is why we need a counter to keep track of the "next content ID to assign".
+- For subtopic page contents, be careful to ensure that each element in the list has its own unique content ID. Do not just base the content ID on the item's index in the list – if you have 3 elements in the list and then remove the middle one, the last element’s content ID should not change. This is why we need a counter to keep track of the "next content ID to assign" -- for example, you might consider introducing a `next_section_id` (similar to `next_subtopic_id` in the Topic object) to determine the correct ID to use when new sections are added.
 
 - To migrate the existing subtitled_html content, you can transform it into a single-element list with one item whose heading is the revision card's title, and whose body is the existing RTE content. The content_id and translation/voiceover migrations for SubtopicPages should be quite easy, because no translations/voiceovers exist for them yet. However, you will still need to figure out the new structure and fix the "plumbing".
 
@@ -488,6 +497,8 @@ Note that the project will only cover a subset of the above, per the milestones 
 **Potential mentors:** @Nik-09
 
 **Product/technical clarifiers:** @kevintab95 (product), @Nik-09 (technical)
+
+**Discussion forum:** https://github.com/oppia/oppia/discussions/categories/gsoc-q-a-1-lace-projects
 
 **Required knowledge/skills:**
 - Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
@@ -570,6 +581,8 @@ Relevant links: [Mini-PRD](https://docs.google.com/document/u/1/d/1922aE9_TEFTbH
 **Potential mentors:** @amyyeung17
 
 **Product/technical clarifiers:** @seanlip (product), @amyyeung17 (technical)
+
+**Discussion forum:** https://github.com/oppia/oppia/discussions/categories/gsoc-q-a-1-lace-projects
 
 **Required knowledge/skills:**
 - Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
@@ -703,6 +716,8 @@ Link to PRD: [Language Management and Lesson Auto-Translation PRD](https://docs.
 
 **Product/technical clarifiers:** @seanlip (product), @chris7716 (technical)
 
+**Discussion forum:** https://github.com/oppia/oppia/discussions/categories/gsoc-q-a-2-contributor-dashboard-projects
+
 **Required knowledge/skills:**
 - Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
 - Debug and fix CI failures/flakes.
@@ -820,6 +835,8 @@ Relevant documents:
 
 **Product/technical clarifiers:** @seanlip (product), @imchristie (technical)
 
+**Discussion forum:** https://github.com/oppia/oppia/discussions/categories/gsoc-q-a-3-dev-workflow-projects
+
 **Required knowledge/skills:**
 - Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
 - Debug and fix CI failures/flakes.
@@ -902,6 +919,8 @@ The aim of this project is to standardize these migration jobs so that there is 
 **Potential mentors:** @U8NWXD
 
 **Product/technical clarifiers:** @seanlip (product), @U8NWXD (technical)
+
+**Discussion forum:** https://github.com/oppia/oppia/discussions/categories/gsoc-q-a-3-dev-workflow-projects
 
 **Required knowledge/skills:**
 - Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
@@ -1025,6 +1044,8 @@ For proper functioning of the Oppia application, it is important to ensure that 
 
 **Product/technical clarifiers:** @seanlip (product), @ankita240796 (technical)
 
+**Discussion forum:** https://github.com/oppia/oppia/discussions/categories/gsoc-q-a-3-dev-workflow-projects
+
 **Required knowledge/skills:**
 - Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
 - Write Python code with unit tests.
@@ -1140,6 +1161,8 @@ Relevant links: Mocks (https://github.com/oppia/design-team/issues/50) and [PRD]
 
 **Product/technical clarifiers:** @seanlip (product), @BenHenning (technical)
 
+**Discussion forum:** https://github.com/oppia/oppia-android/discussions/categories/gsoc-q-a-4-android-projects
+
 **Required knowledge/skills:**
 - Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
 - Build the app and install it on a local device or emulator. Then verify that you can (a) build a non-test library  target locally, (b) run a unit test locally, and (c) play through the app locally.
@@ -1212,6 +1235,8 @@ This project entails introducing a developer-only UI (as part of the developer o
 **Potential mentors:** @Rd4dev
 
 **Product/technical clarifiers:** @BenHenning (product + technical)
+
+**Discussion forum:** https://github.com/oppia/oppia-android/discussions/categories/gsoc-q-a-4-android-projects
 
 **Required knowledge/skills:**
 - Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
