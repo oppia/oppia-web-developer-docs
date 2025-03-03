@@ -105,7 +105,7 @@ We will assess your application based on your proposal and the skills that you h
 
 **Q: Is it okay if I only focus on the frontend or backend?**
 
-A: This probably depends on the project(s) you wish to apply for; check their "required skills" section. However, note that most projects are full-stack and require ability in both the frontend and backend. We recommend becoming familiar with both of these, since this will open up more opportunities for you, as the projects we work on at Oppia often touch multiple layers of the stack.
+A: This probably depends on the project(s) you wish to apply for; check their "required skills" sections. However, note that most projects are full-stack and require ability in both the frontend and backend. We recommend becoming familiar with both of these, since this will open up more opportunities for you, as the projects we work on at Oppia often touch multiple layers of the stack.
 
 **Q: What is the minimum number of PRs that one should have?**
 
@@ -167,6 +167,7 @@ Noteworthy dates for 2025 (see also the [Official GSoC Timeline](https://develop
 - **Mar 24 - Apr 8**: GSoC contributor application period
 - **May 8**: Accepted GSoC contributors are announced
 - **May 8 - June 1**: Community bonding ("greenlight") period
+  - **May 10 at 3 pm UTC**: Briefing for accepted GSoC contributors (mandatory)
 - **June 2 - Jul 18**: Milestone 1 work period for GSoC
   - **Jul 4**: Milestone 1 work due for internal evaluation
   - **Jul 5 - Jul 11**: Testing of the milestone 1 work product
