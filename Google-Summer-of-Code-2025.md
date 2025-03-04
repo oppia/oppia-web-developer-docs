@@ -1119,18 +1119,18 @@ We also recommend taking up at least one checkbox item from each of the followin
 
 **Project Description:**
 
-When learners make a mistake on a concept they have previously demonstrated in an earlier part of a lesson, it often makes sense to redirect them back to an earlier card to try and reinforce earlier concepts that the learner may have not fully understood. However, with the current implementation, learners subsequently need to re-answer all the cards between the earlier state and the state they had reached, which is frustrating.
+When learners make a mistake on a concept they have previously demonstrated in an earlier part of a lesson, it often makes sense to redirect them back (or to a parallel flow) to try and reinforce earlier concepts that the learner may have not fully understood. However, in the current app implementation, learners subsequently need to re-answer all the cards between the earlier state and the state they had reached, which is frustrating.
 
-This project aims to provide a new feature called ‘flashbacks’ which helps to bring the benefits of earlier redirection (i.e. reviewing an earlier concept that directly ties to the misconception) without the frustrating part of having to redo the old questions before returning back to the question that originally caused the learner to become stuck.
+This project aims to provide a new feature called 'flashbacks' which helps to bring the benefits of earlier redirection (i.e. reviewing an earlier concept that directly ties to the learner's likely misconception) without the frustrating experience of having to redo the all the questions up to returning back to the question that originally caused the learner to become stuck.
 
-Additionally, this project also includes improving the general look-and-feel of submitted answers for both multiple choice and item selection interactions as these both currently rely on HTML generation rather than having a cleaner, natively rendered experience. This will also allow them to be displayed properly in the “flashback” experience.
+Additionally, this project also includes improving the general look-and-feel of submitted answers for both multiple choice and item selection interactions as these both currently rely on HTML generation rather than having a cleaner, natively rendered experience. This change will also allow them to be displayed properly in the 'flashback' experience.
 
-Relevant links: Mocks (https://github.com/oppia/design-team/issues/50) and [PRD](https://docs.google.com/document/d/1NpWgRN6BgvlutWXTYkz997ft36nRMYCbxSO7RYy2iV8/edit?tab=t.0) (incomplete). Specific notes on mocks:
+Relevant links: Tracking issue with mocks links (https://github.com/oppia/design-team/issues/179) and [PRD](https://docs.google.com/document/d/1NpWgRN6BgvlutWXTYkz997ft36nRMYCbxSO7RYy2iV8/edit?tab=t.0) (incomplete). Please note the following regarding these mocks:
   - The mocks don't include explicit changes for multiple choice and item selection.
-  - The mocks don't quite represent the correct ‘inline’ experience that needs to be introduced for the ‘Learn Again’ button (which should be part of the answer & response section of the incorrect answer that is prompting for a revisit).
+  - The mocks don't quite represent the correct 'inline' experience that needs to be introduced for the 'Learn Again' button (which should be part of the answer & response section of the incorrect answer that is prompting for a revisit).
   - Only the mocks with the orange toolbars are actually correct and need to be implemented (except for the otter, and the return button should be part of the flow rather than overlaid).
 
-**Tracking issues**: _To be updated._
+**Tracking issues**: [#5732](https://github.com/oppia/oppia-android/issues/5732)
 
 **Size:** Medium (\~175 hours)
 
@@ -1150,12 +1150,22 @@ Relevant links: Mocks (https://github.com/oppia/design-team/issues/50) and [PRD]
 
 Key issue: [#5572](https://github.com/oppia/oppia-android/issues/5572). This tracks introducing a short-term solution of the broader problem this GSoC project aims to solve.
 
-_(Note: Additional issues will be added soon.)_
+Issues related to portions of the codebase that will be affected by this project:
+- [#5728](https://github.com/oppia/oppia-android/issues/5728)
+- [#5568](https://github.com/oppia/oppia-android/issues/5568)
+- [#3646](https://github.com/oppia/oppia-android/issues/3646)
+- [#2973](https://github.com/oppia/oppia-android/issues/2973)
+- [#1273](https://github.com/oppia/oppia-android/issues/1273)
 
 **Suggested Milestones:**
-- **Milestone 1**: The new flashback dialog is implemented and hooked up to the existing soft redirection button. (The in-line flow does not need to work at this stage.)
+- **Milestone 1**:
+  - The new flashback dialog is implemented and hooked up to the existing soft redirection button. (The in-line flow does not need to work at this stage.)
+  - When a learner is redirected, the Flashback Dialog should appear. Upon confirmation, the learner is taken back to the most recent instance of the card without adding a duplicate to the stack. This ensures a smoother learning experience without unnecessary reattempts of intermediate questions.
 
-- **Milestone 2**: The flashback dialog is hooked up with the learner flow to have an in-line view (i.e. the 'Learn Again' button is attached to the incorrect answer that led to the flashback), and relevant UI tests are added. Also, the new designs for multiple choice and item selection interactions are implemented.
+- **Milestone 2**:
+  - Integrate the Flashback Dialog into the learner flow with an in-line view, where the "Learn Again" button is directly attached to the incorrect answer that triggered the flashback.
+  - Implement the updated designs for multiple choice and item selection interactions submitted answers to ensure a cleaner, natively rendered experience.
+  - Additionally, add relevant UI tests to verify the new functionality.
 
 
 <details>
@@ -1180,7 +1190,33 @@ Making changes to the core lesson flow may be a combination of feeling like a lo
 <details>
 <summary>Technical hints / guidance</summary>
 
-_This will be added soon._
+- General changes explanation:
+  - The new flows are introducing a novel navigation pathway (being able to navigate 'back' to an earlier state, but interact with it in a completely unique way), as well as a parallel "I'm stuck" flow that's similar to hints and solutions, but more explicit (due to being largely controlled by a "I'm stuck" button). This pathway diverges for cases when the user is stuck on the first card of an exploration.
+  - This will require changes to both state navigation and general conceptual modeling for ephemeral states. This means refactoring how the app tracks and restores state when moving between flashbacks and the main learner flow.
+  - Note: we want to show the associated solution from hints and solutions, but only if available. The "See solution" should only be visible if the learner is stuck on the first question.
+- UI places that need to be updated
+  - StateFragment & related models, including new views. More importantly, StateItemViewModel will have several new types and subclasses:
+    - One for the "I need help" button.
+    - One for the "See solution" box (which has two different states based on whether it's revealed).
+    - Ones for the pre-baked responses, e.g. "Need help? No problem..." and "Now that you have reviewed the solution..." responses. These could potentially be combined into one.
+    - One for the "Try again" button.
+    - One for the "Return to question" button.
+  - New dialog fragment models & listeners for the confirmation prompts for both navigating to a previous card and for revealing the solution.
+  - SelectionInteractionViewModel to not precompute a list-based HTML answer (i.e. convertSelectedItemsToHtmlString should be removed).
+  - StatePlayerRecyclerViewAssembler probably has multiple changes needed, but particularly it needs to properly support the new cases where multiple choice and item selection answers should be rendered as separate lists with an indicator for the correct answer. Note that part of this is probably already supported for drag and drop, but it needs to be reanalyzed and appropriated (or copied) for the new use case.
+- Domain changes
+  - ExplorationProgressController: to handle detecting new routing state, and to compute when it's appropriate to show a solution. Navigation is also different in these situations and requires additional changes to the controller (or StateDeck).
+  - StateDeck: requires changes to represent the new ephemeral state of previous cards (only when they're navigated to through the stuck flow; manually navigating back should show the normal CompletedState--this means that the deck is no longer immutable and can have transient states that only show up for specific scenarios).
+- Model changes
+  - exploration.proto
+    - A new destination added to AnswerOutcome for "refresh previous state" with the state name.
+    - A new state_type for reviewable_state of type CompletedState (since no new fields are needed over that, it's just the view itself that needs to be handled differently in the UI layer).
+    - Changes to PendingState to represent a new property of whether the user can show the solution. The AnswerOutcome change already provides a signal on whether to show the "I need help" button, but not whether the user has exhausted enough submission attempts to warrant just giving them the solution.
+    - UserAnswer probably will need to be changed to mark which item among a list of items is the actual correct answer (for multiple choice and item selection).
+    - AnswerAndResponse will need to be turned into a oneof since it can now represent several different things (important: this needs to be done in a binary-compatible way for checkpoint loading to work--checkpoints of older states should be tested as part of this project):
+      - An actual answer and response (as it does today).
+      - One of the pre-baked responses, e.g. "Need help? No problem..." and "Now that you have reviewed the solution..." responses.
+      - The "see solution" box (two versions, revealed and unrevealed).
 
 </details>
 
@@ -1188,7 +1224,7 @@ _This will be added soon._
 <details>
 <summary>Suggested PM demo points</summary>
 
-- Milestone 1: Trigger a “user is soft redirected” state to demonstrate the flashback dialog.
+- Milestone 1: Trigger a "user is soft redirected" state to demonstrate the flashback dialog.
 
 - Milestone 2: Demonstrate the "user is soft-redirected" flashback with the in-line "Learn Again" button along with the new item selection and multiple choice interaction views (for submitted answers).
 </details>
