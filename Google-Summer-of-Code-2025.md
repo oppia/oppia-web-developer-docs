@@ -345,6 +345,7 @@ If you need clarification on any of these ideas, feel free to open a thread in G
 
 4.2. [Platform parameters dashboard](#42-platform-parameters-dashboard)
 
+4.3. [Android lint infrastructure & fixes](#43-android-lint-infrastructure-&-fixes)
 
 ## Learner and Creator Experience (LaCE) team
 
@@ -1167,7 +1168,6 @@ Issues related to portions of the codebase that will be affected by this project
   - Implement the updated designs for multiple choice and item selection interactions submitted answers to ensure a cleaner, natively rendered experience.
   - Additionally, add relevant UI tests to verify the new functionality.
 
-
 <details>
 <summary>Org-admin/tech-lead commentary/advice</summary>
 
@@ -1184,7 +1184,6 @@ Making changes to the core lesson flow may be a combination of feeling like a lo
 - Multiple diagrams, particularly:
   - A dependency diagram showing how different components (i.e. classes) of the implementation call into each other.
   - A flow diagram to show how user interactions flow into different state changes in code.
-
 </details>
 
 <details>
@@ -1217,9 +1216,7 @@ Making changes to the core lesson flow may be a combination of feeling like a lo
       - An actual answer and response (as it does today).
       - One of the pre-baked responses, e.g. "Need help? No problem..." and "Now that you have reviewed the solution..." responses.
       - The "see solution" box (two versions, revealed and unrevealed).
-
 </details>
-
 
 <details>
 <summary>Suggested PM demo points</summary>
@@ -1302,7 +1299,6 @@ The domain side of platform parameters isn't trivial to understand, but it's str
 - Multiple diagrams, particularly:
   - A dependency diagram showing how different components (i.e. classes) of the implementation call into each other.
   - A flow diagram to show how user interactions flow into different state changes in code.
-
 </details>
 
 <details>
@@ -1329,9 +1325,7 @@ The domain side of platform parameters isn't trivial to understand, but it's str
   - Add 'LOCAL_OVERRIDE' to sync status. This should be used in the override database by default so that the UI is able to properly display the badge for a locally overridden value.
 - Testing hints:
   - Refer to [this example](https://github.com/oppia/oppia-android/blob/08e00847d955ec1f38fe8000832a2cff1bbff62f/app/src/sharedTest/java/org/oppia/android/app/splash/SplashActivityTest.kt#L1043) to simulate an app restart in tests. Testing should ensure that overridden values are retained across restarts.
-
 </details>
-
 
 <details>
 <summary>Suggested PM demo points</summary>
@@ -1341,3 +1335,135 @@ The domain side of platform parameters isn't trivial to understand, but it's str
 - Milestone 2: The new screen fully supports overriding various platform parameters and feature flag values. This includes demonstrating both overriding user flows in the new UI, and showing the value changes correctly take effect in the app after a prompted (and accepted) app restart.
 </details>
 
+
+
+### 4.3. Android lint infrastructure & fixes
+
+**Project Description:**
+
+The Android build ecosystem supports a [linting tool](https://developer.android.com/studio/write/lint) which catches a variety of Android-specific problems (beyond those that can be caught by more general-purpose linters like [ktlint](https://github.com/pinterest/ktlint)). Historically a Gradle feature, Android Lint is [not yet](https://github.com/bazelbuild/rules_android/issues/321) directly supported in the Bazel world (though there are some [alternatives available](https://github.com/Bencodes/rules_android_lint)). This project involves:
+- Introducing an Oppia Android script that runs Android lint directly.
+- Supporting the same exemption override support (via XML) but using a textproto interface for parity with the allow-listing and deny-listing configurations used in other Oppia Android scripts.
+- Pre-populating the exemption list with existing known failures.
+- Adding wiki documentation to explain how to use the new script.
+- Filing and/or updating issues with findings such that all remaining Android lint issues are properly tracked in the repository.
+- Updating CI to run the Android lint script.
+- Fixing the following categories of lint issues:
+  - All categories classified as 'errors' by the tool.
+  - All of the following 'warning' categories:
+    - OldTargetApi
+    - UnusedAttribute
+    - Typos
+    - StringFormatCount
+    - ObsoleteSdkInt
+    - UnusedResources
+    - UselessLeaf
+    - UselessParent
+    - UnusedIds
+    - DuplicateStrings
+    - SelectableText
+    - LabelFor
+    - RtlSymmetry
+    - UnknownNullness
+
+**Tracking issues**: [#5734](https://github.com/oppia/oppia-android/issues/5734)
+
+**Size:** Large (\~350 hours)
+
+**Difficulty**: Hard
+
+**Potential mentors:** @BenHenning
+
+**Product/technical clarifiers:** @BenHenning (product + technical)
+
+**Required knowledge/skills:**
+- Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
+- Build the app and install it on a local device or emulator. Then verify that you can (a) build a non-test library  target locally, (b) run a unit test locally, and (c) play through the app locally.
+- Write new Kotlin code with unit tests.
+
+**Related issues:**
+
+Issues related to portions of the codebase that will be affected by this project:
+- Most issues under the 'priority' section of the [CLaM team board](https://github.com/orgs/oppia/projects/4/views/3) are likely to help build familiarity with broad parts of the codebase which will help with addressing lint issues.
+- Adding tests for scripts will help build familiarity with the scripting work: [#4971](https://github.com/oppia/oppia-android/issues/4971). The stats script is especially relevant, too, as it is built to wrap utilities normally used via the command line (not unlike Android lint), including AAPT and apkanalyzer.
+
+**Suggested Milestones:**
+- **Milestone 1**: Key deliverables:
+  - Introduce a new script that can run Android lint checks with support for a local textproto file that can override specific failures to allow them to pass.
+  - Check in a populated exemption list with all known exemptions.
+  - Introduce a new wiki page explaining how to use the script and update the exemption list.
+  - Introduce CI support for the new script so that it runs for every change to develop and for all PRs.
+
+- **Milestone 2**: Key deliverables:
+  - Fix all of the error categories of lint issues, plus the warning categories mentioned in the project description.
+  - Ensure all exemptions that aren't fixed as part of this project have corresponding tracking issues filed and spec'd with enough context for contributors to work on them.
+
+<details>
+<summary>Org-admin/tech-lead commentary/advice</summary>
+
+Scripts usually seem like straightforward changes, and they often can be. However, they almost always uncover unexpected complexities that need to be solved mid-project (which is why this is considered a more difficult project overall). It's also the case that many of the lint issues that are included as part of this project may not have known solutions ahead of time which requires additional problem solving that may occur after the design phase of the project.
+
+That being said, there are many examples of both scripts and exemptions to reference when designing and constructing the script itself. While the exact functionality being implementing (wrapping the Android linter and creating an intermediary step between the exemption XML and a textproto version of it) isn't well defined, the other boilerplate of a script (textproto loading, script library, running scripts in CI, etc.) is well defined and referenceable.
+</details>
+
+<details>
+<summary>What we are looking for in proposals</summary>
+
+Key details that we expect to be included:
+- A working demonstration of running the lint tool directly (i.e. not through Gradle) and producing similar output to the examples listed in the technical hints section below.
+- A strong understanding of:
+  - How at least 1 specific script in the codebase works (it must have support for textproto exemptions) with a detailed explanation of its dataflow.
+- A list of test names that will be added (we generally add automated tests for every code change).
+- Multiple diagrams, particularly:
+  - A dependency diagram showing how different components (i.e. classes) of the implementation call into each other.
+  - A flow diagram to show how user interactions flow into different state changes in code.
+- Clear explanations of each category of lint issue that will be addressed and how.
+- A clear explanation of what wiki changes will be needed (note that the entire page shouldn't be written out at this stage, but an outline with explanations for each section is expected).
+</details>
+
+<details>
+<summary>Technical hints / guidance</summary>
+
+- General changes explanation:
+  - Background on running the linter
+    - Gradle should be running the 'lint' process that's included in the Android cmdline tools (https://developer.android.com/studio#command-tools). A quick dive into that reveals a number of important JARs as part of the classpath:
+      - tools.lint-model.jar
+      - tools.lint-checks.jar
+      - tools.lint-api.jar
+      - lint-checks-proto.jar
+      - cli.jar (under lib/lint/cli)
+      - com.android.tools.lint.Main seems to be the main entrypoint.
+      - You either need to see if these libraries are published on Maven, or depend on the command line utilities directly (and wrap com.android.tools.lint.Main in the script).
+    - Note that you can download cmdline tools to inspect the lint command line on its own. Some very important details to note:
+      - The linter can hang at the end of its process (potentially due to some rogue non-daemon threads). The script will need to work around this limitation.
+      - It's up to you to analyze how Gradle interacts with the lint tool in order to understand how to construct a valid command line and run the linter. A place to start is a working Gradle run of the linter for reference which can be done following the instructions [in this Gist](https://gist.github.com/BenHenning/4b64a54f0b0a6852d23676cea26f427b).
+    - Example reports:
+      - [app/](https://gist.github.com/BenHenning/a279cbefe77d9594e160c7a499cfde2a)
+      - [data/](https://gist.github.com/BenHenning/03c34834bc8df1f91943501dd463db51)
+      - [domain/](https://gist.github.com/BenHenning/5e570f32d0731d8ebb4659cc38ecf762)
+      - [testing/](https://gist.github.com/BenHenning/d5ba515e4077f8ee401dc4016a2623f1)
+      - [utility/](https://gist.github.com/BenHenning/d3aa077443c5870caf50861d1eeaf2a7)
+    - **Important**: The files above were produced using lint 4.2.2, but the latest (as of drafting these notes) is 8.2.0.
+      - You should aim to use the latest _compatible_ version of the lint tool (8.2.0 likely won't work due to requiring JDK 17, but you'll need to check this).
+      - Furthermore, different versions will have differing results. You should aim to find the _most_ number of issues possible (i.e. configure the tool and its arguments to catch as many problems as it's able to within the codebase).
+  - The general flow of the script will probably be to process the exemptions proto in order to generate an Android-lint compatible XML exemption file (to pass in), and then run the linter and interpret the results to determine a pass/fail for the overall process.
+    - The lint tool supports text-based output, XML, and SARIF. It's expected that the script will parse either XML or SARIF formats as they are strongly formatted whereas text may change in future versions of the tool.
+- Script changes:
+  - A new proto message needs to be added in script_exemptions.proto to properly represent exemption failures that are found by Android Lint.
+    - These exemptions should be designed in a way to ensure that they aren't fragile, i.e. prefer exemption specific categories of failures on a per-file basis rather than per-line. While not perfect, we ultimately aim to reach 0 exemptions in the long-term so per-file is a reasonable stop-gap (we use this approach in other places, though Android lint's exemptions are more elaborate since we need categorical exemptions).
+  - A new textproto under scripts/assets to contain the new exemptions (all existing failures should be exempted by default before fixes are checked in).
+  - A new script + tests for wrapping Android lint (no new utilities are expected to be needed at this stage, though it's possible we will need something for interacting with cmdline tools).
+    - The script will probably need to fail gracefully if it can't locate Android lint, e.g. because cmdline tools wasn't installed, with instructions on how to install it (e.g. using sdkmanager). This should only be necessary if it's not possible to bundle the tool with the script (such as by using the Maven dependency mentioned above).
+  - Changes to static_checks.sh and static_checks.yml to include the new lint script in each, respectively.
+- UI/domain changes:
+  - Unlikely that there are substantial changes here, but a lot of UI files will require changes as part of addressing the issues of the lint categories mentioned in the project description.
+
+</details>
+
+<details>
+<summary>Suggested PM demo points</summary>
+
+- Milestone 1: Demonstrate the script can be run locally to catch lint issues. Demonstrate that the script runs on develop, and is passing. Demonstrate that the script runs for pull requests and can catch a lint issue potentially being introduced by the pull request. Show the exemptions file being used.
+
+- Milestone 2: Demonstrate X types of lint issues have been fully resolved (i.e. by demonstrating that the linter is running for those checks, no exemptions for those types of issues exist, and the script passes). Verify that each category of issue is properly caught by demonstrating the linter catching these failures if reintroduced in the codebase.
+</details>
