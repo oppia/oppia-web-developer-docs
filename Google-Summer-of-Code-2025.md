@@ -345,7 +345,7 @@ If you need clarification on any of these ideas, feel free to open a thread in G
 
 4.2. [Platform parameters dashboard](#42-platform-parameters-dashboard)
 
-4.3. [Android lint infrastructure & fixes](#43-android-lint-infrastructure-&-fixes)
+4.3. [Android lint infrastructure and fixes](#43-android-lint-infrastructure-and-fixes)
 
 ## Learner and Creator Experience (LaCE) team
 
@@ -1120,7 +1120,7 @@ We also recommend taking up at least one checkbox item from each of the followin
 
 **Project Description:**
 
-When learners make a mistake on a concept they have previously demonstrated in an earlier part of a lesson, it often makes sense to redirect them back (or to a parallel flow) to try and reinforce earlier concepts that the learner may have not fully understood. However, in the current app implementation, learners subsequently need to re-answer all the cards between the earlier state and the state they had reached, which is frustrating.
+When learners make a mistake on a concept they have previously demonstrated in an earlier part of a lesson, it often makes sense to redirect them back to an earlier card to try and reinforce earlier concepts that the learner may have not fully understood. However, in the current app implementation, learners subsequently need to re-answer all the cards between the earlier state and the state they had reached, which is frustrating.
 
 This project aims to provide a new feature called 'flashbacks' which helps to bring the benefits of earlier redirection (i.e. reviewing an earlier concept that directly ties to the learner's likely misconception) without the frustrating experience of having to redo the all the questions up to returning back to the question that originally caused the learner to become stuck.
 
@@ -1234,7 +1234,7 @@ Making changes to the core lesson flow may be a combination of feeling like a lo
 
 Feature flags are a special type of configurable [platform parameter](https://github.com/oppia/oppia-android/wiki/Platform-Parameters-&-Feature-Flags#introduction) which allows the team to stage features behind remotely configurable flags until they're ready to be launched. This allows features to be developed across multiple releases without users seeing part of the feature (or app stability issues when the feature is enabled), ensuring the team releases high-quality features and doesn't hurt the overall quality and performance of the app. Broadly, platform parameters allow the team to configure the overall app (which can be useful both for feature flags, as described above, and safety 'knobs' such as controlling rate limits to remote APIs to help reduce the chance of server outages).
 
-This project entails introducing a developer-only UI (as part of the developer options section of the app) which displays all platform parameters and feature flags in the app, their current enabled/disabled status (for feature flags) or values (for platform parameters), their sync status (i.e. whether they're being synced from the server or using a local developer default). It also allows an explicit manual override to force the feature on or off, or to override the platform parameter's value.
+This project entails introducing a developer-only UI (as part of the developer options section of the app) which displays all platform parameters and feature flags in the app, their current enabled/disabled status (for feature flags) or values (for platform parameters), and their sync status (i.e. whether they're being synced from the server or using a local developer default). It also allows an explicit manual override to force the feature on or off, or to override the platform parameter's value.
 
 Relevant links:
 - Sample [mocks](https://www.figma.com/proto/Z09eMDliYwgjHCOIvQrBDI/Oppia-Platform-Parameters-%2F-Feature-Flags---Developer-Options?node-id=51-334&t=pIf6FDxhNaeSfhXw-1) for the new UI
@@ -1260,7 +1260,7 @@ Relevant links:
 **Related issues:**
 
 Issues related to portions of the codebase that will be affected by this project:
-- [#46](https://github.com/oppia/oppia-android/issues/46) - Note that this is a great issue that has smaller chunks that can be done in isolation to build familiarity with the developer workflow menu.
+- [#46](https://github.com/oppia/oppia-android/issues/46) - Note that this is a good issue build familiarity with the developer workflow menu workings, and has smaller chunks that can be done in isolation.
 - [#5600](https://github.com/oppia/oppia-android/issues/5600) - Note that this is a specific part of #46 above.
 - [#5636](https://github.com/oppia/oppia-android/issues/5636)
 - [#3506](https://github.com/oppia/oppia-android/issues/3506)
@@ -1275,14 +1275,15 @@ Issues related to portions of the codebase that will be affected by this project
   - Support for overwriting and resetting both feature flags and platform parameters back to their default values, including force-restarting the app upon navigating away from the menu (so that the changes can take effect).
   - Updated UI tests for the new functionality.
   - The new screen fully supports overriding various platform parameters and feature flag values.
-  - Support for force downloading flags from Oppia web (i.e. by calling PlatformParameterController.downloadRemoteParameters and ask for an app restart).
+  - Support for force downloading flags from Oppia web (i.e. by calling PlatformParameterController.downloadRemoteParameters() and asking for an app restart).
+  - Pending overrides and the indicator for downloading state both should 'survive' device rotations (that is, rotating the device should not cause any temporary state in the UI to be lost).
 
 <details>
 <summary>Org-admin/tech-lead commentary/advice</summary>
 
 This project involves introducing a new, isolated user interface that only affects developers (and possibly testers or user study facilitators in the future) which means it doesn't require the same level of gating as regular learner-facing features. It's often nice to work on brand new UIs, as well, since everything is starting in a fresh, clean state rather than building on existing complexity and tests.
 
-The domain side of platform parameters isn't trivial to understand, but it's straightforward to explain and analyze the dataflow. This is expected to be a straightforward project that balances domain and frontend work (with a majority of the work being UI-related). Expect to spend a lot of design time during the proposal period working to understand how parameters and flags work, especially with regards to their plumbing and related code generation.
+The domain side of platform parameters can seem complex at the surface, but it's straightforward to explain and analyze the dataflow after seeing one example of how the app goes from Oppia web to a frontend flag being used to gate a feature (i.e. the whole dataflow of a parameter). This is expected to be a straightforward project that balances domain and frontend work (with a majority of the work being UI-related). Expect to spend a lot of design time during the proposal period working to understand how parameters and flags work, especially with regards to their plumbing and related code generation.
 </details>
 
 <details>
@@ -1332,12 +1333,12 @@ The domain side of platform parameters isn't trivial to understand, but it's str
 
 - Milestone 1: The new UI correctly shows all platform parameters and feature flags, and their correct value and sync statuses.
 
-- Milestone 2: The new screen fully supports overriding various platform parameters and feature flag values. This includes demonstrating both overriding user flows in the new UI, and showing the value changes correctly take effect in the app after a prompted (and accepted) app restart.
+- Milestone 2: The new screen fully supports overriding various platform parameters and feature flag values. This includes demonstrating the user flows for overriding feature flags and overriding platform parameters in the new UI, and showing that the value changes correctly take effect in the app after a prompted (and accepted) app restart. Double check that force downloading remote parameters works, and that device rotations don't result in temporary UI state being lost.
 </details>
 
 
 
-### 4.3. Android lint infrastructure & fixes
+### 4.3. Android lint infrastructure and fixes
 
 **Project Description:**
 
@@ -1386,6 +1387,7 @@ The Android build ecosystem supports a [linting tool](https://developer.android.
 Issues related to portions of the codebase that will be affected by this project:
 - Most issues under the 'priority' section of the [CLaM team board](https://github.com/orgs/oppia/projects/4/views/3) are likely to help build familiarity with broad parts of the codebase which will help with addressing lint issues.
 - Adding tests for scripts will help build familiarity with the scripting work: [#4971](https://github.com/oppia/oppia-android/issues/4971). The stats script is especially relevant, too, as it is built to wrap utilities normally used via the command line (not unlike Android lint), including AAPT and apkanalyzer.
+- [#5169](https://github.com/oppia/oppia-android/issues/5169) - currently tracked lint categories (note that these aren't all possible categories that can and will be found by the script).
 
 **Suggested Milestones:**
 - **Milestone 1**: Key deliverables:
@@ -1403,7 +1405,7 @@ Issues related to portions of the codebase that will be affected by this project
 
 Scripts usually seem like straightforward changes, and they often can be. However, they almost always uncover unexpected complexities that need to be solved mid-project (which is why this is considered a more difficult project overall). It's also the case that many of the lint issues that are included as part of this project may not have known solutions ahead of time which requires additional problem solving that may occur after the design phase of the project.
 
-That being said, there are many examples of both scripts and exemptions to reference when designing and constructing the script itself. While the exact functionality being implementing (wrapping the Android linter and creating an intermediary step between the exemption XML and a textproto version of it) isn't well defined, the other boilerplate of a script (textproto loading, script library, running scripts in CI, etc.) is well defined and referenceable.
+That being said, there are many examples of both scripts and exemptions to reference when designing and constructing the script itself. While the exact functionality being implementing (wrapping the Android linter and creating an intermediary step between the exemption XML and a textproto version of it) isn't well defined yet (and should be explained clearly in your proposal), the other boilerplate of a script (textproto loading, script library, running scripts in CI, etc.) is well defined and referenceable.
 </details>
 
 <details>
@@ -1463,7 +1465,7 @@ Key details that we expect to be included:
 <details>
 <summary>Suggested PM demo points</summary>
 
-- Milestone 1: Demonstrate the script can be run locally to catch lint issues. Demonstrate that the script runs on develop, and is passing. Demonstrate that the script runs for pull requests and can catch a lint issue potentially being introduced by the pull request. Show the exemptions file being used.
+- Milestone 1: Demonstrate that the script can be run locally to catch lint issues. Demonstrate that the script runs on develop, and is passing. Demonstrate that the script runs for pull requests and catches lint failures being introduced by the pull request. Show that exemptions listed in the exemptions file are not reported.
 
-- Milestone 2: Demonstrate X types of lint issues have been fully resolved (i.e. by demonstrating that the linter is running for those checks, no exemptions for those types of issues exist, and the script passes). Verify that each category of issue is properly caught by demonstrating the linter catching these failures if reintroduced in the codebase.
+- Milestone 2: Demonstrate each category of lint failure in the project description has been fully resolved (i.e. by demonstrating that the linter is running for those checks, no exemptions for those types of issues exist, and the script passes). Verify that each category of issue is properly caught by demonstrating the linter catching these failures if reintroduced in the codebase.
 </details>
