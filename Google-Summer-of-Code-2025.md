@@ -1171,9 +1171,9 @@ Issues related to portions of the codebase that will be affected by this project
 <details>
 <summary>Org-admin/tech-lead commentary/advice</summary>
 
-This project involves a lot of very gritty coding work in the most critical code pathways in the app: the core learner flow. These are not simple areas of the app as Oppia's core lesson flow is fundamentally complex, but fortunately there are dozens of past projects and changes that have changed these coding areas (which may act as good references) and the codepath has generally excellent test coverage (which means we can be confident when we make changes to these areas).
+This project involves a lot of very gritty coding work in the most critical code pathways in the app: the core learner flow. These are not simple areas of the app as Oppia's core lesson flow is fundamentally complex, but fortunately there are dozens of past projects and changes to these coding areas which may act as good references, and the codepath has generally excellent test coverage (which means we can be confident when we make changes to these areas).
 
-Making changes to the core lesson flow may be a combination of feeling like a lot of progress is being made (when adding some of the fairly substantial boilerplate involved in adding views to the lesson flow), and other times where it can take a while just to add a few lines of code (due to the surrounding area being particularly complex, such as for the actor-based [ExplorationProgressController](https://github.com/oppia/oppia-android/blob/4f58be9d399c70e1d1cd241495280ae913afbf07/domain/src/main/java/org/oppia/android/domain/exploration/ExplorationProgressController.kt#L106)). It may be very difficult to fully grok the full dependency and data flow for explorations, but it's usually straightforward to jump in and start making changes that in turn show up in the lesson viewer frontend.
+Making changes to the core lesson flow may be a combination of feeling like a lot of progress is being made (when adding some of the fairly substantial boilerplate involved in adding views to the lesson flow), and other times where it can take a while just to add a few lines of code (due to the surrounding area being particularly complex, such as for the actor-based [ExplorationProgressController](https://github.com/oppia/oppia-android/blob/4f58be9d399c70e1d1cd241495280ae913afbf07/domain/src/main/java/org/oppia/android/domain/exploration/ExplorationProgressController.kt#L106)). It may be very difficult to fully grok the full dependency and data flow for explorations, but it's usually straightforward to jump in and start making changes that, in turn, quickly show up in the lesson viewer frontend.
 </details>
 
 <details>
@@ -1235,11 +1235,16 @@ Making changes to the core lesson flow may be a combination of feeling like a lo
 
 **Project Description:**
 
-Feature flags are a special type of configurable [platform parameter](https://github.com/oppia/oppia-android/wiki/Platform-Parameters-&-Feature-Flags#introduction) which allows the team to stage features behind remotely configurable flags until they're ready to be launched. This allows features to be developed across multiple releases without users seeing part of the feature (or app stability issues when the feature is enabled), ensuring the team can release high-quality features without hurting the overall quality and performance of the app. Broadly, platform parameters allow the team to configure the overall app (which can be useful both for feature flags, as described above, and safety 'knobs' such as controlling rate limits to remote APIs to help reduce the chance of server outages).
+Feature flags are a special type of configurable [platform parameter](https://github.com/oppia/oppia-android/wiki/Platform-Parameters-&-Feature-Flags#introduction) which allows the team to stage features behind remotely configurable flags until they're ready to be launched. This allows features to be developed across multiple releases without users seeing part of the feature (or app stability issues when the feature is enabled), ensuring the team releases high-quality features and doesn't hurt the overall quality and performance of the app. Broadly, platform parameters allow the team to configure the overall app (which can be useful both for feature flags, as described above, and safety 'knobs' such as controlling rate limits to remote APIs to help reduce the chance of server outages).
 
-This project entails introducing a developer-only UI (as part of the developer options section of the app) which displays all platform parameters and feature flags in the app, their current enabled/disabled status (for feature flags) or values (for platform parameters), and their sync status (i.e. whether they're being synced from the server or using a local developer default). It also allows an explicit manual override to force the feature on or off, or to override the platform parameter's value.
+This project entails introducing a developer-only UI (as part of the developer options section of the app) which displays all platform parameters and feature flags in the app, their current enabled/disabled status (for feature flags) or values (for platform parameters), their sync status (i.e. whether they're being synced from the server or using a local developer default). It also allows an explicit manual override to force the feature on or off, or to override the platform parameter's value.
 
-**Tracking issues**: [#5345](https://github.com/oppia/oppia-android/issues/5345) (note that this issue presently includes testing work that may well be completed by [#5565](https://github.com/oppia/oppia-android/pull/5565)).
+Relevant links:
+- Sample [mocks](https://www.figma.com/proto/Z09eMDliYwgjHCOIvQrBDI/Oppia-Platform-Parameters-%2F-Feature-Flags---Developer-Options?node-id=51-334&t=pIf6FDxhNaeSfhXw-1) for the new UI
+- [#5725](https://github.com/oppia/oppia-android/pull/5725): a reimplementation of the platform parameter and feature flag system
+- [#5565](https://github.com/oppia/oppia-android/pull/5565): introduction of cleaner support for overriding platform parameters and feature flags in tests
+
+**Tracking issues**: [#5345](https://github.com/oppia/oppia-android/issues/5345)
 
 **Size:** Medium (\~175 hours)
 
@@ -1257,32 +1262,42 @@ This project entails introducing a developer-only UI (as part of the developer o
 
 **Related issues:**
 
-_(Note: Specific issues will be added soon.)_
+Issues related to portions of the codebase that will be affected by this project:
+- [#46](https://github.com/oppia/oppia-android/issues/46) - Note that this is a great issue that has smaller chunks that can be done in isolation to build familiarity with the developer workflow menu.
+- [#5600](https://github.com/oppia/oppia-android/issues/5600) - Note that this is a specific part of #46 above.
+- [#5636](https://github.com/oppia/oppia-android/issues/5636)
+- [#3506](https://github.com/oppia/oppia-android/issues/3506)
 
 **Suggested Milestones:**
 - **Milestone 1**: Key deliverables:
-   - Display a list of platform parameters and feature flags from a Developer Options menu, along with their current values and sync statuses.
-   - Set up initial tests to demonstrate that the UI displays correctly.
+  - Display a list of platform parameters and feature flags from a Developer Options menu, along with their current values and sync statuses.
+  - Set up initial tests to demonstrate that the UI displays correctly.
+  - The new UI correctly shows all platform parameters and feature flags, and their correct values and sync statuses.
 
 - **Milestone 2**: Key deliverables:
-  - Support for overwriting platform parameters and feature flags, including force-restarting the app upon navigating away from the menu (so that the changes can take effect).
+  - Support for overwriting and resetting both feature flags and platform parameters back to their default values, including force-restarting the app upon navigating away from the menu (so that the changes can take effect).
   - Updated UI tests for the new functionality.
-
+  - The new screen fully supports overriding various platform parameters and feature flag values.
+  - Support for force downloading flags from Oppia web (i.e. by calling PlatformParameterController.downloadRemoteParameters and ask for an app restart).
 
 <details>
 <summary>Org-admin/tech-lead commentary/advice</summary>
 
 This project involves introducing a new, isolated user interface that only affects developers (and possibly testers or user study facilitators in the future) which means it doesn't require the same level of gating as regular learner-facing features. It's often nice to work on brand new UIs, as well, since everything is starting in a fresh, clean state rather than building on existing complexity and tests.
 
-The domain side of platform parameters isn't trivial to understand, but it's straightforward to explain and analyze the dataflow. This is expected to be a straightforward project that balances domain and frontend work (with a majority of the work being UI-related).
+The domain side of platform parameters isn't trivial to understand, but it's straightforward to explain and analyze the dataflow. This is expected to be a straightforward project that balances domain and frontend work (with a majority of the work being UI-related). Expect to spend a lot of design time during the proposal period working to understand how parameters and flags work, especially with regards to their plumbing and related code generation.
 </details>
 
 <details>
 <summary>What we are looking for in proposals</summary>
 
 - A strong understanding of:
-  - Feature flags and platform parameters, including their complete lifecycle for both production and tests.
-  - Dagger dependency gating and how dependencies can differ based on the flavor of the app being built, and whether it's a test environment.
+  - Feature flags and platform parameters lifecycle:
+    - Provide a detailed walkthrough of the lifecycle of a specific feature flag or platform parameter describing its behavior under different conditions.
+  - Developer options menu:
+    - Explain how the developer options menu works and its inclusion / exclusion in different builds.
+  - Dagger dependency gating:
+    - Detail how dependencies are configured differently based on the flavor of the app being built, and whether it's a test environment.
 - A list of test names that will be added (we generally add automated tests for every code change).
 - Multiple diagrams, particularly:
   - A dependency diagram showing how different components (i.e. classes) of the implementation call into each other.
@@ -1293,7 +1308,27 @@ The domain side of platform parameters isn't trivial to understand, but it's str
 <details>
 <summary>Technical hints / guidance</summary>
 
-_This will be added soon._
+- General changes explanation:
+  - Much of the new UI is fairly straightforward to implement, and both the sync status and values are well represented in protos.
+  - The main complexity comes in providing clean pathways for overriding values, and retaining these values across app restarts.
+- UI changes:
+  - New developer options view model & listener for representing the platform parameter/feature flag dashboard.
+  - New modal fragment/presenter and listener for supporting back navigation and confirming an app restart after making an override change.
+  - New fragment, presenter, view model, listeners, and RecyclerView view models + views for the actual platform parameter and feature flag list screens themselves, plus changes for override functionality.
+- Domain changes:
+  - Introduce a new implementation of PlatformParameterController specific to developer options (similar to how HintHandlerDebugImpl exists and is used). This controller:
+    - Delegates functionality to the production implementation of the controller, but overrides as necessary.
+    - Exposes the necessary functionality for displaying platform parameters and feature flags.
+    - Supports local override for syncing by:
+      - Introducing a new persistent cache store for the LocalOverridePlatformParameterDatabase mentioned below).
+      - Introducing a new method for computing the list of ephemeral platform parameters by using both the remote sync and local override, with a resolution order of: pick local override if present, pick remote if present, fallback to default otherwise. This should build on the existing functionality provided by the production implementation.
+    - Introduce an update function for locally overriding platform parameters that changes the new database (but should not affect current in-process state set in PlatformParameterProcessState).
+    - Introduce support for resetting a flag/parameter (which should just remove its entry from the override database).
+- Model changes:
+  - A new LocalOverridePlatformParameterDatabase proto (essentially mirroring the existing RemotePlatformParameterAndFeatureFlagDatabase proto) for storing overridden values. This is kept separate from the other database so that a flag/parameter 'reset' can restore back to the original sync state.
+  - Add 'LOCAL_OVERRIDE' to sync status. This should be used in the override database by default so that the UI is able to properly display the badge for a locally overridden value.
+- Testing hints:
+  - Refer to [this example](https://github.com/oppia/oppia-android/blob/08e00847d955ec1f38fe8000832a2cff1bbff62f/app/src/sharedTest/java/org/oppia/android/app/splash/SplashActivityTest.kt#L1043) to simulate an app restart in tests. Testing should ensure that overridden values are retained across restarts.
 
 </details>
 
@@ -1303,6 +1338,6 @@ _This will be added soon._
 
 - Milestone 1: The new UI correctly shows all platform parameters and feature flags, and their correct value and sync statuses.
 
-- Milestone 2: The new screen fully supports overriding various platform parameters and feature flag values.
+- Milestone 2: The new screen fully supports overriding various platform parameters and feature flag values. This includes demonstrating both overriding user flows in the new UI, and showing the value changes correctly take effect in the app after a prompted (and accepted) app restart.
 </details>
 
