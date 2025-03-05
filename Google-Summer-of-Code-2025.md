@@ -1260,7 +1260,7 @@ Relevant links:
 **Related issues:**
 
 Issues related to portions of the codebase that will be affected by this project:
-- [#46](https://github.com/oppia/oppia-android/issues/46) - Note that this is a good issue build familiarity with the developer workflow menu workings, and has smaller chunks that can be done in isolation.
+- [#46](https://github.com/oppia/oppia-android/issues/46) - Note that this is a good issue to build familiarity with the developer workflow menu workings, and has smaller chunks that can be done in isolation.
 - [#5600](https://github.com/oppia/oppia-android/issues/5600) - Note that this is a specific part of #46 above.
 - [#5636](https://github.com/oppia/oppia-android/issues/5636)
 - [#3506](https://github.com/oppia/oppia-android/issues/3506)
@@ -1467,5 +1467,5 @@ Key details that we expect to be included:
 
 - Milestone 1: Demonstrate that the script can be run locally to catch lint issues. Demonstrate that the script runs on develop, and is passing. Demonstrate that the script runs for pull requests and catches lint failures being introduced by the pull request. Show that exemptions listed in the exemptions file are not reported.
 
-- Milestone 2: Demonstrate each category of lint failure in the project description has been fully resolved (i.e. by demonstrating that the linter is running for those checks, no exemptions for those types of issues exist, and the script passes). Verify that each category of issue is properly caught by demonstrating the linter catching these failures if reintroduced in the codebase.
+- Milestone 2: Demonstrate that each category of lint failure in the project description has been fully resolved (i.e. by demonstrating that the linter is running for those checks, no exemptions for those types of issues exist, and the script passes). Verify that each category of issue is properly caught by demonstrating the linter catching these failures if reintroduced in the codebase.
 </details>
