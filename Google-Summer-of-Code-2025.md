@@ -352,6 +352,7 @@ If you need clarification on any of these ideas, feel free to open a thread in G
 
 4.2. [Platform parameters dashboard](#42-platform-parameters-dashboard)
 
+4.3. [Android lint infrastructure and fixes](#43-android-lint-infrastructure-and-fixes)
 
 ## Learner and Creator Experience (LaCE) team
 
@@ -1140,18 +1141,18 @@ We also recommend taking up at least one checkbox item from each of the followin
 
 **Project Description:**
 
-When learners make a mistake on a concept they have previously demonstrated in an earlier part of a lesson, it often makes sense to redirect them back to an earlier card to try and reinforce earlier concepts that the learner may have not fully understood. However, with the current implementation, learners subsequently need to re-answer all the cards between the earlier state and the state they had reached, which is frustrating.
+When learners make a mistake on a concept they have previously demonstrated in an earlier part of a lesson, it often makes sense to redirect them back to an earlier card to try and reinforce earlier concepts that the learner may have not fully understood. However, in the current app implementation, learners subsequently need to re-answer all the cards between the earlier state and the state they had reached, which is frustrating.
 
-This project aims to provide a new feature called ‘flashbacks’ which helps to bring the benefits of earlier redirection (i.e. reviewing an earlier concept that directly ties to the misconception) without the frustrating part of having to redo the old questions before returning back to the question that originally caused the learner to become stuck.
+This project aims to provide a new feature called 'flashbacks' which helps to bring the benefits of earlier redirection (i.e. reviewing an earlier concept that directly ties to the learner's likely misconception) without the frustrating experience of having to redo the all the questions up to returning back to the question that originally caused the learner to become stuck.
 
-Additionally, this project also includes improving the general look-and-feel of submitted answers for both multiple choice and item selection interactions as these both currently rely on HTML generation rather than having a cleaner, natively rendered experience. This will also allow them to be displayed properly in the “flashback” experience.
+Additionally, this project also includes improving the general look-and-feel of submitted answers for both multiple choice and item selection interactions as these both currently rely on HTML generation rather than having a cleaner, natively rendered experience. This change will also allow them to be displayed properly in the 'flashback' experience.
 
-Relevant links: Mocks (https://github.com/oppia/design-team/issues/50) and [PRD](https://docs.google.com/document/d/1NpWgRN6BgvlutWXTYkz997ft36nRMYCbxSO7RYy2iV8/edit?tab=t.0) (incomplete). Specific notes on mocks:
+Relevant links: Tracking issue with mocks links (https://github.com/oppia/design-team/issues/179) and [PRD](https://docs.google.com/document/d/1NpWgRN6BgvlutWXTYkz997ft36nRMYCbxSO7RYy2iV8/edit?tab=t.0) (incomplete). Please note the following regarding these mocks:
   - The mocks don't include explicit changes for multiple choice and item selection.
-  - The mocks don't quite represent the correct ‘inline’ experience that needs to be introduced for the ‘Learn Again’ button (which should be part of the answer & response section of the incorrect answer that is prompting for a revisit).
+  - The mocks don't quite represent the correct 'inline' experience that needs to be introduced for the 'Learn Again' button (which should be part of the answer & response section of the incorrect answer that is prompting for a revisit).
   - Only the mocks with the orange toolbars are actually correct and need to be implemented (except for the otter, and the return button should be part of the flow rather than overlaid).
 
-**Tracking issues**: _To be updated._
+**Tracking issues**: [#5732](https://github.com/oppia/oppia-android/issues/5732)
 
 **Size:** Medium (\~175 hours)
 
@@ -1173,20 +1174,29 @@ Relevant links: Mocks (https://github.com/oppia/design-team/issues/50) and [PRD]
 
 Key issue: [#5572](https://github.com/oppia/oppia-android/issues/5572). This tracks introducing a short-term solution of the broader problem this GSoC project aims to solve.
 
-_(Note: Additional issues will be added soon.)_
+Issues related to portions of the codebase that will be affected by this project:
+- [#5728](https://github.com/oppia/oppia-android/issues/5728)
+- [#5568](https://github.com/oppia/oppia-android/issues/5568)
+- [#3646](https://github.com/oppia/oppia-android/issues/3646)
+- [#2973](https://github.com/oppia/oppia-android/issues/2973)
+- [#1273](https://github.com/oppia/oppia-android/issues/1273)
 
 **Suggested Milestones:**
-- **Milestone 1**: The new flashback dialog is implemented and hooked up to the existing soft redirection button. (The in-line flow does not need to work at this stage.)
+- **Milestone 1**:
+  - The new flashback dialog is implemented and hooked up to the existing soft redirection button. (The in-line flow does not need to work at this stage.)
+  - When a learner is redirected, the Flashback Dialog should appear. Upon confirmation, the learner is taken back to the most recent instance of the card without adding a duplicate to the stack. This ensures a smoother learning experience without unnecessary reattempts of intermediate questions.
 
-- **Milestone 2**: The flashback dialog is hooked up with the learner flow to have an in-line view (i.e. the 'Learn Again' button is attached to the incorrect answer that led to the flashback), and relevant UI tests are added. Also, the new designs for multiple choice and item selection interactions are implemented.
-
+- **Milestone 2**:
+  - Integrate the Flashback Dialog into the learner flow with an in-line view, where the "Learn Again" button is directly attached to the incorrect answer that triggered the flashback.
+  - Implement the updated designs for multiple choice and item selection interactions submitted answers to ensure a cleaner, natively rendered experience.
+  - Additionally, add relevant UI tests to verify the new functionality.
 
 <details>
 <summary>Org-admin/tech-lead commentary/advice</summary>
 
-This project involves a lot of very gritty coding work in the most critical code pathways in the app: the core learner flow. These are not simple areas of the app as Oppia's core lesson flow is fundamentally complex, but fortunately there are dozens of past projects and changes that have changed these coding areas (which may act as good references) and the codepath has generally excellent test coverage (which means we can be confident when we make changes to these areas).
+This project involves a lot of very gritty coding work in the most critical code pathways in the app: the core learner flow. These are not simple areas of the app as Oppia's core lesson flow is fundamentally complex, but fortunately there are dozens of past projects and changes to these coding areas which may act as good references, and the codepath has generally excellent test coverage (which means we can be confident when we make changes to these areas).
 
-Making changes to the core lesson flow may be a combination of feeling like a lot of progress is being made (when adding some of the fairly substantial boilerplate involved in adding views to the lesson flow), and other times where it can take a while just to add a few lines of code (due to the surrounding area being particularly complex, such as for the actor-based [ExplorationProgressController](https://github.com/oppia/oppia-android/blob/4f58be9d399c70e1d1cd241495280ae913afbf07/domain/src/main/java/org/oppia/android/domain/exploration/ExplorationProgressController.kt#L106)). It may be very difficult to fully grok the full dependency and data flow for explorations, but it's usually straightforward to jump in and start making changes that in turn show up in the lesson viewer frontend.
+Making changes to the core lesson flow may be a combination of feeling like a lot of progress is being made (when adding some of the fairly substantial boilerplate involved in adding views to the lesson flow), and other times where it can take a while just to add a few lines of code (due to the surrounding area being particularly complex, such as for the actor-based [ExplorationProgressController](https://github.com/oppia/oppia-android/blob/4f58be9d399c70e1d1cd241495280ae913afbf07/domain/src/main/java/org/oppia/android/domain/exploration/ExplorationProgressController.kt#L106)). It may be very difficult to fully grok the full dependency and data flow for explorations, but it's usually straightforward to jump in and start making changes that, in turn, quickly show up in the lesson viewer frontend.
 </details>
 
 <details>
@@ -1197,21 +1207,44 @@ Making changes to the core lesson flow may be a combination of feeling like a lo
 - Multiple diagrams, particularly:
   - A dependency diagram showing how different components (i.e. classes) of the implementation call into each other.
   - A flow diagram to show how user interactions flow into different state changes in code.
-
 </details>
 
 <details>
 <summary>Technical hints / guidance</summary>
 
-_This will be added soon._
-
+- General changes explanation:
+  - The new flows are introducing a novel navigation pathway (being able to navigate 'back' to an earlier state, but interact with it in a completely unique way), as well as a parallel "I'm stuck" flow that's similar to hints and solutions, but more explicit (due to being largely controlled by a "I'm stuck" button). This pathway diverges for cases when the user is stuck on the first card of an exploration.
+  - This will require changes to both state navigation and general conceptual modeling for ephemeral states. This means refactoring how the app tracks and restores state when moving between flashbacks and the main learner flow.
+  - Note: we want to show the associated solution from hints and solutions, but only if available. The "See solution" should only be visible if the learner is stuck on the first question.
+- UI places that need to be updated
+  - StateFragment & related models, including new views. More importantly, StateItemViewModel will have several new types and subclasses:
+    - One for the "I need help" button.
+    - One for the "See solution" box (which has two different states based on whether it's revealed).
+    - Ones for the pre-baked responses, e.g. "Need help? No problem..." and "Now that you have reviewed the solution..." responses. These could potentially be combined into one.
+    - One for the "Try again" button.
+    - One for the "Return to question" button.
+  - New dialog fragment models & listeners for the confirmation prompts for both navigating to a previous card and for revealing the solution.
+  - SelectionInteractionViewModel to not precompute a list-based HTML answer (i.e. convertSelectedItemsToHtmlString should be removed).
+  - StatePlayerRecyclerViewAssembler probably has multiple changes needed, but particularly it needs to properly support the new cases where multiple choice and item selection answers should be rendered as separate lists with an indicator for the correct answer. Note that part of this is probably already supported for drag and drop, but it needs to be reanalyzed and appropriated (or copied) for the new use case.
+- Domain changes
+  - ExplorationProgressController: to handle detecting new routing state, and to compute when it's appropriate to show a solution. Navigation is also different in these situations and requires additional changes to the controller (or StateDeck).
+  - StateDeck: requires changes to represent the new ephemeral state of previous cards (only when they're navigated to through the stuck flow; manually navigating back should show the normal CompletedState--this means that the deck is no longer immutable and can have transient states that only show up for specific scenarios).
+- Model changes
+  - exploration.proto
+    - A new destination added to AnswerOutcome for "refresh previous state" with the state name.
+    - A new state_type for reviewable_state of type CompletedState (since no new fields are needed over that, it's just the view itself that needs to be handled differently in the UI layer).
+    - Changes to PendingState to represent a new property of whether the user can show the solution. The AnswerOutcome change already provides a signal on whether to show the "I need help" button, but not whether the user has exhausted enough submission attempts to warrant just giving them the solution.
+    - UserAnswer probably will need to be changed to mark which item among a list of items is the actual correct answer (for multiple choice and item selection).
+    - AnswerAndResponse will need to be turned into a oneof since it can now represent several different things (important: this needs to be done in a binary-compatible way for checkpoint loading to work--checkpoints of older states should be tested as part of this project):
+      - An actual answer and response (as it does today).
+      - One of the pre-baked responses, e.g. "Need help? No problem..." and "Now that you have reviewed the solution..." responses.
+      - The "see solution" box (two versions, revealed and unrevealed).
 </details>
-
 
 <details>
 <summary>Suggested PM demo points</summary>
 
-- Milestone 1: Trigger a “user is soft redirected” state to demonstrate the flashback dialog.
+- Milestone 1: Trigger a "user is soft redirected" state to demonstrate the flashback dialog.
 
 - Milestone 2: Demonstrate the "user is soft-redirected" flashback with the in-line "Learn Again" button along with the new item selection and multiple choice interaction views (for submitted answers).
 </details>
@@ -1222,11 +1255,16 @@ _This will be added soon._
 
 **Project Description:**
 
-Feature flags are a special type of configurable [platform parameter](https://github.com/oppia/oppia-android/wiki/Platform-Parameters-&-Feature-Flags#introduction) which allows the team to stage features behind remotely configurable flags until they're ready to be launched. This allows features to be developed across multiple releases without users seeing part of the feature (or app stability issues when the feature is enabled), ensuring the team can release high-quality features without hurting the overall quality and performance of the app. Broadly, platform parameters allow the team to configure the overall app (which can be useful both for feature flags, as described above, and safety 'knobs' such as controlling rate limits to remote APIs to help reduce the chance of server outages).
+Feature flags are a special type of configurable [platform parameter](https://github.com/oppia/oppia-android/wiki/Platform-Parameters-&-Feature-Flags#introduction) which allows the team to stage features behind remotely configurable flags until they're ready to be launched. This allows features to be developed across multiple releases without users seeing part of the feature (or app stability issues when the feature is enabled), ensuring the team releases high-quality features and doesn't hurt the overall quality and performance of the app. Broadly, platform parameters allow the team to configure the overall app (which can be useful both for feature flags, as described above, and safety 'knobs' such as controlling rate limits to remote APIs to help reduce the chance of server outages).
 
 This project entails introducing a developer-only UI (as part of the developer options section of the app) which displays all platform parameters and feature flags in the app, their current enabled/disabled status (for feature flags) or values (for platform parameters), and their sync status (i.e. whether they're being synced from the server or using a local developer default). It also allows an explicit manual override to force the feature on or off, or to override the platform parameter's value.
 
-**Tracking issues**: [#5345](https://github.com/oppia/oppia-android/issues/5345) (note that this issue presently includes testing work that may well be completed by [#5565](https://github.com/oppia/oppia-android/pull/5565)).
+Relevant links:
+- Sample [mocks](https://www.figma.com/proto/Z09eMDliYwgjHCOIvQrBDI/Oppia-Platform-Parameters-%2F-Feature-Flags---Developer-Options?node-id=51-334&t=pIf6FDxhNaeSfhXw-1) for the new UI
+- [#5725](https://github.com/oppia/oppia-android/pull/5725): a reimplementation of the platform parameter and feature flag system
+- [#5565](https://github.com/oppia/oppia-android/pull/5565): introduction of cleaner support for overriding platform parameters and feature flags in tests
+
+**Tracking issues**: [#5345](https://github.com/oppia/oppia-android/issues/5345)
 
 **Size:** Medium (\~175 hours)
 
@@ -1246,52 +1284,213 @@ This project entails introducing a developer-only UI (as part of the developer o
 
 **Related issues:**
 
-_(Note: Specific issues will be added soon.)_
+Issues related to portions of the codebase that will be affected by this project:
+- [#46](https://github.com/oppia/oppia-android/issues/46) - Note that this is a good issue to build familiarity with the developer workflow menu workings, and has smaller chunks that can be done in isolation.
+- [#5600](https://github.com/oppia/oppia-android/issues/5600) - Note that this is a specific part of #46 above.
+- [#5636](https://github.com/oppia/oppia-android/issues/5636)
+- [#3506](https://github.com/oppia/oppia-android/issues/3506)
 
 **Suggested Milestones:**
 - **Milestone 1**: Key deliverables:
-   - Display a list of platform parameters and feature flags from a Developer Options menu, along with their current values and sync statuses.
-   - Set up initial tests to demonstrate that the UI displays correctly.
+  - Display a list of platform parameters and feature flags from a Developer Options menu, along with their current values and sync statuses.
+  - Set up initial tests to demonstrate that the UI displays correctly.
+  - The new UI correctly shows all platform parameters and feature flags, and their correct values and sync statuses.
 
 - **Milestone 2**: Key deliverables:
-  - Support for overwriting platform parameters and feature flags, including force-restarting the app upon navigating away from the menu (so that the changes can take effect).
+  - Support for overwriting and resetting both feature flags and platform parameters back to their default values, including force-restarting the app upon navigating away from the menu (so that the changes can take effect).
   - Updated UI tests for the new functionality.
-
+  - The new screen fully supports overriding various platform parameters and feature flag values.
+  - Support for force downloading flags from Oppia web (i.e. by calling PlatformParameterController.downloadRemoteParameters() and asking for an app restart).
+  - Pending overrides and the indicator for downloading state both should 'survive' device rotations (that is, rotating the device should not cause any temporary state in the UI to be lost).
 
 <details>
 <summary>Org-admin/tech-lead commentary/advice</summary>
 
 This project involves introducing a new, isolated user interface that only affects developers (and possibly testers or user study facilitators in the future) which means it doesn't require the same level of gating as regular learner-facing features. It's often nice to work on brand new UIs, as well, since everything is starting in a fresh, clean state rather than building on existing complexity and tests.
 
-The domain side of platform parameters isn't trivial to understand, but it's straightforward to explain and analyze the dataflow. This is expected to be a straightforward project that balances domain and frontend work (with a majority of the work being UI-related).
+The domain side of platform parameters can seem complex at the surface, but it's straightforward to explain and analyze the dataflow after seeing one example of how the app goes from Oppia web to a frontend flag being used to gate a feature (i.e. the whole dataflow of a parameter). This is expected to be a straightforward project that balances domain and frontend work (with a majority of the work being UI-related). Expect to spend a lot of design time during the proposal period working to understand how parameters and flags work, especially with regards to their plumbing and related code generation.
 </details>
 
 <details>
 <summary>What we are looking for in proposals</summary>
 
 - A strong understanding of:
-  - Feature flags and platform parameters, including their complete lifecycle for both production and tests.
-  - Dagger dependency gating and how dependencies can differ based on the flavor of the app being built, and whether it's a test environment.
+  - Feature flags and platform parameters lifecycle:
+    - Provide a detailed walkthrough of the lifecycle of a specific feature flag or platform parameter describing its behavior under different conditions.
+  - Developer options menu:
+    - Explain how the developer options menu works and its inclusion / exclusion in different builds.
+  - Dagger dependency gating:
+    - Detail how dependencies are configured differently based on the flavor of the app being built, and whether it's a test environment.
 - A list of test names that will be added (we generally add automated tests for every code change).
 - Multiple diagrams, particularly:
   - A dependency diagram showing how different components (i.e. classes) of the implementation call into each other.
   - A flow diagram to show how user interactions flow into different state changes in code.
-
 </details>
 
 <details>
 <summary>Technical hints / guidance</summary>
 
-_This will be added soon._
-
+- General changes explanation:
+  - Much of the new UI is fairly straightforward to implement, and both the sync status and values are well represented in protos.
+  - The main complexity comes in providing clean pathways for overriding values, and retaining these values across app restarts.
+- UI changes:
+  - New developer options view model & listener for representing the platform parameter/feature flag dashboard.
+  - New modal fragment/presenter and listener for supporting back navigation and confirming an app restart after making an override change.
+  - New fragment, presenter, view model, listeners, and RecyclerView view models + views for the actual platform parameter and feature flag list screens themselves, plus changes for override functionality.
+- Domain changes:
+  - Introduce a new implementation of PlatformParameterController specific to developer options (similar to how HintHandlerDebugImpl exists and is used). This controller:
+    - Delegates functionality to the production implementation of the controller, but overrides as necessary.
+    - Exposes the necessary functionality for displaying platform parameters and feature flags.
+    - Supports local override for syncing by:
+      - Introducing a new persistent cache store for the LocalOverridePlatformParameterDatabase mentioned below).
+      - Introducing a new method for computing the list of ephemeral platform parameters by using both the remote sync and local override, with a resolution order of: pick local override if present, pick remote if present, fallback to default otherwise. This should build on the existing functionality provided by the production implementation.
+    - Introduce an update function for locally overriding platform parameters that changes the new database (but should not affect current in-process state set in PlatformParameterProcessState).
+    - Introduce support for resetting a flag/parameter (which should just remove its entry from the override database).
+- Model changes:
+  - A new LocalOverridePlatformParameterDatabase proto (essentially mirroring the existing RemotePlatformParameterAndFeatureFlagDatabase proto) for storing overridden values. This is kept separate from the other database so that a flag/parameter 'reset' can restore back to the original sync state.
+  - Add 'LOCAL_OVERRIDE' to sync status. This should be used in the override database by default so that the UI is able to properly display the badge for a locally overridden value.
+- Testing hints:
+  - Refer to [this example](https://github.com/oppia/oppia-android/blob/08e00847d955ec1f38fe8000832a2cff1bbff62f/app/src/sharedTest/java/org/oppia/android/app/splash/SplashActivityTest.kt#L1043) to simulate an app restart in tests. Testing should ensure that overridden values are retained across restarts.
 </details>
-
 
 <details>
 <summary>Suggested PM demo points</summary>
 
 - Milestone 1: The new UI correctly shows all platform parameters and feature flags, and their correct value and sync statuses.
 
-- Milestone 2: The new screen fully supports overriding various platform parameters and feature flag values.
+- Milestone 2: The new screen fully supports overriding various platform parameters and feature flag values. This includes demonstrating the user flows for overriding feature flags and overriding platform parameters in the new UI, and showing that the value changes correctly take effect in the app after a prompted (and accepted) app restart. Double check that force downloading remote parameters works, and that device rotations don't result in temporary UI state being lost.
 </details>
 
+
+
+### 4.3. Android lint infrastructure and fixes
+
+**Project Description:**
+
+The Android build ecosystem supports a [linting tool](https://developer.android.com/studio/write/lint) which catches a variety of Android-specific problems (beyond those that can be caught by more general-purpose linters like [ktlint](https://github.com/pinterest/ktlint)). Historically a Gradle feature, Android Lint is [not yet](https://github.com/bazelbuild/rules_android/issues/321) directly supported in the Bazel world (though there are some [alternatives available](https://github.com/Bencodes/rules_android_lint)). This project involves:
+- Introducing an Oppia Android script that runs Android lint directly.
+- Supporting the same exemption override support (via XML) but using a textproto interface for parity with the allow-listing and deny-listing configurations used in other Oppia Android scripts.
+- Pre-populating the exemption list with existing known failures.
+- Adding wiki documentation to explain how to use the new script.
+- Filing and/or updating issues with findings such that all remaining Android lint issues are properly tracked in the repository.
+- Updating CI to run the Android lint script.
+- Fixing the following categories of lint issues:
+  - All categories classified as 'errors' by the tool.
+  - All of the following 'warning' categories:
+    - OldTargetApi
+    - UnusedAttribute
+    - Typos
+    - StringFormatCount
+    - ObsoleteSdkInt
+    - UnusedResources
+    - UselessLeaf
+    - UselessParent
+    - UnusedIds
+    - DuplicateStrings
+    - SelectableText
+    - LabelFor
+    - RtlSymmetry
+    - UnknownNullness
+
+**Tracking issues**: [#5734](https://github.com/oppia/oppia-android/issues/5734)
+
+**Size:** Large (\~350 hours)
+
+**Difficulty**: Hard
+
+**Potential mentors:** @BenHenning
+
+**Product/technical clarifiers:** @BenHenning (product + technical)
+
+**Required knowledge/skills:**
+- Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
+- Build the app and install it on a local device or emulator. Then verify that you can (a) build a non-test library  target locally, (b) run a unit test locally, and (c) play through the app locally.
+- Write new Kotlin code with unit tests.
+
+**Related issues:**
+
+Issues related to portions of the codebase that will be affected by this project:
+- Most issues under the 'priority' section of the [CLaM team board](https://github.com/orgs/oppia/projects/4/views/3) are likely to help build familiarity with broad parts of the codebase which will help with addressing lint issues.
+- Adding tests for scripts will help build familiarity with the scripting work: [#4971](https://github.com/oppia/oppia-android/issues/4971). The stats script is especially relevant, too, as it is built to wrap utilities normally used via the command line (not unlike Android lint), including AAPT and apkanalyzer.
+- [#5169](https://github.com/oppia/oppia-android/issues/5169) - currently tracked lint categories (note that these aren't all possible categories that can and will be found by the script).
+
+**Suggested Milestones:**
+- **Milestone 1**: Key deliverables:
+  - Introduce a new script that can run Android lint checks with support for a local textproto file that can override specific failures to allow them to pass.
+  - Check in a populated exemption list with all known exemptions.
+  - Introduce a new wiki page explaining how to use the script and update the exemption list.
+  - Introduce CI support for the new script so that it runs for every change to develop and for all PRs.
+
+- **Milestone 2**: Key deliverables:
+  - Fix all of the error categories of lint issues, plus the warning categories mentioned in the project description.
+  - Ensure all exemptions that aren't fixed as part of this project have corresponding tracking issues filed and spec'd with enough context for contributors to work on them.
+
+<details>
+<summary>Org-admin/tech-lead commentary/advice</summary>
+
+Scripts usually seem like straightforward changes, and they often can be. However, they almost always uncover unexpected complexities that need to be solved mid-project (which is why this is considered a more difficult project overall). It's also the case that many of the lint issues that are included as part of this project may not have known solutions ahead of time which requires additional problem solving that may occur after the design phase of the project.
+
+That being said, there are many examples of both scripts and exemptions to reference when designing and constructing the script itself. While the exact functionality being implementing (wrapping the Android linter and creating an intermediary step between the exemption XML and a textproto version of it) isn't well defined yet (and should be explained clearly in your proposal), the other boilerplate of a script (textproto loading, script library, running scripts in CI, etc.) is well defined and referenceable.
+</details>
+
+<details>
+<summary>What we are looking for in proposals</summary>
+
+Key details that we expect to be included:
+- A working demonstration of running the lint tool directly (i.e. not through Gradle) and producing similar output to the examples listed in the technical hints section below.
+- A strong understanding of:
+  - How at least 1 specific script in the codebase works (it must have support for textproto exemptions) with a detailed explanation of its dataflow.
+- A list of test names that will be added (we generally add automated tests for every code change).
+- Multiple diagrams, particularly:
+  - A dependency diagram showing how different components (i.e. classes) of the implementation call into each other.
+  - A flow diagram to show how user interactions flow into different state changes in code.
+- Clear explanations of each category of lint issue that will be addressed and how.
+- A clear explanation of what wiki changes will be needed (note that the entire page shouldn't be written out at this stage, but an outline with explanations for each section is expected).
+</details>
+
+<details>
+<summary>Technical hints / guidance</summary>
+
+- General changes explanation:
+  - Background on running the linter
+    - Gradle should be running the 'lint' process that's included in the Android cmdline tools (https://developer.android.com/studio#command-tools). A quick dive into that reveals a number of important JARs as part of the classpath:
+      - tools.lint-model.jar
+      - tools.lint-checks.jar
+      - tools.lint-api.jar
+      - lint-checks-proto.jar
+      - cli.jar (under lib/lint/cli)
+      - com.android.tools.lint.Main seems to be the main entrypoint.
+      - You either need to see if these libraries are published on Maven, or depend on the command line utilities directly (and wrap com.android.tools.lint.Main in the script).
+    - Note that you can download cmdline tools to inspect the lint command line on its own. Some very important details to note:
+      - The linter can hang at the end of its process (potentially due to some rogue non-daemon threads). The script will need to work around this limitation.
+      - It's up to you to analyze how Gradle interacts with the lint tool in order to understand how to construct a valid command line and run the linter. A place to start is a working Gradle run of the linter for reference which can be done following the instructions [in this Gist](https://gist.github.com/BenHenning/4b64a54f0b0a6852d23676cea26f427b).
+    - Example reports:
+      - [app/](https://gist.github.com/BenHenning/a279cbefe77d9594e160c7a499cfde2a)
+      - [data/](https://gist.github.com/BenHenning/03c34834bc8df1f91943501dd463db51)
+      - [domain/](https://gist.github.com/BenHenning/5e570f32d0731d8ebb4659cc38ecf762)
+      - [testing/](https://gist.github.com/BenHenning/d5ba515e4077f8ee401dc4016a2623f1)
+      - [utility/](https://gist.github.com/BenHenning/d3aa077443c5870caf50861d1eeaf2a7)
+    - **Important**: The files above were produced using lint 4.2.2, but the latest (as of drafting these notes) is 8.2.0.
+      - You should aim to use the latest _compatible_ version of the lint tool (8.2.0 likely won't work due to requiring JDK 17, but you'll need to check this).
+      - Furthermore, different versions will have differing results. You should aim to find the _most_ number of issues possible (i.e. configure the tool and its arguments to catch as many problems as it's able to within the codebase).
+  - The general flow of the script will probably be to process the exemptions proto in order to generate an Android-lint compatible XML exemption file (to pass in), and then run the linter and interpret the results to determine a pass/fail for the overall process.
+    - The lint tool supports text-based output, XML, and SARIF. It's expected that the script will parse either XML or SARIF formats as they are strongly formatted whereas text may change in future versions of the tool.
+- Script changes:
+  - A new proto message needs to be added in script_exemptions.proto to properly represent exemption failures that are found by Android Lint.
+    - These exemptions should be designed in a way to ensure that they aren't fragile, i.e. prefer exemption specific categories of failures on a per-file basis rather than per-line. While not perfect, we ultimately aim to reach 0 exemptions in the long-term so per-file is a reasonable stop-gap (we use this approach in other places, though Android lint's exemptions are more elaborate since we need categorical exemptions).
+  - A new textproto under scripts/assets to contain the new exemptions (all existing failures should be exempted by default before fixes are checked in).
+  - A new script + tests for wrapping Android lint (no new utilities are expected to be needed at this stage, though it's possible we will need something for interacting with cmdline tools).
+    - The script will probably need to fail gracefully if it can't locate Android lint, e.g. because cmdline tools wasn't installed, with instructions on how to install it (e.g. using sdkmanager). This should only be necessary if it's not possible to bundle the tool with the script (such as by using the Maven dependency mentioned above).
+  - Changes to static_checks.sh and static_checks.yml to include the new lint script in each, respectively.
+- UI/domain changes:
+  - Unlikely that there are substantial changes here, but a lot of UI files will require changes as part of addressing the issues of the lint categories mentioned in the project description.
+
+</details>
+
+<details>
+<summary>Suggested PM demo points</summary>
+
+- Milestone 1: Demonstrate that the script can be run locally to catch lint issues. Demonstrate that the script runs on develop, and is passing. Demonstrate that the script runs for pull requests and catches lint failures being introduced by the pull request. Show that exemptions listed in the exemptions file are not reported.
+
+- Milestone 2: Demonstrate that each category of lint failure in the project description has been fully resolved (i.e. by demonstrating that the linter is running for those checks, no exemptions for those types of issues exist, and the script passes). Verify that each category of issue is properly caught by demonstrating the linter catching these failures if reintroduced in the codebase.
+</details>
