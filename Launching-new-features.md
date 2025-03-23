@@ -26,25 +26,20 @@ If you are working on a large scale user-facing feature that will take more than
 
    - Ensure that every single user-facing aspect of the feature -- whether frontend or backend -- is gated behind the feature flag (both in the first PR, and all the following ones as well). It is important to ensure that all the new functionality is fully gated and does not "leak", otherwise this could cause issues like data corruption.
 
-   - Make sure to write e2e/acceptance tests are present for your feature. You may need to use the [enableFeature](https://github.com/oppia/oppia/blob/c48ff1510a680666bfe891d7b2f68130d21e4dcf/core/tests/webdriverio_utils/ReleaseCoordinatorPage.js#L126) utility functions for the release-coordinator page to first enable the required flag, and then proceed to perform the testing. For unit tests, you should include tests for both the `flag=True` and `flag=False` cases.
+   - Make sure that acceptance tests are present for your feature. You may need to use the `enableFeatureFlag` utility in
+   [`release-coordinator.ts`](https://github.com/oppia/oppia/blob/develop/core/tests/puppeteer-acceptance-tests/utilities/user/release-coordinator.ts) to first enable the required flag, and then proceed to perform the testing. For unit tests, you should include tests for both the `flag=True` and `flag=False` cases.
 
 4. Once your feature is code-complete, create a PR that moves the feature flag to the TEST stage. This allows the feature to be tested by our QA team before it is made available to the users in the production environment. In your PR, link to the feature testing doc that you created in Step 1. **NOTE: Please test all the changes manually to make sure that the feature works fully end-to-end on your local dev server, before moving the flag to the TEST stage.**
 
-5. Once the above PR is merged, fill out [this form](https://forms.gle/zDCsoN6Xb6JvQku87) to request that your feature be tested. The Product Operations team will then organize testing for your feature, using the feature review template that you created in step 1. If the testing reveals that the feature is not yet ready for release, you must fix the highlighted issues before proceeding. You can request a re-test once you have addressed all the testing feedback.
+5. Once the above PR is merged, look for an open issue relating to your feature on the [Product Operations GitHub repo](https://github.com/oppia/product-operations-team/issues), and leave a comment to let the ProdOps team know that your feature is code-complete. (If no such issue exists, file a "New Feature Launch" issue for your feature first.)
 
-6. Once your feature passes testing, do all of the following:
+   The Product Operations team will then organize a dry-run and full QA testing for your feature, using the feature review template that you created in step 1. If the testing reveals that the feature is not yet ready for release, you must fix the highlighted issues before proceeding. You can request a re-test once you have addressed all the testing feedback.
 
-   - Create a PR that moves the feature flag to the PROD stage (and does nothing else). This will allow your feature to be launched in production. **NOTE: When opening this PR, include a link to the testing doc or other proof that the feature has been approved for release.**
-
-   - Send a ["feature-flag flip request"](https://forms.gle/rUJaHJSpRGemtGDp6) to the release coordinators to turn the flag on in production.
-
-   - Ensure that the QA team has added the CUJs for the new feature to the overall CUJs used for testing regular releases.
-
-   - (Optional) If you like, you can fill in [this form](https://goo.gl/forms/sNBWrW03fS6dBWEp1) to announce your feature to the public once it's launched!
+6. Once your feature passes testing, create a PR that moves the feature flag to the PROD stage (and does nothing else). This will allow your feature to be launched in production. **NOTE: When opening this PR, include a link to the pre-release testing doc sent by the ProdOps team.**
 
 7. Once the feature is confirmed to be functioning as intended in production (for at least 2 weeks) by the product team, please do the following, in order:
 
-    - Make sure that the feature is ready to be made permanent. To do this, confirm with the PMs that no users have reported issues with it, and that no regressions have been detected via StackDriver or general user feedback. The PMs should also fill in this [post-launch review template](https://docs.google.com/document/d/1DifFAe3oRzjmVPh2fEllfAky4n0QMAXVQc3Y580qkr8/edit).
+    - Make sure that the feature is ready to be made permanent. To do this, confirm with the PMs that no users have reported issues with it, and that no regressions have been detected via StackDriver or general user feedback.
 
     - Once you have confirmation that the feature can be made permanent, merge one last PR to "un-gate" the feature and move the feature flag to the deprecated stage (one of the stages listed in `core/feature_flag_list.py`, meant for flags that are no longer in use). Additionally, in the same PR, please remove all remaining references to the feature flag from the codebase (for example, in all the `if` blocks you created to gate the feature).
 
