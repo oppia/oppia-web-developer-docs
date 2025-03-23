@@ -84,7 +84,7 @@ To understand how lesson pinning works, let’s begin by tracing the flow of dat
 
 Here, we’re focusing on identifying the network call made when the pinning action is triggered. This will tell us which endpoint handles this operation.
 
-![][image1]
+![Screenshot of Contributor Dashboard with Network Tab](images/TutorialBackendBug/ContributorDashboardScreenshotWithNetworkTab.png)
 
 As you pin the lesson, you’ll notice a call to the following endpoint:  
 `http://localhost:8181/pinned-opportunities`
@@ -374,7 +374,7 @@ To confirm this, we can debug the datastore locally:
 
 Upon inspection, you’ll find that a pinned model still exists for lessons that no longer have any pending suggestions. This causes the lesson to be returned by the API despite being fully reviewed.
 
-![][image2]
+![Screenshot of DS Admin for debugging local database](images/TutorialBackendBug/LocalDSAdminScreenshot.png)
 
 *Note: Instead of immediately applying a fix, we focused on understanding the entire data flow—how opportunities are fetched, how the handler processes requests, and how the service retrieves data. This systematic approach helped us identify the actual problem: outdated entries in the datastore. By confirming this through debugging, we now have a clear root cause and can proceed with a permanent solution rather than a temporary fix.*
 
