@@ -358,6 +358,10 @@ If you need clarification on any of these ideas, feel free to open a thread in G
 
 ### 1.1. Clean up the structure for study guides and worked examples
 
+> [!IMPORTANT]
+> This is a popular project idea.
+> Multiple applicants are interested in this project.
+
 **Project Description:**
 
 Oppia topics include a list of skills to teach. These skills are grouped into subtopics (like ['Basic Concepts of Division'](https://www.oppia.org/learn/math/division/revision/basic-concepts)), each with its own study guide (or 'subtopic page' in the backend). Currently, subtopic pages are implemented as a single large rich-text field, which makes them hard to translate and limits how we can display them. We'd like to split this rich-text field into multiple heading/content parts. In the above example, the updated subtopic page would have two sections ("What is division?" and "Parts of a division equation"), and the subtopic page editor would have a list of sections, each with its own "heading" plain-text field and "content" rich-text field.
@@ -807,6 +811,10 @@ Please explain the following clearly in your proposal:
 
 ### 3.1. Acceptance tests
 
+> [!IMPORTANT]
+> This is a popular project idea.
+> Multiple applicants are interested in this project.
+
 **Project Description:**
 
 In order to streamline releases, we are planning to ensure that all critical user journeys (CUJs) on the Oppia web application are covered by acceptance tests. This is important because it will provide assurance that, on the merge of every PR, these critical user journeys still function correctly, which means that no major breakages will result if the develop branch gets deployed to production. Additionally, having a complete set of acceptance tests that are organized by CUJ makes it easier to audit whether or not a particular CUJ has been included, and it also helps developers add tests for new CUJs while still keeping the tests well-organized.
@@ -1252,6 +1260,10 @@ Making changes to the core lesson flow may be a combination of feeling like a lo
 
 
 ### 4.2. Platform parameters dashboard
+
+> [!IMPORTANT]
+> This is a popular project idea.
+> Multiple applicants are interested in this project.
 
 **Project Description:**
 
