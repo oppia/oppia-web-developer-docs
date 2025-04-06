@@ -3,8 +3,6 @@
 * [Web server anatomy: Explaining "frontend" and "backend"](#web-server-anatomy-explaining-frontend-and-backend)
 * [Backend](#backend)
   * [Controller layer](#controller-layer)
-  * [Backend service layer](#backend-service-layer)
-  * [Backend models](#backend-models)
   * [Domain layer](#domain-layer)
   * [Storage layer](#storage-layer)
   * [Backend tests](#backend-tests)
@@ -105,31 +103,19 @@ def handler(self, argument_1, argument_2):
 
 Controllers are stored in `core/controllers/`. `main.py` defines which controller should handle each request.
 
-### Backend service layer
-
-Services get called by controller functions or other services to perform various computations. They often need to access Oppia's stored data, which they do by calling functions in the domain and storage layers.  We'll look at those next.
-
-Services are, confusingly, defined by files in the `core/domain/` folder. Services end in `_services.py`.
-
-### Backend models
-
-Before we talk about the domain layer, we need to discuss models.
-
-A model is a data structure, often a class, that stores the information that defines a particular object in Oppia. For example, we have a model for each exploration. (Note that we use "model" to refer to both the class that defines the exploration model and each instance of that class. Sorry, we know it's confusing, but this language is all over the code base.)
-
-There are many different kinds of models in Oppia. We have frontend models, backend (domain) models, and storage models.
-
 ### Domain layer
 
-The domain layer defines the domain, or backend, models. These models are very similar to the frontend models, and they are what most of the backend code operates on. Each model is defined as a class.
+The domain layer (or "business logic" layer) defines both the domain objects and backend services.
 
-These classes don't just store information. They also provide `from_dict` and `to_dict` methods to convert between classes and dictionaries (which can be converted to JSON), and they can contain validation and converters to convert between different versions of the model.
+1. Domain objects are defined in `*_domain.py` files under `core/domain/`. They are very similar to the frontend domain objects, and they are what most of the backend code operates on. Each domain object is defined as a class. These classes don't just store information; they also provide `from_dict` and `to_dict` methods to convert between classes and dictionaries (which can be converted to JSON), and they can contain validation and converters to convert between different versions of the domain object.
 
-The domain models are defined in `*_domain.py` files under `core/domain/`.
+2. Services are defined by files in the `core/domain/` folder which end in `_services.py`. These services get called by controller functions or other services to perform various computations. They often need to access Oppia's stored data, which they do by calling functions in the storage layer.
 
 ### Storage layer
 
-Finally, we have the storage layer, which defines the storage models.  These are also classes, but they define how data is stored in whatever system we are using to store data to the file system. In production, we use the [Google Cloud Datastore](https://cloud.google.com/datastore), and we interface with it from Python using [Cloud NDB](https://googleapis.dev/python/python-ndb/latest/index.html).
+Finally, we have the storage layer, which defines the storage models. A storage model is a class that stores the information that defines a particular object in Oppia. For example, we have a model for each exploration. (Note that we use "model" to refer to both the class that defines the exploration model and each instance of that class. Sorry, we know it's confusing, but this language is all over the code base.)
+
+These are also classes, but they define how data is stored in whatever system we are using to store data to the file system. In production, we use the [Google Cloud Datastore](https://cloud.google.com/datastore), and we interface with it from Python using [Cloud NDB](https://googleapis.dev/python/python-ndb/latest/index.html).
 
 The storage models are defined in `core/storage`, while the code that handles interacting with the datastore is in `core/platform`.  `core/platform/models.py` provides an interface to these storage models and the underlying datastore that dynamically loads the correct classes to interface with whatever datastore is currently in use. All the code in the controller, service, and domain layers should remain platform-agnostic by relying on the storage layer.
 
@@ -246,7 +232,7 @@ Ideally, all interaction with the backend would happen through these backend API
 
 Everything we've described so far lives in the "view" and "controller" realms of MVC. Now let's get to the "model" part.
 
-Models (or object factories in AngularJS) are data structures that represent objects in Oppia. For example, we have a model for a user and another for a user's profile. These are just classes that hold information about the object they represent and provide methods for getting that information.
+Models (or object factories in AngularJS) are data structures that represent objects in Oppia. For example, we have a model for a user and another for a user's profile. These are just classes that hold information about the object they represent and provide methods for getting that information. They are also known as "frontend domain objects".
 
 Here's an (overly simplified) example of a model:
 
