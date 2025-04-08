@@ -22,7 +22,7 @@ If your PR build fails, do not despair! Follow these instructions:
 
    In the example above, the lint checks and Mypy checks have failed. Also, two checks were skipped due to the failure of one of the e2e tests. (This is because, in the event of an e2e test failure, any remaining e2e tests that are queued or currently running will be terminated and marked as "skipped.") The rest of the tests have passed.
 
-1. Look for the specific test that is failing, and click the "Details" link next to the failing test to go to the GitHub Actions page for that test run.
+1. Look for the specific test that is failing, and click the "Details" link next to the failing test to go to the GitHub Actions page for that test run. (If multiple tests are failing, do this and the following steps for each of the failures separately.)
 
 1. In GitHub Actions, select the job under 'Jobs' to see the logs for that particular job.
 
