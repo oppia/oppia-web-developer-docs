@@ -71,8 +71,9 @@ sequenceDiagram
     service->>domain: get_domain_object(datastore_model)
     Note over domain: domain_object = Model(datastore_model)
     domain->>service: domain_object
+    Note over service: Perform any business logic here
     service->>controller: domain_object
-    controller->>web server: JSON or HTML Response
+    controller->>web server: JSON Response
     web server->>client: HTTP Response
 ```
 
