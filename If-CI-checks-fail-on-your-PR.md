@@ -1,11 +1,11 @@
 ## Table of contents
 
 * [General instructions](#general-instructions)
-  * [Why is an unrelated CI check failing on my PR?](#why-is-an-unrelated-ci-check-failing-on-my-pr)
   * [Failures in the merge queue](#failures-in-the-merge-queue)
 * [Figuring out whether the failure is due to your PR or an existing issue](#figuring-out-whether-the-failure-is-due-to-your-pr-or-an-existing-issue)
   * [What to do if the failure is due to your PR](#what-to-do-if-the-failure-is-due-to-your-pr)
   * [What to do if the failure is due to an existing issue](#what-to-do-if-the-failure-is-due-to-an-existing-issue)
+  * [Why might unrelated CI checks be failing on my PR?](#why-might-unrelated-ci-checks-be-failing-on-my-pr)
 
 
 ## General instructions
@@ -16,7 +16,7 @@ If your PR build fails, do not despair! Follow these instructions:
 
 1. If you see a warning that your PR has a **merge conflict**, you will need to resolve the conflict. (If not, you can skip this step.) To resolve a merge conflict, follow the "merge from develop" instructions in  [step 5 of our PR guide](https://github.com/oppia/oppia/wiki/Rules-for-making-PRs#step-5-address-review-comments-until-all-reviewers-approve). Once you push the merge commit to your feature branch on GitHub, the merge conflict message will disappear.
 
-1. At the bottom of the PR thread, you will see a set of results that looks similar to the following. (**Note:** If your failure happens in the merge queue, you might need to click on "View details" to see the corresponding table.)
+1. At the bottom of the PR thread, you will see a set of results that looks similar to the following. (**Note:** If your failure happens in the merge queue, you might need to click on "View details" to see the results.)
 
      ![Screenshot of PR CI results](images/ghciSample.png)
 
@@ -26,7 +26,7 @@ If your PR build fails, do not despair! Follow these instructions:
 
 1. In GitHub Actions, select the job under 'Jobs' to see the logs for that particular job.
 
-1. Read the GitHub Actions log to figure out what the actual failure is.
+1. Read the GitHub Actions log to figure out what the underlying failure is.
 
      ![Screenshot of GitHub Actions CI logs page](images/githubActionsLogs.png)
 
@@ -34,13 +34,6 @@ If your PR build fails, do not despair! Follow these instructions:
 
 1. Otherwise, the error might be due to your PR, and you'll need to investigate it further. See [Figuring out whether the failure is due to your PR or an existing issue](#figuring-out-whether-the-failure-is-due-to-your-pr-or-an-existing-issue), below.
 
-### Why is an unrelated CI check failing on my PR?
-
-The tests/checks on Oppia's develop branch sometimes fail incorrectly for two reasons:
-
-  * Sometimes, the tests in develop are "flaky", which means they pass sometimes and fail sometimes, even though the code has not changed. This is usually due to "race" conditions where multiple changes happen at the same time and it's not guaranteed which one happens first. The dev workflow team is trying to reduce cases like this, though they still happen occasionally.
-
-  * If an incorrect PR was recently merged to develop, this could cause the tests to fail. If you see the same failure happening on the [develop branch](https://github.com/oppia/oppia/actions?query=branch%3Adevelop), please follow the [[Revert and Regression Policy|Revert-and-Regression-Policy]] immediately so that we can revert the problematic changes as soon as possible. Otherwise, this will start to affect all the PRs and block the development workflow completely.
 
 ### Failures in the merge queue
 
@@ -50,12 +43,12 @@ If the CI checks pass on your PR, but you only see a failure in the merge queue 
 
 1. Follow the instructions in [What to do if the failure is due to an existing issue](#what-to-do-if-the-failure-is-due-to-an-existing-issue), below (i.e. ensure that an issue is filed for the failure, and leave a comment on it).
 
-1. Leave a comment on your PR that (a) provides a link to the issue above, and (b) explicitly ask the maintainers to force-merge your PR.
+1. Leave a comment on your PR that (a) provides a link to the issue which shows that the failure is due to an existing problem, and (b) explicitly ask the maintainers to force-merge your PR.
 
 
 ## Figuring out whether the failure is due to your PR or an existing issue
 
-If there isn't an open issue already corresponding to the failure you are seeing, then either your code could be wrong, or the test/check on Oppia's develop branch could be incorrect. You will need to determine which of these cases it is.
+If there isn't an open issue already corresponding to the failure you are seeing, then either your code could be wrong, or the code on Oppia's develop branch could be incorrect. You will need to determine which of these cases it is.
 
 Here are some tips for how to determine whether the failing CI check is due to your code or a problem in Oppia's develop branch:
 
@@ -118,3 +111,14 @@ If you are stuck, compile all your findings in a [[debugging doc|Debugging-Docs]
      * If you don't hear back within 24 hours, please use [GitHub Discussions](https://github.com/oppia/oppia/discussions/categories/q-a-contacting-folks) to request a follow-up.
 
    * If the CI failure persists after 1 restart and continues to block your PR from being merged, please escalate the issue to the dev workflow team on both the issue thread and GitHub Discussions, since this is an indicator that it might start affecting other PRs.
+
+
+### Why might unrelated CI checks be failing on my PR?
+
+The tests/checks on Oppia's develop branch sometimes fail incorrectly for two reasons:
+
+  * Sometimes, the tests in develop are "flaky", which means they pass sometimes and fail sometimes, even though the code has not changed. This is usually due to "race" conditions where multiple changes happen at the same time and it's not guaranteed which one happens first. The dev workflow team is trying to reduce cases like this, though they still happen occasionally.
+
+  * If an incorrect PR was recently merged to develop, this could cause the tests to fail. If you see the same failure happening on the [develop branch](https://github.com/oppia/oppia/actions?query=branch%3Adevelop), please follow the [[Revert and Regression Policy|Revert-and-Regression-Policy]] immediately so that we can revert the problematic changes as soon as possible. Otherwise, this will start to affect all the PRs and block the development workflow completely.
+
+In general, the dev workflow team tries to keep the develop branch free of failures. This is why we ask contributors to [report unexpected flakes]((#what-to-do-if-the-failure-is-due-to-an-existing-issue)), as described above -- it helps the team maintain records of them and prioritize fixes.
