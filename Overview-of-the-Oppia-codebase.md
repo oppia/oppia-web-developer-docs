@@ -64,19 +64,14 @@ sequenceDiagram
     client->>web server: HTTP Request
     web server->>controller: handler()
     controller->>service: service_func()
-    service->domain: 
-    service->>storage: lookup_by_name(name)
-    storage->>datastore: get_all().filter(name)
+    service->>storage: lookup_by_id(id)
+    storage->>datastore: get_all().filter(id)
     datastore->>storage: datastore_model
     storage->>service: datastore_model
-    service->>domain: get(datastore_model.id)
-    domain->>storage: get(id)
-    storage->>datastore: get(id)
-    datastore->> storage: datastore_model
-    storage->>domain: datastore_model
-    Note over domain: domain_model = Model(datastore_model)
-    domain->>service: domain_model
-    service->>controller: domain_model
+    service->>domain: get_domain_object(datastore_model)
+    Note over domain: domain_object = Model(datastore_model)
+    domain->>service: domain_object
+    service->>controller: domain_object
     controller->>web server: JSON or HTML Response
     web server->>client: HTTP Response
 ```
