@@ -1,4 +1,18 @@
-# Tutorial: Learn How to Fix a backend bug
+# Table of Contents
+- [Introduction](#introduction)
+- [Scenario](#scenario)
+- [Prerequisites](#prerequisites)
+- [Procedure](#procedure)
+   * [Understanding the Bug and Reproducing It](#understanding-the-bug-and-reproducing-it)
+   * [Tracing the Flow of Data and Understanding Relevant Code](#tracing-the-flow-of-data-and-understanding-relevant-code)
+      + [Pinning/Unpinning lesson](#pinningunpinning-lesson)
+      + [Fetching pinned lessons](#fetching-pinned-lessons)
+      + [Observations](#observations)
+   * [Formulating and Testing a Solution Iteratively](#formulating-and-testing-a-solution-iteratively)
+   * [Finalizing the Solution](#finalizing-the-solution)
+         - [**Testing the Final Solution**](#testing-the-final-solution)
+   * [Conclusion](#conclusion)
+      + [We Value Your Feedback](#we-value-your-feedback)
 
 # Introduction
 
@@ -96,9 +110,7 @@ This endpoint manages the pinning functionality. Our next step is to locate this
 > 
 > **Hint**: Use the global search feature in your code editor to search for the endpoint name. This will help you identify where it is defined and how it connects to a specific handler or function. You can refer to [this guide on common IDEs](https://github.com/oppia/oppia/wiki/Tips-for-common-IDEs) for tips and shortcuts.
 
-Search for `/pinned-opportunities` in the codebase. You’ll find it defined as:  
-`PINNED_OPPORTUNITIES_URL = '/pinned-opportunities'`  
-in the file `oppia/core/feconf.py`.
+Search for `/pinned-opportunities` in the codebase. You’ll find it defined as: `PINNED_OPPORTUNITIES_URL = '/pinned-opportunities'` in the file `oppia/core/feconf.py`.
 
 This constant is tied to a handler through a routing configuration in `oppia/main.py`:
 
