@@ -49,6 +49,7 @@
     * Tutorials:
       * 👣 [[Tutorial - Learn to figure out the reproduction steps for a server error|Tutorial-Learn-to-Figure-Out-the-Reproduction-Steps-for-a-Server-Error]]
       * 👣 [[Tutorial - Learn to debug an issue using a debugging doc|Tutorial-Learn-to-Debug-an-Issue-Using-a-Debugging-Doc]]
+      * 👣 [[Tutorial - Learn to debug a backend bug|Tutorial-Learn-how-to-debug-a-backend-bug]]
   * Testing
       * [[Backend tests|Backend-tests]]
       * [[Frontend tests|Frontend-tests]]
