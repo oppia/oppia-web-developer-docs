@@ -1,6 +1,20 @@
-# How to Craft a Great Pull Request
+## Table of contents
 
-A great Pull Request (PR) is more than just code—it’s clean, clear, and easy for reviewers to understand. This guide shares best practices for writing high-quality PRs that are easy to review and quick to merge.
+- [Table of contents](#table-of-contents)
+- [Why It Matters](#why-it-matters)
+- [Before You Open Your PR](#before-you-open-your-pr)
+- [What Makes a PR “Great”](#what-makes-a-pr-great)
+  - [1. Clear Purpose](#1-clear-purpose)
+  - [2. Focused Scope](#2-focused-scope)
+  - [3. Helpful Description](#3-helpful-description)
+  - [4. Show, Don’t Tell](#4-show-dont-tell)
+  - [5. Tested \& Verified](#5-tested--verified)
+- [Common Mistakes to Avoid](#common-mistakes-to-avoid)
+- [Final Checklist Before You Request Review](#final-checklist-before-you-request-review)
+- [Reviewers Appreciate...](#reviewers-appreciate)
+- [Need Help?](#need-help)
+
+This page is an introduction to creating a great Pull Request(PR). A great Pull Request (PR) is more than just code—it’s clean, clear, and easy for reviewers to understand. This guide shares best practices for writing high-quality PRs that are easy to review and quick to merge.
 
 ## Why It Matters
 
@@ -17,7 +31,7 @@ Make sure you’ve:
 - Cleaned up your code (no stray debug logs or commented code)
 - Written a fix plan (if required) and got it approved
 
-## What Makes a PR “Great”?
+## What Makes a PR “Great”
 
 Here’s what makes a PR stand out:
 
