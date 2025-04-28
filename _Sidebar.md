@@ -32,6 +32,7 @@
       * [[Tips for analyzing the codebase|Analyzing-the-codebase]]
     * [[Learning resources for developers|Learning-Resources]]
     * [[Rules for making PRs|Rules-for-making-PRs]]
+      * [[Create a Good PR|Create a Good PR]]
       * [[Coding style guide|Coding-style-guide]]
   * [[Debugging|Debugging]]
     * [[Debugging Docs|Debugging-Docs]]
