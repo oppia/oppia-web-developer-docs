@@ -2,8 +2,6 @@
 
 Welcome! This guide walks you through how to solve your first issue in Oppia’s codebase. Following this process ensures your contribution aligns with Oppia’s standards and helps maintain high code quality.
 
----
-
 ## 1. Before You Start
 
 **To-do:**  
@@ -14,9 +12,7 @@ Review the [Getting Started Guide](https://github.com/oppia/oppia/wiki/Contribut
 - Introduce yourself on the GitHub [Discussion Board](https://github.com/oppia/oppia/discussions)
 
 **Note:**  
-If you run into issues with signing the CLA, submitting the survey, or posting in Discussions, check the [Get Help](https://github.com/oppia/oppia/wiki/Get-help) page for troubleshooting steps or reach out via [GitHub Discussions](https://github.com/oppia/oppia/discussions).
-
----
+If you run into issues with signing the CLA, submitting the survey, or posting in Discussions, check the [Get Help](https://github.com/oppia/oppia/wiki/Get-help) page.
 
 ## 2. Fork the Repo and Set Up Remotes
 
@@ -28,7 +24,7 @@ Follow the instructions to set up your development environment:
 - Follow the [Installing Oppia](https://github.com/oppia/oppia/wiki/Installing-Oppia) guide
 
 **Note:**  
-Once your setup is successful, run `docker-compose up` and check if Oppia loads at `http://localhost:8181`.
+Once your setup is successful, run `python -m scripts.start` and check if Oppia loads at `http://localhost:8181`.
 
 If you encounter errors (e.g. Git issues, dependency problems, or Docker errors), consult:
 
@@ -37,26 +33,22 @@ If you encounter errors (e.g. Git issues, dependency problems, or Docker errors)
 - [Tips for Common IDEs](https://github.com/oppia/oppia/wiki/Tips-for-common-IDEs)  
 - [Git Cheat Sheet](https://github.com/oppia/oppia/wiki/Git-cheat-sheet)
 
----
-
 ## 3. Find an Issue
 
 **To-do:**  
-Follow the [Finding Something to Do](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#finding-something-to-do) guide:
+Follow the [Finding Something to Do](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#finding-something-to-do) guide to find an issue:
 
 - Look for a [good first issue](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) that matches your interests or skill level.
+
+If you can reproduce and understand the issue locally, you're good to go!
 
 **Note:**  
 Try to avoid:
 
 - Issues without a label (all issues should be reviewed and labeled by Oppia maintainers)  
-- Issues without the "good first issue" label (especially if you're new)  
+- Issues with the "Impact: Low", "Backlog", or "triage needed" issues (those issues often haven't been looked at closely yet, and might not be priorities for implementation.)  
 - Issues already claimed by someone else (check the "Assignees" section and comments)  
 - Closed or stale issues
-
-If you're unsure whether an issue is right for you, feel free to leave a comment asking!
-
----
 
 ## 4. Understand and Reproduce the Issue
 
@@ -69,8 +61,6 @@ Before diving into code, get familiar with the [Oppia Codebase](https://github.c
 
 **Note:**  
 Some issues may be complex and involve multiple parts of the codebase. If you have time, consider reading the Codebase Policies and Processes section in the sidebar.
-
----
 
 ## 5. Write a Fix Plan and Get Approval
 
@@ -88,8 +78,6 @@ Sometimes your fix plan may not be approved because:
 - The issue gets closed before approval
 
 That’s totally fine! Just move on to another issue—every attempt builds experience.
-
----
 
 ## 6. Work on the Fix Locally
 
@@ -109,8 +97,6 @@ You might run into issues like:
 
 These are common! Refer to the [Oppia Tests Guide](https://github.com/oppia/oppia/wiki/Tests) for help.
 
----
-
 ## 7. Open a Pull Request (PR)
 
 **To-do:**  
@@ -129,19 +115,42 @@ After submitting your PR, maintainers will review and provide feedback. Common c
 
 All of this is totally normal! Just follow the feedback and keep improving your PR until it’s ready to merge.
 
----
+## 8. Respond to Reviewers' Comments
 
-## 8. Ask for Help
+**To-do:**
 
-If you’re stuck at any point:
+After you open a pull request, maintainers or reviewers will leave comments or suggestions. Review carefully and take action accordingly:
 
-- Check the [Get Help](https://github.com/oppia/oppia/wiki/Get-help) page  
-- Comment directly on the issue thread  
-- Reach out through GitHub Discussions or Oppia’s chat
+- Make the requested changes to your code
+- Reply to each comment to confirm what you've done or to ask for clarification
+- Be respectful and collaborative—reviewers are here to help
 
----
+**Note:**
 
-**Thank you for contributing!**  
-Every small fix helps make Oppia better for learners around the world.
+Common pitfalls to avoid:
 
+- Ignoring comments or forgetting to reply
+- Making changes but not pushing them to your PR branch
+- Being defensive—feedback is part of the process, not a personal critique
 
+If you're unsure how to address a comment, it's totally fine to ask follow-up questions. Clear communication is key!
+
+## 9. Get Your PR Merged
+
+**To-do:**
+
+Once all reviewer comments are resolved:
+
+- Make sure all required checks (CI, lint, tests) are passing
+- Confirm your PR follows Oppia’s PR guidelines
+- Ping your reviewer if the PR has been inactive for a few days after all updates are made
+
+**Note:**
+
+Even at this final step, some issues can block a merge:
+
+- Merge conflicts (solve them by updating your branch with the latest develop)
+- Unaddressed comments or incomplete explanations
+- New reviewers jumping in with additional suggestions
+
+Stay patient and proactive—once your PR is approved and all checks pass, a maintainer will merge it. Congratulations, you’ve contributed to Oppia! Every small fix helps make Oppia better for learners around the world!
