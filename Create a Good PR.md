@@ -14,11 +14,13 @@
 - [Reviewers Appreciate...](#reviewers-appreciate)
 - [Need Help?](#need-help)
 
-This page is an introduction to creating a great Pull Request(PR). A great Pull Request (PR) is more than just code—it’s clean, clear, and easy for reviewers to understand. This guide shares best practices for writing high-quality PRs that are easy to review and quick to merge.
+This page is an introduction to creating a great Pull Request (PR). A great Pull Request (PR) is more than just code—it’s clean, clear, and easy for reviewers to understand. This guide shares best practices for writing high-quality PRs that are easy to review and quick to merge.
 
 ## Why It Matters
 
-Contributing code is awesome—but making it **easy to review** is just as important. A thoughtful PR saves time for reviewers, avoids misunderstandings, and helps Oppia maintain a high standard of quality.
+A good pull request isn’t just about working code—it’s about making collaboration easier. Clear, well-structured PRs save reviewers time, reduce confusion, and help maintain high code quality. In open source, thoughtful PRs build trust and keep the project maintainable for everyone.
+
+For the essential checklist and best practices, be sure to follow [Rules for making PRs](./rules-for-making-prs.md)—every good PR starts there. 
 
 ## Before You Open Your PR
 
@@ -85,14 +87,14 @@ Before requesting review:
 
 ## Final Checklist Before You Request Review
 
-- My PR addresses **one issue only**
-- I followed **Oppia’s code style**
-- All **tests pass**
-- I filled out the **PR template**
-- I included **screenshots** (if needed)
-- My commit message is clear and formatted
-- I pushed the **latest code**
-- I’m ready to **respond to reviews** promptly
+- [ ] My PR addresses **one issue only**
+- [ ] I followed **Oppia’s code style**
+- [ ] All **tests pass**
+- [ ] I filled out the **PR template**
+- [ ] I included **screenshots** (if needed)
+- [ ] My commit message is clear and formatted
+- [ ] I pushed the **latest code**
+- [ ] I’m ready to **respond to reviews** promptly
 
 ## Reviewers Appreciate...
 
@@ -106,8 +108,7 @@ Before requesting review:
 Don’t be afraid to ask! You can:
 
 - Tag reviewers in comments
-- Use GitHub Discussions
-- Ask in Oppia’s chat or community channels
+- Use [GitHub Discussions](https://github.com/oppia/oppia/discussions)
 
 Thanks for taking the time to make your PR shine.  
 High-quality PRs make Oppia better for everyone!
