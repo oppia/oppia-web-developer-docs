@@ -27,6 +27,7 @@
   * [[How the codebase is organized|Overview-of-the-Oppia-codebase]]
   * Making your first PR
     * **[[Good first issues|https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22]]**
+    * [[Solve your first starter issue|Solve your first starter issue]]
     * [[Finding the commit that introduced a bug|How-to-find-the-commit-which-introduced-a-bug]]
     * [[Tips for finding the right code to change|Find-the-right-code-to-change]]
       * [[Tips for analyzing the codebase|Analyzing-the-codebase]]
