@@ -24,15 +24,15 @@
     * Team onboarding guides
       * [[LaCE Team|LaCE-onboarding-guide]]
       * [[Contributor Dashboard Team|Contributor-dashboard]]
+    * [[Learning resources for developers|Learning-Resources]]
   * [[How the codebase is organized|Overview-of-the-Oppia-codebase]]
   * Making your first PR
     * **[[Good first issues|https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22]]**
-    * [[Finding the commit that introduced a bug|How-to-find-the-commit-which-introduced-a-bug]]
     * [[Tips for finding the right code to change|Find-the-right-code-to-change]]
+      * [[Finding the commit that introduced a bug|How-to-find-the-commit-which-introduced-a-bug]]
       * [[Tips for analyzing the codebase|Analyzing-the-codebase]]
-    * [[Learning resources for developers|Learning-Resources]]
-    * [[Rules for making PRs|Rules-for-making-PRs]]
-      * [[Create a Good PR|Create a Good PR]]
+    * **[[How to create a good PR|Create a Good PR]]**
+      * [[Rules for making PRs|Rules-for-making-PRs]]
       * [[Coding style guide|Coding-style-guide]]
   * [[Debugging|Debugging]]
     * [[Debugging Docs|Debugging-Docs]]
