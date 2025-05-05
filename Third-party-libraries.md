@@ -251,7 +251,7 @@ All new dependencies must be approved by @oppia/dependency-reviewers, who will c
 
 #### How to use these checklists
 
-Copy the markdown source of the appropriate checklist, and paste it into your review comment, along with a link to this page. Then verify that each required criterion is satisfied and tick the associated checkbox. After the colon (`:`) for each ticked box, replace the help text with a description of why the requirement is satisfied. The OpenSSF Scorecard project is helpful for checking many of these points. For example, here's Oppia's scorecard: https://scorecard.dev/viewer/?uri=github.com/oppia/oppia). Finally, note whether the dependency is approved, and explain why if you reject the dependency. Here's an example of how to use these checklists: https://github.com/oppia/oppia/pull/20362#discussion_r1626804621
+Copy the markdown source of the appropriate checklist, and paste it into your review comment, along with a link to this page. Then verify that each required criterion is satisfied and tick the associated checkbox. After the colon (`:`) for each ticked box, replace the help text with a description of why the requirement is satisfied. The OpenSSF Scorecard project is helpful for checking many of these points. For example, here's Oppia's scorecard: https://scorecard.dev/viewer/?uri=github.com/oppia/oppia. Finally, note whether the dependency is approved, and explain why if you reject the dependency. Here's an example of how to use these checklists: https://github.com/oppia/oppia/pull/20362#discussion_r1626804621
 
 ### Add a backend library
 
