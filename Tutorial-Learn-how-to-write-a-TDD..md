@@ -74,7 +74,7 @@ Each section is designed to walk you through a clear and logical development pat
 
 *Note: The goal of this tutorial is not specifically to teach you how to add the Annotation feature but rather to instill an understanding of the thought process behind designing such features. We will explore key areas of the TDD, focusing on the content documented at each stage and the context behind it.*
 
-*Writing an effectiveTDD for any feature at Oppia hinges on a deep understanding of the product and thorough research. While it's okay not to know all the answers immediately, showing a dedication to in-depth research is important. This demonstrates that you are not merely posing questions but are actively seeking out solutions and understanding, which is important  for the development of robust and effective features.*
+*Writing an effective TDD for any feature at Oppia hinges on a deep understanding of the product and thorough research. While it's okay not to know all the answers immediately, showing a dedication to in-depth research is important. This demonstrates that you are not merely posing questions but are actively seeking out solutions and understanding, which is important  for the development of robust and effective features.*
 
 ### WHAT
 
