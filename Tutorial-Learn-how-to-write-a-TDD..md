@@ -175,7 +175,7 @@ To properly design or adjust APIs, consider these critical questions:
 2. **Which existing APIs provide related data?** Reviewing current endpoints can reveal opportunities for reuse or extension.  
 3. **Can existing APIs be extended to include new data?** If the change is minimal and aligns well with an existing endpoint's purpose, extending it may be the most efficient approach.  
 4. **If extension isn't practical, what new APIs are needed?** When extending an API would violate separation of concerns or lead to unclear logic, a new endpoint is justified  
-5. **Is there any redundant or unused data currently being returned?**While not directly part of API *design*, reviewing existing responses for unnecessary payloads can lead to more efficient APIs and reduce frontend parsing overhead.
+5. **Is there any redundant or unused data currently being returned?** While not directly part of API *design*, reviewing existing responses for unnecessary payloads can lead to more efficient APIs and reduce frontend parsing overhead.
 
 ###### *Research*
 
