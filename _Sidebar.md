@@ -75,6 +75,7 @@
       * [[Instructions for QA coordinators|Instructions-to-QA-coordinators]]
     * Design docs:
       * [[How to write design docs|Writing-design-docs]]
+      * 👣 [[Tutorial - Learn How to Write a TDD|Tutorial-Learn-how-to-write-a-TDD]]
   * Team-Specific Guides
     * LaCE/CD:
       * 👣 [[Tutorial - Learn how to make a simple UI change|Tutorial-Learn-How-to-Make-a-Simple-UI-Change]]
