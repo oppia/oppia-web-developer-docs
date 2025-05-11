@@ -192,8 +192,7 @@ Upon analysing the endpoints you will note the following things,
 - **Endpoint Patterns and Data Handling**: Exploration-related API endpoints typically follow a pattern like `/explorehandler/<verb>/<exploration_id>`. For example, `/explorehandler/init/<exploration_id>` fetches all relevant data for an exploration in a single response, including information for every state.  
   Once this data is loaded, the frontend displays one state at a time without making further API calls. The `"states"` field in the response contains a nested dictionary where each state is keyed by its name.
 
-	Now that we have gathered all the necessary information, let's move forward.
-
+Now that we have gathered all the necessary information, let's move forward.
 Focusing on our specific requirements, we need to establish several API endpoints to manage notes effectively:
 
 - **Add a New Note**: Users should be able to add notes tied to specific states within an exploration. To create a note, the client must provide the `exploration_id`, the `state_name`, and the note `content`. The backend will then generate a unique `note_id` and associate the note with the specified state and exploration.  
