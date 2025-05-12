@@ -20,7 +20,7 @@ This page is an introduction to creating a great Pull Request (PR). A great Pull
 
 A good pull request isn’t just about working code—it’s about making collaboration easier. Clear, well-structured PRs save reviewers time, reduce confusion, and help maintain high code quality. In open source, thoughtful PRs build trust and keep the project maintainable for everyone.
 
-For the essential checklist and best practices, be sure to follow [Rules for making PRs](./rules-for-making-prs.md)—every good PR starts there. 
+For the essential checklist and best practices, be sure to follow [Rules for making PRs](https://github.com/oppia/oppia/wiki/Rules-for-making-PRs)—every good PR starts there. 
 
 ## Before You Open Your PR
 
