@@ -122,7 +122,7 @@ All of this is totally normal! Just follow the feedback and keep improving your 
 After you open a pull request, make sure the reviewer are assigned to the PR (make sure they appear in "Assignees"). Reviewers will leave comments or suggestions. Review carefully and take action accordingly:
 
 - Make the requested changes to your code
-- Reply to each comment to confirm what you've done or to ask for clarification, following [address review comments](https://github.com/oppia/oppia/wiki/Rules-for-making-PRs#step-5-address-review-comments-until-all-reviewers-approve)
+- Reply to each comment to confirm what you've done or to ask for clarification, following [Address review comments until all reviewers approve](https://github.com/oppia/oppia/wiki/Rules-for-making-PRs#step-5-address-review-comments-until-all-reviewers-approve) in our PR guide
 - Be respectful and collaborative—reviewers are here to help
 
 **Note:**
@@ -141,7 +141,7 @@ If you're unsure how to address a comment, it's totally fine to ask follow-up qu
 
 Once all reviewer comments are resolved:
 
-- Make sure all required checks (CI, lint, tests) are passing, following [make all checks pass](https://github.com/oppia/oppia/wiki/Rules-for-making-PRs#step-6-make-sure-all-continuous-integration-checks-pass)
+- Make sure all required checks (CI, lint, tests) are passing, following [Make sure all continuous integration checks pass](https://github.com/oppia/oppia/wiki/Rules-for-making-PRs#step-6-make-sure-all-continuous-integration-checks-pass) in our PR guide
 - Ping your reviewer if the PR has been inactive for a few days after all updates are made
 
 **Note:**
