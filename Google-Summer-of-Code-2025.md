@@ -43,6 +43,18 @@ Furthermore, note that GSoC isn't just about code -- it's also about communicati
 You might also enjoy the "weekly journals" from some of our previous contributors: **[Rd4dev](https://medium.com/@rd4dev)** and **[@theMr17](https://medium.com/@Mr_17)**.
 
 
+## Selected Projects
+
+The following projects (with linked proposals) are selected as part of GSoC 2025:
+
+* [Mohit](pdfs/GSoC25MohitRuwatia.pdf): Clean up the structure for study guides and worked examples. Mentor: Kevin.
+* Hardik (TODO: PDF will be added soon): Lesson player redesign. Mentor: Amy.
+* [Jayam](pdfs/GSoC2025Jayam.pdf): Acceptance tests. Mentor: Christie Ho.
+* [Manas](pdfs/GSoC25Manas.pdf): Android lint infrastructure and fixes. Mentor: Bhavuk.
+* [Ayush](pdfs/GSoC2025AyushYadav.pdf): Platform Parameter Dashboard.  Mentor: RD.
+* [Subhajit](pdfs/GSoC2025SubhajitMallick.pdf): Flashbacks. Mentor: Adhiambo.
+
+
 ## Getting started
 
 Welcome! If you're interested in applying to work with Oppia for GSoC, please follow these steps:
