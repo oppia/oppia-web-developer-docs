@@ -75,7 +75,7 @@ A: Oppia Android won't be able to participate in GSoC this year. Note that this 
 
 **Q: What technical skills do I need to work on Oppia?**
 
-A: For Oppia Web, Angular 2+, Python 3.9 and Google App Engine are useful and recommended for most Oppia work; in addition, UI design skills are useful for frontend, user-facing work. Please see the individual project ideas to determine whether these skills are recommended for the project in question. Note that, although GSoC is aimed at beginner contributors to open source and at students, "beginner to open source" is not the same as "beginner to coding" -- the projects assume some proficiency with coding. This [[page of learning resources|Learning-Resources]] might be helpful for learning the technologies needed to contribute to Oppia.
+A: For Oppia Web, Angular 2+, Python 3.10 and Google App Engine are useful and recommended for most Oppia work; in addition, UI design skills are useful for frontend, user-facing work. Please see the individual project ideas to determine whether these skills are recommended for the project in question. Note that, although GSoC is aimed at beginner contributors to open source and at students, "beginner to open source" is not the same as "beginner to coding" -- the projects assume some proficiency with coding. This [[page of learning resources|Learning-Resources]] might be helpful for learning the technologies needed to contribute to Oppia.
 
 **Q: How can I increase my chances of getting selected?**
 

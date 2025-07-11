@@ -137,12 +137,12 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
 ```bash
 exec "$SHELL"
 ```
-4. Now you can install Python 3.9.20 and the associated pip like this:
+4. Now you can install Python 3.10.16 and the associated pip like this:
 
    ```console
-   $ pyenv install 3.9.20
-   installing python-3.9.20...
-   installed python-3.9.20 to /home/user/.pyenv/versions/3.9.20
+   $ pyenv install 3.10.16
+   installing python-3.10.16...
+   installed python-3.10.16 to /home/user/.pyenv/versions/3.10.16
    ```
 
 5. Install direnv
@@ -151,7 +151,7 @@ exec "$SHELL"
    sudo apt install direnv
    ```
 
-6. Setup direnv into your shell.  
+6. Setup direnv into your shell.
    If you are using bash:
 
    ```bash
@@ -161,7 +161,7 @@ exec "$SHELL"
 
    ```bash
    eval "$(direnv hook zsh)" >> ~/.zshrc
-   ``` 
+   ```
    > [!WARNING]
    > Be careful with using graphical editors like Notepad in Windows. These can add carriage returns (`\r`) that confuse our Linux-based development tools. Instead, we recommend using editors designed for programming or command-line text editors.
 
@@ -186,7 +186,7 @@ exec "$SHELL"
    with this content:
 
     ```console
-    use python 3.9.20
+    use python 3.10.16
     ```
 
     Then run this command in the same folder:
@@ -406,21 +406,21 @@ On Arch Linux, you should follow these instructions to set up your virtual envir
 
 3. Reload your shell or open a new terminal window to load your updated `.bashrc`, `.zshrc`, or `config.fish`
 
-4. Now you can install Python 3.9.20 and the associated pip like this:
+4. Now you can install Python 3.10.16 and the associated pip like this:
 
    ```console
-   $ pyenv install 3.9.20
-   installing python-3.9.20...
+   $ pyenv install 3.10.16
+   installing python-3.10.16...
    patching file misc/news.d/next/build/2021-10-11-16-27-38.bpo-45405.isfdw5.rst
    patching file configure
    patching file configure.ac
-   installed python-3.9.20 to /home/user/.pyenv/versions/3.8.1
+   installed python-3.10.16 to /home/user/.pyenv/versions/3.10.16
    ```
 
 5. Create a virtual environment for oppia:
 
    ```console
-   $ pyenv virtualenv 3.9.20 oppia
+   $ pyenv virtualenv 3.10.16 oppia
    ...
    $ pyenv versions
    ...

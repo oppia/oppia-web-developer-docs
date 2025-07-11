@@ -40,7 +40,7 @@ At Oppia we have a lot of dependencies, and we have many different ways of manag
 
 Oppia has some development dependencies that the user has to manage themselves. These are:
 
-* Python 3.9
+* Python 3.10
 * Google Chrome
 * git
 * Tools commonly found on Linux and MacOS systems like bash

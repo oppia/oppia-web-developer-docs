@@ -93,7 +93,7 @@ Good luck!
 
 A: Please see the individual project ideas to determine which skills are recommended for the project in question. Also, in general:
 
-   - For Oppia Web, Angular 2+, Python 3.9, Google App Engine and Apache Beam are useful and recommended, and experience with Docker and GitHub Actions is useful for developer workflow projects. Also, it is important to be able to write tests for the code you submit (using Karma, Webdriverio and unittest). You might also find this [[page of learning resources|Learning-Resources]] helpful, as well as other pages on our [wiki](https://github.com/oppia/oppia/wiki) that provide guidance on Apache Beam, testing frameworks, etc.
+   - For Oppia Web, Angular 2+, Python 3.10, Google App Engine and Apache Beam are useful and recommended, and experience with Docker and GitHub Actions is useful for developer workflow projects. Also, it is important to be able to write tests for the code you submit (using Karma, Webdriverio and unittest). You might also find this [[page of learning resources|Learning-Resources]] helpful, as well as other pages on our [wiki](https://github.com/oppia/oppia/wiki) that provide guidance on Apache Beam, testing frameworks, etc.
 
    - For Oppia Android, you will need to know how to program in Kotlin, and have experience with Android development. Knowledge of Bazel may also be helpful for some projects.
 
