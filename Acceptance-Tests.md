@@ -247,6 +247,67 @@ On CI, we run all the acceptance tests in production mode, so the screenshots in
 
 On the other hand, if the screenshot fails locally (in desktop environment), the screenshot `teachPage-diff.png` will be generated and stored inside a new folder `diff-snapshots` under `logged-out-user/dev-desktop-screenshots`. 
 
+### Adding Prod screenshots for Acceptance Tests
+On making changes that affect a user journey tested through the acceptance tests or introduce a new feature, a contributor needs to update/add screenshots supporting their changes.
+It has been noted that screenshots obtained by running the Acceptance tests locally using the prod flag do not match those captured by the CI. To overcome this, you can commit any image in the prod screenshot folder and follow these steps:
+1. Go to the failing run and click on the 'uploading diff screenshots as an artifact' section:
+  <img width="349" height="35" alt="image" src="https://github.com/user-attachments/assets/827d8557-3346-443a-aaf8-1fd0168a3f24" />
+
+2. Then download the artifact from the artifact download url:
+  <img width="1221" height="301" alt="image" src="https://github.com/user-attachments/assets/c2caa55f-b4f9-40cc-a47a-7ddc2de9a479" />
+
+3. Extract the contents of the artifact. There will be a folder with an image. The image will be like this:
+  <img width="2250" height="1334" alt="skillWithWorkedExamplePreview-diff" src="https://github.com/user-attachments/assets/fcb62376-8a05-4604-bf05-2f5543967f0d" />
+  
+  The left side is the current reference image on the repo. The right side is the screenshot that was taken while running the test on the CI with your changes. The middle is the difference between the two.
+  
+  We want to update the current reference as it is incorrect. Generally we do not want to do this as we expect the reference screenshots to be correct. Only do this after asking a maintainer.
+
+4. Go to https://splitter.imageonline.co/
+
+5. Upload the diff image from the artifact you extracted:
+<img width="699" height="705" alt="image" src="https://github.com/user-attachments/assets/dc83a1d4-c093-4d43-b28e-cffeb4a36faa" />
+
+6. Choose Split into pieces:
+<img width="699" height="191" alt="image" src="https://github.com/user-attachments/assets/207fb140-740a-4cf1-bc12-8823a9b1e3b8" />
+
+7. Set rows as 3 and columns as 1:
+<img width="699" height="191" alt="image" src="https://github.com/user-attachments/assets/19ae5e5e-1a90-4b0d-bb88-59e75b3d53ce" />
+
+8. Click on split image 
+
+9. You will get 3 split images:
+<img width="710" height="410" alt="image" src="https://github.com/user-attachments/assets/b0821688-05db-4148-8768-17eca0d0cbc0" />
+
+10. Right click on the rightmost one and use 'Save Image as...'. Choose any random name.
+
+11. Navigate to where you have saved the Oppia repo on your local machine.
+
+12. Go to oppia/core/tests/puppeteer-acceptance-tests/specs
+
+13. The spec will be mentioned in the artifact folder you downloaded:
+
+<img width="368" height="64" alt="Screenshot from 2025-08-20 16-37-52" src="https://github.com/user-attachments/assets/d1a45271-c1f1-49d9-8874-f5ac95d37dce" />
+
+(Its curriculum-admin in this case)
+
+14. Navigate to the spec
+
+15. Check if the failure was for desktop or mobile based on the screenshot or the subfolder in the artifact:
+<img width="102" height="127" alt="image" src="https://github.com/user-attachments/assets/c1b902ee-5ccb-4218-a247-d4e19da9d3ed" />
+
+16. Go to the prod-desktop-screenshots/prod-mobile-screenshots folder depending on your failure
+
+17. Paste the image we split.
+
+18. Check the name of the image from the artifact. It will be {screenshot_name}-diff.png
+
+19. Delete the screenshot with {screenshot_name}-snap.png from the folder you are currently in.
+
+20. Rename the pasted image to {screenshot_name}-snap.png
+
+21. Check that the correct image got replaced, commit and push your changes!
+
 ## Acceptance Tests for Mobile
 
 Similar to desktop, we also have acceptance tests for mobile to ensure responsiveness and uninterrupted user journeys on small screen devices. While the tests themselves remain largely the same for both desktop and mobile, there are some differences. For instance, large full menus on desktop may be converted to dropdowns, hamburger menus, or other shortcuts on mobile, requiring additional actions to complete the tests.
