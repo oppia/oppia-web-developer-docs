@@ -54,7 +54,7 @@ A schema is just a dictionary that takes the form described below:
     * `variable_keys_dict`: A dictionary with a variable number of keys and values.
 
 > [!IMPORTANT]  
-> When defining a schema with type `html`, it is mandatory to define `ui_config` with the key `rte_components` with value as one of the keys from [RTE_COMPONENT_CONFIGS](https://github.com/oppia/oppia/blob/ce64f781d35346cedd8584009a82fa5810ba7f6c/assets/constants.ts#L68) so that the rte displays as expected with the configured rte components.
+> When defining a schema with type `html`, it is mandatory to define `ui_config` with the key `rte_component_config_id` with value as one of the keys from [RTE_COMPONENT_CONFIGS](https://github.com/oppia/oppia/blob/ce64f781d35346cedd8584009a82fa5810ba7f6c/assets/constants.ts#L68) so that the RTE displays as expected with the configured RTE components.
 
 * Optional keys:
 
@@ -67,7 +67,7 @@ A schema is just a dictionary that takes the form described below:
     * `coding_mode`: Only allowed for type `unicode`. If specified, the value must be a string equal to either `none` or `python`. If this value is specified, a CodeMirror instance with the appropriate syntax highlighting is used as the input area, and the `rows` and `placeholder` properties above are ignored.
     * `add_element_text`: Only allowed for type `list`. If specified, the value must be a unicode string. If this value is omitted, no changes are made to the 'Add element' button; otherwise, the default 'Add element' text is replaced with the given value.
     * `size`: Only allowed for type `html`. If specified, the value must be a string equal to either `small` or `large`. If `small`, a 2-line RTE is shown; if `large`, a 10-line RTE is shown.
-    * `rte_components`: Only allowed for type `html`. MANDATORY. Every schema with the type `html` must have this key. The value must be a string and should match one of the keys from [RTE_COMPONENT_CONFIGS](https://github.com/oppia/oppia/blob/ce64f781d35346cedd8584009a82fa5810ba7f6c/assets/constants.ts#L68). This will display the RTE components based on the defined configuration.
+    * `rte_component_config_id`: Only allowed for type `html`. MANDATORY. Every schema with the type `html` must have this key. The value must be a string and should match one of the keys from [RTE_COMPONENT_CONFIGS](https://github.com/oppia/oppia/blob/ce64f781d35346cedd8584009a82fa5810ba7f6c/assets/constants.ts#L68). This will display the RTE components based on the defined configuration.
 
 * Keys for certain types:
 
