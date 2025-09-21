@@ -40,7 +40,7 @@ To install Oppia under Docker, follow these steps:
 
 2. Navigate to the folder (`cd opensource/`). Next, we'll [fork and clone](https://help.github.com/articles/fork-a-repo/) the Oppia repository.
 
-3. Navigate to https://github.com/oppia/oppia. In the top right corner opposite the repository name `oppia/oppia`, first click the `Star` button to easily track updates, discussions, and new features. This helps you stay engaged with the community and encourages continued development!
+3. Navigate to https://github.com/oppia/oppia. In the top right corner opposite the repository name `oppia/oppia`, first click the `Star` button to easily track updates, discussions, and new features. This helps you stay engaged with the community and encourages continued development.
 
 4. Next, click the `Fork` button to create your own copy of the repository.
 

@@ -91,7 +91,7 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
 
 2. Navigate to the folder (`cd opensource/`).
 
-3. Navigate to https://github.com/oppia/oppia. In the top right corner opposite the repository name `oppia/oppia`, first click the `Star` button to easily track updates, discussions, and new features. This helps you stay engaged with the community and encourages continued development!
+3. Navigate to https://github.com/oppia/oppia. In the top right corner opposite the repository name `oppia/oppia`, first click the `Star` button to easily track updates, discussions, and new features. This helps you stay engaged with the community and encourages continued development.
 
 4. Next, click the `Fork` button to create your own copy of the repository.
 
