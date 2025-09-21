@@ -42,7 +42,9 @@ bash scripts/install_prerequisites.sh
 
 2. Navigate to the folder (`cd opensource/`). Next, we'll [fork and clone](https://help.github.com/articles/fork-a-repo/) the Oppia repository.
 
-3. Navigate to https://github.com/oppia/oppia and click on the `fork` button. It is placed on the right corner opposite the repository name `oppia/oppia`.
+3. Navigate to https://github.com/oppia/oppia. In the top right corner opposite the repository name `oppia/oppia`, first click the `Star` button to easily track updates, discussions, and new features. This helps you stay engaged with the community and encourages continued development.
+
+4. Next, click the `Fork` button to create your own copy of the repository.
 
    ![Screenshot with the fork button](images/install/fork.png)
 
@@ -50,7 +52,7 @@ bash scripts/install_prerequisites.sh
 
    ![Screenshot of repository list with Oppia](images/install/repositoryList.png)
 
-4. Clone the repository to your local computer (replacing the values in `{{}}`):
+5. Clone the repository to your local computer (replacing the values in `{{}}`):
 
    ```console
    $ git clone https://github.com/{{GITHUB USERNAME}}/oppia.git
@@ -64,7 +66,7 @@ bash scripts/install_prerequisites.sh
 
    Note that you will see slightly different output because the numbers change as Oppia grows.
 
-5. Now your `origin` remote is pointing to your fork (`{{GITHUB USERNAME}}/oppia`). To stay up to date with the main `oppia/oppia` repository, add it as a remote called `upstream`. You'll first need to move into the `oppia` directory that was created by the clone operation.
+6. Now your `origin` remote is pointing to your fork (`{{GITHUB USERNAME}}/oppia`). To stay up to date with the main `oppia/oppia` repository, add it as a remote called `upstream`. You'll first need to move into the `oppia` directory that was created by the clone operation.
 
    ```console
    $ cd oppia
