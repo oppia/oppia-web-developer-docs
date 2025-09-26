@@ -10,6 +10,7 @@
     * [[Designers and artists|Contributing-to-Oppia's-design]]
   * [[How to report a bug|How-to-file-a-bug-report]]
   * **[[Google Summer of Code 2025|Google-Summer-of-Code-2025]]**
+  * **[[Hacktoberfest 2025|Hacktoberfest-2025]]**
 ---
 **Developing Oppia**
   * [[FAQs|Frequently-Asked-Questions]]
