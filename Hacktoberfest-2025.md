@@ -25,7 +25,7 @@ To participate and contribute to Oppia:
 3. Find a [good first issue](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22+no%3Aassignee) to work on.
 4. Make your changes and submit a pull request. Be sure to follow our [PR instructions](https://github.com/oppia/oppia/wiki/Rules-for-making-PRs).
 5. Work through the code review process until your PR is **approved and merged**.
-6. Each accepted PR counts toward your Hacktoberfest goal — keep going until you reach **6 accepted contributions**.
+6. Each accepted PR counts toward your Hacktoberfest goal. Keep going until you reach **6 accepted contributions**!
 
 
 
