@@ -25,7 +25,7 @@ To participate and contribute to Oppia:
 3. Find a [good first issue](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22+no%3Aassignee) to work on.
 4. Make your changes and submit a pull request. Be sure to follow our [PR instructions](https://github.com/oppia/oppia/wiki/Rules-for-making-PRs).
 5. Work through the code review process until your PR is **approved and merged**.
-6. Repeat this until **6 of your PRs/MRs are accepted** by maintainers for them to count toward your Hacktoberfest progress.
+6. Each accepted PR counts toward your Hacktoberfest goal — keep going until you reach **6 accepted contributions**.
 
 
 
@@ -41,7 +41,7 @@ Want to support Oppia beyond code? Check out the [Hacktoberfest donations page](
 A: Hacktoberfest is a global celebration of open source software, where developers are encouraged to contribute to participating projects throughout October.
 
 **Q: Must I only work on issues labeled "Hacktoberfest"?**  
-A: No. Any PR/MR to a repository with the `hacktoberfest` topic counts, even if the specific issue isn’t labeled. For starters, check out our [good first issues](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22+no%3Aassignee).
+A: No. Any PR to a repository with the `hacktoberfest` topic counts, even if the specific issue isn’t labeled. For starters, check out our [good first issues](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22+no%3Aassignee).
 
 **Q: Do pull requests need the "hacktoberfest-accepted" label to count?**  
 A: Not if they are merged. That label is only necessary if the PR is not merged by October 31 but still considered valid by maintainers.
