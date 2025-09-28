@@ -38,7 +38,7 @@ If you find new test files where changes needed to be required, try updating the
 - Start the server and go to the admin page.
 - Load all demo exploration.
 - Create a new exploration, make some changes and save them.
-- Checkout the feature branch which contains state migration.
+- In a new terminal window, checkout the feature branch which contains state migration. The changed files will be detected in the server logs.
 - Go to 0.0.0.0:8000 and flush existing Memcache from the Memcache tab.
 - Go to the admin page and assign yourself the role of "release coordinator".
 - Go to the Misc tab of /release-coordinator page and flush the cache.
