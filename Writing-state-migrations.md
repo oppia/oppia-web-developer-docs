@@ -45,5 +45,5 @@ If you find new test files where changes needed to be required, try updating the
 - Run `AuditExplorationMigrationJob` and wait for the job to get completed. This job will not make any changes to the exploration as this is simply an audit job. We run this job before the actual migration job so that in case anything fails we do not make changes to the datastore. Please make sure the job should be successful without any errors before moving forward.
 - Run `MigrateExplorationJob` and wait for the job to get completed. This will make changes to exploration.
 - Check the output of the job and post the screen-shot in your PR.
-- Go to the exploration you have created lately, check whether it's working as expected.
+- Go to the exploration you have created lately, check whether it's working as expected. To check the local datastore, refer to [Debugging datastore locally](https://github.com/oppia/oppia/wiki/Debugging-datastore-locally).
 - Check demo exploration (note demo exploration ids are 0, 1, 2, etc.)
