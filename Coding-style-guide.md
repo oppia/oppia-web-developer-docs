@@ -91,6 +91,10 @@ In the Oppia codebase all data (that we can decide about) should be encoded/deco
 
 If, in some case, an external source returns or receives data with a different encoding, it is fine to use that encoding only for that source. However, please first be sure to investigate whether that source can be configured to use utf-8 instead.
 
+#### Black
+
+We use [black](https://black.readthedocs.io/en/stable/) to format backend code. It is run as a pre-commit hook, i.e. it is executed every time you make a commit.
+If you’d like to run Black on a specific file, use black path-to-file (for example: black /home/dev/opensource/oppia/core/controllers/android.py). This will format the file.
 
 ### Apache Beam logic
   - For pipe operations that span multiple lines, always have the pipe operator (`|`) begin on the new line.
