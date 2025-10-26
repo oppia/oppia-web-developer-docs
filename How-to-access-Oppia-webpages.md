@@ -435,7 +435,7 @@ The contributor dashboard page allows users to translate existing explorations i
 
 1. Log in as a super-admin and assign to your user the "Question admin" role.
 
-2. Navigate to http://localhost:8181/contributor-dashboard-admin.
+2. Navigate to http://localhost:8181/contributor-admin-dashboard.
 
 ## User Documentation
 
