@@ -16,19 +16,7 @@ If you use [Sublime Text](http://www.sublimetext.com/), consider installing the 
 - Avoid redefining the same variable more than once. Use different names to represent different variables, since each variable (conceptually) stores a different thing.
 - Functions that start with "get", or which have GET semantics, should, under no circumstances, update or delete anything. They should be safe to call and have no side effects.
 
-
 ## Python
-
-#### Black
-Oppia uses [Black](https://black.readthedocs.io/en/stable/) as the standard Python code formatter.  
-Black enforces a consistent, opinionated style automatically and is run as a pre-commit hook.  
-
-- **Automatic formatting:** Black runs every time you make a commit to ensure consistent code style.
-- **Manual formatting:** You can format a specific file manually using:
-  ```bash
-  black /home/dev/opensource/oppia/core/controllers/android.py
-
-
 - Consider using a frozenset or tuple to a list, if the data structure is not meant to be subsequently modified. This applies especially to constants.
 - If you need to raise an Exception, just do `raise Exception` -- no need to define custom exceptions. We tend to use exceptions fairly sparingly, though.
 - Otherwise, please follow the [Google Python style guide](https://github.com/google/styleguide/blob/gh-pages/pyguide.md). In particular:
@@ -36,7 +24,7 @@ Black enforces a consistent, opinionated style automatically and is run as a pre
   - It's OK for the initial documentation string to be more than one line long.
   - Prefer string interpolation over concatenation -- e.g. prefer: `'My string %s' % varname` to `'My string ' + varname`.
   - **Indentation inside parentheses:**  
-    Let [Black](https://black.readthedocs.io/en/stable/) handle indentation and line breaks automatically.  
+    Let [Black](#black) handle indentation and line breaks automatically.  
     Do **not** manually align to the opening parenthesis or indent by a fixed number of spaces.  
     For example, Black will format code like this:
     ```python
@@ -132,7 +120,15 @@ If, in some case, an external source returns or receives data with a different e
         input_pcoll | "Sort" >> Sort() | "Unique" >> Unique())
     ````
 
+## Black
+Oppia uses [Black](https://black.readthedocs.io/en/stable/) as the standard Python code formatter.  
+Black enforces a consistent, opinionated style automatically and is run as a pre-commit hook.  
 
+- **Automatic formatting:** Black runs every time you make a commit to ensure consistent code style.
+- **Manual formatting:** You can format a specific file manually using:
+  ```bash
+  black /home/dev/opensource/oppia/core/controllers/android.py
+  
 ## Prettier
 
 We use [prettier](https://prettier.io/) to format frontend code. It is configured based on [gts](https://github.com/google/gts). It is run as a pre-commit hook, i.e. it is executed every time you make a commit.
