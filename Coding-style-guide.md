@@ -23,8 +23,7 @@ If you use [Sublime Text](http://www.sublimetext.com/), consider installing the 
   - There should be two empty lines before any top-level class or function definition.
   - It's OK for the initial documentation string to be more than one line long.
   - Prefer string interpolation over concatenation -- e.g. prefer: `'My string %s' % varname` to `'My string ' + varname`.
-  - **Indentation inside parentheses:**  
-    Let [Black](#black) handle indentation and line breaks automatically.  
+  - Indentation inside parentheses: Let [Black](#black) handle indentation and line breaks automatically.  
     Do **not** manually align to the opening parenthesis or indent by a fixed number of spaces.  
     For example, Black will format code like this:
     ```python
@@ -125,7 +124,8 @@ Oppia uses [Black](https://black.readthedocs.io/en/stable/) as the standard Pyth
 Black enforces a consistent, opinionated style automatically and is run as a pre-commit hook.  
 
 - **Automatic formatting:** Black runs every time you make a commit to ensure consistent code style.
-- **Manual formatting:** You can format a specific file manually using:
+- **Manual formatting:** You can format a specific file manually using `black 
+{{filepath}}`. For example, to format android.py, you would run:
   ```bash
   black /home/dev/opensource/oppia/core/controllers/android.py
   
