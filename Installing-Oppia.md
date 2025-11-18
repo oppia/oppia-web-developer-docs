@@ -26,7 +26,11 @@ To install Oppia, follow these instructions:
 * [[Windows|Installing-Oppia-(Windows;-Python-3)]]
 
 ## Installation using Docker
+
+**Warning:** Installing Oppia under Docker is no longer supported. These instructions are preserved here for future reference, but we do not recommend installing under Docker. If you currently run Oppia under Docker, we recommend migrating to the Python setup (above).
+
 To install Oppia using Docker, follow these instructions:
+
 * [[Oppia Docker Setup|Installing-Oppia-using-Docker]]
 
 If you run into any problems during installation, please read [[these notes|Issues-with-installation]] and the [[Troubleshooting page|Troubleshooting]].
