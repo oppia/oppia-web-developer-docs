@@ -60,7 +60,7 @@ Additionally, GitHub also provides an advanced search syntax that allows you to 
 
     * Facing any problems (including non-coding ones)? Please feel free to create a [GitHub Discussion](https://github.com/oppia/oppia/discussions) and get help from the Oppia community. You can use this avenue for asking anything -- questions about any issue, who to contact for specific things, etc.
 
-8. When you have merged PRs that correspond to two different pre-existing GitHub issues, please fill in [this form](https://forms.gle/NxPjimCMqsSTNUgu5) to become an Oppia collaborator! This will grant you access to the repository, and allow you to join a team. (But please don't create your own issues and then make PRs for them -- that won't count.)
+8. When you have merged at least one PR, please fill in [this form](https://forms.gle/NxPjimCMqsSTNUgu5) to let us know what team(s) you are interested in joining (to join a team you must have completed at least one of that team's issues). We will look at your contributions and invite you to become an Oppia collaborator! This will grant you access to the repository, and allow you to join a team. (But please don't create your own issues and then make PRs for them -- that won't count.) Since we want you to have a good experience contributing to Oppia, team leads may ask you to develop your skills on some more substantial issues before onboarding you to the team.
 
 ## Developing your skills
 
@@ -129,12 +129,12 @@ If you want to play a more integral role in sustaining Oppia, you can look forwa
 
 ```mermaid
 graph TD;
-    Everyone("Everyone (read access)") --> Contributors("New Contributors (read access)") --Get 2 PRs Merged--> Collaborators("Collaborators (triage access)") --Make Sustained Quality Contributions--> Members("Members (write access)") --> Lead(Project Leads<br /> and<br /> Core Maintainers);
+    Everyone("Everyone (read access)") --> Contributors("New Contributors (read access)") --Get 1+ PRs Merged--> Collaborators("Collaborators (triage access)") --Make Sustained Quality Contributions--> Members("Members (write access)") --> Lead(Project Leads<br /> and<br /> Core Maintainers);
 ```
 
 As a new contributor, you won't have any permissions on the repository except to read the code, so you'll need to ask other developers (or Oppiabot) to assign reviewers to your PR or add labels to your issue.
 
-After you've completed parts of at least two different issues and successfully submitted PRs for them into develop, you can fill in [this form](https://forms.gle/NxPjimCMqsSTNUgu5) to become an Oppia collaborator! This will grant you access to the repository, and allow you to join a team of your choice. Once you fill out the form, we'll mail you a collaborator invite link for the Oppia repository -- this is a manual process, and may take up to 48 hours. Please visit [this link](https://github.com/oppia/oppia/invitations) to accept the invitation to collaborate. Feel free to email us at dev-support@oppia.org if you don't receive the email!
+After you've merged a PR into develop, you can fill in [this form](https://forms.gle/NxPjimCMqsSTNUgu5) to become an Oppia collaborator! This will grant you access to the repository, and allow you to join a team of your choice. Once you fill out the form, we'll mail you a collaborator invite link for the Oppia repository -- this is a manual process, and may take up to 48 hours. Please visit [this link](https://github.com/oppia/oppia/invitations) to accept the invitation to collaborate. Feel free to email us at dev-support@oppia.org if you don't receive the email!
 
 Then you'll be a collaborator with triage access, which lets you assign reviewers and labels. No more asking for reviewers to be assigned! If you continue to make quality contributions, you may be added as a member of the Oppia organization, which grants you write access. Then you'll be able to restart tests, serve as a [code owner](https://docs.github.com/en/articles/about-code-owners), and review pull requests.
 
