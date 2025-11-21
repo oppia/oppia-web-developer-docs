@@ -4,38 +4,40 @@ Please see the rota below for the expected release dates. We expect QA testing t
 
 ## Release Team members
 * Team lead:
-  * Kevin Thomas (**@kevintab95**)
+  * Kevin (**@kevintab95**)
+  * Chris (**@U8NWXD**)
 
 * Release coordinators:
-  * Hasitha Kaushan (**@chris7716**)
-  * Hitesh Tomar (**@lkbhitesh07**)
-  * Jay Vivarekar (**@JayVivarekar**)
-  * Kevin Thomas (**@kevintab95**)
+  * Hardik (**@HardikGoyal2003**)
+  * Hasitha (**@chris7716**)
+  * Mohit (**@mon4our**)
+  * Nikhil (**@Nik-09**)
+  * Sambhav (**@masterboy376**)
 
 * QA coordinators:
-  * Camila Pinheiro (**@cam-pinheiro**)
-  * Kanupriya Gupta (**@kanupriyagupta**)
-  * Kevin Thomas (**@kevintab95**)
-  * Sylvia (**@sesundor**)
+  * Kanupriya (**@kanupriyagupta**)
+  * Shalini (**@shalini25dutta**)
+  * Hanna (**@HannaQATester**)
 
 ## Release coordinators and QA coordinators for upcoming releases
 
 **Note:** If you can't make it to a shift mentioned in the below rota, please make sure to swap with someone else in advance!
 
-| Month     | Release cut date | Release coordinator               | QA coordinator                                               |
-|-----------|------------------|-----------------------------------|--------------------------------------------------------------|
-| November  | 12 November      | Kevin (**@kevintab95**)           | Kanupriya (**@Kanupriyaoppia**) & Andy (**@andyzhu7568**)    |
-| December  | 4 December       | Kevin (**@kevintab95**)           | Sylvia (**@sesundor**)                                       |
-| January   | 1 January        | Hasitha (**@chris7716**)          | Camila (**@cam-pinheiro**)                                   |
-| February  | 5 February       | Jay Vivarekar (**@JayVivarekar**) | Andy (**@andyzhu7568**)                                      |
-| March     | 5 March          | Kevin (**@kevintab95**)           | Kanupriya (**@Kanupriyaoppia**)                              |
-| April     | 2 April          | Hasitha (**@chris7716**)          | Sylvia (**@sesundor**)                                       |
-| May       | 7 May            | Jay Vivarekar (**@JayVivarekar**) | Camila (**@cam-pinheiro**)                                   |
-| June      | 4 June           | Kevin (**@kevintab95**)           | Andy (**@andyzhu7568**)                                      |
-| July      | 2 July           | Hasitha (**@chris7716**)          | Kanupriya (**@Kanupriyaoppia**)                              |
-| August    | 6 August         | Jay Vivarekar (**@JayVivarekar**) | Sylvia (**@sesundor**)                                       |
-| September | 3 September      | Kevin (**@kevintab95**)           | Camila (**@cam-pinheiro**)                                   |
-| October   | 2 October        | Hasitha (**@chris7716**)          | Andy (**@andyzhu7568**)                                      |
+| Month     | Release cut date | Release coordinator           | QA coordinator                  | Backup Server Admin           |
+|-----------|------------------|-------------------------------|---------------------------------|-------------------------------|
+| October   | 1 October        | Mohit (**@mon4our**)          |                                 | Sambhav (**@masterboy376**)   |
+| November  | Skipped          | Sambhav (**@masterboy376**)   | Kanupriya (**@kanupriyagupta**) | Hasitha (**@chris7716**)      |
+| December  | 29 November      | Hasitha (**@chris7716**)      | Shalini (**@shalini25dutta**)   | Hardik (**@HardikGoyal2003**) |
+| January   | 7 January        | Hardik (**@HardikGoyal2003**) | Hanna (**@HannaQATester**)      | Mohit (**@mon4our**)          |
+| February  | 4 February       | Mohit (**@mon4our**)          | Kanupriya (**@kanupriyagupta**) | Nikhil (**@Nik-09**)          |
+| March     | 4 March          | Nikhil (**@Nik-09**)          | Shalini (**@shalini25dutta**)   | Sambhav (**@masterboy376**)   |
+| April     | 1 April          | Sambhav (**@masterboy376**)   | Hanna (**@HannaQATester**)      | Hardik (**@HardikGoyal2003**) |
+| May       | 6 May            | Hardik (**@HardikGoyal2003**) | Kanupriya (**@kanupriyagupta**) | Hasitha (**@chris7716**)      |
+| June      | 3 June           | Hasitha (**@chris7716**)      | Shalini (**@shalini25dutta**)   | Mohit (**@mon4our**)          |
+| July      | 1 July           | Mohit (**@mon4our**)          | Hanna (**@HannaQATester**)      | Nikhil (**@Nik-09**)          |
+| August    | 5 August         | Nikhil (**@Nik-09**)          | Kanupriya (**@kanupriyagupta**) | Sambhav (**@masterboy376**)   |
+| September | 2 September      | Sambhav (**@masterboy376**)   | Shalini (**@shalini25dutta**)   | Hardik (**@HardikGoyal2003**) |
+| October   | 1 October        | Hardik (**@HardikGoyal2003**) | Hanna (**@HannaQATester**)      | Mohit (**@mon4our**)          |
 
 ## Responsibilities of the release coordinator
 - Communicate clearly during the release process, especially in the group chat to share updates as the release steps are completed, and keeping the team apprised of any delays.
@@ -44,6 +46,18 @@ Please see the rota below for the expected release dates. We expect QA testing t
     - If the release does not follow the usual process or is delayed, a 1:1 will be scheduled with the release team lead to find the issues and work on mitigations to avoid them in the future.
 - Handling all deployments to the test server and the production server.
 - Running any one-off jobs for the release.
+- The release coordinator for a month is also the primary server admin (see server admin responsibilities below).
+
+## Responsibilities of the primary server admin
+- Monitor incoming PRs for changes that could possibly damage the production server, and place blocking reviews on these PRs until they've been tested.
+- Test potentially-damaging PRs (e.g. new beam jobs) on the backup server.
+- Perform other job runs requested by developers.
+- Organize testing for new features.
+- Explicitly pass responsibility to the backup server admin, notifying the team leads, if you are ever unavailable or overloaded.
+
+## Responsibilities of the backup server admin
+- Take over server admin responsibilities if the primary server admin is unavailable or overloaded at any point during the month.
+- You will generally be a backup server admin the month before you are a primary server admin, so learn from your primary server admin if you haven't been a server admin recently.
 
 ## Responsibilities of the QA coordinator
 - Gathering a group of testers for the release testing team for the month.
