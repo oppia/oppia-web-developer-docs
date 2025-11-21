@@ -205,6 +205,32 @@ make run_tests.backend PYTHON_ARGS="--help"
 
 Note that while the tests are running, you may see the word `ERROR` show up in the test logs. This does not necessarily mean that an error has occurred; it happens because some tests actually expect an error to be raised.
 
+If you want to speed up subsequent runs of the tests, use `--skip-install` like this:
+
+Python:
+```console
+python -m scripts.run_backend_tests --skip-install
+```
+
+Docker:
+```console
+make run_tests.backend PYTHON_ARGS="--skip-install"
+```
+
+You can also combine this flag with the ones mentioned above. For example, you can use it with the `--test-targets` flag for even faster runs like this:
+
+Python:
+```console
+python -m scripts.run_backend_tests --test_targets=core.controllers.editor_test --skip-install
+```
+
+Docker:
+```console
+make run_tests.backend PYTHON_ARGS="--test_targets=core.controllers.editor_test --skip-install"
+```
+
+Note that this skips reinstalling the required libraries, so remember to run the tests without this flag every once in a while to keep them up to date.
+
 ### Identifying whether the tests passed
 
 The tests pass if, at the end of the test output, you see the message:
