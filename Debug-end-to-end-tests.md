@@ -43,11 +43,6 @@ There are many ways to go about debugging an E2E test, but here is one approach:
    python -m scripts.run_e2e_tests --debug_mode --suite="topicAndStoryEditor"
    ```
 
-   Docker:
-   ```console
-   make run_tests.e2e suite=topicAndStoryEditor DEBUG=true
-   ```
-
 3. Wait for the script to show the following log:
 
    ```text
