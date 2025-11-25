@@ -174,11 +174,6 @@ Python:
 python -m scripts.run_backend_tests --test_targets=core.controllers.editor_test --verbose
 ```
 
-Docker:
-```console
-make run_tests.backend PYTHON_ARGS="--test_targets=core.controllers.editor_test --verbose"
-```
-
 For more information about `--test_targets` and other flags, run:
 
 ```console
@@ -196,11 +191,6 @@ python -m scripts.run_backend_tests --skip-install
 You can also combine this flag with the ones mentioned above. For example, you can use it with the `--test-targets` flag for even faster runs like this:
 ```console
 python -m scripts.run_backend_tests --test_targets=core.controllers.editor_test --skip-install
-```
-
-Docker:
-```console
-make run_tests.backend PYTHON_ARGS="--test_targets=core.controllers.editor_test --skip-install"
 ```
 
 Note that this skips reinstalling the required libraries, so remember to run the tests without this flag every once in a while to keep them up to date.
@@ -235,11 +225,6 @@ When writing a test for a function or class, you can generate a coverage report 
 Python:
 ```console
 python -m scripts.run_backend_tests --generate_coverage_report
-```
-
-Docker:
-```console
-make run_tests.backend PYTHON_ARGS="--generate_coverage_report"
 ```
 
 If there are **any** backend test errors, no coverage report will be produced. Please fix those errors and then re-run the above command. If the tests all pass, a coverage report will be printed that lists each backend file, along with the lines not covered by tests. Here is an example of a coverage report:

@@ -53,10 +53,6 @@ Here are some general troubleshooting tips for Oppia. The platform specific tips
   - [Windows Firewall](#windows-firewall)
   - [No Such File or Directory /dev/disk/by-id](#no-such-file-or-directory-devdiskby-id)
   - [First build never completed](#first-build-never-completed)
-- [Docker Setup](#docker-setup)
-  - [docker-desktop : Depends: docker-ce-cli but it is not installable](#docker-desktop--depends-docker-ce-cli-but-it-is-not-installable)
-  - [make commands: `Operation not permitted`](#make-commands-operation-not-permitted)
-  - [Installation encounters `network timeout` or `connection error`](#installation-encounters-network-timeout-or-connection-error)
 - [If the above doesn't work](#if-the-above-doesnt-work)
 
 ### For Jio India Users
@@ -774,72 +770,6 @@ FileNotFoundError: [Errno 2] No such file or directory: '/home/user/opensource/o
 ```
 
 The error code 137 indicates that the Angular compiler ran out of memory. This happens because WSL2 only gives the host operating system (Ubuntu, in our case) 50% of the machine's RAM by default. If you have 8 GB RAM, for example, this means Ubuntu only gets 4 GB, which is insufficient to run Oppia. To fix this, you need to follow [Microsoft's instructions](https://learn.microsoft.com/en-us/windows/wsl/wsl-config) to increase the amount of RAM given to the host operating system.
-
-## Docker Setup
-
-### docker-desktop : Depends: docker-ce-cli but it is not installable
-
-While installing Docker Desktop, ubuntu users might see the following error logs:
-```
-Some packages could not be installed. This may mean that you have
-requested an impossible situation or if you are using the unstable
-distribution that some required packages have not yet been created
-or been moved out of Incoming.
-The following information may help to resolve the situation:
-
-The following packages have unmet dependencies:
- docker-desktop : Depends: docker-ce-cli but it is not installable
-E: Unable to correct problems, you have held broken packages.
-```
-
-The cause of this error is the absence of the Docker repository installation on the system. To address this issue, a straightforward solution is to execute the following commands before installing Docker Desktop:
-```
-sudo apt install -y ca-certificates curl gnupg lsb-release
-sudo mkdir -p /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt update -y
-```
-These commands are used to prepare an Ubuntu system for Docker installation. They start by installing necessary packages like ca-certificates, gnupg, and lsb-release. Then, a directory named /etc/apt/keyrings is created to store GPG keys. Next, a Docker GPG key is downloaded from the Docker repository and converted to binary format before being saved in the keyring directory. A Docker repository source is added to the APT sources list using an echo command, specifying the architecture, GPG key location, repository URL, and Ubuntu version. Finally, the package list is updated to include Docker packages from the newly added repository. These steps collectively enable secure access to Docker packages and facilitate their installation and management on the system.
-
-Following the completion of the aforementioned commands, you can proceed with the installation of Docker Desktop.
-
-[Reference](https://stackoverflow.com/questions/72299444/docker-desktop-doesnt-install-saying-docker-ce-cli-not-installable) for the solution stated.
-
-### make commands: `Operation not permitted`
-
-Some users might face the following error while running `make` commands:
-```
-Operation not permitted
-make: *** [Makefile:14: docker] Error 1
-```
-
-To fix this, create a new user called 'docker' and include the current user in the 'docker' group. Execute the following commands to achieve this:
-```
-sudo groupadd docker
-sudo gpasswd -a $USER docker
-```
-
-[Reference]([url](https://askubuntu.com/questions/477551/how-can-i-use-docker-without-sudo))
-
-The cause of the issue is that Docker daemon binds to a unix socket by default, which is owned by root. So, when you run the make commands without admin access, it is not able to access the unix socket and hence the error is thrown.
-
-### Installation encounters `network timeout` or `connection error`
-
-If you encounter network timeout or connection errors during the Docker setup process, simply re-execute the `make build` command. This is necessary as the Docker setup may have been disrupted by network problems. By rerunning the command, the setup will pick up from the point of failure and continue accordingly.
-
-### Any Installation Error in Docker Setup
-
-If you encounter any error during the Oppia Docker setup process, please try the following steps to resolve the issue:
-1. Run `make clean` to remove the existing Docker containers and images.
-2. Run `make build` to rebuild the Docker containers and images.
-3. Run `make run-devserver` to start the Oppia development server.
-
-If the issue persists, try clearing the Docker cache by running the following commands:
-1.  Run `make clean` to remove the existing Docker containers and images.
-2.  Run `docker builder prune --all` to remove all build cache.
-3.  Run `make build` to rebuild the Docker containers and images.
-4.  Run `make run-devserver` to start the Oppia development server.
 
 ## If the above doesn't work
 
