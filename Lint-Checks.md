@@ -62,13 +62,13 @@ We use linters to check our code for common errors or bad patterns. The Oppia li
 5. To lint a specific list of file extensions (separated by spaces):
 
    ```console
-   python -m scripts.linters.run_lint_checks --only-check-file-extensions {{extensions}}
+   python -m scripts.linters.run_lint_checks --only_check_file_extensions {{extensions}}
    ```
 
    For example, to lint Python and JavaScript files, you could run this:
 
    ```console
-   python -m scripts.linters.run_lint_checks --only-check-file-extensions py js
+   python -m scripts.linters.run_lint_checks --only_check_file_extensions py js
    ```
 
 ## Write lint checks

@@ -34,7 +34,7 @@ make run_tests.mypy PYTHON_ARGS="--files path/file1.py path/file2.py"
   This runs the type checks on the files specified, i.e., file1 and file2.
 
 **Note:**
-- [Helpful trick for faster runs]`python -m scripts.run_mypy_checks --skip-install` can be used to skip installation of third party libraries. Please use the `--skip-install` flag **only** when you already have all the third party libraries installed.
+- [Helpful trick for faster runs]`python -m scripts.run_mypy_checks --skip_install` can be used to skip installation of third party libraries. Please use the `--skip_install` flag **only** when you already have all the third party libraries installed.
 
 
 ## Adding type annotations

@@ -417,7 +417,7 @@ python -m scripts.linters.run_lint_checks --files file_1 file_2 ... file_n
 
 If you'd like to run the checks for a list of file-types, run the following command:
 ```bash
-python -m scripts.linters.run_lint_checks --only-check-file-extensions file_extension_type_1 file_extension_type_2 ... file_extension_type_n
+python -m scripts.linters.run_lint_checks --only_check_file_extensions file_extension_type_1 file_extension_type_2 ... file_extension_type_n
 ```
 
 ### Note for Sublime Text users

@@ -228,7 +228,7 @@ If you run all the E2E tests at once (i.e. if you don't specify a suite), the te
 
 Python:
 ```console
-python -m scripts.run_e2e_tests --sharding-instances=<number of shards>
+python -m scripts.run_e2e_tests --sharding_instances=<number of shards>
 ```
 
 Docker:
