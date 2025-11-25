@@ -157,11 +157,6 @@ Python:
 python -m scripts.start --prod_env
 ```
 
-Docker:
-```
-make run-devserver prod_env=true
-```
-
 ### webpack.prod.sourcemap.config.ts and webpack.dev.sourcemap.config.ts
 
 These are the webpack configs that are used for building using source maps. We do not use devtools that use source maps in `webpack.dev.config.ts` and `webpack.prod.config.ts` because building using source maps is slow. More in [webpack documentation](https://webpack.js.org/configuration/devtool/).
