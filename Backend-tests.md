@@ -151,26 +151,14 @@ In fact, too many mocks can be a problem because when someone changes the code y
 
 You can run backend tests like this:
 
-Python:
 ```console
 python -m scripts.run_backend_tests
 ```
 
-Docker:
-```console
-make run_tests.backend
-```
-
 Alternatively, you can run just a single test module or multiple test modules like this:
 
-Python:
 ```console
 python -m scripts.run_backend_tests --test_targets=core.controllers.editor_test
-```
-
-Docker:
-```console
-make run_tests.backend PYTHON_ARGS="--test_targets=core.controllers.editor_test"
 ```
 
 The argument to `--test_targets` can be as specific as you like. For example:
@@ -193,33 +181,19 @@ make run_tests.backend PYTHON_ARGS="--test_targets=core.controllers.editor_test 
 
 For more information about `--test_targets` and other flags, run:
 
-Python:
 ```console
 python -m scripts.run_backend_tests --help
-```
-
-Docker:
-```console
-make run_tests.backend PYTHON_ARGS="--help"
 ```
 
 Note that while the tests are running, you may see the word `ERROR` show up in the test logs. This does not necessarily mean that an error has occurred; it happens because some tests actually expect an error to be raised.
 
 If you want to speed up subsequent runs of the tests, use `--skip-install` like this:
 
-Python:
 ```console
 python -m scripts.run_backend_tests --skip-install
 ```
 
-Docker:
-```console
-make run_tests.backend PYTHON_ARGS="--skip-install"
-```
-
 You can also combine this flag with the ones mentioned above. For example, you can use it with the `--test-targets` flag for even faster runs like this:
-
-Python:
 ```console
 python -m scripts.run_backend_tests --test_targets=core.controllers.editor_test --skip-install
 ```
