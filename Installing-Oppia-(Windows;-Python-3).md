@@ -326,40 +326,6 @@ The estimated runtime for this script is about 10-20 minutes. It will open a ser
 
 You're done! Now return to the [code contribution instructions](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia), skipping the step about cloning the Oppia repository with `git`.
 
-## Troubleshooting installation with Docker
-
-- If docker outputs: Error processing … no space left on device.
-  - Then: run docker system prune (to delete terminated docker images / containers)
-
-- If docker outputs: docker: Error response from daemon: … port is already allocated.
-  - Then: restart docker by right clicking on the icon in the taskbar and clicking Restart
-
-- If docker outputs: unzip not found
-  - Then: run bash scripts/install_prerequisites.sh inside of the Docker image (bash)
-
-- If docker outputs: npm: no such file or directory
-  - Then: run the following two commands:
-       ```
-         curl -sL https://deb.nodesource.com/setup_8.x | bash
-         apt-get install nodejs
-       ```
-
-- If the frontend test command is not working
-  - Then: try these 2 alternative options:
-    - Option 1:
-       Start bash in the Docker container (follow steps 1-3 from running Oppia on a development server).
-       Run the run_frontend_tests.py script. The expected runtime is about 3-7 minutes.
-       ```
-         python -m scripts.run_frontend_tests
-       ```
-    - Option 2:
-       Start bash in the Docker container (follow steps 1-3 from running Oppia on a development server).
-       Run these two commands to manually compile the frontend tests and run the tests:
-       ```
-         ./node_modules/typescript/bin/tsc --project .
-         ./node_modules/karma/bin/karma start ./core/tests/karma.conf.ts
-       ```
-
 # Appendix
 
 - RDP: Remote Desktop Protocol is a proprietary protocol developed by Microsoft which provides a user with a graphical interface to connect to another computer over a network connection. The user employs RDP client software for this purpose, while the other computer must run RDP server software. [More Info](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol).

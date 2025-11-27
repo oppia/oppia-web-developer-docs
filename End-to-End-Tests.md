@@ -179,11 +179,6 @@ Python:
 python -m scripts.run_e2e_tests --suite="suiteName"
 ```
 
-Docker:
-```console
-make run_tests.e2e suite=suiteName
-```
-
 Chrome will open and start running your tests.
 
 ### Set chromedriver version
@@ -201,11 +196,6 @@ To manually set the chromedriver version, use the `CHROME_VERSION=<version>` (or
 Python:
 ```console
 python -m scripts.run_e2e_tests --chrome_driver_version <version>
-```
-
-Docker:
-```console
-make run_tests.e2e CHROME_VERSION=<version>
 ```
 
 To determine which version of chromedriver to use, please follow these steps:
@@ -231,21 +221,11 @@ Python:
 python -m scripts.run_e2e_tests --sharding-instances=<number of shards>
 ```
 
-Docker:
-```console
-make run_tests.e2e sharding_instances=<number_of_shards>
-```
-
 You can disable sharding like this:
 
 Python:
 ```console
 python -m scripts.run_e2e_tests --sharding=false
-```
-
-Docker:
-```console
-make run_tests.e2e PYTHON_ARGS="--sharding=false"
 ```
 
 Note that when we run tests on CI, we run one suite at a time, so there is no sharding.
@@ -261,11 +241,6 @@ To run the end-to-end tests in production mode, use the `--prod_env` flag:
 Python:
 ```console
 python -m scripts.run_e2e_tests --prod_env
-```
-
-Docker:
-```console
-make run_tests.e2e PYTHON_ARGS="--prod_env"
 ```
 
 On CI, we run all the E2E tests in production mode to more closely mimic how the Oppia application behaves in production.
