@@ -93,11 +93,6 @@ Python:
 python -m scripts.run_frontend_tests --verbose
 ```
 
-Docker:
-```console
-make run_tests.frontend PYTHON_ARGS="--verbose"
-```
-
 **Only use --verbose when you are running a few tests in isolation. Otherwise, you will be swamped with way too many log messages.**
 
 Note that depending on your situation, `console.log()` or `console.error()` might be preferable:
@@ -112,11 +107,6 @@ By default, the combined-tests.spec.js file is deleted after running the fronten
 Python:
 ```console
 python -m scripts.run_frontend_tests --download_combined_frontend_spec_file
-```
-
-Docker:
-```console
-make run_tests.frontend PYTHON_ARGS="--download_combined_frontend_spec_file"
 ```
 
 The combined-tests.spec.js file will be downloaded to the karma_coverage_reports directory.

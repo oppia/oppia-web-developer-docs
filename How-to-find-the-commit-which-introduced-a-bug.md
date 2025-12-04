@@ -5,8 +5,7 @@
     * If the error is not reproducible on the latest commit: we don’t need to do anything! You can post video proof on the issue thread and request that a maintainer close the issue.
     * Otherwise: continue with the steps below.
 2. Depending on how far back you want to go, checkout one of the following:
-    * [This](https://github.com/oppia/oppia/commit/9a334e9bde1d3d10e3b69dcd461d3e649733b0c0) commit from Dec 2022, which is when the Python version was last updated – though this might not work if you are using Docker.
-    * [This](https://github.com/oppia/oppia/commit/dc333e4e25dc72e22910cb6f8ef32ae652a29dad) commit from Aug 2023, which is when Docker was first usable.
+    * [This](https://github.com/oppia/oppia/commit/9a334e9bde1d3d10e3b69dcd461d3e649733b0c0) commit from Dec 2022, which is when the Python version was last updated.
     * The latest release commit (you can find the hash and release date [here](https://github.com/oppia/oppia/releases)), if you want to see whether the error happened since the last release;
 3. If the issue is not reproducible on the earliest commit you checked, go ahead with the approach provided below. However, if the issue is reproducible on that commit, we know that the problem occurred before the earliest commit. In that case, report that information on the issue thread or group chat as appropriate. Include a link to the commit and mention the month/year it was made.
 

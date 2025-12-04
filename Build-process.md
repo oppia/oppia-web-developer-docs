@@ -89,11 +89,6 @@ Python:
 python -m scripts.start --prod_env
 ```
 
-Docker:
-```console
-make run-devserver prod_env=true
-```
-
 #### Maintenance mode
 
 As far as the build process is concerned, maintenance mode works just like [plain prod mode](#plain-prod-mode) except that the `ENABLE_MAINTENANCE_MODE` constant gets set to `true`. Then when the app runs, only admins can log in. We use this when we are upgrading the production server and need to let jobs run while ensuring users don't change any data.
@@ -103,11 +98,6 @@ This mode is used by our deployment scripts. You can also enable it locally like
 Python:
 ```console
 python -m scripts.start --prod_env --maintenance_mode
-```
-
-Docker:
-```console
-make run-devserver prod_env=true maintenance_mode=true
 ```
 
 #### Deploy mode
@@ -135,12 +125,6 @@ Python:
 ```console
 python -m scripts.start --source_maps
 python -m scripts.run_e2e_tests --prod_env --source_maps
-```
-
-Docker:
-```console
-make run-devserver source_maps=true
-make run_tests.e2e prod_env=true source_maps=true
 ```
 
 With these flags, the `webpack.*.sourcemap.config.ts` configuration files are used to enable source mapping. For information about using source maps, see our [[guide to debugging frontend code|Debug-frontend-code]]

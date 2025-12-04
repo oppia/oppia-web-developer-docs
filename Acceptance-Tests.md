@@ -98,20 +98,9 @@ From the root directory of oppia, run the following command:
 python -m scripts.run_acceptance_tests --suite={{suiteName}}  
 ``` 
 
-Docker:
-```
-make run_tests.acceptance suite=SUITE_NAME
-```
-
 For example, to run the `check-blog-editor-unable-to-publish-duplicate-blog-post.spec.ts` test, run the following command:
-Python:
 ```
 python -m scripts.run_acceptance_tests --suite="blog-editor/check-blog-editor-unable-to-publish-duplicate-blog-post"
-```
-
-Docker:
-```
-make run_tests.acceptance suite="blog-editor/check-blog-editor-unable-to-publish-duplicate-blog-post"
 ```
 
 > **TIP:** To reduce the development cycle for the tests, try using `--skip-build` to skip the build in the local environment as this can reduce the run-time of tests.
@@ -165,7 +154,7 @@ For roles that don't require super admin privileges, such as `LoggedInUser`, add
 
 11) After writing the test, do not forget to add it in our configuration file `common.py` and in `acceptance.json` file so that it is included in the workflow.
 
-> Note: Sometimes tests may pass locally but fail on the CI environment due to differences between the local and CI environments. In such cases, debugging and fixing should be done on the CI environment, as that is where the tests are intended to run. However, we are transitioning to using Docker for both the local and CI setups, which should help mitigate these issues.**
+> Note: Sometimes tests may pass locally but fail on the CI environment due to differences between the local and CI environments. In such cases, debugging and fixing should be done on the CI environment, as that is where the tests are intended to run.
 
 ### Console errors logging functionality in Acceptance Tests
 
@@ -347,20 +336,9 @@ From the root directory of oppia, run the following command:
 python -m scripts.run_acceptance_tests --mobile --suite={{suiteName}}  
 ``` 
 
-Docker:
-```
-make run_tests.acceptance suite=SUITE_NAME MOBILE=true
-```
-
 For example, to run the `check-blog-editor-unable-to-publish-duplicate-blog-post.spec.ts` test, run the following command:
-Python:
 ```
 python -m scripts.run_acceptance_tests --mobile --suite="blog-editor/check-blog-editor-unable-to-publish-duplicate-blog-post"
-```
-
-Docker:
-```
-make run_tests.acceptance suite="blog-editor/check-blog-editor-unable-to-publish-duplicate-blog-post" MOBILE=true
 ```
 
 ## Reference Links
