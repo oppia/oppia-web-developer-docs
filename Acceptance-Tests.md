@@ -341,6 +341,92 @@ For example, to run the `check-blog-editor-unable-to-publish-duplicate-blog-post
 python -m scripts.run_acceptance_tests --mobile --suite="blog-editor/check-blog-editor-unable-to-publish-duplicate-blog-post"
 ```
 
+## Fixing Flakes in Acceptance Tests
+
+A **flaky test** is a test that behaves inconsistently—passing sometimes and failing at other times—even when no underlying code has changed. This non-determinism may originate from the test itself, the application code, or interactions with the environment.
+To learn more about flaky tests, refer to the detailed explanation in the [End-to-End Tests wiki](https://github.com/oppia/oppia/wiki/End-to-End-Tests#what-is-a-flake).
+
+Fixing a flaky test generally involves three phases: **Reproduction**, **Diagnosis**, and **Fix**. This section outlines the canonical process contributors should follow.
+
+---
+
+### 1. Reproduction
+
+The first step is to reliably reproduce the flake. Reproduction may be difficult in a local environment since a flake may only surface intermittently.
+
+To address this:
+
+* Use the **Stress Test Acceptance Tests** GitHub workflow.
+  This workflow runs the specified acceptance test suite multiple times in parallel, significantly increasing the likelihood of encountering the flake.
+* Trigger the workflow manually in oppia repo (use fork if you don't have right for the same) and configure it with:
+
+  * **Branch name**: `develop`
+  * **Run count**: at least 20 times, if you can't observe the flake, then increase the run count.
+  * **Suite**: the acceptance test suite where the flake occurs
+
+**Note:** After the flake is reproduced, add the link to the Stress Test in the Issue, so that others can look at the same stress test so CI resources are not wasted.
+
+Your goal in this phase is to reliably observe the flaky behavior and capture concrete failure examples for analysis.
+
+---
+
+### 2. Diagnosis
+
+Once you can reproduce the flake, you must investigate its root cause.
+
+1. **Create a debugging doc**
+   Use the standard [Debugging Doc template](https://docs.google.com/document/d/1qRbvKjJ0A7NPVK8g6XJNISMx_6BuepoCL7F2eIfrGqM/edit) and follow the guidance provided in the [Debugging Docs wiki](https://github.com/oppia/oppia/wiki/Debugging-Docs).
+   Populate the initial metadata and provide clear links to failing builds.
+
+2. **Form and test hypotheses**
+
+   * Use the debugging doc to document potential sources of non-determinism.
+   * Apply hypothesis testing to narrow down the exact cause—this often includes validating timing assumptions, verifying selectors, examining API responses, and checking console logs.
+   * Reach out in relevant Google Chat groups for support if you encounter uncertainties or need cross-verification.
+
+The diagnosis is complete when you have a clear, well-supported hypothesis explaining the flake’s cause.
+
+---
+
+### 3. Fix
+
+Once the root cause is known:
+
+1. **Implement the fix**
+   Apply targeted changes in the test or application code as appropriate.
+   Document the fix clearly in the debugging doc.
+
+2. **Verify the fix using Stress Tests**
+
+   * Run the **Stress Test Acceptance Tests** workflow again from your fork (you can't use Oppia repo).
+   * Use the same suite and a sufficiently high run count (at least double the original reproduction threshold).
+   * A valid fix should result in **zero flaky failures** across all runs.
+   * If a failure occurs:
+
+     * It must be a different error unrelated to the original flake; otherwise, the flake is not yet resolved.
+
+Only after the fix has been validated should you proceed.
+
+---
+
+### 4. Open a Pull Request
+
+When the fix is verified:
+
+1. Open a PR with the final changes.
+2. Include:
+
+   * A link to the debugging doc
+   * Stress test proof (links to workflow runs showing zero flakes)
+3. Provide a clear PR description summarizing:
+
+   * What the original flake was
+   * The identified root cause
+   * What fix was implemented
+   * Evidence of stability after the fix
+
+This ensures reviewers have complete visibility into the debugging and validation process.
+
 ## Reference Links
 Blog Admin and Blog Editor Tests - 
   [Blog Admin top-level tests](https://github.com/oppia/oppia/tree/develop/core/tests/puppeteer-acceptance-tests/spec/blog-admin-tests)
