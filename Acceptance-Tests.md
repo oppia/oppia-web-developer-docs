@@ -344,8 +344,66 @@ python -m scripts.run_acceptance_tests --mobile --suite="blog-editor/check-blog-
 ## Fixing Flakes in Acceptance Tests
 
 A **flaky test** is a test that behaves inconsistently—passing sometimes and failing at other times—even when no underlying code has changed. This non-determinism may originate from the test itself, the application code, or interactions with the environment.
-To learn more about flaky tests, refer to the detailed explanation in the [End-to-End Tests wiki](https://github.com/oppia/oppia/wiki/End-to-End-Tests#what-is-a-flake).
 
+For example, suppose that you write a test that clicks a button to open a modal and then clicks a button inside the modal to close it. Sometimes, the modal will open before the test tries to click the close button, so the test will pass. Other times, the test will try to click before the modal has opened, and the test will fail. We can see this schematically:
+
+```mermaid
+flowchart LR
+a("<--A-->")
+
+A("Click to open modal") ----|"//"| B("Modal opens")
+A ---- |"//"| C("Click to close modal")
+B ---- P("+")
+C ---- P
+P --> Q("other operations")
+
+b("<--B-->")
+
+starts ---- time -----> ends
+```
+
+The durations of steps `A` and `B` are non-deterministic because `A` depends on how quickly the browser executes the frontend code to open the modal, and `B` depends on how fast the test code runs. Since these operations are happening on separate processes, the operating system makes no guarantees about which will complete first. In other words, we have a race condition.
+
+This race condition means that the test can fail randomly even when there's nothing wrong with the code of the Oppia application (excluding tests). These failures are called _flakes_.
+
+### Why flakes are problematic
+
+Flakes are annoying because they cause failures on PRs even when the code changes in those PRs are fine. This forces developers to rerun the failing tests, which slows development.
+
+Further, flakes are especially problematic to certain groups of developers:
+
+* **New contributors**, who are often brand-new to open source software development, can be discouraged by flakes. When they see a failing E2E test on their PR, they may think that they made a mistake and become frustrated when they can't find anything wrong with their code.
+
+* **Developers without write access to the repository** cannot rerun tests, so they have to ask another developer to restart their tests for them. Waiting for someone to restart their tests can really slow down their work.
+
+Finally, flakes mean that developers rerun failing tests more readily. We even introduced code to automatically rerun tests under certain conditions. These reruns make it easier for new flakes to slip through because if a new flake causes a test to fail, we might just rerun the test until it passes.
+
+### Preventing flakes
+
+Conceptually, preventing flakes is easy. We can use `waitForElementToBeVisible()` statements to make the tests deterministic despite testing a non-deterministic system. For example, suppose we have a function `waitForElementToBeVisible()` that waits for a modal to appear. Then we could write our test like this:
+```mermaid
+               <---A--->
+
+                        +-------+
+                        | Modal |
++----------+   +---//---+ opens +---------------------------------+
+| Click to |   |        +-------+                                 |
+| open     +---+                                                  +---->
+| modal    |   |        +----------------+    +-------------+     |
++----------+   +---//---+ waitForElementToBeVisible() +-//-+ Click to    +-----+
+                        +----------------+    | close modal |
+                                              +-------------+
+
+               <---B---><-------C-------->
+
+
+--------------------- time -------------------------------------------->
+```
+Now, we know that the test code won't move past `waitForModalwaitForModal()` until after the modal opens. In other words, we know that `B + C > A`. This assures us that the test won't try to close the modal until after the modal has opened.
+
+The challenge in writing robust E2E tests is making sure to always include a waitFor statement like `waitForModalwaitForModal()`. It's common for people to write E2E tests and forget to include a waitFor somewhere, but when they run the tests, they pass. Their tests might even pass consistently if their race condition only causes the test to fail very rarely. However, months later, an apparently unrelated change might change the runtimes enough that one of the test starts flaking frequently.
+
+## Fixing Flakes
 Fixing a flaky test generally involves three phases: **Reproduction**, **Diagnosis**, and **Fix**. This section outlines the canonical process contributors should follow.
 
 ---
@@ -358,11 +416,11 @@ To address this:
 
 * Use the **Stress Test Acceptance Tests** GitHub workflow.
   This workflow runs the specified acceptance test suite multiple times in parallel, significantly increasing the likelihood of encountering the flake.
-* Trigger the workflow manually in oppia repo (use fork if you don't have right for the same) and configure it with:
+* Trigger the workflow manually in oppia repo (use your fork if you don't have right for the same) and configure it with:
 
   * **Branch name**: `develop`
   * **Run count**: at least 20 times, if you can't observe the flake, then increase the run count.
-  * **Suite**: the acceptance test suite where the flake occurs
+  * **Suite**: the acceptance test suite where the flake occurs (you can find the suite name in acceptance.json file)
 
 **Note:** After the flake is reproduced, add the link to the Stress Test in the Issue, so that others can look at the same stress test so CI resources are not wasted.
 
@@ -398,8 +456,8 @@ Once the root cause is known:
 
 2. **Verify the fix using Stress Tests**
 
-   * Run the **Stress Test Acceptance Tests** workflow again from your fork (you can't use Oppia repo).
-   * Use the same suite and a sufficiently high run count (at least double the original reproduction threshold).
+   * Run the **Stress Test Acceptance Tests** workflow again from your fork (you can't use Oppia repo). You can use same steps as in [Reproduction](#1-reproduction) phase.
+   * Use the same suite and 20 times run count.
    * A valid fix should result in **zero flaky failures** across all runs.
    * If a failure occurs:
 
