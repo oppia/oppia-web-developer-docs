@@ -107,6 +107,30 @@ python -m scripts.run_acceptance_tests --suite="blog-editor/check-blog-editor-un
 
 **Note: Typically, these tests take anywhere between 2 to 5-6 minutes (excluding the time taken for setting up the server) for any suite to run, both in headless and non-headless modes, assuming the machine has sufficient resources. The duration depends on the tests, and some tests can run longer due to a more extensive setup (if there is a longer setup, it would be mentioned in the timeout in the test block). However, tests with longer setups can go up to 8-10 minutes (currently, we have some such tests). Usually, the total runtime of tests would be around 3-4 minutes in most cases. In any case, if the run-time appears unreasonably long to you on you machine, feel free to raise an issue on our [issue tracker](https://github.com/oppia/oppia/issues).**
 
+## Sequential Acceptance Tests and Debugging
+
+Some acceptance test files are intentionally written to share state across multiple `it()` blocks in order to reduce the cost of expensive setup steps such as creating explorations, users, or navigating through multiple UI pages.
+
+In such test files:
+
+- The first `it()` block usually performs the initial setup and navigation.
+- Subsequent `it()` blocks assume that the application is already in the correct state.
+- These tests are sequential and are not designed to be run independently.
+
+As a result, later tests may start directly with actions such as uploading a file or clicking a button, without repeating navigation or setup steps.
+
+For example, in `create-delete-and-update-status-of-voiceovers-of-the-explorations.spec.ts`, the initial tests handle exploration setup and navigation. Later tests directly upload voiceover files or validate error messages, relying on the state established by earlier tests.
+
+### How to Debug Failures in Sequential Acceptance Tests
+
+When debugging failures in sequential acceptance tests:
+
+1. Fix any diff-snapshot failures first, if present.
+2. Address failing tests in the exact order they appear in the file.
+3. Do not attempt to debug or run later `it()` blocks in isolation, as they depend on state created by earlier tests.
+
+Skipping earlier failures may lead to misleading errors, since later tests assume that previous steps have already completed successfully.
+
 ## How to write new tests for a specific user
 
 1) Create a new directory for the specific user if it doesn't already exist inside the `specs` directory. For example, the `Topic Manager` user can have a directory named `topic-manager`, and within the user directory, each test file is named as `*.spec.ts`. 
