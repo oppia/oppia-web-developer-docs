@@ -416,11 +416,19 @@ To address this:
 
 * Use the **Stress Test Acceptance Tests** GitHub workflow.
   This workflow runs the specified acceptance test suite multiple times in parallel, significantly increasing the likelihood of encountering the flake.
-* Trigger the workflow manually in oppia repo (use your fork if you don't have right for the same) and configure it with:
+* Trigger the workflow manually in your fork using the following steps:
+  1. Navigate your fork (github.com/YOUR_USERNAME/oppia).
+  2. Sync your fork with the upstream repository (oppia/oppia).
+      1. Click on "Sync Fork" button in the top right corner of the fork page. ![Ref: Sync Fork Menu](./images/AcceptanceTests/image-5.png)
+      2. Click on "Update Branch" button. ![Ref: Update Branch Popup](./images/AcceptanceTests/image-6.png)
+  3. Navigate to the Actions tab in top menu. Then, click on the workflow "Stress Test Acceptance Tests" from the newly opened left menu.
+  4. Run the workflow manually.
+      1. Click on "Run Workflow" button. ![Ref: Workflow manual trigger menu](./images/AcceptanceTests/image-4.png)
+      2. Use the following inputs:
 
-  * **Branch name**: `develop`
-  * **Run count**: at least 20 times, if you can't observe the flake, then increase the run count.
-  * **Suite**: the acceptance test suite where the flake occurs (you can find the suite name in acceptance.json file)
+          * **Branch name**: `develop`
+          * **Run count**: at least 20 times, if you can't observe the flake, then increase the run count.
+          * **Suite**: the acceptance test suite where the flake occurs (you can find the suite name in acceptance.json file)
 
 **Note:** After the flake is reproduced, add the link to the Stress Test in the Issue, so that others can look at the same stress test so CI resources are not wasted.
 
@@ -457,7 +465,7 @@ Once the root cause is known:
 2. **Verify the fix using Stress Tests**
 
    * Run the **Stress Test Acceptance Tests** workflow again from your fork (you can't use Oppia repo). You can use same steps as in [Reproduction](#1-reproduction) phase.
-   * Use the same suite and 20 times run count.
+   * Use the same suite and a run count of 20.
    * A valid fix should result in **zero flaky failures** across all runs.
    * If a failure occurs:
 
