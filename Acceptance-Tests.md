@@ -417,7 +417,7 @@ To address this:
 * Use the **Stress Test Acceptance Tests** GitHub workflow.
   This workflow runs the specified acceptance test suite multiple times in parallel, significantly increasing the likelihood of encountering the flake.
 * Trigger the workflow manually in your fork using the following steps:
-  1. Navigate your fork (github.com/YOUR_USERNAME/oppia).
+  1. Navigate to your fork (github.com/YOUR_USERNAME/oppia).
   2. Sync your fork with the upstream repository (oppia/oppia).
       1. Click on "Sync Fork" button in the top right corner of the fork page. ![Ref: Sync Fork Menu](./images/AcceptanceTests/image-5.png)
       2. Click on "Update Branch" button. ![Ref: Update Branch Popup](./images/AcceptanceTests/image-6.png)
