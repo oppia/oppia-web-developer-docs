@@ -22,14 +22,13 @@
   * [Landing pages](#landing-pages)
   * [Thanks page](#thanks-page)
   * [Terms page](#terms-page)
-* [Collection pages](#collection-pages)
-  * [Collection editor page](#collection-editor-page)
-  * [Collection player page](#collection-player-page)
-* [Exploration pages](#exploration-pages)
-  * [Community library page](#community-library-page)
+* [Collection & Exploration pages](#collection--exploration-pages)
   * [Creator dashboard page](#creator-dashboard-page)
+  * [Collection editor page](#collection-editor-page)
   * [Exploration editor page](#exploration-editor-page)
+  * [Collection player page](#collection-player-page)
   * [Exploration player page](#exploration-player-page)
+  * [Community library page](#community-library-page)
 * [Topics and skills pages](#topics-and-skills-pages)
   * [Topics and skills dashboard page](#topics-and-skills-dashboard-page)
   * [Topic editor (including preview tab)](#topic-editor-including-preview-tab)
@@ -260,23 +259,18 @@ The Terms page addresses the terms and conditions of Oppia.
 
 1. Go to http://localhost:8181/terms.
 
-## Collection pages
+## Collection & Exploration pages
 
 ### Collection editor page
 
-The Collection editor page allows users to create collections, which group explorations together. The collection editor page can only be accessed by users with the "collection editor" role.
+The Collection Editor allows you to create collections that group explorations together.
 
-1. Log in as a super-admin and assign yourself the "collection editor" role.
-
-2. Navigate to the splash page (http://localhost:8181/splash).
-
-3. Click on the "Create" button in the top navigation bar.
-
-   ![Create Button](https://user-images.githubusercontent.com/16653571/41504441-a7f60512-720c-11e8-85c2-8fee5f55a42c.png)
-
-4. Select "Create Collection."
-
-   ![CREATE COLLECTION button](https://user-images.githubusercontent.com/16653571/41504483-d946fd3c-720d-11e8-997d-943cd8703e57.png)
+- Permissions: Requires the "collection editor" role (assign via Admin → ROLES).
+- Access path:
+  1. Log in as a super-admin and assign yourself the "collection editor" role.
+  2. Navigate to the Creator Dashboard (http://localhost:8181/creator-dashboard).
+  3. Click "Create New Collection" to open the Collection Editor.
+- Typical workflow: Add explorations to the collection, reorder them, provide metadata, and publish the collection.
 
 ### Collection player page
 
@@ -318,11 +312,15 @@ The creator dashboard page allows users to view all explorations they have creat
 
 ### Exploration editor page
 
-The exploration editor page allows users to create explorations, or lessons, in Oppia.
+### Exploration editor page
 
-1. Log in.
+The Exploration Editor is where creators build interactive lessons using cards, interactions, and responses.
 
-2. Click the "Create" button on the top right to open the exploration editor.
+- Access path:
+  1. Log in and navigate to the Creator Dashboard (http://localhost:8181/creator-dashboard).
+  2. Click "Create New Exploration" (or open any existing draft) to launch the editor.
+- Typical workflow: Author cards, configure interactions and feedback, preview, then publish.
+
 
 ### Exploration player page
 
