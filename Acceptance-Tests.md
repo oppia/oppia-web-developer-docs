@@ -341,6 +341,158 @@ For example, to run the `check-blog-editor-unable-to-publish-duplicate-blog-post
 python -m scripts.run_acceptance_tests --mobile --suite="blog-editor/check-blog-editor-unable-to-publish-duplicate-blog-post"
 ```
 
+## Fixing Flakes in Acceptance Tests
+
+A **flaky test** is a test that behaves inconsistently—passing sometimes and failing at other times—even when no underlying code has changed. This non-determinism may originate from the test itself, the application code, or interactions with the environment.
+
+For example, suppose that you write a test that clicks a button to open a modal and then clicks a button inside the modal to close it. Sometimes, the modal will open before the test tries to click the close button, so the test will pass. Other times, the test will try to click before the modal has opened, and the test will fail. We can see this schematically:
+
+```mermaid
+flowchart LR
+a("<--A-->")
+
+A("Click to open modal") ----|"//"| B("Modal opens")
+A ---- |"//"| C("Click to close modal")
+B ---- P("+")
+C ---- P
+P --> Q("other operations")
+
+b("<--B-->")
+
+starts ---- time -----> ends
+```
+
+The durations of steps `A` and `B` are non-deterministic because `A` depends on how quickly the browser executes the frontend code to open the modal, and `B` depends on how fast the test code runs. Since these operations are happening on separate processes, the operating system makes no guarantees about which will complete first. In other words, we have a race condition.
+
+This race condition means that the test can fail randomly even when there's nothing wrong with the code of the Oppia application (excluding tests). These failures are called _flakes_.
+
+### Why flakes are problematic
+
+Flakes are annoying because they cause failures on PRs even when the code changes in those PRs are fine. This forces developers to rerun the failing tests, which slows development.
+
+Further, flakes are especially problematic to certain groups of developers:
+
+* **New contributors**, who are often brand-new to open source software development, can be discouraged by flakes. When they see a failing E2E test on their PR, they may think that they made a mistake and become frustrated when they can't find anything wrong with their code.
+
+* **Developers without write access to the repository** cannot rerun tests, so they have to ask another developer to restart their tests for them. Waiting for someone to restart their tests can really slow down their work.
+
+Finally, flakes mean that developers rerun failing tests more readily. We even introduced code to automatically rerun tests under certain conditions. These reruns make it easier for new flakes to slip through because if a new flake causes a test to fail, we might just rerun the test until it passes.
+
+### Preventing flakes
+
+Conceptually, preventing flakes is easy. We can use `waitForElementToBeVisible()` statements to make the tests deterministic despite testing a non-deterministic system. For example, suppose we have a function `waitForElementToBeVisible()` that waits for a modal to appear. Then we could write our test like this:
+```mermaid
+               <---A--->
+
+                        +-------+
+                        | Modal |
++----------+   +---//---+ opens +---------------------------------+
+| Click to |   |        +-------+                                 |
+| open     +---+                                                  +---->
+| modal    |   |        +----------------+    +-------------+     |
++----------+   +---//---+ waitForElementToBeVisible() +-//-+ Click to    +-----+
+                        +----------------+    | close modal |
+                                              +-------------+
+
+               <---B---><-------C-------->
+
+
+--------------------- time -------------------------------------------->
+```
+Now, we know that the test code won't move past `waitForModalwaitForModal()` until after the modal opens. In other words, we know that `B + C > A`. This assures us that the test won't try to close the modal until after the modal has opened.
+
+The challenge in writing robust E2E tests is making sure to always include a waitFor statement like `waitForModalwaitForModal()`. It's common for people to write E2E tests and forget to include a waitFor somewhere, but when they run the tests, they pass. Their tests might even pass consistently if their race condition only causes the test to fail very rarely. However, months later, an apparently unrelated change might change the runtimes enough that one of the test starts flaking frequently.
+
+## Fixing Flakes
+Fixing a flaky test generally involves three phases: **Reproduction**, **Diagnosis**, and **Fix**. This section outlines the canonical process contributors should follow.
+
+---
+
+### 1. Reproduction
+
+The first step is to reliably reproduce the flake. Reproduction may be difficult in a local environment since a flake may only surface intermittently.
+
+To address this:
+
+* Use the **Stress Test Acceptance Tests** GitHub workflow.
+  This workflow runs the specified acceptance test suite multiple times in parallel, significantly increasing the likelihood of encountering the flake.
+* Trigger the workflow manually in your fork using the following steps:
+  1. Navigate to your fork (github.com/YOUR_USERNAME/oppia).
+  2. Sync your fork with the upstream repository (oppia/oppia).
+      1. Click on "Sync Fork" button in the top right corner of the fork page. ![Ref: Sync Fork Menu](./images/AcceptanceTests/image-5.png)
+      2. Click on "Update Branch" button. ![Ref: Update Branch Popup](./images/AcceptanceTests/image-6.png)
+  3. Navigate to the Actions tab in top menu. Then, click on the workflow "Stress Test Acceptance Tests" from the newly opened left menu.
+  4. Run the workflow manually.
+      1. Click on "Run Workflow" button. ![Ref: Workflow manual trigger menu](./images/AcceptanceTests/image-4.png)
+      2. Use the following inputs:
+
+          * **Branch name**: `develop`
+          * **Run count**: at least 20 times, if you can't observe the flake, then increase the run count.
+          * **Suite**: the acceptance test suite where the flake occurs (you can find the suite name in acceptance.json file)
+
+**Note:** After the flake is reproduced, add the link to the Stress Test in the Issue, so that others can look at the same stress test so CI resources are not wasted.
+
+Your goal in this phase is to reliably observe the flaky behavior and capture concrete failure examples for analysis.
+
+---
+
+### 2. Diagnosis
+
+Once you can reproduce the flake, you must investigate its root cause.
+
+1. **Create a debugging doc**
+   Use the standard [Debugging Doc template](https://docs.google.com/document/d/1qRbvKjJ0A7NPVK8g6XJNISMx_6BuepoCL7F2eIfrGqM/edit) and follow the guidance provided in the [Debugging Docs wiki](https://github.com/oppia/oppia/wiki/Debugging-Docs).
+   Populate the initial metadata and provide clear links to failing builds.
+
+2. **Form and test hypotheses**
+
+   * Use the debugging doc to document potential sources of non-determinism.
+   * Apply hypothesis testing to narrow down the exact cause—this often includes validating timing assumptions, verifying selectors, examining API responses, and checking console logs.
+   * Reach out in relevant Google Chat groups for support if you encounter uncertainties or need cross-verification.
+
+The diagnosis is complete when you have a clear, well-supported hypothesis explaining the flake’s cause.
+
+---
+
+### 3. Fix
+
+Once the root cause is known:
+
+1. **Implement the fix**
+   Apply targeted changes in the test or application code as appropriate.
+   Document the fix clearly in the debugging doc.
+
+2. **Verify the fix using Stress Tests**
+
+   * Run the **Stress Test Acceptance Tests** workflow again from your fork (you can't use Oppia repo). You can use same steps as in [Reproduction](#1-reproduction) phase.
+   * Use the same suite and a run count of 20.
+   * A valid fix should result in **zero flaky failures** across all runs.
+   * If a failure occurs:
+
+     * It must be a different error unrelated to the original flake; otherwise, the flake is not yet resolved.
+
+Only after the fix has been validated should you proceed.
+
+---
+
+### 4. Open a Pull Request
+
+When the fix is verified:
+
+1. Open a PR with the final changes.
+2. Include:
+
+   * A link to the debugging doc
+   * Stress test proof (links to workflow runs showing zero flakes)
+3. Provide a clear PR description summarizing:
+
+   * What the original flake was
+   * The identified root cause
+   * What fix was implemented
+   * Evidence of stability after the fix
+
+This ensures reviewers have complete visibility into the debugging and validation process.
+
 ## Reference Links
 Blog Admin and Blog Editor Tests - 
   [Blog Admin top-level tests](https://github.com/oppia/oppia/tree/develop/core/tests/puppeteer-acceptance-tests/spec/blog-admin-tests)
