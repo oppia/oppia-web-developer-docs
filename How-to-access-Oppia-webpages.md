@@ -22,7 +22,7 @@
   * [Landing pages](#landing-pages)
   * [Thanks page](#thanks-page)
   * [Terms page](#terms-page)
-* [Collection & Exploration pages](#collection--exploration-pages)
+* [Collection & Exploration pages](#collection-exploration-pages)
   * [Creator dashboard page](#creator-dashboard-page)
   * [Collection editor page](#collection-editor-page)
   * [Exploration editor page](#exploration-editor-page)
@@ -261,6 +261,14 @@ The Terms page addresses the terms and conditions of Oppia.
 
 ## Collection & Exploration pages
 
+### Creator dashboard page
+
+The creator dashboard page allows users to view all explorations they have created, or are currently creating.
+
+1. Log in.
+
+2. Navigate to the creator dashboard page at http://localhost:8181/creator-dashboard.
+
 ### Collection editor page
 
 The Collection Editor allows you to create collections that group explorations together.
@@ -271,6 +279,15 @@ The Collection Editor allows you to create collections that group explorations t
   2. Navigate to the Creator Dashboard (http://localhost:8181/creator-dashboard).
   3. Click "Create New Collection" to open the Collection Editor.
 - Typical workflow: Add explorations to the collection, reorder them, provide metadata, and publish the collection.
+
+### Exploration editor page
+
+The Exploration Editor is where creators build interactive lessons using cards, interactions, and responses.
+
+- Access path:
+  1. Log in and navigate to the Creator Dashboard (http://localhost:8181/creator-dashboard).
+  2. Click "Create New Exploration" (or open any existing draft) to launch the editor.
+- Typical workflow: Author cards, configure interactions and feedback, preview, then publish.
 
 ### Collection player page
 
@@ -286,7 +303,17 @@ The collection player page allows users to explore collections in Oppia.
 
 4. Click on the card titled "Introduction to collections in Oppia."
 
-## Exploration pages
+### Exploration player page
+
+The exploration player page allows users to play explorations in Oppia.
+
+1. Navigate to http://localhost:8181/community-library.
+
+2. Enter "fractions" into the search bar.
+
+3. Click on the exploration titled "Fractions 1 - What is the Fraction?"
+
+The exploration will launch in a new tab, where you will see the first card. As you progress through the exploration, you will see subsequent cards, each of which has some content (text, images, videos, or other rich text components). Some will also have interactions like multiple choice questions. A user's answer to these interactions are called "responses."
 
 ### Community library page
 
@@ -302,37 +329,6 @@ The library page has a search bar that lets you search for explorations:
 
 You can search the library, which consists of all of Oppia's explorations, by entering text, and you can filter by category (also called subject) and language.
 
-### Creator dashboard page
-
-The creator dashboard page allows users to view all explorations they have created, or are currently creating.
-
-1. Log in.
-
-2. Navigate to the creator dashboard page at http://localhost:8181/creator-dashboard.
-
-### Exploration editor page
-
-### Exploration editor page
-
-The Exploration Editor is where creators build interactive lessons using cards, interactions, and responses.
-
-- Access path:
-  1. Log in and navigate to the Creator Dashboard (http://localhost:8181/creator-dashboard).
-  2. Click "Create New Exploration" (or open any existing draft) to launch the editor.
-- Typical workflow: Author cards, configure interactions and feedback, preview, then publish.
-
-
-### Exploration player page
-
-The exploration player page allows users to play explorations in Oppia.
-
-1. Navigate to http://localhost:8181/community-library.
-
-2. Enter "fractions" into the search bar.
-
-3. Click on the exploration titled "Fractions 1 - What is the Fraction?"
-
-The exploration will launch in a new tab, where you will see the first card. As you progress through the exploration, you will see subsequent cards, each of which has some content (text, images, videos, or other rich text components). Some will also have interactions like multiple choice questions. A user's answer to these interactions are called "responses."
 
 ## Topics and skills pages
 
