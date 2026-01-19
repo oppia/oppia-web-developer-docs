@@ -236,29 +236,44 @@ On CI, we run all the acceptance tests in production mode, so the screenshots in
 
 On the other hand, if the screenshot fails locally (in desktop environment), the screenshot `teachPage-diff.png` will be generated and stored inside a new folder `diff-snapshots` under `logged-out-user/dev-desktop-screenshots` and the screenshot `teachPage-received.png` will be generated and stored inside a new folder `new-snapshots` under `logged-out-user/dev-desktop-screenshots`.
 
-### Adding Prod screenshots for Acceptance Tests
-When making changes that affect a user journey tested through the acceptance tests or introduce a new feature, a contributor needs to update/add screenshots supporting their changes.
-These screenshots should be obtained from the CI (not local) run, so that the environment matches future runs. To do this, follow these steps:
-1. Go to the summary of the CI run for `full_stack_tests.yml` and scroll down to find an artifact named as `new-snapshots_{_suite_name_}_{desktop/mobile}_original`. Click on the name or the download symbol on the right hand side to download it.
-![alt text](./images/AcceptanceTests/image-2.png)
+### Updating Screenshots for Acceptance Tests
+When making changes that affect a user journey tested through the acceptance tests or introduce a new feature, a contributor needs to update screenshots to support their changes depending on where the changes are affecting. For example, if the acceptance test only fails in prod+mobile environment, then we should replace the failed screenshots in `prod-mobile-screeenshots`. 
 
+The screenshots in prod (`prod-desktop-screenshots` and `prod-mobile-screenshots`), should be obtained from the CI (not local) run, so that the environment matches future runs. To do this, follow these steps:
+1. Go to the summary of the CI run for `full_stack_tests.yml` and scroll down to find an artifact named as `new-snapshots_{_suite_name_}_{desktop/mobile}_original`. Click on the name or the download symbol on the right hand side to download it.
+![alt text](./images/AcceptanceTests/NewSnapshotsArtifactInCI.png)
 
 2. Extract the contents of the artifact. There should be an image and the name of the image should ends with `received.png`. Rename it by replacing the `received` with `snap`. For example, rename it from `blogPage-received.png` to `blogPage-snap.png`. 
 
-3. Navigate to where you have saved the Oppia repo on your local machine and go to oppia/core/tests/puppeteer-acceptance-tests/specs
+3. Navigate to where you have saved the Oppia repo on your local machine and go to `oppia/core/tests/puppeteer-acceptance-tests/specs`
 
 4. Navigate to the test spec folder. The spec is mentioned in the artifact folder you downloaded in Step 1. (The spec is `blog-post-writer` in this example)
 
 5. Check if the failure was for desktop or mobile based on the screenshot size or the name in the artifact:
-![alt text](./images/AcceptanceTests/image-1.png)
+![alt text](./images/AcceptanceTests/DesktopOrMobile.png)
 
-6. Go to the prod-desktop-screenshots or prod-mobile-screenshots folder depending on the failure.
+6. Go to the `prod-desktop-screenshots` or `prod-mobile-screenshots` folder depending on the failure.
 
 7. Replace the screenshot having the name {screenshot_name}-snap.png with the image renamed in step 2. (Make sure to rename the pasted screenshot to {screenshot_name}-snap.png)
 
 8. Check that the correct image got replaced.
 
 9. Commit and push your changes! Self review your PR to verify that the correct image(s) were used.
+
+For the screenshots in dev (`dev-desktop-screenshots` and `dev-mobile-screenshots`), follow these steps to update the screenshots:
+1. Navigate to where you have saved the Oppia repo on your local machine and go to `oppia/core/tests/puppeteer-acceptance-tests/specs`
+
+2. Navigate to the test spec folder. For example, the spec would be `blog-post-writer` if the screenshot is under the spec `blog-post-writer/create-and-edit-blog-post`. 
+
+3. Go to the `dev-desktop-screenshots`or `dev-mobile-screenshots` folder depending on the failure.
+
+4. Navigate to `new-snapshot` and rename the image in the folder by replacing the `received` with `snap`.
+
+5. Navigate back to the `dev-desktop-screenshots`or `dev-mobile-screenshots` folder depending on the failure. Replace the screenshot having the name {screenshot_name}-snap.png with the image renamed in step 4. (Make sure to rename the pasted screenshot to {screenshot_name}-snap.png)
+
+6. Check that the correct image got replaced. Run the test locally to check if the test passes.
+
+7. Commit and push your changes! Self review your PR to verify that the correct image(s) were used. 
 
 ## Acceptance Tests for Mobile
 
@@ -272,7 +287,7 @@ However, in scenarios where certain actions are affected by the smaller screen s
 
 For example: consider a scenario where a menu is collapsed into a hamburger menu due to the small screen size:
 
-![Shortcut Menu](./images/AcceptanceTests/image.png)
+![Shortcut Menu](./images/AcceptanceTests/MobileHamburgerMenu.png)
 
 Here, if we want to click on the "Home" or any other button, we need to first click on the hamburger menu. Additionally, there may be differences in selectors for the same buttons between desktop and mobile. For instance, the publish button in desktop might be `e2e-test-publish-exploration`, while in mobile it could be `e2e-test-mobile-publish-button`.
 
@@ -386,11 +401,11 @@ To address this:
 * Trigger the workflow manually in your fork using the following steps:
   1. Navigate to your fork (github.com/YOUR_USERNAME/oppia).
   2. Sync your fork with the upstream repository (oppia/oppia).
-      1. Click on "Sync Fork" button in the top right corner of the fork page. ![Ref: Sync Fork Menu](./images/AcceptanceTests/image-5.png)
-      2. Click on "Update Branch" button. ![Ref: Update Branch Popup](./images/AcceptanceTests/image-6.png)
+      1. Click on "Sync Fork" button in the top right corner of the fork page. ![Ref: Sync Fork Menu](./images/AcceptanceTests/SyncForkButton.png)
+      2. Click on "Update Branch" button. ![Ref: Update Branch Popup](./images/AcceptanceTests/UpdateBranchButton.png)
   3. Navigate to the Actions tab in top menu. Then, click on the workflow "Stress Test Acceptance Tests" from the newly opened left menu.
   4. Run the workflow manually.
-      1. Click on "Run Workflow" button. ![Ref: Workflow manual trigger menu](./images/AcceptanceTests/image-4.png)
+      1. Click on "Run Workflow" button. ![Ref: Workflow manual trigger menu](./images/AcceptanceTests/RunWorkflowButton.png)
       2. Use the following inputs:
 
           * **Branch name**: `develop`
