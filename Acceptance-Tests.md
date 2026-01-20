@@ -232,66 +232,48 @@ On the first run, a screenshot named `teachPage-snap.png` will be created and st
 
 To introduce a new screenshot to the codebase, the test should be run in all these four modes/environments to generate each screenshot in all four folders. 
 
-On CI, we run all the acceptance tests in production mode, so the screenshots in `prod-desktop-screenshots` and `prod-mobile-screenshots` will be compared to the screenshots that are generated during CI checks. If a screenshot doesn't match on CI, it generates an image in a folder as an artifact in the GitHub workflow. For example, if the screenshot `teachPage-snap.png` fails in `logged-out-user/click-all-buttons-on-navbar.spec.ts` during the CI checks in desktop environment, a folder named `diff-snapshots-logged-out-user_click-all-buttons-on-navbar` will be created. Inside this folder, a folder named `prod-desktop-screenshots` will be created and a screenshot `teachPage-diff.png` will be stored under this folder. The screenshots `teachPage-diff.png` will show the difference between the screenshot from the codebase and the new generated screenshot, making it easier to identify the difference. 
+On CI, we run all the acceptance tests in production mode, so the screenshots in `prod-desktop-screenshots` and `prod-mobile-screenshots` will be compared to the screenshots that are generated during CI checks. If a screenshot doesn't match on CI, it generates two images in two separate folders as artifacts in the GitHub workflow. For example, if the screenshot `teachPage-snap.png` fails in `logged-out-user/click-all-buttons-on-navbar.spec.ts` during the CI checks in desktop environment, two folders will be created, they will be named as `diff-snapshots-logged-out-user_click-all-buttons-on-navbar_desktop_original` and `new-snapshots-logged-out-user_click-all-buttons-on-navbar_desktop_original`. Inside the folder `diff-snapshots-logged-out-user_click-all-buttons-on-navbar_desktop_original`, a screenshot `teachPage-diff.png` will be generated. This screenshot `teachPage-diff.png` will show the difference between the screenshot from the codebase and the new generated screenshot, making it easier to identify the difference. And inside the folder `new-snapshots-logged-out-user_click-all-buttons-on-navbar_desktop_original`, a screenshot `teachPage-received.png` will be generated. This screenshot `teachPage-received.png` will be the new screenshot to be used to replace the old one if needed. Therefore, if we need to replace the old screenshot, we will download this screenshot from the artifacts. 
 
-On the other hand, if the screenshot fails locally (in desktop environment), the screenshot `teachPage-diff.png` will be generated and stored inside a new folder `diff-snapshots` under `logged-out-user/dev-desktop-screenshots`. 
+On the other hand, if the screenshot fails locally (in desktop environment), the screenshot `teachPage-diff.png` will be generated and stored inside a new folder `diff-snapshots` under `logged-out-user/dev-desktop-screenshots` and the screenshot `teachPage-received.png` will be generated and stored inside a new folder `new-snapshots` under `logged-out-user/dev-desktop-screenshots`.
 
-### Adding Prod screenshots for Acceptance Tests
-When making changes that affect a user journey tested through the acceptance tests or introduce a new feature, a contributor needs to update/add screenshots supporting their changes.
-These screenshots should be obtained from the CI (not local) run, so that the environment matches future runs. To do this, you can commit a random image in the prod screenshot folder and follow these steps:
-1. Go to the failing run and open the 'Uploading diff screenshots as an artifact' section:
-  <img width="349" height="35" alt="image" src="https://github.com/user-attachments/assets/827d8557-3346-443a-aaf8-1fd0168a3f24" />
+### Updating Screenshots for Acceptance Tests
+When making changes that affect a user journey tested through the acceptance tests or introduce a new feature, a contributor needs to update screenshots to support their changes depending on where the changes are affecting. For example, if the acceptance test only fails in prod+mobile environment, then we should replace the failed screenshots in `prod-mobile-screeenshots`. 
 
-2. Then download the artifact from the artifact download url:
-<img width="1221" height="301" alt="479966282-c2caa55f-b4f9-40cc-a47a-7ddc2de9a479" src="https://github.com/user-attachments/assets/facc7fc7-39a5-485c-86f4-37ab1e76bffd" />
+The screenshots in prod (`prod-desktop-screenshots` and `prod-mobile-screenshots`), should be obtained from the CI (not local) run, so that the environment matches future runs. To do this, follow these steps:
+1. Go to the summary of the CI run for `full_stack_tests.yml` and scroll down to find an artifact named as `new-snapshots_{_suite_name_}_{desktop/mobile}_original`. Click on the name or the download symbol on the right hand side to download it.
+![alt text](./images/AcceptanceTests/NewSnapshotsArtifactInCI.png)
 
-3. Extract the contents of the artifact. There will be a folder with an image. The image will look like this:
-  <img width="2250" height="1334" alt="skillWithWorkedExamplePreview-diff" src="https://github.com/user-attachments/assets/fcb62376-8a05-4604-bf05-2f5543967f0d" />
-  
-  The left side is the current reference image on the repo. The right side is the screenshot that was taken while running the test on the CI with your changes. The middle is the difference between the two.
-  
-  We want to update the current reference as it is incorrect. Generally we do not want to do this as we expect the reference screenshots to be correct. Only do this after asking a maintainer.
+2. Extract the contents of the artifact. There should be an image and the name of the image should ends with `received.png`. Rename it by replacing the `received` with `snap`. For example, rename it from `blogPage-received.png` to `blogPage-snap.png`. 
 
-4. Go to https://splitter.imageonline.co/
+3. Navigate to where you have saved the Oppia repo on your local machine and go to `oppia/core/tests/puppeteer-acceptance-tests/specs`
 
-5. Upload the diff image from the artifact you extracted:
-<img width="699" height="705" alt="image" src="https://github.com/user-attachments/assets/dc83a1d4-c093-4d43-b28e-cffeb4a36faa" />
+4. Navigate to the test spec folder. The spec is mentioned in the artifact folder you downloaded in Step 1. (The spec is `blog-post-writer` in this example)
 
-6. Choose Split into pieces:
-<img width="699" height="191" alt="image" src="https://github.com/user-attachments/assets/207fb140-740a-4cf1-bc12-8823a9b1e3b8" />
+5. Check if the failure was for desktop or mobile based on the screenshot size or the name in the artifact:
+![alt text](./images/AcceptanceTests/DesktopOrMobile.png)
 
-7. Set rows as 3 and columns as 1:
-<img width="699" height="191" alt="image" src="https://github.com/user-attachments/assets/19ae5e5e-1a90-4b0d-bb88-59e75b3d53ce" />
+6. Go to the `prod-desktop-screenshots` or `prod-mobile-screenshots` folder depending on the failure.
 
-8. Click on "SPLIT IMAGE".
+7. Replace the screenshot having the name {screenshot_name}-snap.png with the image renamed in step 2. (Make sure to rename the pasted screenshot to {screenshot_name}-snap.png)
 
-9. You will get 3 split images:
-<img width="710" height="410" alt="image" src="https://github.com/user-attachments/assets/b0821688-05db-4148-8768-17eca0d0cbc0" />
+8. Check that the correct image got replaced.
 
-10. Right click on the rightmost one and use 'Save Image as...'. Choose any random name.
+9. Commit and push your changes! Self review your PR to verify that the correct image(s) were used.
 
-11. Navigate to where you have saved the Oppia repo on your local machine and go to oppia/core/tests/puppeteer-acceptance-tests/specs
+For the screenshots in dev (`dev-desktop-screenshots` and `dev-mobile-screenshots`), follow these steps to update the screenshots:
+1. Navigate to where you have saved the Oppia repo on your local machine and go to `oppia/core/tests/puppeteer-acceptance-tests/specs`
 
-12. The spec will be mentioned in the artifact folder you downloaded in Step 2:
+2. Navigate to the test spec folder. For example, the spec would be `blog-post-writer` if the screenshot is under the spec `blog-post-writer/create-and-edit-blog-post`. 
 
-<img width="368" height="64" alt="Screenshot from 2025-08-20 16-37-52" src="https://github.com/user-attachments/assets/d1a45271-c1f1-49d9-8874-f5ac95d37dce" />
+3. Go to the `dev-desktop-screenshots`or `dev-mobile-screenshots` folder depending on the failure.
 
-(The spec is curriculum-admin in this case)
+4. Navigate to `new-snapshot` and rename the image in the folder by replacing the `received` with `snap`.
 
-13. Navigate to the test spec folder based on the above step.
+5. Navigate back to the `dev-desktop-screenshots`or `dev-mobile-screenshots` folder depending on the failure. Replace the screenshot having the name {screenshot_name}-snap.png with the image renamed in step 4. (Make sure to rename the pasted screenshot to {screenshot_name}-snap.png)
 
-14. Check if the failure was for desktop or mobile based on the screenshot or the subfolder in the artifact:
-<img width="102" height="127" alt="image" src="https://github.com/user-attachments/assets/c1b902ee-5ccb-4218-a247-d4e19da9d3ed" />
+6. Check that the correct image got replaced. Run the test locally to check if the test passes.
 
-15. Go to the prod-desktop-screenshots or prod-mobile-screenshots folder depending on your failure.
-
-16. Check the name of the image from the artifact. It will be {screenshot_name}-diff.png
-
-17. Replace the screenshot having the name {screenshot_name}-snap.png with the split image we saved in step 10. (Make sure to rename the pasted screenshot to {screenshot_name}-snap.png)
-
-18. Check that the correct image got replaced.
-
-19. Commit and push your changes! Self review your PR to verify that the correct image(s) were used.
+7. Commit and push your changes! Self review your PR to verify that the correct image(s) were used. 
 
 ## Acceptance Tests for Mobile
 
@@ -305,7 +287,7 @@ However, in scenarios where certain actions are affected by the smaller screen s
 
 For example: consider a scenario where a menu is collapsed into a hamburger menu due to the small screen size:
 
-![Shortcut Menu](image.png)
+![Shortcut Menu](./images/AcceptanceTests/MobileHamburgerMenu.png)
 
 Here, if we want to click on the "Home" or any other button, we need to first click on the hamburger menu. Additionally, there may be differences in selectors for the same buttons between desktop and mobile. For instance, the publish button in desktop might be `e2e-test-publish-exploration`, while in mobile it could be `e2e-test-mobile-publish-button`.
 
@@ -419,11 +401,11 @@ To address this:
 * Trigger the workflow manually in your fork using the following steps:
   1. Navigate to your fork (github.com/YOUR_USERNAME/oppia).
   2. Sync your fork with the upstream repository (oppia/oppia).
-      1. Click on "Sync Fork" button in the top right corner of the fork page. ![Ref: Sync Fork Menu](./images/AcceptanceTests/image-5.png)
-      2. Click on "Update Branch" button. ![Ref: Update Branch Popup](./images/AcceptanceTests/image-6.png)
+      1. Click on "Sync Fork" button in the top right corner of the fork page. ![Ref: Sync Fork Menu](./images/AcceptanceTests/SyncForkButton.png)
+      2. Click on "Update Branch" button. ![Ref: Update Branch Popup](./images/AcceptanceTests/UpdateBranchButton.png)
   3. Navigate to the Actions tab in top menu. Then, click on the workflow "Stress Test Acceptance Tests" from the newly opened left menu.
   4. Run the workflow manually.
-      1. Click on "Run Workflow" button. ![Ref: Workflow manual trigger menu](./images/AcceptanceTests/image-4.png)
+      1. Click on "Run Workflow" button. ![Ref: Workflow manual trigger menu](./images/AcceptanceTests/RunWorkflowButton.png)
       2. Use the following inputs:
 
           * **Branch name**: `develop`
