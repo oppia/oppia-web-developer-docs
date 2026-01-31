@@ -332,19 +332,19 @@ If you need clarification on any of these ideas, feel free to open a thread in G
 
 ### Learners, Educators, Allies, and Parents (LEAP) team
 
-- [1.1: Web user feedback](https://github.com/oppia/oppia-web-developer-docs/blob/publish-web-gsoc2026-ideas/Google-Summer-of-Code-2026.md#11-web-user-feedback)
-- [1.2. Learner assessments](https://github.com/oppia/oppia-web-developer-docs/blob/publish-web-gsoc2026-ideas/Google-Summer-of-Code-2026.md#12-learner-assessments)
-- [1.3. Re-design the topic page](https://github.com/oppia/oppia-web-developer-docs/blob/publish-web-gsoc2026-ideas/Google-Summer-of-Code-2026.md#13-re-design-the-topic-page)
+- [1.1: Web user feedback](#11-web-user-feedback)
+- [1.2. Learner assessments](#12-learner-assessments)
+- [1.3. Re-design the topic page](#13-re-design-the-topic-page)
 
 ### Creators, Operations, Reviewers, and Editors (CORE) team
 
-- [2.1. Automatic translation suggestions](https://github.com/oppia/oppia-web-developer-docs/blob/publish-web-gsoc2026-ideas/Google-Summer-of-Code-2026.md#21-automatic-translation-suggestions)
+- [2.1. Automatic translation suggestions](#21-automatic-translation-suggestions)
 
 ### Developer Workflow team
 
-- [3.1. Improve acceptance test infrastructure](https://github.com/oppia/oppia-web-developer-docs/blob/publish-web-gsoc2026-ideas/Google-Summer-of-Code-2026.md#31-improve-acceptance-test-infrastructure)
-- [3.2. Consolidate entity migration jobs](https://github.com/oppia/oppia-web-developer-docs/blob/publish-web-gsoc2026-ideas/Google-Summer-of-Code-2026.md#32-consolidate-entity-migration-jobs)
-- [3.3. Standardize and validate domain objects and storage models](https://github.com/oppia/oppia-web-developer-docs/blob/publish-web-gsoc2026-ideas/Google-Summer-of-Code-2026.md#33-standardize-and-validate-domain-objects-and-storage-models)
+- [3.1. Improve acceptance test infrastructure](#31-improve-acceptance-test-infrastructure)
+- [3.2. Consolidate entity migration jobs](#32-consolidate-entity-migration-jobs)
+- [3.3. Standardize and validate domain objects and storage models](#33-standardize-and-validate-domain-objects-and-storage-models)
 
 ### Android team
 
@@ -630,7 +630,7 @@ Links to PRD and mocks:
 <details>
 <summary>Org-admin/tech-lead commentary/advice</summary>
 
-This project is primarily a frontend project, so contributors should be comfortable with Oppia’s frontend stack. That said, do not overlook the backend changes that will be required to support the frontend changes. This project is a good fit for contributors interested in building a full, user-facing frontend that will directly impact the learner experience.
+This project is primarily a frontend project, so contributors should be comfortable with Oppia’s frontend stack. This project is a good fit for contributors interested in building a full, user-facing frontend that will directly impact the learner experience.
 </details>
 
 <details>
