@@ -377,7 +377,7 @@ Links to PRD and mocks:
 
 **Product/technical clarifiers:** @U8NWXD (product), @mon4our (technical)
 
-**Discussion forum:** Coming soon!
+**Discussion forum:** https://github.com/oppia/oppia/discussions/categories/gsoc-q-a-1-leap-projects
 
 **Required knowledge/skills:**
 
@@ -484,7 +484,7 @@ Links to PRD and mocks:
 
 **Product/technical clarifiers:** @U8NWXD (product), @brianrodri (technical)
 
-**Discussion forum:** Coming soon!
+**Discussion forum:** https://github.com/oppia/oppia/discussions/categories/gsoc-q-a-1-leap-projects
 
 **Required knowledge/skills:**
 
@@ -586,7 +586,7 @@ Links to PRD and mocks:
 
 **Product/technical clarifiers:** @HardikGoyal2003 (product), @HardikGoyal2003 (technical)
 
-**Discussion forum:** Coming soon!
+**Discussion forum:** https://github.com/oppia/oppia/discussions/categories/gsoc-q-a-1-leap-projects
 
 **Required knowledge/skills:**
 
@@ -710,7 +710,7 @@ Automating the translation pipeline could be explored as a future project, depen
 
 **Product/technical clarifiers:** @U8NWXD (product), @Nik-09 (technical)
 
-**Discussion forum:** Coming soon!
+**Discussion forum:** https://github.com/oppia/oppia/discussions/categories/gsoc-q-a-2-core-projects
 
 **Required knowledge/skills:**
 
@@ -796,7 +796,7 @@ Milestone 2:
 
 **Product/technical clarifiers:** @U8NWXD (product), @jayam04 (technical)
 
-**Discussion forum:** Coming soon!
+**Discussion forum:** https://github.com/oppia/oppia/discussions/categories/gsoc-q-a-3-dev-workflow-projects
 
 **Required knowledge/skills:**
 
@@ -885,7 +885,7 @@ The aim of this project is to standardize these migration jobs so that there is 
 
 **Product/technical clarifiers:** @U8NWXD (product), @kevintab95 (technical)
 
-**Discussion forum:** Coming soon!
+**Discussion forum:** https://github.com/oppia/oppia/discussions/categories/gsoc-q-a-3-dev-workflow-projects
 
 **Required knowledge/skills:**
 - Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
@@ -1009,7 +1009,7 @@ For proper functioning of the Oppia application, it is important to ensure that 
 
 **Product/technical clarifiers:** @U8NWXD (product), @ankita240796 (technical)
 
-**Discussion forum:** Coming soon!
+**Discussion forum:** https://github.com/oppia/oppia/discussions/categories/gsoc-q-a-3-dev-workflow-projects
 
 **Required knowledge/skills:**
 - Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
