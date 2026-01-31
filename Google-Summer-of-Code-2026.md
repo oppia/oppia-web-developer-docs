@@ -356,7 +356,341 @@ Coming soon!
 
 ## Developer Workflow Team
 
-Coming soon!
+### 3.1. Improve acceptance test infrastructure
+
+**Project Description:** [Acceptance tests](https://github.com/oppia/oppia/wiki/Acceptance-Tests) are end-to-end tests organized by Critical User Journeys (CUJs). However, these tests are not as stable as we are expecting them to be. This project aims to improve the infrastructure of the acceptance tests to make it more stable and easy to manage. This includes but is not limited to migrating to Playwright from Puppeteer to reduce test flakiness, adding workflows to easily update snapshots, and documentation updates. Further, we expect using Playwright to reduce test flakiness, but some flakes will likely persist. This project includes fixing these persistent flakes. To limit the scope of this part of the project, you won't be expected to fix more than 10 persistent flakes (i.e. flakes that aren't fixed by the migration and weren't introduced by your changes). All of the acceptance test infrastructure issues can be found [here](https://github.com/orgs/oppia/projects/8/views/11?sliceBy[value]=[Project]+Fix+infrastructure+issues+in+the+acceptance+tests).
+
+**Tracking issues**:
+
+- Finish removing webdriverio tests: https://github.com/oppia/oppia/issues/23871
+- Migrate to Playwright: https://github.com/oppia/oppia/issues/24715
+- Document how to debug acceptance tests:
+  - https://github.com/oppia/oppia/issues/16136
+  - https://github.com/oppia/oppia/issues/22319
+  - https://github.com/oppia/oppia-web-developer-docs/issues/422
+- Infrastructure issues:
+  - Jest not exiting on time: https://github.com/oppia/oppia/issues/22251
+  - Assert expected console errors are present: https://github.com/oppia/oppia/issues/12770
+  - Give better error message when an element isn't clickable: https://github.com/oppia/oppia/issues/20142
+  - Method overriding issue in UserFactory: https://github.com/oppia/oppia/issues/22539
+  - Detect server errors: https://github.com/oppia/oppia/issues/21644
+  - Browser disconnecting: https://github.com/oppia/oppia/issues/22193
+  - We should not fast-fail on snapshot mismatches: https://github.com/oppia/oppia/issues/23776
+  - Capture screen recordings on CI for mobile tests: https://github.com/oppia/oppia/issues/23155
+- Flakes (which flakes are problematic may change over time):
+  - https://github.com/oppia/oppia/issues/22174
+  - https://github.com/oppia/oppia/issues/23106
+
+**Not in scope:** Writing new acceptance tests to increase coverage.
+
+**Size:** Medium (\~175 hours)
+
+**Difficulty**: Easy
+
+**Potential mentors:** @jayam04
+
+**Product/technical clarifiers:** @U8NWXD (product), @jayam04 (technical)
+
+**Discussion forum:** Coming soon!
+
+**Required knowledge/skills:**
+
+- Figure out the root cause of an issue and communicate it well using a debugging doc.
+- Debug and fix CI failures/flakes.
+- Make changes to GitHub Actions workflows.
+- Write Python code with unit tests.
+- Write or modify e2e/acceptance tests.
+- Fixing acceptance test flakes.
+
+**Related issues:**
+
+- https://github.com/oppia/oppia/issues/23871
+
+**Suggested Milestones:**
+
+- **Milestone 1**: Initialize and set up Playwright infrastructure to work in parallel with Puppeteer tests. Migrate all acceptance tests (described in our CUJ trackers for [internal](https://docs.google.com/spreadsheets/d/1DIZ0_Gmf9uhjTbhuDpA495PTjYZW9ZE97r6urS-iXwg/edit) and [external](https://docs.google.com/spreadsheets/d/1IrxN13IC5xwWdAFnGMu_4p3FU1ADL4QO-eLZIuTowIA/edit) users) to the Playwright framework. You may find the [Playwright team's official migration guide](https://playwright.dev/docs/puppeteer) helpful. Remove puppeteer infrastructure by ensuring python scripts and CI run every test using Playwright, and remove unused dependencies. Fix method overriding issue in UserFactory. Additionally, if webdriverio tests are not removed by GSoC start date, contributors will need to migrate webdriverio tests to Playwright in place of some infrastructure issues.
+
+- **Milestone 2**: Update test to not fast-fail on snapshot mismatch but complete the test steps before failing. Fix screen-recording failing in mobile tests. Add a guide for debugging flaky acceptance tests. Fix 10 acceptance test flakes.
+
+<details>
+<summary>Org-admin/tech-lead commentary/advice</summary>
+
+This project is straightforward, however some level of CI understanding is required. Thus, folks with experience in Acceptance tests (writing and/or debugging) will be a good fit. There are a lot of tests, so folks taking shorter time in repetitive tasks will benefit.
+</details>
+
+<details>
+<summary>What we are looking for in proposals</summary>
+
+For this particular GSoC project, the proposal is less important and we are more interested in your previous PRs. In particular, each of the following can significantly enhance your application:
+
+- Tackling at least one PR that solves a part of #23871.
+- Fixing some issues on acceptance tests infrastructure in the [Improve workflow for updating acceptance test screenshots](https://github.com/orgs/oppia/projects/8/views/11?sliceBy[value]=[Project]+Improve+workflow+for+updating+acceptance+test+screenshots) and [Fix infrastructure issues in acceptance tests](https://github.com/orgs/oppia/projects/8/views/11?sliceBy%5Bvalue%5D=%5BProject%5D+Fix+infrastructure+issues+in+the+acceptance+tests) themes on the dev workflow project board.
+- Showing at least one debugging doc that correctly diagnoses the root cause of an e2e/acceptance flake.
+- Making at least one PR that resolves at least one E2E/acceptance flakiness issue (many of these are collected here).
+
+Some things you should address in your proposal:
+
+- How will you support the Playwright and Puppeteer framework simultaneously? Explain changes you will make in python scripts and the config file ([`acceptance.json`](https://github.com/oppia/oppia/blob/develop/core/tests/ci-test-suite-configs/acceptance.json)).
+- Important parts of code that you need to take care of while migrating from Puppeteer to Playwright. E.g., Changing usage of ElementHandle to Locator.
+- How will you break down this project into individual sub-milestones? Provide a clear timeline for this.
+- How will you set up your debugging cycle so that you can easily figure out what is going wrong with a test, or fix a flake in it? Explain this for both (a) local development, and (b) getting a test to pass in the CI environment.
+</details>
+
+<details>
+<summary>Technical hints / guidance</summary>
+
+- Create a separate directory for Playwright tests, then migrate tests from Puppeteer to Playwright. In doing so, the contributor needs to make sure that the common code is always in sync. There can be conflicts - for instance when a function is used by tests in both Puppeteer and Playwright frameworks, changes to the function in any will create conflicts when we migrate remaining tests. This can be prevented by simply not allowing any function modification once we start migrating.
+- Update and use “Stress test (Acceptance test)” workflow to ensure that every new test is flake free.
+- Contributors should migrate to Playwright with as few changes as possible first. Then, once Puppeteer is completely removed, they can work on critical parts such as replacing all `ElementHandle` instances with `Locator`.
+- Initially, edit the `acceptance.json` config file to specify whether each test should be run under Puppeteer or Playwright. This will allow CI to run smoothly without requiring extensive changes as everything will be handled by Python script.
+</details>
+
+<details>
+<summary>Suggested PM demo points</summary>
+
+Milestone 1:
+
+- Running an acceptance test using python -m scripts.run_acceptance_tests should run acceptance tests in the Playwright framework. No acceptance test should use Puppeteer framework, and all the unused Puppeteer dependencies must be removed (i.e. Puppeteer Video Recording package).
+- CI should run all acceptance tests using Playwright framework and Internal User journeys using Puppeteer framework
+- Method overriding in UserFactory should throw an error.
+
+Milestone 2:
+
+- Every mobile acceptance test should record a complete test. (Can be verified by stress testing an acceptance test).
+- Running a test with snapshot mismatch, the test should take all steps after comparison and throw a snapshot mismatch error at the end. Test should also upload new snapshot taken as artifact.
+- We should have complete documentation on acceptance tests including updating screenshots, etc.
+
+</details>
+
+### 3.2. Consolidate entity migration jobs
+
+**Project Description:**
+
+The Oppia codebase includes several different versioned entities which store learning material: explorations, skills, stories, subtopic pages, questions, topics, and collections. The infrastructure to maintain each of these versioned entities has been developed separately, and is a bit patchy (for example, migrations of old snapshots have not been implemented for some of the entities). This is making it difficult to remove some of the old version upgrade functions in the codebase which are no longer needed.
+
+The aim of this project is to standardize these migration jobs so that there is a single, standard way to migrate and upgrade versioned models. This will (a) ensure that all the versioned models can be easily updated on a periodic basis, (b) let us delete the code for upgrading from old versions once all the entities of that version have been upgraded, and (c) simplify the remaining version upgrade code.
+
+**Tracking issues**: [#22023](https://github.com/oppia/oppia/issues/22023)
+
+**Size:** Medium (\~175 hours)
+
+**Difficulty**: Moderate
+
+**Potential mentors:** @kevintab95
+
+**Product/technical clarifiers:** @U8NWXD (product), @kevintab95 (technical)
+
+**Discussion forum:** Coming soon!
+
+**Required knowledge/skills:**
+- Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
+- Write Python code with unit tests.
+- Write or modify Beam jobs, with tests.
+
+Additionally, strong technical design skills and a good sense of code architecture are helpful.
+
+**Related issues:**
+
+- [#16556](https://github.com/oppia/oppia/issues/16556) is a good issue to look into, since it will help you become familiar with the migration job infrastructure.
+- [Issues related to Beam jobs](https://github.com/oppia/oppia/labels/Beam%20jobs) are also good ones to look at.
+
+
+**Suggested Milestones:**
+- **Milestone 1**: Create a BaseVersionedDomainObject which specifies object member mappings to storage model properties in a declarative way, and also specifies the "schema version field" corresponding to each JsonProperty-related field. Add tests to ensure that all JsonProperties are accounted for. Then, replace all existing domain objects for versioned models with subclasses of BaseVersionedDomainObject. Additionally, ensure that all functions that convert storage models to domain objects also migrate domain objects to the latest schema version.
+
+- **Milestone 2**: Create BaseMigrateVersionedModelJob and BaseMigrateVersionedModelSnapshotsJob classes with the core logic for upgrading models and snapshots to the latest schema versions, respectively. Use these to build both job and audit job subclasses for all versioned models (explorations, skills, stories, subtopic pages, questions, topics, collections) with proper logging and error reporting (e.g. if a migration fails, the model that could not be migrated should be logged for debugging). Test these jobs on production data to ensure that they work correctly, and fix any issues that arise. Finally, run all the jobs in all our production environments, so that all the models and snapshots on the server are upgraded to the latest schema versions, then remove the old jobs and the old conversion functions for all 7 versioned models, as well as the methods they call (similar to what was done in https://github.com/oppia/oppia/pull/12256/files).
+
+
+<details>
+<summary>Org-admin/tech-lead commentary/advice</summary>
+
+This project requires a very good understanding of how our migration pipeline works, and a solid grasp of technical architecture so that you can make good design decisions for how the base classes and their subclasses are structured. However, once that is well-understood, it should not be too difficult to implement. You will probably find deleting all the old code at the end quite satisfying!
+</details>
+
+<details>
+<summary>What we are looking for in proposals</summary>
+
+In addition to your implementation approach, please also:
+
+  - Analyze the jobs for the existing entities to understand and catalogue their differences. Then, for each of those differences, make a proposal for how you plan to standardize it, and explain the implementation of each of the resulting base job and audit job classes for migrating entities and entity snapshots.
+  - Describe what error reporting or logging you would add to the Beam job to make it easy for you or server admins to detect/debug issues when it is run.
+  - Describe how you would name the new jobs. Try to use a standard naming convention that is easily extended to versioned models that are introduced in the future.
+  - For each entity type, list the functions/constants that you plan to delete (in addition to the conversion methods) after you have confirmed that all models are using the latest schema versions. Describe how you determined that this is the complete list of orphaned functions/constants.
+  - Provide a full example of how you would set up the BaseVersionedDomainObject with declarative definitions for at least one of the existing versioned models. Clarify what goes into the base domain object and what goes into the subclasses.
+  - List the validation checks that the versioned domain object classes must satisfy, and describe how your backend tests will automatically pick up all the versioned domain object classes in the codebase when new ones are added.
+
+</details>
+
+<details>
+<summary>Technical hints / guidance</summary>
+
+- There are existing jobs and audit jobs in the codebase for migrating models and snapshots (e.g. MigrateExplorationJob, ExpSnapshotsMigrationAuditJob, etc.). All these should be deleted at the end of the project. This old wiki page with instructions for writing schema migrations might also provide some useful background: https://github.com/oppia/oppia/wiki/Writing-state-migrations
+
+- The bulk of the logic for all the new jobs should be in the two base classes, BaseMigrateVersionedModelJob and BaseMigrateVersionedModelSnapshotsJob. In general, if some functionality is common to all versioned models, it should be included in the base class, otherwise it should be defined in the relevant subclass(es). Ideally, the subclasses would just point to the relevant storage models / domain object classes and not include any custom logic – see `SNAPSHOT_METADATA_CLASS` in `ExplorationModel` for an example of this. The corresponding audit jobs for these two jobs should be trivial subclasses of the main jobs with `DATASTORE_UPDATES_ALLOWED = False`. (Look at the usage of `DATASTORE_UPDATES_ALLOWED` in the codebase for more information.)
+
+- Part of this project includes standardizing the infrastructure for migrating JSON properties. Here is a more detailed technical sketch for how this could be done:
+
+  - Create a BaseVersionedDomainObject whose subclasses declaratively specify a mapping from any versioned field to its corresponding schema version field. (These fields correspond to `JsonProperty` in the datastore's storage model.) Un-versioned fields of type `Dict` or `List[Dict]`` should be explicitly declared as un-versioned. Subclasses must also reference constants in feconf.py that specify the minimum and maximum version of each field.
+
+  - Write backend tests that:
+    - Identify all subclasses of BaseVersionedDomainObject in the codebase and verify that every `Dict` or `List[Dict]`` field contained in the object is either included in the mapping mentioned above or included in a list of un-versioned fields. This ensures that all versioned domain objects have the necessary infrastructure for performing schema upgrades for their respective JsonProperties.
+    - Ensure that the relevant migration functions for each upgradable field are present in the corresponding domain object class with the function signatures (including type hints). Specifically, each conversion function should accept one parameter of the same type as the versioned field and should return one value of the same type. The migration functions can be named using a standard scheme, e.g. `_convert_{{field_name}}_v{{x}}_dict_to_v{{x+1}}_dict`, and the backend test can check for that. This test should also use the minimum and maximum schema versions to check that upgrade functions from the minimum up to the maximum version are present.
+
+  - Add a `migrate_to_latest_schema_versions` function to BaseVersionedDomainObject to handle schema upgrades in a generalized way across all domain objects.
+  - Ensure that all the different getter functions in the _services/fetchers.py files that convert storage models to domain objects also use `migrate_to_latest_schema_versions` to translate that object’s fields to use the latest schema versions.
+  - Replace all domain objects corresponding to VersionedModels with the new BaseVersionedDomainObject.
+
+- Here's a schematic depiction of a possible end state for versioned domain models:
+
+  ```
+  class BaseVersionedDomainObject:
+    - Class Variables:
+       - schema_versioned_attributes = {}
+    - Methods:
+      - def migrate_to_latest_schema_versions():
+        - Use the versioned_attributes map to find versioned fields. Then call update functions on each of those until the entire domain object is fully upgraded.
+
+  class Exploration(BaseVersionedDomainObject:
+    - Class Variables:
+      -  schema_versioned_attributes: {
+          "states_dict": {
+            "version_field": "states_schema_version",
+            "version_min": feconf.MIN_STATE_SCHEMA_VERSION (e.g. 5),
+            "version_max": feconf.CURRENT_STATE_SCHEMA_VERSION (e.g. 10)
+          }
+        }
+    - Methods:
+      - def _convert_states_v5_dict_to_v6_dict
+      - ...
+      - def _convert_states_v9_dict_to_v10_dict
+  ```
+</details>
+
+<details>
+<summary>Suggested PM demo points</summary>
+
+- Milestone 1: At least one domain object is using BaseVersionedDomainObject, and all the get/save functionality works correctly.
+
+- Milestone 2: All jobs run correctly on the backup server.
+</details>
+
+
+### 3.3. Standardize and validate domain objects and storage models
+
+**Project Description:**
+
+Oppia's production data is organized using [NDB storage models](https://github.com/oppia/oppia/wiki/Storage-models#storage-model-concepts), which in simple terms can be thought of as objects having different properties. For instance, data related to a user can be stored in a UserSettingsModel with properties like username, user ID, etc.
+
+Different inter-model relationships exist as well, corresponding to relationships between prod data. For instance, a story includes a list of explorations. So, a StoryModel might include the IDs of all the ExplorationModels it is composed of.
+
+For proper functioning of the Oppia application, it is important to ensure that all the models are internally consistent and that the relationships between models are valid. The aim of this project is therefore to ensure that all production data is valid by:
+
+  - Ensuring that domain objects exist for all prod models, and that they have full `validate()` functions.
+
+  - Implementing Beam jobs that audit production data and flag any errors. These jobs should validate the model properties as well as inter-model relationships. After these jobs are run, any errors should be investigated, and checks should be implemented to ensure that such problems don’t reoccur in the future with new data.
+
+**Tracking issues**:
+- [#21970](https://github.com/oppia/oppia/issues/21970)
+- [#21905](https://github.com/oppia/oppia/issues/21905)
+- [#21869](https://github.com/oppia/oppia/issues/21869)
+
+**Not in scope:** Migrating existing datastore data to address the validation issues found in the first milestone.
+
+**Size:** Large (\~350 hours)
+
+**Difficulty**: Moderate
+
+**Potential mentors:** @ankita240796
+
+**Product/technical clarifiers:** @U8NWXD (product), @ankita240796 (technical)
+
+**Discussion forum:** Coming soon!
+
+**Required knowledge/skills:**
+- Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
+- Write Python code with unit tests.
+- Write or modify Beam jobs, with tests.
+
+
+**Related issues:**
+
+- https://github.com/oppia/oppia/issues/21970
+- https://github.com/oppia/oppia/issues/21905
+- https://github.com/oppia/oppia/issues/21869
+- The first checkbox item from any of the following:
+  - https://github.com/oppia/oppia/issues/14968
+  - https://github.com/oppia/oppia/issues/14967
+  - https://github.com/oppia/oppia/issues/14969
+  - https://github.com/oppia/oppia/issues/14971
+  - https://github.com/oppia/oppia/issues/14972
+
+
+**Suggested Milestones:**
+
+- **Milestone 1**: Domain objects exist for all storage models, and include validate() methods that fully validate the domain object's internal consistency and correctness. The usage of storage models in the domain layer is restricted to the interfaces for getting and saving datastore models, and they are not passed further around the codebase. 50% of the validation jobs for the storage models are implemented and run successfully. For each validation error found, an issue is filed with clear action steps for (a) stopping the error from happening for new data, and (b) migrating old data to fix the error.
+
+- **Milestone 2**: All remaining validation jobs for the storage models are implemented and run successfully, and issues are filed for all validation errors as described in Milestone 1. All root causes of the validation issues found in Milestones 1 and 2 are identified and fixed, so that the error no longer happens for new data. (This corresponds to part (a) of each issue in Milestone 1.)
+
+
+<details>
+<summary>Org-admin/tech-lead commentary/advice</summary>
+
+This project is relatively straightforward if you can identify the validation checks correctly and are able to analyze the codebase to figure out why incorrect data is being written. The [design brief](https://docs.google.com/document/d/1u45oC6igsaTvQl4oNd8VvDiZe3JqeY3m_5n4QZ6d4rA/edit?usp=sharing) provided in the technical hints should help provide a lot of the necessary structure. Note that the validation requirements for the different models can vary greatly in terms of difficulty.
+</details>
+
+<details>
+<summary>What we are looking for in proposals</summary>
+
+For your proposal, please include the following:
+
+  - A complete list of all storage models, with “validity” clearly defined for (a) the corresponding domain objects, (b) the models themselves (including inter-model relationships).
+
+  - How you would structure the sub-milestones to enable you to run jobs efficiently on the server in batches.
+
+  - A worked example of how you would do each part of the project (domain-object creation, only using storage models in get/put, writing a validation job, filing the GitHub issue, fixing the root cause). You can link to sample PRs if you like. For the purposes of this illustration, we suggest that you pick one or two "average" or "hard" examples – try not to pick a trivial model.
+
+  - Any complicated cases you identify for any of the above steps, and an explanation of how you would tackle them. (For example, customization arg validation for interactions.)
+
+  - An explanation of how you would ensure/verify that storage models are not used beyond the get and save functions in the `*_services.py` file. (For example, you might come up with a standard pattern for get/save that you can implement universally to make that verification easy to do, or you might analyze import statements that involve to the storage layer, or you might add a backend test to ensure that ndb.Model instances are not passed beyond specific functions.)
+
+
+We also recommend taking up at least one checkbox item from each of the following, in order to confirm that this project is a good fit for you:
+  - https://github.com/oppia/oppia/issues/21970
+  - https://github.com/oppia/oppia/issues/21869
+  - The first checkbox from any of the following (to demonstrate ability to “identify the root cause of an error and stop it from happening”):
+    - https://github.com/oppia/oppia/issues/14968
+    - https://github.com/oppia/oppia/issues/14967
+    - https://github.com/oppia/oppia/issues/14969
+    - https://github.com/oppia/oppia/issues/14971
+    - https://github.com/oppia/oppia/issues/14972
+
+</details>
+
+<details>
+<summary>Technical hints / guidance</summary>
+
+- Please go through the following guides in the Oppia wiki:
+
+  - [Storage models](https://github.com/oppia/oppia/wiki/Storage-models#storage-model-concepts)
+  - [Testing jobs and other features on production](https://github.com/oppia/oppia/wiki/Testing-jobs-and-other-features-on-production)
+  - [Debugging datastore locally](https://github.com/oppia/oppia/wiki/Debugging-datastore-locally)
+  - [Apache Beam Jobs](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs) · oppia/oppia Wiki · GitHub
+    - Note that, in general, any Beam jobs you write should be **idempotent**, i.e., running them twice should result in the same outcome as running them once. This allows us to just rerun them if a job fails for some reason (e.g. due to an internal Beam error).
+
+- See [this design brief](https://docs.google.com/document/d/1u45oC6igsaTvQl4oNd8VvDiZe3JqeY3m_5n4QZ6d4rA/edit?usp=sharing) for a design approach that you can follow for the validation jobs.
+
+- To understand how validation jobs work, you might like to take a look at the existing [audit and validation jobs](https://github.com/oppia/oppia/tree/develop/core/jobs/batch_jobs). Some examples:
+  - https://github.com/oppia/oppia/blob/develop/core/jobs/batch_jobs/user_validation_jobs.py
+  - https://github.com/oppia/oppia/blob/develop/core/jobs/batch_jobs/blog_validation_jobs.py
+</details>
+
+<details>
+<summary>Suggested PM demo points</summary>
+
+- Milestone 1: Validation jobs for at least 5 prod models are written & run, and errors arising from those jobs have been filed as issues on GitHub.
+
+- Milestone 2: A full list of errors is compiled with clear action items.
+</details>
 
 ## Android team
 
