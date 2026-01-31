@@ -348,77 +348,6 @@ Coming soon!
 
 ## Learners, Educators, Allies, and Parents (LEAP) team
 
-<!--
-### N.N. Template
-
-**Project Description:** 
-
-Links to PRD and mocks:
-
-**Tracking issues**:
-
-- 
-
-**Not in scope:** 
-
-**Size:** 
-
-**Difficulty**: 
-
-**Potential mentors:** 
-
-**Product/technical clarifiers:** 
-
-**Discussion forum:** Coming soon!
-
-**Required knowledge/skills:**
-
-- Figure out the root cause of an issue and communicate it well using a debugging doc.
-- Debug and fix CI failures/flakes.
-- Make changes to GitHub Actions workflows.
-- Write Python code with unit tests.
-- Write TS + Angular code with unit tests.
-- Write or modify e2e/acceptance tests.
-- Write or modify Beam jobs.
-- Figure out repro steps based on info from server logs.
-
-
-**Related issues:**
-
-- 
-
-**Suggested Milestones:**
-
-- **Milestone 1**: 
-
-- **Milestone 2**:
-
-<details>
-<summary>Org-admin/tech-lead commentary/advice</summary>
-
-</details>
-
-<details>
-<summary>What we are looking for in proposals</summary>
-
-</details>
-
-<details>
-<summary>Technical hints / guidance</summary>
-
-</details>
-
-<details>
-<summary>Suggested PM demo points</summary>
-
-Milestone 1:
-
-Milestone 2:
-
-</details>
--->
-
-
 ### 1.1: Web user feedback
 
 **Project Description:** Learners (and other relevant users) should have an easy way to report issues with the platform so that we can quickly catch and resolve these issues in a scalable manner.
@@ -753,7 +682,78 @@ Milestone 2:
 
 ## Creators, Operations, Reviewers, and Editors (CORE) team
 
-Coming soon!
+### 2.1. Automatic translation suggestions
+
+**Project Description:** The lesson content in Oppia is primarily written in English, and the current translation workflow follows a review-and-approval model. Contributors who are familiar with their native language can submit translation suggestions through the contributor dashboard. These suggestions are then reviewed and approved by a translator admin, after which the translated content is stored in the datastore for the respective entities.
+
+This project aims to simplify the contribution process by automatically providing AI-based translation suggestions. Contributors will have the option to accept the suggested translation (and edit it if needed) or reject it. If the AI suggestion is rejected, contributors can add the translation manually, following the existing workflow.
+
+Links to PRD and mocks:
+
+**Tracking issues**:
+
+- https://github.com/oppia/oppia/issues/24714
+
+**Not in scope:** This project does not aim to automate the entire translation pipeline. Specifically, when the main content of an entity is modified, translations will not be regenerated automatically. This is intentional, as we want to retain the review-and-approval model in the translation infrastructure so that only approved translations are shown to end users.
+
+Automating the translation pipeline could be explored as a future project, depending on how effective and successful this project proves to be.
+
+**Size:** Medium (\~175 hours)
+
+**Difficulty**: Moderate
+
+**Potential mentors:** @Nik-09
+
+**Product/technical clarifiers:** @U8NWXD (product), @Nik-09 (technical)
+
+**Discussion forum:** Coming soon!
+
+**Required knowledge/skills:**
+
+- Figure out the root cause of an issue and communicate it well using a debugging doc.
+- Debug and fix CI failures/flakes.
+- Write Python code with unit tests.
+- Write TS + Angular code with unit tests.
+- Write or modify e2e/acceptance tests.
+- (maybe, depending on your technical approach) Write or modify Beam jobs.
+
+**We're still working on finalizing the details for this project. We'll update this page with the full project idea soon.**
+
+<!--
+**Related issues:**
+
+- 
+
+**Suggested Milestones:**
+
+- **Milestone 1**: 
+
+- **Milestone 2**:
+
+<details>
+<summary>Org-admin/tech-lead commentary/advice</summary>
+
+</details>
+
+<details>
+<summary>What we are looking for in proposals</summary>
+
+</details>
+
+<details>
+<summary>Technical hints / guidance</summary>
+
+</details>
+
+<details>
+<summary>Suggested PM demo points</summary>
+
+Milestone 1:
+
+Milestone 2:
+
+</details>
+-->
 
 ## Developer Workflow Team
 
