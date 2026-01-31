@@ -348,7 +348,408 @@ Coming soon!
 
 ## Learners, Educators, Allies, and Parents (LEAP) team
 
-Coming soon!
+<!--
+### N.N. Template
+
+**Project Description:** 
+
+Links to PRD and mocks:
+
+**Tracking issues**:
+
+- 
+
+**Not in scope:** 
+
+**Size:** 
+
+**Difficulty**: 
+
+**Potential mentors:** 
+
+**Product/technical clarifiers:** 
+
+**Discussion forum:** Coming soon!
+
+**Required knowledge/skills:**
+
+- Figure out the root cause of an issue and communicate it well using a debugging doc.
+- Debug and fix CI failures/flakes.
+- Make changes to GitHub Actions workflows.
+- Write Python code with unit tests.
+- Write TS + Angular code with unit tests.
+- Write or modify e2e/acceptance tests.
+- Write or modify Beam jobs.
+- Figure out repro steps based on info from server logs.
+
+
+**Related issues:**
+
+- 
+
+**Suggested Milestones:**
+
+- **Milestone 1**: 
+
+- **Milestone 2**:
+
+<details>
+<summary>Org-admin/tech-lead commentary/advice</summary>
+
+</details>
+
+<details>
+<summary>What we are looking for in proposals</summary>
+
+</details>
+
+<details>
+<summary>Technical hints / guidance</summary>
+
+</details>
+
+<details>
+<summary>Suggested PM demo points</summary>
+
+Milestone 1:
+
+Milestone 2:
+
+</details>
+-->
+
+
+### 1.1: Web user feedback
+
+**Project Description:** Learners (and other relevant users) should have an easy way to report issues with the platform so that we can quickly catch and resolve these issues in a scalable manner.
+
+Links to PRD and mocks:
+
+- PRD: https://docs.google.com/document/d/1ZUD7nktZrl5ZyxcXfLAqJqb6wI40U9rdg-2vHHWUZ1g/edit?usp=sharing
+
+**Tracking issues**:
+
+- https://github.com/oppia/oppia/issues/24716
+
+**Not in scope:**
+
+- Feedback Recategorization: Workflows for admins to move feedback between categories (e.g., changing "Lesson" to "Platform").
+- Auto-Translation: Automatic translation of non-English feedback.
+
+**Size:** Large (\~350 hours)
+
+**Difficulty**: Moderate
+
+**Potential mentors:** @mon4our
+
+**Product/technical clarifiers:** @U8NWXD (product), @mon4our (technical)
+
+**Discussion forum:** Coming soon!
+
+**Required knowledge/skills:**
+
+- Figure out the root cause of an issue and communicate it well using a debugging doc.
+- Debug and fix CI failures/flakes.
+- Write Python code with unit tests.
+- Write TS + Angular code with unit tests.
+- Write or modify e2e/acceptance tests.
+- Write or modify Beam jobs.
+
+**Related issues:** We don't have a set of particularly related issues for you to start with since this will be a brand new feature. To gain experience with the required knowledge and skills, look for relevant issues with the [LEAP](https://github.com/orgs/oppia/projects/3), [CORE](https://github.com/orgs/oppia/projects/18), and [dev workflow](https://github.com/orgs/oppia/projects/8) teams depending on which skills you need to practice or demonstrate.
+
+**Suggested Milestones:**
+
+- **Milestone 1**: Implement the feedback entry point and modal using the pre-existing image uploader component for screenshots. Develop the logic to programmatically capture user session data (logs, metadata) upon opt-in and persist all data to the backend. **Important steps**: Integrating the existing image uploader, implementing a method to share user’s session data, CAPTCHA integration (to prevent spam feedback by bots, might not be necessary), implementing the acceptance tests for the user flows and backend schema design.
+
+- **Milestone 2**: Create the admin-facing dashboard to retrieve and view feedback. **Important steps**: Creating the Dashboard UI, implementing fetching from the backend data, writing the acceptance tests for the admin flows.
+
+<details>
+<summary>Org-admin/tech-lead commentary/advice</summary>
+
+In this project, you will be building a new, fairly self-contained feature from the ground up, including some creative design work. If you are excited by the prospect of owning a feature from start to finish and the challenge of overcoming unexpected problems, then this might be a good project for you. Strong debugging, technical design, and planning skills will be essential.
+</details>
+
+<details>
+<summary>What we are looking for in proposals</summary>
+
+The proposal must explain technically how you intend to capture "session data". What will be the database schema for the new Feedback Models that will store the feedback in the database? How will the frontend fetch the feedback data from the backend? How will you integrate the existing image uploader modal into the feedback form? Consider how to protect the feedback submitter’s privacy. Include mocks for the new admin dashboard (for viewing the submitted feedback). Since these are not external-facing, the design can be a little rougher.
+</details>
+
+<details>
+<summary>Technical hints / guidance</summary>
+
+- Frontend-backend communication: You will need to implement a new API endpoint (e.g., /api/feedback_dashboard) to serve the admin dashboard. This endpoint should support server-side pagination and filtering (e.g., fetching feedback by category or date range) to handle potential future scale.
+- On the frontend, create a dedicated FeedbackBackendApiService to handle these requests and manage the type definitions for the feedback objects.
+- Image uploader: Check the current implementation for the Image Upload RTE component in the topic/subtopic modals to get an idea of how to use the image uploader modal in the feedback form.
+- Would we need to differentiate between logged in and logged out users? Explain why. How would we implement the system in either case?
+- To protect the privacy of those submitting feedback, create a cron job (search for `cron` in our codebase to see examples) to automatically erase feedback after 6 months. Viewing feedback should be restricted to admins, and admins should also be able to delete particular pieces of feedback early in case they see something sensitive.
+
+</details>
+
+<details>
+<summary>Suggested PM demo points</summary>
+
+Milestone 1:
+
+- User is able to open the feedback modal from any page on the site
+- User is able to rate the experience and provide text feedback.
+- Demonstrate the integration of the image uploader component.
+- Show the "Include session info" checkbox (unchecked by default).
+- The feedback is stored as expected on the backend
+- CAPTCHA integration
+
+Milestone 2:
+
+- User submitted feedback shows up on the admin dashboard
+- Dashboard is legible and easy to use
+- Admins can dismiss feedback
+- Admins can delete feedback
+- Feedback is automatically deleted every 6 months
+
+</details>
+
+### 1.2. Learner assessments
+
+**Project Description:** We want to celebrate and recognize learners’ achievements as they progress through our curriculum to help motivate them. We currently do this at the exploration (also known as a “lesson”) level, but we want to also celebrate longer-term learning across multiple lessons. To do so, this project introduces assessments that cover groups of skills. At any time, learners can choose to take the assessment to test what they’ve learned. In the future (out of scope for this project), we plan to give learners certificates for passing assessments so they can share the certificate with others. Even without this certificate feature, learners will be able to show their passing score page to others to celebrate their achievement.
+
+This project includes:
+
+- Creating the backend infrastructure needed to:
+  - Store the certificate assessment offerings available for learners to take
+  - Given a certificate assessment offering, generate an assessment by randomly selecting from a pool of questions
+  - Record the results from a learner’s certificate assessment attempt
+- Building the frontend experience for learners to:
+  - Discover the available assessment offerings
+  - Take an assessment
+  - See the results of their assessment attempt
+  - See their history of assessment attempts
+- Building the frontend experience for our lessons team to create and configure assessment offerings
+
+Our product team has put a lot of work into specifying the learner’s experience, so the frontend for learners and the backend infrastructure are pretty well-defined. You will have more freedom (and responsibility) to design the frontend experience for the lessons team.
+
+Links to PRD and mocks:
+
+- PRD: [Assessment Construction and Mastery for Certificates](https://docs.google.com/document/d/19Qm6YPInNMFgqihJP-zL1qtW1BsLRDdLgWHuRr7XtRE/edit?usp=sharing)
+- PRD: [Certificates #28 (Logged-in Student Experience, Web)](https://docs.google.com/document/d/1j5hHvh_WrEngnty5I2RR3EMGBsUHHARJWqnC_ABwYUo/edit)
+
+**Tracking issues**:
+
+- https://github.com/oppia/oppia/issues/24717
+
+**Not in scope:**
+
+- The Skill Mastery PRD (linked-to from the Certification Assessment PRD)
+- Mastery measures that aggregate across multiple certification assessments
+- Generating the certificate document. For now, we will let learners take assessments and screenshot their score page to share their achievement with others.
+- Translations. The questions surfaced in the assessment are currently un-translated, so to keep the scope of this project manageable, we will add translation support in a later project.
+
+**Size:** Large (\~350 hours)
+
+**Difficulty**: Hard
+
+**Potential mentors:** @brianrodri @masterboy376
+
+**Product/technical clarifiers:** @U8NWXD (product), @brianrodri (technical)
+
+**Discussion forum:** Coming soon!
+
+**Required knowledge/skills:**
+
+- Figure out the root cause of an issue and communicate it well using a debugging doc.
+- Debug and fix CI failures/flakes.
+- Write Python code with unit tests.
+- Write TS + Angular code with unit tests.
+- Write or modify e2e/acceptance tests.
+- Basic user interface design skills will be important for creating the lesson team’s interface for creating certificate assessment offerings. Note that the functionality and usability of this interface is more important than its aesthetics since it is not exposed to external users.
+  - To demonstrate this skill, you can include in your proposal draft mocks for the asessment creation interface.
+- Creating user interfaces that follow provided mocks. In particular, you should be comfortable using HTML, CSS, and Angular to create new user interface elements to match mocks.
+  - To demonstrate this skill, take a look at feature requests for the [CORE](https://github.com/orgs/oppia/projects/18/views/4) and [LEAP](https://github.com/orgs/oppia/projects/3) teams.
+- Working with Oppia’s full-stack infrastructure. You should be familiar with how data flows between the layers of Oppia’s stack from the frontend all the way through to storage models and back to the frontend.
+  - To demonstrate this skill, take a look at full-stack feature requests or bug fixes for the [CORE](https://github.com/orgs/oppia/projects/18/views/4) and [LEAP](https://github.com/orgs/oppia/projects/3) teams.
+
+**Related issues:** Take a look at issues for the [CORE](https://github.com/orgs/oppia/projects/18/views/4) and [LEAP](https://github.com/orgs/oppia/projects/3) teams, particularly but not exclusively [those related to questions](https://github.com/orgs/oppia/projects/18/views/4?sliceBy%5Bvalue%5D=%5BProject%5D+Fix+issues+affecting+question+submitter+workflows).
+
+**Suggested Milestones:**
+
+- **Milestone 1**: The frontend experience for the lessons team has been created, allowing them to create, edit, view, and delete certificate assessment offerings. This interface enforces validation checks to prevent the creation of invalid assessment offerings (e.g. attaching skills that don’t have enough questions, leaving the description blank) and gives the user feedback about whether changes were successfully saved. The associated backend infrastructure has also been created to store the configured offerings.
+
+- **Milestone 2**: The frontend experience for learners has been created, allowing them to discover, take, and see results of assessments. Learners can also see their history of assessment attempts. The associated backend infrastructure has been built to support this experience, including the generation of new assessments and recording the results of assessments taken.
+
+<details>
+<summary>Org-admin/tech-lead commentary/advice</summary>
+
+This is a complex, full-stack project that develops a new feature and includes some design work. You should have good familiarity with Oppia’s full-stack infrastructure and be prepared to tackle unexpected issues. Debugging skills will be essential! If the challenge of implementing a whole feature end-to-end excites you, then this is a great project to consider.
+</details>
+
+<details>
+<summary>What we are looking for in proposals</summary>
+
+- Mocks for the frontend experience for the lessons team
+- Detailed plans for the backend infrastructure you will build. What endpoints will you create or change? What storage models will you create, and what will each model look like? Be specific.
+- Sketch out the logic (for example with pseudocode) you will use generate assessments, store assessment attempt results, and compute the metrics to display on the assessment results page.
+- How will you use feature flags to stage the release of the feature?
+- How will you compute the metrics requested in the PRDs? Note that while we need to be able to get these metrics, they don’t need to be surfaced in a dashboard. For example, a beam job that we can run to calculate metrics is acceptable (though if you go this route you need to show you can write beam jobs).
+- Make sure to account for writing frontend, backend, and acceptance tests for your project! These should be included in your timeline, and you should provide evidence that you know how to write them.
+
+</details>
+
+<details>
+<summary>Technical hints / guidance</summary>
+
+There are substantial technical details in the PRDs, particularly with regards to storing assessment attempt results, so please review those carefully. In brief, we envision you creating the backend storage models for the following:
+
+- Certificate assessment offerings. Should store configuration parameters like attached skills, time limit, name, description, and associated classroom. This needs to be versioned so that if an assessment offering is changed, we can recover the assessment offering version that the learner actually attempted.
+- Assessment attempts. Should store a versioned reference to the offering attempted, the start and end times, references to response objects for each question in the attempt (including questions not answered), and a learner identifier.
+- Assessment question responses. Should store a version reference to the associated assessment attempt object, a versioned reference to the question presented, the user’s selected answer (or an indication that the question wasn’t answered), whether the learner got the answer correct, and a versioned reference to the skill tested.
+
+We already have backend storage models for questions, topics, skills, and classrooms. You should plan to use those existing models and describe in your proposal any changes you will need to make to them. For example, we will need to modify the classroom model to store references to certificate offerings so that we can control the order in which offerinigs are displayed to the user.
+
+There is also prior work in the codebase that you can learn from. For example, at the end of a practice session, users are currently shown a breakdown of their score that is similar to what we want to show at the end of an assessment in this project.
+
+</details>
+
+<details>
+<summary>Suggested PM demo points</summary>
+
+Milestone 1:
+
+- Certificate assessment offerings can be created, viewed, edited, and deleted.
+- Validation checks prevent the creation of invalid assessment offerings.
+- Changes made through the frontend are persisted to storage models in the backend.
+- Acceptance tests for all implemented user journeys have been written and pass robustly (i.e. are not flaky).
+
+Milestone 2:
+
+- Learners can discover, take, and see results from assessments.
+- Learners can see their history of assessment attempts.
+- Learner assessment results are persisted to the backend.
+- Assessments are correctly generated.
+- Acceptance tests for all implemented user journeys have been written and pass robustly (i.e. are not flaky).
+
+</details>
+
+### 1.3. Re-design the topic page
+
+**Project Description:** Based on user feedback, on the current topic page, users often overlook the Practice and Revision tabs completely. Additionally, the functionality in those tabs is not correlated with the available lessons, making it unclear to learners when they should review or practice those skills.
+
+The aim of this project is to update the design of the topic page to present a more integrated view of the lessons, practice sessions, and links to revision cards (subtopic pages), so that learners can practice the skills they learned in the relevant lesson. Additionally, it is disappointing for learners to find that the languages that they would want to use for translations and voiceovers are missing only after they start the lesson, so the new design incorporates these selections within the topic page itself and follows the overall site language as a default.
+
+Links to PRD and mocks:
+
+- [PRD: Practice Sessions Experience and Topic Page](https://docs.google.com/document/d/1r9IEQ5z_t-eu9XAWN3eRA7iKdKuYsOQbVUjO2ZH1qKg/edit?tab=t.0)
+  - Note that this PRD describes a redesign of both the topic page and the practice session experience. This GSoC project only covers redesigning the topic page. The PRD’s mocks are also out of date; please refer to [these mocks](https://www.figma.com/design/1wjdVilWcZs9znEj6tFyFC/Project--107-Add-visual-cues-to-guide-learners-to-their-next-steps-on-the-topic-page?node-id=1-51&p=f) instead. You may find it useful to start by reviewing the mocks, since they only cover the parts of the PRD relevant to this GSoC project.
+
+**Tracking issues**:
+
+- https://github.com/oppia/oppia/issues/19614
+
+**Not in scope:** Changes in the linked PRD that relate solely to the practice questions player.
+
+**Size:** Medium (\~175 hours)
+
+**Difficulty**: Moderate
+
+**Potential mentors:** @HardikGoyal2003
+
+**Product/technical clarifiers:** @HardikGoyal2003 (product), @HardikGoyal2003 (technical)
+
+**Discussion forum:** Coming soon!
+
+**Required knowledge/skills:**
+
+- Figure out the root cause of an issue and communicate it well using a debugging doc.
+- Debug and fix CI failures/flakes.
+- Write Python code with unit tests.
+- Write TS + Angular code with unit tests.
+- Write or modify e2e/acceptance tests.
+- User interface creation, particularly familiarity with CSS and screen-size-responsive design
+
+**Related issues:**
+
+- https://github.com/orgs/oppia/projects/3/views/8?sliceBy%5Bvalue%5D=%5BProject%5D+Fix+issues+relating+to+the+topic%2Fclassroom+pages
+- https://github.com/orgs/oppia/projects/3/views/8?sliceBy%5Bvalue%5D=%5BProject%5D+Fix+all+acceptance+test+failures
+- https://github.com/orgs/oppia/projects/3/views/8?sliceBy%5Bvalue%5D=%5BProject%5D+Fix+issues+with+checkpoints%2Fprogress
+- https://github.com/orgs/oppia/projects/3/views/8?sliceBy%5Bvalue%5D=%5BProject%5D+Fix+issues+with+RTL+support
+
+**Suggested Milestones:**
+
+- **Milestone 1**: Implement a basic version of the updated topic player page (based on these mocks), and ensure that it is fully responsive for desktop and mobile portrait views. This involves the following steps:
+  - Use the feature flag introduced in this PR: https://github.com/oppia/oppia/pull/20406, and also verify that the feature flag has been properly introduced in that PR.
+  - Display the topic name and description prominently, along with the associated story name and description.
+  - Include a link to the study skills page from the topic page, ensuring the page is accessible and properly styled.
+  - Filterable, scrollable sequence of lessons and practices.
+    - Displayed the count of lessons and practices
+    - Practices should be interspersed in the correct order
+    - Correctly suggest what item to work on next. This suggestion should be the default when the page loads and indicated with a green arrow.
+    - Dynamic scroll arrow visibility
+    - Correct scroll distance
+    - Selecting a lesson or practice shows details and links to start, resume, study, or practice, as appropriate
+    - Filter status is remembered the next time the user loads the page
+  - Maintain a uniform UI consistent with the topic editor page and ensure full responsiveness for both desktop and mobile portrait views.
+
+- **Milestone 2**:
+  - Show progress indicators on lessons and practice sessions
+  - Show pop-ups when a user returns to an in-progress or completed lesson
+  - Implement the “Representation of Chapter Availability” section in the mocks by updating the existing "coming soon" UI and new tag on the chapters.
+  - Support secondary language selection, enforced with pop-ups when necessary
+  - Persist secondary language choices. At this point, the full language selection algorithm should be implemented
+
+<details>
+<summary>Org-admin/tech-lead commentary/advice</summary>
+
+This project is primarily a frontend project, so contributors should be comfortable with Oppia’s frontend stack. That said, do not overlook the backend changes that will be required to support the frontend changes. This project is a good fit for contributors interested in building a full, user-facing frontend that will directly impact the learner experience.
+</details>
+
+<details>
+<summary>What we are looking for in proposals</summary>
+
+Consider: 
+
+- How will you support showing multiple stories in the topic page?
+- How will you build the new topic page while keeping the old design intact, and how will you make it easy to deprecate the old design and switch over to the new design when needed? Hint: use feature flags!
+
+Some questions to check that you understand the tech stack:
+
+- How will you load the lesson in the preferred language once the user clicks on the Start button?
+- Explain how you will ensure that the implemented/updated pages are (a) fully-responsive for all device sizes, (b) reach a Lighthouse score of 100 for accessibility, (c) support RTL layouts, and (d) are fully internationalizable. If possible, link to PRs that demonstrate that you have a good understanding of these areas.
+
+Additional things to discuss in your proposal:
+
+- What are the APIs for the components that you will create (e.g., modal, lesson card, progress bar, practice card, and possibly others)? For each of these, provide a definition of the API interface and an example usage of the component that is associated with a screenshot of one of its instances in the mocks.
+- Show a screenshot of the existing "serial chapter launch" functionality running on your local machine, and explain the changes you would make to it to bring it into alignment with the mocks.
+- When auditing the mocks and thinking about implementation, you might find that you need to get clarifications on various aspects of the mocks. Include, in your proposal, a list of questions that you have asked / would ask, how they affect the implementation, and the answers to those questions.
+
+</details>
+
+<details>
+<summary>Technical hints / guidance</summary>
+
+- For implementing the language and audio on the lesson card, check the approach used in the new lesson player.
+- For implementing the progress bar for the lesson card, check the new lesson player’s checkpoint bar.
+- To implement the skill progress circle or to determine whether the skill has been completed or not, check the new learner dashboard’s progress tab. In that, skills are implemented that show the progress.
+- When fetching multiple entities, do a single GET-MULTI call. Avoid executing a single GET call N times in a for loop.
+- To turn on the "coming soon" functionality, you’ll need to flip the "serial chapter launch" feature flag in the /release-coordinator page (you can give yourself permissions for that in /admin > Roles). See Rishi Kejriwal’s project in GSoC 2023 for more details about how this feature works.
+
+</details>
+
+<details>
+<summary>Suggested PM demo points</summary>
+
+Milestone 1:
+
+- The overall topic page design has been implemented
+- Clicking the study skills link, either from the story header or from a practice, leads to the study skills page. From there, selecting a concept leads to the concept revision page.
+- Lessons and practices are shown in the correct order. The user can scroll through them. Check that scroll distances and scrolling availability are correct, given the number of items and screen size.
+- Lessons and practices can be selected to show more details.
+- Lessons and practices can be filtered, and the state of this filter is remembered the next time the user loads the page.
+
+Milestone 2:
+
+- Progress indicators are displayed, and progress is calculated correctly, for both lessons and practices.
+- Users are shown pop-ups when loading in-progress or completed lessons.
+- Languages are selected correctly for lessons. This includes secondary language selection and pop-ups.
+
+</details>
 
 ## Creators, Operations, Reviewers, and Editors (CORE) team
 
