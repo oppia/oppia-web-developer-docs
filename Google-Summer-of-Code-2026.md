@@ -251,10 +251,13 @@ Contributors have also told us why they continue to stay engaged with the projec
 
 When submitting a proposal, please use the provided [GSoC 2026 proposal template](https://docs.google.com/document/d/1C1ZhKaShWSSIAtiFLd-lcQyjfQbMRNl3bIf-kQv2KNw/edit?tab=t.0). We will only consider proposals submitted using this template. Note that there is a length limit: the proposal's technical "HOW" section should not exceed 20 pages at "Roboto 10" font size.
 
+> [!IMPORTANT]
+> The 2026 template differs from the 2025 template. Please make sure that you are using the 2026 one. Proposals must follow our template and instructions exactly, or they will be dismissed without review as spam.
+
 **Note:** There's **no** formal minimum length requirement for your proposal. The quality of what you write is much more important than the amount of text you write, and we encourage you to write **shorter** proposals that still convey the main aim of the project.
 
-> [!IMPORTANT]
-> The 2026 template differs from the 2025 template. Please make sure that you are using the 2026 one.
+> [!CAUTION]
+> While large language models have become quite capable recently, we caution you against relying on them too much. In contrast to the verbosity typical of AI-generated text, strong proposals will need to be dense and succinct to convey the deep technical analysis we expect within the proposal length limit.
 
 
 **Some important notes:**
