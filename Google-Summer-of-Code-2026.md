@@ -1102,4 +1102,210 @@ We also recommend taking up at least one checkbox item from each of the followin
 
 ## Android team
 
-Coming soon!
+### 4.1 Support for Study Guides & Worked Examples, and Modernizing HTML Handling
+
+**Project Description:**
+The Oppia web platform introduced support for worked examples (through a custom rich-text tag) and study guides (which are a repurposed section-by-section representation of the old revision cards). We would like to bring this functionality into the Oppia Android app, along with some substantial infrastructural improvements to how HTML handling is done.
+
+The web version of the Study Guide mocks can be seen in [this Figma project](https://www.figma.com/design/xVkmX0xZdNCpj9CP7ec6pG/Learner-View-of-Revision-Card?node-id=0-1&t=Lt8v5o8bmEg0X1ct-1). This project involves creating basic mocks for how the UI should change to support the new sections, getting these mocks reviewed and finalized by the design team (during the community bonding period), and implementing those mocks.
+
+Worked examples are actually not being directly implemented in the UI as part of this project. This is due to the significant complexity of actually implementing a custom tag handler that can render an interactive drop-down experience like the web platform provides for worked examples. This can't effectively be done with a mere `TextView` without substantially breaking the accessibility Talkback experience. As such, this project actually plans to inline the worked examples to a basic 'question' and 'answer' format (similar to what content creators needed to do before the tag was implemented). That means this is a change only in the lesson download script/import pipeline rather than directly in the app.
+
+Finally, the process of breaking down and considering implementation strategies for worked examples yielded a realization: in order to actually support the full UI experience in the future the app would need to support actually breaking up HTML components into `RecyclerView`-esque lists for proper styling. The exact implementation of this is still not fully known and rather challenging (since nested navigation may be needed for Talkback--this requires user testing). While actually building the correct long-term solution isn't obvious, there's a prerequisite that _can_ be completed now and provides a variety of other stability benefits: replacing the representation of HTML text from actual HTML to a structured proto representation. This requires changes in:
+- The [proto API](https://github.com/oppia/oppia-proto-api).
+- The lesson download script.
+- The existing protos.
+- HTML parsing (which will essentially be fully replaced by a 'span building' systems interpreted from proto structures).
+
+Note that all of this functionality must be gated behind a feature flag on the app side.
+
+**Tracking issues**:
+To be added soon.
+
+**Not in scope:** Implementing the full box-like UI and collapsible sections that Oppia web has for worked examples.
+
+**Size:** Large (\~350 hours)
+
+**Difficulty**: Moderate
+
+**Potential mentors:** @MohitGupta121
+
+**Product/technical clarifiers:** @BenHenning (product & technical), @MohitGupta121 (technical)
+
+**Discussion forum:** https://github.com/oppia/oppia-android/discussions/categories/gsoc-q-a-4-android-projects
+
+**Required knowledge/skills:**
+- Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
+- Build the app and install it on a local device or emulator. Then verify that you can:
+  - (a) build a non-test library target locally
+  - (b) run a unit test locally
+  - (c) play through the app locally
+- Write new Kotlin code with unit tests.
+- Change Android UIs, write tests for them, and manually verify that they work.
+- Familiarity with how the team uses Kotlin scripts (recommended to have actually written or changed one, but this isn't a strong requirement).
+
+**Related issues:**
+- https://github.com/oppia/oppia-android/issues/5963
+- https://github.com/oppia/oppia-android/issues/5844
+
+**Suggested Milestones:**
+
+- **Milestone 1**:
+  - Introduction of a new feature flag to gate the worked examples and study guides functionality.
+  - Support for the new study guides experienced, gated behind the feature flag.
+  - Support for worked examples, gated behind the feature flag.
+
+- **Milestone 2**:
+  - Updates to app, script, and API protos to support the new structure.
+  - Introduction of a new feature flag to gate the HTML-alternative text representation.
+  - New string builder utility introduced with interoperability with the existing handlers to parse the new representation and build the necessary string to bind.
+  - Updates to the lesson download script and import pipeline to parse HTML and convert it to the new structure. Specific requirements:
+    - The script should output both the HTML & new representation for each structure (duplicated). The app should support loading from both depending on the flag being enabled.
+    - The following enforcement checks are added:
+      - Hard fail if any unexpected tags or tag attributes are encountered.
+      - Hard fail if the JSON structure for math tags are missing any properties.
+      - Hard fail if any expected "block" tags have other nested "block" tags (such as worked examples not containing other worked examples).
+
+<details>
+<summary>Org-admin/tech-lead commentary/advice</summary>
+
+Coming soon.
+
+</details>
+
+<details>
+<summary>What we are looking for in proposals</summary>
+
+Coming soon.
+
+</details>
+
+<details>
+<summary>Technical hints / guidance</summary>
+
+Coming soon.
+
+</details>
+
+<details>
+<summary>Suggested PM demo points</summary>
+
+- Milestone 1: That worked examples and study guides are supported, and only show when the corresponding feature flag is enabled.
+
+- Milestone 2: 
+</details>
+
+### 4.2 Streamlining Release Automation
+
+**Project Description:**
+The Oppia Android team currently needs to follow a manual, 17-page release process that is both incomplete and has out-of-date instructions, for each release of the app. This highly error-prone and complex manual process leads to multiple hours needing to be spent every time the team wants to ship a new release to end users. This project aims to significantly reduce the burden on the development team to conduct releases by:
+- Cleaning up and modernizing the release process to be a wiki page rather than a private Google document.
+- Introducing a variety of scripts and GitHub Actions tooling to reduce most of the steps of the process to simple "one-click" deployments to eliminate most of the complexity and time-consuming nature of the existing release process.
+
+One important note for this project is that the team currently only deploys to the Google Play Store. This project will include, as part of its deployment scripts, introducing support for deploying testable builds to [Firebase App Distribution](https://firebase.google.com/docs/app-distribution) to solve a very big headache that currently exists for the QA team: actually installing the correct version of the app. There's well-known synchronization issue wih Play Store that makes it difficult to actually guarantee testers get the correct build at the correct time, and it has caused multiple testers in the past to outright not be able to help with QA for past releases. Firebase App Distribution is expected to fully mitigate this problem and provide QA even more control over testing (such as by being able to switch between multiple release flavors rather than only being limited to a single flavor as is the case for the Play Store's Internal Testing release channel).
+
+Please also note the difficulty of this project. We are assuming most of the deployment steps will require small, custom Kotlin scripts (in-line with other scripts in the codebase) and are not solvable with existing deployment solutions. It may be the case that there are such solutions possible, but the team's own research suggests that we almost certainly have to build out this tooling from scratch due to the prerequisite for Bazel integration. We do expect existing libraries and tooling to be used for directly integrating with Play Store and Firebase.
+
+**Tracking issues**:
+Coming soon.
+
+**Not in scope:** Cron jobs to fully automate the beta & GA launches, or changelog translations (since the team plans to rely on automated translations for these). The steps for archiving releases, creating the release on GitHub, emailing the marketing team, and creating a GitHub discussion are all also not part of the project.
+
+**Size:** Large (\~350 hours)
+
+**Difficulty**: Hard
+
+**Potential mentors:** @adhiamboperes
+
+**Product/technical clarifiers:** @BenHenning (product & technical), @adhiamboperes (technical)
+
+**Discussion forum:** https://github.com/oppia/oppia-android/discussions/categories/gsoc-q-a-4-android-projects
+
+**Required knowledge/skills:**
+- Figure out the root cause of an issue and communicate it well using a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs).
+- Build the app and install it on a local device or emulator. Then verify that you can:
+  - (a) build a non-test library target locally
+  - (b) run a unit test locally
+  - (c) play through the app locally
+  - (d) build _each_ flavor of the app: dev, alpha, beta, GA.
+- Write new Kotlin code with unit tests.
+- Strong understanding of all the steps of the Oppia Android release process, and why each step is needed.
+- Familiarity with how the team uses Kotlin scripts (recommended to have actually written or changed one, but this isn't a strong requirement).
+- Familiarity with GitHub Actions and a strong concept of how cron jobs work.
+
+**Related issues:**
+- https://github.com/oppia/oppia-android/issues/5033
+- https://github.com/oppia/oppia-android/issues/5984
+- https://github.com/oppia/oppia-android/issues/3923
+- https://github.com/oppia/oppia-android/issues/5394
+- Related documentation:
+  - https://github.com/oppia/oppia-android/wiki/Platform-Parameters-&-Feature-Flags will relate to the feature release process.
+  - [Oppia Android release process](https://docs.google.com/document/d/1XAoXnQkn2oIAFkd6vY90tn_SSW3J9Eia0_4RhXhJSxQ/edit?tab=t.0). Note: this is almost 4 years out-of-date, so it will have some steps wrong. It will be updated soon to cover the latest steps.
+  - [GSoC project 6.1 from 2022](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2022#61-android-release-automation) included some of the same goals, but 2026's version is much more streamlined and targetd on specific pieces of automation.
+
+**Suggested Milestones:**
+
+- **Milestone 1**:
+  - Introduce support for maintaining a check-in version of the app changelog. Specifically, this changelog should:
+    - Provide a historical record of changes that goes into each release, mapped to major.minor release version.
+    - Be used as default for every flavor of the app unless that flavor has an override and a custom changelog to use (which needs to be supported).
+  - Support for the following new GitHub actions that can be manually triggered through the GitHub web interface:
+    - Deploy to Firebase App Distribution.
+    - Deploy to Play Store.
+    - Upload the changelog to Play Store.
+  - Note that each of the new actions above needs to:
+    - Work for each of the alpha, beta, and GA flavors of the app, and upload to the correct corresponding track.
+    - Be one action for all of the flavors (selecting the flavor should be an input).
+    - Work correctly for the changelog, meaning the correct changelog (version & flavor) is selected and is uploaded to the correct release track.
+
+- **Milestone 2**:
+  - Rewrite the existing release documentation and publish it as multiple wiki pages, also accounting for release features. The following pages should be added as a new 'Releasing' top-level section:
+    - An overview of the binary & feature release process.
+    - A high-level playbook for release coordinators detailing the steps they need to take for creating a new release and releasing it. These will mostly be using the new automation introduced in milestone 1. It also will need to account for the new release process that happens once https://github.com/oppia/oppia-android/issues/5033 is addressed.
+    - A more detailed playbook that provides detailed steps for manually performing each step necessary (for cases when GitHub Actions is broken or unavailable). Parts of this page will be linked to from the previous page so that it's easy to jump to manual instructions if needed.
+    - A playbook for developers adding new features and guiding them through the release process.
+  - Introduction of automatic generation for the following release artifacts:
+    - Changelogs: each time the minor version of the app is updated (a la [version.bzl](https://github.com/oppia/oppia-android/blob/develop/version.bzl)), a script should kick off to generate a new changelog for that version and automatically propose a PR to make the change. Specific requirements:
+      - The branch must be directly on the repository so that team members can edit it.
+      - The changelog should be sourced from all merged PRs and referenced issues since the last release (which is how GitHub generates its automated changelog for new releases).
+      - An LLM should be invoked using the above source material to provide a suggested, brief description of changes geared towards end users.
+      - The PR description for the proposed changelog should contain links to all of the reference material so that team members can choose to alter the context provided by the LLM.
+      - **Important**: The changelog is always for the _previous_ version (i.e. if we update the version from 1.1 to 1.2, then 1.1's changelog is what needs to be generated since 1.2 is now the unreleased developer build and 1.1 is soon to be released). Note that this is a difference from the past when the major/minor version represented the previous release.
+    - Lesson pinning: the lesson download script relies on a generated textproto file that contains all of the lesson IDs and versions to download. This file will soon be checked into `develop`, so a new cron job should be introduced that periodically (weekly to start) re-runs the download script that produces the pinned version file and introduces a PR for it. Specific requirements:
+      - Every week, run the script to generate a new pinned lesson textproto and propose a PR to update it.
+      - The same branch is used each time, similar to the Translatewiki model.
+      - If the branch already has an open PR, force push the changes (in general, always run against latest `develop` and force push the proposed changes into the branch).
+  - Introduce automated release cron for alpha: a new cron job that automatically pushes new alpha flavors of the app to their corresponding channels. Specific requirements:
+    - The cron should run weekly (i.e. we never push alpha more than once per week).
+    - The cron finds the most recent commit to `develop` with passing CI checks and compares it against the rolling alpha version of the app (which is denoted using the tag `latest-alpha`).
+    - If the commits are different, `latest-alpha` is updated to the latest passing CI `develop` commit and that version of the app is built and automatically deployed to both Firebase and Play Console.
+    - Note that this should be done in two steps: a workflow that performs all of the alpha detection and build kick-off work, and a cron that runs it. The former should be able to be manually started, as well.
+
+<details>
+<summary>Org-admin/tech-lead commentary/advice</summary>
+
+Coming soon.
+
+</details>
+
+<details>
+<summary>What we are looking for in proposals</summary>
+
+Coming soon.
+
+</details>
+
+<details>
+<summary>Technical hints / guidance</summary>
+
+Coming soon.
+
+</details>
+
+<details>
+<summary>Suggested PM demo points</summary>
+
+- Milestone 1: Demonstrating each of the new actions works with a test-only version of the app.
+
+- Milestone 2: Walk through the new wiki pages to demonstrate their content. Demonstration of the automatic changelog and lesson pinning crons running. Demonstration of the alpha cron automatically running.
+</details>
