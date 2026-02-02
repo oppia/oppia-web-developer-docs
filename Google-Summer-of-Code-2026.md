@@ -351,7 +351,7 @@ If you need clarification on any of these ideas, feel free to open a thread in G
 
 ### Android team
 
-- [4.1 Support for Study Guides & Worked Examples, and Modernizing HTML Handling](#41-support-for-study-guides-worked-examples-and-modernizing-html-handling)
+- [4.1 Support for Study Guides & Worked Examples, and Modernizing HTML Handling](#41-support-for-study-guides--worked-examples-and-modernizing-html-handling)
 - [4.2 Streamlining Release Automation](#42-streamlining-release-automation)
 
 ## Learners, Educators, Allies, and Parents (LEAP) team
