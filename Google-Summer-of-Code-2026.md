@@ -1193,7 +1193,7 @@ Coming soon.
 
 - Milestone 1: That worked examples and study guides are supported, and only show when the corresponding feature flag is enabled.
 
-- Milestone 2: 
+- Milestone 2: That the app correctly renders the new proto representation of text when the corresponding feature flag is enabled. This may require some real-time hacking to demonstrate that the app is actually using the proto rather than HTML representation, and some code and textproto walkthrough to demonstrate that the lesson script is actually converting the HTML correctly.
 </details>
 
 ### 4.2 Streamlining Release Automation
