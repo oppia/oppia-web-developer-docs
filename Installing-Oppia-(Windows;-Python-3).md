@@ -195,7 +195,7 @@ Any VM manager is fine, but the instructions here are specific to VirtualBox.
 
 1. Install VirtualBox from [here](https://www.virtualbox.org/wiki/Downloads).
 2. Open VirtualBox and click New.
-3. Select Type as "Linux", Version "Ubuntu 64bit" and give some name for the VM.
+3. Select Type as "Linux", Version "Ubuntu 64-bit" and give some name for the VM.
 4. In the next page, select an appropriate amount of RAM for the VM (can be changed later). The whole dev environment is verified to work smoothly at 6 GB RAM. At least 4 GB is recommended.
 5. In the next page, select "Create a virtual hard disk now" and click Create.
 6. Select VDI as the file type.
@@ -204,7 +204,7 @@ Any VM manager is fine, but the instructions here are specific to VirtualBox.
 
 ## Install Ubuntu 18 ISO
 
-1. Download the Ubuntu 18.04 64bit ISO from [here](https://releases.ubuntu.com/18.04/).  Alternatively the version 22.04 can be downloaded from (https://releases.ubuntu.com/jammy/).
+1. Download the Ubuntu 18.04 64-bit ISO from [here](https://releases.ubuntu.com/18.04/).  Alternatively the version 22.04 can be downloaded from (https://releases.ubuntu.com/jammy/).
 2. Select the newly created VM in the virtual box and click Start.
 3. Here, a window pops up where you have to link the downloaded ISO file. Click the folder icon and select the ISO from your machine.
 4. Now, go through the normal Ubuntu installation steps, you can do the following specific steps:
