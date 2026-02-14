@@ -35,6 +35,7 @@ Here are some general troubleshooting tips for Oppia. The platform specific tips
   - [ModuleNotFoundError: No module named \_bz2](#modulenotfounderror-no-module-named-_bz2)
   - [Subprocess.CalledProcessError: Command 'yarn install --pure-lockfile' returned non-zero exit status 1](#subprocesscalledprocesserror-command-yarn-install---pure-lockfile-returned-non-zero-exit-status-1)
 - [Mac OS](#mac-os)
+  - [Redis CLI error: variable has incomplete type 'struct stat64'](#redis-cli-error-variable-has-incomplete-type-struct-stat64)
   - [Error: alert\_on\_exit() -\> Iterator\[None\]](#error-alert_on_exit---iteratornone)
   - [Local datastore data are not being deleted](#local-datastore-data-are-not-being-deleted)
   - [No module named '\_ctypes' on M1 Macs](#no-module-named-_ctypes-on-m1-macs)
@@ -434,6 +435,36 @@ npm install  yarn
 
 
 ## Mac OS
+
+### Redis CLI error: variable has incomplete type 'struct stat64'
+If after running python -m scripts.start, you get an error similar to this below:
+
+```
+replication.c:1312:31: error: variable has incomplete type 'struct stat64'
+ 1312 |             struct redis_stat buf;
+      |                               ^
+replication.c:1359:21: error: call to undeclared function 'fstat64'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+ 1359 |                     redis_fstat(slave->repldbfd,&buf) == -1) {
+      |                     ^
+```
+
+Then, 
+1. Patch the redis config file. Open `../../oppia_tools/redis-cli-6.2.4/src/config.h` in your favorite text editor and apply the following patch:
+    ```diff
+    index 3c9a2701..4607c177 100644
+    --- a/src/config.h
+    +++ b/src/config.h
+    @@ -31,6 +31,7 @@
+    #define __CONFIG_H
+    
+    #ifdef __APPLE__
+    +#define _DARWIN_C_SOURCE
+    #include <fcntl.h> // for fcntl(fd, F_FULLFSYNC)
+    #include <AvailabilityMacros.h>
+    #endif
+    ```
+
+2. Re-run `python -m scripts.start` and the error should be gone.
 
 ### Error: alert_on_exit() -> Iterator[None]
 
