@@ -54,7 +54,7 @@ If your Mac has an Apple Silicon chip, follow these instructions first:
     $ /usr/bin/arch -x86_64 $SHELL --login
     ```
 
-    This switches the architecture from Apple Silicon’s *ARM* architecture to the emulated *Intel* architecture for the current session. To verify this, run `arch` in the terminal and you should see `i386` being printed. You may need to switch the architecture to Intel for Oppia development if you run into dependency or build issues.
+    This switches the architecture from Apple Silicon’s *ARM* architecture to the emulated *Intel* architecture for the current session. To verify this, run `arch` in the terminal and you should see `i386` being printed. You will need to switch the architecture to Intel for all Oppia development.
 
     If you use Homebrew to install any Python development dependencies for pyenv (discussed below), you will need to install and use Homebrew in this terminal as well. Note that while you can have a Homebrew installation for Apple Silicon and another for Intel architectures installed simultaneously, pyenv is not smart enough to pick the Intel dependencies if both are present, so we recommend using an Intel installation of Homebrew exclusively.
 
