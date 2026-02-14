@@ -3,7 +3,7 @@
 * [Installing Oppia in Windows and WSL2](#installing-oppia-in-windows-and-wsl2)
   * [Step 1: Check if your Windows is up to date](#step-1-check-if-your-windows-is-up-to-date)
   * [Step 2: Install WSL2](#step-2-install-wsl2)
-  * [Step 3: Install the ubuntu app from the Microsoft Store](#step-3-install-the-ubuntu-app-from-the-microsoft-store)
+  * [Step 3: Install the Ubuntu app from the Microsoft Store](#step-3-install-the-ubuntu-app-from-the-microsoft-store)
   * [Step 4: Clone your fork and setup](#step-4-clone-your-fork-and-setup)
   * [Step 5: Download and install google-chrome (in the Ubuntu Environment)](#step-5-download-and-install-google-chrome-in-the-ubuntu-environment)
   * [Step 6: Add a lightweight desktop environment](#step-6-add-a-lightweight-desktop-environment)
@@ -35,7 +35,7 @@
 
 *For information on issues that may occasionally arise with the installation process, please see the [Troubleshooting](https://github.com/oppia/oppia/wiki/Troubleshooting) page.*
 
-There follow instructions for 3 different ways to install Oppia on Windows: using WSL2, using VirtualBox, and using WSL1. You only need to follow one of the four.
+The following are instructions for 3 different ways to install Oppia on Windows: using WSL2, using VirtualBox, and using WSL1. You only need to follow one of the three.
 **The first approach (Installing Oppia in Windows and WSL2) is recommended.**
 
 Note: If you already use VirtualBox, it will stop working after installing WSL2 because the hypervisor resource gets locked by WSL2, and can't be used by VirtualBox. WSL2 is much faster, but make sure to copy over all your data from the VM before proceeding with the installation of WSL2.
@@ -44,11 +44,11 @@ Note: If you already use VirtualBox, it will stop working after installing WSL2 
 
 ## Step 1: Check if your Windows is up to date
 
-To do so press "windows-key + r" and type `winver`.
+To do so press "Windows-key + r" and type `winver`.
 
 ![Screenshot 2020-09-18 at 11 56 20 PM](https://user-images.githubusercontent.com/23002114/93634575-75bc9200-fa0e-11ea-8690-98afbda2a02e.png)
 
-This will open up a window. Note down your windows version number and build number.
+This will open up a window. Note down your Windows version number and build number.
 
 ![Screenshot 2020-09-18 at 11 56 54 PM](https://user-images.githubusercontent.com/23002114/93634585-79e8af80-fa0e-11ea-97f8-d60275130e01.png)
 
@@ -63,10 +63,10 @@ Make sure your version and build meet the following criteria:
 
 You can install WSL2 by following the steps [here](https://docs.microsoft.com/en-us/windows/wsl/install-win10) until step 5.
 
-* The windows version number and build number will be useful in determining whether or not your system needs to be updated.
+* The Windows version number and build number will be useful in determining whether or not your system needs to be updated.
 
 
-## Step 3: Install the ubuntu app from the Microsoft Store
+## Step 3: Install the Ubuntu app from the Microsoft Store
 
 Install Ubuntu 18.04 LTS from the Microsoft Store.
 
@@ -77,7 +77,7 @@ Once it is installed, run the app from the startup menu. After initializing your
 |-|-|
 |![Screenshot 2020-09-18 at 11 57 22 PM](https://user-images.githubusercontent.com/23002114/93634596-7e14cd00-fa0e-11ea-8a07-0b4b65499225.png)|![Screenshot 2020-09-18 at 11 57 35 PM](https://user-images.githubusercontent.com/23002114/93634597-7fde9080-fa0e-11ea-8ba1-0c29be080fd7.png)|
 
-**Note: You can go for Ubuntu 20.04 or "Ubuntu" as well but it comes as a barebones config. It means that you will have to install all the libs yourself, i.e, gcc, make, etc to run oppia. If you are familiar with these processes then you can use these as well.**
+**Note: You can go for Ubuntu 20.04 or "Ubuntu" as well but it comes as a barebones config. It means that you will have to install all the libs yourself, i.e., gcc, make, etc to run oppia. If you are familiar with these processes then you can use these as well.**
 
 ## Step 4: Clone your fork and setup
 
@@ -87,7 +87,7 @@ If you are facing problems with pushing the code to your fork check this link: [
 
 ## Step 5: Download and install google-chrome (in the Ubuntu Environment)
 
-_Even if you have Chrome installed on you windows system, you still need to do this to run E2E tests and unit tests._
+_Even if you have Chrome installed on your Windows system, you still need to do this to run E2E tests and unit tests._
 
 Run the following commands to download latest chrome:
 
@@ -136,10 +136,10 @@ Add these lines:
 startxfce4
 ```
 
-Once inside Nano, you can use the arrow keys to move between lines. When you are done with your changes press: `ctrl+x` followedby `Y` followedby enter to save the file.
+Once inside Nano, you can use the arrow keys to move between lines. When you are done with your changes press: `ctrl+x` followed by `Y` followed by enter to save the file.
 You can read more about RDP, XFCE, XRDP in the [Appendix](#appendix).
 
-## Step 7: Start the rdp server
+## Step 7: Start the RDP server
 
 ```console
 sudo /etc/init.d/xrdp start
@@ -147,7 +147,7 @@ sudo /etc/init.d/xrdp start
 
 ## Step 8: Connect to the server using the Windows RDP client
 
-The name of the app is "Remote Desktop Connection". It is already installed in the windows system by default. No need to use any third-party app.
+The name of the app is "Remote Desktop Connection". It is already installed in the Windows system by default. No need to use any third-party app.
 
 ![Screenshot 2020-09-19 at 12 33 03 AM](https://user-images.githubusercontent.com/23002114/93635466-f334d200-fa0f-11ea-99d3-da39d4deecd8.png)
 
@@ -168,13 +168,13 @@ Navigate to any browser and access Oppia at http://localhost:8181.
 
 ## How to run the E2E tests?
 
-Open the terminal (in the ubuntu-desktop env/ the RDP client) and run `google-chrome`. Then Open a new terminal tab and run your e2e tests 🙂. To check you can run `python -m scripts.run_e2e_tests --suite="users"`.
+Open the terminal (in the ubuntu-desktop env/ the RDP client) and run `google-chrome`. Then open a new terminal tab and run your e2e tests 🙂. To check you can run `python -m scripts.run_e2e_tests --suite="users"`.
 
 **Note: You only need to use the RDP client to run e2e tests. You don't have to start the X server for developing and pushing code.**
 
 ## Miscellaneous
 
-- The WSL environment does not support audio, but it can be enabled by installing the [PulseAudio](https://wiki.ubuntu.com/PulseAudio) server on Windows following [this guide](https://token2shell.com/howto/x410/enabling-sound-in-wsl-ubuntu-let-it-sing/). With the latest [wslu package](https://launchpad.net/ubuntu/+source/wslu) installed the starting Ubuntu app detects the running [PulseAudio](https://wiki.ubuntu.com/PulseAudio) server and enables audio.
+- The WSL environment does not support audio, but it can be enabled by installing the [PulseAudio](https://wiki.ubuntu.com/PulseAudio) server on Windows following [this guide](https://token2shell.com/howto/x410/enabling-sound-in-wsl-ubuntu-let-it-sing/). With the latest [wslu package](https://launchpad.net/ubuntu/+source/wslu) installed, the Ubuntu app on startup detects the running [PulseAudio](https://wiki.ubuntu.com/PulseAudio) server and enables audio.
 - VSCode comes with an extension called remote-wsl, that makes it very easy to code when the code exists in your Ubuntu folder.
 - Per [this AskUbuntu question](https://askubuntu.com/questions/1115564/wsl-ubuntu-distro-how-to-solve-operation-not-permitted-on-cloning-repository), Git clone doesn’t work on mounted drives within WSL so be sure not to use it.
 - When in the Ubuntu file system, you can type `explorer.exe .`  (don't forget the extra dot at the end) to open that folder in your Windows file explorer.
@@ -207,7 +207,7 @@ Any VM manager is fine, but the instructions here are specific to VirtualBox.
 1. Download the Ubuntu 18.04 64bit ISO from [here](https://releases.ubuntu.com/18.04/).  Alternatively the version 22.04 can be downloaded from (https://releases.ubuntu.com/jammy/).
 2. Select the newly created VM in the virtual box and click Start.
 3. Here, a window pops up where you have to link the downloaded ISO file. Click the folder icon and select the ISO from your machine.
-4. Now, go through the normal Ubuntu installation steps, you can do the following the specific steps:
+4. Now, go through the normal Ubuntu installation steps, you can do the following specific steps:
  * Select "Minimal Installation", and check both checkboxes below it.
  * Select "Erase disk and install Ubuntu". Don't worry, no data in your host machine will be affected :).
 5. Once, Ubuntu is running and everything is done installing, exit from VM.
@@ -330,6 +330,6 @@ You're done! Now return to the [code contribution instructions](https://github.c
 
 - RDP: Remote Desktop Protocol is a proprietary protocol developed by Microsoft which provides a user with a graphical interface to connect to another computer over a network connection. The user employs RDP client software for this purpose, while the other computer must run RDP server software. [More Info](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol).
 
-- XRDP: xrdp is a free and open-source implementation of Microsoft RDP server that enables operating systems other than Microsoft Windows to provide a fully functional RDP-compatible remote desktop experience. It works by bridging graphics from the X Window System to the client and relaying controls from the client back to X. [More Info](https://en.wikipedia.org/wiki/Xrdp).
+- XRDP: XRDP is a free and open-source implementation of Microsoft RDP server that enables operating systems other than Microsoft Windows to provide a fully functional RDP-compatible remote desktop experience. It works by bridging graphics from the X Window System to the client and relaying controls from the client back to X. [More Info](https://en.wikipedia.org/wiki/Xrdp).
 
 - XFCE: Xfce or XFCE is a free and open-source desktop environment for Linux and BSD operating systems. Xfce aims to be fast and lightweight while still being visually appealing and easy to use. Xfce embodies the traditional Unix philosophy of modularity and re-usability. [More Info](https://en.wikipedia.org/wiki/Xfce).
