@@ -697,6 +697,10 @@ Milestone 2:
 This project aims to simplify the contribution process by automatically providing AI-based translation suggestions. Contributors will have the option to accept the suggested translation (and edit it if needed) or reject it. If the AI suggestion is rejected, contributors can add the translation manually, following the existing workflow.
 
 Links to PRD and mocks:
+* [Mocks](https://www.google.com/url?q=https://www.figma.com/design/sKceFIRyOrObXz6F8VALia/-128-Show-auto-translation-suggestions-for-contributor-dashboard-translation-submitters?node-id%3D0-1%26p%3Df&sa=D&source=docs&ust=1771111128214747&usg=AOvVaw0dBrzLjKc5yXW5EYVI5CId) with the following tweaks:
+  * You don't need to highlight the parts of the auto-generated translation that the user changes.
+  * Include a checkbox or toggle that the translator needs to click to confirm they've reviewed the automated suggestions if they don't make any changes.
+  * To submit the translation, require that the user have looked at the translated alt text for each image. Currently we require this by forcing translators to click on images, which opens a modal showing the alt text, to copy the images into the translation, but that mechanism won't work for automated translations.
 
 **Tracking issues**:
 
@@ -725,31 +729,45 @@ Automating the translation pipeline could be explored as a future project, depen
 - Write or modify e2e/acceptance tests.
 - (maybe, depending on your technical approach) Write or modify Beam jobs.
 
-**We're still working on finalizing the details for this project. We'll update this page with the full project idea soon.**
-
-<!--
 **Related issues:**
 
-- 
+- Contributors can work on something from this list to understand the translation workflow: https://github.com/orgs/oppia/projects/18/views/4?sliceBy%5Bvalue%5D=%5BProject%5D+Fix+issues+in+the+main+translator%2Fquestion+opportunities+dashboard
+- Full-stack related issues: https://github.com/oppia/oppia/issues?q=state%3Aopen%20label%3Afull-stack
+- https://github.com/oppia/oppia/issues/16837
 
 **Suggested Milestones:**
 
-- **Milestone 1**: 
+- **Milestone 1**:
+  - Build backend infrastructure to generate automatic translations for entities. The infrastructure should be flexible enough to support adding or removing languages used for translation generation.
+  - Build the backend infrastructure to store the generated translations in a cache model to avoid multiple translation generations of the same content in a language.
+  - The translations should be generated on the fly while contributors add translation suggestions from the Contributor Dashboard. Please have a look at the Figma mocks for more clarity.
+  - Use the Azure Translator SDK ([reference](https://learn.microsoft.com/en-us/azure/ai-services/translator/text-translation/quickstart/client-library-sdk?pivots=programming-language-python)) to generate translations for Oppia content. The translation configuration should be flexible and language-specific, allowing us to define which service is used for each supported language.
+  - This design should make it easy to onboard additional third-party translation providers in the future (for example, GCP), with minimal code changes. A JSON-based configuration can be used to map languages to translation platforms such as Azure or GCP.
+  - Develop full-stack functionality to enable the addition and removal of languages from the translator admin page (the UI will be very similar to the existing voiceover admin page), supporting automatic translation generation.
 
-- **Milestone 2**:
+
+- **Milestone 2**: Contributors should be able to view AI-based translation suggestions in the Contributor Dashboard. They should be able to submit translations by fully accepting the suggested AI translation, accepting it after making edits, or rejecting it entirely and providing a manual translation instead. If translators don't click the "Auto-Translate" button, everything should work as it did before the auto-translation project.
 
 <details>
 <summary>Org-admin/tech-lead commentary/advice</summary>
+
+We're still working on this part and will add details soon.
 
 </details>
 
 <details>
 <summary>What we are looking for in proposals</summary>
 
+- A structured and extensible design that supports multiple translation services in the future, beyond the current Azure-based implementation, with the ability to configure translation providers on a per-language basis.
+- Comprehensive examples demonstrating successful translations using Azure for Oppia content, including math, images, and other Oppia interactions.
+- A detailed end-to-end implementation plan, covering the process from generating translations using the Azure Translator SDK to surfacing translation suggestions in the frontend UI.
+
 </details>
 
 <details>
 <summary>Technical hints / guidance</summary>
+
+We're still working on this part and will add details soon.
 
 </details>
 
@@ -758,10 +776,16 @@ Automating the translation pipeline could be explored as a future project, depen
 
 Milestone 1:
 
+- The translation admin page should successfully support adding and removing languages for automatic translations, enabling/disabling the overall translation suggestions functionality.
+- The translation admin page should support changing the automatic translation service used for any language. 
+- Should be able to show the generated translations for selected entities and log the output either in the console or terminal. 
+- Additionally, the quality of the generated translations must be reviewed and approved by the translation team to ensure they meet the standards of the existing content translation in the respective language.
+
 Milestone 2:
 
+- Demonstrate the complete end-to-end workflow, showing how AI-based translation suggestions are generated, modified, and accepted by contributors, followed by how translator reviewers approve the suggested translations without altering the existing review flow.
+
 </details>
--->
 
 ## Developer Workflow Team
 
