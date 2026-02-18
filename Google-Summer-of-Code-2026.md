@@ -342,6 +342,7 @@ If you need clarification on any of these ideas, feel free to open a thread in G
 ### Creators, Operations, Reviewers, and Editors (CORE) team
 
 - [2.1. Automatic translation suggestions](#21-automatic-translation-suggestions)
+- [2.2. Extend translation infrastructure to exploration metadata and skills](#22-extend-translation-infrastructure-to-exploration-metadata-and-skills)
 
 ### Developer Workflow team
 
@@ -697,9 +698,8 @@ Milestone 2:
 This project aims to simplify the contribution process by automatically providing AI-based translation suggestions. Contributors will have the option to accept the suggested translation (and edit it if needed) or reject it. If the AI suggestion is rejected, contributors can add the translation manually, following the existing workflow.
 
 Links to PRD and mocks:
-* [Mocks](https://www.google.com/url?q=https://www.figma.com/design/sKceFIRyOrObXz6F8VALia/-128-Show-auto-translation-suggestions-for-contributor-dashboard-translation-submitters?node-id%3D0-1%26p%3Df&sa=D&source=docs&ust=1771111128214747&usg=AOvVaw0dBrzLjKc5yXW5EYVI5CId) with the following tweaks:
+* [Mocks](https://www.figma.com/design/l5CN6GOxtqlZYKrOYBK88p/Automatic-translation-UI?node-id=0-1&t=mKCsNeEwEK1SOsev-1) with the following tweaks:
   * You don't need to highlight the parts of the auto-generated translation that the user changes.
-  * Include a checkbox or toggle that the translator needs to click to confirm they've reviewed the automated suggestions if they don't make any changes.
   * To submit the translation, require that the user have looked at the translated alt text for each image. Currently we require this by forcing translators to click on images, which opens a modal showing the alt text, to copy the images into the translation, but that mechanism won't work for automated translations.
 
 **Tracking issues**:
@@ -751,7 +751,7 @@ Automating the translation pipeline could be explored as a future project, depen
 <details>
 <summary>Org-admin/tech-lead commentary/advice</summary>
 
-We're still working on this part and will add details soon.
+This project implements a full-stack, largely self-contained feature that has the potential to immediately improve the translator experience. The selected contributor will likely work with the translation team to get feedback, so this project is great for those who value seeing the impact of their work quickly. This project has a little of everything, from backend architecture design to frontend UI work.
 
 </details>
 
@@ -767,7 +767,21 @@ We're still working on this part and will add details soon.
 <details>
 <summary>Technical hints / guidance</summary>
 
-We're still working on this part and will add details soon.
+Caching automatic translation: 
+- Each piece of content is translated in the backend and displayed on the CD dashboard when the user submits a translation. Instead of calling the third-party service (Azure, in this case) every time, we can store the generated translations in the datastore.
+- This way, if another exploration — or even the same exploration — contains identical content, we can reuse the previously generated translation instead of sending a new request to the external service. This approach reduces both processing time and cost.
+- To implement this, we can:
+  - Generate a hash of the original English content.
+  - Store the hash along with the original content, target language code, and the generated translation in the datastore.
+  - When a new translation request is received, first check whether a matching hash entry already exists.
+  - If a match is found, reuse the stored translation instead of calling the third-party API.
+  - Ensure proper handling of potential hash collisions.
+- This optimization improves efficiency, reduces redundant API calls, and lowers overall operational costs.
+
+
+How to make changing third-party translation provider easy
+- There are multiple ways to implement this. The simplest approach would be to maintain a JSON configuration file in the codebase that maps each language to the third-party provider used for automatic translation regeneration. Then create backend objects or functions that handle querying the third-party provider and present a common interface to the rest of our backend code so we can easily swap them out.
+- A similar approach has already been implemented for automatic voiceover regeneration. You can refer to the autogeneratable_language_accent_list.json file in the assets directory of the codebase as a reference.
 
 </details>
 
@@ -784,6 +798,112 @@ Milestone 1:
 Milestone 2:
 
 - Demonstrate the complete end-to-end workflow, showing how AI-based translation suggestions are generated, modified, and accepted by contributors, followed by how translator reviewers approve the suggested translations without altering the existing review flow.
+
+</details>
+
+### 2.2. Extend translation infrastructure to exploration metadata and skills
+
+**Project Description:** Currently, we have two main mechanisms for translating content at Oppia: translatewiki and the contributor dashboard. Translatewiki handles content that is not user-generated, for example the text on the homepage at oppia.org. The goal of this project is to extend the contributor dashboard to handle other kinds of user-generated content in our curated curriculum, specifically the following:
+
+- exploration metadata (e.g. titles and tags)
+- skill (concept card) content
+
+The finished product should also be easily extended to other kinds of content in the future, for example:
+
+- topic metadata
+- story metadata
+- study guide content
+
+At a high level, this project consists of:
+
+- Displaying all translatable opportunities of the new entities in the contributor dashboard.
+- Displaying all reviewable translated suggestions in the reviewer dashboard.
+- Displaying translated contents to learners when a language other than English is selected.
+
+Links to PRD and mocks: We have a full TDD instead of a PRD: docs.google.com/document/d/1cFJ6weoOWPopLFpRf2lw4RRPPNFVJ4QVLqdxb_WsLyY/edit. You are welcome to draw inspiration from the TDD, but you should not assume that its suggested approach is best. We expect you to critically evaluate it and suggest deviations when appropriate.
+
+**Tracking issues**:
+
+- https://github.com/oppia/oppia/issues/22793
+- https://github.com/oppia/oppia/issues/24933
+
+**Not in scope:** 
+
+- Supporting translation of content outside our curated curriculum, for example user profiles or explorations that aren’t connected to a topic.
+- Supporting translation of entities besides exploration metadata and skill content.
+- Actually doing the translations. This project is just about creating the infrastructure and interface that will support the translation team in doing the actual translations.
+
+**Size:** Large (\~350 hours)
+
+**Difficulty**: Hard
+
+**Potential mentors:** @chris7716 and @masterboy376
+
+**Product/technical clarifiers:** @chris7716 (product), @chris7716 (technical)
+
+**Discussion forum:** https://github.com/oppia/oppia/discussions/categories/gsoc-q-a-2-core-projects
+
+**Required knowledge/skills:**
+
+- Figure out the root cause of an issue and communicate it well using a debugging doc.
+- Debug and fix CI failures/flakes.
+- Write Python code with unit tests.
+- Write TS + Angular code with unit tests.
+- Write or modify e2e/acceptance tests.
+- Write or modify Beam jobs.
+- Architecting extensible code infrastructure
+
+**Related issues:**
+
+- Bugs in https://github.com/orgs/oppia/projects/18/views/4?sliceBy%5Bvalue%5D=%5BProject%5D+Expand+translation%2Fvoiceover+opportunities+to+include+all+user-created+content
+- Translation issues in https://github.com/orgs/oppia/projects/18/views/4?sliceBy%5Bvalue%5D=%5BProject%5D+Fix+issues+for+translation%2Fquestion+coordinators
+https://github.com/orgs/oppia/projects/18/views/4?sliceBy%5Bvalue%5D=%5BProject%5D+Fix+issues+affecting+translation+reviewer+workflows
+
+**Suggested Milestones:**
+
+- **Milestone 1**: Build the extensible translation infrastructure and migrate the translations currently supported by the contributor dashboard (i.e. exploration non-metadata content) to use it.
+
+- **Milestone 2**: Exploration metadata and skill content can be translated through the contributor dashboard, and all legacy code related to the old translation system has been removed.
+
+<details>
+<summary>Org-admin/tech-lead commentary/advice</summary>
+
+This is a complicated project that primarily consists of backend changes, plus some changes to the frontend code to keep it compatible with the new backend. We expect minimal changes to the user interface. Contributors skilled in the creation of modular, extensible frameworks will likely be particularly well-suited for this project. The first milestone, implementing the extensible framework, is the most critical and the trickiest. Mistakes here will lead to problems extending the framework to other entity types in the second milestone. We think most of the technical issues have been thought through and solved already, which both reduces the amount of planning and design work required of the contributor, and also may help avoid technical issues derailing the project.
+
+</details>
+
+<details>
+<summary>What we are looking for in proposals</summary>
+
+A TDD has already been drafted for this project, so we’ll be looking for evidence that applicants deeply understand the proposed approach and have critically evaluated it. Read the TDD closely, consider whether you think the approach makes sense, and reach out to us with questions and alternative ideas. The solution in the TDD might not actually be the best, and pointing out issues with the TDD is a great way to show you really understand it.
+
+</details>
+
+<details>
+<summary>Technical hints / guidance</summary>
+
+We’ve already put a good amount of thought into the technical details. See the TDD for our proposed plan.
+
+</details>
+
+<details>
+<summary>Suggested PM demo points</summary>
+
+Milestone 1:
+
+- The contributor dashboard works like it did before. Opportunities are surfaced for translators, translators can submit translations, reviewers can review them, and accepted translations are displayed to users.
+- Topic filtering for translators and reviewers works.
+- While the contributor dashboard user experience hasn’t changed, it is now implemented using an extensible infrastructure that we can easily extend to the rest of the user-generated content in our curated curriculum.
+- All applicable frontend, backend, and acceptance (unlikely to change much) tests have been written.
+
+Milestone 2:
+
+- Opportunities for user-generated content in the curated curriculum are surfaced for translators, translators can submit translations, reviewers can review them, and accepted translations are displayed to users. Check that the following kinds of content can be translated:
+  - exploration metadata (e.g. titles and tags)
+  - skill (concept card) content
+- Translators and reviewers can filter by topic
+- All applicable frontend, backend, and acceptance (unlikely to change much) tests have been written.
+- The translation infrastructure is extensible to easily support new kinds of content.
 
 </details>
 
