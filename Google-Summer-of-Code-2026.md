@@ -881,7 +881,7 @@ This is a complicated project that primarily consists of backend changes, plus s
 <details>
 <summary>What we are looking for in proposals</summary>
 
-A TDD has already been drafted for this project, so we’ll be looking for evidence that applicants deeply understand the proposed approach and have critically evaluated it. Read the TDD closely, consider whether you think the approach makes sense, and reach out to us with questions and alternative ideas. The solution in the TDD might not actually be the best, and pointing out issues with the TDD is a great way to show you really understand it.
+A TDD has already been drafted for this project, so we’ll be looking for evidence that applicants deeply understand the proposed approach and have critically evaluated it. Read the TDD closely, consider whether you think the approach makes sense, and reach out to us with questions and alternative ideas. The solution in the TDD might not actually be the best, and pointing out issues with the TDD is a great way to show you really understand it. Further, the TDD gives a rather high-level explanation of some parts of the project, for example what changes will be required to show translations of the newly-translated entities to users. Your proposal should delve into the details of these parts. We've also had a number of issues with keeping translation counts up-to-date (see https://github.com/oppia/oppia/issues/21878), so you should address how you plan to avoid similar issues in your project.
 
 </details>
 
