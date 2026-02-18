@@ -435,6 +435,7 @@ Milestone 1:
 - Show the "Include session info" checkbox (unchecked by default).
 - The feedback is stored as expected on the backend
 - CAPTCHA integration
+- All applicable frontend, backend, and acceptance tests have been written and pass robustly.
 
 Milestone 2:
 
@@ -443,6 +444,7 @@ Milestone 2:
 - Admins can dismiss feedback
 - Admins can delete feedback
 - Feedback is automatically deleted every 6 months
+- All applicable frontend, backend, and acceptance tests have been written and pass robustly.
 
 </details>
 
@@ -554,7 +556,7 @@ Milestone 1:
 - Certificate assessment offerings can be created, viewed, edited, and deleted.
 - Validation checks prevent the creation of invalid assessment offerings.
 - Changes made through the frontend are persisted to storage models in the backend.
-- Acceptance tests for all implemented user journeys have been written and pass robustly (i.e. are not flaky).
+- All applicable frontend, backend, and acceptance tests have been written and pass robustly.
 
 Milestone 2:
 
@@ -562,7 +564,7 @@ Milestone 2:
 - Learners can see their history of assessment attempts.
 - Learner assessment results are persisted to the backend.
 - Assessments are correctly generated.
-- Acceptance tests for all implemented user journeys have been written and pass robustly (i.e. are not flaky).
+- All applicable frontend, backend, and acceptance tests have been written and pass robustly.
 
 </details>
 
@@ -680,12 +682,14 @@ Milestone 1:
 - Lessons and practices are shown in the correct order. The user can scroll through them. Check that scroll distances and scrolling availability are correct, given the number of items and screen size.
 - Lessons and practices can be selected to show more details.
 - Lessons and practices can be filtered, and the state of this filter is remembered the next time the user loads the page.
+- All applicable frontend, backend, and acceptance tests have been written and pass robustly.
 
 Milestone 2:
 
 - Progress indicators are displayed, and progress is calculated correctly, for both lessons and practices.
 - Users are shown pop-ups when loading in-progress or completed lessons.
 - Languages are selected correctly for lessons. This includes secondary language selection and pop-ups.
+- All applicable frontend, backend, and acceptance tests have been written and pass robustly.
 
 </details>
 
@@ -794,10 +798,12 @@ Milestone 1:
 - The translation admin page should support changing the automatic translation service used for any language. 
 - Should be able to show the generated translations for selected entities and log the output either in the console or terminal. 
 - Additionally, the quality of the generated translations must be reviewed and approved by the translation team to ensure they meet the standards of the existing content translation in the respective language.
+- All applicable frontend, backend, and acceptance tests have been written and pass robustly.
 
 Milestone 2:
 
 - Demonstrate the complete end-to-end workflow, showing how AI-based translation suggestions are generated, modified, and accepted by contributors, followed by how translator reviewers approve the suggested translations without altering the existing review flow.
+- All applicable frontend, backend, and acceptance tests have been written and pass robustly.
 
 </details>
 
@@ -894,7 +900,7 @@ Milestone 1:
 - The contributor dashboard works like it did before. Opportunities are surfaced for translators, translators can submit translations, reviewers can review them, and accepted translations are displayed to users.
 - Topic filtering for translators and reviewers works.
 - While the contributor dashboard user experience hasn’t changed, it is now implemented using an extensible infrastructure that we can easily extend to the rest of the user-generated content in our curated curriculum.
-- All applicable frontend, backend, and acceptance (unlikely to change much) tests have been written.
+- All applicable frontend, backend, and acceptance (unlikely to change much) tests have been written and pass robustly.
 
 Milestone 2:
 
@@ -902,7 +908,7 @@ Milestone 2:
   - exploration metadata (e.g. titles and tags)
   - skill (concept card) content
 - Translators and reviewers can filter by topic
-- All applicable frontend, backend, and acceptance (unlikely to change much) tests have been written.
+- All applicable frontend, backend, and acceptance (unlikely to change much) tests have been written and pass robustly.
 - The translation infrastructure is extensible to easily support new kinds of content.
 
 </details>
@@ -1012,6 +1018,7 @@ Milestone 2:
 - Every mobile acceptance test should record a complete test. (Can be verified by stress testing an acceptance test).
 - Running a test with snapshot mismatch, the test should take all steps after comparison and throw a snapshot mismatch error at the end. Test should also upload new snapshot taken as artifact.
 - We should have complete documentation on acceptance tests including updating screenshots, etc.
+- 10 acceptance test flakes have been resolved, and their tests now pass robustly.
 
 </details>
 
@@ -1122,9 +1129,9 @@ In addition to your implementation approach, please also:
 <details>
 <summary>Suggested PM demo points</summary>
 
-- Milestone 1: At least one domain object is using BaseVersionedDomainObject, and all the get/save functionality works correctly.
+- Milestone 1: At least one domain object is using BaseVersionedDomainObject, and all the get/save functionality works correctly. All applicable frontend, backend, and acceptance tests have been written and pass robustly.
 
-- Milestone 2: All jobs run correctly on the backup server.
+- Milestone 2: All jobs run correctly on the backup server. All applicable frontend, backend, and acceptance tests have been written and pass robustly.
 </details>
 
 
@@ -1240,9 +1247,9 @@ We also recommend taking up at least one checkbox item from each of the followin
 <details>
 <summary>Suggested PM demo points</summary>
 
-- Milestone 1: Validation jobs for at least 5 prod models are written & run, and errors arising from those jobs have been filed as issues on GitHub.
+- Milestone 1: Validation jobs for at least 5 prod models are written & run, and errors arising from those jobs have been filed as issues on GitHub. All applicable frontend, backend, and acceptance tests have been written and pass robustly.
 
-- Milestone 2: A full list of errors is compiled with clear action items.
+- Milestone 2: A full list of errors is compiled with clear action items. All applicable frontend, backend, and acceptance tests have been written and pass robustly.
 </details>
 
 ## Android team
