@@ -167,7 +167,8 @@ Noteworthy dates for 2026 (see also the [Official GSoC Timeline](https://develop
 
 - **Jan 19 - Feb 3**: Mentoring organizations apply
 - **Feb 19**: Mentoring organizations are announced
-- **Feb 21**: GSoC Q&A session with Oppia
+- **Feb 21 16:00 UTC**: GSoC Q&A session with Oppia
+  - Video call link: https://meet.google.com/ffg-vbts-rqd
 - **Mar 16 - Mar 31**: GSoC contributor application period
 - **Apr 30**: Accepted GSoC contributors are announced
 - **Apr 30 - May 24**: Community bonding ("greenlight") period
