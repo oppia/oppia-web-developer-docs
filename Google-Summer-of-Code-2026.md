@@ -358,7 +358,7 @@ If you need clarification on any of these ideas, feel free to open a thread in G
 
 ### Android team
 
-- [4.1 Support for Study Guides & Worked Examples, and Modernizing HTML Handling](#41-support-for-study-guides--worked-examples-and-modernizing-html-handling)
+- [4.1 Support for Lesson Progress, Study Guides, and Worked Examples](#41-support-for-lesson-progress-study-guides-and-worked-examples)
 - [4.2 Streamlining Release Automation](#42-streamlining-release-automation)
 
 ## Learners, Educators, Allies, and Parents (LEAP) team
@@ -1260,31 +1260,51 @@ We also recommend taking up at least one checkbox item from each of the followin
 
 ## Android team
 
-### 4.1 Support for Study Guides & Worked Examples, and Modernizing HTML Handling
+### 4.1 Support for Lesson Progress, Study Guides, and Worked Examples
 
 **Project Description:**
-The Oppia web platform introduced support for worked examples (through a custom rich-text tag) and study guides (which are a repurposed section-by-section representation of the old revision cards). We would like to bring this functionality into the Oppia Android app, along with some substantial infrastructural improvements to how HTML handling is done.
+This project is two smaller user-facing improvements combined into a single project.
 
-The web version of the Study Guide mocks can be seen in [this Figma project](https://www.figma.com/design/xVkmX0xZdNCpj9CP7ec6pG/Learner-View-of-Revision-Card?node-id=0-1&t=Lt8v5o8bmEg0X1ct-1). This project involves creating basic mocks for how the UI should change to support the new sections, getting these mocks reviewed and finalized by the design team (during the community bonding period), and implementing those mocks.
+The first part is completing the work that began in https://github.com/oppia/oppia-android/pull/5388 to address https://github.com/oppia/oppia-android/issues/4652. The Android app supports users exiting a lesson early and resuming where they left off later. However, they are unable to monitor their progress through the lesson and this has come up repeatedly in user feedback. As mentioned in [this discussion thread](https://github.com/oppia/oppia-android/pull/5388#discussion_r1593148545) the Oppia web platform already supports annotating exploration states with a proeprty for whether the [card is a checkpoint](https://github.com/oppia/oppia/blob/5ebbb3d369532a22ee1638a810d597ffb9719594/core/domain/state_domain.py#L3615). This is crucial because showing progress isn't as simple as counting the number of cards the user completed and representing that out of the total number of cards: explorations are dynamic. Users may go down diverging pathways through their lesson experience since the lesson may have a branch with multiple cards to review a concept that the user doesn't fully understand. Instead, we need to provide a means of showing progress that accounts for this dynamic structure using the checkpoints as key points.
 
-Worked examples are actually not being directly implemented in the UI as part of this project. This is due to the significant complexity of actually implementing a custom tag handler that can render an interactive drop-down experience like the web platform provides for worked examples. This can't effectively be done with a mere `TextView` without substantially breaking the accessibility Talkback experience. As such, this project actually plans to inline the worked examples to a basic 'question' and 'answer' format (similar to what content creators needed to do before the tag was implemented). That means this is a change only in the lesson download script/import pipeline rather than directly in the app.
+Note that one aspect of this that's a bit challenging is that the exact mocks are not defined for how this screen should look. 
 
-Finally, the process of breaking down and considering implementation strategies for worked examples yielded a realization: in order to actually support the full UI experience in the future the app would need to support actually breaking up HTML components into `RecyclerView`-esque lists for proper styling. The exact implementation of this is still not fully known and rather challenging (since nested navigation may be needed for Talkback--this requires user testing). While actually building the correct long-term solution isn't obvious, there's a prerequisite that _can_ be completed now and provides a variety of other stability benefits: replacing the representation of HTML text from actual HTML to a structured proto representation. This requires changes in:
-- The [proto API](https://github.com/oppia/oppia-proto-api).
-- The lesson download script.
-- The existing protos.
-- HTML parsing (which will essentially be fully replaced by a 'span building' systems interpreted from proto structures).
+The second part of this project is introducing support for study guides and worked examples, both of which the Oppia web platform now supports. In particular:
+- Study guides are a change to the existing 'revision cards' in the app that introduce multiple sections with section headers.
+- Worked examples are rich text components that are meant to provide a collapsible box with a "question" and "answer" that the user can view if they want to see an example.
 
-Note that all of this functionality must be gated behind a feature flag on the app side.
+In Android we want to implement study guides in a way that looks similar to Oppia web (seen [this Figma project](https://www.figma.com/design/xVkmX0xZdNCpj9CP7ec6pG/Learner-View-of-Revision-Card?node-id=0-1&t=Lt8v5o8bmEg0X1ct-1)).
 
-**Tracking issues**:
-To be added soon.
+Worked examples, however, are quite challenging to implement in the way that Oppia web does because the app currently translates custom rich text components to Android `Spannable`s (see [`HtmlParser`](https://github.com/oppia/oppia-android/blob/191e15dafcc073061941ce64fdd7b999363064e9/utility/src/main/java/org/oppia/android/util/parser/html/HtmlParser.kt#L75)), and interactive spannables are very difficult to implement without substantial accessibility problems. The team assumes that this can only be solved with a complete reworking of how HTML tags are handled which is outside the scope of this project. Instead, this project will require introducing a new in-app tag handler that inlines the worked example question and answer in a way that matches how lesson authors represented this before and in a way that's translatable and works for RTL languages like Arabic. Essentially, a worked example with the tag `<oppia-noninteractive-workedexample question-with-value="&amp;quot;&amp;lt;pre&amp;gt;&amp;lt;p&amp;gt;lorem ipsum&amp;lt;/p&amp;gt;&amp;lt;/pre&amp;gt;&amp;quot;" answer-with-value="&amp;quot;lorem ipsum&amp;quot;"></oppia-noninteractive-workedexample>` would be rendered into two lines with block spacing:
 
-**Not in scope:** Implementing the full box-like UI and collapsible sections that Oppia web has for worked examples.
+```html
+<p>
+<strong>Question</strong>:
+<br>
+<pre><p>lorem ipsum</p></pre>
+</p>
+<p>
+<string>Answer</strong>:
+<br>
+lorem ipsum
+</p>
+```
 
-**Size:** Large (\~350 hours)
+Some important things to note for both projects:
+- The lesson progress does not have exact mocks defined yet. Proposals need to include mocks and, if accepted, these will be refined durnig the community bonding period in collaboration with the product and Android UX design teams.
+- Study guides do not have exact mocks and the implementation will be based off of the mobile web mocks. This means that extra time should be baked into implementation for UI adjustments that are suggested during the code review and evaluation periods.
+- Worked example questions and answers can themselves include HTML which then needs to be interpreted into spans and properly inlined. There are no other tags supported by the Android app that can embed HTML in this way.
+- All of this functionality must be gated behind feature flags (three in total for each feature).
 
-**Difficulty**: Moderate
+**Tracking issue**: https://github.com/oppia/oppia-android/issues/6104
+
+**Not in scope:**
+- Implementing the full box-like UI and collapsible sections that Oppia web has for worked examples.
+- Updating checkpointing to use state checkpoints rather than storing progress at each step in the exploration.
+
+**Size:** Medium (\~175 hours)
+
+**Difficulty**: Moderate-Easy (not quite 'Easy' because the product specification is not 100% defined so there's some uncertainty)
 
 **Potential mentors:** @MohitGupta121
 
@@ -1300,57 +1320,104 @@ To be added soon.
   - (c) play through the app locally
 - Write new Kotlin code with unit tests.
 - Change Android UIs, write tests for them, and manually verify that they work.
-- Familiarity with how the team uses Kotlin scripts (recommended to have actually written or changed one, but this isn't a strong requirement).
 
 **Related issues:**
-- https://github.com/oppia/oppia-android/issues/5963
-- https://github.com/oppia/oppia-android/issues/5844
+To be added soon.
 
 **Suggested Milestones:**
 
 - **Milestone 1**:
-  - Introduction of a new feature flag to gate the worked examples and study guides functionality.
-  - Support for the new study guides experienced, gated behind the feature flag.
-  - Support for worked examples, gated behind the feature flag.
+  - Introduction of three new feature flags: lesson progress visualization, study guides, and worked examples.
+  - Support for lesson progress visualization gated behind the feature flag.
+  - Support for the new study guides experienced, gated behind the study guides feature flag.
+  - Completed QA testing for both features with all bugs triaged (see below for note on launch readiness).
 
 - **Milestone 2**:
-  - Updates to app, script, and API protos to support the new structure.
-  - Introduction of a new feature flag to gate the HTML-alternative text representation.
-  - New string builder utility introduced with interoperability with the existing handlers to parse the new representation and build the necessary string to bind.
-  - Updates to the lesson download script and import pipeline to parse HTML and convert it to the new structure. Specific requirements:
-    - The script should output both the HTML & new representation for each structure (duplicated). The app should support loading from both depending on the flag being enabled.
-    - The following enforcement checks are added:
-      - Hard fail if any unexpected tags or tag attributes are encountered.
-      - Hard fail if the JSON structure for math tags are missing any properties.
-      - Hard fail if any expected "block" tags have other nested "block" tags (such as worked examples not containing other worked examples).
+  - Support for worked examples, gated behind the worked examples feature flag.
+  - Completed QA testing for the worked examples feature (see below for note on launch readiness).
+  - Bugs fixed for all three features.
+  - Launch all three features.
+ 
+**Important** note on launch readiness: we want this project to include fully launching all three features which means the milestones must be scheduled such that there's sufficient time for QA testing (which will require 2 weeks time), fixing bugs, and completing product reviews of the features early enough for the features to be completed before the next app release is cut. Exceptions cannot be made for late work here because the release process may be automated by this point in the summer (milestone 2).
 
 <details>
 <summary>Org-admin/tech-lead commentary/advice</summary>
 
-Coming soon.
+This is a really nice project for building general familarity with some typical and some atypical Android development in the Oppia Android codebase. It involves building three features basically from scratch and seeing them completely to launch. This is possible only because all three features are individually small, so it's a unique opportunity to learn and see the end-to-end completion process of a full feature three times over.
+
+All three features also touch on critical learning pathways but also aren't 100% defined from a product or UX perspective. This means the contributor will actually get to have a say in how the features should each behave (with guidance from other team members).
 
 </details>
 
 <details>
 <summary>What we are looking for in proposals</summary>
 
-Coming soon.
+- A description for how lesson progress will be represented in both the UI and what dataflow changes will be required (in `EphemeralState` and `ExplorationProgressController`).
+- An explanation for how the new study guide structure will be represented in the UI (using a `RecyclerView` conformant to other patterns used in the app).
+- An explanation for how the custom worked examples handler will both handled the fact that answer & question text can itself be HTML, and how the generated spannables will then be reinserted into the final outer HTML string with the required format mentioned above and in a way that supports translations and RTL layouts.
+- Details on which test lesson assets will be changed and how in order to test all three features.
+- Details on all test plans (lists of actual test names that will be added and which test suites are being changed).
+- A sequence diagram showing the dataflow for lesson progress and how the `card_is_checkpoint` property is processed all the way from the lesson structure through to the final property that indicates the user's progress in the lesson in the UI.
 
 </details>
 
 <details>
 <summary>Technical hints / guidance</summary>
 
-Coming soon.
+- General changes overview:
+  - Since the new functionality is gated behind feature flags the easiest way to implement some of the features is to introduce entire new versions of the affected files. In other cases it's easier to just gate in single places. Specifically:
+    - Study guides will be easier to implement as an entirely new package (also partly because they're being renamed to 'Study Guides' from 'Revision Cards').
+    - Lesson progress and worked examples will be easier to gate, though worked examples are slightly tricky because they need to be completely ignored when the feature is off (which means introducing two different handlers).
+  - Test lessons will need to be updated. It's recommended to specifically update:
+    - [`test_exp_id_2.textproto`](https://github.com/oppia/oppia-android/blob/develop/domain/src/main/assets/test_exp_id_2.textproto) to have `card_is_checkpoint` set at a few points (at least 3) so that lesson progress can be demonstrated for the test lesson.
+    - [`test_topic_id_0_1.textproto`](https://github.com/oppia/oppia-android/blob/develop/domain/src/main/assets/test_topic_id_0_1.textproto) to include both worked examples and to use the new revision card structure.
+- UI changes:
+  - A new package: `app/topic/studyguide` which largely copies from [`app/topic/revisioncard`](https://github.com/oppia/oppia-android/tree/develop/app/src/main/java/org/oppia/android/app/topic/revisioncard) except that it will use a `RecyclerView` and `BindableAdapter` with two model types: heading and content. Note that:
+    - New UI layout files will be introduced.
+    - Using Jetpack Compose is okay but not mandated. Jetpack Compose should not be used for worked examples or lesson progress.
+    - There may be new strings needed for the 'Study Guide' terminology (the app should match the web platform when the feature is enabled).
+  - Possibly multiple files under [`app/player/state`](https://github.com/oppia/oppia-android/tree/develop/app/src/main/java/org/oppia/android/app/player/state) to support lesson progress, but in particular: [`StatePlayerRecyclerViewAssembler`](https://github.com/oppia/oppia-android/blob/develop/app/src/main/java/org/oppia/android/app/player/state/StatePlayerRecyclerViewAssembler.kt) since this is the primary consumer of `EphemeralState` from `ExplorationProgressController`.
+    - A new feature will need to be added to the assembler to support lesson progress.
+    - This feature will only be enabled for explorations (via [`StateFragmentPresenter.createRecyclerViewAssembler`](https://github.com/oppia/oppia-android/blob/191e15dafcc073061941ce64fdd7b999363064e9/app/src/main/java/org/oppia/android/app/player/state/StateFragmentPresenter.kt#L252C15-L252C42)), _not_ questions, and only when the flag is enabled.
+    - The current concept mock has the progress indicator next to the navigation buttons. This can only be done by modifying three different layouts: `continue_interaction_item.xml`, `continue_navigation_button_item.xml`, and `next_button_item.xml` which should be hidden in each unless specifically enabled via the respective view models through `StatePlayerRecyclerViewAssembler`.
+- Domain changes:
+  - [`ExplorationProgressController`](https://github.com/oppia/oppia-android/blob/191e15dafcc073061941ce64fdd7b999363064e9/domain/src/main/java/org/oppia/android/domain/exploration/ExplorationProgressController.kt) in order to compute the current state progress and pass it through `EpehemeralState`. However, [`StateDeck`](https://github.com/oppia/oppia-android/blob/191e15dafcc073061941ce64fdd7b999363064e9/domain/src/main/java/org/oppia/android/domain/state/StateDeck.kt) is the utility actually responsible for calculating `EphemeralState`, and [`StateGraph`](https://github.com/oppia/oppia-android/blob/191e15dafcc073061941ce64fdd7b999363064e9/domain/src/main/java/org/oppia/android/domain/state/StateGraph.kt) will also be necessary for making this work.
+  - `StateDeck`:
+    - Suggest adding a helper method to compute the checkpoint count at the current state. This should be as simple as counting the number of states with `card_is_checkpoint` set plus 1 since the initial state is considered a checkpoint.
+    - `getCurrentEphemeralState` will need to be updated to take a parameter for the total number of checkpoints that will be passed from `ExplorationProgressController`.
+    - `getCurrentEphemeralState` should not populate the corresponding fields if the feature is disabled or if the provided count is null (which may happen--see below).
+  - `StateGraph`:
+    - Suggest adding a new API property `checkpointCount: Int?` which is lazy initialized by calling a new helper: `fun computeCheckpointCount(): Int?` which returns `null` if the exploration has zero states marked as `card_is_checkpoint` (indicating that it doesn't support checkpoints). Note that the lazy initialization is to memoize the value since it will not be trivial to compute and will be needed many times throughout playing an exploration (and isn't expected to change).
+    - For actual behavior: `computeCheckpointCount` needs to perform a pathfind through the state graph from the initial state (whose name will need to be passed into `StateGraph`'s constructor) to all terminal states (using the same terminal checker passed into `StateDeck` which will need to be passed into `StateGraph`'s constructor). Specific details:
+      - The function should first check that there's exactly one terminal state. If there's more than one then log a warning and return null. This drastically simplifies the algorithm to a pathfind just between two points in the graph.
+      - From the starting to ending state follow the main linear path: this is done by going through the `AnswerGroup`s of each state one-by-one and following to the state corresponding to the answer marked using [`labelled_as_correct`](https://github.com/oppia/oppia-android/blob/191e15dafcc073061941ce64fdd7b999363064e9/model/src/main/proto/exploration.proto#L216). There can be more than one answer marked as correct. All correct answers will eventually lead to the terminal state.
+      - This is a good application for Dijkstra's algorithm which should yield a single path even if there's more than one correct answer in a state.
+      - The single path that's found can then be walked to count all of the `card_is_checkpoint` states and return that count plus 2 (for the initial and terminal states).
+      - Note: complex exploration arrangements including multiple correct answers in a single state going to diverging pathways that eventually meet back to the main path should be included in the tests for `StateGraph`. These do not need to be represented in the test exploration.
+  - Note that the learner progress functionality must work with all of the following:
+    - Lesson checkpoint saving and restoring.
+    - Flashbacks.
+    - Navigating backward/forward in the state deck (i.e. the progress should count down if the user navigates back to a state previous to the current completed checkpoint count).
+- Utility changes:
+  - [`HtmlParser`](https://github.com/oppia/oppia-android/blob/develop/utility/src/main/java/org/oppia/android/util/parser/html/HtmlParser.kt) to support a new tag handler for worked examples.
+    - See `computeCustomTagHandlers` and the other custom tag handlers for an idea on the implementation.
+    - Note that being able to parse arbitrary HTML inside a tag handler isn't currently supported. As such [`CustomContentHtmlHandler.CustomTagHandler`](https://github.com/oppia/oppia-android/blob/191e15dafcc073061941ce64fdd7b999363064e9/utility/src/main/java/org/oppia/android/util/parser/html/CustomHtmlContentHandler.kt#L195C13-L195C29) specifically `handleTag` and `handleTagForContentDescription` will need to be updated to take a new interface `CustomHtmlParser` which takes an html `String` and returns a `Spannable`. A default implementation of this interface can be provided via a call to [`CustomContentHtmlHandler.fromHtml`](https://github.com/oppia/oppia-android/blob/191e15dafcc073061941ce64fdd7b999363064e9/utility/src/main/java/org/oppia/android/util/parser/html/CustomHtmlContentHandler.kt#L320-L324).
+- Model changes:
+  - `exploration.proto`'s `EphemeralState` should be updated to include new fields: `CheckpointProgress checkpoint_progress` which is not set if the functionality is disdabled. This new proto will need two fields: `int32 completed_checkpoint_count` and `int32 total_checkpoint_count`.
 
 </details>
 
 <details>
 <summary>Suggested PM demo points</summary>
 
-- Milestone 1: That worked examples and study guides are supported, and only show when the corresponding feature flag is enabled.
+- Milestone 1:
+  - Lesson progress works correctly for production assets when the feature is enabled including: back navigation, checkpointing, configuration changes, and flashbacks. Progress should not show when the feature is disabled and for explorations that don't have marked checkpoint states. Some visual bugs are okay since milestone 2 includes time to fix issues.
+  - The new study guide view shows when the flag is enabled and hides when it's disabled. Some visual bugs/needed improvements are okay since milestone 2 includes time to fix issues.
 
-- Milestone 2: That the app correctly renders the new proto representation of text when the corresponding feature flag is enabled. This may require some real-time hacking to demonstrate that the app is actually using the proto rather than HTML representation, and some code and textproto walkthrough to demonstrate that the lesson script is actually converting the HTML correctly.
+- Milestone 2:
+  - Worked examples show correctly when the corresponding flag is enabled and are completely hidden when the flag is disabled. The visual correctness should be nearly production ready (i.e. small problems are okay but large problems are not).
+  - Lesson progress and study guide functionality is fully production ready (i.e. all major design and UX feedback from milestone 1 has been addressed).
+  - Both features need to be launch ready.
 </details>
 
 ### 4.2 Streamlining Release Automation
@@ -1364,8 +1431,7 @@ One important note for this project is that the team currently only deploys to t
 
 Please also note the difficulty of this project. We are assuming most of the deployment steps will require small, custom Kotlin scripts (in-line with other scripts in the codebase) and are not solvable with existing deployment solutions. It may be the case that there are such solutions possible, but the team's own research suggests that we almost certainly have to build out this tooling from scratch due to the prerequisite for Bazel integration. We do expect existing libraries and tooling to be used for directly integrating with Play Store and Firebase.
 
-**Tracking issues**:
-Coming soon.
+**Tracking issue**: https://github.com/oppia/oppia-android/issues/6106
 
 **Not in scope:** Cron jobs to fully automate the beta & GA launches, or changelog translations (since the team plans to rely on automated translations for these). The steps for archiving releases, creating the release on GitHub, emailing the marketing team, and creating a GitHub discussion are all also not part of the project.
 
@@ -1392,14 +1458,7 @@ Coming soon.
 - Familiarity with GitHub Actions and a strong concept of how cron jobs work.
 
 **Related issues:**
-- https://github.com/oppia/oppia-android/issues/5033
-- https://github.com/oppia/oppia-android/issues/5984
-- https://github.com/oppia/oppia-android/issues/3923
-- https://github.com/oppia/oppia-android/issues/5394
-- Related documentation:
-  - https://github.com/oppia/oppia-android/wiki/Platform-Parameters-&-Feature-Flags will relate to the feature release process.
-  - [Oppia Android release process](https://docs.google.com/document/d/1XAoXnQkn2oIAFkd6vY90tn_SSW3J9Eia0_4RhXhJSxQ/edit?tab=t.0). Note: this is almost 4 years out-of-date, so it will have some steps wrong. It will be updated soon to cover the latest steps.
-  - [GSoC project 6.1 from 2022](https://github.com/oppia/oppia/wiki/Google-Summer-of-Code-2022#61-android-release-automation) included some of the same goals, but 2026's version is much more streamlined and targetd on specific pieces of automation.
+To be added soon.
 
 **Suggested Milestones:**
 
