@@ -1453,7 +1453,6 @@ Please also note the difficulty of this project. We are assuming most of the dep
   - (c) play through the app locally
   - (d) build _each_ flavor of the app: dev, alpha, beta, GA.
 - Write new Kotlin code with unit tests.
-- Strong understanding of all the steps of the Oppia Android release process, and why each step is needed.
 - Familiarity with how the team uses Kotlin scripts (recommended to have actually written or changed one, but this isn't a strong requirement).
 - Familiarity with GitHub Actions and a strong concept of how cron jobs work.
 
@@ -1463,8 +1462,8 @@ To be added soon.
 **Suggested Milestones:**
 
 - **Milestone 1**:
-  - Introduce support for maintaining a check-in version of the app changelog. Specifically, this changelog should:
-    - Provide a historical record of changes that goes into each release, mapped to major.minor release version.
+  - Introduce support for maintaining a checked-in version of the app changelog. Specifically, this changelog should:
+    - Provide a historical record of changes that goes into each release, mapped to their `major.minor` release version.
     - Be used as default for every flavor of the app unless that flavor has an override and a custom changelog to use (which needs to be supported).
   - Support for the following new GitHub actions that can be manually triggered through the GitHub web interface:
     - Deploy to Firebase App Distribution.
@@ -1501,14 +1500,24 @@ To be added soon.
 <details>
 <summary>Org-admin/tech-lead commentary/advice</summary>
 
-Coming soon.
+This is a challenging project that essentially builds out all of the necessary critical components for automating Oppia Android releases, significantly streamlining the release process by minimizing the current burdens and time-consuming tasks needed for each release. This will save time both for release coordinators and for QA. It is **crucial** that you have a deep understanding of the existing release process. There is very little time in this project for things to go off track which means misunderstandings have a very high chance of leading to project failure. Make sure that you clarify all doubts and uncertainties before the coding period begins.
+
+This project will expose the developer to substantial automation processes and multi-service deployments. This is a very strong release engineering project and aligns well with individuals interested in learning more about developer operations. There's also a potentially interesting opportunity to leverage an LLM (if it ends up being feasible) for automatic changelog generation which could be a novel opportunity since the team hasn't deeply explored incorporating LLMs into any automation workflows yet.
 
 </details>
 
 <details>
 <summary>What we are looking for in proposals</summary>
 
-Coming soon.
+- An explanation (not actual code) of every GitHub action workflow that is needed for the project.
+- A technical break-down of every script that needs to be introduced.
+- A description of every new third party dependency and service needed and why. Dependencies need confirmation on compatibility with the team's current versions of Kotlin, Java, and Bazel.
+- Details on all test plans (lists of actual test names that will be added and which test suites are being changed).
+- An explanation of the high-level steps of the Oppia Android release process, and why each step is needed. It's fine to link back to the public documentation but the explanations should be your own.
+- Sequence diagrams covering:
+  - The end-to-end lifecycle of alpha, beta, and GA flavors of the app including their deployments to their respective platforms and the manual user steps needed in each (i.e. for final deployment or user installations for testing or end usage). Include how cron fits into this.
+  - The end-to-end lifecycle for changelogs including the steps for manually editing them and approving deployments to update the listing on the Play Store. Include how cron fits into this.
+  - The end-to-end lifecycle for the pinned lesson version textproto file. Include how cron fits into this.
 
 </details>
 
@@ -1516,6 +1525,27 @@ Coming soon.
 <summary>Technical hints / guidance</summary>
 
 Coming soon.
+
+High-level thoughts (that need to be expanded):
+- New scripts (need to figure out the new script utilities needed):
+  - `DeployBinaryToFirebaseAppDistribution` (forward to binary utility?)
+  - `DeployBinaryToPlayStore` (direct API calls?)
+  - `DeployChangelogToPlayStore` (direct API calls?)
+  - `GenerateChangelog` (not sure how LLM component will work yet, the rest should just be `GitClient` calls I think)
+  - `CheckIfVersionChanges` (to trigger changelog generator)
+  - `MaybeCutNextAlphaRelease` (runs alpha release processes)
+- New actions workflows:
+  - Deploy binary with input destination (one of 'firebase' or 'play store') and input flavor (one of `alpha`, `beta`, `ga`).
+  - Deploy change log with input flavor (one of 'alpha', 'beta', 'ga' which corresponds to the track).
+  - Generate changelog PR (automatically run when the version is updated, PR created using GA utilities)
+  - Repin lessons (runs lesson download script and opens a PR, preferably using GH utilities)
+  - Auto releaser (runs `MaybeCutNextAlphaRelease` and coordinates somehow with it to ensure tags are properly updated and such; need to think through this a tad bit more)
+- Structure for changelogs:
+  - `config/changelog/<major.minor>.md` which can be overridden using `<major.minor>_<flavor>.md`.
+- New wiki pages:
+  - App & feature release process (replace/augment any existing pages?)
+  - Release coordinator playbook for performing releases (2 versions? high & low level)
+  - Playbook for adding new features and releasing them (replace/augment any existing pages?)
 
 </details>
 
