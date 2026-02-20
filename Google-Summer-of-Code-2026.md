@@ -1322,7 +1322,11 @@ Some important things to note for both projects:
 - Change Android UIs, write tests for them, and manually verify that they work.
 
 **Related issues:**
-To be added soon.
+- https://github.com/oppia/oppia-android/issues/5039
+- https://github.com/oppia/oppia-android/issues/4235
+- https://github.com/oppia/oppia-android/issues/4742
+- https://github.com/oppia/oppia-android/issues/4754
+- https://github.com/oppia/oppia-android/issues/6019
 
 **Suggested Milestones:**
 
@@ -1504,6 +1508,10 @@ This is a challenging project that essentially builds out all of the necessary c
 
 This project will expose the developer to substantial automation processes and multi-service deployments. This is a very strong release engineering project and aligns well with individuals interested in learning more about developer operations. There's also a potentially interesting opportunity to leverage an LLM (if it ends up being feasible) for automatic changelog generation which could be a novel opportunity since the team hasn't deeply explored incorporating LLMs into any automation workflows yet.
 
+Particularly challenging aspects of this project:
+- The proposed process is actually a change to the way releases are currently managed. This is because the long-term plan is to eventually move Android releases over to a pipeline where code automatically goes from `develop` to `alpha` to `beta` and then finally to `ga`. The full scope is too large for this project (and has a bunch of other complexities to manage), so the only piece of complete automation being done is just the `alpha` bit to start. In order to make that streamlined we will be introducing a `latest-alpha` tag which is not used for the app today.
+- Signing the app is done using a locked-down private key that's in a locked-down private repository. That's not a compatible workflow with the automation being built in this project so a new solution needs to be introduced using `jsign` and Google Cloud [KMS](https://cloud.google.com/security/products/security-key-management).
+
 </details>
 
 <details>
@@ -1513,7 +1521,10 @@ This project will expose the developer to substantial automation processes and m
 - A technical break-down of every script that needs to be introduced.
 - A description of every new third party dependency and service needed and why. Dependencies need confirmation on compatibility with the team's current versions of Kotlin, Java, and Bazel.
 - Details on all test plans (lists of actual test names that will be added and which test suites are being changed).
-- An explanation of the high-level steps of the Oppia Android release process, and why each step is needed. It's fine to link back to the public documentation but the explanations should be your own.
+- An explanation of the high-level steps of the Oppia Android release process, and why each step is needed.
+  - Note that it's crucial to be very detailed about the specific steps that are being replaced with automation. It's expected that the steps not being automated will be kept at a higher level.
+  - It's fine to link back to the public documentation but the explanations should be your own.
+  - Particular scrutiny will be placed on the start-to-finish flow for a new binary build, particularly the signing and deployment steps as these are completely new.
 - Sequence diagrams covering:
   - The end-to-end lifecycle of alpha, beta, and GA flavors of the app including their deployments to their respective platforms and the manual user steps needed in each (i.e. for final deployment or user installations for testing or end usage). Include how cron fits into this.
   - The end-to-end lifecycle for changelogs including the steps for manually editing them and approving deployments to update the listing on the Play Store. Include how cron fits into this.
@@ -1527,6 +1538,8 @@ This project will expose the developer to substantial automation processes and m
 Coming soon.
 
 High-level thoughts (that need to be expanded):
+- General changes overview:
+  - ...
 - New scripts (need to figure out the new script utilities needed):
   - `DeployBinaryToFirebaseAppDistribution` (forward to binary utility?)
   - `DeployBinaryToPlayStore` (direct API calls?)
