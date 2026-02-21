@@ -1499,7 +1499,14 @@ Here is an explanation for how the release process should work within this proje
 - Familiarity with GitHub Actions and a strong concept of how cron jobs work.
 
 **Related issues:**
-To be added soon.
+- https://github.com/oppia/oppia-android/issues/4971
+- https://github.com/oppia/oppia-android/issues/4985
+- https://github.com/oppia/oppia-android/issues/3620
+- https://github.com/oppia/oppia-android/issues/5570
+- https://github.com/oppia/oppia-android/issues/4594
+- https://github.com/oppia/oppia-android/issues/2542
+- https://github.com/oppia/oppia-android/issues/5847
+- https://github.com/oppia/oppia-android/issues/2641
 
 **Suggested Milestones:**
 
