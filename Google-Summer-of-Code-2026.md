@@ -1265,7 +1265,7 @@ We also recommend taking up at least one checkbox item from each of the followin
 **Project Description:**
 This project is two smaller user-facing improvements combined into a single project.
 
-The first part is completing the work that began in https://github.com/oppia/oppia-android/pull/5388 to address https://github.com/oppia/oppia-android/issues/4652. The Android app supports users exiting a lesson early and resuming where they left off later. However, they are unable to monitor their progress through the lesson and this has come up repeatedly in user feedback. As mentioned in [this discussion thread](https://github.com/oppia/oppia-android/pull/5388#discussion_r1593148545) the Oppia web platform already supports annotating exploration states with a proeprty for whether the [card is a checkpoint](https://github.com/oppia/oppia/blob/5ebbb3d369532a22ee1638a810d597ffb9719594/core/domain/state_domain.py#L3615). This is crucial because showing progress isn't as simple as counting the number of cards the user completed and representing that out of the total number of cards: explorations are dynamic. Users may go down diverging pathways through their lesson experience since the lesson may have a branch with multiple cards to review a concept that the user doesn't fully understand. Instead, we need to provide a means of showing progress that accounts for this dynamic structure using the checkpoints as key points.
+The first part is completing the work that began in https://github.com/oppia/oppia-android/pull/5388 to address https://github.com/oppia/oppia-android/issues/4652. The Android app supports users exiting a lesson early and resuming where they left off later. However, they are unable to monitor their progress through the lesson and this has come up repeatedly in user feedback. As mentioned in [this discussion thread](https://github.com/oppia/oppia-android/pull/5388#discussion_r1593148545) the Oppia web platform already supports annotating exploration states with a property for whether the [card is a checkpoint](https://github.com/oppia/oppia/blob/5ebbb3d369532a22ee1638a810d597ffb9719594/core/domain/state_domain.py#L3615). This is crucial because showing progress isn't as simple as counting the number of cards the user completed and representing that out of the total number of cards: explorations are dynamic. Users may go down diverging pathways through their lesson experience since the lesson may have a branch with multiple cards to review a concept that the user doesn't fully understand. Instead, we need to provide a means of showing progress that accounts for this dynamic structure using the checkpoints as key points.
 
 Note that one aspect of this that's a bit challenging is that the exact mocks are not defined for how this screen should look. 
 
@@ -1273,7 +1273,7 @@ The second part of this project is introducing support for study guides and work
 - Study guides are a change to the existing 'revision cards' in the app that introduce multiple sections with section headers.
 - Worked examples are rich text components that are meant to provide a collapsible box with a "question" and "answer" that the user can view if they want to see an example.
 
-In Android we want to implement study guides in a way that looks similar to Oppia web (seen [this Figma project](https://www.figma.com/design/xVkmX0xZdNCpj9CP7ec6pG/Learner-View-of-Revision-Card?node-id=0-1&t=Lt8v5o8bmEg0X1ct-1)).
+In Android, we want to implement study guides in a way that looks similar to Oppia web (see [this Figma project](https://www.figma.com/design/xVkmX0xZdNCpj9CP7ec6pG/Learner-View-of-Revision-Card?node-id=0-1&t=Lt8v5o8bmEg0X1ct-1)).
 
 Worked examples, however, are quite challenging to implement in the way that Oppia web does because the app currently translates custom rich text components to Android `Spannable`s (see [`HtmlParser`](https://github.com/oppia/oppia-android/blob/191e15dafcc073061941ce64fdd7b999363064e9/utility/src/main/java/org/oppia/android/util/parser/html/HtmlParser.kt#L75)), and interactive spannables are very difficult to implement without substantial accessibility problems. The team assumes that this can only be solved with a complete reworking of how HTML tags are handled which is outside the scope of this project. Instead, this project will require introducing a new in-app tag handler that inlines the worked example question and answer in a way that matches how lesson authors represented this before and in a way that's translatable and works for RTL languages like Arabic. Essentially, a worked example with the tag `<oppia-noninteractive-workedexample question-with-value="&amp;quot;&amp;lt;pre&amp;gt;&amp;lt;p&amp;gt;lorem ipsum&amp;lt;/p&amp;gt;&amp;lt;/pre&amp;gt;&amp;quot;" answer-with-value="&amp;quot;lorem ipsum&amp;quot;"></oppia-noninteractive-workedexample>` would be rendered into two lines with block spacing:
 
@@ -1333,7 +1333,7 @@ Some important things to note for both projects:
 - **Milestone 1**:
   - Introduction of three new feature flags: lesson progress visualization, study guides, and worked examples.
   - Support for lesson progress visualization gated behind the feature flag.
-  - Support for the new study guides experienced, gated behind the study guides feature flag.
+  - Support for the new study guides experience, gated behind the study guides feature flag.
   - Completed QA testing for both features with all bugs triaged (see below for note on launch readiness).
 
 - **Milestone 2**:
@@ -1640,40 +1640,40 @@ High-level thoughts (that need to be expanded):
     - Signs the build using Google Cloud Keystore with a new custom script (which requires using WIF to impersonate the service account with signing privileges).
     - Uploads the build to the correct GCS bucket (which requires using WIF to impersonate the service account with archiving privileges). This can be done with the existing `google-github-actions/upload-cloud-storage` action. This should be configured such that it fails if the build already exists.
       - Note that this is slightly tricky because of the version and release candidate pathing so there's some version extraction from the AAB and string manipulation that needs to be done here.
-    - Can be manually run.
+    - Can be manually run (i.e. `workflow_dispatch`).
   - `deploy_to_firebase.yml` (takes a flavor input as one of `alpha`, `beta`, or `ga`, and an input of source ref which is either going to be `latest-alpha` or a `release-*` matching branch).
     - Validates the inputs are correct (especially the source ref).
     - Runs a new custom script to derive the exact expected binary release name based on the provided flavor and source ref (which should resolve to a commit hash).
     - Downloads the release AAB from the corresponding GCS bucket (which requires using WIF to impersonate the service account with archiving privileges).\*
     - Uses the `firebase` CLI tool (`appdistribution:distribute` command) to upload the AAB to the track corresponding to the provided flavor (which requires using WIF to impersonate the service account with Firebase deployment privileges).
-    - Can be manually run.
+    - Can be manually run (i.e. `workflow_dispatch`).
   - `deploy_to_play_console.yml` (takes flavor input as one of `alpha`, `beta`, or `ga`, an input of source ref which is either going to be `latest-alpha` or a `release-*` matching branch, and takes a rollout percentage from 1 to 100).
     - Validates the inputs are correct (especially the source ref).
     - Runs a new custom script to derive the exact expected binary release name based on the provided flavor and source ref (which should resolve to a commit hash).
     - Downloads the release AAB from the corresponding GCS bucket (which requires using WIF to impersonate the service account with archiving privileges).\*
     - Runs a new custom script for actually performing the upload to Play Console bits (which requires using WIF to impersonate the service account with Play Console privileges).
-    - Can be manually run.
+    - Can be manually run (i.e. `workflow_dispatch`).
   - `deploy_updated_changelog.yml`
-    - Run automatically when one of the changelog files changes.
+    - Run automatically when one of the changelog files changes (i.e. `on` `push` `paths`).
     - Runs a new custom script for specifically uploading the changelog since additional verifications are needed (which requires using WIF to impersonate the service account with Play Console privileges). This script will essentially decide what changelog updates to upload and how (see description below).
-    - Can be manually run.
+    - Can be manually run (i.e. `workflow_dispatch`).
   - `generate_changelog.yml`
-    - Run automatically when `version.yml` is updated.
+    - Run automatically when `version.yml` is updated (i.e. `on` `push` `paths`).
     - Runs a new custom script to automatically generate changelogs for all releases missing them, create a PR with the changes, and submit the PR for review (using existing actions).
       - See the explanation of this script below for more specifics.
       - Note that the PR description should include the base information used to generate the actual suggested changelog lines.
       - Note that this will require using WIF to impersonate the service account with Vertex AI privileges.
-    - Can be manually run.
+    - Can be manually run (i.e. `workflow_dispatch`).
   - `pull_latest_lesson_versions.yml`
-    - Run automatically once per week.
+    - Run automatically once per week (i.e. using `schedule`).
     - Run the `//scripts:download_lesson_list` script to regenerate the `config/pinned_download_list_versions.textproto` file, create a new PR, and send it for review (the latter of which can be done with existing actions).
-    - Can be manually run.
+    - Can be manually run (i.e. `workflow_dispatch`).
   - `auto_release_alpha.yml`
-    - Runs automatically once per week.
+    - Runs automatically once per week (i.e. using `schedule`).
     - Tries to update `latest-alpha` to a new version or fails/exits early if there isn't a viable candidate.
     - Kicks off `build_and_sign.yml` for the updated `latest-alpha` tag.
     - Kicks off both `deploy_to_firebase.yml` and `deploy_to_play_console.yml` for the alpha release (Play Console will roll out to 100% by default for alpha releases).
-    - Can be manually run.
+    - Can be manually run (i.e. `workflow_dispatch`).
   - \* There isn't an existing action for downloading from GCS buckets (only uploading), so `google-github-actions/setup-gcloud` will need to be used in conjunction with `gcloud storage cp gs://<bucket_name>/path/to/name-of.aab ./path-to.aab` in order to download it.
   - In general, all of the workflows should work just fine when using WIF in combination with Google's `google-github-actions/auth` action since it populates an environment variable that's used for identity authentication. The main difference is that workflows will need to use different service accounts when authenticating depending on what, precisely, they're doing. Reauthentication may also be necessary if a workflow needs to access multiple service accounts.
 - New scripts (need to figure out the new script utilities needed):
