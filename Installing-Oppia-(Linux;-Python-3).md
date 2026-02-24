@@ -167,7 +167,11 @@ exec "$SHELL"
    > [!WARNING]
    > Be careful with using graphical editors like Notepad in Windows. These can add carriage returns (`\r`) that confuse our Linux-based development tools. Instead, we recommend using editors designed for programming or command-line text editors.
 
-7. Add new file called `.direnvrc` into your home (`~`) folder with this content:
+7. Add new file called `.direnvrc` into your home (`~`) directory (also called your user’s root folder, e.g., `/home/your-username/`). You can also use the tilde (`~`) shorthand to refer to this directory in commands. To verify that you are in the correct directory, you can run:
+```bash
+pwd
+```
+This should print the path to your home directory. Then add the following content to `.direnvrc`:
    ```bash
    use_python() {
      local python_root=$(pyenv root)/versions/$1
@@ -184,8 +188,7 @@ exec "$SHELL"
    > [!WARNING]
    > Be careful with using graphical editors like Notepad in Windows. These can add carriage returns (`\r`) that confuse our Linux-based development tools. Instead, we recommend using editors designed for programming or command-line text editors.
 
-8. Create a virtual environment for oppia by adding file named `.envrc` into the parent folder of the oppia repository
-   with this content:
+8. Create a virtual environment for oppia by adding file named `.envrc` into the root folder containing the oppia repository with this content:
 
     ```console
     use python 3.10.16
