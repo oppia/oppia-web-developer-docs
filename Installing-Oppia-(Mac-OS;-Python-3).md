@@ -1,6 +1,6 @@
 ## Table of Contents
 
-* [Macs with M1 chips](#macs-with-m1-chips)
+* [Macs with Apple Silicon](#macs-with-apple-silicon)
 * [Install prerequisites](#install-prerequisites)
 * [Clone Oppia](#clone-oppia)
 * [Setup a virtual environment](#setup-a-virtual-environment)
@@ -13,13 +13,13 @@
 
 **Note:** Be careful about trying to install Oppia if you have the Python [Anaconda platform](https://www.anaconda.com/) installed. We've received a bunch of reports that installation is tricky in that environment (there are lots of small things that get in the way), and that the solution is to use the standard python installation (via e.g. homebrew) instead.
 
-## Macs with M1 chips
+## Macs with Apple Silicon
 
-To check whether your Mac has an M1 chip, navigate to the Apple menu and select "About This Mac." In the window that opens, check for a "Chip" section. If it says "Apple M1" then you have an M1 chip. Otherwise, you should see an Intel processor listed in the "Processor" section. [This article](https://www.howtogeek.com/706226/how-to-check-if-your-mac-is-using-an-intel-or-apple-silicon-processor/) explains in more detail with screenshots if you have trouble.
+To check whether your Mac has an Apple Silicon chip (M1/M2/M3 and newer), navigate to the Apple menu and select "About This Mac." In the window that opens, check for a "Chip" section. If it says "Apple M1", "Apple M2", "Apple M3", etc., then you have an Apple Silicon Mac. Otherwise, you should see an Intel processor listed in the "Processor" section. [This article](https://www.howtogeek.com/706226/how-to-check-if-your-mac-is-using-an-intel-or-apple-silicon-processor/) explains in more detail with screenshots if you have trouble.
 
-If your Mac has an M1 chip, follow these instructions first:
+If your Mac has an Apple Silicon chip, follow these instructions first:
 
-1. If not yet done so, install Rosetta 2 with the following command:  `softwareupdate --install-rosetta`. Rosetta 2 translates Intel-based apps to run on Apple silicon Macs.
+1. If not yet done so, install Rosetta 2 with the following command:  `softwareupdate --install-rosetta`. Rosetta 2 translates Intel-based apps to run on Apple Silicon Macs.
 
    [Rosetta](https://support.apple.com/en-us/HT211861) is Apple's compatibility layer that lets you run apps written for Intel chips on Apple Silicon. You can install Rosetta 2 by running:
 
@@ -48,13 +48,13 @@ If your Mac has an M1 chip, follow these instructions first:
 
    The `arm64` indicates Apple Silicon, while the `i386` indicates that we are running under Rosetta.
 
-2. Next, we will create a Rosetta terminal that emulate the *Intel* architecture. To do so, open a new terminal and run the following command (change "bash" to "zsh" if you're using a zsh terminal):
+2. Next, we will create a Rosetta terminal that emulates the *Intel* architecture. To do so, open a new terminal and run the following command (change "bash" to "zsh" if you're using a zsh terminal):
 
     ```shell
     $ /usr/bin/arch -x86_64 $SHELL --login
     ```
 
-    This switches the architecture from Mac M1's *ARM* architecture to the emulated *Intel* architecture for the current session. To verify this, run `arch` in the terminal and you should see `i386` being printed. You will need to switch the architecture to Intel for all Oppia development.
+    This switches the architecture from Apple Silicon’s *ARM* architecture to the emulated *Intel* architecture for the current session. To verify this, run `arch` in the terminal and you should see `i386` being printed. You will need to switch the architecture to Intel for all Oppia development.
 
     If you use Homebrew to install any Python development dependencies for pyenv (discussed below), you will need to install and use Homebrew in this terminal as well. Note that while you can have a Homebrew installation for Apple Silicon and another for Intel architectures installed simultaneously, pyenv is not smart enough to pick the Intel dependencies if both are present, so we recommend using an Intel installation of Homebrew exclusively.
 
@@ -149,7 +149,7 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
 
 ## Setup a virtual environment
 
-For your vitual environment, we recommend you use [pyenv](https://github.com/pyenv/pyenv). Here are some instructions for doing so, but you can use another virtual environment tool if you wish:
+For your virtual environment, we recommend you use [pyenv](https://github.com/pyenv/pyenv). Here are some instructions for doing so, but you can use another virtual environment tool if you wish:
 
 1. **Make sure you install the Python build dependencies for your operating system. These are specified [here](https://github.com/pyenv/pyenv/wiki#suggested-build-environment). If you don't do this it might lead to problems further on.**
 
@@ -228,7 +228,7 @@ For your vitual environment, we recommend you use [pyenv](https://github.com/pye
    python -m scripts.start
    ```
 
-   The first time you run this script, it will take a while (about 5 - 10 minutes when we last tested it in Dec 2018, though this depends on your Internet connection). Subsequent runs should be much faster. The `start.py` script downloads and installs the required dependencies (such as Google App Engine) if they are not already present, and sets up a development server for you to play with. The development server logs are then output to this terminal, so you will not be able to enter further commands in it until you disconnect the server.
+   The first time you run this script, it will take a while (around 10 minutes when we last tested it, though this depends on your internet connection). Subsequent runs should be much faster. The `start.py` script downloads and installs the required dependencies (such as Google App Engine) if they are not already present, and sets up a development server for you to play with. The development server logs are then output to this terminal, so you will not be able to enter further commands in it until you disconnect the server.
 
    > [!CAUTION]
    > **Please don't use `sudo` while installing.** It's not required, and using it may cause problems later. If you face permissions issues, ensure that you have the necessary permissions for the directory in which you're trying to set up Oppia. If you run into any other installation problems, please read [[these notes|Issues-with-installation]]
