@@ -1,3 +1,10 @@
+> **Note:** This page includes solutions from GitHub Discussions that have a last-updated date before February 25, 2026.
+>
+> If you can't find your error here, try:
+> 1. Searching for it on GitHub Discussions and reading the corresponding threads.
+> 2. Searching for it on our issue tracker to see if there are related issues.
+> 3. Searching for it on the Internet to see if others have encountered it and what they did to solve it.
+
 ## General
 
 Here are some general troubleshooting tips for Oppia. The platform specific tips are [Linux](#linux), [Windows](#windows), and [Mac OS](#mac-os).
@@ -26,6 +33,13 @@ Here are some general troubleshooting tips for Oppia. The platform specific tips
 - [`./portserver.socket is not listed in the .github/CODEOWNERS file`](#portserversocket-is-not-listed-in-the-githubcodeowners-file)
 - [Push fails due to connection timeout](#push-fails-due-to-connection-timeout)
 - [Exception: Error compiling proto files](#exception-error-compiling-proto-files)
+- [Cron jobs: "Run now" returns 400](#cron-jobs-run-now-returns-400)
+- [404 when opening `/learn/math`](#404-when-opening-learnmath)
+- [Blank page or frontend not loading](#blank-page-or-frontend-not-loading)
+- [404 when opening `/admin`](#404-when-opening-admin)
+- [Unable to generate translation opportunities locally](#unable-to-generate-translation-opportunities-locally)
+- [Webpack “Cannot resolve module ‘fs’” frontend error](#webpack-cannot-resolve-module-fs-frontend-error)
+- [oppia-angular-build container exits during install/run](#oppia-angular-build-container-exits-during-installrun)
 - [Linux](#linux)
   - [OSError: \[Errno 2\] No such file or directory](#oserror-errno-2-no-such-file-or-directory)
   - [Pip: Cannot Import Name Main](#pip-cannot-import-name-main)
@@ -57,7 +71,7 @@ Here are some general troubleshooting tips for Oppia. The platform specific tips
 - [If the above doesn't work](#if-the-above-doesnt-work)
 
 ### For Jio India Users
-It seems the Jio network is blocking the domain `raw.githubusercontent.com` which is used by Github for storage of images in this wiki and some of the dependencies while installing Opia.. If you are using Jio, you can try changing the DNS address to 8.8.8.8 (Google DNS) or 1.1.1.1 (Cloudfare DNS) from settings. Original discussion [here](https://github.com/orgs/community/discussions/42655)
+It seems the Jio network is blocking the domain `raw.githubusercontent.com` which is used by GitHub for storage of images in this wiki and some of the dependencies while installing Oppia.. If you are using Jio, you can try changing the DNS address to 8.8.8.8 (Google DNS) or 1.1.1.1 (Cloudfare DNS) from settings. Original discussion [here](https://github.com/orgs/community/discussions/42655)
 
 ### `[Errno 104] Connection reset by peer`
 If after running `python -m scripts.start` you get the following lines:
@@ -309,6 +323,88 @@ Traceback (most recent call last) :
 ```
 
 Try searching for where protoc is installed (probably in `/opt/homebrew/bin/protoc`) and remove it and then re-run the command.
+
+### Cron jobs: "Run now" returns 400
+
+If clicking **Run now** for a cron job shows `Request failed with status: 400`, note that this interface may not be commonly used and might not work reliably.
+
+**Workaround:** manually trigger the cron job's attached endpoint while your dev server is running, and verify that it executed by checking the server logs (for example, by adding temporary print/log statements in the triggered methods).
+
+### 404 when opening `/learn/math`
+
+If opening `http://localhost:8181/learn/math` in your local dev server shows a **404 Page Not Found**, it's likely because Oppia does not yet have a valid classroom for that topic. In Oppia, learner content pages (like `/learn/math`) are only served when a corresponding classroom exists.
+
+**Solution:**  
+1. Assign the **admin role** from the admin UI roles tab.  
+2. Create a classroom that includes the math topic (via the admin activities or classroom admin page).  
+3. Once the classroom exists, `/learn/math` should load correctly.
+
+### Blank page or frontend not loading
+
+If the dev server starts successfully but the page appears blank or does not load properly, this is usually caused by an incomplete or failed frontend build.
+
+**Try the following:**
+
+1. Stop the dev server.
+2. Run: `python -m scripts.start --dev`
+3. If the issue persists, try: `python -m scripts.start --clean`
+4. If necessary, run `yarn install` and restart the server.
+
+This is typically a frontend build or caching issue rather than a backend problem.
+
+### 404 when opening `/admin`
+
+If visiting `http://localhost:8181/admin` results in a **404 Page Not Found**, it usually means your account does not have the admin role assigned.
+
+The `/admin` page is only accessible to users with admin privileges.
+
+**Solution:**
+
+1. Start the dev server.
+2. Go to: `http://localhost:8181/admin`
+3. Assign yourself the **admin role** from the roles tab.
+4. Restart the server if necessary.
+
+After assigning the admin role, the `/admin` page should load correctly.
+
+### Unable to generate translation opportunities locally
+
+If you are following the local development steps but are unable to generate and test translation opportunities (for example, for language contributions), it likely means the local testing steps weren’t followed correctly.
+
+To fix this:
+1. Follow the official **Contributor Dashboard local development testing** instructions for generating translation opportunities.
+2. Ensure your local server and dashboard environment are configured as per the contributor docs.
+3. Repeat the setup steps from the Contributor Dashboard document when necessary.
+
+After completing those steps, you should be able to generate and view translation opportunities locally.
+
+### Webpack “Cannot resolve module ‘fs’” frontend error
+
+If your frontend build fails with an error like:
+`Module not found: Error: Can't resolve 'fs' in ...`
+
+it means your frontend code is trying to import a **Node-only module (`fs`)** that cannot be bundled for the browser.
+
+**Cause:**  
+Frontend code shouldn’t import modules that only work in Node environments (like `fs`).
+
+**Solution:**  
+1. Remove the import of `fs` or other Node-only modules from the frontend code.
+2. If you need file access or Node functionality, move that logic to backend code or expose it via an API.
+3. Rebuild (`yarn` / `python -m scripts.start --clean`) after fixing the import.
+
+This will stop Webpack from attempting to bundle a Node-only module for the client.
+
+### oppia-angular-build container exits during install/run
+
+If the Oppia installation (e.g., `make build`, Docker startup, or `python -m scripts.start`) fails because the `oppia-angular-build` container exits unexpectedly or the build does not complete:
+
+**Possible fixes:**
+1. Stop the server and **rebuild/restart the containers** so the build finishes cleanly.
+2. If the container continues to exit or build fails repeatedly, run: `make clean` then re-build the server.
+3. Ensure your internet connection is stable during dependency installation, as network issues can prevent required packages from downloading.
+
+This should help successfully build and start Oppia’s development environment without the container exiting mid-setup.
 
 
 
