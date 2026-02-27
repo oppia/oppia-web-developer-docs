@@ -188,7 +188,7 @@ This should print the path to your home directory. Then add the following conten
    > [!WARNING]
    > Be careful with using graphical editors like Notepad in Windows. These can add carriage returns (`\r`) that confuse our Linux-based development tools. Instead, we recommend using editors designed for programming or command-line text editors.
 
-8. Create a virtual environment for oppia by adding file named `.envrc` into the root folder containing the oppia repository with this content:
+8. Create a virtual environment for oppia by adding file named `.envrc` into the oppia root folder. with this content:
 
     ```console
     use python 3.10.16
