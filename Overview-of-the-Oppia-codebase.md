@@ -16,7 +16,7 @@
 * [Extensions](#extensions)
 * [Other files and folders](#other-files-and-folders)
 
-Oppia is built with [Google App Engine](https://developers.google.com/appengine/docs/whatisgoogleappengine). Its backend is written in [Python](https://www.python.org/), and its frontend is written using [AngularJS](https://angularjs.org/) and [Angular](https://angular.io).
+Oppia is built with [Google App Engine](https://developers.google.com/appengine/docs/whatisgoogleappengine). Its backend is written in [Python](https://www.python.org/), and its frontend is written using [Angular](https://angular.io).
 
 ## Web server anatomy: Explaining "frontend" and "backend"
 
@@ -109,7 +109,7 @@ The domain layer (or "business logic" layer) defines both the domain objects and
 
 ### Storage layer
 
-Finally, we have the storage layer, which defines the storage models. A storage model is a class that stores the information that defines a particular object in Oppia. For example, we have a model for each exploration. (Note that we use "model" to refer to both the class that defines the exploration model and each instance of that class. Sorry, we know it's confusing, but this language is all over the code base.)
+Finally, we have the storage layer, which defines the storage models. A storage model is a class that stores the information that defines a particular object in Oppia. For example, we have a model for each exploration. (Note that we use "model" to refer to both the class that defines the exploration model and each instance of that class. Sorry, we know it's confusing, but this language is all over the codebase.)
 
 These are also classes, but they define how data is stored in whatever system we are using to store data to the file system. In production, we use the [Google Cloud Datastore](https://cloud.google.com/datastore), and we interface with it from Python using [Cloud NDB](https://googleapis.dev/python/python-ndb/latest/index.html).
 
@@ -123,18 +123,18 @@ The backend codebase is heavily tested. Tests are contained in `*_test.py` files
 
 ## Frontend
 
-Oppia's frontend code is currently being migrated from AngularJS to Angular, so when reading the following sections, you'll see things that have one name in AngularJS and another name in Angular.
+Oppia's frontend code is written in Angular, so the follwing sections use Angular terminology throughout.
 
 The frontend includes the HTML and CSS code that define what the user sees, and it includes the JavaScript (and TypeScript) code that runs in the user's browser.
 
 Oppia's frontend follows the [Model-View-Controller (MVC)](https://developer.mozilla.org/en-US/docs/Glossary/MVC) software design pattern. You should be familiar with that pattern before reading further.
 
-Here are the Angular and AngularJS features we use to implement the MVC paradigm:
+Here are the Angular features we use to implement the MVC paradigm:
 
-| MVC Term            | Angular Term | AngularJS Term |
-|---------------------|--------------|----------------|
-| Model               | Model        | Object Factory |
-| View and Controller | Component    | Directive      |
+| MVC Term            | Angular Term |
+|---------------------|--------------|
+| Model               | Model        |
+| View and Controller | Component    |
 
 Let's start with a diagram of Oppia's frontend architecture. Then we will discuss each layer in turn.
 
@@ -158,7 +158,7 @@ sequenceDiagram
 
 ### Component layer
 
-Components (directives in AngularJS) define both the view (the layout of the page the user sees) and the controller logic that responds to user input.
+Components define both the view (the layout of the page the user sees) and the controller logic that responds to user input.
 
 Most pages begin with a `*.mainpage.html` file, for example `topic-editor-page.mainpage.html`. This HTML file contains a `<topic-editor-page>` tag, which refers to the `topic-editor-page.component.html` file.
 
@@ -195,8 +195,6 @@ export class ProfilePageComponent {
 }
 ```
 
-(Note that here we used the profile page as an example since the topic editor page hadn't been migrated to Angular yet at time of writing.)
-
 Then this code gets used in the component HTML file like this:
 
 ```html
@@ -228,7 +226,7 @@ Ideally, all interaction with the backend would happen through these backend API
 
 Everything we've described so far lives in the "view" and "controller" realms of MVC. Now let's get to the "model" part.
 
-Models (or object factories in AngularJS) are data structures that represent objects in Oppia. For example, we have a model for a user and another for a user's profile. These are just classes that hold information about the object they represent and provide methods for getting that information. They are also known as "frontend domain objects".
+Models are data structures that represent objects in Oppia. For example, we have a model for a user and another for a user's profile. These are just classes that hold information about the object they represent and provide methods for getting that information. They are also known as "frontend domain objects".
 
 Here's an (overly simplified) example of a model:
 
