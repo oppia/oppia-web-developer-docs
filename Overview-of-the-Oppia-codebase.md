@@ -160,9 +160,13 @@ sequenceDiagram
 
 Components define both the view (the layout of the page the user sees) and the controller logic that responds to user input.
 
-Most pages begin with a `*.mainpage.html` file, for example `topic-editor-page.mainpage.html`. This HTML file contains a `<topic-editor-page>` tag, which refers to the `topic-editor-page.component.html` file.
+Pages in Oppia are implemented as Angular page components under `core/templates/pages/`. Each page typically consists of:
 
-Both files are HTML, but `*.mainpage.html` is what the browser sees as the webpage, so it begins with `<!DOCTYPE html>`, contains `<head>`, and so on like a normal HTML page. `*.component.html` on the other hand is just defining a tag, so it won't have those lines. Instead, it could just begin with a `<div>` tag.
+- A `*.component.ts` file that contains the component’s controller logic.
+- A `*.component.html` file that defines the template (view).
+- A `*.module.ts` file that declares the Angular module and its dependencies.
+
+When modifying or exploring a page, start from its Angular component (`*.component.ts`) and corresponding template (`*.component.html`).
 
 Alongside each component, you'll also find a `*.module.ts`, for example `topic-editor-page.module.ts`. This defines the component as an Angular module and specifies its dependencies. You'll also see a `*.import.ts` file, which imports third-party dependencies.
 
