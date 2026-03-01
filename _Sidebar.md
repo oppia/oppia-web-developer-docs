@@ -108,7 +108,6 @@
   * Frontend
     * [[How to define frontend types and test them|Guide-on-defining-types]]
     * [[Frontend file naming conventions|The-File-Naming-Convention-and-Directory-Structure]]
-    * [[Angular Migration|Angular-Migration]]
     * [[UX guidelines|Oppia-UX-guidelines-&-rationales]]
     * [[Writing style guide|Writing-style-guide]]
     * [[Schemas|Schemas]]
