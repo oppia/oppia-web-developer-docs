@@ -7,11 +7,11 @@ If you use [Sublime Text](http://www.sublimetext.com/), consider installing the 
 - Strings should use single quotes (`'`) throughout Python and JavaScript.
 - Prefer having comments on their own line (above the code that's being commented on), as opposed to next to a line. The exception is when you need to disable a pylint warning for a specific line.
 - The last character in each file should be a newline. (If you're using Sublime, you can enforce this locally by adding `"ensure_newline_at_eof_on_save": true` to your user preferences file.)
-- Avoid introducing `TODO (#XYZ): ...` comments in the files and instead try to do things correctly the first time. If you are going to add a TODO comment in any file then there needs to be (at minimum) a full comment and justification explaining what has been tried and what the issue is. The TODo should also reference an issue created on GitHub for thracking the problem.
+- Avoid introducing `TODO (#XYZ): ...` comments in the files and instead try to do things correctly the first time. If you are going to add a TODO comment in any file then there needs to be (at minimum) a full comment and justification explaining what has been tried and what the issue is. The TODO should also reference an issue created on GitHub for tracking the problem.
 
 ## Design tips
-- Avoid referencing elements of a list by a hardcoded index number, e.g. `item[0]`, `item[1]`. This is because the reader typically has no idea what is significant about the element index in question. If the values in the list are of different types, consider using a domain object instead to model the item being passed around.
-- Avoid passing raw "dictionaries" (Python dicts or JS objects) between functions, because it's possible to add new fields to them midway through their lifecycle, which can get confusing for readers of the code. Use domain objects instead, since they have a fixed set of fields.
+- Avoid referencing elements of a list by a hardcoded index number, e.g. `item[0]`, `item[1]`. This is because the reader typically has no idea what is significant about the element index in question. If the values in the list are of different types, consider using a domain object instead to model the item that is being passed around.
+- Avoid passing raw "dictionaries" (Python dicts or JS objects) between functions, because it's possible to add new fields for them midway through their lifecycle, which can get confusing for readers of the code. Use domain objects instead, since they have a fixed set of fields.
   - Similarly, if you are passing in two lists of variables and you require both lists to be the same length (because the elements need to correspond with each other), consider using one list of composite domain objects instead.
 - Avoid redefining the same variable more than once. Use different names to represent different variables, since each variable (conceptually) stores a different thing.
 - Functions that start with "get", or which have GET semantics, should, under no circumstances, update or delete anything. They should be safe to call and have no side effects.
@@ -21,7 +21,7 @@ If you use [Sublime Text](http://www.sublimetext.com/), consider installing the 
 - If you need to raise an Exception, just do `raise Exception` -- no need to define custom exceptions. We tend to use exceptions fairly sparingly, though.
 - Otherwise, please follow the [Google Python style guide](https://github.com/google/styleguide/blob/gh-pages/pyguide.md). In particular:
   - There should be two empty lines before any top-level class or function definition.
-  - It's OK for the initial documentation string to be more than one line long.
+  - It's OK for the initial documentation string to be more than one-line long.
   - Prefer string interpolation over concatenation -- e.g. prefer: `'My string %s' % varname` to `'My string ' + varname`.
   - Indentation inside parentheses: Let [Black](#black) handle indentation and line breaks automatically.  
     Do **not** manually align to the opening parenthesis or indent by a fixed number of spaces.  
@@ -82,9 +82,9 @@ The general rule you should follow is to keep all text in Oppia as strings, wher
 
 ##### Use utf-8 (or ascii)
 
-In the Oppia codebase all data (that we can decide about) should be encoded/decoded using utf-8 encoding (`encode('utf-8')`). If you find a case where utf-8 cannot be used, please raise this with the Core Maintainers team.
+In the Oppia codebase, all data (that we can decide about) should be encoded/decoded using utf-8 encoding (`encode('utf-8')`). If you find a case where utf-8 can't be used, please raise this with the Core Maintainers team.
 
-If, in some case, an external source returns or receives data with a different encoding, it is fine to use that encoding only for that source. However, please first be sure to investigate whether that source can be configured to use utf-8 instead.
+If, in some cases, an external source returns or receives data with a different encoding, it is fine to use that encoding only for that source. However, please first be sure to investigate whether that source can be configured to use utf-8 instead.
 
 
 ### Apache Beam logic
@@ -192,7 +192,7 @@ _General note: We use the ES2017 standard for our JavaScript/TypeScript code. (S
 - For functions or variables that are private and that should not be exposed outside their immediate controller/service, prefix their names with an underscore (`_`) and add the `private` keyword.
 
 ## Typescript
-- Make sure to follow all the javascript rules here as well.
+- Make sure to follow all the JavaScript rules here as well.
 - Keep line lengths to at most 80 characters (with the exception of lines containing URLs, which are allowed to have a length of greater than 80 characters).
 - Declare a variable before usage. For instance:
 
@@ -264,7 +264,7 @@ _General note: We use the ES2017 standard for our JavaScript/TypeScript code. (S
     person = 'name';
   }
   ```
-- Do not overwrite the variable with a different type. Instead create a new variable whenever you have a different use case. For instance:
+- Do not overwrite the variable with a different type. Instead, create a new variable whenever you have a different use case. For instance:
 
   **Wrong usage:**
   ```javascript
@@ -302,7 +302,7 @@ _General note: We use the ES2017 standard for our JavaScript/TypeScript code. (S
     return isMismatch;
   };
   ```
-  Here `$(this).val()` is type casted to a string by using `<string>$(this).val()`
+  Here `$(this).val()` is typecasted to a string by using `<string>$(this).val()`
   If we do not use a typecast, typescript will give a error `Property 'trim' does not exist on type 'string | number | string[]'` since val can be a string or a number or a string array. So, to use trim we specifically need it as a string.
 
   In many cases, you may also need to typecast to `<any>` first and then to the desired type. For example, for converting a number to string, you will need `<string><any>` because neither type sufficiently overlaps with the other.
@@ -329,7 +329,7 @@ Usage of old-style AngularJS directives is discouraged. Instead, use component d
 
 ## Webpack
 
-In all TypeScript files in `core/templates` we use webpack. That means that instead of including the required files by `<script src="…"></script>` in HTML files we include them by using `require(…)` in the individual TS files.
+In all TypeScript files in `core/templates`, we use webpack. That means that instead of including the required files by `<script src="…"></script>` in HTML files, we include them by using `require(…)` in the individual TS files.
 
 ### Adding `require(…)` to the TypeScript files with service/filter/factory
 When you add new service/filter/factory dependency to service/filter/factory, you need to also `require(…)` it at the top of the file.
