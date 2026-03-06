@@ -39,7 +39,6 @@ Here are some general troubleshooting tips for Oppia. The platform specific tips
 - [404 when opening `/admin`](#404-when-opening-admin)
 - [Unable to generate translation opportunities locally](#unable-to-generate-translation-opportunities-locally)
 - [Webpack “Cannot resolve module ‘fs’” frontend error](#webpack-cannot-resolve-module-fs-frontend-error)
-- [oppia-angular-build container exits during install/run](#oppia-angular-build-container-exits-during-installrun)
 - [Linux](#linux)
   - [OSError: \[Errno 2\] No such file or directory](#oserror-errno-2-no-such-file-or-directory)
   - [Pip: Cannot Import Name Main](#pip-cannot-import-name-main)
@@ -346,9 +345,9 @@ If the dev server starts successfully but the page appears blank or does not loa
 **Try the following:**
 
 1. Stop the dev server.
-2. Run: `python -m scripts.start --dev`
+2. Run: `python -m scripts.start`
 3. If the issue persists, try: `python -m scripts.start --clean`
-4. If necessary, run `yarn install` and restart the server.
+4. If necessary, run `yarn install`, then restart the server with `python -m scripts.start`.
 
 This is typically a frontend build or caching issue rather than a backend problem.
 
@@ -360,12 +359,12 @@ The `/admin` page is only accessible to users with admin privileges.
 
 **Solution:**
 
-1. Start the dev server.
+1. Start the dev server and sign in using the email suggested on first login (`testadmin@example.com`, which has implicit super-admin privileges).
 2. Go to: `http://localhost:8181/admin`
-3. Assign yourself the **admin role** from the roles tab.
+3. From the Roles tab, assign the **admin role** to the account you want to use.
 4. Restart the server if necessary.
 
-After assigning the admin role, the `/admin` page should load correctly.
+After signing in with the suggested email and assigning the admin role, the `/admin` page should load correctly.
 
 ### Unable to generate translation opportunities locally
 
@@ -394,19 +393,6 @@ Frontend code shouldn’t import modules that only work in Node environments (li
 3. Rebuild (`yarn` / `python -m scripts.start --clean`) after fixing the import.
 
 This will stop Webpack from attempting to bundle a Node-only module for the client.
-
-### oppia-angular-build container exits during install/run
-
-If the Oppia installation (e.g., `make build`, Docker startup, or `python -m scripts.start`) fails because the `oppia-angular-build` container exits unexpectedly or the build does not complete:
-
-**Possible fixes:**
-1. Stop the server and **rebuild/restart the containers** so the build finishes cleanly.
-2. If the container continues to exit or build fails repeatedly, run: `make clean` then re-build the server.
-3. Ensure your internet connection is stable during dependency installation, as network issues can prevent required packages from downloading.
-
-This should help successfully build and start Oppia’s development environment without the container exiting mid-setup.
-
-
 
 ## Linux
 
