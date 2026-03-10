@@ -50,6 +50,7 @@ to each other:
 
 ```mermaid
 flowchart TD
+C("Classroom")--> T("Topic")
 T("Topic") --> S1("Story-1")
 T --> S2("Story-2")
 S1 --> C1("Chapter-1/Exploration")
@@ -74,10 +75,11 @@ As you go through https://www.oppia.org/, you will find these entities.
 
 ### Key terms
 
-1. **Topic**: A topic is a broad term that refers to the subject content being taught (e.g. Addition/Subtraction). For example, https://www.oppia.org/learn/math displays a list of math topics. A single topic can be described through multiple stories.
-2. **Story**: Stories are situations/scenarios that are meant to help users understand the topic. For example, if the topic is addition, then one of the stories could be about where a kid goes to a shop and buys 3 pens and 4 pencils. The lesson could then explain explain the concept of addition while discussing the total number of items bought. As another example, https://www.oppia.org/learn/math/place-values/story talks about Jaime’s adventures for learning about place values. A single story can be referenced in multiple chapters and is essentially a collection of chapters.
-3. **Chapter**: A chapter corresponds to different lessons through which we aim to teach the topic to the users. Each chapter has an associated exploration, and this exploration may have several cards. For example, https://www.oppia.org/learn/math/place-values/story shows a bunch of chapters to learn the place values topic.
-4. **Card**: A card is the primary component of an exploration where each card consists of:
+1. **Classroom**: A Classroom in Oppia is a collection of topics grouped under a single subject. For example ,https://www.oppia.org/learn/math this displays a Maths classroom.
+2. **Topic**: A topic is a broad term that refers to the subject content being taught (e.g. Addition/Subtraction). For example, https://www.oppia.org/learn/math displays a list of math topics. A single topic can be described through multiple stories.
+3. **Story**: Stories are situations/scenarios that are meant to help users understand the topic. For example, if the topic is addition, then one of the stories could be about where a kid goes to a shop and buys 3 pens and 4 pencils. The lesson could then explain explain the concept of addition while discussing the total number of items bought. As another example, https://www.oppia.org/learn/math/place-values/story talks about Jaime’s adventures for learning about place values. A single story can be referenced in multiple chapters and is essentially a collection of chapters.
+4. **Chapter**: A chapter corresponds to different lessons through which we aim to teach the topic to the users. Each chapter has an associated exploration, and this exploration may have several cards. For example, https://www.oppia.org/learn/math/place-values/story shows a bunch of chapters to learn the place values topic.
+5. **Card**: A card is the primary component of an exploration where each card consists of:
 
    * **Content**: This refers to the tutor’s question to the learner.
    * **Interaction**: Interactions refer to the type of question the users are shown (e.g. multiple-choice, image selection, fraction input, etc.)
@@ -87,9 +89,11 @@ As you go through https://www.oppia.org/, you will find these entities.
 
 ### Other terms
 
-1. **Collection**: A group of explorations.
+1. **Collection**: A collection is a group of related lessons arranged in a sequence.They don’t appear inside classrooms — instead, learners usually find them in the Community Library. for Example, https://www.oppia.org/collection/4UgTQUc1tala A Fractions collection with lessons like “What are Fractions?” and “Comparing Fractions.”
 2. **Opportunity**: An opportunity is specific to an exploration, and it refers to a way any contributor can contribute content to Oppia.
 3. **Suggestion**: Any time any user contributes to Oppia, their contribution is added as a request which is known as a suggestion. There are two types of suggestions:
+    * **Translation suggestion**: A suggested translation of content into  another language.
+   * **Question suggestion**: A suggested question for a skill.
 4. **Contributor** Anyone who pitches in content for an exploration/lesson. One way that Oppia is more of a collaborative learning space, in contrast to more traditional online learning platforms.
 5. **Exploration** The fundamental unit of learning on Oppia. This is an interactive activity built by a creator, and consumed by a learner. 
 6. **Library** The page where all explorations and collections on Oppia are displayed.
@@ -98,10 +102,6 @@ As you go through https://www.oppia.org/, you will find these entities.
 9. **Response** Feedback and/or a new card that the learner is directed to based on their answer. A response can’t be empty; if a response doesn’t direct the learner to a new card, then feedback must be provided.
 10. **Rule** A condition that triggers a response. Different interactions have different rule options. Multiple rules can be grouped together in a single answer group.
 11. **Tags** Additional labels that can be added to an exploration in order to make it more findable in the community library..
-
-
-   * **Translation suggestion**: A suggested translation of content into another language.
-   * **Question suggestion**: A suggested question for a skill.
 
 ## User account pages
 
@@ -129,6 +129,8 @@ There are two ways to become a super-administrator: use an email address with im
 
    ![Sign-in page with implicit super-admin email address](images/Webpage-Guide/implicitSuperAdmin.png)
 
+**Note**: This is a local development convenience. For reliable role management, prefer Method B using Firebase emulator custom claims.
+
 #### Grant super-admin privileges after account creation
 
 1. Sign in with any email address.
@@ -151,44 +153,90 @@ There are two ways to become a super-administrator: use an email address with im
 
 ### Delete account page
 
-The delete account page allows users to delete their accounts. Currently, it is deactivated and certain code needs to be changed to access it.
+Description: 
+This page allows signed-in learners to request deletion of their account.
+In local development, the account may be deleted immediately. On production, the deletion request can be marked as pending and processed later.
 
-1. Go to constants.ts and change `ENABLE_ACCOUNT_DELETION` from `false` to `true`.
+Url: 
+http://localhost:8181/delete-account
 
-2. Navigate to http://localhost:8181/delete-account.
+Permissions Required:
+Learners must be signed in.
+
+Steps to Access: 
+1. Log in to Oppia.
+2. Navigate to /preferences.(Preferences page)
+3. On that page there is Delete button.
+   
+When the user clicks this button, they are taken to the Delete Account page, where they can confirm the deletion.
+Follow the on-screen confirmation steps.
+
+**Note**:
+On local servers, deletion may happen immediately.
+On production, deletion requests may remain pending.
 
 ### Preferences page
 
-The preferences page allows users to change their settings on oppia.
+Description: 
+This page allows learners to change their settings on Oppia, such as language preference and email preferences.
 
-1. Log in.
+Url:
+http://localhost:8181/preferences
 
-2. Go to http://localhost:8181/preferences.
+Permissions Required:
+No special permissions. Any signed-in learner can access it.
+
+Steps to Access : 
+1. Log in to Oppia.
+2. Open the top-right profile menu
+3. Click Preferences.
 
 ### Profile page
 
-The profile page allows users to view and change their profile on Oppia.
+Description: 
+This page displays a learner’s profile. It shows their username, bio, badges, and created lessons.
 
-1. Log in.
+Url: 
+http://localhost:8181/profile/<username>
 
-2. Click on the profile menu and click your username to go to the profile page.
+Permissions Required: 
+No special permissions. Public profiles are viewable by anyone.
+
+Steps to Access: 
+1. Log in to Oppia
+2. Click your username in the top-right menu
 
 ## Admin pages
 
 ### Super admin page
 
+Description:
 The admin page is a page accessible only to super-administrators. It has many functionalities including changing permissions, configuration values, and running jobs. Certain webpages cannot be accessed unless the current user has the required permissions.
 
-1. Log in as a super-admin.
+Url: 
+http://localhost:8181/admin
 
+Permissions Required:
+Super Admin only.
+Steps to Access:
+1. Log in as a super-admin.
 2. Go to the profile menu and click on the "Admin Page" link.
 
    ![Admin Panel Link](https://user-images.githubusercontent.com/16653571/41501009-e04e9a76-71b9-11e8-958e-985f5bc7122a.png)
 
 #### Assign roles
 
-1. Navigate to the Admin page.
+Description: 
+Allows Super Admin to assign roles such as Curriculum Admin, Question Admin, or Release Coordinator.
 
+Url:
+http://localhost:8181/admin (Roles tab)
+
+Permissions Required:
+Super Admin only.
+
+Steps to Access:
+1. Navigate to the Admin page.
 2. Click the "ROLES" tab and enter the username of the user whose roles
    you want to edit.
 
@@ -200,103 +248,172 @@ The admin page is a page accessible only to super-administrators. It has many fu
 
 ### Email dashboard page
 
-1. Log in as a super-admin.
+Description:
+Interface for managing and sending bulk emails to specific user groups or the entire Oppia community.
 
+Url:
+/emaildashboard
+
+Permissions Required:
+Admin privileges
+
+Steps to Access:
+1. Log in as a super-admin.
 2. Navigate to http://localhost:8181/emaildashboard.
 
 ### Release coordinator page
 
-1. Log in as a super-admin and assign to your user the "release-coordinator" role.
+Description:
+This page helps admins manage important release-related tasks in Oppia.
+It is used to clear caches, manage features, and make sure everything works properly after new changes. Admins mostly use it during development, testing, and when releasing updates.
 
+Url:
+http://localhost:8181/release-coordinator
+
+Permissions Required:
+Release Coordinator role
+
+Steps to Access:
+1. Log in as a super-admin and assign to your user the "release-coordinator" role.
 2. Navigate to http://localhost:8181/release-coordinator.
 
 ## Static pages
 
 ### About page
 
+Description:
 The About page provides a brief overview of Oppia. It details the goals of the Oppia organization, credits its contributors, and provides links to guides and tutorials on how to further explore Oppia.
 
-1. Click the "About Menu" button on the top right navigation bar.
+Url: 
+/about
 
-2. Click on the "About Oppia" link.
+Permissions Required: 
+None
+
+Steps to Access: 
+1. Click the "About" button on the top right navigation bar.
 
    ![AboutPageLink](images/Webpage-Guide/aboutPageLink.png)
 
 ### Donate page
 
-The donate page provides a way for people to donate to the Oppia organization.
+Description: 
+Explains how community can support or align with Oppia Foundation's mission. 
 
+Url:   
+/donate
+
+Permissions Required: 
+None
+
+Steps to Access: 
 1. Go to http://localhost:8181/donate or click on the donate button in the navigation bar.
 
 ### Contact Page
 
+Description:
 The contact page details the ways to communicate with the Oppia team and get involved.
 
-1. Click on the "About" menu at the top navigation bar.
+Url: 
+/contact
 
-2. Click on the "Contact Us" link.
+Permissions Required: 
+None
+
+Steps to Access: 
+1. Click Get Involved in the navbar.
+2. Then click on Contact Us.
 
 ### Get started page
 
+Description:
 The get started page provides information for people new to Oppia.
 
-1. Navigate to http://localhost:8181/get-started.
+Url: 
+/get-started
 
-### Landing pages
+Permissions Required: 
+None
 
-The landing pages are a series of pages that provide information for people who want to help contribute to Oppia.
-
-1. Navigate to http://localhost:8181/teachers.
+Steps to Access: 
+Click Get Started in the footer or Navigate to http://localhost:8181/get-started.
 
 ### Thanks page
 
+Description:
 The Thanks page acknowledges people who support Oppia.
 
-1. Go to http://localhost:8181/thanks.
+Url: 
+/thanks
+
+Permissions Required: 
+None
+
+Steps to Access: 
+1. Users are redirected automatically after completing a donation.
 
 ### Terms page
 
+Description:
 The Terms page addresses the terms and conditions of Oppia.
 
-1. Go to http://localhost:8181/terms.
+Url:
+/terms
+
+Permissions Required: 
+None
+
+Steps to Access: 
+ 1. Click Terms of Service in the footer or  Go to http://localhost:8181/terms.
 
 ## Collection pages
 
 ### Collection editor page
 
-The Collection editor page allows users to create collections, which group explorations together. The collection editor page can only be accessed by users with the "collection editor" role.
+Description:
+The Collection editor page allows users to create collections, which group explorations together. 
 
-1. Log in as a super-admin and assign yourself the "collection editor" role.
+Url: 
+http://localhost:8181/collection_editor/create/<collection_id>
 
-2. Navigate to the splash page (http://localhost:8181/splash).
+Permissions Required:
+Collection Editor 
 
-3. Click on the "Create" button in the top navigation bar.
-
-   ![Create Button](https://user-images.githubusercontent.com/16653571/41504441-a7f60512-720c-11e8-85c2-8fee5f55a42c.png)
-
-4. Select "Create Collection."
-
-   ![CREATE COLLECTION button](https://user-images.githubusercontent.com/16653571/41504483-d946fd3c-720d-11e8-997d-943cd8703e57.png)
+Steps to Access:
+1. Log in to Oppia.
+2. Navigate to /creator-dashboard.
+3. Click Create New Collection.
+4. You will be redirected to the Collection Editor page.
 
 ### Collection player page
 
+Description:
 The collection player page allows users to explore collections in Oppia.
 
-1. Log in as a super-admin and assign yourself the "collection editor" role.
-
-2. Go to the admin activities tab and reload the collection "welcome_to_collections.yaml"
-
-   ![Reload Collections](images/Webpage-Guide/reloadCollections.png)
-
-3. Navigate back to the community library page and type in the search bar "collections."
-
-4. Click on the card titled "Introduction to collections in Oppia."
+Url:
+http://localhost:8181/collection/<collection_id>
+Permissions Required:
+Public (no login required)
+Steps to Access:
+1. Ensure a collection is published.
+2. Navigate to /community-library.
+3. Search for the collection.
+4. Open the collection to start learning.
 
 ## Exploration pages
 
 ### Community library page
 
+Description:
 The community library page allows users to view and search for explorations on Oppia. "Community" here refers to the Oppia community of teachers, learners, and contributors.
+
+Url:
+http://localhost:8181/community-library
+
+Permissions Required:
+Public (no login required)
+
+Steps to Access:
 
 1. Log in.
 
@@ -310,29 +427,51 @@ You can search the library, which consists of all of Oppia's explorations, by en
 
 ### Creator dashboard page
 
+Description:
 The creator dashboard page allows users to view all explorations they have created, or are currently creating.
 
-1. Log in.
+Url:
+http://localhost:8181/creator-dashboard
 
+Permissions Required:
+Logged-in users
+
+Steps to Access:
+1. Log in.
 2. Navigate to the creator dashboard page at http://localhost:8181/creator-dashboard.
 
 ### Exploration editor page
 
+Description:
 The exploration editor page allows users to create explorations, or lessons, in Oppia.
 
-1. Log in.
+Url:
+/create/<exploration_id>
 
-2. Click the "Create" button on the top right to open the exploration editor.
+Permissions Required:
+Logged-in users (exploration owner or collaborators)
+
+Steps to Access:
+1. Log in to Oppia
+2. Navigate to Creator Dashboard (/creator-dashboard)
+3. Click "Create Exploration" OR open an existing exploration from your dashboard
 
 ### Exploration player page
 
+Description:
 The exploration player page allows users to play explorations in Oppia.
 
+Url:
+/explore/<exploration_id>
+
+Permissions Required:
+None (Public)
+
+Steps to Access:
+
 1. Navigate to http://localhost:8181/community-library.
-
-2. Enter "fractions" into the search bar.
-
-3. Click on the exploration titled "Fractions 1 - What is the Fraction?"
+2. Find an exploration in the Community Library
+3. Click "Play" on the exploration OR directly visit http://localhost:8181/explore/<exploration_id>.
 
 The exploration will launch in a new tab, where you will see the first card. As you progress through the exploration, you will see subsequent cards, each of which has some content (text, images, videos, or other rich text components). Some will also have interactions like multiple choice questions. A user's answer to these interactions are called "responses."
 
@@ -340,10 +479,17 @@ The exploration will launch in a new tab, where you will see the first card. As 
 
 ### Topics and skills dashboard page
 
+Description:
 The topics and skills dashboard page allows users to view their created topics and skills, and to create new ones.
 
-1. To access this page, log in as a super-admin and assign yourself the "Curriculum admin" role from the admin page.
+Url:
+http://localhost:8181/topics-and-skills-dashboard
 
+Permissions Required:
+Curriculum Admin role.
+
+Steps to Access:
+1. To access this page, log in as a super-admin and assign yourself the "Curriculum admin" role from the admin page.
 2. Go to http://localhost:8181/topics-and-skills-dashboard or click the topic and skills dashboard link on the profile menu.
 
    ![Topics and skills dashboard link](images/Webpage-Guide/topicAndSkillDashboardLink.png)
@@ -378,23 +524,39 @@ To access the topic editor/to create new topics, go to the TOPICS tab of topics-
 
 ### Skill editor page
 
+Description:
 The skill editor allows the creation of skills in Oppia. You can access the skill editor under the SKILLS tab of the topics-and-skills-dashboard page.
 
-1. Log in as a super-admin and assign yourself the "Curriculum admin" role.
+Url:
+http://localhost:8181/skill_editor/<skill_id>
 
-2. Go to http://localhost:8181/topics-and-skills-dashboard and switch to the SKILLS tab.
+Permissions Required:
+Curriculum Admin role.
 
-3. Click on the "Create New Skill" button.
+Steps to Access:
 
-   ![Create new skill button](images/Webpage-Guide/createNewSkill.png)
+1. Open the Topics & Skills Dashboard.
 
-4. Enter the skill description, save it and wait for the skill editor tab to open.
+2. Go to the ADD SKILL .
 
-5. After creating a skill, you can find it in the list of skills under the SKILLS tab. From here, you can also assign it to a topic.
+3. New Skill modal will pop up.
+
+4. Once you click on Save button of the modal,a new tab will be opened.
+
+5. That will be Skill Editor page.
 
 ### Story editor page
 
+Description:
 The story editor page allows users to create stories in Oppia. 
+
+Url:
+http://localhost:8181/story_editor/<story_id>
+
+Permissions Required:
+Curriculum Admin role
+
+Steps to access: 
 
 1. Log in as a super-admin and assign yourself the "Curriculum admin" role.
 
@@ -412,30 +574,58 @@ The story editor page allows users to create stories in Oppia.
 
 ### Story player page
 
-The story player allows people to play stories. To access it:
+Description:
+The story player allows people to play stories. 
 
-1. Follow the steps to access the story editor page as described above.
+Url:
+/learn/<classroom_url_fragment>/<topic_url_fragment>/story/<story_url_fragment>
 
-2. Add an exploration as a chapter to the story using the add chapter button.
-   ![Add chapter button](images/Webpage-Guide/addChapterButton.png)
+Permissions Required:
+Public (no login required)
 
-3. Go to the Preview tab of the Story player using the preview button at the top.
+Steps to Access:
+
+1. Navigate to the Learn page.
+2. Click on a Classroom (for example, "Math").
+3. Click on a Topic (for example, "Multiplication").
+4. Click "Continue" on a Story.
+5. The Story Player page opens.
 
 ## Contributor pages
 
 ### Contributor dashboard page
 
+Description:
 The contributor dashboard page allows users to translate existing explorations into a different language, or create questions for existing Oppia explorations. This lets more people become "contributors" by helping create Oppia content.
 
-1. Log in.
+Url:
+http://localhost:8181/contributor-dashboard
 
+Permissions Required:
+Logged-in users.
+
+Steps to Access:
+
+1. Log in.
 2. Navigate to the contributor dashboard page at http://localhost:8181/contributor-dashboard.
 
 ### Contributor dashboard admin page
 
-1. Log in as a super-admin and assign to your user the "Question admin" role.
+Description:
+This is used to manage community reviewer permissions. It allows administrators to grant or revoke question review and translation review rights to trusted contributors.
 
+Url:
+http://localhost:8181/contributor-admin-dashboard
+
+Permissions Required:
+Question Admin or Translation Admin.
+
+Steps to Access:
+
+1. Log in as a super-admin and assign to your user the "Question admin" or "Translation Admin"role.
 2. Navigate to http://localhost:8181/contributor-admin-dashboard.
+
+
 
 ## User Documentation
 
