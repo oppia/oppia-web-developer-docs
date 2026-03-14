@@ -3,205 +3,157 @@
 For new contributors: Entities, Data Population & Routes
 </p>
 
-## Table of Contents
-- [Overview of Entities](#overview-of-entities)
-  - [Classroom](#classroom)
-  - [Topic](#topic)
-  - [Story](#story)
-  - [Chapter](#chapter)
-  - [Card](#card)
-  - [Other Terms](#other-terms)
-
-- [User Account Pages](#user-account-pages)
-  - [Log in or Create Account](#log-in-or-create-account)
-  - [Log in as a Super Admin](#log-in-as-a-super-admin)
-  - [Preferences Page](#preferences-page)
-  - [Profile Page](#profile-page)
-  - [Delete Account](#delete-account)
-
-- [Admin Page](#admin-page)
-  - [Important Admin Page Tabs](#important-admin-page-tabs)
-  - [Classroom Admin Page](#classroom-admin-page)
-  - [Release Coordinator](#release-coordinator)
-  - [Tabs on the Release Coordinator Page](#tabs-on-the-release-coordinator-page)
-
-- [Creator Dashboard](#creator-dashboard)
-- [Collection Editor Page](#collection-editor-page)
-  - [Ways to Generate Collections](#ways-to-generate-collections)
-
-- [Skill Editor Page](#skill-editor-page)
-- [Topics & Skills Dashboard](#topics--skills-dashboard)
-- [Story Editor Page](#story-editor-page)
-
-- [Contributor Dashboard](#contributor-dashboard)
-  - [Tabs on the Contributor Dashboard Page](#tabs-on-the-contributor-dashboard-page)
-  - [Ways to Generate Contributions](#ways-to-generate-contributions)
-
-- [Contributor Admin Dashboard](#contributor-admin-dashboard)
-
-- [Community Library](#community-library)
-- [Collection Player](#collection-player)
-- [Story Player Page](#story-player-page)
-
----
-
-### Public Informational Pages
-
-- [About](#about)
-- [Android](#android)
-- [Contact](#contact)
-- [Creator Guidelines](#creator-guidelines)
-- [Diagnostic Test Player](#diagnostic-test-player)
-- [Donate](#donate)
-- [Get Started](#get-started)
-- [License](#license)
-- [Maintenance](#maintenance)
-- [Partnerships](#partnerships)
-- [Privacy Policy](#privacy-policy)
-- [Teach](#teach)
-- [Terms of Use](#terms-of-use)
-- [Thank You](#thank-you)
-- [Volunteer](#volunteer)
-
----
-
-### Authentication Pages
-
-- [Signup](#signup)
-
----
-
-### Dashboard Pages
-
-- [Learner Dashboard](#learner-dashboard)
-- [Facilitator Dashboard](#facilitator-dashboard)
-- [Blog Dashboard](#blog-dashboard)
-
----
-
-### Admin & Moderation Routes
-
-- [Moderator](#moderator)
-- [Email Dashboard](#email-dashboard)
-- [Voiceover Admin](#voiceover-admin)
-- [Blog Admin](#blog-admin)
-
----
-
-### Editor Routes
-
-- [Exploration Editor](#exploration-editor)
-- [Topic Editor](#topic-editor)
-
----
-
-### Topics, Practice & Learning Pages
-
-- [Topic Viewer](#topic-viewer)
-- [Practice Session](#practice-session)
-- [Review Test](#review-test)
-- [Study Guide](#study-guide)
-
----
-
-### Classrooms & Learning Paths
-
-- [All Classrooms](#all-classrooms)
-- [Classroom Page](#classroom-page)
-
----
-
-### Exploration & Lesson Players
-
-- [Old Exploration Player](#old-exploration-player)
-- [Embedded Exploration Player](#embedded-exploration-player)
-- [New Lesson Player](#new-lesson-player)
-
----
-
-### Library & Collections
-
-- [Library Search](#library-search)
-- [Recently Published](#recently-published)
-- [Top Rated](#top-rated)
-
----
-
-### Blog Routes
-
-- [Blog Homepage](#blog-homepage)
-- [Blog Search](#blog-search)
-- [Blog Author Profile](#blog-author-profile)
-- [Individual Blog Post](#individual-blog-post)
-
----
-
-### Learner Group Routes
-
-- [Create Learner Group](#create-learner-group)
-- [Edit Learner Group](#edit-learner-group)
-- [Tabs on Edit Learner Group](#tabs-on-edit-learner-group)
-- [View Learner Group](#view-learner-group)
-
----
-
-### Account & Profile Routes
-
-- [Pending Account Deletion](#pending-account-deletion)
-- [Feedback Updates](#feedback-updates)
-
----
-
-### Error Handling Routes
-
-- [Iframe Error Page](#iframe-error-page)
-- [Custom Error Pages](#custom-error-pages)
-- [404 Not Found](#404-not-found)
-
----
-
-### Populating Data on Local Server
-
-- [Admin Activities Tab](#admin-activities-tab-dummytest-data)
-- [Creating Explorations](#creating-explorations)
-- [Creating a Skill](#creating-a-skill)
-- [Creating a Topic](#creating-a-topic)
-- [Generating Data for Contributor Dashboard](#generating-data-for-contributor-dashboard)
-- [Creating Collections](#creating-collections)
-- [Creating a Classroom](#creating-a-classroom)
-- [Community Library](#community-library)
-- [Collection Player](#collection-player)
-- [Story Player](#story-player)
-- [Fixing Common Error](#fixing-this-common-error)
-
----
-
-### Oppia Routing Guide for Contributors
-
-- [What is Routing in Oppia](#1-what-is-routing-in-oppia)
-- [Route Protection (Guards)](#2-route-protection-guards)
-- [Public Pages](#3-public-pages-no-login-required)
-- [Authentication Pages](#4-authentication-pages)
-- [Dashboard Pages](#5-dashboard-pages-require-login)
-- [Admin & Moderation Routes](#6-admin--moderation-routes-require-login)
-- [Editor Routes](#7-editor-routes-require-login)
-- [Topics Practice & Learning Pages](#8-topics-practice--learning-pages-public)
-- [Classrooms & Learning Paths](#9-classrooms--learning-paths)
-- [Exploration & Lesson Players](#10-exploration--lesson-players)
-- [Library & Collections](#11-library--collections)
-- [Blog Routes](#12-blog-routes)
-- [Learner Group Routes](#13-learner-group-routes)
-- [Account & Profile Routes](#14-account--profile-routes)
-- [Special Dynamic Routes](#15-special-dynamic-routes)
-- [Error Handling Routes](#16-error-handling-routes)
-- [Why Routing File is Critical](#17-why-this-routing-file-is-critical)
-- [Role-Based Access Control](#18-role-based-access-control)
-- [Troubleshooting Tips](#19-troubleshooting-tips)
-- [Quick Reference for Contributors](#20-quick-reference-for-contributors)
-- [Contributor Checklist](#21-contributor-checklist)
-- [Summary](#22-summary)
+- [Overview of entities](#overview-of-entities)
+  * [Key terms](#key-terms)
+    + [Classroom](#classroom)
+    + [Topic](#topic)
+    + [Story](#story)
+    + [Chapter](#chapter)
+    + [Card](#card)
+- [Other Terms](#other-terms)
+  * [Collection](#collection)
+  * [Opportunity](#opportunity)
+  * [Suggestion](#suggestion)
+  * [Exploration](#exploration)
+- [User account pages](#user-account-pages)
+- [Log in or create account](#log-in-or-create-account)
+- [Log in as a super-administrator](#log-in-as-a-super-administrator)
+  * [Method A — Implicit super admin email (fast):](#method-a---implicit-super-admin-email--fast--)
+  * [Method B — Grant super admin via Firebase emulator (explicit):](#method-b---grant-super-admin-via-firebase-emulator--explicit--)
+- [Preferences Page](#preferences-page)
+- [Delete account page](#delete-account-page)
+- [Profile page](#profile-page)
+- [Admin pages](#admin-pages)
+  * [Important admin page tabs](#important-admin-page-tabs)
+- [Classroom admin page](#classroom-admin-page)
+- [Release Coordinator Page](#release-coordinator-page)
+  * [Tabs on the release coordinator page:](#tabs-on-the-release-coordinator-page-)
+- [Creator dashboard](#creator-dashboard)
+- [Collection editor page:](#collection-editor-page-)
+  * [Ways to generate collections:](#ways-to-generate-collections-)
+- [Skill editor page](#skill-editor-page)
+- [Topics & skills dashboard](#topics---skills-dashboard)
+- [Story editor page](#story-editor-page)
+- [Contributor dashboard](#contributor-dashboard)
+  * [Tabs on the Contributor dashboard page:](#tabs-on-the-contributor-dashboard-page-)
+  * [Ways to Generate Contributions](#ways-to-generate-contributions)
+- [Contributor admin dashboard](#contributor-admin-dashboard)
+- [Community library](#community-library)
+- [Collection player](#collection-player)
+- [Story player page](#story-player-page)
+- [Public informational pages](#public-informational-pages)
+  * [About](#about)
+  * [Contact](#contact)
+  * [Donate](#donate)
+  * [Get Started](#get-started)
+  * [Thank You](#thank-you)
+  * [Terms of Use](#terms-of-use)
+  * [Privacy Policy](#privacy-policy)
+  * [License](#license)
+  * [Volunteer](#volunteer)
+  * [Creator Guidelines](#creator-guidelines)
+  * [Android](#android)
+  * [Partnerships](#partnerships)
+  * [Teach](#teach)
+  * [Diagnostic Test Player](#diagnostic-test-player)
+  * [Maintenance Page](#maintenance-page)
+- [Authentication pages](#authentication-pages)
+  * [Signup](#signup)
+- [Dashboard pages](#dashboard-pages)
+  * [Learner Dashboard](#learner-dashboard)
+  * [Facilitator Dashboard](#facilitator-dashboard)
+  * [Blog Dashboard](#blog-dashboard)
+- [Admin & Moderation routes](#admin---moderation-routes)
+  * [Moderator](#moderator)
+  * [Email Dashboard](#email-dashboard)
+  * [Voiceover Admin](#voiceover-admin)
+  * [Blog Admin](#blog-admin)
+- [Editor routes](#editor-routes)
+  * [Exploration Editor](#exploration-editor)
+  * [Topic Editor](#topic-editor)
+- [Topics, practice & Learning pages](#topics--practice---learning-pages)
+  * [Topic Viewer](#topic-viewer)
+  * [Practice Session](#practice-session)
+  * [Review Test](#review-test)
+  * [Study Guide](#study-guide)
+- [Classrooms & Learning paths](#classrooms---learning-paths)
+  * [All Classrooms](#all-classrooms)
+  * [Classroom Page](#classroom-page)
+- [Exploration & Lesson players](#exploration---lesson-players)
+  * [Old Exploration Player](#old-exploration-player)
+  * [Embedded Exploration Player](#embedded-exploration-player)
+  * [New Lesson Player](#new-lesson-player)
+- [Library & Collections](#library---collections)
+  * [Library Search](#library-search)
+  * [Recently Published](#recently-published)
+  * [Top Rated](#top-rated)
+- [Blog routes](#blog-routes)
+  * [Blog Homepage](#blog-homepage)
+  * [Blog Search](#blog-search)
+  * [Blog Author Profile](#blog-author-profile)
+  * [Individual Blog Post](#individual-blog-post)
+- [Learner group routes](#learner-group-routes)
+  * [Create Learner Group](#create-learner-group)
+  * [Edit Learner Group](#edit-learner-group)
+    + [Tabs on edit learner group:](#tabs-on-edit-learner-group-)
+  * [View Learner Group](#view-learner-group)
+- [Account & Profile routes](#account---profile-routes)
+  * [Pending Account Deletion](#pending-account-deletion)
+  * [Feedback Updates](#feedback-updates)
+- [Error handling routes](#error-handling-routes)
+  * [Iframe Error Page](#iframe-error-page)
+  * [Custom Error Pages](#custom-error-pages)
+  * [404 Not Found](#404-not-found)
+- [Populating Data on Local Server](#populating-data-on-local-server)
+  * [1. Admin Activities Tab (Dummy/Test Data)](#1-admin-activities-tab--dummy-test-data-)
+    + [Generate Dummy Explorations](#generate-dummy-explorations)
+    + [Reload a Single Exploration](#reload-a-single-exploration)
+    + [Reload a Single Collection](#reload-a-single-collection)
+    + [Load Dummy New Structures Data](#load-dummy-new-structures-data)
+  * [2. Creating Explorations](#2-creating-explorations)
+  * [3. Creating a Skill](#3-creating-a-skill)
+  * [4. Creating a topic](#4-creating-a-topic)
+  * [5. Generating Data For Contributor Dashboard](#5-generating-data-for-contributor-dashboard)
+  * [6. Creating collections](#6-creating-collections)
+    + [Using the collection editor:](#using-the-collection-editor-)
+    + [Using activities tab](#using-activities-tab)
+  * [7. Creating a classroom](#7-creating-a-classroom)
+    + [Creating a custom classroom](#creating-a-custom-classroom)
+    + [Creating a dummy math classroom](#creating-a-dummy-math-classroom)
+  * [8. Community library](#8-community-library)
+  * [9. Collection player](#9-collection-player)
+  * [10. Story player](#10-story-player)
+  * [11. Fixing this common error](#11-fixing-this-common-error)
+- [Oppia Routing Guide for Contributors](#oppia-routing-guide-for-contributors)
+  * [1. What Is Routing in Oppia?](#1-what-is-routing-in-oppia-)
+  * [2. Route Protection (Guards)](#2-route-protection--guards-)
+    + [2.1 IsLoggedInGuard](#21-isloggedinguard)
+    + [2.2 LessonPlayerPageAuthGuard](#22-lessonplayerpageauthguard)
+    + [2.3 NormalizeUrlCaseGuard](#23-normalizeurlcaseguard)
+  * [3. Public Pages (No Login Required)](#3-public-pages--no-login-required-)
+  * [4. Authentication pages](#4-authentication-pages)
+  * [5. Dashboard pages (Require Login)](#5-dashboard-pages--require-login-)
+  * [6. Admin & Moderation routes (Require Login)](#6-admin---moderation-routes--require-login-)
+  * [7. Editor routes (Require Login)](#7-editor-routes--require-login-)
+  * [8. Topics, practice & Learning pages (Public)](#8-topics--practice---learning-pages--public-)
+  * [9. Classrooms & Learning paths](#9-classrooms---learning-paths)
+  * [10. Exploration & Lesson players](#10-exploration---lesson-players)
+  * [11. Library & Collections](#11-library---collections)
+  * [12. Blog routes](#12-blog-routes)
+  * [13. Learner group routes](#13-learner-group-routes)
+  * [14. Account & Profile routes](#14-account---profile-routes)
+  * [15. Special dynamic routes](#15-special-dynamic-routes)
+    + [15.1 Stewards Landing Pages](#151-stewards-landing-pages)
+    + [15.2 Topic Landing Pages](#152-topic-landing-pages)
+  * [16. Error handling routes](#16-error-handling-routes)
+  * [17. Why this routing file Is critical](#17-why-this-routing-file-is-critical)
+  * [18. Role-based access control](#18-role-based-access-control)
+  * [19. Troubleshooting tips](#19-troubleshooting-tips)
+  * [20. Quick reference for contributors](#20-quick-reference-for-contributors)
+  * [21. Contributor Checklist](#21-contributor-checklist)
+  * [22. Summary](#22-summary)
   
-# Overview of entities
+## Overview of entities
 Understanding Oppia’s key entities is crucial before working on the dev server.
 
 This diagram outlines the various entities in Oppia and how they relate
@@ -232,15 +184,15 @@ C4 --> c6("Card-6")
 
 ### Key terms
 
-## Classroom 
-A Classroom in Oppia is a collection of topics grouped under a single subject. For example ,https://www.oppia.org/learn/math this displays a Maths classroom.
-## Topic
-A topic is a broad term that refers to the subject content being taught. For example , https://www.oppia.org/learn/math/place-values/story this displays a “place value” Topic.
-## Story
-Stories are situations/scenarios that are meant to help learners understand the Topic. For example ,https://www.oppia.org/learn/math/place-values/story talks about Jaime’s adventures for learning about place values.
-## Chapter
-A chapter corresponds to different lessons through which we aim to teach the topic to the leaners. For example, https://www.oppia.org/learn/math/place-values/story shows a bunch of chapters to learn the place values topic.
-## Card
+#### Classroom 
+A Classroom in Oppia is a collection of topics grouped under a single subject. For example: https://www.oppia.org/learn/math this displays a Maths classroom.
+#### Topic
+A topic is a broad term that refers to the subject content being taught. For example: https://www.oppia.org/learn/math/place-values/story this displays a “place value” Topic.
+#### Story
+Stories are situations/scenarios that are meant to help learners understand the Topic. For example: https://www.oppia.org/learn/math/place-values/story talks about Jaime’s adventures for learning about place values.
+#### Chapter
+A chapter corresponds to different lessons through which we aim to teach the topic to the learners. For example, https://www.oppia.org/learn/math/place-values/story shows a bunch of chapters to learn the place values topic.
+#### Card
 A card is the primary component of lesson where each card consists of:
 
    - **Content**: This refers to the tutor’s question to the learner.
@@ -252,17 +204,19 @@ A card is the primary component of lesson where each card consists of:
 ## Other Terms
 
 ### Collection
-A collection is a group of related lessons arranged in a sequence.They don’t appear inside classrooms — instead, learners usually find them in the Community Library. For Example, https://www.oppia.org/collection/4UgTQUc1tala A Fractions collection with lessons like “What are Fractions?” and “Comparing Fractions.”
+A collection is a group of related lessons arranged in a sequence. They don’t appear inside classrooms — instead, learners usually find them in the Community Library. For Example: https://www.oppia.org/collection/4UgTQUc1tala A Fractions collection with lessons like “What are Fractions?” and “Comparing Fractions.”
 ### Opportunity
 An opportunity is specific to an exploration, and it refers to a way any contributor can contribute content to Oppia.
 ### Suggestion 
-Any time any user contributes to Oppia, their contribution is added as a request which is known as a suggestion. There are two types of suggestions:
+Any time any user contributes to Oppia, their contribution is added as a request which is known as a suggestion. 
+
+There are two types of suggestions:
     - **Translation suggestion**: A suggested translation of content into  another language.
     - **Question suggestion**: A suggested question for a skill.
 ### Exploration
 The fundamental unit of learning on Oppia. This is an interactive activity built by a creator, and consumed by a learner.
    
-# User account pages
+## User account pages
 
 ## Log in or create account
 
@@ -279,10 +233,10 @@ The fundamental unit of learning on Oppia. This is an interactive activity built
 ## Log in as a super-administrator
 
 Super Admin can:
-Access the Admin page
-Assign roles to users
-Run data generation jobs
-Flush caches and manage releases
+- Access the Admin page
+- Assign roles to users
+- Run data generation jobs
+- Flush caches and manage releases
 
 There are two ways to become a super admin on the local server.
 
@@ -314,7 +268,7 @@ There are two ways to become a super admin on the local server.
 
 5. Log out and sign back in to refresh the session cookie.
 
-# Preferences Page
+## Preferences Page
 
 **Description:**
 This page allows learners to change their settings on Oppia, such as language preference and email preferences.
@@ -330,7 +284,9 @@ No special permissions. Any signed-in learner can access it.
 2. Open the top-right profile menu
 3. Click Preferences.
 
-# Delete account page
+![Preferences page](images/Webpage-Guide/preferences.png)
+
+## Delete account page
 
 **Description:** 
 This page allows signed-in learners to request deletion of their account.
@@ -354,7 +310,9 @@ Follow the on-screen confirmation steps.
 On local servers, deletion may happen immediately.
 On production, deletion requests may remain pending.
 
-# Profile page
+![Delete account page](images/Webpage-Guide/deleteaccount.png)
+
+## Profile page
 
 **Description:** 
 This page displays a learner’s profile. It shows their username, bio, badges, and created lessons.
@@ -369,7 +327,9 @@ No special permissions. Public profiles are viewable by anyone.
 1. Log in to Oppia
 2. Click your username in the top-right menu
 
-# Admin pages
+![Profile page](images/Webpage-Guide/profilepage.png)
+
+## Admin pages
 
 **Description:**
 The Admin page is where Super Admin manage roles, run data generation jobs, flush caches, and reload prebuilt content.
@@ -386,7 +346,7 @@ Super Admin only.
 
    ![Admin Panel Link](https://user-images.githubusercontent.com/16653571/41501009-e04e9a76-71b9-11e8-958e-985f5bc7122a.png)
 
-## Important admin page tabs
+### Important admin page tabs
 **Assign roles** 
 
 **Description:** 
@@ -426,6 +386,8 @@ Super Admin
 3. Click on the ACTIVITIES tab.
 4. Choose the required data generation or reload action.
 
+![Activities](images/Webpage-Guide/adminactivities.png)
+
 **Platform Parameters** 
 
 **Description:**
@@ -442,6 +404,8 @@ Super Admin
 2. Open /admin.
 3. Navigate to the PLATFORM PARAMETERS tab.
 4. Review or update configuration values as required.
+
+![Platform Parameters](images/Webpage-Guide/adminplatform.png)
 
 **Misc Tab**
 
@@ -461,7 +425,9 @@ Super Admin
 2. Navigate to /admin
 3. Open the MISC tab
 
-# Classroom admin page
+![Misc tab](images/Webpage-Guide/adminmisc.png)
+
+## Classroom admin page
 
 **Description:**
 This page allows Curriculum Admins to create and manage classrooms, assign  topics, and configure classroom content displayed to learners.
@@ -479,7 +445,9 @@ Curriculum Admin role
 3. Navigate to /classroom-admin.
 4. Create or edit classrooms and assign topics.
 
-# Release Coordinator Page
+![Classroom admin](images/Webpage-Guide/classroomadmin.png)
+
+## Release Coordinator Page
 
 **Description:**
 This page helps admins manage important release-related tasks in Oppia.
@@ -496,8 +464,8 @@ Release Coordinator role
 3. Navigate to /release-coordinator.
 4. Use tools such as Flush Cache under the MISC tab.
 
+### Tabs on the release coordinator page:
 
-## Tabs on the release coordinator page:
 1. **Features Tab**
 It is used to enable, disable, and control feature flags.
 It helps roll out new features gradually using:
@@ -510,6 +478,7 @@ It prevents breaking the site by testing features on limited users first
 Example:
  Enable a new UI feature only for 10% of users before full release.
 
+![Features](images/Webpage-Guide/releasefeatures.png)
 
 2. **Beam Jobs tab**
 It is used to start and monitor background jobs.
@@ -525,6 +494,7 @@ It shows job status such as:
 Example:
  Run a migration job after changing the database structure.
 
+![Beam jobs](images/Webpage-Guide/beamjobs.png)
 
 3. **Misc tab**
    
@@ -536,11 +506,12 @@ Includes:
 - Promo Bar controls – display site-wide announcements
 - Manage User Groups – create groups used by feature flags
 
-
 Example:
  Flush cache when local server shows outdated data.
 
-# Creator dashboard
+![Misc tab](images/Webpage-Guide/releasecoordinator.png)
+
+## Creator dashboard
 **Description:**
 This dashboard allows creators to manage explorations and collections they have created, including drafts and published content.
 
@@ -554,8 +525,11 @@ Logged-in users
 1. Log in to Oppia.
 2. Navigate to /creator-dashboard.
    - Create, edit, or manage your explorations and collections.
+
+ ![Creator dashboard](images/Webpage-Guide/creatordashboard.png)
  
-# Collection editor page:
+## Collection editor page:
+
 **Description:**
 This page allows creators to create and edit collections, which are ordered groups of explorations designed to guide learners through a learning path.
 
@@ -571,10 +545,12 @@ Collection Editor
 3. Click Create New Collection.
 4. You will be redirected to the Collection Editor page.
 
-## Ways to generate collections:
+![Collection editor](images/Webpage-Guide/collectioneditor.png)
+
+### Ways to generate collections:
 See [Populating Data on Local Server](#populating-data-on-local-server).
 
-# Skill editor page
+## Skill editor page
 **Description:** 
 The skill editor allows the creation of skills in Oppia. You can access the Skills editor under the skills tab of topics-and-skills-dashboard page.
 
@@ -587,11 +563,14 @@ Curriculum Admin role.
 **Steps to Access:**
 1. Open the Topics & Skills Dashboard.
 2. Go to the ADD SKILL .
+   ![ADD SKILL](images/Webpage-Guide/skilleditor1.png)
 3. New Skill modal will pop up.
 4. Once you click on Save button of the modal,a new tab will be opened.
 5. That will be Skill Editor page.
+   
+![Skill editor](images/Webpage-Guide/skilleditor2.png)
 
-# Topics & skills dashboard 
+## Topics & skills dashboard 
 
 **Description:** 
 The central hub for Curriculum Admins to create and manage Topics (and their stories) and Skills.
@@ -607,7 +586,11 @@ Curriculum Admin role.
 2. Assign yourself the Curriculum Admin role.
 3. Navigate to /topics-and-skills-dashboard.
 
-# Story editor page
+
+![Topics & skills dashboard](images/Webpage-Guide/topicsandskillsdashboard.png)
+
+## Story editor page
+
 **Description:**
 This allows the user to create stories in Oppia.
 
@@ -620,10 +603,15 @@ Curriculum Admin role
 **Steps to access:** 
 1. Navigate to /topics-and-skills-dashboard.
 2. Create a topic.
+   ![createTopicModal](images/Webpage-Guide/createTopicModal.png)
+
 3. Go to the topic editor and click on the add story button.
+   ![canonicalstories](images/Webpage-Guide/canonicalstories.png)
 4. Complete the “New story” modal and wait for the story editor page to load.
 
-# Contributor dashboard
+![New story](images/Webpage-Guide/storyeditor3.png)
+
+## Contributor dashboard
 
 **Description:**
 Allows contributors to submit translation suggestions and questions.
@@ -638,7 +626,9 @@ Logged-in users.
 1. Log in to Oppia.
 2. Navigate to /contributor-dashboard.
 
-## Tabs on the Contributor dashboard page:
+![Contributor dashboard](images/Webpage-Guide/mycontributions.png)
+
+### Tabs on the Contributor dashboard page:
 
 - **My Contributions** 
 This is your personal dashboard where you can track your history and impact. It is divided into three sections (visible in the side-nav):
@@ -646,17 +636,18 @@ This is your personal dashboard where you can track your history and impact. It 
 1. **Contributions:** 
 Shows the status of everything you have submitted (e.g., translations or 
 questions). You can see if they are "Accepted," "Rejected," or "In Review."
-
+![translations](images/Webpage-Guide/translations.png)
 2. **Available Tasks:** 
 If you have been granted "Reviewer" rights by an admin, this section shows you a list of other people's contributions that need your approval.                                   
 - Question Review Rights
 This permission allows users to review question suggestions submitted by other contributors.
 - Translation Review Rights
 This permission allows users to review translation suggestions in specific languages.    
+![translations](images/Webpage-Guide/reviewtranslations.png)
 
 3. **Accomplishments:** 
 Displays your overall contribution Stats and any Badges you have earned for your work.
-
+![Badges](images/Webpage-Guide/Badges.png)
 - **⁠⁠Translate Text**
 This is where the actual work happens for translators.
 It shows a list of Opportunities (lessons that need to be translated into your chosen language).
@@ -664,12 +655,11 @@ You can use the Language and Topic filters at the top to find specific lessons y
 Clicking Translate on any item will open the translation editor for that lesson.
 
 Note: The "Available Tasks" section in the Contributor Dashboard becomes visible when a user has reviewer permissions. 
-
-## Ways to Generate Contributions
+![Translate Text](images/Webpage-Guide/translatetext2.png)
+### Ways to Generate Contributions
  See [Populating Data on Local Server](#populating-data-on-local-server).
 
-
-# Contributor admin dashboard
+## Contributor admin dashboard
 
 **Description:**
 This is used to manage community reviewer permissions. It allows administrators to grant or revoke question review and translation review rights to trusted contributors.
@@ -684,8 +674,9 @@ Question Admin or Translation Admin.
 1. Assign yourself the Question Admin role/Translation Admin.
 2. Navigate to /contributor-admin-dashboard
 
+![Contributor admin dashboard](images/Webpage-Guide/contributordashboardadmin.png)
 
-# Community library
+## Community library
 
 **Description:**
 The Community Library allows users to browse, search, and filter explorations and collections available on Oppia.
@@ -700,8 +691,10 @@ Public (no login required)
 1. Open Oppia in a browser.
 2. Navigate to /community-library.
 3. Use filters or search to find learning content.
+   
+![Community library](images/Webpage-Guide/communitylibrary.png)
 
-# Collection player
+## Collection player
 **Description:**
 This page displays a learner-facing view of a collection, allowing learners to play explorations in sequence.
 
@@ -717,8 +710,9 @@ Public (no login required)
 3. Search for the collection.
 4. Open the collection to start learning.
 
+![Collection player](images/Webpage-Guide/collections.png)
 
-# Story player page
+## Story player page
 
 **Description:** 
 Displays the learner-facing view of a story and its chapters.
@@ -735,6 +729,7 @@ Public (no login required)
 3. Click on a Topic (for example, "Multiplication").
 4. Click "Continue" on a Story.
 5. The Story Player page opens.
+![Story player page](images/Webpage-Guide/storyplayer.png)
 
 ## Public informational pages
 
@@ -752,6 +747,8 @@ None
 **Steps to Access:** 
  1. Click About in the Navbar.
 
+![About page](images/Webpage-Guide/about.png)
+
 ### Contact
 **Description:** 
 Allows users to contact the Oppia team, submit feedback, and learn how to get involved with the Oppia project.
@@ -766,6 +763,8 @@ None
 1. Click Get Involved in the navbar.
 2. Then click on Contact Us.
 
+![Contact page](images/Webpage-Guide/contact.png)
+
 ### Donate
 
 **Description:** 
@@ -779,7 +778,9 @@ None
 
 **Steps to Access:** 
 1. Click Donate in the Navbar.
-    
+
+![ Donate page](images/Webpage-Guide/donate.png)
+
 ### Get Started
 
 **Description:** 
@@ -793,6 +794,8 @@ None
 
 **Steps to Access:** 
 1. Click Get Started in the footer
+
+![Get Started page](images/Webpage-Guide/getstarted.png)
 
 ### Thank You
 
@@ -808,6 +811,8 @@ None
 **Steps to Access:** 
 1. Users are redirected automatically after completing a donation.
 
+![Thank You page](images/Webpage-Guide/thankyou.png)
+
 ### Terms of Use
 
 **Description:** 
@@ -821,6 +826,8 @@ None
 
 **Steps to Access:** 
  1. Click Terms of Service in the footer.
+
+![Terms of Use](images/Webpage-Guide/terms.png)
 
 ### Privacy Policy
 
@@ -836,6 +843,8 @@ None
 **Steps to Access:** 
 1. Click Privacy Policy in the footer.
 
+![Privacy Policy page](images/Webpage-Guide/privacypolicy.png)
+
 ### License
 
 **Description:** 
@@ -848,7 +857,9 @@ Details the licenses under which Oppia’s content and software are released.
 None
 
 **Steps to Access:** 
- 1. Linked from the image receiver or audio uploader components during the      creation process.
+ 1. Linked from the image receiver or audio uploader components during the creation process.
+
+![License page](images/Webpage-Guide/license.png)
 
 ### Volunteer
 
@@ -865,6 +876,8 @@ None
 1. Click Get Involved in the navbar.
 2. Then click on the Volunteer.
 
+![Volunteer page](images/Webpage-Guide/volunteer.png)
+
 ### Creator Guidelines
 
 **Description:** 
@@ -878,6 +891,8 @@ Provides instructions and best practices for participating in the community and 
 
 **Steps to Access:** 
 1. Click Creator-guidelines in the footer.
+
+![Creator Guidelines](images/Webpage-Guide/creatorguidelines.png)
 
 ### Android
 
@@ -893,6 +908,8 @@ None
 **Steps to Access:** 
 1. Click LEARN in the navbar.
 2. Click try it today.
+   
+![Android page](images/Webpage-Guide/android.png)
 
 ### Partnerships
 
@@ -908,7 +925,7 @@ None
 **Steps to Access:** 
 1. Click Get Involved in the navbar.
 2. Then click on the Schools and Organizations.
-
+![Partnerships page](images/Webpage-Guide/partnerships.png)
 ### Teach
 
 **Description:** 
@@ -922,7 +939,7 @@ None
 
 **Steps to Access:** 
 1. Click For Parents/Teachers in the footer.
-
+![Teach](images/Webpage-Guide/teach.png)
 ### Diagnostic Test Player
 
 **Description:** 
@@ -947,17 +964,22 @@ If any of these are missing, the page may load but not behave correctly.
 
 1. Navigate to the classroom page.
 2. On the classroom page, click Take quiz.
+   ![classroom page](images/Webpage-Guide/diagnostic1.png)
+   
 3. The Diagnostic Test Player will open.
+   ![Diagnostic Test Player](images/Webpage-Guide/diagnosticplayer.png)
 
-### How to Enable Diagnostic Test
+How to Enable Diagnostic Test
 1. Go to /classroom-admin.
 2. Click on the classroom tile (e.g., Math)
 3. Click the pencil icon to enter Edit Mode
 4. Scroll to Diagnostic Test Status
 5. Toggle from Disabled → Public
 6. Click Save
+   
+![Enable Diagnostic Test](images/Webpage-Guide/diagnosticenable.png)
 
-## Maintenance Page
+### Maintenance Page
 
 **Description:**
 Displayed when Oppia is in maintenance mode. Shows a message that the site is temporarily unavailable.
@@ -974,10 +996,11 @@ None (Public)
 3. OR directly visit http://localhost:8181/maintenance
 
 **NOTE:** Maintenance mode only works with --prod_env flag. That's why the server is started with python -m scripts.start --prod_env --maintenance_mode.
+![Maintenance Page](images/Webpage-Guide/maintenance.png)
 
-# Authentication pages
+## Authentication pages
 
-## Signup
+### Signup
 
 **Description:**
 Account creation page where new users can register for an Oppia account.
@@ -993,9 +1016,11 @@ None (Public)
 2. On the login page, enter a new email address
 3. Complete the signup flow (username selection, terms acceptance)
 
-# Dashboard pages 
+![Signup Page](images/Webpage-Guide/signup.png)
 
-## Learner Dashboard
+## Dashboard pages 
+
+### Learner Dashboard
 
 **Description:**
 The learner's personal homepage showing their learning progress, goals, ongoing lessons, recommended topics, and achievements.
@@ -1011,7 +1036,10 @@ Logged-in users
 2. Click the Oppia logo or "Home" link
 OR directly visit http://localhost:8181/learner-dashboard
 
-## Facilitator Dashboard
+![Learner Dashboard](images/Webpage-Guide/leanerdashboard.png)
+
+
+### Facilitator Dashboard
 
 **Description:**
 A dashboard for classroom facilitators to manage learner groups, track student progress, and assign lessons.
@@ -1028,7 +1056,9 @@ Logged-in users with Full User Role.
 3. Navigate to http://localhost:8181/facilitator-dashboard
 (Requires facilitator role to access full features)
 
-## Blog Dashboard
+![Facilitator Dashboard](images/Webpage-Guide/Facilatordashboard.png)
+
+### Blog Dashboard
 
 **Description:**
 Management interface for blog authors to create, edit, and publish blog posts.
@@ -1044,9 +1074,11 @@ Blog Editor role
 2. Assign yourself the Blog Editor role via /admin → Roles
 3. Navigate to http://localhost:8181/blog-dashboard
 
-# Admin & Moderation routes
+![Blog Dashboard](images/Webpage-Guide/blogdashboard.png)
 
-## Moderator
+## Admin & Moderation routes
+
+### Moderator
 
 **Description:**
 Page for moderators to manage explorations and user feedback.
@@ -1058,9 +1090,11 @@ Page for moderators to manage explorations and user feedback.
 Moderator
 
 **Steps to Access:** 
-Click Moderator Page in the side navigation bar.
+1. Click Moderator Page in the side navigation bar.
 
-## Email Dashboard
+![Moderator](images/Webpage-Guide/moderator.png)
+
+### Email Dashboard
 
 **Description:**
 Interface for managing and sending bulk emails to specific user groups or the entire Oppia community.
@@ -1075,7 +1109,9 @@ Admin privileges
 1. Log in as a Super Admin
 2. Navigate to http://localhost:8181/emaildashboard
 
-## Voiceover Admin
+![Email Dashboard](images/Webpage-Guide/emaildashboard.png)
+
+### Voiceover Admin
 
 **Description:**
 Administrative tool for managing voiceover recordings, reviewing submitted voiceovers, and assigning voiceover tasks.
@@ -1091,7 +1127,9 @@ Voiceover Admin role
 2. Assign yourself the Voiceover Admin role via /admin → Roles
 3. Navigate to http://localhost:8181/voiceover-admin
 
-## Blog Admin
+![Voiceover Admin](images/Webpage-Guide/voiceoveradmin.png)
+
+### Blog Admin
 
 **Description:**
 Administrative dashboard for managing blog settings, categories, featured posts, and blog-wide configurations.
@@ -1106,10 +1144,11 @@ Blog Admin role
 2. Assign yourself the Blog Admin role via /admin → Roles
 3. Navigate to http://localhost:8181/blog-admin
 
+![Blog Admin](images/Webpage-Guide/blogadmin.png)
 
-# Editor routes
+## Editor routes
 
-## Exploration Editor
+### Exploration Editor
 
 **Description:**
 The exploration editor is where creators build interactive lessons. It includes a card-based interface for adding content, interactions, and feedback paths.
@@ -1126,7 +1165,9 @@ Logged-in users (exploration owner or collaborators)
 3. Click "Create Exploration"
 4. OR open an existing exploration from your dashboard
 
-## Topic Editor
+![Exploration Editor](images/Webpage-Guide/explorationeditor.png)
+
+### Topic Editor
 
 **Description:**
 Interface for creating and managing topics, including subtopics, stories, skills, and diagnostic test configuration.
@@ -1144,9 +1185,11 @@ Curriculum Admin role
 4. Click on an existing topic OR create a new one
 5. The Topic Editor page will open
 
-# Topics, practice & Learning pages
+![Topic Editor](images/Webpage-Guide/topiceditor1.png)
 
-## Topic Viewer
+## Topics, practice & Learning pages
+
+### Topic Viewer
 
 **Description:**
 Displays a topic's details, stories, practice sessions, and study materials for learners.
@@ -1165,7 +1208,9 @@ None (Public)
 Example:
 http://localhost:8181/learn/math/fractions/story
 
-## Practice Session
+![Topic Viewer](images/Webpage-Guide/topicviewer.png)
+
+### Practice Session
 
 **Description:**
 An interactive practice session where learners answer practice questions to reinforce their understanding of a topic's skills.
@@ -1185,7 +1230,9 @@ None (Public)
 Example:
  http://localhost:8181/learn/math/fractions/practice
 
-## Review Test
+![Practice Session](images/Webpage-Guide/practicesession.png)
+
+### Review Test
 **Description:**
 A test that learners can take after completing a story to review what they've learned.
 
@@ -1203,7 +1250,7 @@ None (Public)
 Example:
 http://localhost:8181/learn/math/fractions/review-test/introduction-to-fractions
 
-## Study Guide
+### Study Guide
 
 **Description:**
 Displays detailed study materials, explanations, and worked examples for a specific subtopic.
@@ -1221,9 +1268,12 @@ None (Public)
 
 Example:
  http://localhost:8181/learn/math/fractions/studyguide
+
+ ![Study Guide](images/Webpage-Guide/studyguide.png)
  
-# Classrooms & Learning paths
-## All Classrooms
+## Classrooms & Learning paths
+
+### All Classrooms
 
 **Description:**
 Landing page showing all available classrooms (Math, Science, etc.) that learners can explore.
@@ -1238,7 +1288,9 @@ None (Public)
 1. Click "Learn" in the navigation bar
 2. OR directly visit http://localhost:8181/classrooms
 
-## Classroom Page
+![All Classrooms](images/Webpage-Guide/allclassrooms.png)
+
+### Classroom Page
 
 **Description:**
 Individual classroom landing page displaying all topics within that classroom, along with the classroom description and learning path.
@@ -1256,9 +1308,11 @@ None (Public)
 Example:
  http://localhost:8181/learn/math
 
-# Exploration & Lesson players
+![Classroom Page](images/Webpage-Guide/learn:math.png)
 
-## Old Exploration Player
+## Exploration & Lesson players
+
+### Old Exploration Player
 
 **Description:**
 The legacy exploration player interface for playing individual explorations (lessons).
@@ -1274,7 +1328,9 @@ None (Public)
 2. Click "Play" on the exploration
 3. OR directly visit http://localhost:8181/explore/<exploration_id>
 
-## Embedded Exploration Player
+![Old Exploration Player](images/Webpage-Guide/oldexploration.png)
+
+### Embedded Exploration Player
 
 **Description:**
 A stripped-down version of the exploration player designed to be embedded in external websites via iframe.
@@ -1289,7 +1345,9 @@ None (Public)
 1. Directly visit http://localhost:8181/embed/exploration/<exploration_id>
 2. OR embed in an iframe:
 
-## New Lesson Player
+![Embedded Exploration Player](images/Webpage-Guide/embedexploration.png)
+
+### New Lesson Player
 
 **Description:**
 The modern lesson player interface with improved UX for playing explorations.
@@ -1304,9 +1362,11 @@ Public (with authorization check)
 1. Navigate through a classroom → topic → story → chapter
 2. Click on a chapter to launch the lesson player
 
-# Library & Collections
+![New Lesson Player](images/Webpage-Guide/newlessonplayer.png)
 
-## Library Search
+## Library & Collections
+
+### Library Search
 **Description:**
 Search interface for finding specific explorations in the Oppia library by keywords, categories, or language.
 
@@ -1321,7 +1381,9 @@ None (Public)
 2. Use the search bar at the top
 3. OR directly visit http://localhost:8181/search/find?q=<search_term>
 
-## Recently Published
+![Library Search](images/Webpage-Guide/explorationsearch.png)
+
+### Recently Published
 
 **Description:**
 Shows a list of explorations that have been recently published to the community library.
@@ -1336,8 +1398,9 @@ None (Public)
 1. Navigate to Community Library
 2. Click "Recently Published" tab or filter
 3. OR directly visit http://localhost:8181/community-library/recently-published
+   ![Recently Published](images/Webpage-Guide/recentlypublished.png)
    
-## Top Rated
+### Top Rated
 
 **Description:**
 Displays the highest-rated explorations based on learner feedback and ratings.
@@ -1353,9 +1416,9 @@ None (Public)
 2. Click "Top Rated" tab or filter
 3. OR directly visit http://localhost:8181/community-library/top-rated
    
-# Blog routes
+## Blog routes
 
-## Blog Homepage
+### Blog Homepage
 
 **Description:**
 The main blog page displaying recent blog posts, featured articles, and blog categories.
@@ -1369,8 +1432,10 @@ None (Public)
 **Steps to Access:**
 1. Click "Blog" in the navigation bar
 2. OR directly visit http://localhost:8181/blog
+   
+![Blog Homepage](images/Webpage-Guide/bloghomepage.png)
 
-## Blog Search
+### Blog Search
 **Description:**
 Search interface for finding blog posts by keywords, tags, or author.
 
@@ -1385,7 +1450,9 @@ None (Public)
 2. Use the search bar
 3. Enter search terms and submit
 
-## Blog Author Profile
+![Blog Search](images/Webpage-Guide/blogsearch.png)
+
+### Blog Author Profile
 
 **Description:**
 Displays a blog author's profile, including their bio, published posts, and author information.
@@ -1401,7 +1468,9 @@ None (Public)
 2. Click on the author's name
 3. OR directly visit http://localhost:8181/blog/author/<username>
 
-## Individual Blog Post
+![Blog Author Profile](images/Webpage-Guide/blogauthor.png)
+
+### Individual Blog Post
 
 **Description:**
 Displays a single blog post with its full content, images, and comments.
@@ -1417,9 +1486,11 @@ None (Public)
 2. Click on a blog post title
 3. OR directly visit http://localhost:8181/blog/<slug>
 
-# Learner group routes
+![Individual Blog Post](images/Webpage-Guide/individualblog.png)
 
-## Create Learner Group
+## Learner group routes
+
+### Create Learner Group
 
 **Description:**
 Interface for facilitators to create a new learner group, add members, and assign lessons.
@@ -1436,7 +1507,9 @@ Logged-in users with the Full User role.
 3. Click "Create Learner Group"
 4. OR directly visit http://localhost:8181/create-learner-group
 
-## Edit Learner Group
+![Create Learner Group](images/Webpage-Guide/createlearnergroup.png)
+
+### Edit Learner Group
 
 **Description:**
 Allows facilitators to edit learner group details, manage members, and update assigned lessons.
@@ -1451,8 +1524,9 @@ The user must be the Facilitator of that specific group.
 1. Navigate to Facilitator Dashboard
 2. Click on a learner group
 3. Click "Edit Group"
-               
-## Tabs on edit learner group:
+   
+![Edit Learner Group](images/Webpage-Guide/editleanergroup.png)               
+#### Tabs on edit learner group:
 1. Overview (currently active)
 Shows a high-level summary of the group with two sub-tabs:
       - Skills Analysis — Shows common skills that learners in this group           are struggling with. Helps facilitators identify weak areas.
@@ -1462,10 +1536,15 @@ Tracks individual learner progress. You can see:
  - Which stories each learner has completed
  - Which skills they've mastered or are struggling with
  - Overall completion percentages
+
+   ![Learners' Progress](images/Webpage-Guide/leanergroupprogress.png)
+   
  3. Syllabus
 Manage the group's learning content:
  - Add/remove stories — Assign stories from topics for learners to work through
  - Add/remove skills — Assign specific skills for practice
+
+![Syllabus](images/Webpage-Guide/leaenergroupsyllabus.png)
 
 4. Preferences
 Group settings including:
@@ -1474,7 +1553,9 @@ Group settings including:
  - Remove learners from the group
  - Delete the group entirely
 
-## View Learner Group
+![Preferences](images/Webpage-Guide/learnergrouppreferences.png)
+
+### View Learner Group
 
 **Description:**
 Displays learner group information, member progress, and group activities.
@@ -1490,9 +1571,11 @@ Group members or facilitators
 2. OR access via shared group link (for members)
 3. Click on the group to view details
 
-# Account & Profile routes
+![View Learner Group](images/Webpage-Guide/viewgroup.png)
 
-## Pending Account Deletion
+## Account & Profile routes
+
+### Pending Account Deletion
 **Description:**
 Displayed after a user requests account deletion. Shows the deletion status and estimated completion time.
 
@@ -1505,8 +1588,10 @@ None (Public - shown after deletion request)
 **Steps to Access:**
 1. User is automatically redirected here after requesting account deletion
 2. OR directly visit http://localhost:8181/pending-account-deletion
-   
-## Feedback Updates
+
+![Pending Account Deletion](images/Webpage-Guide/pendingaccountdeletion.png)
+
+### Feedback Updates
 **Description:**
 Shows a history of feedback the user has received on their explorations, questions, or translations.
 
@@ -1522,9 +1607,11 @@ Logged-in users
 3. Click "View All Feedback"
 4. OR directly visit http://localhost:8181/feedback-updates
 
-# Error handling routes
+![Feedback Updates](images/Webpage-Guide/feedback.png)
 
-## Iframe Error Page
+## Error handling routes
+
+### Iframe Error Page
 
 **Description:**
 A special error page designed to display within iframes without breaking the parent page.
@@ -1539,7 +1626,9 @@ None (Public)
 1. This page is automatically shown when an error occurs within an embedded Oppia iframe
 2. OR directly visit http://localhost:8181/error/iframed
 
-## Custom Error Pages
+![Iframe Error Page](images/Webpage-Guide/iframeerror.png)
+
+### Custom Error Pages
 
 **Description:**
 Custom error pages for specific HTTP error codes (400, 401, 500, etc.) with helpful messages and recovery options.
@@ -1554,7 +1643,9 @@ None (Public)
 1. These pages are automatically displayed when the corresponding error occurs
 2. For testing, visit http://localhost:8181/error/404 or /error/500
 
-## 404 Not Found
+![Custom Error Pages](images/Webpage-Guide/404error.png)
+
+### 404 Not Found
 
 **Description:**
 The default 404 page shown when a user navigates to a non-existent URL.
@@ -1570,32 +1661,31 @@ None (Public)
 2. Example: http://localhost:8181/this-page-does-not-exist
 
 
-
-# Populating Data on Local Server
+## Populating Data on Local Server
 
 This section explains all the ways data can be created, loaded, or generated on the Oppia local development server.
 
-# 1. Admin Activities Tab (Dummy/Test Data)
+### 1. Admin Activities Tab (Dummy/Test Data)
 The Activities tab is ONLY for local testing and development.
 It does not create real, customizable content.
 
 **Access:**
 Visit [Activities](#activities).
 
-## Generate Dummy Explorations
+#### Generate Dummy Explorations
 - Creates random, empty explorations
 - Optional auto-publish
 
 **Use case:** Quick testing of dashboards and flows
 
-## Reload a Single Exploration
+#### Reload a Single Exploration
 
 - Reloads predefined YAML explorations
 - Example: welcome.yaml
 
 **Use case:** Restore known test content
 
-## Reload a Single Collection
+#### Reload a Single Collection
 - Loads predefined collections from YAML
 - Example: welcome_to_collections.yaml
 
@@ -1604,7 +1694,7 @@ Visit [Activities](#activities).
 - Cannot choose explorations
 - Cannot create new collections
 
-## Load Dummy New Structures Data
+#### Load Dummy New Structures Data
 Loads a complete dataset, including:
 - Topics
 - Skills
@@ -1617,11 +1707,11 @@ Loads a complete dataset, including:
 **Prerequisite: Assign Required Roles**
 
 Most data population actions require specific roles.
- To assign roles, ee [Assign roles](#assign-roles).
+ To assign roles, see [Assign roles](#important-admin-page-tabs).
 
-# 2. Creating Explorations
+### 2. Creating Explorations
 
-An Exploration is the actual lesson that learners play.Stories, chapters, and practice sessions all depend on explorations.
+An Exploration is the actual lesson that learners play. Stories, chapters, and practice sessions all depend on explorations.
 
 **Step 1:** Open Creator Dashboard
 Go to:
@@ -1679,7 +1769,7 @@ Once published:
 4. Select your published Exploration
 5. Save draft → Publish topic again if needed
 
-# 3. Creating a Skill
+### 3. Creating a Skill
                 NOTE - A skill must have:
 - At least **3 questions** to appear in the **Diagnostic Test**
 - At least **10 questions** to appear in **Practice Sessions**
@@ -1698,50 +1788,19 @@ There are two ways to create a skill:
 1. Go to the dashboard
 2. Click ADD SKILL
 3. This skill will not be assigned to any topic automatically
+   ![ADD SKILL](images/Webpage-Guide/newskill.png)
 4. After saving, you will be taken to the Skill Editor page.
-5. 
-Sections Inside the Skill Editor:
+5. Sections Inside the Skill Editor:
 - Details
+  ![Details](images/Webpage-Guide/populatingdetails.png)
 - Worked Example
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![Worked Example](images/Webpage-Guide/workedexample.png)
 
 - Misconceptions
 These are common mistakes learners make.
 You can force these misconceptions to appear in all questions.
 
-     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![Misconceptions](images/Webpage-Guide/misconception.png)
 
 - Pre-requisite Skills
 These are skills learners should complete first.
@@ -1750,36 +1809,12 @@ You can filter by:
 - Subtopic
 - Skill name
 
-
-
-
-
-
-
-
-
-
+![Pre-requisite Skills](images/Webpage-Guide/prerequisiteskills.png)
 
 - Rubrics
 Helps question creators follow defined standards.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![Rubrics](images/Webpage-Guide/rubrics.png)
 
 **Adding Questions to a Skill**
 1. Scroll to the Questions section
@@ -1787,162 +1822,57 @@ Helps question creators follow defined standards.
 3. Inside the Question Editor, fill these 5 parts:
 - Difficulty
                         
-
+![Difficulty](images/Webpage-Guide/difficulty.png)
 
 - Problem
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![Problem](images/Webpage-Guide/skilleditor.png)
 
 - Interaction
-
+![Interaction](images/Webpage-Guide/interaction.png)
 
 - Answers and Responses
   Hints
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![ADD Hints](images/Webpage-Guide/addhint.png)
 
 - After filling everything, click Save
 
+![Save](images/Webpage-Guide/creatingtopicsave.png)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# 4. Creating a topic
+### 4. Creating a topic
 1. Open the Topics and Skills Dashboard.
 2. Click on CREATE TOPIC.
 3. A form will open where you need to fill:
 - Topic name
 - Topic thumbnail
 - Other required details.
+  ![create topic](images/Webpage-Guide/createtopic.png)
 4. After saving, you will be redirected to the Topic Editor page.    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![Topic Editor page](images/Webpage-Guide/topiceditor.png)
 
 5. In the main editor tab, you will see validation errors that must be fixed before publishing.
 
-
+![warnings](images/Webpage-Guide/warnings.png)
      
 Sections in the Topic Editor:
 - **Details** – Basic information about the topic
 - **Subtopics** – Lists subtopics and the skills linked to them
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![Subtopics](images/Webpage-Guide/subtopics.png)
 - **Diagnostic Tests-**
 Add skills that will be used to test learners before recommending this topic.
 A skill must have at least 3 questions and be assigned to the topic to be used here.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--**Canonical Stories –**
+![Diagnostic Tests](images/Webpage-Guide/diagnostictest.png)
+-**Canonical Stories**-
 This section lists all stories that belong to this topic.
 
-
-                       
-
-
-
-
-
-
-
-
-
+![Canonical Stories](images/Webpage-Guide/canonicalstories.png)
 
 - Preview the Topic
+  
 1. Click the Preview button in the top navigation bar
 2. This shows exactly how learners will see your topic before publishing.
-
+![Preview the Topic](images/Webpage-Guide/topicpreview.png)
 - Publish the Topic
 Once all validation errors are resolved:
 1. Click Publish Topic
@@ -1963,7 +1893,7 @@ http://localhost:8181/learn/math
 
  You should now see your newly created topic listed on the classroom page.
 
- # 5. Generating Data For Contributor Dashboard
+### 5. Generating Data For Contributor Dashboard
 
 - My Contributions
 **Steps to generate data:**
@@ -1973,10 +1903,11 @@ http://localhost:8181/learn/math
 4. Select:
 - A Topic
 - A Target Language (for example, Hindi).
+  ![Translate Text tab](images/Webpage-Guide/translatetext.png)
 5. Choose an Opportunity (an exploration lesson that requires translation).
 6. Enter a translation for the text.
 7. Click Save and Close.
-
+![Translate Text tab](images/Webpage-Guide/hinditranslatetext.png)
 
 **Available Tasks (Reviewer Rights Required)**
 The Available Tasks section displays suggestions submitted by other users that require review.
@@ -1998,13 +1929,16 @@ Select a category:
      - Question Reviewer
      Select a language (for example, Hindi).
      Click Add Rights.
-
-8. Log in with a different account (or open an incognito window)
+ ![Contributor Rights](images/Webpage-Guide/contributorhindireview.png)
+8. Log in with a different account(or open an incognito window).
 9. Submit a translation or question suggestion using the steps described in Populating My Contributions.
+ ![Contributor Rights](images/Webpage-Guide/acceptedtranslation.png)
 10. Log back in with the reviewer account.
 11. Open the Available Tasks tab.
 12. You should now see the submitted suggestion available for review.
 
+ ![reviewtranslations](images/Webpage-Guide/reviewtranslations.png)
+ 
 **Accomplishments**
 
 The Accomplishments tab tracks contributor statistics and badges based on accepted contributions.
@@ -2022,8 +1956,8 @@ Result:
 **Note**
 The Available Tasks section remains hidden until reviewer permissions are granted through the Contributor Admin Dashboard.
 
-# 6. Creating collections
-- ## Using the collection editor:
+### 6. Creating collections
+ #### Using the collection editor:
 1. Log in to Oppia
 2. ⁠Navigate to /creator-dashboard
 3. ⁠Click the "+ CREATE EXPLORATION" button
@@ -2034,7 +1968,7 @@ The Available Tasks section remains hidden until reviewer permissions are grante
    
 **Note:** Despite the button saying "Create Exploration", it opens a modal where you can choose to create either an Exploration OR a Collection 
                      
-- Using activities tab
+  #### Using activities tab
      This is NOT used to create new collections manually.
 1. Log in to Oppia
 2. Navigate to /admin
@@ -2043,28 +1977,33 @@ The Available Tasks section remains hidden until reviewer permissions are grante
 What you can do here:
 - Reload an existing test collection (e.g. welcome_to_collections.yaml)
 
-# 7. Creating a classroom
+ ![collection](images/Webpage-Guide/activitiescollection.png)
+ 
+### 7. Creating a classroom
 Step 1: Assign Role
 1. Go to /admin
 2. Assign yourself the Curriculum Admin role
-## Creating a custom classroom
+#### Creating a custom classroom
 1. Open /classroom-admin
 2. Click Add New Classroom
+  ![Add New Classroom](images/Webpage-Guide/creatingclassroom1.png)
    **Enter:**
      - Classroom name
      - URL fragment
-     - Click on the classroom tile
+ ![Classroom name](images/Webpage-Guide/creatingclassroomaddnew.png)
+     - Click on the classroom title
      - Click the pencil icon to edit details
+ ![classroom title](images/Webpage-Guide/creatingclassroommath1.png)
 **Add:**
 - Course details
 - Topic introduction
 - Topic IDs
-
-## Creating a dummy math classroom
+ ![creating classroom math](images/Webpage-Guide/creatingclassroommath.png)
+####  Creating a dummy math classroom
 1. Go to /admin → ACTIVITIES
 2. Click Load Dummy Classroom Data
 
-
+ ![Dummy math classroom](images/Webpage-Guide/generatingdummymath.png)
 
 The classroom will be visible on:
 - The Learner Dashboard Home Tab
@@ -2074,23 +2013,23 @@ http://localhost:8181/learn/<classroom_url_fragment>
 **NOTE:** Learner-facing pages do not create data themselves.
 They display data created via creator or admin flows.
 
-# 8. Community library
+### 8. Community library
 Populated when:
 - Explorations are published
 - Collections are published
 
-# 9. Collection player
+### 9. Collection player
 Populated when:
 - A published collection exists
 - Created via Collection Editor or Activities (dummy)
 
-# 10. Story player
+### 10. Story player
 Populated when:
 - Topic is published
 - Story and chapters are added
 - Explorations are linked
 
-# 11. Fixing this common error
+### 11. Fixing this common error
 **Error:**
 Server error: 'NoneType' object has no attribute 'version'
 
@@ -2098,29 +2037,31 @@ Server error: 'NoneType' object has no attribute 'version'
 1. Go to /admin → Roles
 2. Assign yourself the release-coordinator role
 3. Open /release-coordinator
-4. Under the MISC tab, click Flush Cache. 
+4. Under the MISC tab, click Flush Cache.
+   
+ ![Flush Cache](images/Webpage-Guide/flushcache.png)
 
-# Oppia Routing Guide for Contributors
+## Oppia Routing Guide for Contributors
 
-This guide explains how routing works in oppia and documents all available routes in the application.
+This guide explains how routing works in Oppia and documents all available routes in the application.
 
-# 1. What Is Routing in Oppia?
+### 1. What Is Routing in Oppia?
 
 Routing in Oppia determines:
 - What page opens when you visit a URL
 - Whether login is required to access the page
 - Which Angular module is loaded for that route
   
-### Lazy Loading
+**Lazy Loading** 
 Oppia uses lazy loading, which means:
 - A page module is only loaded when it is actually visited
 - This improves performance and reduces initial memory usage
 - Each route uses loadChildren to dynamically import its module
   
-# 2. Route Protection (Guards)
+### 2. Route Protection (Guards)
 Oppia uses three main guards to control access:
 
-## 2.1 IsLoggedInGuard
+#### 2.1 IsLoggedInGuard
 
 **Purpose:** Blocks the page unless the user is logged in. If not logged in, redirects to /login.
 
@@ -2132,7 +2073,7 @@ Oppia uses three main guards to control access:
 - Learner dashboard
 - Most contributor tools
 
-## 2.2 LessonPlayerPageAuthGuard
+#### 2.2 LessonPlayerPageAuthGuard
 
 **Purpose:** Ensures only authorized access to lesson playback.
 
@@ -2140,16 +2081,16 @@ Oppia uses three main guards to control access:
 - New lesson player (/lesson/<id>)
 - Embedded lesson player (/embed/lesson/<id>)
 
-## 2.3 NormalizeUrlCaseGuard
+#### 2.3 NormalizeUrlCaseGuard
 
 **Purpose:** Ensures URL casing is correct to prevent routing bugs.
 **Used for:**
 
 - Classroom route (/learn/<classroom_url>)
 
-# 3. Public Pages (No Login Required)
+### 3. Public Pages (No Login Required)
 These pages are accessible to everyone without authentication:
-              | Route | Purpose |
+| Route | Purpose |
 |------|---------|
 | /about | About Oppia |
 | /contact | Contact page |
@@ -2170,13 +2111,13 @@ These pages are accessible to everyone without authentication:
 
 **Note:** /contributor-dashboard does not have IsLoggedInGuard at the routing level, though it may check login status internally.
 
-# 4. Authentication pages
+### 4. Authentication pages
          
 | Route | Purpose |
 |------|---------|
 | /signup | Account creation |
 
-# 5. Dashboard pages (Require Login)
+### 5. Dashboard pages (Require Login)
   
 | Route | Purpose | Guard |
 |------|---------|-------|
@@ -2185,7 +2126,7 @@ These pages are accessible to everyone without authentication:
 | /facilitator-dashboard | Classroom facilitators | IsLoggedInGuard |
 | /blog-dashboard | Blog post management | IsLoggedInGuard |
 
-# 6. Admin & Moderation routes (Require Login)
+### 6. Admin & Moderation routes (Require Login)
      All of these require IsLoggedInGuard:         
 | Route | Purpose |
 |------|---------|
@@ -2200,7 +2141,7 @@ These pages are accessible to everyone without authentication:
 
 **Note:** /release-coordinator does not have IsLoggedInGuard at the routing level.
 
-# 7. Editor routes (Require Login)
+### 7. Editor routes (Require Login)
 All editor routes require IsLoggedInGuard:
 
 | Route | Editor Type |
@@ -2211,7 +2152,7 @@ All editor routes require IsLoggedInGuard:
 | /topic_editor/<id> | Topic editor |
 | /skill_editor/<id> | Skill editor |
 
-# 8. Topics, practice & Learning pages (Public)
+### 8. Topics, practice & Learning pages (Public)
 These learning pages are public and do not require login:
          
 | Route | Purpose |
@@ -2225,7 +2166,7 @@ These learning pages are public and do not require login:
 Example:
 /learn/math/fractions shows the Fractions topic in the Math classroom.
 
-# 9. Classrooms & Learning paths
+### 9. Classrooms & Learning paths
         
 | Route | Purpose | Guard |
 |------|---------|-------|
@@ -2233,7 +2174,7 @@ Example:
 | `/learn/<classroom_url>` | Classroom landing page | Public (NormalizeUrlCaseGuard) |
 | `/classroom-admin` | Classroom management | IsLoggedInGuard |
 
-# 10. Exploration & Lesson players
+### 10. Exploration & Lesson players
 
 | Route | Purpose | Guard |
 |------|---------|-------|
@@ -2241,7 +2182,7 @@ Example:
 | `/embed/exploration/<id>` | Embedded exploration player | Public |
 | `/lesson/<id>` | New lesson player | LessonPlayerPageAuthGuard |
 
-# 11. Library & Collections
+### 11. Library & Collections
 
 | Route | Purpose |
 |------|---------|
@@ -2251,7 +2192,7 @@ Example:
 | `/community-library/top-rated` | Top rated explorations |
 | `/collection/<id>` | Collection player |
 
-# 12. Blog routes  
+### 12. Blog routes  
         
 | Route | Purpose |
 |------|---------|
@@ -2260,7 +2201,7 @@ Example:
 | `/blog/author/:author_username` | Author profile |
 | `/blog/<slug>` | Individual blog post |
 
-# 13. Learner group routes
+### 13. Learner group routes
 
 | Route | Purpose | Guard |
 |------|---------|-------|
@@ -2270,7 +2211,7 @@ Example:
 
 **Note:** /view-learner-group does not have IsLoggedInGuard at the routing level.
 
-# 14. Account & Profile routes
+### 14. Account & Profile routes
 
 | Route | Purpose | Guard |
 |------|---------|-------|
@@ -2282,9 +2223,9 @@ Example:
 
 **Note:** /preferences does not have IsLoggedInGuard at the routing level, though it typically requires login to function.
 
-# 15. Special dynamic routes
+### 15. Special dynamic routes
 
-## 15.1 Stewards Landing Pages
+#### 15.1 Stewards Landing Pages
 
 Old volunteer URLs are automatically redirected to /volunteer. This includes:
 - /parents
@@ -2294,7 +2235,7 @@ Old volunteer URLs are automatically redirected to /volunteer. This includes:
 - /volunteers
 This redirection happens through a loop in the routing configuration.
 
-## 15.2 Topic Landing Pages
+#### 15.2 Topic Landing Pages
 
 Routes are auto-generated from AppConstants.AVAILABLE_LANDING_PAGES.
 Currently available:
@@ -2304,7 +2245,7 @@ Currently available:
 - /maths/ratios
 New subject landing pages can be added to the constants file and will automatically work without manual routing changes.
 
-# 16. Error handling routes
+### 16. Error handling routes
      
 | Route | Purpose |
 |------|---------|
@@ -2314,7 +2255,7 @@ New subject landing pages can be added to the constants file and will automatica
 
 **Critical:** The wildcard route (**) must always stay last in the routes array, or it will capture all routes and break navigation.
 
-# 17. Why this routing file Is critical
+### 17. Why this routing file Is critical
 
 - Every valid Oppia URL is registered here
 - Every permission rule starts here
@@ -2322,7 +2263,7 @@ New subject landing pages can be added to the constants file and will automatica
 - If a route breaks or shows a false 404,check this file first
 - All paths must be defined in constants.ts, otherwise pages will have false 404 status codes
 
-# 18. Role-based access control
+### 18. Role-based access control
 
 | Route | Access Level | Example Routes |
 |------|-------------|---------------|
@@ -2338,7 +2279,7 @@ New subject landing pages can be added to the constants file and will automatica
 | Release Coordinator | Cache & release tools | `/release-coordinator` |
 | Super Admin | Full access | `/admin` and all routes |
 
-# 19. Troubleshooting tips
+### 19. Troubleshooting tips
 Error: 'NoneType' object has no attribute 'version'
 
 **Fix:**
@@ -2359,7 +2300,7 @@ Check:
 - Some pages require specific roles (see Section 18)
 - Contact an admin if needed
 
-# 20. Quick reference for contributors
+### 20. Quick reference for contributors
 
 **Login & Roles**
 - Login: /login
@@ -2381,7 +2322,7 @@ Check:
 - Skill editor: /skill_editor/<id>
 - Story editor: /story_editor/<id>
 
-# 21. Contributor Checklist
+### 21. Contributor Checklist
 - Dev server starts successfully
 - Dummy classroom created
 - Topic created & published
@@ -2392,7 +2333,7 @@ Check:
 - No console errors
 - Routes tested for logged-in and logged-out users
 
-# 22. Summary
+### 22. Summary
 This routing guide provides a complete reference for all routes in Oppia.
 When contributing:
 - Always check the correct URL format
