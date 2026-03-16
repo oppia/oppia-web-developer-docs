@@ -1,46 +1,36 @@
-<h1 align="center">Oppia Dev Server Guide</h1>
-<p align="center">
-For new contributors: Entities, Data Population & Routes
-</p>
+# How to access the Oppia webpages
 
+## Table of Contents
 - [Overview of entities](#overview-of-entities)
   * [Key terms](#key-terms)
-    + [Classroom](#classroom)
-    + [Topic](#topic)
-    + [Story](#story)
-    + [Chapter](#chapter)
-    + [Card](#card)
-- [Other Terms](#other-terms)
-  * [Collection](#collection)
-  * [Opportunity](#opportunity)
-  * [Suggestion](#suggestion)
-  * [Exploration](#exploration)
+  * [Other terms](#other-terms)
 - [User account pages](#user-account-pages)
-- [Log in or create account](#log-in-or-create-account)
-- [Log in as a super-administrator](#log-in-as-a-super-administrator)
-  * [Method A — Implicit super admin email (fast):](#method-a---implicit-super-admin-email--fast--)
-  * [Method B — Grant super admin via Firebase emulator (explicit):](#method-b---grant-super-admin-via-firebase-emulator--explicit--)
-- [Preferences Page](#preferences-page)
-- [Delete account page](#delete-account-page)
-- [Profile page](#profile-page)
-- [Admin pages](#admin-pages)
-  * [Important admin page tabs](#important-admin-page-tabs)
-- [Classroom admin page](#classroom-admin-page)
-- [Release Coordinator Page](#release-coordinator-page)
-  * [Tabs on the release coordinator page:](#tabs-on-the-release-coordinator-page-)
-- [Creator dashboard](#creator-dashboard)
-- [Collection editor page:](#collection-editor-page-)
-  * [Ways to generate collections:](#ways-to-generate-collections-)
-- [Skill editor page](#skill-editor-page)
-- [Topics & skills dashboard](#topics---skills-dashboard)
-- [Story editor page](#story-editor-page)
-- [Contributor dashboard](#contributor-dashboard)
-  * [Tabs on the Contributor dashboard page:](#tabs-on-the-contributor-dashboard-page-)
-  * [Ways to Generate Contributions](#ways-to-generate-contributions)
-- [Contributor admin dashboard](#contributor-admin-dashboard)
-- [Community library](#community-library)
-- [Collection player](#collection-player)
-- [Story player page](#story-player-page)
+  * [Log in or create account](#log-in-or-create-account)
+  * [Log in as a super-administrator](#log-in-as-a-super-administrator)
+    + [Method A — Implicit super admin email (fast):](#method-a---implicit-super-admin-email--fast--)
+    + [Method B — Grant super admin via Firebase emulator (explicit):](#method-b---grant-super-admin-via-firebase-emulator--explicit--)
+- [Oppia Webpages](#oppia-webpages)
+  * [Preferences Page](#preferences-page)
+  * [Delete account page](#delete-account-page)
+  * [Profile page](#profile-page)
+  * [Admin pages](#admin-pages)
+    + [Important admin page tabs](#important-admin-page-tabs)
+  * [Classroom admin page](#classroom-admin-page)
+  * [Release Coordinator Page](#release-coordinator-page)
+    + [Tabs on the release coordinator page:](#tabs-on-the-release-coordinator-page-)
+  * [Creator dashboard](#creator-dashboard)
+  * [Collection editor page:](#collection-editor-page-)
+    + [Ways to generate collections:](#ways-to-generate-collections-)
+  * [Skill editor page](#skill-editor-page)
+  * [Topics & skills dashboard](#topics---skills-dashboard)
+  * [Story editor page](#story-editor-page)
+  * [Contributor dashboard](#contributor-dashboard)
+    + [Tabs on the Contributor dashboard page:](#tabs-on-the-contributor-dashboard-page-)
+    + [Ways to Generate Contributions](#ways-to-generate-contributions)
+  * [Contributor admin dashboard](#contributor-admin-dashboard)
+  * [Community library](#community-library)
+  * [Collection player](#collection-player)
+  * [Story player page](#story-player-page)
 - [Public informational pages](#public-informational-pages)
   * [About](#about)
   * [Contact](#contact)
@@ -154,23 +144,24 @@ For new contributors: Entities, Data Population & Routes
   * [22. Summary](#22-summary)
   
 ## Overview of entities
-Understanding Oppia’s key entities is crucial before working on the dev server.
 
 This diagram outlines the various entities in Oppia and how they relate
 to each other:
 
 ```mermaid
 flowchart TD
-C("Classroom")--> T("Topic")
-T("Topic") --> S1("Story-1")
-T --> S2("Story-2")
+C("Classroom") --> T1("Topic-1")
+C --> T2("Topic-2")
+C --> T3("Topic-3")
+T1 --> S1("Story-1")
+T1 --> S2("Story-2")
 S1 --> C1("Chapter-1/Exploration")
 C1 --> c1("Card-1")
 C1 --> c2("card-2")
 S1 --> C2("chapter-2")
 C2 --> c3("Card-3")
 c3 --> co("Content")
-c3 ----> in("Interaction")
+c3 --> in("Interaction")
 in --> mc("Multiple-choice")
 in --> is("Image Selection")
 in --> fi("Fraction-input")
@@ -181,18 +172,15 @@ C3 --> c4("Card-4")
 C4 --> c5("Card-5")
 C4 --> c6("Card-6")
 ```
+As you go through https://www.oppia.org/, you will find these entities.
 
 ### Key terms
 
-#### Classroom 
-A Classroom in Oppia is a collection of topics grouped under a single subject. For example: https://www.oppia.org/learn/math this displays a Maths classroom.
-#### Topic
-A topic is a broad term that refers to the subject content being taught. For example: https://www.oppia.org/learn/math/place-values/story this displays a “place value” Topic.
-#### Story
-Stories are situations/scenarios that are meant to help learners understand the Topic. For example: https://www.oppia.org/learn/math/place-values/story talks about Jaime’s adventures for learning about place values.
-#### Chapter
-A chapter corresponds to different lessons through which we aim to teach the topic to the learners. For example, https://www.oppia.org/learn/math/place-values/story shows a bunch of chapters to learn the place values topic.
-#### Card
+1. **Classroom**: A Classroom in Oppia is a collection of topics grouped under a single subject. For example: https://www.oppia.org/learn/math this displays a Maths classroom.
+2. **Topic**: A topic is a broad term that refers to the subject content being taught. For example: https://www.oppia.org/learn/math displays a list of math topics.A single topic can be described through multiple stories.
+3. **Story**: Stories are situations/scenarios that are meant to help users understand the topic. For example, if the topic is addition, then one of the stories could be about where a kid goes to a shop and buys 3 pens and 4 pencils. The lesson could then explain the concept of addition while discussing the total number of items bought. As another example, https://www.oppia.org/learn/math/place-values/story talks about Jaime’s adventures for learning about place values. A single story can be referenced in multiple chapters and is essentially a collection of chapters.
+4. **Chapter**: A chapter corresponds to different lessons through which we aim to teach the topic to the users. Each chapter has an associated exploration, and this exploration may have several cards. For example, https://www.oppia.org/learn/math/place-values/story shows a bunch of chapters to learn the place values topic.
+5. **Card**:
 A card is the primary component of lesson where each card consists of:
 
    - **Content**: This refers to the tutor’s question to the learner.
@@ -201,54 +189,54 @@ A card is the primary component of lesson where each card consists of:
 
    For example, [this card](https://www.oppia.org/explore/K645IfRNzpKy?story_url_fragment=jaimes-adventures-in-arcade&topic_url_fragment=place-values&classroom_url_fragment=math&node_id=node_1) shows a card in one of the place values chapters.
 
-## Other Terms
+### Other terms
 
-### Collection
-A collection is a group of related lessons arranged in a sequence. They don’t appear inside classrooms — instead, learners usually find them in the Community Library. For Example: https://www.oppia.org/collection/4UgTQUc1tala A Fractions collection with lessons like “What are Fractions?” and “Comparing Fractions.”
-### Opportunity
-An opportunity is specific to an exploration, and it refers to a way any contributor can contribute content to Oppia.
-### Suggestion 
-Any time any user contributes to Oppia, their contribution is added as a request which is known as a suggestion. 
-
-There are two types of suggestions:
-    - **Translation suggestion**: A suggested translation of content into  another language.
-    - **Question suggestion**: A suggested question for a skill.
-### Exploration
-The fundamental unit of learning on Oppia. This is an interactive activity built by a creator, and consumed by a learner.
+1. **Collection**: A collection is a group of related lessons arranged in a sequence. They don’t appear inside classrooms — instead, learners usually find them in the Community Library. For Example: https://www.oppia.org/collection/4UgTQUc1tala A Fractions collection with lessons like “What are Fractions?” and “Comparing Fractions.”
+2. **Opportunity**: An opportunity is specific to an exploration, and it refers to a way any contributor can contribute content to Oppia.
+3. **Suggestion**: Any time any user contributes to Oppia, their contribution is added as a request which is known as a suggestion. There are two types of suggestions:
+   * **Translation suggestion**: A suggested translation of content into another language.
+   * **Question suggestion**: A suggested question for a skill.
+4. **Contributor** Anyone who pitches in content for an exploration/lesson. One way that Oppia is more of a collaborative learning space, in contrast to more traditional online learning platforms.
+5. **Exploration** The fundamental unit of learning on Oppia. This is an interactive activity built by a creator, and consumed by a learner. 
+6. **Library** The page where all explorations and collections on Oppia are displayed.
+7. **Interaction** The interactive component of a card; this is the medium through which a learner communicates to a student by asking various types of questions and through which student can answer these question.
+8. **Learner** A user who engages in an exploration or lesson.
+9. **Response** Feedback and/or a new card that the learner is directed to based on their answer. A response can’t be empty; if a response doesn’t direct the learner to a new card, then feedback must be provided.
+10. **Rule** A condition that triggers a response. Different interactions have different rule options. Multiple rules can be grouped together in a single answer group.
+11. **Tags** Additional labels that can be added to an exploration in order to make it more findable in the community library.
    
 ## User account pages
 
-## Log in or create account
+### Log in or create account
+
+Many Oppia Pages require authentication to access. In order to sign in:
 
 1. Click the sign-in button on the top left navigation bar.
 
    ![Sign-In Button](images/Webpage-Guide/signInButton.png)
 
-2. On the login page:
-     Enter any email address. 
-     If it doesn't exist, Oppia will automatically create the account for you.
+2. Once redirected to the login page, choose an email address and sign in. If you have used this email address before, you will be signed in to the existing account. Otherwise, a new account will be created for you.
    
    ![Sign-in page](images/Webpage-Guide/nonAdminSignUp.png)
 
-## Log in as a super-administrator
+### Log in as a super-administrator
 
 Super Admin can:
 - Access the Admin page
 - Assign roles to users
 - Run data generation jobs
-- Flush caches and manage releases
+  
+Some of these roles (e.g. "Topic admin") give the user access to privileged pages (e.g. the topics and skills dashboard).
 
 There are two ways to become a super admin on the local server.
 
-### Method A — Implicit super admin email (fast):
+#### Method A — Implicit super admin email (fast):
 1. On the sign-in page, enter testadmin@example.com.
 2. A message will appear: "This email address has implicit Super Admin privileges!" — you now have Super Admin access.
 
    ![Sign-in page with implicit super-admin email address](images/Webpage-Guide/implicitSuperAdmin.png)
 
-**Note**: This is a local development convenience. For reliable role management, prefer Method B using Firebase emulator custom claims.
-
-### Method B — Grant super admin via Firebase emulator (explicit):
+#### Method B — Grant super admin via Firebase emulator (explicit):
 
 1. Sign in with any email address.
 
@@ -268,7 +256,9 @@ There are two ways to become a super admin on the local server.
 
 5. Log out and sign back in to refresh the session cookie.
 
-## Preferences Page
+## Oppia Webpages 
+
+### Preferences Page
 
 **Description:**
 This page allows learners to change their settings on Oppia, such as language preference and email preferences.
@@ -286,7 +276,7 @@ No special permissions. Any signed-in learner can access it.
 
 ![Preferences page](images/Webpage-Guide/preferences.png)
 
-## Delete account page
+### Delete account page
 
 **Description:** 
 This page allows signed-in learners to request deletion of their account.
@@ -312,7 +302,7 @@ On production, deletion requests may remain pending.
 
 ![Delete account page](images/Webpage-Guide/deleteaccount.png)
 
-## Profile page
+### Profile page
 
 **Description:** 
 This page displays a learner’s profile. It shows their username, bio, badges, and created lessons.
@@ -329,7 +319,7 @@ No special permissions. Public profiles are viewable by anyone.
 
 ![Profile page](images/Webpage-Guide/profilepage.png)
 
-## Admin pages
+### Admin pages
 
 **Description:**
 The Admin page is where Super Admin manage roles, run data generation jobs, flush caches, and reload prebuilt content.
@@ -346,7 +336,7 @@ Super Admin only.
 
    ![Admin Panel Link](https://user-images.githubusercontent.com/16653571/41501009-e04e9a76-71b9-11e8-958e-985f5bc7122a.png)
 
-### Important admin page tabs
+#### Important admin page tabs
 **Assign roles** 
 
 **Description:** 
@@ -427,7 +417,7 @@ Super Admin
 
 ![Misc tab](images/Webpage-Guide/adminmisc.png)
 
-## Classroom admin page
+### Classroom admin page
 
 **Description:**
 This page allows Curriculum Admins to create and manage classrooms, assign  topics, and configure classroom content displayed to learners.
@@ -447,7 +437,7 @@ Curriculum Admin role
 
 ![Classroom admin](images/Webpage-Guide/classroomadmin.png)
 
-## Release Coordinator Page
+### Release Coordinator Page
 
 **Description:**
 This page helps admins manage important release-related tasks in Oppia.
@@ -464,7 +454,7 @@ Release Coordinator role
 3. Navigate to /release-coordinator.
 4. Use tools such as Flush Cache under the MISC tab.
 
-### Tabs on the release coordinator page:
+#### Tabs on the release coordinator page:
 
 1. **Features Tab**
 It is used to enable, disable, and control feature flags.
@@ -511,7 +501,7 @@ Example:
 
 ![Misc tab](images/Webpage-Guide/releasecoordinator.png)
 
-## Creator dashboard
+### Creator dashboard
 **Description:**
 This dashboard allows creators to manage explorations and collections they have created, including drafts and published content.
 
@@ -528,7 +518,7 @@ Logged-in users
 
  ![Creator dashboard](images/Webpage-Guide/creatordashboard.png)
  
-## Collection editor page:
+### Collection editor page:
 
 **Description:**
 This page allows creators to create and edit collections, which are ordered groups of explorations designed to guide learners through a learning path.
@@ -547,10 +537,10 @@ Collection Editor
 
 ![Collection editor](images/Webpage-Guide/collectioneditor.png)
 
-### Ways to generate collections:
+#### Ways to generate collections:
 See [Populating Data on Local Server](#populating-data-on-local-server).
 
-## Skill editor page
+### Skill editor page
 **Description:** 
 The skill editor allows the creation of skills in Oppia. You can access the Skills editor under the skills tab of topics-and-skills-dashboard page.
 
@@ -570,7 +560,7 @@ Curriculum Admin role.
    
 ![Skill editor](images/Webpage-Guide/skilleditor2.png)
 
-## Topics & skills dashboard 
+### Topics & skills dashboard 
 
 **Description:** 
 The central hub for Curriculum Admins to create and manage Topics (and their stories) and Skills.
@@ -589,7 +579,7 @@ Curriculum Admin role.
 
 ![Topics & skills dashboard](images/Webpage-Guide/topicsandskillsdashboard.png)
 
-## Story editor page
+### Story editor page
 
 **Description:**
 This allows the user to create stories in Oppia.
@@ -611,7 +601,7 @@ Curriculum Admin role
 
 ![New story](images/Webpage-Guide/storyeditor3.png)
 
-## Contributor dashboard
+### Contributor dashboard
 
 **Description:**
 Allows contributors to submit translation suggestions and questions.
@@ -628,7 +618,7 @@ Logged-in users.
 
 ![Contributor dashboard](images/Webpage-Guide/mycontributions.png)
 
-### Tabs on the Contributor dashboard page:
+#### Tabs on the Contributor dashboard page:
 
 - **My Contributions** 
 This is your personal dashboard where you can track your history and impact. It is divided into three sections (visible in the side-nav):
@@ -656,10 +646,10 @@ Clicking Translate on any item will open the translation editor for that lesson.
 
 Note: The "Available Tasks" section in the Contributor Dashboard becomes visible when a user has reviewer permissions. 
 ![Translate Text](images/Webpage-Guide/translatetext2.png)
-### Ways to Generate Contributions
+#### Ways to Generate Contributions
  See [Populating Data on Local Server](#populating-data-on-local-server).
 
-## Contributor admin dashboard
+### Contributor admin dashboard
 
 **Description:**
 This is used to manage community reviewer permissions. It allows administrators to grant or revoke question review and translation review rights to trusted contributors.
@@ -676,7 +666,7 @@ Question Admin or Translation Admin.
 
 ![Contributor admin dashboard](images/Webpage-Guide/contributordashboardadmin.png)
 
-## Community library
+### Community library
 
 **Description:**
 The Community Library allows users to browse, search, and filter explorations and collections available on Oppia.
@@ -694,7 +684,7 @@ Public (no login required)
    
 ![Community library](images/Webpage-Guide/communitylibrary.png)
 
-## Collection player
+### Collection player
 **Description:**
 This page displays a learner-facing view of a collection, allowing learners to play explorations in sequence.
 
@@ -712,7 +702,7 @@ Public (no login required)
 
 ![Collection player](images/Webpage-Guide/collections.png)
 
-## Story player page
+### Story player page
 
 **Description:** 
 Displays the learner-facing view of a story and its chapters.
