@@ -28,7 +28,7 @@
   * [Skill editor page](#skill-editor-page)
   * [Story editor page](#story-editor-page)
   * [Story player page](#story-player-page)
-  * [Topics & skills dashboard](#topics---skills-dashboard)
+  * [Topics & Skills dashboard](#topics---skills-dashboard)
 - [Public informational pages](#public-informational-pages)
   * [About](#about)
   * [Android](#android)
@@ -260,7 +260,7 @@ There are two ways to become a super admin on the local server.
 ### Admin pages
 
 - **Description:**
-The Admin page is where Super Admin manage roles, run dummy data generation jobs and reload prebuilt content.
+The Admin page is where Super Admins manage roles, run dummy data generation jobs, and reload prebuilt content.
 
 - **Url:** 
 http://localhost:8181/admin
@@ -268,11 +268,11 @@ http://localhost:8181/admin
 - **Permissions Required:**
 Super Admin only.
 
-- **Steps to Access:**
-1. Log in as a super-admin.
-2. Go to the profile menu and click on the "Admin Page" link.
-
-   ![Admin Panel Link](https://user-images.githubusercontent.com/16653571/41501009-e04e9a76-71b9-11e8-958e-985f5bc7122a.png)
+**Steps to Access:**
+  1. Log in as a super-admin. 
+  2. Go to the profile menu and click on the "Admin Page" link.
+      
+![Admin Panel Link](https://user-images.githubusercontent.com/16653571/41501009-e04e9a76-71b9-11e8-958e-985f5bc7122a.png)
 
 #### Important admin page tabs
 **Assign roles** 
@@ -286,14 +286,13 @@ http://localhost:8181/admin (Roles tab)
 - **Permissions Required:**
 Super Admin only.
 
-- **Steps to Access:**
-1. Navigate to the Admin page.
-2. Click the "ROLES" tab and enter the username of the user whose roles
-   you want to edit.
+**Steps to Access:**
+  1. Navigate to the Admin page.                                                                                                                       2. Click the "ROLES" tab and enter the username of the user whose roles
+  you want to edit.
 
    ![Admin Role Tab](images/Webpage-Guide/assignRolesEnterUsername.png)
 
-3. Assign the desired role, "Question Admin" in this screenshot:
+  3. Assign the desired role, "Question Admin" in this screenshot:
 
    ![Assigning role](images/Webpage-Guide/assignRolesAddRole.png)
 
@@ -308,11 +307,11 @@ http://localhost:8181/admin (ACTIVITIES tab)
 - **Permissions Required:**
 Super Admin
 
-- **Steps to Access:** 
-1. Log in as a super-admin.
-2. Navigate to /admin.
-3. Click on the ACTIVITIES tab.
-4. Choose the required data generation or reload action.
+**Steps to Access:** 
+  1. Log in as a super-admin.
+  2. Navigate to /admin.
+  3. Click on the ACTIVITIES tab.
+  4. Choose the required data generation or reload action.
 
 ![Activities](images/Webpage-Guide/adminactivities.png)
 
@@ -327,11 +326,11 @@ http://localhost:8181/admin (PLATFORM PARAMETERS tab)
 - **Permissions Required:**
 Super Admin
 
-- **Steps to Access:**
-1. Log in as a super-admin.
-2. Open /admin.
-3. Navigate to the PLATFORM PARAMETERS tab.
-4. Review or update configuration values as required.
+**Steps to Access:**
+  1. Log in as a super-admin.
+  2. Open /admin.
+  3. Navigate to the PLATFORM PARAMETERS tab.
+  4. Review or update configuration values as required.
 
 ![Platform Parameters](images/Webpage-Guide/adminplatform.png)
 
@@ -348,10 +347,10 @@ http://localhost:8181/admin → MISC tab
 - **Permissions Required:**
 Super Admin
 
-- **Steps to Access:**
-1. Log in as a super-admin
-2. Navigate to /admin
-3. Open the MISC tab
+**Steps to Access:**
+  1. Log in as a super-admin
+  2. Navigate to /admin
+  3. Open the MISC tab
 
 ![Misc tab](images/Webpage-Guide/adminmisc.png)
 
@@ -366,16 +365,15 @@ http://localhost:8181/classroom-admin
 - **Permissions Required:**
 Curriculum Admin role
 
-- **Steps to Access:**
-
-1. Log in as a super-admin.
-2. Assign yourself the Curriculum Admin role.
-3. Navigate to /classroom-admin.
-4. Create or edit classrooms and assign topics.
+**Steps to Access:**
+  1. Log in as a super-admin.
+  2. Assign yourself the Curriculum Admin role.
+  3. Navigate to /classroom-admin.
+  4. Create or edit classrooms and assign topics.
 
 ![Classroom admin](images/Webpage-Guide/classroomadmin.png)
 
-### Collection editor page:
+### Collection editor page
 
 - **Description:**
 This page allows creators to create and edit collections, which are ordered groups of explorations designed to guide learners through a learning path.
@@ -386,15 +384,15 @@ http://localhost:8181/collection_editor/create/<collection_id>
 - **Permissions Required:**
 Collection Editor 
 
-- **Steps to Access:**
-1. Log in to Oppia.
-2. Navigate to /creator-dashboard.
-3. Click Create New Collection.
-4. You will be redirected to the Collection Editor page.
+**Steps to Access:**
+  1. Log in to Oppia.
+  2. Navigate to /creator-dashboard.
+  3. Click Create New Collection.
+  4. You will be redirected to the Collection Editor page.
 
 ![Collection editor](images/Webpage-Guide/collectioneditor.png)
 
-#### Ways to generate collections:
+#### Ways to generate collections
 See [Populating Data on Local Server](#populating-data-on-local-server).
 
 ### Collection player
@@ -407,11 +405,11 @@ http://localhost:8181/collection/<collection_id>
 - **Permissions Required:**
 Public (no login required)
 
-- **Steps to Access:**
-1. Ensure a collection is published.
-2. Navigate to /community-library.
-3. Search for the collection.
-4. Open the collection to start learning.
+**Steps to Access:**
+  1. Ensure a collection is published.
+  2. Navigate to /community-library.
+  3. Search for the collection.
+  4. Open the collection to start learning.
 
 ![Collection player](images/Webpage-Guide/collections.png)
 
@@ -426,10 +424,10 @@ http://localhost:8181/community-library
 - **Permissions Required:**
 Public (no login required)
 
-- **Steps to Access:**
-1. Open Oppia in a browser.
-2. Navigate to /community-library.
-3. Use filters or search to find learning content.
+**Steps to Access:**
+  1. Open Oppia in a browser.
+  2. Navigate to /community-library.
+  3. Use filters or search to find learning content.
    
 ![Community library](images/Webpage-Guide/communitylibrary.png)
 
@@ -444,9 +442,9 @@ http://localhost:8181/contributor-admin-dashboard
 - **Permissions Required:**
 Question Admin or Translation Admin.
 
-- **Steps to Access:**
-1. Assign yourself the Question Admin role/Translation Admin.
-2. Navigate to /contributor-admin-dashboard
+**Steps to Access:**
+  1. Assign yourself the Question Admin role/Translation Admin.
+  2. Navigate to /contributor-admin-dashboard
 
 ![Contributor admin dashboard](images/Webpage-Guide/contributordashboardadmin.png)
 
@@ -461,9 +459,9 @@ http://localhost:8181/contributor-dashboard
 - **Permissions Required:**
 Logged-in users.
 
-- **Steps to Access:**
-1. Log in to Oppia.
-2. Navigate to /contributor-dashboard.
+**Steps to Access:**
+  1. Log in to Oppia.
+  2. Navigate to /contributor-dashboard.
 
 ![Contributor dashboard](images/Webpage-Guide/mycontributions.png)
 
@@ -508,10 +506,10 @@ http://localhost:8181/creator-dashboard
 - **Permissions Required:**
 Logged-in users
 
-- **Steps to Access:**
-1. Log in to Oppia.
-2. Navigate to /creator-dashboard.
-   - Create, edit, or manage your explorations and collections.
+**Steps to Access:**
+  1. Log in to Oppia.
+  2. Navigate to /creator-dashboard.
+      - Create, edit, or manage your explorations and collections.
 
  ![Creator dashboard](images/Webpage-Guide/creatordashboard.png)
 
@@ -527,10 +525,10 @@ http://localhost:8181/delete-account
 - **Permissions Required:**
 Learners must be signed in.
 
-- **Steps to Access:** 
-1. Log in to Oppia.
-2. Navigate to /preferences.(Preferences page)
-3. On that page there is Delete button.
+**Steps to Access:** 
+  1. Log in to Oppia.
+  2. Navigate to /preferences.(Preferences page)
+  3. On that page there is Delete button.
    
 When the user clicks this button, they are taken to the Delete Account page, where they can confirm the deletion.
 Follow the on-screen confirmation steps.
@@ -543,21 +541,19 @@ On production, deletion requests may remain pending.
 
 ### Preferences Page
 
-- **Description:**
-This page allows learners to change their settings on Oppia, such as language preference and email preferences.
+- **Description:** This page allows learners to change their settings on Oppia, such as language preference and email preferences.
 
-- **Url:**
-http://localhost:8181/preferences
+- **Url:** http://localhost:8181/preferences
 
-- **Permissions Required:**
-No special permissions. Any signed-in learner can access it.
+- **Permissions Required:** No special permissions. Any signed-in learner can access it.
 
-- **Steps to Access:**
-1. Log in to Oppia.
-2. Open the top-right profile menu
-3. Click Preferences.
+**Steps to Access:**
+  1. Log in to Oppia.
+  2. Open the top-right profile menu
+  3. Click Preferences.
 
 ![Preferences page](images/Webpage-Guide/preferences.png)
+
 
 ### Profile page
 
@@ -570,9 +566,9 @@ http://localhost:8181/profile/<username>
 - **Permissions Required:** 
 No special permissions. Public profiles are viewable by anyone.
 
-- **Steps to Access:** 
-1. Log in to Oppia
-2. Click your username in the top-right menu
+**Steps to Access:** 
+  1. Log in to Oppia
+  2. Click your username in the top-right menu
 
 ![Profile page](images/Webpage-Guide/profilepage.png)
 
@@ -588,11 +584,11 @@ http://localhost:8181/release-coordinator
 - **Permissions Required:**
 Release Coordinator role
 
-- **Steps to Access:**
-1. Log in as a Super Admin.
-2. Assign yourself the Release Coordinator role via Admin → Roles.
-3. Navigate to /release-coordinator.
-4. Use tools such as Flush Cache under the MISC tab.
+**Steps to Access:**
+  1. Log in as a Super Admin.
+  2. Assign yourself the Release Coordinator role via Admin → Roles.
+  3. Navigate to /release-coordinator.
+  4. Use tools such as Flush Cache under the MISC tab.
 
 #### Tabs on the release coordinator page:
 
@@ -651,13 +647,13 @@ http://localhost:8181/skill_editor/<skill_id>
 - **Permissions Required:**
 Curriculum Admin role.
 
-- **Steps to Access:**
-1. Open the Topics & Skills Dashboard.
-2. Go to the ADD SKILL .
+**Steps to Access:**
+  1. Open the Topics & Skills Dashboard.
+  2. Go to the ADD SKILL .
    ![ADD SKILL](images/Webpage-Guide/skilleditor1.png)
-3. New Skill modal will pop up.
-4. Once you click on Save button of the modal,a new tab will be opened.
-5. That will be Skill Editor page.
+  3. New Skill modal will pop up.
+  4. Once you click on Save button of the modal,a new tab will be opened.
+  5. That will be Skill Editor page.
    
 ![Skill editor](images/Webpage-Guide/skilleditor2.png)
 
@@ -672,14 +668,14 @@ http://localhost:8181/story_editor/<story_id>
 - **Permissions Required:**
 Curriculum Admin role
 
-- **Steps to access:** 
-1. Navigate to /topics-and-skills-dashboard.
-2. Create a topic.
+**Steps to access:** 
+  1. Navigate to /topics-and-skills-dashboard.
+  2. Create a topic.
    ![createTopicModal](images/Webpage-Guide/createTopicModal.png)
 
-3. Go to the topic editor and click on the add story button.
+  3. Go to the topic editor and click on the add story button.
    ![canonicalstories](images/Webpage-Guide/canonicalstories.png)
-4. Complete the “New story” modal and wait for the story editor page to load.
+  4. Complete the “New story” modal and wait for the story editor page to load.
 
 ![New story](images/Webpage-Guide/storyeditor3.png)
 
@@ -694,15 +690,15 @@ Displays the learner-facing view of a story and its chapters.
 - **Permissions Required:**
 Public (no login required)
 
-- **Steps to Access:**
-1. Navigate to the Learn page.
-2. Click on a Classroom (for example, "Math").
-3. Click on a Topic (for example, "Multiplication").
-4. Click "Continue" on a Story.
-5. The Story Player page opens.
+**Steps to Access:**
+  1. Navigate to the Learn page.
+  2. Click on a Classroom (for example, "Math").
+  3. Click on a Topic (for example, "Multiplication").
+  4. Click "Continue" on a Story.
+  5. The Story Player page opens.
 ![Story player page](images/Webpage-Guide/storyplayer.png)
 
-### Topics & skills dashboard 
+### Topics & Skills dashboard 
 
 - **Description:** 
 The central hub for Curriculum Admins to create and manage Topics (and their stories) and Skills.
@@ -713,13 +709,13 @@ http://localhost:8181/topics-and-skills-dashboard
 - **Permissions Required:**
 Curriculum Admin role.
 
-- **Steps to Access:**
-1. Log in as a Super Admin.
-2. Assign yourself the Curriculum Admin role.
-3. Navigate to /topics-and-skills-dashboard.
+**Steps to Access:**
+  1. Log in as a Super Admin.
+  2. Assign yourself the Curriculum Admin role.
+  3. Navigate to /topics-and-skills-dashboard.
 
 
-![Topics & skills dashboard](images/Webpage-Guide/topicsandskillsdashboard.png)
+![Topics & Skills dashboard](images/Webpage-Guide/topicsandskillsdashboard.png)
 
 ## Public informational pages
 
@@ -734,8 +730,8 @@ Provides information about the Oppia Foundation, its mission, team, and Impact.
 - **Permissions Required:** 
 None
 
-- **Steps to Access:** 
- 1. Click About in the Navbar.
+**Steps to Access:** 
+  1. Click About in the Navbar.
 
 ![About page](images/Webpage-Guide/about.png)
 
@@ -750,9 +746,9 @@ Landing page for the Oppia Android app, allowing users to download the app and v
 - **Permissions Required:** 
 None
 
-- **Steps to Access:** 
-1. Click LEARN in the navbar.
-2. Click try it today.
+**Steps to Access:** 
+  1. Click LEARN in the navbar.
+  2. Click try it today.
    
 ![Android page](images/Webpage-Guide/android.png)
 
@@ -767,9 +763,9 @@ Allows users to contact the Oppia team, submit feedback, and learn how to get in
 - **Permissions Required:** 
 None
 
-- **Steps to Access:** 
-1. Click Get Involved in the navbar.
-2. Then click on Contact Us.
+**Steps to Access:** 
+  1. Click Get Involved in the navbar.
+  2. Then click on Contact Us.
 
 ![Contact page](images/Webpage-Guide/contact.png)
 
@@ -784,8 +780,8 @@ Provides instructions and best practices for participating in the community and 
 - **Permissions Required:** 
  None
 
-- **Steps to Access:** 
-1. Click Creator-guidelines in the footer.
+**Steps to Access:** 
+  1. Click Creator-guidelines in the footer.
 
 ![Creator Guidelines](images/Webpage-Guide/creatorguidelines.png)
 
@@ -809,13 +805,11 @@ None (Public route)
 
 If any of these are missing, the page may load but not behave correctly.
 
-- **Steps to Access:**
-
-1. Navigate to the classroom page.
-2. On the classroom page, click Take quiz.
+**Steps to Access:**
+  1. Navigate to the classroom page.
+  2. On the classroom page, click Take quiz.
    ![classroom page](images/Webpage-Guide/diagnostic1.png)
-   
-3. The Diagnostic Test Player will open.
+  3. The Diagnostic Test Player will open.
    ![Diagnostic Test Player](images/Webpage-Guide/diagnosticplayer.png)
 
 How to Enable Diagnostic Test
@@ -839,8 +833,8 @@ Explains how community can support or align with Oppia Foundation's mission.
 - **Permissions Required:** 
 None
 
-- **Steps to Access:** 
-1. Click Donate in the Navbar.
+**Steps to Access:** 
+  1. Click Donate in the Navbar.
 
 ![ Donate page](images/Webpage-Guide/donate.png)
 
@@ -855,8 +849,8 @@ Provides guidance on how to begin using Oppia as a contributor.
 - **Permissions Required:** 
 None
 
-- **Steps to Access:** 
-1. Click Get Started in the footer
+**Steps to Access:** 
+  1. Click Get Started in the footer
 
 ![Get Started page](images/Webpage-Guide/getstarted.png)
 
@@ -871,8 +865,8 @@ Details the licenses under which Oppia’s content and software are released.
 - **Permissions Required:** 
 None
 
-- **Steps to Access:** 
- 1. Linked from the image receiver or audio uploader components during the creation process.
+**Steps to Access:** 
+  1. Linked from the image receiver or audio uploader components during the creation process.
 
 ![License page](images/Webpage-Guide/license.png)
 
@@ -887,10 +881,10 @@ Displayed when Oppia is in maintenance mode. Shows a message that the site is te
 - **Permissions Required:**
 None (Public)
 
-- **Steps to Access:**
-1. This page is automatically displayed when the server is in maintenance mode
-2. For testing, admins can start the server with python -m scripts.start --prod_env --maintenance_mode.
-3. OR directly visit http://localhost:8181/maintenance
+**Steps to Access:**
+  1. This page is automatically displayed when the server is in maintenance mode
+  2. For testing, admins can start the server with python -m scripts.start --prod_env --maintenance_mode.
+  3. OR directly visit http://localhost:8181/maintenance
 
 **NOTE:** Maintenance mode only works with --prod_env flag. That's why the server is started with python -m scripts.start --prod_env --maintenance_mode.
 ![Maintenance Page](images/Webpage-Guide/maintenance.png)
@@ -906,9 +900,9 @@ Provides information for organizations interested in partnering with Oppia to he
 - **Permissions Required:** 
 None
 
-- **Steps to Access:** 
-1. Click Get Involved in the navbar.
-2. Then click on the Schools and Organizations.
+**Steps to Access:** 
+  1. Click Get Involved in the navbar.
+  2. Then click on the Schools and Organizations.
 ![Partnerships page](images/Webpage-Guide/partnerships.png)
 
 ### Privacy Policy
@@ -922,8 +916,8 @@ Explains how Oppia collects, uses, and protects user data.
 - **Permissions Required:** 
 None
 
-- **Steps to Access:** 
-1. Click Privacy Policy in the footer.
+**Steps to Access:** 
+  1. Click Privacy Policy in the footer.
 
 ![Privacy Policy page](images/Webpage-Guide/privacypolicy.png)
 
@@ -938,8 +932,8 @@ Provides resources and guidance for teachers who want to use Oppia in their clas
 - **Permissions Required:** 
 None
 
-- **Steps to Access:** 
-1. Click For Parents/Teachers in the footer.
+**Steps to Access:** 
+  1. Click For Parents/Teachers in the footer.
 ![Teach](images/Webpage-Guide/teach.png)
 
 ### Terms of Use
@@ -953,8 +947,8 @@ Defines the legal terms and conditions for using the Oppia platform.
 - **Permissions Required:** 
 None
 
-- **Steps to Access:** 
- 1. Click Terms of Service in the footer.
+**Steps to Access:** 
+  1. Click Terms of Service in the footer.
 
 ![Terms of Use](images/Webpage-Guide/terms.png)
 
@@ -969,8 +963,8 @@ Confirmation page displayed after a successful donation.
 - **Permissions Required:** 
 None
 
-- **Steps to Access:** 
-1. Users are redirected automatically after completing a donation.
+**Steps to Access:** 
+  1. Users are redirected automatically after completing a donation.
 
 ![Thank You page](images/Webpage-Guide/thankyou.png)
 
@@ -985,9 +979,9 @@ Provides information on how to join the Oppia community as a volunteer and contr
 - **Permissions Required:** 
 None
 
-- **Steps to Access:** 
-1. Click Get Involved in the navbar.
-2. Then click on the Volunteer.
+**Steps to Access:** 
+  1. Click Get Involved in the navbar.
+  2. Then click on the Volunteer.
 
 ![Volunteer page](images/Webpage-Guide/volunteer.png)
 
@@ -1005,10 +999,10 @@ Account creation page where new users can register for an Oppia account.
 - **Permissions Required:**
 None (Public)
 
-- **Steps to Access:**
-1. Click "Sign In" button
-2. On the login page, enter a new email address
-3. Complete the signup flow (username selection, terms acceptance)
+**Steps to Access:**
+  1. Click "Sign In" button
+  2. On the login page, enter a new email address
+  3. Complete the signup flow (username selection, terms acceptance)
 
 ![Signup Page](images/Webpage-Guide/signup.png)
 
@@ -1025,10 +1019,10 @@ Management interface for blog authors to create, edit, and publish blog posts.
 - **Permissions Required:**
 Blog Editor role
 
-- **Steps to Access:**
-1. Log in as a Super Admin
-2. Assign yourself the Blog Editor role via /admin → Roles
-3. Navigate to http://localhost:8181/blog-dashboard
+**Steps to Access:**
+  1. Log in as a Super Admin
+  2. Assign yourself the Blog Editor role via /admin → Roles
+  3. Navigate to http://localhost:8181/blog-dashboard
 
 ![Blog Dashboard](images/Webpage-Guide/blogdashboard.png)
 
@@ -1043,10 +1037,10 @@ A dashboard for classroom facilitators to manage learner groups, track student p
 - **Permissions Required:**
 Logged-in users with Full User Role.
 
-- **Steps to Access:**
-1. Log in as a Super Admin, navigate to /release-coordinator -> Features tab, and enable the Learner Groups flag (internally learner_groups_are_enabled).
-2. Ensure your user account has the Full User role (assigned via the Admin -> Roles tab).
-3. Navigate to http://localhost:8181/facilitator-dashboard
+**Steps to Access:**
+  1. Log in as a Super Admin, navigate to /release-coordinator -> Features tab, and enable the Learner Groups flag (internally learner_groups_are_enabled).
+  2. Ensure your user account has the Full User role (assigned via the Admin -> Roles tab).
+  3. Navigate to http://localhost:8181/facilitator-dashboard
 (Requires facilitator role to access full features)
 
 ![Facilitator Dashboard](images/Webpage-Guide/Facilatordashboard.png)
@@ -1062,9 +1056,9 @@ The learner's personal homepage showing their learning progress, goals, ongoing 
 - **Permissions Required:**
 Logged-in users
 
-- **Steps to Access:**
-1. Log in to Oppia
-2. Click the Oppia logo or "Home" link
+**Steps to Access:**
+  1. Log in to Oppia
+  2. Click the Oppia logo or "Home" link
 OR directly visit http://localhost:8181/learner-dashboard
 
 ![Learner Dashboard](images/Webpage-Guide/leanerdashboard.png)
@@ -1082,10 +1076,10 @@ Administrative dashboard for managing blog settings, categories, featured posts,
 - **Permissions Required:**
 Blog Admin role
 
-- **Steps to Access:**
-1. Log in as a Super Admin
-2. Assign yourself the Blog Admin role via /admin → Roles
-3. Navigate to http://localhost:8181/blog-admin
+**Steps to Access:**
+  1. Log in as a Super Admin
+  2. Assign yourself the Blog Admin role via /admin → Roles
+  3. Navigate to http://localhost:8181/blog-admin
 
 ![Blog Admin](images/Webpage-Guide/blogadmin.png)
 
@@ -1100,9 +1094,9 @@ Interface for managing and sending bulk emails to specific user groups or the en
 - **Permissions Required:**
 Admin privileges
 
-- **Steps to Access:**
-1. Log in as a Super Admin
-2. Navigate to http://localhost:8181/emaildashboard
+**Steps to Access:**
+  1. Log in as a Super Admin
+  2. Navigate to http://localhost:8181/emaildashboard
 
 ![Email Dashboard](images/Webpage-Guide/emaildashboard.png)
 
@@ -1117,8 +1111,8 @@ Page for moderators to manage explorations and user feedback.
 - **Permissions Required:**
 Moderator
 
-- **Steps to Access:** 
-1. Click Moderator Page in the side navigation bar.
+**Steps to Access:** 
+  1. Click Moderator Page in the side navigation bar.
 
 ![Moderator](images/Webpage-Guide/moderator.png)
 
@@ -1133,10 +1127,10 @@ Administrative tool for managing voiceover recordings, reviewing submitted voice
 - **Permissions Required:**
 Voiceover Admin role
 
-- **Steps to Access:**
-1. Log in as a Super Admin
-2. Assign yourself the Voiceover Admin role via /admin → Roles
-3. Navigate to http://localhost:8181/voiceover-admin
+**Steps to Access:**
+  1. Log in as a Super Admin
+  2. Assign yourself the Voiceover Admin role via /admin → Roles
+  3. Navigate to http://localhost:8181/voiceover-admin
 
 ![Voiceover Admin](images/Webpage-Guide/voiceoveradmin.png)
 
@@ -1153,11 +1147,11 @@ The exploration editor is where creators build interactive lessons. It includes 
 - **Permissions Required:**
 Logged-in users (exploration owner or collaborators)
 
-- **Steps to Access:**
-1. Log in to Oppia
-2. Navigate to Creator Dashboard (/creator-dashboard)
-3. Click "Create Exploration"
-4. OR open an existing exploration from your dashboard
+**Steps to Access:**
+  1. Log in to Oppia
+  2. Navigate to Creator Dashboard (/creator-dashboard)
+  3. Click "Create Exploration"
+  4. OR open an existing exploration from your dashboard
 
 ![Exploration Editor](images/Webpage-Guide/explorationeditor.png)
 
@@ -1172,12 +1166,12 @@ Interface for creating and managing topics, including subtopics, stories, skills
 - **Permissions Required:**
 Curriculum Admin role
 
-- **Steps to Access:**
-1. Log in as a Super Admin
-2. Assign yourself the Curriculum Admin role
-3. Navigate to Topics and Skills Dashboard
-4. Click on an existing topic OR create a new one
-5. The Topic Editor page will open
+**Steps to Access:**
+  1. Log in as a Super Admin
+  2. Assign yourself the Curriculum Admin role
+  3. Navigate to Topics and Skills Dashboard
+  4. Click on an existing topic OR create a new one
+  5. The Topic Editor page will open
 
 ![Topic Editor](images/Webpage-Guide/topiceditor1.png)
 
@@ -1194,11 +1188,11 @@ An interactive practice session where learners answer practice questions to rein
 - **Permissions Required:**
 None (Public)
 
-- **Steps to Access:**
-1. Navigate to a Topic Viewer page
-2. Go to Practice Tab
-3. Click "Start"
-4. Answer questions related to the topic
+**Steps to Access:**
+  1. Navigate to a Topic Viewer page
+  2. Go to Practice Tab
+  3. Click "Start"
+  4. Answer questions related to the topic
 
 Example:
  http://localhost:8181/learn/math/fractions/practice
@@ -1216,10 +1210,10 @@ A test that learners can take after completing a story to review what they've le
 - **Permissions Required:**
 None (Public)
 
-- **Steps to Access:**
-1. Complete a story
-2. Click "Take Review Test" at the end of the story
-3. The review test player will load
+**Steps to Access:**
+  1. Complete a story
+  2. Click "Take Review Test" at the end of the story
+  3. The review test player will load
 
 Example:
 http://localhost:8181/learn/math/fractions/review-test/introduction-to-fractions
@@ -1235,10 +1229,10 @@ Displays detailed study materials, explanations, and worked examples for a speci
 - **Permissions Required:**
 None (Public)
 
-- **Steps to Access:**
-1. Navigate to a Topic Viewer page
-2. Click on a subtopic from the list
-3. The study guide for that subtopic will load
+**Steps to Access:**
+  1. Navigate to a Topic Viewer page
+  2. Click on a subtopic from the list
+  3. The study guide for that subtopic will load
 
 Example:
  http://localhost:8181/learn/math/fractions/studyguide
@@ -1256,10 +1250,10 @@ Displays a topic's details, stories, practice sessions, and study materials for 
 - **Permissions Required:**
 None (Public)
 
-- **Steps to Access:**
-1. Navigate to /learn (Classrooms page)
-2. Click on a classroom (e.g., "Math")
-3. Click on a topic (e.g., "Fractions")
+**Steps to Access:**
+  1. Navigate to /learn (Classrooms page)
+  2. Click on a classroom (e.g., "Math")
+  3. Click on a topic (e.g., "Fractions")
 
 Example:
 http://localhost:8181/learn/math/fractions/story
@@ -1279,9 +1273,9 @@ Landing page showing all available classrooms (Math, Science, etc.) that learner
 - **Permissions Required:**
 None (Public)
 
-- **Steps to Access:**
-1. Click "Learn" in the navigation bar
-2. OR directly visit http://localhost:8181/classrooms
+**Steps to Access:**
+  1. Click "Learn" in the navigation bar
+  2. OR directly visit http://localhost:8181/classrooms
 
 ![All Classrooms](images/Webpage-Guide/allclassrooms.png)
 
@@ -1296,9 +1290,9 @@ Individual classroom landing page displaying all topics within that classroom, a
 - **Permissions Required:**
 None (Public)
 
-- **Steps to Access:**
-1. Navigate to /classrooms
-2. Click on a classroom card (e.g., "Math")
+**Steps to Access:**
+  1. Navigate to /classrooms
+  2. Click on a classroom card (e.g., "Math")
 
 Example:
  http://localhost:8181/learn/math
@@ -1318,9 +1312,9 @@ A stripped-down version of the exploration player designed to be embedded in ext
 - **Permissions Required:**
 None (Public)
 
-- **Steps to Access:**
-1. Directly visit http://localhost:8181/embed/exploration/<exploration_id>
-2. OR embed in an iframe:
+**Steps to Access:**
+  1. Directly visit http://localhost:8181/embed/exploration/<exploration_id>
+  2. OR embed in an iframe:
 
 ![Embedded Exploration Player](images/Webpage-Guide/embedexploration.png)
 
@@ -1335,9 +1329,9 @@ The modern lesson player interface with improved UX for playing explorations.
 - **Permissions Required:**
 Public (with authorization check)
 
-- **Steps to Access:**
-1. Navigate through a classroom → topic → story → chapter
-2. Click on a chapter to launch the lesson player
+**Steps to Access:**
+  1. Navigate through a classroom → topic → story → chapter
+  2. Click on a chapter to launch the lesson player
 
 ![New Lesson Player](images/Webpage-Guide/newlessonplayer.png)
 
@@ -1352,10 +1346,10 @@ The legacy exploration player interface for playing individual explorations (les
 - **Permissions Required:**
 None (Public)
 
-- **Steps to Access:**
-1. Find an exploration in the Community Library
-2. Click "Play" on the exploration
-3. OR directly visit http://localhost:8181/explore/<exploration_id>
+**Steps to Access:**
+  1. Find an exploration in the Community Library
+  2. Click "Play" on the exploration
+  3. OR directly visit http://localhost:8181/explore/<exploration_id>
 
 ![Old Exploration Player](images/Webpage-Guide/oldexploration.png)
 
@@ -1372,10 +1366,10 @@ Search interface for finding specific explorations in the Oppia library by keywo
 - **Permissions Required:**
 None (Public)
 
-- **Steps to Access:**
-1. Navigate to Community Library (/community-library)
-2. Use the search bar at the top
-3. OR directly visit http://localhost:8181/search/find?q=<search_term>
+**Steps to Access:**
+  1. Navigate to Community Library (/community-library)
+  2. Use the search bar at the top
+  3. OR directly visit http://localhost:8181/search/find?q=<search_term>
 
 ![Library Search](images/Webpage-Guide/explorationsearch.png)
 
@@ -1390,10 +1384,10 @@ Shows a list of explorations that have been recently published to the community 
 - **Permissions Required:**
 None (Public)
 
-- **Steps to Access:**
-1. Navigate to Community Library
-2. Click "Recently Published" tab or filter
-3. OR directly visit http://localhost:8181/community-library/recently-published
+**Steps to Access:**
+  1. Navigate to Community Library
+  2. Click "Recently Published" tab or filter
+  3. OR directly visit http://localhost:8181/community-library/recently-published
    ![Recently Published](images/Webpage-Guide/recentlypublished.png)
    
 ### Top Rated
@@ -1407,10 +1401,10 @@ Displays the highest-rated explorations based on learner feedback and ratings.
 - **Permissions Required:**
 None (Public)
 
-- **Steps to Access:**
-1. Navigate to Community Library
-2. Click "Top Rated" tab or filter
-3. OR directly visit http://localhost:8181/community-library/top-rated
+**Steps to Access:**
+  1. Navigate to Community Library
+  2. Click "Top Rated" tab or filter
+  3. OR directly visit http://localhost:8181/community-library/top-rated
    
 ## Blog routes
 
@@ -1425,9 +1419,9 @@ The main blog page displaying recent blog posts, featured articles, and blog cat
 - **Permissions Required:**
 None (Public)
 
-- **Steps to Access:**
-1. Click "Blog" in the navigation bar
-2. OR directly visit http://localhost:8181/blog
+**Steps to Access:**
+  1. Click "Blog" in the navigation bar
+  2. OR directly visit http://localhost:8181/blog
    
 ![Blog Homepage](images/Webpage-Guide/bloghomepage.png)
 
@@ -1442,10 +1436,10 @@ Search interface for finding blog posts by keywords, tags, or author.
 - **Permissions Required:**
 None (Public)
 
-- **Steps to Access:**
-1. Navigate to Blog homepage (/blog)
-2. Use the search bar
-3. Enter search terms and submit
+**Steps to Access:**
+  1. Navigate to Blog homepage (/blog)
+  2. Use the search bar
+  3. Enter search terms and submit
 
 ![Blog Search](images/Webpage-Guide/blogsearch.png)
 
@@ -1460,10 +1454,10 @@ Displays a blog author's profile, including their bio, published posts, and auth
 - **Permissions Required:**
 None (Public)
 
-- **Steps to Access:**
-1. Navigate to any blog post
-2. Click on the author's name
-3. OR directly visit http://localhost:8181/blog/author/<username>
+**Steps to Access:**
+  1. Navigate to any blog post
+  2. Click on the author's name
+  3. OR directly visit http://localhost:8181/blog/author/<username>
 
 ![Blog Author Profile](images/Webpage-Guide/blogauthor.png)
 
@@ -1478,10 +1472,10 @@ Displays a single blog post with its full content, images, and comments.
 - **Permissions Required:**
 None (Public)
 
-- **Steps to Access:**
-1. Navigate to Blog homepage
-2. Click on a blog post title
-3. OR directly visit http://localhost:8181/blog/<slug>
+**Steps to Access:**
+  1. Navigate to Blog homepage
+  2. Click on a blog post title
+  3. OR directly visit http://localhost:8181/blog/<slug>
 
 ![Individual Blog Post](images/Webpage-Guide/individualblog.png)
 
@@ -1498,11 +1492,11 @@ Interface for facilitators to create a new learner group, add members, and assig
 - **Permissions Required:**
 Logged-in users with the Full User role.
 
-- **Steps to Access:**
-1. Log in to Oppia
-2. Navigate to Facilitator Dashboard
-3. Click "Create Learner Group"
-4. OR directly visit http://localhost:8181/create-learner-group
+**Steps to Access:**
+  1. Log in to Oppia
+  2. Navigate to Facilitator Dashboard
+  3. Click "Create Learner Group"
+  4. OR directly visit http://localhost:8181/create-learner-group
 
 ![Create Learner Group](images/Webpage-Guide/createlearnergroup.png)
 
@@ -1517,10 +1511,10 @@ Allows facilitators to edit learner group details, manage members, and update as
 - **Permissions Required:**
 The user must be the Facilitator of that specific group.
 
-- **Steps to Access:**
-1. Navigate to Facilitator Dashboard
-2. Click on a learner group
-3. Click "Edit Group"
+**Steps to Access:**
+  1. Navigate to Facilitator Dashboard
+  2. Click on a learner group
+  3. Click "Edit Group"
    
 ![Edit Learner Group](images/Webpage-Guide/editleanergroup.png) 
 
@@ -1565,10 +1559,10 @@ Displays learner group information, member progress, and group activities.
 - **Permissions Required:**
 Group members or facilitators
 
-- **Steps to Access:**
-1. Navigate to Facilitator Dashboard (for facilitators)
-2. OR access via shared group link (for members)
-3. Click on the group to view details
+**Steps to Access:**
+  1. Navigate to Facilitator Dashboard (for facilitators)
+  2. OR access via shared group link (for members)
+  3. Click on the group to view details
 
 ![View Learner Group](images/Webpage-Guide/viewgroup.png)
 
@@ -1585,11 +1579,11 @@ Shows a history of feedback the user has received on their explorations, questio
 - **Permissions Required:**
 Logged-in users
 
-- **Steps to Access:**
-1. Log in to Oppia
-2. Click the notification bell icon
-3. Click "View All Feedback"
-4. OR directly visit http://localhost:8181/feedback-updates
+**Steps to Access:**
+  1. Log in to Oppia
+  2. Click the notification bell icon
+  3. Click "View All Feedback"
+  4. OR directly visit http://localhost:8181/feedback-updates
 
 ![Feedback Updates](images/Webpage-Guide/feedback.png)
 
@@ -1604,9 +1598,9 @@ Displayed after a user requests account deletion. Shows the deletion status and 
 - **Permissions Required:**
 None (Public - shown after deletion request)
 
-- **Steps to Access:**
-1. User is automatically redirected here after requesting account deletion
-2. OR directly visit http://localhost:8181/pending-account-deletion
+**Steps to Access:**
+  1. User is automatically redirected here after requesting account deletion
+  2. OR directly visit http://localhost:8181/pending-account-deletion
 
 ![Pending Account Deletion](images/Webpage-Guide/pendingaccountdeletion.png)
 
@@ -1623,9 +1617,9 @@ Custom error pages for specific HTTP error codes (400, 401, 500, etc.) with help
 - **Permissions Required:**
 None (Public)
 
-- **Steps to Access:**
-1. These pages are automatically displayed when the corresponding error occurs
-2. For testing, visit http://localhost:8181/error/404 or /error/500
+**Steps to Access:**
+  1. These pages are automatically displayed when the corresponding error occurs
+  2. For testing, visit http://localhost:8181/error/404 or /error/500
 
 ![Custom Error Pages](images/Webpage-Guide/404error.png)
 
@@ -1640,9 +1634,9 @@ A special error page designed to display within iframes without breaking the par
 - **Permissions Required:**
 None (Public)
 
-- **Steps to Access:**
-1. This page is automatically shown when an error occurs within an embedded Oppia iframe
-2. OR directly visit http://localhost:8181/error/iframed
+**Steps to Access:**
+  1. This page is automatically shown when an error occurs within an embedded Oppia iframe
+  2. OR directly visit http://localhost:8181/error/iframed
 
 ![Iframe Error Page](images/Webpage-Guide/iframeerror.png)
 
@@ -1657,9 +1651,9 @@ The default 404 page shown when a user navigates to a non-existent URL.
 - **Permissions Required:**
 None (Public)
 
-- **Steps to Access:**
-1. Visit any non-existent URL
-2. Example: http://localhost:8181/this-page-does-not-exist
+**Steps to Access:**
+  1. Visit any non-existent URL
+  2. Example: http://localhost:8181/this-page-does-not-exist
 
 ## Populating Data on Local Server
 
