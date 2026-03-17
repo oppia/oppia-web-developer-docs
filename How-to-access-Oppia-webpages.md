@@ -8,23 +8,23 @@
     + [Method A — Implicit super admin email (fast):](#method-a---implicit-super-admin-email--fast--)
     + [Method B — Grant super admin via Firebase emulator (explicit):](#method-b---grant-super-admin-via-firebase-emulator--explicit--)
 - [Oppia Webpages](#oppia-webpages)
-  * [Admin pages](#admin-pages)
-    + [Important admin page tabs](#important-admin-page-tabs)
+  * [Admin Page](#admin-page)
+  * [Important Admin page Tabs](#important-admin-page-tabs)
   * [Classroom admin page](#classroom-admin-page)
-  * [Collection editor page:](#collection-editor-page-)
-    + [Ways to generate collections:](#ways-to-generate-collections-)
+  * [Collection editor page](#collection-editor-page)
+    + [Ways to generate collections](#ways-to-generate-collections)
   * [Collection player](#collection-player)
   * [Community library](#community-library)
   * [Contributor admin dashboard](#contributor-admin-dashboard)
   * [Contributor dashboard](#contributor-dashboard)
-    + [Tabs on the Contributor dashboard page:](#tabs-on-the-contributor-dashboard-page-)
+  * [Important Contributor dashboard page Tabs](#important-contributor-dashboard-page-tabs)
     + [Ways to Generate Contributions](#ways-to-generate-contributions)
   * [Creator dashboard](#creator-dashboard)
   * [Delete account page](#delete-account-page)
   * [Preferences Page](#preferences-page)
   * [Profile page](#profile-page)
   * [Release Coordinator Page](#release-coordinator-page)
-    + [Tabs on the release coordinator page:](#tabs-on-the-release-coordinator-page-)
+  * [Important Release Coordinator page tabs](#important-release-coordinator-page-tabs)
   * [Skill editor page](#skill-editor-page)
   * [Story editor page](#story-editor-page)
   * [Story player page](#story-player-page)
@@ -83,7 +83,7 @@
 - [Learner group routes](#learner-group-routes)
   * [Create Learner Group](#create-learner-group)
   * [Edit Learner Group](#edit-learner-group)
-    + [Tabs on edit learner group:](#tabs-on-edit-learner-group-)
+  * [Important Edit learner group page tabs](#important-edit-learner-group-page-tabs)
   * [View Learner Group](#view-learner-group)
 - [Account & Profile routes](#account---profile-routes)
   * [Feedback Updates](#feedback-updates)
@@ -104,7 +104,7 @@
   * [5. Generating Data For Contributor Dashboard](#5-generating-data-for-contributor-dashboard)
   * [6. Creating collections](#6-creating-collections)
     + [Using the collection editor:](#using-the-collection-editor-)
-    + [Using activities tab](#using-activities-tab)
+    + [Using Activities tab](#using-activities-tab)
   * [7. Creating a classroom](#7-creating-a-classroom)
     + [Creating a custom classroom](#creating-a-custom-classroom)
     + [Creating a dummy math classroom](#creating-a-dummy-math-classroom)
@@ -141,6 +141,7 @@
   * [21. Contributor Checklist](#21-contributor-checklist)
   * [22. Summary](#22-summary)
 
+
   
 ## Overview of entities
 
@@ -176,7 +177,7 @@ As you go through https://www.oppia.org/, you will find these entities.
 ### Key terms
 
 1. **Classroom**: A Classroom in Oppia is a collection of topics grouped under a single subject. For example: https://www.oppia.org/learn/math this displays a Maths classroom.
-2. **Topic**: A topic is a broad term that refers to the subject content being taught. For example: https://www.oppia.org/learn/math displays a list of math topics.A single topic can be described through multiple stories.
+2. **Topic**: A topic is a broad term that refers to the subject content being taught. For example: https://www.oppia.org/learn/math displays a list of math topics. A single topic can be described through multiple stories.
 3. **Story**: Stories are situations/scenarios that are meant to help users understand the topic. For example, if the topic is addition, then one of the stories could be about where a kid goes to a shop and buys 3 pens and 4 pencils. The lesson could then explain the concept of addition while discussing the total number of items bought. As another example, https://www.oppia.org/learn/math/place-values/story talks about Jaime’s adventures for learning about place values. A single story can be referenced in multiple chapters and is essentially a collection of chapters.
 4. **Chapter**: A chapter corresponds to different lessons through which we aim to teach the topic to the users. Each chapter has an associated exploration, and this exploration may have several cards. For example, https://www.oppia.org/learn/math/place-values/story shows a bunch of chapters to learn the place values topic.
 5. **Card**:
@@ -255,9 +256,9 @@ There are two ways to become a super admin on the local server.
 
 5. Log out and sign back in to refresh the session cookie.
 
-## Oppia Webpages 
+## Oppia Webpages
 
-### Admin pages
+### Admin Page
 
 - **Description:**
 The Admin page is where Super Admins manage roles, run dummy data generation jobs, and reload prebuilt content.
@@ -266,7 +267,7 @@ The Admin page is where Super Admins manage roles, run dummy data generation job
 http://localhost:8181/admin
 
 - **Permissions Required:**
-Super Admin only.
+[Super Admin](#log-in-as-a-super-administrator)
 
 **Steps to Access:**
   1. Log in as a super-admin. 
@@ -274,29 +275,16 @@ Super Admin only.
       
 ![Admin Panel Link](https://user-images.githubusercontent.com/16653571/41501009-e04e9a76-71b9-11e8-958e-985f5bc7122a.png)
 
-#### Important admin page tabs
-**Assign roles** 
+### Important Admin page tabs
 
-- **Description:** 
-Allows Super Admin to assign roles such as Curriculum Admin, Question Admin, or Release Coordinator.
+We have the following tabs on the Admin page:
 
-- **Url:**
-http://localhost:8181/admin (Roles tab)
+- Activities Tab
+- Misc Tab
+- Platform Parameters Tab
+- Roles Tab
 
-- **Permissions Required:**
-Super Admin only.
-
-**Steps to Access:**
-  1. Navigate to the Admin page.                                                                                                                       2. Click the "ROLES" tab and enter the username of the user whose roles
-  you want to edit.
-
-   ![Admin Role Tab](images/Webpage-Guide/assignRolesEnterUsername.png)
-
-  3. Assign the desired role, "Question Admin" in this screenshot:
-
-   ![Assigning role](images/Webpage-Guide/assignRolesAddRole.png)
-
-**Activities**
+**Activities Tab**
 
 - **Description:**
 This page allows Super Admin to generate, reload, or seed data on the local  development server, such as explorations, collections, skills, topics, and  classrooms.
@@ -305,7 +293,7 @@ This page allows Super Admin to generate, reload, or seed data on the local  dev
 http://localhost:8181/admin (ACTIVITIES tab)
 
 - **Permissions Required:**
-Super Admin
+[Super Admin](#log-in-as-a-super-administrator)
 
 **Steps to Access:** 
   1. Log in as a super-admin.
@@ -314,25 +302,6 @@ Super Admin
   4. Choose the required data generation or reload action.
 
 ![Activities](images/Webpage-Guide/adminactivities.png)
-
-**Platform Parameters** 
-
-- **Description:**
-This page displays platform-level configuration parameters that control feature flags and site behavior across Oppia. Admins can view platform configuration parameters. Some values may be editable depending on the environment.
-
-- **Url:**
-http://localhost:8181/admin (PLATFORM PARAMETERS tab)
-
-- **Permissions Required:**
-Super Admin
-
-**Steps to Access:**
-  1. Log in as a super-admin.
-  2. Open /admin.
-  3. Navigate to the PLATFORM PARAMETERS tab.
-  4. Review or update configuration values as required.
-
-![Platform Parameters](images/Webpage-Guide/adminplatform.png)
 
 **Misc Tab**
 
@@ -345,14 +314,56 @@ Most learners and creators will never need to use this page.
 http://localhost:8181/admin → MISC tab
 
 - **Permissions Required:**
-Super Admin
+[Super Admin](#log-in-as-a-super-administrator)
 
 **Steps to Access:**
   1. Log in as a super-admin
   2. Navigate to /admin
-  3. Open the MISC tab
+  3. Open the Misc tab
 
 ![Misc tab](images/Webpage-Guide/adminmisc.png)
+
+**Platform Parameters Tab** 
+
+- **Description:**
+This page displays platform-level configuration parameters that control feature flags and site behavior across Oppia. Admins can view platform configuration parameters. Some values may be editable depending on the environment.
+
+- **Url:**
+http://localhost:8181/admin (PLATFORM PARAMETERS tab)
+
+- **Permissions Required:**
+[Super Admin](#log-in-as-a-super-administrator)
+
+**Steps to Access:**
+  1. Log in as a super-admin.
+  2. Open /admin.
+  3. Navigate to the PLATFORM PARAMETERS tab.
+  4. Review or update configuration values as required.
+
+![Platform Parameters](images/Webpage-Guide/adminplatform.png)
+
+**Roles Tab** 
+
+- **Description:** 
+Allows Super Admin to assign roles such as Curriculum Admin, Question Admin, or Release Coordinator, etc.
+
+- **Url:**
+http://localhost:8181/admin (Roles tab)
+
+- **Permissions Required:**
+[Super Admin](#log-in-as-a-super-administrator)
+
+**Steps to Access:**
+
+  1. Navigate to the Admin page.
+  2. Click the "ROLES" tab and enter the username of the user whose roles you want to edit.
+
+   ![Admin Role Tab](images/Webpage-Guide/adminroles.png)
+
+  3. Assign the desired role, "Question Admin" in this screenshot:
+
+   ![Assigning role](images/Webpage-Guide/assignroles.png)
+
 
 ### Classroom admin page
 
@@ -465,15 +476,20 @@ Logged-in users.
 
 ![Contributor dashboard](images/Webpage-Guide/mycontributions.png)
 
-#### Tabs on the Contributor dashboard page:
+### Important Contributor dashboard page tabs
 
-- **My Contributions** 
+We have the following tabs on the Contributor dashboard page:
+
+- My Contributions Tab
+- Translate Text Tab
+
+- **My Contributions Tab** 
 This is your personal dashboard where you can track your history and impact. It is divided into three sections (visible in the side-nav):
 
-1. **Contributions:** 
-Shows the status of everything you have submitted (e.g., translations or 
-questions). You can see if they are "Accepted," "Rejected," or "In Review."
-![translations](images/Webpage-Guide/translations.png)
+1. **Accomplishments:** 
+Displays your overall contribution Stats and any Badges you have earned for your work.
+![Badges](images/Webpage-Guide/Badges.png)
+
 2. **Available Tasks:** 
 If you have been granted "Reviewer" rights by an admin, this section shows you a list of other people's contributions that need your approval.                                   
 - Question Review Rights
@@ -482,10 +498,12 @@ This permission allows users to review question suggestions submitted by other c
 This permission allows users to review translation suggestions in specific languages.    
 ![translations](images/Webpage-Guide/reviewtranslations.png)
 
-3. **Accomplishments:** 
-Displays your overall contribution Stats and any Badges you have earned for your work.
-![Badges](images/Webpage-Guide/Badges.png)
-- **⁠⁠Translate Text**
+3. **Contributions:**
+Shows the status of everything you have submitted (e.g., translations or 
+questions). You can see if they are "Accepted," "Rejected," or "In Review."
+![translations](images/Webpage-Guide/translations.png)
+
+- **⁠⁠Translate Text Tab**
 This is where the actual work happens for translators.
 It shows a list of Opportunities (lessons that need to be translated into your chosen language).
 You can use the Language and Topic filters at the top to find specific lessons you want to work on.
@@ -527,7 +545,7 @@ Learners must be signed in.
 
 **Steps to Access:** 
   1. Log in to Oppia.
-  2. Navigate to /preferences.(Preferences page)
+  2. Navigate to /preferences (Preferences page).
   3. On that page there is Delete button.
    
 When the user clicks this button, they are taken to the Delete Account page, where they can confirm the deletion.
@@ -588,25 +606,17 @@ Release Coordinator role
   1. Log in as a Super Admin.
   2. Assign yourself the Release Coordinator role via Admin → Roles.
   3. Navigate to /release-coordinator.
-  4. Use tools such as Flush Cache under the MISC tab.
+  4. Use tools such as Flush Cache under the Misc tab.
 
-#### Tabs on the release coordinator page:
+### Important Release Coordinator page tabs
 
-1. **Features Tab**
-It is used to enable, disable, and control feature flags.
-It helps roll out new features gradually using:
-- rollout percentage
-- user groups
-- force-enable options
-It prevents breaking the site by testing features on limited users first
+We have the following tabs on the Release coordinator page:
 
-
-Example:
- Enable a new UI feature only for 10% of users before full release.
-
-![Features](images/Webpage-Guide/releasefeatures.png)
-
-2. **Beam Jobs tab**
+- Beam Jobs Tab
+- Features Tab
+- Misc Tab
+  
+1. **Beam Jobs Tab**
 It is used to start and monitor background jobs.
 These jobs run long tasks like:
 - Data migrations
@@ -622,7 +632,20 @@ Example:
 
 ![Beam jobs](images/Webpage-Guide/beamjobs.png)
 
-3. **Misc tab**
+2. **Features Tab**
+It is used to enable, disable, and control feature flags.
+It helps roll out new features gradually using:
+- rollout percentage
+- user groups
+- force-enable options
+It prevents breaking the site by testing features on limited users first
+
+Example:
+ Enable a new UI feature only for 10% of users before full release.
+
+![Features](images/Webpage-Guide/releasefeatures.png)
+
+3. **Misc Tab**
    
 It contains release utility tools
 It is used mainly for maintenance and debugging
@@ -668,7 +691,7 @@ http://localhost:8181/story_editor/<story_id>
 - **Permissions Required:**
 Curriculum Admin role
 
-**Steps to access:** 
+**Steps to Access:** 
   1. Navigate to /topics-and-skills-dashboard.
   2. Create a topic.
    ![createTopicModal](images/Webpage-Guide/createTopicModal.png)
@@ -1518,28 +1541,28 @@ The user must be the Facilitator of that specific group.
    
 ![Edit Learner Group](images/Webpage-Guide/editleanergroup.png) 
 
-#### Tabs on edit learner group:
+### Important Edit learner group page tabs
 
-1. Overview (currently active)
-Shows a high-level summary of the group with two sub-tabs:
-      - Skills Analysis — Shows common skills that learners in this group           are struggling with. Helps facilitators identify weak areas.
-      - Progress in Stories — Shows how learners are progressing through            the assigned stories/chapters.
-2. Learners' Progress
+We have the following tabs on the Edit learner group page:
+- Learners' Progress Tab
+- Overview Tab
+- Preferences Tab
+- Syllabus Tab
+
+1. Learners' Progress
 Tracks individual learner progress. You can see:
  - Which stories each learner has completed
  - Which skills they've mastered or are struggling with
  - Overall completion percentages
 
    ![Learners' Progress](images/Webpage-Guide/leanergroupprogress.png)
-   
- 3. Syllabus
-Manage the group's learning content:
- - Add/remove stories — Assign stories from topics for learners to work through
- - Add/remove skills — Assign specific skills for practice
 
-![Syllabus](images/Webpage-Guide/leaenergroupsyllabus.png)
-
-4. Preferences
+2. Overview (currently active)
+Shows a high-level summary of the group with two sub-tabs:
+      - Skills Analysis — Shows common skills that learners in this group are struggling with. Helps facilitators identify weak areas.
+      - Progress in Stories — Shows how learners are progressing through the assigned stories/chapters.
+        
+3. Preferences
 Group settings including:
  - Edit the group title and description
  - Invite learners by username
@@ -1547,6 +1570,13 @@ Group settings including:
  - Delete the group entirely
 
 ![Preferences](images/Webpage-Guide/learnergrouppreferences.png)
+
+ 4. Syllabus
+Manage the group's learning content:
+ - Add/remove stories — Assign stories from topics for learners to work through
+ - Add/remove skills — Assign specific skills for practice
+
+![Syllabus](images/Webpage-Guide/leaenergroupsyllabus.png)
 
 ### View Learner Group
 
@@ -1701,7 +1731,7 @@ Loads a complete dataset, including:
 **Prerequisite: Assign Required Roles**
 
 Most data population actions require specific roles.
- To assign roles, see [Assign roles](#important-admin-page-tabs).
+ To assign roles, see [Roles Tab](#important-admin-page-tabs).
 
 ### 2. Creating Explorations
 
@@ -1962,7 +1992,7 @@ The Available Tasks section remains hidden until reviewer permissions are grante
    
 **Note:** Despite the button saying "Create Exploration", it opens a modal where you can choose to create either an Exploration OR a Collection 
                      
-  #### Using activities tab
+  #### Using Activities tab
      This is NOT used to create new collections manually.
 1. Log in to Oppia
 2. Navigate to /admin
@@ -2031,7 +2061,7 @@ Server error: 'NoneType' object has no attribute 'version'
 1. Go to /admin → Roles
 2. Assign yourself the release-coordinator role
 3. Open /release-coordinator
-4. Under the MISC tab, click Flush Cache.
+4. Under the Misc tab, click Flush Cache.
    
  ![Flush Cache](images/Webpage-Guide/flushcache.png)
 
