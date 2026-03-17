@@ -1270,6 +1270,10 @@ We also recommend taking up at least one checkbox item from each of the followin
 
 ### 4.1 Support for Lesson Progress, Study Guides, and Worked Examples
 
+> [!IMPORTANT]
+> This is a popular project idea.
+> Multiple applicants are interested in this project.
+
 **Project Description:**
 This project is two smaller user-facing improvements combined into a single project.
 
@@ -1434,6 +1438,10 @@ All three features also touch on critical learning pathways but also aren't 100%
 
 ### 4.2 Streamlining Release Automation
 
+> [!IMPORTANT]
+> This is a popular project idea.
+> Multiple applicants are interested in this project.
+
 **Project Description:**
 The Oppia Android team currently needs to follow a manual, 17-page release process that is both incomplete and has out-of-date instructions, for each release of the app. This highly error-prone and complex manual process leads to multiple hours needing to be spent every time the team wants to ship a new release to end users. This project aims to significantly reduce the burden on the development team to conduct releases by:
 - Cleaning up and modernizing the release process to be a wiki page rather than a private Google document.
@@ -1480,6 +1488,14 @@ Here is an explanation for how the release process should work within this proje
       - Upload alpha to Play Console.
 - Additional detail:
   - If the changelog is ever updated then it should kick off a script to redeploy it to the Play Console for the corresponding release.
+
+**Changes on March 17**: Some additional details that could be helpful:
+- The GitHub CLI tool (`gh`) can actually generate the changelog that GitHub supports through its releases flow. See: https://cli.github.com/manual/gh_release_create. However, that tool is for creating the actual release on GitHub which we don't want to do, we just want the notes. Instead, it's possible to directly call the GitHub API for generating these. See:
+    ```sh
+    gh api --method POST -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/oppia/oppia-android/releases/generate-notes -f tag_name='v1.0.0' -q .body
+    ```
+    It may not be beneficial to use this vs. just generating the description entirely from logs (since more context will probably be useful to the LLM), however it's worth surfacing this in case it can help simplify anything. It is not a requirement to use this.
+- GitHub environments can require reviewers to approve the workflow before they run. We should absolutely be enabling this for release workflows. See this [corresponding GitHub documentation](https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments#creating-an-environment).
 
 **Tracking issue**: https://github.com/oppia/oppia-android/issues/6106
 
