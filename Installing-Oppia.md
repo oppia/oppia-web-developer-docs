@@ -17,13 +17,13 @@ following:
 
 If you need to learn or brush up on these, please do so before trying to start the installation so you don't get confused by our instructions.
 
-## Python setup
+## Python Setup
 
 To install Oppia, follow these instructions:
 
-* [[Linux|Installing-Oppia-(Linux;-Python-3)]]
-* [[Mac OS|Installing-Oppia-(Mac-OS;-Python-3)]]
-* [[Windows|Installing-Oppia-(Windows;-Python-3)]]
+* Linux: Installing Oppia (Python 3)
+* Mac OS: Installing Oppia (Python 3)
+* Windows: Installing Oppia (Python 3)
 
 If you run into any problems during installation, please read [[these notes|Issues-with-installation]] and the [[Troubleshooting page|Troubleshooting]].
 
