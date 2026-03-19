@@ -823,10 +823,6 @@ Milestone 2:
 
 ### 2.2. Extend translation infrastructure to exploration metadata and skills
 
-> [!IMPORTANT]
-> This is a popular project idea.
-> Multiple applicants are interested in this project.
-
 **Project Description:** Currently, we have two main mechanisms for translating content at Oppia: translatewiki and the contributor dashboard. Translatewiki handles content that is not user-generated, for example the text on the homepage at oppia.org. The goal of this project is to extend the contributor dashboard to handle other kinds of user-generated content in our curated curriculum, specifically the following:
 
 - exploration metadata (e.g. titles and tags)
@@ -1042,10 +1038,6 @@ Milestone 2:
 
 ### 3.2. Consolidate entity migration jobs
 
-> [!IMPORTANT]
-> This is a popular project idea.
-> Multiple applicants are interested in this project.
-
 **Project Description:**
 
 The Oppia codebase includes several different versioned entities which store learning material: explorations, skills, stories, subtopic pages, questions, topics, and collections. The infrastructure to maintain each of these versioned entities has been developed separately, and is a bit patchy (for example, migrations of old snapshots have not been implemented for some of the entities). This is making it difficult to remove some of the old version upgrade functions in the codebase which are no longer needed.
@@ -1158,10 +1150,6 @@ In addition to your implementation approach, please also:
 
 
 ### 3.3. Standardize and validate domain objects and storage models
-
-> [!IMPORTANT]
-> This is a popular project idea.
-> Multiple applicants are interested in this project.
 
 **Project Description:**
 
