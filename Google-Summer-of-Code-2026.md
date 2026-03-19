@@ -365,10 +365,6 @@ If you need clarification on any of these ideas, feel free to open a thread in G
 
 ### 1.1. Web user feedback
 
-> [!IMPORTANT]
-> This is a popular project idea.
-> Multiple applicants are interested in this project.
-
 **Project Description:** Learners (and other relevant users) should have an easy way to report issues with the platform so that we can quickly catch and resolve these issues in a scalable manner.
 
 Links to PRD and mocks:
