@@ -580,6 +580,10 @@ Milestone 2:
 
 ### 1.3. Re-design the topic page
 
+> [!IMPORTANT]
+> This is a popular project idea.
+> Multiple applicants are interested in this project.
+
 **Project Description:** Based on user feedback, on the current topic page, users often overlook the Practice and Revision tabs completely. Additionally, the functionality in those tabs is not correlated with the available lessons, making it unclear to learners when they should review or practice those skills.
 
 The aim of this project is to update the design of the topic page to present a more integrated view of the lessons, practice sessions, and links to revision cards (subtopic pages), so that learners can practice the skills they learned in the relevant lesson. Additionally, it is disappointing for learners to find that the languages that they would want to use for translations and voiceovers are missing only after they start the lesson, so the new design incorporates these selections within the topic page itself and follows the overall site language as a default.
@@ -1038,6 +1042,10 @@ Milestone 2:
 
 ### 3.2. Consolidate entity migration jobs
 
+> [!IMPORTANT]
+> This is a popular project idea.
+> Multiple applicants are interested in this project.
+
 **Project Description:**
 
 The Oppia codebase includes several different versioned entities which store learning material: explorations, skills, stories, subtopic pages, questions, topics, and collections. The infrastructure to maintain each of these versioned entities has been developed separately, and is a bit patchy (for example, migrations of old snapshots have not been implemented for some of the entities). This is making it difficult to remove some of the old version upgrade functions in the codebase which are no longer needed.
@@ -1150,6 +1158,10 @@ In addition to your implementation approach, please also:
 
 
 ### 3.3. Standardize and validate domain objects and storage models
+
+> [!IMPORTANT]
+> This is a popular project idea.
+> Multiple applicants are interested in this project.
 
 **Project Description:**
 
