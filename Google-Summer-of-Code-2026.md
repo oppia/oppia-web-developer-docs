@@ -365,10 +365,6 @@ If you need clarification on any of these ideas, feel free to open a thread in G
 
 ### 1.1. Web user feedback
 
-> [!IMPORTANT]
-> This is a popular project idea.
-> Multiple applicants are interested in this project.
-
 **Project Description:** Learners (and other relevant users) should have an easy way to report issues with the platform so that we can quickly catch and resolve these issues in a scalable manner.
 
 Links to PRD and mocks:
@@ -579,6 +575,10 @@ Milestone 2:
 </details>
 
 ### 1.3. Re-design the topic page
+
+> [!IMPORTANT]
+> This is a popular project idea.
+> Multiple applicants are interested in this project.
 
 **Project Description:** Based on user feedback, on the current topic page, users often overlook the Practice and Revision tabs completely. Additionally, the functionality in those tabs is not correlated with the available lessons, making it unclear to learners when they should review or practice those skills.
 
@@ -818,10 +818,6 @@ Milestone 2:
 </details>
 
 ### 2.2. Extend translation infrastructure to exploration metadata and skills
-
-> [!IMPORTANT]
-> This is a popular project idea.
-> Multiple applicants are interested in this project.
 
 **Project Description:** Currently, we have two main mechanisms for translating content at Oppia: translatewiki and the contributor dashboard. Translatewiki handles content that is not user-generated, for example the text on the homepage at oppia.org. The goal of this project is to extend the contributor dashboard to handle other kinds of user-generated content in our curated curriculum, specifically the following:
 
