@@ -16,6 +16,7 @@
   * [Blog Author Profile Page](#blog-author-profile-page)
   * [Blog Dashboard Page](#blog-dashboard-page)
   * [Blog Homepage Page](#blog-homepage-page)
+  * [Blog Post Page](#blog-post-page)
   * [Classroom Admin Page](#classroom-admin-page)
   * [Classroom Page](#classroom-page)
   * [Classrooms Page](#classrooms-page)
@@ -38,25 +39,22 @@
   * [Email Dashboard Page](#email-dashboard-page)
   * [Embedded Exploration Player Page](#embedded-exploration-player-page)
   * [Exploration Editor Page](#exploration-editor-page)
+  * [Exploration Player Page](#exploration-player-page)
   * [Facilitator Dashboard Page](#facilitator-dashboard-page)
   * [Feedback Updates Page](#feedback-updates-page)
   * [Get Started Page](#get-started-page)
-  * [Individual Blog Post Page](#individual-blog-post-page)
   * [Iframe Error Page](#iframe-error-page)
   * [Learner Dashboard Page](#learner-dashboard-page)
-  * [Library Search Page](#library-search-page)
   * [License Page](#license-page)
   * [Maintenance Page](#maintenance-page)
   * [Moderator Page](#moderator-page)
   * [New Lesson Player Page](#new-lesson-player-page)
-  * [Old Exploration Player Page](#old-exploration-player-page)
   * [Partnerships Page](#partnerships-page)
   * [Pending Account Deletion Page](#pending-account-deletion-page)
   * [Practice Session Page](#practice-session-page)
   * [Preferences Page](#preferences-page)
   * [Privacy Policy Page](#privacy-policy-page)
   * [Profile Page](#profile-page)
-  * [Recently Published Page](#recently-published-page)
   * [Release Coordinator Page](#release-coordinator-page)
     + [Important Release Coordinator Page Tabs](#important-release-coordinator-page-tabs)
   * [Review Test Page](#review-test-page)
@@ -80,23 +78,26 @@
     + [Reload a Single Exploration](#reload-a-single-exploration)
     + [Reload a Single Collection](#reload-a-single-collection)
     + [Load Dummy New Structures Data](#load-dummy-new-structures-data)
+    + [Generate Stories](#generate-stories)
+    + [Generate Chapters](#generate-chapters)
   * [2. Creating Explorations](#2-creating-explorations)
   * [3. Creating a Skill](#3-creating-a-skill)
   * [4. Creating a Topic](#4-creating-a-topic)
   * [5. Generate Dummy Blog Data](#5-generate-dummy-blog-data)
   * [6. Generating Data For Contributor Dashboard](#6-generating-data-for-contributor-dashboard)
   * [7. Creating Collections](#7-creating-collections)
-    + [Using the Collection Editor](#using-the-collection-editor-)
+    + [Using the Collection Editor](#using-the-collection-editor)
     + [Using Activities Tab](#using-activities-tab)
   * [8. Creating a Classroom](#8-creating-a-classroom)
     + [Creating a Custom Classroom](#creating-a-custom-classroom)
     + [Creating a Dummy Math Classroom](#creating-a-dummy-math-classroom)
   * [9. Community Library](#9-community-library)
-    + [Generate Explorations](#generate-explorations-)
-    + [Generate Collections](#generate-collections-)
+    + [Generate Explorations](#generate-explorations)
+    + [Generate Collections](#generate-collections)
   * [10. Collection Player](#10-collection-player)
   * [11. Story Player](#11-story-player)
-  * [12. Fixing This common error](#12-fixing-this-common-error)
+  * [12. Review Test Page](#12-review-test-page)
+  * [13. Fixing This common error](#13-fixing-this-common-error)
 - [Oppia Routing Guide for Contributors](#oppia-routing-guide-for-contributors)
   * [1. What Is Routing in Oppia?](#1-what-is-routing-in-oppia-)
   * [2. Route Protection (Guards)](#2-route-protection--guards-)
@@ -125,6 +126,9 @@
   * [20. Quick reference for contributors](#20-quick-reference-for-contributors)
   * [21. Contributor Checklist](#21-contributor-checklist)
   * [22. Summary](#22-summary)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 
   
 ## Overview of entities
@@ -454,6 +458,25 @@ None (Public)
 ![Blog Homepage](images/Webpage-Guide/bloghomepage.png)
 
 - To populate the Blog Homepage: See [Generate Dummy Blog Data](#5-generate-dummy-blog-data)
+
+### Blog Post Page
+
+- **Description:**
+Displays a single blog post with its full content, images, and comments.
+
+- **Url:**
+ /blog/<blog_post_slug>
+
+- **Permissions Required:**
+None (Public)
+
+**Steps to Access:**
+  1. Navigate to /blog
+  2. Click on a blog post title
+  3. OR directly visit http://localhost:8181/blog/<blog_post_slug>
+
+![Individual Blog Post](images/Webpage-Guide/blogpostslug.png)
+
 ### Classroom Admin Page
 
 - **Description:**
@@ -918,6 +941,26 @@ Logged-in users (exploration owner or collaborators)
 
 ![Exploration Editor](images/Webpage-Guide/explorationeditor.png)
 
+### Exploration Player Page
+
+- **Description:**
+The legacy exploration player interface for playing individual explorations (lessons).
+
+- **Url:**
+/explore/<exploration_id>
+
+- **Permissions Required:**
+None (Public)
+
+**Steps to Access:**
+  1. Find an exploration in the Community Library
+  2. Click "Play" on the exploration
+  3. OR directly visit http://localhost:8181/explore/<exploration_id>
+
+![Old Exploration Player](images/Webpage-Guide/oldexploration.png)
+
+- To populate the Exploration Player Page: See [Creating Explorations](#2-creating-explorations) or reload demo explorations via [Admin Activities Tab](#1-admin-activities-tab-dummytest-data).
+
 ### Facilitator Dashboard Page
 
 - **Description:**
@@ -971,23 +1014,6 @@ None
 
 ![Get Started page](images/Webpage-Guide/getstarted.png)
 
-### Blog Post Page
-
-- **Description:**
-Displays a single blog post with its full content, images, and comments.
-
-- **Url:**
- /blog/<blog_post_slug>
-
-- **Permissions Required:**
-None (Public)
-
-**Steps to Access:**
-  1. Navigate to /blog
-  2. Click on a blog post title
-  3. OR directly visit http://localhost:8181/blog/<blog_post_slug>
-
-![Individual Blog Post](images/Webpage-Guide/blogpostslug.png)
 
 ### Iframe Error Page
 
@@ -1102,26 +1128,6 @@ and [Creating an Exploration](#1-creating-an-exploration).
 **NOTE:** This feature is currently in the development stage and has not been 
 released to production yet. It is only available on local development servers.
 
-### Exploration Player Page
-
-- **Description:**
-The legacy exploration player interface for playing individual explorations (lessons).
-
-- **Url:**
-/explore/<exploration_id>
-
-- **Permissions Required:**
-None (Public)
-
-**Steps to Access:**
-  1. Find an exploration in the Community Library
-  2. Click "Play" on the exploration
-  3. OR directly visit http://localhost:8181/explore/<exploration_id>
-
-![Old Exploration Player](images/Webpage-Guide/oldexploration.png)
-
-- To populate the Exploration Player Page: See [Creating Explorations](#2-creating-explorations) or reload demo explorations via [Admin Activities Tab](#1-admin-activities-tab-dummytest-data).
-  
 ### Partnerships Page
 
 - **Description:** 
