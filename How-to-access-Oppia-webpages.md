@@ -70,12 +70,10 @@
   * [Thank You Page](#thank-you-page)
   * [Topic Editor Page](#topic-editor-page)
   * [Topic Viewer Page](#topic-viewer-page)
-  * [Top Rated Page](#top-rated-page)
   * [Topics & Skills Dashboard Page](#topics---skills-dashboard-page)
   * [View Learner Group Page](#view-learner-group-page)
   * [Voiceover Admin Page](#voiceover-admin-page)
   * [Volunteer Page](#volunteer-page)
-  * [404 Not Found Page](#404-not-found-page)
 - [Populating Data on Local Server](#populating-data-on-local-server)
   * [1. Admin Activities Tab (Dummy/Test Data)](#1-admin-activities-tab--dummy-test-data-)
     + [Generate Dummy Explorations](#generate-dummy-explorations)
@@ -495,7 +493,7 @@ Example:
 
 ![Classroom Page](images/Webpage-Guide/learn:math.png)
 
-- To populate the Classroom Page:See [Creating a Classroom](#8-creating-a-classroom)
+- To populate the Classroom Page: See [Creating a Classroom](#8-creating-a-classroom)
 
 ### Classrooms Page
 
@@ -571,7 +569,7 @@ Public (no login required)
    
 ![Community library](images/Webpage-Guide/communitylibrary.png)
 
-- To populate the Community Library Page:See [Community Library](#9-community-library)
+- To populate the Community Library Page: See [Community Library](#9-community-library)
 
 ### Contact Page
 
@@ -932,17 +930,18 @@ A dashboard for classroom facilitators to manage learner groups, track student p
 Logged-in users with Full User Role.
 
 **Steps to Access:**
-  1. Log in as a Super Admin, navigate to /release-coordinator -> Features tab, and enable the Learner Groups flag (internally learner_groups_are_enabled).
+  1. Log in as a Super Admin, navigate to [Release Coordinator](#release-coordinator-page) -> Features tab, and enable the Learner Groups flag (internally learner_groups_are_enabled).
   2. Ensure your user account has the Full User role (assigned via the Admin -> Roles tab).
   3. Navigate to http://localhost:8181/facilitator-dashboard
-(Requires facilitator role to access full features)
 
 ![Facilitator Dashboard](images/Webpage-Guide/Facilatordashboard.png)
 
 ### Feedback Updates Page
 
 - **Description:**
-Shows a history of feedback the user has received on their explorations, questions, or translations.
+Displays all feedback threads from explorations that the user has participated in 
+or subscribed to. Users can view conversation threads, read messages, and reply 
+to feedback on explorations.
 
 - **Url:**
 /feedback-updates
@@ -952,9 +951,7 @@ Logged-in users
 
 **Steps to Access:**
   1. Log in to Oppia
-  2. Click the notification bell icon
-  3. Click "View All Feedback"
-  4. OR directly visit http://localhost:8181/feedback-updates
+  2. directly visit http://localhost:8181/feedback-updates
 
 ![Feedback Updates](images/Webpage-Guide/feedback.png)
 
@@ -974,13 +971,13 @@ None
 
 ![Get Started page](images/Webpage-Guide/getstarted.png)
 
-### Individual Blog Post Page
+### Blog Post Page
 
 - **Description:**
 Displays a single blog post with its full content, images, and comments.
 
 - **Url:**
-/blog/<blog_post_slug>
+ /blog/<blog_post_slug>
 
 - **Permissions Required:**
 None (Public)
@@ -988,9 +985,9 @@ None (Public)
 **Steps to Access:**
   1. Navigate to /blog
   2. Click on a blog post title
-  3. OR directly visit http://localhost:8181/blog/<slug>
+  3. OR directly visit http://localhost:8181/blog/<blog_post_slug>
 
-![Individual Blog Post](images/Webpage-Guide/individualblog.png)
+![Individual Blog Post](images/Webpage-Guide/blogpostslug.png)
 
 ### Iframe Error Page
 
@@ -1026,24 +1023,6 @@ Logged-in users
 OR directly visit http://localhost:8181/learner-dashboard
 
 ![Learner Dashboard](images/Webpage-Guide/leanerdashboard.png)
-
-### Library Search Page
-
-- **Description:**
-Search interface for finding specific explorations in the Oppia library by keywords, categories, or language.
-
-- **Url:**
-/search/find
-
-- **Permissions Required:**
-None (Public)
-
-**Steps to Access:**
-  1. Navigate to Community Library (/community-library)
-  2. Use the search bar at the top
-  3. OR directly visit http://localhost:8181/search/find?q=<search_term>
-
-![Library Search](images/Webpage-Guide/explorationsearch.png)
 
 ### License Page
 
@@ -1108,12 +1087,22 @@ The modern lesson player interface with improved UX for playing explorations.
 Public (with authorization check)
 
 **Steps to Access:**
-  1. Navigate through a classroom → topic → story → chapter
-  2. Click on a chapter to launch the lesson player
+  1. Go to [Release Coordinator](#release-coordinator) → Features tab
+  2. Find new_lesson_player and set "Force-enable for all users" to Yes → Click **Save**
+     ![Force-enable](images/Webpage-Guide/newlessonplayerenable.png)
+  3. Navigate through a classroom → topic → story → chapter
+  4. Click on a chapter — it will now open in the New Lesson Player
 
 ![New Lesson Player](images/Webpage-Guide/newlessonplayer.png)
 
-### Old Exploration Player Page
+- To populate the New Lesson Player Page: Use [Load Dummy New Structures Data](#load-dummy-new-structures-data) or manually create a classroom with a topic, story, and chapters — see [Creating a Topic](#4-creating-a-topic), 
+[Creating a Story](#5-creating-a-story), [Creating a Classroom](#8-creating-a-classroom), 
+and [Creating an Exploration](#1-creating-an-exploration).
+
+**NOTE:** This feature is currently in the development stage and has not been 
+released to production yet. It is only available on local development servers.
+
+### Exploration Player Page
 
 - **Description:**
 The legacy exploration player interface for playing individual explorations (lessons).
@@ -1131,6 +1120,8 @@ None (Public)
 
 ![Old Exploration Player](images/Webpage-Guide/oldexploration.png)
 
+- To populate the Exploration Player Page: See [Creating Explorations](#2-creating-explorations) or reload demo explorations via [Admin Activities Tab](#1-admin-activities-tab-dummytest-data).
+  
 ### Partnerships Page
 
 - **Description:** 
@@ -1170,7 +1161,7 @@ None (Public - shown after deletion request)
 An interactive practice session where learners answer practice questions to reinforce their understanding of a topic's skills.
 
 - **Url:**
-/learn/<classroom_url>/<topic_url>/practice
+/learn/<classroom_url>/<topic_url>/practice/session?selected_subtopic_ids=[<id>]
 
 - **Permissions Required:**
 None (Public)
@@ -1178,13 +1169,16 @@ None (Public)
 **Steps to Access:**
   1. Navigate to /learn/<classroom_url>/<topic_url>/story (Topic Viewer page)
   2. Go to Practice Tab
-  3. Click "Start"
-  4. Answer questions related to the topic
+  3. Select skills you want to practice.
+  4. Click "Start"
+  5. Answer questions related to the topic
 
 Example:
- http://localhost:8181/learn/math/fractions/practice
+http://localhost:8181/learn/math/add/practice/session?selected_subtopic_ids=%5B1%5D
 
 ![Practice Session](images/Webpage-Guide/practicesession.png)
+
+- To populate the Practice Session Page: Create a topic with skills that have at least 10 questions each. Then enable "Show Practice Tab to learners" in the [Topic Editor](#topic-editor-page). See [Creating a Skill](#3-creating-a-skill) and [Creating a Topic](#4-creating-a-topic).
 
 ### Preferences Page
 
@@ -1233,23 +1227,6 @@ No special permissions. Public profiles are viewable by anyone.
   2. Click your username in the top-right menu
 
 ![Profile page](images/Webpage-Guide/profilepage.png)
-
-### Recently Published Page
-
-- **Description:**
-Shows a list of explorations that have been recently published to the community library.
-
-- **Url:**
-/community-library/recently-published
-
-- **Permissions Required:**
-None (Public)
-
-**Steps to Access:**
-  1. Navigate to /community-library
-  2. Click "Recently Published" tab or filter
-  3. OR directly visit http://localhost:8181/community-library/recently-published
-   ![Recently Published](images/Webpage-Guide/recentlypublished.png)
 
 ### Release Coordinator Page
 
@@ -1370,11 +1347,12 @@ Curriculum Admin role.
 
 **Steps to Access:**
   1. Open the Topics & Skills Dashboard.
-  2. Go to the ADD SKILL .
-   ![ADD SKILL](images/Webpage-Guide/skilleditor1.png)
-  3. New Skill modal will pop up.
-  4. Once you click on Save button of the modal,a new tab will be opened.
-  5. That will be Skill Editor page.
+  2. Click the Topic in which you want to add skills.
+  3. Go to the ADD SKILL .
+   ![ADD SKILL](images/Webpage-Guide/newskilllink.png)
+  4. New Skill modal will pop up.
+  5. Once you click on Save button of the modal,a new tab will be opened.
+  6. That will be Skill Editor page.
    
 ![Skill editor](images/Webpage-Guide/skilleditor2.png)
 
@@ -1391,14 +1369,12 @@ Curriculum Admin role
 
 **Steps to Access:** 
   1. Navigate to /topics-and-skills-dashboard.
-  2. Create a topic.
-   ![createTopicModal](images/Webpage-Guide/createTopicModal.png)
-
-  3. Go to the topic editor and click on the add story button.
-   ![canonicalstories](images/Webpage-Guide/canonicalstories.png)
+  2. [Create a topic](#4-creating-a-topic).
+  3. Go to the [topic editor](#topic-editor-page) and click on the add story button.
+   ![canonicalstories](images/Webpage-Guide/topiceditor.png)
   4. Complete the “New story” modal and wait for the story editor page to load.
 
-![New story](images/Webpage-Guide/storyeditor3.png)
+![New story](images/Webpage-Guide/storyeditor.png)
 
 ### Story Player Page
 
@@ -1418,6 +1394,9 @@ Public (no login required)
   4. Click "Continue" on a Story.
   5. The Story Player page opens.
 ![Story player page](images/Webpage-Guide/storyplayer.png)
+
+- To populate the Story Player Page it needs a published topic in a classroom, with a story that has chapters linked to published explorations: See [Story Player](#11-story-player)
+ 
 
 ### Study Guide Page
 
@@ -1440,6 +1419,9 @@ Example:
 
  ![Study Guide](images/Webpage-Guide/studyguide.png)
 
+- To populate the Study Guide Page it needs a published topic in a classroom, with a subtopic that has content, a thumbnail, and skills assigned.
+  : See [Creating a Topic](#4-creating-a-topic) OR [Load Dummy New Structures Data](#load-dummy-new-structures-data)
+  
 ### Teach Page
 
 - **Description:** 
@@ -1528,21 +1510,7 @@ http://localhost:8181/learn/math/fractions/story
 
 ![Topic Viewer](images/Webpage-Guide/topicviewer.png)
 
-### Top Rated Page
-
-- **Description:**
-Displays the highest-rated explorations based on learner feedback and ratings.
-
-- **Url:**
-/community-library/top-rated
-
-- **Permissions Required:**
-None (Public)
-
-**Steps to Access:**
-  1. Navigate to /community-library
-  2. Click "Top Rated" tab or filter
-  3. OR directly visit http://localhost:8181/community-library/top-rated
+- To populate the Topic Viewer Page it needs a topic with stories, subtopics, and skills, published and added to a classroom: See [Creating a Classroom](#8-creating-a-classroom) and [Creating a Topic](#4-creating-a-topic) OR [Load Dummy New Structures Data](#load-dummy-new-structures-data)
 
 ### Topics & Skills Dashboard Page
 
@@ -1616,23 +1584,7 @@ None
   2. Then click on the Volunteer.
 
 ![Volunteer page](images/Webpage-Guide/volunteer.png)
-
-### 404 Not Found Page
-
-- **Description:**
-The default 404 page shown when a user navigates to a non-existent URL.
-
-- **Url:**
-** (Wildcard route – catches all undefined paths)
-
-- **Permissions Required:**
-None (Public)
-
-**Steps to Access:**
-  1. Visit any non-existent URL
-  2. Example: http://localhost:8181/this-page-does-not-exist
      
-
 ## Populating Data on Local Server
 
 This section explains all the ways data can be created, loaded, or generated on the Oppia local development server.
@@ -1680,6 +1632,16 @@ Loads a complete dataset, including:
 
 Most data population actions require specific roles.
  To assign roles, see [Roles Tab](#important-admin-page-tabs).
+
+#### Generate Stories
+- Creates dummy stories for a selected topic
+- Requires Curriculum Admin role
+- Select a topic from the dropdown, enter the number of stories, and click **Generate Stories**
+  
+#### Generate Chapters
+- Creates dummy chapters for a selected story
+- Requires Curriculum Admin role
+- Select a story from the dropdown, enter the number of chapters, and click **Generate Chapters**
 
 ### 2. Creating Explorations
 
@@ -1831,6 +1793,16 @@ Sections in the Topic Editor:
 - **Details** – Basic information about the topic
 - **Subtopics** – Lists subtopics and the skills linked to them
 ![Subtopics](images/Webpage-Guide/subtopics.png)
+
+**Adding Content to a Subtopic (for Study Guide):**
+1. In the Topic Editor, click on a subtopic name to open the Subtopic Editor.
+2. Fill in the required fields:
+   - **Title** — Name of the subtopic
+   - **URL Fragment** — Used in the Study Guide URL
+   - **Explanation** — Rich-text content shown on the Study Guide page (click the pen icon to edit)
+   - **Thumbnail Image** — Upload a thumbnail
+3. Under the **Skills** section, skills from the topic are listed. You can remove skills from the subtopic using the options menu.
+4. Skills are assigned to subtopics by dragging them from the "Uncategorized Skills" section in the main Topic Editor.
 
 - **Diagnostic Tests-**
 Add skills that will be used to test learners before recommending this topic.
@@ -2021,10 +1993,14 @@ Populated when:
 - Created via Collection Editor or Activities (dummy)
 
 ### 11. Story Player
-Populated when:
-- Topic is published
-- Story and chapters are added
-- Explorations are linked
+- To populate the Story Player Page:
+  - **Quick method:** Use [Load Dummy New Structures Data](#load-dummy-new-structures-data)
+    (creates a complete topic with a story and 3 chapters in one click).
+  - **Using Activities Tab generators:**
+    1. Generate or create a topic (Curriculum Admin required)
+    2. Use **Generate Stories** to create stories for that topic
+    3. Use **Generate Chapters** to create chapters for those stories
+  - **Manual method:** See [Creating a Topic](#4-creating-a-topic) and [Creating Explorations](#2-creating-explorations).
 
 ### 12. Fixing This common error
 **Error:**
@@ -2143,8 +2119,8 @@ All editor routes require IsLoggedInGuard:
 
 | Route | Editor Type |
 |------|-------------|
-| /exploration_editor/create/<id> | Exploration editor |
-| /collection_editor/create/<id> | Collection editor |
+| /create/<exploration_id> | Exploration editor |
+| /collection_editor/create/<collection_id> | Collection editor |
 | /story_editor/<id> | Story editor |
 | /topic_editor/<id> | Topic editor |
 | /skill_editor/<id> | Skill editor |
@@ -2167,7 +2143,7 @@ Example:
         
 | Route | Purpose | Guard |
 |------|---------|-------|
-| `/classrooms` | All classrooms | Public |
+| `/learn` | All classrooms | Public |
 | `/learn/<classroom_url>` | Classroom landing page | Public (NormalizeUrlCaseGuard) |
 | `/classroom-admin` | Classroom management | IsLoggedInGuard |
 
