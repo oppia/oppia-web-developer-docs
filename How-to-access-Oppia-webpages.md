@@ -1317,6 +1317,16 @@ None (Public)
 Example:
 http://localhost:8181/learn/math/fractions/review-test/introduction-to-fractions
 
+![Review Test Page](images/Webpage-Guide/reviewtestpage.png)
+
+How to Enable Review Test Page
+1. Navigate to http://localhost:8181/release-coordinator -> Features Tab
+ ![Enable Review Test Page](images/Webpage-Guide/reviewenable.png)
+2. Find EnableReadyForReviewTest and enable it.
+3. Click Save
+
+-To populate Review Test Page: See [Review Test Page](#12-review-test-page)
+
 ### Signup Page
 
 - **Description:**
@@ -2002,7 +2012,123 @@ Populated when:
     3. Use **Generate Chapters** to create chapters for those stories
   - **Manual method:** See [Creating a Topic](#4-creating-a-topic) and [Creating Explorations](#2-creating-explorations).
 
-### 12. Fixing This common error
+
+### 12. Review Test Page
+
+- To populate the Review Test Page:
+You need a working Classroom, Topic, Story, Skills, and Questions.
+
+1. Navigate to the Admin page: http://localhost:8181/admin
+2. Go to the [Activities tab](#activities-tab)
+3. Click exactly once on Generate dummy new structures data.
+   
+**Note**: Clicking this multiple times will generate duplicate stories with the same URL fragment, which breaks the URL routing and causes 404s.
+
+This button generates:
+- A topic: "Dummy Topic 1" (dummy-topic-one)
+- A story: "Help Jaime win the Arcade" (help-jamie-win-arcade)
+- 3 dummy skills and dummy questions.
+  
+4. Run the Setup Script
+- The default dummy data generation is incomplete:
+- It does not link the generated Topic to a Classroom.
+- It does not assign the generated Skills to the Story's nodes (so the Review Test has 0 questions).
+- Playing through the dummy explorations manually can be broken due to missing multiple-choice options.
+
+To fix all of this instantly, run the following Python script from your oppia/ root directory. It links the topic, assigns the skills, marks the exploration as completed for your user, and flushes the cache so the changes take effect immediately.
+
+Save this as setup_review_test.py
+
+```
+python
+import os, sys, json
+os.environ['DATASTORE_EMULATOR_HOST'] = '127.0.0.1:8089'
+os.environ['DATASTORE_DATASET'] = 'dev-project-id'
+sys.path.insert(0, os.getcwd())
+sys.path.insert(0, os.path.join(os.getcwd(), 'scripts'))
+import common
+for directory in common.DIRS_TO_ADD_TO_SYS_PATH:
+    sys.path.insert(1, directory)
+from core.platform import models
+datastore_services = models.Registry.import_datastore_services()
+StoryModel = models.Registry.import_models([models.Names.STORY])[0].StoryModel
+(user_models,) = models.Registry.import_models([models.Names.USER])
+from core.domain import classroom_config_services
+from core.domain import story_fetchers
+from core.domain import story_services
+from core.domain import topic_fetchers
+from core.domain import topic_services
+from core.domain import skill_fetchers
+def main():
+    with datastore_services.get_ndb_context():
+        # 1. Identify User
+        users = user_models.UserSettingsModel.query().fetch()
+        if not users:
+            print("No users found. Please log in to the dev server first.")
+            return
+            
+        # Prioritize finding the 'riyagarg' or 'testadmin' user
+        admin_id = users[0].id
+        for u in users:
+            if u.username and ('riyagarg' in u.username.lower() or 'admin' in u.username.lower()):
+                admin_id = u.id
+                break
+        # 2. Add Dummy Topic to Math Classroom
+        classroom = classroom_config_services.get_classroom_by_url_fragment('math')
+        topic_id = 'sVooUYRjW6sT' # ID assigned to Dummy Topic 1
+        if classroom and topic_id not in classroom.topic_id_to_prerequisite_topic_ids:
+            classroom.topic_id_to_prerequisite_topic_ids[topic_id] = []
+            classroom_config_services.update_classroom(classroom)
+            print("Linked Dummy Topic 1 to 'math' classroom.")
+        # 3. Find the valid published story
+        all_stories = story_fetchers.get_stories_by_ids([s.id for s in StoryModel.query().fetch()])
+        valid_story = None
+        for story in all_stories:
+            if story and story.url_fragment == 'help-jamie-win-arcade':
+                valid_story = story
+                break
+                
+        if not valid_story:
+            print("Story not found! Please run 'Generate dummy new structures data' from /admin.")
+            return
+        # 4. Publish Topic and Story
+        try:
+            topic_services.publish_topic(topic_id, admin_id)
+        except Exception: pass # Usually already published
+        
+        try:
+            story_services.publish_story(topic_id, valid_story.id, admin_id)
+        except Exception: pass
+        # 5. Assign Skills to Story Node (Bypassing validation)
+        skills = skill_fetchers.get_multi_skills([s.id for s in models.Registry.import_models([models.Names.SKILL])[0].SkillModel.query().fetch(limit=3)])
+        skill_ids = [s.id for s in skills if s]
+        
+        node_id = valid_story.story_contents.nodes[0].id
+        
+        # Directly update the NDB Model to bypass strict validation checks on broken explorations
+        story_model = StoryModel.get_by_id(valid_story.id)
+        story_dict = json.loads(story_model.story_contents)
+        story_dict['nodes'][0]['acquired_skill_ids'] = skill_ids
+        story_model.story_contents = json.dumps(story_dict)
+        story_model.put()
+        print(f"Assigned skills {skill_ids} to story node.")
+        # 6. Mark Node as Completed for the User
+        story_services.record_completed_node_in_story_context(admin_id, valid_story.id, node_id)
+        print("Marked node as completed for your user.")
+    # 7. Flush the Redis cache so Oppia loads the modified Datastore model!
+    os.system('redis-cli flushall')
+    print("Flushed Redis cache.")
+if __name__ == '__main__':
+    main()
+
+```   
+**Run the script:** python setup_review_test.py
+
+Step 4: Access the Page
+Once the script successfully completes, you can navigate straight to the Review Test Page.
+
+
+### 13. Fixing This common error
 **Error:**
 Server error: 'NoneType' object has no attribute 'version'
 
