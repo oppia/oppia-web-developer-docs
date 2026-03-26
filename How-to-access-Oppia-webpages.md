@@ -1,136 +1,96 @@
 ## Table of Contents
-- [Overview of entities](#overview-of-entities)
-  * [Key Terms](#key-terms)
-  * [Other Terms](#other-terms)
+
+- [Overview of Entities](#overview-of-entities)
+- [Key Terms](#key-terms)
+- [Other Terms](#other-terms)
 - [User Account Pages](#user-account-pages)
-  * [Log In or Create Account](#log-in-or-create-account)
-  * [Log in as a Super-Administrator](#log-in-as-a-super-administrator)
-    + [Method A — Implicit Super Admin Email (Fast):](#method-a---implicit-super-admin-email--fast--)
-    + [Method B — Grant Super Admin via Firebase emulator (Explicit):](#method-b---grant-super-admin-via-firebase-emulator--explicit--)
+  - [Log In or Create Account](#log-in-or-create-account)
+  - [Log in as a Super-Administrator](#log-in-as-a-super-administrator)
 - [Oppia Webpages](#oppia-webpages)
-  * [About Page](#about-page)
-  * [Admin Page](#admin-page)
-    + [Important Admin Page Tabs](#important-admin-page-tabs)
-  * [Android Page](#android-page)
-  * [Blog Admin Page](#blog-admin-page)
-  * [Blog Author Profile Page](#blog-author-profile-page)
-  * [Blog Dashboard Page](#blog-dashboard-page)
-  * [Blog Homepage Page](#blog-homepage-page)
-  * [Blog Post Page](#blog-post-page)
-  * [Classroom Admin Page](#classroom-admin-page)
-  * [Classroom Page](#classroom-page)
-  * [Classrooms Page](#classrooms-page)
-  * [Collection Editor Page](#collection-editor-page)
-  * [Collection Player Page](#collection-player-page)
-  * [Community Library Page](#community-library-page)
-  * [Contact Page](#contact-page)
-  * [Contributor Admin Dashboard Page](#contributor-admin-dashboard-page)
-  * [Contributor Dashboard Page](#contributor-dashboard-page)
-    + [Important Contributor Dashboard Page Tabs](#important-contributor-dashboard-page-tabs)
-  * [Create Learner Group Page](#create-learner-group-page)
-  * [Creator Dashboard Page](#creator-dashboard-page)
-  * [Creator Guidelines Page](#creator-guidelines-page)
-  * [Custom Error Pages](#custom-error-pages)
-  * [Delete Account Page](#delete-account-page)
-  * [Diagnostic Test Player Page](#diagnostic-test-player-page)
-  * [Donate Page](#donate-page)
-  * [Edit Learner Group Page](#edit-learner-group-page)
-    + [Important Edit Learner Group Page Tabs](#important-edit-learner-group-page-tabs)
-  * [Email Dashboard Page](#email-dashboard-page)
-  * [Embedded Exploration Player Page](#embedded-exploration-player-page)
-  * [Exploration Editor Page](#exploration-editor-page)
-  * [Exploration Player Page](#exploration-player-page)
-  * [Facilitator Dashboard Page](#facilitator-dashboard-page)
-  * [Feedback Updates Page](#feedback-updates-page)
-  * [Get Started Page](#get-started-page)
-  * [Iframe Error Page](#iframe-error-page)
-  * [Learner Dashboard Page](#learner-dashboard-page)
-  * [License Page](#license-page)
-  * [Maintenance Page](#maintenance-page)
-  * [Moderator Page](#moderator-page)
-  * [New Lesson Player Page](#new-lesson-player-page)
-  * [Partnerships Page](#partnerships-page)
-  * [Pending Account Deletion Page](#pending-account-deletion-page)
-  * [Practice Session Page](#practice-session-page)
-  * [Preferences Page](#preferences-page)
-  * [Privacy Policy Page](#privacy-policy-page)
-  * [Profile Page](#profile-page)
-  * [Release Coordinator Page](#release-coordinator-page)
-    + [Important Release Coordinator Page Tabs](#important-release-coordinator-page-tabs)
-  * [Review Test Page](#review-test-page)
-  * [Signup Page](#signup-page)
-  * [Skill Editor Page](#skill-editor-page)
-  * [Story Editor Page](#story-editor-page)
-  * [Story Player Page](#story-player-page)
-  * [Study Guide Page](#study-guide-page)
-  * [Teach Page](#teach-page)
-  * [Terms of Use Page](#terms-of-use-page)
-  * [Thank You Page](#thank-you-page)
-  * [Topic Editor Page](#topic-editor-page)
-  * [Topic Viewer Page](#topic-viewer-page)
-  * [Topics & Skills Dashboard Page](#topics---skills-dashboard-page)
-  * [View Learner Group Page](#view-learner-group-page)
-  * [Voiceover Admin Page](#voiceover-admin-page)
-  * [Volunteer Page](#volunteer-page)
+  - [About Page](#about-page)
+  - [Admin Page](#admin-page)
+      + [Important Admin Page Tabs](#important-admin-page-tabs)
+  - [Android Page](#android-page)
+  - [Blog Admin Page](#blog-admin-page)
+  - [Blog Author Profile Page](#blog-author-profile-page)
+  - [Blog Dashboard Page](#blog-dashboard-page)
+  - [Blog Homepage Page](#blog-homepage-page)
+  - [Blog Post Page](#blog-post-page)
+  - [Classroom Admin Page](#classroom-admin-page)
+  - [Classroom Page](#classroom-page)
+  - [Classrooms Page](#classrooms-page)
+  - [Collection Editor Page](#collection-editor-page)
+  - [Collection Player Page](#collection-player-page)
+  - [Community Library Page](#community-library-page)
+  - [Contact Page](#contact-page)
+  - [Contributor Admin Dashboard Page](#contributor-admin-dashboard-page)
+  - [Contributor Dashboard Page](#contributor-dashboard-page)
+      + [Important Contributor Dashboard Page Tabs](#important-contributor-dashboard-page-tabs)
+  - [Create Learner Group Page](#create-learner-group-page)
+  - [Creator Dashboard Page](#creator-dashboard-page)
+  - [Creator Guidelines Page](#creator-guidelines-page)
+  - [Custom Error Pages](#custom-error-pages)
+  - [Delete Account Page](#delete-account-page)
+  - [Diagnostic Test Player Page](#diagnostic-test-player-page)
+  - [Donate Page](#donate-page)
+  - [Edit Learner Group Page](#edit-learner-group-page)
+      + [Important Edit Learner Group Page Tabs](#important-edit-learner-group-page-tabs)
+  - [Email Dashboard Page](#email-dashboard-page)
+  - [Embedded Exploration Player Page](#embedded-exploration-player-page)
+  - [Exploration Editor Page](#exploration-editor-page)
+  - [Exploration Player Page](#exploration-player-page)
+  - [Facilitator Dashboard Page](#facilitator-dashboard-page)
+  - [Feedback Updates Page](#feedback-updates-page)
+  - [Get Started Page](#get-started-page)
+  - [Iframe Error Page](#iframe-error-page)
+  - [Learner Dashboard Page](#learner-dashboard-page)
+  - [License Page](#license-page)
+  - [Maintenance Page](#maintenance-page)
+  - [Moderator Page](#moderator-page)
+  - [New Lesson Player Page](#new-lesson-player-page)
+  - [Partnerships Page](#partnerships-page)
+  - [Pending Account Deletion Page](#pending-account-deletion-page)
+  - [Practice Session Page](#practice-session-page)
+  - [Preferences Page](#preferences-page)
+  - [Privacy Policy Page](#privacy-policy-page)
+  - [Profile Page](#profile-page)
+  - [Release Coordinator Page](#release-coordinator-page)
+      + [Important Release Coordinator Page Tabs](#important-release-coordinator-page-tabs)
+  - [Review Test Page](#review-test-page)
+  - [Signup Page](#signup-page)
+  - [Skill Editor Page](#skill-editor-page)
+  - [Story Editor Page](#story-editor-page)
+  - [Story Player Page](#story-player-page)
+  - [Study Guide Page](#study-guide-page)
+  - [Teach Page](#teach-page)
+  - [Terms of Use Page](#terms-of-use-page)
+  - [Thank You Page](#thank-you-page)
+  - [Topic Editor Page](#topic-editor-page)
+  - [Topic Viewer Page](#topic-viewer-page)
+  - [Topics & Skills Dashboard Page](#topics--skills-dashboard-page)
+  - [View Learner Group Page](#view-learner-group-page)
+  - [Voiceover Admin Page](#voiceover-admin-page)
+  - [Volunteer Page](#volunteer-page)
+
 - [Populating Data on Local Server](#populating-data-on-local-server)
-  * [1. Admin Activities Tab (Dummy/Test Data)](#1-admin-activities-tab--dummy-test-data-)
-    + [Generate Dummy Explorations](#generate-dummy-explorations)
-    + [Reload a Single Exploration](#reload-a-single-exploration)
-    + [Reload a Single Collection](#reload-a-single-collection)
-    + [Load Dummy New Structures Data](#load-dummy-new-structures-data)
-    + [Generate Stories](#generate-stories)
-    + [Generate Chapters](#generate-chapters)
-  * [2. Creating Explorations](#2-creating-explorations)
-  * [3. Creating a Skill](#3-creating-a-skill)
-  * [4. Creating a Topic](#4-creating-a-topic)
-  * [5. Generate Dummy Blog Data](#5-generate-dummy-blog-data)
-  * [6. Generating Data For Contributor Dashboard](#6-generating-data-for-contributor-dashboard)
-  * [7. Creating Collections](#7-creating-collections)
-    + [Using the Collection Editor](#using-the-collection-editor)
-    + [Using Activities Tab](#using-activities-tab)
-  * [8. Creating a Classroom](#8-creating-a-classroom)
-    + [Creating a Custom Classroom](#creating-a-custom-classroom)
-    + [Creating a Dummy Math Classroom](#creating-a-dummy-math-classroom)
-  * [9. Community Library](#9-community-library)
-    + [Generate Explorations](#generate-explorations)
-    + [Generate Collections](#generate-collections)
-  * [10. Collection Player](#10-collection-player)
-  * [11. Story Player](#11-story-player)
-  * [12. Review Test Page](#12-review-test-page)
-  * [13. Fixing This common error](#13-fixing-this-common-error)
-- [Oppia Routing Guide for Contributors](#oppia-routing-guide-for-contributors)
-  * [1. What Is Routing in Oppia?](#1-what-is-routing-in-oppia-)
-  * [2. Route Protection (Guards)](#2-route-protection--guards-)
-    + [2.1 IsLoggedInGuard](#21-isloggedinguard)
-    + [2.2 LessonPlayerPageAuthGuard](#22-lessonplayerpageauthguard)
-    + [2.3 NormalizeUrlCaseGuard](#23-normalizeurlcaseguard)
-  * [3. Public Pages (No Login Required)](#3-public-pages--no-login-required-)
-  * [4. Authentication Pages](#4-authentication-pages)
-  * [5. Dashboard Pages (Require Login)](#5-dashboard-pages--require-login-)
-  * [6. Admin & Moderation Routes (Require Login)](#6-admin---moderation-routes--require-login-)
-  * [7. Editor Routes (Require Login)](#7-editor-routes--require-login-)
-  * [8. Topics, Practice & Learning Pages (Public)](#8-topics--practice---learning-pages--public-)
-  * [9. Classrooms & Learning Paths](#9-classrooms---learning-paths)
-  * [10. Exploration & Lesson Players](#10-exploration---lesson-players)
-  * [11. Library & Collections](#11-library---collections)
-  * [12. Blog Routes](#12-blog-routes)
-  * [13. Learner Group Routes](#13-learner-group-routes)
-  * [14. Account & Profile Routes](#14-account---profile-routes)
-  * [15. Special Dynamic Routes](#15-special-dynamic-routes)
-    + [15.1 Stewards Landing Pages](#151-stewards-landing-pages)
-    + [15.2 Topic Landing Pages](#152-topic-landing-pages)
-  * [16. Error Handling Routes](#16-error-handling-routes)
-  * [17. Why this routing file Is critical](#17-why-this-routing-file-is-critical)
-  * [18. Role-based Access Control](#18-role-based-access-control)
-  * [19. Troubleshooting Tips](#19-troubleshooting-tips)
-  * [20. Quick reference for contributors](#20-quick-reference-for-contributors)
-  * [21. Contributor Checklist](#21-contributor-checklist)
-  * [22. Summary](#22-summary)
-
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
-
-  
+  - [Generate Explorations](#generate-explorations)
+  - [Generate Collections](#generate-collections)
+  - [Generate Dummy Blog Data](#generate-dummy-blog-data)
+  - [Populating the Contributor Dashboard](#populating-the-contributor-dashboard)
+  - [Populating the Story Player](#populating-the-story-player)
+  - [Creating a Classroom](#creating-a-classroom)
+  - [Creating a Topic](#creating-a-topic)
+  - [Creating a Skill](#creating-a-skill)
+  - [Generate Stories](#generate-stories)
+  - [Generate Chapters](#generate-chapters)
+  - [Populating the Community Library](#populating-the-community-library)
+  - [Populating the New Lesson Player Page](#populating-the-new-lesson-player-page)
+  - [Populating the Practice Session Page](#populating-the-practice-session-page)
+  - [Populating the Study Guide Page](#populating-the-study-guide-page)
+  - [Populating the Topic Viewer Page](#populating-the-topic-viewer-page)
+  - [Populating the Classroom Page](#populating-the-classroom-page)
+  - [Populating the Review Test Page](#populating-the-review-test-page)
+ 
 ## Overview of entities
 
 This diagram outlines the various entities in Oppia and how they relate
@@ -457,7 +417,7 @@ None (Public)
    
 ![Blog Homepage](images/Webpage-Guide/bloghomepage.png)
 
-- To populate the Blog Homepage: See [Generate Dummy Blog Data](#5-generate-dummy-blog-data)
+- To populate the Blog Homepage: See [Generate Dummy Blog Data](#generate-dummy-blog-data)
 
 ### Blog Post Page
 
@@ -516,7 +476,7 @@ Example:
 
 ![Classroom Page](images/Webpage-Guide/learn:math.png)
 
-- To populate the Classroom Page: See [Creating a Classroom](#8-creating-a-classroom)
+- To populate the Classroom Page: See [Populating the Classroom Page](#populating-the-classroom-page)
 
 ### Classrooms Page
 
@@ -572,7 +532,7 @@ Public (no login required)
 
 ![Collection player](images/Webpage-Guide/collections.png)
 
-- Ways to Generate Collections: See [Creating Collections](#7-creating-collections).
+- Ways to Generate Collections: See [Generate Collections](#generate-collections).
 
 ### Community Library Page
 
@@ -592,7 +552,7 @@ Public (no login required)
    
 ![Community library](images/Webpage-Guide/communitylibrary.png)
 
-- To populate the Community Library Page: See [Community Library](#9-community-library)
+- To populate the Community Library Page: [Populating the Community Library](#populating-the-community-library)
 
 ### Contact Page
 
@@ -682,7 +642,7 @@ Note: The "Available Tasks" section in the Contributor Dashboard becomes visible
 ![Translate Text](images/Webpage-Guide/translatetext2.png)
 
 - Ways to Generate Contributions:
-  See [Generating Data For Contributor Dashboard](#6-generating-data-for-contributor-dashboard).
+  See [Populating the Contributor Dashboard](#populating-the-contributor-dashboard).
 
 ### Create Learner Group Page
 
@@ -693,7 +653,7 @@ Interface for facilitators to create a new learner group, add members, and assig
 /create-learner-group
 
 - **Permissions Required:**
-Logged-in users with the Full User role.
+Logged-in users
 
 **Steps to Access:**
   1. Log in to Oppia
@@ -959,8 +919,8 @@ None (Public)
 
 ![Old Exploration Player](images/Webpage-Guide/oldexploration.png)
 
-- To populate the Exploration Player Page: See [Creating Explorations](#2-creating-explorations) or reload demo explorations via [Admin Activities Tab](#1-admin-activities-tab-dummytest-data).
-
+- To populate the Exploration Player Page: See [Generate Explorations](#generate-explorations)
+  
 ### Facilitator Dashboard Page
 
 - **Description:**
@@ -1113,7 +1073,7 @@ The modern lesson player interface with improved UX for playing explorations.
 Public (with authorization check)
 
 **Steps to Access:**
-  1. Go to [Release Coordinator](#release-coordinator) → Features tab
+  1. Go to [Release Coordinator](#release-coordinator-page) → Features tab
   2. Find new_lesson_player and set "Force-enable for all users" to Yes → Click **Save**
      ![Force-enable](images/Webpage-Guide/newlessonplayerenable.png)
   3. Navigate through a classroom → topic → story → chapter
@@ -1121,10 +1081,8 @@ Public (with authorization check)
 
 ![New Lesson Player](images/Webpage-Guide/newlessonplayer.png)
 
-- To populate the New Lesson Player Page: Use [Load Dummy New Structures Data](#load-dummy-new-structures-data) or manually create a classroom with a topic, story, and chapters — see [Creating a Topic](#4-creating-a-topic), 
-[Creating a Story](#5-creating-a-story), [Creating a Classroom](#8-creating-a-classroom), 
-and [Creating an Exploration](#1-creating-an-exploration).
-
+- To populate the New Lesson Player Page: [Populating the New Lesson Player Page](#populating-the-new-lesson-player-page)
+  
 **NOTE:** This feature is currently in the development stage and has not been 
 released to production yet. It is only available on local development servers.
 
@@ -1184,8 +1142,8 @@ http://localhost:8181/learn/math/add/practice/session?selected_subtopic_ids=%5B1
 
 ![Practice Session](images/Webpage-Guide/practicesession.png)
 
-- To populate the Practice Session Page: Create a topic with skills that have at least 10 questions each. Then enable "Show Practice Tab to learners" in the [Topic Editor](#topic-editor-page). See [Creating a Skill](#3-creating-a-skill) and [Creating a Topic](#4-creating-a-topic).
-
+- To populate the Practice Session Page:  See [Populating the Practice Session Page:](#populating-the-practice-session-page)
+  
 ### Preferences Page
 
 - **Description:** This page allows learners to change their settings on Oppia, such as language preference and email preferences.
@@ -1331,7 +1289,7 @@ How to Enable Review Test Page
 2. Find EnableReadyForReviewTest and enable it.
 3. Click Save
 
--To populate Review Test Page: See [Review Test Page](#12-review-test-page)
+- To populate Review Test Page: See  [Populating the Review Test Page.](#populating-the-review-test-page)
 
 ### Signup Page
 
@@ -1353,7 +1311,7 @@ None (Public)
 
 ### Skill Editor Page
 - **Description:** 
-The skill editor allows the creation of skills in Oppia. You can access the Skills editor under the skills tab of topics-and-skills-dashboard page.
+The skill editor allows the creation of skills in Oppia. You can access the Skills editor under the skills tab of [topics-and-skills-dashboard page](#topics--skills-dashboard-page).
 
 - **Url:**
 http://localhost:8181/skill_editor/<skill_id>
@@ -1385,7 +1343,7 @@ Curriculum Admin role
 
 **Steps to Access:** 
   1. Navigate to /topics-and-skills-dashboard.
-  2. [Create a topic](#4-creating-a-topic).
+  2. [Create a topic](#creating-a-topic).
   3. Go to the [topic editor](#topic-editor-page) and click on the add story button.
    ![canonicalstories](images/Webpage-Guide/topiceditor.png)
   4. Complete the “New story” modal and wait for the story editor page to load.
@@ -1411,7 +1369,7 @@ Public (no login required)
   5. The Story Player page opens.
 ![Story player page](images/Webpage-Guide/storyplayer.png)
 
-- To populate the Story Player Page it needs a published topic in a classroom, with a story that has chapters linked to published explorations: See [Story Player](#11-story-player)
+- To populate the Story Player Page it needs a published topic in a classroom, with a story that has chapters linked to published explorations: See [Populating the Story Player](#populating-the-story-player)
  
 
 ### Study Guide Page
@@ -1435,8 +1393,7 @@ Example:
 
  ![Study Guide](images/Webpage-Guide/studyguide.png)
 
-- To populate the Study Guide Page it needs a published topic in a classroom, with a subtopic that has content, a thumbnail, and skills assigned.
-  : See [Creating a Topic](#4-creating-a-topic) OR [Load Dummy New Structures Data](#load-dummy-new-structures-data)
+- To populate the Study Guide Page: [Populating the Study Guide Page:](#populating-the-study-guide-page)
   
 ### Teach Page
 
@@ -1526,8 +1483,8 @@ http://localhost:8181/learn/math/fractions/story
 
 ![Topic Viewer](images/Webpage-Guide/topicviewer.png)
 
-- To populate the Topic Viewer Page it needs a topic with stories, subtopics, and skills, published and added to a classroom: See [Creating a Classroom](#8-creating-a-classroom) and [Creating a Topic](#4-creating-a-topic) OR [Load Dummy New Structures Data](#load-dummy-new-structures-data)
-
+- To populate the Topic Viewer Page: [Populating the Topic Viewer Page](#populating-the-topic-viewer-page)
+  
 ### Topics & Skills Dashboard Page
 
 - **Description:** 
@@ -1600,149 +1557,326 @@ None
   2. Then click on the Volunteer.
 
 ![Volunteer page](images/Webpage-Guide/volunteer.png)
-     
+
 ## Populating Data on Local Server
 
 This section explains all the ways data can be created, loaded, or generated on the Oppia local development server.
 
-### 1. Admin Activities Tab (Dummy/Test Data)
-The Activities tab is ONLY for local testing and development.
-It does not create real, customizable content.
+### Generate Explorations
 
-**Access:**
-Visit [Activities](#activities-tab).
+- To populate the Explorations:
+  - **Quick method:** Use Generate Dummy Explorations OR Reload a Single Exploration in [Activities tab](#activities-tab).
 
-#### Generate Dummy Explorations
-- Creates random, empty explorations
-- Optional auto-publish
+  - **Manual method:**
 
-**Use case:** Quick testing of dashboards and flows
+    Step 1. Open Creator Dashboard.  
+    Go to: http://localhost:8181/creator-dashboard  
+    Click: “Create Exploration”
 
-#### Reload a Single Exploration
+    Step 2. Choose Interaction Type  
+    You will be asked to select:
+    - Multiple Choice  
+    - Text Input  
+    - Fraction Input  
+    - Drag & Drop  
+    - Image Selection, etc.  
+    Click Create
 
-- Reloads predefined YAML explorations
-- Example: welcome.yaml
+    Step 3. Add Content to the Card  
+    Each card contains:
+    - Content → The question shown to the learner  
+    - Interaction → How the learner answers  
+    - Response → Feedback after submission  
 
-**Use case:** Restore known test content
+    You must:
+    1. Enter the question  
+    2. Configure learner answer input  
+    3. Add feedback response  
 
-#### Reload a Single Collection
-- Loads predefined collections from YAML
-- Example: welcome_to_collections.yaml
+    Click Save Draft
 
-**Limitations:**
-- Cannot edit structure
-- Cannot choose explorations
-- Cannot create new collections
+    Step 4. Add More Cards (Optional)  
+    Click: “Add New Card”  
+    Repeat the process to create multi-step lessons.
 
-#### Load Dummy New Structures Data
-Loads a complete dataset, including:
-- Topics
-- Skills
-- Stories
-- Explorations
-- Questions
+    Step 5. Preview the Exploration  
+    Click the Preview button to test like a learner.
 
-**Use case:** Populate everything in one click for local testing
+    Step 6. Publish the Exploration  
+    Click: Publish  
 
-**Prerequisite: Assign Required Roles**
+    If it is not published:
+    - It will NOT appear in stories  
+    - It will NOT be visible to learners  
 
-Most data population actions require specific roles.
- To assign roles, see [Roles Tab](#important-admin-page-tabs).
+    Step 7. Use Exploration in a Story  
 
-#### Generate Stories
-- Creates dummy stories for a selected topic
-- Requires Curriculum Admin role
-- Select a topic from the dropdown, enter the number of stories, and click **Generate Stories**
+    Once published:
+    1. Go to Topic Editor  
+    2. Open a Story  
+    3. Add a Chapter  
+    4. Select your published Exploration  
+    5. Save draft → Publish topic again if needed
+
+
+### Generate Collections
+
+- To populate the Collections:
+  - **Quick method:** Use Reload a Single Collection in [Activities tab](#activities-tab).
+
+  - **Manual method:** Using the Collection Editor
+
+    Step 1. Log in to Oppia  
+    Step 2. Navigate to /creator-dashboard  
+    Step 3. Click the "+ CREATE EXPLORATION" button  
+    Step 4. A modal appears: "Create an Activity"  
+    Step 5. Select "New Collection"  
+    Step 6. Click "CREATE COLLECTION"  
+    Step 7. You will be redirected to the Collection Editor page  
+
+**Note:** Despite the button saying "Create Exploration", it opens a modal where you can choose to create either an Exploration OR a Collection.
+
+**Limitations of Quick method:**
+- Cannot edit structure  
+- Cannot choose explorations  
+- Cannot create new collections  
+
+
+### Generate Dummy Blog Data
+
+- To populate the Blog Data:
+
+  - **Quick method:**
+
+    Step 1. Go to [Activities tab](#activities-tab)  
+    Step 2. Scroll to "Generate dummy blog post"  
+    Step 3. Click "Generate" next to titles  
+    Step 4. Each click generates and publishes a blog post  
+
+
+### Populating the Contributor Dashboard
+
+- To populate the Contributor Dashboard:
+
+  - **Manual method:**
+
+    - **My Contributions**
+
+      Step 1. Log in to Oppia  
+      Step 2. Navigate to the Contributor Dashboard  
+      Step 3. Open the Translate Text tab  
+      Step 4. Select:
+        - A Topic  
+        - A Target Language (for example, Hindi)  
+      ![Translate Text tab](images/Webpage-Guide/translatetext.png)
+
+      Step 5. Choose an Opportunity (an exploration lesson that requires translation).  
+      Step 6. Enter a translation for the text.  
+      Step 7. Click Save and Close  
+      ![Translate Text tab](images/Webpage-Guide/hinditranslatetext.png)
+
+
+    - **Available Tasks (Reviewer Rights Required)**
+       The Available Tasks section displays suggestions submitted by other users that require review. This section is visible only to users with reviewer rights.
+
+      Step 1. Navigate to the Admin page  
+      Step 2. Open the Roles tab  
+      Step 3. Enter your username  
+      Step 4. Select:
+        - Translation Admin  
+        - Question Admin  
+      Step 5. Click Update  
+      Step 6. Go to Contributor Admin Dashboard  
+
+      Step 7. In Manage Contributor Rights:
+        - Enter username  
+        - Select category
+          - Translation Reviewer  
+          - Question Reviewer  
+        - Select language (for example, Hindi)  
+        - Click Add Rights  
+      ![Contributor Rights](images/Webpage-Guide/contributorhindireview.png)
+
+      Step 8. Log in with a different account (or open an incognito window).  
+      Step 9. Submit a translation or question suggestion using the steps above.
+      ![Contributor Rights](images/Webpage-Guide/acceptedtranslation.png)
+
+      Step 10. Log back in with the reviewer account.  
+      Step 11. Open Available Tasks  
+      Step 12. Review suggestion  
+      ![reviewtranslations](images/Webpage-Guide/reviewtranslations.png)
+
+
+    - **Accomplishments**
+
+      Step 1. Log in with reviewer rights  
+      Step 2. Go to Available Tasks  
+      Step 3. Review suggestion  
+      Step 4. Click Accept  
+
+      **Result:**
+      - The contributor’s statistics will update in the Accomplishments tab.  
+      - Badges will be awarded automatically when contribution milestones are reached (e.g., 50 accepted translations).
+**Note:**  
+The Available Tasks section remains hidden until reviewer permissions are granted through the Contributor Admin Dashboard.
+
+### Populating the Story Player
+
+- To populate the Story Player Page:
+  - **Quick method:** Use Load Dummy New Structures Data in [Activities tab](#activities-tab).
+    (creates a complete topic with a story and 3 chapters in one click).
+  - **Using Activities Tab generators:**
+    
+    Step 1. Generate or create a topic (Curriculum Admin required)
+    
+    Step 2. Use [Generate Stories](#generate-stories) to create stories for that topic
+    
+    Step 3. Use [Generate Chapters](#generate-chapters) to create chapters for those stories
+    
+  - **Manual method:** See [Creating a Topic](#creating-a-topic) and [Generate Explorations](#generate-explorations).
+    
+### Creating a Classroom
+   - **Quick method:**
+     
+     Step 1. Go to [Activities tab](#activities-tab)
+     
+     Step 2. In the Generate a dummy math classroom section, click the Generate Data button.
+
+   ![Dummy math classroom](images/Webpage-Guide/generatingdummymath.png)
+   
+   - **Manual method:**
+     
+     Step 1. Open /classroom-admin
+     
+     Step 2. Click Add New Classroom
+  ![Add New Classroom](images/Webpage-Guide/creatingclassroom1.png)
+
+     **Enter:**
+     - Classroom name
+     - URL fragment
+ ![Classroom name](images/Webpage-Guide/creatingclassroomaddnew.png)
+     - Click on the classroom title
+     - Click the pencil icon to edit details
+ ![classroom title](images/Webpage-Guide/creatingclassroommath1.png)
+
+   **Add:**
+   - Course details
+   - Topic introduction
+   - Topic IDs
+ ![creating classroom math](images/Webpage-Guide/creatingclassroommath.png)
+
+### Creating a Topic
+   - **Quick method:** Use Load Dummy New Structures Data in [Activities tab](#activities-tab)(Loads a complete dataset, including: Topics,Skills,Stories,Questions)
+   - **Manual method:**
+     
+      Step 1. Open the Topics and Skills Dashboard.
+     
+      Step 2. Click on CREATE TOPIC.
+     
+      Step 3. A form will open where you need to fill:
+      - Topic name
+      - Topic thumbnail
+      - Other required details.
+  ![create topic](images/Webpage-Guide/createtopic.png)
+
+       Step 4. After saving, you will be redirected to the Topic Editor page.
+ ![Topic Editor page](images/Webpage-Guide/topiceditor.png)
+       Step 5. In the main editor tab, you will see validation errors that must be fixed before publishing.
+![warnings](images/Webpage-Guide/warnings.png)
+     
+Sections in the Topic Editor:
+- **Details** – Basic information about the topic
   
-#### Generate Chapters
-- Creates dummy chapters for a selected story
-- Requires Curriculum Admin role
-- Select a story from the dropdown, enter the number of chapters, and click **Generate Chapters**
+- **Subtopics** – Lists subtopics and the skills linked to them
+![Subtopics](images/Webpage-Guide/subtopics.png)
 
-### 2. Creating Explorations
+**Adding Content to a Subtopic (for Study Guide):**
+Step 1. In the Topic Editor, click on a subtopic name to open the Subtopic Editor.
+Step 2. Fill in the required fields:
+   - **Title** — Name of the subtopic
+   - **URL Fragment** — Used in the Study Guide URL
+   - **Explanation** — Rich-text content shown on the Study Guide page (click the pen icon to edit)
+   - **Thumbnail Image** — Upload a thumbnail
+Step 3. Under the **Skills** section, skills from the topic are listed. You can remove skills from the subtopic using the options menu.
+Step 4. Skills are assigned to subtopics by dragging them from the "Uncategorized Skills" section in the main Topic Editor.
 
-An Exploration is the actual lesson that learners play. Stories, chapters, and practice sessions all depend on explorations.
+- **Diagnostic Tests-**
+Add skills that will be used to test learners before recommending this topic.
+A skill must have at least 3 questions and be assigned to the topic to be used here.
+![Diagnostic Tests](images/Webpage-Guide/diagnostictest.png)
 
-**Step 1:** Open Creator Dashboard
-Go to:
-http://localhost:8181/creator-dashboard
-Click:
-“Create Exploration”
+- **Canonical Stories**-
+This section lists all stories that belong to this topic.
 
-**Step 2:** Choose Interaction Type
-You will be asked to select:
+![Canonical Stories](images/Webpage-Guide/canonicalstories.png)
 
-- Multiple Choice
-- Text Input
-- Fraction Input
-- Drag & Drop
-- Image Selection, etc.
+- Preview the Topic
+  
+Step 1. Click the Preview button in the top navigation bar
 
-Click Create
- **Step 3:** Add Content to the Card
- Each card contains:
- 
-- Content → The question shown to the learner
-- Interaction → How the learner answers
-- Response → Feedback after submission
+Step 2. This shows exactly how learners will see your topic before publishing.
 
-You must:
+![Preview the Topic](images/Webpage-Guide/topicpreview.png)
 
-1. Enter the question
-2. Configure learner answer input
-3. Add feedback response
+- Publish the Topic
+Once all validation errors are resolved:
 
-Click Save Draft
+Step 1. Click Publish Topic
 
-**Step 4:** Add More Cards (Optional)
-Click:
-“Add New Card”
+Step 2. Your Topic is now live in the system.
 
-Repeat the process to create multi-step lessons.
+- Add the Published Topic to the Math Classroom
+To make your topic visible on the Math Classroom page:
 
-**Step 5:** Preview the Exploration
-Click the Preview button to test like a learner.
+Step 1. Go to http://localhost:8181/classroom-admin
 
-**Step 6:** Publish the Exploration
-Click:
-Publish
-If it is not published:
-- It will NOT appear in stories
-- It will NOT be visible to learners
+Step 2. Select the classroom (e.g. Math)
 
-**Step 7:** Use Exploration in a Story
-Once published:
+Step 3. Click edit (pencil icon)
 
-1. Go to Topic Editor
-2. Open a Story
-3. Add a Chapter
-4. Select your published Exploration
-5. Save draft → Publish topic again if needed
+Step 4. Add the published Topic ID
 
-### 3. Creating a Skill
-   NOTE - A skill must have:
+Step 5.Save changes
+
+- Verify on the Math Classroom Page
+ Go to:
+http://localhost:8181/learn/math
+
+ You should now see your newly created topic listed on the classroom page.
+
+### Creating a Skill 
+ - **Quick method:** Use Load Dummy New Structures Data in [Activities tab](#activities-tab)(Loads a complete dataset, including: Topics,Skills,Stories,Questions)
+   
+ - **Manual method:**
+    NOTE - A skill must have:
 - At least **3 questions** to appear in the **Diagnostic Test**
 - At least **10 questions** to appear in **Practice Sessions**
-
-**Note**
-Even after adding 10 questions to the skills in a topic, the Practice Session route will return a 404 until you open the Topic Editor and explicitly check the "Show Practice Tab to learners" checkbox. This checkbox remains disabled until the 10-question minimum is met.
 
 There are two ways to create a skill:
 
 **Method 1: From Topic Editor**
-1. Open any Topic Editor
-2. Click ADD SKILL under the Subtopics section
-3. The skill will be automatically assigned to the topic
+
+Step 1. Open any Topic Editor
+
+Step 2. Click ADD SKILL under the Subtopics section
+
+Step 3. The skill will be automatically assigned to the topic
 
 **Method 2: From Topics and Skills Dashboard**
-1. Go to the dashboard
-2. Click ADD SKILL
-3. This skill will not be assigned to any topic automatically
+
+Step 1. Go to the dashboard
+
+Step 2. Click ADD SKILL
+
+Step 3. This skill will not be assigned to any topic automatically
    ![ADD SKILL](images/Webpage-Guide/newskill.png)
-4. After saving, you will be taken to the Skill Editor page.
-5. Sections Inside the Skill Editor:
+   
+Step 4. After saving, you will be taken to the Skill Editor page.
+
+Step 5. Sections Inside the Skill Editor:
 - Details
   ![Details](images/Webpage-Guide/populatingdetails.png)
+  
 - Worked Example
 ![Worked Example](images/Webpage-Guide/workedexample.png)
 
@@ -1767,9 +1901,11 @@ Helps question creators follow defined standards.
 ![Rubrics](images/Webpage-Guide/rubrics.png)
 
 **Adding Questions to a Skill**
-1. Scroll to the Questions section
-2. Click ADD QUESTION
-3. Inside the Question Editor, fill these 5 parts:
+Step 1. Scroll to the Questions section
+
+Step 2. Click ADD QUESTION
+
+Step 3. Inside the Question Editor, fill these 5 parts:
 - Difficulty
                         
 ![Difficulty](images/Webpage-Guide/difficulty.png)
@@ -1788,662 +1924,79 @@ Helps question creators follow defined standards.
 - After filling everything, click Save
 
 ![Save](images/Webpage-Guide/creatingtopicsave.png)
-
-### 4. Creating a Topic
-1. Open the Topics and Skills Dashboard.
-2. Click on CREATE TOPIC.
-3. A form will open where you need to fill:
-- Topic name
-- Topic thumbnail
-- Other required details.
-  ![create topic](images/Webpage-Guide/createtopic.png)
-4. After saving, you will be redirected to the Topic Editor page.    
-
-![Topic Editor page](images/Webpage-Guide/topiceditor.png)
-
-5. In the main editor tab, you will see validation errors that must be fixed before publishing.
-
-![warnings](images/Webpage-Guide/warnings.png)
-     
-Sections in the Topic Editor:
-- **Details** – Basic information about the topic
-- **Subtopics** – Lists subtopics and the skills linked to them
-![Subtopics](images/Webpage-Guide/subtopics.png)
-
-**Adding Content to a Subtopic (for Study Guide):**
-1. In the Topic Editor, click on a subtopic name to open the Subtopic Editor.
-2. Fill in the required fields:
-   - **Title** — Name of the subtopic
-   - **URL Fragment** — Used in the Study Guide URL
-   - **Explanation** — Rich-text content shown on the Study Guide page (click the pen icon to edit)
-   - **Thumbnail Image** — Upload a thumbnail
-3. Under the **Skills** section, skills from the topic are listed. You can remove skills from the subtopic using the options menu.
-4. Skills are assigned to subtopics by dragging them from the "Uncategorized Skills" section in the main Topic Editor.
-
-- **Diagnostic Tests-**
-Add skills that will be used to test learners before recommending this topic.
-A skill must have at least 3 questions and be assigned to the topic to be used here.
-![Diagnostic Tests](images/Webpage-Guide/diagnostictest.png)
-
--**Canonical Stories**-
-This section lists all stories that belong to this topic.
-
-![Canonical Stories](images/Webpage-Guide/canonicalstories.png)
-
-- Preview the Topic
+    
+#### Generate Stories
+ - **Quick method:** Use Generate Stories in [Activities tab](#activities-tab)
   
-1. Click the Preview button in the top navigation bar
-2. This shows exactly how learners will see your topic before publishing.
-![Preview the Topic](images/Webpage-Guide/topicpreview.png)
-- Publish the Topic
-Once all validation errors are resolved:
-1. Click Publish Topic
-2. Your Topic is now live in the system.
-
-- Add the Published Topic to the Math Classroom
-To make your topic visible on the Math Classroom page:
-
-1. Go to http://localhost:8181/classroom-admin
-2. Select the classroom (e.g. Math)
-3. Click edit (pencil icon)
-4. Add the published Topic ID
-5.Save changes
-
-- Verify on the Math Classroom Page
- Go to:
-http://localhost:8181/learn/math
-
- You should now see your newly created topic listed on the classroom page.
-
-### 5. Generate Dummy Blog Data
-
-**Steps to generate data:**
-
-1. Navigate to http://localhost:8181/admin#/activities 
-2. Scroll down to the section titled "Generate dummy blog post".
-3. You will see several titles (e.g., "Education", "Leading The Arabic Translations Team"). Click the "Generate" button next to these titles.
-4. Each click generates and automatically publishes a dummy blog post.
-
-### 6. Generating Data For Contributor Dashboard
-
-- My Contributions
-**Steps to generate data:**
-1. Log in to Oppia.
-2. Navigate to the Contributor Dashboard
-3. Open the Translate Text tab.
-4. Select:
-- A Topic
-- A Target Language (for example, Hindi).
-  ![Translate Text tab](images/Webpage-Guide/translatetext.png)
-5. Choose an Opportunity (an exploration lesson that requires translation).
-6. Enter a translation for the text.
-7. Click Save and Close.
-![Translate Text tab](images/Webpage-Guide/hinditranslatetext.png)
-
-**Available Tasks (Reviewer Rights Required)**
-The Available Tasks section displays suggestions submitted by other users that require review.
-This section is visible only to users with Reviewer Rights.
-
-1. Navigate to the Admin page
-2. Open the Roles tab.
-3. Enter your username.
-4. Select one of the following roles:
-      - Translation Admin
-      - Question Admin
-5. Click Update.
-6. Navigate to the Contributor Admin Dashboard
-7. In Manage Contributor Rights:
-
-Enter your username.
-Select a category:
-     - Translation Reviewer
-     - Question Reviewer
-     Select a language (for example, Hindi).
-     Click Add Rights.
- ![Contributor Rights](images/Webpage-Guide/contributorhindireview.png)
-8. Log in with a different account(or open an incognito window).
-9. Submit a translation or question suggestion using the steps described in Populating My Contributions.
- ![Contributor Rights](images/Webpage-Guide/acceptedtranslation.png)
-10. Log back in with the reviewer account.
-11. Open the Available Tasks tab.
-12. You should now see the submitted suggestion available for review.
-
- ![reviewtranslations](images/Webpage-Guide/reviewtranslations.png)
+#### Generate Chapters
+ - **Quick method:** Select a story from the dropdown, enter the number of chapters, and click **Generate Chapters** in [Activities tab](#activities-tab)
  
-**Accomplishments**
 
-The Accomplishments tab tracks contributor statistics and badges based on accepted contributions.
+### Populating the Community Library
+Populated when:
+- Explorations are published (See [Generate Explorations](#generate-explorations))
+- Collections are published  (See [Generate Collections](#generate-collections))
 
-Steps to generate data:
-1. Log in as a user with Reviewer Rights.
-2. Navigate to Available Tasks on the Contributor Dashboard.
-3. Review a submitted suggestion.
-4. Click Accept.
-
-Result:
-- The contributor’s statistics will update in the Accomplishments tab.
-- Badges will be awarded automatically when contribution milestones are reached (for example, 50 accepted translations).
+### Populating the New Lesson Player Page
+- To populate the New Lesson Player Page:
+  - **Quick method:** Use Load Dummy New Structures Data in [Activities tab](#activities-tab)
+    
+  - **Manual method:**
+    
+    Step 1. Create classroom (See [Creating a Classroom](#creating-a-classroom))
+    
+    Step 2. Create topic (See [Creating a Topic](#creating-a-topic))
+    
+    Step 3. Add stories and chapters (See [Generate Stories](#generate-stories) and [Generate Chapters](#generate-chapters))
+    
+    Step 4. Link explorations (See [Generate Explorations](#generate-explorations))
+    
+### Populating the Practice Session Page
+- To populate the Practice Session Page:
+ - **Manual method:** Create a topic with skills that have at least 10 questions each. Then enable "Show Practice Tab to learners" in the [Topic Editor](#topic-editor-page). See [Creating a Skill](#creating-a-skill) and [Creating a Topic](#creating-a-topic).
 
 **Note**
-The Available Tasks section remains hidden until reviewer permissions are granted through the Contributor Admin Dashboard.
 
-### 7. Creating Collections
- #### Using the Collection Editor
-1. Log in to Oppia
-2. ⁠Navigate to /creator-dashboard
-3. ⁠Click the "+ CREATE EXPLORATION" button
-4. ⁠A modal appears: "Create an Activity"
-5. Select "New Collection"
-6. Click "CREATE COLLECTION"
-7. You will be redirected to the Collection Editor page
-   
-**Note:** Despite the button saying "Create Exploration", it opens a modal where you can choose to create either an Exploration OR a Collection 
-                     
-  #### Using Activities Tab
-     This is NOT used to create new collections manually.
-1. Log in to Oppia
-2. Navigate to /admin
-3. The Activities tab is only for loading or reloading predefined (dummy) collections from YAML files
-4. These collections are meant for testing, demos, or local development.
-What you can do here:
-- Reload an existing test collection (e.g. welcome_to_collections.yaml)
+Even after adding 10 questions to the skills in a topic, the Practice Session route will return a 404 until you open the Topic Editor and explicitly check the "Show Practice Tab to learners" checkbox. This checkbox remains disabled until the 10-question minimum is met.
 
- ![collection](images/Webpage-Guide/activitiescollection.png)
- 
-### 8. Creating a Classroom
-
-Step 1: Assign Role
-1. Go to /admin
-2. Assign yourself the Curriculum Admin role
-   
-#### Creating a Custom Classroom
-1. Open /classroom-admin
-2. Click Add New Classroom
-  ![Add New Classroom](images/Webpage-Guide/creatingclassroom1.png)
-   **Enter:**
-     - Classroom name
-     - URL fragment
- ![Classroom name](images/Webpage-Guide/creatingclassroomaddnew.png)
-     - Click on the classroom title
-     - Click the pencil icon to edit details
- ![classroom title](images/Webpage-Guide/creatingclassroommath1.png)
-**Add:**
-- Course details
-- Topic introduction
-- Topic IDs
- ![creating classroom math](images/Webpage-Guide/creatingclassroommath.png)
-
-#### Creating a Dummy Math Classroom
-1. Go to /admin → Activities tab
-2. In the Generate a dummy math classroom section, click the Generate Data button.
-
- ![Dummy math classroom](images/Webpage-Guide/generatingdummymath.png)
-
-The classroom will be visible on:
-- The Learner Dashboard Home Tab
-- OR directly at:
-http://localhost:8181/learn/<classroom_url_fragment>
-
-**NOTE:** Learner-facing pages do not create data themselves.
-They display data created via creator or admin flows.
-
-### 9. Community Library
-Populated when:
-- Explorations are published
-- Collections are published
-
-#### Generate Explorations
-1. Go to http://localhost:8181/admin#/activities.
-2. Under "Reload a single exploration", click "Reload" for any exploration (e.g., "welcome", "about_oppia").
-    - To Generate Random Explorations:
-           1. Under "Generate dummy explorations", enter the number of explorations to generate and publish (e.g., 5 for both).
-           2. Click "Generate Explorations".
-                ![classroom page](images/Webpage-Guide/generateexplorations.png)
-#### Generate Collections
-
-See [Creating Collections](#7-creating-collections).
-
-### 10. Collection Player
-Populated when:
-- A published collection exists
-- Created via Collection Editor or Activities (dummy)
-
-### 11. Story Player
-- To populate the Story Player Page:
-  - **Quick method:** Use [Load Dummy New Structures Data](#load-dummy-new-structures-data)
-    (creates a complete topic with a story and 3 chapters in one click).
-  - **Using Activities Tab generators:**
-    1. Generate or create a topic (Curriculum Admin required)
-    2. Use **Generate Stories** to create stories for that topic
-    3. Use **Generate Chapters** to create chapters for those stories
-  - **Manual method:** See [Creating a Topic](#4-creating-a-topic) and [Creating Explorations](#2-creating-explorations).
+### Populating the Study Guide Page
+- To populate the Study Guide Page it needs a published topic in a classroom, with a subtopic that has content, a thumbnail, and skills assigned.
+   - **Quick method:** Use Load Dummy New Structures Data in [Activities tab](#activities-tab)
+     
+   - **Manual method:** See [Creating a Topic](#creating-a-topic)
 
 
-### 12. Review Test Page
+### Populating the Topic Viewer Page
+- To populate the Topic Viewer Page it needs a topic with stories, subtopics, and skills, published and added to a classroom.
+    - **Quick method:** Use Load Dummy New Structures Data in [Activities tab](#activities-tab)
+      
+    - **Manual method:** See [Creating a Classroom](#creating-a-classroom) and [Creating a Topic](#creating-a-topic)
+      
+### Populating the Classroom Page
+- To populate the Classroom Page: See [Creating a Classroom](#creating-a-classroom)
+  
+
+### Populating the Review Test Page
 
 - To populate the Review Test Page:
-You need a working Classroom, Topic, Story, Skills, and Questions.
-
-1. Navigate to the Admin page: http://localhost:8181/admin
-2. Go to the [Activities tab](#activities-tab)
-3. Click exactly once on Generate dummy new structures data.
-   
-**Note**: Clicking this multiple times will generate duplicate stories with the same URL fragment, which breaks the URL routing and causes 404s.
-
-This button generates:
-- A topic: "Dummy Topic 1" (dummy-topic-one)
-- A story: "Help Jaime win the Arcade" (help-jamie-win-arcade)
-- 3 dummy skills and dummy questions.
   
-4. Run the Setup Script
-- The default dummy data generation is incomplete:
-- It does not link the generated Topic to a Classroom.
-- It does not assign the generated Skills to the Story's nodes (so the Review Test has 0 questions).
-- Playing through the dummy explorations manually can be broken due to missing multiple-choice options.
-
-To fix all of this instantly, run the following Python script from your oppia/ root directory. It links the topic, assigns the skills, marks the exploration as completed for your user, and flushes the cache so the changes take effect immediately.
-
-Save this as setup_review_test.py
-
-```
-python
-import os, sys, json
-os.environ['DATASTORE_EMULATOR_HOST'] = '127.0.0.1:8089'
-os.environ['DATASTORE_DATASET'] = 'dev-project-id'
-sys.path.insert(0, os.getcwd())
-sys.path.insert(0, os.path.join(os.getcwd(), 'scripts'))
-import common
-for directory in common.DIRS_TO_ADD_TO_SYS_PATH:
-    sys.path.insert(1, directory)
-from core.platform import models
-datastore_services = models.Registry.import_datastore_services()
-StoryModel = models.Registry.import_models([models.Names.STORY])[0].StoryModel
-(user_models,) = models.Registry.import_models([models.Names.USER])
-from core.domain import classroom_config_services
-from core.domain import story_fetchers
-from core.domain import story_services
-from core.domain import topic_fetchers
-from core.domain import topic_services
-from core.domain import skill_fetchers
-def main():
-    with datastore_services.get_ndb_context():
-        # 1. Identify User
-        users = user_models.UserSettingsModel.query().fetch()
-        if not users:
-            print("No users found. Please log in to the dev server first.")
-            return
-            
-        # Prioritize finding the 'riyagarg' or 'testadmin' user
-        admin_id = users[0].id
-        for u in users:
-            if u.username and ('riyagarg' in u.username.lower() or 'admin' in u.username.lower()):
-                admin_id = u.id
-                break
-        # 2. Add Dummy Topic to Math Classroom
-        classroom = classroom_config_services.get_classroom_by_url_fragment('math')
-        topic_id = 'sVooUYRjW6sT' # ID assigned to Dummy Topic 1
-        if classroom and topic_id not in classroom.topic_id_to_prerequisite_topic_ids:
-            classroom.topic_id_to_prerequisite_topic_ids[topic_id] = []
-            classroom_config_services.update_classroom(classroom)
-            print("Linked Dummy Topic 1 to 'math' classroom.")
-        # 3. Find the valid published story
-        all_stories = story_fetchers.get_stories_by_ids([s.id for s in StoryModel.query().fetch()])
-        valid_story = None
-        for story in all_stories:
-            if story and story.url_fragment == 'help-jamie-win-arcade':
-                valid_story = story
-                break
-                
-        if not valid_story:
-            print("Story not found! Please run 'Generate dummy new structures data' from /admin.")
-            return
-        # 4. Publish Topic and Story
-        try:
-            topic_services.publish_topic(topic_id, admin_id)
-        except Exception: pass # Usually already published
-        
-        try:
-            story_services.publish_story(topic_id, valid_story.id, admin_id)
-        except Exception: pass
-        # 5. Assign Skills to Story Node (Bypassing validation)
-        skills = skill_fetchers.get_multi_skills([s.id for s in models.Registry.import_models([models.Names.SKILL])[0].SkillModel.query().fetch(limit=3)])
-        skill_ids = [s.id for s in skills if s]
-        
-        node_id = valid_story.story_contents.nodes[0].id
-        
-        # Directly update the NDB Model to bypass strict validation checks on broken explorations
-        story_model = StoryModel.get_by_id(valid_story.id)
-        story_dict = json.loads(story_model.story_contents)
-        story_dict['nodes'][0]['acquired_skill_ids'] = skill_ids
-        story_model.story_contents = json.dumps(story_dict)
-        story_model.put()
-        print(f"Assigned skills {skill_ids} to story node.")
-        # 6. Mark Node as Completed for the User
-        story_services.record_completed_node_in_story_context(admin_id, valid_story.id, node_id)
-        print("Marked node as completed for your user.")
-    # 7. Flush the Redis cache so Oppia loads the modified Datastore model!
-    os.system('redis-cli flushall')
-    print("Flushed Redis cache.")
-if __name__ == '__main__':
-    main()
-
-```   
-**Run the script:** python setup_review_test.py
-
-Step 4: Access the Page
-Once the script successfully completes, you can navigate straight to the Review Test Page.
-
-
-### 13. Fixing This common error
-**Error:**
-Server error: 'NoneType' object has no attribute 'version'
-
-**Fix:**
-1. Go to /admin → Roles
-2. Assign yourself the release-coordinator role
-3. Open /release-coordinator
-4. Under the Misc tab, click Flush Cache.
-   
- ![Flush Cache](images/Webpage-Guide/flushcache.png)
-
-## Oppia Routing Guide for Contributors
-
-This guide explains how routing works in Oppia and documents all available routes in the application.
-
-### 1. What Is Routing in Oppia?
-
-Routing in Oppia determines:
-- What page opens when you visit a URL
-- Whether login is required to access the page
-- Which Angular module is loaded for that route
+     - **Quick method:**
+       
+       Step 1. Go to http://localhost:8181/admin -> Activities tab and click Load dummy new structures data once.
+       Step 2. Go to http://localhost:8181/classroom-admin, edit the "Math" classroom, and add the ID of "Dummy Topic 1" to the topics list.
+       Step 3. Open the Topic Editor for "Dummy Topic 1". Under the Canonical Stories tab, open the "Help Jaime win the Arcade" story.
+       Step 4. Click on each chapter (node) and manually add the generated dummy skills to the Acquired Skills section, then save.
+       Step 5. Log in as a student and complete at least one chapter. Once finished, the Review Test for those skills will be unlocked.
   
-**Lazy Loading** 
-Oppia uses lazy loading, which means:
-- A page module is only loaded when it is actually visited
-- This improves performance and reduces initial memory usage
-- Each route uses loadChildren to dynamically import its module
-  
-### 2. Route Protection (Guards)
-Oppia uses three main guards to control access:
+     - **Using Activities Tab generators:**
+       
+       Step 1. Generate a topic, then use the Generate Stories and Generate Chapters buttons in [Activities tab](#activities-tab).
+       Step 2. Use Generate Skills to create at least 3 skills for the topic in [Activities tab](#activities-tab).
+       Step 3. Use Generate Question Suggestions to add questions to those skills in [Activities tab](#activities-tab).
+       
+     - **Manual method:**
+        Step 1. Create a topic, story, and chapters in the Topic Editor. (See [Creating a Topic](#creating-a-topic))
+        Step 2. Assign skills with questions to those chapters, publish everything, and complete the chapters as a learner.
+       
+Note: The "Load dummy new structures data" button generates a basic structure but requires manual linking in the Classroom Admin and Topic Editor to fully function. Additionally, some reloaded explorations may be missing interaction data (such as multiple-choice options), which can occasionally prevent a learner from reaching the completion screen required to unlock the Review Test.
 
-#### 2.1 IsLoggedInGuard
-
-**Purpose:** Blocks the page unless the user is logged in. If not logged in, redirects to /login.
-
-**Used for:**
-- Admin pages (/admin)
-- Creator dashboard (/creator-dashboard)
-- Topic / Skill / Story editors
-- Blog management pages
-- Learner dashboard
-- Most contributor tools
-
-#### 2.2 LessonPlayerPageAuthGuard
-
-**Purpose:** Ensures only authorized access to lesson playback.
-
-**Used for:**
-- New lesson player (/lesson/<id>)
-- Embedded lesson player (/embed/lesson/<id>)
-
-#### 2.3 NormalizeUrlCaseGuard
-
-**Purpose:** Ensures URL casing is correct to prevent routing bugs.
-**Used for:**
-
-- Classroom route (/learn/<classroom_url>)
-
-### 3. Public Pages (No Login Required)
-These pages are accessible to everyone without authentication:
-| Route | Purpose |
-|------|---------|
-| /about | About Oppia |
-| /contact | Contact page |
-| /donate | Donation page |
-| /get-started | New user onboarding |
-| /teach | Teaching resources |
-| /thanks | Thank-you page |
-| /terms | Legal terms |
-| /privacy-policy | Privacy policy |
-| /license | Open-source license |
-| /volunteer | Volunteer portal |
-| /creator-guidelines | Participation playbook |
-| /android | Android app info |
-| /partnerships | Partnerships information |
-| /contributor-dashboard | Contributor dashboard (no router guard)\* |
-| /diagnostic-test-player | Diagnostic test player |
-| /maintenance | Maintenance page |
-
-**Note:** /contributor-dashboard does not have IsLoggedInGuard at the routing level, though it may check login status internally.
-
-### 4. Authentication Pages
-         
-| Route | Purpose |
-|------|---------|
-| /signup | Account creation |
-
-### 5. Dashboard Pages (Require Login)
-  
-| Route | Purpose | Guard |
-|------|---------|-------|
-| /creator-dashboard | For exploration creators | IsLoggedInGuard |
-| /learner-dashboard | Learner homepage | IsLoggedInGuard |
-| /facilitator-dashboard | Classroom facilitators | IsLoggedInGuard |
-| /blog-dashboard | Blog post management | IsLoggedInGuard |
-
-### 6. Admin & Moderation Routes (Require Login)
-     All of these require IsLoggedInGuard:         
-| Route | Purpose |
-|------|---------|
-| /admin | Main admin panel |
-| /moderator | Content moderation |
-| /emaildashboard | Email management |
-| /voiceover-admin | Voiceover management |
-| /topics-and-skills-dashboard | Topic & skill management (Curriculum Admin only) |
-| /classroom-admin | Classroom management (Curriculum Admin only) |
-| /contributor-admin-dashboard | Admin control of contributors |
-| /blog-admin | Blog administration |
-
-**Note:** /release-coordinator does not have IsLoggedInGuard at the routing level.
-
-### 7. Editor Routes (Require Login)
-All editor routes require IsLoggedInGuard:
-
-| Route | Editor Type |
-|------|-------------|
-| /create/<exploration_id> | Exploration editor |
-| /collection_editor/create/<collection_id> | Collection editor |
-| /story_editor/<id> | Story editor |
-| /topic_editor/<id> | Topic editor |
-| /skill_editor/<id> | Skill editor |
-
-### 8. Topics, Practice & Learning Pages (Public)
-These learning pages are public and do not require login:
-         
-| Route | Purpose |
-|------|---------|
-| `/learn/<classroom_url>/<topic_url>` | Topic viewer |
-| `/learn/<classroom_url>/<topic_url>/story/<story_url>` | Story viewer |
-| `/learn/<classroom_url>/<topic_url>/practice` | Practice session |
-| `/learn/<classroom_url>/<topic_url>/review-test/<story_url>` | Review test |
-| `/learn/<classroom_url>/<topic_url>/studyguide/<subtopic_url>` | Subtopic viewer (study guide) |
-
-Example:
-/learn/math/fractions shows the Fractions topic in the Math classroom.
-
-### 9. Classrooms & Learning Paths
-        
-| Route | Purpose | Guard |
-|------|---------|-------|
-| `/learn` | All classrooms | Public |
-| `/learn/<classroom_url>` | Classroom landing page | Public (NormalizeUrlCaseGuard) |
-| `/classroom-admin` | Classroom management | IsLoggedInGuard |
-
-### 10. Exploration & Lesson Players
-
-| Route | Purpose | Guard |
-|------|---------|-------|
-| `/explore/<id>` | Old exploration player | Public |
-| `/embed/exploration/<id>` | Embedded exploration player | Public |
-| `/lesson/<id>` | New lesson player | LessonPlayerPageAuthGuard |
-
-### 11. Library & Collections
-
-| Route | Purpose |
-|------|---------|
-| `/community-library` | Exploration library |
-| `/search/find` | Library search |
-| `/community-library/recently-published` | Recently published explorations |
-| `/community-library/top-rated` | Top rated explorations |
-| `/collection/<id>` | Collection player |
-
-### 12. Blog Routes  
-        
-| Route | Purpose |
-|------|---------|
-| `/blog` | Blog homepage |
-| `/blog/search/find` | Blog search |
-| `/blog/author/:author_username` | Author profile |
-| `/blog/<slug>` | Individual blog post |
-
-### 13. Learner Group Routes
-
-| Route | Purpose | Guard |
-|------|---------|-------|
-| `/create-learner-group` | Create group | IsLoggedInGuard |
-| `/edit-learner-group/<id>` | Edit group | IsLoggedInGuard |
-| `/view-learner-group/<id>` | View group | No guard* |
-
-**Note:** /view-learner-group does not have IsLoggedInGuard at the routing level.
-
-### 14. Account & Profile Routes
-
-| Route | Purpose | Guard |
-|------|---------|-------|
-| `/preferences` | Account preferences | No guard* |
-| `/profile/<username>` | User profile | Public |
-| `/delete-account` | Delete account | IsLoggedInGuard |
-| `/pending-account-deletion` | Deletion waiting page | Public |
-| `/feedback-updates` | Feedback history | IsLoggedInGuard |
-
-**Note:** /preferences does not have IsLoggedInGuard at the routing level, though it typically requires login to function.
-
-### 15. Special Dynamic Routes
-
-#### 15.1 Stewards Landing Pages
-
-Old volunteer URLs are automatically redirected to /volunteer. This includes:
-- /parents
-- /partners
-- /nonprofits
-- /teachers
-- /volunteers
-This redirection happens through a loop in the routing configuration.
-
-#### 15.2 Topic Landing Pages
-
-Routes are auto-generated from AppConstants.AVAILABLE_LANDING_PAGES.
-Currently available:
-
-- /math/fractions
-- /math/negative-numbers
-- /maths/ratios
-New subject landing pages can be added to the constants file and will automatically work without manual routing changes.
-
-### 16. Error Handling Routes
-     
-| Route | Purpose |
-|------|---------|
-| `/error/iframed` | Iframe-safe error page |
-| `/error/<status_code>` | Custom error page |
-| `**` | Wildcard for broken URLs (404 page) |
-
-**Critical:** The wildcard route (**) must always stay last in the routes array, or it will capture all routes and break navigation.
-
-### 17. Why this routing file Is critical
-
-- Every valid Oppia URL is registered here
-- Every permission rule starts here
-- Every editor, admin page, and learner view depends on this configuration
-- If a route breaks or shows a false 404,check this file first
-- All paths must be defined in constants.ts, otherwise pages will have false 404 status codes
-
-### 18. Role-based Access Control
-
-| Route | Access Level | Example Routes |
-|------|-------------|---------------|
-| Public (Not Logged In) | Public pages and learning content | `/about`, `/contact`, `/donate`, `/learn/<classroom>` |
-| Learner | Learn and track progress | `/learner-dashboard`, practice sessions, `/profile` |
-| Contributor | Content suggestions & translations | `/contributor-dashboard`, `/feedback-updates` |
-| Creator | Create/edit explorations | `/creator-dashboard`, `/exploration_editor/<id>` |
-| Curriculum Admin | Manage topics, skills, classrooms | `/topic_editor/<id>`, `/classroom-admin` |
-| Moderator | Review content | `/moderator` |
-| Blog editor | Manage blog posts | `/blog-dashboard` |
-| Blog Admin | Admin blog settings | `/blog-admin` |
-| Voiceover Admin | Manage voiceovers | `/voiceover-admin` |
-| Release Coordinator | Cache & release tools | `/release-coordinator` |
-| Super Admin | Full access | `/admin` and all routes |
-
-### 19. Troubleshooting Tips
-Error: 'NoneType' object has no attribute 'version'
-
-**Fix:**
-1. Assign yourself the release-coordinator role
-2. Go to /release-coordinator
-3. Navigate to Misc section
-4. Click Flush Cache
-
-Route shows 404 but should exist
-Check:
-- Is the route registered in app.routing.module.ts?
-- Is the route constant defined in assets/constants.ts?
-- Are you using the correct URL format?
-- Does the route require login?
-Page loads but shows "Access Denied"
-Check:
-- Do you have the required role?
-- Some pages require specific roles (see Section 18)
-- Contact an admin if needed
-
-### 20. Quick reference for contributors
-
-**Login & Roles**
-- Login: /login
-- Admin panel: /admin
-  
-**Generate Test Data**
-1. Go to /admin
-2. Activities tab
-3. Generate dummy data
-   
-**Classroom Access**
-- All classrooms: /classrooms
-- Specific classroom: /learn/<classroom_url>
-
-**Editor Access**
-- Exploration editor: /exploration_editor/create/<id>
-- Collection editor: /collection_editor/create/<id>
-- Topic editor: /topic_editor/<id>
-- Skill editor: /skill_editor/<id>
-- Story editor: /story_editor/<id>
-
-### 21. Contributor Checklist
-- Dev server starts successfully
-- Dummy classroom created
-- Topic created & published
-- Topic added to classroom
-- /learn/<classroom_url> loads correctly
-- All routes tested
-- Cache flushed (if needed)
-- No console errors
-- Routes tested for logged-in and logged-out users
-
-### 22. Summary
-This routing guide provides a complete reference for all routes in Oppia.
-When contributing:
-- Always check the correct URL format
-- Verify guard requirements
-- Use exact, case-sensitive paths
-- Test logged-in and logged-out states
-- Refer to troubleshooting if issues occur
-- Contact Oppia maintainers or open a GitHub issue if needed
