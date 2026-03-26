@@ -38,7 +38,6 @@ Here are some general troubleshooting tips for Oppia. The platform specific tips
 - [Blank page or frontend not loading](#blank-page-or-frontend-not-loading)
 - [404 when opening `/admin`](#404-when-opening-admin)
 - [Unable to generate translation opportunities locally](#unable-to-generate-translation-opportunities-locally)
-- [Webpack “Cannot resolve module ‘fs’” frontend error](#webpack-cannot-resolve-module-fs-frontend-error)
 - [Linux](#linux)
   - [OSError: \[Errno 2\] No such file or directory](#oserror-errno-2-no-such-file-or-directory)
   - [Pip: Cannot Import Name Main](#pip-cannot-import-name-main)
@@ -376,23 +375,6 @@ To fix this:
 3. Repeat the setup steps from the Contributor Dashboard document when necessary.
 
 After completing those steps, you should be able to generate and view translation opportunities locally.
-
-### Webpack “Cannot resolve module ‘fs’” frontend error
-
-If your frontend build fails with an error like:
-`Module not found: Error: Can't resolve 'fs' in ...`
-
-it means your frontend code is trying to import a **Node-only module (`fs`)** that cannot be bundled for the browser.
-
-**Cause:**  
-Frontend code shouldn’t import modules that only work in Node environments (like `fs`).
-
-**Solution:**  
-1. Remove the import of `fs` or other Node-only modules from the frontend code.
-2. If you need file access or Node functionality, move that logic to backend code or expose it via an API.
-3. Rebuild (`yarn` / `python -m scripts.start --clean`) after fixing the import.
-
-This will stop Webpack from attempting to bundle a Node-only module for the client.
 
 ## Linux
 

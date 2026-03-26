@@ -21,7 +21,7 @@
 5. Go to http://localhost:8181/contributor-admin-dashboard and grant submit-question and review-question rights to your current username
 6. Navigate back to the Admin page, then go to the Activities tab. Click Load Data under Load dummy new structures data.
 7. For the question opportunities to be valid, their corresponding topics must be part of a classroom topic. Navigate to the classroom admin page: `http://localhost:8181/classroom-admin`.
-8. Click **Add New Classroom** (or edit an existing classroom), and add the relevant **topic IDs** to the classroom. Save your changes.
+8. Click **Add New Classroom** (or edit an existing classroom). Click **Add element** under `[topic_id]` in the "The details for each classroom page." section, then enter the topic ID for each new topic (you can find a topic's ID in its page URL from the Topic and Skills Dashboard). Make sure to click **Save** at the bottom of the config page.
 9. To enable the “Submit Question” tab for your user, make sure your signed-in user is allowlisted for submitting question suggestions.
 
 ### Generating explorations
