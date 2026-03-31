@@ -203,7 +203,7 @@ exec "$SHELL"
 
     ```console
     $ pip install pyyaml setuptools
-    Requirement already satisfied: setuptools in /home/user/.pyenv/versions/2.7.18/envs/oppia-tmp/lib/python2.7/site-packages (44.1.1)
+    Requirement already satisfied: setuptools in /home/user/.pyenv/versions/3.10.16.18/envs/oppia-tmp/lib/python3.10.16/site-packages (44.1.1)
     Collecting pyyaml
       Downloading PyYAML-5.4.1-cp27-cp27mu-manylinux1_x86_64.whl (574 kB)
          |████████████████████████████████| 574 kB 2.3 MB/s
@@ -301,9 +301,9 @@ exec "$SHELL"
 
 
    Traceback (most recent call last):
-     File "/home/user/.pyenv/versions/2.7.18/lib/python2.7/runpy.py", line 174, in _run_module_as_main
+     File "/home/user/.pyenv/versions/3.10.16.18/lib/python3.10.16/runpy.py", line 174, in _run_module_as_main
        "__main__", fname, loader, pkg_name)
-     File "/home/user/.pyenv/versions/2.7.18/lib/python2.7/runpy.py", line 72, in _run_code
+     File "/home/user/.pyenv/versions/3.10.16.18/lib/python3.10.16/runpy.py", line 72, in _run_code
        exec code in run_globals
      File "/opensource/oppia/scripts/start.py", line 202, in <module>
        main()
@@ -442,7 +442,7 @@ On Arch Linux, you should follow these instructions to set up your virtual envir
 
    ```console
    $ pip install pyyaml setuptools
-   Requirement already satisfied: setuptools in /home/user/.pyenv/versions/2.7.18/envs/oppia-tmp/lib/python2.7/site-packages (44.1.1)
+   Requirement already satisfied: setuptools in /home/user/.pyenv/versions/3.10.16.18/envs/oppia-tmp/lib/python3.10.16/site-packages (44.1.1)
    Collecting pyyaml
      Downloading PyYAML-5.4.1-cp27-cp27mu-manylinux1_x86_64.whl (574 kB)
         |████████████████████████████████| 574 kB 2.3 MB/s
