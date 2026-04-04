@@ -9,7 +9,7 @@
 - [Oppia Webpages](#oppia-webpages)
   - [About Page](#about-page)
   - [Admin Page](#admin-page)
-      + [Important Admin Page Tabs](#important-admin-page-tabs)
+      - [Important Admin Page Tabs](#important-admin-page-tabs)
   - [Android Page](#android-page)
   - [Blog Admin Page](#blog-admin-page)
   - [Blog Author Profile Page](#blog-author-profile-page)
@@ -25,7 +25,7 @@
   - [Contact Page](#contact-page)
   - [Contributor Admin Dashboard Page](#contributor-admin-dashboard-page)
   - [Contributor Dashboard Page](#contributor-dashboard-page)
-      + [Important Contributor Dashboard Page Tabs](#important-contributor-dashboard-page-tabs)
+      - [Important Contributor Dashboard Page Tabs](#important-contributor-dashboard-page-tabs)
   - [Create Learner Group Page](#create-learner-group-page)
   - [Creator Dashboard Page](#creator-dashboard-page)
   - [Creator Guidelines Page](#creator-guidelines-page)
@@ -34,7 +34,7 @@
   - [Diagnostic Test Player Page](#diagnostic-test-player-page)
   - [Donate Page](#donate-page)
   - [Edit Learner Group Page](#edit-learner-group-page)
-      + [Important Edit Learner Group Page Tabs](#important-edit-learner-group-page-tabs)
+      - [Important Edit Learner Group Page Tabs](#important-edit-learner-group-page-tabs)
   - [Email Dashboard Page](#email-dashboard-page)
   - [Embedded Exploration Player Page](#embedded-exploration-player-page)
   - [Exploration Editor Page](#exploration-editor-page)
@@ -55,7 +55,7 @@
   - [Privacy Policy Page](#privacy-policy-page)
   - [Profile Page](#profile-page)
   - [Release Coordinator Page](#release-coordinator-page)
-      + [Important Release Coordinator Page Tabs](#important-release-coordinator-page-tabs)
+      - [Important Release Coordinator Page Tabs](#important-release-coordinator-page-tabs)
   - [Review Test Page](#review-test-page)
   - [Signup Page](#signup-page)
   - [Skill Editor Page](#skill-editor-page)
@@ -71,11 +71,10 @@
   - [View Learner Group Page](#view-learner-group-page)
   - [Voiceover Admin Page](#voiceover-admin-page)
   - [Volunteer Page](#volunteer-page)
-
 - [Populating Data on Local Server](#populating-data-on-local-server)
-  - [Generate Explorations](#generate-explorations)
-  - [Generate Collections](#generate-collections)
-  - [Generate Dummy Blog Data](#generate-dummy-blog-data)
+  - [Populating the Explorations](#populating-the-explorations)
+  - [Populating the Collections](#populating-the-collections)
+  - [Populating the Blog Data](#populating-the-blog-data)
   - [Populating the Contributor Dashboard](#populating-the-contributor-dashboard)
   - [Populating the Story Player](#populating-the-story-player)
   - [Creating a Classroom](#creating-a-classroom)
@@ -417,7 +416,7 @@ None (Public)
    
 ![Blog Homepage](images/Webpage-Guide/bloghomepage.png)
 
-- To populate the Blog Homepage: See [Generate Dummy Blog Data](#generate-dummy-blog-data)
+- To populate the Blog Homepage: See [Populating the Blog Data](#populating-the-blog-data)
 
 ### Blog Post Page
 
@@ -532,7 +531,7 @@ Public (no login required)
 
 ![Collection player](images/Webpage-Guide/collections.png)
 
-- Ways to Generate Collections: See [Generate Collections](#generate-collections).
+- Ways to Generate Collections: See [Populating the Collections](#populating-the-collections).
 
 ### Community Library Page
 
@@ -919,7 +918,7 @@ None (Public)
 
 ![Old Exploration Player](images/Webpage-Guide/oldexploration.png)
 
-- To populate the Exploration Player Page: See [Generate Explorations](#generate-explorations)
+- To populate the Exploration Player Page: See [Populating the Explorations](#populating-the-explorations)
   
 ### Facilitator Dashboard Page
 
@@ -1562,77 +1561,47 @@ None
 
 This section explains all the ways data can be created, loaded, or generated on the Oppia local development server.
 
-### Generate Explorations
+### Populating the Explorations
 
 - To populate the Explorations:
   - **Quick method:** Use Generate Dummy Explorations OR Reload a Single Exploration in [Activities tab](#activities-tab).
 
   - **Manual method:**
 
-    Step 1. Open Creator Dashboard.  
-    Go to: http://localhost:8181/creator-dashboard  
-    Click: “Create Exploration”
-
-    Step 2. Choose Interaction Type  
-    You will be asked to select:
-    - Multiple Choice  
-    - Text Input  
-    - Fraction Input  
-    - Drag & Drop  
-    - Image Selection, etc.  
-    Click Create
-
-    Step 3. Add Content to the Card  
-    Each card contains:
-    - Content → The question shown to the learner  
-    - Interaction → How the learner answers  
-    - Response → Feedback after submission  
-
-    You must:
-    1. Enter the question  
-    2. Configure learner answer input  
-    3. Add feedback response  
-
-    Click Save Draft
-
-    Step 4. Add More Cards (Optional)  
-    Click: “Add New Card”  
-    Repeat the process to create multi-step lessons.
-
-    Step 5. Preview the Exploration  
-    Click the Preview button to test like a learner.
-
-    Step 6. Publish the Exploration  
-    Click: Publish  
-
-    If it is not published:
-    - It will NOT appear in stories  
-    - It will NOT be visible to learners  
-
-    Step 7. Use Exploration in a Story  
-
-    Once published:
-    1. Go to Topic Editor  
-    2. Open a Story  
-    3. Add a Chapter  
-    4. Select your published Exploration  
-    5. Save draft → Publish topic again if needed
+    - Open Creator Dashboard or Go to: http://localhost:8181/creator-dashboard 
+    - Click: “Create Exploration”
+    - Choose Interaction Type (You will be asked to select from Multiple Choice, Text Input, etc.)
+    - Click Create
+    - Add Content to the Card  
+        - Content → The question shown to the learner  
+        - Interaction → How the learner answers  
+        - Response → Feedback after submission  
+    - Click Save Draft
+    - Add More Cards (Optional)
+    -  Preview the Exploration
+    -   Publish the Exploration
+    -   Use Exploration in a Story  
+       - Go to Topic Editor  
+       - Open a Story  
+       - Add a Chapter  
+       - Select your published Exploration  
+       - Save draft → Publish topic again if needed
 
 
-### Generate Collections
+### Populating the Collections
 
 - To populate the Collections:
   - **Quick method:** Use Reload a Single Collection in [Activities tab](#activities-tab).
 
   - **Manual method:** Using the Collection Editor
 
-    Step 1. Log in to Oppia  
-    Step 2. Navigate to /creator-dashboard  
-    Step 3. Click the "+ CREATE EXPLORATION" button  
-    Step 4. A modal appears: "Create an Activity"  
-    Step 5. Select "New Collection"  
-    Step 6. Click "CREATE COLLECTION"  
-    Step 7. You will be redirected to the Collection Editor page  
+    - Log in to Oppia
+    -  Navigate to /creator-dashboard
+    -  Click the "+ CREATE EXPLORATION" button
+    -  A modal appears: "Create an Activity"
+    -  Select "New Collection"
+    -  Click "CREATE COLLECTION"
+    -  You will be redirected to the Collection Editor page  
 
 **Note:** Despite the button saying "Create Exploration", it opens a modal where you can choose to create either an Exploration OR a Collection.
 
@@ -1642,16 +1611,16 @@ This section explains all the ways data can be created, loaded, or generated on 
 - Cannot create new collections  
 
 
-### Generate Dummy Blog Data
+### Populating the Blog Data
 
 - To populate the Blog Data:
 
   - **Quick method:**
 
-    Step 1. Go to [Activities tab](#activities-tab)  
-    Step 2. Scroll to "Generate dummy blog post"  
-    Step 3. Click "Generate" next to titles  
-    Step 4. Each click generates and publishes a blog post  
+     - Go to [Activities tab](#activities-tab)
+     - Scroll to "Generate dummy blog post"
+     - Click "Generate" next to titles
+     - Each click generates and publishes a blog post  
 
 
 ### Populating the Contributor Dashboard
@@ -1661,58 +1630,44 @@ This section explains all the ways data can be created, loaded, or generated on 
   - **Manual method:**
 
     - **My Contributions**
-
-      Step 1. Log in to Oppia  
-      Step 2. Navigate to the Contributor Dashboard  
-      Step 3. Open the Translate Text tab  
-      Step 4. Select:
-        - A Topic  
-        - A Target Language (for example, Hindi)  
+      - Log in to Oppia
+      - Navigate to the Contributor Dashboard
+      - Open the Translate Text tab
+      - Select a Topic and a Target Language (for example, Hindi)
       ![Translate Text tab](images/Webpage-Guide/translatetext.png)
-
-      Step 5. Choose an Opportunity (an exploration lesson that requires translation).  
-      Step 6. Enter a translation for the text.  
-      Step 7. Click Save and Close  
+      - Choose an Opportunity
+      - Enter a translation
+      - Click Save and Close  
       ![Translate Text tab](images/Webpage-Guide/hinditranslatetext.png)
-
 
     - **Available Tasks (Reviewer Rights Required)**
        The Available Tasks section displays suggestions submitted by other users that require review. This section is visible only to users with reviewer rights.
-
-      Step 1. Navigate to the Admin page  
-      Step 2. Open the Roles tab  
-      Step 3. Enter your username  
-      Step 4. Select:
-        - Translation Admin  
-        - Question Admin  
-      Step 5. Click Update  
-      Step 6. Go to Contributor Admin Dashboard  
-
-      Step 7. In Manage Contributor Rights:
+      - Navigate to the Admin page
+      -  Open the Roles tab
+      -  Enter your username
+      -  Select roles: Translation Admin, Question Admin
+      -  Click Update
+      -  Go to Contributor Admin Dashboard  
+      - In Manage Contributor Rights:
         - Enter username  
-        - Select category
-          - Translation Reviewer  
-          - Question Reviewer  
+        - Select category (Translation Reviewer or Question Reviewer)
         - Select language (for example, Hindi)  
         - Click Add Rights  
       ![Contributor Rights](images/Webpage-Guide/contributorhindireview.png)
-
-      Step 8. Log in with a different account (or open an incognito window).  
-      Step 9. Submit a translation or question suggestion using the steps above.
+      - Log in with a different account (or open an incognito window)
+      - Submit a translation or question suggestion using the steps above
       ![Contributor Rights](images/Webpage-Guide/acceptedtranslation.png)
-
-      Step 10. Log back in with the reviewer account.  
-      Step 11. Open Available Tasks  
-      Step 12. Review suggestion  
+      - Log back in with the reviewer account
+      - Open Available Tasks
+      - Review suggestion  
       ![reviewtranslations](images/Webpage-Guide/reviewtranslations.png)
 
-
-    - **Accomplishments**
-
-      Step 1. Log in with reviewer rights  
-      Step 2. Go to Available Tasks  
-      Step 3. Review suggestion  
-      Step 4. Click Accept  
+  - **Accomplishments**
+      
+     -  Log in with reviewer rights
+     -  Go to Available Tasks
+     -  Review suggestion
+     -  Click Accept  
 
       **Result:**
       - The contributor’s statistics will update in the Accomplishments tab.  
@@ -1725,30 +1680,27 @@ The Available Tasks section remains hidden until reviewer permissions are grante
 - To populate the Story Player Page:
   - **Quick method:** Use Load Dummy New Structures Data in [Activities tab](#activities-tab).
     (creates a complete topic with a story and 3 chapters in one click).
+    
   - **Using Activities Tab generators:**
     
-    Step 1. Generate or create a topic (Curriculum Admin required)
+     - Generate or create a topic (Curriculum Admin required)
+     -  Use [Generate Stories](#generate-stories) to create stories for that topic
+     -  Use [Generate Chapters](#generate-chapters) to create chapters for those stories
     
-    Step 2. Use [Generate Stories](#generate-stories) to create stories for that topic
-    
-    Step 3. Use [Generate Chapters](#generate-chapters) to create chapters for those stories
-    
-  - **Manual method:** See [Creating a Topic](#creating-a-topic) and [Generate Explorations](#generate-explorations).
+  - **Manual method:** See [Creating a Topic](#creating-a-topic) and [Populating the Explorations](#populating-the-explorations).
     
 ### Creating a Classroom
    - **Quick method:**
      
-     Step 1. Go to [Activities tab](#activities-tab)
-     
-     Step 2. In the Generate a dummy math classroom section, click the Generate Data button.
+     - Go to [Activities tab](#activities-tab)
+     - In the Generate a dummy math classroom section, click the Generate Data button.
 
    ![Dummy math classroom](images/Webpage-Guide/generatingdummymath.png)
    
    - **Manual method:**
      
-     Step 1. Open /classroom-admin
-     
-     Step 2. Click Add New Classroom
+     - Open /classroom-admin
+     - Click Add New Classroom
   ![Add New Classroom](images/Webpage-Guide/creatingclassroom1.png)
 
      **Enter:**
@@ -1768,20 +1720,16 @@ The Available Tasks section remains hidden until reviewer permissions are grante
 ### Creating a Topic
    - **Quick method:** Use Load Dummy New Structures Data in [Activities tab](#activities-tab)(Loads a complete dataset, including: Topics,Skills,Stories,Questions)
    - **Manual method:**
-     
-      Step 1. Open the Topics and Skills Dashboard.
-     
-      Step 2. Click on CREATE TOPIC.
-     
-      Step 3. A form will open where you need to fill:
-      - Topic name
-      - Topic thumbnail
-      - Other required details.
+      - Open the Topics and Skills Dashboard.
+      - Click on CREATE TOPIC.
+      - A form will open where you need to fill:
+         - Topic name
+         - Topic thumbnail
+         - Other required details.
   ![create topic](images/Webpage-Guide/createtopic.png)
-
-       Step 4. After saving, you will be redirected to the Topic Editor page.
+      - After saving, you will be redirected to the Topic Editor page.
  ![Topic Editor page](images/Webpage-Guide/topiceditor.png)
-       Step 5. In the main editor tab, you will see validation errors that must be fixed before publishing.
+      - In the main editor tab, you will see validation errors that must be fixed before publishing.
 ![warnings](images/Webpage-Guide/warnings.png)
      
 Sections in the Topic Editor:
@@ -1791,14 +1739,14 @@ Sections in the Topic Editor:
 ![Subtopics](images/Webpage-Guide/subtopics.png)
 
 **Adding Content to a Subtopic (for Study Guide):**
-Step 1. In the Topic Editor, click on a subtopic name to open the Subtopic Editor.
-Step 2. Fill in the required fields:
+- In the Topic Editor, click on a subtopic name to open the Subtopic Editor.
+- Fill in the required fields:
    - **Title** — Name of the subtopic
    - **URL Fragment** — Used in the Study Guide URL
    - **Explanation** — Rich-text content shown on the Study Guide page (click the pen icon to edit)
    - **Thumbnail Image** — Upload a thumbnail
-Step 3. Under the **Skills** section, skills from the topic are listed. You can remove skills from the subtopic using the options menu.
-Step 4. Skills are assigned to subtopics by dragging them from the "Uncategorized Skills" section in the main Topic Editor.
+- Under the **Skills** section, skills from the topic are listed. You can remove skills from the subtopic using the options menu.
+- Skills are assigned to subtopics by dragging them from the "Uncategorized Skills" section in the main Topic Editor.
 
 - **Diagnostic Tests-**
 Add skills that will be used to test learners before recommending this topic.
@@ -1812,35 +1760,27 @@ This section lists all stories that belong to this topic.
 
 - Preview the Topic
   
-Step 1. Click the Preview button in the top navigation bar
-
-Step 2. This shows exactly how learners will see your topic before publishing.
+   - Click the Preview button in the top navigation bar
+   - This shows exactly how learners will see your topic before publishing.
 
 ![Preview the Topic](images/Webpage-Guide/topicpreview.png)
 
 - Publish the Topic
 Once all validation errors are resolved:
 
-Step 1. Click Publish Topic
-
-Step 2. Your Topic is now live in the system.
+  - Click Publish Topic
+  - Your Topic is now live in the system.
 
 - Add the Published Topic to the Math Classroom
-To make your topic visible on the Math Classroom page:
+  
+  To make your topic visible on the Math Classroom page:
 
-Step 1. Go to http://localhost:8181/classroom-admin
-
-Step 2. Select the classroom (e.g. Math)
-
-Step 3. Click edit (pencil icon)
-
-Step 4. Add the published Topic ID
-
-Step 5.Save changes
-
-- Verify on the Math Classroom Page
- Go to:
-http://localhost:8181/learn/math
+  - Go to http://localhost:8181/classroom-admin
+  - Select the classroom (e.g. Math)
+  - Click edit (pencil icon)
+  - Add the published Topic ID
+  - Save changes
+  - Verify on the Math Classroom Page: http://localhost:8181/learn/math
 
  You should now see your newly created topic listed on the classroom page.
 
@@ -1856,104 +1796,95 @@ There are two ways to create a skill:
 
 **Method 1: From Topic Editor**
 
-Step 1. Open any Topic Editor
-
-Step 2. Click ADD SKILL under the Subtopics section
-
-Step 3. The skill will be automatically assigned to the topic
-
+  - Open any Topic Editor
+  - Click ADD SKILL under the Subtopics section
+  - The skill will be automatically assigned to the topic
+    
 **Method 2: From Topics and Skills Dashboard**
 
-Step 1. Go to the dashboard
+- Go to the dashboard  
+- Click **ADD SKILL**  
+- This skill will not be assigned to any topic automatically  
 
-Step 2. Click ADD SKILL
+![ADD SKILL](images/Webpage-Guide/newskill.png)
 
-Step 3. This skill will not be assigned to any topic automatically
-   ![ADD SKILL](images/Webpage-Guide/newskill.png)
-   
-Step 4. After saving, you will be taken to the Skill Editor page.
+- After saving, you will be taken to the **Skill Editor page**
 
-Step 5. Sections Inside the Skill Editor:
-- Details
-  ![Details](images/Webpage-Guide/populatingdetails.png)
-  
-- Worked Example
-![Worked Example](images/Webpage-Guide/workedexample.png)
+- Sections inside the Skill Editor:
 
-- Misconceptions
-These are common mistakes learners make.
-You can force these misconceptions to appear in all questions.
+  - **Details**  
+    ![Details](images/Webpage-Guide/populatingdetails.png)
 
-![Misconceptions](images/Webpage-Guide/misconception.png)
+  - **Worked Example**  
+    ![Worked Example](images/Webpage-Guide/workedexample.png)
 
-- Pre-requisite Skills
-These are skills learners should complete first.
-You can filter by:
-- Topic
-- Subtopic
-- Skill name
+  - **Misconceptions**  
+    - These are common mistakes learners make  
+    - You can force these misconceptions to appear in all questions  
+    ![Misconceptions](images/Webpage-Guide/misconception.png)
 
-![Pre-requisite Skills](images/Webpage-Guide/prerequisiteskills.png)
+  - **Pre-requisite Skills**  
+    - These are skills learners should complete first  
+    - You can filter by:
+      - Topic  
+      - Subtopic  
+      - Skill name  
+    ![Pre-requisite Skills](images/Webpage-Guide/prerequisiteskills.png)
 
-- Rubrics
-Helps question creators follow defined standards.
+  - **Rubrics**  
+    - Helps question creators follow defined standards  
+    ![Rubrics](images/Webpage-Guide/rubrics.png)
 
-![Rubrics](images/Webpage-Guide/rubrics.png)
+- Adding questions to a skill:
 
-**Adding Questions to a Skill**
-Step 1. Scroll to the Questions section
+  - Scroll to the **Questions** section  
+  - Click **ADD QUESTION**
 
-Step 2. Click ADD QUESTION
+  - Inside the **Question Editor**, fill these parts:
 
-Step 3. Inside the Question Editor, fill these 5 parts:
-- Difficulty
-                        
-![Difficulty](images/Webpage-Guide/difficulty.png)
+    - **Difficulty**  
+      ![Difficulty](images/Webpage-Guide/difficulty.png)
 
-- Problem
+    - **Problem**  
+      ![Problem](images/Webpage-Guide/skilleditor.png)
 
-![Problem](images/Webpage-Guide/skilleditor.png)
+    - **Interaction**  
+      ![Interaction](images/Webpage-Guide/interaction.png)
+ 
+    - **Answers and Respones**  
+      ![Answers and Respones](images/Webpage-Guide/interaction.png)
 
-- Interaction
-![Interaction](images/Webpage-Guide/interaction.png)
+    - **Hints**  
+      ![ADD Hints](images/Webpage-Guide/addhint.png)
 
-- Answers and Responses
-  Hints
-![ADD Hints](images/Webpage-Guide/addhint.png)
+  - After filling everything, click **Save**
 
-- After filling everything, click Save
-
-![Save](images/Webpage-Guide/creatingtopicsave.png)
+    ![Save](images/Webpage-Guide/creatingtopicsave.png)
     
-#### Generate Stories
+### Generate Stories
  - **Quick method:** Use Generate Stories in [Activities tab](#activities-tab)
   
-#### Generate Chapters
+### Generate Chapters
  - **Quick method:** Select a story from the dropdown, enter the number of chapters, and click **Generate Chapters** in [Activities tab](#activities-tab)
  
 
 ### Populating the Community Library
 Populated when:
-- Explorations are published (See [Generate Explorations](#generate-explorations))
-- Collections are published  (See [Generate Collections](#generate-collections))
-
+- Explorations are published (See [Populating the Explorations](#populating-the-explorations))
+- Collections are published  (See [Populating the Collections](#populating-the-collections))
 ### Populating the New Lesson Player Page
 - To populate the New Lesson Player Page:
   - **Quick method:** Use Load Dummy New Structures Data in [Activities tab](#activities-tab)
     
   - **Manual method:**
-    
-    Step 1. Create classroom (See [Creating a Classroom](#creating-a-classroom))
-    
-    Step 2. Create topic (See [Creating a Topic](#creating-a-topic))
-    
-    Step 3. Add stories and chapters (See [Generate Stories](#generate-stories) and [Generate Chapters](#generate-chapters))
-    
-    Step 4. Link explorations (See [Generate Explorations](#generate-explorations))
+    - Create classroom (See [Creating a Classroom](#creating-a-classroom))
+    - Create topic (See [Creating a Topic](#creating-a-topic))
+    - Add stories and chapters (See [Generate Stories](#generate-stories) and [Generate Chapters](#generate-chapters))
+    - Link explorations (See [Populating the Explorations](#populating-the-explorations))
     
 ### Populating the Practice Session Page
 - To populate the Practice Session Page:
- - **Manual method:** Create a topic with skills that have at least 10 questions each. Then enable "Show Practice Tab to learners" in the [Topic Editor](#topic-editor-page). See [Creating a Skill](#creating-a-skill) and [Creating a Topic](#creating-a-topic).
+   - **Manual method:** Create a topic with skills that have at least 10 questions each. Then enable "Show Practice Tab to learners" in the [Topic Editor](#topic-editor-page). See [Creating a Skill](#creating-a-skill) and [Creating a Topic](#creating-a-topic).
 
 **Note**
 
@@ -1975,28 +1906,27 @@ Even after adding 10 questions to the skills in a topic, the Practice Session ro
 ### Populating the Classroom Page
 - To populate the Classroom Page: See [Creating a Classroom](#creating-a-classroom)
   
-
 ### Populating the Review Test Page
 
 - To populate the Review Test Page:
   
      - **Quick method:**
        
-       Step 1. Go to http://localhost:8181/admin -> Activities tab and click Load dummy new structures data once.
-       Step 2. Go to http://localhost:8181/classroom-admin, edit the "Math" classroom, and add the ID of "Dummy Topic 1" to the topics list.
-       Step 3. Open the Topic Editor for "Dummy Topic 1". Under the Canonical Stories tab, open the "Help Jaime win the Arcade" story.
-       Step 4. Click on each chapter (node) and manually add the generated dummy skills to the Acquired Skills section, then save.
-       Step 5. Log in as a student and complete at least one chapter. Once finished, the Review Test for those skills will be unlocked.
+       - Go to http://localhost:8181/admin -> Activities tab and click Load dummy new structures data once
+       - Go to http://localhost:8181/classroom-admin, edit the "Math" classroom, and add the ID of "Dummy Topic 1" to the topics list
+       - Open the Topic Editor for "Dummy Topic 1". Under the Canonical Stories tab, open the "Help Jaime win the Arcade" story.
+       - Click on each chapter (node) and manually add the generated dummy skills to the Acquired Skills section, then save.
+       - Log in as a student and complete at least one chapter. Once finished, the Review Test for those skills will be unlocked.
   
      - **Using Activities Tab generators:**
        
-       Step 1. Generate a topic, then use the Generate Stories and Generate Chapters buttons in [Activities tab](#activities-tab).
-       Step 2. Use Generate Skills to create at least 3 skills for the topic in [Activities tab](#activities-tab).
-       Step 3. Use Generate Question Suggestions to add questions to those skills in [Activities tab](#activities-tab).
+       - Generate a topic, then use the Generate Stories and Generate Chapters buttons in [Activities tab](#activities-tab).
+       - Use Generate Skills to create at least 3 skills for the topic in [Activities tab](#activities-tab).
+       - Use Generate Question Suggestions to add questions to those skills in [Activities tab](#activities-tab).
        
      - **Manual method:**
-        Step 1. Create a topic, story, and chapters in the Topic Editor. (See [Creating a Topic](#creating-a-topic))
-        Step 2. Assign skills with questions to those chapters, publish everything, and complete the chapters as a learner.
+       - Create a topic, story, and chapters in the Topic Editor. (See [Creating a Topic](#creating-a-topic))
+       - Assign skills with questions to those chapters, publish everything, and complete the chapters as a learner.
        
 Note: The "Load dummy new structures data" button generates a basic structure but requires manual linking in the Classroom Admin and Topic Editor to fully function. Additionally, some reloaded explorations may be missing interaction data (such as multiple-choice options), which can occasionally prevent a learner from reaching the completion screen required to unlock the Review Test.
 
