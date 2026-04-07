@@ -1626,6 +1626,32 @@ This section explains all the ways data can be created, loaded, or generated on 
 ### Populating the Contributor Dashboard
 
 - To populate the Contributor Dashboard:
+  
+   - **Quick method:**
+     
+     - **Method 1: Generate Dummy Translation Opportunities**
+      
+       - **Populates:** Translate Text tab (with translation opportunities) and My Contributions → Translations (after submitting translations)
+       - **Steps:**
+         - Log in as a [Super Admin](#log-in-as-a-super-administrator)
+         - Assign yourself the Curriculum Admin role via Admin → Roles tab
+         - Go to [Activities tab](#activities-tab)
+         - Scroll to "Generate dummy translation opportunities"
+         - Enter the number of translation opportunities to generate
+         - Click "Generate Translation Opportunities"
+         - Navigate to the Contributor Dashboard → Translate Text tab
+         - Select a language (for example, Hindi) and a topic to see the generated opportunities
+          
+     - **Method 2: Load Dummy New Structures Data**
+       
+       - **Populates:** Translate Text tab (with translation opportunities)
+       - **Steps:**
+         - Log in as a [Super Admin](#log-in-as-a-super-administrator)
+         - Assign yourself the Curriculum Admin role via Admin → Roles tab
+         - Go to [Activities tab](#activities-tab)
+         - Scroll to "Load dummy new structures data"
+         - Click "Load Data"
+         - Navigate to the Contributor Dashboard → Translate Text tab to see translation opportunities
 
   - **Manual method:**
 
@@ -1701,35 +1727,43 @@ The Available Tasks section remains hidden until reviewer permissions are grante
      
      - Open /classroom-admin
      - Click Add New Classroom
+       
   ![Add New Classroom](images/Webpage-Guide/creatingclassroom1.png)
 
-     **Enter:**
-     - Classroom name
-     - URL fragment
+  **Enter:**
+  
+  - Classroom name
+  - URL fragment
+     
  ![Classroom name](images/Webpage-Guide/creatingclassroomaddnew.png)
-     - Click on the classroom title
-     - Click the pencil icon to edit details
+ 
+  - Click on the classroom title
+  - Click the pencil icon to edit details
+     
  ![classroom title](images/Webpage-Guide/creatingclassroommath1.png)
 
    **Add:**
    - Course details
    - Topic introduction
    - Topic IDs
+     
  ![creating classroom math](images/Webpage-Guide/creatingclassroommath.png)
 
 ### Creating a Topic
-   - **Quick method:** Use Load Dummy New Structures Data in [Activities tab](#activities-tab)(Loads a complete dataset, including: Topics,Skills,Stories,Questions)
+   - **Quick method:** Use Load Dummy New Structures Data in [Activities tab](#activities-tab) (Loads a complete dataset, including: Topics,Skills,Stories,Questions)
    - **Manual method:**
       - Open the Topics and Skills Dashboard.
       - Click on CREATE TOPIC.
       - A form will open where you need to fill:
          - Topic name
          - Topic thumbnail
-         - Other required details.
+         - Other required details           
   ![create topic](images/Webpage-Guide/createtopic.png)
-      - After saving, you will be redirected to the Topic Editor page.
+
+         - After saving, you will be redirected to the Topic Editor page.          
  ![Topic Editor page](images/Webpage-Guide/topiceditor.png)
-      - In the main editor tab, you will see validation errors that must be fixed before publishing.
+         - In the main editor tab, you will see validation errors that must be fixed before publishing.
+    
 ![warnings](images/Webpage-Guide/warnings.png)
      
 Sections in the Topic Editor:
@@ -1738,7 +1772,7 @@ Sections in the Topic Editor:
 - **Subtopics** – Lists subtopics and the skills linked to them
 ![Subtopics](images/Webpage-Guide/subtopics.png)
 
-**Adding Content to a Subtopic (for Study Guide):**
+**Adding Content to a Subtopic:**
 - In the Topic Editor, click on a subtopic name to open the Subtopic Editor.
 - Fill in the required fields:
    - **Title** — Name of the subtopic
@@ -1751,6 +1785,7 @@ Sections in the Topic Editor:
 - **Diagnostic Tests-**
 Add skills that will be used to test learners before recommending this topic.
 A skill must have at least 3 questions and be assigned to the topic to be used here.
+
 ![Diagnostic Tests](images/Webpage-Guide/diagnostictest.png)
 
 - **Canonical Stories**-
@@ -1785,12 +1820,14 @@ Once all validation errors are resolved:
  You should now see your newly created topic listed on the classroom page.
 
 ### Creating a Skill 
- - **Quick method:** Use Load Dummy New Structures Data in [Activities tab](#activities-tab)(Loads a complete dataset, including: Topics,Skills,Stories,Questions)
+ - **Quick method:** Use Load Dummy New Structures Data in [Activities tab](#activities-tab) (Loads a complete dataset, including: Topics,Skills,Stories,Questions)
    
  - **Manual method:**
+   
     NOTE - A skill must have:
-- At least **3 questions** to appear in the **Diagnostic Test**
-- At least **10 questions** to appear in **Practice Sessions**
+   
+     - At least **3 questions** to appear in the **Diagnostic Test**
+     - At least **10 questions** to appear in **Practice Sessions**
 
 There are two ways to create a skill:
 
@@ -1851,7 +1888,7 @@ There are two ways to create a skill:
     - **Interaction**  
       ![Interaction](images/Webpage-Guide/interaction.png)
  
-    - **Answers and Respones**  
+    - **Answers and Responses**  
       ![Answers and Respones](images/Webpage-Guide/interaction.png)
 
     - **Hints**  
