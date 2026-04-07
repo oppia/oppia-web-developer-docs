@@ -1,76 +1,131 @@
-This page explains how to connect a personal Google Analytics account to a local Oppia dev server and verify analytics events without relying only on "window.dataLayer".
+This guide explains, step by step, how to connect local Oppia to Google Analytics 4 (GA4), confirm events are being sent, and understand where to look when something fails.
 
-## Table of contents
-* [Overview](#overview)
-* [Set up a personal Google Analytics property](#set-up-a-personal-google-analytics-property)
-* [Connect Google Analytics to local Oppia](#connect-google-analytics-to-local-oppia)
-* [Verify events locally](#verify-events-locally)
-* [Troubleshooting and tips](#troubleshooting-and-tips)
+If you are new to GA4 debugging, use this page as a checklist and learning guide. Each step explains both:
+1. What to do.
+2. Why that step matters.
 
-## Overview
-Oppia sends frontend analytics through `gtag.js`. On a local dev server, these events are controlled by analytics constants that are compiled into the frontend. By pointing those constants to your own Google Analytics property, you can use the Google Analytics UI to confirm whether events are being registered.
+Useful references:
+1. [GA4 setup assistant](https://support.google.com/analytics/answer/9304153)
+2. [Google tag (`gtag.js`) developer guide](https://developers.google.com/tag-platform/gtagjs)
+3. [GA4 Realtime report](https://support.google.com/analytics/answer/9271392)
+4. [GA4 DebugView](https://support.google.com/analytics/answer/7201382)
+5. [Tag Assistant extension](https://chromewebstore.google.com/detail/tag-assistant/kejbdjndbnbjgmefkgdddjlbokphdefk?hl=en-US&utm_source=ext_sidebar)
 
-This guide assumes you are running Oppia locally and want to keep analytics traffic private to your own account.
+## Event flow to verify
+Before starting, it helps to know the end-to-end path your analytics event takes.
 
-## Set up a personal Google Analytics property
-1. Go to Google Analytics and create a new account (or use an existing one).
-2. Create a new property and choose a "Web" data stream.
-3. Copy the "Measurement ID" for the web stream. It looks like `G-XXXXXXXXXX`.
-4. If you want Google Tag Manager support, create a new Tag Manager container and copy its container ID. It looks like `GTM-XXXXXXX`.
+When debugging GA4 in Oppia, validate this sequence:
+1. Oppia emits an event (`gtag`/`dataLayer`).
+2. Browser sends a `/g/collect` request.
+3. Tag Assistant detects the GA4 tag and hit.
+4. GA4 Realtime shows incoming events.
+5. GA4 DebugView shows the event timeline (`debug_mode` path).
 
-## Connect Google Analytics to local Oppia
-1. Open `assets/analytics-constants.json` in your local Oppia repo.
-2. Update the fields below to use your own IDs.
-3. Set `GA_ANALYTICS_ID` to your measurement ID (the `G-...` value).
-4. Set `GTM_ANALYTICS_ID` to your Tag Manager container ID (the `GTM-...` value). If you are not using Tag Manager, create a container and use its ID since the GTM script is loaded whenever analytics are enabled.
-5. Ensure `CAN_SEND_ANALYTICS_EVENTS` is `true`.
-6. If you are not serving Oppia on `localhost`, update `SITE_NAME_FOR_ANALYTICS` to the hostname you are using (for example `127.0.0.1`).
-7. Restart the dev server so the frontend rebuilds with the new constants.
+Why this helps: if one step fails, you immediately know where to investigate instead of guessing across the whole stack.
 
-If analytics events are still not reaching your Google Analytics property, verify that the webpack template parameters are wired through to the HTML templates.
+## 1) Confirm your GA4 stream and Measurement ID
+Start by confirming the exact GA4 web stream you want local Oppia to use.
 
-In `webpack.common.config.ts`, confirm the helper below exists and that it is passed to both HtmlWebpackPlugin instances (for `oppia_root` and `lightweight_oppia_root`):
+Open your GA4 Web stream details and copy the Measurement ID (`G-...`).
 
-```ts
-// webpack.common.config.ts
-// Helper function to provide analytics constants to HTML templates
-function getTemplateParameters() {
-  return {
-    CAN_SEND_ANALYTICS_EVENTS:
-      analyticsConstants.CAN_SEND_ANALYTICS_EVENTS || false,
-    GA_ANALYTICS_ID: analyticsConstants.GA_ANALYTICS_ID || '',
-    GTM_ANALYTICS_ID: analyticsConstants.GTM_ANALYTICS_ID || '',
-    SITE_NAME_FOR_ANALYTICS: analyticsConstants.SITE_NAME_FOR_ANALYTICS || '',
-  };
-}
-```
+![GA4 stream details showing Measurement ID](images/GoogleAnalytics/ga4-stream-details-measurement-id.png)
 
-And ensure it is referenced in both plugin configs:
+What to check in this screen:
+1. You are in the correct GA4 property.
+2. You can see the Measurement ID clearly.
+3. This is the exact ID you will place in Oppia constants.
 
-```ts
-templateParameters: getTemplateParameters(),
-```
+Why this step matters: the wrong property or wrong `G-...` ID is the most common reason events never appear in your dashboard.
 
-To avoid accidentally committing your local IDs, you can mark the file as unchanged in git:
+## 2) Connect local Oppia to your GA4 property
+Now configure Oppia so local events are sent to your personal GA4 stream.
+
+In `assets/analytics-constants.json`, set:
+1. `CAN_SEND_ANALYTICS_EVENTS: true`
+2. `GA_ANALYTICS_ID: "G-..."` (from stream details)
+3. `SITE_NAME_FOR_ANALYTICS: "localhost"` (for local testing)
+4. `GTM_ANALYTICS_ID: "GTM-..."` only if your local setup uses GTM
+
+Restart the dev server after changing constants.
+
+Why restart is required: analytics constants are compiled into frontend output, so changes are not picked up until the frontend rebuilds.
+
+To avoid committing personal IDs:
 
 ```bash
 git update-index --assume-unchanged assets/analytics-constants.json
 ```
 
-To undo that later:
+Undo later:
 
 ```bash
 git update-index --no-assume-unchanged assets/analytics-constants.json
 ```
 
-## Verify events locally
-1. Open Oppia in your browser and reproduce the user action that should fire the event.
-2. In your browser devtools, verify that `window.gtag` exists and that `window.dataLayer` receives the event payload.
-3. In the Network tab, filter for Google Analytics requests and confirm that `https://www.googletagmanager.com/gtag/js?id=G-...` is loaded and that event payloads are sent to Google Analytics endpoints (for GA4 this is often `https://www.google-analytics.com/g/collect` or a regional `https://region1.google-analytics.com/g/collect`).
-4. In Google Analytics, open "Reports" then "Realtime" to see events appear within seconds.
+## 3) Ensure DebugView path is enabled (`debug_mode`)
+Realtime confirms ingestion, but DebugView is the best screen for debugging event sequence and timing.
 
-## Troubleshooting and tips
-1. If `window.gtag` is undefined, make sure `CAN_SEND_ANALYTICS_EVENTS` is `true` and restart the dev server.
-2. If you do not see any network requests, disable ad blockers or privacy extensions for `localhost`.
-3. If Realtime does not show events, confirm that the measurement ID in `assets/analytics-constants.json` matches your property.
-4. If events show in `window.dataLayer` but not in GA, double check that `gtag.js` was downloaded and that requests to Google Analytics are not blocked by the browser or network.
+In `core/templates/services/google-analytics-initializer.ts`, verify GA config includes:
+
+```ts
+gtag('config', analyticsConstants.GA_ANALYTICS_ID, {
+  'anonymize_ip': true,
+  'forceSSL': true,
+  'debug_mode': analyticsConstants.SITE_NAME_FOR_ANALYTICS === 'localhost',
+});
+```
+
+## 4) Validate browser network request (`/g/collect`)
+Before checking GA dashboards, verify that the browser is actually sending analytics requests.
+
+Trigger an Oppia action that should fire analytics, then inspect DevTools Network with filter `collect`.
+
+![Devtools Network tab showing successful g/collect request](images/GoogleAnalytics/devtools-gcollect-network.png)
+
+What this screenshot should prove:
+1. A `collect` request is sent to `www.google-analytics.com/g` .
+2. Request payload includes `tid=<your-measurement-id>`.
+3. Request succeeds (`2xx` status).
+
+If this step fails, GA4 dashboards will not update.
+
+## 5) Validate tag execution in Tag Assistant
+Tag Assistant gives a tag-level explanation of what fired, which is often easier for beginners than raw network payloads.
+
+Open Tag Assistant while using local Oppia and reproduce events.
+
+![Tag Assistant showing GA4 tag and event details](images/GoogleAnalytics/tag-assistant-ga4-event.png)
+
+What to verify here:
+1. The GA4 tag (your `G-...`) is detected.
+2. Expected hits/events are listed (for example `page_view`, `lesson_started`, `new_card_load`).
+3. No blocking or critical tag errors are shown.
+
+Use this together with Network tab: Tag Assistant confirms tag behavior, Network confirms outbound request delivery.
+
+## 6) Confirm events in GA4 Realtime
+Once browser-side checks pass, verify server-side ingestion in GA4.
+
+Open **Reports > Realtime** in the same property.
+
+![GA4 Realtime dashboard with local events visible](images/GoogleAnalytics/ga4-realtime-events.png)
+
+What to verify:
+1. Active users reflect your local session.
+2. Event cards include your expected events.
+3. Event counts rise when you trigger new actions in Oppia.
+
+If you do not see data immediately, wait briefly and trigger one more event; Realtime is near real time but not always instant.
+
+## 7) Confirm event timeline in GA4 DebugView
+Finally, use DebugView to validate event ordering and timing for your local session.
+
+Open **Admin/Data display > DebugView** and continue interacting with Oppia.
+
+![GA4 DebugView timeline showing event stream](images/GoogleAnalytics/ga4-debugview-timeline.png)
+
+What to verify:
+1. Event timeline updates in near real time.
+2. Same event names seen in Tag Assistant/Realtime appear here.
+3. Sequence is logical (`page_view` before interaction events, etc.).
+
