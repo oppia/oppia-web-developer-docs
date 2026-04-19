@@ -21,9 +21,7 @@
     * [[Installing Oppia|Installing-Oppia]]
       * [[Set up your development tools|Tips-for-common-IDEs]]
     * [[How to access Oppia webpages|How-to-access-Oppia-webpages]]
-    * [[Populating data on local server|Populating-data-on-local-server]]
     * Team onboarding guides
-      * [[LaCE Team|LaCE-onboarding-guide]]
       * [[Contributor Dashboard Team|Contributor-dashboard]]
     * [[Learning resources for developers|Learning-Resources]]
   * [[How the codebase is organized|Overview-of-the-Oppia-codebase]]

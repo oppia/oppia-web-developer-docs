@@ -365,6 +365,10 @@ If you need clarification on any of these ideas, feel free to open a thread in G
 
 ### 1.1. Web user feedback
 
+> [!IMPORTANT]
+> This is a popular project idea.
+> Multiple applicants are interested in this project.
+
 **Project Description:** Learners (and other relevant users) should have an easy way to report issues with the platform so that we can quickly catch and resolve these issues in a scalable manner.
 
 Links to PRD and mocks:
@@ -575,6 +579,10 @@ Milestone 2:
 </details>
 
 ### 1.3. Re-design the topic page
+
+> [!IMPORTANT]
+> This is a popular project idea.
+> Multiple applicants are interested in this project.
 
 **Project Description:** Based on user feedback, on the current topic page, users often overlook the Practice and Revision tabs completely. Additionally, the functionality in those tabs is not correlated with the available lessons, making it unclear to learners when they should review or practice those skills.
 
@@ -815,6 +823,10 @@ Milestone 2:
 
 ### 2.2. Extend translation infrastructure to exploration metadata and skills
 
+> [!IMPORTANT]
+> This is a popular project idea.
+> Multiple applicants are interested in this project.
+
 **Project Description:** Currently, we have two main mechanisms for translating content at Oppia: translatewiki and the contributor dashboard. Translatewiki handles content that is not user-generated, for example the text on the homepage at oppia.org. The goal of this project is to extend the contributor dashboard to handle other kinds of user-generated content in our curated curriculum, specifically the following:
 
 - exploration metadata (e.g. titles and tags)
@@ -922,6 +934,10 @@ Milestone 2:
 ## Developer Workflow Team
 
 ### 3.1. Improve acceptance test infrastructure
+
+> [!IMPORTANT]
+> This is a popular project idea.
+> Multiple applicants are interested in this project.
 
 **Project Description:** [Acceptance tests](https://github.com/oppia/oppia/wiki/Acceptance-Tests) are end-to-end tests organized by Critical User Journeys (CUJs). However, these tests are not as stable as we are expecting them to be. This project aims to improve the infrastructure of the acceptance tests to make it more stable and easy to manage. This includes but is not limited to migrating to Playwright from Puppeteer to reduce test flakiness, adding workflows to easily update snapshots, and documentation updates. Further, we expect using Playwright to reduce test flakiness, but some flakes will likely persist. This project includes fixing these persistent flakes. To limit the scope of this part of the project, you won't be expected to fix more than 10 persistent flakes (i.e. flakes that aren't fixed by the migration and weren't introduced by your changes). All of the acceptance test infrastructure issues can be found [here](https://github.com/orgs/oppia/projects/8/views/11?sliceBy[value]=[Project]+Fix+infrastructure+issues+in+the+acceptance+tests).
 
@@ -1262,6 +1278,10 @@ We also recommend taking up at least one checkbox item from each of the followin
 
 ### 4.1 Support for Lesson Progress, Study Guides, and Worked Examples
 
+> [!IMPORTANT]
+> This is a popular project idea.
+> Multiple applicants are interested in this project.
+
 **Project Description:**
 This project is two smaller user-facing improvements combined into a single project.
 
@@ -1426,6 +1446,10 @@ All three features also touch on critical learning pathways but also aren't 100%
 
 ### 4.2 Streamlining Release Automation
 
+> [!IMPORTANT]
+> This is a popular project idea.
+> Multiple applicants are interested in this project.
+
 **Project Description:**
 The Oppia Android team currently needs to follow a manual, 17-page release process that is both incomplete and has out-of-date instructions, for each release of the app. This highly error-prone and complex manual process leads to multiple hours needing to be spent every time the team wants to ship a new release to end users. This project aims to significantly reduce the burden on the development team to conduct releases by:
 - Cleaning up and modernizing the release process to be a wiki page rather than a private Google document.
@@ -1472,6 +1496,14 @@ Here is an explanation for how the release process should work within this proje
       - Upload alpha to Play Console.
 - Additional detail:
   - If the changelog is ever updated then it should kick off a script to redeploy it to the Play Console for the corresponding release.
+
+**Changes on March 17**: Some additional details that could be helpful:
+- The GitHub CLI tool (`gh`) can actually generate the changelog that GitHub supports through its releases flow. See: https://cli.github.com/manual/gh_release_create. However, that tool is for creating the actual release on GitHub which we don't want to do, we just want the notes. Instead, it's possible to directly call the GitHub API for generating these. See:
+    ```sh
+    gh api --method POST -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/oppia/oppia-android/releases/generate-notes -f tag_name='v1.0.0' -q .body
+    ```
+    It may not be beneficial to use this vs. just generating the description entirely from logs (since more context will probably be useful to the LLM), however it's worth surfacing this in case it can help simplify anything. It is not a requirement to use this.
+- GitHub environments can require reviewers to approve the workflow before they run. We should absolutely be enabling this for release workflows. See this [corresponding GitHub documentation](https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments#creating-an-environment).
 
 **Tracking issue**: https://github.com/oppia/oppia-android/issues/6106
 
