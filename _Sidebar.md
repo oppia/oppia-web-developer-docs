@@ -62,7 +62,6 @@
     * **[[Guidelines for launching new features|Launching-new-features]]**
     * **[[Guidelines for making an urgent fix (hotfix)|Making-an-urgent-fix-(hotfix)]]**
     * **[[Testing jobs and other features on production|Testing-jobs-and-other-features-on-production]]**
-    * [[Cron jobs guide for contributors|Cron-jobs]]
     * [[Guidelines for Developers with Write Access to the Oppia Repository|Guidelines-for-Developers-with-Write-Access-to-the-Oppia-repository]]
     * [[Release schedule and other information|Release-schedule-and-other-information]]
     * [[Revert and Regression Policy|Revert-and-Regression-Policy]]
@@ -87,6 +86,7 @@
       * [[Apache Beam Jobs|Apache-beam-jobs]]
         * 👣 [[Tutorial - Learn how to write and test a non-trivial Beam job|Tutorial-Learn-How-to-Write-and-Test-a-Non-Trivial-Beam-Job]]
         * 👣 [[Tutorial - Learn how to make a backend change that has an impace on server data|Tutorial-Learn-how-to-make-a-backend-change-that-has-an-impact-on-server-data]]
+      * [[Cron jobs guide for contributors|Cron-jobs]]
       * [[I18n/Translations Guide|Adding-new-translations-for-i18n]]
       * [[Server errors and solutions|Server-errors-and-solutions]]
     * Developer Workflow:
