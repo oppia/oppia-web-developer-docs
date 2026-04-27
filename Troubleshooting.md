@@ -23,6 +23,7 @@ Here are some general troubleshooting tips for Oppia. The platform specific tips
 - [No Such File or Directory: Google Cloud SDK](#no-such-file-or-directory-google-cloud-sdk)
 - [No module named '\_sqlite3'](#no-module-named-_sqlite3)
 - [Problems Cloning from GitHub](#problems-cloning-from-github)
+- [Troubleshooting Legacy Bisection (Python Versioning)](#troubleshooting-legacy-bisection-python-versioning)
 - [Certificate Verify Failed](#certificate-verify-failed)
 - [No Module Named Scripts](#no-module-named-scripts)
 - [Invalid Syntax](#invalid-syntax)
@@ -177,6 +178,18 @@ If you have issues cloning the GitHub repository, make sure of the following:
 1. That you’ve already [forked](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/fork-a-repo) the Oppia repository
 2. That you’re making sure to [clone](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/fork-a-repo#keep-your-fork-synced) from your own fork (making sure to replace `YOUR_USERNAME` in `git clone https://github.com/YOUR-USERNAME/oppia.git` with your GitHub username)
 3. If you have two-factor authentication (which you should), that you’re typing in your [access token](https://webkul.com/blog/github-push-with-two-factor-authentication/) as your password when prompted (rather than your GitHub password).
+
+### Troubleshooting Legacy Bisection (Python Versioning)
+
+When using `git bisect` to track down bugs in older commits (specifically those before April 2024), you might encounter fatal installation errors. This usually happens because legacy dependencies require **Python 3.8.15**, while modern developer environments typically run **Python 3.10** or higher.
+
+* **The Issue:** Older versions of libraries like `grpcio` or `protobuf` will fail to compile or install on newer Python versions (3.10+).
+* **The Recommended Approach:** If you must bisect into legacy territory, it is highly recommended to use a version manager like `pyenv` to match the Python 3.8 environment required by those specific commits. This ensures the environment matches the requirements of the commit being tested and has been noted to resolve installation failures for older library versions.
+    bash
+    pyenv install 3.8.15
+    pyenv local 3.8.15
+   
+* **Note:** This ensures that the environment matches the requirements of the specific commit being tested.
 
 ### Certificate Verify Failed
 
