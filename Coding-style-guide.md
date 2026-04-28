@@ -3,13 +3,15 @@ Please follow the following style rules when writing code, in order to minimize 
 If you use [Sublime Text](http://www.sublimetext.com/), consider installing the SublimeLinter, [SublimeLinter-jscs](https://github.com/SublimeLinter/SublimeLinter-jscs) and [SublimeLinter-pylint](https://github.com/SublimeLinter/SublimeLinter-pylint) plugins, following the instructions on their respective pages.
 
 ## General
+
 - Ensure that your code looks consistent with the code surrounding it.
 - Strings should use single quotes (`'`) throughout Python and JavaScript.
 - Prefer having comments on their own line (above the code that's being commented on), as opposed to next to a line. The exception is when you need to disable a pylint warning for a specific line.
 - The last character in each file should be a newline. (If you're using Sublime, you can enforce this locally by adding `"ensure_newline_at_eof_on_save": true` to your user preferences file.)
-- Avoid introducing `TODO (#XYZ): ...` comments in the files and instead try to do things correctly the first time. If you are going to add a TODO comment in any file then there needs to be (at minimum) a full comment and justification explaining what has been tried and what the issue is. The TODo should also reference an issue created on GitHub for thracking the problem.
+- Avoid introducing `TODO (#XYZ): ...` comments in the files and instead try to do things correctly the first time. If you are going to add a TODO comment in any file then there needs to be (at minimum) a full comment and justification explaining what has been tried and what the issue is. The TODO should also reference an issue created on GitHub for tracking the problem.
 
 ## Design tips
+
 - Avoid referencing elements of a list by a hardcoded index number, e.g. `item[0]`, `item[1]`. This is because the reader typically has no idea what is significant about the element index in question. If the values in the list are of different types, consider using a domain object instead to model the item being passed around.
 - Avoid passing raw "dictionaries" (Python dicts or JS objects) between functions, because it's possible to add new fields to them midway through their lifecycle, which can get confusing for readers of the code. Use domain objects instead, since they have a fixed set of fields.
   - Similarly, if you are passing in two lists of variables and you require both lists to be the same length (because the elements need to correspond with each other), consider using one list of composite domain objects instead.
@@ -17,6 +19,7 @@ If you use [Sublime Text](http://www.sublimetext.com/), consider installing the 
 - Functions that start with "get", or which have GET semantics, should, under no circumstances, update or delete anything. They should be safe to call and have no side effects.
 
 ## Python
+
 - Consider using a frozenset or tuple to a list, if the data structure is not meant to be subsequently modified. This applies especially to constants.
 - If you need to raise an Exception, just do `raise Exception` -- no need to define custom exceptions. We tend to use exceptions fairly sparingly, though.
 - Otherwise, please follow the [Google Python style guide](https://github.com/google/styleguide/blob/gh-pages/pyguide.md). In particular:
@@ -41,6 +44,7 @@ If you use [Sublime Text](http://www.sublimetext.com/), consider installing the 
       the last DUPLICATE_EMAIL_INTERVAL_MINS.
       """
     ```
+
     Docstrings should also contain `Args`, `Returns` and `Raises` whenever applicable in a method. For example:
 
     ```
@@ -58,25 +62,30 @@ If you use [Sublime Text](http://www.sublimetext.com/), consider installing the 
             TypeOfException: Short description.
         """
     ```
+
   - Never use backslashes to end a line. It's hard to tell whether they're escaping newlines, spaces, or something else. Use parentheses instead to break the line up, e.g.:
 
     ```
        my_variable = (
            my_very_long_module_name.my_really_long_function_name())
     ```
+
   - Be careful [not to use mutable objects](https://google.github.io/styleguide/pyguide.html?showone=Default_Argument_Values#Default_Argument_Values) as default values in the function or method definition. i.e., don't do things like `def foo(a, b=[]):`.
 
   - Imports should be in three groups: standard libraries, files within the Oppia codebase, and third-party files. Each group should be separated by a single newline. Within each group, imports should be organized alphabetically. If you have additional questions, feel free to reference the [Google Python Style Guide](https://google.github.io/styleguide/pyguide.html#313-imports-formatting).
 
 ### Handling bytes and string in Python 3
+
 - Python 3 differs a lot in handling strings and bytes from Python 2 (you can read more about this in [this article](https://betterprogramming.pub/strings-unicode-and-bytes-in-python-3-everything-you-always-wanted-to-know-27dc02ff2686) or in this [Pragmatic Unicode talk](https://nedbatchelder.com/text/unipain.html)). Basically, strings (`str`) in Python 3 are Unicode by default and “bytes” (`bytes`) are lists of integers from 0 to 255 (lists of 8 bits). There is no implicit conversion between `str` and `bytes` in Python 3, so any conversion needs to be done explicitly using `encode` (`str` → `bytes`) and `decode` (`bytes` → `str`) functions.
 
-Throughout Oppia, we typically use strings. However, you may come across bytes in places where there is an interaction with some outside library or API — for example, when standard input or output is read or written, or when data is read from or written to files. Some standard Python libraries also only accept bytes. 
+Throughout Oppia, we typically use strings. However, you may come across bytes in places where there is an interaction with some outside library or API — for example, when standard input or output is read or written, or when data is read from or written to files. Some standard Python libraries also only accept bytes.
 
 #### Rules for handling strings and bytes
+
 ##### Bytes outside, strings inside
 
 The general rule you should follow is to keep all text in Oppia as strings, where possible. If a conversion to bytes is necessary, that conversion should happen as close to the “edges” of the app as possible. So, for example:
+
 - When you receive bytes from some library, immediately convert them to string using decode.
 - If you need to use a function that needs bytes, use encode to convert the string to bytes immediately before you call the function.
 
@@ -86,49 +95,54 @@ In the Oppia codebase all data (that we can decide about) should be encoded/deco
 
 If, in some case, an external source returns or receives data with a different encoding, it is fine to use that encoding only for that source. However, please first be sure to investigate whether that source can be configured to use utf-8 instead.
 
-
 ### Apache Beam logic
-  - For pipe operations that span multiple lines, always have the pipe operator (`|`) begin on the new line.
 
-    e.g., prefer:
+- For pipe operations that span multiple lines, always have the pipe operator (`|`) begin on the new line.
 
-    ```python
-    pcoll = (
-        input_pcoll
-        | "Op1" >> Operation1()
-        | "Op2" >> Operation2()
-        | "Op3" >> Operation3()
-        | "Op4" >> Operation4()
-    )
-    ```
+  e.g., prefer:
 
-    over:
+  ```python
+  pcoll = (
+      input_pcoll
+      | "Op1" >> Operation1()
+      | "Op2" >> Operation2()
+      | "Op3" >> Operation3()
+      | "Op4" >> Operation4()
+  )
+  ```
 
-    ```python
-    pcoll = (
-        input_pcoll | "Op1" >> Operation1() | "Op2" >>
-        Operation2() | "Op3" >> Operation3() |
-        "Op4" >> Operation4() 
-    )
-    ```
+  over:
 
-    Note: when all pipe operations can fit in a single line, there's no need to break them up:
-    ```python
-    pcoll = input_pcoll | "Sort" >> Sort()
-    pcoll = (
-        input_pcoll | "Sort" >> Sort() | "Unique" >> Unique())
-    ````
+  ```python
+  pcoll = (
+      input_pcoll | "Op1" >> Operation1() | "Op2" >>
+      Operation2() | "Op3" >> Operation3() |
+      "Op4" >> Operation4()
+  )
+  ```
+
+  Note: when all pipe operations can fit in a single line, there's no need to break them up:
+
+  ```python
+  pcoll = input_pcoll | "Sort" >> Sort()
+  pcoll = (
+      input_pcoll | "Sort" >> Sort() | "Unique" >> Unique())
+  ```
 
 ## Black
+
 Oppia uses [Black](https://black.readthedocs.io/en/stable/) as the standard Python code formatter.  
-Black enforces a consistent, opinionated style automatically and is run as a pre-commit hook.  
+Black enforces a consistent, opinionated style automatically and is run as a pre-commit hook.
 
 - **Automatic formatting:** Black runs every time you make a commit to ensure consistent code style.
 - **Manual formatting:** You can format a specific file manually using `black 
 {{filepath}}`. For example, to format android.py, you would run:
+
   ```bash
   black /home/dev/opensource/oppia/core/controllers/android.py
-  
+
+  ```
+
 ## Prettier
 
 We use [prettier](https://prettier.io/) to format frontend code. It is configured based on [gts](https://github.com/google/gts). It is run as a pre-commit hook, i.e. it is executed every time you make a commit.
@@ -148,77 +162,92 @@ Also, if you're using VSCode, here is a `.vscode/settings.json` that you can use
 ```
 
 ## JavaScript
+
 _General note: We use the ES2017 standard for our JavaScript/TypeScript code. (See [tsconfig.json](https://github.com/oppia/oppia/blob/57333f23af7b67914dc039671f4bc4e029fbb6e7/tsconfig.json#L4).)_
 
 - We use extra parentheses if a statement breaks across multiple lines, similar to Python. In particular, when code in '(...)' or '[...]' spans more than one line, make a line break after the opening parentheses or bracket.
 - The indentation is always 2 spaces.
 - Try to start only function names with verbs to help distinguish them from variables. Conversely, do not start variable names with verbs.
 
-   For example:
+  For example:
+  - For a boolean variable to check if a card is displayed:
+    - Correct: `cardIsDisplayed`
+    - Wrong: `isCardDisplayed`
 
-   - For a boolean variable to check if a card is displayed:
-        - Correct: `cardIsDisplayed`
-        - Wrong: `isCardDisplayed`
+  - For a function to check if a card is displayed:
+    - Correct: `isCardDisplayed()`
+    - Wrong: `cardIsDisplayed()`
 
-   - For a function to check if a card is displayed:
-        - Correct: `isCardDisplayed()`
-        - Wrong: `cardIsDisplayed()`
 - We have started compiling a [style guide for JavaScript](https://docs.google.com/document/d/1ZDmLN66f53WdDPItFChu9Lr37z0dKoqR-ASX8UM5y60). This is currently a work in progress. However, please use this as the definitive guide when figuring out the correct way to name things (CamelCase, snake_case, etc.)
-- The dependencies mentioned in strings and functional parameters of controllers, directives and factories should be in the following manner: dollar imports (e.g. ```$log, $scope``` etc.), regular imports (e.g. ```ContextService, PageService``` etc.), and constant imports (e.g ```COLLECTION_TAGS, DELETE_COLLECTION``` etc.) all in sorted order.
+- The dependencies mentioned in strings and functional parameters of controllers, directives and factories should be in the following manner: dollar imports (e.g. `$log, $scope` etc.), regular imports (e.g. `ContextService, PageService` etc.), and constant imports (e.g `COLLECTION_TAGS, DELETE_COLLECTION` etc.) all in sorted order.
 
-    For Example:
-    ```javascript
-    oppia.thing('ThingName', [
-      '$sortedDollarImports', 'SortedRegularImports',
-      'SORTED_CONSTANT_IMPORTS',
-      function(
-          $sortedDollarImports, SortedRegularImports,
-          SORTED_CONSTANT_IMPORTS) {
-        // The implementation of `ThingName`.
-      }]);
-    ```
+  For Example:
+
+  ```javascript
+  oppia.thing("ThingName", [
+    "$sortedDollarImports",
+    "SortedRegularImports",
+    "SORTED_CONSTANT_IMPORTS",
+    function (
+      $sortedDollarImports,
+      SortedRegularImports,
+      SORTED_CONSTANT_IMPORTS,
+    ) {
+      // The implementation of `ThingName`.
+    },
+  ]);
+  ```
+
 - For asynchronous functions that return a promise, use the following convention:
   - At the function declaration, use the keyword `async` (see [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)).
   - Add 'Async' to the function name. example:
     ```ts
-    const getUserInfoAsync = async function() {
-      return new Promise(resolve => {
-        setTimeout(function() {
+    const getUserInfoAsync = async function () {
+      return new Promise((resolve) => {
+        setTimeout(function () {
           resolve("something");
         }, 2000);
-       });
-    }
+      });
+    };
     ```
 - For functions or variables that are private and that should not be exposed outside their immediate controller/service, prefix their names with an underscore (`_`) and add the `private` keyword.
 
 ## Typescript
+
 - Make sure to follow all the javascript rules here as well.
 - Keep line lengths to at most 80 characters (with the exception of lines containing URLs, which are allowed to have a length of greater than 80 characters).
 - Declare a variable before usage. For instance:
 
   **Wrong usage:**
+
   ```javascript
   exampleVar = true;
   if (someCondition) {
     exampleVar = false;
   }
   ```
+
   **Right usage:**
+
   ```javascript
   var exampleVar = true;
   if (someCondition) {
     exampleVar = false;
   }
   ```
+
 - All loop variables should be declared. For instance:
 
   **Wrong usage:**
+
   ```javascript
   for (item in itemList) {
     ...
   }
   ```
+
   **Right usage:**
+
   ```javascript
   for (var item in itemList) {
     ...
@@ -228,45 +257,54 @@ _General note: We use the ES2017 standard for our JavaScript/TypeScript code. (S
 - Do not add new properties to a declared variable. Ensure that all properties are declared in the variable declaration. For instance:
 
   **Wrong usage:**
+
   ```javascript
   var person = {
-    name: 'name',
-    age: 'age'
+    name: "name",
+    age: "age",
   };
   if (someCondition) {
-    person.address = 'address';
+    person.address = "address";
   }
   ```
+
   **Right usage:**
+
   ```javascript
   var person = {
-    name: 'name',
-    age: 'age',
-    address: null
+    name: "name",
+    age: "age",
+    address: null,
   };
   if (someCondition) {
-    person.address = 'address';
+    person.address = "address";
   }
   ```
+
 - Always initialize a variable at declaration. If you do not want a specific value at declaration, initialize the variable with a null value. For instance:
 
   **Wrong usage:**
+
   ```javascript
   var person;
   if (someCondition) {
-    person = 'name';
+    person = "name";
   }
   ```
+
   **Right usage:**
+
   ```javascript
   var person = null;
   if (someCondition) {
-    person = 'name';
+    person = "name";
   }
   ```
+
 - Do not overwrite the variable with a different type. Instead create a new variable whenever you have a different use case. For instance:
 
   **Wrong usage:**
+
   ```javascript
   var person = {
     name: 'name',
@@ -278,7 +316,9 @@ _General note: We use the ES2017 standard for our JavaScript/TypeScript code. (S
     officeName: 'office name'
   };
   ```
+
   **Right usage:**
+
   ```javascript
   var personForSchool = {
     name: 'name',
@@ -290,7 +330,9 @@ _General note: We use the ES2017 standard for our JavaScript/TypeScript code. (S
     officeName: 'office name'
   };
   ```
+
 - If you get compilation error which says that a property does not exist on a particular type, go through the type definitions of the type and do a type casting if required. For instance:
+
   ```javascript
   var checkMismatch = function(searchQuery) {
     var isMismatch = true;
@@ -302,6 +344,7 @@ _General note: We use the ES2017 standard for our JavaScript/TypeScript code. (S
     return isMismatch;
   };
   ```
+
   Here `$(this).val()` is type casted to a string by using `<string>$(this).val()`
   If we do not use a typecast, typescript will give a error `Property 'trim' does not exist on type 'string | number | string[]'` since val can be a string or a number or a string array. So, to use trim we specifically need it as a string.
 
@@ -310,10 +353,12 @@ _General note: We use the ES2017 standard for our JavaScript/TypeScript code. (S
   You can add a new custom type definitions if type casting is not possible. In the file `typings/custom-element-defs.d.ts`, we add a new property to `HTMLElement` by adding a custom type defintion. In this type casting cannot be used, since we are adding a new property to the existing type instead of changing it to some other type.
 
 ### Karma test specific guidelines
+
 - Use `angular.mock.module` instead of `module` since the typings for angular-mocks does not support the usage of module.
 - Use `angular.mock.inject` instead of `inject` to maintain a consistent behaviour.
 
 ### When to add custom type defintions to the typings folder?
+
 - If you find a missing property in a typings package, create an issue [here](https://github.com/DefinitelyTyped/DefinitelyTyped) and a new file for the custom types with the issue link in the top of the file.
 - If you add a package for which type definitions are not found [here](https://github.com/DefinitelyTyped/DefinitelyTyped), add it to `third-party-defs.d.ts`
 - If you add a new property on window which is not present in typings for window, add it to `custom-window-defs.d.ts`
@@ -321,6 +366,7 @@ _General note: We use the ES2017 standard for our JavaScript/TypeScript code. (S
 - Make sure that all files have comments which explain why these custom type defintions are required and additional comments to explain each new added property if required. For example, `typings/custom-scope-defs.d.ts` has a top level comment explaining that the type defintions are needed for properties defined on scope in link function and then there are additional comments with properties added specifying which file they belong to. Go through the existing files and try to follow the same pattern when adding a new file.
 
 ### Component Directives
+
 Usage of old-style AngularJS directives is discouraged. Instead, use component directives. Component directives are an advanced version of AngularJS directives and are more preferred because of the "isolated scope" it creates and the reusability it offers across modules. This is also the way forward in Angular 2+.
 
 - Do not create standalone controllers. The standalone controllers are those which are associated with the `ng-controller` directive in the HTML file.
@@ -332,15 +378,19 @@ Usage of old-style AngularJS directives is discouraged. Instead, use component d
 In all TypeScript files in `core/templates` we use webpack. That means that instead of including the required files by `<script src="…"></script>` in HTML files we include them by using `require(…)` in the individual TS files.
 
 ### Adding `require(…)` to the TypeScript files with service/filter/factory
+
 When you add new service/filter/factory dependency to service/filter/factory, you need to also `require(…)` it at the top of the file.
 
 For example if you have this filter:
+
 ```javascript
 oppia.filter('normalizeWhitespace', [function() {
   return function(input) {…};
 }]);
 ```
+
 and need to use `UtilsService` in this filter, you also need to add `require('services/UtilsService.ts');` (the paths are relative to the `core/templates` directory), the final filter will look like this:
+
 ```javascript
 require('services/UtilsService.ts');
 
@@ -352,9 +402,11 @@ oppia.filter('normalizeWhitespace', ['UtilsService', function(UtilsService) {
 **The requires should be sorted in alphabetical order.**
 
 ### Adding `require(…)` to the TypeScript files with directive
+
 The rules for directives are little bit more complex. You also need to add `require(…)` for service/filter/factory dependencies, but also if you use custom directive in the HTML you need to `require(…)` it in the TypeScript file too.
 
 For example, if you have directive:
+
 ```javascript
 require('domain/utilities/UrlInterpolationService.ts');
 
@@ -362,7 +414,9 @@ oppia.directive('storySummaryTile', ['UrlInterpolationService', function(UrlInte
     return {…};
 }]);
 ```
+
 and add `<sharing-links>` into the **story_summary_directive.html** you need to also add the new `require('components/share/SharingLinksDirective.ts');` into the TypeScript file:
+
 ```javascript
 require('components/share/SharingLinksDirective.ts');
 
@@ -378,23 +432,28 @@ oppia.directive('storySummaryTile', ['UrlInterpolationService', function(UrlInte
 ### Exporting variables and functions from a Typescript file to be imported in another Typescript file.
 
 If the file adds variable to the global scope:
+
 ```javascript
 // functions.ts
-var functions = function() {
+var functions = function () {
   // something happens here.
-}
+};
 ```
+
 We want to isolate that scope, this can be done by exporting the variable using ES6 exports.
+
 ```javascript
 // functions.ts
-var functions = function() {
+var functions = function () {
   // something happens here.
-}
+};
 export default functions;
 ```
+
 And then the variable can be loaded by `import functions from 'folder/folder/functions.ts';`
 
 ## CSS
+
 - Do not include units if the value is 0. E.g. `margin-left: 0` instead of `margin-left: 0px`.
 - Within each CSS rule, attributes should be alphabetized (e.g. 'height' before 'margin' before 'top'). This makes it easy to find the value of an attribute if there are lots of them.
 - Avoid using `!important` as much as possible.
@@ -402,20 +461,24 @@ And then the variable can be loaded by `import functions from 'folder/folder/fun
 - If the CSS class is oppia-specific, prefix it with `oppia-`. This helps distinguish it from CSS classes used by other third-party libraries.
 - For directives, include the CSS in the directive template file, similar to what we do in [this file](https://github.com/oppia/oppia/blob/b284a23d71133f48aa60d680ea5b72a7b0bbf552/core/templates/components/summary-tile/exploration-summary-tile.component.html). (Note that, in this case, all CSS rules should start with the top-level CSS class of the directive, so that they don't affect other elements outside it.) All other CSS should go in `core/templates/css/oppia.css`.
 
-----
+---
+
 ### How to ensure that your code follows the coding guidelines:
 
 You can invoke the pre-commit script to ensure that your code follows the coding guidelines for a particular file that you've modified by running the following command from the root directory:
+
 ```bash
 python -m scripts.linters.run_lint_checks --path filepath
 ```
 
 If you'd like to run the checks for a list of files, run the following command:
+
 ```bash
 python -m scripts.linters.run_lint_checks --files file_1 file_2 ... file_n
 ```
 
 If you'd like to run the checks for a list of file-types, run the following command:
+
 ```bash
 python -m scripts.linters.run_lint_checks --only_check_file_extensions file_extension_type_1 file_extension_type_2 ... file_extension_type_n
 ```
