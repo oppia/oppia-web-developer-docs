@@ -303,9 +303,11 @@ Prod baselines should come from a CI run rather than a local run, so the environ
 1. From your fork's Actions tab, run the workflow manually.
 2. Set **env-mode** to `dev` or `prod`.
 3. Set **run-mode** to `all` (regenerates every suite under `acceptance_playwright`) or `single` (just one suite, given via **test-suite**).
+   ![Update Snapshots (Playwright Acceptance Tests) workflow dispatch form showing env-mode, run-mode, and test-suite inputs](./images/AcceptanceTests/UpdateSnapshotsWorkflow.png)
 4. The workflow computes which suites to run via `check_ci_test_suites_to_run.py`, builds the app for the chosen `env-mode`, then runs each selected suite once for desktop and once for mobile with `--update_snapshots` enabled.
 5. It stages only the screenshot files that actually changed or are new — unchanged baselines are never re-uploaded.
 6. All changed screenshots across every suite are consolidated into a single artifact named `updated-snapshots-all-{env-mode}`, rooted at the suite-directory level so it can be extracted directly over your local `specs/` folder.
+   ![Artifacts panel on the workflow run summary showing the per-suite artifact alongside the consolidated updated-snapshots-all-prod artifact](./images/AcceptanceTests/ConsolidatedSnapshotsArtifact.png)
 
 Download the artifact, copy the changed screenshot folders into your local `playwright-acceptance-tests/specs/` tree, review the diffs, and commit.
 
@@ -515,8 +517,10 @@ Once you can reproduce the flake, you must investigate its root cause.
      ```
      PWDEBUG=1 python -m scripts.run_acceptance_tests --suite={{suiteName}}
      ```
+     ![Playwright Inspector showing the paused test, source location, and Locator/Log/Aria tabs](./images/AcceptanceTests/PlaywrightInspector.png)
    * **Video recordings** — generated on every local run (not just failures), saved to `oppia_full_stack_test_video_recordings/`, alongside (not inside) your `oppia/` root directory.
    * **Trace Viewer** — traces are generated only when a test fails, saved to `oppia_full_stack_test_playwright_results/`, also alongside the `oppia/` root. Open a trace with Playwright's Trace Viewer to step through actions, DOM snapshots, and network activity at the point of failure.
+     ![Playwright Trace Viewer showing the action timeline, filmstrip, and DOM snapshot for a failed step](./images/AcceptanceTests/PlaywrightTraceViewer.png)
    * On CI, both videos and traces are uploaded as workflow artifacts only on failure.
 
 The diagnosis is complete when you have a clear, well-supported hypothesis explaining the flake’s cause.
