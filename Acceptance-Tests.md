@@ -519,8 +519,19 @@ Once you can reproduce the flake, you must investigate its root cause.
      ```
      ![Playwright Inspector showing the paused test, source location, and Locator/Log/Aria tabs](./images/AcceptanceTests/PlaywrightInspector.png)
    * **Video recordings** — generated on every local run (not just failures), saved to `oppia_full_stack_test_video_recordings/`, alongside (not inside) your `oppia/` root directory.
-   * **Trace Viewer** — traces are generated only when a test fails, saved to `oppia_full_stack_test_playwright_results/`, also alongside the `oppia/` root. Open a trace with Playwright's Trace Viewer to step through actions, DOM snapshots, and network activity at the point of failure.
+   * **Trace Viewer** — traces are recorded with the `retain-on-failure` setting, meaning a trace is only kept when a test fails (it's discarded otherwise). Failed-test traces are saved as `.zip` files to `oppia_full_stack_test_playwright_results/`, alongside (not inside) the `oppia/` root.
+
+     To view a trace, no local command or installation is needed — just drop the `.zip` file onto [trace.playwright.dev](https://trace.playwright.dev) and it opens directly in the browser. This works the same way whether the trace came from a local run or was downloaded as a CI artifact.
+
+     The Trace Viewer UI gives you a timeline scrubber, a filmstrip of screenshots, and per-action detail (Before/After DOM snapshots, console, network, and source location) for every step Playwright ran:
+
      ![Playwright Trace Viewer showing the action timeline, filmstrip, and DOM snapshot for a failed step](./images/AcceptanceTests/PlaywrightTraceViewer.png)
+
+     **Reading a trace when diagnosing a flake:**
+     - Scrub the timeline to the failing action (highlighted in the Actions panel) and check the **Before**/**After** snapshots to see exactly what the DOM looked like at that moment.
+     - The **Network** tab shows every request in flight — useful for `networkidle`-related flakes, where a lingering background request (health checks, analytics beacons) can reset Playwright's idle timer.
+     - The **Console** tab surfaces frontend errors that may explain why an expected element never appeared.
+     - If you have traces from both a passing and a failing run of the same test, compare them side by side to spot exactly where timing diverged.
    * On CI, both videos and traces are uploaded as workflow artifacts only on failure.
 
 The diagnosis is complete when you have a clear, well-supported hypothesis explaining the flake’s cause.
