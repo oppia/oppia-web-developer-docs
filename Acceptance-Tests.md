@@ -529,6 +529,10 @@ Once you can reproduce the flake, you must investigate its root cause.
 
      **Reading a trace when diagnosing a flake:**
      - Scrub the timeline to the failing action (highlighted in the Actions panel) and check the **Before**/**After** snapshots to see exactly what the DOM looked like at that moment.
+     - The **Locator** tab helps you find or verify a selector against the exact DOM snapshot for the selected action, without re-running the test: click the **Pick Locator** (eyedropper) icon above the snapshot, then hover over any element to see its suggested locator, or click it to lock that locator into the Locator box. This works the other way too — type or edit a locator directly in the box and matching elements get highlighted live in the snapshot, so you can iterate on a selector until it targets the right (and only the right) element.
+
+       ![Locator tab in Trace Viewer showing a picked locator and its Aria snapshot](./images/AcceptanceTests/PlaywrightTraceViewerLocatorTab.png)
+     - The **Source** tab always shows the exact line of test code that was executing at whichever action is currently selected — useful for jumping straight from a suspicious step in the timeline to the code that produced it.
      - The **Network** tab shows every request in flight — useful for `networkidle`-related flakes, where a lingering background request (health checks, analytics beacons) can reset Playwright's idle timer.
      - The **Console** tab surfaces frontend errors that may explain why an expected element never appeared.
      - If you have traces from both a passing and a failing run of the same test, compare them side by side to spot exactly where timing diverged.
