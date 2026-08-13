@@ -200,6 +200,33 @@ For roles that don't require super admin privileges, such as `LoggedInUser`, add
 
 > Note: Sometimes tests may pass locally but fail on the CI environment due to differences between the local and CI environments. In such cases, debugging and fixing should be done on the CI environment, as that is where the tests are intended to run.
 
+## Migrating Acceptance Tests from Puppeteer to Playwright
+
+As part of the ongoing migration ([#24715](https://github.com/oppia/oppia/issues/24715)), existing Puppeteer specs are being ported over to Playwright one user type at a time. The migration process for a spec file is as follows:
+
+1) Copy the Puppeteer spec file into the corresponding directory under `playwright-acceptance-tests/specs/`, then convert its syntax to Playwright — following the conventions already used by migrated spec files (e.g. `logged-in-learner`, `logged-out-learner`) rather than a literal line-by-line translation.
+
+2) For any utility methods the spec relies on that haven't been migrated to a Playwright utility file yet, copy those over as well. When writing them, follow the conventions already established in the existing Playwright utility files (`utilities/common`, `utilities/user`) rather than porting the Puppeteer version as-is.
+
+3) Run the test locally:
+```
+python -m scripts.run_acceptance_tests --suite={{suiteName}}
+```
+Fix all errors that occur.
+
+4) Also run the same suite with the `--mobile` flag, since some errors only surface in the mobile viewport:
+```
+python -m scripts.run_acceptance_tests --suite={{suiteName}} --mobile
+```
+
+5) If the spec uses screenshot assertions, add `--update_snapshots` to create or update the local dev baselines (see **Screenshots testing functionality in Acceptance Tests (Playwright)** above).
+
+6) Once the test passes locally on both desktop and mobile, use the **Update Snapshots (Playwright Acceptance Tests)** workflow (see above) to generate the prod screenshots for the migrated suite. This needs to happen before stress testing — without a prod baseline in place, every stress test run would fail on the screenshot comparison itself, which would drown out any genuine flakiness the stress test is meant to surface.
+
+7) Push the changes to your fork on GitHub and run the **Stress Test Acceptance Tests** workflow to verify stability — for migrations, use a run count of 200 (100 desktop + 100 mobile) rather than the usual 20, since a newly migrated test hasn't been proven stable yet.
+
+8) Fix any flakes the stress test surfaces, with proper reasoning for each fix. If a flake needs deeper investigation, follow the process in **Fixing Flakes in Acceptance Tests** below, and create a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs) if needed.
+
 ### Console errors logging functionality in Acceptance Tests
 
 Acceptance Tests have the capability to detect console errors during CUJs, potentially resulting in test failures. However, there are scenarios where certain console errors can be deemed acceptable and should not cause the test to fail. In order to ignore errors like these, you can use `ConsoleReporter.setConsoleErrorsToIgnore`, which takes in an array of error regexes to match the errors that can be acceptable. For instance, an error like `Blog Post with the given title exists already. Please use a different title.`, which occurs during the 'blog-editor-tests/try-to-publish-a-duplicate-blog-post-and-get-blocked' test, is ignored using the ConsoleReporter since it is an acceptable error in the context of the test. When passing acceptable errors like these to the ConsoleReporter, you should be specific and not use vague errors like `Failed to load resource...`.
