@@ -225,7 +225,7 @@ python -m scripts.run_acceptance_tests --suite={{suiteName}} --mobile
 
 7) Push the changes to your fork on GitHub and run the **Stress Test Acceptance Tests** workflow to verify stability — for migrations, use a run count of 200 (100 desktop + 100 mobile) rather than the usual 20, since a newly migrated test hasn't been proven stable yet.
 
-8) Fix any flakes the stress test surfaces, with proper reasoning for each fix. If a flake needs deeper investigation, follow the process in **Fixing Flakes in Acceptance Tests** below, and create a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs) if needed.
+8) Fix any flakes the stress test surfaces, with proper reasoning for each fix. If a flake needs deeper investigation, follow the process in **Fixing Flakes in Acceptance Tests** below, and create a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs) if needed. Post the debugging doc in [Debugging Docs discussion category](https://github.com/oppia/oppia/discussions/categories/debugging-docs).
 
 ### Console errors logging functionality in Acceptance Tests
 
