@@ -4,11 +4,52 @@ Acceptance tests are end-to-end tests that test the complete functionality of th
 
 This guide will help you to get started on how to write `e2e acceptance test` for a particular user-type.
 
+> **Note:** Oppia is migrating its acceptance tests from Puppeteer to Playwright (tracked in [#24715](https://github.com/oppia/oppia/issues/24715)). Both frameworks currently coexist. New tests for already-migrated user types (`logged-in-learner`, `logged-out-learner`, and a few specs under `community-library-browser` and `exploration-editor`) should be written in Playwright; everything else should still follow the Puppeteer conventions below until migrated.
 
 ## Files and Directory Structure
 
 ```
 oppia/core/tests/
+ ├── playwright-acceptance-tests
+ │  ├── data
+ │  ├── functions
+ │  ├── specs
+ │  │    ├── community-library-browser
+ │  │    │    └── subscribe-to-a-favourite-creator.spec.ts
+ │  │    ├── exploration-editor
+ │  │    │    └── download-any-version-exploration.spec.ts
+ │  │    ├── logged-in-learner
+ │  │    │    ├── dev-desktop-screenshots
+ │  │    │    ├── dev-mobile-screenshots
+ │  │    │    ├── prod-desktop-screenshots
+ │  │    │    ├── prod-mobile-screenshots
+ │  │    │    └── ...
+ │  │    ├── logged-out-learner
+ │  │    │    ├── dev-desktop-screenshots
+ │  │    │    ├── dev-mobile-screenshots
+ │  │    │    ├── prod-desktop-screenshots
+ │  │    │    ├── prod-mobile-screenshots
+ │  │    │    └── ...
+ │  ├── utilities
+ │  │  ├── common
+ │  │  │    ├── playwright-utils.ts
+ │  │  │    ├── navigation-utils.ts
+ │  │  │    ├── exploration-editor-utils.ts
+ │  │  │    ├── state-editor-utils.ts
+ │  │  │    ├── rte-editor.ts
+ │  │  │    ├── show-message.ts
+ │  │  │    ├── test-constants.ts
+ │  │  │    ├── user-factory.ts
+ │  │  ├── user
+ │  │  │    ├── curriculum-admin.ts
+ │  │  │    ├── exploration-editor.ts
+ │  │  │    ├── logged-in-user.ts
+ │  │  │    ├── logged-out-user.ts
+ │  │  │    ├── release-coordinator.ts
+ │  │  │    ├── super-admin.ts
+ │  │  │    ├── topic-manager.ts
+ │  │  │    ├── voiceover-admin.ts
+ │  │  ├── playwright.config.ts
  └── puppeteer-acceptance-tests
     ├── data
     │  └── blog-post-thumbnail.svg
@@ -79,15 +120,16 @@ oppia/core/tests/
 ```
 
 The directory structure is as follows:
-1) The `specs` directory contains all the top-level test files. Each test file is named as `*.spec.ts` and contains the test for a particular user type. For example, the `blog-admin` directory contains available tests for the `Blog Admin` user.
+1) The `specs` directory contains all the top-level test files. Each test file is named as `*.spec.ts` and contains the test for a particular user type. For example, the `blog-admin` directory contains available tests for the `Blog Admin` user (Puppeteer), and `logged-in-learner` contains available tests for the logged-in learner journey (Playwright).
 
 2) The `utilities` directory contains all the utility files and helper functions, which you would require to write new acceptance tests. This directory can also be used to append more utility functions as needed by the user.
 Files included inside this directory are:
-  - `common/puppeteer-utils.ts` -> This file contains the base _*BaseUser*_ class which provides the most common and useful methods such as _*openBrowser*_, _*goto*_, _*clickOn*_, _*openExternalPdfLink*_ etc. This class also serves as a foundation for defining other user-oriented subclasses, facilitating various testing scenarios.
+  - `common/puppeteer-utils.ts` (Puppeteer) / `common/playwright-utils.ts` (Playwright) -> These files contain the base _*BaseUser*_ class which provides the most common and useful methods such as _*openBrowser*_, _*goto*_, _*clickOn*_, _*openExternalPdfLink*_ etc. This class also serves as a foundation for defining other user-oriented subclasses, facilitating various testing scenarios.
   - `common/user-factory.ts` -> This file contains methods for creating a certain user. The file has different methods for creating different types of users.
   - `common/test-constants.ts` -> This file contains defined constants such as _*URLs, roles, etc.*_ which are used in the tests.
-  - `common/console-report.ts` -> This file contains methods for listening the console errors during a test.
+  - `common/console-report.ts` (Puppeteer) / `common/console-reporter.ts` (Playwright) -> These files contain methods for listening the console errors during a test.
   - `common/show-message.ts` -> This file contains methods for displaying messages during the tests.
+  - `common/state-editor-utils.ts`, `common/exploration-editor-utils.ts`, `common/navigation-utils.ts`, `common/rte-editor.ts` (Playwright only) -> Shared logic extracted so multiple user types can reuse it without duplicating methods.
 
 3) The `user` directory holds the utility files for different user types. Each user utility class is built upon the base `BaseUser` class containing the original methods along with the ones related to that user type. For example, `blog-post-editor.ts` contains base functions as well as additional functions just related to the `Blog Post Editor` user. 
 4) The `data` directory contains all the images and other data files used in the tests.
@@ -103,6 +145,8 @@ For example, to run the `check-blog-editor-unable-to-publish-duplicate-blog-post
 python -m scripts.run_acceptance_tests --suite="blog-editor/check-blog-editor-unable-to-publish-duplicate-blog-post"
 ```
 
+> **Note:** Each suite's framework is declared via the `framework` field in `acceptance.json`. `run_acceptance_tests.py` reads this field and routes automatically to the correct runner, including downstream in `servers.py`, so the same command above works for both Puppeteer and Playwright suites without any extra flag to choose between them.
+
 > **TIP:** To reduce the development cycle for the tests, try using `--skip-build` to skip the build in the local environment as this can reduce the run-time of tests.
 
 **Note: Typically, these tests take anywhere between 2 to 5-6 minutes (excluding the time taken for setting up the server) for any suite to run, both in headless and non-headless modes, assuming the machine has sufficient resources. The duration depends on the tests, and some tests can run longer due to a more extensive setup (if there is a longer setup, it would be mentioned in the timeout in the test block). However, tests with longer setups can go up to 8-10 minutes (currently, we have some such tests). Usually, the total runtime of tests would be around 3-4 minutes in most cases. In any case, if the run-time appears unreasonably long to you on you machine, feel free to raise an issue on our [issue tracker](https://github.com/oppia/oppia/issues).**
@@ -115,7 +159,7 @@ python -m scripts.run_acceptance_tests --suite="blog-editor/check-blog-editor-un
 2) Within the user directory, create a new file for each test. For example, `create-and-delete-subtopic-and-story.spec.ts` and `browse-topics-on-topics-and-skills-dashboard.spec.ts` for the `Topic Manager` user. These top-level tests contain single user stories checking their test steps and expectations mentioned in the testing spreadsheet.
 
 3) The functionality of the top-level tests for each user type is defined in the `utilities/user` directory. For example, the blog admin tests are written within the `specs/blog-admin` directory, and the functionality of the tests is defined in the `utilities/user/blog-admin.ts` file.
-> Note: A utility file is maintained for each user type. The purpose of maintaining this file is to add methods specific to that user on top of the already provided basic methods. This file maintains a user class which is extended from the base class of `puppeteer-utils.ts`. For example, `blog-admin.ts` has a class `BlogAdmin` which has methods like `createDraftBlogPostWithTitle`, `deleteDraftBlogPostWithTitle`, etc., specific to Blog Admin only. Sometimes, when a user (e.g., Topic Manager) requires methods from another user type (e.g., Curriculum Admin), it's acceptable to use intersection types to combine the necessary methods.
+> Note: A utility file is maintained for each user type. The purpose of maintaining this file is to add methods specific to that user on top of the already provided basic methods. This file maintains a user class which is extended from the base class of `puppeteer-utils.ts` (or `playwright-utils.ts` for Playwright suites). For example, `blog-admin.ts` has a class `BlogAdmin` which has methods like `createDraftBlogPostWithTitle`, `deleteDraftBlogPostWithTitle`, etc., specific to Blog Admin only. Sometimes, when a user (e.g., Topic Manager) requires methods from another user type (e.g., Curriculum Admin), it's acceptable to use intersection types to combine the necessary methods.
 
 4) The utility files are imported into the top-level test files, and the methods are called to perform the required actions. For example, in the `assign-role-to-users-and-change-tag-properties.spec.ts` file, the `assignRoleToUser` method is called to assign a role to a user. Additionally, the `expectRoleAssignedSuccessfully` method is called to check if the role was assigned successfully. To facilitate instantiation of classes, each utils file should also include a `UserFactory` function. This function's purpose is to instantiate a new class of the corresponding type. For instance, `export let BlogAdminFactory = (): BlogAdmin => new BlogAdmin();` would create a BlogAdmin instance.
 
@@ -155,6 +199,33 @@ For roles that don't require super admin privileges, such as `LoggedInUser`, add
 11) After writing the test, do not forget to add it in our configuration file `common.py` and in `acceptance.json` file so that it is included in the workflow.
 
 > Note: Sometimes tests may pass locally but fail on the CI environment due to differences between the local and CI environments. In such cases, debugging and fixing should be done on the CI environment, as that is where the tests are intended to run.
+
+## Migrating Acceptance Tests from Puppeteer to Playwright
+
+As part of the ongoing migration ([#24715](https://github.com/oppia/oppia/issues/24715)), existing Puppeteer specs are being ported over to Playwright one user type at a time. The migration process for a spec file is as follows:
+
+1) Copy the Puppeteer spec file into the corresponding directory under `playwright-acceptance-tests/specs/`, then convert its syntax to Playwright — following the conventions already used by migrated spec files (e.g. `logged-in-learner`, `logged-out-learner`) rather than a literal line-by-line translation.
+
+2) For any utility methods the spec relies on that haven't been migrated to a Playwright utility file yet, copy those over as well. When writing them, follow the conventions already established in the existing Playwright utility files (`utilities/common`, `utilities/user`) rather than porting the Puppeteer version as-is.
+
+3) Run the test locally:
+```
+python -m scripts.run_acceptance_tests --suite={{suiteName}}
+```
+Fix all errors that occur.
+
+4) Also run the same suite with the `--mobile` flag, since some errors only surface in the mobile viewport:
+```
+python -m scripts.run_acceptance_tests --suite={{suiteName}} --mobile
+```
+
+5) If the spec uses screenshot assertions, add `--update_snapshots` to create or update the local dev baselines (see **Screenshots testing functionality in Acceptance Tests (Playwright)** above).
+
+6) Once the test passes locally on both desktop and mobile, use the **Update Snapshots (Playwright Acceptance Tests)** workflow (see above) to generate the prod screenshots for the migrated suite. This needs to happen before stress testing — without a prod baseline in place, every stress test run would fail on the screenshot comparison itself, which would drown out any genuine flakiness the stress test is meant to surface.
+
+7) Push the changes to your fork on GitHub and run the **Stress Test Acceptance Tests** workflow to verify stability — for migrations, use a run count of 200 (100 desktop + 100 mobile) rather than the usual 20, since a newly migrated test hasn't been proven stable yet.
+
+8) Fix any flakes the stress test surfaces, with proper reasoning for each fix. If a flake needs deeper investigation, follow the process in **Fixing Flakes in Acceptance Tests** below, and create a [debugging doc](https://github.com/oppia/oppia/wiki/Debugging-Docs) if needed. Post the debugging doc in [Debugging Docs discussion category](https://github.com/oppia/oppia/discussions/categories/debugging-docs).
 
 ### Console errors logging functionality in Acceptance Tests
 
@@ -205,7 +276,7 @@ const CONSOLE_ERRORS_TO_FIX = [
 ];
 ```
 
-### Screenshots testing functionality in Acceptance Tests
+### Screenshots testing functionality in Acceptance Tests (Puppeteer)
 
 Acceptance Tests have a function called `expectScreenshotToMatch` in `puppeteer-utils.ts` to take screenshots of the UI during the acceptance tests and compare them to the existing screenshots in the codebase, which can help with debugging test failures as it provides more information beside the error message. 
 
@@ -236,7 +307,38 @@ On CI, we run all the acceptance tests in production mode, so the screenshots in
 
 On the other hand, if the screenshot fails locally (in desktop environment), the screenshot `teachPage-diff.png` will be generated and stored inside a new folder `diff-snapshots` under `logged-out-user/dev-desktop-screenshots` and the screenshot `teachPage-received.png` will be generated and stored inside a new folder `new-snapshots` under `logged-out-user/dev-desktop-screenshots`.
 
-### Updating Screenshots for Acceptance Tests
+### Screenshots testing functionality in Acceptance Tests (Playwright)
+
+Playwright suites use the built-in `toHaveScreenshot()` matcher with a custom `snapshotPathTemplate`, instead of the `expectScreenshotToMatch` helper used in Puppeteer suites. The same four baseline folders are used per suite (`dev-desktop-screenshots`, `dev-mobile-screenshots`, `prod-desktop-screenshots`, `prod-mobile-screenshots`), living alongside the relevant spec files, e.g. `specs/logged-in-learner/prod-desktop-screenshots/`.
+
+**Updating dev screenshots locally**
+
+Run the normal test command with `--update_snapshots` added, a flag built into the acceptance test runner infrastructure:
+```
+python -m scripts.run_acceptance_tests --suite={{suiteName}} --update_snapshots
+```
+
+Desktop and mobile baselines are generated separately. Run once as above for desktop, then again with `--mobile` for mobile:
+```
+python -m scripts.run_acceptance_tests --suite={{suiteName}} --mobile --update_snapshots
+```
+
+**Updating prod screenshots via CI**
+
+Prod baselines should come from a CI run rather than a local run, so the environment matches what CI will actually compare against on future PRs. Use the **Update Snapshots (Playwright Acceptance Tests)** GitHub workflow (`update_snapshots_playwright_acceptance_tests.yml`):
+
+1. From your fork's Actions tab, run the workflow manually.
+2. Set **env-mode** to `dev` or `prod`.
+3. Set **run-mode** to `all` (regenerates every suite under `acceptance_playwright`) or `single` (just one suite, given via **test-suite**).
+   ![Update Snapshots (Playwright Acceptance Tests) workflow dispatch form showing env-mode, run-mode, and test-suite inputs](./images/AcceptanceTests/UpdateSnapshotsWorkflow.png)
+4. The workflow computes which suites to run via `check_ci_test_suites_to_run.py`, builds the app for the chosen `env-mode`, then runs each selected suite once for desktop and once for mobile with `--update_snapshots` enabled.
+5. It stages only the screenshot files that actually changed or are new — unchanged baselines are never re-uploaded.
+6. All changed screenshots across every suite are consolidated into a single artifact named `updated-snapshots-all-{env-mode}`, rooted at the suite-directory level so it can be extracted directly over your local `specs/` folder.
+   ![Artifacts panel on the workflow run summary showing the per-suite artifact alongside the consolidated updated-snapshots-all-prod artifact](./images/AcceptanceTests/ConsolidatedSnapshotsArtifact.png)
+
+Download the artifact, copy the changed screenshot folders into your local `playwright-acceptance-tests/specs/` tree, review the diffs, and commit.
+
+### Updating Screenshots for Acceptance Tests (Puppeteer)
 When making changes that affect a user journey tested through the acceptance tests or introduce a new feature, a contributor needs to update screenshots to support their changes depending on where the changes are affecting. For example, if the acceptance test only fails in prod+mobile environment, then we should replace the failed screenshots in `prod-mobile-screeenshots`. 
 
 The screenshots in prod (`prod-desktop-screenshots` and `prod-mobile-screenshots`), should be obtained from the CI (not local) run, so that the environment matches future runs. To do this, follow these steps:
@@ -274,6 +376,8 @@ For the screenshots in dev (`dev-desktop-screenshots` and `dev-mobile-screenshot
 6. Check that the correct image got replaced. Run the test locally to check if the test passes.
 
 7. Commit and push your changes! Self review your PR to verify that the correct image(s) were used. 
+
+> For Playwright screenshots, see **Screenshots testing functionality in Acceptance Tests (Playwright)** above instead.
 
 ## Acceptance Tests for Mobile
 
@@ -322,6 +426,8 @@ For example, to run the `check-blog-editor-unable-to-publish-duplicate-blog-post
 ```
 python -m scripts.run_acceptance_tests --mobile --suite="blog-editor/check-blog-editor-unable-to-publish-duplicate-blog-post"
 ```
+
+This works the same way for both Puppeteer and Playwright suites, resolving the framework as described in **How to run the acceptance tests** above.
 
 ## Fixing Flakes in Acceptance Tests
 
@@ -432,6 +538,33 @@ Once you can reproduce the flake, you must investigate its root cause.
    * Apply hypothesis testing to narrow down the exact cause—this often includes validating timing assumptions, verifying selectors, examining API responses, and checking console logs.
    * Reach out in relevant Google Chat groups for support if you encounter uncertainties or need cross-verification.
 
+3. **Playwright-specific diagnostic tools** (for suites already migrated to Playwright)
+
+   * **Playwright Inspector** — prefix any acceptance test command with `PWDEBUG=1` to launch the Inspector, which lets you pause and step through the test at any point:
+     ```
+     PWDEBUG=1 python -m scripts.run_acceptance_tests --suite={{suiteName}}
+     ```
+     ![Playwright Inspector showing the paused test, source location, and Locator/Log/Aria tabs](./images/AcceptanceTests/PlaywrightInspector.png)
+   * **Video recordings** — generated on every local run (not just failures), saved to `oppia_full_stack_test_video_recordings/`, alongside (not inside) your `oppia/` root directory.
+   * **Trace Viewer** — traces are recorded with the `retain-on-failure` setting, meaning a trace is only kept when a test fails (it's discarded otherwise). Failed-test traces are saved as `.zip` files to `oppia_full_stack_test_playwright_results/`, alongside (not inside) the `oppia/` root.
+
+     To view a trace, no local command or installation is needed — just drop the `.zip` file onto [trace.playwright.dev](https://trace.playwright.dev) and it opens directly in the browser. This works the same way whether the trace came from a local run or was downloaded as a CI artifact.
+
+     The Trace Viewer UI gives you a timeline scrubber, a filmstrip of screenshots, and per-action detail (Before/After DOM snapshots, console, network, and source location) for every step Playwright ran:
+
+     ![Playwright Trace Viewer showing the action timeline, filmstrip, and DOM snapshot for a failed step](./images/AcceptanceTests/PlaywrightTraceViewer.png)
+
+     **Reading a trace when diagnosing a flake:**
+     - Scrub the timeline to the failing action (highlighted in the Actions panel) and check the **Before**/**After** snapshots to see exactly what the DOM looked like at that moment.
+     - The **Locator** tab helps you find or verify a selector against the exact DOM snapshot for the selected action, without re-running the test: click the **Pick Locator** (eyedropper) icon above the snapshot, then hover over any element to see its suggested locator, or click it to lock that locator into the Locator box. This works the other way too — type or edit a locator directly in the box and matching elements get highlighted live in the snapshot, so you can iterate on a selector until it targets the right (and only the right) element.
+
+       ![Locator tab in Trace Viewer showing a picked locator and its Aria snapshot](./images/AcceptanceTests/PlaywrightTraceViewerLocatorTab.png)
+     - The **Source** tab always shows the exact line of test code that was executing at whichever action is currently selected — useful for jumping straight from a suspicious step in the timeline to the code that produced it.
+     - The **Network** tab shows every request in flight — useful for `networkidle`-related flakes, where a lingering background request (health checks, analytics beacons) can reset Playwright's idle timer.
+     - The **Console** tab surfaces frontend errors that may explain why an expected element never appeared.
+     - If you have traces from both a passing and a failing run of the same test, compare them side by side to spot exactly where timing diverged.
+   * On CI, both videos and traces are uploaded as workflow artifacts only on failure.
+
 The diagnosis is complete when you have a clear, well-supported hypothesis explaining the flake’s cause.
 
 ---
@@ -482,3 +615,5 @@ Blog Admin and Blog Editor Tests -
   [user utility files](https://github.com/oppia/oppia/blob/develop/core/tests/puppeteer-acceptance-tests/user-utilities/blog-post-editor-utils.ts)
   [puppeteer utility files - base class](https://github.com/oppia/oppia/blob/develop/core/tests/puppeteer-acceptance-tests/puppeteer-testing-utilities/puppeteer-utils.ts)
   [puppeteer utility files - user factory](https://github.com/oppia/oppia/blob/develop/core/tests/puppeteer-acceptance-tests/puppeteer-testing-utilities/user-factory.ts)
+
+Playwright migration tracking issue - [#24715](https://github.com/oppia/oppia/issues/24715)
