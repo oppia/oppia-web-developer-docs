@@ -1,4 +1,28 @@
-# Introduction
+## Table of contents
+
+* [Introduction](#introduction)
+* [Files and Directory Structure](#files-and-directory-structure)
+* [How to run the acceptance tests](#how-to-run-the-acceptance-tests)
+* [How to write new tests for a specific user](#how-to-write-new-tests-for-a-specific-user)
+* [Migrating Acceptance Tests from Puppeteer to Playwright](#migrating-acceptance-tests-from-puppeteer-to-playwright)
+  * [Console errors logging functionality in Acceptance Tests](#console-errors-logging-functionality-in-acceptance-tests)
+  * [Screenshots testing functionality in Acceptance Tests (Puppeteer)](#screenshots-testing-functionality-in-acceptance-tests-puppeteer)
+  * [Screenshots testing functionality in Acceptance Tests (Playwright)](#screenshots-testing-functionality-in-acceptance-tests-playwright)
+  * [Updating Screenshots for Acceptance Tests (Puppeteer)](#updating-screenshots-for-acceptance-tests-puppeteer)
+* [Acceptance Tests for Mobile](#acceptance-tests-for-mobile)
+  * [How to write tests for mobile](#how-to-write-tests-for-mobile)
+  * [How to run mobile acceptance tests](#how-to-run-mobile-acceptance-tests)
+* [Fixing Flakes in Acceptance Tests](#fixing-flakes-in-acceptance-tests)
+  * [Why flakes are problematic](#why-flakes-are-problematic)
+  * [Preventing flakes](#preventing-flakes)
+* [Fixing Flakes](#fixing-flakes)
+  * [1. Reproduction](#1-reproduction)
+  * [2. Diagnosis](#2-diagnosis)
+  * [3. Fix](#3-fix)
+  * [4. Open a Pull Request](#4-open-a-pull-request)
+* [Reference Links](#reference-links)
+
+## Introduction
 
 Acceptance tests are end-to-end tests that test the complete functionality of the application, and this will help users to catch bugs and regressions before they are released ensuring that the code does what it is supposed to do.
 
