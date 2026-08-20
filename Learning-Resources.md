@@ -1,4 +1,4 @@
-In general, it's easier to contribute to the Oppia codebase if you have some knowledge of git, as well as at least one of Python or AngularJS/Angular. You don't need to know all of this before you start, though! Many of our contributors have picked these skills up concurrently while tackling their first issues.
+In general, it's easier to contribute to the Oppia codebase if you have some knowledge of git, as well as at least one of Python or Angular. You don't need to know all of this before you start, though! Many of our contributors have picked these skills up concurrently while tackling their first issues.
 
 That said, we strongly recommend that you be open to learning new things. If you need to brush up on some of the technologies used in Oppia, here are some resources that may help:
 

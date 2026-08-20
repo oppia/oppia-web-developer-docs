@@ -43,21 +43,16 @@
   * [Handling asynchronous code](#handling-asynchronous-code)
     * [Making HTTP calls](#making-http-calls)
       * [Setting up CsrfToken](#setting-up-csrftoken)
-      * [HTTP calls in AngularJS](#http-calls-in-angularjs)
-      * [HTTP calls in Angular 2+](#http-calls-in-angular-2)
+      * [HTTP calls in Angular](#http-calls-in-angular)
     * [Using `done` and `done.fail` from Jasmine](#using-done-and-donefail-from-jasmine)
     * [Handling `$timeout` correctly](#handling-timeout-correctly)
-    * [Mocking with `$q` API in AngularJS](#mocking-with-q-api-in-angularjs)
   * [When upgraded services should be imported in the test file](#when-upgraded-services-should-be-imported-in-the-test-file)
-  * [`beforeEach` calls in AngularJS](#beforeeach-calls-in-angularjs)
   * [How to handle common errors](#how-to-handle-common-errors)
 * [Testing services](#testing-services)
-  * [Testing AngularJS services](#testing-angularjs-services)
-  * [Testing Angular 2+ services](#testing-angular-2-services)
+  * [Testing Angular services](#testing-angular-services)
 * [Testing controllers](#testing-controllers)
 * [Testing directives and components](#testing-directives-and-components)
-  * [Testing AngularJS directives and components](#testing-angularjs-directives-and-components)
-  * [Testing Angular2+ directives and components](#testing-angular2-directives-and-components)
+  * [Testing Angular directives and components](#testing-angular-directives-and-components)
 * [Contacts](#contacts)
 
 ## Introduction
@@ -103,8 +98,7 @@ When we achieve our goal, then for every frontend code file, executing only its 
 This list contains some resources that might help you while writing unit tests:
 - [Jasmine documentation](https://jasmine.github.io/api/edge/global)
 - [Karma](https://karma-runner.github.io/)
-- [Angular 2+ testing](https://angular.io/guide/testing)
-- [AngularJS testing](https://docs.angularjs.org/guide/unit-testing)
+- [Angular testing](https://angular.io/guide/testing)
 
 ## Run frontend tests
 
@@ -193,17 +187,7 @@ The `beforeEach` function is used to set up essential configurations and variabl
 
 * Injecting the modules to be tested or to be used as helpers inside the test file. [Here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/splash-page/splash-page.controller.spec.ts#L37-L49) is an example.
 
-* Mocking the unit test’s external dependencies (only on AngularJS files):
-
-  ```js
-  beforeEach(angular.mock.module(function($provide) {
-    $provide.value('ExplorationStatesService', {
-      getState: () => ({ interaction: null })
-    });
-  }));
-  ```
-
-* Providing Angular2+ services in downgrade files when the AngularJS service being tested uses any upgraded (Angular2+) service as a dependency. For example, assume that the test requires MyExampleService which is an Angular2+ service:
+* Providing Angular services in test files when the code being tested depends on them. For example, assume that the test requires MyExampleService:
 
   ```js
   import { TestBed } from '@angular/core/testing';
@@ -214,10 +198,7 @@ The `beforeEach` function is used to set up essential configurations and variabl
       imports: [HttpClientTestingModule]
     });
   });
-  beforeEach(angular.mock.module('oppia', function($provide) {
-    $provide.value('MyExampleService',
-      TestBed.get(MyExampleService));
-  }));
+  
   ```
 
 #### `it`
@@ -230,7 +211,7 @@ Like `describe`, the `it` function has the variants `fit` and `xit` and they can
 
 #### `afterEach`
 
-The `afterEach` function runs after each test, and it is not used often. It’s mostly used when we are handling async features such as HTTP and timeout calls (both in AngularJS and Angular 2+). [Here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/domain/exploration/read-only-exploration-backend-api.service.spec.ts#L100-L103)'s an example to handle HTTP mocks in AngularJS and [here](https://github.com/oppia/oppia/blob/ae649aa08f/core/templates/domain/classroom/classroom-backend-api.service.spec.ts#L72-L74)'s an example of doing the same in Angular 2+.
+The `afterEach` function runs after each test, and it is not used often. It’s mostly used when we are handling async features such as HTTP and timeout calls. [Here](https://github.com/oppia/oppia/blob/ae649aa08f/core/templates/domain/classroom/classroom-backend-api.service.spec.ts#L72-L74) is an example.
 
 #### `afterAll`
 
@@ -413,7 +394,7 @@ One of the main features of Jasmine is allowing you to spy on a method or proper
 
 * You can mock a property value or a method return. [Here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/exploration-editor-page/feedback-tab/services/thread-data.service.spec.ts#L147)'s an example.
 
-* You can provide fake implementations that will be called when a method is executed. This is commonly used when mocking AngularJS promises with `$defer`. [Here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/email-dashboard-pages/email-dashboard-page.controller.spec.ts#L121-L133)'s an example.
+* You can provide fake implementations that will be called when a method is executed. [Here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/email-dashboard-pages/email-dashboard-page.controller.spec.ts#L121-L133)'s an example.
 
 * You can spy on a method to check whether that method is being called when the spec runs. [Here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/services/schema-default-value.service.spec.ts#L109-L118)'s an example.
 
@@ -476,32 +457,19 @@ All HTTP calls must be mocked since the frontend tests actually run without a ba
 
 ##### Setting up CsrfToken
 
-In order to make HTTP calls in a secure way, it's common that applications have tokens to authenticate the user while they are using the platform. In the codebase, there is a specific service to handle the token, called CsrfTokenService. When mocking HTTP calls, you must mock this service in the test file so the tests won't fail due to lacking a token. Then, you should just copy and paste this piece of code inside a `beforeEach` block (the CsrfService will be a variable with the return of `$injector.get('CsrfTokenService')` -- in AngularJS -- or `TestBed.get(CsrfTokenService)` -- in Angular 2+):
+In order to make HTTP calls in a secure way, it's common that applications have tokens to authenticate the user while they are using the platform. In the codebase, there is a specific service to handle the token, called CsrfTokenService. When mocking HTTP calls, you must mock this service in the test file so the tests won't fail due to lacking a token. Then, you should just copy and paste this piece of code inside a `beforeEach` block (the CsrfService will be a variable with the return of `$injector.get('CsrfTokenService')`):
 
 ```js
-spyOn(CsrfService, 'getTokenAsync').and.callFake(function() {
-  var deferred = $q.defer();
-  deferred.resolve('sample-csrf-token');
-  return deferred.promise;
-});
+spyOn(CsrfService, 'getTokenAsync').and.returnValue(
+  Promise.resolve('sample-csrf-token')
+);
 ```
 
-##### HTTP calls in AngularJS
+##### HTTP calls in Angular
 
-[Here](https://github.com/oppia/oppia/blob/ae649aa08f1375457ec9e3c90257197b68fec7cd/core/templates/domain/learner_dashboard/learner-playlist.service.spec.ts#L84-L99) is an example which uses `$httpBackend` to mock the backend responses.
+When writing HTTP tests on Angular, use `httpTestingController` with `fakeAsync()` and `flushMicrotasks()`. [Here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/domain/classroom/classroom-backend-api.service.spec.ts#L77-L96)’s a good example to follow.
 
-To mock a backend call, you need to use the `$httpBackend` dependency. There are two ways to expect an HTTP method (you can use both):
-
-* `$httpBackend.expectMETHODNAME(URL)` - like `expectPOST` or `expectGET` for instance
-* `$httpBackend.expect(‘METHOD’, URL)` - You pass the HTTP method as the first argument.
-
-When writing HTTP tests (which are asynchronous) we need to always use the `$httpBackend.flush()` method. This will ensure that the mocked request call will be executed.
-
-##### HTTP calls in Angular 2+
-
-When writing HTTP tests on Angular 2+, use `httpTestingController` with `fakeAsync()` and `flushMicrotasks()`. [Here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/domain/classroom/classroom-backend-api.service.spec.ts#L77-L96)’s a good example to follow.
-
-Just like the AngularJS way to mock HTTP calls, the Angular 2+ has flush functions to return the expected response and execute the mock correctly.
+Angular provides methods to flush mocked requests, return the expected response, and execute the mock correctly.
 
 #### Using `done` and `done.fail` from Jasmine
 
@@ -511,38 +479,9 @@ There’s a specific case where you should use `done` on mocking HTTP calls: whe
 
 You can use `done` when using `setTimeout` for specific cases as well, check out this [example](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/teach-page/teach-page.controller.spec.ts#L53-L67).
 
-#### Handling `$timeout` correctly
-
-We use `$timeout` a lot across the codebase. When testing a `$timeout` callback, we used to call another `$timeout` in the unit tests, in order to wait for the original callback to be called. However, this approach was tricky and it was making the tests fail. When testing `$timeout` behavior, you should use [$flushPendingTasks](https://docs.angularjs.org/api/ngMock/service/$flushPendingTasks), which is cleaner and less error-prone than `$timeout`. Here's an example:
-
-**Bad code:**
-
-```js
-it('should wait for 10 seconds to call console.log', function() {
-  spyOn(console, 'log');
-  $timeout(function() {
-    expect(console.log).toHaveBeenCalled();
-  }, 10);
-});
-```
-
-**Good code:**
-
-```js
-it('should wait for 10 seconds to call console.log', function() {
-  spyOn(console, 'log');
-  $flushPendingTasks();
-  expect(console.log).toHaveBeenCalled();
-});
-```
-
-#### Mocking with `$q` API in AngularJS
-
-When mocking a promise in AngularJS, you might use the `$q` API. In these cases, you must use `$scope.$apply()` or `$scope.$digest` because they force `$q` promises to be resolved through a Javascript digest. Here are some examples using [$apply](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/email-dashboard-pages/email-dashboard-page.controller.spec.ts#L101-L108) and [$digest](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/exploration-editor-page/services/exploration-states.service.spec.ts#L209-L221).
-
 ### When upgraded services should be imported in the test file
 
-One of the active projects in Oppia is the Angular2+ migration. When testing AngularJS files which rely on an Angular2+ dependency, you must use a `beforeEach` call below to import the service. For example, assume that the test requires MyExampleService which is an Angular2+ service.
+When testing code that depends on Angular services, you may need to import and provide those services in the test setup. For example, assume that the test requires MyExampleService.
 
 ```js
 import { TestBed } from '@angular/core/testing';
@@ -553,25 +492,16 @@ import { MyExampleService } from 'services/my-example.service';
     imports: [HttpClientTestingModule]
   });
 });
-beforeEach(angular.mock.module('oppia', function($provide) {
-  $provide.value('MyExampleService',
-    TestBed.get(MyExampleService));
-}));
+
 ```
 
-If the file you’re testing doesn’t use any upgraded files, you don’t need to use this `beforeEach` call.
-
-### `beforeEach` calls in AngularJS
-
-If you’re testing an AngularJS file that uses an upgraded service, you’ll need to include a `beforeEach` block which mocks all the upgraded services. [Here](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/exploration-editor-page/editor-tab/training-panel/training-modal.controller.spec.ts#L35-L48) is an example.
-
-However, you might face the following situation: you need to mock an Angular2+ service by using `$provide.value`. Here’s the problem: if you use `$provide.value` before calling the updated services, your mock will be overwritten by the original code of the service. So, you need to change the order of `beforeEach` calls, as you can see in [this test](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/exploration-editor-page/improvements-tab/services/improvement-suggestion-thread-modal.controller.spec.ts#L36-L51).
+If the file you’re testing does not depend on additional Angular services, you may not need this setup.
 
 ### How to handle common errors
 
 * If you see an error like `Error: Trying to get the Angular injector before bootstrapping the corresponding Angular module`, it means you are using a service (directly or indirectly) that is upgraded to Angular.
 
-  * Your test that is written in AngularJS is unable to get that particular service. You can fix this by providing the value of the Angular2+ service using $provide. For example, let us assume that the test requires MyExampleService which is an Angular2+ service. Then you can provide the service like this:
+  * This usually means the required Angular service has not been provided in the test setup. You can fix this by configuring the service in TestBed before running the test.
 
     ```js
     import { TestBed } from '@angular/core/testing';
@@ -582,13 +512,8 @@ However, you might face the following situation: you need to mock an Angular2+ s
         imports: [HttpClientTestingModule]
       });
     });
-    beforeEach(angular.mock.module('oppia', function($provide) {
-      $provide.value('MyExampleService',
-        TestBed.get(MyExampleService));
-    }));
+ 
     ```
-
-* If you’re working with async on AngularJS and your tests don’t seem to run correctly, make sure you’re using `$apply` or `$digest` in the spec, as in this [example](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/topic-editor-page/services/topic-editor-state.service.spec.ts#L716-L720).
 
 ## Testing services
 
@@ -601,15 +526,7 @@ Services are one of the most important features in the codebase. They contain lo
 
 As a good first issue, all the services that need to be tested are listed in [issue #4057](https://github.com/oppia/oppia/issues/4057).
 
-### Testing AngularJS services
-
-Use these files that are correctly following the testing patterns for reference:
-
-* [current-interaction.service.spec.ts](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/pages/exploration-player-page/services/current-interaction.service.spec.ts#L39)
-* [editable-exploration-backend-api.service.spec.ts](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/domain/exploration/editable-exploration-backend-api.service.spec.ts#L30)
-* [improvement-task.service.spec.ts](https://github.com/oppia/oppia/blob/2e60d69d7b/core/templates/services/improvement-task.service.spec.ts#L29)
-
-### Testing Angular 2+ services
+### Testing Angular services
 
 Use these files that are correctly following the testing patterns for reference:
 
@@ -619,7 +536,7 @@ Use these files that are correctly following the testing patterns for reference:
 
 ## Testing controllers
 
-Controllers are used often for AngularJS UI Bootstrap library's modals. Here are some files that are correctly being tested and follow the testing patterns for reference:
+Controllers are used often for UI Bootstrap library's modals. Here are some files that are correctly being tested and follow the testing patterns for reference:
 
 * [welcome-modal.controller.spec.ts](https://github.com/oppia/oppia/blob/aa288fd246dec2f8a30a1e9f72a77bd97952c132/core/templates/pages/exploration-editor-page/modal-templates/welcome-modal.controller.spec.ts)
 * [merge-skill-modal.controller.spec.ts](https://github.com/oppia/oppia/blob/3642a4c21e387493f85c7bb72fe1789d214ffffb/core/templates/components/skill-selector/merge-skill-modal.controller.spec.ts)
@@ -635,26 +552,9 @@ Also, there are controllers that are not linked to modals. Here is an example:
 
 ## Testing directives and components
 
-### Testing AngularJS directives and components
+### Testing Angular directives and components
 
-> [!NOTE]
-> If you're creating a new AngularJS directive, please make sure the value of the restrict `property` is not `E`. If it's an `E`, change the directive to an AngularJS component. You can check out [this PR](https://github.com/oppia/oppia/pull/9850) to learn how to properly make the changes.
-
-Use these AngularJS component files that are correctly following the testing patterns for reference:
-
-* [search-bar.component.spec.ts](https://github.com/oppia/oppia/blob/a9bece78fd45344f5e0e741ab21f8ea0c289a923/core/templates/pages/library-page/search-bar/search-bar.component.spec.ts)
-* [preferences-page.component.spec.ts](https://github.com/oppia/oppia/blob/3642a4c21e387493f85c7bb72fe1789d214ffffb/core/templates/pages/preferences-page/preferences-page.component.spec.ts)
-* [practice-tab.component.spec.ts](https://github.com/oppia/oppia/blob/fcb44f8cc6e0e00aaa082045cf8b363daa510479/core/templates/pages/topic-viewer-page/practice-tab/practice-tab.component.spec.ts)
-
-Use these AngularJS directive files that are correctly following the testing patterns for reference:
-
-* [value-generator-editor.directive.spec.ts](https://github.com/oppia/oppia/blob/7aa80c49f81270c886818e3dce587715dcebac68/core/templates/pages/exploration-editor-page/param-changes-editor/value-generator-editor.directive.spec.ts)
-* [audio-translation-bar.directive.spec.ts](https://github.com/oppia/oppia/blob/4ec7b9cc70e2a255653952450fe44932607755af/core/templates/pages/exploration-editor-page/translation-tab/audio-translation-bar/audio-translation-bar.directive.spec.ts)
-* [oppia-visualization-click-hexbins.directive.spec.ts](https://github.com/oppia/oppia/blob/89a809b521af0c2d21b71db5cdc8c644d893a577/extensions/visualizations/oppia-visualization-click-hexbins.directive.spec.ts)
-
-### Testing Angular2+ directives and components
-
-Let us assume that we are writing tests for an Angular2+ component called BannerComponent. The first thing to do is to import all dependencies, we have a boilerplate for that:
+Let us assume that we are writing tests for an Angular component called BannerComponent. The first thing to do is to import all dependencies, we have a boilerplate for that:
 
 ```js
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
@@ -687,7 +587,7 @@ Once this is done, you have the class instance in the variable called `component
 
 At the moment, we don't enforce [DOM testing](https://angular.io/guide/testing-components-basics#component-dom-testing). However, as the docs say, the component is not fully tested until we test the DOM too. Eventually we hope to add DOM tests for all our components, however, for now if you are making a PR fixing a bug caused due to incorrect DOM bindings, then add DOM tests for that component. Our coverage checks do not require DOM tests.
 
-Use these Angular2+ component files that are correctly following the testing patterns for reference:
+Use these Angular component files that are correctly following the testing patterns for reference:
 
 * [donate-page.component.spec.ts](https://github.com/oppia/oppia/blob/327df0c22ec839d4ad4232492749c78443b15fb0/core/templates/pages/donate-page/donate-page.component.spec.ts)
 * [teach-page.component.spec.ts](https://github.com/oppia/oppia/blob/13b1da20ee6c0e4eabc9720a3d1ca3d87c62fe8c/core/templates/pages/teach-page/teach-page.component.spec.ts)
