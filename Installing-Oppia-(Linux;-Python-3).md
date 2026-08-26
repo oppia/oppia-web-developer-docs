@@ -1,13 +1,14 @@
 ## Table of Contents
 
-* [Install prerequisites](#install-prerequisites)
-* [Clone Oppia](#clone-oppia)
-* [Setup a virtual environment](#setup-a-virtual-environment)
-* [Running Oppia on a development server](#running-oppia-on-a-development-server)
-* [Tips and tricks](#tips-and-tricks)
-* [Notes on installation on Arch Linux systems](#notes-on-installation-on-arch-linux-systems)
-  * [Changes to installation prerequisites](#changes-to-installation-prerequisites)
-  * [Changes to the virtual environment setup](#changes-to-the-virtual-environment-setup)
+- [Table of Contents](#table-of-contents)
+- [Install prerequisites](#install-prerequisites)
+- [Clone Oppia](#clone-oppia)
+- [Setup a virtual environment](#setup-a-virtual-environment)
+- [Running Oppia on a development server](#running-oppia-on-a-development-server)
+- [Tips and tricks](#tips-and-tricks)
+- [Notes on installation on Arch Linux systems](#notes-on-installation-on-arch-linux-systems)
+  - [Changes to installation prerequisites](#changes-to-installation-prerequisites)
+  - [Changes to the virtual environment setup](#changes-to-the-virtual-environment-setup)
 
 **Note:** If you just want to create and share explorations, you may be able to use the hosted server at https://www.oppia.org (in which case you don't need to install anything).
 
@@ -33,7 +34,23 @@ bash scripts/install_prerequisites.sh
 
 2. Verify that Java version 11+ is installed. You can use the command `java -version` to do this. (If you need to change the default binary for the `java` command on your machine, use `sudo update-alternatives --config java`.)
 
-3. Install Chrome from [Google's website](https://www.google.com/chrome). You'll need this to run tests.
+3. Install GraphicsMagick to enable local image compression and ensure tests run successfully. Follow the appropriate steps below based on your operating system:
+   - For Ubuntu/Debian systems:
+      ```
+      sudo apt-get update
+      sudo apt-get install graphicsmagick
+      ```
+   - For MacOS:
+      ```
+      brew install graphicsmagick
+      ```
+After installation, verify that GraphicsMagick is correctly installed by running:
+```
+gm version
+``` 
+You should see version information printed in the terminal.   
+
+4. Install Chrome from [Google's website](https://www.google.com/chrome). You'll need this to run tests.
 
 
 ## Clone Oppia
