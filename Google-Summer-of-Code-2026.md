@@ -45,7 +45,16 @@ You might also enjoy the "weekly journals" from some of our previous contributor
 
 ## Selected Projects
 
-Check back later to see the projects selected for GSoC 2026.
+The following projects (with linked proposals) are selected as part of GSoC 2025:
+
+- [Nitish Kumar](pdfs/GSoC2026NitishKumar.pdf): Web User Feedback. Mentor: Mohit Ruwatia. [Jorunal Link](https://medium.com/@imnitishkumar04)
+- [Mosin Shaikh](pdfs/GSoC2026MosinShaikh.pdf): Learner Assessments. Mentor: Brian Rodriguez. [Journal Link](https://medium.com/@work.mosin74)
+- [Kartik Suryavanshi](pdfs/GSoC2026Kartik.pdf): Redesign the topic page. Mentor: Hardik Goyal. [Journal Link](https://medium.com/@kartiknileshs)
+- [Amiya Piyush](pdfs/GSoC2026AmiyaPiyush.pdf): Automatic Translation Suggestions. Mentor: Nikhil Agarwal. [Journal Link](https://medium.com/@amiyapiyush1). *Note: This project was offered outside GSoC and wasn't officially part of GSoC.
+- [Rohan Unbeg](pdfs/GSoC2026RohanUnbeg.pdf): Extend translation infrastructure to exploration metadata and skills. Mentor: Hasitha Kaushan. [Journal Link](https://medium.com/@rohan_unbeg)
+- [Mohak Gautam](pdfs/GSoC2026MohakGautam.pdf): Improve acceptance test infrastructure. Mentor: Jayam Patel. [Journal Link](https://medium.com/@mohak14062005)
+- [Neer Aryan Bhatta](pdfs/GSoC2026NeerAryanBhatta.pdf): Support for Lesson Progress, Study Guides, and Worked Examples. Mentor: Kevin Thomas. [Journal Link](https://gsoc2026.hashnode.dev/)
+- [Sandesh Raj](pdfs/GSoC2026SandeshRaj.pdf): Streamlining Release Automation. Mentor: Adhiambo Oyier. [Journal Link](https://tinker2024.medium.com/)
 
 ## Getting started
 
