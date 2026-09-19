@@ -139,12 +139,12 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
 ```bash
 exec "$SHELL"
 ```
-4. Now you can install Python 3.10.16 and the associated pip like this:
+4. Now you can install Python 3.12.13 and the associated pip like this:
 
    ```console
-   $ pyenv install 3.10.16
-   installing python-3.10.16...
-   installed python-3.10.16 to /home/user/.pyenv/versions/3.10.16
+   $ pyenv install 3.12.13
+   installing python-3.12.13...
+   installed python-3.12.13 to /home/user/.pyenv/versions/3.12.13
    ```
 
 5. Install direnv
@@ -188,7 +188,7 @@ exec "$SHELL"
    with this content:
 
     ```console
-    use python 3.10.16
+    use python 3.12.13
     ```
 
     Then run this command in the same folder:
@@ -408,21 +408,21 @@ On Arch Linux, you should follow these instructions to set up your virtual envir
 
 3. Reload your shell or open a new terminal window to load your updated `.bashrc`, `.zshrc`, or `config.fish`
 
-4. Now you can install Python 3.10.16 and the associated pip like this:
+4. Now you can install Python 3.12.13 and the associated pip like this:
 
    ```console
-   $ pyenv install 3.10.16
-   installing python-3.10.16...
+   $ pyenv install 3.12.13
+   installing python-3.12.13...
    patching file misc/news.d/next/build/2021-10-11-16-27-38.bpo-45405.isfdw5.rst
    patching file configure
    patching file configure.ac
-   installed python-3.10.16 to /home/user/.pyenv/versions/3.10.16
+   installed python-3.12.13 to /home/user/.pyenv/versions/3.12.13
    ```
 
 5. Create a virtual environment for oppia:
 
    ```console
-   $ pyenv virtualenv 3.10.16 oppia
+   $ pyenv virtualenv 3.12.13 oppia
    ...
    $ pyenv versions
    ...

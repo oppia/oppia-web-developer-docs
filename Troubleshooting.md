@@ -166,9 +166,9 @@ If you see an error that says something along the lines of `OSError: [Errno 2] N
 
 If you see an error that says something along the lines of `ERROR: gcloud failed to load: No module named _sqlite3` while running `scripts.start` - then follow the steps below:
 
-1. Uninstall Python 3.10.16 from pyenv with the command: `pyenv uninstall 3.10.16`
+1. Uninstall Python 3.12.13 from pyenv with the command: `pyenv uninstall 3.12.13`
 2. Install the packages as per the [wiki](https://github.com/pyenv/pyenv/wiki#suggested-build-environment) to have the suggested build environment.
-3. Install Python 3.10.16 from pyenv with the command: `pyenv install 3.10.16` and make sure that there are no warnings or errors in the output of the command.
+3. Install Python 3.12.13 from pyenv with the command: `pyenv install 3.12.13` and make sure that there are no warnings or errors in the output of the command.
 
 ### Problems Cloning from GitHub
 
@@ -467,7 +467,7 @@ If this error occurs within a virtual environment, try reinstalling the libs by 
 ### ModuleNotFoundError: No module named \_bz2
 
 1. Install bz2 headers. Use the command `sudo apt-get install libbz2-dev` on Ubuntu.
-2. Install Python 3 again so that the bz2 library gets included in `~/.pyenv/versions/3.10.16/lib/python3.10/`. Use the command `pyenv install 3.10.16`.
+2. Install Python 3 again so that the bz2 library gets included in `~/.pyenv/versions/3.12.13/lib/python3.12/`. Use the command `pyenv install 3.12.13`.
 
 ### Subprocess.CalledProcessError: Command 'yarn install --pure-lockfile' returned non-zero exit status 1
 
@@ -548,7 +548,7 @@ Traceback (most recent call last):
 
 Then,
 
-1. Open your `.bash_profile` file, and check if there are two versions of Python listed inside of it, one for Python 2.7 and other for Python 3.10. Simply remove the entry for Python 2.7. Finally, this is how your file should look like:
+1. Open your `.bash_profile` file, and check if there are two versions of Python listed inside of it, one for Python 2.7 and other for Python 3.12. Simply remove the entry for Python 2.7. Finally, this is how your file should look like:
 
 ```
 export PYENV_ROOT="$HOME/.pyenv"
@@ -558,9 +558,9 @@ eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-# Setting PATH for Python 3.10
+# Setting PATH for Python 3.12
 # The original version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.10/bin:${PATH}"
+PATH="/Library/Frameworks/Python.framework/Versions/3.12/bin:${PATH}"
 export PATH
 ```
 
