@@ -5,7 +5,7 @@ This wiki outlines the steps to triage new and existing issues. This ensures tha
 The Dev Workflow team lead (currently Chris) should do the following every week for any [filed issues that aren’t assigned to a project](https://github.com/oppia/oppia/issues?q=is%3Aissue+is%3Aopen+no%3Aproject):
 
 - Check that the issue is written clearly enough. Request clarification if needed.
-- Assign the issue to the appropriate task force, if applicable. Otherwise, assign it to the relevant team (LaCE, CD, Dev Workflow) based on which type of user it affects.
+- Assign the issue to the appropriate task force, if applicable. Otherwise, assign it to the relevant team (LEAP, CORE, Dev Workflow) based on which type of user it affects.
 - If you’re not sure how to categorise an issue, feel free to ping Sean (@seanlip) for help!
 
 ### Second-stage triage - Steps to triage incoming issues for each team:
@@ -52,10 +52,10 @@ Team leads should do an audit every week to categorise new issues in their GitHu
 
 
 ## PM contacts for each team
-- **LaCE Quality**:
+- **LEAP Quality**:
     - Learners: Diana (@dchen97)
     - Creators: Sean (@seanlip)
-- **Contributor dashboard**:
+- **CORE Team**:
     - Diana (@dchen97)
 - **Dev workflow**:
     - Chris (@U8NWXD)
