@@ -179,45 +179,45 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
 
 2. Reload your shell or open a new terminal window to load your updated `~/.bash_profile` or `~/.zshrc`.
 
-3. Install Python 3.10.16:
+3. Install Python 3.12.13:
 
    ```console
-   $ pyenv install 3.10.16
+   $ pyenv install 3.12.13
    Installing openssl-1.1.1k..
-   Installed openssl-1.1.1k to /Users/user/.pyenv/versions/3.10.16
+   Installed openssl-1.1.1k to /Users/user/.pyenv/versions/3.12.13
 
    Installing readline-8.1...
-   Installed readline-8.1 to /Users/user/.pyenv/versions/3.10.16
+   Installed readline-8.1 to /Users/user/.pyenv/versions/3.12.13
 
-   Downloading Python-3.10.16.tar.xz...
-   -> https://www.python.org/ftp/python/3.10.16/Python-3.10.16.tar.xz
-   Installing Python-3.10.16...
+   Downloading Python-3.12.13.tar.xz...
+   -> https://www.python.org/ftp/python/3.12.13/Python-3.12.13.tar.xz
+   Installing Python-3.12.13...
    patching file Misc/NEWS.d/next/Build/2021-10-11-16-27–38.bpo-45405.iSfdw5.rst
    patching file configure
    patching file configure.ac
    python-build: use zlib from xcode sdk
-   Installed Python-3.10.16 to /Users/user/.pyenv/versions/3.10.16
+   Installed Python-3.12.13 to /Users/user/.pyenv/versions/3.12.13
    ```
 
 4. Make Python 3 available globally on your system:
 
    ```console
-   pyenv global 3.10.16
+   pyenv global 3.12.13
    ```
 
-   Note that you can use a different version of Python 3 if you prefer--we'll specify Python 3.10.16 as our version for Oppia development later.
+   Note that you can use a different version of Python 3 if you prefer--we'll specify Python 3.12.13 as our version for Oppia development later.
 
 5. Create a virtual environment for oppia by making a file `.envrc` in the `opensource/` directory with the following contents:
 
    ```text
-   use python 3.10.16
+   use python 3.12.13
    ```
 
    Then run `direnv allow` in the `opensource/` directory to allow `direnv` to run there. Whenever you are within the `opensource/` directory (or any of its subdirectories, or any of their subdirectories, etc.) the virtual environment will be active. You can confirm this by running:
 
    ```console
    $ which python
-   .../opensource/.direnv/python-3.10.16/bin/python
+   .../opensource/.direnv/python-3.12.13/bin/python
    ```
 
 ## Running Oppia on a development server
@@ -299,9 +299,9 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
 
 
    Traceback (most recent call last):
-     File "/Users/user/.pyenv/versions/3.10.16/lib/python3.10/runpy.py", line 174, in _run_module_as_main
+     File "/Users/user/.pyenv/versions/3.12.13/lib/python3.12/runpy.py", line 174, in _run_module_as_main
        "__main__", fname, loader, pkg_name)
-     File "/Users/user/.pyenv/versions/3.10.16/lib/python3.10/runpy.py", line 72, in _run_code
+     File "/Users/user/.pyenv/versions/3.12.13/lib/python3.12/runpy.py", line 72, in _run_code
        exec code in run_globals
      File "/opensource/oppia/scripts/start.py", line 205, in <module>
        main()
