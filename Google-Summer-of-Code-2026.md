@@ -202,7 +202,7 @@ In order to ensure a well-rounded engineering experience, GSoC contributors will
 - Receive code reviews for all code they write for their project
 - Develop user-focused, responsive and internationalized UIs.
 - Write automated tests for their projects
-- Meet regularly with other contributors on their Oppia development team (LaCE, Contributor Dashboard, Dev Workflow, Android)
+- Meet regularly with other contributors on their Oppia development team (LEAP, CORE, Dev Workflow, Android)
 - Meet 1:1 with their mentors regularly to get developmental feedback
 - Give presentations and demos of their projects
 - Get personalized feedback on their project from the product team or a technical lead
@@ -786,7 +786,7 @@ This project implements a full-stack, largely self-contained feature that has th
 <summary>Technical hints / guidance</summary>
 
 Caching automatic translation: 
-- Each piece of content is translated in the backend and displayed on the CD dashboard when the user submits a translation. Instead of calling the third-party service (Azure, in this case) every time, we can store the generated translations in the datastore.
+- Each piece of content is translated in the backend and displayed on the Contributor Dashboard when the user submits a translation. Instead of calling the third-party service (Azure, in this case) every time, we can store the generated translations in the datastore.
 - This way, if another exploration — or even the same exploration — contains identical content, we can reuse the previously generated translation instead of sending a new request to the external service. This approach reduces both processing time and cost.
 - To implement this, we can:
   - Generate a hash of the original English content.

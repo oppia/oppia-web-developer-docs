@@ -89,16 +89,16 @@ As a new contributor, if you run into any problems along the way, we're here to 
 
 You can also browse good first issues for each of the core Oppia Web teams to find something you'd enjoy working on! Please only choose issues that have **not yet** been assigned, unless the issue is a "checkbox issue" with multiple claimable parts. Here are the project boards for the different teams:
 
-- Learner and Creator Experience (LaCE): https://github.com/orgs/oppia/projects/3/views/10, typically frontend or full-stack
+- LEAP Team (Learners, Educators, Allies, and Parents): https://github.com/orgs/oppia/projects/3/views/10, typically frontend or full-stack
 - Developer Workflow: https://github.com/orgs/oppia/projects/8/views/10, typically backend or frontend
-- Contributor Dashboard: https://github.com/orgs/oppia/projects/18/views/14, typically frontend or full-stack
+- CORE Team (Creators, Operations, Reviewers and Editors): https://github.com/orgs/oppia/projects/18/views/14, typically frontend or full-stack
 
 ### How to tackle good first issues
 
 When you've found a good first issue you'd like to tackle, please investigate it first to understand why the issue is happening. Here are some things you should do:
 
 - Read the entire discussion thread to understand what has been tried so far.
-- Try to reproduce the issue on your local dev server. (For Contributor Dashboard issues, the [[Contributor Dashboard onboarding guide|Contributor-dashboard]] has some useful setup information. For Learner and Creator Experience related issues, you can refer to the [[LaCE onboarding guide|LaCE-onboarding-guide]].)
+- Try to reproduce the issue on your local dev server. (For CORE Team issues, the [[Contributor Dashboard onboarding guide|Contributor-dashboard]] has some useful setup information. For LEAP Team related issues, you can refer to the [[LEAP onboarding guide|LaCE-onboarding-guide]].)
 - Figure out why the problem is happening, and [find the relevant code in the Oppia repository to change|Find-the-right-code-to-change]. If you have trouble with this, feel free to ask on [GitHub Discussion](https://github.com/oppia/oppia/discussions) and explain what you've tried doing so far.
 - Try and get a fix working on your local dev server. You will need to do this in order to claim the issue (see below).
 
