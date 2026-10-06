@@ -45,7 +45,15 @@ You might also enjoy the "weekly journals" from some of our previous contributor
 
 ## Selected Projects
 
-Check back later to see the projects selected for GSoC 2026.
+The following projects (with linked proposals) are selected as part of GSoC 2026:
+
+* [Nitish Kumar](pdfs/GSoC2026NitishKumar.pdf): Web user feedback. Mentor: Mohit Ruwatia. [Journal link](https://medium.com/@imnitishkumar04/gsoc-2026-final-project-report-and-my-overall-experience-102faefe03d9)
+* [Mosin Shaikh](pdfs/GSoC2026MosinShaikh.pdf): Learner assessments. Mentor: Brian Rodriguez. [Journal link](https://medium.com/@work.mosin74/lessons-from-gsoc-writing-code-amid-product-constraints-and-trade-offs-4a8fcc242761)
+* [Kartik Suryavanshi](pdfs/GSoC2026KartikSuryavanshi.pdf): Re-design the topic page. Mentor: Hardik Goyal. [Journal link](https://medium.com/@kartiknileshs/gsoc-2026-final-project-report-and-my-overall-experience-1e7806c242e3)
+* [Rohan Unbeg](pdfs/GSoC2026RohanUnbeg.pdf): Extend translation infrastructure to exploration metadata and skills. Mentor: Hasitha Kaushan. [Journal link](https://medium.com/@rohan_unbeg/gsoc-2026-final-report-extend-translation-infrastructure-to-exploration-metadata-and-skills-a364aa94f096)
+* [Mohak Gautam](pdfs/GSoC2026MohakGautam.pdf): Improve acceptance test infrastructure. Mentor: Jayam Patel. [Journal link](https://medium.com/@mohak14062005/gsoc-2026-final-project-report-migrating-oppias-acceptance-tests-from-puppeteer-to-playwright-229acfe0cb89)
+* [Neer Aryan Bhatta](pdfs/GSoC2026NeerAryanBhatta.pdf): Support for Lesson Progress, Study Guides, and Worked Examples. Mentor: Kevin Thomas. [Journal link](https://gist.github.com/Neer-rn/4cd8d226f203c1a244e445124b5df17f)
+* [Sandesh Raj](pdfs/GSoC2026SandeshRaj.pdf): Streamlining Release Automation. Mentor: Adhiambo Oyier. [Journal link](https://docs.google.com/document/d/1GCxFxPRNP9q2PQUU6ONppPVMpER5nyCWslJuiQn1XPU/edit?tab=t.0#heading=h.s3mqasatj2am)
 
 ## Getting started
 
