@@ -34,9 +34,9 @@ Additionally, GitHub also provides an advanced search syntax that allows you to 
 
 ## Setting things up
 
-1. Please sign the CLA so that we can accept your contributions. If you're contributing as an individual, use the [individual CLA](https://forms.gle/58rkQQTXytSah6KRA). If your company owns the copyright to your contributions, a company representative should sign the [corporate CLA](https://goo.gl/forms/xDq9gK3Zcv). **If you do not sign the CLA, any PRs you open will be closed.**
+1. Please sign the CLA so that we can accept your contributions. If you're contributing as an individual, use the [individual CLA](https://forms.gle/58rkQQTXytSah6KRA). If your company owns the copyright to your contributions, a company representative should sign the [corporate CLA](https://forms.gle/fPqwuTurCKfa4jY66). **If you do not sign the CLA, any PRs you open will be closed.**
 
-2. Fill in the [Oppia contributor survey](https://goo.gl/forms/otv30JV3Ihv0dT3C3) to let us know what your interests are. (You can always change your responses later.)
+2. Fill in the [Oppia contributor survey](https://forms.gle/hPemjQk1bfs6qzzAA) to let us know what your interests are. (You can always change your responses later.)
 
 3. Say hi and introduce yourself on [GitHub Discussions](https://github.com/oppia/oppia/discussions/16715)!
 

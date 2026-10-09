@@ -3,8 +3,8 @@ Thanks for your interest in helping out with Oppia's UX!  From user research to 
 The following instructions explain how to get started, and how to find a fun project to work on:
 
 ## Getting Started ##
-1. Sign the CLA so that we can accept your contributions. If you're contributing as an individual, use the [individual CLA](https://goo.gl/forms/AttNH80OV0). If your company owns the copyright to your contributions, a company representative should sign the [corporate CLA](https://goo.gl/forms/xDq9gK3Zcv).
-2. Fill in the [Oppia contributor survey](https://goo.gl/forms/otv30JV3Ihv0dT3C3) to let us know your interests. You can always update your responses later.
+1. Sign the CLA so that we can accept your contributions. If you're contributing as an individual, use the [individual CLA](https://forms.gle/58rkQQTXytSah6KRA). If your company owns the copyright to your contributions, a company representative should sign the [corporate CLA](https://forms.gle/fPqwuTurCKfa4jY66).
+2. Fill in the [Oppia contributor survey](https://forms.gle/hPemjQk1bfs6qzzAA) to let us know your interests. You can always update your responses later.
     - *Note that when filling out this survey, be aware that specifying that you want to contribute to the codebase will result in you also being added to the technical onboarding process. If you're not actually interested in contributing code, you should answer 'No' to that question.*
 3. Familiarize yourself with [Oppia's design guide](https://xd.adobe.com/view/e54eaf14-243c-4cf4-8b9e-d8ff8c6933cc-b01d/grid/).
 
