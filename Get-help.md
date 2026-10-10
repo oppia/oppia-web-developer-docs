@@ -137,7 +137,7 @@ Follow the template below for asking questions (fill in the values inside {{}} b
 @{{PR reviewer or Mentor username}} PTAL!
 
 **Checklist**
-- [ ] I have filled the [CLA](https://goo.gl/forms/AttNH80OV0) and the [Oppia Contributor Survey](https://goo.gl/forms/otv30JV3Ihv0dT3C3)
+- [ ] I have filled the [CLA](https://forms.gle/58rkQQTXytSah6KRA) and the [Oppia Contributor Survey](https://forms.gle/hPemjQk1bfs6qzzAA)
 - [ ] I have setup Oppia locally (verified by running `python -m scripts.start`)
 - [ ]  I have worked through the [Before you ask a setup question](https://github.com/oppia/oppia/wiki/Get-help#before-you-ask-a-setup-question) section of the wiki.
 
