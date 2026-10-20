@@ -9,6 +9,7 @@
   * [Coverage reports](#coverage-reports)
     * [Reading a coverage report](#reading-a-coverage-report)
     * [Ensuring that coverage is maintained](#ensuring-that-coverage-is-maintained)
+* [Reproducing flaky frontend unit tests](#reproducing-flaky-frontend-unit-tests)
 * [Write frontend tests](#write-frontend-tests)
   * [Unit test structure](#unit-test-structure)
     * [`describe`](#describe)
@@ -149,6 +150,30 @@ In order to make the coverage stable, by default we require that every frontend 
 If you pass the `--check_coverage` flag when running the tests, then the tests will check whether all expected files are fully covered. The output looks like this:
 
 ![Example of output by tracking the changes in the frontend unit tests](https://user-images.githubusercontent.com/34922478/80845732-8182f580-8be0-11ea-9c47-0f46f1f44c2f.png)
+
+## Reproducing flaky frontend unit tests
+
+Some frontend unit tests are flaky: they fail only for a particular random order of specs, or roughly once every N runs, so re-running `python -m scripts.run_frontend_tests` locally is often not enough to reproduce them. To reproduce such a flake, use the **Stress Test (Frontend Unit Tests)** GitHub workflow, the frontend equivalent of the **Stress Test Acceptance Tests** workflow described in the [[acceptance test reproduction process|Acceptance-Tests#1-reproduction]].
+
+The workflow is implemented in [`.github/workflows/stress_test_frontend.yml`](https://github.com/oppia/oppia/blob/develop/.github/workflows/stress_test_frontend.yml) in the `oppia/oppia` repository. It runs the frontend tests multiple times in parallel, and every run uses a fresh, randomly chosen Jasmine seed, so the specs execute in a different order each time. This significantly increases the likelihood of encountering the flake. It is not part of the regular CI, and it always runs against the latest `develop` branch of `oppia/oppia`.
+
+Trigger the workflow manually in your fork using the following steps:
+
+1. Navigate to your fork (github.com/YOUR_USERNAME/oppia).
+2. Sync your fork with the upstream repository (oppia/oppia).
+    1. Click on "Sync Fork" button in the top right corner of the fork page. ![Ref: Sync Fork Menu](./images/AcceptanceTests/SyncForkButton.png)
+    2. Click on "Update Branch" button. ![Ref: Update Branch Popup](./images/AcceptanceTests/UpdateBranchButton.png)
+3. Navigate to the Actions tab in top menu. Then, click on the workflow "Stress Test (Frontend Unit Tests)" from the newly opened left menu.
+4. Run the workflow manually.
+    1. Click on "Run Workflow" button. ![Ref: Workflow manual trigger menu](./images/AcceptanceTests/RunWorkflowButton.png)
+    2. Use the following inputs:
+
+        * **num_runs**: the number of times to run the frontend tests (choose one of the preset values from 1 to 200). A maximum of 256 jobs can be generated, so never request more runs than that. Start with 20 runs, and increase the value if you can't observe the flake.
+        * **specs_to_run**: either `ALL` to run the full frontend suite, or a comma-separated list of spec file paths (e.g. `core/templates/pages/donate-page/donate-page.component.spec.ts`) to run only the specs relevant to your flake. Restricting the specs makes each run much faster, which lets you afford more runs in the same amount of time.
+
+**Note:** After the flake is reproduced, add the link to the Stress Test in the Issue, so that others can look at the same stress test so CI resources are not wasted.
+
+Each run uploads its log as an artifact named `frontend-stress-test-run-<n>`. To reproduce the failure locally, find the seed that the failing run used in its log (the line looks like `Seed for Frontend Test Execution Order 640`), and then run the frontend tests with that seed by changing the value of `jasmineSeed` in [`core/tests/karma.conf.ts`](https://github.com/oppia/oppia/blob/develop/core/tests/karma.conf.ts), as described in [[reproduce test execution order|Debug-frontend-tests#reproduce-test-execution-order]]. To fix the flake once it is reproduced, follow our [[tutorial on fixing waitFor flakes|Tutorial-Learn-How-to-Fix-a-CI-Flake-waitFor-Statements]], and see our [[guide to debugging frontend tests|Debug-frontend-tests]] for general debugging tips.
 
 ## Write frontend tests
 
