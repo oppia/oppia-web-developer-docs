@@ -1,0 +1,489 @@
+# Auto-generated baseline of known documentation issues.
+# Regenerate with: python scripts/check_docs.py --update-baseline
+# CI fails only on issues NOT listed here.
+Apache-Beam-Jobs.md:579: Header not in TOC: Instruction for job testers
+Apache-Beam-Jobs.md:583: Header not in TOC: Deploy to backup server
+Apache-Beam-Jobs.md:592: Header not in TOC: Run the job on backup server through the local dev server
+Apache-Beam-Jobs.md:624: Header not in TOC: Example
+Apache-Beam-Jobs.md:651: Header not in TOC: Example
+Apache-Beam-Jobs.md:681: Header not in TOC: Example
+Apache-Beam-Jobs.md:699: Header not in TOC: Planning a job
+Apache-Beam-Jobs.md:707: Header not in TOC: Executing jobs
+Apache-Beam-Jobs.md:715: Header not in TOC: PR guidelines
+Apache-Beam-Jobs.md:718: Header not in TOC: Job testing workflow
+Backend-tests.md:219: Header not in TOC: Overall coverage
+Backend-tests.md:274: Header not in TOC: Associated test files
+Backend-tests.md:278: Header not in TOC: Per-file coverage
+Contributing-code-to-Oppia.md:117: Header not in TOC: Getting help
+Create a Good PR.md:3: TOC entry has no matching header: Table of contents
+Creating-Interactions.md:34: Header not in TOC: The directives folder
+Creating-Interactions.md:5: TOC entry has no matching header: The `directives` folder
+End-to-End-Tests.md:31: TOC entry has no matching header: Non-Angular pages
+Frontend-tests.md:246: Header not in TOC: Note: This function will only work if the tests are running in the fakeAsync() block.
+Frontend-tests.md:251: Header not in TOC: Note: This function will only work if the tests are running in the fakeAsync() block.
+GHC-Open-Source-Day-2019.md:100: Header not in TOC: Hard
+GHC-Open-Source-Day-2019.md:114: Header not in TOC: Project 1: Change the Style of Playthrough Buttons in Improvements Tab
+GHC-Open-Source-Day-2019.md:138: Header not in TOC: Project 2: Render Suggested Changes in Suggestion Improvement Cards
+GHC-Open-Source-Day-2019.md:172: Header not in TOC: Project 3: Limit questions requested to a specific amount in the question player
+GHC-Open-Source-Day-2019.md:194: Header not in TOC: Project 4: "Card is too long" warning is not prominent enough, and isn't shown when the RTE is closed
+GHC-Open-Source-Day-2019.md:229: Header not in TOC: Project 5: Lint check to ensure a single space after yield keyword in python and to avoid inline styling
+GHC-Open-Source-Day-2019.md:22: Header not in TOC: Sign the CLA
+GHC-Open-Source-Day-2019.md:253: Header not in TOC: Project 6: Convert frontend dicts to domain objects
+GHC-Open-Source-Day-2019.md:277: Header not in TOC: Project 7: Capture screenshot in Travis e2e tests
+GHC-Open-Source-Day-2019.md:28: Header not in TOC: Create a GitHub account
+GHC-Open-Source-Day-2019.md:299: Header not in TOC: Project 8: Resolve styling for card view on creator-dashboard
+GHC-Open-Source-Day-2019.md:326: Header not in TOC: Project 9: Convert questionSummary dict to a frontend domain object
+GHC-Open-Source-Day-2019.md:347: Header not in TOC: Project 10: Remove underscores in routes to improve SEO
+GHC-Open-Source-Day-2019.md:374: Header not in TOC: Project 11: E2E Tests
+GHC-Open-Source-Day-2019.md:39: Header not in TOC: Install Oppia on your machine
+GHC-Open-Source-Day-2019.md:403: Header not in TOC: Project 12: Refactor dicts in the frontend to use camel case key
+GHC-Open-Source-Day-2019.md:426: Header not in TOC: Project 13: Add a lint check to ensure require(…) statements are alphabetized
+GHC-Open-Source-Day-2019.md:448: Header not in TOC: Project 14: Enable animated GIFs in the lessons
+GHC-Open-Source-Day-2019.md:475: Header not in TOC: Project 15: Disable the ‘Save and Publish’ button in the question editor when the question doesn’t have an interaction
+GHC-Open-Source-Day-2019.md:498: Header not in TOC: Project 16: Add a tutorial for the topic editor on first visit
+GHC-Open-Source-Day-2019.md:520: Header not in TOC: Project 17: Make Answers Anonymous in the Statistics Tab
+GHC-Open-Source-Day-2019.md:83: Header not in TOC: Easy
+GHC-Open-Source-Day-2019.md:8: TOC entry has no matching header: What To Do When You Are Stuck
+GHC-Open-Source-Day-2019.md:93: Header not in TOC: Intermediate
+GHC-Open-Source-Day.md:149: Header not in TOC: Project 1: Implement a reusable sort/filter list view for skills
+GHC-Open-Source-Day.md:170: Header not in TOC: Project 2: Create toasts for success messages
+GHC-Open-Source-Day.md:190: Header not in TOC: Project 3: Use case-insensitive names rather than IDs in the URL for a topic
+GHC-Open-Source-Day.md:210: Header not in TOC: Project 4: Allow users to suggest new questions for a skill
+GHC-Open-Source-Day.md:22: Header not in TOC: Sign the CLA
+GHC-Open-Source-Day.md:230: Header not in TOC: Project 5: Allow users to suggest edits to concept cards
+GHC-Open-Source-Day.md:250: Header not in TOC: Project 6: Allow translators to see the changes made in content by editor
+GHC-Open-Source-Day.md:268: Header not in TOC: Project 7: Improve linter checks
+GHC-Open-Source-Day.md:288: Header not in TOC: Project 8: Improve unit tests
+GHC-Open-Source-Day.md:28: Header not in TOC: Create a GitHub account
+GHC-Open-Source-Day.md:311: Header not in TOC: Project 9: Writing Selenium tests for interactions
+GHC-Open-Source-Day.md:329: Header not in TOC: Project 10: Expose "upload exploration" functionality in admin page
+GHC-Open-Source-Day.md:346: Header not in TOC: Project 11: Randomize the pretest questions.
+GHC-Open-Source-Day.md:363: Header not in TOC: Project 12: Multiple choice answers could be shuffled
+GHC-Open-Source-Day.md:382: Header not in TOC: Project 13: Find ways to make the audio translation tab interface clearer
+GHC-Open-Source-Day.md:39: Header not in TOC: Install Oppia on your machine
+GHC-Open-Source-Day.md:404: Header not in TOC: Project 14: Feedback threads in feedback tab do not reorder by recent updates in real time
+GHC-Open-Source-Day.md:421: Header not in TOC: Project 15: Speed Improvements
+GHC-Open-Source-Day.md:441: Header not in TOC: Project 16: Cross Browser Compatibility Improvement - Translation console for Safari
+GHC-Open-Source-Day.md:459: Header not in TOC: Project 17: Improving the library page experience on mobile
+GHC-Open-Source-Day.md:478: Header not in TOC: Project 18: Accessibility Improvements - Tabbing Order
+GHC-Open-Source-Day.md:496: Header not in TOC: Project 19: Accessibility Improvements - Fixing Contrast in Image Region Selectors
+GHC-Open-Source-Day.md:8: TOC entry has no matching header: What To Do When You Are Stuck
+GHC-Open-Source-Day.md:92: Header not in TOC: Project List
+Google-Summer-of-Code-2018.md:10: TOC entry has no matching header: Other useful information
+Google-Summer-of-Code-2018.md:168: Header not in TOC: Infrastructure Projects
+Google-Summer-of-Code-2018.md:170: Header not in TOC: Static serving
+Google-Summer-of-Code-2018.md:200: Header not in TOC: Improving the development workflow
+Google-Summer-of-Code-2018.md:21: Header not in TOC: Accepted Proposals:
+Google-Summer-of-Code-2018.md:239: Header not in TOC: Rich-text-editor upgrade
+Google-Summer-of-Code-2018.md:266: Header not in TOC: Adding a training interface for machine learning
+Google-Summer-of-Code-2018.md:297: Header not in TOC: Cleaning up the backend tests
+Google-Summer-of-Code-2018.md:320: Header not in TOC: Improve the image loading pipeline
+Google-Summer-of-Code-2018.md:345: Header not in TOC: Learner View Projects
+Google-Summer-of-Code-2018.md:347: Header not in TOC: New interactions
+Google-Summer-of-Code-2018.md:373: Header not in TOC: Add functionality for skills
+Google-Summer-of-Code-2018.md:398: Header not in TOC: Audio bar improvements
+Google-Summer-of-Code-2018.md:414: Header not in TOC: Questions frontend
+Google-Summer-of-Code-2018.md:435: Header not in TOC: "Creator Experience" Projects
+Google-Summer-of-Code-2018.md:437: Header not in TOC: Lesson translation dashboard
+Google-Summer-of-Code-2018.md:459: Header not in TOC: Crowdsourced audio translations
+Google-Summer-of-Code-2018.md:497: Header not in TOC: General crowdsourcing and review system
+Google-Summer-of-Code-2018.md:521: Header not in TOC: Visualizing learner playthroughs
+Google-Summer-of-Code-2018.md:557: Header not in TOC: Answer statistics visualizations
+Google-Summer-of-Code-2018.md:9: TOC entry has no matching header: Oppia's Project Ideas
+Google-Summer-of-Code-2019.md:10: TOC entry has no matching header: Other useful information
+Google-Summer-of-Code-2019.md:12: TOC entry has no matching header: List of Mentors
+Google-Summer-of-Code-2019.md:202: Header not in TOC: "Creator Experience" Projects
+Google-Summer-of-Code-2019.md:218: Header not in TOC: Learner View Projects
+Google-Summer-of-Code-2019.md:228: Header not in TOC: Infrastructure Projects
+Google-Summer-of-Code-2019.md:22: Header not in TOC: Completed Projects
+Google-Summer-of-Code-2019.md:242: Header not in TOC: "Creator Experience" Projects
+Google-Summer-of-Code-2019.md:243: Header not in TOC: 1.1. Building a lesson artist dashboard
+Google-Summer-of-Code-2019.md:264: Header not in TOC: 1.2. Infrastructure for measuring exploration enjoyability
+Google-Summer-of-Code-2019.md:295: Header not in TOC: 1.3. Translation infrastructure enhancements
+Google-Summer-of-Code-2019.md:316: Header not in TOC: 1.4. Improvements to the editor saving flow
+Google-Summer-of-Code-2019.md:342: Header not in TOC: 1.5. Creating a "reviewer view" for explorations
+Google-Summer-of-Code-2019.md:371: Header not in TOC: 1.6. Allow creation of parameterized questions
+Google-Summer-of-Code-2019.md:401: Header not in TOC: 1.7. Community-based voice-over and translation
+Google-Summer-of-Code-2019.md:438: Header not in TOC: Learner View Projects
+Google-Summer-of-Code-2019.md:439: Header not in TOC: 2.1. Highlight text in a lesson as audio is played
+Google-Summer-of-Code-2019.md:463: Header not in TOC: 2.2. Review tests and other improvements to the questions framework
+Google-Summer-of-Code-2019.md:487: Header not in TOC: 2.3. Asking students why they picked a particular answer
+Google-Summer-of-Code-2019.md:510: Header not in TOC: 2.4. Memorization Experience for Learners
+Google-Summer-of-Code-2019.md:535: Header not in TOC: Infrastructure Projects
+Google-Summer-of-Code-2019.md:536: Header not in TOC: 3.1. Improve frontend and end-to-end tests
+Google-Summer-of-Code-2019.md:565: Header not in TOC: 3.2. Improve backend test coverage and upgrade it to support Python 3
+Google-Summer-of-Code-2019.md:592: Header not in TOC: 3.3. Migrate the frontend to Angular 2
+Google-Summer-of-Code-2019.md:619: Header not in TOC: 3.4. Upgrade third-party libraries
+Google-Summer-of-Code-2019.md:643: Header not in TOC: 3.5. Static serving
+Google-Summer-of-Code-2019.md:677: Header not in TOC: 3.6. Validate invariants between data models
+Google-Summer-of-Code-2019.md:722: Header not in TOC: List of Potential Mentors
+Google-Summer-of-Code-2019.md:9: TOC entry has no matching header: Oppia's Project Ideas
+Google-Summer-of-Code-2020.md:12: TOC entry has no matching header: Other useful information
+Google-Summer-of-Code-2020.md:345: Header not in TOC: Full-stack Projects
+Google-Summer-of-Code-2020.md:361: Header not in TOC: Frontend Projects
+Google-Summer-of-Code-2020.md:371: Header not in TOC: Backend Projects
+Google-Summer-of-Code-2020.md:381: Header not in TOC: Android Projects
+Google-Summer-of-Code-2020.md:389: Header not in TOC: Full-stack Projects
+Google-Summer-of-Code-2020.md:391: Header not in TOC: 1.1. Fix Exploration Saving Flows
+Google-Summer-of-Code-2020.md:420: Header not in TOC: 1.2. Generate images for LaTeX expressions
+Google-Summer-of-Code-2020.md:443: Header not in TOC: 1.3. Bulk Upload of Voiceovers
+Google-Summer-of-Code-2020.md:471: Header not in TOC: 1.4. Add an SVG Diagram Editor to the RTE
+Google-Summer-of-Code-2020.md:495: Header not in TOC: 1.5. Provide an easy, lightweight way for students to log in to save progress
+Google-Summer-of-Code-2020.md:522: Header not in TOC: 1.6. Improvements to TextClassifier for ML-based responses to student inputs
+Google-Summer-of-Code-2020.md:562: Header not in TOC: 1.7. Image contributions
+Google-Summer-of-Code-2020.md:589: Header not in TOC: Frontend Projects
+Google-Summer-of-Code-2020.md:591: Header not in TOC: 2.1. Editor Page Redesigns
+Google-Summer-of-Code-2020.md:617: Header not in TOC: 2.2. Solve all typescript and webpack issues in the codebase
+Google-Summer-of-Code-2020.md:651: Header not in TOC: 2.3. Frontend testing of controllers and directives
+Google-Summer-of-Code-2020.md:676: Header not in TOC: 2.4. Ensure that Oppia is Fully Accessible
+Google-Summer-of-Code-2020.md:720: Header not in TOC: Backend Projects
+Google-Summer-of-Code-2020.md:722: Header not in TOC: 3.1. Simplify the Oppia build process
+Google-Summer-of-Code-2020.md:749: Header not in TOC: 3.2. Validate data invariants between storage models
+Google-Summer-of-Code-2020.md:778: Header not in TOC: 3.3. Fix the linter and implement all lint checks
+Google-Summer-of-Code-2020.md:811: Header not in TOC: 3.4. Make Oppiabot more useful
+Google-Summer-of-Code-2020.md:836: Header not in TOC: Android Projects
+Google-Summer-of-Code-2020.md:838: Header not in TOC: 4.1. Support Tablet Interfaces
+Google-Summer-of-Code-2020.md:863: Header not in TOC: 4.2. Analytics Support
+Google-Summer-of-Code-2020.md:908: Header not in TOC: 4.3. Additional interaction types
+Google-Summer-of-Code-2021.md:1022: Header not in TOC: Implement feature flags & platform parameters
+Google-Summer-of-Code-2021.md:1060: Header not in TOC: Implement lightweight checkpointing
+Google-Summer-of-Code-2021.md:1102: Header not in TOC: Introduce support for displaying copyright licenses in the app
+Google-Summer-of-Code-2021.md:1152: Header not in TOC: Making Oppiabot Better
+Google-Summer-of-Code-2021.md:20: TOC entry has no matching header: Other useful information
+Google-Summer-of-Code-2021.md:346: TOC entry differs from header (near match): header: 'Developer Experience'  vs  TOC: 'Developer Experience Team'
+Google-Summer-of-Code-2021.md:348: Header not in TOC: Solving dev-workflow issues
+Google-Summer-of-Code-2021.md:391: Header not in TOC: Move custom JS\TS lint checks to eslint
+Google-Summer-of-Code-2021.md:417: Header not in TOC: Implement schema validators for the handler params
+Google-Summer-of-Code-2021.md:470: Header not in TOC: Make backend code typed
+Google-Summer-of-Code-2021.md:498: Header not in TOC: Angular Migration
+Google-Summer-of-Code-2021.md:500: Header not in TOC: Note: This project can change a lot based on the progress of migration made till the community bonding period. We will try our best to make sure that the project doesn't change. That said, if such last-minute changes are troublesome for you, please consider applying to other projects.
+Google-Summer-of-Code-2021.md:530: Header not in TOC: Improve frontend type system
+Google-Summer-of-Code-2021.md:556: Header not in TOC: Write Frontend Tests
+Google-Summer-of-Code-2021.md:597: Header not in TOC: Generalised migration flow for all models using JsonProperty fields
+Google-Summer-of-Code-2021.md:625: Header not in TOC: Handling Exploration updates in suggestions and ‘lost changes’ improvements
+Google-Summer-of-Code-2021.md:657: Header not in TOC: Improve Exploration save flow: Syncing edits in the background
+Google-Summer-of-Code-2021.md:686: Header not in TOC: Enhancing the Skill functionality
+Google-Summer-of-Code-2021.md:720: Header not in TOC: Integrating the Oppia blog with Oppia.org
+Google-Summer-of-Code-2021.md:754: Header not in TOC: Redesigning and updating the learner dashboard
+Google-Summer-of-Code-2021.md:785: Header not in TOC: Customize difficulty for practice sessions
+Google-Summer-of-Code-2021.md:819: Header not in TOC: Contributor Dashboard Responsive UI
+Google-Summer-of-Code-2021.md:825: Header not in TOC: Contributor Dashboard Resources
+Google-Summer-of-Code-2021.md:832: Header not in TOC: Landing Page
+Google-Summer-of-Code-2021.md:841: Header not in TOC: Translate Text Tab
+Google-Summer-of-Code-2021.md:847: Header not in TOC: Submit Question Tab
+Google-Summer-of-Code-2021.md:879: Header not in TOC: Developer Options Menu
+Google-Summer-of-Code-2021.md:930: Header not in TOC: Static Analysis Checks + Improvements
+Google-Summer-of-Code-2021.md:975: Header not in TOC: End-to-End Testing Support
+Google-Summer-of-Code-2022.md:1044: Header not in TOC: 4.2. Improve the frontend type system
+Google-Summer-of-Code-2022.md:1090: Header not in TOC: 4.3. Fix validation errors
+Google-Summer-of-Code-2022.md:1157: Header not in TOC: 4.4. Move and fix data in Google Cloud Storage
+Google-Summer-of-Code-2022.md:1220: Header not in TOC: Developer workflow team
+Google-Summer-of-Code-2022.md:1223: Header not in TOC: 5.1. Achieve 100% Per-File Branch and Line Coverage for the Frontend and the Backend
+Google-Summer-of-Code-2022.md:1264: Header not in TOC: 5.2. Migrate away from Protractor
+Google-Summer-of-Code-2022.md:1316: Header not in TOC: Android team
+Google-Summer-of-Code-2022.md:1318: Header not in TOC: 6.1. Android release automation
+Google-Summer-of-Code-2022.md:1382: Header not in TOC: 6.2. Interactive onboarding flow
+Google-Summer-of-Code-2022.md:1449: Header not in TOC: 6.3. Accessibility Improvements
+Google-Summer-of-Code-2022.md:28: Header not in TOC: Completed Projects:
+Google-Summer-of-Code-2022.md:356: Header not in TOC: Learner and Creator Experience (LaCE) team
+Google-Summer-of-Code-2022.md:358: Header not in TOC: 1.1. Learner Diagnostic Tests
+Google-Summer-of-Code-2022.md:398: Header not in TOC: 1.2. Implementing the “needs guiding responses” section of the lesson analytics dashboard
+Google-Summer-of-Code-2022.md:444: Header not in TOC: 1.3. Helping learners when they get stuck
+Google-Summer-of-Code-2022.md:489: Header not in TOC: 1.4. Celebrating learners' accomplishments
+Google-Summer-of-Code-2022.md:538: Header not in TOC: 1.5. Learner Groups MVP
+Google-Summer-of-Code-2022.md:589: Header not in TOC: 1.6. Improving some math interactions
+Google-Summer-of-Code-2022.md:635: Header not in TOC: 1.7. Blog integration
+Google-Summer-of-Code-2022.md:678: Header not in TOC: 1.8. Improving the lesson creation experience
+Google-Summer-of-Code-2022.md:724: Header not in TOC: 1.9. Onboarding improvements
+Google-Summer-of-Code-2022.md:782: Header not in TOC: Contributor Dashboard Team
+Google-Summer-of-Code-2022.md:784: Header not in TOC: 2.1. Contributor Recognition Infrastructure
+Google-Summer-of-Code-2022.md:847: Header not in TOC: 2.2. Making the Contributor Dashboard UI Responsive
+Google-Summer-of-Code-2022.md:886: Header not in TOC: 2.3. Adding a Contributor Dashboard Stats page
+Google-Summer-of-Code-2022.md:944: Header not in TOC: Angular team
+Google-Summer-of-Code-2022.md:947: Header not in TOC: 3.1. Migrate the exploration editor page to Angular, and move the entire frontend to the Angular CLI
+Google-Summer-of-Code-2022.md:992: Header not in TOC: Backend team
+Google-Summer-of-Code-2022.md:995: Header not in TOC: 4.1. Make backend code typed
+Google-Summer-of-Code-2023.md:1055: Header not in TOC: 4.3. Developer Workflow Telemetry Dashboard
+Google-Summer-of-Code-2023.md:1059: Header not in TOC: 4.4. Make CI faster
+Google-Summer-of-Code-2023.md:1149: Header not in TOC: 4.5. Normalize Usage of Feature Flags
+Google-Summer-of-Code-2023.md:25: Header not in TOC: Contributors
+Google-Summer-of-Code-2023.md:290: Header not in TOC: Learner and Creator Experience (LaCE) team
+Google-Summer-of-Code-2023.md:306: Header not in TOC: Contributor Dashboard team
+Google-Summer-of-Code-2023.md:314: Header not in TOC: Data validation team
+Google-Summer-of-Code-2023.md:318: Header not in TOC: Developer workflow team
+Google-Summer-of-Code-2023.md:330: Header not in TOC: Learner and Creator Experience (LaCE) team
+Google-Summer-of-Code-2023.md:332: Header not in TOC: 1.1. Implementing the “needs guiding responses” section of the lesson analytics dashboard
+Google-Summer-of-Code-2023.md:336: Header not in TOC: 1.2. Improving the lesson creation experience
+Google-Summer-of-Code-2023.md:33: Header not in TOC: Current Projects
+Google-Summer-of-Code-2023.md:384: Header not in TOC: 1.3. Serial chapter launch
+Google-Summer-of-Code-2023.md:422: Header not in TOC: 1.4. Learner Dashboard Redesign
+Google-Summer-of-Code-2023.md:503: Header not in TOC: 1.5. Improvements to Math Interactions
+Google-Summer-of-Code-2023.md:549: Header not in TOC: 1.6. Improve Accessibility
+Google-Summer-of-Code-2023.md:582: Header not in TOC: 1.7. User feedback reporting UI on Web
+Google-Summer-of-Code-2023.md:628: Header not in TOC: Contributor Dashboard team
+Google-Summer-of-Code-2023.md:630: Header not in TOC: 2.1. Contributor Dashboard Admin Stats Table
+Google-Summer-of-Code-2023.md:676: Header not in TOC: 2.2. Prioritized Translation Languages and Auto-Translations
+Google-Summer-of-Code-2023.md:733: Header not in TOC: 2.3. Improvements for translation reviewer experience
+Google-Summer-of-Code-2023.md:782: Header not in TOC: Data validation team
+Google-Summer-of-Code-2023.md:784: Header not in TOC: 3.1. Fix validation errors
+Google-Summer-of-Code-2023.md:874: Header not in TOC: Developer workflow team
+Google-Summer-of-Code-2023.md:876: Header not in TOC: 4.1. Dockerize Oppia
+Google-Summer-of-Code-2023.md:976: Header not in TOC: 4.2. Developer Workflow Release Dashboard
+Google-Summer-of-Code-2024.md:1035: Header not in TOC: 3.2. Make CI and pre-push hooks more efficient
+Google-Summer-of-Code-2024.md:1132: Header not in TOC: Android team
+Google-Summer-of-Code-2024.md:1134: Header not in TOC: 4.1. Code coverage support and enforcement
+Google-Summer-of-Code-2024.md:1193: Header not in TOC: 4.2. Multiple classrooms support
+Google-Summer-of-Code-2024.md:25: Header not in TOC: Contributors
+Google-Summer-of-Code-2024.md:295: Header not in TOC: Learner and Creator Experience (LaCE) team
+Google-Summer-of-Code-2024.md:309: Header not in TOC: Contributor Dashboard team
+Google-Summer-of-Code-2024.md:315: Header not in TOC: Developer Workflow team
+Google-Summer-of-Code-2024.md:321: Header not in TOC: Android team
+Google-Summer-of-Code-2024.md:328: Header not in TOC: Learner and Creator Experience (LaCE) team
+Google-Summer-of-Code-2024.md:330: Header not in TOC: 1.1. Infrastructure and navigation for multiple classrooms
+Google-Summer-of-Code-2024.md:34: Header not in TOC: Completed Projects
+Google-Summer-of-Code-2024.md:411: Header not in TOC: 1.2. Static page redesigns
+Google-Summer-of-Code-2024.md:477: Header not in TOC: 1.3. Clean up the structure for revision cards and worked examples
+Google-Summer-of-Code-2024.md:548: Header not in TOC: 1.4. Redesign the topic page
+Google-Summer-of-Code-2024.md:645: Header not in TOC: 1.5. Improve the practice sessions experience
+Google-Summer-of-Code-2024.md:727: Header not in TOC: 1.6. Improvements to the exploration editor page
+Google-Summer-of-Code-2024.md:806: Header not in TOC: Contributor Dashboard (CD) team
+Google-Summer-of-Code-2024.md:808: Header not in TOC: 2.1. Show AI-powered and cached translation suggestions to translation submitters
+Google-Summer-of-Code-2024.md:879: Header not in TOC: 2.2. Make it possible to update translations for previously-translated content
+Google-Summer-of-Code-2024.md:945: Header not in TOC: Developer workflow team
+Google-Summer-of-Code-2024.md:947: Header not in TOC: 3.1. Acceptance tests
+Google-Summer-of-Code-2025.md:1039: Header not in TOC: 3.3. Standardize and validate domain objects and storage models
+Google-Summer-of-Code-2025.md:1158: Header not in TOC: Android team
+Google-Summer-of-Code-2025.md:1160: Header not in TOC: 4.1. Flashbacks
+Google-Summer-of-Code-2025.md:1274: Header not in TOC: 4.2. Platform parameters dashboard
+Google-Summer-of-Code-2025.md:1390: Header not in TOC: 4.3. Android lint infrastructure and fixes
+Google-Summer-of-Code-2025.md:25: Header not in TOC: Contributors
+Google-Summer-of-Code-2025.md:341: Header not in TOC: Learner and Creator Experience (LaCE) team
+Google-Summer-of-Code-2025.md:349: Header not in TOC: Contributor Dashboard team
+Google-Summer-of-Code-2025.md:353: Header not in TOC: Developer Workflow team
+Google-Summer-of-Code-2025.md:361: Header not in TOC: Android team
+Google-Summer-of-Code-2025.md:369: Header not in TOC: Learner and Creator Experience (LaCE) team
+Google-Summer-of-Code-2025.md:371: Header not in TOC: 1.1. Clean up the structure for study guides and worked examples
+Google-Summer-of-Code-2025.md:46: Header not in TOC: Selected Projects
+Google-Summer-of-Code-2025.md:489: Header not in TOC: 1.2. Fix the most common server errors
+Google-Summer-of-Code-2025.md:578: Header not in TOC: 1.3. Lesson player redesign
+Google-Summer-of-Code-2025.md:706: Header not in TOC: Contributor Dashboard team
+Google-Summer-of-Code-2025.md:708: Header not in TOC: 2.1. Show AI-powered translation suggestions to translation submitters
+Google-Summer-of-Code-2025.md:822: Header not in TOC: Developer Workflow Team
+Google-Summer-of-Code-2025.md:824: Header not in TOC: 3.1. Acceptance tests
+Google-Summer-of-Code-2025.md:926: Header not in TOC: 3.2. Consolidate entity migration jobs
+Google-Summer-of-Code-2026.md:1055: Header not in TOC: 3.2. Consolidate entity migration jobs
+Google-Summer-of-Code-2026.md:1168: Header not in TOC: 3.3. Standardize and validate domain objects and storage models
+Google-Summer-of-Code-2026.md:1285: Header not in TOC: Android team
+Google-Summer-of-Code-2026.md:1287: Header not in TOC: 4.1 Support for Lesson Progress, Study Guides, and Worked Examples
+Google-Summer-of-Code-2026.md:1455: Header not in TOC: 4.2 Streamlining Release Automation
+Google-Summer-of-Code-2026.md:25: Header not in TOC: Contributors
+Google-Summer-of-Code-2026.md:350: Header not in TOC: Learners, Educators, Allies, and Parents (LEAP) team
+Google-Summer-of-Code-2026.md:356: Header not in TOC: Creators, Operations, Reviewers, and Editors (CORE) team
+Google-Summer-of-Code-2026.md:361: Header not in TOC: Developer Workflow team
+Google-Summer-of-Code-2026.md:367: Header not in TOC: Android team
+Google-Summer-of-Code-2026.md:372: Header not in TOC: Learners, Educators, Allies, and Parents (LEAP) team
+Google-Summer-of-Code-2026.md:374: Header not in TOC: 1.1. Web user feedback
+Google-Summer-of-Code-2026.md:469: Header not in TOC: 1.2. Learner assessments
+Google-Summer-of-Code-2026.md:46: Header not in TOC: Selected Projects
+Google-Summer-of-Code-2026.md:589: Header not in TOC: 1.3. Re-design the topic page
+Google-Summer-of-Code-2026.md:718: Header not in TOC: Creators, Operations, Reviewers, and Editors (CORE) team
+Google-Summer-of-Code-2026.md:720: Header not in TOC: 2.1. Automatic translation suggestions
+Google-Summer-of-Code-2026.md:832: Header not in TOC: 2.2. Extend translation infrastructure to exploration metadata and skills
+Google-Summer-of-Code-2026.md:942: Header not in TOC: Developer Workflow Team
+Google-Summer-of-Code-2026.md:944: Header not in TOC: 3.1. Improve acceptance test infrastructure
+Guide-on-defining-types.md:388: Header not in TOC: Why Enable Strict Mode?
+Guide-on-defining-types.md:395: TOC entry differs from header (near match): header: 'Cases Encountered in Oppia Codebase:'  vs  TOC: 'Cases encountered in Codebase:'
+Guide-on-defining-types.md:399: Header not in TOC: [TS-1]:
+Guide-on-defining-types.md:401: Header not in TOC: [TS-1-1]
+Guide-on-defining-types.md:403: Header not in TOC: Violation:
+Guide-on-defining-types.md:417: Header not in TOC: Solution:
+Guide-on-defining-types.md:432: Header not in TOC: [TS-1-2]
+Guide-on-defining-types.md:433: Header not in TOC: Violation:
+Guide-on-defining-types.md:445: Header not in TOC: Solution:
+Guide-on-defining-types.md:455: Header not in TOC: [TS-2]:
+Guide-on-defining-types.md:457: Header not in TOC: [TS-2-1]:
+Guide-on-defining-types.md:458: Header not in TOC: Violation:
+Guide-on-defining-types.md:471: Header not in TOC: Solution:
+Guide-on-defining-types.md:482: Header not in TOC: [TS-2-2]:
+Guide-on-defining-types.md:483: Header not in TOC: Violation:
+Guide-on-defining-types.md:496: Header not in TOC: Solution:
+Guide-on-defining-types.md:511: Header not in TOC: [TS-3]:
+Guide-on-defining-types.md:517: Header not in TOC: [TS-3-1]:
+Guide-on-defining-types.md:518: Header not in TOC: Violation:
+Guide-on-defining-types.md:531: Header not in TOC: Solution:
+Guide-on-defining-types.md:547: Header not in TOC: [TS-3-2]:
+Guide-on-defining-types.md:549: Header not in TOC: Violation:
+Guide-on-defining-types.md:572: Header not in TOC: Solution:
+Guide-on-defining-types.md:594: Header not in TOC: [TS-4]:
+Guide-on-defining-types.md:596: Header not in TOC: [TS-4-1]:
+Guide-on-defining-types.md:597: Header not in TOC: Violation:
+Guide-on-defining-types.md:615: Header not in TOC: Solution:
+Guide-on-defining-types.md:637: Header not in TOC: [TS-4-2]:
+Guide-on-defining-types.md:638: Header not in TOC: Violation:
+Guide-on-defining-types.md:651: Header not in TOC: Solution:
+Guide-on-defining-types.md:671: Header not in TOC: [TS-5]:
+Guide-on-defining-types.md:674: Header not in TOC: [TS-5-1]
+Guide-on-defining-types.md:675: Header not in TOC: Violation:
+Guide-on-defining-types.md:684: Header not in TOC: Solution:
+Guide-on-defining-types.md:695: Header not in TOC: [TS-6]:
+Guide-on-defining-types.md:697: Header not in TOC: [TS-6-1]
+Guide-on-defining-types.md:698: Header not in TOC: Violation:
+Guide-on-defining-types.md:712: Header not in TOC: Solution:
+Guide-on-defining-types.md:728: Header not in TOC: [TS-7]:
+Guide-on-defining-types.md:730: Header not in TOC: [TS-7-1]
+Guide-on-defining-types.md:731: Header not in TOC: Violation:
+Guide-on-defining-types.md:746: Header not in TOC: Solution:
+Guide-on-defining-types.md:759: Header not in TOC: [TS-8]:
+Guide-on-defining-types.md:761: Header not in TOC: [TS-8-1]:
+Guide-on-defining-types.md:762: Header not in TOC: Violation:
+Guide-on-defining-types.md:782: Header not in TOC: Solution:
+Guide-on-defining-types.md:791: Header not in TOC: [TS-9]:
+Guide-on-defining-types.md:793: Header not in TOC: [TS-9-1]:
+Guide-on-defining-types.md:794: Header not in TOC: Violation:
+Guide-on-defining-types.md:810: Header not in TOC: Solution:
+How-to-access-Oppia-webpages.md:1220: Header not in TOC: **Beam Jobs Tab**
+How-to-access-Oppia-webpages.md:1236: Header not in TOC: **Features Tab**
+How-to-access-Oppia-webpages.md:1249: Header not in TOC: **Misc Tab**
+How-to-access-Oppia-webpages.md:180: Header not in TOC: Method A — Implicit Super Admin Email (Fast):
+How-to-access-Oppia-webpages.md:186: Header not in TOC: Method B — Grant Super Admin via Firebase emulator (Explicit):
+How-to-access-Oppia-webpages.md:251: Header not in TOC: **Activities Tab**
+How-to-access-Oppia-webpages.md:270: Header not in TOC: **Misc Tab**
+How-to-access-Oppia-webpages.md:290: Header not in TOC: **Platform Parameters Tab**
+How-to-access-Oppia-webpages.md:309: Header not in TOC: **Roles Tab**
+How-to-access-Oppia-webpages.md:614: Header not in TOC: **My Contributions Tab**
+How-to-access-Oppia-webpages.md:634: Header not in TOC: **⁠⁠Translate Text Tab**
+How-to-access-Oppia-webpages.md:821: Header not in TOC: Learners Progress Tab
+How-to-access-Oppia-webpages.md:829: Header not in TOC: Overview Tab
+How-to-access-Oppia-webpages.md:834: Header not in TOC: Preferences Tab
+How-to-access-Oppia-webpages.md:843: Header not in TOC: Syllabus Tab
+If-CI-checks-fail-on-your-PR.md:109: Broken MediaWiki link: link
+Installing-Oppia-(Windows;-Python-3).md:16: TOC entry has no matching header: Installation in VirtualBox on Windows 10
+Installing-Oppia-(Windows;-Python-3).md:18: TOC entry has no matching header: Install Ubuntu ISO
+Installing-Oppia-(Windows;-Python-3).md:205: Header not in TOC: Install Ubuntu 18 ISO
+Installing-Oppia-(Windows;-Python-3).md:20: TOC entry has no matching header: Installation using Docker on Windows 10
+Installing-Oppia-(Windows;-Python-3).md:29: TOC entry has no matching header: Troubleshooting installation with Docker
+Installing-Oppia-(Windows;-Python-3).md:30: TOC entry has no matching header: Appendix
+Installing-Oppia-(Windows;-Python-3).md:3: TOC entry has no matching header: Installing Oppia in Windows and WSL2
+Rules-for-making-PRs.md:140: Header not in TOC: Pull request lifecycle
+Rules-for-making-PRs.md:159: Header not in TOC: Labeling pull requests
+Rules-for-making-PRs.md:19: Header not in TOC: Step 1: Create a new branch with a descriptive name
+Rules-for-making-PRs.md:3: TOC entry has no matching header: Step 1: Before writing any code, choose a descriptive branch name
+Rules-for-making-PRs.md:96: Header not in TOC: How to make a pull request
+SLoP-2022.md:10: TOC entry has no matching header: Escalation Policy
+SLoP-2022.md:2: TOC entry has no matching header: Overview
+SLoP-2022.md:3: TOC entry has no matching header: Timeline
+SLoP-2022.md:4: TOC entry has no matching header: Instructions for students
+SLoP-2022.md:7: TOC entry has no matching header: Instructions for mentors
+Schemas.md:3: TOC entry has no matching header: Table of Contents
+Season-of-Docs-2019.md:107: Header not in TOC: Knowledge/Skills needed
+Season-of-Docs-2019.md:10: TOC entry has no matching header: Other useful information
+Season-of-Docs-2019.md:110: Header not in TOC: Guide for Oppia developers
+Season-of-Docs-2019.md:128: Header not in TOC: Knowledge/Skills needed
+Season-of-Docs-2019.md:12: TOC entry has no matching header: List of Mentors
+Season-of-Docs-2019.md:133: Header not in TOC: Descriptive “how it works” docs for the Oppia codebase
+Season-of-Docs-2019.md:137: Header not in TOC: Places in codebase to explain
+Season-of-Docs-2019.md:156: Header not in TOC: Knowledge/Skills needed
+Season-of-Docs-2019.md:171: Header not in TOC: List of Potential Mentors
+Season-of-Docs-2019.md:177: Header not in TOC: Communication
+Season-of-Docs-2019.md:179: Header not in TOC: Email
+Season-of-Docs-2019.md:2: TOC entry has no matching header: Getting started
+Season-of-Docs-2019.md:3: TOC entry has no matching header: FAQ
+Season-of-Docs-2019.md:41: Header not in TOC: Beginners’ guide to creating lessons and associated material on Oppia
+Season-of-Docs-2019.md:44: Header not in TOC: Guide for Oppia developers
+Season-of-Docs-2019.md:47: Header not in TOC: Descriptive “how it works” docs for the Oppia codebase
+Season-of-Docs-2019.md:4: TOC entry has no matching header: Starter projects
+Season-of-Docs-2019.md:57: Header not in TOC: Project Details
+Season-of-Docs-2019.md:5: TOC entry has no matching header: Season of Docs Proposal
+Season-of-Docs-2019.md:64: Header not in TOC: Other Commitments
+Season-of-Docs-2019.md:95: Header not in TOC: Beginners’ guide to creating lessons and associated material on Oppia
+Season-of-Docs-2019.md:97: Header not in TOC: List of guides to write
+Season-of-Docs-2019.md:9: TOC entry has no matching header: Project Ideas
+Season-of-Docs-2021.md:10: TOC entry has no matching header: How to apply?
+Season-of-Docs-2021.md:118: Header not in TOC: Guide for Oppia developers
+Season-of-Docs-2021.md:11: TOC entry has no matching header: Project Ideas
+Season-of-Docs-2021.md:120: Header not in TOC: Problem statement
+Season-of-Docs-2021.md:125: Header not in TOC: Project’s scope
+Season-of-Docs-2021.md:12: TOC entry has no matching header: Other useful information
+Season-of-Docs-2021.md:154: Header not in TOC: Knowledge/Skills needed
+Season-of-Docs-2021.md:172: Header not in TOC: Email
+Season-of-Docs-2021.md:2: TOC entry has no matching header: Timeline
+Season-of-Docs-2021.md:3: TOC entry has no matching header: Getting started
+Season-of-Docs-2021.md:4: TOC entry has no matching header: FAQ
+Season-of-Docs-2021.md:53: Header not in TOC: Create "Table of contents" for wiki pages
+Season-of-Docs-2021.md:5: TOC entry has no matching header: Starter projects
+Season-of-Docs-2021.md:63: Header not in TOC: Helpful tips/guidelines for having a good contribution experience:
+Season-of-Docs-2021.md:6: TOC entry has no matching header: Season of Docs Proposal
+Season-of-Docs-2024.md:116: Header not in TOC: Develop tutorials to help contributors tackle issues in new domains
+Season-of-Docs-2024.md:118: Header not in TOC: Problem statement
+Season-of-Docs-2024.md:124: Header not in TOC: Project’s scope
+Season-of-Docs-2024.md:138: Header not in TOC: How would we measure success?
+Season-of-Docs-2024.md:144: Header not in TOC: Knowledge/Skills needed
+Season-of-Docs-2024.md:23: TOC entry differs from header (near match): header: 'The program timeline'  vs  TOC: 'Timeline'
+Season-of-Docs-2024.md:61: Header not in TOC: Address any issue on the Oppia wiki repository
+Season-of-Docs-2024.md:72: Header not in TOC: Document your process of installing Oppia and attempting a starter issue
+Server-errors-and-solutions.md:18: Header not in TOC: Preventive action
+Server-errors-and-solutions.md:27: Header not in TOC: Preventive action
+Server-errors-and-solutions.md:36: Header not in TOC: Preventive action
+Server-errors-and-solutions.md:43: Header not in TOC: Preventive action
+Server-errors-and-solutions.md:47: Header not in TOC: Data-related issue
+Server-errors-and-solutions.md:51: Header not in TOC: Preventive action
+Server-errors-and-solutions.md:67: Header not in TOC: Preventive action
+Server-errors-and-solutions.md:77: Header not in TOC: Preventive action
+Server-errors-and-solutions.md:85: Header not in TOC: Preventive action
+Server-errors-and-solutions.md:9: TOC entry has no matching header: Data related issue
+Tips-for-common-IDEs.md:60: Broken asset link: images.commonEditors/vscodeEslint.png
+Troubleshooting.md:381: Header not in TOC: OSError: [Errno 2] No such file or directory
+Troubleshooting.md:533: Header not in TOC: Error: alert_on_exit() -> Iterator[None]
+Troubleshooting.md:74: Header not in TOC: `[Errno 104] Connection reset by peer`
+Troubleshooting.md:8: Header not in TOC: General
+Tutorial-Learn-How-to-Write-and-Test-a-Non-Trivial-Beam-Job.md:104: Header not in TOC: Step 3.1:  Define the Job's Objective
+Tutorial-Learn-How-to-Write-and-Test-a-Non-Trivial-Beam-Job.md:120: Header not in TOC: Step 3.2: Draw the Directed Acyclic Graph (DAG)
+Tutorial-Learn-How-to-Write-and-Test-a-Non-Trivial-Beam-Job.md:136: Header not in TOC: Data Flow:
+Tutorial-Learn-How-to-Write-and-Test-a-Non-Trivial-Beam-Job.md:143: Header not in TOC: Batch I/O vs Incremental I/O
+Tutorial-Learn-How-to-Write-and-Test-a-Non-Trivial-Beam-Job.md:148: Header not in TOC: Beam's Batch Processing Model:
+Tutorial-Learn-How-to-Write-and-Test-a-Non-Trivial-Beam-Job.md:235: Header not in TOC: Planning Reports and Logs
+Tutorial-Learn-How-to-Write-and-Test-a-Non-Trivial-Beam-Job.md:239: Header not in TOC: What to Log and Report:
+Tutorial-Learn-How-to-Write-and-Test-a-Non-Trivial-Beam-Job.md:253: Header not in TOC: Cross-Consistency Checking
+Tutorial-Learn-How-to-Write-and-Test-a-Non-Trivial-Beam-Job.md:957: Header not in TOC: Additional Steps for Production Deployment
+Tutorial-Learn-How-to-Write-and-Test-a-Non-Trivial-Beam-Job.md:97: Header not in TOC: What is a DAG?
+Tutorial-Learn-how-to-Implement-UI-Improvements.md:265: Header not in TOC: *Trial 1*
+Tutorial-Learn-how-to-Implement-UI-Improvements.md:295: Header not in TOC: *Trial 2*
+Tutorial-Learn-how-to-Implement-UI-Improvements.md:390: Header not in TOC: *Trial 3*
+Tutorial-Learn-how-to-Implement-UI-Improvements.md:482: Header not in TOC: *Trial 4*
+Tutorial-Learn-how-to-debug-a-backend-bug.md:272: Header not in TOC: Fetching pinned lessons
+Tutorial-Learn-how-to-debug-a-backend-bug.md:2: TOC entry has no matching header: Introduction
+Tutorial-Learn-how-to-debug-a-backend-bug.md:368: Header not in TOC: Observations
+Tutorial-Learn-how-to-debug-a-backend-bug.md:3: TOC entry has no matching header: Scenario
+Tutorial-Learn-how-to-debug-a-backend-bug.md:4: TOC entry has no matching header: Prerequisites
+Tutorial-Learn-how-to-debug-a-backend-bug.md:5: TOC entry has no matching header: Procedure
+Tutorial-Learn-how-to-debug-a-backend-bug.md:661: Header not in TOC: We Value Your Feedback
+Tutorial-Learn-how-to-debug-a-backend-bug.md:88: Header not in TOC: Pinning/Unpinning lesson
+Tutorial-Learn-how-to-make-a-backend-change-that-has-an-impact-on-server-data.md:3: TOC entry has no matching header: Introduction
+Tutorial-Learn-how-to-make-a-backend-change-that-has-an-impact-on-server-data.md:437: Header not in TOC: Key Considerations for Designing an Audit Job
+Tutorial-Learn-how-to-make-a-backend-change-that-has-an-impact-on-server-data.md:4: TOC entry has no matching header: Scenario
+Tutorial-Learn-how-to-make-a-backend-change-that-has-an-impact-on-server-data.md:5: TOC entry has no matching header: Prerequisites
+Tutorial-Learn-how-to-make-a-backend-change-that-has-an-impact-on-server-data.md:63: TOC entry differs from header (near match): header: 'Section 1: Prevent New Data Violations - Identify Code Changes for Bio Length Limit'  vs  TOC: 'Section 1: Prevent New Data Violations'
+Tutorial-Learn-how-to-make-a-backend-change-that-has-an-impact-on-server-data.md:6: TOC entry has no matching header: Procedure
+Tutorial-Learn-how-to-write-a-TDD.md:180: Header not in TOC: *Research*
+Tutorial-Learn-how-to-write-a-TDD.md:204: Header not in TOC: *Documenting*
+Tutorial-Learn-how-to-write-a-TDD.md:268: Header not in TOC: *Research*
+Tutorial-Learn-how-to-write-a-TDD.md:331: Header not in TOC: HOW
+Tutorial-Learn-how-to-write-a-TDD.md:368: Header not in TOC: Decision 1: Storing Notes for an Exploration
+Tutorial-Learn-how-to-write-a-TDD.md:444: Header not in TOC: Decision 2: Handling Stale Notes
+Tutorial-Learn-how-to-write-a-TDD.md:667: Header not in TOC: Implementation Plan
+Tutorial-Learn-how-to-write-a-TDD.md:707: Header not in TOC: We Value Your Feedback
+Tutorial-Learn-how-to-write-a-TDD.md:79: Header not in TOC: WHAT
+Tutorial-Learn-to-Debug-an-Issue-Using-a-Debugging-Doc.md:2: TOC entry has no matching header: Table of Contents
+Tutorial-Learn-to-Figure-Out-the-Reproduction-Steps-for-a-Server-Error.md:138: Header not in TOC: Understanding the Stack Trace
+Tutorial-Learn-to-Figure-Out-the-Reproduction-Steps-for-a-Server-Error.md:349: Header not in TOC: Investigating the Source of the Problem
+Tutorial-Learn-to-Figure-Out-the-Reproduction-Steps-for-a-Server-Error.md:420: Header not in TOC: Verify the Return Type by Analyzing the Code
+Tutorial-Learn-to-Figure-Out-the-Reproduction-Steps-for-a-Server-Error.md:578: Header not in TOC: General Rule for Choosing an Verifying Option
+Tutorial-Learn-to-Figure-Out-the-Reproduction-Steps-for-a-Server-Error.md:675: Header not in TOC: Start with a Summary of the Error
+Tutorial-Learn-to-Figure-Out-the-Reproduction-Steps-for-a-Server-Error.md:683: Header not in TOC: Detail the Steps Taken to Reproduce the Error
+Tutorial-Learn-to-Figure-Out-the-Reproduction-Steps-for-a-Server-Error.md:695: Header not in TOC: Identify the Commit or PR Likely to Have Introduced the Error
+Tutorial-Learn-to-Figure-Out-the-Reproduction-Steps-for-a-Server-Error.md:703: Header not in TOC: Explain the Possible Root Causes
+Tutorial-Learn-to-Figure-Out-the-Reproduction-Steps-for-a-Server-Error.md:712: Header not in TOC: Suggest Next Steps
+Tutorial-Learn-to-Figure-Out-the-Reproduction-Steps-for-a-Server-Error.md:76: Header not in TOC: Setup
+Tutorial-Learn-to-Figure-Out-the-Reproduction-Steps-for-a-Server-Error.md:95: Header not in TOC: Debugging Process
+Tutorial-Learn-to-implement-a-new-full-stack-feature.md:46: Header not in TOC: Recommended Workflow for Developing Full-Stack Features
+Tutorial-Learn-to-implement-a-new-full-stack-feature.md:86: TOC entry differs from header (near match): header: "Key Considerations: Where to Track the User's First Visit?"  vs  TOC: 'Key Considerations'

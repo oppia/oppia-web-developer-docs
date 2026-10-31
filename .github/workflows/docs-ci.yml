@@ -1,0 +1,54 @@
+name: Documentation CI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.md'
+      - 'scripts/check_docs.py'
+      - '.github/workflows/docs-ci.yml'
+  pull_request:
+    paths:
+      - '**.md'
+      - 'scripts/check_docs.py'
+      - '.github/workflows/docs-ci.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  # Job 1: Custom Python checks (MediaWiki links, relative links, TOC)
+  custom-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run docs validation
+        run: python scripts/check_docs.py
+
+  # Job 2: External link checking with lychee
+  external-links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check external links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --verbose
+            --no-progress
+            --accept 200,204,206,429
+            './**/*.md'
+          fail: true
+
+  # Job 3: Markdown linting
+  markdown-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Lint Markdown
+        uses: DavidAnson/markdownlint-cli2-action@v19
+        with:
+          globs: '**/*.md'
