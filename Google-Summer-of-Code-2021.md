@@ -13,7 +13,7 @@
     -   [Developer Experience Team](#developer-experience)
     -   [Data and Stability Team](#data-and-stability-team)
     -   [Automated QA Team](#automated-qa-team)
-    -   [Learner and Creator Experience Team](#learner-and-creator-experience-team)
+    -   [LEAP Team (Learners, Educators, Allies, and Parents)](#leap-team-learners-educators-allies-and-parents)
     -   [Contributor Experience Team](#contributor-experience-team)
     -   [Android Team](#android-team)
     -   [Oppiabot Team](#oppiabot-team)
@@ -592,7 +592,7 @@ We are looking for 1-3 students to work on this project. Each student will work 
 
 ---
 
-## Learner and Creator Experience team
+## LEAP Team (Learners, Educators, Allies, and Parents)
 
 ### Generalised migration flow for all models using JsonProperty fields
 

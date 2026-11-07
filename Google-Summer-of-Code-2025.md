@@ -121,7 +121,7 @@ A: This probably depends on the project(s) you wish to apply for; check their "r
 
 **Q: What is the minimum number of PRs that one should have?**
 
-A: You should have at least 2 merged PRs. Beyond that, remember that quality is more important than quantity, so consider taking some high-priority or ["impact: high"](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22Impact%3A+High%22) issues if you're able to, since those fixes are more valuable. You can find a list of high-priority issues on the respective teams' project boards: [LaCE](https://github.com/orgs/oppia/projects/3/views/8), [Dev Workflow](https://github.com/orgs/oppia/projects/8/views/11), [Contributor Dashboard](https://github.com/orgs/oppia/projects/18/views/4), [Android CLaM](https://github.com/orgs/oppia/projects/4/views/3), [Android Dev Workflow](https://github.com/orgs/oppia/projects/10/views/1). Additionally, you'll also want to demonstrate that you have the required skills to successfully complete your chosen project; please see the guidance in the "Required Skills" section of the [proposal template](#gsoc-proposal-template), which explains how to do this.
+A: You should have at least 2 merged PRs. Beyond that, remember that quality is more important than quantity, so consider taking some high-priority or ["impact: high"](https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22Impact%3A+High%22) issues if you're able to, since those fixes are more valuable. You can find a list of high-priority issues on the respective teams' project boards: [LEAP](https://github.com/orgs/oppia/projects/3/views/8), [Dev Workflow](https://github.com/orgs/oppia/projects/8/views/11), [CORE](https://github.com/orgs/oppia/projects/18/views/4), [Android CLaM](https://github.com/orgs/oppia/projects/4/views/3), [Android Dev Workflow](https://github.com/orgs/oppia/projects/10/views/1). Additionally, you'll also want to demonstrate that you have the required skills to successfully complete your chosen project; please see the guidance in the "Required Skills" section of the [proposal template](#gsoc-proposal-template), which explains how to do this.
 
 **Q: Will I be penalized during selection if I ask for help while contributing?**
 
@@ -207,7 +207,7 @@ In order to ensure a well-rounded engineering experience, GSoC contributors will
 - Receive code reviews for all code they write for their project
 - Develop user-focused, responsive and internationalized UIs.
 - Write automated tests for their projects
-- Meet regularly with other contributors on their Oppia development team (LaCE, Contributor Dashboard, Dev Workflow, Android)
+- Meet regularly with other contributors on their Oppia development team (LEAP, CORE, Dev Workflow, Android)
 - Meet 1:1 with their mentors regularly to get developmental feedback
 - Give presentations and demos of their projects
 - Get personalized feedback on their project from the product team or a technical lead
@@ -338,7 +338,7 @@ Please note that the list of project ideas below is not set in stone: more proje
 
 If you need clarification on any of these ideas, feel free to open a thread in GitHub Discussions following the process in [this guide](https://docs.google.com/document/d/1jt8_pKcrbsc0xHgUEa0Wh8i6imxYmZiB_2QjDmH7ODg/edit?tab=t.0).
 
-### Learner and Creator Experience (LaCE) team
+### LEAP Team (Learners, Educators, Allies, and Parents)
 
 1.1. [Clean up the structure for study guides and worked examples](#11-clean-up-the-structure-for-study-guides-and-worked-examples)
 
@@ -346,7 +346,7 @@ If you need clarification on any of these ideas, feel free to open a thread in G
 
 1.3. [Lesson player redesign](#13-lesson-player-redesign)
 
-### Contributor Dashboard team
+### CORE Team (Creators, Operations, Reviewers and Editors)
 
 2.1. [Show AI-powered translation suggestions to translation submitters](#21-show-ai-powered-translation-suggestions-to-translation-submitters)
 
@@ -366,7 +366,7 @@ If you need clarification on any of these ideas, feel free to open a thread in G
 
 4.3. [Android lint infrastructure and fixes](#43-android-lint-infrastructure-and-fixes)
 
-## Learner and Creator Experience (LaCE) team
+## LEAP Team (Learners, Educators, Allies, and Parents)
 
 ### 1.1. Clean up the structure for study guides and worked examples
 
@@ -610,7 +610,7 @@ Relevant links: [Mini-PRD](https://docs.google.com/document/u/1/d/1922aE9_TEFTbH
 
 **Related issues:**
 
-Any non-backlog issues in the "Lesson Player CUJs" section of the [LaCE project board](https://github.com/orgs/oppia/projects/3/views/8?sliceBy%5Bvalue%5D=Lesson+player%3A+CUJ+bugs) (try to choose ones that relate specifically to the exploration player interface). Also, see the guidance in the last part of the "What we're looking for in proposals" section below.
+Any non-backlog issues in the "Lesson Player CUJs" section of the [LEAP project board](https://github.com/orgs/oppia/projects/3/views/8?sliceBy%5Bvalue%5D=Lesson+player%3A+CUJ+bugs) (try to choose ones that relate specifically to the exploration player interface). Also, see the guidance in the last part of the "What we're looking for in proposals" section below.
 
 **Suggested Milestones:**
 
@@ -703,7 +703,7 @@ In addition to the proposal, the following is optional, but would significantly 
 
 
 
-## Contributor Dashboard team
+## CORE Team (Creators, Operations, Reviewers and Editors)
 
 ### 2.1. Show AI-powered translation suggestions to translation submitters
 

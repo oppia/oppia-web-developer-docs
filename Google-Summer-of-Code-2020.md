@@ -399,7 +399,7 @@ There are several serious issues with current saving/migration workflows in the 
 
 The aim of this project is to fix any three of these issues.
 
-**Team**: Learner and Creator Experience
+**Team**: LEAP Team (Learners, Educators, Allies, and Parents)
 
 **Potential Mentors**: @seanlip (primary), @kevintab95, @aks681
 
@@ -421,7 +421,7 @@ Your proposal should include clear explanations for how you plan to solve each o
 
 This project aims to introduce SVG rendering for all LaTeX expressions in explorations, so that MathJax can be removed as a dependency from the learner pages (which has the nice side effect of making the explorations load faster).
 
-**Team**: Learner and Creator Experience
+**Team**: LEAP Team (Learners, Educators, Allies, and Parents)
 
 **Potential Mentors**: @kevintab95 (primary), @aks681
 
@@ -472,7 +472,7 @@ Recently there was a concern raised with the workflow for uploading files. The c
 
 The aim of this project is to introduce an SVG diagram editor in the rich-text editor (RTE). Creators can use this to create custom diagrams for their lessons in the browser itself. The images produced would then be stored as SVGs for use in the lesson.
 
-**Team**: Learner and Creator Experience
+**Team**: LEAP Team (Learners, Educators, Allies, and Parents)
 
 **Potential Mentors**: @kevintab95 (primary), @aks681
 
@@ -500,7 +500,7 @@ Currently, the only way for a user to save their progress in an exploration is t
 
 This project also aims to add functionality in the corresponding user's profile page to support the upgrading of "lightweight accounts" into "full accounts" later on, if the user wants to link a google account to it and gain, e.g. editing privileges.
 
-**Team**: Learner and Creator Experience
+**Team**: LEAP Team (Learners, Educators, Allies, and Parents)
 
 **Potential Mentors**: @aks681 (primary), @seanlip
 
@@ -593,7 +593,7 @@ A few things should be considered while writing the design doc:
 The aim of this project is to redesign the topic, exploration, story and skill editor pages so they are more visually appealing and work better on mobile, while retaining all of their features. Some initial mocks that we created visualizing these changes can be found here ([desktop](https://xd.adobe.com/view/3940de63-c416-4008-4b32-a73dc43fd7a1-4f71/), [mobile](
 https://xd.adobe.com/view/84eb3b8d-3d19-4971-7e79-9ff756b25c83-f2da/grid)); please note that these mocks will be updated over time as we finalize the design. (Feel free to suggest changes to the mocks if you think that would enhance the creator experience, or ask any questions on the oppia-gsoc-discuss@ mailing list.)
 
-**Team**: Learner and Creator Experience
+**Team**: LEAP Team (Learners, Educators, Allies, and Parents)
 
 **Potential Mentors**: @aks681 (primary), @kevintab95
 
@@ -677,7 +677,7 @@ This project aims at improving the frontend test coverage of controllers and dir
 
 Ensure that the entire Oppia website is fully accessible to screen readers (i.e., all pages should score 100% on the Chrome browser’s inbuilt Accessibility audit tool), and that automated tests are put in place to ensure this is the case going forward.
 
-**Team**: Learner and Creator Experience
+**Team**: LEAP Team (Learners, Educators, Allies, and Parents)
 
 **Potential Mentors**: @kevintab95 (primary), @aks681
 
