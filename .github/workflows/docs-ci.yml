@@ -2,12 +2,13 @@ name: Documentation CI
 
 on:
   push:
-    branches: [main]
+    branches: [develop]
     paths:
       - '**.md'
       - 'scripts/check_docs.py'
       - '.github/workflows/docs-ci.yml'
   pull_request:
+    branches: [develop]
     paths:
       - '**.md'
       - 'scripts/check_docs.py'
@@ -26,3 +27,5 @@ jobs:
           python-version: '3.11'
       - name: Run docs validation
         run: python scripts/check_docs.py
+      - name: Run docs linter
+        run: python scripts/linter.py

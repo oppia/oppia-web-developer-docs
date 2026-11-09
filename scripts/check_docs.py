@@ -55,7 +55,8 @@ def iter_links(md_file):
             continue
         if in_fence:
             continue
-        for match in LINK_RE.finditer(PIPE_LINK_RE.sub("", line)):
+        masked_line = PIPE_LINK_RE.sub(lambda match: " " * len(match.group(0)), line)
+        for match in LINK_RE.finditer(masked_line):
             yield lineno, match.group(2).strip()
 
 
@@ -232,7 +233,7 @@ def write_baseline(issues):
     header = (
         "# Auto-generated baseline of known documentation issues.\n"
         "# Regenerate with: python scripts/check_docs.py --update-baseline\n"
-        "# CI fails only on issues NOT listed here.\n"
+        "# CI fails only on issues NOT listed here.\n\n"
     )
     BASELINE_PATH.write_text(header + "\n".join(keys) + "\n", encoding="utf-8")
     print(f"Wrote {len(keys)} entries to {BASELINE_PATH.relative_to(REPO_ROOT)}")

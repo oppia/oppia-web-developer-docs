@@ -1,6 +1,7 @@
 # Auto-generated baseline of known documentation issues.
 # Regenerate with: python scripts/check_docs.py --update-baseline
 # CI fails only on issues NOT listed here.
+
 Apache-Beam-Jobs.md:579: Header not in TOC: Instruction for job testers
 Apache-Beam-Jobs.md:583: Header not in TOC: Deploy to backup server
 Apache-Beam-Jobs.md:592: Header not in TOC: Run the job on backup server through the local dev server
