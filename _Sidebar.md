@@ -88,6 +88,7 @@
         * 👣 [[Tutorial - Learn how to make a backend change that has an impace on server data|Tutorial-Learn-how-to-make-a-backend-change-that-has-an-impact-on-server-data]]
       * [[Cron jobs guide for contributors|Cron-jobs]]
       * [[I18n/Translations Guide|Adding-new-translations-for-i18n]]
+        * [[Adding a new translatable entity type|Adding-a-new-translatable-entity-type]]
       * [[Server errors and solutions|Server-errors-and-solutions]]
     * Developer Workflow:
       * [[Instructions for making PR passes|Instructions-for-making-PR-passes]]
