@@ -117,7 +117,7 @@ If you are stuck, compile all your findings in a [[debugging doc|Debugging-Docs]
 
 The tests/checks on Oppia's develop branch sometimes fail incorrectly for two reasons:
 
-  * Sometimes, the tests in develop are "flaky", which means they pass sometimes and fail sometimes, even though the code has not changed. This is usually due to "race" conditions where multiple changes happen at the same time and it's not guaranteed which one happens first. The dev workflow team is trying to reduce cases like this, though they still happen occasionally.
+  * Sometimes, the tests in develop are "flaky", which means they pass sometimes and fail sometimes, even though the code has not changed. This is usually due to "race" conditions where multiple changes happen at the same time and it's not guaranteed which one happens first. The dev workflow team is trying to reduce cases like this, though they still happen occasionally. For guidance on investigating and resolving flaky acceptance tests, see [[Fixing Flakes in Acceptance Tests|Acceptance-Tests#fixing-flakes-in-acceptance-tests]].
 
   * If an incorrect PR was recently merged to develop, this could cause the tests to fail. If you see the same failure happening on the [develop branch](https://github.com/oppia/oppia/actions?query=branch%3Adevelop), please follow the [[Revert and Regression Policy|Revert-and-Regression-Policy]] immediately so that we can revert the problematic changes as soon as possible. Otherwise, this will start to affect all the PRs and block the development workflow completely.
 
