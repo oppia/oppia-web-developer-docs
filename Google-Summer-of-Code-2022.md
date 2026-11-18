@@ -11,8 +11,8 @@
 - [Selection Criteria](#selection-criteria)
 - [Communication](#communication)
 - [Oppia's Project Ideas List](#oppias-project-ideas-list)
-  - [Learner and Creator Experience (LaCE) team](#learner-and-creator-experience-lace-team-1)
-  - [Contributor Dashboard team](#contributor-dashboard-team-1)
+  - [LEAP Team (Learners, Educators, Allies, and Parents)](#leap-team-learners-educators-allies-and-parents-1)
+  - [CORE Team (Creators, Operations, Reviewers and Editors)](#core-team-creators-operations-reviewers-and-editors-1)
   - [Angular team](#angular-team-1)
   - [Backend team](#backend-team-1)
   - [Developer workflow team](#developer-workflow-team-1)
@@ -296,7 +296,7 @@ The following is a list of Oppia's 2022 GSoC project ideas. You are welcome to c
 
 Please note that the list of project ideas below is not set in stone: more projects may be added later, and some project descriptions may also change a bit, so check back regularly. In addition, the mentor assignments listed below are provisional, and may change depending on which proposals are eventually accepted.
 
-### Learner and Creator Experience (LaCE) team
+### LEAP Team (Learners, Educators, Allies, and Parents)
 
 1.1. [Learner diagnostic tests](#11-learner-diagnostic-tests)
 
@@ -316,7 +316,7 @@ Please note that the list of project ideas below is not set in stone: more proje
 
 1.9. [Onboarding improvements](#19-onboarding-improvements)
 
-### Contributor Dashboard team
+### CORE Team (Creators, Operations, Reviewers and Editors)
 
 2.1. [Contributor recognition infrastructure](#21-contributor-recognition-infrastructure)
 
@@ -353,7 +353,7 @@ Please note that the list of project ideas below is not set in stone: more proje
 6.3. [Accessibility improvements](#63-accessibility-improvements)
 
 
-## Learner and Creator Experience (LaCE) team
+## LEAP Team (Learners, Educators, Allies, and Parents)
 
 ### 1.1. Learner Diagnostic Tests
 
@@ -779,7 +779,7 @@ This project will involve two major parts:
 ---
 
 
-## Contributor Dashboard Team
+## CORE Team (Creators, Operations, Reviewers and Editors)
 
 ### 2.1. Contributor Recognition Infrastructure
 

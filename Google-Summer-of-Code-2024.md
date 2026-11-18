@@ -107,7 +107,7 @@ A: Definitely not! Here are the [selection criteria](#selection-criteria) we use
 
 **Q: What are the minimum number of PRs that one should have?**
 
-A: You should have at least 2 PRs merged, but they don't need to be large. Beyond that, remember that quality is more important than quantity. It is better to submit a non-trivial PR that tackles an important issue rather than a one-line wording change. Start with starter issues, then consider focusing on issues labelled "high priority" and priority" from the team that is offering the project you are interested in. You can see a list of these issues on the respective teams' project boards: [LaCE](https://github.com/orgs/oppia/projects/3/views/8), [Dev Workflow](https://github.com/orgs/oppia/projects/8/views/11), [Contributor Dashboard](https://github.com/orgs/oppia/projects/18/views/4), [Android CLaM](https://github.com/orgs/oppia/projects/4/views/3), [Android Dev Workflow](https://github.com/orgs/oppia/projects/10/views/1).
+A: You should have at least 2 PRs merged, but they don't need to be large. Beyond that, remember that quality is more important than quantity. It is better to submit a non-trivial PR that tackles an important issue rather than a one-line wording change. Start with starter issues, then consider focusing on issues labelled "high priority" and priority" from the team that is offering the project you are interested in. You can see a list of these issues on the respective teams' project boards: [LEAP](https://github.com/orgs/oppia/projects/3/views/8), [Dev Workflow](https://github.com/orgs/oppia/projects/8/views/11), [CORE](https://github.com/orgs/oppia/projects/18/views/4), [Android CLaM](https://github.com/orgs/oppia/projects/4/views/3), [Android Dev Workflow](https://github.com/orgs/oppia/projects/10/views/1).
 
 **Q: What is the total number of contributors that will be accepted?**
 
@@ -165,7 +165,7 @@ In order to ensure a well-rounded engineering experience, GSoC contributors will
 - Read and understand parts of the codebase related to their project
 - Receive code reviews for all code they write for their project
 - Write automated tests for their projects
-- Meet regularly with other contributors on their Oppia development team (LaCE, Contributor Dashboard, Dev Workflow, Android)
+- Meet regularly with other contributors on their Oppia development team (LEAP, CORE, Dev Workflow, Android)
 - Meet 1:1 with their mentors regularly to get developmental feedback
 - Give presentations and demos of their projects
 - Participate in release testing and documentation initiatives
@@ -292,7 +292,7 @@ The following is a list of Oppia's 2024 GSoC project ideas. You are welcome to c
 
 Please note that the list of project ideas below is not set in stone: more projects may be added later, and some project descriptions may also change a bit, so check back regularly. In addition, the mentor assignments listed below are provisional, and may change depending on which proposals are eventually accepted.
 
-### Learner and Creator Experience (LaCE) team
+### LEAP Team (Learners, Educators, Allies, and Parents)
 
 1.1. [Infrastructure and navigation for multiple classrooms](#11-infrastructure-and-navigation-for-multiple-classrooms)
 
@@ -306,7 +306,7 @@ Please note that the list of project ideas below is not set in stone: more proje
 
 1.6. [Improvements to the exploration editor page](#16-improvements-to-the-exploration-editor-page)
 
-### Contributor Dashboard team
+### CORE Team (Creators, Operations, Reviewers and Editors)
 
 2.1. [Show AI-powered and cached translation suggestions to translation submitters](#21-show-ai-powered-and-cached-translation-suggestions-to-translation-submitters)
 
@@ -325,7 +325,7 @@ Please note that the list of project ideas below is not set in stone: more proje
 4.2. [Multiple classrooms support](#42-multiple-classrooms-support)
 
 
-## Learner and Creator Experience (LaCE) team
+## LEAP Team (Learners, Educators, Allies, and Parents)
 
 ### 1.1. Infrastructure and navigation for multiple classrooms
 
@@ -803,7 +803,7 @@ For (b):
 </details>
 
 
-## Contributor Dashboard (CD) team
+## CORE Team (Creators, Operations, Reviewers and Editors)
 
 ### 2.1. Show AI-powered and cached translation suggestions to translation submitters
 

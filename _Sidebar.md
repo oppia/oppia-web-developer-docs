@@ -78,7 +78,7 @@
       * [[How to write design docs|Writing-design-docs]]
       * 👣 [[Tutorial - Learn How to Write a TDD|Tutorial-Learn-how-to-write-a-TDD]]
   * Team-Specific Guides
-    * LaCE/CD:
+    * LEAP/CORE:
       * 👣 [[Tutorial - Learn how to make a simple UI change|Tutorial-Learn-How-to-Make-a-Simple-UI-Change]]
       * 👣 [[Tutorial - Learn How to Implement UI Improvements|Tutorial-Learn-how-to-Implement-UI-Improvements]]
       * 👣 [[Tutorial - Learn to implement a new full stack feature|Tutorial-Learn-to-implement-a-new-full-stack-feature]]
