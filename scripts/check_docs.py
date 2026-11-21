@@ -5,6 +5,7 @@ import re
 import sys
 from collections import defaultdict
 from pathlib import Path
+from typing import AbstractSet, Iterator, Sequence, TypedDict
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 BASELINE_PATH = REPO_ROOT / "scripts" / "toc_baseline.txt"
@@ -34,7 +35,21 @@ CATEGORY_LABELS = {
 }
 
 
-def make_issue(category, file, lineno, text, hint=""):
+class Issue(TypedDict):
+    """A documentation issue reported by the checker."""
+
+    category: str
+    file: str
+    lineno: int
+    text: str
+    hint: str
+    key: str
+
+
+def make_issue(
+    category: str, file: str, lineno: int, text: str, hint: str = ""
+) -> Issue:
+    """Create a normalized issue record."""
     key = f"{file}:{lineno}: {CATEGORY_LABELS[category]}: {text}"
     return {
         "category": category, "file": file, "lineno": lineno,
@@ -42,11 +57,13 @@ def make_issue(category, file, lineno, text, hint=""):
     }
 
 
-def find_md_files():
+def find_md_files() -> list[Path]:
+    """Return Markdown files at the repository root."""
     return sorted(p for p in REPO_ROOT.glob("*.md") if p.is_file())
 
 
-def iter_links(md_file):
+def iter_links(md_file: Path) -> Iterator[tuple[int, str]]:
+    """Yield the line number and target of each Markdown link."""
     content = md_file.read_text(encoding="utf-8")
     in_fence = False
     for lineno, line in enumerate(content.splitlines(), start=1):
@@ -60,7 +77,8 @@ def iter_links(md_file):
             yield lineno, match.group(2).strip()
 
 
-def classify(target):
+def classify(target: str) -> str:
+    """Classify a link target using the checker's existing path rules."""
     if not target:
         return "skip"
     low = target.lower()
@@ -68,21 +86,21 @@ def classify(target):
         return "external"
     if low.startswith("#"):
         return "anchor"
-    if low.startswith("mailto:"):
+    if low.startswith("mailto:") or ("@" in target and "/" not in target):
         return "mailto"
     if target.startswith(("./", "../", "/")):
         return "relative"
-    if "@" in target and "/" not in target:
-        return "mailto"
-    if ASSET_EXT_RE.search(target.split("#")[0]):
-        return "asset"
-    if "/" not in target.split("#")[0]:
-        return "mediawiki"
-    return "relative"
+    target_path = target.split("#")[0]
+    return (
+        "asset" if ASSET_EXT_RE.search(target_path)
+        else "mediawiki" if "/" not in target_path
+        else "relative"
+    )
 
 
-def check_links(md_file):
-    issues = []
+def check_links(md_file: Path) -> list[Issue]:
+    """Find broken links in a Markdown file."""
+    issues: list[Issue] = []
     for lineno, target in iter_links(md_file):
         kind = classify(target)
         if kind in ("external", "anchor", "mailto", "skip"):
@@ -106,9 +124,13 @@ def check_links(md_file):
     return issues
 
 
-def extract_toc_and_headers(md_file):
+def extract_toc_and_headers(
+    md_file: Path,
+) -> tuple[list[tuple[int, str]], list[tuple[int, str]]]:
+    """Extract table-of-contents entries and headers from a Markdown file."""
     lines = md_file.read_text(encoding="utf-8").splitlines()
-    headers, toc_entries = [], []
+    headers: list[tuple[int, str]] = []
+    toc_entries: list[tuple[int, str]] = []
     in_fence = in_toc = toc_done = False
 
     for idx, line in enumerate(lines, start=1):
@@ -142,7 +164,8 @@ def extract_toc_and_headers(md_file):
     return toc_entries, headers
 
 
-def normalize(text):
+def normalize(text: str) -> str:
+    """Normalize header text for TOC comparisons."""
     text = text.strip()
     text = ZERO_WIDTH_RE.sub("", text)
     text = INLINE_LINK_RE.sub(r"\1", text)
@@ -156,7 +179,8 @@ def normalize(text):
     return text.rstrip(".:;!?,…").rstrip().lower()
 
 
-def near_match(a, b):
+def near_match(a: str, b: str) -> bool:
+    """Return whether two normalized strings are sufficiently similar."""
     if a == b or a in b or b in a:
         return True
     ta, tb = set(a.split()), set(b.split())
@@ -165,7 +189,8 @@ def near_match(a, b):
     return len(ta & tb) / max(len(ta), len(tb)) >= 0.8
 
 
-def check_toc(md_file):
+def check_toc(md_file: Path) -> list[Issue]:
+    """Find discrepancies between a Markdown file's TOC and its headers."""
     toc_entries, headers = extract_toc_and_headers(md_file)
     if not toc_entries:
         return []
@@ -173,7 +198,8 @@ def check_toc(md_file):
     header_norm = [(ln, txt, normalize(txt)) for ln, txt in headers]
     toc_norm = [(ln, txt, normalize(txt)) for ln, txt in toc_entries]
 
-    used_toc, issues = set(), []
+    used_toc: set[int] = set()
+    issues: list[Issue] = []
 
     for h_ln, h_txt, h_norm in header_norm:
         exact = next(
@@ -218,7 +244,8 @@ def check_toc(md_file):
     return issues
 
 
-def load_baseline():
+def load_baseline() -> set[str]:
+    """Load known issue keys from the baseline file."""
     if not BASELINE_PATH.exists():
         return set()
     return {
@@ -228,7 +255,8 @@ def load_baseline():
     }
 
 
-def write_baseline(issues):
+def write_baseline(issues: Sequence[Issue]) -> None:
+    """Write all current issue keys to the baseline file."""
     keys = sorted({i["key"] for i in issues})
     header = (
         "# Auto-generated baseline of known documentation issues.\n"
@@ -239,7 +267,66 @@ def write_baseline(issues):
     print(f"Wrote {len(keys)} entries to {BASELINE_PATH.relative_to(REPO_ROOT)}")
 
 
-def print_report(issues, baseline, verbose):
+def _print_summaries(issues: Sequence[Issue]) -> None:
+    """Print issue counts by category and Markdown file."""
+    print("\nSUMMARY BY CATEGORY")
+    by_cat: defaultdict[str, int] = defaultdict(int)
+    for issue in issues:
+        by_cat[issue["category"]] += 1
+    for category in sorted(by_cat, key=lambda item: -by_cat[item]):
+        print(
+            f"  {CATEGORY_LABELS[category]:<40} "
+            f"{by_cat[category]:>5}"
+        )
+
+    print("\nSUMMARY BY FILE (top 10)")
+    by_file: defaultdict[str, int] = defaultdict(int)
+    for issue in issues:
+        by_file[issue["file"]] += 1
+    for filename, count in sorted(
+        by_file.items(), key=lambda item: -item[1]
+    )[:10]:
+        print(f"  {filename:<55} {count:>5}")
+
+
+def _print_issue_details(
+    issues: Sequence[Issue], baseline: AbstractSet[str], verbose: bool
+) -> bool:
+    """Print detailed issues and report whether any details were shown."""
+    new_issues = [issue for issue in issues if issue["key"] not in baseline]
+    to_show = issues if verbose else new_issues
+    if not to_show:
+        print("\n(no NEW issues — everything is in the baseline)")
+        return False
+
+    grouped: defaultdict[str, list[Issue]] = defaultdict(list)
+    for issue in to_show:
+        grouped[issue["file"]].append(issue)
+
+    for filename in sorted(grouped):
+        entries = sorted(grouped[filename], key=lambda issue: issue["lineno"])
+        new_count = sum(
+            1 for issue in entries if issue["key"] not in baseline
+        )
+        marker = f"[{new_count} NEW]" if new_count else "[baseline only]"
+        print(f"\n### {filename}  ({len(entries)} issue(s)) {marker}")
+        for issue in entries:
+            is_new = issue["key"] not in baseline
+            suffix = "  [NEW]" if is_new and not verbose else ""
+            print(
+                f"  L{issue['lineno']:<5}"
+                f"{CATEGORY_LABELS[issue['category']]}: "
+                f"{issue['text']!r}{suffix}"
+            )
+            if issue["hint"]:
+                print(f"         -> {issue['hint']}")
+    return True
+
+
+def print_report(
+    issues: Sequence[Issue], baseline: AbstractSet[str], verbose: bool
+) -> None:
+    """Print issue summaries and details, highlighting new issues."""
     new_issues = [i for i in issues if i["key"] not in baseline]
     known = len(issues) - len(new_issues)
     n_files = len({i["file"] for i in issues})
@@ -248,44 +335,14 @@ def print_report(issues, baseline, verbose):
     print(f"Docs check — {len(issues)} issue(s) across {n_files} file(s)")
     print("=" * 72)
 
-    print("\nSUMMARY BY CATEGORY")
-    by_cat = defaultdict(int)
-    for i in issues:
-        by_cat[i["category"]] += 1
-    for cat in sorted(by_cat, key=lambda c: -by_cat[c]):
-        print(f"  {CATEGORY_LABELS[cat]:<40} {by_cat[cat]:>5}")
-
-    print("\nSUMMARY BY FILE (top 10)")
-    by_file = defaultdict(int)
-    for i in issues:
-        by_file[i["file"]] += 1
-    for fname, count in sorted(by_file.items(), key=lambda kv: -kv[1])[:10]:
-        print(f"  {fname:<55} {count:>5}")
+    _print_summaries(issues)
 
     print("\n" + "-" * 72)
     print("DETAILED ISSUES")
     print("-" * 72)
 
-    to_show = issues if verbose else new_issues
-    if not to_show:
-        print("\n(no NEW issues — everything is in the baseline)")
+    if not _print_issue_details(issues, baseline, verbose):
         return
-
-    grouped = defaultdict(list)
-    for i in to_show:
-        grouped[i["file"]].append(i)
-
-    for fname in sorted(grouped):
-        entries = sorted(grouped[fname], key=lambda i: i["lineno"])
-        new_count = sum(1 for i in entries if i["key"] not in baseline)
-        marker = f"[{new_count} NEW]" if new_count else "[baseline only]"
-        print(f"\n### {fname}  ({len(entries)} issue(s)) {marker}")
-        for i in entries:
-            is_new = i["key"] not in baseline
-            suffix = "  [NEW]" if is_new and not verbose else ""
-            print(f"  L{i['lineno']:<5}{CATEGORY_LABELS[i['category']]}: {i['text']!r}{suffix}")
-            if i["hint"]:
-                print(f"         -> {i['hint']}")
 
     print()
     print("=" * 72)
@@ -293,7 +350,8 @@ def print_report(issues, baseline, verbose):
     print("=" * 72)
 
 
-def self_test():
+def self_test() -> int:
+    """Run focused regression checks for normalization and link classes."""
     normalize_cases = [
         ("MERGE\\_MSG Newer than Swap File", "merge_msg newer than swap file"),
         ("MERGE_MSG Newer than Swap File", "merge_msg newer than swap file"),
@@ -342,7 +400,8 @@ def self_test():
     return 0
 
 
-def collect_all_issues():
+def collect_all_issues() -> list[Issue] | None:
+    """Collect link and TOC issues from every root-level Markdown file."""
     files = find_md_files()
     if not files:
         print("No markdown files found.", file=sys.stderr)
@@ -354,7 +413,8 @@ def collect_all_issues():
     return issues
 
 
-def main():
+def main() -> int:
+    """Parse command-line options and run the requested documentation check."""
     parser = argparse.ArgumentParser(description="Validate Oppia wiki docs.")
     parser.add_argument("--update-baseline", action="store_true")
     parser.add_argument("--verbose", action="store_true")

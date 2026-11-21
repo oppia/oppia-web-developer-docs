@@ -20,8 +20,8 @@ Create a Good PR.md:3: TOC entry has no matching header: Table of contents
 Creating-Interactions.md:34: Header not in TOC: The directives folder
 Creating-Interactions.md:5: TOC entry has no matching header: The `directives` folder
 End-to-End-Tests.md:31: TOC entry has no matching header: Non-Angular pages
-Frontend-tests.md:246: Header not in TOC: Note: This function will only work if the tests are running in the fakeAsync() block.
-Frontend-tests.md:251: Header not in TOC: Note: This function will only work if the tests are running in the fakeAsync() block.
+Frontend-tests.md:271: Header not in TOC: Note: This function will only work if the tests are running in the fakeAsync() block.
+Frontend-tests.md:276: Header not in TOC: Note: This function will only work if the tests are running in the fakeAsync() block.
 GHC-Open-Source-Day-2019.md:100: Header not in TOC: Hard
 GHC-Open-Source-Day-2019.md:114: Header not in TOC: Project 1: Change the Style of Playthrough Buttons in Improvements Tab
 GHC-Open-Source-Day-2019.md:138: Header not in TOC: Project 2: Render Suggested Changes in Suggestion Improvement Cards
