@@ -43,6 +43,7 @@
       * [[Debugging end-to-end tests|Debug-end-to-end-tests]]
       * [[Debugging custom ESLint check tests|Debug-custom-ESLint-check-tests]]
       * [[Debugging custom Pylint check tests|Debug-custom-Pylint-check-tests]]
+    * [[Debugging Google Analytics|Debugging-Google-Analytics]]
     * [[Debugging datastore locally|Debugging-datastore-locally]]
     * [[Debug frontend code|Debug-frontend-code]]
     * [[Debugging Stories|Debugging-Stories]]
