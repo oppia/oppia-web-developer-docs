@@ -38,12 +38,12 @@ If you find new test files where changes needed to be required, try updating the
 - Start the server and go to the admin page.
 - Load all demo exploration.
 - Create a new exploration, make some changes and save them.
-- Checkout the feature branch which contains state migration.
+- In a new terminal window, checkout the feature branch which contains state migration. The changed files will be detected in the server logs.
 - Go to 0.0.0.0:8000 and flush existing Memcache from the Memcache tab.
 - Go to the admin page and assign yourself the role of "release coordinator".
 - Go to the Misc tab of /release-coordinator page and flush the cache.
 - Run `AuditExplorationMigrationJob` and wait for the job to get completed. This job will not make any changes to the exploration as this is simply an audit job. We run this job before the actual migration job so that in case anything fails we do not make changes to the datastore. Please make sure the job should be successful without any errors before moving forward.
 - Run `MigrateExplorationJob` and wait for the job to get completed. This will make changes to exploration.
 - Check the output of the job and post the screen-shot in your PR.
-- Go to the exploration you have created lately, check whether it's working as expected.
+- Go to the exploration you have created lately, check whether it's working as expected. To check the local datastore, refer to [Debugging datastore locally](https://github.com/oppia/oppia/wiki/Debugging-datastore-locally).
 - Check demo exploration (note demo exploration ids are 0, 1, 2, etc.)

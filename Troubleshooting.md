@@ -1,3 +1,10 @@
+> **Note:** This page includes solutions from GitHub Discussions that have a last-updated date before February 25, 2026.
+>
+> If you can't find your error here, try:
+> 1. Searching for it on GitHub Discussions and reading the corresponding threads.
+> 2. Searching for it on our issue tracker to see if there are related issues.
+> 3. Searching for it on the Internet to see if others have encountered it and what they did to solve it.
+
 ## General
 
 Here are some general troubleshooting tips for Oppia. The platform specific tips are [Linux](#linux), [Windows](#windows), and [Mac OS](#mac-os).
@@ -26,6 +33,11 @@ Here are some general troubleshooting tips for Oppia. The platform specific tips
 - [`./portserver.socket is not listed in the .github/CODEOWNERS file`](#portserversocket-is-not-listed-in-the-githubcodeowners-file)
 - [Push fails due to connection timeout](#push-fails-due-to-connection-timeout)
 - [Exception: Error compiling proto files](#exception-error-compiling-proto-files)
+- [Cron jobs: "Run now" returns 400](#cron-jobs-run-now-returns-400)
+- [404 when opening `/learn/math`](#404-when-opening-learnmath)
+- [Blank page or frontend not loading](#blank-page-or-frontend-not-loading)
+- [404 when opening `/admin`](#404-when-opening-admin)
+- [Unable to generate translation opportunities locally](#unable-to-generate-translation-opportunities-locally)
 - [Linux](#linux)
   - [OSError: \[Errno 2\] No such file or directory](#oserror-errno-2-no-such-file-or-directory)
   - [Pip: Cannot Import Name Main](#pip-cannot-import-name-main)
@@ -35,6 +47,7 @@ Here are some general troubleshooting tips for Oppia. The platform specific tips
   - [ModuleNotFoundError: No module named \_bz2](#modulenotfounderror-no-module-named-_bz2)
   - [Subprocess.CalledProcessError: Command 'yarn install --pure-lockfile' returned non-zero exit status 1](#subprocesscalledprocesserror-command-yarn-install---pure-lockfile-returned-non-zero-exit-status-1)
 - [Mac OS](#mac-os)
+  - [Redis CLI error: variable has incomplete type 'struct stat64'](#redis-cli-error-variable-has-incomplete-type-struct-stat64)
   - [Error: alert\_on\_exit() -\> Iterator\[None\]](#error-alert_on_exit---iteratornone)
   - [Local datastore data are not being deleted](#local-datastore-data-are-not-being-deleted)
   - [No module named '\_ctypes' on M1 Macs](#no-module-named-_ctypes-on-m1-macs)
@@ -53,38 +66,34 @@ Here are some general troubleshooting tips for Oppia. The platform specific tips
   - [Windows Firewall](#windows-firewall)
   - [No Such File or Directory /dev/disk/by-id](#no-such-file-or-directory-devdiskby-id)
   - [First build never completed](#first-build-never-completed)
-- [Docker Setup](#docker-setup)
-  - [docker-desktop : Depends: docker-ce-cli but it is not installable](#docker-desktop--depends-docker-ce-cli-but-it-is-not-installable)
-  - [make commands: `Operation not permitted`](#make-commands-operation-not-permitted)
-  - [Installation encounters `network timeout` or `connection error`](#installation-encounters-network-timeout-or-connection-error)
 - [If the above doesn't work](#if-the-above-doesnt-work)
 
 ### For Jio India Users
-It seems the Jio network is blocking the domain `raw.githubusercontent.com` which is used by Github for storage of images in this wiki and some of the dependencies while installing Opia.. If you are using Jio, you can try changing the DNS address to 8.8.8.8 (Google DNS) or 1.1.1.1 (Cloudfare DNS) from settings. Original discussion [here](https://github.com/orgs/community/discussions/42655)
+It seems the Jio network is blocking the domain `raw.githubusercontent.com` which is used by GitHub for storage of images in this wiki and some of the dependencies while installing Oppia.. If you are using Jio, you can try changing the DNS address to 8.8.8.8 (Google DNS) or 1.1.1.1 (Cloudfare DNS) from settings. Original discussion [here](https://github.com/orgs/community/discussions/42655)
 
 ### `[Errno 104] Connection reset by peer`
 If after running `python -m scripts.start` you get the following lines:
 ```
 Traceback (most recent call last):
-  File "/home/vansh/.pyenv/versions/3.9.20/lib/python3.8/urllib/request.py", line 1354, in do_open
+  File "/home/vansh/.pyenv/versions/3.10.16/lib/python3.10/urllib/request.py", line 1354, in do_open
     h.request(req.get_method(), req.selector, req.data, headers,
-  File "/home/vansh/.pyenv/versions/3.9.20/lib/python3.8/http/client.py", line 1256, in request
+  File "/home/vansh/.pyenv/versions/3.10.16/lib/python3.10/http/client.py", line 1256, in request
     self._send_request(method, url, body, headers, encode_chunked)
-  File "/home/vansh/.pyenv/versions/3.9.20/lib/python3.8/http/client.py", line 1302, in _send_request
+  File "/home/vansh/.pyenv/versions/3.10.16/lib/python3.10/http/client.py", line 1302, in _send_request
     self.endheaders(body, encode_chunked=encode_chunked)
-  File "/home/vansh/.pyenv/versions/3.9.20/lib/python3.8/http/client.py", line 1251, in endheaders
+  File "/home/vansh/.pyenv/versions/3.10.16/lib/python3.10/http/client.py", line 1251, in endheaders
     self._send_output(message_body, encode_chunked=encode_chunked)
-  File "/home/vansh/.pyenv/versions/3.9.20/lib/python3.8/http/client.py", line 1011, in _send_output
+  File "/home/vansh/.pyenv/versions/3.10.16/lib/python3.10/http/client.py", line 1011, in _send_output
     self.send(msg)
-  File "/home/vansh/.pyenv/versions/3.9.20/lib/python3.8/http/client.py", line 951, in send
+  File "/home/vansh/.pyenv/versions/3.10.16/lib/python3.10/http/client.py", line 951, in send
     self.connect()
-  File "/home/vansh/.pyenv/versions/3.9.20/lib/python3.8/http/client.py", line 1425, in connect
+  File "/home/vansh/.pyenv/versions/3.10.16/lib/python3.10/http/client.py", line 1425, in connect
     self.sock = self._context.wrap_socket(self.sock,
-  File "/home/vansh/.pyenv/versions/3.9.20/lib/python3.8/ssl.py", line 500, in wrap_socket
+  File "/home/vansh/.pyenv/versions/3.10.16/lib/python3.10/ssl.py", line 500, in wrap_socket
     return self.sslsocket_class._create(
-  File "/home/vansh/.pyenv/versions/3.9.20/lib/python3.8/ssl.py", line 1040, in _create
+  File "/home/vansh/.pyenv/versions/3.10.16/lib/python3.10/ssl.py", line 1040, in _create
     self.do_handshake()
-  File "/home/vansh/.pyenv/versions/3.9.20/lib/python3.8/ssl.py", line 1309, in do_handshake
+  File "/home/vansh/.pyenv/versions/3.10.16/lib/python3.10/ssl.py", line 1309, in do_handshake
     self._sslobj.do_handshake()
 ConnectionResetError: [Errno 104] Connection reset by peer
 ```
@@ -157,9 +166,9 @@ If you see an error that says something along the lines of `OSError: [Errno 2] N
 
 If you see an error that says something along the lines of `ERROR: gcloud failed to load: No module named _sqlite3` while running `scripts.start` - then follow the steps below:
 
-1. Uninstall Python 3.9.20 from pyenv with the command: `pyenv uninstall 3.9.20`
+1. Uninstall Python 3.12.13 from pyenv with the command: `pyenv uninstall 3.12.13`
 2. Install the packages as per the [wiki](https://github.com/pyenv/pyenv/wiki#suggested-build-environment) to have the suggested build environment.
-3. Install Python 3.9.20 from pyenv with the command: `pyenv install 3.9.20` and make sure that there are no warnings or errors in the output of the command.
+3. Install Python 3.12.13 from pyenv with the command: `pyenv install 3.12.13` and make sure that there are no warnings or errors in the output of the command.
 
 ### Problems Cloning from GitHub
 
@@ -298,9 +307,9 @@ If you are getting something like this in M1 macbooks when running `python -m sc
 ```
 b'protoc-gen-js: program not found or is not executable\Please specify a program using absolute path or make sure the program is available in your PATH system variable\n--js_out: protoc-gen-js: Plugin failed with status code 1. Inplugin js: exit status 1\n
 Traceback (most recent call last) :
-   File "/Users/.../.pyenv/versions/3.9.20/lib/python3.8/runpy.py", line 193, in _run_module_as_main
+   File "/Users/.../.pyenv/versions/3.10.16/lib/python3.10/runpy.py", line 193, in _run_module_as_main
       "main" mod_spec)
-   File "/Users/.../.pyenv/versions/3.9.20/lib/python3.8/runpy.py", line 85, in run_code
+   File "/Users/.../.pyenv/versions/3.10.16/lib/python3.10/runpy.py", line 85, in run_code
       exec (code, run globals)
    File "/Users/.../opensource/oppia/scripts/start.py", line 32, in <module>
       install_third_party_libs.main()
@@ -313,7 +322,59 @@ Traceback (most recent call last) :
 
 Try searching for where protoc is installed (probably in `/opt/homebrew/bin/protoc`) and remove it and then re-run the command.
 
+### Cron jobs: "Run now" returns 400
 
+If clicking **Run now** for a cron job shows `Request failed with status: 400`, note that this interface may not be commonly used and might not work reliably.
+
+**Workaround:** manually trigger the cron job's attached endpoint while your dev server is running, and verify that it executed by checking the server logs (for example, by adding temporary print/log statements in the triggered methods).
+
+### 404 when opening `/learn/math`
+
+If opening `http://localhost:8181/learn/math` in your local dev server shows a **404 Page Not Found**, it's likely because Oppia does not yet have a valid classroom for that topic. In Oppia, learner content pages (like `/learn/math`) are only served when a corresponding classroom exists.
+
+**Solution:**  
+1. Assign the **admin role** from the admin UI roles tab.  
+2. Create a classroom that includes the math topic (via the admin activities or classroom admin page).  
+3. Once the classroom exists, `/learn/math` should load correctly.
+
+### Blank page or frontend not loading
+
+If the dev server starts successfully but the page appears blank or does not load properly, this is usually caused by an incomplete or failed frontend build.
+
+**Try the following:**
+
+1. Stop the dev server.
+2. Run: `python -m scripts.start`
+3. If the issue persists, try: `python -m scripts.start --clean`
+4. If necessary, run `yarn install`, then restart the server with `python -m scripts.start`.
+
+This is typically a frontend build or caching issue rather than a backend problem.
+
+### 404 when opening `/admin`
+
+If visiting `http://localhost:8181/admin` results in a **404 Page Not Found**, it usually means your account does not have the admin role assigned.
+
+The `/admin` page is only accessible to users with admin privileges.
+
+**Solution:**
+
+1. Start the dev server and sign in using the email suggested on first login (`testadmin@example.com`, which has implicit super-admin privileges).
+2. Go to: `http://localhost:8181/admin`
+3. From the Roles tab, assign the **admin role** to the account you want to use.
+4. Restart the server if necessary.
+
+After signing in with the suggested email and assigning the admin role, the `/admin` page should load correctly.
+
+### Unable to generate translation opportunities locally
+
+If you are following the local development steps but are unable to generate and test translation opportunities (for example, for language contributions), it likely means the local testing steps weren’t followed correctly.
+
+To fix this:
+1. Follow the official **Contributor Dashboard local development testing** instructions for generating translation opportunities.
+2. Ensure your local server and dashboard environment are configured as per the contributor docs.
+3. Repeat the setup steps from the Contributor Dashboard document when necessary.
+
+After completing those steps, you should be able to generate and view translation opportunities locally.
 
 ## Linux
 
@@ -406,22 +467,22 @@ If this error occurs within a virtual environment, try reinstalling the libs by 
 ### ModuleNotFoundError: No module named \_bz2
 
 1. Install bz2 headers. Use the command `sudo apt-get install libbz2-dev` on Ubuntu.
-2. Install Python 3 again so that the bz2 library gets included in `~/.pyenv/versions/3.9.20/lib/python3.8/`. Use the command `pyenv install 3.9.20`.
+2. Install Python 3 again so that the bz2 library gets included in `~/.pyenv/versions/3.12.13/lib/python3.12/`. Use the command `pyenv install 3.12.13`.
 
 ### Subprocess.CalledProcessError: Command 'yarn install --pure-lockfile' returned non-zero exit status 1
 
 If you get error like this when running ``python -m scripts.start``:
 ```
 Traceback (most recent call last):
-  File "/home/hardik/.pyenv/versions/3.9.20/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+  File "/home/hardik/.pyenv/versions/3.10.16/lib/python3.10/runpy.py", line 194, in _run_module_as_main
     return _run_code(code, main_globals, None,
-  File "/home/hardik/.pyenv/versions/3.9.20/lib/python3.8/runpy.py", line 87, in _run_code
+  File "/home/hardik/.pyenv/versions/3.10.16/lib/python3.10/runpy.py", line 87, in _run_code
     exec(code, run_globals)
   File "/home/hardik/opensource/oppia/scripts/start.py", line 33, in <module>
     install_third_party_libs.main()
   File "/home/hardik/opensource/oppia/scripts/install_third_party_libs.py", line 234, in main
     subprocess.check_call([get_yarn_command(), 'install', '--pure-lockfile'])
-  File "/home/hardik/.pyenv/versions/3.9.20/lib/python3.8/subprocess.py", line 364, in check_call
+  File "/home/hardik/.pyenv/versions/3.10.16/lib/python3.10/subprocess.py", line 364, in check_call
     raise CalledProcessError(retcode, cmd)
 subprocess.CalledProcessError: Command '['yarn', 'install', '--pure-lockfile']' returned non-zero exit status 1.
 ```
@@ -438,6 +499,36 @@ npm install  yarn
 
 
 ## Mac OS
+
+### Redis CLI error: variable has incomplete type 'struct stat64'
+If after running python -m scripts.start, you get an error similar to this below:
+
+```
+replication.c:1312:31: error: variable has incomplete type 'struct stat64'
+ 1312 |             struct redis_stat buf;
+      |                               ^
+replication.c:1359:21: error: call to undeclared function 'fstat64'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+ 1359 |                     redis_fstat(slave->repldbfd,&buf) == -1) {
+      |                     ^
+```
+
+Then, 
+1. Patch the redis config file. Open `../../oppia_tools/redis-cli-6.2.4/src/config.h` in your favorite text editor and apply the following patch:
+    ```diff
+    index 3c9a2701..4607c177 100644
+    --- a/src/config.h
+    +++ b/src/config.h
+    @@ -31,6 +31,7 @@
+    #define __CONFIG_H
+    
+    #ifdef __APPLE__
+    +#define _DARWIN_C_SOURCE
+    #include <fcntl.h> // for fcntl(fd, F_FULLFSYNC)
+    #include <AvailabilityMacros.h>
+    #endif
+    ```
+
+2. Re-run `python -m scripts.start` and the error should be gone.
 
 ### Error: alert_on_exit() -> Iterator[None]
 
@@ -457,7 +548,7 @@ Traceback (most recent call last):
 
 Then,
 
-1. Open your `.bash_profile` file, and check if there are two versions of Python listed inside of it, one for Python 2.7 and other for Python 3.9. Simply remove the entry for Python 2.7. Finally, this is how your file should look like:
+1. Open your `.bash_profile` file, and check if there are two versions of Python listed inside of it, one for Python 2.7 and other for Python 3.12. Simply remove the entry for Python 2.7. Finally, this is how your file should look like:
 
 ```
 export PYENV_ROOT="$HOME/.pyenv"
@@ -467,9 +558,9 @@ eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-# Setting PATH for Python 3.9
+# Setting PATH for Python 3.12
 # The original version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.9/bin:${PATH}"
+PATH="/Library/Frameworks/Python.framework/Versions/3.12/bin:${PATH}"
 export PATH
 ```
 
@@ -483,7 +574,7 @@ In some cases it is possible that the local datastore data are not deleted when 
 
 ### No module named '\_ctypes' on M1 Macs
 
-When one contributor got a `ModuleNotFoundError: No module named '_ctypes'` error when installing on an M1 Mac with Rosetta, they found that using Python 3.9.20 worked.
+When one contributor got a `ModuleNotFoundError: No module named '_ctypes'` error when installing on an M1 Mac with Rosetta, they found that using Python 3.10.16 worked.
 
 ### Cannot Import Name `_imaging`
 
@@ -548,7 +639,7 @@ please install [GitPython](http://gitpython.readthedocs.io/en/stable/intro.html#
 If you get an error that includes:
 
 ```
-Command "/usr/local/opt/python@3/bin/python3.8 -u -c "import setuptools, tokenize;__file__='/private/tmp/pip-req-build-TGvu2M/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" install --record /private/tmp/pip-record-6nuoQh/install-record.txt --single-version-externally-managed --compile --home=/private/tmp/pip-target-CMgDrw" failed with error code 1 in /private/tmp/pip-req-build-TGvu2M/
+Command "/usr/local/opt/python@3/bin/python3.10 -u -c "import setuptools, tokenize;__file__='/private/tmp/pip-req-build-TGvu2M/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" install --record /private/tmp/pip-record-6nuoQh/install-record.txt --single-version-externally-managed --compile --home=/private/tmp/pip-target-CMgDrw" failed with error code 1 in /private/tmp/pip-req-build-TGvu2M/
 ```
 
 please run the following comands:-
@@ -577,7 +668,7 @@ Please download [Java](https://support.apple.com/kb/DL1572?locale=en_US) and ins
 if you run into an error that looks like this when starting App Engine:
 
 ```
-File "/System/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib2.py", line 558, in http_error_default
+File "/System/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib2.py", line 558, in http_error_default
     raise HTTPError(req.get_full_url(), code, msg, hdrs, fp)
 HTTPError: HTTP Error 503: Service Unavailable
 ```
@@ -616,34 +707,34 @@ If you get an error like this when running `python -m scripts.start` or scripts 
 ```
 Installing collected packages: certifi
   Attempting uninstall: certifi
-    WARNING: No metadata found in /Users/ash/Desktop/openSource/.direnv/python-3.9.20/lib/python3.8/site-packages
+    WARNING: No metadata found in /Users/ash/Desktop/openSource/.direnv/python-3.10.16/lib/python3.10/site-packages
     Found existing installation: certifi 2022.12.7
 ERROR: Cannot uninstall certifi 2022.12.7, RECORD file not found. You might be able to recover from this via: 'pip install --force-reinstall --no-deps certifi==2022.12.7'.
 
 [notice] A new release of pip is available: 23.1.2 -> 24.0
 [notice] To update, run: pip install --upgrade pip
 Traceback (most recent call last):
-  File "/Users/ash/Desktop/openSource/.direnv/python-3.9.20/bin/pip-sync", line 8, in <module>
+  File "/Users/ash/Desktop/openSource/.direnv/python-3.10.16/bin/pip-sync", line 8, in <module>
     sys.exit(cli())
-  File "/Users/ash/Desktop/openSource/.direnv/python-3.9.20/lib/python3.8/site-packages/click/core.py", line 1130, in __call__
+  File "/Users/ash/Desktop/openSource/.direnv/python-3.10.16/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
     return self.main(*args, **kwargs)
-  File "/Users/ash/Desktop/openSource/.direnv/python-3.9.20/lib/python3.8/site-packages/click/core.py", line 1055, in main
+  File "/Users/ash/Desktop/openSource/.direnv/python-3.10.16/lib/python3.10/site-packages/click/core.py", line 1055, in main
     rv = self.invoke(ctx)
-  File "/Users/ash/Desktop/openSource/.direnv/python-3.9.20/lib/python3.8/site-packages/click/core.py", line 1404, in invoke
+  File "/Users/ash/Desktop/openSource/.direnv/python-3.10.16/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
     return ctx.invoke(self.callback, **ctx.params)
-  File "/Users/ash/Desktop/openSource/.direnv/python-3.9.20/lib/python3.8/site-packages/click/core.py", line 760, in invoke
+  File "/Users/ash/Desktop/openSource/.direnv/python-3.10.16/lib/python3.10/site-packages/click/core.py", line 760, in invoke
     return __callback(*args, **kwargs)
-  File "/Users/ash/Desktop/openSource/.direnv/python-3.9.20/lib/python3.8/site-packages/piptools/scripts/sync.py", line 174, in cli
+  File "/Users/ash/Desktop/openSource/.direnv/python-3.10.16/lib/python3.10/site-packages/piptools/scripts/sync.py", line 174, in cli
     sync.sync(
-  File "/Users/ash/Desktop/openSource/.direnv/python-3.9.20/lib/python3.8/site-packages/piptools/sync.py", line 244, in sync
+  File "/Users/ash/Desktop/openSource/.direnv/python-3.10.16/lib/python3.10/site-packages/piptools/sync.py", line 244, in sync
     run(  # nosec
-  File "/Users/ash/.pyenv/versions/3.9.20/lib/python3.8/subprocess.py", line 516, in run
+  File "/Users/ash/.pyenv/versions/3.10.16/lib/python3.10/subprocess.py", line 516, in run
     raise CalledProcessError(retcode, process.args,
-subprocess.CalledProcessError: Command '['/Users/ash/Desktop/openSource/.direnv/python-3.9.20/bin/python', '-m', 'pip', 'install', '-r', '/var/folders/75/00_6bzhj2yv42jzg6bk544vh0000gn/T/tmp8rdctoxc', '--require-hashes', '--no-deps']' returned non-zero exit status 1.
+subprocess.CalledProcessError: Command '['/Users/ash/Desktop/openSource/.direnv/python-3.10.16/bin/python', '-m', 'pip', 'install', '-r', '/var/folders/75/00_6bzhj2yv42jzg6bk544vh0000gn/T/tmp8rdctoxc', '--require-hashes', '--no-deps']' returned non-zero exit status 1.
 Traceback (most recent call last):
-  File "/Users/ash/.pyenv/versions/3.9.20/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+  File "/Users/ash/.pyenv/versions/3.10.16/lib/python3.10/runpy.py", line 194, in _run_module_as_main
     return _run_code(code, main_globals, None,
-  File "/Users/ash/.pyenv/versions/3.9.20/lib/python3.8/runpy.py", line 87, in _run_code
+  File "/Users/ash/.pyenv/versions/3.10.16/lib/python3.10/runpy.py", line 87, in _run_code
     exec(code, run_globals)
   File "/Users/ash/Desktop/openSource/oppia/scripts/run_backend_tests.py", line 67, in <module>
     from . import install_third_party_libs
@@ -653,7 +744,7 @@ Traceback (most recent call last):
     install_dev_dependencies()
   File "/Users/ash/Desktop/openSource/oppia/scripts/install_python_dev_dependencies.py", line 89, in install_dev_dependencies
     subprocess.run(
-  File "/Users/ash/.pyenv/versions/3.9.20/lib/python3.8/subprocess.py", line 516, in run
+  File "/Users/ash/.pyenv/versions/3.10.16/lib/python3.10/subprocess.py", line 516, in run
     raise CalledProcessError(retcode, process.args,
 subprocess.CalledProcessError: Command '['pip-sync', 'requirements_dev.txt', '--pip-args', '--require-hashes --no-deps']' returned non-zero exit status 1.
 ```
@@ -669,7 +760,7 @@ Next, execute `python -m scripts.start` inside your Oppia directory before runni
 If you see the error `Failed to build typed-ast` with an error along the following lines:
 
 ```
-      clang -Wno-unused-result -Wsign-compare -Wunreachable-code -DNDEBUG -g -fwrapv -O3 -Wall -DOPENSSL_NO_SSL3 -I/opt/homebrew/opt/node@22/include -Iast3/Include -I/Users/hemantayuj/Desktop/open_source/.direnv/python-3.9/include -I/Users/hemantayuj/.pyenv/versions/3.9.20/include/python3.9 -c ast3/Python/ast.c -o build/temp.macosx-14.5-arm64-cpython-39/ast3/Python/ast.o
+      clang -Wno-unused-result -Wsign-compare -Wunreachable-code -DNDEBUG -g -fwrapv -O3 -Wall -DOPENSSL_NO_SSL3 -I/opt/homebrew/opt/node@22/include -Iast3/Include -I/Users/hemantayuj/Desktop/open_source/.direnv/python-3.10/include -I/Users/hemantayuj/.pyenv/versions/3.10.16/include/python3.10 -c ast3/Python/ast.c -o build/temp.macosx-14.5-arm64-cpython-39/ast3/Python/ast.o
       ast3/Python/ast.c:844:5: warning: code will never be executed [-Wunreachable-code]
           abort();
           ^~~~~
@@ -677,7 +768,7 @@ If you see the error `Failed to build typed-ast` with an error along the followi
           v = _PyUnicode_DecodeUnicodeEscape(s, len, NULL, &first_invalid_escape);
               ^
       ast3/Python/ast.c:4514:9: note: did you mean 'PyUnicode_DecodeUnicodeEscape'?
-      /Users/hemantayuj/.pyenv/versions/3.9.20/include/python3.9/unicodeobject.h:588:23: note: 'PyUnicode_DecodeUnicodeEscape' declared here
+      /Users/hemantayuj/.pyenv/versions/3.10.16/include/python3.10/unicodeobject.h:588:23: note: 'PyUnicode_DecodeUnicodeEscape' declared here
       PyAPI_FUNC(PyObject*) PyUnicode_DecodeUnicodeEscape(
                             ^
       ast3/Python/ast.c:4514:7: error: incompatible integer to pointer conversion assigning to 'PyObject *' (aka 'struct _object *') from 'int' [-Wint-conversion]
@@ -727,23 +818,23 @@ OSError: First build never completed
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/home/user/.pyenv/versions/3.9.20/lib/python3.8/contextlib.py", line 131, in __exit__
+  File "/home/user/.pyenv/versions/3.10.16/lib/python3.10/contextlib.py", line 131, in __exit__
     self.gen.throw(type, value, traceback)
   File "/home/user/opensource/oppia/scripts/servers.py", line 365, in managed_redis_server
     yield proc
   File "/home/user/opensource/oppia/scripts/start.py", line 178, in main
     stack.enter_context(servers.managed_ng_build(watch_mode=True))
-  File "/home/user/.pyenv/versions/3.9.20/lib/python3.8/contextlib.py", line 425, in enter_context
+  File "/home/user/.pyenv/versions/3.10.16/lib/python3.10/contextlib.py", line 425, in enter_context
     result = _cm_type.__enter__(cm)
-  File "/home/user/.pyenv/versions/3.9.20/lib/python3.8/contextlib.py", line 113, in __enter__
+  File "/home/user/.pyenv/versions/3.10.16/lib/python3.10/contextlib.py", line 113, in __enter__
     return next(self.gen)
   File "/home/user/opensource/oppia/scripts/servers.py", line 461, in managed_ng_build
     yield proc
-  File "/home/user/.pyenv/versions/3.9.20/lib/python3.8/contextlib.py", line 525, in __exit__
+  File "/home/user/.pyenv/versions/3.10.16/lib/python3.10/contextlib.py", line 525, in __exit__
     raise exc_details[1]
-  File "/home/user/.pyenv/versions/3.9.20/lib/python3.8/contextlib.py", line 510, in __exit__
+  File "/home/user/.pyenv/versions/3.10.16/lib/python3.10/contextlib.py", line 510, in __exit__
     if cb(*exc_details):
-  File "/home/user/.pyenv/versions/3.9.20/lib/python3.8/contextlib.py", line 131, in __exit__
+  File "/home/user/.pyenv/versions/3.10.16/lib/python3.10/contextlib.py", line 131, in __exit__
     self.gen.throw(type, value, traceback)
   File "/home/user/opensource/oppia/scripts/servers.py", line 138, in managed_process
     raise Exception(
@@ -752,19 +843,19 @@ Exception: Process Angular Compiler(name="sh", pid=2350) exited unexpectedly wit
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/home/user/.pyenv/versions/3.9.20/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+  File "/home/user/.pyenv/versions/3.10.16/lib/python3.10/runpy.py", line 194, in _run_module_as_main
     return _run_code(code, main_globals, None,
-  File "/home/user/.pyenv/versions/3.9.20/lib/python3.8/runpy.py", line 87, in _run_code
+  File "/home/user/.pyenv/versions/3.10.16/lib/python3.10/runpy.py", line 87, in _run_code
     exec(code, run_globals)
   File "/home/user/opensource/oppia/scripts/start.py", line 233, in <module>
     main()
   File "/home/user/opensource/oppia/scripts/start.py", line 229, in main
     dev_appserver.wait()
-  File "/home/user/.pyenv/versions/3.9.20/lib/python3.8/contextlib.py", line 525, in __exit__
+  File "/home/user/.pyenv/versions/3.10.16/lib/python3.10/contextlib.py", line 525, in __exit__
     raise exc_details[1]
-  File "/home/user/.pyenv/versions/3.9.20/lib/python3.8/contextlib.py", line 510, in __exit__
+  File "/home/user/.pyenv/versions/3.10.16/lib/python3.10/contextlib.py", line 510, in __exit__
     if cb(*exc_details):
-  File "/home/user/.pyenv/versions/3.9.20/lib/python3.8/contextlib.py", line 382, in _exit_wrapper
+  File "/home/user/.pyenv/versions/3.10.16/lib/python3.10/contextlib.py", line 382, in _exit_wrapper
     callback(*args, **kwds)
   File "/home/user/opensource/oppia/scripts/start.py", line 132, in call_extend_index_yaml
     extend_index_yaml.main()
@@ -774,72 +865,6 @@ FileNotFoundError: [Errno 2] No such file or directory: '/home/user/opensource/o
 ```
 
 The error code 137 indicates that the Angular compiler ran out of memory. This happens because WSL2 only gives the host operating system (Ubuntu, in our case) 50% of the machine's RAM by default. If you have 8 GB RAM, for example, this means Ubuntu only gets 4 GB, which is insufficient to run Oppia. To fix this, you need to follow [Microsoft's instructions](https://learn.microsoft.com/en-us/windows/wsl/wsl-config) to increase the amount of RAM given to the host operating system.
-
-## Docker Setup
-
-### docker-desktop : Depends: docker-ce-cli but it is not installable
-
-While installing Docker Desktop, ubuntu users might see the following error logs:
-```
-Some packages could not be installed. This may mean that you have
-requested an impossible situation or if you are using the unstable
-distribution that some required packages have not yet been created
-or been moved out of Incoming.
-The following information may help to resolve the situation:
- 
-The following packages have unmet dependencies:
- docker-desktop : Depends: docker-ce-cli but it is not installable
-E: Unable to correct problems, you have held broken packages.
-```
-
-The cause of this error is the absence of the Docker repository installation on the system. To address this issue, a straightforward solution is to execute the following commands before installing Docker Desktop:
-```
-sudo apt install -y ca-certificates curl gnupg lsb-release
-sudo mkdir -p /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt update -y
-```
-These commands are used to prepare an Ubuntu system for Docker installation. They start by installing necessary packages like ca-certificates, gnupg, and lsb-release. Then, a directory named /etc/apt/keyrings is created to store GPG keys. Next, a Docker GPG key is downloaded from the Docker repository and converted to binary format before being saved in the keyring directory. A Docker repository source is added to the APT sources list using an echo command, specifying the architecture, GPG key location, repository URL, and Ubuntu version. Finally, the package list is updated to include Docker packages from the newly added repository. These steps collectively enable secure access to Docker packages and facilitate their installation and management on the system.
-
-Following the completion of the aforementioned commands, you can proceed with the installation of Docker Desktop.
-
-[Reference](https://stackoverflow.com/questions/72299444/docker-desktop-doesnt-install-saying-docker-ce-cli-not-installable) for the solution stated.
-
-### make commands: `Operation not permitted`
-
-Some users might face the following error while running `make` commands:
-```
-Operation not permitted
-make: *** [Makefile:14: docker] Error 1
-```
-
-To fix this, create a new user called 'docker' and include the current user in the 'docker' group. Execute the following commands to achieve this:
-```
-sudo groupadd docker
-sudo gpasswd -a $USER docker
-```
-
-[Reference]([url](https://askubuntu.com/questions/477551/how-can-i-use-docker-without-sudo))
-
-The cause of the issue is that Docker daemon binds to a unix socket by default, which is owned by root. So, when you run the make commands without admin access, it is not able to access the unix socket and hence the error is thrown.
-
-### Installation encounters `network timeout` or `connection error`
-
-If you encounter network timeout or connection errors during the Docker setup process, simply re-execute the `make build` command. This is necessary as the Docker setup may have been disrupted by network problems. By rerunning the command, the setup will pick up from the point of failure and continue accordingly.
-
-### Any Installation Error in Docker Setup
-
-If you encounter any error during the Oppia Docker setup process, please try the following steps to resolve the issue:
-1. Run `make clean` to remove the existing Docker containers and images.
-2. Run `make build` to rebuild the Docker containers and images.
-3. Run `make run-devserver` to start the Oppia development server.
-
-If the issue persists, try clearing the Docker cache by running the following commands:
-1.  Run `make clean` to remove the existing Docker containers and images.
-2.  Run `docker builder prune --all` to remove all build cache.
-3.  Run `make build` to rebuild the Docker containers and images.
-4.  Run `make run-devserver` to start the Oppia development server.
 
 ## If the above doesn't work
 

@@ -15,11 +15,6 @@ It has two modes of running:
 python -m scripts.run_mypy_checks
 ```
 
-   Docker:
-```
-make run_tests.mypy
-```
-
   This runs the type checks on all the type annotated files in the codebase.
 
 2. Python:
@@ -27,14 +22,10 @@ make run_tests.mypy
 python -m scripts.run_mypy_checks --files path/file1.py path/file2.py
 ```
 
-   Docker:
-```
-make run_tests.mypy PYTHON_ARGS="--files path/file1.py path/file2.py"
-```
   This runs the type checks on the files specified, i.e., file1 and file2.
 
 **Note:**
-- [Helpful trick for faster runs]`python -m scripts.run_mypy_checks --skip-install` can be used to skip installation of third party libraries. Please use the `--skip-install` flag **only** when you already have all the third party libraries installed.
+- [Helpful trick for faster runs]`python -m scripts.run_mypy_checks --skip_install` can be used to skip installation of third party libraries. Please use the `--skip_install` flag **only** when you already have all the third party libraries installed.
 
 
 ## Adding type annotations

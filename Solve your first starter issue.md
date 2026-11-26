@@ -26,7 +26,7 @@ Follow the instructions to set up your development environment:
 **Note:**  
 Once your setup is successful, run `python -m scripts.start` and check if Oppia loads at `http://localhost:8181`.
 
-If you encounter errors (e.g. Git issues, dependency problems, or Docker errors), consult:
+If you encounter errors (e.g. Git issues or dependency problems), consult:
 
 - [Issues with Installation](https://github.com/oppia/oppia/wiki/Issues-with-installation)
 - [Troubleshooting](https://github.com/oppia/oppia/wiki/Troubleshooting)

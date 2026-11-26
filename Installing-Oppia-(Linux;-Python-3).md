@@ -42,7 +42,9 @@ bash scripts/install_prerequisites.sh
 
 2. Navigate to the folder (`cd opensource/`). Next, we'll [fork and clone](https://help.github.com/articles/fork-a-repo/) the Oppia repository.
 
-3. Navigate to https://github.com/oppia/oppia and click on the `fork` button. It is placed on the right corner opposite the repository name `oppia/oppia`.
+3. Navigate to https://github.com/oppia/oppia. In the top right corner opposite the repository name `oppia/oppia`, first click the `Star` button to easily track updates, discussions, and new features. This helps you stay engaged with the community and encourages continued development.
+
+4. Next, click the `Fork` button to create your own copy of the repository.
 
    ![Screenshot with the fork button](images/install/fork.png)
 
@@ -50,7 +52,7 @@ bash scripts/install_prerequisites.sh
 
    ![Screenshot of repository list with Oppia](images/install/repositoryList.png)
 
-4. Clone the repository to your local computer (replacing the values in `{{}}`):
+5. Clone the repository to your local computer (replacing the values in `{{}}`):
 
    ```console
    $ git clone https://github.com/{{GITHUB USERNAME}}/oppia.git
@@ -64,7 +66,7 @@ bash scripts/install_prerequisites.sh
 
    Note that you will see slightly different output because the numbers change as Oppia grows.
 
-5. Now your `origin` remote is pointing to your fork (`{{GITHUB USERNAME}}/oppia`). To stay up to date with the main `oppia/oppia` repository, add it as a remote called `upstream`. You'll first need to move into the `oppia` directory that was created by the clone operation.
+6. Now your `origin` remote is pointing to your fork (`{{GITHUB USERNAME}}/oppia`). To stay up to date with the main `oppia/oppia` repository, add it as a remote called `upstream`. You'll first need to move into the `oppia` directory that was created by the clone operation.
 
    ```console
    $ cd oppia
@@ -137,12 +139,12 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
 ```bash
 exec "$SHELL"
 ```
-4. Now you can install Python 3.9.20 and the associated pip like this:
+4. Now you can install Python 3.12.13 and the associated pip like this:
 
    ```console
-   $ pyenv install 3.9.20
-   installing python-3.9.20...
-   installed python-3.9.20 to /home/user/.pyenv/versions/3.9.20
+   $ pyenv install 3.12.13
+   installing python-3.12.13...
+   installed python-3.12.13 to /home/user/.pyenv/versions/3.12.13
    ```
 
 5. Install direnv
@@ -151,7 +153,7 @@ exec "$SHELL"
    sudo apt install direnv
    ```
 
-6. Setup direnv into your shell.  
+6. Setup direnv into your shell.
    If you are using bash:
 
    ```bash
@@ -161,7 +163,7 @@ exec "$SHELL"
 
    ```bash
    eval "$(direnv hook zsh)" >> ~/.zshrc
-   ``` 
+   ```
    > [!WARNING]
    > Be careful with using graphical editors like Notepad in Windows. These can add carriage returns (`\r`) that confuse our Linux-based development tools. Instead, we recommend using editors designed for programming or command-line text editors.
 
@@ -186,7 +188,7 @@ exec "$SHELL"
    with this content:
 
     ```console
-    use python 3.9.20
+    use python 3.12.13
     ```
 
     Then run this command in the same folder:
@@ -406,21 +408,21 @@ On Arch Linux, you should follow these instructions to set up your virtual envir
 
 3. Reload your shell or open a new terminal window to load your updated `.bashrc`, `.zshrc`, or `config.fish`
 
-4. Now you can install Python 3.9.20 and the associated pip like this:
+4. Now you can install Python 3.12.13 and the associated pip like this:
 
    ```console
-   $ pyenv install 3.9.20
-   installing python-3.9.20...
+   $ pyenv install 3.12.13
+   installing python-3.12.13...
    patching file misc/news.d/next/build/2021-10-11-16-27-38.bpo-45405.isfdw5.rst
    patching file configure
    patching file configure.ac
-   installed python-3.9.20 to /home/user/.pyenv/versions/3.8.1
+   installed python-3.12.13 to /home/user/.pyenv/versions/3.12.13
    ```
 
 5. Create a virtual environment for oppia:
 
    ```console
-   $ pyenv virtualenv 3.9.20 oppia
+   $ pyenv virtualenv 3.12.13 oppia
    ...
    $ pyenv versions
    ...

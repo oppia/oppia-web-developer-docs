@@ -93,11 +93,6 @@ Python:
 python -m scripts.run_frontend_tests --verbose
 ```
 
-Docker:
-```console
-make run_tests.frontend PYTHON_ARGS="--verbose"
-```
-
 **Only use --verbose when you are running a few tests in isolation. Otherwise, you will be swamped with way too many log messages.**
 
 Note that depending on your situation, `console.log()` or `console.error()` might be preferable:
@@ -114,11 +109,6 @@ Python:
 python -m scripts.run_frontend_tests --download_combined_frontend_spec_file
 ```
 
-Docker:
-```console
-make run_tests.frontend PYTHON_ARGS="--download_combined_frontend_spec_file"
-```
-
 The combined-tests.spec.js file will be downloaded to the karma_coverage_reports directory.
 
 ## Reproduce test execution order
@@ -132,7 +122,7 @@ Minifying and creating sourcemap for third_party/generated/js/third_party.js
 Seed for Frontend Test Execution Order 640
 ```
 
-In this case, the seed value is 640. To run the tests in the same order as above, you can change the value of the [`jasmineSeed` in the `karma.conf.ts` file](https://github.com/oppia/oppia/blob/develop/core/tests/karma.conf.ts#L14) to 640 and then run the frontend tests.
+In this case, the seed value is 640. To run the tests in the same order as above, you can change the value of the [`jasmineSeed` in the `karma.conf.ts` file](https://github.com/oppia/oppia/blob/develop/core/tests/karma.conf.ts#L14) to 640 and then run the frontend tests. If you are trying to reproduce a flaky failure, you can get a seed for a failing run from the **Stress Test (Frontend Unit Tests)** workflow; see [reproducing flaky frontend unit tests](https://github.com/oppia/oppia/wiki/Frontend-tests#reproducing-flaky-frontend-unit-tests) for details.
 
 ## Find stack elements
 
@@ -140,7 +130,9 @@ While you can't use the line numbers in a stack trace to find the associated cod
 
 ## Run tests repeatedly on CI
 
-Especially when debugging frontend tests that only fail intermittently, you may want to set your tests to run many times on CI. For example, you might add some debugging code and then rerun your frontend tests on CI until the failure occurs. You can update the frontend test CI workflow to enable this. In `.github/workflows/frontend_tests.yml`, change the step that runs the tests to:
+The preferred way to run the frontend tests many times on CI is the **Stress Test (Frontend Unit Tests)** workflow, which runs the tests in parallel with a fresh random seed on every run; see [reproducing flaky frontend unit tests](https://github.com/oppia/oppia/wiki/Frontend-tests#reproducing-flaky-frontend-unit-tests) for how to trigger it from your fork.
+
+If you need to rerun the tests repeatedly with extra debugging code added, you can instead update the frontend test CI workflow to enable this. In `.github/workflows/frontend_tests.yml`, change the step that runs the tests to:
 
 ```yaml
 run: for run in {1..N}; do {{the normal command to run the tests}}`; done

@@ -1,0 +1,18 @@
+# Per-directory ownership and automatic assignment for pull requests.
+
+# The paths to the directory/files must be relative to the location of this
+# file. Wildcards such as '**', '!' are not allowed. Only glob style patterns
+# are allowed. For information about supported glob patterns please refer
+# https://docs.python.org/2/library/glob.html.
+
+# Blanket codeowners
+/.github/ @oppia/dev-workflow-reviewers
+/images/ @oppia/dev-workflow-reviewers
+/patchFiles/ @oppia/dev-workflow-reviewers
+/pdfs/ @oppia/dev-workflow-reviewers
+/scripts/ @oppia/dev-workflow-reviewers
+/.gitignore @oppia/dev-workflow-reviewers
+/*.md @oppia/dev-workflow-reviewers
+
+# Files owned by core reviewers.
+/LICENSE.txt @oppia/core-reviewers

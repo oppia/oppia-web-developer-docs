@@ -46,24 +46,24 @@ One of the server admins has reported the following error logs. Your task is to 
 > **Note:** The primary goal of this tutorial is not to find a solution, but to guide you through the process of investigating and understanding the workflow of debugging server errors. In this tutorial, you will follow the steps a developer might take to investigate this server error.
 
 ```plaintext
-TypeError: expected string or bytes-like object 
+TypeError: expected string or bytes-like object
 
-Exception raised: expected string or bytes-like object 
-Traceback (most recent call last): 
-  File "/layers/google.python.pip/pip/lib/python3.8/site-packages/webapp2.py", line 604, in dispatch 
-    return method(*args, **kwargs) 
-  File "/workspace/core/controllers/acl_decorators.py", line 4788, in test_can_fetch_all_contributor_dashboard_stats 
-    return handler(self, username, **kwargs) 
-  File "/workspace/core/controllers/contributor_dashboard.py", line 1062, in get 
+Exception raised: expected string or bytes-like object
+Traceback (most recent call last):
+  File "/layers/google.python.pip/pip/lib/python3.10/site-packages/webapp2.py", line 604, in dispatch
+    return method(*args, **kwargs)
+  File "/workspace/core/controllers/acl_decorators.py", line 4788, in test_can_fetch_all_contributor_dashboard_stats
+    return handler(self, username, **kwargs)
+  File "/workspace/core/controllers/contributor_dashboard.py", line 1062, in get
     response = suggestion_services.generate_contributor_certificate_data(
-  File "/workspace/core/domain/suggestion_services.py", line 3870, in generate_contributor_certificate_data 
+  File "/workspace/core/domain/suggestion_services.py", line 3870, in generate_contributor_certificate_data
     data = _generate_translation_contributor_certificate_data(
-  File "/workspace/core/domain/suggestion_services.py", line 3945, in _generate_translation_contributor_certificate_data 
+  File "/workspace/core/domain/suggestion_services.py", line 3945, in _generate_translation_contributor_certificate_data
     plain_text = _get_plain_text_from_html_content_string(
-  File "/workspace/core/domain/suggestion_services.py", line 1408, in _get_plain_text_from_html_content_string 
+  File "/workspace/core/domain/suggestion_services.py", line 1408, in _get_plain_text_from_html_content_string
     html_content_string_with_rte_tags_replaced = re.sub(
-  File "/layers/google.python.runtime/python/lib/python3.8/re.py", line 210, in sub 
-    return _compile(pattern, flags).sub(repl, string, count) 
+  File "/layers/google.python.runtime/python/lib/python3.10/re.py", line 210, in sub
+    return _compile(pattern, flags).sub(repl, string, count)
 TypeError: expected string or bytes-like object
 ```
 
@@ -75,17 +75,17 @@ The following steps illustrate how a developer might tackle this issue. Try foll
 
 #### Setup
 
-1. **Install Oppia on Your Local Machine**  
+1. **Install Oppia on Your Local Machine**
 To begin, you'll need to have Oppia installed on your local machine. If you haven't done so already, please follow the installation steps provided in this [wiki page](https://github.com/oppia/oppia/wiki).
 
-2. **Check Out the Specific Commit**  
-To ensure that you are working with the same version of the code as this tutorial, navigate to your local Oppia directory and check out the specific commit: 
+2. **Check Out the Specific Commit**
+To ensure that you are working with the same version of the code as this tutorial, navigate to your local Oppia directory and check out the specific commit:
 
 ```bash
 git checkout 192f0a9a4866debac160015bc949130aaae6a7fe
 ```
 
-3. **Verify the Commit:**  
+3. **Verify the Commit:**
 You can verify that you are on the correct commit by running:
 
 ```bash
@@ -108,30 +108,30 @@ When faced with a server error, developers at Oppia typically follow these steps
 
 ### Stage 1: Analyze the Error Logs to Locate the Affected Code
 > **Objective**: Identify where the error occurred in the code.
- 
+
 > **Note**: This tutorial focuses on server errors, which are typically reported by server admins and come with error logs. For other issues, such as user-reported bugs, error logs might not always be available. In these cases, it is essential to ask users for "steps to reproduce the bug." If this information is not provided, we can contact the user to request additional details that will help us understand the issue better.
 
 Here is the error log we need to investigate:
 
 ```python
-TypeError: expected string or bytes-like object 
+TypeError: expected string or bytes-like object
 
-Exception raised: expected string or bytes-like object 
-Traceback (most recent call last): 
-  File "/layers/google.python.pip/pip/lib/python3.8/site-packages/webapp2.py", line 604, in dispatch
-    return method(*args, **kwargs) 
-  File "/workspace/core/controllers/acl_decorators.py", line 4788, in test_can_fetch_all_contributor_dashboard_stats 
-    return handler(self, username, **kwargs) 
-  File "/workspace/core/controllers/contributor_dashboard.py", line 1062, in get 
+Exception raised: expected string or bytes-like object
+Traceback (most recent call last):
+  File "/layers/google.python.pip/pip/lib/python3.10/site-packages/webapp2.py", line 604, in dispatch
+    return method(*args, **kwargs)
+  File "/workspace/core/controllers/acl_decorators.py", line 4788, in test_can_fetch_all_contributor_dashboard_stats
+    return handler(self, username, **kwargs)
+  File "/workspace/core/controllers/contributor_dashboard.py", line 1062, in get
     response = suggestion_services.generate_contributor_certificate_data(
-  File "/workspace/core/domain/suggestion_services.py", line 3870, in generate_contributor_certificate_data 
+  File "/workspace/core/domain/suggestion_services.py", line 3870, in generate_contributor_certificate_data
     data = _generate_translation_contributor_certificate_data(
-  File "/workspace/core/domain/suggestion_services.py", line 3945, in _generate_translation_contributor_certificate_data 
+  File "/workspace/core/domain/suggestion_services.py", line 3945, in _generate_translation_contributor_certificate_data
     plain_text = _get_plain_text_from_html_content_string(
-  File "/workspace/core/domain/suggestion_services.py", line 1408, in _get_plain_text_from_html_content_string 
+  File "/workspace/core/domain/suggestion_services.py", line 1408, in _get_plain_text_from_html_content_string
     html_content_string_with_rte_tags_replaced = re.sub(
-  File "/layers/google.python.runtime/python/lib/python3.8/re.py", line 210, in sub 
-    return _compile(pattern, flags).sub(repl, string, count) 
+  File "/layers/google.python.runtime/python/lib/python3.10/re.py", line 210, in sub
+    return _compile(pattern, flags).sub(repl, string, count)
 TypeError: expected string or bytes-like object
 ```
 
@@ -147,7 +147,7 @@ A **stack trace** is a report of the active stack frames at a certain point in t
 
 >[!IMPORTANT]
 > Practice 1: Locate the specific line in the stack trace where Oppia's code is directly involved in causing the failure. This is the point where the error is most likely to originate within the Oppia codebase.
-> 
+>
 > **Hint**: Look for the first occurrence (from the bottom of the stack trace upward) where the stack trace shows a line of code from the Oppia codebase. This line represents the entry point in the Oppia code that led to the failure. Identifying this line will help you trace the error back to its origin in the code.
 
 
@@ -166,11 +166,11 @@ Next Step: Pinpoint the specific part of the code causing the error.
 
 >[!IMPORTANT]
 > Practice 2: Locate the `_get_plain_text_from_html_content_string` function in the `suggestion_services.py` file.
-> 
+>
 > **Hint**: To locate the function, you can make use of search functionalities of your code editor. [Tips for Common IDEs](https://github.com/oppia/oppia/wiki/Tips-for-common-IDEs)
 
 ```python
-File "/workspace/core/domain/suggestion_services.py", line 1408, in _get_plain_text_from_html_content_string html_content_string_with_rte_tags_replaced = re.sub( File "/layers/google.python.runtime/python/lib/python3.8/re.py", line 210, in sub return _compile(pattern, flags).sub(repl, string, count) TypeError: expected string or bytes-like object
+File "/workspace/core/domain/suggestion_services.py", line 1408, in _get_plain_text_from_html_content_string html_content_string_with_rte_tags_replaced = re.sub( File "/layers/google.python.runtime/python/lib/python3.10/re.py", line 210, in sub return _compile(pattern, flags).sub(repl, string, count) TypeError: expected string or bytes-like object
 ```
 
 Based on the error logs, the issue arises because the argument passed to the re.sub() function in the _get_plain_text_from_html_content_string method is not of the expected data type (a string or bytes-like object).
@@ -592,11 +592,11 @@ plain_text = _get_plain_text_from_html_content_string(get_html_representing_sugg
 If we look carefully at the function:
 ```python
 def _get_plain_text_from_html_content_string(html_content_string: str) -> str:
-    
+
  # Rest of the code.
     html_content_string_with_rte_tags_replaced = re.sub(
         r'<oppia-noninteractive-[^>]+>(.*?)</oppia-noninteractive-[^>]+>',
-        _replace_rte_tag, 
+        _replace_rte_tag,
         html_content_string
     )
     # Rest of the code.
@@ -638,7 +638,7 @@ change_cmd = {
 
 Now let’s run the backend unit tests by running `python -m scripts.run_backend_tests --test_target=core.domain.suggestion_services_test` (You can check out the wiki on how to run backend unit tests: https://github.com/oppia/oppia/wiki/Backend-tests)
 
-Notice that the tests are failing with a similar error message to what we saw from the production logs. 
+Notice that the tests are failing with a similar error message to what we saw from the production logs.
 
 ```python
 | SUMMARY OF TESTS |
@@ -656,7 +656,7 @@ Traceback (most recent call last):
     plain_text = _get_plain_text_from_html_content_string(
   File "/Users/ash/Desktop/openSource/oppia/core/domain/suggestion_services.py", line 1462, in _get_plain_text_from_html_content_string
     html_content_string_with_rte_tags_replaced = re.sub(
-  File "/Users/ash/.pyenv/versions/3.9.20/lib/python3.8/re.py", line 210, in sub
+  File "/Users/ash/.pyenv/versions/3.10.16/lib/python3.10/re.py", line 210, in sub
     return _compile(pattern, flags).sub(repl, string, count)
 TypeError: expected string or bytes-like object
 
@@ -695,10 +695,10 @@ To reproduce the error:
 #### Identify the Commit or PR Likely to Have Introduced the Error
 - Find the commit or PR that might have caused the issue using the Oppia wiki guide.
 - Mention the PR in your comment as a starting point for further investigation.
- 
+
 Example:
 
-After examining recent changes, it appears that the issue might have been introduced in a PR that modified the `get_content_html` method to return `Union[str, List[str]]` instead of just a `str`. [Link to the PR](https://github.com/oppia/oppia/pull/17200/files#diff-6bff01224db1fe3047ddf87614d720deffd8efc7e3fca819408547f66926a541L2096) - Here, we are changing the return type of the get_content_html method from string to either strings/list. (It's not auto navigating, if you want to look, please check exp_domain file's line number 2096). 
+After examining recent changes, it appears that the issue might have been introduced in a PR that modified the `get_content_html` method to return `Union[str, List[str]]` instead of just a `str`. [Link to the PR](https://github.com/oppia/oppia/pull/17200/files#diff-6bff01224db1fe3047ddf87614d720deffd8efc7e3fca819408547f66926a541L2096) - Here, we are changing the return type of the get_content_html method from string to either strings/list. (It's not auto navigating, if you want to look, please check exp_domain file's line number 2096).
 
 #### Explain the Possible Root Causes
 - Describe your analysis of the potential causes.

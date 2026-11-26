@@ -9,7 +9,8 @@
     * [[Voice artists | Instructions-for-voice-artists]]
     * [[Designers and artists|Contributing-to-Oppia's-design]]
   * [[How to report a bug|How-to-file-a-bug-report]]
-  * **[[Google Summer of Code 2025|Google-Summer-of-Code-2025]]**
+  * **[[Google Summer of Code 2026|Google-Summer-of-Code-2026]]**
+  * **[[Hacktoberfest 2025|Hacktoberfest-2025]]**
 ---
 **Developing Oppia**
   * [[FAQs|Frequently-Asked-Questions]]
@@ -20,19 +21,18 @@
     * [[Installing Oppia|Installing-Oppia]]
       * [[Set up your development tools|Tips-for-common-IDEs]]
     * [[How to access Oppia webpages|How-to-access-Oppia-webpages]]
-    * [[Populating data on local server|Populating-data-on-local-server]]
     * Team onboarding guides
-      * [[LaCE Team|LaCE-onboarding-guide]]
       * [[Contributor Dashboard Team|Contributor-dashboard]]
+    * [[Learning resources for developers|Learning-Resources]]
   * [[How the codebase is organized|Overview-of-the-Oppia-codebase]]
   * Making your first PR
     * **[[Good first issues|https://github.com/oppia/oppia/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22]]**
     * [[Solve your first starter issue|Solve-your-first-starter-issue]]
-    * [[Finding the commit that introduced a bug|How-to-find-the-commit-which-introduced-a-bug]]
     * [[Tips for finding the right code to change|Find-the-right-code-to-change]]
+      * [[Finding the commit that introduced a bug|How-to-find-the-commit-which-introduced-a-bug]]
       * [[Tips for analyzing the codebase|Analyzing-the-codebase]]
-    * [[Learning resources for developers|Learning-Resources]]
-    * [[Rules for making PRs|Rules-for-making-PRs]]
+    * **[[How to create a good PR|Create a Good PR]]**
+      * [[Rules for making PRs|Rules-for-making-PRs]]
       * [[Coding style guide|Coding-style-guide]]
   * [[Debugging|Debugging]]
     * [[Debugging Docs|Debugging-Docs]]
@@ -86,6 +86,7 @@
       * [[Apache Beam Jobs|Apache-beam-jobs]]
         * 👣 [[Tutorial - Learn how to write and test a non-trivial Beam job|Tutorial-Learn-How-to-Write-and-Test-a-Non-Trivial-Beam-Job]]
         * 👣 [[Tutorial - Learn how to make a backend change that has an impace on server data|Tutorial-Learn-how-to-make-a-backend-change-that-has-an-impact-on-server-data]]
+      * [[Cron jobs guide for contributors|Cron-jobs]]
       * [[I18n/Translations Guide|Adding-new-translations-for-i18n]]
       * [[Server errors and solutions|Server-errors-and-solutions]]
     * Developer Workflow:
@@ -140,7 +141,7 @@
   * [[Build process|Build-process]]
   * [[Best practices for leading Oppia teams|Leading-Oppia-Teams]]
   * Past Events
-    * Google Summer of Code: [[2024|Google-Summer-of-Code-2024]], [[2023|Google-Summer-of-Code-2023]], [[2022|Google-Summer-of-Code-2022]], [[2021|Google-Summer-of-Code-2021]], [[2020|Google-Summer-of-Code-2020]], [[2019|Google-Summer-of-Code-2019]], [[2018|Google-Summer-of-Code-2018]], [[2017|Google-Summer-of-Code-2017]], [[2016|Google-Summer-of-Code-2016]]
+    * Google Summer of Code: [[2025|Google-Summer-of-Code-2025]], [[2024|Google-Summer-of-Code-2024]], [[2023|Google-Summer-of-Code-2023]], [[2022|Google-Summer-of-Code-2022]], [[2021|Google-Summer-of-Code-2021]], [[2020|Google-Summer-of-Code-2020]], [[2019|Google-Summer-of-Code-2019]], [[2018|Google-Summer-of-Code-2018]], [[2017|Google-Summer-of-Code-2017]], [[2016|Google-Summer-of-Code-2016]]
     * Hacktoberfest: [[2024|Hacktoberfest-2024]], [[2023|Hacktoberfest-2023]], [[2022|Hacktoberfest-2022]], [[2021|Hacktoberfest-2021]], [[2020|Hacktoberfest-2020]], [[2019|Hacktoberfest-2019]], [[2018|Hacktoberfest-2018]], [[2017|Hacktoberfest-2017]], [[2016|Hacktoberfest-2016]]
     * GHC Open Source Day: [[2019|GHC-Open-Source-Day-2019]], [[2018|GHC-Open-Source-Day]]
     * Season of Docs: [[2024|Season-of-Docs-2024]], [[2021|Season-of-Docs-2021]], [[2019|Season-of-Docs-2019]]

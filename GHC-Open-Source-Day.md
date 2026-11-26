@@ -21,7 +21,7 @@ Some background info about the project:
 
 ### Sign the CLA
 
-Oppia is licensed under Apache v2. Please [sign the CLA](https://goo.gl/forms/AttNH80OV0) so that we can accept your contributions and redistribute the code you contribute under this license.
+Oppia is licensed under Apache v2. Please [sign the CLA](https://forms.gle/58rkQQTXytSah6KRA) so that we can accept your contributions and redistribute the code you contribute under this license.
 
 Once you've done this, you'll receive a confirmation email which includes some suggestions for next steps! These are completely optional, but if time permits, it might not be a bad idea to try a [starter project](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#finding-something-to-do) to get familiar with the codebase and development workflow.
 

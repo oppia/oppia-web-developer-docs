@@ -354,16 +354,16 @@ Here’s how:
 command: >
            VIDEO_RECORDING_IS_ENABLED=0;
            xvfb-run -a --server-args="-screen 0, 1285x1000x24"
-           python -m scripts.run_e2e_tests --skip-install
-           --skip-build --prod_env
+           python -m scripts.run_e2e_tests --skip_install
+           --skip_build --prod_env
 ```
 - You can adjust it to run only the relevant suite by adding the suitable flag, like so:
 ```yml
 command: >
            VIDEO_RECORDING_IS_ENABLED=0;
            xvfb-run -a --server-args="-screen 0, 1285x1000x24"
-           python -m scripts.run_e2e_tests --skip-install
-           --skip-build --suite=additionalEditorFeatures --prod_env
+           python -m scripts.run_e2e_tests --skip_install
+           --skip_build --suite=additionalEditorFeatures --prod_env
 ```
 - Now the workflow `step check_test_suites_to_run:
 uses: ./.github/workflows/check_test_suites_to_run.yml.`

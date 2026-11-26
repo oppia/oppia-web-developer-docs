@@ -37,7 +37,7 @@ python -m scripts.linters.run_lint_checks --path=path/to/the/file
 
 Let's say you want to run the linting tests on a specific file type. In the oppia directory, run the following command.
 
-python -m scripts.linters.run_lint_checks --only-check-file-extensions file_extension_type
+python -m scripts.linters.run_lint_checks --only_check_file_extensions file_extension_type
 
 ### How to test email functionality?
  Please refer to [Testing-email-functionality](https://github.com/oppia/oppia/wiki/Testing-email-functionality) for details.

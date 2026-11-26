@@ -28,7 +28,7 @@ All jobs must adhere to the following requirements before they can be run on the
 
 ### Submitting a PR with a new job or feature that requires third-party API
 
-**If a PR introduces a new job(s) or feature(s) that requires third-party API, it can be merged only after it is tested on the backup server.** The author of the PR should submit a request using [this form](https://goo.gl/forms/XIj00RJ2h5L55XzU2) after the job is approved by all reviewers except the server admins (admins will only approve after the job or feature is verified to be working).
+**If a PR introduces a new job(s) or feature(s) that requires third-party API, it can be merged only after it is tested on the backup server.** The author of the PR should submit a request using [this form](https://forms.gle/xPP5fFCF7CKVfGDk6) after the job is approved by all reviewers except the server admins (admins will only approve after the job or feature is verified to be working).
 > [!NOTE]
 > Please submit just a single request if multiple jobs need to be run in succession.
 
@@ -48,4 +48,4 @@ If you have any questions about the above or if you do not get any update within
 ### What to do if your job, server action, or feature that requires a third-party API is not approved?
 
 * In this case, you will get an email from the server jobs admin explaining what went wrong.
-* You should fix the error and create a new request for running the job, server action or feature in [the same form as before](https://goo.gl/forms/XIj00RJ2h5L55XzU2). Make sure to fill the section about what got fixed. (Note that, after previously filling out the form, you would have received an email with your form submissions; you might find this email useful as a reference.)
+* You should fix the error and create a new request for running the job, server action or feature in [the same form as before](https://forms.gle/xPP5fFCF7CKVfGDk6). Make sure to fill the section about what got fixed. (Note that, after previously filling out the form, you would have received an email with your form submissions; you might find this email useful as a reference.)

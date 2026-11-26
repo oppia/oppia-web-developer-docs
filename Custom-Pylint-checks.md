@@ -532,9 +532,4 @@ Python:
 python -m scripts.run_backend_tests --test_targets=scripts.linters.pylint_extensions_test --verbose
 ```
 
-Docker:
-```console
-make run_tests.backend PYTHON_ARGS="--test_targets=scripts.linters.pylint_extensions_test --verbose"
-```
-
 The `--verbose` option will help with debugging by printing out more logging information.
