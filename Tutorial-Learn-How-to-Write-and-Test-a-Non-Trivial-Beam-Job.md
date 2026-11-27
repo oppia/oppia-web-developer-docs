@@ -60,6 +60,9 @@ Refer to the [Beam Jobs at Oppia documentation](https://github.com/oppia/oppia/w
 > 
 > **Hint**: Take a look at this wiki page on [Tips for common IDEs](https://github.com/oppia/oppia/wiki/Tips-for-common-IDEs#visual-studio-code).
 
+<details>
+<summary>Show answer for Practice 1</summary>
+
 Before diving into the implementation, it's crucial to understand the models we will be working with.
 
 <details>
@@ -90,6 +93,8 @@ class TopicSummaryModel(base_models.BaseModel):
 
 The TopicSummaryModel provides a summarized view of a topic, which is useful for scenarios where the full details of a topic’s contents are not required, such as search results. Each TopicSummaryModel instance is identified by the topic id.
 
+</details>
+
 ## Stage 3: Draft the Directed Acyclic Graph (DAG)
 
 Before we write any code, let's visualize the workflow of our Beam job as a Directed Acyclic Graph (DAG). This will help us understand the sequence of operations and the flow of data through the pipeline.
@@ -110,6 +115,9 @@ Visualizing our Beam job as a DAG helps in planning the structure and flow of ou
 > - Read Everything First: Start by reading all the necessary data at the beginning of the job. This ensures that you have all the required information before performing any operations.
 > - Process Data in Steps: Break down the job's functionality into simpler steps, such as filtering, transforming, and aggregating the data. Each step should be a separate node in your DAG.
 > - Write Everything Last: Ensure that all writing operations, such as saving results or updating models, are performed at the end of the job. This helps in maintaining data consistency and avoids incomplete writes.
+
+<details>
+<summary>Show answer for Practice 2</summary>
 
 The job's objective is to validate that each topic model in the datastore has a corresponding topic summary model. The workflow can be broken down into the following steps:
 
@@ -155,6 +163,8 @@ Since incremental I/O isn’t feasible in Beam’s batch model, the batch approa
 - **Data Consistency**: Writing all results at the end ensures consistency, avoiding issues like incomplete logs or partial data that could occur with incremental writes, even if they were possible.
 - **Simplicity**: Separating reading, processing, and writing into distinct stages makes the workflow clearer and easier to debug. Mixing these steps would only complicate the process, making troubleshooting more difficult.
 
+</details>
+
 ## Stage 4: Writing the Beam Job
 
 With the DAG in mind, we can now proceed to implement the Beam job. Let’s create a new file for our job in the `oppia/core/jobs/batch_jobs` directory. 
@@ -164,10 +174,15 @@ With the DAG in mind, we can now proceed to implement the Beam job. Let’s crea
 >
 > **Hint**: Follow the conventions mentioned in the [Apache Beam Jobs Wiki](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs#testing-apache-beam-jobs).
 
+<details>
+<summary>Show answer for Practice 3</summary>
+
 Per the Oppia documentation for Beam Jobs:
 
 - The name of the file follows the format `<noun>_<operation>_jobs.py`. In this case, we can use something like `topic_validation_jobs.py`.
 - The name of the job follows the convention: `<Verb><Noun>Job`. In this case, we can name the job as `ValidateTopicModelsJob`.
+
+</details>
 
 Let’s first understand the part where we need to fetch the `TopicModels`:
 
@@ -192,6 +207,9 @@ In the above code, self.pipeline is the starting point of our Beam pipeline. ndb
 > 
 > **Hint**: Refer to the code snippet for fetching TopicModel entities and apply a similar approach.
 
+<details>
+<summary>Show answer for Practice 4</summary>
+
 <details> <summary><b>Code for Fetching Topic Summary Models</b></summary>
 
 ```python
@@ -207,6 +225,8 @@ topic_summary_models_pcoll = (
 
 Similar to the previous step, this code fetches all TopicSummaryModel entities and extracts their IDs. This step ensures we have a list of all summary models to compare against our topic models.
 
+</details>
+
 > [!IMPORTANT]
 > Practice 5: Now that we have the IDs of both TopicModels and TopicSummaryModels, we need to compare them. If a TopicModel ID > is not present in the TopicSummaryModel IDs, we need to store it so that we can report it later in the next stage.
 > 
@@ -216,6 +236,9 @@ Similar to the previous step, this code fetches all TopicSummaryModel entities a
 > You might need to use the beam.Map transform to extract the IDs before using beam.Filter.
 > 
 > For more details, you can also refer to the [Apache Beam Jobs Wiki on PTransforms](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs#ptransforms).
+
+<details>
+<summary>Show answer for Practice 5</summary>
 
 <details> <summary><b>Code for Identifying Missing Topic Summary Models</b></summary>
 
@@ -231,6 +254,7 @@ missing_topic_summary_models_pcoll = (
 `beam.Filter(lambda topic_id: topic_id not in topic_summary_models_pcoll)` filter checks if each TopicModel ID has a corresponding TopicSummaryModel ID.
 This step helps us identify all topic models that lack corresponding summary models, which is the main goal of our validation job.
 
+</details>
 
 ### Planning Reports and Logs
 
@@ -276,6 +300,9 @@ By logging and reporting both the high-level totals and the detailed lists, we e
 > **References for code examples**:  
 > - [User Stats Computation Jobs](https://github.com/oppia/oppia/blob/f7d88f1dcf90a30eee1dbddca2a2eb5b46d087f1/core/jobs/batch_jobs/user_stats_computation_jobs.py#L49): Example - Look at how the `CountObjectsToJobRunResult` transform is applied to count objects and convert the result into a `JobRunResult`.  
 > - [User Validation Jobs](https://github.com/oppia/oppia/blob/f7d88f1dcf90a30eee1dbddca2a2eb5b46d087f1/core/jobs/batch_jobs/user_validation_jobs.py#L41): Example - Here, the `beam.Map` transform is used to generate `JobRunResult` messages. Review this to see how the transform processes data and produces detailed logging or reporting.
+
+<details>
+<summary>Show answer for Practice 6</summary>
 
 With the IDs of both `TopicModels` and `TopicSummaryModels` and the identified missing `TopicSummaryModels`, we can now proceed to generate the reports. This will include the total number of topic models, the total number of missing topic summary models, and detailed information about each missing topic summary model.
 Here's one approach to generating the reports:
@@ -417,6 +444,8 @@ To have your job registered and acknowledged by the front-end, make sure to impo
 > 
 > **Hint**: Follow the steps mentioned here in the wiki https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs#local-development-server
 
+</details>
+
 With this, our job is finally completed!
 
 ## Stage 5: Testing the Beam Job
@@ -446,12 +475,17 @@ When drafting test cases for your Beam job, consider the following:
 >
 > **Hint:** Take a look at test files of other jobs to understand how it’s being done.
 
+<details>
+<summary>Show answer for Practice 8</summary>
+
 Here are the specific cases we will cover:
 
 1. **Empty Storage:** Ensure the job produces no output when there are no models.
 2. **Topic Model without Summary Model:** Ensure the job correctly identifies a topic model without a corresponding summary model.
 3. **Topic Model with Summary Model:** Ensure the job does not report an issue when the topic model has a corresponding summary model.
 4. **Multiple Topic Models with and without Summary Models:** Test a mix of topic models with and without corresponding summary models.
+
+</details>
 
 To start, we need to create a test class that inherits from `job_test_utils.JobTestBase` and defines our job class. We will also define some constants for the topic IDs we will use in our tests.
 
@@ -587,6 +621,9 @@ def test_topic_model_without_summary_model(self) -> None:
 > - Multiple Topic Models with and without Summary Models: Test a mix of topic models that have and do not have corresponding summary models.
 
 <details>
+<summary>Show answer for Practice 9</summary>
+
+<details>
 <summary><b>Test Case: Topic Model with Summary Model</b></summary>
 
 ```python
@@ -708,6 +745,8 @@ def test_multiple_topic_models_with_and_without_summary_models(self) -> None:
         )
     ])
 ```
+
+</details>
 
 </details>
 
@@ -932,7 +971,12 @@ For the above step, we didn’t create any dummy data; thus, it covers a scenari
 > Follow the steps mentioned in this [wiki page](https://github.com/oppia/oppia/wiki/Populating-data-on-local-server#maths-classroom-page) to generate dummy data on your local server.  
 > Re-run the job following the same steps as before.
 
+<details>
+<summary>Show answer for Practice 10</summary>
+
 The beam job doesn’t report any topic ID with missing topic summary models. That is because, by default, all the topic models are accompanied by their corresponding `TopicSummaryModel`.
+
+</details>
 
 > [!IMPORTANT]
 > **Practice 11:** To test the job's ability to identify missing `TopicSummaryModel`:
@@ -941,7 +985,12 @@ The beam job doesn’t report any topic ID with missing topic summary models. Th
 > - Manually delete one of the `TopicSummaryModel` entries.  
 > - Re-run the job to check if it correctly identifies the missing `TopicSummaryModel`.
 
+<details>
+<summary>Show answer for Practice 11</summary>
+
 The beam job will report the topic ID for which you deleted the topic-summary model this time.
+
+</details>
 
 > [!IMPORTANT]
 > **Practice 12:** Now that you have a good understanding of Beam jobs at Oppia, let's add one more case to cover. Your job should also report any `TopicSummaryModel` that lacks a corresponding `TopicModel`.

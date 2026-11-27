@@ -85,12 +85,18 @@ Above is an image of the Preferences page, which includes various fields. In our
 > 
 > **Hint**: When you first open the network tab, you might see a large number of network calls. To narrow them down, refresh the network tab just before clicking the Save Changes button. This will help you focus on the new calls triggered by the action. For a deeper understanding of how to use Chrome DevTools effectively, refer to this guide: [Chrome DevTools Network Panel Documentation](https://developer.chrome.com/docs/devtools/network).
 
+<details>
+<summary>Show answer</summary>
+
 Upon clicking the **Save Changes** button, you’ll notice a call to the following endpoint:  
 `http://localhost:8181/preferenceshandler/data`
 
 This tells us that the endpoint (`/preferenceshandler/data`) handles updates to the Preferences page.
 
 ![Screenshot of Preferences Page with Network Tab opened](images/TutorialMigrationJob/preferencesPageWithNetworkTab.png)
+
+
+</details>
 
 Now it’s time to trace this endpoint in the codebase.
 
@@ -100,6 +106,9 @@ The URL triggered when clicking the **Save Changes** button is `/preferenceshand
 > **Practice 3**: Can you search for the above variations of the endpoint in the codebase? Note down where these instances appear and identify the controller attached to the endpoint. It will help you trace the endpoint to its corresponding logic in the code. For tips on using your code editor effectively to ease the development process, refer to this guide: [Tips for Common IDEs](https://github.com/oppia/oppia/wiki/Tips-for-common-IDEs).
 >
 > **Hint**: All endpoint routings are centralized in main.py, so you can focus your search there instead of the entire codebase.
+
+<details>
+<summary>Show answer</summary>
 
 Upon searching, you’ll find in `feconf.py` that the URL `/preferenceshandler/data` is aliased as `PREFERENCES_DATA_URL`.
 
@@ -112,10 +121,16 @@ get_redirect_route(
 
 This indicates that the `PreferencesHandler` class in the `profile` module handles the endpoint.
 
+
+</details>
+
 > [!IMPORTANT]
 > Practice 4: Locate the `PreferencesHandler` class in the codebase and carefully examine the controller to understand its purpose. Specifically, trace where it processes the `user_bio` field update. Understanding the controller’s flow will help you see how different components interact to handle a request.
 > 
 > To deepen your knowledge of HTTP requests, refer to this guide: [HTTP Methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods). At Oppia, we commonly use `GET`, `POST`, `PUT`, and `DELETE` methods. You can also explore `base.py` in the codebase to see how these methods are enumerated and used.
+
+<details>
+<summary>Show answer</summary>
 
 In `oppia/core/controllers/profile.py`, you’ll find the `PreferencesHandler` class:
 
@@ -192,6 +207,9 @@ class UserSettingsModel(base_models.BaseModel):
 
 Here, the `user_bio` field is defined as a `TextProperty`, allowing unrestricted text input
 
+
+</details>
+
 > [!NOTE]
 > Now that we have identified the field storing the Bio property, there are multiple approaches to enforce the character limit. One straightforward approach is to validate the length of the Bio field in the frontend. Another is to add validation in the backend before storing the data. A more robust solution combines both approaches—adding validation in both the frontend and backend to ensure reliability and consistency.
 >
@@ -207,6 +225,9 @@ Here, the `user_bio` field is defined as a `TextProperty`, allowing unrestricted
 > Practice 6: Add a validation check to ensure the length of the updated bio field in the `PreferencesHandler` class is within the allowed limit before making a call to the service layer to update it in the datastore. 
 >
 > Hint: Explore how validations are implemented in other parts of the codebase to understand the practices followed at Oppia. Pay special attention to how validation methods are structured and where they are called.
+
+<details>
+<summary>Show answer</summary>
 
 To restrict the bio length to 200 characters, we’ll add validation to the `PreferencesHandler`.
 
@@ -230,6 +251,9 @@ elif update_type == 'user_bio':
 
 > [!NOTE]
 > Normally, we would use schema validation to enforce this (e.g., by defining validation rules for the handler). You can refer to the [Oppia Schemas Guide](https://github.com/oppia/oppia/wiki/Schemas#how-to-write-validation-schemas-for-handlers) for instructions on how to write validation schemas for handlers. However, the preferences handler hasn’t been set up for schema validation yet. Adding schema validation would require defining validations for the entire handler, which is beyond the scope of this tutorial.
+
+
+</details>
 
 The changes we have implemented so far ensure that all new and updated user bios are limited to a maximum of 200 characters. However, this does not account for existing users whose bios may already exceed this limit. Such cases would create discrepancies in the data, potentially causing inconsistencies or unexpected behavior.
 
@@ -279,6 +303,9 @@ The Beam job’s objective is to truncate the `user_bio` field in the `UserSetti
 > - **Process data in steps**. Break down the job's functionality into simpler steps, such as filtering, transforming, and aggregating the data. Each step should be a separate node in your DAG. 
 > - **Write everything last**. Ensure that all writing operations, such as saving results or updating models, are performed at the end of the job. This helps in maintaining data consistency and avoids incomplete writes.
 
+<details>
+<summary>Show answer</summary>
+
 **Steps in the Workflow:**
 
 1. Read User Settings Models: Retrieve all `UserSettingsModel` records from the datastore.  
@@ -294,6 +321,9 @@ Here's a simple representation of the DAG for our Beam job:
 
 Visualizing the job as a DAG ensures that every necessary step is accounted for and data flows seamlessly through the pipeline.
 
+
+</details>
+
 **Implementing the Beam Job**
 
 With the workflow in mind, we’ll now implement the Beam job. According to Oppia’s documentation, Beam jobs are stored in the `oppia/core/jobs/batch_jobs` directory.
@@ -301,10 +331,16 @@ With the workflow in mind, we’ll now implement the Beam job. According to Oppi
 > [!IMPORTANT]
 > Practice 9: Decide on suitable names for the module and job. Follow the conventions mentioned in the [https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs\#writing-apache-beam-jobs](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs#writing-apache-beam-jobs) wiki.
 
+<details>
+<summary>Show answer</summary>
+
 Per the [Oppia documentation for Beam Jobs](https://github.com/oppia/oppia/wiki/Apache-Beam-Jobs#writing-apache-beam-jobs):
 
 * The name of the file follows the format \`\<noun\>\_\<operation\>\_jobs.py\`. In this case, we can use something like \`user\_bio\_truncation\_jobs.py\`.  
 * The name of the job follows the convention: \<Verb\>\<Noun\>Job. In this case, we can name the job as \`TruncateUserBioJob\`.
+
+
+</details>
 
 We will also use the `DATASTORE_UPDATES_ALLOWED` property, which controls whether a Beam job can modify datastore entities.
 
@@ -453,6 +489,9 @@ Reuse the main job’s logic by subclassing it. This ensures that the audit job 
 > [!IMPORTANT]
 > **Practice 9**: Based on the explanation above, can you write an audit job for our use case? Think about how you can simulate the truncation logic while ensuring the job remains read-only and produces detailed reports.
 
+<details>
+<summary>Show answer</summary>
+
 The `AuditTruncateUserBioJob` is implemented alongside the main Beam job in the `user_bio_truncation_jobs.py` file. Here’s how it can be implemented:
 
 ```python
@@ -461,6 +500,9 @@ class AuditTruncateUserBioJob(TruncateUserBioJob):
 
     DATASTORE_UPDATES_ALLOWED = False  # Enforce read-only behavior
 ```
+
+
+</details>
 
 With the audit job in place, you are now ready to confidently validate the migration logic and scope before executing the main Beam job. In the next section, we will focus on testing and running these jobs.
 
@@ -495,6 +537,9 @@ By covering these cases, we can ensure the robustness of the Beam job and gain c
 > Practice 10: Using the scenarios outlined above, write unit tests for the `TruncateUserBioJob` to validate its behavior under different conditions.
 > 
 > Hint: Refer to the structure of existing tests in the Oppia codebase for examples and reusable patterns that can guide you in writing effective tests.
+
+<details>
+<summary>Show answer</summary>
 
 Here’s what one implementation of tests could look like 
 
@@ -618,6 +663,9 @@ original_last_updated_2 = user_2.last_updated
 	self.assertNotEqual(updated_user_1.last_updated, original_last_updated_1)
 self.assertNotEqual(updated_user_2.last_updated, original_last_updated_2)
 ```
+
+
+</details>
 
 > [!NOTE]
 > In addition to testing the migration job, it is important to test the audit job (`AuditTruncateUserBioJob`) to ensure that it correctly identifies records needing truncation without making any changes to the datastore. While the implementation of audit job tests is not shown here, it follows a similar structure, focusing on validating read-only operations and accurate reporting.

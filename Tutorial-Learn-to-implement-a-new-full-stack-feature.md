@@ -75,8 +75,11 @@ While this feature might seem straightforward at first glance, there are some un
 
 > [!IMPORTANT]
 > **Practice 1**: Which data type would be best to denote whether the user has closed the Welcome Modal or not? Should we use a string, integer, or boolean data type?
+<details>
+<summary>Show answer</summary>
 
 We could store the number of times the user has visited the page (using an integer) or a simple yes/no value (using a boolean). In this case, we only care whether the user has closed the modal or not. A boolean variable (true or false) is ideal for tracking this.
+</details>
 
 > [!IMPORTANT]
 > **Practice 2**:  Where should we store this variable (frontend or backend) to keep track of the user's status whether they have closed the Welcome Modal or not?
@@ -102,12 +105,15 @@ Since we need to track the user's visit across devices, backend storage is the b
 > **Hint**: Think about the user flow when accessing the feature. How should the system react to each user action?
 
 #### High-Level Workflow
+<details>
+<summary>Show answer</summary>
 
 - The user visits the Contributor Dashboard for the first time.
 - The backend checks if the user has closed the Welcome Modal by querying a flag stored in the database.
 - If the flag indicates the modal has not been closed, the backend sends a response to the frontend to trigger the Welcome Modal.
 - The frontend displays the modal.
 - Once the user closes the modal, the backend updates the flag, marking that the user has seen the modal.
+</details>
 
 > **Note**: If the user refreshes the page without closing the modal, it will appear again the next time they visit the Contributor Dashboard. This is intentional to ensure the modal is only dismissed when the user explicitly closes it.
 
@@ -130,8 +136,12 @@ When adding the new property, we need to decide whether to incorporate it into a
 > **Practice 4**: Should we add a new property to an existing model or create a new model? Which one is better and why?
 >
 > **Hint**: Consider simplicity and feasibility.
+<details>
+<summary>Show answer</summary>
 
 While adding a new model is feasible, it might introduce unnecessary complexity unless there’s a compelling reason to do so. The better approach often depends on whether there is already an existing model where this new property naturally fits.
+</details>
+
 
 **Reviewing the Existing Models**: At Oppia, [models](https://github.com/oppia/oppia/wiki/Storage-models) are organized into directories based on functionality, such as `oppia/core/storage`. For instance, models related to opportunities can be found in `core/storage/opportunity/gae_models.py`.
 
@@ -152,7 +162,12 @@ Similarly, reviewing other `gae_models.py` files will help identify whether an e
 >
 > **Hint**: Check the file description for each model and determine if the new property aligns with the scope of the models in that file.
 
+<details>
+<summary>Show answer</summary>
+
 In our case, the file `oppia/core/storage/user/gae_models.py` appears to be the most appropriate choice. This file contains models that handle user-related data at Oppia, and since the property we want to add tracks whether a user has closed the Welcome Modal on the Contributor Dashboard, it aligns with the purpose of these models.
+
+</details>
 
 Next, we need to decide which specific model within `oppia/core/storage/user/gae_models.py` should be updated.
 
@@ -160,6 +175,8 @@ Next, we need to decide which specific model within `oppia/core/storage/user/gae
 > **Practice 6**:  Review the models defined in the file `oppia/core/storage/user/gae_models.py`. Can you determine which specific model should be updated ?
 >
 > **Hint**: : Examine each model in the file and consider where it makes the most sense to add the property that tracks whether the user has closed the Welcome Modal on the Contributor Dashboard.
+<details>
+<summary>Show answer</summary>
 
 Upon reviewing the models, the best candidate for modification seems to be:
 
@@ -171,6 +188,8 @@ Upon reviewing the models, the best candidate for modification seems to be:
 ```
 
 This model stores user settings and preferences, which makes it an appropriate place to track whether the user has closed the Welcome Modal. Since it's already designed to store information about a user's preferences, adding a boolean property here (e.g., `has_closed_welcome_moda`l`) will fit naturally with the existing structure.
+</details>
+
 
 We’ll begin by adding a new property to the storage model `UserSettingsModel` in `core/storage/user/gae_models.py`. This property will track whether the user has closed the Welcome Modal, regardless of how many times they have visited the Contributor Dashboard.
 
@@ -188,7 +207,8 @@ We’ll add the property `has_closed_contributor_dashboard_welcome_modal` to the
 
 >[!IMPORTANT]
 > **Practice 7**: Modify the constructor (`__init__` function) of the `UserSetting`s domain model to initialize this new property. The constructor is responsible for creating new instances of `UserSettings` and initializing them with relevant user-related properties.
-
+<details>
+<summary>Show answer</summary>
 Here's how we modify the constructor to include this property:
 
 Domain Model: `core/domain/user_domain.py`
@@ -224,6 +244,8 @@ has_closed_contributor_dashboard_welcome_modal: bool
 ```
 
 Now that we have updated both the storage model (to store the data) and the domain model (to interact with the data), our system is equipped to track whether the user has closed the Welcome Modal.
+</details>
+
 
 #### Service Layer
 
@@ -238,6 +260,9 @@ File: `oppia/core/domain/user_services.py`
 > Fetch the current settings of the user, from these settings update the property `has_closed_contributor_dashboard_welcome_modal`, and save the user settings.
 > 
 > The `get_user_settings` function is already defined in the `oppia/core/domain/user_services.py` file. This function will fetch the user’s current settings. Similarly, the `save_user_settings` function is available in the same file to save any updates made to the user’s settings.
+
+<details>
+<summary>Show answer</summary>
 
 Here’s what one implementation of the function could look like:
 
@@ -256,6 +281,7 @@ def record_user_visited_contributor_dashboard(user_id):
         user_settings.has_closed_contributor_dashboard_welcome_modal = True
         save_user_settings(user_settings)
 ```
+</details>
 
 #### Controller Layer
 
@@ -269,14 +295,18 @@ This handler will be responsible for:
 > **Practice 9**: Can you locate the file where we need to add our new handler?
 >
 > **Hint**: Refer to this wiki page: https://github.com/oppia/oppia/wiki/Contributor-dashboard#code-pointers, where code pointers of Contributor Dashboard are mentioned
-
+<details>
+<summary>Show answer</summary>
 Per the [wiki](https://github.com/oppia/oppia/wiki/Contributor-dashboard#code-pointers) page, [core/controllers/contributor_dashboard.py](https://github.com/oppia/oppia/blob/develop/core/controllers/contributor_dashboard.py): Handles fetching opportunities and Contributor Dashboard metadata such as eligible translatable text content. Thus we would want to add our handler to this file.
+</details>
 
 >[!IMPORTANT]
 > **Practice 10**: Can you create a new handler for our use case ?
 >
 > **Hint**: Refer to the existing handlers and based on existing code conventions and our use case try writing the new handler
 
+<details>
+<summary>Show answer</summary>
 Here’s what one approach would look like -
 
 ```python
@@ -317,12 +347,14 @@ In the above approach we have one for get request which will be triggered when t
 And we have a post request which is going to record that the user has closed the Welcome Modal.
 
 Now it’s the time to attach the handler to the endpoint, before that we would want to create a new endpoint. Here’s what it could look like - `/contributor-dashboard-visit`. Remember that the endpoint should convey its meaning as to why this endpoint is called. In our case it denotes that it’s related to the Contributor Dashboard’s visit activity.
+</details>
 
 >[!IMPORTANT]
 > **Practice 11**: Attach the handler to the above mentioned endpoint.
 >
 > **Hint**: We have all the attachments mentioned in the main.py file. Look at how other handlers have been attached to their respective endpoints and try to do the same.
-
+<details>
+<summary>Show answer</summary>
 In `main.py` 
 
 ```python
@@ -333,6 +365,7 @@ In `main.py`
 ```
 
 Great, now we have the backend ready for our feature. Now’s the time to move on to the front-end part.
+</details>
 
 
 
@@ -356,6 +389,8 @@ To implement this feature, we need to understand which files in the frontend cod
 >
 > **Hint**: Review the following resources [Overview of the Oppia Codebase](https://github.com/oppia/oppia/wiki/Overview-of-the-Oppia-codebase) & [Contributor Dashboard](https://github.com/oppia/oppia/wiki/Contributor-dashboard) and explore the file structure at `oppia/core/templates/pages/contributor-dashboard-page/` to understand the organization of frontend components and services. This will help you pinpoint the exact files and locations for adding the new logic.
 
+<details>
+<summary>Show answer</summary>
 Based on Oppia’s architecture, here are the files we need to modify or create:
 
 1. File to Make Network Calls to the Backend:
@@ -372,6 +407,7 @@ Based on Oppia’s architecture, here are the files we need to modify or create:
     - We will create a new folder `modal-templates` if it doesn't exist and add the new modal component here.
 
 These identified code pointers will guide us in implementing the frontend logic step-by-step.
+</details>
 
 #### Setting Up Methods for Backend Communication
 
@@ -383,6 +419,8 @@ First, let's create methods to communicate with the backend API. These methods w
 > **Hint**: Review the existing code in `contribution-opportunities-backend-api.service.ts` and analyze the pattern followed for other network requests.
 
 Creating Methods in `contribution-opportunities-backend-api.service.ts`
+<details>
+<summary>Show answer</summary>
 
 In the file `oppia/core/templates/pages/contributor-dashboard-page/services/contribution-opportunities-backend-api.service.ts`, add the following methods:
 
@@ -400,12 +438,15 @@ These methods handle all backend communication required for this feature:
 - `recordUserClosedWelcomeModal`: Sends a POST request to update the status after the user has seen the Welcome Modal.
 
 Creating Service Methods in `contribution-opportunities.service.ts`
+</details>
 
 >[!IMPORTANT]
 > **Practice 14**: Implement service methods to call backend API.
 >
 > **Hint**: Check how other service methods are defined in `contribution-opportunities.service.ts` and follow a similar pattern.
 
+<details>
+<summary>Show answer</summary>
 Next, we’ll create service methods to call the backend API methods. In the file `oppia/core/templates/pages/contributor-dashboard-page/services/contribution-opportunities.service.ts`, add the following methods:
 
 ```python
@@ -423,6 +464,8 @@ These service methods will be used by the component to interact with the backend
 - `updateUserClosedWelcomeModalStatus`: This method updates the status in the backend once the user closes the modal.
 
 Now that our methods for backend communication are ready, let's set up the Welcome Modal.
+</details>
+
 
 #### Creating the UI Component
 > Note: This tutorial does not focus on UI design, so we will create a minimal layout for the Welcome Modal.
@@ -432,6 +475,8 @@ Now that our methods for backend communication are ready, let's set up the Welco
 >
 > **Hint**: Look at the existing modal templates in `modal-templates/` to understand the structure and styling conventions.
 
+<details>
+<summary>Show answer</summary>
 Create a new HTML file for the Welcome Modal `welcome-modal.component.html` in oppia/core/templates/pages/contributor-dashboard-page/modal-templates/:
 
 ```html
@@ -452,12 +497,14 @@ Create a new HTML file for the Welcome Modal `welcome-modal.component.html` in o
 
 The modal has a simple structure with a header, body, and footer. The "OK" button triggers the `closeModal()` method to close the modal.
 
+</details>
 
 > [!IMPORTANT]
 > **Practice 16**: Write typescript code for the Welcome Modal.
 >
 > **Hint**: - Check the existing modal components in the `modal-templates/` folder to see how they are structured.
-
+<details>
+<summary>Show answer</summary>
 Next, create the TypeScript file for the modal: oppia/core/templates/pages/contributor-dashboard-page/modal-templates/welcome-modal.component.ts:
 
 ```python
@@ -500,6 +547,7 @@ export class ContributorDashboardPageModule { }
 
 **`declarations`**: Registers the WelcomeModalComponent to make it available within this module. 
 **`entryComponents`**: Ensures that Angular can dynamically load the `WelcomeModalComponent` when it is triggered (i.e., when the modal is opened).
+</details>
 
 #### Incorporating the Logic to Handle New Component
 
@@ -510,12 +558,14 @@ Now, we need to decide where to trigger the code to in `contributions-and-review
 
 > 
 > **Hint**: The code should be placed in a lifecycle hook that gets called every time the page loads.
-
+<details>
+<summary>Show answer</summary>
 Per our requirements, the ideal place seems to be the component’s initialization method.
 
 **Why Use ngOnInit?**
 
 [`ngOnInit`](https://v17.angular.io/api/core/OnInit) is the Angular lifecycle hook that is called after Angular has initialized all data-bound properties of a component. This makes it the right place to perform initialization logic, such as fetching data or displaying a modal based on a condition.
+
 
 **Adding Logic in the ngOnInit Method**
 
@@ -576,6 +626,7 @@ openWelcomeModal(): void {
 - Modal Setup: We created a modal template and component to display a welcome message.
 - Triggering the Modal: We added logic in `ngOnInit()` to fetch the user's modal status and determine whether to show the modal.
 - User Experience: If the user hasn't closed the modal before, the modal is displayed. Once they close it, their action is recorded.
+</details>
 
 ### Stage 4: Testing the Feature
 
