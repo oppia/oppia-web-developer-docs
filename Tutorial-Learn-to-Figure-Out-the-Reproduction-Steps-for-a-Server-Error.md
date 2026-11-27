@@ -260,6 +260,9 @@ def _get_plain_text_from_html_content_string(html_content_string: str) -> str:
 >
 > **Hint**: Review the error logs. In a real debugging scenario, the stack trace would help you pinpoint this specific line as the source of the error.
 
+<details>
+<summary>Show answer</summary>
+
 In this stack trace, the relevant line is:
 
 ```python
@@ -281,11 +284,16 @@ Even though the re.sub [documentation](https://docs.python.org/3/library/re.html
 - **TypeError Convention**: In Python, TypeError is conventionally raised to indicate that an operation or function received an argument of an inappropriate type. This means that if re.sub expects a string or bytes-like object but receives a different type, it raises a TypeError.
 - **Error Message**: The error message "expected string or bytes-like object" indicates that re.sub was given an argument that wasn't a string or bytes-like object, which is why it raised a `TypeError`.
 
+<details>
+
+
 > [!IMPORTANT]
 > Practice 4: Determine where the `html_content_string` is coming from.
 >
 > **Hint**: Review the error logs carefully. Pay close attention to the lines mentioned in the stack trace, especially the one that is calling the `_get_plain_text_from_html_content_string` function. This will give you a clue about where the `html_content_string` originates.
 
+<details>
+<summary>Show answer</summary>
 According to the error log, this function is called in `suggestion_services.py` within the `_generate_translation_contributor_certificate_data` function.
 
 ```python
@@ -324,13 +332,19 @@ SUGGESTION_ADD_QUESTION_HTML: Callable[
 ```
 
 This lambda function is used when the suggestion type involves adding a question. It retrieves the `html` property from the `question_state_data` dictionary inside the `question_dict` of the suggestion object.
+</details>
+
 
 > [!IMPORTANT]
 > Practice 5: Based on the code provided and the context of the lambda functions, what could potentially go wrong with the data being accessed? Specifically, think about the structure of the suggestion.change_cmd.question_dict['question_state_data']['content']['html'] and suggestion.change_cmd.translation_html fields. What potential data type or structure issues could arise here?
+<details>
+<summary>Show answer</summary>
 
 One possible issue is that the `html` property of the `question_dict` or the `translation_html` field might not always be a string as expected. It could be `None` or another data type entirely, which would cause issues when the `_get_plain_text_from_html_content_string` function tries to process it. If the function is expecting a string but receives a different type (such as `None` or a more complex object), it could result in a `TypeError`. This could explain why the error indicates that a string or bytes-like object was expected but something else was provided.
 
 In this case, the issue is likely that either `suggestion.change_cmd.translation_html` or `suggestion.change_cmd.question_dict['question_state_data']['content']['html']` is not always a string, leading to the observed error when passed to the `re.sub()` function.
+
+</details>
 
 > You now understand the purpose and expected behavior of the affected code and have identified areas where discrepancies may have occurred.
 
@@ -357,9 +371,11 @@ Our initial suspicion is that the problem might be due to the data types involve
 >
 > **Hint**: Analyze the network requests triggered when creating a suggestion, and then examine the handler attached to the endpoint. Use the resources such as Find the Right Code to Change and Analyzing the Codebase to guide your investigation.
 
+<details>
+<summary>Show answer</summary>
 Open the Developer Tools in your browser and go to the "Network" tab while creating a translation suggestion. You'll notice that the endpoint `/suggestionhandler` is triggered.
 Next, check the `main.py`file in the Oppia codebase to find which handler is associated with this endpoint. You'll see that the endpoint is connected to:
-
+</details>
 ```python
 get_redirect_route(
     r'%s/' % feconf.SUGGESTION_URL_PREFIX,
@@ -384,13 +400,16 @@ suggestion = suggestion_services.create_suggestion(
 )
 ```
 
+
 This shows that the actual creation of the suggestion is handled by the `create_suggestion` method in the `suggestion_services.py` file.
+
 
 To further investigate, we need to and review the [Suggestion Creation Services](https://github.com/oppia/oppia/blob/6c2003519db2981309b6d057af3edc7372da005e/core/domain/suggestion_services.py#L150) method to understand how fields like `content_html` are populated.
 
 > [!IMPORTANT]
 > Practice 8: Analyze the create_suggestion method of the suggestion_services.py file. Can you find the code where content_html field is being populated/used ?
-
+<details>
+<summary>Show answer</summary>
 On reviewing the method, we can see at this [line](https://github.com/oppia/oppia/blob/6c2003519db2981309b6d057af3edc7372da005e/core/domain/suggestion_services.py#L215) that for suggestions of type 'Translations,' we are getting content_html using this get_content_html and are performing a equality check against change_cmd dict’s content_html property. This might be what we are looking for. Let’s take a look at this method
 
 ```python
@@ -416,6 +435,8 @@ def get_content_html(
 ```
 
 Here, we notice a discrepancy between the type annotation `(-> Union[str, List[str]])` and the docstring. The docstring states that the method returns a `str`, but the type annotation indicates that it could return either a `str` or a `List[str]`. This is a good example of why you shouldn't rely solely on docstrings to understand a function's behavior. Docstrings can become outdated or inaccurate over time, especially in large codebases like Oppia, where many contributors make changes.
+
+</details>
 
 #### Verify the Return Type by Analyzing the Code
 
@@ -533,7 +554,8 @@ This is why `mypy` does not catch the type mismatch when a function like `_get_p
 > **Objective**: Confirm the suspected cause of the error by replicating it in a controlled environment.
 
 Once you have a hypothesis about the root cause of the issue, it's time to verify it. There are several ways you can do this:
-
+<details>
+<summary>Show answer</summary>
 ##### Option 1: Reproduce on a Local Server
 
 Try to replicate the error on a local server by following the user journey that leads to the issue. This involves setting up a local environment, creating or modifying an exploration with rule inputs, and attempting to generate a certificate to see if the error occurs again. This method is practical and quick if you can accurately simulate user actions, but it may not always capture the exact conditions of the live environment.
@@ -574,6 +596,7 @@ Insert `logging.error()` statements into the codebase to capture more detailed i
 > - Option 4 is helpful when other methods do not provide enough detail or you need to generate logs to diagnose the problem more precisely.
 
 In our case, Option 1 or Option 2 is ideal since we have a clear root cause: the HTML content can be either a string or a list of strings. We want to verify that this discrepancy causes the error. Option 3 can serve as a fallback if our direct testing methods do not fully replicate the error.
+</details>
 
 #### General Rule for Choosing an Verifying Option
 
@@ -611,7 +634,8 @@ The error message "expected string or bytes-like object" suggests that `html_con
 Let’s take a look at the unit tests
 > [!IMPORTANT]
 > Practice 10: Can you find the unit tests which could be used for our case? Check which unit tests are covering the behavior of generating certificates.
-
+<details>
+<summary>Show answer</summary>
 In the unit test class `ContributorCertificateTests`, we have the method `test_create_translation_contributor_certificate`, which creates a dummy translation that serves as the input for the certificate generation method. As you can see here:
 ```python
 change_cmd = {
@@ -665,6 +689,8 @@ FAILED    core.domain.suggestion_services_test: 1 errors, 0 failures
 ```
 
 Thus, our suspicion appears to be correct. However, it's important to note that multiple bugs could produce the same error message, so while this provides strong supporting evidence, it doesn't conclusively confirm that this is the cause of the initial error.
+</details>
+
 
 > You have successfully reproduced the error locally, validating your hypothesis and preparing to implement a solution.
 

@@ -70,6 +70,9 @@ Before jumping into the code, it’s important to understand and reproduce the b
 > 
 > Now, note down your observations. Does the behavior align with the bug description? Can you visualize what the expected flow should look like?
 
+<details>
+<summary>Show answer</summary>
+
 **Observations**
 
 1. **Pinning and Unpinning Behavior:**  
@@ -80,6 +83,9 @@ Before jumping into the code, it’s important to understand and reproduce the b
    * Once all suggestions for a lesson are reviewed:  
      * The lesson should automatically be unpinned.  
      * It should disappear from the Review Translations tab.
+
+
+</details>
 
 ## Tracing the Flow of Data and Understanding Relevant Code
 
@@ -96,6 +102,9 @@ To understand how lesson pinning works, let’s begin by tracing the flow of dat
 > 
 > **Tip**: If you’re unfamiliar with browser developer tools, refer to [this guide](https://developer.chrome.com/docs/devtools).
 
+<details>
+<summary>Show answer</summary>
+
 Here, we’re focusing on identifying the network call made when the pinning action is triggered. This will tell us which endpoint handles this operation.
 
 ![Screenshot of Contributor Dashboard with Network Tab](images/TutorialBackendBug/ContributorDashboardScreenshotWithNetworkTab.png)
@@ -105,10 +114,16 @@ As you pin the lesson, you’ll notice a call to the following endpoint:
 
 This endpoint manages the pinning functionality. Our next step is to locate this endpoint in the codebase to understand its implementation.
 
+
+</details>
+
 > [!IMPORTANT]
 > **Practice 3**: Locate the code that implements the `/pinned-opportunities` endpoint. 
 > 
 > **Hint**: Use the global search feature in your code editor to search for the endpoint name. This will help you identify where it is defined and how it connects to a specific handler or function. You can refer to [this guide on common IDEs](https://github.com/oppia/oppia/wiki/Tips-for-common-IDEs) for tips and shortcuts.
+
+<details>
+<summary>Show answer</summary>
 
 Search for `/pinned-opportunities` in the codebase. You’ll find it defined as: `PINNED_OPPORTUNITIES_URL = '/pinned-opportunities'` in the file `oppia/core/feconf.py`.
 
@@ -173,6 +188,9 @@ class LessonsPinningHandler(
        self.render_json(self.values)
 ```
 
+
+</details>
+
 > [!IMPORTANT]
 > **Practice 4**: Examine the `LessonsPinningHandler` to understand how it processes the pinning and unpinning of opportunities. 
 > 
@@ -180,6 +198,9 @@ class LessonsPinningHandler(
 > - How it validates the input data for pinning and unpinning. 
 > - The logic it applies to decide whether an opportunity should be pinned or unpinned. 
 > - Any services or helper functions it calls to carry out these operations.
+
+<details>
+<summary>Show answer</summary>
 
 The `LessonsPinningHandler` manages both the pinning and unpinning of lessons through a `PUT` request. It requires three key inputs:
 
@@ -269,6 +290,9 @@ Pinned opportunities are stored in the datastore as `PinnedOpportunityModel` obj
 
 In the datastore, the models are stored with a primary key created by combining `user_id`, `language_code`, and `topic_id`.
 
+
+</details>
+
 ### Fetching pinned lessons
 
 Now that we understand how lessons are pinned, let’s investigate how they are fetched. This is important for understanding why lessons that should no longer be pinned still appear in the Review Translations tab.
@@ -277,6 +301,9 @@ Now that we understand how lessons are pinned, let’s investigate how they are 
 > **Practice 5**: Similar to how we traced the pinning and unpinning logic, follow the flow of code responsible for fetching reviewable lessons. Start by identifying the endpoint used for fetching these lessons and track its implementation in the codebase.
 > 
 > **Tip**: If you need guidance on tracing the flow, refer to earlier sections of this tutorial. The process is similar and will help you understand how reviewable lessons are retrieved and displayed.
+
+<details>
+<summary>Show answer</summary>
 
 When you visit the Review Translations tab, all opportunities—both pinned and unpinned—are fetched at once. To observe this, open the Network tab in your browser’s developer tools and look for the following API request:
 
@@ -365,6 +392,9 @@ def get_pinned_lesson(
 
 This calls `get_pinned_lesson`, located in `oppia/core/domain/opportunity_services.py`. This function retrieves pinned lessons by checking for an existing `PinnedOpportunityModel` entry for the user, language, and topic. If a pinned lesson exists, it returns the corresponding ExplorationOpportunitySummary object with `is_pinned = True`. Otherwise, it returns `None`.
 
+
+</details>
+
 ### Observations
 
 At this stage, we have gathered enough information to explain why lessons with all reviewed suggestions are still appearing as pinned.
@@ -375,6 +405,9 @@ At this stage, we have gathered enough information to explain why lessons with a
 > Write down all your observations and any potential explanations you can think of. This will help you structure your thoughts and prepare for the next steps in debugging. 
 > 
 > If you feel unsure about any part of the code, spend some additional time analyzing it. Go back to previous sections of the tutorial and retrace the flow to ensure you haven’t missed anything critical.
+
+<details>
+<summary>Show answer</summary>
 
 The issue likely stems from outdated `PinnedOpportunityModel` entries in the datastore. Even after all suggestions for a lesson are reviewed, the corresponding pinned entry remains, causing `get_pinned_lesson` to return it incorrectly.
 
@@ -390,6 +423,9 @@ Upon inspection, you’ll find that a pinned model still exists for lessons that
 
 *Note: Instead of immediately applying a fix, we focused on understanding the entire data flow—how opportunities are fetched, how the handler processes requests, and how the service retrieves data. This systematic approach helped us identify the actual problem: outdated entries in the datastore. By confirming this through debugging, we now have a clear root cause and can proceed with a permanent solution rather than a temporary fix.*
 
+
+</details>
+
 ## Formulating and Testing a Solution Iteratively
 
 Now that we’ve identified the issue, the next step is to implement a solution. The goal is simple: if a lesson no longer has any reviewable suggestions, its pinned entry should be removed.
@@ -402,10 +438,19 @@ Now that we’ve identified the issue, the next step is to implement a solution.
 > - Should we consider periodic checks, like a scheduled job, to clean up pinned lessons with no suggestions?
 > - Are there specific functions or services that could be extended to handle this scenario?
 
+<details>
+<summary>Show answer</summary>
+
 A straightforward approach is to check if the lesson’s last reviewable suggestion has been processed. If so, we unpin the lesson. However, before committing to this, we need to explore how suggestions are accepted and rejected.
+
+
+</details>
 
 > [!IMPORTANT]
 > **Practice 8**: Trace the code responsible for accepting and rejecting suggestions. Start by identifying the endpoint used for these actions. And search for the code in your code editor to locate where the endpoint is defined and which handler it is tied to.
+
+<details>
+<summary>Show answer</summary>
 
 When a translation suggestion is reviewed (accepted or rejected), it triggers a call to the following endpoint:  
 `http://localhost:8181/suggestionactionhandler/exploration/<target_id>/<suggestion_id>`
@@ -525,10 +570,19 @@ To check the number of suggestions for a lesson, we can use the `get_translation
 
 Next, let's consider where to add this logic to check whether a pinned lesson still has reviewable suggestions. 
 
+
+</details>
+
 > [!IMPORTANT]
 > **Practice 9**: Think about where in the code we could add the logic to check the number of reviewable suggestions for a pinned lesson.
 
+<details>
+<summary>Show answer</summary>
+
 The `accept_suggestion` and `reject_suggestion` functions seem to be the most suitable places to check if a lesson still has reviewable suggestions after a suggestion is reviewed. We can test this by adding a check using `get_reviewable_translation_suggestions_for_single_exp`. To begin, we'll implement this change in `accept_suggestion` and verify if it works.
+
+
+</details>
 
 > [!IMPORTANT]
 > **Practice 10**: Try adding minimal logic to the `accept_suggestion` function to determine whether a pinned lesson still has reviewable suggestions. The goal is to confirm that your logic can identify which lessons need to be unpinned.
@@ -536,6 +590,9 @@ The `accept_suggestion` and `reject_suggestion` functions seem to be the most su
 > **Hint**: Use the `get_reviewable_translation_suggestions_for_single_exp` function to check for reviewable suggestions and ensure your logic works as expected. Server logs will help you debug and refine your approach.
 
 ```PYTHON
+<details>
+<summary>Show answer</summary>
+
 # Check if the pinned_opportunity has atleast 1 reviewable suggestions.
        has_reviewable_suggestions = suggestion_services.get_reviewable_translation_suggestions_for_single_exp(
            user_id,
@@ -556,10 +613,16 @@ However, upon checking the server logs, we see the following instead:
 
 At first glance, this seems to suggest that the lesson still has suggestions but that’s not the case since we have already reviewed all available suggestions. But to confirm, let’s dig deeper and investigate further.
 
+
+</details>
+
 > [!IMPORTANT]
 > **Practice 11**: The output from the previous step differs from our expectations. To understand why, investigate the return type of the `get_reviewable_translation_suggestions_for_single_exp` function. 
 > 
 > **Tip**: Add print statements to print the output of this function in the server logs to see exactly what it is returning.
+
+<details>
+<summary>Show answer</summary>
 
 To understand what’s happening, let’s print the value of `has_reviewable_suggestions` directly.
 
@@ -598,6 +661,9 @@ Test the changes on your local server. After refreshing the page, you will notic
 
 At this point, we have confirmed the root cause of the bug and found an initial working solution. Now, let's move on to finalizing the solution.
 
+
+</details>
+
 ## Finalizing the Solution
 
 *Debugging a bug isn’t just about finding and fixing the issue—it also includes ensuring the fix is robust and maintainable. Once you identify the root cause, it’s important to communicate your findings with the team, discuss potential solutions, and agree on the best approach. This collaborative step prevents back-and-forth changes during the review process and ensures everyone is on the same page.*
@@ -617,6 +683,9 @@ The core logic for unpinning a lesson remains the same: if a lesson has no revie
 > Remove any temporary code or print statements that were introduced for debugging purposes. Use commands like `git status` and `git diff` to review the changes you’ve made and confirm that they align with the intended solution. 
 > Take a moment to double-check that all modifications are clean, concise, and ready for submission. This step ensures that the final code is polished and free of unnecessary clutter.
 
+<details>
+<summary>Show answer</summary>
+
 Here’s how the final implementation may look like:
 
 ```PYTHON
@@ -629,6 +698,9 @@ if not reviewable_suggestions[0]:
 This logic ensures that if no suggestions remain for the lesson, the pinned opportunity is updated to remove the lesson.
 
 To make the fix complete, the above block of code needs to be added to both the **accept** and **reject** suggestion functions in the service layer. By doing so, the unpinning logic will be triggered regardless of whether a suggestion is approved or rejected.
+
+
+</details>
 
 #### **Testing the Final Solution**
 

@@ -1,3 +1,4 @@
+
 ## Table of Contents
 
 - [Introduction](#introduction)
@@ -128,6 +129,9 @@ Start by visiting the exploration player page on your local development server. 
 > 
 > **Hint**: If you're unsure about explorations or how learners interact with them, refer to this guide for an overview.
 
+<details>
+<summary>Show answer for Practice 1</summary>
+
 #### Explore the Issue
 
 Navigate to the exploration player page and start a lesson. Once you’re inside, locate the Feedback Icon in the menu bar (it’s to the left of the language selector as shown in the below screenshot). Click the icon to open the Feedback popover and carefully observe its layout and behavior. Spend some time analyzing:
@@ -152,6 +156,8 @@ As described in the issue, the following changes are needed:
 
 Now that we’ve analyzed the problem, it’s time to identify the code responsible for rendering the Feedback popover.
 
+</details>
+
 ### Locate the Code Using Browser Developer Tools
 
 Now that we’ve analyzed the issue and identified the expected behavior, it’s time to locate the code responsible for rendering the Feedback popover.
@@ -163,9 +169,14 @@ Now that we’ve analyzed the issue and identified the expected behavior, it’s
 >
 > **Hint**: Open the "Elements" tab in the developer tools to examine the frontend code. (If you're unfamiliar with how to use the developer tools, refer to this guide.)
 
+<details>
+<summary>Show answer for Practice 2</summary>
+
 Open the "Elements" tab in your browser’s developer tools (e.g., Chrome DevTools) to inspect the webpage. Hover over the feedback submission modal in inspect mode to highlight the relevant code. The modal is defined by the `oppia-feedback-popup` tag.
 
 ![Exploration Player Page With Console Opened](images/TutorialUIImprovements/ExplorationPlayerWithConsole.png)
+
+</details>
 
 *Tip: When working on a UI bug, the browser console is a powerful tool for quickly testing potential fixes without modifying the actual codebase. By applying temporary CSS changes or rearranging HTML elements directly in the console, you can prototype and validate your approach before making permanent updates to the code.*
 
@@ -186,6 +197,9 @@ Now that you have identified the `<oppia-feedback-popup>` tag in the browser too
 >
 > **Hint**: Perform a global search in your code editor for oppia-feedback-popup. Use the .html file filter to narrow down the results to relevant templates. For tips and tricks on using common IDEs effectively, check out this wiki page.
 
+<details>
+<summary>Show answer for Practice 3</summary>
+
 Perform a global search in your code editor for `oppia-feedback-popup`. Use the `.html` file filter to locate the template. Upon searching for oppia-feedback-popup, we can see the following instances.
 
 ![VSCode Global Search](images/TutorialUIImprovements/VSCodeGlobalSearch.png)
@@ -201,6 +215,8 @@ We can also include the .ts file so that we can figure out which typescript file
 ```
 
 The file `oppia/core/templates/pages/exploration-player-page/layout-directives/feedback-popup.component.html` contains the HTML structure for the modal and the navbar component is located in `learner-local-nav.component.html`.
+
+</details>
 
 **Formulating, Applying and Testing the Solution**
 
@@ -230,6 +246,9 @@ At first glance, this seems like a simple HTML adjustment, and in most cases, it
 > [!IMPORTANT]
 > **Practice 4:** Locate the HTML code for the checkbox and the submit button in `oppia/core/templates/pages/exploration-player-page/layout-directives/feedback-popup.component.html`. Update the code to switch their order so that the submit button appears on the left and the checkbox on the right.
 
+<details>
+<summary>Show answer for Practice 4</summary>
+
 Here’s the updated code after making the required changes:
 
 ```html
@@ -255,6 +274,8 @@ Notice how the Checkbox now comes first in the code, followed by the Submit Butt
 *If you’ve worked with HTML before, you’ll know that the order of elements in the code typically determines their order on the screen. For horizontal layouts, the default rule applies: top-to-bottom in the code translates to left-to-right in the UI. Keep in mind that CSS properties like `flex`, `grid`, or `float` can override this behavior, but for this case, simply reordering the tags in the code is sufficient.*
 
 ![Exploration Player Page with Html Changes](images/TutorialUIImprovements/ExplorationPlayerWithHtmlChanges.png)
+
+</details>
 
 ##### Task 2: Implementing a Background Blur
 
@@ -349,6 +370,9 @@ By putting the problem into words, we’ve set ourselves up for more focused res
 > Once you’ve gathered some insights, let’s regroup and think about how we can apply them to our issue.
 
 
+<details>
+<summary>Show answer for Practice 5</summary>
+
 After digging around in internet, we found two helpful resources:
 
 1. [How to Style Child Components from Parent Component's CSS File](https://stackoverflow.com/questions/36527605/how-to-style-child-components-from-parent-components-css-file)  
@@ -356,7 +380,10 @@ After digging around in internet, we found two helpful resources:
 
 Additionally, the [Angular ViewEncapsulation Documentation](https://v17.angular.io/guide/view-encapsulation) provided clarity on how Angular handles styles at the component level.
 
+</details>
+
 > [!IMPORTANT]
+
 > **Practice 6**: Take some time to carefully read the resources mentioned above. These articles explain how Angular’s ViewEncapsulation works and why styles in a child component can’t affect the global DOM by default.
 > 
 > As you read, focus on these key points:
@@ -374,6 +401,9 @@ Additionally, the [Angular ViewEncapsulation Documentation](https://v17.angular.
 > Write down your observations before moving ahead. Understanding this now will make the next steps easier to follow.
 
 
+<details>
+<summary>Show answer for Practice 6</summary>
+
 In Angular, ViewEncapsulation determines how styles defined in a component interact with the   
 rest of the application. Think of each component as being wrapped in an invisible "style bubble."
 
@@ -387,6 +417,8 @@ So, when we tried adding a `.popover-backdrop` div with `position: fixed`, it st
 
 Alright, based on the same articles, there are two potential solutions. Let’s try them one by one.
 
+</details>
+
 ###### *Trial 3*
 
 By default, Angular uses **ViewEncapsulation.Emulated**, which means styles applied in a component stay within that component and don’t affect the global DOM. This is why our blur effect remained restricted to the feedback popover and didn’t cover the entire screen.
@@ -398,6 +430,9 @@ To make our styles (like `position: fixed` and `width: 100%`) apply globally and
 > 
 > **Hint**: Research how Angular manages CSS scoping and look into terms like ViewEncapsulation. You might find this resource helpful:
 How to Style Child Components from Parent Component's CSS
+
+<details>
+<summary>Show answer for Practice 7</summary>
 
 Angular provides a configuration option called ViewEncapsulation in the component decorator. By changing this property, we can control how styles are applied across components.  
 In our case, setting ViewEncapsulation.None disables Angular's style encapsulation, allowing our CSS to affect the global DOM.
@@ -413,6 +448,8 @@ Let’s make this change in the feedback-popup.component.ts file. Update the @Co
 ```
 
 This change disables the default scoping behavior, allowing our styles to apply globally.
+
+</details>
 
 Head back to your local server and refresh the exploration player page.
 
@@ -439,6 +476,9 @@ Upon searching for it online, you might come across an article like this:
 > **Practice 8**: How can we control the layering of the components? In our case, we want the blur effect to sit behind the popover element without interfering with its functionality.
 > 
 > **Hint** - You might find this resource helpful: How to Overlay One Div Over Another Div
+
+<details>
+<summary>Show answer for Practice 8</summary>
 
 This article explains how `z-index` can control the stacking order of elements on a webpage.
 
@@ -473,6 +513,8 @@ Let’s update our CSS styles accordingly:
 }
 ```
 
+</details>
+
 Now let’s test on the local machine.   
 
 ![Trial 3 Testing](images/TutorialUIImprovements/Trial3Testing.png)
@@ -493,6 +535,9 @@ So far, we’ve tried overriding Angular’s `ViewEncapsulation` to globally app
 > When you're ready, let’s move ahead and break down the implementation step by step.
 
 
+<details>
+<summary>Show answer for Practice 9</summary>
+
 In the article, the solution was applied to a spinner, but the same logic can be adjusted for our popover.
 
 The key idea here is:
@@ -506,6 +551,8 @@ Here’s what we need to do \-
 2. **Dynamic Overlay:** Use Angular's `*ngIf` directive to render the overlay only when `isPopoverOpen` is `true`.  
 3. **CSS for Blur Effect:** Apply CSS styles to create a dimming effect and manage proper layering with `z-index`.
 
+</details>
+
 **State Management**
 
 We need to track whether the feedback popover is open using a state variable in the parent component
@@ -514,6 +561,9 @@ We need to track whether the feedback popover is open using a state variable in 
 > **Practice 10**: Can you add a new variable to the `learner-local-nav.component.ts` file that will keep track of the feedback popover's status?
 > 
 > **Hint**: Refer to the Coding Style Guide to understand the naming conventions followed at Oppia.
+
+<details>
+<summary>Show answer for Practice 10</summary>
 
 In the parent component (`learner-local-nav.component.ts`), we will add a new variable to track whether the popover is open.To control the overlay's visibility, update the `learner-local-nav.component.ts` file by introducing a new variable `popoverIsOpen`. The default value of this variable should be false.
 
@@ -531,12 +581,17 @@ export class LearnerLocalNavComponent implements OnInit {
 
 This variable will toggle between `true` and `false` depending on whether the popover is open or closed.
 
+</details>
+
 **Dynamic Overlay**
 
 Next, we need to ensure that the overlay is dynamically rendered based on `isPopoverOpen`.
 
 > [!IMPORTANT]
 > **Practice 11**: Review the learner-local-nav.component.html file to understand how the popover is opened and closed. Use this knowledge to identify where the value of the isPopoverOpen variable should be updated.
+
+<details>
+<summary>Show answer for Practice 11</summary>
 
 To ensure the `popoverIsOpen` variable maintains accurate values, we need to review how the opening and closing of the popover are handled in the `learner-local-nav.component.html` file. Here’s the relevant portion of the `learner-local-nav.component.html` file:
 
@@ -569,8 +624,13 @@ From the code, you can observe:
 * The **opening** of the popover is triggered by the `togglePopover()` method.  
 * The **closing** of the popover is triggered by the `closePopover()` method.
 
+</details>
+
 > [!IMPORTANT]
 > **Practice 12**: Locate the `togglePopover()` and `closePopover()` functions in the corresponding TypeScript file. Update these functions to modify the value of the `popoverIsOpen` variable that we created earlier.
+
+<details>
+<summary>Show answer for Practice 12</summary>
 
 Here’s an example of how the updated functions should look:
 
@@ -585,6 +645,8 @@ closePopover(): void {
   this.popoverIsOpen = false; // Reset to false when the popover is closed
 }
 ```
+
+</details>
 
 **Render the Overlay**
 
@@ -641,6 +703,9 @@ It means our `popoverIsOpen` variable is updating correctly, and we can rely on 
 > [!IMPORTANT]
 > **Practice 13**: Write the CSS for the popover-backdrop class to apply the background blur effect.
 
+<details>
+<summary>Show answer for Practice 13</summary>
+
 Now, add the CSS code which will be active when the popover is open \- 
 
 ```css
@@ -661,6 +726,8 @@ Here’s what we are doing in the above code \-
 1. **Creating a Full-Page Overlay:** The `position: fixed;` and `width: 100%; height: 100%;` properties ensure the backdrop spans the entire viewport.  
 2. **Dimming the Background:** The `background: rgba(0, 0, 0, 0.5);` property applies a translucent black overlay.  
 3. **Layering Properly:** The `z-index: 1040;` places the backdrop below the popover but above the rest of the content.
+
+</details>
 
 Refresh the exploration player page and verify the updated UI.
 

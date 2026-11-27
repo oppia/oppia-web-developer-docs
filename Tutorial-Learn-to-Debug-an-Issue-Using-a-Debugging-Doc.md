@@ -133,6 +133,8 @@ After reviewing the specifications, the next step is to analyze the code changes
 > **Practice 2**: Take a moment to review the modifications introduced by the patch file. This will help you see how the feature is structured and understand which parts of the codebase might be contributing to the issue. As you review the changes, make a list summarizing the key modifications. This will help you pinpoint the areas of interest. You can compare your list to the one provided in the next section to ensure you’ve captured all critical updates.
 >
 > **Hint**: You can run `git status` in your feature branch to view the modified files.
+<details>
+<summary>Show answer</summary>
 
 Running `git status` in your feature branch will show the modified files, highlighting where recent updates occurred.
 
@@ -160,6 +162,7 @@ Here’s a summary of the key code changes:
   * Updated the `getFilteredTopics` method to handle the new options and added conditional logic to enable them based on the feature flag.  
 * In `UpgradedServices.ts`:  
   * Updated the initialization of `TopicsAndSkillsDashboardPageService` to include the `PlatformFeatureService`.
+  </details>
 
 ***Note:** To get a sense of how the feature behaves in practice, try enabling it on your local server. This can help verify that the core functionality is working correctly.*
 
@@ -173,7 +176,11 @@ Now that we’ve looked at the code, let's focus on the error message:
 > 
 > **Hint**: Debugging frontend tests can be tricky because the stack traces in Jasmine (our testing framework) often lack accurate line numbers. While improvements were considered in [#9648](https://github.com/oppia/oppia/issues/9648), Jasmine’s limitations meant we couldn’t implement a solution. To work around this, try using test names to locate the relevant code files or examine the variable or function that’s causing the error.
 
+<details>
+<summary>Show answer</summary>
 This error message indicates that `platformFeatureService` is undefined during testing, leading to a failure when accessing `platformFeatureService.status`. This points to a potential issue with how the service or the feature flag is being mocked in the test environment, especially in scenarios involving feature gating.
+</details>
+
 
 ##### Key Takeaways
 
@@ -209,6 +216,9 @@ To ensure an effective debugging doc, include the following critical components:
 > [!IMPORTANT]
 > **Practice 5**: Using the insights gathered so far, try drafting the initial investigation and background section of your debugging doc. Focus on clearly summarizing the issue, where it occurs, and any specific error messages you’ve seen. This exercise will help you organize your findings and provide a clear foundation for troubleshooting.
 
+<details>
+<summary>Show answer</summary>
+
 Here’s how the initial investigation might look for our example scenario.
 
 **Description of the Problem**  
@@ -240,7 +250,7 @@ The issue occurs during local testing on the developer’s machine.
 **Reliability of the Error**
 
 The error occurs consistently with each test run.
-
+</details>
 ##### Key Takeaways
 
 In this section, we’ve set up a well-documented initial investigation, providing a comprehensive overview of the issue. Here’s how to apply this approach generally:
@@ -271,6 +281,8 @@ In this section, address the following key questions:
 
 ##### Example: Applying the Code-Level Investigation Steps
 
+<details>
+<summary>Show answer</summary>
 In our case, we’ve applied each of these investigative steps as follows:
 
 **Does the error happen in the develop branch?**
@@ -292,6 +304,8 @@ if (filterObject.status !== EPublishedOptions.All) {
 
 **Analysis and Observations**  
 The error `Cannot read properties of undefined (reading 'status')` indicates that `platformFeatureService` is undefined in the test environment. This suggests a possible issue with the service initialization or setup within the test environment itself.
+
+</details>
 
 ##### Key Takeaways
 
@@ -347,6 +361,8 @@ This structured approach to Hypothesis Testing not only enhances your own troubl
 >
 > **Hint**: Check the console logs on your local server to see the state of `platformFeatureService`. If it is defined in the development server but undefined in the test environment, this discrepancy could indicate that the initialization process or mock setup in tests is missing essential configurations that are present in the dev server environment.
 
+<details>
+<summary>Show answer</summary>
 **How I Tested This Hypothesis**:
 
 **Step 1: Check if `platformFeatureService` Is Defined During Testing**  
@@ -365,12 +381,16 @@ I then checked the feature’s functionality in a local server environment to co
 **Status**: Confirmed
 
 ***Note:** A confirmed hypothesis doesn’t always lead directly to the root cause. In this case, while we’ve narrowed the problem down to the test environment, further investigation is required to identify the exact cause and solution. This is a natural part of the debugging process.*
+</details>
 
 > [!IMPORTANT]
 > **Practice 9**: Reflect on what this hypothesis reveals about the issue. Since the feature works on the local server but fails in the test environment, the problem is likely within the test configuration rather than the code itself. Based on this result, try to formulate another hypothesis for testing/debugging. 
 > **Hint**: Consider aspects such as the consistency of the mock setup or test initialization steps that may differ from those in the local server environment.
 
+<details>
+<summary>Show answer</summary>
 Since the feature behaves correctly on the local server but fails in the test environment, this suggests that the code itself is not the issue. The error is likely due to a misconfiguration or missing initialization step specific to the frontend test setup. This confirms our hypothesis and directs us to inspect the test file configuration for potential setup issues.
+</details>
 
 **Hypothesis 2: There may be a missing dependency or import affecting the test environment for `platformFeatureService`.**
 
@@ -383,6 +403,9 @@ Since the feature behaves correctly on the local server but fails in the test en
 > 
 > **Hint**: Compare the imports and configurations with those in similar test files that successfully use feature flags. This can help identify any missing or misconfigured elements essential for the setup.
 
+<details>
+<summary>Show answer</summary>
+
 **How I Tested This Hypothesis**:
 
 **Step 1: Review All Imports in the Test File**  
@@ -391,13 +414,20 @@ I started by carefully reviewing the imports in `topics-and-skills-dashboard-pag
 **Step 2: Cross-Check with Similar Test Files**  
 I compared the imports in `topics-and-skills-dashboard-page.service.spec.ts` with those in similar test files, such as `story-update.service.spec.ts`, which also uses `platformFeatureService`. By cross-referencing the imports, I verified that all necessary dependencies were accounted for and that the structure was consistent with other files where the feature flag works correctly.
 
+</details>
+
+
 **Status**: Rejected
 
 > [!IMPORTANT]
 > **Practice 11**: Reflect on the findings from this hypothesis and document what you observed. 
 > **Hint**: Note whether all necessary dependencies were present and if adjusting imports had any effect on the test outcome. Consider how this finding shifts focus toward potential setup or configuration issues rather than missing imports.
+<details>
+<summary>Show answer</summary>
 
 All dependencies were correctly imported in `topics-and-skills-dashboard-page.service.spec.ts`. Adding additional imports or adjusting existing ones did not impact the test outcome. This finding suggests that the issue isn’t due to missing or incorrect imports. Instead, it further points to the possibility of a configuration issue specific to the test setup or the way `platformFeatureService` is being initialized and mocked in this particular test file.
+
+</details>
 
 **Hypothesis 3: The Test Setup or Feature Flag Mocking Configuration for `platformFeatureService` May Be Incorrect**
 
@@ -409,8 +439,13 @@ The issue might stem from the way `platformFeatureService` is configured in the 
 >
 > **Hint**: Start by examining similar test files where platformFeatureService is mocked correctly. Look for any discrepancies in how the mock is set up and think about whether these differences could impact test outcomes.
 
+<details>
+<summary>Show answer</summary>
+
 **Reasoning Behind This Hypothesis**:  
 Considering that the feature works correctly on the local server, we can infer that the root cause is likely related to the testing environment setup. From Hypothesis 1, we know that the feature flag isn’t being initialized correctly in the test environment. Since platformFeatureService needs to be mocked accurately to simulate feature flag behavior, any differences in the setup of this mock service between our test file and other files could be critical. To ensure consistency, compare the setup in `topics-and-skills-dashboard-page.service.spec.ts` with successfully configured files like `story-update.service.spec.ts`, which might provide insights into the correct mocking process.
+</details>
+
 
 **How I Tested This Hypothesis**:
 
@@ -418,6 +453,9 @@ Considering that the feature works correctly on the local server, we can infer t
 > **Practice 13**: What approach would you take to compare the two test files effectively? Consider creating minimal versions of each test file, keeping only the essential setup and a single test case calling the affected code to highlight differences. 
 > 
 > **Hint**: Strip down each test file to one basic test case, ideally the one that calls the problematic code. This allows you to focus on differences in the setup without the distractions of other test cases. By isolating only the setup, you’ll be better able to spot inconsistencies that could be causing the issue.
+
+<details>
+<summary>Show answer</summary>
 
 **Step 1: Review the Mock Service Setup in the Failing Test File**  
 I began by thoroughly examining `topics-and-skills-dashboard-page.service.spec.ts` to check how `platformFeatureService` was being mocked. This setup declared `MockPlatformFeatureService` with a `status` object that included `SerialChapterLaunchCurriculumAdminView`, set to `isEnabled: false`. I compared this setup with similar files that successfully mocked `platformFeatureService` to spot any discrepancies.
@@ -439,6 +477,8 @@ Following the `story-update.service.spec.ts` structure, I modified the `beforeEa
 The issue in `topics-and-skills-dashboard-page.service.spec.ts` has been resolved. By aligning the `beforeEach` setup with the successful configuration from similar files, the error was eliminated. This confirmed that the original setup in `topics-and-skills-dashboard-page.service.spec.ts` was incomplete, leading to the improper initialization of the `platformFeatureService` mock.
 
 **Status**: Confirmed
+</details>
+
 
 ##### 4.3 Tips for Hypothesis Testing
 
@@ -475,6 +515,9 @@ Now that we have a working solution, it’s essential to document it thoroughly.
 
 ##### Our Case: Understanding the Fix
 
+<details>
+<summary>Show answer</summary>
+
 **Root Cause Analysis:**  
 The earlier setup in `topics-and-skills-dashboard-page.service.spec.ts` manually instantiated the `TopicsAndSkillsDashboardPageService` using `new` and passed it to the `TestBed`. This approach bypassed Angular's dependency injection system, which is designed to properly initialize services, mocks, and interdependencies.
 
@@ -489,6 +532,8 @@ To address this, we aligned the `beforeEach` setup in `topics-and-skills-dashboa
 
 * Mocking Dependencies for Better Testing: Instead of directly injecting real services, we used Angular’s `TestBed.configureTestingModule` to manage service creation. Mock dependencies were provided to simulate real behavior, allowing for better control and isolation during testing. By replacing complex service setups with simplified dummy values or spies on service methods, we also ensured easier debugging and streamlined test cases.  
 * Removing Manual Instantiation: The line `tsds = new TopicsAndSkillsDashboardPageService()` was removed. Allowing `TestBed.configureTestingModule` to manage the setup ensured that all dependencies were initialized properly.
+
+</details>
 
 ## Conclusion
 

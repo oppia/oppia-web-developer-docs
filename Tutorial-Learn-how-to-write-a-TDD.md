@@ -64,6 +64,9 @@ It’s important to recognize that while this tutorial discusses the current for
 > - IMPLEMENTATION PLAN: What is the role of this section in the TDD, and how does it guide the coding and deployment process?
 > - **Tip**: Pay special attention to the yellow-highlighted instructions in each section, which describe how to complete each part of the TDD. Understanding these details will help you effectively fill out each section of a TDD for your projects at Oppia.
 
+<details>
+<summary>Show answer</summary>
+
 The TDD is structured into three primary sections: WHAT, HOW, and IMPLEMENTATION PLAN:
 
 * **WHAT**: Outlines the feature's requirements and user stories, detailing what needs to be accomplished.  
@@ -71,7 +74,7 @@ The TDD is structured into three primary sections: WHAT, HOW, and IMPLEMENTATION
 * **IMPLEMENTATION PLAN**: Details the steps for coding, testing, and deploying the feature.
 
 Each section is designed to walk you through a clear and logical development path, ensuring that both technical specifications and user-centric considerations are well addressed.
-
+</details>
 *Note: The goal of this tutorial is not specifically to teach you how to add the Annotation feature but rather to instill an understanding of the thought process behind designing such features. We will explore key areas of the TDD, focusing on the content documented at each stage and the context behind it.*
 
 *Writing an effective TDD for any feature at Oppia hinges on a deep understanding of the product and thorough research. While it's okay not to know all the answers immediately, showing a dedication to in-depth research is important. This demonstrates that you are not merely posing questions but are actively seeking out solutions and understanding, which is important  for the development of robust and effective features.*
@@ -107,6 +110,8 @@ Ensure that your tests are specific and completely unambiguous. CUJs should incl
 > 
 > **Hint**: Use the "[Web QA Test Matrix (arranged by user type)](https://docs.google.com/spreadsheets/d/1O8EHiSAGrG0yoNUBz9E4DIwKNS8Rfsv_ffC4k1WK5jc/edit?pli=1#gid=0)" spreadsheet as a reference to understand how to structure each test step clearly and concisely, ensuring that each step leads to a defined expected result.
 
+<details>
+<summary>Show answer</summary>
 **Example User Flow Test**
 
 Let's detail a user journey from the "Key User Tasks" section, focusing on adding notes during a lesson:
@@ -141,6 +146,7 @@ Let's detail a user journey from the "Key User Tasks" section, focusing on addin
 * The note should still be visible after logging out and logging back in as the same user.
 
 Check out this page to understand more about acceptance tests:[https://github.com/oppia/oppia/wiki/Acceptance-Tests](https://github.com/oppia/oppia/wiki/Acceptance-Tests)
+</details>
 
 #### Technical Requirements
 
@@ -168,6 +174,9 @@ As developers, we start backend development by working from the user experience 
 > - Is that data already available in existing API responses or will it need to be added? 
 > - Can an existing API be updated, or will a new endpoint be cleaner or more appropriate? 
 > - Are there any current data fetches that can be pruned as part of this change?
+
+<details>
+<summary>Show answer</summary>
 
 To properly design or adjust APIs, consider these critical questions:
 
@@ -200,7 +209,7 @@ Focusing on our specific requirements, we need to establish several API endpoint
 - **Get Notes**: To retrieve notes, we’ll need an endpoint that returns all notes associated with an exploration, grouped by state. The ideal response format is a nested dictionary: each state name maps to another dictionary of notes, where each note is keyed by its `note_id`. These notes will be sorted by their `created_at` timestamp, making it easy for the frontend to display them in  chronological order within each state.
 
 With this high-level plan established, let's proceed to refine these ideas and document the specific details in the following subsection.
-
+</details>
 ###### *Documenting*
 
 > [!IMPORTANT]
@@ -209,6 +218,9 @@ With this high-level plan established, let's proceed to refine these ideas and d
 > Use a table format, as recommended in the template, to clearly present the proposed API changes, including the endpoint paths, request methods, expected payloads, and response formats.  
 > 
 > Note: Although the TDD template recommends a table format, for this project we will describe API changes in bullet points instead. This is because Markdown tables do not handle multi-line entries (like detailed request/response formats) very well.
+
+<details>
+<summary>Show answer</summary>
 
 **Adding a New Note**
 
@@ -250,7 +262,7 @@ With this high-level plan established, let's proceed to refine these ideas and d
 // Other states continue in similar structure
 }
 ```
-
+</details>
 
 ##### Database Changes
 
@@ -275,6 +287,8 @@ To effectively address these questions, review the current database schema. Unde
 > - Are there privacy considerations for notes, especially if they're tied to user accounts or sensitive inputs? 
 > - What are the expected read/write patterns — will notes be frequently updated, loaded in bulk, or retrieved per state?
 
+<details>
+<summary>Show answer</summary>
 For our new feature, it is essential to determine how notes, linked to specific states within an exploration, should be stored in the datastore. This decision hinges on whether existing data models can accommodate the notes or if a new model needs to be created.
 
 Upon reviewing the database structure, we identified the `ExplorationModel` within `oppia/core/storage/exploration/gae_models.py`, which represents an exploration. This model includes several properties relevant to our needs:
@@ -304,6 +318,7 @@ At first glance, it might seem possible to add a `notes` key to each state insid
 Because of these reasons, it’s better not to extend the existing `states` dictionary with a `notes` key. However, each state has a unique name within an exploration, which provides a pathway for linking notes to specific states. 
 
 Now that we have an idea on how to link the notes to an exploration and to a notes. We can proceed with designing the Model Schema. For storing notes, we may have more than one approach. So we can bypass filling in the model changes for now and we will first discuss the various approaches and once we are given green from the reviewers, we can fill this section again.
+</details>
 
 ##### New or Changes to Frontend Components
 
@@ -318,6 +333,8 @@ In this section, we'll discuss the UI changes necessary for implementing the new
 > 
 > Note: In most cases, Figma designs will be provided by the design team to guide implementation.
 
+<details>
+<summary>Show answer</summary>
 According to the provided Figma designs, which can be viewed [here](https://www.figma.com/design/o3nHA8WzztTh2Me3Vh8aYy/Annotation-Feature---Tutorial-Mocks?node-id=0-1&p=f), we will introduce a new component adjacent to the existing exploration player component. This new component will be a scrollable modal that displays all notes associated with a given state. It will also include an 'Add' button and a text box to enable users to input new notes directly within this modal.
 
 Additionally, we will develop another component specifically designed to represent an individual note. This modular approach allows us to encapsulate the structure, styling, and logic for each note in a single, reusable unit. It ensures consistent formatting across all notes, simplifies future enhancements (such as adding timestamps, edit/delete options, or metadata), and improves readability by keeping the modal component focused solely on layout and container-level behavior. This separation of concerns makes the codebase cleaner, easier to test, and more maintainable.
@@ -327,6 +344,7 @@ Changes will also be made to the parent component that currently renders the exp
 Since notes are user-generated and their content will vary based on the user’s input language, internationalization (I18n) is not required for the note content itself. However, any static UI text within the modal—such as the "Add a Note" button label and any placeholder or instructional text—will be internationalized to ensure consistency with the rest of the application and to support users across different locales.
 
 In summary, two new components will be created for the notes feature (one for the modal and one for individual notes), and modifications will be made to the existing parent component to support their integration.
+</details>
 
 ### HOW
 
@@ -383,6 +401,9 @@ When considering how to store notes effectively for an exploration, it's importa
 > 
 > At this stage, the goal is not to choose the best option — just to surface all reasonable ones before evaluating them in depth.
 
+<details>
+<summary>Show answer</summary>
+
 Let’s talk about the ways we can do this,
 
 1. Implement a new model specifically for notes. Each note would be an instance of this model, identified by a unique `note_id`. Notes for a specific state could be retrieved using a combination of `user_id`, `exploration_id`, and `state_name`.  
@@ -402,10 +423,15 @@ Let’s talk about the ways we can do this,
 
 *Note: If you could think of more approaches, feel free to add them to the list and do the comparison on your own. The purpose of this tutorial is not to come up with the perfect implementation plan for this mock scenario but to teach folks the aspects a developer should think about while making technical decisions.*
 
+</details>
+
 > [!IMPORTANT]
 > **Practice 9**: Compare the storage options you've identified in Practice 8. Evaluate these options based on criteria relevant to database design and application requirements. Consider referencing the “Evaluation Criteria” section to guide your analysis. You might examine factors such as the complexity of queries required to fetch notes for an exploration, the scalability of each solution, and their impact on performance and data privacy. 
 > 
 > As you analyze each option, think about practical aspects like ease of implementation, consistency with existing data models, and long-term maintainability.
+
+<details>
+<summary>Show answer</summary>
 
 ***Note:** The "GET", "PUT", and "DELETE" operations mentioned below refer to backend interactions with the storage layer (datastore), **not** frontend-to-backend API calls. This table focuses on how the backend will manage data internally.*
 
@@ -432,13 +458,18 @@ Let’s talk about the ways we can do this,
 
 Given these considerations, **Option 1** is preferable due to its simplicity in CRUD operations, scalability, and the ability to manage data growth effectively without compromising performance.
 
+</details>
+
 > [!IMPORTANT]
 > **Practice 10**: Consider why each note model is assigned a unique ID, despite being retrievable by a combination of exploration_id, user_id, and state_name.
 
+<details>
+<summary>Show answer</summary>
 **Key Design Rationale:**
 
 * **User Privacy**: Including the `User_id` ensures that notes are private and visible only to the user who created them. This is important for maintaining user privacy and personalization of the notes feature.  
 * **Uniqueness and Retrieval**: The combination of `Exp_id`, `State_name`, and `User_id` allows for efficient querying of notes. The unique `Id` for each note lets users have multiple notes per state. 
+</details>
 
 ##### Decision 2: Handling Stale Notes
 
@@ -473,6 +504,9 @@ For our case, let’s mention how to implement changes layer by layer, i.e from 
 > - Are any columns being indexed for more efficient queries?
 > - What functions will be implemented in the storage layer to manage this model?
 
+<details>
+<summary>Show answer</summary>
+
 After deciding on the architectural approach for storing annotations, we now detail how the chosen model will be constructed, and how it will be accessed and modified by backend services.
 
 **Model Name**: `ExplorationAnnotations` 
@@ -500,12 +534,17 @@ After deciding on the architectural approach for storing annotations, we now det
 
 *Note \- Updates to the notes are managed in the service layer of Oppia, rather than directly within the storage layer, in line with our coding conventions. Specifically, when a note needs updating, we utilize the `get_by_id` function to retrieve the note's model, after which we update the `content` and `updated_at` properties accordingly in the service layer. This approach helps centralize business logic in the service layer.*
 
+</details>
+
 
 > [!IMPORTANT]
 > **Practice 12**: Consider the takeout and wipeout policies for the new model you're introducing. Reference Oppia's [Wipeout Implementation](https://github.com/oppia/oppia/wiki/Wipeout-Implementation) and [Privacy-aware Programming](https://github.com/oppia/oppia/wiki/Privacy-aware-programming) guidelines. Address the following questions in your response: 
 > - How does the new model handle user data?
 > - What steps are necessary to ensure compliance with wipeout policies? 
 > - How will the takeout functionality be incorporated into this model?
+
+<details>
+<summary>Show answer</summary>
 
 **Data Management \- Takeout and Wipeout Functionalities:** Oppia places a strong emphasis on responsible data management. Since our feature involves storing user-related data (`ExplorationNotes`), it's essential to integrate support for **wipeout** and **takeout** functionalities.
 
@@ -518,6 +557,8 @@ Oppia's infrastructure includes robust systems for managing these data privacy o
 For developers looking to understand how these functionalities are integrated into new models, reviewing the changes made in [this pull request](https://github.com/oppia/oppia/pull/18873/files) can provide valuable insights. The pull request demonstrates how takeout and wipeout were adapted for a newly introduced model related to user data, offering a practical example of applying these policies in our codebase.
 
 By following these guidelines and implementing the necessary functionalities, we ensure that our platform remains secure, user-friendly, and compliant with all relevant data protection laws. 
+
+</details>
 
 ##### User Flows (Controllers and Services)
 

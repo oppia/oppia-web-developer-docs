@@ -70,6 +70,9 @@ Error
 >
 > **Hint**: Always read the traceback from the bottom of the stack trace upward. In this example, you should start with the async UserContext line and work your way up through the chain of function calls to pinpoint where the issue started.
 
+<details>
+<summary>Show answer for Practice 1</summary>
+
 #### Understanding the Error Log:
 
 **Error Message**: The key message here is: Error: Add Interaction button is not visible. This indicates that the test failed because it could not find the "Add Interaction" button at the expected time.
@@ -80,10 +83,15 @@ Error
 - **at createNewInteraction (ExplorationEditorMainTab.js:595:18)**: Here, we see that createNewInteraction in ExplorationEditorMainTab.js was responsible for attempting to interact with the "Add Interaction" button.
 - The remaining lines indicate that the error is part of an asynchronous process happening within ExplorationEditorMainTab.js, showing the chain of events that led to the failure.
 
+</details>
+
 #### Analyzing the Error
 
 > [!IMPORTANT]
 > **Practice 2**: What action is the "E2E test user" trying to perform when this error is thrown? Which part of the code could potentially be causing the "Add Interaction button is not visible" error?
+
+<details>
+<summary>Show answer for Practice 2</summary>
 
 The "E2E test user" is attempting to add a new interaction (specifically, a 'TextInput' interaction) in the Exploration Editor. This action is part of a typical test sequence in which the user navigates through the editor, previewing, and editing interactions in the exploration. The error occurs during this step in the test:
 
@@ -92,6 +100,8 @@ await explorationEditorMainTab.setInteraction('TextInput');
 ```
 
 This line of code is located in additionalEditorFeatures.js and attempts to add an interaction in the Exploration Editor. However, the error suggests that the button needed to trigger this action was not visible at the time of execution, which caused the test to fail.
+
+</details>
 
 ### Reproducing the Flake
 
@@ -120,6 +130,9 @@ Pay close attention to recurring patterns in the error logs, such as delays, net
 >
 > Hint: Think about the differences in resources and network conditions between local environments and CI environments. Consider factors like test execution speed, resource availability, and whether tests run in parallel.
 
+<details>
+<summary>Show answer for Practice 3</summary>
+
 **Why are Flakes Often Not Reproducible Locally?**
 
 Flakes may not always be reproducible locally due to differences between your local environment and the CI environment. In CI environments:
@@ -134,6 +147,8 @@ Generally, replicating the CI environment locally isn't a feasible strategy beca
 - Avoiding reliance on exact timings that could vary between environments.
 
 When writing or updating tests, developers should always consider potential timing or resource-related issues, especially when targeting CI environments where resources are more constrained.
+
+</details>
 
 ### Understanding the Error
 
@@ -184,11 +199,16 @@ Let’s analyze this further. The error occurs on the last line of the test code
 > 
 > **Hint**: The error happens on the last line, but the root cause likely occurs earlier when the test switches back to the Main Tab. Investigate whether the UI has fully loaded before the test tries to set the interaction. You can try following the sequence in your local environment to observe how the UI transitions.
 
+<details>
+<summary>Show answer for Practice 5</summary>
+
 At this point, it's possible that:
 - The main tab may not have fully loaded after returning from the preview tab.
 - The necessary UI elements, such as the "Add Interaction" button, might not be rendered yet, causing the test to fail.
 
 This is a common issue in UI testing, especially when dealing with asynchronous page transitions. If the page doesn’t have time to fully load, elements like buttons or input fields may not be interactable, leading to errors.
+
+</details>
 
 #### Debugging E2E Tests: Additional Tools
 
@@ -233,6 +253,9 @@ To investigate this issue further, let’s examine the code responsible for navi
 >
 > **Tip**: Use your code editor’s search functionality to quickly find it.
 
+<details>
+<summary>Show answer for Practice 6</summary>
+
 Here’s the function responsible for navigating to the Main Tab in the test suite:
 
 ```python
@@ -252,21 +275,35 @@ Let’s break down what each line of the `navigateToMainTab` function does:
 - `await browser.pause(2000)`;
 This introduces an explicit wait of 2 seconds (2000 milliseconds) before proceeding. It forces the browser to wait for a short period before moving forward with further actions.
 
+</details>
+
 > [!IMPORTANT]
+
 > **Practice 7**: Looking at the function navigateToMainTab, which part of the code do you think could lead to flaky tests?
+
+<details>
+<summary>Show answer for Practice 7</summary>
 
 The concerning line seems to be `- await browser.pause(2000)`;
 
 This introduces a fixed delay of 2 seconds, but it doesn't guarantee that the Main Tab has fully loaded. If the page takes longer than expected to load (due to network delays or system performance issues), the next action (setting the interaction) might still be executed before the tab is ready. This could cause errors, similar to the one we're investigating.
 
+</details>
+
 > [!IMPORTANT]
+
 > **Practice 8**: Now that we know the potential issue causing the flake and have an explanation for why it’s occurring, can you think of a solution? (The problem occurs because the Main Tab hasn't been fully loaded.)
 
 ### Implementing the Solution
 
 > **Note**: Now that we’ve pinpointed the root cause of the flaky behavior, there are different ways to resolve the issue. It’s important to discuss potential solutions with your team before implementing them. Below is one approach to solve this issue.
 
+<details>
+<summary>Show answer for Practice 8</summary>
+
 To fix this problem, we should wait for the Main Tab to fully load by waiting for the "Add Interaction" button to become visible. This button indicates that the tab is ready for interaction.
+
+</details>
 
 A common instinct might be to increase the time for a fixed delay, for example, 10000 milliseconds, to give the UI more time to load. This would look something like this:
 
@@ -280,10 +317,15 @@ While this could be useful for local debugging (since it gives you some “free 
 > **Practice 9**:  Can you think of reasons why adding a fixed delay is not a good idea?
 > **Hint**: Consider how tests behave in different environments, such as your local machine versus the CI environment.
 
+<details>
+<summary>Show answer for Practice 9</summary>
+
 At first, adding a fixed delay might seem like a quick solution to the issue. However, waiting for a fixed time has several downsides:
 - **Unreliable**: The time it takes for a page or element to load can vary depending on network conditions, system performance, or other factors. A fixed wait time might work sometimes but fail when conditions change, especially in CI environments.
 - **Inefficient**: Adding arbitrary delays can make tests unnecessarily long. If the page loads in 500ms, waiting for 1000ms wastes time. Conversely, if the page takes longer to load, a fixed delay might not be long enough, leading to failures.
 - **CI Environment Variability**: CI environments often run tests in parallel with limited resources, which means they are more prone to delays. Relying on fixed waits can make tests flaky, as they might not always account for slower performance in CI.
+
+</details>
 
 Instead of waiting for a fixed time, it’s better to wait for specific UI elements or events that indicate the page is ready for interaction. In this case, we should wait for the "Add Interaction" button to become visible, ensuring that the Main Tab is fully loaded.
 
@@ -313,6 +355,9 @@ await waitFor.visibilityOf(
 > 
 > Should we create a separate function for waiting for the element to load and call that in `navigateToMainTab`, or should we add the wait directly into the `navigateToMainTab` function?
 
+<details>
+<summary>Show answer for Practice 10</summary>
+
 Whenever we navigate to a new tab, we should ensure that the action is fully completed before continuing. Incorporating the wait directly into the action function is important to ensure that the tests are robust.
 
 This is why most E2E utility functions include pre-checks and post-checks (in the form of `wait`statements). The pre-check ensures that conditions are met before performing the action, and the post-check ensures that the action has fully completed before moving on.
@@ -332,6 +377,8 @@ this.navigateToMainTab = async function() {
 ```
 
 By updating the `navigateToMainTab` function to dynamically wait for the "Add Interaction" button, we ensure that the Main Tab is fully loaded before performing any further actions. This approach eliminates the need for fixed waits and makes the test more reliable and robust across different environments.
+
+</details>
 
 ### Testing the Fix
 
