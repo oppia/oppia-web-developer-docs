@@ -25,9 +25,9 @@ Changes will then be pushed to Oppia automatically by the Translatewiki admins, 
 
 The translatewiki admins have requested that translators do not rely on machine auto-translation, especially if they don't know the language and cannot fix its mistakes. 
 
-In cases where fixing a translation is absolutely necessary for technical reasons (e.g. if a translatewiki string has errors and it's breaking the tests), they recommend doing the following:
-- Add the string `!!FUZZY!!` to the beginning of the machine-translated string. This will update the translation in Oppia's source tree, and also mark it as "needing update" for the translators on translatewiki.
-- Ask a translator for that language to fix the translation. You can find active translators by going to [Special:ActiveLanguages](https://translatewiki.net/wiki/Special:ActiveLanguages) and clicking on a language name.
+**Never commit machine-translated or unverified strings** into `assets/i18n/<lang>.json` in develop. Translatewiki syncs incoming changes from `develop` every two hours and imports them as canonical human translations. This means that translators on Translatewiki will have no way to tell that they need review.
+
+In cases where fixing a translation is absolutely necessary for technical reasons (e.g. if a translatewiki string has errors and it's breaking the tests), they recommend fixing the issue directly on translatewiki, or asking an active translator for that language (via [Special:ActiveLanguages](https://translatewiki.net/wiki/Special:ActiveLanguages)) to do so.
 
 ### Note 1: Variable replacement
 
@@ -86,7 +86,7 @@ To add a new translation key:
 
 2. Add the new translation key to both the `assets/i18n/en.json` and `assets/i18n/qqq.json` files. In `qqq.json` you should provide translators with a descriptive context for the string. Please see [this page](https://www.mediawiki.org/wiki/Localisation#Message_documentation) for more information on what goes into these descriptions.
 
-You do not need to modify the other JSON files. Translatewiki will do that after you merge the PR.
+Do **not** modify the other language JSON files with unverified or machine-translated text, as Translatewiki automatically imports changes from `develop` as canonical translations. Only commit non-English strings if they have been verified by our in-house translations team; otherwise, leave them to Translatewiki. For major learner-facing features, we recommend giving the translation teams a heads-up as soon as the new strings are merged so that they can translate those strings on Translatewiki prior to the launch.
 
 ### Updating the English text for a translation key
 
