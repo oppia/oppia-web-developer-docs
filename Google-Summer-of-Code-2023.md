@@ -104,7 +104,7 @@ A: Definitely not! Here are the [selection criteria](#selection-criteria) we use
 **Q: What are the minimum number of PRs that one should have?**
 
 A: You should have at least 2 PRs merged, but they don't need to be large. Beyond that, remember that quality is more important than quantity. It is better to submit a non-trivial PR rather than a one-line wording change. Start with starter issues, then move ahead with prioritized issues from the team that is offering the project you are interested in.
-Here are the boards of the respective teams: [LaCE Quality](https://github.com/orgs/oppia/projects/3/views/8), [Developer Workflow](https://github.com/orgs/oppia/projects/8/views/11), [Contributor Experience](https://github.com/orgs/oppia/projects/18/views/4).
+Here are the boards of the respective teams: [LEAP Quality](https://github.com/orgs/oppia/projects/3/views/8), [Developer Workflow](https://github.com/orgs/oppia/projects/8/views/11), [CORE](https://github.com/orgs/oppia/projects/18/views/4).
 
 **Q: What is the total number of contributors that will be accepted?**
 
@@ -287,7 +287,7 @@ The following is a list of Oppia's 2023 GSoC project ideas. You are welcome to c
 
 Please note that the list of project ideas below is not set in stone: more projects may be added later, and some project descriptions may also change a bit, so check back regularly. In addition, the mentor assignments listed below are provisional, and may change depending on which proposals are eventually accepted.
 
-### Learner and Creator Experience (LaCE) team
+### LEAP Team (Learners, Educators, Allies, and Parents)
 
 1.1. [Implementing the “Needs Guiding Responses” section of the lesson analytics dashboard](#11-implementing-the-needs-guiding-responses-section-of-the-lesson-analytics-dashboard)
 
@@ -303,7 +303,7 @@ Please note that the list of project ideas below is not set in stone: more proje
 
 1.7 [User feedback reporting UI on Web](#17-user-feedback-reporting-ui-on-web)
 
-### Contributor Dashboard team
+### CORE Team (Creators, Operations, Reviewers and Editors)
 
 2.1. [Contributor Dashboard Admin Stats Table](#21-contributor-dashboard-admin-stats-table)
 
@@ -327,7 +327,7 @@ Please note that the list of project ideas below is not set in stone: more proje
 
 4.5. [Normalize Usage of Feature Flags](#45-normalize-usage-of-feature-flags)
 
-## Learner and Creator Experience (LaCE) team
+## LEAP Team (Learners, Educators, Allies, and Parents)
 
 ### 1.1. Implementing the “needs guiding responses” section of the lesson analytics dashboard
 
@@ -625,7 +625,7 @@ To prevent bots from spamming the feedback channel use [Google reCAPTCHA](https:
 
 **Useful resources:**
 
-## Contributor Dashboard team
+## CORE Team (Creators, Operations, Reviewers and Editors)
 
 ### 2.1. Contributor Dashboard Admin Stats Table
 
